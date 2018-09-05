@@ -16,7 +16,7 @@
 
 > [!NOTE]
 >
-> Выбрать тип процессора, который будет использоваться виртуальной машиной, на данный момент нельзя. Все виртуальные машины используют процессор [Intel Xeon Processor E5-2660 v4](https://ark.intel.com/products/64584/Intel-Xeon-Processor-E5-2660-20M-Cache-2_20-GHz-8_00-GTs-Intel-QPI).
+> Выбрать тип процессора, который будет использоваться виртуальной машиной, на данный момент нельзя. Все виртуальные машины используют процессор [Intel Xeon Processor E5-2660 v4](https://ark.intel.com/ru/products/91772/Intel-Xeon-Processor-E5-2660-v4-35M-Cache-2_00-GHz).
 >
 
 
