@@ -21,7 +21,8 @@
 
 ## [!KEYREF MG]   
 
-Поддерживаются следующие драйверы:
+Поддерживаются следующие клиенты:
 
-- [Python](https://docs.mongodb.com/ecosystem/drivers/python/);
-- [Java](http://mongodb.github.io/mongo-java-driver/).
+- [mongo](https://docs.mongodb.com/manual/mongo/);
+- [драйвер для Python](https://docs.mongodb.com/ecosystem/drivers/python/);
+- [драйвер для Java](http://mongodb.github.io/mongo-java-driver/).
