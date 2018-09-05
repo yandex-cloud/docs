@@ -11,5 +11,7 @@ items:
     href: quickstart.md
   - name: Стадии готовности сервисов
     href: concepts/launch-stages.md
+  - name: SLA
+    href: sla.md
   - name: Вопросы и ответы
     href: qa.md
