@@ -1,0 +1,31 @@
+iam-full-name: Yandex Identity and Access Management
+resmgr-full-name: Yandex Resource Manager
+compute-full-name: Yandex Compute Cloud
+objstorage-full-name: Yandex Object Storage
+mdb-full-name: Yandex Managed Databases
+vpc-full-name: Yandex Virtual Private Cloud
+dsvm-full-name: Yandex Data Science Virtual Machine
+speechkit-full-name: Yandex SpeechKit
+translate-full-name: Yandex Translate
+
+iam-name: Identity and Access Management
+resmgr-name: Resource Manager
+compute-name: Compute Cloud
+objstorage-name: Object Storage
+mdb-name: Managed Databases
+vpc-name: Virtual Private Cloud
+dsvm-name: Data Science Virtual Machine
+speechkit-name: SpeechKit
+translate-name: Translate
+
+iam-short-name: IAM
+resmgr-short-name: Resource Manager
+compute-short-name: Compute Cloud
+objstorage-short-name: Object Storage
+mdb-short-name: MDB
+vpc-short-name: VPC
+dsvm-short-name: DSVM
+speechkit-short-name: SpeechKit
+translate-short-name: Translate
+
+price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.

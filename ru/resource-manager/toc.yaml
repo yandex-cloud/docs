@@ -1,0 +1,31 @@
+title: "Yandex Resource Manager"
+icon: "/img/resource-manager.svg"
+items:
+  - name: Yandex Resource Manager
+    href: index.yaml
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/all.md
+      - name: Облако
+        items:
+          - name: Установить права доступа
+            href: operations/cloud/set-access-bindings.md
+      - name: Каталог
+        items:
+          - name: Создать каталог
+            href: operations/folder/create.md
+          - name: Установить права доступа
+            href: operations/folder/set-access-bindings.md
+  - name: Основные понятия
+    items:
+      - name: Структура ресурсов Яндекс.Облака
+        href: concepts/resources-hierarchy.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Безопасность и управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md

@@ -1,0 +1,2 @@
+service-name: Object Storage
+s3-storage-host: storage.api.cloud.yandex.net

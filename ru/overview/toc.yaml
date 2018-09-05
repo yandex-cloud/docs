@@ -1,0 +1,15 @@
+title: "Обзор платформы"
+icon: "/img/overview.svg"
+items:
+  - name: Обзор платформы
+    href: index.yaml
+  - name: Сервисы Яндекс.Облака
+    href: concepts/services.md
+  - name: Зоны доступности
+    href: concepts/geo-scope.md
+  - name: Начало работы
+    href: quickstart.md
+  - name: Стадии готовности сервисов
+    href: concepts/launch-stages.md
+  - name: Вопросы и ответы
+    href: qa.md

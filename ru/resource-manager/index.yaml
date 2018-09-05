@@ -1,0 +1,22 @@
+title: "Yandex Resource Manager"
+description: "Сервис Yandex Resource Manager определяет ресурсную модель Яндекс.Облака и позволяет структурировать ресурсы с помощью каталогов."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex Resource Manager"
+# Блок с ссылками
+links:
+- title: "Начало работы"
+  description: "Как создать первый каталог"
+  href: "quickstart"
+- title: "Пошаговые инструкции"
+  description: "Инструкции по выполнению рутинных операций"
+  href: "operations/all"
+- title: "Основные понятия"
+  description: "Ресурсная модель Яндекс.Облака"
+  href: "concepts/resources-hierarchy"
+- title: "Квоты и лимиты"
+  description: "Технические и организационные ограничения сервиса"
+  href: "concepts/limits"
+- title: "Безопасность и управление доступом"
+  description: "Какие права доступа нужны для работы с сервисом"
+  href: "security/"

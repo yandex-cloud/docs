@@ -1,0 +1,95 @@
+title: "Биллинг"
+icon: "/img/billing.svg"
+items:
+- name: Биллинг
+  href: index.yaml
+- name: Начало работы
+  href: quickstart/index.md
+- name: Пробный период
+  href: trial/activation.md
+- name: Пошаговые инструкции
+  items:
+    - name: Все инструкции
+      href: operations/index.md
+    - name: Активировать платную версию
+      href: operations/activate-commercial.md
+    - name: Проверить расходы
+      items:
+        - name: Посмотреть краткую статистику
+          href: operations/check-diagram.md
+        - name: Посмотреть детализацию
+          href: operations/check-charges.md
+    - name: Пополнить баланс
+      href: operations/pay-the-bill.md
+    - name: Расшифровать счет
+      href: operations/spell-out-bill.md
+    - name: Посмотреть историю платежей
+      href: operations/check-bill-history.md
+    - name: Изменить данные платежного аккаунта
+      href: operations/change-data.md
+    - name: Привязать другую карту
+      href: operations/pin-card.md
+- name: Основные понятия
+  items:  
+    - name: Все понятия
+      href: concepts/index.md
+    - name: Промокод
+      href: concepts/promo-code.md
+    - name: Платежный аккаунт
+      href: concepts/billing-account.md
+    - name: Лицевой счет
+      href: concepts/personal-account.md
+    - name: Грант
+      href: concepts/bonus-account.md
+    - name: Договор
+      href: concepts/contract.md
+    - name: Глоссарий
+      href: concepts/glossary.md
+- name: Оплата ресурсов
+  items:
+    - name: Общие сведения
+      href: payment/index.md
+    - name: Способы оплаты
+      items:
+        - name: Общие сведения
+          href: payment/payment-methods.md
+        - name: Для физических лиц
+          href: payment/payment-methods-individual.md
+        - name: Для юридических лиц
+          href: payment/payment-methods-business.md
+    - name: Цикл оплаты
+      items:
+        - name: Общие сведения
+          href: payment/billing-cycle.md
+        - name: Для физических лиц
+          href: payment/billing-cycle-individual.md
+        - name: Для юридических лиц
+          href: payment/billing-cycle-business.md
+    - name: Финансовые документы
+      items:
+        - name: Общие сведения
+          href: payment/documents.md
+        - name: Акт
+          href: concepts/act.md
+        - name: Счет на оплату
+          href: concepts/bill.md
+        - name: Счет-фактура
+          href: concepts/invoice.md
+        - name: Чек об оплате
+          href: concepts/individual-bill.md
+    - name: Валюта расчетов
+      href: payment/currency.md
+- name: Безопасность и управление доступом
+  href: security/index.md
+- name: Правила тарификации
+  href: pricing.md
+- name: Вопросы и ответы
+  items:  
+    - name: Общие вопросы
+      href: qa/common.md
+    - name: Вопросы по оплате
+      href: qa/payment.md
+    - name: Вопросы о пробном периоде и платной версии
+      href: qa/trial-commercial.md
+    - name: Все вопросы на одной странице
+      href: qa/all.md

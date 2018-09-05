@@ -1,0 +1,53 @@
+title: "Yandex Identity and Access Management"
+icon: "/img/iam.svg"
+items:
+  - name: Yandex Identity and Access Management
+    href: index.yaml
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/all.md
+      - name: Пользователи
+        items:
+          - name: Добавить пользователя
+            href: operations/users/create.md
+          - name: Удалить пользователя
+            href: operations/users/delete.md
+      - name: Роли
+        items:
+          - name: Назначить роль
+            href: operations/roles/grant.md
+          - name: Отозвать роль
+            href: operations/roles/revoke.md
+  - name: Основные понятия
+    items:
+      - name: Обзор
+        href: concepts/overview.md
+      - name: Пользователи Яндекс.Облака
+        items:
+          - name: Обзор
+            href: concepts/users/users.md
+          - name: Сервисные аккаунты
+            href: concepts/users/service-accounts.md
+      - name: Авторизация
+        items:
+          - name: Обзор
+            href: concepts/authorization/authorization.md
+          - name: IAM-токен
+            href: concepts/authorization/iam-token.md
+          - name: OAuth-токен
+            href: concepts/authorization/oauth-token.md
+      - name: Управление доступом к ресурсам
+        items:
+          - name: Роли
+            href: concepts/access-control/roles.md
+          - name: Привязка прав доступа
+            href: concepts/access-control/access-bindings.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Безопасность и управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md

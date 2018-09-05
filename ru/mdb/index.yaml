@@ -1,0 +1,27 @@
+# Заголовок и описание на странице
+title: "Yandex Managed Databases"
+description:
+  - "Сервис Yandex Managed Databases (MDB) помогает разворачивать и поддерживать серверы различных СУБД в инфраструктуре Яндекс.Облака."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex Managed Databases"
+# Блок с ссылками
+links:
+- title: "Начало работы"
+  description: "Как создать кластер БД и подключиться к нему"
+  href: "quickstart"
+- title: "Пошаговые инструкции"
+  description: "Инструкции по выполнению рутинных операций"
+  href: "operations/"
+- title: "Основные понятия"
+  description: "Концепции и общее устройство сервиса"
+  href: "concepts/"
+- title: "Квоты и лимиты"
+  description: "Технические и организационные ограничения сервиса"
+  href: "concepts/limits"
+- title: "Безопасность и управление доступом"
+  description: "Какие права доступа нужны для работы с сервисом"
+  href: "security/"
+- title: "Правила тарификации"
+  description: "Цены и правила расчета стоимости услуг сервиса"
+  href: "pricing"

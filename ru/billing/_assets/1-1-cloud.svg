@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Создано Microsoft Visio, экспорт SVG 1-1-cloud.svg Страница-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="6.68839in" height="2.33147in"
+		viewBox="0 0 481.564 167.866" xml:space="preserve" color-interpolation-filters="sRGB" class="st20">
+	<v:documentProperties v:langID="1049" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvConvertTheme"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#f2f2f2;marker-end:url(#mrkr13-4);stroke:#f2f2f2;stroke-linecap:butt;stroke-width:1.5}
+		.st2 {fill:#f2f2f2;fill-opacity:1;stroke:#f2f2f2;stroke-opacity:1;stroke-width:0.37313432835821}
+		.st3 {fill:#ffffff;marker-end:url(#mrkr13-11);stroke:#bfbfbf;stroke-linecap:butt;stroke-width:1.5}
+		.st4 {fill:#bfbfbf;fill-opacity:1;stroke:#bfbfbf;stroke-opacity:1;stroke-width:0.37313432835821}
+		.st5 {fill:#000000;font-family:Yandex Sans Text Light;font-size:0.833336em}
+		.st6 {font-size:1em}
+		.st7 {fill:#ffffff;marker-end:url(#mrkr13-18);stroke:#ffcc00;stroke-linecap:butt;stroke-width:1.5}
+		.st8 {fill:#ffcc00;fill-opacity:1;stroke:#ffcc00;stroke-opacity:1;stroke-width:0.37313432835821}
+		.st9 {fill:#ffffff;marker-end:url(#mrkr13-24);stroke:#000000;stroke-linecap:butt;stroke-width:1.5}
+		.st10 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.37313432835821}
+		.st11 {fill:#ffffff;stroke:#010202;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st12 {fill:none}
+		.st13 {stroke:#010202;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st14 {fill:#ffffff}
+		.st15 {fill:none;marker-end:url(#mrkr13-18);stroke:none;stroke-linecap:butt;stroke-width:1.5}
+		.st16 {fill:#000000;font-family:Yandex Sans Text Light;font-size:1.16666em}
+		.st17 {stroke:#ffcc33;stroke-dasharray:1.5,3;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st18 {marker-end:url(#mrkr3-68);marker-start:url(#mrkr3-66);stroke:#d8d8d8;stroke-dasharray:3,1.5;stroke-linecap:butt;stroke-width:1.5}
+		.st19 {fill:#d8d8d8;fill-opacity:1;stroke:#d8d8d8;stroke-opacity:1;stroke-width:0.51020408163265}
+		.st20 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Patterns_And_Gradients">
+		<linearGradient id="grad0-63" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(270 0.5 0.5)">
+			<stop offset="0" stop-color="#f2f2f2" stop-opacity="1"/>
+			<stop offset="1" stop-color="#ffffff" stop-opacity="1"/>
+		</linearGradient>
+	</defs>
+	<defs id="Markers">
+		<g id="lend13">
+			<path d="M 3 1 L 0 0 L 3 -1 L 3 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr13-4" class="st2" v:arrowType="13" v:arrowSize="2" v:setback="8.04" refX="-8.04" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.68,-2.68) "/>
+		</marker>
+		<marker id="mrkr13-11" class="st4" v:arrowType="13" v:arrowSize="2" v:setback="8.04" refX="-8.04" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.68,-2.68) "/>
+		</marker>
+		<marker id="mrkr13-18" class="st8" v:arrowType="13" v:arrowSize="2" v:setback="8.04" refX="-8.04" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.68,-2.68) "/>
+		</marker>
+		<marker id="mrkr13-24" class="st10" v:arrowType="13" v:arrowSize="2" v:setback="8.04" refX="-8.04" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.68,-2.68) "/>
+		</marker>
+		<g id="lend3">
+			<path d="M 2 1 L 0 0 L 2 -1 " style="stroke-linecap:round;stroke-linejoin:round;fill:none"/>
+		</g>
+		<marker id="mrkr3-66" class="st19" v:arrowType="3" v:arrowSize="0" orient="auto" markerUnits="strokeWidth"
+				overflow="visible">
+			<use xlink:href="#lend3" transform="scale(1.96) "/>
+		</marker>
+		<marker id="mrkr3-68" class="st19" v:arrowType="3" v:arrowSize="0" orient="auto" markerUnits="strokeWidth"
+				overflow="visible">
+			<use xlink:href="#lend3" transform="scale(-1.96,-1.96) "/>
+		</marker>
+	</defs>
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>Страница-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="Соединительная линия" v:index="0"/>
+		<g id="shape145-1" v:mID="145" v:groupContext="shape" transform="translate(12.7124,-12.7124)">
+			<title>Background Block.145</title>
+			<rect x="0" y="25.4247" width="213.449" height="142.441" class="st1"/>
+		</g>
+		<g id="shape122-5" v:mID="122" v:groupContext="shape" transform="translate(255.403,-12.7124)">
+			<title>Background Block.122</title>
+			<rect x="0" y="25.4247" width="213.449" height="142.441" class="st1"/>
+		</g>
+		<g id="shape10-8" v:mID="10" v:groupContext="shape" transform="translate(279.214,-112.634)">
+			<title>Gray-frame Block</title>
+			<desc>Один платежный аккаунт</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="37.7008" cy="149.44" width="75.41" height="36.8504"/>
+			<rect x="0" y="131.015" width="75.4016" height="36.8504" class="st3"/>
+			<text x="25.08" y="141.94" class="st5" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>Один <tspan
+						x="11.61" dy="1em" class="st6">платежный </tspan><tspan x="19.74" dy="1em" class="st6">аккаунт</tspan></text>		</g>
+		<g id="shape11-15" v:mID="11" v:groupContext="shape" transform="translate(278.08,-65.862)">
+			<title>Gray-frame Block.2</title>
+			<desc>Один лицевой счет</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="38.2677" cy="149.44" width="76.54" height="36.8504"/>
+			<rect x="0" y="131.015" width="76.5354" height="36.8504" class="st7"/>
+			<text x="4.92" y="146.94" class="st5" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>Один лицевой <tspan
+						x="28.07" dy="1em" class="st6">счет</tspan></text>		</g>
+		<g id="shape12-21" v:mID="12" v:groupContext="shape" transform="translate(278.08,-19.0903)">
+			<title>Gray-frame Block.3</title>
+			<desc>Один способ оплаты</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="38.2677" cy="149.44" width="76.54" height="36.8504"/>
+			<rect x="0" y="131.015" width="76.5354" height="36.8504" class="st9"/>
+			<text x="8.07" y="146.94" class="st5" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>Один способ <tspan
+						x="21.55" dy="1em" class="st6">оплаты</tspan></text>		</g>
+		<g id="group123-27" transform="translate(82.6375,-89.9565)" v:mID="123" v:groupContext="group">
+			<title>Cloud</title>
+			<g id="group124-28" v:mID="124" v:groupContext="group">
+				<title>Лист.124</title>
+				<g id="shape125-29" v:mID="125" v:groupContext="shape">
+					<title>Лист.125</title>
+					<path d="M50.6 139.27 C49.61 139.27 48.65 139.38 47.71 139.57 C44.44 134.43 38.72 131.02 32.18 131.02 C22.63
+								 131.02 14.8 138.25 13.86 147.54 C12.79 147.19 11.66 146.97 10.45 146.97 C4.68 146.97 0 151.64 0
+								 157.42 C0 163.19 4.68 167.87 10.45 167.87 L50.6 167.87 C58.49 167.87 64.9 161.46 64.9 153.57 C64.9
+								 145.67 58.49 139.27 50.6 139.27 Z" class="st11"/>
+				</g>
+				<g id="shape126-31" v:mID="126" v:groupContext="shape" transform="translate(43.4505,-26.6753)">
+					<title>Лист.126</title>
+					<path d="M0 167.87 C1.35 167.1 2.83 166.52 4.4 166.22 L0 167.87 Z" class="st12"/>
+					<path d="M0 167.87 C1.35 167.1 2.83 166.52 4.4 166.22" class="st13"/>
+				</g>
+				<g id="shape127-34" v:mID="127" v:groupContext="shape" transform="translate(13.8051,-18.1502)">
+					<title>Лист.127</title>
+					<path d="M0 165.67 C1.4 166.13 2.64 166.9 3.71 167.87 L0 165.67 Z" class="st14"/>
+					<path d="M0 165.67 C1.4 166.13 2.64 166.9 3.71 167.87" class="st13"/>
+				</g>
+			</g>
+		</g>
+		<g id="shape128-37" v:mID="128" v:groupContext="shape" transform="translate(61.9382,-55.9407)">
+			<title>Text (14).500</title>
+			<desc>Одно облако</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="53.1496" cy="153.692" width="106.3" height="28.3465"/>
+			<rect x="0" y="139.519" width="106.299" height="28.3465" class="st15"/>
+			<text x="11.02" y="157.89" class="st16" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Одно облако</text>		</g>
+		<g id="shape129-41" v:mID="129" v:groupContext="shape" transform="translate(371.623,-65.6382)">
+			<title>Gray-solid Block.539</title>
+			<desc>Один счет на оплату</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="38.2677" cy="149.329" width="76.54" height="37.0742"/>
+			<rect x="0" y="130.791" width="76.5354" height="37.0742" class="st3"/>
+			<text x="7.99" y="146.83" class="st5" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>Один счет на <tspan
+						x="22.36" dy="1em" class="st6">оплату</tspan></text>		</g>
+		<g id="shape139-46" v:mID="139" v:groupContext="shape" v:layerMember="0" transform="translate(409.891,-65.6382)">
+			<title>Динамическая соединительная линия</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(12):26"/>
+			</v:userDefs>
+			<path d="M0 167.87 L0 195.99 L-55.28 195.99" class="st17"/>
+		</g>
+		<g id="shape140-49" v:mID="140" v:groupContext="shape" v:layerMember="0" transform="translate(409.891,-102.712)">
+			<title>Динамическая соединительная линия.140</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(12):26"/>
+			</v:userDefs>
+			<path d="M0 167.87 L0 139.52 L-55.28 139.52" class="st17"/>
+		</g>
+		<g id="shape141-52" v:mID="141" v:groupContext="shape" v:layerMember="0" transform="translate(309.828,-114.76)">
+			<title>Динамическая соединительная линия.141</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(12):26"/>
+			</v:userDefs>
+			<path d="M7.09 169.99 L7.09 179.91" class="st17"/>
+		</g>
+		<g id="shape143-55" v:mID="143" v:groupContext="shape" v:layerMember="0" transform="translate(309.261,-67.9879)">
+			<title>Динамическая соединительная линия.143</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(12):26"/>
+			</v:userDefs>
+			<path d="M7.09 169.99 L7.09 179.91" class="st17"/>
+		</g>
+		<g id="shape144-58" v:mID="144" v:groupContext="shape" transform="translate(227.907,-84.2872)">
+			<title>Line.543</title>
+			<path d="M0 167.87 L27.5 167.87" class="st18"/>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Создано Microsoft Visio, экспорт SVG vpc-overview.svg Page-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="11.6929in" height="8.26772in"
+		viewBox="0 0 841.89 595.276" xml:space="preserve" color-interpolation-filters="sRGB" class="st22">
+	<v:documentProperties v:langID="1033" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvSubprocessMaster" v:prompt="" v:val="VT4(Rectangle)"/>
+			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(0):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;marker-end:url(#mrkr13-4);stroke:#bfbfbf;stroke-linecap:butt;stroke-width:0.25}
+		.st2 {fill:#bfbfbf;fill-opacity:1;stroke:#bfbfbf;stroke-opacity:1;stroke-width:0.090252707581227}
+		.st3 {fill:#f2f2f2;marker-end:url(#mrkr13-8);stroke:#bfbfbf;stroke-linecap:butt;stroke-width:1.5}
+		.st4 {fill:#bfbfbf;fill-opacity:1;stroke:#bfbfbf;stroke-opacity:1;stroke-width:0.37313432835821}
+		.st5 {fill:#ffffff;marker-end:url(#mrkr13-8);stroke:#bfbfbf;stroke-linecap:butt;stroke-width:1.5}
+		.st6 {fill:none;marker-end:url(#mrkr13-18);stroke:none;stroke-linecap:butt;stroke-width:1.5}
+		.st7 {fill:#ffcc00;fill-opacity:1;stroke:#ffcc00;stroke-opacity:1;stroke-width:0.37313432835821}
+		.st8 {fill:#000000;font-family:Yandex Sans Display Regular;font-size:1.00001em}
+		.st9 {font-size:1em}
+		.st10 {fill:#ffcd06;stroke:none;stroke-linecap:butt;stroke-width:1.5}
+		.st11 {fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st12 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st13 {fill:#000000;font-family:Yandex Sans Display Regular;font-size:1.16666em}
+		.st14 {fill:#ffffff;marker-end:url(#mrkr13-18);stroke:#ffcc00;stroke-linecap:butt;stroke-width:1.5}
+		.st15 {fill:#ffffff;marker-end:url(#mrkr13-59);stroke:#000000;stroke-linecap:butt;stroke-width:1.5}
+		.st16 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.37313432835821}
+		.st17 {fill:#000000;font-family:Yandex Sans Text Light;font-size:1.00001em}
+		.st18 {fill:#000000;font-family:Yandex Sans Text Light;font-size:0.666664em}
+		.st19 {marker-end:url(#mrkr1-105);marker-start:url(#mrkr1-103);stroke:#000000;stroke-linecap:butt;stroke-width:1.5}
+		.st20 {stroke:#000000;stroke-linecap:butt;stroke-width:1.5}
+		.st21 {fill:#000000;font-family:Yandex Sans Display Regular;font-size:0.833336em}
+		.st22 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Patterns_And_Gradients">
+		<linearGradient id="grad0-100" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(270 0.5 0.5)">
+			<stop offset="0" stop-color="#f2f2f2" stop-opacity="1"/>
+			<stop offset="1" stop-color="#ffffff" stop-opacity="1"/>
+		</linearGradient>
+	</defs>
+	<defs id="Markers">
+		<g id="lend13">
+			<path d="M 3 1 L 0 0 L 3 -1 L 3 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr13-4" class="st2" v:arrowType="13" v:arrowSize="2" v:setback="33.24" refX="-33.24" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-11.08,-11.08) "/>
+		</marker>
+		<marker id="mrkr13-8" class="st4" v:arrowType="13" v:arrowSize="2" v:setback="8.04" refX="-8.04" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.68,-2.68) "/>
+		</marker>
+		<marker id="mrkr13-18" class="st7" v:arrowType="13" v:arrowSize="2" v:setback="8.04" refX="-8.04" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.68,-2.68) "/>
+		</marker>
+		<marker id="mrkr13-59" class="st16" v:arrowType="13" v:arrowSize="2" v:setback="8.04" refX="-8.04" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-2.68,-2.68) "/>
+		</marker>
+		<g id="lend1">
+			<path d="M 1 -1 L 0 0 L 1 1 " style="stroke-linecap:round;stroke-linejoin:round;fill:none"/>
+		</g>
+		<marker id="mrkr1-103" class="st16" v:arrowType="1" v:arrowSize="2" orient="auto" markerUnits="strokeWidth"
+				overflow="visible">
+			<use xlink:href="#lend1" transform="scale(2.68) "/>
+		</marker>
+		<marker id="mrkr1-105" class="st16" v:arrowType="1" v:arrowSize="2" orient="auto" markerUnits="strokeWidth"
+				overflow="visible">
+			<use xlink:href="#lend1" transform="scale(-2.68,-2.68) "/>
+		</marker>
+	</defs>
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>Page-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="Соединительная линия" v:index="0"/>
+		<g id="shape103-1" v:mID="103" v:groupContext="shape" transform="translate(39.685,-79.3701)">
+			<title>Dark-solid Round Edge</title>
+			<rect x="0" y="255.118" width="731.339" height="340.157" rx="22.6772" ry="22.6772" class="st1"/>
+		</g>
+		<g id="shape40-5" v:mID="40" v:groupContext="shape" transform="translate(300.472,-119.055)">
+			<title>Background framed.40</title>
+			<rect x="0" y="317.48" width="442.205" height="277.795" class="st3"/>
+		</g>
+		<g id="shape38-9" v:mID="38" v:groupContext="shape" transform="translate(68.0315,-119.055)">
+			<title>Background framed</title>
+			<rect x="0" y="317.48" width="226.772" height="277.795" class="st3"/>
+		</g>
+		<g id="shape143-12" v:mID="143" v:groupContext="shape" transform="translate(96.378,-147.402)">
+			<title>Gray-frame Round Edge.143</title>
+			<rect x="0" y="361.701" width="402.52" height="233.575" rx="22.6772" ry="22.6772" class="st5"/>
+		</g>
+		<g id="shape39-15" v:mID="39" v:groupContext="shape" transform="translate(68.0315,-118.591)">
+			<title>Text (14)</title>
+			<desc>Зона доступности 1</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="59.5276" cy="583.473" width="119.06" height="23.606"/>
+			<rect x="0" y="571.67" width="119.055" height="23.606" class="st6"/>
+			<text x="7.09" y="587.07" class="st8" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Зона доступности<tspan
+						class="st9" v:langID="1033"> </tspan><tspan class="st9" v:langID="1033">1</tspan></text>		</g>
+		<g id="shape43-22" v:mID="43" v:groupContext="shape" transform="translate(300.472,-119.258)">
+			<title>Text (14).43</title>
+			<desc>Зона доступности 2</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="59.5276" cy="584.139" width="119.06" height="22.2722"/>
+			<rect x="0" y="573.003" width="119.055" height="22.2722" class="st6"/>
+			<text x="5.92" y="587.74" class="st8" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Зона доступности 2</text>		</g>
+		<g id="group61-26" transform="translate(374.173,-479.496)" v:mID="61" v:groupContext="group">
+			<title>Global</title>
+			<g id="shape62-27" v:mID="62" v:groupContext="shape">
+				<title>Лист.62</title>
+				<path d="M0 571.4 C0 558.22 10.69 547.53 23.88 547.53 C37.07 547.53 47.76 558.22 47.76 571.4 C47.76 584.59 37.07
+							 595.28 23.88 595.28 C10.69 595.28 0 584.59 0 571.4 Z" class="st10"/>
+			</g>
+			<g id="shape63-29" v:mID="63" v:groupContext="shape">
+				<title>Лист.63</title>
+				<ellipse cx="23.8794" cy="571.401" rx="23.8794" ry="23.8742" class="st11"/>
+			</g>
+			<g id="shape64-31" v:mID="64" v:groupContext="shape" transform="translate(0,-23.8742)">
+				<title>Лист.64</title>
+				<path d="M0 595.28 L47.76 595.28" class="st12"/>
+			</g>
+			<g id="shape65-34" v:mID="65" v:groupContext="shape" transform="translate(10.2339,0)">
+				<title>Лист.65</title>
+				<ellipse cx="13.6455" cy="571.401" rx="13.6455" ry="23.8742" class="st11"/>
+			</g>
+			<g id="shape66-36" v:mID="66" v:groupContext="shape" transform="translate(-571.396,595.276) rotate(-90)">
+				<title>Лист.66</title>
+				<path d="M0 595.28 L47.75 595.28" class="st12"/>
+			</g>
+			<g id="shape67-39" v:mID="67" v:groupContext="shape" transform="translate(44.3475,1154.98) rotate(180)">
+				<title>Лист.67</title>
+				<path d="M0 595.28 L40.94 595.28" class="st12"/>
+			</g>
+			<g id="shape68-42" v:mID="68" v:groupContext="shape" transform="translate(44.3475,1178.37) rotate(180)">
+				<title>Лист.68</title>
+				<path d="M0 595.28 L40.94 595.28" class="st12"/>
+			</g>
+		</g>
+		<g id="shape102-45" v:mID="102" v:groupContext="shape" transform="translate(39.685,-82.2047)">
+			<title>Text (14).102</title>
+			<desc>Облако</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="37.4427" cy="581.102" width="74.89" height="28.3465"/>
+			<rect x="0" y="566.929" width="74.8854" height="28.3465" class="st6"/>
+			<text x="13.46" y="585.3" class="st13" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Облако</text>		</g>
+		<g id="shape104-49" v:mID="104" v:groupContext="shape" transform="translate(357.99,-453.543)">
+			<title>Text (14).104</title>
+			<desc>Интернет</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="41.6947" cy="581.102" width="83.39" height="28.3465"/>
+			<rect x="0" y="566.929" width="83.3894" height="28.3465" class="st6"/>
+			<text x="11.07" y="585.3" class="st13" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Интернет</text>		</g>
+		<g id="shape37-53" v:mID="37" v:groupContext="shape" transform="translate(311.811,-175.748)">
+			<title>Yellow-frame Block.37</title>
+			<rect x="0" y="408.189" width="164.409" height="187.087" class="st14"/>
+		</g>
+		<g id="shape60-56" v:mID="60" v:groupContext="shape" transform="translate(357.165,-200.701)">
+			<title>Gray-frame Block.60</title>
+			<desc>Ресурс 2</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="41.6947" cy="563.535" width="83.39" height="63.4803"/>
+			<rect x="0" y="531.795" width="83.3894" height="63.4803" class="st15"/>
+			<text x="17.74" y="566.54" class="st17" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>Ресурс<tspan
+						class="st9" v:langID="1033"> </tspan><tspan class="st9" v:langID="1033">2</tspan></text>		</g>
+		<g id="shape109-63" v:mID="109" v:groupContext="shape" transform="translate(311.811,-175.748)">
+			<title>Text (14).109</title>
+			<desc>Подсеть 2</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="37.4427" cy="584.848" width="74.89" height="20.8549"/>
+			<rect x="0" y="574.421" width="74.8854" height="20.8549" class="st6"/>
+			<text x="10.09" y="588.45" class="st8" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Подсеть<tspan
+						class="st9" v:langID="1033"> </tspan><tspan class="st9" v:langID="1033">2</tspan></text>		</g>
+		<g id="shape36-69" v:mID="36" v:groupContext="shape" transform="translate(119.055,-175.748)">
+			<title>Yellow-frame Block</title>
+			<rect x="0" y="408.189" width="164.409" height="187.087" class="st14"/>
+		</g>
+		<g id="shape108-72" v:mID="108" v:groupContext="shape" transform="translate(117.87,-175.858)">
+			<title>Text (14).108</title>
+			<desc>Подсеть 1</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="37.4427" cy="584.848" width="74.89" height="20.8549"/>
+			<rect x="0" y="574.421" width="74.8854" height="20.8549" class="st6"/>
+			<text x="11.25" y="588.45" class="st8" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Подсеть<tspan
+						class="st9" v:langID="1033"> </tspan><tspan class="st9" v:langID="1033">1</tspan></text>		</g>
+		<g id="shape110-78" v:mID="110" v:groupContext="shape" transform="translate(154.721,-200.701)">
+			<title>Gray-frame Block.110</title>
+			<desc>Ресурс 1</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="41.6947" cy="563.535" width="83.39" height="63.4803"/>
+			<rect x="0" y="531.795" width="83.3894" height="63.4803" class="st15"/>
+			<text x="17.74" y="566.54" class="st17" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>Ресурс<tspan
+						class="st9" v:langID="1033"> </tspan><tspan class="st9" v:langID="1033">1</tspan></text>		</g>
+		<g id="shape115-84" v:mID="115" v:groupContext="shape" transform="translate(166.677,-265.323)">
+			<title>Gray-frame Block.115</title>
+			<desc>Внутренний IP-адрес</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="30.4724" cy="584.848" width="60.95" height="20.8549"/>
+			<rect x="0" y="574.421" width="60.9449" height="20.8549" class="st5"/>
+			<text x="7.84" y="582.85" class="st18" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>Внутренний <tspan
+						x="14.67" dy="1em" class="st9" v:langID="1033">IP</tspan>-адрес</text>		</g>
+		<g id="shape116-89" v:mID="116" v:groupContext="shape" transform="translate(165.827,-324.061)">
+			<title>Gray-frame Block.116</title>
+			<desc>Внешний IP-адрес</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="30.4724" cy="584.848" width="60.95" height="20.8549"/>
+			<rect x="0" y="574.421" width="60.9449" height="20.8549" class="st5"/>
+			<text x="13.36" y="582.85" class="st18" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>Внешний <v:newlineChar/><tspan
+						x="14.67" dy="1em" class="st9" v:langID="1033">IP</tspan><tspan class="st9" v:langID="1033">-</tspan>адрес</text>		</g>
+		<g id="shape100-95" v:mID="100" v:groupContext="shape" transform="translate(228.756,-274.961)">
+			<title>Basic Black Arrow 2</title>
+			<path d="M0 595.28 L138.9 595.28" class="st19"/>
+		</g>
+		<g id="shape126-106" v:mID="126" v:groupContext="shape" transform="translate(369.071,-265.323)">
+			<title>Gray-frame Block.126</title>
+			<desc>Внутренний IP-адрес</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="30.4724" cy="584.848" width="60.95" height="20.8549"/>
+			<rect x="0" y="574.421" width="60.9449" height="20.8549" class="st5"/>
+			<text x="7.84" y="582.85" class="st18" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>Внутренний <tspan
+						x="14.67" dy="1em" class="st9" v:langID="1033">IP</tspan>-адрес</text>		</g>
+		<g id="shape130-111" v:mID="130" v:groupContext="shape" transform="translate(-398.551,308.976) rotate(-90)">
+			<title>Line</title>
+			<path d="M0 595.28 L37.76 595.28" class="st20"/>
+		</g>
+		<g id="shape131-115" v:mID="131" v:groupContext="shape" transform="translate(179.15,-297.071)">
+			<title>Gray-frame Round Edge</title>
+			<desc>NAT</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="17.2544" cy="587.945" width="34.51" height="14.662"/>
+			<rect x="0" y="580.614" width="34.5087" height="14.662" rx="7.33098" ry="7.33098" class="st5"/>
+			<text x="9.47" y="589.94" class="st18" v:langID="1033"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>NAT</text>		</g>
+		<g id="shape56-119" v:mID="56" v:groupContext="shape" v:layerMember="0" transform="translate(391.181,-345.827) scale(-1,1)">
+			<title>Complicated Connector 4</title>
+			<v:userDefs>
+				<v:ud v:nameU="TextPos" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(12):26"/>
+			</v:userDefs>
+			<path d="M0 487.56 L0 510.24 L195.59 510.24 L195.59 595.28" class="st19"/>
+		</g>
+		<g id="shape144-127" v:mID="144" v:groupContext="shape" transform="translate(391.181,-149.772)">
+			<title>Text (14).144</title>
+			<desc>Облачная сеть 1</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="49.9025" cy="583.473" width="99.81" height="23.606"/>
+			<rect x="0" y="571.67" width="99.8049" height="23.606" class="st6"/>
+			<text x="13.92" y="586.47" class="st21" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Облачная сеть 1</text>		</g>
+		<g id="group154-131" transform="translate(530.079,-147.402)" v:mID="154" v:groupContext="group">
+			<title>Лист.154</title>
+			<g id="shape145-132" v:mID="145" v:groupContext="shape">
+				<title>Gray-frame Round Edge.145</title>
+				<rect x="0" y="361.701" width="187.087" height="233.575" rx="22.6772" ry="22.6772" class="st5"/>
+			</g>
+			<g id="shape41-135" v:mID="41" v:groupContext="shape" transform="translate(20.9055,-28.3465)">
+				<title>Yellow-frame Block.41</title>
+				<rect x="0" y="408.189" width="147.402" height="187.087" class="st14"/>
+			</g>
+			<g id="shape111-138" v:mID="111" v:groupContext="shape" transform="translate(19.2502,-28.3465)">
+				<title>Text (14).111</title>
+				<desc>Подсеть 1</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="37.4427" cy="584.848" width="74.89" height="20.8549"/>
+				<rect x="0" y="574.421" width="74.8854" height="20.8549" class="st6"/>
+				<text x="11.25" y="588.45" class="st8" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Подсеть<tspan
+							class="st9" v:langID="1033"> </tspan><tspan class="st9" v:langID="1033">1</tspan></text>			</g>
+			<g id="shape112-144" v:mID="112" v:groupContext="shape" transform="translate(52.6736,-53.2992)">
+				<title>Gray-frame Block.112</title>
+				<desc>Ресурс 3</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="41.6947" cy="563.535" width="83.39" height="63.4803"/>
+				<rect x="0" y="531.795" width="83.3894" height="63.4803" class="st15"/>
+				<text x="17.74" y="566.54" class="st17" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>Ресурс<tspan
+							class="st9" v:langID="1033"> </tspan><tspan class="st9" v:langID="1033">3</tspan></text>			</g>
+			<g id="shape134-150" v:mID="134" v:groupContext="shape" transform="translate(64.063,-117.921)">
+				<title>Gray-frame Block.134</title>
+				<desc>Внутренний IP-адрес</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="30.4724" cy="584.848" width="60.95" height="20.8549"/>
+				<rect x="0" y="574.421" width="60.9449" height="20.8549" class="st5"/>
+				<text x="7.84" y="582.85" class="st18" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>Внутренний <tspan
+							x="14.67" dy="1em" class="st9" v:langID="1033">IP</tspan>-адрес</text>			</g>
+			<g id="shape135-155" v:mID="135" v:groupContext="shape" transform="translate(63.7795,-176.659)">
+				<title>Gray-frame Block.135</title>
+				<desc>Внешний IP-адрес</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="30.4724" cy="584.848" width="60.95" height="20.8549"/>
+				<rect x="0" y="574.421" width="60.9449" height="20.8549" class="st5"/>
+				<text x="13.36" y="582.85" class="st18" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>Внешний <v:newlineChar/><tspan
+							x="14.67" dy="1em" class="st9" v:langID="1033">IP</tspan><tspan class="st9" v:langID="1033">-</tspan>адрес</text>			</g>
+			<g id="shape136-161" v:mID="136" v:groupContext="shape" transform="translate(-500.315,455.933) rotate(-90)">
+				<title>Line.136</title>
+				<path d="M0 595.28 L36.4 595.28" class="st20"/>
+			</g>
+			<g id="shape137-165" v:mID="137" v:groupContext="shape" transform="translate(76.9976,-149.652)">
+				<title>Gray-frame Round Edge.137</title>
+				<desc>NAT</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="17.2544" cy="587.945" width="34.51" height="14.662"/>
+				<rect x="0" y="580.614" width="34.5087" height="14.662" rx="7.33098" ry="7.33098" class="st5"/>
+				<text x="9.47" y="589.94" class="st18" v:langID="1033"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>NAT</text>			</g>
+			<g id="shape146-169" v:mID="146" v:groupContext="shape" transform="translate(83.3259,-2.37021)">
+				<title>Text (14).146</title>
+				<desc>Облачная сеть 2</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="49.9025" cy="583.473" width="99.81" height="23.606"/>
+				<rect x="0" y="571.67" width="99.8049" height="23.606" class="st6"/>
+				<text x="12.95" y="586.47" class="st21" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Облачная сеть 2</text>			</g>
+		</g>
+		<g id="shape70-173" v:mID="70" v:groupContext="shape" v:layerMember="0" transform="translate(408.189,-344.916)">
+			<title>Complicated Connector 4.70</title>
+			<v:userDefs>
+				<v:ud v:nameU="TextPos" v:val="VT0(1):26"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(12):26"/>
+			</v:userDefs>
+			<path d="M0 486.65 L0 509.52 L215.43 509.52 L215.43 595.28" class="st19"/>
+		</g>
+	</g>
+</svg>

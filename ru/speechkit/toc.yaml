@@ -1,0 +1,26 @@
+# Заголовок оглавления для всех страниц в разделе
+title: "Yandex SpeechKit"
+icon: "/img/speechkit.svg"
+items:
+  - name: Yandex SpeechKit
+    href: index.yaml
+  - name: Авторизация в API
+    href: concepts/auth.md
+  - name: Распознавание речи
+    items:
+      - name: О технологии
+        href: stt/index.md
+      - name: Быстрый старт
+        href: stt/quickstart.md
+      - name: Описание метода API
+        href: stt/request.md
+  - name: Синтез речи
+    items:
+      - name: О технологии
+        href: tts/index.md
+      - name: Описание метода API
+        href: tts/request.md
+  - name: Формат ответа
+    href: concepts/response.md
+  - name: Правила тарификации
+    href: pricing.md

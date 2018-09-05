@@ -1,0 +1,125 @@
+title: "Yandex Object Storage"
+icon: "/img/storage.svg"
+items:
+  - name: Yandex Object Storage
+    href: index.yaml
+  - name: Начало работы
+    items:
+    - name: Создание корзины
+      href: quickstart.md
+    - name: Настройка инструментов
+      items:
+        - name: Поддерживаемые инструменты
+          href: instruments/index.md
+        - name: AWS CLI
+          href: instruments/aws-cli.md
+        - name: AWS SDK для Java
+          href: instruments/aws-sdk-java.md
+        - name: boto
+          href: instruments/boto.md
+        - name: CyberDuck
+          href: instruments/cyberduck.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Корзины
+        items:
+          - name: Создать корзину
+            href: operations/buckets/create.md
+          - name: Удалить корзину
+            href: operations/buckets/delete.md
+      - name: Объект
+        items:
+          - name: Загрузить объект
+            href: operations/objects/upload.md
+          - name: Получить информацию об объекте
+            href: operations/objects/info.md
+          - name: Скачать объект
+            href: operations/objects/download.md
+          - name: Получить ссылку на скачивание
+            href: operations/objects/link-for-download.md
+          - name: Удалить объект
+            href: operations/objects/delete.md
+      - name: Доступы
+        items:
+          - name: Получить статический ключ
+            href: operations/security/get-static-key.md
+          - name: Открыть публичный доступ к корзине
+            href: operations/security/bucket-availability.md
+  - name: Основные понятия
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Корзина
+        href: concepts/bucket.md
+      - name: Объект
+        href: concepts/object.md
+      - name: Класс хранения
+        href: concepts/storage-class.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: HTTP API, совместимый с Amazon S3
+    items:
+      - name: Как пользоваться API
+        href: s3/index.md
+      - name: Справочник API
+        items:
+          - name: Все сервисы и методы
+            href: s3/api-ref/index.md
+          - name: Bucket
+            items:
+              - name: Все методы
+                href: s3/api-ref/bucket.md
+              - name: create
+                href: s3/api-ref/bucket/create.md
+              - name: getMeta
+                href: s3/api-ref/bucket/getmeta.md
+              - name: listObjects
+                href: s3/api-ref/bucket/listobjects.md
+              - name: listBuckets
+                href: s3/api-ref/bucket/list.md
+              - name: deleteBucket
+                href: s3/api-ref/bucket/delete.md
+          - name: Object
+            items:
+              - name: Все методы
+                href: s3/api-ref/object.md
+              - name: upload
+                href: s3/api-ref/object/upload.md
+              - name: get
+                href: s3/api-ref/object/get.md
+              - name: getObjectMeta
+                href: s3/api-ref/object/getobjectmeta.md
+              - name: delete
+                href: s3/api-ref/object/delete.md
+              - name: deleteMultipleObjects
+                href: s3/api-ref/object/deletemultipleobjects.md
+          - name: Multipart upload
+            items:
+              - name: Общий порядок составной загрузки
+                href: s3/api-ref/multipart.md
+              - name: startUpload
+                href: s3/api-ref/multipart/startupload.md
+              - name: uploadPart
+                href: s3/api-ref/multipart/uploadpart.md
+              - name: listParts
+                href: s3/api-ref/multipart/listparts.md
+              - name: abortUpload
+                href: s3/api-ref/multipart/abortupload.md
+              - name: completeUpload
+                href: s3/api-ref/multipart/completeupload.md
+              - name: listUploads
+                href: s3/api-ref/multipart/listuploads.md
+          - name: Общие заголовки запросов
+            href: s3/api-ref/common-request-headers.md
+          - name: Общие заголовки ответов
+            href: s3/api-ref/common-response-headers.md
+          - name: Ответы
+            href: s3/api-ref/response-codes.md
+  - name: Безопасность и управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Вопросы и ответы
+    href: qa.md

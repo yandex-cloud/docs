@@ -1,0 +1,10 @@
+service-name: Yandex Identity and Access Management
+service-name-short: IAM
+roles-cloud-owner: resmgr.cloud.owner
+roles-cloud-member: resmgr.cloud.member
+roles-image-user: compute.images.user
+roles-admin: admin
+roles-editor: editor
+roles-viewer: viewer
+subjects-allUsers: allUsers
+subjects-allAuthenticatedUsers: allAuthenticatedUsers

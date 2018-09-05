@@ -1,0 +1,9 @@
+service-name: Yandex Resource Manager
+service-name-short: Resource Manager
+roles-cloud-owner: resource-manager.cloud.owner
+roles-cloud-member: resource-manager.cloud.member
+roles-admin: admin
+roles-editor: editor
+roles-viewer: viewer
+subjects-allUsers: allUsers
+subjects-allAuthenticatedUsers: allAuthenticatedUsers
