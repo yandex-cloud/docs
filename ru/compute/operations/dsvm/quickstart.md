@@ -1,30 +1,56 @@
-# Начало работы с Yandex Data Science Virtual Machine
+# Создать виртуальную машину из публичного образа DSVM
 
-## Создание виртуальной машины из образа DSVM {#create-dsvm}
+Чтобы создать виртуальную машину:
 
-Вы можете создать виртуальную машину из образа DSVM так же, как виртуальную машину в [!KEYREF compute-short-name]:
-1. Если у вас уже есть каталог в Яндекс.Облаке, откройте страницу этого каталога в консоли управления. Если каталога еще нет, создайте его:
-
-    [!INCLUDE [create-folder](../../../_includes/create-folder.md)]
-
-1. Нажмите значок ![](../../../_assets/plus-sign.svg) на плитке **Yandex Compute Cloud**.
+1. Откройте каталог, в котором будет создана виртуальная машина.
+1. Нажмите кнопку **Создать ресурс**.
+1. Выберите **Виртуальная машина**.
 1. В поле **Имя** введите имя виртуальной машины.
-    Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не должен быть дефисом. Максимальная длина имени — 63 символа.
+
+    [!INCLUDE [name-format](../../../_includes/name-format.md)]
+
 1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
-1. Выберите образ **DSVM**.
-1. Выберите вычислительные ресурсы виртуальной машины — количество виртуальных ядер и объем виртуальной памяти.
-1. Укажите данные для доступа на виртуальную машину.
-1. Запросите публичный IP-адрес для виртуальной машины.
+1. Выберите публичный [образ](../images-with-pre-installed-software/get-list.md) DSVM.
+1. В блоке **Вычислительные ресурсы** выберите [тип использования ядра](../../concepts/vm-types.md) (частичное или полное), укажите необходимое количество vCPU и объем RAM.
+1. В блоке **Сетевые настройки** выберите, к какой подсети необходимо подключить виртуальную машину при создании.
+1. Укажите данные для доступа на виртуальную машину:
+    - В поле **Логин** введите имя пользователя.
+    - В поле **SSH ключ** вставьте содержимое файла открытого ключа.
+        Пару ключей для подключения по SSH необходимо создать самостоятельно. Для создания ключей используйте сторонние инструменты, например утилиты `ssh-keygen` в Linux и macOS или [PuTTygen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) в Windows.
 1. Нажмите кнопку **Создать ВМ**.
 
+[!INCLUDE [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md)]
 
-## Первое подключение к DSVM {#first-login}
+## Подключиться к виртуальной машине DSVM по протоколу SSH {#first-login}
 
-1. Подключитесь к виртуальной машине по протоколу SSH.
-    Для подключения необходимо указать публичный IP-адрес виртуальной машины и закрытый ключ, соответствующий открытому ключу, переданному на виртуальную машину. IP-адрес можно узнать в консоли управления в блоке **Сети и доступы** на странице виртуальной машины.
-1. В приветственном сообщении вы увидите команды:
-    - Для активации преднастроенных окружений [conda](https://conda.io/).
-        Активируйте окружение conda, если хотите настраивать платформы для машинного обучения из командной строки.
-    - Для запуска [Jupyter Notebook](http://jupyter.org/) и [JupyterLab](https://github.com/jupyterlab/jupyterlab).
-        Запустите Jupyter Notebook или JupyterLab, если хотите использовать веб-браузер.
+[!INCLUDE [vm-connect-ssh](../../../_includes/vm-connect-ssh.md)]
 
+В приветственном сообщении вы увидите команды для активации окружения и запуска [Jupyter Notebook](http://jupyter.org/index.html) и [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/):
+
+```
+#####################################################################
+Welcome to Yandex Data Science Virtual Machine
+Image Build: ...
+
+Please use one of the following commands to activate
+the environment with the framework of your choice:
+    for Python2 ______________________ source activate py27
+    for Python3 ______________________ source activate py36
+
+Packages installed in each environment:
+    catboost, xgboost, lightgbm,
+    tensorflow, pytorch,
+    jupyter, matplotlib,
+    numpy, scipy, scikit-learn
+
+To run public JupyterLab execute:
+    jupyter lab --no-browser
+
+To run public Jupyter notebook execute:
+    jupyter notebook --no-browser
+
+Description and help:
+    https://cloud.yandex.ru/docs/compute/operations/dsvm/
+
+#####################################################################
+```

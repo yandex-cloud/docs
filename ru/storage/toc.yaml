@@ -1,8 +1,6 @@
 title: "Yandex Object Storage"
-icon: "/img/storage.svg"
+href: index.yaml
 items:
-  - name: Yandex Object Storage
-    href: index.yaml
   - name: Начало работы
     items:
     - name: Создание корзины
@@ -19,6 +17,10 @@ items:
           href: instruments/boto.md
         - name: CyberDuck
           href: instruments/cyberduck.md
+        - name: S3cmd
+          href: instruments/s3cmd.md
+        - name: s3fs
+          href: instruments/s3fs.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -29,7 +31,11 @@ items:
             href: operations/buckets/create.md
           - name: Удалить корзину
             href: operations/buckets/delete.md
-      - name: Объект
+          - name: Ограничить максимальный размер корзины
+            href: operations/buckets/limit-max-volume.md
+          - name: Открыть публичный доступ к корзине
+            href: operations/buckets/bucket-availability.md
+      - name: Объекты
         items:
           - name: Загрузить объект
             href: operations/objects/upload.md
@@ -41,12 +47,6 @@ items:
             href: operations/objects/link-for-download.md
           - name: Удалить объект
             href: operations/objects/delete.md
-      - name: Доступы
-        items:
-          - name: Получить статический ключ
-            href: operations/security/get-static-key.md
-          - name: Открыть публичный доступ к корзине
-            href: operations/security/bucket-availability.md
   - name: Основные понятия
     items:
       - name: Обзор
@@ -55,10 +55,20 @@ items:
         href: concepts/bucket.md
       - name: Объект
         href: concepts/object.md
-      - name: Класс хранения
+      - name: Класс хранилища
         href: concepts/storage-class.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Хостинг статических сайтов
+    items:
+      - name: Обзор
+        href: hosting/index.md
+      - name: Конфигурирование корзин
+        href: hosting/bucket-configuration.md
+      - name: Настройка хостинга в консоли управления
+        href: hosting/setup.md
+      - name: Коды ответов
+        href: hosting/answer-codes.md
   - name: HTTP API, совместимый с Amazon S3
     items:
       - name: Как пользоваться API
@@ -111,6 +121,16 @@ items:
                 href: s3/api-ref/multipart/completeupload.md
               - name: listUploads
                 href: s3/api-ref/multipart/listuploads.md
+          - name: Static Website Hosting
+            items:
+              - name: Все методы
+                href: s3/api-ref/hosting.md
+              - name: upload
+                href: s3/api-ref/hosting/upload.md
+              - name: get
+                href: s3/api-ref/hosting/get.md
+              - name: delete
+                href: s3/api-ref/hosting/delete.md
           - name: Общие заголовки запросов
             href: s3/api-ref/common-request-headers.md
           - name: Общие заголовки ответов

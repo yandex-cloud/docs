@@ -4,7 +4,8 @@
 
 - [[!TITLE]](buckets/create.md)
 - [[!TITLE]](buckets/delete.md)
-
+- [[!TITLE]](buckets/limit-max-volume.md)
+- [[!TITLE]](buckets/bucket-availability.md)
 
 ## Объекты
 
@@ -13,11 +14,3 @@
 - [[!TITLE]](objects/download.md)
 - [[!TITLE]](objects/link-for-download.md)
 - [[!TITLE]](objects/delete.md)
-
-
-## Доступы
-
-- [[!TITLE]](security/get-static-key.md)
-- [[!TITLE]](security/bucket-availability.md)
-
-

@@ -1,0 +1,4 @@
+title: "Интерфейс командной строки"
+items:
+  - name: Начало работы с CLI
+    href: quickstart.md

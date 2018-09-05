@@ -1,8 +1,6 @@
-title: "Yandex Compute Cloud"
-icon: "/img/compute.svg"
+title: Yandex Compute Cloud
+href: index.yaml
 items:
-  - name: Yandex Compute Cloud
-    href: index.yaml
   - name: Начало работы
     items:
       - name: Обзор
@@ -18,9 +16,13 @@ items:
       - name: Создание виртуальной машины
         items:
           - name: Создать ВМ Linux
-            href: operations/vm-create/create-from-image.md
+            href: operations/vm-create/create-linux-vm.md
           - name: Создать ВМ Windows
             href: operations/vm-create/create-windows-vm.md
+          - name: Создать ВМ из набора дисков
+            href: operations/vm-create/create-from-disks.md
+          - name: Создать ВМ из набора снимков
+            href: operations/vm-create/create-from-snapshots.md
       - name: DSVM
         items:
           - name: Спецификация
@@ -35,24 +37,40 @@ items:
             href: operations/images-with-pre-installed-software/setup.md
           - name: Работать с ВМ
             href: operations/images-with-pre-installed-software/operate.md
+          - name: Получить список образов
+            href: operations/images-with-pre-installed-software/get-list.md
       - name: Получение информации о виртуальной машине
-        href: operations/vm-info/vm-info.md
+        items:
+          - name: Получить основную информацию и метаданные
+            href: operations/vm-info/get-info.md
+          - name: Получить вывод последовательного порта
+            href: operations/vm-info/get-serial-port-output.md
       - name: Управление виртуальной машиной
         items:
           - name: Подключиться к ВМ по SSH
             href: operations/vm-control/vm-connect-ssh.md
+          - name: Подключиться к ВМ по RDP
+            href: operations/vm-control/vm-connect-rdp.md
           - name: Остановить и запустить ВМ
             href: operations/vm-control/vm-stop-and-start.md
+          - name: Подключить диск к ВМ
+            href: operations/vm-control/vm-attach-disk.md
+          - name: Отключить диск от ВМ
+            href: operations/vm-control/vm-detach-disk.md
+          - name: Изменить зону доступности ВМ
+            href: operations/vm-control/vm-change-zone.md
+          - name: Сделать публичный IP-адрес ВМ статическим
+            href: operations/vm-control/vm-set-static-ip.md
+          - name: Изменить ВМ
+            href: operations/vm-control/vm-update.md
+          - name: Изменить конфигурацию ВМ
+            href: operations/vm-control/vm-update-resources.md
           - name: Удалить ВМ
             href: operations/vm-control/vm-delete.md
       - name: Создание нового диска
         items:
           - name: Создать пустой диcк
             href: operations/disk-create/empty.md
-          - name: Создать из образа
-            href: operations/disk-create/from-image.md
-          - name: Восстановить из снимка
-            href: operations/disk-create/from-snapshot.md
       - name: Управление диском
         items:
           - name: Сделать снимок диска
@@ -61,6 +79,10 @@ items:
             href: operations/disk-control/delete.md
           - name: Удалить снимок диска
             href: operations/snapshot-control/delete.md
+      - name: Создание нового образа
+        items:
+          - name: Загрузить свой образ
+            href: operations/image-create/upload.md
   - name: Основные понятия
     items:
       - name: Взаимосвязь ресурсов
@@ -69,10 +91,14 @@ items:
         items:
           - name: Обзор
             href: concepts/vm.md
-          - name: Типы виртуальных машин
+          - name: Вычислительные ресурсы
             href: concepts/vm-types.md
           - name: Сеть на виртуальной машине
             href: concepts/network.md
+          - name: Статусы
+            href: concepts/vm-statuses.md
+          - name: Метаданные
+            href: concepts/vm-metadata.md
       - name: Диски
         items:
           - name: Обзор
@@ -87,14 +113,19 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: ru/compute/toc.yaml
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы
         href: qa/general.md
-      - name: Технические характеристики
-        href: qa/hardware.md
-      - name: Операции с виртуальными машинами
-        href: qa/vm-operations.md
+      - name: Виртуальные машины
+        href: qa/vm.md
       - name: Диски и снимки
         href: qa/disks.md
       - name: Все вопросы на одной странице

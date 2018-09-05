@@ -7,9 +7,9 @@
 **[!TAB POST-запрос]**
 
 ```httpget
-POST /v1/?topic=queries&folderid=<folder id> HTTP/1.1
+POST /speech/v1/stt:recognize/?topic=general&folderId=<folder id> HTTP/1.1
 Host: stt.api.cloud.yandex.net
-Authorization: bearer <IAM-token>
+Authorization: Bearer <IAM-token>
   
 ... (двоичное содержимое аудиофайла)
 ```
@@ -20,23 +20,23 @@ Authorization: bearer <IAM-token>
 $ curl -LO https://download.cdn.yandex.net/from/yandex.ru/tech/ru/speechkit/cloud/doc/guide/files/speech.ogg
   
 $ curl -X POST \
-     -H "Authorization: bearer <IAM-token>" \
+     -H "Authorization: Bearer <IAM-token>" \
+     -H "Transfer-Encoding: chunked" \
      --data-binary "@speech.ogg" \
-     "https://stt.api.cloud.yandex.net/v1/?topic=numbers&folderid=<folder id>"
+     "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?topic=general&folderId=<folder id>"
 ```
 
 --- 
 
 Подробнее о параметрах запроса читайте в разделе [[!TITLE]](request.md).
 
-## Результат запроса
+## Результат запроса {#response}
 
 Тело ответа содержит результат в формате JSON. 
 
 ```
 HTTP/1.1 200 OK
-YaCloud-Request-Id: YYXXYYXXYY-YXXY-YXXY-YXXY-YYXXYYXXYY
-YaCloud-Billing-Units: 15
+YaCloud-Billing-Units: 1
 
 {
   "result": "твой номер 212-85-06"

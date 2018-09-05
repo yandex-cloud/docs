@@ -1,17 +1,14 @@
 # CyberDuck
 
-[CyberDuck](https://cyberduck.io) — это графический клиент к облачным хранилищам для Mac и Windows (в виде консольного клиента доступен для всех операционных систем).
+CyberDuck — это графический клиент к облачным хранилищам для Mac и Windows (в виде консольного клиента доступен для всех операционных систем).
 
 ## Подготовка к работе {#preparations}
 
-1. Создайте сервисный аккаунт.
-1. [Получите необходимые роли](../security/index.md).
-1. [Получите статический ключ](../operations/security/get-static-key.md).
-
+[!INCLUDE [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md)]
 
 ## Установка {#installation}
 
-Для устновки CyberDuck воспользуйтесь инструкцией на [сайте производителя](https://cyberduck.io).
+Для установки CyberDuck перейдите на [сайт производителя](https://cyberduck.io) и скачайте необходимый дистрибутив.
 
 ## Подключение {#connection}
 

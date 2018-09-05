@@ -1,0 +1,118 @@
+title: "Yandex Compute Cloud"
+href: index.yaml
+items:
+  - name: Getting started
+    items:
+      - name: Overview
+        href: quickstart/index.md
+      - name: Creating a Linux VM
+        href: quickstart/quick-create-linux.md
+      - name: Creating a Windows VM
+        href: quickstart/quick-create-windows.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Creating a VM
+        items:
+          - name: Creating a Linux VM
+            href: operations/vm-create/create-linux-vm.md
+          - name: Creating a Windows VM
+            href: operations/vm-create/create-windows-vm.md
+      - name: DSVM
+        items:
+          - name: Specification
+            href: operations/dsvm/index.md
+          - name: Creating a VM and connecting to it
+            href: operations/dsvm/quickstart.md
+      - name: Images with pre-installed software
+        items:
+          - name: Creating a VM
+            href: operations/images-with-pre-installed-software/create.md
+          - name: Configuring software
+            href: operations/images-with-pre-installed-software/setup.md
+          - name: Using a VM
+            href: operations/images-with-pre-installed-software/operate.md
+          - name: Getting a list of images
+            href: operations/images-with-pre-installed-software/get-list.md
+      - name: Getting information about a VM
+        items:
+          - name: Getting basic information and metadata
+            href: operations/vm-info/get-info.md
+          - name: Getting serial port output
+            href: operations/vm-info/get-serial-port-output.md
+      - name: Performing VM management
+        items:
+          - name: Connecting to a VM via SSH
+            href: operations/vm-control/vm-connect-ssh.md
+          - name: Connecting to a VM via RDP
+            href: operations/vm-control/vm-connect-rdp.md
+          - name: Stopping and starting a VM
+            href: operations/vm-control/vm-stop-and-start.md
+          - name: Updating a VM
+            href: operations/vm-control/vm-update.md
+          - name: Deleting a VM
+            href: operations/vm-control/vm-delete.md
+      - name: Creating a new disk
+        items:
+          - name: Creating an empty disk
+            href: operations/disk-create/empty.md
+      - name: Performing disk management
+        items:
+          - name: Creating a disk snapshot
+            href: operations/disk-control/create-snapshot.md
+          - name: Deleting a disk
+            href: operations/disk-control/delete.md
+          - name: Deleting a disk snapshot
+            href: operations/snapshot-control/delete.md
+      - name: Creating a new image
+        items:
+          - name: Uploading your image
+            href: operations/image-create/upload.md
+  - name: Concepts
+    items:
+      - name: Relationship between resources
+        href: concepts/index.md
+      - name: Virtual machines
+        items:
+          - name: Overview
+            href: concepts/vm.md
+          - name: Computing resources
+            href: concepts/vm-types.md
+          - name: Network on a VM
+            href: concepts/network.md
+          - name: Statuses
+            href: concepts/vm-statuses.md
+          - name: Metadata
+            href: concepts/vm-metadata.md
+      - name: Disks
+        items:
+          - name: Overview
+            href: concepts/disk.md
+          - name: Disk snapshots
+            href: concepts/snapshot.md
+      - name: Images
+        href: concepts/images.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Identity and access management
+    href: security/index.md
+  - name: Pricing policies
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: en/compute/toc.yaml
+  - name: Questions and answers
+    items:
+      - name: General questions
+        href: qa/general.md
+      - name: Virtual machines
+        href: qa/vm.md
+      - name: Disks and snapshots
+        href: qa/disks.md
+      - name: All questions on the same page
+        href: qa/all.md

@@ -1,0 +1,44 @@
+title: "Yandex Virtual Private Cloud"
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Cloud network
+        items:
+          - name: Creating a cloud network
+            href: operations/network-create.md
+          - name: Deleting a cloud network
+            href: operations/network-delete.md
+      - name: Subnet
+        items:
+          - name: Creating a subnet
+            href: operations/subnet-create.md
+          - name: Deleting a subnet
+            href: operations/subnet-delete.md
+  - name: Сoncepts
+    items:
+      - name: Relationship between service resources
+        href: concepts/index.md
+      - name: Cloud networks and subnets
+        href: concepts/network.md
+      - name: Cloud resource addresses
+        href: concepts/address.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Identity and access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: en/vpc/toc.yaml
+  - name: Questions and answers
+    href: qa/index.md

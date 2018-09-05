@@ -1,8 +1,6 @@
 title: "Yandex Virtual Private Cloud"
-icon: "/img/vpc.svg"
+href: index.yaml
 items:
-  - name: Yandex Virtual Private Cloud
-    href: index.yaml
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции
@@ -15,12 +13,22 @@ items:
             href: operations/network-create.md
           - name: Удалить облачную сеть
             href: operations/network-delete.md
+          - name: Изменить облачную сеть
+            href: operations/network-update.md
       - name: Подсеть
         items:
           - name: Создать подсеть
             href: operations/subnet-create.md
           - name: Удалить подсеть
             href: operations/subnet-delete.md
+          - name: Изменить подсеть
+            href: operations/subnet-update.md
+      - name: IP-адрес
+        items:
+          - name: Получить статический публичный IP-адрес
+            href: operations/set-static-ip.md
+          - name: Удалить статический публичный IP-адрес
+            href: operations/address-delete.md
   - name: Основные понятия
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -35,5 +43,12 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: ru/vpc/toc.yaml
   - name: Вопросы и ответы
     href: qa/index.md

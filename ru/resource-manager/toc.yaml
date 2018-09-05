@@ -1,27 +1,31 @@
 title: "Yandex Resource Manager"
-icon: "/img/resource-manager.svg"
+href: index.yaml
 items:
-  - name: Yandex Resource Manager
-    href: index.yaml
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
-        href: operations/all.md
+        href: operations/index.md
       - name: Облако
         items:
           - name: Установить права доступа
             href: operations/cloud/set-access-bindings.md
+          - name: Переключиться на другое облако
+            href: operations/cloud/switch-cloud.md
       - name: Каталог
         items:
           - name: Создать каталог
             href: operations/folder/create.md
+          - name: Изменить каталог
+            href: operations/folder/update.md
           - name: Установить права доступа
             href: operations/folder/set-access-bindings.md
+          - name: Удалить каталог
+            href: operations/folder/delete.md
   - name: Основные понятия
     items:
-      - name: Структура ресурсов Яндекс.Облака
+      - name: Иерархия ресурсов Яндекс.Облака
         href: concepts/resources-hierarchy.md
       - name: Квоты и лимиты
         href: concepts/limits.md
@@ -29,3 +33,10 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: ru/resource-manager/toc.yaml

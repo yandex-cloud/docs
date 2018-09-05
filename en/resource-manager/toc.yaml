@@ -1,0 +1,36 @@
+title: "Yandex Resource Manager"
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/all.md
+      - name: Cloud
+        items:
+          - name: Set access rights
+            href: operations/cloud/set-access-bindings.md
+      - name: Folder
+        items:
+          - name: Create a folder
+            href: operations/folder/create.md
+          - name: Set access rights
+            href: operations/folder/set-access-bindings.md
+  - name: Concepts
+    items:
+      - name: Hierarchy of Yandex.Cloud resources
+        href: concepts/resources-hierarchy.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Identity and access management
+    href: security/index.md
+  - name: Pricing policies
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: en/resource-manager/toc.yaml

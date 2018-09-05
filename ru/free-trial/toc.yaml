@@ -1,13 +1,13 @@
 title: "Пробный период"
-icon: "/img/free-trial.svg"
+href: index.yaml
 items:
-  - name: Пробный период
-    href: index.yaml
   - name: Как воспользоваться пробным периодом
     href: concepts/quickstart.md
   - name: Ограничения пробного периода
     href: concepts/limits.md
   - name: Контроль потребления ресурсов
     href: concepts/usage-monitor.md
+  - name: Завершение пробного периода
+    href: concepts/trial-ending.md
   - name: Переход на платную версию
     href: concepts/upgrade-to-paid.md

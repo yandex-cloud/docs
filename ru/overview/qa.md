@@ -10,6 +10,8 @@
 * [Yandex Compute Cloud](../compute/qa/all.md)
 * [Yandex Object Storage](../storage/qa.md)
 * [Yandex Virtual Private Cloud](../vpc/qa/)
-* [Yandex Managed Databases](../mdb/qa/all.md)
+- [[!KEYREF mch-name]](../managed-clickhouse/qa/all.md)
+- [[!KEYREF mmg-name]](../managed-mongodb/qa/all.md)
+- [[!KEYREF mpg-name]](../managed-postgresql/qa/all.md)
 
 

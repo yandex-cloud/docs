@@ -1,0 +1,13 @@
+title: "Trial period"
+href: index.yaml
+items:
+  - name: How to use the trial period
+    href: concepts/quickstart.md
+  - name: Trial period restrictions
+    href: concepts/limits.md
+  - name: Monitoring resource usage
+    href: concepts/usage-monitor.md
+  - name: End of the trial period
+    href: concepts/trial-ending.md
+  - name: Upgrading to the paid version
+    href: concepts/upgrade-to-paid.md

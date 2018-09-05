@@ -1,6 +1,6 @@
 # Метод listBuckets
 
-Возвращает перечень корзин доступных пользователю.
+Возвращает перечень корзин, доступных пользователю.
 
 
 ## Запрос {#request}
@@ -28,10 +28,6 @@ GET / HTTP/1.1
 
 ```
 <ListAllMyBucketsResult>
-  <Owner>
-    <ID>id</ID>
-    <DisplayName>name</DisplayName>
-  </Owner>
   <Buckets>
     <Bucket>
       <Name>bucket-name</Name>
@@ -47,8 +43,5 @@ GET / HTTP/1.1
 `Bucket` | Содержит описание корзины.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets/Bucket`.
 `Buckets` | Содержит перечень корзин.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets`.
 `CreationDate` | Время создания корзины в формате `yyyy-mm-ddThh:mm:ss.timezone`.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets/Bucket/CreationDate`.
-`DisplayName` | Имя пользователя.<br/><br/>Путь: `/ListAllMyBucketsResult/DisplayName`.
-`ID` | Идентификатор пользователя.<br/><br/>Путь: `/ListAllMyBucketsResult/Owner/ID`.
-`ListAllMyBucketsResult` | Содержит тело ответа.<br/><br/>Путь: `/ListAllMyBucketsResult`.
+`ListAllMyBucketsResult` | Корневой элемент ответа.<br/><br/>Путь: `/ListAllMyBucketsResult`.
 `Name` | Имя корзины.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets/Bucket/Name`.
-`Owner` | Содержит информацию о владельце корзины.<br/><br/>Путь: `/ListAllMyBucketsResult/Owner`.

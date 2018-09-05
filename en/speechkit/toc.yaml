@@ -1,0 +1,24 @@
+# Заголовок оглавления для всех страниц в разделе
+title: "Yandex SpeechKit"
+href: index.yaml
+items:
+  - name: Authorization in the API
+    href: concepts/auth.md
+  - name: Speech recognition
+    items:
+      - name: About the technology
+        href: stt/index.md
+      - name: Quick start
+        href: stt/quickstart.md
+      - name: API method description
+        href: stt/request.md
+  - name: Speech synthesis
+    items:
+      - name: About the technology
+        href: tts/index.md
+      - name: API method description
+        href: tts/request.md
+  - name: Response format
+    href: concepts/response.md
+  - name: Pricing rules
+    href: pricing.md

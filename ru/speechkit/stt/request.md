@@ -2,32 +2,37 @@
 
 Преобразует речь из переданного аудиофайла в текст.
 
-> [!WARNING]
->
-> 1. Технология распознавания речи работает с аудиофайлами размером не более 1Мб.
-> 1. Для аудиофайлов следует использовать аудиокодек OPUS и контейнер OGG ([OggOpus](https://wiki.xiph.org/OggOpus)).
->
 
-## Запрос
+## HTTP-запрос {#http_request}
 
 ```
-POST https://stt.api.cloud.yandex.net/v1
+POST https://stt.api.cloud.yandex.net/speech/v1/stt:recognize
 ```
 
-### Query параметры
+Используйте заголовок `"Transfer-Encoding: chunked"` для потоковой передачи данных.
+
+
+## Query-параметры {#query_params}
 
 Параметр | Описание
 ----- | -----
-`topic` | [Языковая модель](../stt/index.md#model), которую следует использовать при распознавании.<br/>Чем точнее выбрана модель, тем лучше результат распознавания. В одном запросе можно указать только одну модель.<br/>Значение параметра по умолчанию: `queries`.
-`lang` | Язык, для которого будет выполнено распознавание.<br/>Допустимые значения:<ul><li>`ru-RU` — русский язык,</li><li>`en-US` — английский язык,</li><li>`uk-UK` — украинский язык,</li><li>`tr-TR` — турецкий язык.</li></ul>Значение параметра по умолчанию: `ru-RU`.<br/>Допустимые значения параметра `topic` для различных значений `lang` приведены в разделе [[!TITLE]](../stt/index.md#model).
-`disableAntimat` | Параметр, указывающий, что нужно отключить антимат — фильтр ненормативной лексики в распознанной речи.<br>Допустимые значения:<ul><li>`true` — ненормативная лексика не будет исключена из результатов распознавания;</li><li>`false` — ненормативная лексика будет исключена из результатов распознавания.</li></ul>Значение параметра по умолчанию: `false`.
-`folderid` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Для этого метода API `folderid` передается в Query параметрах, а не в теле запроса.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
+`topic` | [Языковая модель](../stt/index.md#model), которую следует использовать при распознавании.<br/>Чем точнее выбрана модель, тем лучше результат распознавания. В одном запросе можно указать только одну модель.<br/>Значение параметра по умолчанию: `general`.
+`lang` | Язык, для которого будет выполнено распознавание.<br/>Допустимые значения:<ul><li>`ru-RU` (по умолчанию) — русский язык,</li><li>`en-US` — английский язык.</li></ul>Допустимые значения параметра `topic` для различных значений `lang` приведены в разделе [[!TITLE]](../stt/index.md#model).
+`profanityFilter` | Параметр, регулирующий работу фильтра ненормативной лексики в распознанной речи.<br>Допустимые значения:<ul><li>`false` (по умолчанию) — ненормативная лексика не будет исключена из результатов распознавания;</li><li>`true` — ненормативная лексика будет исключена из результатов распознавания.</li></ul>
+`format` | Формат передаваемого аудио.<br/>Допустимые значения:<ul><li>`lpcm` — аудиофайл в формате [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) без WAV-заголовка. Характеристики аудио:<ul><li>Дискретизация — 8, 16 или 48 kHz в зависимости от значения параметра `sampleRateHertz`.</li><li>Разрядность квантования — 16-bit.</li><li>Порядок байтов — обратный (little-endian).</li><li>Аудиоданные хранятся как знаковые числа (signed integer).</li></ul></li><li>`oggopus` (по умолчанию) — данные закодированы с помощью аудиокодека OPUS и упакованы в контейнер OGG ([OggOpus](https://wiki.xiph.org/OggOpus)).</li></ul>
+`sampleRateHertz` | Частота дискретизации передаваемого аудио.<br/>Применяется, если значение `format` равно `lpcm`. Допустимые значения:<ul><li>`48000` (по умолчанию) — частота дискретизации 48 кГц;</li><li>`16000` — частота дискретизации 16 кГц;</li><li>`8000` — частота дискретизации 8 кГц.</li></ul>
+`folderId` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Для этого метода API `folderId` передается в Query параметрах, а не в теле запроса.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
 
-### Параметры в теле запроса
 
-В теле необходимо передать двоичное содержимое аудиофайла.
+## Параметры в теле запроса {#body_params}
 
-## Ответ
+В теле необходимо передать двоичное содержимое аудиофайла, удовлетворяющего следующим требованиям:
+1. Размер — не более 1 МБ.
+1. Длительность — не более 1 минуты.
+1. Количество аудиоканалов — 1.
+
+
+## Ответ {#response}
 
 Ответ содержит гипотезу распознавания.
 
@@ -37,101 +42,39 @@ POST https://stt.api.cloud.yandex.net/v1
 
 Ответ возвращается в формате JSON.
 
-## Примеры
-
-### Использование различных языковых моделей
-
-Ниже приведены результаты распознавания [фрагмента русской речи](https://download.cdn.yandex.net/from/yandex.ru/tech/ru/speechkit/cloud/doc/guide/files/speech.ogg) при использовании различных языковых моделей.
-
----
-
-**[!TAB queries]**
-
 ```json
 {
-  "result": "твой номер 212-85-06"
+  "result": <гипотеза распознавания>
 }
 ```
 
-**[!TAB notes]**
 
-```json
-{
-  "result": "твой номер 212-85-06"
-}
-```
+## Примеры {#examples}
 
-**[!TAB maps]**
-
-```json
-{
-  "result": "твой номер 212-85-06"
-}
-```
-
-**[!TAB dates]**
-
-```json
-{
-  "result": "твой номер 212-85-06"
-}
-```
-
-**[!TAB names]**
-
-```json
-{
-  "result": "твой номер 212-85-06"
-}
-```
-
-**[!TAB numbers]**
-
-```json
-{
-  "result": "твой номер 212-85-06"
-}
-```
-
-**[!TAB music]**
-
-```json
-{
-  "result": "твой номер 212-85-06"
-}
-```
-
-**[!TAB buying]**
-
-```json
-{
-  "result": "твой номер 212-85-06"
-}
-```
-
----
-
-### Примеры запроса
+### Пример запроса {#request_examples}
 
 ---
 
 **[!TAB POST-запрос]**
 
 ```httpget
-POST /v1/?topic=numbers&lang=ru-RU&folderid=<folder id> HTTP/1.1
+POST /speech/v1/stt:recognize/?topic=general&lang=ru-RU&folderId=<folder id> HTTP/1.1
 Host: stt.api.cloud.yandex.net
-Authorization: bearer <IAM-token>
-  
+Authorization: Bearer <IAM-token>
+
 ... (двоичное содержимое аудиофайла)
 ```
 
 **[!TAB cURL]**
 
 ```httpget
+export FOLDER_ID=<folder id>
+export TOKEN=<IAM-token>
 curl -X POST \
-     -H "Authorization: bearer <IAM-token>" \
+     -H "Authorization: Bearer ${TOKEN}" \
+     -H "Transfer-Encoding: chunked" \
      --data-binary "@speech.ogg" \
-     "https://stt.api.cloud.yandex.net/v1/?topic=numbers&folderid=<folder id>"
+     "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?topic=general&folderId=${FOLDER_ID}"
 ```
 
 **[!TAB Python]**
@@ -139,27 +82,38 @@ curl -X POST \
 ```python
 import urllib.request
 import json
+
+FOLDER_ID = "" # Идентификатор каталога
+IAM_TOKEN = "" # IAM-токен
+
 with open("speech.ogg", "rb") as f:
     data = f.read()
-url = urllib.request.Request("https://stt.api.cloud.yandex.net/v1/?topic=numbers&folderid=<folder id>", data=data)
-url.add_header("Authorization", "bearer <IAM-token>")
+
+params = "&".join([
+    "topic=general",
+    "folderId=%s" % FOLDER_ID,
+    "lang=ru-RU"
+])
+
+url = urllib.request.Request("https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?%s" % params, data=data)
+url.add_header("Authorization", "Bearer %s" % IAM_TOKEN)
+url.add_header("Transfer-Encoding", "chunked")
+
 responseData = urllib.request.urlopen(url).read().decode('UTF-8')
 decodedData = json.loads(responseData)
+
 if decodedData.get("error_code") is None:
     print(decodedData.get("result"))
 ```
 
 ---
 
-### Пример ответа
+### Пример ответа {#response_examples}
 
 ```
 HTTP/1.1 200 OK
-YaCloud-Request-Id: YYXXYYXXYY-YXXY-YXXY-YXXY-YYXXYYXXYY
 YaCloud-Billing-Units: 15
 {
   "result": "твой номер 212-85-06"
-}        
+}
 ```
-
-[!INCLUDE [request-id-note](../_includes/request-id-note.md)]

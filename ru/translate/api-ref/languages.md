@@ -5,7 +5,7 @@
 ## Запрос {#request}
 
 ```
-POST https://translate.api.cloud.yandex.net/v1/languages
+POST https://translate.api.cloud.yandex.net/translate/v1/languages
 ```
 
 ### Параметры в теле запроса
@@ -15,23 +15,35 @@ POST https://translate.api.cloud.yandex.net/v1/languages
 
 Параметр | Описание
 ----- | -----
-`folderid` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
+`folderId` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
 
 
 ## Ответ {#response}
 
 Ответ возвращается в формате JSON.
 
+```json
+{
+   "languages": [
+        {"language": <код языка>},
+        ...
+        {"language": <код языка>}
+   ]
+} 
+```
+
 
 ## Примеры {#examples}
 
 ### Пример запроса
 
-```no-highlight
+```httpget
+export FOLDER_ID=<folder id>
+export TOKEN=<IAM-token>
 curl -X POST \
-     -H "Authorization: bearer <IAM-token>" \
-     -d "folderid=<folder id>"
-     "https://translate.api.cloud.yandex.net/v1/languages/"
+     -H "Authorization: Bearer ${TOKEN}" \
+     -d "folderId=${FOLDER_ID}" \
+     "https://translate.api.cloud.yandex.net/translate/v1/languages"
 ```
 
 ### Пример ответа

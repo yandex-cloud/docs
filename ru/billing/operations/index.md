@@ -2,11 +2,15 @@
 
 [Активировать платную версию](activate-commercial.md)
 
+[Активировать промокод](activate-promocode.md)
+
 [Посмотреть краткую статистику по расходам](check-diagram.md)
 
 [Посмотреть детализацию использования сервисов](check-charges.md)
 
-[Пополнить баланс лицевого счета](pay-the-bill.md)
+[Пополнить счет](pay-the-bill.md) 
+
+[Изменить способ оплаты](change-payment-method.md) 
 
 [Расшифровать счет на оплату](spell-out-bill.md)
 

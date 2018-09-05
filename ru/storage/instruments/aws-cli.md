@@ -9,20 +9,18 @@
 
 ## Подготовка к работе {#preparations}
 
-1. Создайте сервисный аккаунт.
-1. [Получите необходимые роли](../security/index.md).
-1. [Получите статический ключ](../operations/security/get-static-key.md).
+[!INCLUDE [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md)]
 
 ## Установка {#installation}
 
-Для устновки AWS CLI воспользуйтесь [инструкцией](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) на сайте производителя.
+Для установки AWS CLI воспользуйтесь [инструкцией](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) на сайте производителя.
 
 ## Настройка {#setup}
 
 Для настройки AWS CLI используйте команду `aws configure`. Команда запросит значения для следующих параметров:
 
-1. `AWS Access Key ID` — введите значение `id`, которое вы получили при генерации статического ключа.
-1. `AWS Secret Access Key` — введите значение `secretKey`, которое вы получили при генерации секретного ключа.
+1. `AWS Access Key ID` — введите идентификатор ключа, который вы получили при генерации статического ключа.
+1. `AWS Secret Access Key` — введите секретный ключ, который вы получили при генерации статического ключа.
 1. `Default region name` — введите значение `us-east-1`.
    
    > [!NOTE]
@@ -54,7 +52,7 @@
 При использовании AWS CLI для работы с [!KEYREF objstorage-name] учитывайте следующие особенности этого инструмента:
 - AWS CLI работает с [!KEYREF objstorage-name] как с иерархической файловой системой и ключи объектов имеют вид пути к файлу.
 - При запуске команды `aws` для работы с [!KEYREF objstorage-name] обязателен параметр `--endpoint-url`, поскольку по умолчанию клиент настроен на работу с серверами Amazon.
-- При работе в Mac OS, в некоторых случаях требуется запуск вида:
+- При работе в macOS, в некоторых случаях требуется запуск вида:
     ```
     export PYTHONPATH=/Library/Python/2.7/site-packages; aws --endpoint-url=https://[!KEYREF s3-storage-host] s3 ls
     ```

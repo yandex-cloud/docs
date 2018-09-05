@@ -47,14 +47,30 @@ GET /{bucket} HTTP/1.1
 
 ### Схема данных {#structure}
 
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<ListBucketResult>
+    <Name>bucket</Name>
+    <Prefix/>
+    <Marker/>
+    <MaxKeys>1000</MaxKeys>
+    <IsTruncated>false</IsTruncated>
+    <Contents>
+        <Key>my-image.jpg</Key>
+        <LastModified>2018-09-10T17:50:30.000Z</LastModified>
+        <ETag>MD5</ETag>
+        <Size>434234</Size>
+        <StorageClass>STANDARD</StorageClass>
+    </Contents>
+</ListBucketResult>
+```
+
 Элемент | Описание
 ----- | -----
 `Contents` | Описание объекта.<br/><br/>Ответ будет содержать столько элементов `Contents`, сколько ключей попало под условия запроса.<br/><br/>Путь: `/ListBucketResult/Contents`.
 `CommonPrefixes` | Часть имени ключа, которая определяется при обработке path параметров `delimiter` и `prefix`.<br/><br/>Путь: `/ListBucketResult/CommonPrefixes`.
 `Delimiter` | Значение path параметра `delimiter`.<br/><br/>Путь: `/ListBucketResult/Delimiter`.
-`DisplayName` | Имя владельца объекта.<br/><br/>Путь: `/ListBucketResult/Contents/Owner/DisplayName`.
 `ETag` | MD5-хэш объекта. Метаданные в расчете хэша не участвуют.<br/><br/>Путь: `/ListBucketResult/Contents/ETag`.
-`ID` | Идентификатор владельца объекта.<br/><br/>Путь: `/ListBucketResult/Contents/Owner/ID`.
 `IsTruncated` | Флаг, показывающий все ли результаты возвращены в этом ответе.<br/><br/>`True` — все. `False` — не все.<br/><br/>Путь: `/ListBucketResult/IsTruncated`.
 `Key` | Ключ объекта.<br/><br/>Путь: `/ListBucketResult/Contents/Key`.
 `LastModified` | Дата и время последнего изменения объекта.<br/><br/>Путь: `/ListBucketResult/Contents/LastModified`.
@@ -62,7 +78,6 @@ GET /{bucket} HTTP/1.1
 `MaxKeys` | Значение path параметра `max-keys`.<br/><br/>Путь: `/ListBucketResult/MaxKeys`.
 `Name` | Имя корзины.<br/><br/>Путь: `/ListBucketResult/Name`.
 `NextMarker` | Значение, которое надо подставить в path параметр `marker` для получения следующей части списка, если весь список не поместился в текущий ответ.<br/><br/>Путь: `/ListBucketResult/NextMarker`.
-`Owner` | Владелец корзины.<br/><br/>Путь: `/ListBucketResult/(Contents|CommonPrefixes)`.
 `Prefix` | Значение path параметра `prefix`.<br/><br/>Путь: `/ListBucketResult/Prefix`.
 `Size` | Размер объекта в байтах.<br/><br/>Путь: `/ListBucketResult/Contents/Size`.
 `StorageClass` | Класс хранения объекта: `STANDARD` или `COLD`.<br/><br/>Путь: `/ListBucketResult/Contents/StorageClass`.

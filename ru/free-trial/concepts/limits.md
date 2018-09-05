@@ -40,6 +40,16 @@
 [!INCLUDE [vpc-limits.md](../../_includes/vpc-limits.md)]
 
 
-### [!KEYREF mdb-full-name] {#mdb}
+### [!KEYREF mch-full-name] {#mdb}
 
-[!INCLUDE [mdb-limits.md](../../_includes/mdb-limits.md)]
+[!INCLUDE [mch-limits.md](../../_includes/mdb/mch-limits.md)]
+
+
+### [!KEYREF mmg-full-name] {#mdb}
+
+[!INCLUDE [mmg-limits.md](../../_includes/mdb/mmg-limits.md)]
+
+
+### [!KEYREF mpg-full-name] {#mdb}
+
+[!INCLUDE [mpg-limits.md](../../_includes/mdb/mpg-limits.md)]

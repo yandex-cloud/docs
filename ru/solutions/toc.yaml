@@ -1,0 +1,23 @@
+title: "Сценарии использования"
+href: index.yaml
+items:
+  - name: Веб-сервис
+    items:
+    - name: Обзор
+      href: web/index.md
+    - name: Cтатический сайт в Object Storage
+      href: web/static.md
+    - name: Cайт на LAMP- или LEMP-стеке
+      href: web/lamp-lemp.md
+    - name: Отказоустойчивый сайт с балансировкой нагрузки
+      href: web/dns-load-balancer.md
+    - name: Сайт на базе Joomla с БД PostgreSQL
+      href: web/joomla-postgresql.md
+  - name: Архив данных
+    items:
+    - name: Обзор
+      href: archive/index.md
+    - name: Однонодовый файловый сервер
+      href: archive/single-node-file-server.md
+    - name: Резервное копирование в Object Storage через Acronis
+      href: archive/object-storage-acronis.md

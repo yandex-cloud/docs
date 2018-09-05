@@ -1,0 +1,33 @@
+title: "Yandex.Cloud API concepts"
+href: index.yaml
+items:
+  - name: Basic principles
+    href: concepts/general.md
+  - name: Resources
+    items:
+      - name: Resource identification
+        href: concepts/resources-identification.md
+      - name: Standard fields
+        href: concepts/standard-fields.md
+  - name: API methods
+    items:
+      - name: Overview
+        href: concepts/about-methods.md
+      - name: Standard methods
+        href: concepts/standard-methods.md
+      - name: Custom methods
+        href: concepts/custom-methods.md
+      - name: Pagination
+        href: concepts/pagination.md
+      - name: Handling errors
+        href: concepts/errors.md
+  - name: Working with operations
+    items:
+      - name: Overview
+        href: concepts/about-async.md
+      - name: Asynchronous operations
+        href: concepts/async.md
+      - name: Operation object
+        href: concepts/operation.md
+      - name: Idempotence
+        href: concepts/idempotency.md

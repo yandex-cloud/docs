@@ -2,54 +2,123 @@
 
 Генерирует речь по переданному тексту.
 
-## Запрос {#request}
+## HTTP-запрос {#http_request}
 
 ```
-POST https://tts.api.cloud.yandex.net/v1
+POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 ```
 
-### Параметры в теле запроса
+Используйте заголовок `"Transfer-Encoding: chunked"` для потокового получения результата.
+
+
+## Параметры в теле запроса {#body_params}
 
 Для всех параметров обязательно используйте URL-кодирование. Максимальный размер тела POST-запроса 30 КБ.
 
+
 Параметр | Описание
 ----- | -----
-`text` | Обязательный параметр.<br/>Текст, который нужно озвучить.<br/>Для передачи слов-омографов используйте `+` перед ударной гласной. Например, `гот+ов` или `def+ect`.<br/>Ограничение на длину строки: 5000 символов.
-`quality` | Частота дискретизации синтезируемого аудио.<br/>Допустимые значения:<ul><li>`ultrahigh` — частота дискретизации 48 кГц;</li><li>`high` — частота дискретизации 16 кГц;</li><li>`low` — частота дискретизации 8 кГц.</li></ul>Значение параметра по умолчанию: `ultrahigh`.
-`lang` | Язык.<br/>Допустимые значения:<ul><li>`ru-RU` — русский язык,</li><li>`en-US` — английский язык,</li><li>`uk-UK` — украинский язык,</li><li>`tr-TR` — турецкий язык.</li></ul>Значение параметра по умолчанию: `ru-RU`.
-`speaker` | Голос синтезированной речи.<br/>Можно выбрать один из следующих голосов:<ul><li>женские голоса: `jane`, `oksana`, `alyss` и `omazh`;</li><li>мужские голоса: `zahar` и `ermil`.</li></ul>Значение параметра по умолчанию: `oksana`.
-`speed` | Скорость (темп) синтезированной речи.<br/>Скорость речи задается дробным числом в диапазоне от `0.1` до `3.0`. Где:<ul><li>`3.0` — самый быстрый темп;</li><li>`1.0` — средняя скорость человеческой речи;</li><li>`0.1` — самый медленный темп.</li></ul>Значение параметра по умолчанию: `1.0`.
-`emotion` | Эмоциональная окраска голоса.<br/>Допустимые значения:<ul><li>`good` — радостный, доброжелательный;</li><li>`evil` — раздраженный;</li><li>`neutral` — нейтральный.</li></ul>Значение параметра по умолчанию: `neutral`.
-`folderid` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
+`text` | Обязательный параметр.<br/>Текст, который нужно озвучить, в кодировке UTF-8.<br/>Для передачи слов-омографов используйте `+` перед ударной гласной. Например, `гот+ов` или `def+ect`.<br/>Ограничение на длину строки: 5000 символов.
+`lang` | Язык.<br/>Допустимые значения:<ul><li>`ru-RU` (по умолчанию) — русский язык,</li><li>`en-US` — английский язык;</li><li>`tr-TR` — турецкий язык.</li></ul>
+`voice` | Голос синтезированной речи.<br/>Можно выбрать один из следующих голосов:<ul><li>женские голоса:  `alyss`, `jane`, `oksana` и `omazh`;</li><li>мужские голоса: `zahar` и `ermil`.</li></ul>Значение параметра по умолчанию: `oksana`.
+`emotion` | Эмоциональная окраска голоса.<br/>Допустимые значения:<ul><li>`good` — радостный, доброжелательный;</li><li>`evil` — раздраженный;</li><li>`neutral` (по умолчанию) — нейтральный.</li></ul>
+`speed` | Скорость (темп) синтезированной речи.<br/>Скорость речи задается дробным числом в диапазоне от `0.1` до `3.0`. Где:<ul><li>`3.0` — самый быстрый темп;</li><li>`1.0` (по умолчанию) — средняя скорость человеческой речи;</li><li>`0.1` — самый медленный темп.</li></ul>
+`format` | Формат синтезируемого аудио.<br/>Допустимые значения:<ul><li>`lpcm` — аудиофайл синтезируется в формате [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) без WAV-заголовка. Характеристики аудио:<ul><li>Дискретизация — 8, 16 или 48 kHz в зависимости от значения параметра `sampleRateHertz`.</li><li>Разрядность квантования — 16-bit.</li><li>Порядок байтов — обратный (little-endian).</li><li>Аудиоданные хранятся как знаковые числа (signed integer).</li></ul></li><li>`oggopus` (по умолчанию) — данные в аудиофайле кодируются с помощью аудиокодека OPUS и упаковываются в контейнер OGG ([OggOpus](https://wiki.xiph.org/OggOpus)).</li></ul>
+`sampleRateHertz` | Частота дискретизации синтезируемого аудио.<br/>Применяется, если значение `format` равно `lpcm`. Допустимые значения:<ul><li>`48000` (по умолчанию) — частота дискретизации 48 кГц;</li><li>`16000` — частота дискретизации 16 кГц;</li><li>`8000` — частота дискретизации 8 кГц.</li></ul>
+`folderId` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
+
 
 ## Ответ {#response}
 
-Если синтез прошел успешно, в ответе будет бинарное содержимое аудиофайла. Для аудиофайлов используется аудиокодек OPUS и контейнер OGG ([OggOpus](https://wiki.xiph.org/OggOpus)).
+Если синтез прошел успешно, в ответе будет бинарное содержимое аудиофайла. Формат выходных данных зависит от значения параметра `format`.
 
 
-## Примеры {#request-example}
+## Примеры {#examples}
 
-### Пример запроса
+### Превратить текст в речь в формате Ogg {#ogg}
 
-```httpget
+В этом примере текст "Привет мир" синтезируется и записывается в аудиофайл.
+
+По умолчанию данные в аудиофайле кодируются с помощью аудиокодека OPUS и упаковываются в контейнер OGG ([OggOpus](https://wiki.xiph.org/OggOpus)).
+
+---
+
+**[!TAB cURL]**
+
+```bash
+export FOLDER_ID=b1gvmob03goohplct641
+export IAM_TOKEN=CggaATEVAgA...
 curl -X POST \
-     -H "Authorization: bearer <IAM-token>" \
-     -d "text=hello%20world&speaker=zahar&emotion=good&folderid=<folder id>"
-     "https://tts.api.cloud.yandex.net/v1" > speech.ogg
+     -H "Authorization: Bearer ${IAM_TOKEN}" \
+     -H "Transfer-Encoding: chunked" \
+     --data-urlencode "text=Привет мир" \
+     -d "voice=zahar&emotion=good&folderId=${FOLDER_ID}" \
+     "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
 ```
 
-### Пример ответа
+**[!TAB C#]**
 
-```no-highlight
-HTTP/1.1 200 OK
-Content-Type: audio/ogg
-Content-Disposition: inline
-Content-Transfer-Encoding: binary
-YaCloud-Request-Id: YYXXYYXXYY-YXXY-YXXY-YXXY-YYXXYYXXYY
-YaCloud-Billing-Units: 15
-        
-... (двоичное содержимое аудиофайла)   
+```c#
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace TTS
+{
+  class Program
+  {
+    static void Main()
+    {
+      Tts().GetAwaiter().GetResult();
+    }
+
+    static async Task Tts()
+    {
+      const string iamToken = "CggaATEVAgA..."; // Укажите IAM-токен.
+      const string folderId = "b1gvmob03goohplct641"; // Укажите ID каталога.
+
+      HttpClient client = new HttpClient();
+      client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
+      client.DefaultRequestHeaders.Add("Transfer-Encoding", "chunked");
+      var values = new Dictionary<string, string>
+      {
+        { "voice", "zahar" },
+        { "emotion", "good" },
+        { "folderId", folderId },
+        { "text", "Привет мир"}
+      };
+      var content = new FormUrlEncodedContent(values);
+      var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
+      var responseBytes = await response.Content.ReadAsByteArrayAsync();
+      File.WriteAllBytes("speech.ogg", responseBytes);
+    }
+  }
+}
 ```
 
+---
 
-[!INCLUDE [request-id-note](../_includes/request-id-note.md)]
+### Превратить текст в речь в формате WAV {#wav}
+
+В этом примере переданный текст синтезируется в формате LPCM с частотой дискретизации 48kHz и сохраняется в файле `speech.raw`. Затем этот файл конвертируется в формат WAV с помощью утилиты [SoX](http://sox.sourceforge.net/).
+
+---
+
+**[!TAB cURL]**
+
+```bash
+export FOLDER_ID=b1gvmob03goohplct641
+export IAM_TOKEN=CggaATEVAgA...
+curl -X POST \
+    -H "Authorization: Bearer ${IAM_TOKEN}" \
+    -H "Transfer-Encoding: chunked" \
+    -o speech.raw \
+    --data-urlencode "text=Привет мир" \
+    -d "voice=zahar&emotion=good&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
+    https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
+
+sox -r 48000 -b 16 -e signed-integer -c 1 speech.raw speech.wav
+```
+---

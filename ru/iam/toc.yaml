@@ -1,26 +1,46 @@
 title: "Yandex Identity and Access Management"
-icon: "/img/iam.svg"
+href: index.yaml
 items:
-  - name: Yandex Identity and Access Management
-    href: index.yaml
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
-        href: operations/all.md
+        href: operations/index.md
       - name: Пользователи
         items:
           - name: Добавить пользователя
             href: operations/users/create.md
+          - name: Получить идентификатор или почту пользователя
+            href: operations/users/get.md
           - name: Удалить пользователя
             href: operations/users/delete.md
+      - name: Сервисные аккаунты
+        items:
+          - name: Создать сервисный аккаунт
+            href: operations/sa/create.md
+          - name: Изменить сервисный аккаунт
+            href: operations/sa/update.md
+          - name: Назначить роль сервисному аккаунту
+            href: operations/sa/assign-role-for-sa.md
+          - name: Установить права доступа к сервисному аккаунту
+            href: operations/sa/set-access-bindings.md
+          - name: Создать статические ключи доступа
+            href: operations/sa/create-access-key.md
+          - name: Удалить сервисный аккаунт
+            href: operations/sa/delete.md
       - name: Роли
         items:
           - name: Назначить роль
             href: operations/roles/grant.md
           - name: Отозвать роль
             href: operations/roles/revoke.md
+      - name: IAM-токены
+        items:
+          - name: Получить свой IAM-токен
+            href: operations/iam-token/create.md
+          - name: Получить IAM-токен для сервисного аккаунта
+            href: operations/iam-token/create-for-sa.md
   - name: Основные понятия
     items:
       - name: Обзор
@@ -51,3 +71,18 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: ru/iam/toc.yaml
+  - name: Вопросы и ответы
+    items:
+      - name: Общие вопросы
+        href: qa/general.md
+      - name: Вход в систему и доступ к ресурсам
+        href: qa/access.md
+      - name: Все вопросы на одной странице
+        href: qa/index.md
