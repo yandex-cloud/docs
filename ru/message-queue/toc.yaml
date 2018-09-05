@@ -1,0 +1,47 @@
+- name: Yandex Message Queue
+  href: index.md
+- name: Начало работы
+  href: quick-start.md
+- name: Пошаговые инструкции
+  href: operations/index.md
+  items:
+    - name: Создание новой очереди сообщений
+      href: operations/message-queue-new-queue.md
+    - name: Настройка очереди сообщений
+      href: operations/message-queue-configure-queue.md
+    - name: Отправка сообщений
+      href: operations/message-queue-send-message.md
+    - name: Прием и удаление сообщений
+      href: operations/message-queue-receive-and-delete-message.md
+    - name: Удаление очереди сообщений
+      href: operations/message-queue-delete-queue.md
+- name: Yandex Message Queue API
+  href: api-ref/index.md
+  items:
+    - name: Message
+      href: api-ref/message.md
+    - name: Queue
+      href: api-ref/queue.md
+- name: Основные понятия Yandex Message Queue
+  href: concepts/index.md
+  items:
+    - name: Сообщения
+      href: concepts/message.md
+    - name: Очереди сообщений
+      href: concepts/queue.md
+    - name: Таймаут видимости
+      href: concepts/visibility-timeout.md
+    - name: Квоты и лимиты
+      href: concepts/limits.md
+    - name: Глоссарий
+      href: concepts/glossary.md
+- name: Безопасность и управление доступом
+  href: security/security.md
+- name: Инструменты для работы с Yandex Message Queue
+  href: instruments/index.md
+- name: Тарификация и цены
+  href: pricing.md
+- name: Соглашение об уровне предоставления услуг
+  href: sla.md
+- name: Вопросы и ответы
+  href: qa/index.md
