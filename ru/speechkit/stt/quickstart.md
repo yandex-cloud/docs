@@ -7,7 +7,7 @@
 **[!TAB POST-запрос]**
 
 ```httpget
-POST /v1/?topic=queries&folderid=<folder id> HTTP/1.1
+POST /speech/v1/stt:recognize/?topic=queries&folderid=<folder id> HTTP/1.1
 Host: stt.api.cloud.yandex.net
 Authorization: Bearer <IAM-token>
   
