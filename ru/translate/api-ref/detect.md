@@ -25,7 +25,7 @@ POST https://translate.api.cloud.yandex.net/translate/v1/detect
 
 ```json
 {
-    "lang": <язык текста>
+    "language": <язык текста>
 }
 ```
 
@@ -47,7 +47,7 @@ curl -X POST \
 
 ```json
 {
-    "lang": "en"
+    "language": "en"
 }
 ```
 
