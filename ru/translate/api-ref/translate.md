@@ -27,6 +27,15 @@ POST https://translate.api.cloud.yandex.net/translate/v1/translate
 
 Ответ возвращается в формате JSON.
 
+```json
+{
+    "translations": [
+        {"text": <перевод текста>},
+        ...
+    ]
+}
+```
+
 
 ## Примеры {#examples}
 

@@ -23,6 +23,12 @@ POST https://translate.api.cloud.yandex.net/translate/v1/detect
 
 Ответ возвращается в формате JSON.
 
+```json
+{
+    "lang": <язык текста>
+}
+```
+
 
 ## Примеры {#examples}
 
