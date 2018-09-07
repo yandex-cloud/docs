@@ -5,7 +5,7 @@
 ## Запрос {#request}
 
 ```
-POST https://translate.api.cloud.yandex.net/v1/translate
+POST https://translate.api.cloud.yandex.net/translate/v1/translate
 ```
 
 ### Параметры в теле запроса
@@ -15,7 +15,7 @@ POST https://translate.api.cloud.yandex.net/v1/translate
 
 Параметр | Описание
 ----- | -----
-`text` | Обязательный параметр.<br/>Текст, который необходимо перевести.<br/>В запросе можно использовать несколько параметров `text`.
+`text` | Обязательный параметр.<br/>Текст, который необходимо перевести, в кодировке UTF-8.<br/>В запросе можно использовать несколько параметров `text`.
 `source` | Язык, на котором написан исходный текст.<br/>Задается в виде двухбуквенного кода языка в соответствии с [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) (например `ru`). Если параметр не задан, сервис пытается определить исходный язык автоматически. 
 `target` | Обязательный параметр.<br/>Направление перевода.<br/>Задается в виде двухбуквенного кода языка в соответствии с [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) (например `ru`).
 `format` | Формат текста.<br/>Возможные значения:<br/><ul><li>`plain` — текст без разметки (значение по умолчанию)</li><li>`html` — текст в формате HTML.</li></ul>
@@ -27,6 +27,15 @@ POST https://translate.api.cloud.yandex.net/v1/translate
 
 Ответ возвращается в формате JSON.
 
+```json
+{
+    "translations": [
+        {"text": <перевод текста>},
+        ...
+    ]
+}
+```
+
 
 ## Примеры {#examples}
 
@@ -34,9 +43,9 @@ POST https://translate.api.cloud.yandex.net/v1/translate
 
 ```no-highlight
 curl -X POST \
-     -H "Authorization: bearer <IAM-token>" \
+     -H "Authorization: Bearer <IAM-token>" \
      -d "text=hello%20world&source=en&target=ru&folderid=<folder id>"
-     "https://translate.api.cloud.yandex.net/v1/translate"
+     "https://translate.api.cloud.yandex.net/translate/v1/translate"
 ```
 
 ### Пример ответа

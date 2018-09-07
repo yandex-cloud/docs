@@ -5,7 +5,7 @@
 ## Запрос {#request}
 
 ```
-POST https://translate.api.cloud.yandex.net/v1/languages
+POST https://translate.api.cloud.yandex.net/translate/v1/languages
 ```
 
 ### Параметры в теле запроса
@@ -22,6 +22,16 @@ POST https://translate.api.cloud.yandex.net/v1/languages
 
 Ответ возвращается в формате JSON.
 
+```json
+{
+   "languages": [
+        {"language": <код текста>},
+        ...
+        {"language": <код текста>}
+   ]
+} 
+```
+
 
 ## Примеры {#examples}
 
@@ -29,9 +39,9 @@ POST https://translate.api.cloud.yandex.net/v1/languages
 
 ```no-highlight
 curl -X POST \
-     -H "Authorization: bearer <IAM-token>" \
+     -H "Authorization: Bearer <IAM-token>" \
      -d "folderid=<folder id>"
-     "https://translate.api.cloud.yandex.net/v1/languages/"
+     "https://translate.api.cloud.yandex.net/translate/v1/languages/"
 ```
 
 ### Пример ответа

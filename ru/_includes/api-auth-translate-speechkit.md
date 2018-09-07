@@ -30,7 +30,7 @@
 1. Найдите идентификатор каталога в URL страницы каталога в консоли управления.
 2. Получите IAM-токен.
 3. В каждом API запросе к сервису передавайте:
-    * IAM-токен в заголовке `Authorization` в формате `Authorization: bearer <IAM-token>`.
+    * IAM-токен в заголовке `Authorization` в формате `Authorization: Bearer <IAM-token>`.
     * Идентификатор каталога в параметре `folderid` в теле запроса в формате `folderid=<folder id>`.
 
 

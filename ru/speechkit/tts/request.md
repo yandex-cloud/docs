@@ -5,7 +5,7 @@
 ## Запрос {#request}
 
 ```
-POST https://tts.api.cloud.yandex.net/v1
+POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 ```
 
 ### Параметры в теле запроса
@@ -14,7 +14,7 @@ POST https://tts.api.cloud.yandex.net/v1
 
 Параметр | Описание
 ----- | -----
-`text` | Обязательный параметр.<br/>Текст, который нужно озвучить.<br/>Для передачи слов-омографов используйте `+` перед ударной гласной. Например, `гот+ов` или `def+ect`.<br/>Ограничение на длину строки: 5000 символов.
+`text` | Обязательный параметр.<br/>Текст, который нужно озвучить, в кодировке UTF-8.<br/>Для передачи слов-омографов используйте `+` перед ударной гласной. Например, `гот+ов` или `def+ect`.<br/>Ограничение на длину строки: 5000 символов.
 `quality` | Частота дискретизации синтезируемого аудио.<br/>Допустимые значения:<ul><li>`ultrahigh` — частота дискретизации 48 кГц;</li><li>`high` — частота дискретизации 16 кГц;</li><li>`low` — частота дискретизации 8 кГц.</li></ul>Значение параметра по умолчанию: `ultrahigh`.
 `lang` | Язык.<br/>Допустимые значения:<ul><li>`ru-RU` — русский язык,</li><li>`en-US` — английский язык,</li><li>`uk-UK` — украинский язык,</li><li>`tr-TR` — турецкий язык.</li></ul>Значение параметра по умолчанию: `ru-RU`.
 `speaker` | Голос синтезированной речи.<br/>Можно выбрать один из следующих голосов:<ul><li>женские голоса: `jane`, `oksana`, `alyss` и `omazh`;</li><li>мужские голоса: `zahar` и `ermil`.</li></ul>Значение параметра по умолчанию: `oksana`.
@@ -33,9 +33,9 @@ POST https://tts.api.cloud.yandex.net/v1
 
 ```httpget
 curl -X POST \
-     -H "Authorization: bearer <IAM-token>" \
+     -H "Authorization: Bearer <IAM-token>" \
      -d "text=hello%20world&speaker=zahar&emotion=good&folderid=<folder id>"
-     "https://tts.api.cloud.yandex.net/v1" > speech.ogg
+     "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
 ```
 
 ### Пример ответа
