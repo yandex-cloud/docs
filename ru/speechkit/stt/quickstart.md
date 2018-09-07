@@ -9,7 +9,7 @@
 ```httpget
 POST /v1/?topic=queries&folderid=<folder id> HTTP/1.1
 Host: stt.api.cloud.yandex.net
-Authorization: bearer <IAM-token>
+Authorization: Bearer <IAM-token>
   
 ... (двоичное содержимое аудиофайла)
 ```
@@ -20,9 +20,9 @@ Authorization: bearer <IAM-token>
 $ curl -LO https://download.cdn.yandex.net/from/yandex.ru/tech/ru/speechkit/cloud/doc/guide/files/speech.ogg
   
 $ curl -X POST \
-     -H "Authorization: bearer <IAM-token>" \
+     -H "Authorization: Bearer <IAM-token>" \
      --data-binary "@speech.ogg" \
-     "https://stt.api.cloud.yandex.net/v1/?topic=numbers&folderid=<folder id>"
+     "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?topic=numbers&folderid=<folder id>"
 ```
 
 --- 
