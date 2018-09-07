@@ -11,7 +11,7 @@
 ## Запрос
 
 ```
-POST https://stt.api.cloud.yandex.net/v1
+POST https://stt.api.cloud.yandex.net/speech/v1/stt:recognize
 ```
 
 ### Query параметры
@@ -36,6 +36,13 @@ POST https://stt.api.cloud.yandex.net/v1
 Распознанный текст обрабатывается перед отправкой — числительные преобразуются в цифры, расставляются некоторые знаки препинания (например, дефисы) и т. д. Этот преобразованный текст и является финальным результатом распознавания, который отправляется в теле ответа.
 
 Ответ возвращается в формате JSON.
+
+```json
+{
+  "result": <гипотеза распознавания>
+}  
+```
+
 
 ## Примеры
 
@@ -118,9 +125,9 @@ POST https://stt.api.cloud.yandex.net/v1
 **[!TAB POST-запрос]**
 
 ```httpget
-POST /v1/?topic=numbers&lang=ru-RU&folderid=<folder id> HTTP/1.1
+POST /speech/v1/stt:recognize/?topic=numbers&lang=ru-RU&folderid=<folder id> HTTP/1.1
 Host: stt.api.cloud.yandex.net
-Authorization: bearer <IAM-token>
+Authorization: Bearer <IAM-token>
   
 ... (двоичное содержимое аудиофайла)
 ```
@@ -129,9 +136,9 @@ Authorization: bearer <IAM-token>
 
 ```httpget
 curl -X POST \
-     -H "Authorization: bearer <IAM-token>" \
+     -H "Authorization: Bearer <IAM-token>" \
      --data-binary "@speech.ogg" \
-     "https://stt.api.cloud.yandex.net/v1/?topic=numbers&folderid=<folder id>"
+     "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?topic=numbers&folderid=<folder id>"
 ```
 
 **[!TAB Python]**
@@ -141,8 +148,8 @@ import urllib.request
 import json
 with open("speech.ogg", "rb") as f:
     data = f.read()
-url = urllib.request.Request("https://stt.api.cloud.yandex.net/v1/?topic=numbers&folderid=<folder id>", data=data)
-url.add_header("Authorization", "bearer <IAM-token>")
+url = urllib.request.Request("https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?topic=numbers&folderid=<folder id>", data=data)
+url.add_header("Authorization", "Bearer <IAM-token>")
 responseData = urllib.request.urlopen(url).read().decode('UTF-8')
 decodedData = json.loads(responseData)
 if decodedData.get("error_code") is None:
