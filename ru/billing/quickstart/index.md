@@ -95,4 +95,5 @@
     6.6. Нажмите кнопку **Активировать**. 
      
    
-7. [!INCLUDE [quickstart-all](../../_includes/quickstart-all.md)]
+7. Чтобы начать знакомство с Яндекс.Облаком, воспользуйтесь инструкциями:
+   [!INCLUDE [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md)]
