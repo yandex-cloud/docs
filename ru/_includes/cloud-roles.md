@@ -1,7 +1,7 @@
 #### resource-manager.cloud.owner
 
 Роль `resource-manager.cloud.owner` назначается на уровне облака.
-`resource-manager.cloud.owner` может выполнять любые действия с облаком и ресурсами в нем, в том числе с ресурсами сервиса [!KEYREF service-name].
+`resource-manager.cloud.owner` может выполнять любые действия с облаком и ресурсами в нем.
 
 #### resource-manager.cloud.member
 
