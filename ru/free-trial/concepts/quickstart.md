@@ -13,7 +13,9 @@
 
 ## Начало работы
 
-[!INCLUDE [quickstart-all](../../_includes/quickstart-all.md)]
+Чтобы начать знакомство с Яндекс.Облаком, воспользуйтесь инструкциями:
+
+[!INCLUDE [quickstart-all](../../_includes/quickstart-all-no-billing.md)]
 
 Вам также могут быть полезны ссылки:
 * [[!TITLE]](limits.md)
