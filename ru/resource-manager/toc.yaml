@@ -21,7 +21,7 @@ items:
             href: operations/folder/set-access-bindings.md
   - name: Основные понятия
     items:
-      - name: Структура ресурсов Яндекс.Облака
+      - name: Иерархия ресурсов Яндекс.Облака
         href: concepts/resources-hierarchy.md
       - name: Квоты и лимиты
         href: concepts/limits.md

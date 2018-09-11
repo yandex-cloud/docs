@@ -23,4 +23,4 @@
 
 > [!NOTE]
 >
-> При создании нового пользователя в облаке ему автоматически назначается роль `[!KEYREF roles-cloud-member]` на это облако. Эта роль необходима чтобы пользователь смог получить доступ к ресурсам в облаке. Роль `[!KEYREF roles-cloud-member]` используется в сочетании с другими ролями, например `[!KEYREF roles-admin]`, `[!KEYREF roles-editor]` или `[!KEYREF roles-viewer]`. Подробнее о ролях читайте в разделе [Роли](concepts/access-control/roles.md)
+> При создании нового пользователя в облаке ему автоматически назначается роль `[!KEYREF roles-cloud-member]` на это облако. Эта роль необходима, чтобы пользователь смог получить доступ к ресурсам в облаке. Роль `[!KEYREF roles-cloud-member]` используется в сочетании с другими ролями, например `[!KEYREF roles-admin]`, `[!KEYREF roles-editor]` или `[!KEYREF roles-viewer]`. Подробнее о ролях читайте в разделе [Роли](concepts/access-control/roles.md)
