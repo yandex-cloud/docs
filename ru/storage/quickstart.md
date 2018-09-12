@@ -5,7 +5,7 @@
 1. Зарегистрируйтесь в Яндекс.Облаке.
 
    Подробнее читайте в разделе [Начало работы](../billing/quickstart/index.md) документации про Биллинг.
-1. Получите необходимые [роли](../iam/concepts/access-control/roles.md) для работы с [!KEYREF objstorage-name]. Выберите один из вариантов:
+1. Получите необходимые роли для работы с [!KEYREF objstorage-name]. Выберите один из вариантов:
     * роль `resource-manager.cloud.owner` на облако;
     * пара ролей `resource-manager.cloud.member` на облако и `admin` на облако или каталог;
     * пара ролей `resource-manager.cloud.member` на облако и `editor` на облако или каталог.
