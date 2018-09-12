@@ -8,4 +8,4 @@ meta:
 links:
 - title: "Начало работы"
   description: ""
-  href: "/quickstart"
+  href: "/docs/cli/quickstart"

@@ -1,1 +1,3 @@
-db-small: db1-c4-m12
+yc-install-path: https://console.cloud.yandex.ru/cli/install.sh
+yc-windows-path-amd64: https://console.cloud.yandex.ru/cli/latest/windows/amd64/yc.exe
+yc-windows-path-386: https://console.cloud.yandex.ru/cli/latest/windows/386/yc.exe
