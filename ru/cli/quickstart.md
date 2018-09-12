@@ -74,7 +74,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
 ## Запуск команд {#run-commands}
 
 1. Проверьте настройки вашего профиля YC CLI:
-   ```
+   ```yaml
    yc config list
    
    token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
@@ -91,7 +91,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
    yc vpc network --help
    ```
 3. Создайте облачную сеть в каталоге, указанном в вашем профиле YC CLI:
-   ```
+   ```yaml
    yc vpc network create \
        --name my-yc-network \
        --labels my-label=my-value \
@@ -107,7 +107,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
 
    ```
 4. Создайте подсеть в облачной сети `my-yc-network`:
-   ```
+   ```yaml
    yc vpc subnet create \
        --name my-yc-subnet-b \
        --zone ru-central1-b \
@@ -137,7 +137,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
    +------------------+----------------------+------------+-------------------------+
    ```
    Получите тот же список c большим количеством деталей в формате yaml:
-   ```
+   ```yaml
    yc vpc network list --format yaml
    
    - id: skesdqhkc6449hbqqar1
@@ -158,4 +158,4 @@ _Интерфейс командной строки Яндекс.Облака (Y
    ```
    yc vpc subnet delete my-yc-subnet-b
    yc vpc network delete my-yc-network
-   
+   ```

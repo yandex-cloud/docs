@@ -8,4 +8,6 @@ meta:
 links:
 - title: "Начало работы"
   description: ""
-  href: "/docs/cli/quickstart"
+  href: "quickstart"
+- title: "Настройка профилей"
+  href: "setup"
