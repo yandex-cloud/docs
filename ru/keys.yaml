@@ -1,3 +1,4 @@
+# Полные имена сервисов
 iam-full-name: Yandex Identity and Access Management
 resmgr-full-name: Yandex Resource Manager
 compute-full-name: Yandex Compute Cloud
@@ -8,6 +9,7 @@ dsvm-full-name: Yandex Data Science Virtual Machine
 speechkit-full-name: Yandex SpeechKit
 translate-full-name: Yandex Translate
 
+# Полные имена сервисов без Yandex
 iam-name: Identity and Access Management
 resmgr-name: Resource Manager
 compute-name: Compute Cloud
@@ -18,6 +20,7 @@ dsvm-name: Data Science Virtual Machine
 speechkit-name: SpeechKit
 translate-name: Translate
 
+# Короткие имена
 iam-short-name: IAM
 resmgr-short-name: Resource Manager
 compute-short-name: Compute Cloud
@@ -29,3 +32,17 @@ speechkit-short-name: SpeechKit
 translate-short-name: Translate
 
 price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
+
+# Роли
+roles-image-user: compute.images.user
+roles-cloud-owner: resource-manager.clouds.owner
+roles-cloud-member: resource-manager.clouds.member
+roles-admin: admin
+roles-editor: editor
+roles-viewer: viewer
+
+# Системные субъекты
+subjects-allUsers: allUsers
+subjects-allAuthenticatedUsers: allAuthenticatedUsers
+
+
