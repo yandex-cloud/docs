@@ -40,28 +40,28 @@ _Интерфейс командной строки Яндекс.Облака (Y
 Запустите команду `yc init`, чтобы выполнить настройку вашего профиля YC CLI:
   
   1. По запросу команды введите свой OAuth токен. Получить OAuth токен можно по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
-     ```yaml
+     ```
      Please go to https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
       in order to obtain OAuth token.
      
      Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
      ```
   2. Выберите одно из предложенных облаков, в которых у вас есть права доступа:
-     ```yaml
+     ```
      Please select cloud to use:
       [1] cloud1 (id = abcd1234)
       [2] cloud2 (id = efgh5678)
      Please enter your numeric choice: 2
      ```
   3. Выберите каталог по умолчанию:
-     ```yaml
+     ```
      Please choose a folder to use:
       [1] folder1 (id = ijkl9012)
       [2] folder2 (id = mnop3456)
      Please enter your numeric choice: 1
      ```
   4. Выберите зону доступности по умолчанию для сервиса [!KEYREF compute-full-name]:
-     ```yaml
+     ```
      Do you want to configure a default [!KEYREF compute-full-name] availability zone? [Y/n] Y
      Which zone do you want to use as a profile default?
       [1] ru-central1-a
@@ -74,7 +74,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
 ## Запуск команд {#run-commands}
 
 1. Проверьте настройки вашего профиля YC CLI:
-   ```yaml
+   ```
    yc config list
    
    token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
@@ -83,7 +83,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
    compute-default-zone: ru-central1-b
    ```
 2. Посмотрите описание команд YC CLI:
-   ```yaml
+   ```
    yc --help
    
    yc vpc --help
@@ -91,7 +91,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
    yc vpc network --help
    ```
 3. Создайте облачную сеть в каталоге, указанном в вашем профиле YC CLI:
-   ```yaml
+   ```
    yc vpc network create \
        --name my-yc-network \
        --labels my-label=my-value \
@@ -106,7 +106,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
      my-label: my-value
    ```
 4. Создайте подсеть в облачной сети `my-yc-network`:
-   ```yaml
+   ```
    yc vpc subnet create \
        --name my-yc-subnet-b \
        --zone ru-central1-b \
@@ -126,7 +126,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
    - 10.1.2.0/24
    ```
 5. Получите список всех облачных сетей в каталоге, указанном в вашем профиле YC CLI:
-   ```yaml
+   ```
    yc vpc network list
    +------------------+----------------------+------------+-------------------------+
    |       NAME       |          ID          | FOLDER ID  |       DESCRIPTION       |
@@ -136,7 +136,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
    +------------------+----------------------+------------+-------------------------+
    ```
    Получите тот же список c большим количеством деталей в формате yaml:
-   ```yaml
+   ```
    yc vpc network list --format yaml
    
    - id: skesdqhkc6449hbqqar1
@@ -154,7 +154,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
      my-label: my-value
    ```
 6. Удалите подсеть `my-yc-subnet-b` и сеть `my-yc-network`:
-   ```yaml
+   ```
    yc vpc subnet delete my-yc-subnet-b
    yc vpc network delete my-yc-network
    ```
