@@ -11,3 +11,5 @@ links:
   href: "quickstart"
 - title: "Настройка профилей"
   href: "setup"
+- title: "Запуск команд"
+  href: "run-commands"

@@ -6,3 +6,5 @@ items:
     href: quickstart.md
   - name: Настройка профилей
     href: setup.md
+  - name: Запуск команд
+    href: run-commands.md
