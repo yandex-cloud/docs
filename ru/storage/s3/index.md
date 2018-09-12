@@ -1,7 +1,5 @@
 # Как пользоваться API
 
-[!KEYREF objstorage-name] поддерживает некоторые методы HTTP API Amazon S3.
-
 ## Подготовка к работе {#preparations}
 
 Чтобы воспользоваться API:
@@ -17,7 +15,7 @@
 Общий вид запроса:
 
 ```
-PUT {path} HTTP/1.1
+{GET|HEAD|PUT|DELETE} {path} HTTP/1.1
 Host: storage.api.cloud.yandex.net
 Content-Length: length
 Date: date
