@@ -43,6 +43,8 @@ items:
             href: operations/objects/delete.md
       - name: Доступы
         items:
+          - name: Создать сервисный аккаунт
+            href: operations/security/service-account.md
           - name: Получить статический ключ
             href: operations/security/get-static-key.md
           - name: Открыть публичный доступ к корзине
