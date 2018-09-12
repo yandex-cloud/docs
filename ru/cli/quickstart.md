@@ -76,18 +76,9 @@ _Интерфейс командной строки Яндекс.Облака (Y
 1. Проверьте настройки вашего профиля YC CLI:
    ```
    yc config list
-   
-   token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
-   cloud-id: efgh5678
-   folder-id: ijkl9012
-   compute-default-zone: ru-central1-b
    ```
 2. Посмотрите описание команд YC CLI:
    ```
-   yc --help
-   
-   yc vpc --help
-   
    yc vpc network --help
    ```
 3. Создайте облачную сеть в каталоге, указанном в вашем профиле YC CLI:
@@ -96,14 +87,6 @@ _Интерфейс командной строки Яндекс.Облака (Y
        --name my-yc-network \
        --labels my-label=my-value \
        --description "my first network via yc"
-       
-   id: c6449hbqqar1skesdqhk
-   folder_id: ijkl9012
-   created_at: "2018-09-05T09:55:36Z"
-   name: my-yc-network
-   description: my first network via yc
-   labels:
-     my-label: my-value
    ```
 4. Создайте подсеть в облачной сети `my-yc-network`:
    ```
@@ -113,17 +96,6 @@ _Интерфейс командной строки Яндекс.Облака (Y
        --range 10.1.2.0/24 \
        --network-name my-yc-network \
        --description: "my first subnet via yc"
-    
-   id: bb3osak50bltmgs6ulho
-   folder_id: ijkl9012
-   created_at: "2018-09-05T10:05:36Z"
-   name: my-yc-subnet-b
-   description: my first subnet via yc
-   labels: {}
-   network_id: c6449hbqqar1skesdqhk
-   zone_id: ru-central1-b
-   v4_cidr_blocks:
-   - 10.1.2.0/24
    ```
 5. Получите список всех облачных сетей в каталоге, указанном в вашем профиле YC CLI:
    ```
