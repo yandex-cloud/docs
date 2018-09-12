@@ -111,7 +111,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
        --name my-yc-subnet-b \
        --zone ru-central1-b \
        --range 10.1.2.0/24 \
-       --network-id c6449hbqqar1skesdqhk \
+       --network-name my-yc-network \
        --description: "my first subnet via yc"
     
    id: bb3osak50bltmgs6ulho
