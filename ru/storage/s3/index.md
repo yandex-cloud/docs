@@ -4,7 +4,7 @@
 
 Чтобы воспользоваться API:
 
-1. Создайте сервисный аккаунт.
+1. [Создайте сервисный аккаунт](../security/service-account.md).
 1. [Получите необходимые роли](../security/index.md).
 1. [Получите статический ключ](../operations/security/get-static-key.md). Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [[!TITLE]](../instruments/index.md).
 
@@ -16,7 +16,7 @@
 
 ```
 {GET|HEAD|PUT|DELETE} {path} HTTP/1.1
-Host: storage.api.cloud.yandex.net
+Host: storage.cloud.yandex.net
 Content-Length: length
 Date: date
 Authorization: authorization string (AWS Signature Version 4)
