@@ -58,6 +58,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
      Please choose a folder to use:
       [1] folder1 (id = ijkl9012)
       [2] folder2 (id = mnop3456)
+      [3] Create a new folder
      Please enter your numeric choice: 1
      ```
   4. Выберите зону доступности по умолчанию для сервиса [!KEYREF compute-full-name]:
