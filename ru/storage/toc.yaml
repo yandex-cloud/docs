@@ -47,6 +47,10 @@ items:
             href: operations/security/get-static-key.md
           - name: Открыть публичный доступ к корзине
             href: operations/security/bucket-availability.md
+      - name: Хостинг статических сайтов
+        items:
+          - name: Настроить хостинг
+            href: operations/hosting/setup.md
   - name: Основные понятия
     items:
       - name: Обзор

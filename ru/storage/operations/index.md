@@ -21,3 +21,6 @@
 - [[!TITLE]](security/bucket-availability.md)
 
 
+## Хостинг статических сайтов
+
+- [[!TITLE]](hosting/setup.md)
