@@ -8,8 +8,8 @@
 
 ```bash
 $ mkdir ~/.mongodb
-$ wget "[!KEYREF pem-url]" -O ~/.mongodb/allCAs.pem
-$ chmod 0600 ~/.mongodb/allCAs.pem
+$ wget "[!KEYREF pem-url]" -O ~/.mongodb/YandexCLCA.pem
+$ chmod 0600 ~/.mongodb/YandexCLCA.pem
 ```
 
 ## Строка подключения
@@ -19,7 +19,7 @@ $ chmod 0600 ~/.mongodb/allCAs.pem
 ```bash
 $ mongo --norc \
         --ssl \
-        --sslCAFile ~/.mongodb/allCAs.pem \
+        --sslCAFile ~/.mongodb/YandexCLCA.pem \
         --ipv6 \
         --host 'rs01/<адрес хоста 1>:27018,<адрес хоста 2>:27018,<адрес хоста N>:27018' \
         -u <имя пользователя> \
