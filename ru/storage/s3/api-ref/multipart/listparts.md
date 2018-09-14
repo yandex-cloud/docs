@@ -61,10 +61,6 @@ GET /{bucket}/{key}?uploadId=UploadId HTTP/1.1
       <ID>arn:aws:iam::111122223333:user/some-user-11116a31-17b5-4fb7-9df5-b288870f11xx</ID>
       <DisplayName>umat-user-11116a31-17b5-4fb7-9df5-b288870f11xx</DisplayName>
   </Initiator>
-  <Owner>
-    <ID>75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a</ID>
-    <DisplayName>someName</DisplayName>
-  </Owner>
   <StorageClass>STANDARD</StorageClass>
   <PartNumberMarker>1</PartNumberMarker>
   <NextPartNumberMarker>3</NextPartNumberMarker>
@@ -97,7 +93,6 @@ GET /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 `Initiator` | Информация о пользователе, инициировавшем загрузку.<br/><br/>Путь: `/ListPartsResult/Initiator`.
 `ID` | Идентификатор пользователя.<br/><br/>Путь: `/ListPartsResult/Initiator/ID`.
 `DisplayName` | Отображаемое имя пользователя.<br/><br/>Путь: `/ListPartsResult/Initiator/DisplayName`.
-`Owner` | Владелец объекта.<br/><br/>Путь: `/ListPartsResult/Owner`.
 `StorageClass` | Класс хранения объекта: `STANDARD` или `COLD`.<br/><br/>Путь: `/ListPartsResult/StorageClass`.
 `PartNumberMarker` | Номер части, после которого начинается список.<br/><br/>Первый элемент списка имеет номер, следующий за `PartNumberMarker`.<br/><br/>Путь: `/ListPartsResult/PartNumberMarker`.
 `NextPartNumberMarker` | Номер части, которым заканчивается текущий список.<br/><br/>Присутствует в случае, когда в ответ не поместился весь перечень частей.<br/><br/>Путь: `/ListPartsResult/NextPartNumberMarker`.

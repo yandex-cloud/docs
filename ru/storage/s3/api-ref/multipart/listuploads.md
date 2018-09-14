@@ -65,10 +65,6 @@ GET /{bucket}?uploads HTTP/1.1
       <ID>arn:aws:iam::111122223333:user/user1-11111a31-17b5-4fb7-9df5-b111111f13de</ID>
       <DisplayName>user1-11111a31-17b5-4fb7-9df5-b111111f13de</DisplayName>
     </Initiator>
-    <Owner>
-      <ID>75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a</ID>
-      <DisplayName>OwnerDisplayName</DisplayName>
-    </Owner>
     <StorageClass>STANDARD</StorageClass>
     <Initiated>2010-11-10T20:48:33.000Z</Initiated>  
   </Upload>
@@ -79,10 +75,6 @@ GET /{bucket}?uploads HTTP/1.1
       <ID>b1d16700c70b0b05597d7acd6a3f92be</ID>
       <DisplayName>InitiatorDisplayName</DisplayName>
     </Initiator>
-    <Owner>
-      <ID>b1d16700c70b0b05597d7acd6a3f92be</ID>
-      <DisplayName>OwnerDisplayName</DisplayName>
-    </Owner>
     <StorageClass>COLD</StorageClass>
     <Initiated>2010-11-10T20:48:33.000Z</Initiated>
   </Upload>
@@ -93,10 +85,6 @@ GET /{bucket}?uploads HTTP/1.1
       <ID>arn:aws:iam::444455556666:user/user1-22222a31-17b5-4fb7-9df5-b222222f13de</ID>
       <DisplayName>user1-22222a31-17b5-4fb7-9df5-b222222f13de</DisplayName>
     </Initiator>
-    <Owner>
-      <ID>b1d16700c70b0b05597d7acd6a3f92be</ID>
-      <DisplayName>OwnerDisplayName</DisplayName>
-    </Owner>
     <StorageClass>STANDARD</StorageClass>
     <Initiated>2010-11-10T20:49:33.000Z</Initiated>
   </Upload>
@@ -118,9 +106,8 @@ GET /{bucket}?uploads HTTP/1.1
 `Key` | Ключ конечного объекта загрузки.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/Key`.
 `UploadId` | Идентификатор составной загрузки.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/UploadId`.
 `Initiator` | Инициатор составной загрузки.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/Initiator`.
-`ID` | Идентификатор пользователя.<br/><br/>Возможные пути:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/ID`<br/>- `/ListMultipartUploadsResult/Upload/Owner/ID`
-`DisplayName` | Отображаемое имя пользователя.<br/><br/>Возможные пути:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/ID`<br/>- `/ListMultipartUploadsResult/Upload/Owner/ID`
-`Owner` | Владелец объекта.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/Owner`.
+`ID` | Идентификатор пользователя.<br/><br/>Возможные пути:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/ID`
+`DisplayName` | Отображаемое имя пользователя.<br/><br/>Возможные пути:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/ID`
 `StorageClass` | Класс хранения объекта: `STANDARD` или `COLD`.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/StorageClass`.
 `Initiated` | Дата и время запроса на [начало составной загрузки](startupload.md).
 `/ListMultipartUploadsResult/Prefix` | Префикс ключа.<br/><br/>Смотрите параметр запроса `prefix`.<br/><br/>Путь: `/ListMultipartUploadsResult/Prefix`.
