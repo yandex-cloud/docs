@@ -65,7 +65,7 @@ PUT /{bucket}?website HTTP/1.1
 `RedirectAllRequestsTo` | Содержит конфигурацию редиректов всех запросов.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo`.
 `HostName` | Хост, на который перенаравляются все запросы к корзине.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo/HostName`.
 `Protocol` | Протокол, который используется при при перенаправлении: `http`, `https`. Необязательный элемент.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo/Protocol`.
-`IndexDocument/Suffix` | Стартовый документ сайта.
+`IndexDocument/Suffix` | Главная страница сайта.
 `ErrorDocument/Key` | Документ, который пользователь увидит при возникновении ошибок с кодом 4xx.
 
 ## Ответ {#response}

@@ -40,4 +40,4 @@ GET /{bucket}?website HTTP/1.1
 
 ### Схема данных {#response-scheme}
 
-Возвращаемые данные идентичны данным, переданным в [!KEYREF objstorage-name] методом [upload](upload.md).
+Возвращаемые данные имеют ту же структуру, которая передается методом [upload](upload.md).
