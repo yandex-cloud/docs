@@ -36,9 +36,11 @@ PUT /{bucket}?website HTTP/1.1
 
 Соответственно конфигурации будут иметь различный набор элементов.
 
+Примеры конфигураций:
+
 ```
 <!--Конфигурация корзины как сайта-->
-<WebsiteConfiguration>
+<WebsiteConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
     <IndexDocument>
         <Suffix>index.html</Suffix>
     </IndexDocument>
@@ -50,9 +52,10 @@ PUT /{bucket}?website HTTP/1.1
 
 ```
 <!--Конфигурация для редиректа всех запросов-->
-<WebsiteConfiguration>
+<WebsiteConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
     <RedirectAllRequestsTo>
         <HostName>example.com</HostName>
+        <Protocol>http</Protocol>
     </RedirectAllRequestsTo>
 </WebsiteConfiguration>
 ```
