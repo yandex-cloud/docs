@@ -4,6 +4,7 @@
 
 - [[!TITLE]](buckets/create.md)
 - [[!TITLE]](buckets/delete.md)
+- [[!TITLE]](buckets/limit-max-volume.md)
 
 ## Объекты
 

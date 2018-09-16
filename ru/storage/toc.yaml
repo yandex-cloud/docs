@@ -29,6 +29,8 @@ items:
             href: operations/buckets/create.md
           - name: Удалить корзину
             href: operations/buckets/delete.md
+          - name: Ограничить максимальный размер корзины
+            href: operations/buckets/limit-max-volume.md
       - name: Объект
         items:
           - name: Загрузить объект
