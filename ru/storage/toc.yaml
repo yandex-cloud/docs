@@ -49,6 +49,10 @@ items:
             href: operations/security/get-static-key.md
           - name: Открыть публичный доступ к корзине
             href: operations/security/bucket-availability.md
+      - name: Хостинг статических сайтов
+        items:
+          - name: Настроить хостинг
+            href: operations/hosting/setup.md
   - name: Основные понятия
     items:
       - name: Обзор
@@ -61,6 +65,14 @@ items:
         href: concepts/storage-class.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Хостинг статических сайтов
+    items:
+      - name: Обзор
+        href: hosting/index.md
+      - name: Конфигурирование корзин
+        href: hosting/bucket-configuration.md
+      - name: Коды ошибок
+        href: hosting/error-codes.md
   - name: HTTP API, совместимый с Amazon S3
     items:
       - name: Как пользоваться API
@@ -113,6 +125,16 @@ items:
                 href: s3/api-ref/multipart/completeupload.md
               - name: listUploads
                 href: s3/api-ref/multipart/listuploads.md
+          - name: Static Website Hosting
+            items:
+              - name: Все методы
+                href: s3/api-ref/hosting.md
+              - name: upload
+                href: s3/api-ref/hosting/upload.md
+              - name: get
+                href: s3/api-ref/hosting/get.md
+              - name: delete
+                href: s3/api-ref/hosting/delete.md
           - name: Общие заголовки запросов
             href: s3/api-ref/common-request-headers.md
           - name: Общие заголовки ответов
