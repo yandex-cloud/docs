@@ -23,8 +23,12 @@
 
 1. Создать корзину `example.com` и загрузить в нее данные.
 2. Настроить алиас для корзины у провайдера.
-    `example.com CNAME example.com.website.cloud.yandex.ru`
+    ```
+    example.com CNAME example.com.website.cloud.yandex.ru
+    ```
 3. Создать корзину `www.example.com` оставить ее пустой.
 4. Настроить алиас для корзины у провайдера.
-    `www.example.com CNAME www.example.com.website.cloud.yandex.ru`
+    ```
+    www.example.com CNAME www.example.com.website.cloud.yandex.ru
+    ```
 5. Настроить редирект всех данных из корзины `www.example.com` в корзину `example.com`.
