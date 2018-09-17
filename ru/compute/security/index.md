@@ -8,7 +8,6 @@
 >
 > Подробнее о наследовании ролей читайте в разделе [[!TITLE]](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса [!KEYREF resmgr-full-name].
 
-
 ## Назначение ролей
 
 Чтобы назначить пользователю роль:
