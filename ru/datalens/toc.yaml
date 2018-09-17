@@ -1,0 +1,30 @@
+- name: Yandex DataLens
+  href: index.md
+- name: Начало работы
+  href: quickstart.md
+- name: Пошаговые инструкции для Yandex DataLens
+  href: operations/index.md
+- name: Создание подключения к ClickHouse
+  href: operations/connection/create-clickhouse.md
+- name: Создание подключения к файлу CSV
+  href: operations/connection/create-csv.md
+- name: Создание датасета
+  href: operations/dataset/create.md
+- name: Настройка датасета
+  href: operations/dataset/configure.md
+- name: Создание
+  href: operations/widget/create.md
+- name: Обзор
+  href: concepts/index.md
+- name: Подключение
+  href: concepts/connection.md
+- name: Датасет
+  href: concepts/dataset.md
+- name: Виджет
+  href: concepts/widget.md
+- name: Дашборд
+  href: concepts/dashboard.md
+- name: Квоты и лимиты
+  href: concepts/limits.md
+- name: Безопасность и управление доступом
+  href: security.md
