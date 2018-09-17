@@ -1,10 +1,4 @@
 title: "Интерфейс командной строки"
 items:
-  - name: YC CLI
-    href: index.yaml
-  - name: Начало работы
+  - name: Начало работы с YC CLI
     href: quickstart.md
-  - name: Настройка профилей
-    href: setup.md
-  - name: Запуск команд
-    href: run-commands.md
