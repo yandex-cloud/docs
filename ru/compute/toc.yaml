@@ -69,12 +69,12 @@ items:
         items:
           - name: Обзор
             href: concepts/vm.md
-          - name: Метаданные
-            href: concepts/vm-metadata.md
           - name: Типы виртуальных машин
             href: concepts/vm-types.md
           - name: Сеть на виртуальной машине
             href: concepts/network.md
+          - name: Метаданные
+            href: concepts/vm-metadata.md
       - name: Диски
         items:
           - name: Обзор
