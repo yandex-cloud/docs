@@ -3,7 +3,7 @@
 
 При конфигурировании корзины необходимо:
 - [Установить](../operations/security/bucket-availability.md) публичный доступ. Иначе, [!KEYREF objstorage-name] вернет пользователю ответ с кодом 403.
-- [Указать](../operations/hosting/setup.md) главную страницу сайта.
+- [Указать](setup.md) главную страницу сайта.
 
 При желании можно дополнительно указать страницу, которая будет возвращаться в случае ошибoк 4xx.
 
@@ -14,7 +14,7 @@
 
 Настройку корзины вы можете выполнить:
 
-- В [консоли управления](../operations/hosting/setup.md) Яндекс.Облака.
+- В [консоли управления](setup.md) Яндекс.Облака.
 - Через [HTTP API](../s3/api-ref/hosting.md), совместимый с Amazon S3.
 
 ## Поддержка нескольких доменных имен для сайта
@@ -24,11 +24,11 @@
 1. Создать корзину `example.com` и загрузить в нее данные.
 2. Настроить алиас для корзины у провайдера.
     ```
-    example.com CNAME example.com.website.cloud.yandex.ru
+    example.com CNAME example.com.website.cloud.yandex.net
     ```
 3. Создать корзину `www.example.com` оставить ее пустой.
 4. Настроить алиас для корзины у провайдера.
     ```
-    www.example.com CNAME www.example.com.website.cloud.yandex.ru
+    www.example.com CNAME www.example.com.website.cloud.yandex.net
     ```
 5. Настроить редирект всех данных из корзины `www.example.com` в корзину `example.com`.

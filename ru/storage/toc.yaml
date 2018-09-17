@@ -31,7 +31,7 @@ items:
             href: operations/buckets/delete.md
           - name: Ограничить максимальный размер корзины
             href: operations/buckets/limit-max-volume.md
-      - name: Объект
+      - name: Объекты
         items:
           - name: Загрузить объект
             href: operations/objects/upload.md
@@ -51,10 +51,6 @@ items:
             href: operations/security/get-static-key.md
           - name: Открыть публичный доступ к корзине
             href: operations/security/bucket-availability.md
-      - name: Хостинг статических сайтов
-        items:
-          - name: Настроить хостинг
-            href: operations/hosting/setup.md
   - name: Основные понятия
     items:
       - name: Обзор
@@ -73,6 +69,8 @@ items:
         href: hosting/index.md
       - name: Конфигурирование корзин
         href: hosting/bucket-configuration.md
+      - name: Настроить хостинг в консоли управления
+        href: hosting/setup.md
       - name: Коды ошибок
         href: hosting/error-codes.md
   - name: HTTP API, совместимый с Amazon S3

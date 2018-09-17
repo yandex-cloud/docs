@@ -20,7 +20,3 @@
 - [[!TITLE]](security/service-account.md)
 - [[!TITLE]](security/get-static-key.md)
 - [[!TITLE]](security/bucket-availability.md)
-
-## Хостинг статических сайтов
-
-- [[!TITLE]](hosting/setup.md)
