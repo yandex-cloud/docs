@@ -69,7 +69,7 @@ items:
         href: hosting/index.md
       - name: Конфигурирование корзин
         href: hosting/bucket-configuration.md
-      - name: Настроить хостинг в консоли управления
+      - name: Настройка хостинга в консоли управления
         href: hosting/setup.md
       - name: Коды ошибок
         href: hosting/error-codes.md
