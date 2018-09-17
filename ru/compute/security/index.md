@@ -20,7 +20,7 @@
 
 ### Сервисные роли
 
-_Сервисные роли_ — роли, созданные для определенного сервиса. При проверке прав доступа к ресурсам [!KEYREF compute-short-name] учитываются роли сервиса [!KEYREF compute-short-name] и роли сервиса [!KEYREF resmgr-name].
+_Сервисные роли_ — роли, дающие доступ к ресурсам определенного сервиса. При проверке прав доступа к ресурсам [!KEYREF compute-short-name] учитываются сервисные роли [!KEYREF compute-short-name] и [!KEYREF resmgr-name].
 
 
 #### [!KEYREF roles-image-user]
