@@ -149,23 +149,23 @@ YC CLI поддерживает автодополнение команд в к�
    | my-yc-network    | c6449hbqqar1skesdqhk | cvatao4faoe2bmdrg22b | my first network via yc |
    +------------------+----------------------+----------------------+-------------------------+
    ```
-   Получите тот же список c большим количеством деталей в формате yaml:
+   Получите тот же список c большим количеством деталей в формате YAML:
    ```
    yc vpc network list --format yaml
    
    - id: skesdqhkc6449hbqqar1
-   folder_id: ijkl9012
-   created_at: "2018-09-05T09:51:16Z"
-   name: my-ui-network
-   description: "my first network via ui"
-   labels: {}
+     folder_id: ijkl9012
+     created_at: "2018-09-05T09:51:16Z"
+     name: my-ui-network
+     description: "my first network via ui"
+     labels: {}
    - id: c6449hbqqar1skesdqhk
-   folder_id: ijkl9012
-   created_at: "2018-09-05T09:55:36Z"
-   name: my-yc-network
-   description: "my first network via yc"
-   labels:
-     my-label: my-value
+     folder_id: ijkl9012
+     created_at: "2018-09-05T09:55:36Z"
+     name: my-yc-network
+     description: "my first network via yc"
+     labels:
+       my-label: my-value
    ```
 1. Создайте виртуальную машину и подключите к подсети `my-yc-subnet-b`:
    1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на виртуальную машину.
