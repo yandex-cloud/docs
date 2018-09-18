@@ -31,15 +31,13 @@ PUT /{bucket}?website HTTP/1.1
 
 Корзину можно сконфигурировать:
 
-- Как сайт.
-- Для редиректа всех запросов.
+---
 
-Соответственно конфигурации будут иметь различный набор элементов.
+**[!TAB Как сайт]**
 
-Примеры конфигураций:
+Пример конфигурации:
 
 ```
-<!--Конфигурация корзины как сайта-->
 <WebsiteConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
     <IndexDocument>
         <Suffix>index.html</Suffix>
@@ -49,6 +47,17 @@ PUT /{bucket}?website HTTP/1.1
     </ErrorDocument>
 </WebsiteConfiguration>
 ```
+
+Возможные элементы:
+
+Элемент | Описание
+----- | -----
+`IndexDocument/Suffix` | Главная страница сайта.
+`ErrorDocument/Key` | Документ, который пользователь увидит при возникновении ошибок с кодом 4xx.
+
+**[!TAB Для редиректа всех запросов]**
+
+Пример конфигурации:
 
 ```
 <!--Конфигурация для редиректа всех запросов-->
@@ -60,16 +69,16 @@ PUT /{bucket}?website HTTP/1.1
 </WebsiteConfiguration>
 ```
 
-
-Описания возможных элементов представлены в таблице ниже.
+Возможные элементы:
 
 Элемент | Описание
 ----- | -----
 `RedirectAllRequestsTo` | Содержит конфигурацию редиректов всех запросов.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo`.
 `HostName` | Хост, на который перенаравляются все запросы к корзине.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo/HostName`.
 `Protocol` | Протокол, который используется при при перенаправлении: `http`, `https`. Необязательный элемент.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo/Protocol`.
-`IndexDocument/Suffix` | Главная страница сайта.
-`ErrorDocument/Key` | Документ, который пользователь увидит при возникновении ошибок с кодом 4xx.
+
+---
+
 
 ## Ответ {#response}
 

@@ -72,7 +72,7 @@ items:
       - name: Настройка хостинга в консоли управления
         href: hosting/setup.md
       - name: Коды ошибок
-        href: hosting/error-codes.md
+        href: hosting/answer-codes.md
   - name: HTTP API, совместимый с Amazon S3
     items:
       - name: Как пользоваться API
