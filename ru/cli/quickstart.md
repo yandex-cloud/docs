@@ -9,7 +9,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
 
 **[!TAB Windows]**
 
-1. Скачайте исполняемый файл YC CLI для [Windows 64-bit]([!KEYREF yc-windows-path-amd64])/[Winodws 32-bit]([!KEYREF yc-windows-path-386]) и сохраните на своем компьютере, например, в директории `C:\Yandex-Cloud`. 
+1. Скачайте исполняемый файл YC CLI [64-bit]([!KEYREF yc-windows-path-amd64]) или [32-bit]([!KEYREF yc-windows-path-386]) в зависимости от версии вашей операционной системы и сохраните на своем компьютере, например, в директории `C:\Yandex-Cloud`. 
 
 2. Добавить в переменную окружения **PATH** путь до директории с исполняемым файлом YC CLI:
    1. Нажмите комбинацию клавиш **Windows**+**R** и выполните команду ` control.exe /name Microsoft.System`.
@@ -18,7 +18,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
    4. Выберите переменную **PATH** и нажмите кнопку **Изменить**.
    5. В поле **Значение переменной** к текущему значению допишите символ `;` и путь до директории с исполняемым файлом YC CLI, например, `C:\Yandex-Cloud`.
    
-      Нажмите **ОК** последовательно во окнах **Изменение пользовательской переменной**, **Переменные среды**, **Свойства системы**.
+      Нажмите **ОК** последовательно в окнах **Изменение пользовательской переменной**, **Переменные среды**, **Свойства системы**.
    
 
 
@@ -26,7 +26,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
 
 Выполните в командной строке:
    ```
-   curl '[!KEYREF yc-install-path]' | bash -s -- -a
+   curl '[!KEYREF yc-install-path]' | bash
    ```
 Программное обеспечение YC CLI установится автоматически. После завершения установки перезапустите shell. 
 
@@ -48,14 +48,14 @@ _Интерфейс командной строки Яндекс.Облака (Y
      
      Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
      ```
-  2. Выберите одно из предложенных облаков, в которых у вас есть права доступа:
+  1. Выберите одно из предложенных облаков, в которых у вас есть права доступа:
      ```
      Please select cloud to use:
       [1] cloud1 (id = abcd1234)
       [2] cloud2 (id = efgh5678)
      Please enter your numeric choice: 2
      ```
-  3. Выберите каталог по умолчанию:
+  1. Выберите каталог по умолчанию:
      ```
      Please choose a folder to use:
       [1] folder1 (id = ijkl9012)
@@ -63,7 +63,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
       [3] Create a new folder
      Please enter your numeric choice: 1
      ```
-  4. Выберите зону доступности по умолчанию для сервиса [!KEYREF compute-full-name]:
+  1. Выберите зону доступности по умолчанию для сервиса [!KEYREF compute-full-name]:
      ```
      Do you want to configure a default [!KEYREF compute-full-name] availability zone? [Y/n] Y
      Which zone do you want to use as a profile default?
@@ -73,25 +73,25 @@ _Интерфейс командной строки Яндекс.Облака (Y
       [4] Don't set default zone
      Please enter your numeric choice: 2
      ```
+  1. Проверьте настройки вашего профиля YC CLI:
+     ```
+     yc config list
+     ```
 
-## Запуск команд {#run-commands}
+## Примеры команд для создания сети {#run-commands}
 
-1. Проверьте настройки вашего профиля YC CLI:
-   ```
-   yc config list
-   ```
-2. Посмотрите описание команд YC CLI для работы с облачными сетями:
+1. Посмотрите описание команд YC CLI для работы с облачными сетями:
    ```
    yc vpc network --help
    ```
-3. Создайте облачную сеть в каталоге, указанном в вашем профиле YC CLI:
+1. Создайте облачную сеть в каталоге, указанном в вашем профиле YC CLI:
    ```
    yc vpc network create \
        --name my-yc-network \
        --labels my-label=my-value \
        --description "my first network via yc"
    ```
-4. Создайте подсеть в облачной сети `my-yc-network`:
+1. Создайте подсеть в облачной сети `my-yc-network`:
    ```
    yc vpc subnet create \
        --name my-yc-subnet-b \
@@ -100,7 +100,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
        --network-name my-yc-network \
        --description: "my first subnet via yc"
    ```
-5. Получите список всех облачных сетей в каталоге, указанном в вашем профиле YC CLI:
+1. Получите список всех облачных сетей в каталоге, указанном в вашем профиле YC CLI:
    ```
    yc vpc network list
    +------------------+----------------------+------------+-------------------------+
@@ -128,7 +128,7 @@ _Интерфейс командной строки Яндекс.Облака (Y
    labels:
      my-label: my-value
    ```
-6. Удалите подсеть `my-yc-subnet-b` и сеть `my-yc-network`:
+1. Удалите подсеть `my-yc-subnet-b` и сеть `my-yc-network`:
    ```
    yc vpc subnet delete my-yc-subnet-b
    yc vpc network delete my-yc-network
