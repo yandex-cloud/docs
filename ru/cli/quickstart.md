@@ -53,8 +53,8 @@ YC CLI поддерживает автодополнение команд в к�
 **[!TAB Windows]**
 
 1. Сформируйте ссылку, чтобы скачать актуальную версию YC CLI:
-    * для Windows 64-bit — `[!KEYREF yc-windows-path-amd64]`;
-    * для Windows 32-bit — `[!KEYREF yc-windows-path-386]`.
+    * для Windows 64-bit — `[!KEYREF yc-windows-path-amd64]`
+    * для Windows 32-bit — `[!KEYREF yc-windows-path-386]`
       
    Вместо `{current-version}` укажите версию YC CLI, опубликованную по [ссылке](https://storage.cloud.yandex.net/yandexcloud-yc/release/stable).
 
