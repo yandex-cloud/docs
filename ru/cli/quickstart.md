@@ -72,12 +72,9 @@ _Интерфейс командной строки Яндекс.Облака (Y
 
 ## Инициализация {#initialize}
 
-Запустите команду `yc init`, чтобы выполнить настройку вашего профиля YC CLI:
-  
+  1. Получите OAuth-токен в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) и нажмите **Разрешить**.
+  1. Запустите команду `yc init`, чтобы выполнить настройку вашего профиля YC CLI.
   1. По запросу команды введите свой OAuth токен. 
-  
-     Получить OAuth-токен можно в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) и нажмите **Разрешить**.
-   
      ```
      Please go to https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
       in order to obtain OAuth token.
