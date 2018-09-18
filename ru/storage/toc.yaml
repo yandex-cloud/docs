@@ -71,7 +71,7 @@ items:
         href: hosting/bucket-configuration.md
       - name: Настройка хостинга в консоли управления
         href: hosting/setup.md
-      - name: Коды ошибок
+      - name: Коды ответов
         href: hosting/answer-codes.md
   - name: HTTP API, совместимый с Amazon S3
     items:

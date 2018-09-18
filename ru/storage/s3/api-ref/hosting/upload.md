@@ -52,8 +52,8 @@ PUT /{bucket}?website HTTP/1.1
 
 Элемент | Описание
 ----- | -----
-`IndexDocument/Suffix` | Главная страница сайта.
-`ErrorDocument/Key` | Документ, который пользователь увидит при возникновении ошибок с кодом 4xx.
+`IndexDocument/Suffix` | Главная страница сайта.<br/><br/>Путь: `/WebsiteConfiguration/IndexDocument/Suffix`.
+`ErrorDocument/Key` | Документ, который пользователь увидит при возникновении ошибок с кодом 4xx.<br/><br/>Путь: `/WebsiteConfiguration/ErrorDocument/Key`.
 
 **[!TAB Для редиректа всех запросов]**
 
