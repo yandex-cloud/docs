@@ -60,7 +60,7 @@
 1. Чтобы подключиться к серверу БД, необходим SSL-сертификат. Подготовить все нужные аутентификационные данные можно, например, так:
     ```bash
     $ mkdir ~/.mongodb
-    $ wget "[!KEYREF pem-url]" -O ~/.mongodb/allCAs.pem
+    $ wget "[!KEYREF pem-url]" -O ~/.mongodb/CA.pem
     $ mongo --norc \
             --ssl \
             --sslCAFile ~/.mongodb/allCAs.pem \

@@ -8,8 +8,8 @@
 
 ```bash
 $ mkdir ~/.mongodb
-$ wget "[!KEYREF pem-url]" -O ~/.mongodb/YandexCLCA.pem
-$ chmod 0600 ~/.mongodb/YandexCLCA.pem
+$ wget "[!KEYREF pem-url]" -O ~/.mongodb/CA.pem
+$ chmod 0600 ~/.mongodb/CA.pem
 ```
 
 ## Строка подключения
