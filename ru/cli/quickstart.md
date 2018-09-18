@@ -84,15 +84,15 @@ _Интерфейс командной строки Яндекс.Облака (Y
   1. Выберите одно из предложенных облаков, в которых у вас есть права доступа:
      ```
      Please select cloud to use:
-      [1] cloud1 (id = abcd1234)
-      [2] cloud2 (id = efgh5678)
+      [1] cloud1 (id = aoe2bmdcvatao4frg22b)
+      [2] cloud2 (id = dcvatao4faoe2bmrg22b)
      Please enter your numeric choice: 2
      ```
   1. Выберите каталог по умолчанию:
      ```
      Please choose a folder to use:
-      [1] folder1 (id = ijkl9012)
-      [2] folder2 (id = mnop3456)
+      [1] folder1 (id = cvatao4faoe2bmdrg22b)
+      [2] folder2 (id = tao4faoe2cvabmdrg22b)
       [3] Create a new folder
      Please enter your numeric choice: 1
      ```
@@ -131,17 +131,17 @@ _Интерфейс командной строки Яндекс.Облака (Y
        --zone ru-central1-b \
        --range 10.1.2.0/24 \
        --network-name my-yc-network \
-       --description: "my first subnet via yc"
+       --description "my first subnet via yc"
    ```
 1. Получите список всех облачных сетей в каталоге, указанном в вашем профиле YC CLI:
    ```
    yc vpc network list
-   +------------------+----------------------+------------+-------------------------+
-   |       NAME       |          ID          | FOLDER ID  |       DESCRIPTION       |
-   +------------------+----------------------+------------+-------------------------+
-   | my-ui-network    | skesdqhkc6449hbqqar1 | ijkl9012   | my first network via ui |
-   | my-yc-network    | c6449hbqqar1skesdqhk | ijkl9012   | my first network via yc |
-   +------------------+----------------------+------------+-------------------------+
+   +------------------+----------------------+----------------------+-------------------------+
+   |       NAME       |          ID          |      FOLDER ID       |       DESCRIPTION       |
+   +------------------+----------------------+----------------------+-------------------------+
+   | my-ui-network    | skesdqhkc6449hbqqar1 | cvatao4faoe2bmdrg22b | my first network via ui |
+   | my-yc-network    | c6449hbqqar1skesdqhk | cvatao4faoe2bmdrg22b | my first network via yc |
+   +------------------+----------------------+----------------------+-------------------------+
    ```
    Получите тот же список c большим количеством деталей в формате yaml:
    ```
