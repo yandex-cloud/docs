@@ -1,0 +1,15 @@
+# Заголовок и описание на странице
+title: "Утилита командной строки"
+description: "<em>Интерфейс командной строки (CLI)</em> — это скачиваемое программное обеспечение для управления вашими облачными ресурсами через командную строку."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex.Cloud CLI"
+# Блок с ссылками
+links:
+- title: "Начало работы"
+  description: ""
+  href: "quickstart"
+- title: "Настройка профилей"
+  href: "setup"
+- title: "Запуск команд"
+  href: "run-commands"
