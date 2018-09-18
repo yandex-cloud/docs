@@ -18,7 +18,7 @@ links:
   description: "Описание API метода languages"
   href: "api-ref/languages"
 - title: "Авторизация в API"
-  description: "Как настроить права доступа к API, как получить токен, как передать токен в запросе"
+  description: "Получите токен авторизации и используйте его в запросах"
   href: "concepts/auth"
 - title: "Формат ответа"
   description: "Заголовки ответа, коды ответа"
