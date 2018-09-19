@@ -9,7 +9,7 @@
 Чтобы использовать шифрованное соединение, необходимо получить SSL-сертификат:
 
 ```bash
-wget "[!KEYREF pem-url]"
+wget "https://[!KEYREF s3-storage-host][!KEYREF pem-path]"
 ```
 
 ## Подключение с помощью [!KEYREF CH] CLI {#cli}

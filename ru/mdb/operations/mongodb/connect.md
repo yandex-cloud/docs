@@ -8,7 +8,7 @@
 
 ```bash
 $ mkdir ~/.mongodb
-$ wget "[!KEYREF pem-url]" -O ~/.mongodb/CA.pem
+$ wget "https://[!KEYREF s3-storage-host][!KEYREF pem-path]" -O ~/.mongodb/CA.pem
 $ chmod 0600 ~/.mongodb/CA.pem
 ```
 

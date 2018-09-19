@@ -21,7 +21,7 @@
 1. Чтобы подключиться к серверу БД, необходим SSL-сертификат. Подготовить все нужные аутентификационные данные можно, например, так:
     ```bash
     $ mkdir ~/.postgresql
-    $ wget "[!KEYREF pem-url]" -O ~/.postgresql/root.crt
+    $ wget "https://[!KEYREF s3-storage-host][!KEYREF pem-path]" -O ~/.postgresql/root.crt
     $ chmod 0600 ~/.postgresql/root.crt
     ```
 1. К БД можно подключиться командой `psql` (подробнее — в разделе [[!TITLE]](operations/postgresql/connect.md)):
@@ -41,7 +41,7 @@
 1. Когда кластер будет готов к работе, его статус на панели [!KEYREF mdb-short-name] сменится на **RUNNING**.
 1. Чтобы поключиться к серверу БД, необходим SSL-сертификат. Скачайте его:
     ```bash
-    $ wget "[!KEYREF pem-url]"
+    $ wget "https://[!KEYREF s3-storage-host][!KEYREF pem-path]"
     ```
 1. Отправьте запрос, указав путь к полученному SSL-сертификату, атрибуты базы данных и текст запроса в формате urlencoded:
     ```
@@ -60,7 +60,7 @@
 1. Чтобы подключиться к серверу БД, необходим SSL-сертификат. Подготовить все нужные аутентификационные данные можно, например, так:
     ```bash
     $ mkdir ~/.mongodb
-    $ wget "[!KEYREF pem-url]" -O ~/.mongodb/CA.pem
+    $ wget "https://[!KEYREF s3-storage-host][!KEYREF pem-path]" -O ~/.mongodb/CA.pem
     $ mongo --norc \
             --ssl \
             --sslCAFile ~/.mongodb/allCAs.pem \
