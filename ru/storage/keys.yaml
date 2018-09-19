@@ -1,2 +1,2 @@
-s3-storage-host: storage.cloud.yandex.net
-s3-web-host: website.cloud.yandex.net
+s3-storage-host: storage.yandexcloud.net
+s3-web-host: website.yandexcloud.net

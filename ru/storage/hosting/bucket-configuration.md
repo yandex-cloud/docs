@@ -33,11 +33,11 @@
 1. Создать корзину `example.com` и загрузить в нее данные.
 2. Настроить алиас для корзины у провайдера.
     ```
-    example.com CNAME example.com.website.cloud.yandex.net
+    example.com CNAME example.com.[!KEYREF s3-web-host]
     ```
 3. Создать корзину `www.example.com` и оставить ее пустой.
 4. Настроить алиас для корзины у провайдера.
     ```
-    www.example.com CNAME www.example.com.website.cloud.yandex.net
+    www.example.com CNAME www.example.com.[!KEYREF s3-web-host]
     ```
 5. Настроить [переадресацию](setup.md) всех данных из корзины `www.example.com` в корзину `example.com`.
