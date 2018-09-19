@@ -19,7 +19,7 @@ $ chmod 0600 ~/.mongodb/CA.pem
 ```bash
 $ mongo --norc \
         --ssl \
-        --sslCAFile ~/.mongodb/YandexCLCA.pem \
+        --sslCAFile ~/.mongodb/CA.pem \
         --ipv6 \
         --host 'rs01/<адрес хоста 1>:27018,<адрес хоста 2>:27018,<адрес хоста N>:27018' \
         -u <имя пользователя> \
