@@ -8,7 +8,7 @@
 
 ```bash
 $ mkdir ~/.postgres
-$ wget "[!KEYREF pem-url]" -O ~/.postgres/root.crt
+$ wget "https://[!KEYREF s3-storage-host][!KEYREF pem-path]" -O ~/.postgres/root.crt
 $ chmod 0600 ~/.postgres/root.crt
 ```
 

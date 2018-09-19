@@ -10,13 +10,13 @@
 После настройки корзины для хостинга сайт становится доступен по адресу:
 
 ```
-http://<имя_корзины>.website.cloud.yandex.net
+http://<имя_корзины>.[!KEYREF s3-web-host]
 ```
 
 или
 
 ```
-http://website.cloud.yandex.net/<имя_корзины>
+http://[!KEYREF s3-web-host]/<имя_корзины>
 ```
 
 ## Собственный домен
@@ -31,5 +31,5 @@ http://website.cloud.yandex.net/<имя_корзины>
     Например, для домена `example.com` необходимо добавить запись
 
     ```
-    example.com CNAME example.com.website.cloud.yandex.net
+    example.com CNAME example.com.[!KEYREF s3-web-host]
     ```

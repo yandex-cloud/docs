@@ -1,4 +1,4 @@
-pem-url: 'https://storage.cloud.yandex.net/mdb/CA.pem'
+pem-path: '/mdb/CA.pem'
 PG: PostgreSQL
 CH: ClickHouse
 MG: MongoDB
