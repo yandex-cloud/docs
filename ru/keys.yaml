@@ -31,6 +31,7 @@ dsvm-short-name: DSVM
 speechkit-short-name: SpeechKit
 translate-short-name: Translate
 
+# Тарифы
 price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
 
 # Роли
@@ -45,4 +46,6 @@ roles-viewer: viewer
 subjects-allUsers: allUsers
 subjects-allAuthenticatedUsers: allAuthenticatedUsers
 
-
+# Хосты
+s3-storage-host: storage.yandexcloud.net
+s3-web-host: website.yandexcloud.net
