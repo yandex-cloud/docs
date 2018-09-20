@@ -3,6 +3,11 @@
 Доступ к сервису Биллинг предоставляется пользователям с зарегистрированным аккаунтом в Яндекс.Паспорте. К аккаунту обязательно должен быть привязан ваш номер телефона. Если у вас еще нет аккаунта, [создайте его](https://passport.yandex.ru/registration). См. подробную инструкцию в [Помощи](https://yandex.ru/support/passport/) Яндекс.Паспорта.
 
 Чтобы начать пользоваться Биллингом:
+1. [Получите промокод](../concepts/quickstart/index.md#get_promocode)
+1. [Активируйте промокод](../concepts/quickstart/index.md#activate_promocode)
+1. [Создайте платежный аккаунт](../concepts/quickstart/index.md#create_billing_account) 
+1. [Начните знакомство с Яндекс.Облаком](../concepts/quickstart/index.md#start)
+
 
 ### **Получите промокод** {#get_promocode}
 Если у вас уже есть [промокод](../concepts/promo-code.md) для входа в консоль управления Яндекс.Облака, перейдите к шагу [Активировать промокод](../concepts/quickstart/index.md#activate_promocode). Если промокода еще нет, вы можете оставить заявку на его получение:
