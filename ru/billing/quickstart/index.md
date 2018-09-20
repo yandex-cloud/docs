@@ -100,3 +100,5 @@
 7. Чтобы начать знакомство с Яндекс.Облаком, воспользуйтесь инструкциями:
 
    [!INCLUDE [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md)]
+   
+   Ответы на часто задаваемые вопросы см. в разделе [Все вопросы про Биллинг](https://cloud.yandex.ru/docs/billing/qa/all).
