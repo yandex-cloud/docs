@@ -41,8 +41,8 @@
     access_key = id
     secret_key = secretKey
     bucket_location = us-east-1
-    host_base = s3.mds.yandex.net
-    host_bucket = %(bucket)s.s3.mds.yandex.net
+    host_base = storage.cloud.yandex.net
+    host_bucket = %(bucket)s.storage.cloud.yandex.net
     ```
 
 //// далее нужны правки
