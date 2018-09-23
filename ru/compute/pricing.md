@@ -98,7 +98,7 @@ Windows Server для стандартного ядра | 0,95 ₽ | 1,12 ₽
 
 [!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing-egress-traffic.md)]
 
-### Внешний IP
+### Публичный IP
 
-При создании виртуальной машины можно указать внешний IP-адрес для нее.
+При создании виртуальной машины можно указать публичный IP-адрес для нее.
 О тарифах за использование внешнего IP-адреса читайте в разделе [[!TITLE]](../vpc/pricing.md) документации сервиса Yandex Virtual Private Cloud.
