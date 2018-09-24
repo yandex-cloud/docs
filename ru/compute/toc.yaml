@@ -49,10 +49,6 @@ items:
         items:
           - name: Создать пустой диcк
             href: operations/disk-create/empty.md
-          - name: Создать из образа
-            href: operations/disk-create/from-image.md
-          - name: Восстановить из снимка
-            href: operations/disk-create/from-snapshot.md
       - name: Управление диском
         items:
           - name: Сделать снимок диска
