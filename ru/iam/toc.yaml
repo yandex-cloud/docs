@@ -139,3 +139,11 @@ items:
             href: api-ref/YandexPassportUserAccount/index.md
           - name: getByLogin
             href: api-ref/YandexPassportUserAccount/getByLogin.md
+  - name: Вопросы и ответы
+    items:
+      - name: Общие вопросы
+        href: qa/general.md
+      - name: Вход в систему и доступ к ресурсам
+        href: qa/access.md
+      - name: Все вопросы на одной странице
+        href: qa/index.md
