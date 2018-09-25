@@ -12,7 +12,7 @@ items:
         items:
           - name: Создание подключения к ClickHouse
             href: operations/connection/create-clickhouse.md
-         - name: Создание подключения к файлу CSV
+          - name: Создание подключения к файлу CSV
             href: operations/connection/create-csv.md
       - name: Датасет
         items:
