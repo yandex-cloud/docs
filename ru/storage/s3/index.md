@@ -16,7 +16,7 @@
 
 ```
 {GET|HEAD|PUT|DELETE} {path} HTTP/1.1
-Host: storage.cloud.yandex.net
+Host: [!KEYREF s3-storage-host]
 Content-Length: length
 Date: date
 Authorization: authorization string (AWS Signature Version 4)

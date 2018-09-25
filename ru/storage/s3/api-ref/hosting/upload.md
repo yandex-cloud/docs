@@ -1,0 +1,91 @@
+# Метод upload
+
+Загружает конфигурацию хостинга статического сайта для корзины.
+
+
+## Запрос {#request}
+
+```
+PUT /{bucket}?website HTTP/1.1
+```
+
+### Path параметры {#path-parameters}
+
+Параметр | Описание
+----- | -----
+`bucket` | Имя корзины.
+
+
+### Query параметры {#request-params}
+
+Параметр | Описание
+----- | -----
+`website` | Обязательный параметр для обозначения типа операции.
+
+
+### Заголовки {#request-headers}
+
+Используйте в запросе необходимые [общие заголовки](../common-request-headers.md).
+
+### Схема данных {#request-scheme}
+
+Корзину можно сконфигурировать:
+
+---
+
+**[!TAB Как сайт]**
+
+Пример конфигурации:
+
+```
+<WebsiteConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+    <IndexDocument>
+        <Suffix>index.html</Suffix>
+    </IndexDocument>
+    <ErrorDocument>
+        <Key>Error.html</Key>
+    </ErrorDocument>
+</WebsiteConfiguration>
+```
+
+Возможные элементы:
+
+Элемент | Описание
+----- | -----
+`IndexDocument/Suffix` | Главная страница сайта.<br/><br/>Путь: `/WebsiteConfiguration/IndexDocument/Suffix`.
+`ErrorDocument/Key` | Документ, который пользователь увидит при возникновении ошибок с кодом 4xx.<br/><br/>Путь: `/WebsiteConfiguration/ErrorDocument/Key`.
+
+**[!TAB Для редиректа всех запросов]**
+
+Пример конфигурации:
+
+```
+<!--Конфигурация для редиректа всех запросов-->
+<WebsiteConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+    <RedirectAllRequestsTo>
+        <HostName>example.com</HostName>
+        <Protocol>http</Protocol>
+    </RedirectAllRequestsTo>
+</WebsiteConfiguration>
+```
+
+Возможные элементы:
+
+Элемент | Описание
+----- | -----
+`RedirectAllRequestsTo` | Содержит конфигурацию редиректов всех запросов.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo`.
+`HostName` | Хост, на который перенаравляются все запросы к корзине.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo/HostName`.
+`Protocol` | Протокол, который используется при при перенаправлении: `http`, `https`. Необязательный элемент.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo/Protocol`.
+
+---
+
+
+## Ответ {#response}
+
+### Заголовки {#response-headers}
+
+Ответ может содержать только [общие заголовки](../common-response-headers.md).
+
+### Коды ответов {#response-codes}
+
+Перечень возможных ответов смотрите в разделе [[!TITLE]](../response-codes.md).

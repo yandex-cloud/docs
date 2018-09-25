@@ -1,9 +1,12 @@
-#### resource-manager.cloud.owner
+#### [!KEYREF roles-cloud-member]
 
-Роль `resource-manager.cloud.owner` назначается на уровне облака.
-`resource-manager.cloud.owner` может выполнять любые действия с облаком и ресурсами в нем, в том числе с ресурсами сервиса [!KEYREF service-name].
+Роль `[!KEYREF roles-cloud-member]` назначается на облако.
+Роль `[!KEYREF roles-cloud-member]` необходима для всех субъектов кроме [системной группы](../iam/concepts/users/users.md#system) `allAuthenticatedUsers` и пользователей с ролью `[!KEYREF roles-cloud-owner]`.
 
-#### resource-manager.cloud.member
+Сама по себе роль не дает выполнять какие либо операции с облаком или ресурсами в нем. Эта роль делает пользователя участником облака и используется только в сочетании с другими ролями. Например с `admin`, `editor` или `viewer`.
 
-Роль `resource-manager.cloud.member` назначается на уровне облака.
-Роль `resource-manager.cloud.member` необходима для всех субъектов кроме [системных групп](../iam/concepts/users/users.md#system) `allUsers` и `allAuthenticatedUsers`. При выполнении операций с ресурсами внутри облака эта роль используется в сочетании с другими ролями, например с `admin`, `editor` или `viewer`.
+#### [!KEYREF roles-cloud-owner]
+
+Роль `[!KEYREF roles-cloud-owner]` назначается на облако. Роль `[!KEYREF roles-cloud-owner]` делает пользователя владельцем облака. Владелец одновременно является и участником облака и может выполнять любые операции с облаком и ресурсами в нем.
+
+Только владелец облака может назначать и удалять у пользователей роль `[!KEYREF roles-cloud-owner]`.
