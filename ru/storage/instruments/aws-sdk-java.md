@@ -4,10 +4,7 @@
 
 ## Подготовка к работе {#preparations}
 
-1. Создайте сервисный аккаунт.
-1. [Получите необходимые роли](../security/index.md).
-1. [Получите статический ключ](../operations/security/get-static-key.md).
-
+[!INCLUDE [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md)]
 
 ## Установка {#installation}
 
@@ -21,7 +18,7 @@
 
 ## Настройка {#setup}
 
-[!INCLUDE [storage-sdk-setup](../../_includes/storage-sdk-setup.md)]
+[!INCLUDE [storage-sdk-setup](../_includes_service/storage-sdk-setup.md)]
 
 
 ## Примеры кода {#java-sdk-examples}

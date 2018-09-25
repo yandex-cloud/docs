@@ -9,9 +9,7 @@
 
 ## Подготовка к работе {#preparations}
 
-1. Создайте сервисный аккаунт.
-1. [Получите необходимые роли](../security/index.md).
-1. [Получите статический ключ](../operations/security/get-static-key.md).
+[!INCLUDE [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md)]
 
 ## Установка {#installation}
 
@@ -21,8 +19,8 @@
 
 Для настройки AWS CLI используйте команду `aws configure`. Команда запросит значения для следующих параметров:
 
-1. `AWS Access Key ID` — введите значение `id`, которое вы получили при генерации статического ключа.
-1. `AWS Secret Access Key` — введите значение `secretKey`, которое вы получили при генерации секретного ключа.
+1. `AWS Access Key ID` — введите идентификатор ключа, который вы получили при генерации статического ключа.
+1. `AWS Secret Access Key` — введите секретный ключ, который вы получили при генерации секретного ключа.
 1. `Default region name` — введите значение `us-east-1`.
    
    > [!NOTE]
