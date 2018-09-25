@@ -54,7 +54,7 @@
 При использовании AWS CLI для работы с [!KEYREF objstorage-name] учитывайте следующие особенности этого инструмента:
 - AWS CLI работает с [!KEYREF objstorage-name] как с иерархической файловой системой и ключи объектов имеют вид пути к файлу.
 - При запуске команды `aws` для работы с [!KEYREF objstorage-name] обязателен параметр `--endpoint-url`, поскольку по умолчанию клиент настроен на работу с серверами Amazon.
-- При работе в Mac OS, в некоторых случаях требуется запуск вида:
+- При работе в macOS, в некоторых случаях требуется запуск вида:
     ```
     export PYTHONPATH=/Library/Python/2.7/site-packages; aws --endpoint-url=https://[!KEYREF s3-storage-host] s3 ls
     ```

@@ -29,8 +29,6 @@
 ## Создание нового диска
 
 - [[!TITLE]](disk-create/empty.md)
-- [[!TITLE]](disk-create/from-image.md)
-- [[!TITLE]](disk-create/from-snapshot.md)
 
 ## Управление диском
 
