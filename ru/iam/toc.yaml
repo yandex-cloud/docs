@@ -15,6 +15,14 @@ items:
             href: operations/users/create.md
           - name: Удалить пользователя
             href: operations/users/delete.md
+      - name: Сервисные аккаунты
+        items:
+          - name: Создать сервисный аккаунт
+            href: operations/sa/create.md
+          - name: Изменить сервисный аккаунт
+            href: operations/sa/create.md
+          - name: Удалить сервисный аккаунт
+            href: operations/sa/delete.md
       - name: Роли
         items:
           - name: Назначить роль
