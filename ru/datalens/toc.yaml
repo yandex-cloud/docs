@@ -1,30 +1,58 @@
-- name: Yandex DataLens
-  href: index.md
-- name: Начало работы
-  href: quickstart.md
-- name: Пошаговые инструкции для Yandex DataLens
-  href: operations/index.md
-- name: Создание подключения к ClickHouse
-  href: operations/connection/create-clickhouse.md
-- name: Создание подключения к файлу CSV
-  href: operations/connection/create-csv.md
-- name: Создание датасета
-  href: operations/dataset/create.md
-- name: Настройка датасета
-  href: operations/dataset/configure.md
-- name: Создание
-  href: operations/widget/create.md
-- name: Обзор
-  href: concepts/index.md
-- name: Подключение
-  href: concepts/connection.md
-- name: Датасет
-  href: concepts/dataset.md
-- name: Виджет
-  href: concepts/widget.md
-- name: Дашборд
-  href: concepts/dashboard.md
-- name: Квоты и лимиты
-  href: concepts/limits.md
-- name: Безопасность и управление доступом
-  href: security.md
+title: "Yandex DataLens"
+items:
+  - name: Yandex DataLens
+    href: index.yaml
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Подключение
+        items:
+          - name: Создание подключения к ClickHouse
+            href: operations/connection/create-clickhouse.md
+         - name: Создание подключения к файлу CSV
+            href: operations/connection/create-csv.md
+      - name: Датасет
+        items:
+          - name: Создание датасета
+            href: operations/dataset/create.md
+          - name: Настройка датасета
+            href: operations/dataset/configure.md
+      - name: Поле данных
+        items:
+          - name: Создание поля
+            href: operations/field/create.md
+          - name: Создание вычисляемого поля
+            href: operations/field/create-calculated.md
+      - name: Виджет
+        items:
+          - name: Создание линейного графика
+            href: operations/widget/create-line-chart.md
+          - name: Создание графика площади
+            href: operations/widget/create-area-chart.md
+          - name: Создания круговой диаграммы
+            href: operations/widget/create-pie-chart.md
+          - name: Создание столбчатой диаграммы
+            href: operations/widget/create-bar-chart.md
+          - name: Создание плоской таблицы
+            href: operations/widget/create-flat-table.md
+          - name: Создание таблицы среза
+            href: operations/widget/create-slice-table.md
+  - name: Основные понятия
+    items:
+      - name: Взаимосвязь ресурсов сервиса
+        href: concepts/index.md
+      - name: Подключение
+        href: concepts/connection.md
+      - name: Датасет
+        href: concepts/dataset.md
+      - name: Виджет
+        href: concepts/widget.md
+      - name: Дашборд
+        href: concepts/dashboard.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Безопасность и управление доступом
+    href: security.md

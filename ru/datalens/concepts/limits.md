@@ -1,4 +1,4 @@
 # Квоты и лимиты
 
-На этапе Technical Preview в сервисе Yandex Identity and Access Management действуют следующие ограничения:
+На этапе альфа-тестирования в Yandex DataLens действуют следующие ограничения:
 
