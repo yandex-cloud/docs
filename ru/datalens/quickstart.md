@@ -7,4 +7,6 @@
 
    [!INCLUDE [create-folder](../_includes/create-folder.md)]
 
-1. Перейдите в интерфейс DataLens по ссылке [https://datalens.cloud.yandex.ru](https://datalens.cloud.yandex.ru).
+1. Перейдите в интерфейс DataLens по ссылке [https://datalens.yandex.ru](https://datalens.yandex.ru).
+
+Ниже приведены инструкции, следуя которым можно создать подключение из csv-файла.
