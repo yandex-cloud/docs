@@ -23,6 +23,8 @@ items:
             href: operations/sa/update.md
           - name: Назначить роль сервисному аккаунту
             href: operations/sa/assign-role-for-sa.md
+          - name: Установить права доступа к сервисному аккаунту
+            href: operations/sa/set-access-bindings.md
           - name: Удалить сервисный аккаунт
             href: operations/sa/delete.md
       - name: Роли
