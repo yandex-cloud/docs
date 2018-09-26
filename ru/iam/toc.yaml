@@ -20,7 +20,9 @@ items:
           - name: Создать сервисный аккаунт
             href: operations/sa/create.md
           - name: Изменить сервисный аккаунт
-            href: operations/sa/create.md
+            href: operations/sa/update.md
+          - name: Назначить роль сервисному аккаунту
+            href: operations/sa/assign-role-for-sa.md
           - name: Удалить сервисный аккаунт
             href: operations/sa/delete.md
       - name: Роли
