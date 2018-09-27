@@ -21,6 +21,8 @@ items:
             href: operations/roles/grant.md
           - name: Отозвать роль
             href: operations/roles/revoke.md
+      - name: Получить IAM-токен
+        href: operations/iam-token/create.md
   - name: Основные понятия
     items:
       - name: Обзор
