@@ -42,14 +42,14 @@ items:
             href: operations/widget/create-flat-table.md
           - name: Создание таблицы среза
             href: operations/widget/create-slice-table.md
-       - name: Дашборд
-         items:
-           - name: Создание дашборда
-             href: operations/dashboard/create.md
-           - name: Создание управлятора
-             href: operations/dashboard/create-controller.md
-           - name: Добавление виджета на дашборд
-             href: operation/dashboard/add-widget.md
+      - name: Дашборд
+        items:
+          - name: Создание дашборда
+            href: operations/dashboard/create.md
+          - name: Создание управлятора
+            href: operations/dashboard/create-controller.md
+          - name: Добавление виджета на дашборд
+            href: operation/dashboard/add-widget.md
   - name: Основные понятия
     items:
       - name: Взаимосвязь ресурсов сервиса
