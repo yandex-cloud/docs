@@ -8,7 +8,7 @@ items:
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
-        href: operations/all.md
+        href: operations/index.md
       - name: Пользователи
         items:
           - name: Добавить пользователя
