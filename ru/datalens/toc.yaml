@@ -24,12 +24,10 @@ items:
             href: operations/dataset/create.md
           - name: Настройка датасета
             href: operations/dataset/configure.md
-      - name: Поле данных
-        items:
-          - name: Создание поля
-            href: operations/field/create.md
+          - name: Создание поля данных
+            href: opertions/dataset/create-field.md
           - name: Создание вычисляемого поля
-            href: operations/field/create-calculated.md
+            href: operations/field/create-calculated-field.md
       - name: Виджет
         items:
           - name: Создание линейного графика
@@ -44,6 +42,14 @@ items:
             href: operations/widget/create-flat-table.md
           - name: Создание таблицы среза
             href: operations/widget/create-slice-table.md
+       - name: Дашборд
+         items:
+           - name: Создание дашборда
+             href: operations/dashboard/create.md
+           - name: Создание управлятора
+             href: operations/dashboard/create-controller.md
+           - name: Добавление виджета на дашборд
+             href: operation/dashboard/add-widget.md
   - name: Основные понятия
     items:
       - name: Взаимосвязь ресурсов сервиса
