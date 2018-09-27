@@ -16,7 +16,7 @@ POST https://translate.api.cloud.yandex.net/translate/v1/detect
 ----- | -----
 `text` | Обязательный параметр.<br/>Текст, язык которого требуется определить, в кодировке UTF-8.
 `hint` | Список наиболее вероятных языков (им будет отдаваться предпочтение при определении языка текста). Разделитель списка — запятая.
-`folderid` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](.Авторизация в API./concepts/auth.md).
+`folderid` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
 
 
 ## Ответ {#response}
@@ -37,7 +37,7 @@ POST https://translate.api.cloud.yandex.net/translate/v1/detect
 ```no-highlight
 curl -X POST \
      -H "Authorization: Bearer <IAM-token>" \
-     -d "text=hello%20world&hint=en,ru&folderid=<folder id>"
+     -d "text=hello%20world&hint=en,ru&folderid=<folder id>" \
      "https://translate.api.cloud.yandex.net/translate/v1/detect"
 ```
 
