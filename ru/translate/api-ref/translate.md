@@ -44,7 +44,7 @@ POST https://translate.api.cloud.yandex.net/translate/v1/translate
 ```no-highlight
 curl -X POST \
      -H "Authorization: Bearer <IAM-token>" \
-     -d "text=hello%20world&source=en&target=ru&folderid=<folder id>"
+     -d "text=hello%20world&source=en&target=ru&folderid=<folder id>" \
      "https://translate.api.cloud.yandex.net/translate/v1/translate"
 ```
 
