@@ -41,7 +41,7 @@ POST https://translate.api.cloud.yandex.net/translate/v1/languages
 curl -X POST \
      -H "Authorization: Bearer <IAM-token>" \
      -d "folderid=<folder id>"
-     "https://translate.api.cloud.yandex.net/translate/v1/languages/"
+     "https://translate.api.cloud.yandex.net/translate/v1/languages"
 ```
 
 ### Пример ответа
