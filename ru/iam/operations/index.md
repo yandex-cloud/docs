@@ -19,3 +19,7 @@
 
 - [[!TITLE]](roles/grant.md)
 - [[!TITLE]](roles/revoke.md)
+
+## IAM-токены
+
+- [[!TITLE]](iam-token/create.md)
