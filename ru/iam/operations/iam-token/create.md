@@ -7,7 +7,7 @@
 1. Обменяйте OAuth-токен на IAM-токен:
    ```
    curl -X POST \
-        -H "Content-Type: application/json" \
+        -H 'Content-Type: application/json' \
         -d '{"yandexPassportOauthToken": "<OAuth-token>"}' \
         https://api.cloud.yandex.net/iam/v1/tokens
    ```
