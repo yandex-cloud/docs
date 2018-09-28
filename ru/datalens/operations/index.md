@@ -11,9 +11,7 @@
 ## Работа с датасетом
 
 - [[!TITLE]](dataset/create.md)
-- [[!TITLE]](dataset/configure.md)
 - [[!TITLE]](dataset/create-field.md)
-- [[!TITLE]](dataset/create-calculated-field.md)
 - [[!TITLE]](dataset/manage-access.md)
 
 ## Создание и настройка виджетов
@@ -29,6 +27,5 @@
 ## Работа с дашбордами
 
 - [[!TITLE]](dashboard/create.md)
-- [[!TITLE]](dashboard/create-controller.md)
 - [[!TITLE]](dashboard/add-widget.md)
 - [[!TITLE]](dashboard/manage-access.md)

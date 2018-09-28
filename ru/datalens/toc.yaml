@@ -18,16 +18,16 @@ items:
             href: operations/connection/create-mysql.md
           - name: Создание подключения к PostgreSQL
             href: operations/connection/create-postgresql.md
+          - name: Управление доступом к подключению
+            href: operations/connection/manage-access.md
       - name: Датасет
         items:
           - name: Создание датасета
             href: operations/dataset/create.md
-          - name: Настройка датасета
-            href: operations/dataset/configure.md
           - name: Создание поля данных
             href: opertions/dataset/create-field.md
-          - name: Создание вычисляемого поля
-            href: operations/field/create-calculated-field.md
+          - name: Управление доступом к датасету
+            href: operations/dataset/manage-access.md
       - name: Виджет
         items:
           - name: Создание линейного графика
@@ -42,14 +42,16 @@ items:
             href: operations/widget/create-flat-table.md
           - name: Создание таблицы среза
             href: operations/widget/create-slice-table.md
+          - name: Управление доступом к виджету
+            href: operations/widget/manage-access.md
       - name: Дашборд
         items:
           - name: Создание дашборда
             href: operations/dashboard/create.md
-          - name: Создание управлятора
-            href: operations/dashboard/create-controller.md
           - name: Добавление виджета на дашборд
             href: operation/dashboard/add-widget.md
+          - name: Управление доступом к подключению
+            href: operations/dashboard/manage-access.md
   - name: Основные понятия
     items:
       - name: Взаимосвязь ресурсов сервиса
