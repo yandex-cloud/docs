@@ -5,7 +5,7 @@
 
 ## Перед началом
 
-Для выполнения операций в этой инструкции вы должны быть владельцем облака — обладать ролью `[!KEYREF roles-cloud-owner]`.
+Вы должны обладать [ролью](concepts/access-control/roles.md) `[!KEYREF roles-cloud-owner]` или `[!KEYREF roles-admin]` на облако.
 
 Если вам некого добавить в облако, вы можете [создать новый аккаунт](https://passport.yandex.ru/registration) на яндексе и предоставить доступ в облако с этого аккаунта.
 
@@ -24,8 +24,6 @@
 4. Нажмите кнопку **Добавить**.
 
 [!INCLUDE [roles-cloud-member](../_includes/roles-cloud-member.md)]
-
-Про то, какие бывают роли, читайте в разделе [[!TITLE]](concepts/access-control/roles.md).
 
 ## Назначьте пользователю роль на облако
 
