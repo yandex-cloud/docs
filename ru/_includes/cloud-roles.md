@@ -2,11 +2,11 @@
 
 [!INCLUDE [roles-cloud-member](roles-cloud-member.md)]
 
-Сама по себе эта роль не дает выполнять какие-либо операции с облаком или ресурсами в нем. Эта роль делает пользователя [участником облака](../resource-manager/concepts/resources-hierarchy.md#member) и используется только в сочетании с другими ролями, например с `admin`, `editor` или `viewer`.
+ Одна эта роль не дает права выполнять какие-либо операции и используется только в сочетании с другими ролями, например с `admin`, `editor` или `viewer`.
 
 #### [!KEYREF roles-cloud-owner]
 
-Роль `[!KEYREF roles-cloud-owner]` назначается на облако. Роль `[!KEYREF roles-cloud-owner]` делает пользователя [владельцем облака](../resource-manager/concepts/resources-hierarchy.md#owner). Владелец может выполнять любые операции с облаком и ресурсами в нем.
+Роль `[!KEYREF roles-cloud-owner]` назначается на облако и делает пользователя [владельцем облака](../resource-manager/concepts/resources-hierarchy.md#owner). Владелец может выполнять любые операции с облаком и ресурсами в нем.
 
 Только владелец облака может назначать и удалять у пользователей роль `[!KEYREF roles-cloud-owner]`.
 
