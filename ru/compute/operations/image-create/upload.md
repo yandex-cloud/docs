@@ -3,16 +3,16 @@
 Эта инструкция описывает, как загрузить файл с образом диска в Яндекс.Облако и создать из него [образ](../../concepts/images.md) в сервисе [!KEYREF compute-name]. На данный момент поддерживаются следующие форматы образов: Qcow2, VMDK, VHD.
 
 
-## Загрузить образ в Яндекс.Облако
+## Шаг 1. Загрузите образ в Яндекс.Облако
 
-Загрузите файл с образом в сервис [!KEYREF objstorage-full-name] и получите ссылку на загруженный образ.
+Загрузите файл с образом в сервис [!KEYREF objstorage-full-name] и получите ссылку на загруженный образ:
 
 1. Если у вас еще нет корзины в [!KEYREF objstorage-name], [создайте](../../../storage/operations/buckets/create.md) ее.
-2. [Сделайте](../../../storage/operations/security/bucket-availability.md) корзину публичной. На данный момент образы можно создавать образы только из публичных корзин.
+2. [Сделайте корзину публичной](../../../storage/operations/security/bucket-availability.md). На данный момент образы можно создавать образы только из публичных корзин.
 3. [Загрузите образ](../../../storage/operations/objects/upload.md) в вашу корзину. В терминах [!KEYREF objstorage-name] загружаемый файл образа будет называться _объектом_.
 4. [Получите ссылку](../../../storage/operations/objects/link-for-download.md) на загруженный образ. Используйте эту ссылку при создании образа в [!KEYREF compute-name].
 
-## Создайте загруженный образ в [!KEYREF compute-name]
+## Шаг 2. Создайте загруженный образ в [!KEYREF compute-name]
 
 Создайте новый образ по ссылке, полученной в [!KEYREF objstorage-name].
 
@@ -76,8 +76,8 @@ yc compute image create  \
 После создания образ перейдет в статус `CREATING`. Дождитесь, когда образ перейдет в статус `READY`, прежде чем использовать его.
 
 
-## Удалите образ из [!KEYREF objstorage-name]
+## Шаг 3. Удалите образ из [!KEYREF objstorage-name]
 
-Если образ был создан успешно, вы можете [удалить образ](../../../storage/operations/objects/delete.md) из сервиса [!KEYREF objstorage-name], чтобы не платить за него. Вы также можете [удалить корзину](../../../storage/operations/buckets/delete.md), если в ней не осталось объектов.
+Если образ был создан успешно, вы можете [удалить файл образа](../../../storage/operations/objects/delete.md) из сервиса [!KEYREF objstorage-name]. Вы также можете [удалить корзину](../../../storage/operations/buckets/delete.md), если в ней не осталось объектов.
 
 О стоимости использования [!KEYREF objstorage-name] читайте в разделе [[!TITLE]](../../../storage/pricing.md).
