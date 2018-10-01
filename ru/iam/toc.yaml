@@ -8,7 +8,7 @@ items:
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
-        href: operations/all.md
+        href: operations/index.md
       - name: Пользователи
         items:
           - name: Добавить пользователя
@@ -21,6 +21,8 @@ items:
             href: operations/roles/grant.md
           - name: Отозвать роль
             href: operations/roles/revoke.md
+      - name: Получить IAM-токен
+        href: operations/iam-token/create.md
   - name: Основные понятия
     items:
       - name: Обзор
