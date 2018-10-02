@@ -4,3 +4,5 @@
 - [Цикл оплаты для физических лиц](billing-cycle-individual.md)
 - [Цикл оплаты для юридических лиц](billing-cycle-business.md)
 
+test
+
