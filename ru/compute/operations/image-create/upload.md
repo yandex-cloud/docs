@@ -4,14 +4,14 @@
 
 >[!NOTE]
 >
->Создавать образы из внешних источников разрешено по ссылкам на публичные корзины в [!KEYREF objstorage-name].
+>Создавать образы из внешних источников разрешено только по ссылкам на публичные корзины в [!KEYREF objstorage-name].
 
 ## 1. Загрузите файл образа в Яндекс.Облако
 
 Загрузите файл с образом в сервис [!KEYREF objstorage-full-name] и получите ссылку на загруженный образ:
 
 1. Если у вас еще нет корзины в [!KEYREF objstorage-name], [создайте](../../../storage/operations/buckets/create.md) ее.
-2. [Сделайте корзину публичной](../../../storage/operations/security/bucket-availability.md). На данный момент образы можно создавать образы только из публичных корзин.
+2. [Сделайте корзину публичной](../../../storage/operations/security/bucket-availability.md).
 3. [Загрузите образ](../../../storage/operations/objects/upload.md) в вашу корзину. В терминах [!KEYREF objstorage-name] загружаемый файл образа будет называться _объектом_.
 4. [Получите ссылку](../../../storage/operations/objects/link-for-download.md) на загруженный образ. Используйте эту ссылку при создании образа в [!KEYREF compute-name].
 
