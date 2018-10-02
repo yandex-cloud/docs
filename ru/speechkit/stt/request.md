@@ -18,8 +18,8 @@ POST https://stt.api.cloud.yandex.net/speech/v1/stt:recognize
 
 Параметр | Описание
 ----- | -----
-`topic` | [Языковая модель](../stt/index.md#model), которую следует использовать при распознавании.<br/>Чем точнее выбрана модель, тем лучше результат распознавания. В одном запросе можно указать только одну модель.<br/>Значение параметра по умолчанию: `queries`.
-`lang` | Язык, для которого будет выполнено распознавание.<br/>Допустимые значения:<ul><li>`ru-RU` — русский язык,</li><li>`en-US` — английский язык,</li><li>`uk-UK` — украинский язык,</li><li>`tr-TR` — турецкий язык.</li></ul>Значение параметра по умолчанию: `ru-RU`.<br/>Допустимые значения параметра `topic` для различных значений `lang` приведены в разделе [[!TITLE]](../stt/index.md#model).
+`topic` | [Языковая модель](../stt/index.md#model), которую следует использовать при распознавании.<br/>Чем точнее выбрана модель, тем лучше результат распознавания. В одном запросе можно указать только одну модель.<br/>Значение параметра по умолчанию: `general`.
+`lang` | Язык, для которого будет выполнено распознавание.<br/>Допустимые значения:<ul><li>`ru-RU` — русский язык,</li><li>`en-US` — английский язык.</li></ul>Значение параметра по умолчанию: `ru-RU`.<br/>Допустимые значения параметра `topic` для различных значений `lang` приведены в разделе [[!TITLE]](../stt/index.md#model).
 `disableAntimat` | Параметр, указывающий, что нужно отключить антимат — фильтр ненормативной лексики в распознанной речи.<br>Допустимые значения:<ul><li>`true` — ненормативная лексика не будет исключена из результатов распознавания;</li><li>`false` — ненормативная лексика будет исключена из результатов распознавания.</li></ul>Значение параметра по умолчанию: `false`.
 `folderid` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Для этого метода API `folderid` передается в Query параметрах, а не в теле запроса.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
 
@@ -44,88 +44,16 @@ POST https://stt.api.cloud.yandex.net/speech/v1/stt:recognize
 ```
 
 
-## Примеры
+## Примеры {#request-example}
 
-### Использование различных языковых моделей
-
-Ниже приведены результаты распознавания [фрагмента русской речи](https://download.cdn.yandex.net/from/yandex.ru/tech/ru/speechkit/cloud/doc/guide/files/speech.ogg) при использовании различных языковых моделей.
-
----
-
-**[!TAB queries]**
-
-```json
-{
-  "result": "твой номер 212-85-06"
-}
-```
-
-**[!TAB notes]**
-
-```json
-{
-  "result": "твой номер 212-85-06"
-}
-```
-
-**[!TAB maps]**
-
-```json
-{
-  "result": "твой номер 212-85-06"
-}
-```
-
-**[!TAB dates]**
-
-```json
-{
-  "result": "твой номер 212-85-06"
-}
-```
-
-**[!TAB names]**
-
-```json
-{
-  "result": "твой номер 212-85-06"
-}
-```
-
-**[!TAB numbers]**
-
-```json
-{
-  "result": "твой номер 212-85-06"
-}
-```
-
-**[!TAB music]**
-
-```json
-{
-  "result": "твой номер 212-85-06"
-}
-```
-
-**[!TAB buying]**
-
-```json
-{
-  "result": "твой номер 212-85-06"
-}
-```
-
----
-
-### Примеры запроса
+### Пример запроса
 
 ---
 
 **[!TAB POST-запрос]**
 
 ```httpget
-POST /speech/v1/stt:recognize/?topic=numbers&lang=ru-RU&folderid=<folder id> HTTP/1.1
+POST /speech/v1/stt:recognize/?topic=general&lang=ru-RU&folderid=<folder id> HTTP/1.1
 Host: stt.api.cloud.yandex.net
 Authorization: Bearer <IAM-token>
   
@@ -138,7 +66,7 @@ Authorization: Bearer <IAM-token>
 curl -X POST \
      -H "Authorization: Bearer <IAM-token>" \
      --data-binary "@speech.ogg" \
-     "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?topic=numbers&folderid=<folder id>"
+     "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?topic=general&folderid=<folder id>"
 ```
 
 **[!TAB Python]**
@@ -148,7 +76,7 @@ import urllib.request
 import json
 with open("speech.ogg", "rb") as f:
     data = f.read()
-url = urllib.request.Request("https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?topic=numbers&folderid=<folder id>", data=data)
+url = urllib.request.Request("https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?topic=general&folderid=<folder id>", data=data)
 url.add_header("Authorization", "Bearer <IAM-token>")
 responseData = urllib.request.urlopen(url).read().decode('UTF-8')
 decodedData = json.loads(responseData)
