@@ -19,6 +19,8 @@ items:
           href: instruments/boto.md
         - name: CyberDuck
           href: instruments/cyberduck.md
+        - name: S3cmd
+          href: instruments/s3cmd.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

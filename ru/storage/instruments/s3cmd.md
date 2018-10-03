@@ -1,0 +1,88 @@
+# S3cmd
+
+[S3cmd](https://s3tools.org/s3cmd) — это интерфейс командной строки (Linux, Mac) для работы с сервисами, поддерживающими HTTP API Amazon S3. Общий [порядок вызова команд](https://s3tools.org/usage) смотрите в официальной документации S3cmd.
+
+## Подготовка к работе {#preparations}
+
+[!INCLUDE [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md)]
+
+## Установка {#installation}
+
+Для установки S3cmd воспользуйтесь [инструкцией](https://github.com/s3tools/s3cmd/blob/master/INSTALL) в репозитории проекта.
+
+## Настройка {#setup}
+
+Для настройки S3cmd используйте команду `s3cmd --configure`. Команда запросит значения для следующих параметров:
+
+1. `Access Key` — введите идентификатор ключа, который вы получили при генерации статического ключа.
+1. `Secret Key` — введите секретный ключ, который вы получили при генерации секретного ключа.
+1. `Default Region` — введите `us-east-1`.
+   
+   > [!NOTE]
+   >
+   > Для работы с [!KEYREF objstorage-name] всегда указывайте регион `us-east-1`. Другие значения региона могут привести к ошибке авторизации.
+   >
+1. `S3 Endpoint` - введите `[!KEYREF s3-storage-host]`.
+1. `DNS-style bucket+hostname:port template for accessing a bucket` — введите  `%(bucket)s.[!KEYREF s3-storage-host]`.
+1. Значения остальных параметров оставьте без изменений.
+
+Программа попытается установить соединение с [!KEYREF objstorage-name] и получить список корзин. В случае успеха, программа выведет `Success. Your access key and secret key worked fine :-)`.
+
+Команда `s3cmd --configure` сохранит настройки в файле `~/.s3cfg` в формате:
+
+```
+[default]
+access_key = id
+secret_key = secretKey
+bucket_location = us-east-1
+host_base = [!KEYREF s3-storage-host]
+host_bucket = %(bucket)s.[!KEYREF s3-storage-host]
+```
+
+При необходимости эти настройки можно изменить напрямую в файле. Также можно указать настройки при запуске программы с помощью соответствующих параметров.
+
+Для корректной работы команд, управляющих хостингом статических сайтов, в конфигурационный файл необходимо вручную добавить параметр
+
+```
+website_endpoint = http://%(bucket)s.[!KEYREF s3-web-host]
+```
+
+## Особенности {#specifics}
+
+Помните, что S3cmd работает с [!KEYREF objstorage-name] как с иерархической файловой системой и ключи объектов имеют вид пути к файлу.
+
+## Примеры операций {#s3cmd-examples}
+
+### Создать корзину
+
+   ```bash
+   s3cmd  mb s3://bucket
+   ```
+   
+> [!NOTE]
+>
+> При создании корзины помните об [ограничениях на имя](../concepts/bucket.md#naming).
+
+### Загрузить объект
+
+```
+s3cmd put local_file s3://bucket/object
+```
+
+### Получить список объектов
+
+```bash
+s3cmd ls s3://bucket
+```
+
+### Получить объект
+
+```bash
+s3cmd get s3://bucket/object local_file
+```
+
+### Удалить объект
+
+```bash
+s3cmd del s3://bucket/object
+```
