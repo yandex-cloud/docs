@@ -10,13 +10,13 @@
 После настройки корзины для хостинга сайт становится доступен по адресу:
 
 ```
-http://<имя_корзины>.[!KEYREF s3-web-host]
+http(s)://<имя_корзины>.[!KEYREF s3-web-host]
 ```
 
 или
 
 ```
-http://[!KEYREF s3-web-host]/<имя_корзины>
+http(s)://[!KEYREF s3-web-host]/<имя_корзины>
 ```
 
 ## Собственный домен
@@ -33,3 +33,7 @@ http://[!KEYREF s3-web-host]/<имя_корзины>
     ```
     example.com CNAME example.com.[!KEYREF s3-web-host]
     ```
+
+>[!NOTE]
+>
+>Сайт доступен только по протолу HTTP, например, `http://example.com`. Протокол HTTPS можно использовать при обращении к сайту по адресам [!KEYREF objstorage-name], например, `http(s)://example.com.[!KEYREF s3-web-host]`.
