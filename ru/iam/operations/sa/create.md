@@ -1,11 +1,5 @@
 # Создать сервисный аккаунт
 
-При создании [сервисного аккаунта](../../concepts/users/service-accounts.md) в консоли управления вы можете сразу назначить ему [роль](../../concepts/access-control/roles.md) в каталоге, в котором он создан. Назначить ему роль на другой ресурс можно с помощью CLI или API. Подробнее читайте в разделе [[!TITLE]](assign-role-for-sa.md).
-
-При создании нового сервисного аккаунта в облаке ему автоматически назначается роль `[!KEYREF roles-cloud-member]` на это облако.
-
-Если отнять эту роль, сервисный аккаунт не сможет выполнять операции с ресурсами в облаке. Роль  `[!KEYREF roles-cloud-member]` необходима для всех субъектов кроме системной группы `[!KEYREF subjects-allAuthenticatedUsers]` и пользователей с ролью `resource-manager.clouds.owner`.
-
 ---
 
 **[!TAB Консоль управления]**
@@ -14,8 +8,10 @@
 2. Выберите вкладку **Сервисные аккаунты**.
 3. Нажмите кнопку **Создать сервисный аккаунт**.
 4. Введите имя сервисного аккаунта.
-5. Вы можете сразу назначить роль сервисному аккаунту на каталог, в котором он будет создан.
+5. Вы можете сразу назначить [роль](../../concepts/access-control/roles.md) сервисному аккаунту на каталог, в котором он будет создан.
     Для этого нажмите **Добавить роль** и выберите роль.
+
+    Чтобы назначить роль на другой ресурс, воспользуйтесь CLI или API по инструкции [[!TITLE]](assign-role-for-sa.md).
 6. Нажмите кнопку **Добавить**.
 
 **[!TAB CLI]**
@@ -23,21 +19,26 @@
 Создайте сервисный аккаунт в вашем каталоге по умолчанию:
 
 ```
-yc iam service-account create --name sa-name
+yc iam service-account create --name <SERVICE-ACCOUNT-NAME>
 ```
 
-Вы можете выбрать каталог в котором будет создан сервисный аккаунт с помощью флагов `--folder-id` или `folder-name`.
+где:
+* `<SERVICE-ACCOUNT-NAME>` - имя сервисного аккаунта.
+
+    [!INCLUDE [name-format](../../../_includes/name-format.md)]
+
+Вы можете создать сервисный аккаунт в другом каталоге с помощью флагов `--folder-id` или `folder-name`:
 
 ```
-yc iam service-account create --name sa-name \
+yc iam service-account create --name my-robot \
     --folder-name yet-another-folder
 ```
 
-Вы можете добавить произвольное описание сервисного аккаунта с помощью флага `--description`.
+Вы можете добавить произвольное описание сервисного аккаунта с помощью флага `--description`:
 
 ```
-yc iam service-account create --name sa-name \
-    --description "this is my favorite service accont"
+yc iam service-account create --name my-robot \
+    --description "this is my favorite service account"
 ```
 
 **[!TAB API]**
