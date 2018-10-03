@@ -47,16 +47,20 @@ items:
             href: operations/vm-control/vm-delete.md
       - name: Создание нового диска
         items:
-          - name: Создать пустой диcк
+          - name: Создать пустой диск
             href: operations/disk-create/empty.md
       - name: Управление диском
         items:
           - name: Сделать снимок диска
             href: operations/disk-control/create-snapshot.md
-          - name: Удалить диcк
+          - name: Удалить диск
             href: operations/disk-control/delete.md
           - name: Удалить снимок диска
             href: operations/snapshot-control/delete.md
+      - name: Создание нового образа
+        items:
+          - name: Загрузить свой образ
+            href: operations/image-create/upload.md
   - name: Основные понятия
     items:
       - name: Взаимосвязь ресурсов
