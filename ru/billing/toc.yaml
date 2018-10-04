@@ -21,6 +21,8 @@ items:
           href: operations/check-charges.md
     - name: Пополнить баланс
       href: operations/pay-the-bill.md
+    - name: Подключить кредитный лимит
+      href: operations/enable-credit.md
     - name: Расшифровать счет
       href: operations/spell-out-bill.md
     - name: Посмотреть историю платежей
