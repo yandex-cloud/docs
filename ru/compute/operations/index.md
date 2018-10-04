@@ -34,7 +34,8 @@
 
 - [[!TITLE]](disk-control/create-snapshot.md)
 - [[!TITLE]](disk-control/delete.md)
-
-## Управление снимком
-
 - [[!TITLE]](snapshot-control/delete.md)
+
+## Создание нового образа
+
+- [[!TITLE]](image-create/upload.md)
