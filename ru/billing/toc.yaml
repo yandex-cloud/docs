@@ -35,6 +35,8 @@ items:
       href: concepts/index.md
     - name: Промокод
       href: concepts/promo-code.md
+    - name: Кредитный лимит
+      href: concepts/credit-limit.md
     - name: Платежный аккаунт
       href: concepts/billing-account.md
     - name: Лицевой счет
