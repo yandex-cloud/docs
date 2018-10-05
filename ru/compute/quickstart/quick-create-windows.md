@@ -57,7 +57,7 @@
     ```
 
 2. Запустите Remmina.
-3. Нажмите значок ![](../../_assets/plus.svg).
+3. Нажмите значок ![](../../_assets/plus.svg) +.
 4. В блоке **Profile** укажите следующие данные:
     - **Name**: произвольное имя подключения.
     - **Protocol**: **RDP - Remote Desktop Protocol**.
