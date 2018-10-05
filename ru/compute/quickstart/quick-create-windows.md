@@ -6,7 +6,7 @@
 
 [!INCLUDE [create-instance-via-concole-windows](../_includes_service/create-instance-via-concole-windows.md)]
 
-## Подключение к виртуальной машине Windows по протоколу RDP
+## Подключитесь к виртуальной машине Windows по протоколу RDP
 
 В образах всех версий и редакций операционной системы Windows подготовленных для запуска в Яндекс.Облаке включен Remote Desktop Protocol (RDP). Вы можете подключиться к виртуальной машине по протоколу RDP, когда она будет запущена.
 
