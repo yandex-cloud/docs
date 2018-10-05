@@ -34,7 +34,7 @@
 
 1. Установите [Microsoft Remote Desktop](https://itunes.apple.com/ru/app/microsoft-remote-desktop/id1295203466) (бесплатный официальный RDP-клиент для Mac).
 2. Запустите Microsoft Remote Desktop.
-3. Нажмите ![](../../_assets/plus.svg) → **Desktop**.
+3. Нажмите ![](../../_assets/plus.svg) + → **Desktop**.
 4. В диалоговом окне **Add Desktop** в поле **PC Name** введите публичный IP-адрес виртуальной машины, к которой необходимо подключиться.
 5. В поле **User Account** выберите **Add User Account**.
 6. В диалоговом окне **Add User Account** укажите параметры учетной записи:
