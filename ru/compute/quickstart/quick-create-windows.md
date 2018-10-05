@@ -27,6 +27,9 @@
     - **Пароль**: пароль, который вы задали при создании виртуальной машины.
 6. Нажмите кнопку **ОК**.
 
+#### См. также
+- [Подключение к удаленному рабочему столу](https://support.microsoft.com/ru-ru/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection)
+
 **[!TAB macOS]**
 
 1. Установите [Microsoft Remote Desktop](https://itunes.apple.com/ru/app/microsoft-remote-desktop/id1295203466) (бесплатный официальный RDP-клиент для Mac).
@@ -39,6 +42,9 @@
     - **Password**: пароль, который вы задали при создании виртуальной машины.
 7. Дважды нажмите кнопку **Save**.
 8. Подключитесь к удаленной машине двойным нажатием на созданное подключение в главном окне Microsoft Remote Desktop.
+
+#### См. также
+- [Начало работы с удаленного рабочего стола в Mac](https://docs.microsoft.com/ru-ru/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac)
 
 **[!TAB Linux]**
 
