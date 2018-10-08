@@ -15,13 +15,15 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+
 1. Посмотрите описание команд CLI для удаления снимков:
 
     ```
     yc compute snapshot delete --help
     ```
 
-2. Получите список всех снимков в каталоге, указанном в вашем профиле CLI:
+2. Получите список всех снимков:
 
     ```
     yc compute snapshot list
