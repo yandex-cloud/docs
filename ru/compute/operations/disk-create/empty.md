@@ -18,13 +18,15 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+
 1. Посмотрите описание команд CLI для создания дисков:
 
     ```
     yc compute disk create --help
     ```
 
-2. Создайте диск в каталоге, указанном в вашем профиле CLI:
+2. Создайте диск в каталоге по умолчанию:
 
     ```
     yc compute disk create \
@@ -37,7 +39,7 @@
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
-3. Получите список всех дисков в каталоге, указанном в вашем профиле CLI:
+3. Получите список всех дисков в каталоге по умолчанию:
 
     ```
     yc compute disk list
