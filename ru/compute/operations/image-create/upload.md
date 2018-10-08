@@ -66,6 +66,8 @@ yc compute image create  \
     --source-uri "https://storage.yandexcloud.net/mybucket/cosmic-server-cloudimg-amd64.vmdk"
 ```
 
+[!INCLUDE [min-disk-size](../../_includes_service/min-disk-size.md)]
+
 **[!TAB API]**
 
 Чтобы создать новый образ по ссылке, воспользуйтесь методом `Create` для ресурса `Image`. Ссылку на образ передайте в элементе `uri`.
