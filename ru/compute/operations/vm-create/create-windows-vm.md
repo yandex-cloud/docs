@@ -16,37 +16,28 @@
     yc compute instance create --help
     ```
 
-2. Выберите один из публичных [образов](../../concepts/images.md) на базе операционной системы Windows. Получить список образов можно с помощью команды:
+2. Выберите один из публичных [образов](../../concepts/images.md) на базе операционной системы Windows. Получить список доступных образов можно с помощью команды:
 
     ```
     yc compute image list --folder-id standard-images
     ```
-
-3. Создайте текстовый файл следующего содержания:
-
-    ```
-    #ps1
-    net user Administrator <пароль>
-    ```
-
-    Где:
-
-    - 
-
-
 
 4. Создайте виртуальную машину:
 
     ```
     yc compute instance create \
     --name my-yc-vm \
-    --metadata-from-file user-data=path/to/file \
+    --metadata user-data="#ps1\nnet user Administrator <пароль>" \
     --description "my first vm via yc" \
     --zone ru-central1-a \
     --public-ip \
-    --create-boot-disk image-folder-id=standard-images,image-name=windows-2012-r2-eval-1537434603 
+    --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk-1537967224
     ```
 
-Данная команда создаст виртуальную машину с Windows Server 2012R2, именем `my-yc-vm` в зоне `ru-central1-a`.
+    Данная команда создаст виртуальную машину с OC Windows Server 2016, именем `my-yc-vm`, пользователем `Administrator` в зоне `ru-central1-a`. Задайте пароль, с которым можно будет войти на виртуальную машину по RDP.
+
+    [!INCLUDE [name-format](../../../_includes/name-format.md)]
+
+    Создание виртуальной машины и инициализация операционной системы Windows могут занять до 5 минут.
 
 ---
