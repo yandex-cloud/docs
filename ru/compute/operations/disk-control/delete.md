@@ -19,13 +19,15 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+
 1. Посмотрите описание команд CLI для удаления дисков:
 
     ```
     yc compute disk delete --help
     ```
 
-2. Получите список всех дисков в каталоге, указанном в вашем профиле CLI:
+2. Получите список всех дисков в каталоге по умолчанию:
 
     ```
     yc compute disk list
