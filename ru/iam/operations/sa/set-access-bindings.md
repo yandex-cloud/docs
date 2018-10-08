@@ -18,7 +18,7 @@ yc iam service-account add-access-binding <SERVICE-ACCOUNT-NAME>|<SERVICE-ACCOUN
 
 где:
 
-* `<SERVICE-ACCOUNT-NAME>` — имя сервисного аккаунта, на который субъекту назначается роль. Вы можете выбрать, указать сервисный аккаунт по имени или идентификатору.
+* `<SERVICE-ACCOUNT-NAME>` — имя сервисного аккаунта, на который субъекту назначается роль. Вы можете указать сервисный аккаунт по имени или идентификатору.
 * `<SERVICE-ACCOUNT-ID>` — идентификатор сервисного аккаунта.
 * `<ROLE-ID>` — идентификатор роли, например `[!KEYREF roles-cloud-owner]`.
 * `<SUBJECT-TYPE>` — тип субъекта: `system`, `userAccount` или `serviceAccount`. Подробнее о субъектах читайте в разделе [[!TITLE]](../../concepts/users/users.md).
