@@ -34,7 +34,7 @@ POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 ```httpget
 curl -X POST \
      -H "Authorization: Bearer <IAM-token>" \
-     -d "text=hello%20world&speaker=zahar&emotion=good&folderid=<folder id>" \
+     -d "text=hello%20world&voice=zahar&emotion=good&folderid=<folder id>" \
      "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
 ```
 
