@@ -12,6 +12,8 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+
 Чтобы создать виртуальную машину:
 
 1. Посмотрите описание команд CLI для создания виртуальной машины:
