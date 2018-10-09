@@ -70,13 +70,13 @@
 				v:shadowOffsetY="-8.50394"/>
 		<g id="shape5-1" v:mID="5" v:groupContext="shape" transform="translate(196.964,-368.021)">
 			<title>Black-frame Block.11</title>
-			<desc>2. Использование гранта, средств с лицевого счета и кредитных...</desc>
+			<desc>2. Использование гранта и средств с лицевого счета</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="487.032" width="85.04" height="42.5197"/>
 			<rect x="0" y="465.772" width="85.0394" height="42.5197" class="st1"/>
-			<text x="9.69" y="477.03" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>2. Использование <tspan
-						x="10.49" dy="1em" class="st4">гранта</tspan>, средств с <tspan x="10.85" dy="1em" class="st4">лицевого счета и </tspan><tspan
-						x="6.78" dy="1em" class="st4">кредитных средств</tspan></text>		</g>
+			<text x="9.69" y="481.03" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>2. Использование <tspan
+						x="8.35" dy="1em" class="st4">гранта</tspan><tspan class="st4" v:langID="1033"> </tspan>и средств с <tspan
+						x="14.01" dy="1em" class="st4">лицевого счета</tspan></text>		</g>
 		<g id="shape129-9" v:mID="129" v:groupContext="shape" transform="translate(196.964,-437.909)">
 			<title>Yellow-solid Round Edge.539</title>
 			<desc>1. Активация платной версии</desc>
