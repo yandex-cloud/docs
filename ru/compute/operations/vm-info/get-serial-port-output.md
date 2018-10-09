@@ -23,17 +23,9 @@
 
 2. Выберите виртуальную машину, например `my-instance`:
 
-    ```
-    $ yc compute instance list
-    +----------------------+-----------------+---------------+---------+--------------------+
-    |          ID          |         NAME    |    ZONE ID    | STATUS  |    DESCRIPTION     |
-    +----------------------+-----------------+---------------+---------+--------------------+
-    | fhmcsvajvjf4n5q4osuv | my-instance     | ru-central1-a | RUNNING | my first instance  |
-    | fhmdo035fogakcksjhcq | second-instance | ru-central1-a | RUNNING | my second instance |
-    +----------------------+-----------------+---------------+---------+--------------------+
-    ```
+    [!INCLUDE [cli-instance-list](../../_includes_service/cli-instance-list.md)]
 
-3. Получите вывод последовательного порта. Эта команда возвращает много строк, поэтому удобнее их сразу записать в файл:
+3. Получите вывод последовательного порта. Эта команда возвращает много строк, поэтому запишите результат в файл:
 
     ```
     $ yc compute instance get-serial-port-output my-instance > output.txt
