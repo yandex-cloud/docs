@@ -20,6 +20,7 @@
 Вам также могут быть полезны ссылки:
 * [[!TITLE]](limits.md)
 * [[!TITLE]](usage-monitor.md)
+* [[!TITLE]](trial-ending.md)
 * [[!TITLE]](upgrade-to-paid.md)
 * [Обзор платформы Яндекс.Облака](../../overview/)
 * [Документация Яндекс.Облака](/docs)
