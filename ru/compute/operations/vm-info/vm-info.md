@@ -21,17 +21,37 @@
 
 **[!TAB CLI]**
 
-Получите основную информацию о виртуальной машине:
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
-```
-yc compute instance get <INSTANCE-ID>|<INSTANCE-NAME>
-```
+1. Посмотрите описание команды для получения вывода последовательного порта:
 
-Основная информация не включает пользовательские метаданные, которые были переданы при создании или изменении виртуальной машины. Чтобы получить информацию вместе с метаданными используйте флаг `--full`:
+    ```
+    $ yc compute instance get --help
+    ```
 
-```
-yc compute instance get --full <INSTANCE-ID>|<INSTANCE-NAME>
-```
+2. Выберите виртуальную машину:
+
+    ```
+    $ yc compute instance list
+    +----------------------+-----------------+---------------+---------+--------------------+
+    |          ID          |         NAME    |    ZONE ID    | STATUS  |    DESCRIPTION     |
+    +----------------------+-----------------+---------------+---------+--------------------+
+    | fhmcsvajvjf4n5q4osuv | my-instance     | ru-central1-a | RUNNING | my first instance  |
+    | fhmdo035fogakcksjhcq | second-instance | ru-central1-a | RUNNING | my second instance |
+    +----------------------+-----------------+---------------+---------+--------------------+
+    ```
+
+3. Получите основную информацию о виртуальной машине:
+
+    ```
+    $ yc compute instance get my-instance
+    ```
+
+4. Чтобы получить информацию вместе с [метаданными](../../concepts/vm-metadata.md) используйте флаг `--full`:
+
+    ```
+    $ yc compute instance get --full my-instance
+    ```
 
 
 **[!TAB API]**
