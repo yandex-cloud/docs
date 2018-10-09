@@ -17,7 +17,7 @@ POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 `text` | Обязательный параметр.<br/>Текст, который нужно озвучить, в кодировке UTF-8.<br/>Для передачи слов-омографов используйте `+` перед ударной гласной. Например, `гот+ов` или `def+ect`.<br/>Ограничение на длину строки: 5000 символов.
 `quality` | Частота дискретизации синтезируемого аудио.<br/>Допустимые значения:<ul><li>`ultrahigh` — частота дискретизации 48 кГц;</li><li>`high` — частота дискретизации 16 кГц;</li><li>`low` — частота дискретизации 8 кГц.</li></ul>Значение параметра по умолчанию: `ultrahigh`.
 `lang` | Язык.<br/>Допустимые значения:<ul><li>`ru-RU` — русский язык,</li><li>`en-US` — английский язык.</li></ul>Значение параметра по умолчанию: `ru-RU`.
-`speaker` | Голос синтезированной речи.<br/>Можно выбрать один из следующих голосов:<ul><li>женские голоса: `jane`, `oksana`, `alyss` и `omazh`;</li><li>мужские голоса: `zahar` и `ermil`.</li></ul>Значение параметра по умолчанию: `oksana`.
+`voice` | Голос синтезированной речи.<br/>Можно выбрать один из следующих голосов:<ul><li>женские голоса: `jane`, `oksana`, `alyss` и `omazh`;</li><li>мужские голоса: `zahar` и `ermil`.</li></ul>Значение параметра по умолчанию: `oksana`.
 `speed` | Скорость (темп) синтезированной речи.<br/>Скорость речи задается дробным числом в диапазоне от `0.1` до `3.0`. Где:<ul><li>`3.0` — самый быстрый темп;</li><li>`1.0` — средняя скорость человеческой речи;</li><li>`0.1` — самый медленный темп.</li></ul>Значение параметра по умолчанию: `1.0`.
 `emotion` | Эмоциональная окраска голоса.<br/>Допустимые значения:<ul><li>`good` — радостный, доброжелательный;</li><li>`evil` — раздраженный;</li><li>`neutral` — нейтральный.</li></ul>Значение параметра по умолчанию: `neutral`.
 `folderid` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
@@ -34,7 +34,7 @@ POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 ```httpget
 curl -X POST \
      -H "Authorization: Bearer <IAM-token>" \
-     -d "text=hello%20world&speaker=zahar&emotion=good&folderid=<folder id>" \
+     -d "text=hello%20world&voice=zahar&emotion=good&folderid=<folder id>" \
      "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
 ```
 
@@ -46,7 +46,7 @@ Content-Type: audio/ogg
 Content-Disposition: inline
 Content-Transfer-Encoding: binary
 YaCloud-Request-Id: YYXXYYXXYY-YXXY-YXXY-YXXY-YYXXYYXXYY
-YaCloud-Billing-Units: 15
+YaCloud-Billing-Units: 11
         
 ... (двоичное содержимое аудиофайла)   
 ```
