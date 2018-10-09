@@ -30,7 +30,6 @@
     yc compute instance create \
         --name my-yc-vm \
         --metadata user-data="#ps1\nnet user Administrator <пароль>" \
-        --description "my first vm via yc" \
         --zone ru-central1-a \
         --public-ip \
         --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk-1537967224
