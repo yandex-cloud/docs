@@ -73,6 +73,8 @@ items:
             href: concepts/vm-types.md
           - name: Сеть на виртуальной машине
             href: concepts/network.md
+          - name: Статусы
+            href: concepts/vm-statuses.md
           - name: Метаданные
             href: concepts/vm-metadata.md
       - name: Диски
