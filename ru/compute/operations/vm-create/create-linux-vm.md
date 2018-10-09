@@ -29,7 +29,7 @@
     yc compute image list --folder-id standard-images
     ```
 
-4.  Создайте виртуальную машину:
+4.  Создайте виртуальную машину в каталоге по умолчанию:
 
     ```
     yc compute instance create \
