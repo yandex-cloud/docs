@@ -12,6 +12,8 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+
 Чтобы создать виртуальную машину:
 
 1. Посмотрите описание команд CLI для создания виртуальной машины:
@@ -35,17 +37,17 @@
         --description "my first vm via yc" \
         --zone ru-central1-a \
         --public-ip \
-        --create-boot-disk image-folder-id=standard-images,image-name=centos-6-091814122018 \
+        --create-boot-disk image-folder-id=standard-images,image-name=centos-7-1537787644 \
         --ssh-key ~/.ssh/id_rsa.pub
     ```
 
-    Данная команда создаст виртуальную машину с OC CentOS 6, именем `my-yc-vm` в зоне `ru-central1-a`. 
+    Данная команда создаст виртуальную машину с OC CentOS 7, именем `my-yc-vm` в зоне `ru-central1-a`.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
-При создании виртуальной машине назначаются IP-адрес и имя хоста (FQDN). Эти данные можно использовать для доступа к виртуальной машине по SSH.
-
 ---
+
+При создании виртуальной машине назначаются IP-адрес и имя хоста (FQDN). Эти данные можно использовать для доступа к виртуальной машине по SSH.
 
 #### См. также
 - [[!TITLE]](../vm-control/vm-connect-ssh.md)
