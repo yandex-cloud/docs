@@ -486,5 +486,12 @@
 			<title>Dotted Line 1.490</title>
 			<path d="M0 706.23 L14.17 706.23" class="st8"/>
 		</g>
+		<g id="shape491-380" v:mID="491" v:groupContext="shape" transform="translate(412.524,-265.704)">
+			<title>Text (14).491</title>
+			<desc>Да</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="12.1181" cy="697.016" width="24.24" height="18.4252"/>
+			<rect x="0" y="687.803" width="24.2362" height="18.4252" class="st13"/>
+			<text x="5.81" y="700.02" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Да</text>		</g>
 	</g>
 </svg>
