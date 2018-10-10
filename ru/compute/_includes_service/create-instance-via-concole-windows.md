@@ -15,4 +15,4 @@
 
     [!INCLUDE [password-requirements](../../_includes/password-requirements.md)]
 
-10. Нажмите кнопку **Создать ВМ**.ы
+10. Нажмите кнопку **Создать ВМ**.
