@@ -70,11 +70,11 @@
 				v:shadowOffsetY="-8.50394"/>
 		<g id="shape5-1" v:mID="5" v:groupContext="shape" transform="translate(255.075,-211.138)">
 			<title>Black-frame Block.11</title>
-			<desc>3. Использование средств с лицевого счета</desc>
+			<desc>5. Использование средств с лицевого счета</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="542.748" width="85.04" height="42.5197"/>
 			<rect x="0" y="521.488" width="85.0394" height="42.5197" class="st1"/>
-			<text x="9.69" y="536.75" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>3. Использование <tspan
+			<text x="9.69" y="536.75" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>5. Использование <tspan
 						x="6.62" dy="1em" class="st4">средств с лицевого </tspan><tspan x="32.26" dy="1em" class="st4">счета </tspan> </text>		</g>
 		<g id="shape129-8" v:mID="129" v:groupContext="shape" transform="translate(255.075,-493.625)">
 			<title>Yellow-solid Round Edge.539</title>
@@ -86,11 +86,11 @@
 						x="12.9" dy="1em" class="st4">платной версии</tspan></text>		</g>
 		<g id="shape168-13" v:mID="168" v:groupContext="shape" transform="translate(368.46,-211.138)">
 			<title>Gray-solid Block.540</title>
-			<desc>4. Баланс лицевого счета больше нуля?</desc>
+			<desc>6. Баланс лицевого счета больше нуля?</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="542.748" width="85.04" height="42.5197"/>
 			<rect x="0" y="521.488" width="85.0394" height="42.5197" class="st6"/>
-			<text x="7.14" y="538.75" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>4. Баланс лицевого <tspan
+			<text x="7.14" y="538.75" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>6. Баланс лицевого <tspan
 						x="6.22" dy="1.375em" class="st4">счета больше нуля</tspan>?</text>		</g>
 		<g id="shape260-19" v:mID="260" v:groupContext="shape" transform="translate(861.602,70.3827) rotate(90)">
 			<title>Dotted Line 1.260</title>
@@ -98,19 +98,19 @@
 		</g>
 		<g id="shape337-27" v:mID="337" v:groupContext="shape" transform="translate(368.46,-69.4053)">
 			<title>Black-frame Block.337</title>
-			<desc>4.2. Формирование и отправка акта и счета-фактуры</desc>
+			<desc>6.2. Формирование и отправка акта и счета-фактуры</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="542.748" width="85.04" height="42.5197"/>
 			<rect x="0" y="521.488" width="85.0394" height="42.5197" class="st1"/>
-			<text x="6.27" y="536.75" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>4.2. Формирование <tspan
+			<text x="6.27" y="536.75" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>6.2. Формирование <tspan
 						x="10.18" dy="1em" class="st4">и отправка акта и </tspan><tspan x="14.91" dy="1em" class="st4">счета</tspan>-фактуры</text>		</g>
 		<g id="shape355-33" v:mID="355" v:groupContext="shape" transform="translate(368.46,-140.271)">
 			<title>Gray-solid Block.355</title>
-			<desc>4.1. Наступил конец расчетного периода?</desc>
+			<desc>6.1. Наступил конец расчетного периода?</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="542.748" width="85.04" height="42.5197"/>
 			<rect x="0" y="521.488" width="85.0394" height="42.5197" class="st6"/>
-			<text x="5.63" y="534.75" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>4.1. Наступил конец <tspan
+			<text x="5.63" y="534.75" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>6.1. Наступил конец <tspan
 						x="21.14" dy="1em" class="st4">расчетного </tspan><tspan x="24.62" dy="1.375em" class="st4">периода</tspan>?</text>		</g>
 		<g id="shape357-39" v:mID="357" v:groupContext="shape" transform="translate(340.114,-232.397)">
 			<title>Dotted Line 1.357</title>
@@ -129,19 +129,19 @@
 		</g>
 		<g id="shape442-55" v:mID="442" v:groupContext="shape" transform="translate(49.5627,-90.6651)">
 			<title>Black-frame Block.184</title>
-			<desc>5.1. Возобновление использования ресурсов</desc>
+			<desc>8.1. Возобновление использования ресурсов</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="542.748" width="85.04" height="42.5197"/>
 			<rect x="0" y="521.488" width="85.0394" height="42.5197" class="st1"/>
-			<text x="6.07" y="536.75" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>5.1. Возобновление <tspan
+			<text x="6.07" y="536.75" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>8.1. Возобновление <tspan
 						x="14.46" dy="1em" class="st4">использования </tspan><tspan x="25.05" dy="1em" class="st4">ресурсов</tspan></text>		</g>
 		<g id="shape443-61" v:mID="443" v:groupContext="shape" transform="translate(254.366,-12.7124)">
 			<title>Yellow-solid Round Edge.186</title>
-			<desc>5.2. Блокировка и удаление платежного аккаунта и всех данных</desc>
+			<desc>8.2. Блокировка и удаление платежного аккаунта и всех данных</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="535.172" width="85.04" height="57.6704"/>
 			<rect x="0" y="506.337" width="85.0394" height="57.6704" rx="22.6772" ry="22.6772" class="st5"/>
-			<text x="9.87" y="521.17" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>5.2. Блокировка и <tspan
+			<text x="9.87" y="521.17" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>8.2. Блокировка и <tspan
 						x="24.94" dy="1em" class="st4">удаление </tspan><tspan x="20.32" dy="1em" class="st4">платежного </tspan><tspan
 						x="13.92" dy="1em" class="st4">аккаунта и всех </tspan><tspan x="28.89" dy="1em" class="st4">данных</tspan></text>		</g>
 		<g id="shape448-69" v:mID="448" v:groupContext="shape" transform="translate(22.2803,-41.0578) rotate(0.108094)">
@@ -235,11 +235,11 @@
 		</g>
 		<g id="shape497-153" v:mID="497" v:groupContext="shape" transform="translate(49.5627,-232.397)">
 			<title>Black-frame Block.497</title>
-			<desc>4.4. Приостановка использования ресурсов</desc>
+			<desc>7. Приостановка использования ресурсов</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="542.748" width="85.04" height="42.5197"/>
 			<rect x="0" y="521.488" width="85.0394" height="42.5197" class="st1"/>
-			<text x="8.48" y="536.75" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>4.4. Приостановка <tspan
+			<text x="11.73" y="536.75" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>7. Приостановка <tspan
 						x="14.46" dy="1em" class="st4">использования </tspan><tspan x="25.05" dy="1em" class="st4">ресурсов</tspan></text>		</g>
 		<g id="shape499-159" v:mID="499" v:groupContext="shape" transform="translate(289.09,-226.728)">
 			<title>Text (14).499</title>
@@ -269,11 +269,11 @@
 		</g>
 		<g id="shape511-181" v:mID="511" v:groupContext="shape" transform="translate(49.5627,-161.531)">
 			<title>Gray-solid Block.511</title>
-			<desc>5. Оплачена вся сумма задолженности в течение 60 дней?</desc>
+			<desc>8. Оплачена вся сумма задолженности в течение 60 дней?</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="542.748" width="85.04" height="42.5197"/>
 			<rect x="0" y="521.488" width="85.0394" height="42.5197" class="st6"/>
-			<text x="13.29" y="530.75" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>5.<tspan
+			<text x="13.29" y="530.75" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>8.<tspan
 						class="st4" v:langID="1033"> </tspan>Оплачена вся <tspan x="30.76" dy="1em" class="st4">сумма </tspan><tspan
 						x="10.63" dy="1em" class="st4">задолженности в </tspan><tspan x="10.27" dy="1.375em" class="st4">течение </tspan>60 дней?</text>		</g>
 		<g id="shape512-189" v:mID="512" v:groupContext="shape" transform="translate(656.09,331.61) rotate(90)">
