@@ -9,5 +9,7 @@ items:
     href: concepts/limits.md
   - name: Контроль потребления ресурсов
     href: concepts/usage-monitor.md
+  - name: Завершение пробного периода
+    href: concepts/trial-ending.md
   - name: Переход на платную версию
     href: concepts/upgrade-to-paid.md
