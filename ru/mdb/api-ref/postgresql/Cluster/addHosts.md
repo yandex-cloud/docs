@@ -1,0 +1,283 @@
+# Метод addHosts
+Создает новые хосты для кластера.
+ 
+
+ 
+## HTTP-запрос
+`POST /managed-postgresql/v1/clusters/{clusterId}/hosts:batchCreate`
+ 
+## Path-параметры {#path_params}
+ 
+Name | Description
+--- | ---
+clusterId | Обязательное поле. Идентификатор кластера PostgreSQL, для которого следует добавить хосты. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [list](/docs/mdb/api-ref/postgresql/Cluster/list).  Максимальная длина — 50 символов.
+ 
+## Параметры в теле запроса {#body_params}
+ 
+```json 
+ {
+  "hostSpecs": [
+    {
+      "zoneId": "string",
+      "subnetId": "string",
+      "assignPublicIp": true,
+      "replicationSource": "string",
+      "priority": "integer",
+      "configSpec": {
+
+        // `hostSpecs.configSpec`включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`
+        "postgresqlConfig_9_6": {
+          "recoveryMinApplyDelay": "integer",
+          "sharedBuffers": "integer",
+          "tempBuffers": "integer",
+          "workMem": "integer",
+          "replacementSortTuples": "integer",
+          "tempFileLimit": "integer",
+          "backendFlushAfter": "integer",
+          "oldSnapshotThreshold": "integer",
+          "maxStandbyStreamingDelay": "integer",
+          "constraintExclusion": "string",
+          "cursorTupleFraction": "number",
+          "fromCollapseLimit": "integer",
+          "joinCollapseLimit": "integer",
+          "forceParallelMode": "string",
+          "clientMinMessages": "string",
+          "logMinMessages": "string",
+          "logMinErrorStatement": "string",
+          "logMinDurationStatement": "integer",
+          "logCheckpoints": true,
+          "logConnections": true,
+          "logDisconnections": true,
+          "logDuration": true,
+          "logErrorVerbosity": "string",
+          "logLockWaits": true,
+          "logStatement": "string",
+          "logTempFiles": "integer",
+          "searchPath": "string",
+          "rowSecurity": true,
+          "defaultTransactionIsolation": "string",
+          "statementTimeout": "integer",
+          "lockTimeout": "integer",
+          "idleInTransactionSessionTimeout": "integer",
+          "byteaOutput": "string",
+          "xmlbinary": "string",
+          "xmloption": "string",
+          "ginPendingListLimit": "integer",
+          "deadlockTimeout": "integer",
+          "maxLocksPerTransaction": "integer",
+          "maxPredLocksPerTransaction": "integer",
+          "arrayNulls": true,
+          "backslashQuote": "string",
+          "defaultWithOids": true,
+          "escapeStringWarning": true,
+          "loCompatPrivileges": true,
+          "operatorPrecedenceWarning": true,
+          "quoteAllIdentifiers": true,
+          "standardConformingStrings": true,
+          "synchronizeSeqscans": true,
+          "transformNullEquals": true,
+          "exitOnError": true,
+          "seqPageCost": "number",
+          "randomPageCost": "number",
+          "sqlInheritance": true
+        },
+        "postgresqlConfig_10": {
+          "recoveryMinApplyDelay": "integer",
+          "sharedBuffers": "integer",
+          "tempBuffers": "integer",
+          "workMem": "integer",
+          "replacementSortTuples": "integer",
+          "tempFileLimit": "integer",
+          "backendFlushAfter": "integer",
+          "oldSnapshotThreshold": "integer",
+          "maxStandbyStreamingDelay": "integer",
+          "constraintExclusion": "string",
+          "cursorTupleFraction": "number",
+          "fromCollapseLimit": "integer",
+          "joinCollapseLimit": "integer",
+          "forceParallelMode": "string",
+          "clientMinMessages": "string",
+          "logMinMessages": "string",
+          "logMinErrorStatement": "string",
+          "logMinDurationStatement": "integer",
+          "logCheckpoints": true,
+          "logConnections": true,
+          "logDisconnections": true,
+          "logDuration": true,
+          "logErrorVerbosity": "string",
+          "logLockWaits": true,
+          "logStatement": "string",
+          "logTempFiles": "integer",
+          "searchPath": "string",
+          "rowSecurity": true,
+          "defaultTransactionIsolation": "string",
+          "statementTimeout": "integer",
+          "lockTimeout": "integer",
+          "idleInTransactionSessionTimeout": "integer",
+          "byteaOutput": "string",
+          "xmlbinary": "string",
+          "xmloption": "string",
+          "ginPendingListLimit": "integer",
+          "deadlockTimeout": "integer",
+          "maxLocksPerTransaction": "integer",
+          "maxPredLocksPerTransaction": "integer",
+          "arrayNulls": true,
+          "backslashQuote": "string",
+          "defaultWithOids": true,
+          "escapeStringWarning": true,
+          "loCompatPrivileges": true,
+          "operatorPrecedenceWarning": true,
+          "quoteAllIdentifiers": true,
+          "standardConformingStrings": true,
+          "synchronizeSeqscans": true,
+          "transformNullEquals": true,
+          "exitOnError": true,
+          "seqPageCost": "number",
+          "randomPageCost": "number"
+        },
+        // конец списка возможных полей`hostSpecs.configSpec`
+
+      }
+    }
+  ]
+}
+```
+
+ 
+Поле | Описание
+--- | ---
+hostSpecs | **object**<br>Обязательное поле. Конфигурации для хостов PostgreSQL, которые должны быть добавлены в кластер.  Должен содержать хотя бы один элемент.
+hostSpecs.<br>zoneId | **string**<br>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос [list](/docs/compute/api-ref/Zone/list).  Максимальная длина — 50 символов.
+hostSpecs.<br>subnetId | **string**<br>Идентификатор подсети, к которой принадлежит хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле [Cluster.networkId](/docs/mdb/api-ref/postgresql/Cluster#representation).  Максимальная длина — 50 символов.
+hostSpecs.<br>assignPublicIp | **boolean** (boolean)<br>Должен ли хост получить публичный IP-адрес при создании.  После создания узла этот параметр изменить нельзя. Чтобы удалить назначенный публичный IP-адрес или назначить публичный IP уже созданному хосту, пересоздайте хост с нужным значением поля assignPublicIp.  Возможные значения: * false — не назначать хосту публичный IP-адрес. * true — у хоста должен быть публичный IP-адрес.
+hostSpecs.<br>replicationSource | **string**<br>name of the host to be used as the replication source (for cascading replication).
+hostSpecs.<br>priority | **integer** (int64)<br>Приоритет хоста как реплики. Большее значение соответствует более высокому приоритету.  Хост с наивысшим приоритетом является синхронной репликой. Все остальные асинхронны. Синхронная реплика при необходимости заменяет мастер.  Когда реплика становится мастером, ее приоритет игнорируется.
+hostSpecs.<br>configSpec | **object**<br>Конфигурация сервера PostgreSQL для хоста.
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6 | **object** <br>`hostSpecs.configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`<br><br>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в [Документации PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config).
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>recoveryMinApplyDelay | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>sharedBuffers | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>tempBuffers | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>workMem | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>replacementSortTuples | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>tempFileLimit | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>backendFlushAfter | **integer** (int64)<br>Допустимые значения — от 0 до 2048 включительно.
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>oldSnapshotThreshold | **integer** (int64)<br>Допустимые значения — от -1 до 86400 включительно.
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>constraintExclusion | **string**<br><br>`CONSTRAINT_EXCLUSION_ON`<br>`CONSTRAINT_EXCLUSION_OFF`<br>`CONSTRAINT_EXCLUSION_PARTITION`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>cursorTupleFraction | **number** (double)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>fromCollapseLimit | **integer** (int64)<br>Допустимые значения — от 1 до 2147483647 включительно.
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>joinCollapseLimit | **integer** (int64)<br>Допустимые значения — от 1 до 2147483647 включительно.
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>forceParallelMode | **string**<br><br>`FORCE_PARALLEL_MODE_ON`<br>`FORCE_PARALLEL_MODE_OFF`<br>`FORCE_PARALLEL_MODE_REGRESS`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>clientMinMessages | **string**<br><br>`LOG_LEVEL_DEBUG5`<br>`LOG_LEVEL_DEBUG4`<br>`LOG_LEVEL_DEBUG3`<br>`LOG_LEVEL_DEBUG2`<br>`LOG_LEVEL_DEBUG1`<br>`LOG_LEVEL_LOG`<br>`LOG_LEVEL_NOTICE`<br>`LOG_LEVEL_WARNING`<br>`LOG_LEVEL_ERROR`<br>`LOG_LEVEL_FATAL`<br>`LOG_LEVEL_PANIC`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>logMinMessages | **string**<br><br>`LOG_LEVEL_DEBUG5`<br>`LOG_LEVEL_DEBUG4`<br>`LOG_LEVEL_DEBUG3`<br>`LOG_LEVEL_DEBUG2`<br>`LOG_LEVEL_DEBUG1`<br>`LOG_LEVEL_LOG`<br>`LOG_LEVEL_NOTICE`<br>`LOG_LEVEL_WARNING`<br>`LOG_LEVEL_ERROR`<br>`LOG_LEVEL_FATAL`<br>`LOG_LEVEL_PANIC`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>logMinErrorStatement | **string**<br><br>`LOG_LEVEL_DEBUG5`<br>`LOG_LEVEL_DEBUG4`<br>`LOG_LEVEL_DEBUG3`<br>`LOG_LEVEL_DEBUG2`<br>`LOG_LEVEL_DEBUG1`<br>`LOG_LEVEL_LOG`<br>`LOG_LEVEL_NOTICE`<br>`LOG_LEVEL_WARNING`<br>`LOG_LEVEL_ERROR`<br>`LOG_LEVEL_FATAL`<br>`LOG_LEVEL_PANIC`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>logMinDurationStatement | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>logCheckpoints | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>logConnections | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>logDisconnections | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>logDuration | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>logErrorVerbosity | **string**<br><br>`LOG_ERROR_VERBOSITY_TERSE`<br>`LOG_ERROR_VERBOSITY_DEFAULT`<br>`LOG_ERROR_VERBOSITY_VERBOSE`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>logLockWaits | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>logStatement | **string**<br><br>`LOG_STATEMENT_NONE`<br>`LOG_STATEMENT_DDL`<br>`LOG_STATEMENT_MOD`<br>`LOG_STATEMENT_ALL`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>logTempFiles | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>searchPath | **string**<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>rowSecurity | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>defaultTransactionIsolation | **string**<br><br>`TRANSACTION_ISOLATION_READ_UNCOMMITTED`<br>`TRANSACTION_ISOLATION_READ_COMMITTED`<br>`TRANSACTION_ISOLATION_REPEATABLE_READ`<br>`TRANSACTION_ISOLATION_SERIALIZABLE`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>statementTimeout | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>lockTimeout | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>byteaOutput | **string**<br><br>`BYTEA_OUTPUT_HEX`<br>`BYTEA_OUTPUT_ESCAPED`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>xmlbinary | **string**<br><br>`XML_BINARY_BASE64`<br>`XML_BINARY_HEX`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>xmloption | **string**<br><br>`XML_OPTION_DOCUMENT`<br>`XML_OPTION_CONTENT`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>ginPendingListLimit | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>deadlockTimeout | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>maxLocksPerTransaction | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>arrayNulls | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>backslashQuote | **string**<br><br>`BACKSLASH_QUOTE`<br>`BACKSLASH_QUOTE_ON`<br>`BACKSLASH_QUOTE_OFF`<br>`BACKSLASH_QUOTE_SAFE_ENCODING`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>defaultWithOids | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>escapeStringWarning | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>loCompatPrivileges | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>standardConformingStrings | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>synchronizeSeqscans | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>transformNullEquals | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>exitOnError | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>seqPageCost | **number** (double)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>randomPageCost | **number** (double)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_9_6.<br>sqlInheritance | **boolean** (boolean)<br>Эта настройка была удалена в PostgreSQL 10.
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10 | **object** <br>`hostSpecs.configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`<br><br>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/10/static/runtime-config).
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>recoveryMinApplyDelay | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>sharedBuffers | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>tempBuffers | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>workMem | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>replacementSortTuples | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>tempFileLimit | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>backendFlushAfter | **integer** (int64)<br>Допустимые значения — от 0 до 2048 включительно.
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>oldSnapshotThreshold | **integer** (int64)<br>Допустимые значения — от -1 до 86400 включительно.
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>constraintExclusion | **string**<br><br>`CONSTRAINT_EXCLUSION_ON`<br>`CONSTRAINT_EXCLUSION_OFF`<br>`CONSTRAINT_EXCLUSION_PARTITION`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>cursorTupleFraction | **number** (double)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>fromCollapseLimit | **integer** (int64)<br>Допустимые значения — от 1 до 2147483647 включительно.
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>joinCollapseLimit | **integer** (int64)<br>Допустимые значения — от 1 до 2147483647 включительно.
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>forceParallelMode | **string**<br><br>`FORCE_PARALLEL_MODE_ON`<br>`FORCE_PARALLEL_MODE_OFF`<br>`FORCE_PARALLEL_MODE_REGRESS`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>clientMinMessages | **string**<br><br>`LOG_LEVEL_DEBUG5`<br>`LOG_LEVEL_DEBUG4`<br>`LOG_LEVEL_DEBUG3`<br>`LOG_LEVEL_DEBUG2`<br>`LOG_LEVEL_DEBUG1`<br>`LOG_LEVEL_LOG`<br>`LOG_LEVEL_NOTICE`<br>`LOG_LEVEL_WARNING`<br>`LOG_LEVEL_ERROR`<br>`LOG_LEVEL_FATAL`<br>`LOG_LEVEL_PANIC`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>logMinMessages | **string**<br><br>`LOG_LEVEL_DEBUG5`<br>`LOG_LEVEL_DEBUG4`<br>`LOG_LEVEL_DEBUG3`<br>`LOG_LEVEL_DEBUG2`<br>`LOG_LEVEL_DEBUG1`<br>`LOG_LEVEL_LOG`<br>`LOG_LEVEL_NOTICE`<br>`LOG_LEVEL_WARNING`<br>`LOG_LEVEL_ERROR`<br>`LOG_LEVEL_FATAL`<br>`LOG_LEVEL_PANIC`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>logMinErrorStatement | **string**<br><br>`LOG_LEVEL_DEBUG5`<br>`LOG_LEVEL_DEBUG4`<br>`LOG_LEVEL_DEBUG3`<br>`LOG_LEVEL_DEBUG2`<br>`LOG_LEVEL_DEBUG1`<br>`LOG_LEVEL_LOG`<br>`LOG_LEVEL_NOTICE`<br>`LOG_LEVEL_WARNING`<br>`LOG_LEVEL_ERROR`<br>`LOG_LEVEL_FATAL`<br>`LOG_LEVEL_PANIC`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>logMinDurationStatement | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>logCheckpoints | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>logConnections | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>logDisconnections | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>logDuration | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>logErrorVerbosity | **string**<br><br>`LOG_ERROR_VERBOSITY_TERSE`<br>`LOG_ERROR_VERBOSITY_DEFAULT`<br>`LOG_ERROR_VERBOSITY_VERBOSE`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>logLockWaits | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>logStatement | **string**<br><br>`LOG_STATEMENT_NONE`<br>`LOG_STATEMENT_DDL`<br>`LOG_STATEMENT_MOD`<br>`LOG_STATEMENT_ALL`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>logTempFiles | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>searchPath | **string**<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>rowSecurity | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>defaultTransactionIsolation | **string**<br><br>`TRANSACTION_ISOLATION_READ_UNCOMMITTED`<br>`TRANSACTION_ISOLATION_READ_COMMITTED`<br>`TRANSACTION_ISOLATION_REPEATABLE_READ`<br>`TRANSACTION_ISOLATION_SERIALIZABLE`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>statementTimeout | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>lockTimeout | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>byteaOutput | **string**<br><br>`BYTEA_OUTPUT_HEX`<br>`BYTEA_OUTPUT_ESCAPED`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>xmlbinary | **string**<br><br>`XML_BINARY_BASE64`<br>`XML_BINARY_HEX`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>xmloption | **string**<br><br>`XML_OPTION_DOCUMENT`<br>`XML_OPTION_CONTENT`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>ginPendingListLimit | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>deadlockTimeout | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>maxLocksPerTransaction | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>arrayNulls | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>backslashQuote | **string**<br><br>`BACKSLASH_QUOTE`<br>`BACKSLASH_QUOTE_ON`<br>`BACKSLASH_QUOTE_OFF`<br>`BACKSLASH_QUOTE_SAFE_ENCODING`<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>defaultWithOids | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>escapeStringWarning | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>loCompatPrivileges | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>standardConformingStrings | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>synchronizeSeqscans | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>transformNullEquals | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>exitOnError | **boolean** (boolean)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>seqPageCost | **number** (double)<br>
+hostSpecs.<br>configSpec.<br>postgresqlConfig_10.<br>randomPageCost | **number** (double)<br>
+ 
+## Ответ {#responses}
+**HTTP Code: 200 - OK**
+
+Ресурс Operation. Дополнительные сведения см. в разделе
+[Объект Operation](/docs/api-design-guide/concepts/operation).
+ 
+Поле | Описание
+--- | ---
+id | **string**<br>Только для вывода. Идентификатор операции.
+description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов.
+createdAt | **string** (date-time)<br>Только для вывода. Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+createdBy | **string**<br>Только для вывода. Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.
+modifiedAt | **string** (date-time)<br>Только для вывода. Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+done | **boolean** (boolean)<br>Только для вывода. Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`.
+metadata | **object**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`.
+error | **object** <br> включает только одно из полей `error`, `response`<br><br>Описание ошибки в случае сбоя или отмены операции.
+error.<br>code | **integer** (int32)<br>Код ошибки. Значение из списка [google.rpc.Code](https://cloud.google.com/appengine/docs/admin-api/reference/rpc/google.rpc#google.rpc.Code).
+error.<br>message | **string**<br>Текст ошибки.
+error.<br>details | **object**<br>Список сообщений с подробными сведениями об ошибке.
+response | **object** <br> включает только одно из полей `error`, `response`<br><br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`.
