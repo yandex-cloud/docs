@@ -2,8 +2,8 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Создано Microsoft Visio, экспорт SVG cloud-business-scheme-credit.svg Страница-1 -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
-		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="8.03225in" height="9.80873in"
-		viewBox="0 0 578.322 706.228" xml:space="preserve" color-interpolation-filters="sRGB" class="st19">
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="6.83322in" height="9.80873in"
+		viewBox="0 0 491.992 706.228" xml:space="preserve" color-interpolation-filters="sRGB" class="st19">
 	<v:documentProperties v:langID="1049" v:metric="true" v:viewMarkup="false">
 		<v:userDefs>
 			<v:ud v:nameU="msvConvertTheme"/>
@@ -68,7 +68,7 @@
 		<title>Страница-1</title>
 		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
 				v:shadowOffsetY="-8.50394"/>
-		<g id="shape5-1" v:mID="5" v:groupContext="shape" transform="translate(172.87,-359.956)">
+		<g id="shape5-1" v:mID="5" v:groupContext="shape" transform="translate(114.886,-359.956)">
 			<title>Black-frame Block.11</title>
 			<desc>5. Использование средств с лицевого счета</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -76,7 +76,7 @@
 			<rect x="0" y="663.709" width="85.0394" height="42.5197" class="st1"/>
 			<text x="9.69" y="678.97" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>5. Использование <tspan
 						x="6.62" dy="1em" class="st4">средств с лицевого </tspan><tspan x="32.26" dy="1em" class="st4">счета </tspan> </text>		</g>
-		<g id="shape129-8" v:mID="129" v:groupContext="shape" transform="translate(243.736,-635.846)">
+		<g id="shape129-8" v:mID="129" v:groupContext="shape" transform="translate(185.752,-635.846)">
 			<title>Yellow-solid Round Edge.539</title>
 			<desc>1. Активация платной версии</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -84,7 +84,7 @@
 			<rect x="0" y="648.558" width="85.0394" height="57.6704" rx="22.6772" ry="22.6772" class="st5"/>
 			<text x="18.76" y="675.39" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>1. Активация <tspan
 						x="12.9" dy="1em" class="st4">платной версии</tspan></text>		</g>
-		<g id="shape168-13" v:mID="168" v:groupContext="shape" transform="translate(172.87,-289.09)">
+		<g id="shape168-13" v:mID="168" v:groupContext="shape" transform="translate(114.886,-289.09)">
 			<title>Gray-solid Block.540</title>
 			<desc>6. Баланс лицевого счета больше нуля?</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -92,7 +92,7 @@
 			<rect x="0" y="663.709" width="85.0394" height="42.5197" class="st6"/>
 			<text x="7.14" y="680.97" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>6. Баланс лицевого <tspan
 						x="6.22" dy="1.375em" class="st4">счета больше нуля</tspan>?</text>		</g>
-		<g id="shape178-19" v:mID="178" v:groupContext="shape" transform="translate(314.319,-218.713)">
+		<g id="shape178-19" v:mID="178" v:groupContext="shape" transform="translate(256.335,-218.713)">
 			<title>Black-frame Block.178</title>
 			<desc>8.3. Приостановка использования ресурсов</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -100,7 +100,7 @@
 			<rect x="0" y="663.709" width="85.0394" height="42.5197" class="st1"/>
 			<text x="8.48" y="678.97" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>8.3. Приостановка <tspan
 						x="14.46" dy="1em" class="st4">использования </tspan><tspan x="25.05" dy="1em" class="st4">ресурсов</tspan></text>		</g>
-		<g id="shape179-25" v:mID="179" v:groupContext="shape" transform="translate(314.319,-147.847)">
+		<g id="shape179-25" v:mID="179" v:groupContext="shape" transform="translate(256.335,-147.847)">
 			<title>Gray-solid Block.179</title>
 			<desc>9. Оплачена вся сумма задолженности в течение 60 дней?</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -109,7 +109,7 @@
 			<text x="13.29" y="672.97" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>9.<tspan
 						class="st4" v:langID="1033"> </tspan>Оплачена вся <tspan x="30.76" dy="1em" class="st4">сумма </tspan><tspan
 						x="10.63" dy="1em" class="st4">задолженности в </tspan><tspan x="10.27" dy="1.375em" class="st4">течение </tspan>60 дней?</text>		</g>
-		<g id="shape184-33" v:mID="184" v:groupContext="shape" transform="translate(243.453,-91.1538)">
+		<g id="shape184-33" v:mID="184" v:groupContext="shape" transform="translate(185.469,-91.1538)">
 			<title>Black-frame Block.184</title>
 			<desc>9.1. Возобновление использования ресурсов</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -117,7 +117,7 @@
 			<rect x="0" y="663.709" width="85.0394" height="42.5197" class="st1"/>
 			<text x="6.07" y="678.97" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>9.1. Возобновление <tspan
 						x="14.46" dy="1em" class="st4">использования </tspan><tspan x="25.05" dy="1em" class="st4">ресурсов</tspan></text>		</g>
-		<g id="shape186-39" v:mID="186" v:groupContext="shape" transform="translate(243.453,-12.7124)">
+		<g id="shape186-39" v:mID="186" v:groupContext="shape" transform="translate(185.469,-12.7124)">
 			<title>Yellow-solid Round Edge.186</title>
 			<desc>9.2. Блокировка и удаление платежного аккаунта и всех данных</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -126,23 +126,23 @@
 			<text x="9.87" y="663.39" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>9.2. Блокировка и <tspan
 						x="24.94" dy="1em" class="st4">удаление </tspan><tspan x="20.32" dy="1em" class="st4">платежного </tspan><tspan
 						x="13.92" dy="1em" class="st4">аккаунта и всех </tspan><tspan x="28.89" dy="1em" class="st4">данных</tspan></text>		</g>
-		<g id="shape199-47" v:mID="199" v:groupContext="shape" transform="translate(992.201,537.122) rotate(90)">
+		<g id="shape199-47" v:mID="199" v:groupContext="shape" transform="translate(934.217,537.122) rotate(90)">
 			<title>Dotted Line 1.199</title>
 			<path d="M0 706.23 L35.43 706.23" class="st8"/>
 		</g>
-		<g id="shape212-55" v:mID="212" v:groupContext="shape" transform="translate(427.704,1370.91) rotate(180)">
+		<g id="shape212-55" v:mID="212" v:groupContext="shape" transform="translate(369.72,1370.91) rotate(180)">
 			<title>Dotted Line 1.212</title>
 			<path d="M0 706.23 L99.21 706.23" class="st10"/>
 		</g>
-		<g id="shape259-62" v:mID="259" v:groupContext="shape" transform="translate(1063.35,346.272) rotate(90)">
+		<g id="shape259-62" v:mID="259" v:groupContext="shape" transform="translate(1005.37,346.272) rotate(90)">
 			<title>Dotted Line 1.259</title>
 			<path d="M0 706.23 L26.11 706.23" class="st8"/>
 		</g>
-		<g id="shape262-68" v:mID="262" v:groupContext="shape" transform="translate(144.523,-310.35)">
+		<g id="shape262-68" v:mID="262" v:groupContext="shape" transform="translate(86.5394,-310.35)">
 			<title>Dotted Line 1.262</title>
 			<path d="M0 706.23 L28.35 706.23" class="st12"/>
 		</g>
-		<g id="shape337-72" v:mID="337" v:groupContext="shape" transform="translate(102.004,-161.531)">
+		<g id="shape337-72" v:mID="337" v:groupContext="shape" transform="translate(44.0197,-161.531)">
 			<title>Black-frame Block.337</title>
 			<desc>6.2. Формирование и отправка акта и счета-фактуры</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -151,14 +151,14 @@
 			<text x="6.27" y="678.97" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>6.<tspan
 						class="st4" v:langID="1033">2</tspan>. Формирование <tspan x="10.18" dy="1em" class="st4">и отправка акта и </tspan><tspan
 						x="14.91" dy="1em" class="st4">счета</tspan>-фактуры</text>		</g>
-		<g id="shape342-79" v:mID="342" v:groupContext="shape" transform="translate(359.956,-137.437)">
+		<g id="shape342-79" v:mID="342" v:groupContext="shape" transform="translate(301.972,-137.437)">
 			<title>Text (14).346</title>
 			<desc>Нет</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="54.5669" cy="667.252" width="109.14" height="77.9528"/>
 			<rect x="0" y="628.276" width="109.134" height="77.9528" class="st13"/>
 			<text x="45.87" y="670.25" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Нет</text>		</g>
-		<g id="shape350-83" v:mID="350" v:groupContext="shape" transform="translate(314.602,-289.09)">
+		<g id="shape350-83" v:mID="350" v:groupContext="shape" transform="translate(256.618,-289.09)">
 			<title>Gray-solid Block.350</title>
 			<desc>8. Кредитный лимит исчерпан?</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -166,7 +166,7 @@
 			<rect x="0" y="663.709" width="85.0394" height="42.5197" class="st6"/>
 			<text x="4.3" y="680.97" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>8.  Кредитный лимит <tspan
 						x="22.82" dy="1.375em" class="st4">исчерпан</tspan>?</text>		</g>
-		<g id="shape355-88" v:mID="355" v:groupContext="shape" transform="translate(102.004,-232.397)">
+		<g id="shape355-88" v:mID="355" v:groupContext="shape" transform="translate(44.0197,-232.397)">
 			<title>Gray-solid Block.355</title>
 			<desc>6.1. Наступил конец расчетного периода?</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -174,106 +174,106 @@
 			<rect x="0" y="663.709" width="85.0394" height="42.5197" class="st6"/>
 			<text x="5.63" y="676.97" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>6.1. Наступил конец <tspan
 						x="21.14" dy="1em" class="st4">расчетного </tspan><tspan x="24.62" dy="1.375em" class="st4">периода</tspan>?</text>		</g>
-		<g id="shape357-94" v:mID="357" v:groupContext="shape" transform="translate(921.618,346.272) rotate(90)">
+		<g id="shape357-94" v:mID="357" v:groupContext="shape" transform="translate(863.634,346.272) rotate(90)">
 			<title>Dotted Line 1.357</title>
 			<path d="M0 706.23 L28.1 706.23" class="st8"/>
 		</g>
-		<g id="shape367-100" v:mID="367" v:groupContext="shape" transform="translate(321.689,-435.358)">
+		<g id="shape367-100" v:mID="367" v:groupContext="shape" transform="translate(263.705,-435.358)">
 			<title>Text (14).367</title>
 			<desc>Нет</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="21.2598" cy="696.591" width="42.52" height="19.2756"/>
 			<rect x="0" y="686.953" width="42.5197" height="19.2756" class="st13"/>
 			<text x="12.56" y="699.59" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Нет</text>		</g>
-		<g id="shape370-104" v:mID="370" v:groupContext="shape" transform="translate(102.004,1158.8) rotate(180)">
+		<g id="shape370-104" v:mID="370" v:groupContext="shape" transform="translate(44.0197,1158.8) rotate(180)">
 			<title>Dotted Line 1.370</title>
 			<path d="M0 706.23 L27.65 706.23" class="st15"/>
 		</g>
-		<g id="shape378-108" v:mID="378" v:groupContext="shape" transform="translate(1063.35,268.319) rotate(90)">
+		<g id="shape378-108" v:mID="378" v:groupContext="shape" transform="translate(1005.37,268.319) rotate(90)">
 			<title>Dotted Line 1.378</title>
 			<path d="M0 706.23 L35.43 706.23" class="st10"/>
 		</g>
-		<g id="shape382-114" v:mID="382" v:groupContext="shape" transform="translate(-631.868,456.407) rotate(-90.3112)">
+		<g id="shape382-114" v:mID="382" v:groupContext="shape" transform="translate(-689.852,456.407) rotate(-90.3112)">
 			<title>Dotted Line 1.382</title>
 			<path d="M0 706.23 L121.3 706.23" class="st15"/>
 		</g>
-		<g id="shape384-118" v:mID="384" v:groupContext="shape" transform="translate(247.279,-274.917)">
+		<g id="shape384-118" v:mID="384" v:groupContext="shape" transform="translate(189.295,-274.917)">
 			<title>Text (14).384</title>
 			<desc>Нет</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="24.8031" cy="663.709" width="49.61" height="85.0394"/>
 			<rect x="0" y="621.189" width="49.6063" height="85.0394" class="st13"/>
 			<text x="16.11" y="666.71" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Нет</text>		</g>
-		<g id="shape390-122" v:mID="390" v:groupContext="shape" transform="translate(767.21,325.484) rotate(90.2275)">
+		<g id="shape390-122" v:mID="390" v:groupContext="shape" transform="translate(709.226,325.484) rotate(90.2275)">
 			<title>Dotted Line 1.390</title>
 			<path d="M0 706.23 L271.63 706.23" class="st12"/>
 		</g>
-		<g id="shape393-126" v:mID="393" v:groupContext="shape" transform="translate(12.7124,-225.311)">
+		<g id="shape393-126" v:mID="393" v:groupContext="shape" transform="translate(12.8386,-225.311)">
 			<title>Text (14).393</title>
 			<desc>Нет</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="75.8268" cy="670.087" width="151.66" height="72.2835"/>
-			<rect x="0" y="633.945" width="151.654" height="72.2835" class="st13"/>
-			<text x="67.13" y="673.09" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Нет</text>		</g>
-		<g id="shape396-130" v:mID="396" v:groupContext="shape" transform="translate(82.1612,-172.303)">
+			<v:textRect cx="17.0079" cy="670.087" width="34.02" height="72.2835"/>
+			<rect x="0" y="633.945" width="34.0157" height="72.2835" class="st13"/>
+			<text x="8.31" y="673.09" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Нет</text>		</g>
+		<g id="shape396-130" v:mID="396" v:groupContext="shape" transform="translate(24.1772,-172.303)">
 			<title>Text (14).396</title>
 			<desc>Да</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="73.7008" cy="658.465" width="147.41" height="95.5276"/>
 			<rect x="0" y="610.701" width="147.402" height="95.5276" class="st13"/>
 			<text x="67.4" y="661.46" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Да</text>		</g>
-		<g id="shape401-134" v:mID="401" v:groupContext="shape" transform="translate(69.2586,-388.303)">
+		<g id="shape401-134" v:mID="401" v:groupContext="shape" transform="translate(11.2746,-388.303)">
 			<title>Yellow Arrow 2.401</title>
 			<path d="M0 706.23 L103.61 706.23" class="st8"/>
 		</g>
-		<g id="shape406-140" v:mID="406" v:groupContext="shape" transform="translate(850.752,473.831) rotate(90)">
+		<g id="shape406-140" v:mID="406" v:groupContext="shape" transform="translate(792.768,473.831) rotate(90)">
 			<title>Dotted Line 1.406</title>
 			<path d="M0 706.23 L28.35 706.23" class="st8"/>
 		</g>
-		<g id="shape407-146" v:mID="407" v:groupContext="shape" transform="translate(286.256,-381.216)">
+		<g id="shape407-146" v:mID="407" v:groupContext="shape" transform="translate(228.272,-381.216)">
 			<title>Dotted Line 1.407</title>
 			<path d="M0 706.23 L28.35 706.23" class="st10"/>
 		</g>
-		<g id="shape409-152" v:mID="409" v:groupContext="shape" transform="translate(286.256,1102.11) rotate(180)">
+		<g id="shape409-152" v:mID="409" v:groupContext="shape" transform="translate(228.272,1102.11) rotate(180)">
 			<title>Dotted Line 1.409</title>
 			<path d="M0 706.23 L28.35 706.23" class="st15"/>
 		</g>
-		<g id="shape410-156" v:mID="410" v:groupContext="shape" transform="translate(58.0287,-111.922) rotate(-0.152565)">
+		<g id="shape410-156" v:mID="410" v:groupContext="shape" transform="translate(0.0446859,-111.922) rotate(-0.152565)">
 			<title>Dotted Line 1.410</title>
 			<path d="M0 706.23 L183.54 706.23" class="st12"/>
 		</g>
-		<g id="shape411-160" v:mID="411" v:groupContext="shape" transform="translate(73.6912,-374.958)">
+		<g id="shape411-160" v:mID="411" v:groupContext="shape" transform="translate(15.7072,-374.958)">
 			<title>Dotted Line 1.411</title>
 			<path d="M0 706.23 L99.21 706.23" class="st10"/>
 		</g>
-		<g id="shape415-166" v:mID="415" v:groupContext="shape" transform="translate(850.752,395.878) rotate(90)">
+		<g id="shape415-166" v:mID="415" v:groupContext="shape" transform="translate(792.768,395.878) rotate(90)">
 			<title>Dotted Line 1.415</title>
 			<path d="M0 706.23 L34.76 706.23" class="st8"/>
 		</g>
-		<g id="shape421-172" v:mID="421" v:groupContext="shape" transform="translate(773.51,324.201) rotate(90.0819)">
+		<g id="shape421-172" v:mID="421" v:groupContext="shape" transform="translate(715.526,324.201) rotate(90.0819)">
 			<title>Dotted Line 1.421</title>
 			<path d="M0 706.23 L200.73 706.23" class="st12"/>
 		</g>
-		<g id="shape431-176" v:mID="431" v:groupContext="shape" transform="translate(119.862,-274.917)">
+		<g id="shape431-176" v:mID="431" v:groupContext="shape" transform="translate(61.878,-274.917)">
 			<title>Text (14).431</title>
 			<desc>Да</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="38.4094" cy="662.291" width="76.82" height="87.874"/>
 			<rect x="0" y="618.354" width="76.8189" height="87.874" class="st13"/>
 			<text x="32.1" y="665.29" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Да</text>		</g>
-		<g id="shape432-180" v:mID="432" v:groupContext="shape" transform="translate(1063.78,487.516) rotate(90)">
+		<g id="shape432-180" v:mID="432" v:groupContext="shape" transform="translate(1005.79,487.516) rotate(90)">
 			<title>Dotted Line 1.432</title>
 			<path d="M0 706.23 L26.11 706.23" class="st8"/>
 		</g>
-		<g id="shape434-186" v:mID="434" v:groupContext="shape" transform="translate(427.704,1243.35) rotate(180)">
+		<g id="shape434-186" v:mID="434" v:groupContext="shape" transform="translate(369.72,1243.35) rotate(180)">
 			<title>Dotted Line 1.434</title>
 			<path d="M0 706.23 L25.7 706.23" class="st15"/>
 		</g>
-		<g id="shape435-190" v:mID="435" v:groupContext="shape" transform="translate(992.484,68.1449) rotate(90)">
+		<g id="shape435-190" v:mID="435" v:groupContext="shape" transform="translate(934.5,68.1449) rotate(90)">
 			<title>Dotted Line 1.435</title>
 			<path d="M0 706.23 L29.08 706.23" class="st8"/>
 		</g>
-		<g id="shape436-196" v:mID="436" v:groupContext="shape" transform="translate(243.736,-564.98)">
+		<g id="shape436-196" v:mID="436" v:groupContext="shape" transform="translate(185.752,-564.98)">
 			<title>Black-frame Block.436</title>
 			<desc>2. Использование гранта</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -281,7 +281,7 @@
 			<rect x="0" y="663.709" width="85.0394" height="42.5197" class="st1"/>
 			<text x="9.69" y="682.97" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>2. Использование <tspan
 						x="29.95" dy="1em" class="st4">гранта</tspan></text>		</g>
-		<g id="shape437-201" v:mID="437" v:groupContext="shape" transform="translate(243.736,-494.602)">
+		<g id="shape437-201" v:mID="437" v:groupContext="shape" transform="translate(185.752,-494.602)">
 			<title>Gray-solid Block.485</title>
 			<desc>3. Размер гранта больше нуля?</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -289,34 +289,34 @@
 			<rect x="0" y="663.709" width="85.0394" height="42.5197" class="st6"/>
 			<text x="11.42" y="680.97" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>3. Размер гранта <tspan
 						x="17.26" dy="1.375em" class="st4">больше нуля</tspan>?</text>		</g>
-		<g id="shape438-206" v:mID="438" v:groupContext="shape" transform="translate(328.775,-515.862)">
+		<g id="shape438-206" v:mID="438" v:groupContext="shape" transform="translate(270.791,-515.862)">
 			<title>Dotted Line 1.486</title>
 			<path d="M0 706.23 L28.35 706.23" class="st12"/>
 		</g>
-		<g id="shape439-210" v:mID="439" v:groupContext="shape" transform="translate(357.122,825.729) rotate(180)">
+		<g id="shape439-210" v:mID="439" v:groupContext="shape" transform="translate(299.138,825.729) rotate(180)">
 			<title>Dotted Line 1.439</title>
 			<path d="M0 706.23 L28.35 706.23" class="st8"/>
 		</g>
-		<g id="shape440-216" v:mID="440" v:groupContext="shape" transform="translate(1063.35,119.5) rotate(90)">
+		<g id="shape440-216" v:mID="440" v:groupContext="shape" transform="translate(1005.37,119.5) rotate(90)">
 			<title>Dotted Line 1.440</title>
 			<path d="M0 706.23 L70.87 706.23" class="st12"/>
 		</g>
-		<g id="shape443-220" v:mID="443" v:groupContext="shape" transform="translate(992.484,141.249) rotate(90)">
+		<g id="shape443-220" v:mID="443" v:groupContext="shape" transform="translate(934.5,141.249) rotate(90)">
 			<title>Dotted Line 1.443</title>
 			<path d="M0 706.23 L27.86 706.23" class="st8"/>
 		</g>
-		<g id="shape444-226" v:mID="444" v:groupContext="shape" transform="translate(328.775,-483.466)">
+		<g id="shape444-226" v:mID="444" v:groupContext="shape" transform="translate(270.791,-483.466)">
 			<title>Text (14).444</title>
 			<desc>Да</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="14.1732" cy="665.126" width="28.35" height="82.2047"/>
 			<rect x="0" y="624.024" width="28.3465" height="82.2047" class="st13"/>
 			<text x="7.87" y="668.13" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Да</text>		</g>
-		<g id="shape445-230" v:mID="445" v:groupContext="shape" transform="translate(992.484,211.626) rotate(90)">
+		<g id="shape445-230" v:mID="445" v:groupContext="shape" transform="translate(934.5,211.626) rotate(90)">
 			<title>Dotted Line 1.445</title>
 			<path d="M0 706.23 L35.43 706.23" class="st10"/>
 		</g>
-		<g id="shape446-236" v:mID="446" v:groupContext="shape" transform="translate(243.736,-416.649)">
+		<g id="shape446-236" v:mID="446" v:groupContext="shape" transform="translate(185.752,-416.649)">
 			<title>Gray-solid Block.490</title>
 			<desc>4. Баланс лицевого счета пополнен?</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -324,7 +324,7 @@
 			<rect x="0" y="663.709" width="85.0394" height="42.5197" class="st6"/>
 			<text x="7.14" y="680.97" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>4. Баланс лицевого <tspan
 						x="11.48" dy="1.375em" class="st4">счета пополнен</tspan>?</text>		</g>
-		<g id="shape447-241" v:mID="447" v:groupContext="shape" transform="translate(314.602,-359.956)">
+		<g id="shape447-241" v:mID="447" v:groupContext="shape" transform="translate(256.618,-359.956)">
 			<title>Black-frame Block.447</title>
 			<desc>7. Использование кредитного лимита</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -332,56 +332,56 @@
 			<rect x="0" y="663.709" width="85.0394" height="42.5197" class="st1"/>
 			<text x="9.69" y="682.97" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>7. Использование <tspan
 						x="6.19" dy="1em" class="st4">кредитного лимита</tspan></text>		</g>
-		<g id="shape448-246" v:mID="448" v:groupContext="shape" transform="translate(357.122,974.548) rotate(180)">
+		<g id="shape448-246" v:mID="448" v:groupContext="shape" transform="translate(299.138,974.548) rotate(180)">
 			<title>Dotted Line 1.448</title>
 			<path d="M0 706.23 L27.65 706.23" class="st15"/>
 		</g>
-		<g id="shape449-250" v:mID="449" v:groupContext="shape" transform="translate(215.39,-437.909)">
+		<g id="shape449-250" v:mID="449" v:groupContext="shape" transform="translate(157.406,-437.909)">
 			<title>Dotted Line 1.449</title>
 			<path d="M0 706.23 L28.35 706.23" class="st12"/>
 		</g>
-		<g id="shape450-254" v:mID="450" v:groupContext="shape" transform="translate(215.39,-405.311)">
+		<g id="shape450-254" v:mID="450" v:groupContext="shape" transform="translate(157.406,-405.311)">
 			<title>Text (14).450</title>
 			<desc>Да</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="14.1732" cy="665.126" width="28.35" height="82.2047"/>
 			<rect x="0" y="624.024" width="28.3465" height="82.2047" class="st13"/>
 			<text x="7.87" y="668.13" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Да</text>		</g>
-		<g id="shape451-258" v:mID="451" v:groupContext="shape" transform="translate(921.618,268.319) rotate(90)">
+		<g id="shape451-258" v:mID="451" v:groupContext="shape" transform="translate(863.634,268.319) rotate(90)">
 			<title>Dotted Line 1.451</title>
 			<path d="M0 706.23 L34.76 706.23" class="st8"/>
 		</g>
-		<g id="shape452-264" v:mID="452" v:groupContext="shape" transform="translate(57.1374,-182.234) rotate(-0.799833)">
+		<g id="shape452-264" v:mID="452" v:groupContext="shape" transform="translate(-0.846623,-182.234) rotate(-0.799833)">
 			<title>Dotted Line 1.452</title>
 			<path d="M0 706.23 L35.01 706.23" class="st12"/>
 		</g>
-		<g id="shape453-268" v:mID="453" v:groupContext="shape" transform="translate(-419.973,395.878) rotate(-90)">
+		<g id="shape453-268" v:mID="453" v:groupContext="shape" transform="translate(-477.957,395.878) rotate(-90)">
 			<title>Dotted Line 1.453</title>
 			<path d="M0 706.23 L70.87 706.23" class="st15"/>
 		</g>
-		<g id="shape454-272" v:mID="454" v:groupContext="shape" transform="translate(1063.35,417.138) rotate(90)">
+		<g id="shape454-272" v:mID="454" v:groupContext="shape" transform="translate(1005.37,417.138) rotate(90)">
 			<title>Dotted Line 1.454</title>
 			<path d="M0 706.23 L27.86 706.23" class="st8"/>
 		</g>
-		<g id="shape455-278" v:mID="455" v:groupContext="shape" transform="translate(329.909,-225.311)">
+		<g id="shape455-278" v:mID="455" v:groupContext="shape" transform="translate(271.925,-225.311)">
 			<title>Text (14).455</title>
 			<desc>Да</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="38.4094" cy="656.622" width="76.82" height="99.2126"/>
 			<rect x="0" y="607.016" width="76.8189" height="99.2126" class="st13"/>
 			<text x="32.1" y="659.62" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Да</text>		</g>
-		<g id="shape456-282" v:mID="456" v:groupContext="shape" transform="translate(261.736,-135.091)">
+		<g id="shape456-282" v:mID="456" v:groupContext="shape" transform="translate(203.752,-135.091)">
 			<title>Text (14).456</title>
 			<desc>Да</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="38.4094" cy="663" width="76.82" height="86.4567"/>
 			<rect x="0" y="619.772" width="76.8189" height="86.4567" class="st13"/>
 			<text x="32.1" y="666" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Да</text>		</g>
-		<g id="shape457-286" v:mID="457" v:groupContext="shape" transform="translate(-278.524,664.681) rotate(-90)">
+		<g id="shape457-286" v:mID="457" v:groupContext="shape" transform="translate(-336.508,664.681) rotate(-90)">
 			<title>Dotted Line 1.457</title>
 			<path d="M0 706.23 L127.56 706.23" class="st15"/>
 		</g>
-		<g id="group458-290" transform="translate(59.484,-382.145)" v:mID="458" v:groupContext="group">
+		<g id="group458-290" transform="translate(1.5,-382.145)" v:mID="458" v:groupContext="group">
 			<title>OK (frame)</title>
 			<g id="shape459-291" v:mID="459" v:groupContext="shape">
 				<title>Лист.459</title>
@@ -393,25 +393,25 @@
 				<path d="M4.45 702.48 L1.52 706.23 L0 704.41" class="st18"/>
 			</g>
 		</g>
-		<g id="shape461-296" v:mID="461" v:groupContext="shape" transform="translate(250.114,-468.24)">
+		<g id="shape461-296" v:mID="461" v:groupContext="shape" transform="translate(192.13,-468.24)">
 			<title>Text (14).461</title>
 			<desc>Нет</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="21.9685" cy="696.591" width="43.94" height="19.2756"/>
 			<rect x="0" y="686.953" width="43.937" height="19.2756" class="st13"/>
 			<text x="13.27" y="699.59" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Нет</text>		</g>
-		<g id="shape465-300" v:mID="465" v:groupContext="shape" transform="translate(389.012,-274.917)">
+		<g id="shape465-300" v:mID="465" v:groupContext="shape" transform="translate(331.028,-274.917)">
 			<title>Text (14).465</title>
 			<desc>Нет</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="24.8031" cy="663.709" width="49.61" height="85.0394"/>
 			<rect x="0" y="621.189" width="49.6063" height="85.0394" class="st13"/>
 			<text x="16.11" y="666.71" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Нет</text>		</g>
-		<g id="shape466-304" v:mID="466" v:groupContext="shape" transform="translate(285.972,-169.107)">
+		<g id="shape466-304" v:mID="466" v:groupContext="shape" transform="translate(227.988,-169.107)">
 			<title>Dotted Line 1.466</title>
 			<path d="M0 706.23 L28.35 706.23" class="st12"/>
 		</g>
-		<g id="shape467-308" v:mID="467" v:groupContext="shape" transform="translate(427.988,-289.09)">
+		<g id="shape467-308" v:mID="467" v:groupContext="shape" transform="translate(370.004,-289.09)">
 			<title>Gray-solid Block.467</title>
 			<desc>8.1. Наступил конец расчетного периода?</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -419,41 +419,41 @@
 			<rect x="0" y="663.709" width="85.0394" height="42.5197" class="st6"/>
 			<text x="5.63" y="676.97" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>8.1. Наступил конец <tspan
 						x="21.14" dy="1em" class="st4">расчетного </tspan><tspan x="24.62" dy="1.375em" class="st4">периода</tspan>?</text>		</g>
-		<g id="shape468-314" v:mID="468" v:groupContext="shape" transform="translate(399.641,-310.35)">
+		<g id="shape468-314" v:mID="468" v:groupContext="shape" transform="translate(341.657,-310.35)">
 			<title>Dotted Line 1.468</title>
 			<path d="M0 706.23 L28.35 706.23" class="st10"/>
 		</g>
-		<g id="shape469-320" v:mID="469" v:groupContext="shape" transform="translate(-235.721,374.618) rotate(-90)">
+		<g id="shape469-320" v:mID="469" v:groupContext="shape" transform="translate(-293.705,374.618) rotate(-90)">
 			<title>Dotted Line 1.469</title>
 			<path d="M0 706.23 L49.61 706.23" class="st15"/>
 		</g>
-		<g id="shape470-324" v:mID="470" v:groupContext="shape" transform="translate(470.508,1031.24) rotate(180)">
+		<g id="shape470-324" v:mID="470" v:groupContext="shape" transform="translate(412.524,1031.24) rotate(180)">
 			<title>Dotted Line 1.470</title>
 			<path d="M0 706.23 L70.87 706.23" class="st10"/>
 		</g>
-		<g id="shape471-330" v:mID="471" v:groupContext="shape" transform="translate(456.334,-310.35)">
+		<g id="shape471-330" v:mID="471" v:groupContext="shape" transform="translate(398.35,-310.35)">
 			<title>Text (14).471</title>
 			<desc>Нет</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="26.9291" cy="660.165" width="53.86" height="92.126"/>
 			<rect x="0" y="614.102" width="53.8583" height="92.126" class="st13"/>
 			<text x="18.23" y="663.17" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Нет</text>		</g>
-		<g id="shape476-334" v:mID="476" v:groupContext="shape" transform="translate(1176.74,417.138) rotate(90)">
+		<g id="shape476-334" v:mID="476" v:groupContext="shape" transform="translate(1118.75,417.138) rotate(90)">
 			<title>Dotted Line 1.476</title>
 			<path d="M0 706.23 L28.35 706.23" class="st8"/>
 		</g>
-		<g id="shape477-340" v:mID="477" v:groupContext="shape" transform="translate(488.791,-242.319)">
+		<g id="shape477-340" v:mID="477" v:groupContext="shape" transform="translate(455.043,-242.319)">
 			<title>Text (14).477</title>
 			<desc>Да</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="38.4094" cy="697.016" width="76.82" height="18.4252"/>
-			<rect x="0" y="687.803" width="76.8189" height="18.4252" class="st13"/>
-			<text x="32.1" y="700.02" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Да</text>		</g>
-		<g id="shape479-344" v:mID="479" v:groupContext="shape" transform="translate(513.027,-240.901)">
+			<v:textRect cx="12.1181" cy="697.016" width="24.24" height="18.4252"/>
+			<rect x="0" y="687.803" width="24.2362" height="18.4252" class="st13"/>
+			<text x="5.81" y="700.02" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Да</text>		</g>
+		<g id="shape479-344" v:mID="479" v:groupContext="shape" transform="translate(455.043,-240.901)">
 			<title>Dotted Line 1.479</title>
 			<path d="M0 706.23 L28.35 706.23" class="st12"/>
 		</g>
-		<g id="shape480-348" v:mID="480" v:groupContext="shape" transform="translate(427.988,-218.224)">
+		<g id="shape480-348" v:mID="480" v:groupContext="shape" transform="translate(370.004,-218.224)">
 			<title>Gray-solid Block.480</title>
 			<desc>8.2. Задолженность оплачены в установленные договором сроки?</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
@@ -462,19 +462,26 @@
 			<text x="6.23" y="672.97" class="st3" v:langID="1049"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>8.2. Задолженность <tspan
 						x="21.58" dy="1em" class="st4">оплачены в </tspan><tspan x="14.09" dy="1em" class="st4">установленные </tspan><tspan
 						x="8.03" dy="1.375em" class="st4">договором сроки</tspan>?</text>		</g>
-		<g id="shape485-355" v:mID="485" v:groupContext="shape" transform="translate(427.988,1174.39) rotate(180)">
+		<g id="shape485-355" v:mID="485" v:groupContext="shape" transform="translate(370.004,1174.39) rotate(180)">
 			<title>Dotted Line 1.485</title>
 			<path d="M0 706.23 L28.63 706.23" class="st10"/>
 		</g>
-		<g id="shape488-361" v:mID="488" v:groupContext="shape" transform="translate(1247.93,233.871) rotate(90.0799)">
+		<g id="shape487-361" v:mID="487" v:groupContext="shape" transform="translate(301.264,-207.594)">
+			<title>Text (14).487</title>
+			<desc>Нет</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="54.5669" cy="667.252" width="109.14" height="77.9528"/>
+			<rect x="0" y="628.276" width="109.134" height="77.9528" class="st13"/>
+			<text x="45.87" y="670.25" class="st14" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Нет</text>		</g>
+		<g id="shape488-365" v:mID="488" v:groupContext="shape" transform="translate(1189.94,233.871) rotate(90.0799)">
 			<title>Dotted Line 1.543.488</title>
 			<path d="M0 706.23 L232.44 706.23" class="st12"/>
 		</g>
-		<g id="shape489-365" v:mID="489" v:groupContext="shape" transform="translate(300.429,-473.342)">
+		<g id="shape489-369" v:mID="489" v:groupContext="shape" transform="translate(242.445,-473.342)">
 			<title>Dotted Line 1.543.489</title>
 			<path d="M0 706.23 L241.27 706.23" class="st12"/>
 		</g>
-		<g id="shape490-369" v:mID="490" v:groupContext="shape" transform="translate(1006.66,232.886) rotate(90)">
+		<g id="shape490-373" v:mID="490" v:groupContext="shape" transform="translate(948.673,232.886) rotate(90)">
 			<title>Dotted Line 1.490</title>
 			<path d="M0 706.23 L14.17 706.23" class="st8"/>
 		</g>
