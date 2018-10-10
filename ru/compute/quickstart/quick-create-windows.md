@@ -5,3 +5,5 @@
 ## Создайте свою первую виртуальную машину
 
 [!INCLUDE [create-instance-via-concole-windows](../_includes_service/create-instance-via-concole-windows.md)]
+
+[!INCLUDE [initialization-windows-vm](../../_includes/initialization-windows-vm.md)]
