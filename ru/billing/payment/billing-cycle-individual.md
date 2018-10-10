@@ -34,5 +34,5 @@
     <br/>11.1. Если в течение этого срока вы оплатите полную сумму задолженности, возможность потреблять ресурсы восстановится в течение суток. Статус лицевого счета поменяется на [Активный](../concepts/personal-account.md#conditions). Вернитесь к шагу 2.
     <br/>11.2. В противном случае использование сервисов Яндекс.Облака полностью заблокируется. Все ваши данные, включая [платежный аккаунт](../concepts/billing-account.md), будут удалены без возможности восстановления. 
 
-[!INCLUDE [restore-after-blocking](../_includes/restore-after-blocking.md)]
+[!INCLUDE [restore-after-blocking](../../_includes/restore-after-blocking.md)]
 
