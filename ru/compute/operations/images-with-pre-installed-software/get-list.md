@@ -15,6 +15,6 @@
 
 **[!TAB CLI]**
 
-   [!INCLUDE [standard-images](../../../_includes/standard-images.md)]
+[!INCLUDE [standard-images](../../../_includes/standard-images.md)]
 
 ---
