@@ -15,21 +15,34 @@
 
 **[!TAB CLI]**
 
-Удалите сервисный аккаунт из вашего каталога по умолчанию:
 
-```
-yc iam service-account delete <SERVICE-ACCOUNT-NAME>|<SERVICE-ACCOUNT-ID>
-```
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
-Если сервисный аккаунт принадлежит другому каталогу, вы можете указать каталог с помощью флагов `--folder-id` или `folder-name`:
+1. Посмотрите описание команды удаления сервисного аккаунта:
 
-```
-yc iam service-account delete my-robot \
-    --folder-name yet-another-folder
-```
+    ```
+    $ yc iam service-account delete -h
+    ```
+
+2. Выберите сервисный аккаунт, например `my-robot`:
+
+    ```
+    $ yc iam service-account list
+    +----------------------+------------------+-------------------------------+
+    |          ID          |       NAME       |          DESCRIPTION          |
+    +----------------------+------------------+-------------------------------+
+    | aje6o61dvog2h6g9a33s | my-robot         |                               |
+    | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
+    +----------------------+------------------+-------------------------------+
+    ```
+3. Удалите сервисный аккаунт:
+
+    ```
+    yc iam service-account delete my-robot
+    ```
 
 **[!TAB API]**
 
-Чтобы удалить сервисный аккаунт, воспользуйтесь методом `Delete` для ресурса `ServiceAccount`.
+Чтобы удалить сервисный аккаунт, воспользуйтесь методом `delete` для ресурса `ServiceAccount`.
 
 ---

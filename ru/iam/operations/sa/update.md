@@ -17,40 +17,36 @@
 
 **[!TAB CLI]**
 
-Измените сервисный аккаунт в вашем каталоге по умолчанию:
+1. Посмотрите описание команды изменения сервисного аккаунта:
 
-```
-yc iam service-account update <SERVICE-ACCOUNT-NAME>|<SERVICE-ACCOUNT-ID> \
-    [--new-name <NEW-NAME>] \
-    [--description <NEW-DESCRIPTION>] \
-```
+    ```
+    $ yc iam service-account update -h
+    ```
 
-где:
-* `<SERVICE-ACCOUNT-NAME>` — имя сервисного аккаунта, который вы хотите изменить. Вы можете указать сервисный аккаунт по имени или идентификатору.
-* `<SERVICE-ACCOUNT-ID>` — идентификатор сервисного аккаунта.
-* `<NEW-NAME>` — новое имя сервисного аккаунта.
+2. Выберите сервисный аккаунт, например `my-robot`:
+
+    ```
+    $ yc iam service-account list
+    +----------------------+------------------+-------------------------------+
+    |          ID          |       NAME       |          DESCRIPTION          |
+    +----------------------+------------------+-------------------------------+
+    | aje6o61dvog2h6g9a33s | my-robot         |                               |
+    | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
+    +----------------------+------------------+-------------------------------+
+    ```
+3. Измените параметры сервисного аккаунта, например имя и описание:
+
+    ```
+    yc iam service-account update my-robot \
+        --new-name my-service-account \
+        --description "this is my service account"
+    ```
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
-* `<NEW-DESCRIPTION>` — новое описание сервисного аккаунта.
-
-Например, вы можете переименовать сервисный аккаунт:
-
-```
-yc iam service-account update old-name \
-    --new-name new-name
-```
-
-Если сервисный аккаунт принадлежит другому каталогу, вы можете указать каталог с помощью флагов `--folder-id` или `folder-name`:
-
-```
-yc iam service-account update old-name \
-    --new-name new-name \
-    --folder-name yet-another-folder
-```
 
 
 **[!TAB API]**
 
-Чтобы создать сервисный аккаунт, воспользуйтесь методом `Update` для ресурса `ServiceAccount`.
+Чтобы изменить сервисный аккаунт, воспользуйтесь методом `update` для ресурса `ServiceAccount`.
 
 ---
