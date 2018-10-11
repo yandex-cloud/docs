@@ -117,7 +117,7 @@
 Отменить операцию можно с помощью метода `cancel`. Пример:
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/operations/a3s17h9sbq5asdgss12:cancel
+POST https://compute.api.cloud.yandex.net/compute/v1/operations/a3s17h9sbq5asdgss12:cancel
 ```
 
 В ответ сервер вернет новый объект `Operation`. Он будет содержать статус
