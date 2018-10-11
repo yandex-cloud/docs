@@ -69,6 +69,8 @@ items:
     items:
       - name: Обзор
         href: api-ref/index.md
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
       - name: AccessKey
         items:
           - name: Обзор

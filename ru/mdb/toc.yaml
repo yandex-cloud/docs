@@ -79,6 +79,8 @@ items:
     href: pricing.md
   - name: Справочник API
     items:
+    - name: Аутентификация в API
+      href: api-ref/authentication.md
     - name: ClickHouse
       items:
         - name: Обзор
