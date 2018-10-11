@@ -8,5 +8,37 @@ _Каталог_  — это пространство, в котором соз�
 
 [!INCLUDE [create-folder](../../../_includes/create-folder.md)]
 
+
+**[!TAB CLI]**
+
+1. Посмотрите описание команды создания каталога:
+
+    ```
+    $ yc resource-manager folder create --help
+    ```
+
+2. Создайте новый каталог, указав его имя:
+
+    ```
+    $ yc resource-manager folder create \
+        --name new-folder
+    ```
+
+    [!INCLUDE [name-format](../../../_includes/name-format.md)]
+
+    Вы можете добавить произвольное описание при создании каталога:
+
+    ```
+    $ yc resource-manager folder create \
+        --name new-folder \
+        --description "my first folder with description"
+    ```
+
+
+**[!TAB API]**
+
+Чтобы создать каталог, воспользуйтесь методом `create` для ресурса `Folder`.
+
+
 ---
 
