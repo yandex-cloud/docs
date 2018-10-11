@@ -26,10 +26,10 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-users | **object**<br>Ресурс User для MongoDB. Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](/docs/mdb/concepts).
-users.<br>name | **string**<br>Имя пользователя MongoDB.
-users.<br>clusterId | **string**<br>Идентификатор кластера MongoDB, к которому принадлежит пользователь.
-users.<br>permissions | **object**<br>Набор разрешений, предоставленных пользователю.
-users.<br>permissions.<br>databaseName | **string**<br>Имя базы данных, к которой предоставляет доступ разрешение.
-users.<br>permissions.<br>roles | **string**<br>Роли MongoDB базы данных databaseName, которые предоставляет разрешение.
-nextPageToken | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/mongodb/User/list#query_params), используйте [nextPageToken](/docs/mdb/api-ref/mongodb/User/list#responses) в качестве значения параметра [pageToken](/docs/mdb/api-ref/mongodb/User/list#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения [nextPageToken](/docs/mdb/api-ref/mongodb/User/list#responses) для перебора страниц результатов.
+users | **object**<br><p>Ресурс User для MongoDB. Подробнее см. в разделе <a href="/docs/mdb/concepts">Взаимосвязь ресурсов сервиса</a>.</p> 
+users.<br>name | **string**<br><p>Имя пользователя MongoDB.</p> 
+users.<br>clusterId | **string**<br><p>Идентификатор кластера MongoDB, к которому принадлежит пользователь.</p> 
+users.<br>permissions | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 
+users.<br>permissions.<br>databaseName | **string**<br><p>Имя базы данных, к которой предоставляет доступ разрешение.</p> 
+users.<br>permissions.<br>roles | **string**<br><p>Роли MongoDB базы данных databaseName, которые предоставляет разрешение.</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/mdb/api-ref/mongodb/User/list#query_params">pageSize</a>, используйте <a href="/docs/mdb/api-ref/mongodb/User/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/mdb/api-ref/mongodb/User/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/mdb/api-ref/mongodb/User/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 

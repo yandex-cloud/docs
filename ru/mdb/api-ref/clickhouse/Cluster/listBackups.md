@@ -27,10 +27,10 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-backups | **object**<br>Ресурс Backup для ClickHouse. Подробное описание см. в разделе [Взаимосвязь ресурсов сервиса](/docs/mdb/concepts).
-backups.<br>id | **string**<br>Идентификатор резервной копии.
-backups.<br>folderId | **string**<br>Идентификатор каталога, которому принадлежит резервная копия.
-backups.<br>createdAt | **string** (date-time)<br>Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) (т. е. когда операция резервного копирования была завершена).
-backups.<br>sourceClusterId | **string**<br>Идентификатор кластера ClickHouse, для которого была создана резервная копия.
-backups.<br>startedAt | **string** (date-time)<br>Время запуска операции резервного копирования.
-nextPageToken | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/clickhouse/Cluster/listBackups#query_params), используйте [nextPageToken](/docs/mdb/api-ref/clickhouse/Cluster/listBackups#responses) в качестве значения параметра [pageToken](/docs/mdb/api-ref/clickhouse/Cluster/listBackups#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения [nextPageToken](/docs/mdb/api-ref/clickhouse/Cluster/listBackups#responses) для перебора страниц результатов.
+backups | **object**<br><p>Ресурс Backup для ClickHouse. Подробное описание см. в разделе <a href="/docs/mdb/concepts">Взаимосвязь ресурсов сервиса</a>.</p> 
+backups.<br>id | **string**<br><p>Идентификатор резервной копии.</p> 
+backups.<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит резервная копия.</p> 
+backups.<br>createdAt | **string** (date-time)<br><p>Время создания в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> (т. е. когда операция резервного копирования была завершена).</p> 
+backups.<br>sourceClusterId | **string**<br><p>Идентификатор кластера ClickHouse, для которого была создана резервная копия.</p> 
+backups.<br>startedAt | **string** (date-time)<br><p>Время запуска операции резервного копирования.</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/mdb/api-ref/clickhouse/Cluster/listBackups#query_params">pageSize</a>, используйте <a href="/docs/mdb/api-ref/clickhouse/Cluster/listBackups#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/mdb/api-ref/clickhouse/Cluster/listBackups#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/mdb/api-ref/clickhouse/Cluster/listBackups#responses">nextPageToken</a> для перебора страниц результатов.</p> 

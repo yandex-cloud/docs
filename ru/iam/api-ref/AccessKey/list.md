@@ -22,10 +22,10 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-accessKeys | **object**<br>Ресурс AccessKey — статический ключ доступа. Используется для авторизации в HTTP API, совместимом с Amazon S3.
-accessKeys.<br>id | **string**<br>Только для вывода. Идентификатор ресурса AccessKey. Используется для управления учетными данными: идентификатором ключа доступа и секретным ключом доступа.
-accessKeys.<br>serviceAccountId | **string**<br>Идентификатор сервисного аккаунта, которому принадлежит ключ доступа.
-accessKeys.<br>createdAt | **string** (date-time)<br>Только для вывода. Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-accessKeys.<br>description | **string**<br>Описание ключа доступа. Длина описания должна быть от 0 до 256 символов.
-accessKeys.<br>keyId | **string**<br>Только для вывода. Идентификатор ключа доступа. Ключ совместим с сервисами AWS.
-nextPageToken | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/iam/api-ref/AccessKey/list#query_params), используйте [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses) в качестве значения параметра [pageToken](/docs/iam/api-ref/AccessKey/list#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses) для перебора страниц результатов.
+accessKeys | **object**<br><p>Ресурс AccessKey — статический ключ доступа. Используется для авторизации в HTTP API, совместимом с Amazon S3.</p> 
+accessKeys.<br>id | **string**<br><p>Только для вывода. Идентификатор ресурса AccessKey. Используется для управления учетными данными: идентификатором ключа доступа и секретным ключом доступа.</p> 
+accessKeys.<br>serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта, которому принадлежит ключ доступа.</p> 
+accessKeys.<br>createdAt | **string** (date-time)<br><p>Только для вывода. Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+accessKeys.<br>description | **string**<br><p>Описание ключа доступа. Длина описания должна быть от 0 до 256 символов.</p> 
+accessKeys.<br>keyId | **string**<br><p>Только для вывода. Идентификатор ключа доступа. Ключ совместим с сервисами AWS.</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/iam/api-ref/AccessKey/list#query_params">pageSize</a>, используйте <a href="/docs/iam/api-ref/AccessKey/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/iam/api-ref/AccessKey/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/iam/api-ref/AccessKey/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 

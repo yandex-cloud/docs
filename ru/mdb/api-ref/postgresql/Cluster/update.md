@@ -190,19 +190,19 @@ clusterId | Обязательное поле. Идентификатор изм
  
 Поле | Описание
 --- | ---
-updateMask | **string**<br>Маска, которая указывает, какие поля ресурса Cluster для PostgreSQL должны быть изменены.  Имена всех обновляемых полей, разделенные запятыми. Только значения указанных полей будут изменены. Остальные останутся нетронутыми. Если поле указано в параметре `` update_mask `` и в запросе не было отправлено значение для этого поля, значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.  Если в запросе не передается `` update_mask ``, значения всех полей будут обновлены. Для полей, указанных в запросе, будут использованы переданные значения. Значения остальных полей будут сброшены на значения по умолчанию.
-description | **string**<br>Новое описание кластера PostgreSQL. Длина описания должна быть от 0 до 256 символов.  Максимальная длина — 256 символов.
-labels | **object**<br>Пользовательские метки для кластера PostgreSQL в виде пар ключ-значение. Максимум 64 на ресурс. Например, "project": "mvp" или "source": "dictionary".  Новый набор меток полностью заменит старый. Чтобы добавить метку, запросите текущий набор меток с помощью метода [get](/docs/mdb/api-ref/postgresql/Cluster/get), затем отправьте запрос [update](/docs/mdb/api-ref/postgresql/Cluster/update), добавив новую метку в этот набор.  Не более 64 на ресурс.  Каждый ключ должен быть длиной от 1 до 63 символов и соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``. Максимальная длина каждого значения — не более 63 символов. Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
-configSpec | **object**<br>Новая конфигурация и ресурсы для хостов кластера.
-configSpec.<br>version | **string**<br>Версия PostgreSQL, используемая в кластере. Возможные значения: * 10 * 9.6
+updateMask | **string**<br><p>Маска, которая указывает, какие поля ресурса Cluster для PostgreSQL должны быть изменены.</p> <p>Имена всех обновляемых полей, разделенные запятыми. Только значения указанных полей будут изменены. Остальные останутся нетронутыми. Если поле указано в параметре <code>update_mask</code> и в запросе не было отправлено значение для этого поля, значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.</p> <p>Если в запросе не передается <code>update_mask</code>, значения всех полей будут обновлены. Для полей, указанных в запросе, будут использованы переданные значения. Значения остальных полей будут сброшены на значения по умолчанию.</p> 
+description | **string**<br><p>Новое описание кластера PostgreSQL. Длина описания должна быть от 0 до 256 символов.</p> <p>Максимальная длина — 256 символов.</p> 
+labels | **object**<br><p>Пользовательские метки для кластера PostgreSQL в виде пар ключ-значение. Максимум 64 на ресурс. Например, &quot;project&quot;: &quot;mvp&quot; или &quot;source&quot;: &quot;dictionary&quot;.</p> <p>Новый набор меток полностью заменит старый. Чтобы добавить метку, запросите текущий набор меток с помощью метода <a href="/docs/mdb/api-ref/postgresql/Cluster/get">get</a>, затем отправьте запрос <a href="/docs/mdb/api-ref/postgresql/Cluster/update">update</a>, добавив новую метку в этот набор.</p> <p>Не более 64 на ресурс. Каждый ключ должен быть длиной от 1 до 63 символов и соответствовать регулярному выражению <code>[a-z][-_0-9a-z]*</code>. Максимальная длина каждого значения — не более 63 символов. Каждое значение должно соответствовать регулярному выражению <code>[-_0-9a-z]*</code>.</p> 
+configSpec | **object**<br><p>Новая конфигурация и ресурсы для хостов кластера.</p> 
+configSpec.<br>version | **string**<br><p>Версия PostgreSQL, используемая в кластере. Возможные значения:</p> <ul> <li>10</li> <li>9.6</li> </ul> 
 configSpec.<br>poolerConfig | **object**<br>
-configSpec.<br>poolerConfig.<br>poolingMode | **string**<br>Режим, в котором работает менеджер подключений. См. описание всех режимов в [документации PgBouncer](https://pgbouncer.github.io/usage).   - SESSION: Сессионный режим управления подключениями.  - TRANSACTION: Транзакционный режим управления подключениями.  - STATEMENT: Операторный режим управления подключениями.<br>`SESSION`<br>`TRANSACTION`<br>`STATEMENT`<br>
+configSpec.<br>poolerConfig.<br>poolingMode | **string**<br><p>Режим, в котором работает менеджер подключений. См. описание всех режимов в <a href="https://pgbouncer.github.io/usage">документации PgBouncer</a>.</p> <ul> <li>SESSION: Сессионный режим управления подключениями.</li> <li>TRANSACTION: Транзакционный режим управления подключениями.</li> <li>STATEMENT: Операторный режим управления подключениями.</li> </ul> 
 configSpec.<br>resources | **object**<br>
-configSpec.<br>resources.<br>resourcePresetId | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [Классы баз данных](/docs/mdb/concepts/instance-types).
-configSpec.<br>resources.<br>diskSize | **string** (int64)<br>Объем хранилища, доступный хосту, в байтах.
-configSpec.<br>resources.<br>diskTypeId | **string**<br>Тип хранилища для хоста. Возможные значения: * local-ssd — хранилище на базе локальных SSD-дисков.
-configSpec.<br>autofailover | **boolean** (boolean)<br>Параметр конфигурации, который включает / отключает отказоустойчивость в кластере.
-configSpec.<br>postgresqlConfig_9_6 | **object** <br>`configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`<br><br>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config).
+configSpec.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/mdb/concepts/instance-types">Классы баз данных</a>.</p> 
+configSpec.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступный хосту, в байтах.</p> 
+configSpec.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>local-ssd — хранилище на базе локальных SSD-дисков.</li> </ul> 
+configSpec.<br>autofailover | **boolean** (boolean)<br><p>Параметр конфигурации, который включает / отключает отказоустойчивость в кластере.</p> 
+configSpec.<br>postgresqlConfig_9_6 | **object** <br>`configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`<br><br><p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config">документации PostgreSQL</a>.</p> 
 configSpec.<br>postgresqlConfig_9_6.<br>maxConnections | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>sharedBuffers | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>tempBuffers | **integer** (int64)<br>
@@ -217,53 +217,53 @@ configSpec.<br>postgresqlConfig_9_6.<br>vacuumCostPageHit | **integer** (int64)<
 configSpec.<br>postgresqlConfig_9_6.<br>vacuumCostPageMiss | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>vacuumCostPageDirty | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>vacuumCostLimit | **integer** (int64)<br>
-configSpec.<br>postgresqlConfig_9_6.<br>bgwriterDelay | **integer** (int64)<br>Допустимые значения — от 10 до 10000 включительно.
+configSpec.<br>postgresqlConfig_9_6.<br>bgwriterDelay | **integer** (int64)<br><p>Допустимые значения — от 10 до 10000 включительно.</p> 
 configSpec.<br>postgresqlConfig_9_6.<br>bgwriterLruMaxpages | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>bgwriterLruMultiplier | **number** (double)<br>
-configSpec.<br>postgresqlConfig_9_6.<br>bgwriterFlushAfter | **integer** (int64)<br>Допустимые значения — от 0 до 2048 включительно.
-configSpec.<br>postgresqlConfig_9_6.<br>backendFlushAfter | **integer** (int64)<br>Допустимые значения — от 0 до 2048 включительно.
-configSpec.<br>postgresqlConfig_9_6.<br>oldSnapshotThreshold | **integer** (int64)<br>Допустимые значения — от -1 до 86400 включительно.
-configSpec.<br>postgresqlConfig_9_6.<br>walLevel | **string**<br><br>`WAL_LEVEL_REPLICA`<br>`WAL_LEVEL_LOGICAL`<br>
-configSpec.<br>postgresqlConfig_9_6.<br>synchronousCommit | **string**<br><br>`SYNCHRONOUS_COMMIT_ON`<br>`SYNCHRONOUS_COMMIT_OFF`<br>`SYNCHRONOUS_COMMIT_LOCAL`<br>`SYNCHRONOUS_COMMIT_REMOTE_WRITE`<br>`SYNCHRONOUS_COMMIT_REMOTE_APPLY`<br>
-configSpec.<br>postgresqlConfig_9_6.<br>checkpointTimeout | **integer** (int64)<br>Допустимые значения — от 30 до 86400 включительно.
+configSpec.<br>postgresqlConfig_9_6.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+configSpec.<br>postgresqlConfig_9_6.<br>backendFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+configSpec.<br>postgresqlConfig_9_6.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Допустимые значения — от -1 до 86400 включительно.</p> 
+configSpec.<br>postgresqlConfig_9_6.<br>walLevel | **string**<br>
+configSpec.<br>postgresqlConfig_9_6.<br>synchronousCommit | **string**<br>
+configSpec.<br>postgresqlConfig_9_6.<br>checkpointTimeout | **integer** (int64)<br><p>Допустимые значения — от 30 до 86400 включительно.</p> 
 configSpec.<br>postgresqlConfig_9_6.<br>checkpointCompletionTarget | **number** (double)<br>
-configSpec.<br>postgresqlConfig_9_6.<br>checkpointFlushAfter | **integer** (int64)<br>Допустимые значения — от 0 до 2048 включительно.
+configSpec.<br>postgresqlConfig_9_6.<br>checkpointFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
 configSpec.<br>postgresqlConfig_9_6.<br>maxWalSize | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>minWalSize | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>defaultStatisticsTarget | **integer** (int64)<br>
-configSpec.<br>postgresqlConfig_9_6.<br>constraintExclusion | **string**<br><br>`CONSTRAINT_EXCLUSION_ON`<br>`CONSTRAINT_EXCLUSION_OFF`<br>`CONSTRAINT_EXCLUSION_PARTITION`<br>
+configSpec.<br>postgresqlConfig_9_6.<br>constraintExclusion | **string**<br>
 configSpec.<br>postgresqlConfig_9_6.<br>cursorTupleFraction | **number** (double)<br>
-configSpec.<br>postgresqlConfig_9_6.<br>fromCollapseLimit | **integer** (int64)<br>Допустимые значения — от 1 до 2147483647 включительно.
-configSpec.<br>postgresqlConfig_9_6.<br>joinCollapseLimit | **integer** (int64)<br>Допустимые значения — от 1 до 2147483647 включительно.
-configSpec.<br>postgresqlConfig_9_6.<br>forceParallelMode | **string**<br><br>`FORCE_PARALLEL_MODE_ON`<br>`FORCE_PARALLEL_MODE_OFF`<br>`FORCE_PARALLEL_MODE_REGRESS`<br>
-configSpec.<br>postgresqlConfig_9_6.<br>clientMinMessages | **string**<br><br>`LOG_LEVEL_DEBUG5`<br>`LOG_LEVEL_DEBUG4`<br>`LOG_LEVEL_DEBUG3`<br>`LOG_LEVEL_DEBUG2`<br>`LOG_LEVEL_DEBUG1`<br>`LOG_LEVEL_LOG`<br>`LOG_LEVEL_NOTICE`<br>`LOG_LEVEL_WARNING`<br>`LOG_LEVEL_ERROR`<br>`LOG_LEVEL_FATAL`<br>`LOG_LEVEL_PANIC`<br>
-configSpec.<br>postgresqlConfig_9_6.<br>logMinMessages | **string**<br><br>`LOG_LEVEL_DEBUG5`<br>`LOG_LEVEL_DEBUG4`<br>`LOG_LEVEL_DEBUG3`<br>`LOG_LEVEL_DEBUG2`<br>`LOG_LEVEL_DEBUG1`<br>`LOG_LEVEL_LOG`<br>`LOG_LEVEL_NOTICE`<br>`LOG_LEVEL_WARNING`<br>`LOG_LEVEL_ERROR`<br>`LOG_LEVEL_FATAL`<br>`LOG_LEVEL_PANIC`<br>
-configSpec.<br>postgresqlConfig_9_6.<br>logMinErrorStatement | **string**<br><br>`LOG_LEVEL_DEBUG5`<br>`LOG_LEVEL_DEBUG4`<br>`LOG_LEVEL_DEBUG3`<br>`LOG_LEVEL_DEBUG2`<br>`LOG_LEVEL_DEBUG1`<br>`LOG_LEVEL_LOG`<br>`LOG_LEVEL_NOTICE`<br>`LOG_LEVEL_WARNING`<br>`LOG_LEVEL_ERROR`<br>`LOG_LEVEL_FATAL`<br>`LOG_LEVEL_PANIC`<br>
+configSpec.<br>postgresqlConfig_9_6.<br>fromCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+configSpec.<br>postgresqlConfig_9_6.<br>joinCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+configSpec.<br>postgresqlConfig_9_6.<br>forceParallelMode | **string**<br>
+configSpec.<br>postgresqlConfig_9_6.<br>clientMinMessages | **string**<br>
+configSpec.<br>postgresqlConfig_9_6.<br>logMinMessages | **string**<br>
+configSpec.<br>postgresqlConfig_9_6.<br>logMinErrorStatement | **string**<br>
 configSpec.<br>postgresqlConfig_9_6.<br>logMinDurationStatement | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>logCheckpoints | **boolean** (boolean)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>logConnections | **boolean** (boolean)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>logDisconnections | **boolean** (boolean)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>logDuration | **boolean** (boolean)<br>
-configSpec.<br>postgresqlConfig_9_6.<br>logErrorVerbosity | **string**<br><br>`LOG_ERROR_VERBOSITY_TERSE`<br>`LOG_ERROR_VERBOSITY_DEFAULT`<br>`LOG_ERROR_VERBOSITY_VERBOSE`<br>
+configSpec.<br>postgresqlConfig_9_6.<br>logErrorVerbosity | **string**<br>
 configSpec.<br>postgresqlConfig_9_6.<br>logLockWaits | **boolean** (boolean)<br>
-configSpec.<br>postgresqlConfig_9_6.<br>logStatement | **string**<br><br>`LOG_STATEMENT_NONE`<br>`LOG_STATEMENT_DDL`<br>`LOG_STATEMENT_MOD`<br>`LOG_STATEMENT_ALL`<br>
+configSpec.<br>postgresqlConfig_9_6.<br>logStatement | **string**<br>
 configSpec.<br>postgresqlConfig_9_6.<br>logTempFiles | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>searchPath | **string**<br>
 configSpec.<br>postgresqlConfig_9_6.<br>rowSecurity | **boolean** (boolean)<br>
-configSpec.<br>postgresqlConfig_9_6.<br>defaultTransactionIsolation | **string**<br><br>`TRANSACTION_ISOLATION_READ_UNCOMMITTED`<br>`TRANSACTION_ISOLATION_READ_COMMITTED`<br>`TRANSACTION_ISOLATION_REPEATABLE_READ`<br>`TRANSACTION_ISOLATION_SERIALIZABLE`<br>
+configSpec.<br>postgresqlConfig_9_6.<br>defaultTransactionIsolation | **string**<br>
 configSpec.<br>postgresqlConfig_9_6.<br>statementTimeout | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>lockTimeout | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
-configSpec.<br>postgresqlConfig_9_6.<br>byteaOutput | **string**<br><br>`BYTEA_OUTPUT_HEX`<br>`BYTEA_OUTPUT_ESCAPED`<br>
-configSpec.<br>postgresqlConfig_9_6.<br>xmlbinary | **string**<br><br>`XML_BINARY_BASE64`<br>`XML_BINARY_HEX`<br>
-configSpec.<br>postgresqlConfig_9_6.<br>xmloption | **string**<br><br>`XML_OPTION_DOCUMENT`<br>`XML_OPTION_CONTENT`<br>
+configSpec.<br>postgresqlConfig_9_6.<br>byteaOutput | **string**<br>
+configSpec.<br>postgresqlConfig_9_6.<br>xmlbinary | **string**<br>
+configSpec.<br>postgresqlConfig_9_6.<br>xmloption | **string**<br>
 configSpec.<br>postgresqlConfig_9_6.<br>ginPendingListLimit | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>deadlockTimeout | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>maxLocksPerTransaction | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>arrayNulls | **boolean** (boolean)<br>
-configSpec.<br>postgresqlConfig_9_6.<br>backslashQuote | **string**<br><br>`BACKSLASH_QUOTE`<br>`BACKSLASH_QUOTE_ON`<br>`BACKSLASH_QUOTE_OFF`<br>`BACKSLASH_QUOTE_SAFE_ENCODING`<br>
+configSpec.<br>postgresqlConfig_9_6.<br>backslashQuote | **string**<br>
 configSpec.<br>postgresqlConfig_9_6.<br>defaultWithOids | **boolean** (boolean)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>escapeStringWarning | **boolean** (boolean)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>loCompatPrivileges | **boolean** (boolean)<br>
@@ -275,8 +275,8 @@ configSpec.<br>postgresqlConfig_9_6.<br>transformNullEquals | **boolean** (boole
 configSpec.<br>postgresqlConfig_9_6.<br>exitOnError | **boolean** (boolean)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>seqPageCost | **number** (double)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>randomPageCost | **number** (double)<br>
-configSpec.<br>postgresqlConfig_9_6.<br>sqlInheritance | **boolean** (boolean)<br>Эта настройка была удалена в PostgreSQL 10.
-configSpec.<br>postgresqlConfig_10 | **object** <br>`configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`<br><br>Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/10/static/runtime-config).
+configSpec.<br>postgresqlConfig_9_6.<br>sqlInheritance | **boolean** (boolean)<br><p>Эта настройка была удалена в PostgreSQL 10.</p> 
+configSpec.<br>postgresqlConfig_10 | **object** <br>`configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`<br><br><p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/static/runtime-config">документации PostgreSQL</a>.</p> 
 configSpec.<br>postgresqlConfig_10.<br>maxConnections | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>sharedBuffers | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>tempBuffers | **integer** (int64)<br>
@@ -291,53 +291,53 @@ configSpec.<br>postgresqlConfig_10.<br>vacuumCostPageHit | **integer** (int64)<b
 configSpec.<br>postgresqlConfig_10.<br>vacuumCostPageMiss | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>vacuumCostPageDirty | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>vacuumCostLimit | **integer** (int64)<br>
-configSpec.<br>postgresqlConfig_10.<br>bgwriterDelay | **integer** (int64)<br>Допустимые значения — от 10 до 10000 включительно.
+configSpec.<br>postgresqlConfig_10.<br>bgwriterDelay | **integer** (int64)<br><p>Допустимые значения — от 10 до 10000 включительно.</p> 
 configSpec.<br>postgresqlConfig_10.<br>bgwriterLruMaxpages | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>bgwriterLruMultiplier | **number** (double)<br>
-configSpec.<br>postgresqlConfig_10.<br>bgwriterFlushAfter | **integer** (int64)<br>Допустимые значения — от 0 до 2048 включительно.
-configSpec.<br>postgresqlConfig_10.<br>backendFlushAfter | **integer** (int64)<br>Допустимые значения — от 0 до 2048 включительно.
-configSpec.<br>postgresqlConfig_10.<br>oldSnapshotThreshold | **integer** (int64)<br>Допустимые значения — от -1 до 86400 включительно.
-configSpec.<br>postgresqlConfig_10.<br>walLevel | **string**<br><br>`WAL_LEVEL_REPLICA`<br>`WAL_LEVEL_LOGICAL`<br>
-configSpec.<br>postgresqlConfig_10.<br>synchronousCommit | **string**<br><br>`SYNCHRONOUS_COMMIT_ON`<br>`SYNCHRONOUS_COMMIT_OFF`<br>`SYNCHRONOUS_COMMIT_LOCAL`<br>`SYNCHRONOUS_COMMIT_REMOTE_WRITE`<br>`SYNCHRONOUS_COMMIT_REMOTE_APPLY`<br>
-configSpec.<br>postgresqlConfig_10.<br>checkpointTimeout | **integer** (int64)<br>Допустимые значения — от 30 до 86400 включительно.
+configSpec.<br>postgresqlConfig_10.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+configSpec.<br>postgresqlConfig_10.<br>backendFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+configSpec.<br>postgresqlConfig_10.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Допустимые значения — от -1 до 86400 включительно.</p> 
+configSpec.<br>postgresqlConfig_10.<br>walLevel | **string**<br>
+configSpec.<br>postgresqlConfig_10.<br>synchronousCommit | **string**<br>
+configSpec.<br>postgresqlConfig_10.<br>checkpointTimeout | **integer** (int64)<br><p>Допустимые значения — от 30 до 86400 включительно.</p> 
 configSpec.<br>postgresqlConfig_10.<br>checkpointCompletionTarget | **number** (double)<br>
-configSpec.<br>postgresqlConfig_10.<br>checkpointFlushAfter | **integer** (int64)<br>Допустимые значения — от 0 до 2048 включительно.
+configSpec.<br>postgresqlConfig_10.<br>checkpointFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
 configSpec.<br>postgresqlConfig_10.<br>maxWalSize | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>minWalSize | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>defaultStatisticsTarget | **integer** (int64)<br>
-configSpec.<br>postgresqlConfig_10.<br>constraintExclusion | **string**<br><br>`CONSTRAINT_EXCLUSION_ON`<br>`CONSTRAINT_EXCLUSION_OFF`<br>`CONSTRAINT_EXCLUSION_PARTITION`<br>
+configSpec.<br>postgresqlConfig_10.<br>constraintExclusion | **string**<br>
 configSpec.<br>postgresqlConfig_10.<br>cursorTupleFraction | **number** (double)<br>
-configSpec.<br>postgresqlConfig_10.<br>fromCollapseLimit | **integer** (int64)<br>Допустимые значения — от 1 до 2147483647 включительно.
-configSpec.<br>postgresqlConfig_10.<br>joinCollapseLimit | **integer** (int64)<br>Допустимые значения — от 1 до 2147483647 включительно.
-configSpec.<br>postgresqlConfig_10.<br>forceParallelMode | **string**<br><br>`FORCE_PARALLEL_MODE_ON`<br>`FORCE_PARALLEL_MODE_OFF`<br>`FORCE_PARALLEL_MODE_REGRESS`<br>
-configSpec.<br>postgresqlConfig_10.<br>clientMinMessages | **string**<br><br>`LOG_LEVEL_DEBUG5`<br>`LOG_LEVEL_DEBUG4`<br>`LOG_LEVEL_DEBUG3`<br>`LOG_LEVEL_DEBUG2`<br>`LOG_LEVEL_DEBUG1`<br>`LOG_LEVEL_LOG`<br>`LOG_LEVEL_NOTICE`<br>`LOG_LEVEL_WARNING`<br>`LOG_LEVEL_ERROR`<br>`LOG_LEVEL_FATAL`<br>`LOG_LEVEL_PANIC`<br>
-configSpec.<br>postgresqlConfig_10.<br>logMinMessages | **string**<br><br>`LOG_LEVEL_DEBUG5`<br>`LOG_LEVEL_DEBUG4`<br>`LOG_LEVEL_DEBUG3`<br>`LOG_LEVEL_DEBUG2`<br>`LOG_LEVEL_DEBUG1`<br>`LOG_LEVEL_LOG`<br>`LOG_LEVEL_NOTICE`<br>`LOG_LEVEL_WARNING`<br>`LOG_LEVEL_ERROR`<br>`LOG_LEVEL_FATAL`<br>`LOG_LEVEL_PANIC`<br>
-configSpec.<br>postgresqlConfig_10.<br>logMinErrorStatement | **string**<br><br>`LOG_LEVEL_DEBUG5`<br>`LOG_LEVEL_DEBUG4`<br>`LOG_LEVEL_DEBUG3`<br>`LOG_LEVEL_DEBUG2`<br>`LOG_LEVEL_DEBUG1`<br>`LOG_LEVEL_LOG`<br>`LOG_LEVEL_NOTICE`<br>`LOG_LEVEL_WARNING`<br>`LOG_LEVEL_ERROR`<br>`LOG_LEVEL_FATAL`<br>`LOG_LEVEL_PANIC`<br>
+configSpec.<br>postgresqlConfig_10.<br>fromCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+configSpec.<br>postgresqlConfig_10.<br>joinCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+configSpec.<br>postgresqlConfig_10.<br>forceParallelMode | **string**<br>
+configSpec.<br>postgresqlConfig_10.<br>clientMinMessages | **string**<br>
+configSpec.<br>postgresqlConfig_10.<br>logMinMessages | **string**<br>
+configSpec.<br>postgresqlConfig_10.<br>logMinErrorStatement | **string**<br>
 configSpec.<br>postgresqlConfig_10.<br>logMinDurationStatement | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>logCheckpoints | **boolean** (boolean)<br>
 configSpec.<br>postgresqlConfig_10.<br>logConnections | **boolean** (boolean)<br>
 configSpec.<br>postgresqlConfig_10.<br>logDisconnections | **boolean** (boolean)<br>
 configSpec.<br>postgresqlConfig_10.<br>logDuration | **boolean** (boolean)<br>
-configSpec.<br>postgresqlConfig_10.<br>logErrorVerbosity | **string**<br><br>`LOG_ERROR_VERBOSITY_TERSE`<br>`LOG_ERROR_VERBOSITY_DEFAULT`<br>`LOG_ERROR_VERBOSITY_VERBOSE`<br>
+configSpec.<br>postgresqlConfig_10.<br>logErrorVerbosity | **string**<br>
 configSpec.<br>postgresqlConfig_10.<br>logLockWaits | **boolean** (boolean)<br>
-configSpec.<br>postgresqlConfig_10.<br>logStatement | **string**<br><br>`LOG_STATEMENT_NONE`<br>`LOG_STATEMENT_DDL`<br>`LOG_STATEMENT_MOD`<br>`LOG_STATEMENT_ALL`<br>
+configSpec.<br>postgresqlConfig_10.<br>logStatement | **string**<br>
 configSpec.<br>postgresqlConfig_10.<br>logTempFiles | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>searchPath | **string**<br>
 configSpec.<br>postgresqlConfig_10.<br>rowSecurity | **boolean** (boolean)<br>
-configSpec.<br>postgresqlConfig_10.<br>defaultTransactionIsolation | **string**<br><br>`TRANSACTION_ISOLATION_READ_UNCOMMITTED`<br>`TRANSACTION_ISOLATION_READ_COMMITTED`<br>`TRANSACTION_ISOLATION_REPEATABLE_READ`<br>`TRANSACTION_ISOLATION_SERIALIZABLE`<br>
+configSpec.<br>postgresqlConfig_10.<br>defaultTransactionIsolation | **string**<br>
 configSpec.<br>postgresqlConfig_10.<br>statementTimeout | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>lockTimeout | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
-configSpec.<br>postgresqlConfig_10.<br>byteaOutput | **string**<br><br>`BYTEA_OUTPUT_HEX`<br>`BYTEA_OUTPUT_ESCAPED`<br>
-configSpec.<br>postgresqlConfig_10.<br>xmlbinary | **string**<br><br>`XML_BINARY_BASE64`<br>`XML_BINARY_HEX`<br>
-configSpec.<br>postgresqlConfig_10.<br>xmloption | **string**<br><br>`XML_OPTION_DOCUMENT`<br>`XML_OPTION_CONTENT`<br>
+configSpec.<br>postgresqlConfig_10.<br>byteaOutput | **string**<br>
+configSpec.<br>postgresqlConfig_10.<br>xmlbinary | **string**<br>
+configSpec.<br>postgresqlConfig_10.<br>xmloption | **string**<br>
 configSpec.<br>postgresqlConfig_10.<br>ginPendingListLimit | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>deadlockTimeout | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>maxLocksPerTransaction | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>arrayNulls | **boolean** (boolean)<br>
-configSpec.<br>postgresqlConfig_10.<br>backslashQuote | **string**<br><br>`BACKSLASH_QUOTE`<br>`BACKSLASH_QUOTE_ON`<br>`BACKSLASH_QUOTE_OFF`<br>`BACKSLASH_QUOTE_SAFE_ENCODING`<br>
+configSpec.<br>postgresqlConfig_10.<br>backslashQuote | **string**<br>
 configSpec.<br>postgresqlConfig_10.<br>defaultWithOids | **boolean** (boolean)<br>
 configSpec.<br>postgresqlConfig_10.<br>escapeStringWarning | **boolean** (boolean)<br>
 configSpec.<br>postgresqlConfig_10.<br>loCompatPrivileges | **boolean** (boolean)<br>
@@ -358,15 +358,15 @@ configSpec.<br>postgresqlConfig_10.<br>randomPageCost | **number** (double)<br>
  
 Поле | Описание
 --- | ---
-id | **string**<br>Только для вывода. Идентификатор операции.
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов.
-createdAt | **string** (date-time)<br>Только для вывода. Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-createdBy | **string**<br>Только для вывода. Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.
-modifiedAt | **string** (date-time)<br>Только для вывода. Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-done | **boolean** (boolean)<br>Только для вывода. Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`.
-metadata | **object**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`.
-error | **object** <br> включает только одно из полей `error`, `response`<br><br>Описание ошибки в случае сбоя или отмены операции.
-error.<br>code | **integer** (int32)<br>Код ошибки. Значение из списка [google.rpc.Code](https://cloud.google.com/appengine/docs/admin-api/reference/rpc/google.rpc#google.rpc.Code).
-error.<br>message | **string**<br>Текст ошибки.
-error.<br>details | **object**<br>Список сообщений с подробными сведениями об ошибке.
-response | **object** <br> включает только одно из полей `error`, `response`<br><br>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `response`.
+id | **string**<br><p>Только для вывода. Идентификатор операции.</p> 
+description | **string**<br><p>Описание операции. Длина описания должна быть от 0 до 256 символов.</p> 
+createdAt | **string** (date-time)<br><p>Только для вывода. Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+createdBy | **string**<br><p>Только для вывода. Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.</p> 
+modifiedAt | **string** (date-time)<br><p>Только для вывода. Время, когда ресурс Operation последний раз обновлялся. Значение в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+done | **boolean** (boolean)<br><p>Только для вывода. Если значение равно <code>false</code> — операция еще выполняется. Если <code>true</code> — операция завершена, и задано значение одного из полей <code>error</code> или <code>response</code>.</p> 
+metadata | **object**<br><p>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля <code>metadata</code>.</p> 
+error | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
+error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+error.<br>message | **string**<br><p>Текст ошибки.</p> 
+error.<br>details | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
+response | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля <code>response</code>.</p> 

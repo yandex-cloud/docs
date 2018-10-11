@@ -20,7 +20,7 @@ userAccountId | Обязательное поле. Идентификатор з
  
 Поле | Описание
 --- | ---
-id | **string**<br>Только для вывода. Идентификатор учетной записи пользователя.
-yandexPassportUserAccount | **object** <br> включает только одно из полей `yandexPassportUserAccount`<br><br>Ресурс YandexPassportUserAccount. Дополнительные сведения см. в разделе [Обычный пользователь](/docs/iam/concepts/users/users#passport).
-yandexPassportUserAccount.<br>login | **string**<br>Логин учетной записи Яндекс.Паспорта.
-yandexPassportUserAccount.<br>defaultEmail | **string**<br>Электронная почта, которая задана по умолчанию для аккаунта в Яндекса.Паспорте.
+id | **string**<br><p>Только для вывода. Идентификатор учетной записи пользователя.</p> 
+yandexPassportUserAccount | **object** <br> включает только одно из полей `yandexPassportUserAccount`<br><br><p>Ресурс YandexPassportUserAccount. Дополнительные сведения см. в разделе <a href="/docs/iam/concepts/users/users#passport">Обычный пользователь</a>.</p> 
+yandexPassportUserAccount.<br>login | **string**<br><p>Логин учетной записи Яндекс.Паспорта.</p> 
+yandexPassportUserAccount.<br>defaultEmail | **string**<br><p>Электронная почта, которая задана по умолчанию для аккаунта в Яндекса.Паспорте.</p> 

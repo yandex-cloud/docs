@@ -26,7 +26,7 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-databases | **object**<br>Ресурс Database для MongoDB. Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](/docs/mdb/concepts).
-databases.<br>name | **string**<br>Имя базы данных.
-databases.<br>clusterId | **string**<br>Идентификатор кластера MongoDB, к которому принадлежит база данных.
-nextPageToken | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/mongodb/Database/list#query_params), используйте [nextPageToken](/docs/mdb/api-ref/mongodb/Database/list#responses) в качестве значения параметра [pageToken](/docs/mdb/api-ref/mongodb/Database/list#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения [nextPageToken](/docs/mdb/api-ref/mongodb/Database/list#responses) для перебора страниц результатов.
+databases | **object**<br><p>Ресурс Database для MongoDB. Подробнее см. в разделе <a href="/docs/mdb/concepts">Взаимосвязь ресурсов сервиса</a>.</p> 
+databases.<br>name | **string**<br><p>Имя базы данных.</p> 
+databases.<br>clusterId | **string**<br><p>Идентификатор кластера MongoDB, к которому принадлежит база данных.</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/mdb/api-ref/mongodb/Database/list#query_params">pageSize</a>, используйте <a href="/docs/mdb/api-ref/mongodb/Database/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/mdb/api-ref/mongodb/Database/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/mdb/api-ref/mongodb/Database/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 

@@ -20,9 +20,9 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-resourcePresets | **object**<br>Ресурс ResourcePreset для описания наборов ресурсов.
-resourcePresets.<br>id | **string**<br>Идентификатор ресурса ResourcePreset.
-resourcePresets.<br>zoneIds | **string**<br>Идентификаторы зон доступности, в которых доступен данный набор ресурсов.
-resourcePresets.<br>cores | **string** (int64)<br>Количество ядер CPU для хоста PostgreSQL, созданного с данным набором ресурсов.
-resourcePresets.<br>memory | **string** (int64)<br>Объем оперативной памяти для хоста PostgreSQL, созданного с данным набором ресурсов, в байтах.
-nextPageToken | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/postgresql/ResourcePreset/list#query_params), используйте [nextPageToken](/docs/mdb/api-ref/postgresql/ResourcePreset/list#responses) в качестве значения параметра [pageToken](/docs/mdb/api-ref/postgresql/ResourcePreset/list#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения [nextPageToken](/docs/mdb/api-ref/postgresql/ResourcePreset/list#responses) для перебора страниц результатов.  Максимальная длина — 100 символов.
+resourcePresets | **object**<br><p>Ресурс ResourcePreset для описания наборов ресурсов.</p> 
+resourcePresets.<br>id | **string**<br><p>Идентификатор ресурса ResourcePreset.</p> 
+resourcePresets.<br>zoneIds | **string**<br><p>Идентификаторы зон доступности, в которых доступен данный набор ресурсов.</p> 
+resourcePresets.<br>cores | **string** (int64)<br><p>Количество ядер CPU для хоста PostgreSQL, созданного с данным набором ресурсов.</p> 
+resourcePresets.<br>memory | **string** (int64)<br><p>Объем оперативной памяти для хоста PostgreSQL, созданного с данным набором ресурсов, в байтах.</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/mdb/api-ref/postgresql/ResourcePreset/list#query_params">pageSize</a>, используйте <a href="/docs/mdb/api-ref/postgresql/ResourcePreset/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/mdb/api-ref/postgresql/ResourcePreset/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/mdb/api-ref/postgresql/ResourcePreset/list#responses">nextPageToken</a> для перебора страниц результатов.</p> <p>Максимальная длина — 100 символов.</p> 

@@ -26,18 +26,18 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-hosts | **object**<br>Список ресурсов Host.
-hosts.<br>name | **string**<br>Имя хоста MongoDB. Имя хоста назначается MDB во время создания и не может быть изменено. Длина имени должна быть от 1 до 63 символов.  Имя уникально для всех существующих хостов MDB в Яндекс.Облаке, так как оно определяет полное доменное имя (FQDN) хоста.
-hosts.<br>clusterId | **string**<br>Идентификатор хоста MongoDB. Этот идентификатор генерирует MDB при создании.
-hosts.<br>zoneId | **string**<br>Идентификатор зоны доступности, в которой находится хост MongoDB.
-hosts.<br>resources | **object**<br>Ресурсы, выделенные хосту MongoDB.
-hosts.<br>resources.<br>resourcePresetId | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [Классы баз данных](/docs/mdb/concepts/instance-types).
-hosts.<br>resources.<br>diskSize | **string** (int64)<br>Объем хранилища, доступный хосту, в байтах.
-hosts.<br>resources.<br>diskTypeId | **string**<br>Тип хранилища для хоста. Возможные значения: * local-ssd — хранилище на базе локальных SSD-дисков.
-hosts.<br>role | **string**<br>Роль хоста в кластере.   - PRIMARY: Хост является основным сервером MongoDB в кластере.  - SECONDARY: Хост является вторичным сервером MongoDB в кластере.<br>`ROLE_UNKNOWN`<br>`PRIMARY`<br>`SECONDARY`<br>
-hosts.<br>health | **string**<br>Код работоспособности хоста.   - ALIVE: Хост выполняет все свои функции в нормальном режиме.  - DEAD: Хост не работает и не может выполнять свои основные функции.  - DEGRADED: Хост деградировал, и может выполнять только некоторые из своих основных функций.<br>`HEALTH_UNKNOWN`<br>`ALIVE`<br>`DEAD`<br>`DEGRADED`<br>
-hosts.<br>services | **object**<br>Сервисы, предоставляемые хостом.
-hosts.<br>services.<br>type | **string**<br>Тип сервиса, предоставляемого хостом.   - MONGOD: На хосте работает демон mongod.  - MONGOS: На хосте работает демон mongos.  - MONGOCFG: На хосте работает сервер конфигураций MongoDB.<br>`MONGOD`<br>`MONGOS`<br>`MONGOCFG`<br>
-hosts.<br>services.<br>health | **string**<br>Код состояния доступности сервера.   - ALIVE: Сервер работает нормально.  - DEAD: Сервер отключен или не отвечает.<br>`HEALTH_UNKNOWN`<br>`ALIVE`<br>`DEAD`<br>
-hosts.<br>subnetId | **string**<br>Идентификатор подсети, к которой принадлежит хост.
-nextPageToken | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/mongodb/Cluster/listHosts#query_params), используйте [nextPageToken](/docs/mdb/api-ref/mongodb/Cluster/listHosts#responses) в качестве значения параметра [pageToken](/docs/mdb/api-ref/mongodb/Cluster/listHosts#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения [nextPageToken](/docs/mdb/api-ref/mongodb/Cluster/listHosts#responses) для перебора страниц результатов.
+hosts | **object**<br><p>Список ресурсов Host.</p> 
+hosts.<br>name | **string**<br><p>Имя хоста MongoDB. Имя хоста назначается MDB во время создания и не может быть изменено. Длина имени должна быть от 1 до 63 символов.</p> <p>Имя уникально для всех существующих хостов MDB в Яндекс.Облаке, так как оно определяет полное доменное имя (FQDN) хоста.</p> 
+hosts.<br>clusterId | **string**<br><p>Идентификатор хоста MongoDB. Этот идентификатор генерирует MDB при создании.</p> 
+hosts.<br>zoneId | **string**<br><p>Идентификатор зоны доступности, в которой находится хост MongoDB.</p> 
+hosts.<br>resources | **object**<br><p>Ресурсы, выделенные хосту MongoDB.</p> 
+hosts.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/mdb/concepts/instance-types">Классы баз данных</a>.</p> 
+hosts.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступный хосту, в байтах.</p> 
+hosts.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>local-ssd — хранилище на базе локальных SSD-дисков.</li> </ul> 
+hosts.<br>role | **string**<br><p>Роль хоста в кластере.</p> <ul> <li>PRIMARY: Хост является основным сервером MongoDB в кластере.</li> <li>SECONDARY: Хост является вторичным сервером MongoDB в кластере.</li> </ul> 
+hosts.<br>health | **string**<br><p>Код работоспособности хоста.</p> <ul> <li>ALIVE: Хост выполняет все свои функции в нормальном режиме.</li> <li>DEAD: Хост не работает и не может выполнять свои основные функции.</li> <li>DEGRADED: Хост деградировал, и может выполнять только некоторые из своих основных функций.</li> </ul> 
+hosts.<br>services | **object**<br><p>Сервисы, предоставляемые хостом.</p> 
+hosts.<br>services.<br>type | **string**<br><p>Тип сервиса, предоставляемого хостом.</p> <ul> <li>MONGOD: На хосте работает демон mongod.</li> <li>MONGOS: На хосте работает демон mongos.</li> <li>MONGOCFG: На хосте работает сервер конфигураций MongoDB.</li> </ul> 
+hosts.<br>services.<br>health | **string**<br><p>Код состояния доступности сервера.</p> <ul> <li>ALIVE: Сервер работает нормально.</li> <li>DEAD: Сервер отключен или не отвечает.</li> </ul> 
+hosts.<br>subnetId | **string**<br><p>Идентификатор подсети, к которой принадлежит хост.</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/mdb/api-ref/mongodb/Cluster/listHosts#query_params">pageSize</a>, используйте <a href="/docs/mdb/api-ref/mongodb/Cluster/listHosts#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/mdb/api-ref/mongodb/Cluster/listHosts#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/mdb/api-ref/mongodb/Cluster/listHosts#responses">nextPageToken</a> для перебора страниц результатов.</p> 

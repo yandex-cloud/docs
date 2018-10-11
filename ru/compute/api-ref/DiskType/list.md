@@ -20,8 +20,8 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-diskTypes | **object**<br>Тип диска
-diskTypes.<br>id | **string**<br>Только для вывода. Идентификатор типа диска.
-diskTypes.<br>description | **string**<br>Только для вывода. Описание типа диска. Длина 0-256 символов.
-diskTypes.<br>zoneIds | **string**<br>Только для вывода. Список зон доступности, в которых доступны диски этого типа.
-nextPageToken | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/DiskType/list#query_params), используйте [nextPageToken](/docs/compute/api-ref/DiskType/list#responses) в качестве значения параметра [pageToken](/docs/compute/api-ref/DiskType/list#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения [nextPageToken](/docs/compute/api-ref/DiskType/list#responses) для перебора страниц результатов.
+diskTypes | **object**<br><p>Тип диска</p> 
+diskTypes.<br>id | **string**<br><p>Только для вывода. Идентификатор типа диска.</p> 
+diskTypes.<br>description | **string**<br><p>Только для вывода. Описание типа диска. Длина 0-256 символов.</p> 
+diskTypes.<br>zoneIds | **string**<br><p>Только для вывода. Список зон доступности, в которых доступны диски этого типа.</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/compute/api-ref/DiskType/list#query_params">pageSize</a>, используйте <a href="/docs/compute/api-ref/DiskType/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/compute/api-ref/DiskType/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/compute/api-ref/DiskType/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 

@@ -30,7 +30,7 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-logs | **object**<br>Запрошенные записи логов.
-logs.<br>timestamp | **string** (date-time)<br>Время создания записи в журнале, в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-logs.<br>message | **object**<br>Содержание записи лога.
-nextPageToken | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/clickhouse/Cluster/listLogs#query_params), используйте [nextPageToken](/docs/mdb/api-ref/clickhouse/Cluster/listLogs#responses) в качестве значения параметра [pageToken](/docs/mdb/api-ref/clickhouse/Cluster/listLogs#query_params) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения [nextPageToken](/docs/mdb/api-ref/clickhouse/Cluster/listLogs#responses) для перебора страниц результатов.
+logs | **object**<br><p>Запрошенные записи логов.</p> 
+logs.<br>timestamp | **string** (date-time)<br><p>Время создания записи в журнале, в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+logs.<br>message | **object**<br><p>Содержание записи лога.</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/mdb/api-ref/clickhouse/Cluster/listLogs#query_params">pageSize</a>, используйте <a href="/docs/mdb/api-ref/clickhouse/Cluster/listLogs#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/mdb/api-ref/clickhouse/Cluster/listLogs#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/mdb/api-ref/clickhouse/Cluster/listLogs#responses">nextPageToken</a> для перебора страниц результатов.</p> 
