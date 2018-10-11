@@ -11,7 +11,7 @@ _Интерфейс командной строки Яндекс.Облака (C
 
 1. Выполните в командной строке:
    ```
-   curl https://[!KEYREF s3-storage-host][!KEYREF yc-install-path] | bash
+   $ curl https://[!KEYREF s3-storage-host][!KEYREF yc-install-path] | bash
    ```
    Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
     
@@ -29,7 +29,7 @@ _Интерфейс командной строки Яндекс.Облака (C
 
 1. Выполните в командной строке:
     ```
-    curl https://[!KEYREF s3-storage-host][!KEYREF yc-install-path] | bash
+    $ curl https://[!KEYREF s3-storage-host][!KEYREF yc-install-path] | bash
     ```
     Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
 1. Перезапустите командную оболочку, чтобы перезагрузить переменные окружения.  
@@ -39,7 +39,7 @@ CLI поддерживает автодополнение команд в ком
 1. Установите менеджер пакетов [Homebrew](https://brew.sh).
 1. Установите пакет `bash-completion`:
    ```
-   brew install bash-completion
+   $ brew install bash-completion
    ```
 1. После завершения установки добавьте в файл ` ~/.bash_profile` строки:
    ```
@@ -112,7 +112,7 @@ CLI поддерживает автодополнение команд в ком
      ```
   1. Проверьте настройки вашего профиля CLI:
      ```
-     yc config list
+     $ yc config list
      ```
 
 ## Примеры команд {#example}
@@ -121,18 +121,18 @@ CLI поддерживает автодополнение команд в ком
 
 1. Посмотрите описание команд CLI для работы с облачными сетями:
    ```
-   yc vpc network --help
+   $ yc vpc network --help
    ```
 1. Создайте облачную сеть в каталоге, указанном в вашем профиле CLI:
    ```
-   yc vpc network create \
+   $ yc vpc network create \
        --name my-yc-network \
        --labels my-label=my-value \
        --description "my first network via yc"
    ```
 1. Создайте подсеть в облачной сети `my-yc-network`:
    ```
-   yc vpc subnet create \
+   $ yc vpc subnet create \
        --name my-yc-subnet-b \
        --zone ru-central1-b \
        --range 10.1.2.0/24 \
@@ -141,17 +141,18 @@ CLI поддерживает автодополнение команд в ком
    ```
 1. Получите список всех облачных сетей в каталоге, указанном в вашем профиле CLI:
    ```
-   yc vpc network list
-   +------------------+----------------------+----------------------+-------------------------+
-   |       NAME       |          ID          |      FOLDER ID       |       DESCRIPTION       |
-   +------------------+----------------------+----------------------+-------------------------+
-   | my-ui-network    | skesdqhkc6449hbqqar1 | cvatao4faoe2bmdrg22b | my first network via ui |
-   | my-yc-network    | c6449hbqqar1skesdqhk | cvatao4faoe2bmdrg22b | my first network via yc |
-   +------------------+----------------------+----------------------+-------------------------+
+   $ yc vpc network list
+   
+   +----------------------+------------------+-------------------------+
+   |          ID          |       NAME       |       DESCRIPTION       |
+   +----------------------+------------------+-------------------------+
+   | skesdqhkc6449hbqqar1 | my-ui-network    | my first network via ui |
+   | c6449hbqqar1skesdqhk | my-yc-network    | my first network via yc |
+   +----------------------+------------------+-------------------------+
    ```
    Получите тот же список c большим количеством деталей в формате YAML:
    ```
-   yc vpc network list --format yaml
+   $ yc vpc network list --format yaml
    
    - id: skesdqhkc6449hbqqar1
      folder_id: ijkl9012
@@ -171,7 +172,7 @@ CLI поддерживает автодополнение команд в ком
    1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на виртуальную машину.
    1. Создайте виртуальную машину:
       ```
-      yc compute instance create \
+      $ yc compute instance create \
           --name my-yc-instance \ 
           --network-interface subnet-name=my-yc-subnet-b,nat-ip-version=ipv4 \
           --ssh-key ~/.ssh/id_rsa.pub
@@ -180,7 +181,7 @@ CLI поддерживает автодополнение команд в ком
 1. Подключитесь к виртуальной машине по SSH:
    1. Узнайте публичный IP-адрес виртуальной машины. Для этого посмотрите подробную информацию о вашей виртуальной машине:
       ```
-      yc compute instance get my-yc-instance
+      $ yc compute instance get my-yc-instance
       ```
       В выводе команды найдите адрес виртуальной машины в блоке `one_to_one_nat`:
       ```
@@ -190,11 +191,11 @@ CLI поддерживает автодополнение команд в ком
       ```
    2. Подключитесь к виртуальной машине по SHH от имени пользователя `yc-user`, используя закрытый ключ:
       ```
-      ssh yc-user@130.193.32.90
+      $ ssh yc-user@130.193.32.90
       ```
 1. Удалите виртуальную машину `my-yc-instance`, подсеть `my-yc-subnet-b` и сеть `my-yc-network`:
    ```
-   yc compute instance delete my-yc-instance
-   yc vpc subnet delete my-yc-subnet-b
-   yc vpc network delete my-yc-network
+   $ yc compute instance delete my-yc-instance
+   $ yc vpc subnet delete my-yc-subnet-b
+   $ yc vpc network delete my-yc-network
    ```
