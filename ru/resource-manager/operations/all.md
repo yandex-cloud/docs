@@ -3,7 +3,7 @@
 ## Облако
 
 - [[!TITLE]](cloud/set-access-bindings.md)
-
+- [[!TITLE]](cloud/switch-cloud.md)
 
 ## Каталог
 
