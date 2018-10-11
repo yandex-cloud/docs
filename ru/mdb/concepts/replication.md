@@ -12,13 +12,29 @@
 Подробнее о том, как организована репликация в [!KEYREF PG], читайте в [документации СУБД](https://www.postgresql.org/docs/10/static/warm-standby.html).
 
 
-## [!KEYREF CH]
+## [!KEYREF CH] {#clickhouse}
 
 [!KEYREF mdb-short-name] помогает организовать репликацию для кластеров [!KEYREF CH] из 2 и более хостов с помощью Apache ZooKeeper. Вам нужно только создать таблицы нужного вида — хосты ZooKeeper будут настроены автоматически.
 
-> [!IMPORTANT]
+> [!NOTE]
 >
-> Учтите, что хосты ZooKeeper учитываются при расчете потребления ресурсов и стоимости кластера. По умолчанию хосты ZooKeeper создаются с минимальным [классом БД](../concepts/instance-types.md).
+> Уменьшить количество хостов [!KEYREF CH] до 1, или добавить к кластеру из 1 хоста еще один пока невозможно.
+
+
+### Хосты ZooKeeper
+
+Для каждого кластера [!KEYREF CH] из 2 и более хостов [!KEYREF mdb-short-name] создает кластер из 3 хостов ZooKeeper. Хосты ZooKeeper учитываются при расчете [потребления ресурсов](https://console.cloud.yandex.ru/?section=quotas) и стоимости кластера. 
+
+Как управляются хосты ZooKeeper:
+
+* По умолчанию хосты ZooKeeper создаются с минимальным [классом БД](../concepts/instance-types.md).
+* [!KEYREF mdb-short-name] автоматически распределяет хосты ZooKeeper по подсетям той сети, в которой размещен [!KEYREF CH]-кластер.
+* Доступ к хостам ZooKeeper и их настройке не предоставляется, но вы можете изменить набор выделенных им ресурсов.
+
+Подробнее об использовании ZooKeeper для управления репликацией в [!KEYREF CH] см. [документацию [!KEYREF CH]](https://clickhouse.yandex/docs/ru/operations/table_engines/replication/).
+
+
+### Реплицируемые таблицы
 
 [!KEYREF CH] поддерживает автоматическую репликацию только для таблиц семейства `ReplicatedMergeTree` (см. раздел [Репликация данных](https://clickhouse.yandex/docs/ru/table_engines/replication/) в документации [!KEYREF CH]). Чтобы обеспечить репликацию, вы можете создать такие таблицы на каждой реплике по отдельности или использовать распределенный DDL-запрос.
 
