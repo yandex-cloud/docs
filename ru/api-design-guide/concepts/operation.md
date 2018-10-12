@@ -84,7 +84,7 @@
 > Спустя некоторое время проверим статус операции. Для этого отправим запрос:
 > 
 > ```
-> GET https://compute.api.cloud.yandex.net/compute/v1/operations/fcmq0j5033e516c56ctq
+> GET https://operation.api.cloud.yandex.net/operations/fcmq0j5033e516c56ctq
 > ```
 > 
 > В ответ сервер вернет JSON-представление объекта `Operation`.
@@ -117,7 +117,7 @@
 Отменить операцию можно с помощью метода `cancel`. Пример:
 
 ```
-POST https://compute.api.cloud.yandex.net/compute/v1/operations/a3s17h9sbq5asdgss12:cancel
+POST https://operation.api.cloud.yandex.net/operations/a3s17h9sbq5asdgss12:cancel
 ```
 
 В ответ сервер вернет новый объект `Operation`. Он будет содержать статус
