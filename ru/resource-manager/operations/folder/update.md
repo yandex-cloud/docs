@@ -18,7 +18,7 @@
     ```
     $ yc resource-manager folder update --help
     ```
-2. Выберите каталог, например `default`:
+2. Выберите каталог, например `default`. Чтобы получить список каталогов, выполните:
 
     ```
     $ yc resource-manager folder list
@@ -42,8 +42,7 @@
 
 **[!TAB API]**
 
-Чтобы изменить каталог, воспользуйтесь методом `update` для ресурса `Folder`.
-
+Чтобы изменить каталог, воспользуйтесь методом [update](../../api-ref/Folder/update.md) для ресурса [Folder](../../api-ref/Folder/index.md).
 
 ---
 
