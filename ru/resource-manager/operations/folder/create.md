@@ -17,28 +17,27 @@ _Каталог_  — это пространство, в котором соз�
     $ yc resource-manager folder create --help
     ```
 
-2. Создайте новый каталог, указав его имя:
+2. Создайте новый каталог
 
-    ```
-    $ yc resource-manager folder create \
-        --name new-folder
-    ```
+    * с именем и без описания:
+        ```
+        $ yc resource-manager folder create \
+            --name new-folder
+        ```
 
-    [!INCLUDE [name-format](../../../_includes/name-format.md)]
+        [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
-    Вы можете добавить произвольное описание при создании каталога:
+    * с именем и описанием:
 
-    ```
-    $ yc resource-manager folder create \
-        --name new-folder \
-        --description "my first folder with description"
-    ```
-
+        ```
+        $ yc resource-manager folder create \
+            --name new-folder \
+            --description "my first folder with description"
+        ```
 
 **[!TAB API]**
 
-Чтобы создать каталог, воспользуйтесь методом `create` для ресурса `Folder`.
-
+Чтобы создать каталог, воспользуйтесь методом [create](../../api-ref/Folder/create.md) для ресурса [Folder](../../api-ref/Folder/index.md).
 
 ---
 
