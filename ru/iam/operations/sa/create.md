@@ -24,7 +24,9 @@
     $ yc iam service-account create -h
     ```
 
-2. Создайте сервисный аккаунт, указав его имя, например `my-robot`:
+2. Создайте сервисный аккаунт:
+
+    * с именем и без описания:
 
     ```
     $ yc iam service-account create --name my-robot
@@ -32,7 +34,7 @@
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
-    Вы можете добавить произвольное описание сервисного аккаунта с помощью флага `--description`:
+    * с именем и описанием:
 
     ```
     $ yc iam service-account create --name my-robot \
