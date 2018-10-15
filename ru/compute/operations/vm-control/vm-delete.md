@@ -27,19 +27,19 @@
 1. Посмотрите описание команды CLI для удаления виртуальных машин:
 
     ```
-    yc compute instance delete --help
+    $ yc compute instance delete --help
     ```
 
 2. Получите список всех виртуальных машин в каталоге по умолчанию:
 
     ```
-    yc compute instance list
+    $ yc compute instance list
 
     +----------------------+---------------+---------------+---------+---------------------+
     |          ID          |     NAME      |    ZONE ID    | STATUS  |     DESCRIPTION     |
     +----------------------+---------------+---------------+---------+---------------------+
     | fhm0b28lgfp4tkoa3jl6 | my-windows-vm | ru-central1-a | RUNNING | my first vm via CLI |
-    | fhm9gk85nj7gcoji2f8s | my-linux-vm   | ru-central1-a | RUNNING | my first vm via CLI |
+    | fhm9gk85nj7gcoji2f8s | my-linux-vm   | ru-central1-a | RUNNING | my second vm via CLI |
     +----------------------+---------------+---------------+---------+---------------------+
     ```
 
@@ -47,7 +47,7 @@
 4. Удалите виртуальную машину:
 
     ```
-    yc compute instance delete my-windows-vm
+    $ yc compute instance delete my-windows-vm
     ```
 
 ---
