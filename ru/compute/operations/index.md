@@ -2,7 +2,7 @@
 
 ## Создание виртуальной машины
 
-- [[!TITLE]](vm-create/create-from-image.md)
+- [[!TITLE]](vm-create/create-linux-vm.md)
 - [[!TITLE]](vm-create/create-windows-vm.md)
 
 ## DSVM
@@ -25,6 +25,7 @@
 ## Управление виртуальной машиной
 
 - [[!TITLE]](vm-control/vm-connect-ssh.md)
+- [[!TITLE]](vm-control/vm-connect-rdp.md)
 - [[!TITLE]](vm-control/vm-stop-and-start.md)
 - [[!TITLE]](vm-control/vm-update.md)
 - [[!TITLE]](vm-control/vm-delete.md)

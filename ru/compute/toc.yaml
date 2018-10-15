@@ -18,7 +18,7 @@ items:
       - name: Создание виртуальной машины
         items:
           - name: Создать ВМ Linux
-            href: operations/vm-create/create-from-image.md
+            href: operations/vm-create/create-linux-vm.md
           - name: Создать ВМ Windows
             href: operations/vm-create/create-windows-vm.md
       - name: DSVM
@@ -47,6 +47,8 @@ items:
         items:
           - name: Подключиться к ВМ по SSH
             href: operations/vm-control/vm-connect-ssh.md
+          - name: Подключиться к ВМ по RDP
+            href: operations/vm-control/vm-connect-rdp.md
           - name: Остановить и запустить ВМ
             href: operations/vm-control/vm-stop-and-start.md
           - name: Изменить ВМ
