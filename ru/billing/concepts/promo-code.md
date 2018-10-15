@@ -12,7 +12,7 @@
 
 Промокод могут активировать физические и юридические лица с зарегистрированным аккаунтом в Яндекс.Паспорте:
 - Если у вас еще нет аккаунта, [создайте его](https://passport.yandex.ru/registration). 
-- Если вы авторизовались на Яндексе через профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1) для новой учетной записи. 
+- Если для авторизации на Яндексе вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1). 
 
 К аккаунту обязательно должен быть привязан ваш номер телефона. См. подробную инструкцию в [Помощи](https://yandex.ru/support/passport/authorization/registration.html) Яндекс.Паспорта.
 
