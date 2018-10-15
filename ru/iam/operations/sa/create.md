@@ -1,5 +1,9 @@
 # Создать сервисный аккаунт
 
+Создайте [сервисный аккаунт](../../concepts/users/service-accounts.md), чтобы управлять ресурсами от имени другой учетной записи.
+
+## Как создать сервисный аккаунт
+
 ---
 
 **[!TAB Консоль управления]**
@@ -21,12 +25,10 @@
 1. Посмотрите описание команды создания сервисного аккаунта:
 
     ```
-    $ yc iam service-account create -h
+    $ yc iam service-account create --help
     ```
 
-2. Создайте сервисный аккаунт:
-
-    * с именем и без описания:
+2. Создайте сервисный аккаунт с именем `my-robot`:
 
     ```
     $ yc iam service-account create --name my-robot
@@ -34,15 +36,24 @@
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
-    * с именем и описанием:
-
-    ```
-    $ yc iam service-account create --name my-robot \
-        --description "this is my favorite service account"
-    ```
-
 **[!TAB API]**
 
-Чтобы создать сервисный аккаунт, воспользуйтесь методом `create` для ресурса `ServiceAccount`.
+Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md).
+
+---
+
+
+## Примеры
+
+Создайте сервисный аккаунт с именем и описанием:
+
+---
+
+**[!TAB CLI]**
+
+```
+$ yc iam service-account create --name my-robot \
+    --description "this is my favorite service account"
+```
 
 ---

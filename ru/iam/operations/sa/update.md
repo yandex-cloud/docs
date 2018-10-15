@@ -20,7 +20,7 @@
 1. Посмотрите описание команды изменения сервисного аккаунта:
 
     ```
-    $ yc iam service-account update -h
+    $ yc iam service-account update --help
     ```
 
 2. Выберите сервисный аккаунт, например `my-robot`:
@@ -47,6 +47,6 @@
 
 **[!TAB API]**
 
-Чтобы изменить сервисный аккаунт, воспользуйтесь методом `update` для ресурса `ServiceAccount`.
+Чтобы изменить сервисный аккаунт, воспользуйтесь методом [update](../../api-ref/ServiceAccount/update.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md).
 
 ---
