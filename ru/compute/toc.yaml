@@ -203,9 +203,7 @@ items:
     items:
       - name: Общие вопросы
         href: qa/general.md
-      - name: Технические характеристики
-        href: qa/hardware.md
-      - name: Операции с виртуальными машинами
+      - name: Виртуальные машины
         href: qa/vm-operations.md
       - name: Диски и снимки
         href: qa/disks.md

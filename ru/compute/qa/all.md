@@ -5,12 +5,7 @@
 [!INCLUDE-NOTITLE [general](general.md)]
 
 
-## Технические характеристики {#hardware}
-
-[!INCLUDE-NOTITLE [hardware](hardware.md)]
-
-
-## Операции с виртуальными машинами {#vm-operations}
+## Виртуальные машины {#vm-operations}
 
 [!INCLUDE-NOTITLE [vm-operations](vm-operations.md)]
 
