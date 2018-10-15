@@ -7,7 +7,7 @@
 **[!TAB POST-запрос]**
 
 ```httpget
-POST /speech/v1/stt:recognize/?topic=general&folderid=<folder id> HTTP/1.1
+POST /speech/v1/stt:recognize/?topic=general&folderId=<folder id> HTTP/1.1
 Host: stt.api.cloud.yandex.net
 Authorization: Bearer <IAM-token>
   
@@ -22,7 +22,7 @@ $ curl -LO https://download.cdn.yandex.net/from/yandex.ru/tech/ru/speechkit/clou
 $ curl -X POST \
      -H "Authorization: Bearer <IAM-token>" \
      --data-binary "@speech.ogg" \
-     "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?topic=general&folderid=<folder id>"
+     "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?topic=general&folderId=<folder id>"
 ```
 
 --- 
