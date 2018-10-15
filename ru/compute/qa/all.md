@@ -5,9 +5,9 @@
 [!INCLUDE-NOTITLE [general](general.md)]
 
 
-## Виртуальные машины {#vm-operations}
+## Виртуальные машины {#vm}
 
-[!INCLUDE-NOTITLE [vm-operations](vm-operations.md)]
+[!INCLUDE-NOTITLE [vm](vm.md)]
 
 
 ## Диски и снимки {#disks}

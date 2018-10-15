@@ -204,7 +204,7 @@ items:
       - name: Общие вопросы
         href: qa/general.md
       - name: Виртуальные машины
-        href: qa/vm-operations.md
+        href: qa/vm.md
       - name: Диски и снимки
         href: qa/disks.md
       - name: Все вопросы на одной странице
