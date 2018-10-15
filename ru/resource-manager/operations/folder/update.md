@@ -18,17 +18,45 @@
     ```
     $ yc resource-manager folder update --help
     ```
-2. Выберите каталог, например `default`. Чтобы получить список каталогов, выполните:
+2. Если вы знаете идентификатор или имя каталога, переходите к следующему шагу. Если нет, то узнайте это одним из способов:
 
-    ```
-    $ yc resource-manager folder list
-    +----------------------+--------------------+--------+--------+-------------+
-    |          ID          |        NAME        | LABELS | STATUS | DESCRIPTION |
-    +----------------------+--------------------+--------+--------+-------------+
-    | b1gppulhhm2aaufq9eug | yet-another-folder |        | ACTIVE |             |
-    | b1gvmob03goohplct641 | default            |        | ACTIVE |             |
-    +----------------------+--------------------+--------+--------+-------------+
-    ```
+    * Получите список каталогов:
+
+        ```
+        $ yc resource-manager folder list
+        +----------------------+--------------------+--------+--------+-------------+
+        |          ID          |        NAME        | LABELS | STATUS | DESCRIPTION |
+        +----------------------+--------------------+--------+--------+-------------+
+        | b1gppulhhm2aaufq9eug | yet-another-folder |        | ACTIVE |             |
+        | b1gvmob03goohplct641 | default            |        | ACTIVE |             |
+        +----------------------+--------------------+--------+--------+-------------+
+        ```
+
+    * Если вы знаете идентификатор ресурса, который принадлежит нужному каталогу, получите идентификатор каталога из информации об этом ресурсе:
+
+        ```
+        $ yc <SERVICE-NAME> <RESOURCE> get <RESOURCE-ID>
+        ```
+
+        где:
+        * `<SERVICE-NAME>` — имя сервиса, например `compute`.
+        * `<RESOURCE>` — категория ресурса, например `instance`.
+        * `<RESOURCE-ID>` — идентификатор ресурса.
+
+        Например, виртуальная машина `fhmp74bfis2aim728p2a` принадлежит каталогу `b1gpvjd9ir42nsng55ck`:
+
+        ```
+        $ yc compute instance get fhmp74bfis2ais728p2a
+        id: fhmp74bfis2ais728p2a
+        folder_id: b1gpvjd9ia42nsng55ck
+        ...
+        ```
+
+        Чтобы получить один идентификатор каталога,:
+        ```
+        $ yc compute instance get fhmp74bfis2ais728p2a | awk '/folder_id:/ {print $2}'
+        b1gpvjd9ia42nsng55ck
+        ```
 3. Измените параметры каталога, например имя и описание:
 
     ```
@@ -37,8 +65,9 @@
         --description "this is my default-folder"
     ```
 
-    [!INCLUDE [name-format](../../../_includes/name-format.md)]
+    Данная команда переименует каталог `default` в `myfolder` и обновит его описание.
 
+    [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
 **[!TAB API]**
 
