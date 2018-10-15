@@ -15,19 +15,19 @@
 1. Посмотрите описание команды CLI для создания виртуальной машины:
 
     ```
-    yc compute instance create --help
+    $ yc compute instance create --help
     ```
 
 2. Выберите один из публичных [образов](../../concepts/images.md) на базе операционной системы Windows. Получить список доступных образов можно с помощью команды:
 
     ```
-    yc compute image list --folder-id standard-images
+    $ yc compute image list --folder-id standard-images
     ```
 
 4. Создайте виртуальную машину в каталоге по умолчанию:
 
     ```
-    yc compute instance create \
+    $ yc compute instance create \
         --name my-yc-vm \
         --metadata user-data="#ps1\nnet user Administrator <пароль>" \
         --zone ru-central1-a \
