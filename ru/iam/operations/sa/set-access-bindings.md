@@ -13,7 +13,7 @@
 1. Посмотрите описание команды для назначения роли на сервисный аккаунт как на ресурс:
 
     ```
-    $ yc iam service-account add-access-binding -h
+    $ yc iam service-account add-access-binding --help
     ```
 
 1. Выберите сервисный аккаунт, например `my-robot`:
@@ -70,6 +70,6 @@
 
 **[!TAB API]**
 
-Чтобы назначить роль на сервисный аккаунт как на ресурс, воспользуйтесь методом `setAccessBindings` для ресурса `ServiceAccount`.
+Чтобы назначить роль на сервисный аккаунт как на ресурс, воспользуйтесь методом [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md).
 
 ---
