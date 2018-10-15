@@ -9,6 +9,6 @@
    curl -X POST \
         -H 'Content-Type: application/json' \
         -d '{"yandexPassportOauthToken": "<OAuth-token>"}' \
-        https://api.cloud.yandex.net/iam/v1/tokens
+        https://iam.api.cloud.yandex.net/iam/v1/tokens
    ```
    Полученный IAM-токен действителен в течение 12 часов. После истечения срока действия получите новый IAM-токен.

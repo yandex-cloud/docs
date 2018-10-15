@@ -31,6 +31,6 @@
 2. [Получите IAM-токен](../iam/operations/iam-token/create.md).
 3. В каждом API запросе к сервису передавайте:
     * IAM-токен в заголовке `Authorization` в формате `Authorization: Bearer <IAM-token>`.
-    * Идентификатор каталога в параметре `folderid` в теле запроса в формате `folderid=<folder id>`.
+    * Идентификатор каталога в параметре `folderId` в теле запроса в формате `folderId=<folder id>`.
 
 

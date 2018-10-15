@@ -19,7 +19,7 @@ POST https://translate.api.cloud.yandex.net/translate/v1/translate
 `source` | Язык, на котором написан исходный текст.<br/>Задается в виде двухбуквенного кода языка в соответствии с [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) (например `ru`). Если параметр не задан, сервис пытается определить исходный язык автоматически. 
 `target` | Обязательный параметр.<br/>Направление перевода.<br/>Задается в виде двухбуквенного кода языка в соответствии с [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) (например `ru`).
 `format` | Формат текста.<br/>Возможные значения:<br/><ul><li>`plain` — текст без разметки (значение по умолчанию)</li><li>`html` — текст в формате HTML.</li></ul>
-`folderid` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
+`folderId` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
 
 
 
@@ -44,7 +44,7 @@ POST https://translate.api.cloud.yandex.net/translate/v1/translate
 ```no-highlight
 curl -X POST \
      -H "Authorization: Bearer <IAM-token>" \
-     -d "text=hello%20world&source=en&target=ru&folderid=<folder id>" \
+     -d "text=hello%20world&source=en&target=ru&folderId=<folder id>" \
      "https://translate.api.cloud.yandex.net/translate/v1/translate"
 ```
 

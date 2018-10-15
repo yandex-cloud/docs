@@ -20,7 +20,7 @@ POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 `voice` | Голос синтезированной речи.<br/>Можно выбрать один из следующих голосов:<ul><li>женские голоса: `jane`, `oksana`, `alyss` и `omazh`;</li><li>мужские голоса: `zahar` и `ermil`.</li></ul>Значение параметра по умолчанию: `oksana`.
 `speed` | Скорость (темп) синтезированной речи.<br/>Скорость речи задается дробным числом в диапазоне от `0.1` до `3.0`. Где:<ul><li>`3.0` — самый быстрый темп;</li><li>`1.0` — средняя скорость человеческой речи;</li><li>`0.1` — самый медленный темп.</li></ul>Значение параметра по умолчанию: `1.0`.
 `emotion` | Эмоциональная окраска голоса.<br/>Допустимые значения:<ul><li>`good` — радостный, доброжелательный;</li><li>`evil` — раздраженный;</li><li>`neutral` — нейтральный.</li></ul>Значение параметра по умолчанию: `neutral`.
-`folderid` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
+`folderId` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
 
 ## Ответ {#response}
 
@@ -34,7 +34,7 @@ POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 ```httpget
 curl -X POST \
      -H "Authorization: Bearer <IAM-token>" \
-     -d "text=hello%20world&voice=zahar&emotion=good&folderid=<folder id>" \
+     -d "text=hello%20world&voice=zahar&emotion=good&folderId=<folder id>" \
      "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
 ```
 

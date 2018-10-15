@@ -19,8 +19,10 @@ items:
           href: operations/check-diagram.md
         - name: Посмотреть детализацию
           href: operations/check-charges.md
-    - name: Пополнить баланс
+    - name: Пополнить счет
       href: operations/pay-the-bill.md
+    - name: Подключить кредитный лимит
+      href: operations/enable-credit.md
     - name: Расшифровать счет
       href: operations/spell-out-bill.md
     - name: Посмотреть историю платежей
@@ -35,6 +37,8 @@ items:
       href: concepts/index.md
     - name: Промокод
       href: concepts/promo-code.md
+    - name: Кредитный лимит
+      href: concepts/credit-limit.md
     - name: Платежный аккаунт
       href: concepts/billing-account.md
     - name: Лицевой счет
