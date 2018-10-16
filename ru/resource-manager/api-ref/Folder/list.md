@@ -28,6 +28,6 @@ folders.<br>cloudId | **string**<br><p>Идентификатор облака, 
 folders.<br>createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 folders.<br>name | **string**<br><p>Имя каталога. Имя должно быть уникальным в облаке. Длина имени должна быть от 3 до 63 символов.</p> 
 folders.<br>description | **string**<br><p>Описание каталога. Длина описания должна быть от 0 до 256 символов.</p> 
-folders.<br>labels | **object**<br><p>Метки ресурса в формате ключ-значение. Максимум 64 метки на ресурс.</p> 
+folders.<br>labels | **object**<br><p>Метки ресурса в формате <code>ключ:значение</code>. Максимум 64 метки на ресурс.</p> 
 folders.<br>status | **string**<br><p>Статус каталога.</p> <p>Статус каталога.</p> <ul> <li>ACTIVE: Каталог активен.</li> <li>DELETING: Каталог удаляется.</li> </ul> 
 nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/resource-manager/api-ref/Folder/list#query_params">pageSize</a>, используйте <a href="/docs/resource-manager/api-ref/Folder/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/resource-manager/api-ref/Folder/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/resource-manager/api-ref/Folder/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 
