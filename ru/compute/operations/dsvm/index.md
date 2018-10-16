@@ -1,8 +1,8 @@
 # Yandex Data Science Virtual Machine
 
-Yandex Data Science Virtual Machine (далее — DSVM) — это виртуальная машина с предустановленными популярными платформами для анализа данных и машинного обучения. DSVM можно использовать как среду для обучения моделей и экспериментов с данными.
+Yandex Data Science Virtual Machine (DSVM) — это виртуальная машина с предустановленными популярными библиотеками для анализа данных и машинного обучения. DSVM можно использовать как среду для обучения моделей и экспериментов с данными.
 
-Как создать DSVM читайте в разделе [Начало работы с DSVM](quickstart.md).
+Как создать DSVM читайте в разделе [Создание виртуальной машины DSVM](quickstart.md).
 
 ## Предустановленное программное обеспечение {#dsvm-specs}
 
@@ -10,9 +10,9 @@ Yandex Data Science Virtual Machine (далее — DSVM) — это вирту�
 :   Ubuntu 18.04
 
 Установленные пакеты
-:   - Система управления пакетами и окружениями [conda](https://conda.io/docs/index.html) с Python 2.7 и Python 3.6.
-    - Веб-приложения [Jupyter Notebook/Lab](http://jupyter.org/index.html).
-    - Пакеты Machine Learning:
+:   - Менеджер пакетов [conda](https://conda.io/docs/index.html) с Python 2.7 и Python 3.6.
+    - Инструменты для интерактивных и воспроизводимых вычислений [Jupyter Notebook](http://jupyter.org/index.html) и [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/).
+    - Библиотеки Machine Learning:
         - [CatBoost](https://catboost.yandex/);
         - [LightGBM](https://github.com/Microsoft/LightGBM);
         - [XGBoost](https://xgboost.readthedocs.io/en/latest/);
@@ -21,5 +21,5 @@ Yandex Data Science Virtual Machine (далее — DSVM) — это вирту�
         - [Keras](https://keras.io/).
     - Компиляторы: Clang, GCC, Node.js, Go.
     - Система управления контейнерами [Docker](https://www.docker.com).
-    - Консольные клиенты систем контроля версий: [SVN](https://subversion.apache.org/), [Git](https://git-scm.com/), [Mercurial](https://www.mercurial-scm.org/).
+    - Системы контроля версий: [SVN](https://subversion.apache.org/), [Git](https://git-scm.com/), [Mercurial](https://www.mercurial-scm.org/).
 
