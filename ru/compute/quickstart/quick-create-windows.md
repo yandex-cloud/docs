@@ -7,3 +7,7 @@
 [!INCLUDE [create-instance-via-concole-windows](../_includes_service/create-instance-via-concole-windows.md)]
 
 [!INCLUDE [initialization-windows-vm](../../_includes/initialization-windows-vm.md)]
+
+>[!NOTE]
+>
+>[!INCLUDE [change-vm-resources](../_includes_service/change-vm-resources.md)]

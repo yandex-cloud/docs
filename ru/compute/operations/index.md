@@ -26,6 +26,7 @@
 
 - [[!TITLE]](vm-control/vm-connect-ssh.md)
 - [[!TITLE]](vm-control/vm-stop-and-start.md)
+- [[!TITLE]](vm-control/vm-update.md)
 - [[!TITLE]](vm-control/vm-delete.md)
 
 ## Создание нового диска

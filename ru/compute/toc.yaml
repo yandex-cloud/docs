@@ -49,6 +49,8 @@ items:
             href: operations/vm-control/vm-connect-ssh.md
           - name: Остановить и запустить ВМ
             href: operations/vm-control/vm-stop-and-start.md
+          - name: Изменить ВМ
+            href: operations/vm-control/vm-update.md
           - name: Удалить ВМ
             href: operations/vm-control/vm-delete.md
       - name: Создание нового диска
