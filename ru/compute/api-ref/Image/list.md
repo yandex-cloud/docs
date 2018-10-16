@@ -28,7 +28,7 @@ images.<br>folderId | **string**<br><p>Идентификатор каталог
 images.<br>createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 images.<br>name | **string**<br><p>Название образа. Длина 1-63 символов.</p> 
 images.<br>description | **string**<br><p>Описание образа. Длина 0-256 символов.</p> 
-images.<br>labels | **object**<br><p>Метки ресурса в формате ключ-значение. Максимум 64 на ресурс.</p> 
+images.<br>labels | **object**<br><p>Метки ресурса в формате <code>ключ:значение</code>. Максимум 64 на ресурс.</p> 
 images.<br>family | **string**<br><p>Имя семейства образов, к которому принадлежит этот образ.</p> <p>Вы можете получить самый последний образ семейства с помощью запроса <a href="/docs/compute/api-ref/Image/getLatestByFamily">getLatestByFamily</a> и создать диск из этого образа.</p> 
 images.<br>storageSize | **string** (int64)<br><p>Размер образа в байтах.</p> 
 images.<br>minDiskSize | **string** (int64)<br><p>Минимальный размер диска, который будет создан из этого образа.</p> 
