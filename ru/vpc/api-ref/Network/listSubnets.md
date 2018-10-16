@@ -28,9 +28,9 @@ pageToken | Токен страницы. Установите значение [
 Поле | Описание
 --- | ---
 subnets | **object**<br><p>Ресурс Subnet. Дополнительные сведения см. в разделе <a href="/docs/vpc/concepts/network#subnet">Подсети</a>.</p> 
-subnets.<br>id | **string**<br><p>Только для вывода. Идентификатор подсети.</p> 
+subnets.<br>id | **string**<br><p>Идентификатор подсети.</p> 
 subnets.<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит подсеть.</p> 
-subnets.<br>createdAt | **string** (date-time)<br><p>Только для вывода. Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
+subnets.<br>createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 subnets.<br>name | **string**<br><p>Имя подсети. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов.</p> 
 subnets.<br>description | **string**<br><p>Описание подсети. Длина описания должна быть от 0 до 256 символов.</p> 
 subnets.<br>labels | **object**<br><p>Метки ресурса в формате ключ-значение. Максимум 64 метки на ресурс.</p> 
