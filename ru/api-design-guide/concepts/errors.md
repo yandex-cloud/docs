@@ -38,19 +38,19 @@ message Status {
 
 Ниже приведен пример ошибки, которую может вернуть сервер в ответ на REST запрос:
 
->```json
-> {
->   "error": {
->     "code": "499",
->     "message": "The operation was cancelled, typically by the caller.",
->     "status": "CANCELLED",
->     "details": [{
->       "@type": "type.googleapis.com/google.rpc.RetryInfo",
->       ...
->     }]
->   }
-> }
->```
+```json
+ {
+   "error": {
+     "code": "499",
+     "message": "The operation was cancelled, typically by the caller.",
+     "status": "CANCELLED",
+     "details": [{
+       "@type": "type.googleapis.com/google.rpc.RetryInfo",
+       ...
+     }]
+   }
+ }
+```
 
 ## Список возможных ошибок {#error-list}
 

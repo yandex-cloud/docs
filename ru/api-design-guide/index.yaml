@@ -19,7 +19,7 @@ links:
   href: "concepts/general"
 - title: "Ресурсы"
   description: "Как идентифицируются ресурсы в API"
-  href: "concepts/resources-structure"
+  href: "concepts/resources-identification"
 - title: "Методы API"
   description: "Как устроены методы в API"
   href: "concepts/about-methods"

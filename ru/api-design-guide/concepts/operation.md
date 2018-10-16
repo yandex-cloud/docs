@@ -30,45 +30,46 @@
 ## Отслеживание статуса операции {#monitoring}
 
 Узнать статус операции можно с помощью метода `Get`: 
->```protobuf
-> // Возвращает объект Operation по заданному идентификатору.
-> rpc Get (GetOperationRequest) returns (operation.Operation) {
->   option (google.api.http) = {
->     get: "/operations/{operation_id}"
->   };
-> }
-> message GetOperationRequest {
->   // Идентификатор операции.
->   string operation_id = 1;
-> }
->```
-> 
-> Пример REST запроса на получение статуса операции.
-> ```
-> GET https://operation.api.cloud.yandex.net/operations/fcmq0j5033e516c56ctq
-> ```
+```protobuf
+ // Возвращает объект Operation по заданному идентификатору.
+ rpc Get (GetOperationRequest) returns (operation.Operation) {
+   option (google.api.http) = {
+     get: "/operations/{operation_id}"
+   };
+ }
+ message GetOperationRequest {
+   // Идентификатор операции.
+   string operation_id = 1;
+ }
+```
+ 
+Пример REST запроса на получение статуса операции:
+```
+GET https://operation.api.cloud.yandex.net/operations/fcmq0j5033e516c56ctq
+```
 
 ## Отмена операции {#cancel}
 
-Отменить операцию можно с помощью метода `Сancel`. Пример:
+Отменить операцию можно с помощью метода `Сancel`:
 
->```protobuf
-> // Отменяет заданную операцию.
-> rpc Cancel (CancelOperationRequest) returns (operation.Operation) {
->   option (google.api.http) = {
->     post: "/operations/{operation_id}:cancel"
->   };
-> }
-> message CancelOperationRequest {
->   // Идентификатор операции, которую нужно отменить.
->   string operation_id = 1;
-> }
->```
-> Пример отмены операции в REST:
->```
->POST https://operation.api.cloud.yandex.net/operations/a3s17h9sbq5asdgss12:cancel
->```
->В ответ сервер вернет объект `Operation`, который будет содержать текущий статус отменяемой операции.
+```protobuf
+ // Отменяет заданную операцию.
+ rpc Cancel (CancelOperationRequest) returns (operation.Operation) {
+   option (google.api.http) = {
+     post: "/operations/{operation_id}:cancel"
+   };
+ }
+ message CancelOperationRequest {
+   // Идентификатор операции, которую нужно отменить.
+   string operation_id = 1;
+ }
+```
+
+Пример отмены операции в REST:
+```
+POST https://operation.api.cloud.yandex.net/operations/a3s17h9sbq5asdgss12:cancel
+```
+В ответ сервер вернет объект `Operation`, который будет содержать текущий статус отменяемой операции.
 
 Отменять можно только те операции, которые изменяют состояние ресурсов. В справочниках все операции, для которых возможна отмена, отмечены явно.
 
@@ -78,63 +79,65 @@
  
 ## Просмотр списка операций {#operation-listing}
 
-Для просмотра списка операций, которые были выполнены над заданным ресурсом, предназначен метод `ListOperations`:
->```protobuf
-> // Выводит список операций, которые были произведены над заданным диском.
-> rpc ListOperations (ListDiskOperationsRequest)
->   returns (ListDiskOperationsResponse) {
->     option (google.api.http) = {
->       get: "/compute/v1/disks/{disk_id}/operations"
->     };
->   }
-> message ListDiskOperationsRequest {
->   // Идентификатор диска.
->   string disk_id = 1;
->   // Максимальное количество результатов на странице ответа.
->   int64 page_size = 2;
->   // Токен запрашиваемой страницы с результатами.
->   string page_token = 3;
-> }
->
-> message ListDiskOperationsResponse {
->   // Список операций, выполненных над заданным диском.
->   repeated operation.Operation operations = 1;
->   // Токен следующей страницы с результатами.
->   string next_page_token = 2;
-> }
->```
-> Пример просмотра списка операций в REST:
->```
-> GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03/operations
->```
->Ответ сервера:
-> ```json
-> {
->   "operations": [
->     {
->       "id": "fcmq0j5033e516c56ctq",
->       "createdAt": "2018-08-29T18:31:15.311Z",
->       "createdBy": "v1swrh5sbqs5sdgss15",
->       "done": true,
->       "metadata": {
->         "@type": "type.googleapis.com/yandex.cloud.compute.v1.CreateDiskMetadata",
->         "diskId": "sfg36d6sbq5asdgfs01"
->       },
->      "response": {
->        "@type": "type.googleapis.com/yandex.cloud.compute.v1.Disk",
->        "id": "sfg36d6sbq5asdgfs01",
->        "folderId": "a3s17h9sbq5asdgss12",
->        "name": "disk-1",
->        "description": "Test disk",
->        "zoneId" : "ru-central1-a",
->        "typeId" : "network-nvme",
->        "size" : 10737418240 
->      }
->    },
->    ...
->   ]
-> }
->```
-Метод `ListOperations` поддерживает [постраничное отображение результатов](pagination.md).
+Для просмотра списка операций, которые были выполнены над заданным ресурсом, предназначен метод `ListOperations`. Метод поддерживает [постраничное отображение результатов](pagination.md).
 
 Обратите внимание, метод `ListOperations` позволяет получить список операций только над конкретным ресурсом, но не над категорией ресурсов. Например, вы не сможете посмотреть историю операций, которые производились над всеми дисками в вашем облаке.
+
+Пример gRPC-описания метода для операций над диском:
+```protobuf
+ // Выводит список операций, которые были произведены над заданным диском.
+ rpc ListOperations (ListDiskOperationsRequest)
+   returns (ListDiskOperationsResponse) {
+     option (google.api.http) = {
+       get: "/compute/v1/disks/{disk_id}/operations"
+     };
+   }
+ message ListDiskOperationsRequest {
+   // Идентификатор диска.
+   string disk_id = 1;
+   // Максимальное количество результатов на странице ответа.
+   int64 page_size = 2;
+   // Токен запрашиваемой страницы с результатами.
+   string page_token = 3;
+ }
+
+ message ListDiskOperationsResponse {
+   // Список операций, выполненных над заданным диском.
+   repeated operation.Operation operations = 1;
+   // Токен следующей страницы с результатами.
+   string next_page_token = 2;
+ }
+```
+Пример запроса списка операций в REST:
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03/operations
+```
+Ответ сервера:
+```json
+ {
+   "operations": [
+     {
+       "id": "fcmq0j5033e516c56ctq",
+       "createdAt": "2018-08-29T18:31:15.311Z",
+       "createdBy": "v1swrh5sbqs5sdgss15",
+       "done": true,
+       "metadata": {
+         "@type": "type.googleapis.com/yandex.cloud.compute.v1.CreateDiskMetadata",
+         "diskId": "sfg36d6sbq5asdgfs01"
+       },
+      "response": {
+        "@type": "type.googleapis.com/yandex.cloud.compute.v1.Disk",
+        "id": "sfg36d6sbq5asdgfs01",
+        "folderId": "a3s17h9sbq5asdgss12",
+        "name": "disk-1",
+        "description": "Test disk",
+        "zoneId" : "ru-central1-a",
+        "typeId" : "network-nvme",
+        "size" : 10737418240 
+      }
+    },
+    ...
+   ]
+ }
+```
+

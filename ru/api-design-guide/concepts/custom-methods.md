@@ -8,11 +8,7 @@
 
 Дополнительным методам ставится в соответствие HTTP-метод `POST`. Сигнатура дополнительных методов отличается от стандартной сигнатуры HTTP-методов. Название дополнительного метода указывается в URL ресурса, после знака <q>:</q>. 
 
-## Примеры {#examples}
-
-### gRPC
-
-gRPC-описание метода `AttachDisk`:
+Пример gRPC-описания метода `AttachDisk`:
 
 ```protobuf
  rpc AttachDisk (AttachInstanceDiskRequest) returns (operation.Operation) {
@@ -48,9 +44,7 @@ gRPC-описание метода `AttachDisk`:
  }
 ```
 
-### REST
-
-Подключение диска в REST:
+Пример подключения диска в REST:
 ```json
 POST https://compute.api.cloud.yandex.net/compute/v1/instances/e0m97h0gbq0foeuis03:attachDisk
 

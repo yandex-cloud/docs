@@ -7,7 +7,7 @@ items:
   - name: Ресурсы
     items:
       - name: Идентификация ресурсов
-        href: concepts/resources-structure.md
+        href: concepts/resources-identification.md
       - name: Стандартные поля
         href: concepts/standard-fields.md
   - name: Методы API
