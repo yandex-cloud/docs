@@ -1,10 +1,6 @@
 # Как начать работать с Биллингом
 
-Доступ к Биллингу предоставляется пользователям с зарегистрированным аккаунтом в Яндекс.Паспорте:
-- Если у вас еще нет аккаунта, [создайте его](https://passport.yandex.ru/registration). 
-- Если вы авторизовались на Яндексе через профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1) для новой учетной записи. 
-
-К аккаунту обязательно должен быть привязан ваш номер телефона. См. подробные инструкции в [Помощи](https://yandex.ru/support/passport/authorization/registration.html) Яндекс.Паспорта.
+[!INCLUDE [quickstart-all-no-billing](../../_includes/yandex-account.md)]
 
 Чтобы начать пользоваться Биллингом:
 
