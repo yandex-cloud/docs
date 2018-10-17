@@ -8,11 +8,9 @@
 
 Подробнее читайте в разделе [[!TITLE]](../concepts/vm-types.md).
 
-
 #### Как изменить объем памяти и количество ядер, выделенных виртуальной машине? {#update-type}
 
 [!INCLUDE [change-vm-resources](../_includes_service/change-vm-resources.md)]
-
 
 ## Операции с виртуальными машинами
 
