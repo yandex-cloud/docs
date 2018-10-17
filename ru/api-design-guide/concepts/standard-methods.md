@@ -1,93 +1,292 @@
 # Стандартные методы
 
-Стандартные методы позволяют выполнять над ресурсами CRUD-операции: создавать, получать,
- изменять и удалять. Стандартные методы имеют одинаковую сигнатуру и для всех API работают
- одинаково.
+Ниже перечислены стандартные методы API и соответствующие им HTTP-методы:
 
-Ниже перечислены стандартные методы API:
+Метод API | HTTP-метод | Тело запроса | Тело ответа
+----- | ----- | ----- | ----
+[Get](#method-get) | GET | — | Представление ресурса.
+[List](#method-list) | GET | — | Список ресурсов.
+[Create](#method-create) | POST | Представление ресурса. | Объект [Operation](operation.md).
+[Update](#method-update) | PATCH | Представление ресурса. | Объект [Operation](operation.md).
+[Delete](#method-delete) | DELETE | — |Объект [Operation](operation.md).
 
-Метод API | Соответствующий HTTP-глагол | Тело ответа
------ | ----- | -----
-[get](#method-get) | GET <[URL ресурса](resources-structure.md#url-resource)> | Представление ресурса.
-[list](#method-list) | GET <[URL для просмотра списка ресурсов](resources-structure.md#listing)> | Список ресурсов.
-[create](#method-create) | POST <[URL для просмотра списка ресурсов](resources-structure.md#listing)> | Объект [Operation](operation.md).
-[update](#method-update) | PATCH <[URL ресурса](resources-structure.md#url-resource)> | Объект [Operation](operation.md).
-[delete](#method-delete) | DELETE <[URL ресурса](resources-structure.md#url-resource)> | Объект [Operation](operation.md).
+Ниже приведены gRPC-описания стандартных методов и рассмотрены примеры соответствующих REST запросов.
 
-## get {#method-get}
+## Get {#method-get}
 
 Возвращает представление запрашиваемого ресурса.
 
->Пример получения диска:
->
->```
->GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
->```
+Методу соответствует HTTP-метод `GET`.
 
-## list {#method-list}
+Пример gRPC-описания метода `Get` для получения диска:
+```protobuf 
+ rpc Get (GetDiskRequest) returns (Disk) {
+   // Методу Get соответствует HTTP-метод GET.
+   option (google.api.http) = {
+     get: "/compute/v1/disks/{disk_id}"
+   };
+ }
+ 
+ message GetDiskRequest {
+   // Идентификатор запрашиваемого диска.
+   string disk_id = 1;
+ }
+```
 
-Выводит список ресурсов определенной категории.
+Пример REST запроса на получение диска:
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
+```
 
->Пример получения списка дисков в каталоге:
->
->```
->GET https://compute.api.cloud.yandex.net/compute/v1/disks?folderId=a3s17h9sbq5asdgss12
->```
+## List {#method-list}
 
-Метод `list` поддерживает постраничное отображение результатов. Подробнее см. в разделе [Пагинация](pagination.md).
+Выводит список ресурсов определенной категории. Например, список дисков или список виртуальных машин. 
+
+На данный момент списки ресурсов можно получать только относительно их непосредственного родителя. Например, вы можете получить список дисков в каком-нибудь каталоге, но не сможете посмотреть список дисков во всем облаке.
+
+Методу `List` соответствует HTTP-метод `GET`. В параметрах запроса необходимо передать идентификатор родительского ресурса, например каталога.
+
+Метод `List` поддерживает [постраничное отображение результатов](pagination.md).
+ 
+Пример gRPC-описания метода `List` для получения списка дисков:
+```protobuf
+ rpc List (ListDisksRequest) returns (ListDisksResponse) {
+   // Методу List соответствует HTTP-метод GET.
+   option (google.api.http) = {
+     get: "/compute/v1/disks"
+   };
+ }
+ message ListDisksRequest {
+   // Идентификатор каталога, для которого
+   // нужно получить список дисков.
+   // Обязательное поле.
+   string folder_id = 1;
+
+   // Максимальное количество результатов на странице ответа.
+   // Если число возвращаемых результатов
+   // больше значения, заданного в page_size, сервис возвращает поле
+   // [ListDisksResponse.next_page_token]. Используйте его
+   // для получения следующей страницы.
+   int64 page_size = 2;
+
+   // Токен запрашиваемой страницы с результатами.
+   // Чтобы получить следующую страницу,
+   // подставьте в это поле значение из
+   // [ListDisksResponse.next_page_token], которое было
+   // получено в результате предыдущего запроса List. 
+   string page_token = 3;
+ }
+ 
+ message ListDisksResponse {
+   // Список дисков.
+   repeated Disk disks = 1;
+   // Токен следующей страницы результатов.
+   string next_page_token = 2;
+ }
+```
+
+Пример получения списка дисков в REST:
+
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/disks?folderId=a3s17h9sbq5asdgss12
+```
+
+ 
+## Create {#method-create}
+
+Создает ресурс в указанном облаке, каталоге, сети и т. д.
+
+Методу `Create` соответствует HTTP-метод `POST`. В качестве параметров необходимо передать идентификатор родительского ресурса, в котором нужно создать ресурс (например, идентификатор каталога).
+
+Метод `Create` имеет асинхронную сигнатуру. Он возвращает объект [Operation](operation.md), который содержит статус операции, а также идентификатор создаваемого ресурса.
+
+При попытке создать ресурс, который уже существует, метод вернет ошибку `ALREADY_EXISTS`. [Подробнее об ошибках](errors.md)
 
 
-## create {#method-create}
+Пример gRPC-описания метода `Create` для создания диска в заданном каталоге:
+```protobuf
+ rpc Create (CreateDiskRequest) returns (operation.Operation) {
+   // Методу Create соответствует HTTP-метод POST.
+   option (google.api.http) = {
+     post: "/compute/v1/disks" body: "*"
+   };
+   // В поле `metadata` объекта Operation 
+   // содержится представление `CreateDiskMetadata`.
+   // В случае успешного завершения операции 
+   // в поле `response` объекта Operation 
+   // содержится представление дискового ресурса.
+   option (yandex.api.operation) = {
+     metadata: "CreateDiskMetadata"
+     response: "Disk"
+   };
+ }
+   
+ message CreateDiskRequest {
+   // Идентификатор каталога, в котором нужно создать диск.
+   // Обязательное поле.
+   string folder_id = 1;
 
-Создает ресурс.
+   // Имя диска.
+   string name = 2;
+ 
+   // Описание диска.
+   string description = 3;
+ 
+   // Метки диска в формате 'ключ: значение'.
+   map<string, string> labels = 4;
+ 
+   // Тип диска.
+   string type_id = 5;
 
->Пример создания диска:
->
->```
->POST https://compute.api.cloud.yandex.net/compute/v1/disks
->
->{
->  "folderId": "a3s17h9sbq5asdgss12",
->  "name": "disk-1",
->  "description": "Test disk",
->  "zoneId" : "ru-central1-a",
->  "typeId" : "network-nvme",
->  "size" : 10737418240   
->}
->```
+   // Идентификатор зоны, в которой нужно создать диск.
+   string zone_id = 6;
+ 
+   // Размер диска в байтах.
+   int64 size = 7;
 
-Метод `create` имеет асинхронную сигнатуру. Сервер возвращает объект [Operation](operation.md), который содержит статус операции.
+   oneof source {
+     // Идентификатор образа, на основе которого нужно создать диск,
+     string image_id = 8;
 
-При вызове операции `create` объект `Operation` гарантированно будет содержать идентификатор
- создаваемого ресурса, даже если операция еще не была завершена. По этому идентификатору вы
-  сможете обратиться к ресурсу и проверить его состояние. Если ресурс еще не готов, его представление
-   будет содержать поле `status`. Оно будет отображать текущее состояние ресурса
-  (например, <q>CREATING</q>).
+     // либо идентификатор снимка, с которого нужно создать диск.
+     string snapshot_id = 9;
+   }
+ }
+ 
+ message CreateDiskMetadata {
+   // Идентификатор создаваемого диска.
+   string disk_id = 1;
+ }
+```
 
-## update {#method-update}
+Пример REST запроса на создание диска:
+```
+ POST https://compute.api.cloud.yandex.net/compute/v1/disks
+ 
+ {
+   "folderId": "a3s17h9sbq5asdgss12",
+   "name": "disk-1",
+   "description": "Test disk",
+   "zoneId" : "ru-central1-a",
+   "typeId" : "network-nvme",
+   "size" : 10737418240   
+ }
+```
 
-Изменяет представление ресурса. Поддерживается частичное изменение ресурса (то есть изменение отдельных его полей).
+[!INCLUDE [create-operation-response](../_includes/create-operation-response.md)]
+ 
 
->Пример изменения поля `description` у диска:
->
->```
->PATCH https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
->
->{
->   "description": "Новое описание"
->}
->```
-Метод `update` имеет асинхронную сигнатуру. Он возвращает объект [Operation](operation.md), который содержит статус
- операции.
-## delete {#method-delete}
+## Update {#method-update}
 
-Удаляет ресурс.
+Изменяет представление ресурса. Методу соответствует HTTP-метод `PATCH`.
 
->Пример удаления диска:
->
->```
->DELETE https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
->```
+Метод `Update` поддерживает частичное изменение ресурса. Поля, которые требуется изменить, указываются в запросе в поле `update_mask` ([подробнее](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto)). Поля, которые не указаны в поле `update_mask`, не будут изменены. Если в запросе не передается `update_mask`, значения всех полей будут обновлены по следующему правилу:
+ 
+- для полей, указанных в запросе, будут использованы переданные значения;
+- значения остальных полей будут сброшены на значения по умолчанию.
 
-Метод `delete` имеет асинхронную сигнатуру. Он возвращает объект [Operation](operation.md), который содержит статус операции.
+Метод имеет асинхронную сигнатуру. Он возвращает объект [Operation](operation.md), который содержит статус операции и представление измененного ресурса.
+
+Пример gRPC-описания метода `Update` для изменения дискового ресурса:
+```protobuf
+ rpc Update (UpdateDiskRequest) returns (operation.Operation) {
+   // Методу Update соответствует HTTP-метод PATCH.
+   option (google.api.http) = {
+     patch: "/compute/v1/disks/{disk_id}" body: "*"
+   };
+   // В поле `metadata` объекта Operation 
+   // содержится представление `UpdateDiskMetadata`.
+   // В случае успешного завершения операции 
+   // в поле `response` объекта Operation 
+   // содержится представление измененного дискового ресурса.
+   option (yandex.api.operation) = {
+     metadata: "UpdateDiskMetadata"
+     response: "Disk"
+   };
+ }
+ message UpdateDiskRequest {
+   // Идентификатор изменяемого диска.
+   // Обязательное поле.
+   string disk_id = 1;
+
+   // Маска, задающая поля, которые нужно изменить.
+   google.protobuf.FieldMask update_mask = 2;
+
+   // Имя диска.
+   string name = 3;
+
+   // Описание диска.
+   string description = 4;
+
+   // Метки диска в формате 'ключ: значение'.
+   map<string, string> labels = 5;
+
+   // Размер диска в байтах
+   int64 size = 6;   
+ }
+ 
+ message UpdateDiskMetadata {
+   // Идентификатор изменяемого диска.
+   string disk_id = 1;
+ }
+```
+
+Пример REST запроса на изменение дискового ресурса:
+```
+PATCH https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
+ 
+ {
+   "name": "Новое имя",
+   "description": "Новое описание",
+   "size": "10737418240",
+   "updateMask" : "name,description"
+ }
+```
+
+В примере будут изменены только поля "name" и "description".
+ 
+## Delete {#method-delete}
+
+Удаляет заданный ресурс.
+
+Методу `Delete` соответствует HTTP-метод `DELETE`. В параметрах запроса необходимо передать идентификатор ресурса, который требуется удалить.
+
+Метод имеет асинхронную сигнатуру. Он возвращает объект [Operation](operation.md), который
+ содержит статус операции удаления. 
+ 
+Пример gRPC-описания метода `Delete` для удаления диска:
+```protobuf
+ rpc Delete (DeleteDiskRequest) returns (operation.Operation) {
+   // Методу соответствует HTTP-метод DELETE.
+   option (google.api.http) = {
+     delete: "/compute/v1/disks/{disk_id}"
+   };
+   // В поле `metadata` объекта Operation 
+   // содержится представление `DeleteDiskMetadata`.
+   // В случае успешного завершения операции 
+   // в поле `response` объекта Operation 
+   // содержится представление ресурса `google.protobuf.Empty`.
+   option (yandex.api.operation) = {
+     metadata: "DeleteDiskMetadata"
+     response: "google.protobuf.Empty"
+   };
+ }
+ message DeleteDiskRequest {
+   // Идентификатор удаляемого диска.
+   // Обязательное поле.
+   string disk_id = 1;
+ }
+ 
+ message DeleteDiskMetadata {
+   // Идентификатор удаляемого диска.
+   string disk_id = 1;
+ }
+```
+
+Пример REST запроса на удаление диска:
+```
+ DELETE https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
+```
+
+[!INCLUDE [grpc-api-ref-note](../_includes/grpc-api-ref-note.md)]
 

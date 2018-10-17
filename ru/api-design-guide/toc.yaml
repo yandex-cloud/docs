@@ -1,17 +1,15 @@
 title: "Концепции API Яндекс.Облака"
 items:
   - name: О документе
-    href: index.md
-  - name: Основные концепции
+    href: index.yaml
+  - name: Основные принципы
     href: concepts/general.md
-  - name: Аутентификация
-    href: concepts/authentication.md
   - name: Ресурсы
     items:
       - name: Идентификация ресурсов
-        href: concepts/resources-structure.md
-      - name: Представление ресурсов
-        href: concepts/resources-json.md
+        href: concepts/resources-identification.md
+      - name: Стандартные поля
+        href: concepts/standard-fields.md
   - name: Методы API
     items:
       - name: Обзор

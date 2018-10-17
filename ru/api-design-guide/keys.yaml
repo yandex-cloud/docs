@@ -1,7 +1,0 @@
-service-long-vm: Yandex Compute Cloud
-service-long-mdb: Yandex Managed Databases
-service-long-iam: Yandex Identity and Access Management
-service-long-rm: Resource Manager
-service-short-vm: Compute Cloud
-service-short-mdb: MDB
-service-short-iam: IAM
