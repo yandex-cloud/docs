@@ -1,5 +1,3 @@
-   > [!NOTE]
-   >
-   > После того, как доступ к ресурсам восстановится, вы можете самостоятельно [запустить виртуальные машины](../../compute/operations/vm-control/vm-stop-and-start.md). Чтобы запустить кластеры баз данных, обратитесь в службу технической поддержки.
+   [!INCLUDE [restore-after-blocking](../../_includes/restore-after-blocking.md)]
 
 
