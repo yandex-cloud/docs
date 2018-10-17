@@ -10,9 +10,8 @@
 
 ## Сумма счета {#payment-summ}
 
-Итоговая сумма счета зависит от того, был ли использован [грант](../concepts/bonus-account.md) и пополнялся ли [лицевой счет (ЛС)](../concepts/personal-account.md#balance) в течение расчетного периода.
-
-Сумма определяется по формуле: 
+[!INCLUDE [bill-amount](../_includes/bill-amount.md)]
+ 
 ![](../_assets/formula.svg)
 
   ---  
