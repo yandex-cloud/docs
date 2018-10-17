@@ -19,7 +19,7 @@
 
 ## Получение информации о виртуальных машинах
 
-- [[!TITLE]](vm-info/vm-info.md)
+- [[!TITLE]](vm-info/get-info.md)
 - [[!TITLE]](vm-info/get-serial-port-output.md)
 
 ## Управление виртуальной машиной
