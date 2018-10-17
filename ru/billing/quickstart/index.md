@@ -1,6 +1,6 @@
 # Как начать работать с Биллингом
 
-[!INCLUDE [quickstart-all-no-billing](../../_includes/yandex-account.md)]
+[!INCLUDE [quickstart-all-no-billing](../_includes/yandex-account.md)]
 
 Чтобы начать пользоваться Биллингом:
 
