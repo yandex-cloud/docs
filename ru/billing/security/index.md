@@ -1,7 +1,7 @@
 # Безопасность и управление доступом
 
 ### **Доступ к Биллингу** {#billing} 
-[!INCLUDE [quickstart-all-no-billing](../_includes/yandex-account.md)]
+[!INCLUDE [yandex-account](../_includes/yandex-account.md)]
 
 ### **Доступ к платежному аккаунту** {#billing-account}                                                        
 Доступ к [платежному аккаунту](../concepts/billing-account.md) Биллинга обеспечивается сервисом [IAM Яндекс.Облака](../../iam/). 
