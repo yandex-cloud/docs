@@ -80,4 +80,4 @@
 
 --- 
 
-[!INCLUDE [blocked-note](../_includes/blocked-note.md)]
+  [!INCLUDE [blocked-note](../_includes/blocked-note.md)]
