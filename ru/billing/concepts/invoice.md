@@ -6,8 +6,7 @@
 
 [Акт](../concepts/act.md) об оказанных услугах и счет-фактура формируются по окончании расчетного периода на сумму, фактически израсходованную с [баланса лицевого счета](../concepts/personal-account.md#balance). 
 
-> [!NOTE]
-> Если в течение расчетного периода вы использовали только [грант](../concepts/bonus-account.md) и не использовали средства с лицевого счета или кредитные средства, то акт и счет-фактура не формируются. 
+[!INCLUDE [act-invoice-note](../_includes/act-invoice-note.md)]  
 
 [!INCLUDE [act-invoice-examples](../_includes/act-invoice-examples.md)]  
 

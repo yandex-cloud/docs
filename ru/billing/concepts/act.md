@@ -8,9 +8,7 @@
 
 На основе актов формируются [счета-фактуры](../concepts/invoice.md).
 
-> [!NOTE]
-> Если в течение расчетного периода вы использовали только [грант](../concepts/bonus-account.md) и не использовали средства с лицевого счета или [кредитные средства](../concepts/credit-limit.md), то акт и счет-фактура не формируются.  
-
+[!INCLUDE [act-invoice-note](../_includes/act-invoice-note.md)]  
 
 [!INCLUDE [act-invoice-examples](../_includes/act-invoice-examples.md)]
  
