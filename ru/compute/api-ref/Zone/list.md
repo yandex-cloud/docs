@@ -21,7 +21,7 @@ pageToken | Токен страницы. Установите значение [
 Поле | Описание
 --- | ---
 zones | **object**<br><p>Зона доступности. Дополнительные сведения см. в разделе <a href="/docs/overview/concepts/geo-scope">Зоны доступности</a>.</p> 
-zones.<br>id | **string**<br><p>Только для вывода. Идентификатор зоны доступности.</p> 
-zones.<br>regionId | **string**<br><p>Только для вывода. Идентификатор региона.</p> 
-zones.<br>status | **string**<br><p>Только для вывода. Статус зоны доступности.</p> <ul> <li>UP: Зона доступна. Вы можете обращаться к ресурсам в этой зоне.</li> <li>DOWN: Зона недоступна.</li> </ul> 
+zones.<br>id | **string**<br><p>Идентификатор зоны доступности.</p> 
+zones.<br>regionId | **string**<br><p>Идентификатор региона.</p> 
+zones.<br>status | **string**<br><p>Статус зоны доступности.</p> <ul> <li>UP: Зона доступна. Вы можете обращаться к ресурсам в этой зоне.</li> <li>DOWN: Зона недоступна.</li> </ul> 
 nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/compute/api-ref/Zone/list#query_params">pageSize</a>, используйте <a href="/docs/compute/api-ref/Zone/list#query_params">pageToken</a> в качестве значения параметра <a href="/docs/compute/api-ref/Zone/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/compute/api-ref/Zone/list#query_params">pageToken</a>, для перебора страниц результатов.</p> 
