@@ -29,7 +29,7 @@ clusters.<br>folderId | **string**<br><p>Идентификатор катало
 clusters.<br>createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 clusters.<br>name | **string**<br><p>Имя кластера ClickHouse. Имя должно быть уникальным в каталоге. Длина имени должна быть от 3 до 63 символов.</p> 
 clusters.<br>description | **string**<br><p>Описание кластера ClickHouse. Длина описания должна быть от 0 до 256 символов.</p> 
-clusters.<br>labels | **object**<br><p>Пользовательские метки для кластера PostgreSQL в виде пар ключ-значение. Максимум 64 на ресурс.</p> 
+clusters.<br>labels | **object**<br><p>Пользовательские метки для кластера PostgreSQL в виде пар <code>ключ:значение</code>. Максимум 64 на ресурс.</p> 
 clusters.<br>environment | **string**<br><p>Среда развертывания кластера ClickHouse.</p> <p>Среда развертывания.</p> <ul> <li>PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного обслуживания применяются только срочные исправления.</li> <li>PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются независимо от обратной совместимости.</li> </ul> 
 clusters.<br>monitoring | **object**<br><p>Метаданные системы мониторинга.</p> 
 clusters.<br>monitoring.<br>name | **string**<br><p>Название системы мониторинга.</p> 
