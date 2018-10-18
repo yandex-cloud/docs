@@ -60,9 +60,7 @@
 
 ## Получить информацию изнутри виртуальной машины {#inside-instance}
 
-Изнутри виртуальной машины сервер [метаданных](../../concepts/vm-metadata.md) доступен по IP-адресу `169.254.169.254`.
-
-На данный момент сервер метаданных Яндекс.Облака возвращает метаданные в форматах [Google Compute Engine](#gce-metadata) и [Amazon EC2](#ec2-metadata).
+[!INCLUDE [vm-metadata](../../../_includes/vm-metadata.md)]
 
 ### Google Compute Engine {#gce-metadata}
 
