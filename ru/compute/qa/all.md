@@ -4,11 +4,9 @@
 
 [!INCLUDE-NOTITLE [general](general.md)]
 
-
 ## Виртуальные машины {#vm}
 
 [!INCLUDE-NOTITLE [vm](vm.md)]
-
 
 ## Диски и снимки {#disks}
 
