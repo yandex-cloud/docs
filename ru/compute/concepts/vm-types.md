@@ -3,6 +3,7 @@
 [!INCLUDE-NOTITLE [compute-resources]](../_includes_service/compute-resources.md)]
 
 > [!NOTE]
+>
 > На данный момент вы не можете выбрать тип физического процессора, который будет использоваться виртуальной машиной. Все виртуальные машины используют процессор [Intel Xeon Processor E5-2660 v4](https://ark.intel.com/ru/products/91772/Intel-Xeon-Processor-E5-2660-v4-35M-Cache-2_00-GHz).
 
 Виртуальные машины делятся на два типа: с частичным и полным использованием ядра.
