@@ -1,5 +1,9 @@
 # Создать сервисный аккаунт
 
+Создайте [сервисный аккаунт](../../concepts/users/service-accounts.md), чтобы управлять ресурсами от имени другой учетной записи.
+
+## Как создать сервисный аккаунт
+
 ---
 
 **[!TAB Консоль управления]**
@@ -16,33 +20,40 @@
 
 **[!TAB CLI]**
 
-Создайте сервисный аккаунт в вашем каталоге по умолчанию:
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
-```
-yc iam service-account create --name <SERVICE-ACCOUNT-NAME>
-```
+1. Посмотрите описание команды создания сервисного аккаунта:
 
-где:
-* `<SERVICE-ACCOUNT-NAME>` - имя сервисного аккаунта.
+    ```
+    $ yc iam service-account create --help
+    ```
+
+2. Создайте сервисный аккаунт с именем `my-robot`:
+
+    ```
+    $ yc iam service-account create --name my-robot
+    ```
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
-Вы можете создать сервисный аккаунт в другом каталоге с помощью флагов `--folder-id` или `folder-name`:
-
-```
-yc iam service-account create --name my-robot \
-    --folder-name yet-another-folder
-```
-
-Вы можете добавить произвольное описание сервисного аккаунта с помощью флага `--description`:
-
-```
-yc iam service-account create --name my-robot \
-    --description "this is my favorite service account"
-```
-
 **[!TAB API]**
 
-Чтобы создать сервисный аккаунт, воспользуйтесь методом `Create` для ресурса `ServiceAccount`.
+Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md).
+
+---
+
+
+## Примеры
+
+Создайте сервисный аккаунт с именем и описанием:
+
+---
+
+**[!TAB CLI]**
+
+```
+$ yc iam service-account create --name my-robot \
+    --description "this is my favorite service account"
+```
 
 ---

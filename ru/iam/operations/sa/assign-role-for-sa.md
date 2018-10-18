@@ -1,6 +1,6 @@
 # Назначить роль сервисному аккаунту
 
-Этот раздел про назначение [роли](../../concepts/access-control/roles.md) сервисному аккаунту на какой либо ресурс. Чтобы назначить роль на [сервисный аккаунт](../../concepts/users/service-accounts.md) как на ресурс, воспользуйтесь инструкцией [[!TITLE]](set-access-bindings.md).
+Этот раздел про назначение [роли](../../concepts/access-control/roles.md) сервисному аккаунту на какой либо ресурс. Чтобы назначить другому пользователю роль на [сервисный аккаунт](../../concepts/users/service-accounts.md) как на ресурс, воспользуйтесь инструкцией [[!TITLE]](set-access-bindings.md).
 
 Через консоль управления сервисному аккаунту можно назначить роль только на каталог, в котором он был создан. Чтобы назначить ему роль на другой ресурс, используйте CLI или API.
 
@@ -17,6 +17,8 @@
 5. Нажмите кнопку **Сохранить**.
 
 **[!TAB CLI]**
+
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 Чтобы назначить сервисному аккаунту роль на ресурс, выполните команду:
 
@@ -35,16 +37,31 @@ yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
 * `<ROLE-ID>` — идентификатор роли, например `[!KEYREF roles-cloud-owner]`.
 * `<SERVICE-ACCOUNT-ID>` — идентификатор сервисного аккаунта, которому назначается роль.
 
-Например, назначьте сервисному аккаунту роль `viewer` на облако `mycloud`:
+Например, чтобы назначить сервисному аккаунту роль `viewer` на [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud) `mycloud`:
 
-```
-yc resource-manager cloud add-access-binding mycloud \
-    --role viewer \
-    --subject serviceAccount:ajeptmgeb3f2q56bifci
-```
+1. Выберите сервисный аккаунт, например `my-robot`:
+
+    ```
+    $ yc iam service-account list
+    +----------------------+------------------+-------------------------------+
+    |          ID          |       NAME       |          DESCRIPTION          |
+    +----------------------+------------------+-------------------------------+
+    | aje6o61dvog2h6g9a33s | my-robot         |                               |
+    | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
+    +----------------------+------------------+-------------------------------+
+    ```
+
+
+1. Назначьте роль сервисному аккаунту `my-robot`, используя его идентификатор:
+
+    ```
+    $ yc resource-manager cloud add-access-binding mycloud \
+        --role viewer \
+        --subject serviceAccount:aje6o61dvog2h6g9a33s
+    ```
 
 **[!TAB API]**
 
-Чтобы назначить сервисному аккаунту роль на ресурс, воспользуйтесь методом `SetAccessBindings` для того ресурса, на который нужно назначить роль.
+Чтобы назначить сервисному аккаунту роль на ресурс, воспользуйтесь методом `setAccessBindings` для того ресурса, на который нужно назначить роль.
 
 ---
