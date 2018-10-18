@@ -40,7 +40,7 @@ items:
       - name: Получение информации о виртуальной машине
         items:
           - name: Получить основную информацию и метаданные
-            href: operations/vm-info/vm-info.md
+            href: operations/vm-info/get-info.md
           - name: Получить вывод последовательного порта
             href: operations/vm-info/get-serial-port-output.md
       - name: Управление виртуальной машиной
