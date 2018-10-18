@@ -18,7 +18,7 @@ items:
       - name: Создание виртуальной машины
         items:
           - name: Создать ВМ Linux
-            href: operations/vm-create/create-from-image.md
+            href: operations/vm-create/create-linux-vm.md
           - name: Создать ВМ Windows
             href: operations/vm-create/create-windows-vm.md
       - name: DSVM
@@ -35,14 +35,24 @@ items:
             href: operations/images-with-pre-installed-software/setup.md
           - name: Работать с ВМ
             href: operations/images-with-pre-installed-software/operate.md
+          - name: Получить список образов
+            href: operations/images-with-pre-installed-software/get-list.md
       - name: Получение информации о виртуальной машине
-        href: operations/vm-info/vm-info.md
+        items:
+          - name: Получить основную информацию и метаданные
+            href: operations/vm-info/get-info.md
+          - name: Получить вывод последовательного порта
+            href: operations/vm-info/get-serial-port-output.md
       - name: Управление виртуальной машиной
         items:
           - name: Подключиться к ВМ по SSH
             href: operations/vm-control/vm-connect-ssh.md
+          - name: Подключиться к ВМ по RDP
+            href: operations/vm-control/vm-connect-rdp.md
           - name: Остановить и запустить ВМ
             href: operations/vm-control/vm-stop-and-start.md
+          - name: Изменить ВМ
+            href: operations/vm-control/vm-update.md
           - name: Удалить ВМ
             href: operations/vm-control/vm-delete.md
       - name: Создание нового диска
@@ -201,10 +211,8 @@ items:
     items:
       - name: Общие вопросы
         href: qa/general.md
-      - name: Технические характеристики
-        href: qa/hardware.md
-      - name: Операции с виртуальными машинами
-        href: qa/vm-operations.md
+      - name: Виртуальные машины
+        href: qa/vm.md
       - name: Диски и снимки
         href: qa/disks.md
       - name: Все вопросы на одной странице
