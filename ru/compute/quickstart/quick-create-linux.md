@@ -9,6 +9,7 @@
 [!INCLUDE [create-instance-via-concole-linux](../_includes_service/create-instance-via-concole-linux.md)]
 
 >[!NOTE]
+>
 >[!INCLUDE [change-vm-resources](../_includes_service/change-vm-resources.md)]
 
 ## Подключитесь к виртуальной машине Linux по протоколу SSH
