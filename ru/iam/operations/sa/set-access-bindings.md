@@ -8,41 +8,68 @@
 
 **[!TAB CLI]**
 
-Назначьте пользователю (субъекту) роль на сервисный аккаунт в вашем каталоге по умолчанию:
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
-```
-yc iam service-account add-access-binding <SERVICE-ACCOUNT-NAME>|<SERVICE-ACCOUNT-ID> \
-    --role <ROLE-ID> \
-    --subject <SUBJECT-TYPE>:<SUBJECT-ID>
-```
+1. Посмотрите описание команды для назначения роли на сервисный аккаунт как на ресурс:
 
-где:
+    ```
+    $ yc iam service-account add-access-binding --help
+    ```
 
-* `<SERVICE-ACCOUNT-NAME>` — имя сервисного аккаунта, на который субъекту назначается роль. Вы можете указать сервисный аккаунт по имени или идентификатору.
-* `<SERVICE-ACCOUNT-ID>` — идентификатор сервисного аккаунта.
-* `<ROLE-ID>` — идентификатор роли, например `[!KEYREF roles-cloud-owner]`.
-* `<SUBJECT-TYPE>` — тип субъекта: `system`, `userAccount` или `serviceAccount`. Подробнее о субъектах читайте в разделе [[!TITLE]](../../concepts/users/users.md).
-* `<SUBJECT-ID>` — идентификатор субъекта, которому назначается роль.
+1. Выберите сервисный аккаунт, например `my-robot`:
 
-Например, назначьте пользователю роль `editor` на сервисный аккаунт `myrobot`:
+    ```
+    $ yc iam service-account list
+    +----------------------+------------------+-------------------------------+
+    |          ID          |       NAME       |          DESCRIPTION          |
+    +----------------------+------------------+-------------------------------+
+    | aje6o61dvog2h6g9a33s | my-robot         |                               |
+    | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
+    +----------------------+------------------+-------------------------------+
+    ```
 
-```
-yc iam service-account add-access-binding myrobot \
-    --role editor \
-    --subject userAccount:ajeptmgeb3f2q56bifci
-```
+1. Выберите [роль](../../concepts/access-control/roles.md):
 
-Если сервисный аккаунт принадлежит другому каталогу, вы можете указать каталог с помощью флагов `--folder-id` или `folder-name`:
+    ```
+    $ yc iam role list
+    ```
+1. Узнайте идентификатор и [тип субъекта](../../concepts/users/users.md), которому назначается роль.
 
-```
-yc iam service-account add-access-binding myrobot \
-    --role editor \
-    --subject userAccount:ajeptmgeb3f2q56bifci \
-    --folder-name yet-another-folder
-```
+    Например, чтобы назначить роль обычному пользователю, узнайте его идентификатор по логину или адресу электронной почты:
+
+        ```
+        $ yc iam user-account get test-user
+        id: gfei8n54hmfhuk5nogse
+        yandex_passport_user_account:
+          login: test-user
+          default_email: test-user@yandex.ru
+        ```
+2. Назначьте субъекту роль на сервисный аккаунт. Вы можете назначать роли разным типам субъектов:
+
+    * Чтобы назначить роль [пользователю](../../concepts/users/users.md#passport), используйте тип субъекта `userAccount`. Например, назначьте пользователю `test-user` роль `editor` на сервисный аккаунт `my-robot`:
+
+        ```
+        yc iam service-account add-access-binding my-robot \
+            --role editor \
+            --subject userAccount:gfei8n54hmfhuk5nogse
+        ```
+    * Чтобы назначить роль [сервисному аккаунту](../../concepts/users/users.md#sa), используйте тип субъекта `serviceAccount`. Например, разрешите сервисному аккаунту `blabla` управлять `my-robot`. Идентификатор `blabla` вы уже получили при выборе сервисного аккаунта:
+
+        ```
+        yc iam service-account add-access-binding my-robot \
+            --role editor \
+            --subject serviceAccount:aje9sda1ufvqcmfksd3f
+        ```
+    * Чтобы назначить роль [системной группе](../../concepts/users/users.md#system), используйте тип субъекта `system`. Например, разрешите любому пользователю Яндекс.Облака просматривать информацию о сервисном аккаунте `my-robot`:
+
+        ```
+        yc iam service-account add-access-binding my-robot \
+            --role viewer \
+            --subject system:allAuthenticatedUsers
+        ```
 
 **[!TAB API]**
 
-Чтобы назначить роль на сервисный аккаунт, воспользуйтесь методом `SetAccessBindings` для ресурса `ServiceAccount`.
+Чтобы назначить роль на сервисный аккаунт как на ресурс, воспользуйтесь методом [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md).
 
 ---
