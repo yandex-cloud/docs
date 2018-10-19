@@ -3,6 +3,7 @@
 ## Пользователи
 
 - [[!TITLE]](users/create.md)
+- [[!TITLE]](users/get.md)
 - [[!TITLE]](users/delete.md)
 
 
