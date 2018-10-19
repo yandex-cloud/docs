@@ -51,12 +51,6 @@
         folder_id: b1gpvjd9ia42nsng55ck
         ...
         ```
-
-        Чтобы получить один идентификатор каталога,:
-        ```
-        $ yc compute instance get fhmp74bfis2ais728p2a | awk '/folder_id:/ {print $2}'
-        b1gpvjd9ia42nsng55ck
-        ```
 3. Измените параметры каталога, например имя и описание:
 
     ```
@@ -65,7 +59,7 @@
         --description "this is my default-folder"
     ```
 
-    Данная команда переименует каталог `default` в `myfolder` и обновит его описание.
+    Команда переименует каталог `default` в `myfolder` и обновит его описание.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
