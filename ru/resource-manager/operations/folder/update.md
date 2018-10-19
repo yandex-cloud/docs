@@ -51,10 +51,10 @@
         folder_id: b1gpvjd9ia42nsng55ck
         ...
         ```
-3. Измените параметры каталога, например имя и описание:
+3. Измените параметры каталога, например имя и описание. Вы можете указать изменяемый каталог по имени или идентификатору.
 
     ```
-    $ yc resource-manager folder default \
+    $ yc resource-manager folder update default \
         --new-name myfolder \
         --description "this is my default-folder"
     ```
@@ -62,6 +62,8 @@
     Команда переименует каталог `default` в `myfolder` и обновит его описание.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
+
+
 
 **[!TAB API]**
 
