@@ -13,6 +13,8 @@ items:
         items:
           - name: Установить права доступа
             href: operations/cloud/set-access-bindings.md
+          - name: Переключиться на другое облако
+            href: operations/cloud/switch-cloud.md
       - name: Каталог
         items:
           - name: Создать каталог
