@@ -14,7 +14,7 @@ items:
           - name: Добавить пользователя
             href: operations/users/create.md
           - name: Получить идентификатор или почту пользователя
-            href: operations/users/create.md
+            href: operations/users/get.md
           - name: Удалить пользователя
             href: operations/users/delete.md
       - name: Сервисные аккаунты
