@@ -23,4 +23,3 @@
 ## IAM-токены
 
 - [[!TITLE]](iam-token/create.md)
-- [[!TITLE]](iam-token/create-for-sa.md)
