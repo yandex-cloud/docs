@@ -19,6 +19,8 @@ items:
         items:
           - name: Создать каталог
             href: operations/folder/create.md
+          - name: Изменить каталог
+            href: operations/folder/update.md
           - name: Установить права доступа
             href: operations/folder/set-access-bindings.md
   - name: Основные понятия
