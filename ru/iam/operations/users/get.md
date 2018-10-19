@@ -30,6 +30,3 @@
 Чтобы получить идентификатор пользователя, воспользуйтесь методом [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) для ресурса [YandexPassportUserAccount](../../api-ref/YandexPassportUserAccount/index.md).
 
 ---
-
-## Примеры
-
