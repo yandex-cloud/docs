@@ -35,7 +35,7 @@ items:
             href: operations/roles/revoke.md
       - name: IAM-токены
         items:
-          - name: Получить IAM-токен для пользователя
+          - name: Получить свой IAM-токен
             href: operations/iam-token/create.md
           - name: Получить IAM-токен для сервисного аккаунта
             href: operations/iam-token/create-for-sa.md
