@@ -21,7 +21,7 @@
 1. Когда кластер будет готов к работе, его статус на панели [!KEYREF mdb-short-name] сменится на **RUNNING**.
 1. Чтобы подключиться к серверу БД, необходим SSL-сертификат. Подготовить все нужные аутентификационные данные можно, например, так:
 
-    [!INCLUDE [](_includes-service/get-cert.md)]
+    [!INCLUDE [get-cert](_includes-service/get-cert.md)]
     
 1. К БД можно подключиться командой `psql` (подробнее — в разделе [[!TITLE]](operations/postgresql/connect.md)):
     ```
