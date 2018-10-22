@@ -28,7 +28,7 @@
 Как управляются хосты ZooKeeper:
 
 * По умолчанию хосты ZooKeeper создаются с минимальным [классом БД](../concepts/instance-types.md).
-* [!KEYREF mdb-short-name] автоматически распределяет хосты ZooKeeper по подсетям той сети, в которой размещен [!KEYREF CH]-кластер.
+* Если вы не указали подсети для хостов ZooKeeper, [!KEYREF mdb-short-name] автоматически распределит их по подсетям той сети, в которой размещен [!KEYREF CH]-кластер.
 * Доступ к хостам ZooKeeper и их настройке не предоставляется, но вы можете изменить набор выделенных им ресурсов.
 
 Подробнее об использовании ZooKeeper для управления репликацией в [!KEYREF CH] см. [документацию [!KEYREF CH]](https://clickhouse.yandex/docs/ru/operations/table_engines/replication/).
@@ -53,7 +53,7 @@ CREATE TABLE db_01.table_01 (log_date Date, user_name String) \
 
 Чтобы создать реплицируемые таблицы на всех хостах кластера, отправьте распределенный DDL-запрос (описан в [документации [!KEYREF CH]](https://clickhouse.yandex/docs/ru/query_language/queries/#ddl-on-cluster)):
 ```
-CREATE TABLE db_01.table_01 ON CLUSTER 'my_cluster' (log_date Date, user_name String) \
+CREATE TABLE db_01.table_01 ON CLUSTER '{cluster}' (log_date Date, user_name String) \
  ENGINE = ReplicatedMergeTree('/table_01', '{replica}', log_date, (log_date, user_name), 8192);
 ```
 
