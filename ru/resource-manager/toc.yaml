@@ -13,10 +13,14 @@ items:
         items:
           - name: Установить права доступа
             href: operations/cloud/set-access-bindings.md
+          - name: Переключиться на другое облако
+            href: operations/cloud/switch-cloud.md
       - name: Каталог
         items:
           - name: Создать каталог
             href: operations/folder/create.md
+          - name: Изменить каталог
+            href: operations/folder/update.md
           - name: Установить права доступа
             href: operations/folder/set-access-bindings.md
   - name: Основные понятия
@@ -29,3 +33,53 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Обзор
+        href: api-ref/index.md
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: Cloud
+        items:
+          - name: Обзор
+            href: api-ref/Cloud/index.md
+          - name: get
+            href: api-ref/Cloud/get.md
+          - name: list
+            href: api-ref/Cloud/list.md
+          - name: listAccessBindings
+            href: api-ref/Cloud/listAccessBindings.md
+          - name: listOperations
+            href: api-ref/Cloud/listOperations.md
+          - name: setAccessBindings
+            href: api-ref/Cloud/setAccessBindings.md
+          - name: updateAccessBindings
+            href: api-ref/Cloud/updateAccessBindings.md
+      - name: Folder
+        items:
+          - name: Обзор
+            href: api-ref/Folder/index.md
+          - name: create
+            href: api-ref/Folder/create.md
+          - name: delete
+            href: api-ref/Folder/delete.md
+          - name: get
+            href: api-ref/Folder/get.md
+          - name: list
+            href: api-ref/Folder/list.md
+          - name: listAccessBindings
+            href: api-ref/Folder/listAccessBindings.md
+          - name: listOperations
+            href: api-ref/Folder/listOperations.md
+          - name: setAccessBindings
+            href: api-ref/Folder/setAccessBindings.md
+          - name: update
+            href: api-ref/Folder/update.md
+          - name: updateAccessBindings
+            href: api-ref/Folder/updateAccessBindings.md
+      - name: Operation
+        items:
+          - name: Обзор
+            href: api-ref/Operation/index.md
+          - name: get
+            href: api-ref/Operation/get.md

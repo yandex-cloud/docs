@@ -20,11 +20,9 @@
 1. Задайте параметры кластера и нажмите кнопку **Создать кластер**. Процесс подробно рассмотрен в разделе [[!TITLE]](operations/postgresql/cluster-create.md).
 1. Когда кластер будет готов к работе, его статус на панели [!KEYREF mdb-short-name] сменится на **RUNNING**.
 1. Чтобы подключиться к серверу БД, необходим SSL-сертификат. Подготовить все нужные аутентификационные данные можно, например, так:
-    ```bash
-    $ mkdir ~/.postgresql
-    $ wget "https://[!KEYREF s3-storage-host][!KEYREF pem-path]" -O ~/.postgresql/root.crt
-    $ chmod 0600 ~/.postgresql/root.crt
-    ```
+
+    [!INCLUDE [get-cert](_includes-service/get-cert.md)]
+    
 1. К БД можно подключиться командой `psql` (подробнее — в разделе [[!TITLE]](operations/postgresql/connect.md)):
     ```
     $ psql "host=<адрес хоста> \

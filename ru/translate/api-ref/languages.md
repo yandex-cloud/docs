@@ -15,7 +15,7 @@ POST https://translate.api.cloud.yandex.net/translate/v1/languages
 
 Параметр | Описание
 ----- | -----
-`folderid` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
+`folderId` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
 
 
 ## Ответ {#response}
@@ -40,7 +40,7 @@ POST https://translate.api.cloud.yandex.net/translate/v1/languages
 ```no-highlight
 curl -X POST \
      -H "Authorization: Bearer <IAM-token>" \
-     -d "folderid=<folder id>" \
+     -d "folderId=<folder id>" \
      "https://translate.api.cloud.yandex.net/translate/v1/languages"
 ```
 

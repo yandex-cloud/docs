@@ -18,7 +18,7 @@ items:
       - name: Создание виртуальной машины
         items:
           - name: Создать ВМ Linux
-            href: operations/vm-create/create-from-image.md
+            href: operations/vm-create/create-linux-vm.md
           - name: Создать ВМ Windows
             href: operations/vm-create/create-windows-vm.md
       - name: DSVM
@@ -35,25 +35,35 @@ items:
             href: operations/images-with-pre-installed-software/setup.md
           - name: Работать с ВМ
             href: operations/images-with-pre-installed-software/operate.md
+          - name: Получить список образов
+            href: operations/images-with-pre-installed-software/get-list.md
       - name: Получение информации о виртуальной машине
-        href: operations/vm-info/vm-info.md
+        items:
+          - name: Получить основную информацию и метаданные
+            href: operations/vm-info/get-info.md
+          - name: Получить вывод последовательного порта
+            href: operations/vm-info/get-serial-port-output.md
       - name: Управление виртуальной машиной
         items:
           - name: Подключиться к ВМ по SSH
             href: operations/vm-control/vm-connect-ssh.md
+          - name: Подключиться к ВМ по RDP
+            href: operations/vm-control/vm-connect-rdp.md
           - name: Остановить и запустить ВМ
             href: operations/vm-control/vm-stop-and-start.md
+          - name: Изменить ВМ
+            href: operations/vm-control/vm-update.md
           - name: Удалить ВМ
             href: operations/vm-control/vm-delete.md
       - name: Создание нового диска
         items:
-          - name: Создать пустой диск
+          - name: Создать пустой диcк
             href: operations/disk-create/empty.md
       - name: Управление диском
         items:
           - name: Сделать снимок диска
             href: operations/disk-control/create-snapshot.md
-          - name: Удалить диск
+          - name: Удалить диcк
             href: operations/disk-control/delete.md
           - name: Удалить снимок диска
             href: operations/snapshot-control/delete.md
@@ -91,14 +101,118 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Обзор
+        href: api-ref/index.md
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: Disk
+        items:
+          - name: Обзор
+            href: api-ref/Disk/index.md
+          - name: create
+            href: api-ref/Disk/create.md
+          - name: delete
+            href: api-ref/Disk/delete.md
+          - name: get
+            href: api-ref/Disk/get.md
+          - name: list
+            href: api-ref/Disk/list.md
+          - name: listOperations
+            href: api-ref/Disk/listOperations.md
+          - name: update
+            href: api-ref/Disk/update.md
+      - name: DiskType
+        items:
+          - name: Обзор
+            href: api-ref/DiskType/index.md
+          - name: get
+            href: api-ref/DiskType/get.md
+          - name: list
+            href: api-ref/DiskType/list.md
+      - name: Image
+        items:
+          - name: Обзор
+            href: api-ref/Image/index.md
+          - name: create
+            href: api-ref/Image/create.md
+          - name: delete
+            href: api-ref/Image/delete.md
+          - name: get
+            href: api-ref/Image/get.md
+          - name: getLatestByFamily
+            href: api-ref/Image/getLatestByFamily.md
+          - name: list
+            href: api-ref/Image/list.md
+          - name: listOperations
+            href: api-ref/Image/listOperations.md
+          - name: update
+            href: api-ref/Image/update.md
+      - name: Instance
+        items:
+          - name: Обзор
+            href: api-ref/Instance/index.md
+          - name: attachDisk
+            href: api-ref/Instance/attachDisk.md
+          - name: create
+            href: api-ref/Instance/create.md
+          - name: delete
+            href: api-ref/Instance/delete.md
+          - name: detachDisk
+            href: api-ref/Instance/detachDisk.md
+          - name: get
+            href: api-ref/Instance/get.md
+          - name: getSerialPortOutput
+            href: api-ref/Instance/getSerialPortOutput.md
+          - name: list
+            href: api-ref/Instance/list.md
+          - name: listOperations
+            href: api-ref/Instance/listOperations.md
+          - name: restart
+            href: api-ref/Instance/restart.md
+          - name: start
+            href: api-ref/Instance/start.md
+          - name: stop
+            href: api-ref/Instance/stop.md
+          - name: update
+            href: api-ref/Instance/update.md
+      - name: Operation
+        items:
+          - name: Обзор
+            href: api-ref/Operation/index.md
+          - name: get
+            href: api-ref/Operation/get.md
+      - name: Snapshot
+        items:
+          - name: Обзор
+            href: api-ref/Snapshot/index.md
+          - name: create
+            href: api-ref/Snapshot/create.md
+          - name: delete
+            href: api-ref/Snapshot/delete.md
+          - name: get
+            href: api-ref/Snapshot/get.md
+          - name: list
+            href: api-ref/Snapshot/list.md
+          - name: listOperations
+            href: api-ref/Snapshot/listOperations.md
+          - name: update
+            href: api-ref/Snapshot/update.md
+      - name: Zone
+        items:
+          - name: Обзор
+            href: api-ref/Zone/index.md
+          - name: get
+            href: api-ref/Zone/get.md
+          - name: list
+            href: api-ref/Zone/list.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы
         href: qa/general.md
-      - name: Технические характеристики
-        href: qa/hardware.md
-      - name: Операции с виртуальными машинами
-        href: qa/vm-operations.md
+      - name: Виртуальные машины
+        href: qa/vm.md
       - name: Диски и снимки
         href: qa/disks.md
       - name: Все вопросы на одной странице

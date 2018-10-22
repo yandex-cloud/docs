@@ -1,0 +1,34 @@
+title: "Концепции API Яндекс.Облака"
+items:
+  - name: О документе
+    href: index.yaml
+  - name: Основные принципы
+    href: concepts/general.md
+  - name: Ресурсы
+    items:
+      - name: Идентификация ресурсов
+        href: concepts/resources-identification.md
+      - name: Стандартные поля
+        href: concepts/standard-fields.md
+  - name: Методы API
+    items:
+      - name: Обзор
+        href: concepts/about-methods.md
+      - name: Стандартные методы
+        href: concepts/standard-methods.md
+      - name: Дополнительные методы
+        href: concepts/custom-methods.md
+      - name: Пагинация
+        href: concepts/pagination.md
+      - name: Обработка ошибок
+        href: concepts/errors.md
+  - name: Работа с операциями
+    items:
+      - name: Обзор
+        href: concepts/about-async.md
+      - name: Асинхронность
+        href: concepts/async.md
+      - name: Объект Operation
+        href: concepts/operation.md
+      - name: Идемпотентность
+        href: concepts/idempotency.md
