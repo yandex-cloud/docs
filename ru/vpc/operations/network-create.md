@@ -31,7 +31,7 @@
 1. Создайте облачную сеть в каталоге по умолчанию:
 
     ```
-    yc vpc network create --name test-network-1 --description "My test network"
+    $ yc vpc network create --name test-network-1 --description "My test network"
     ```
 
     [!INCLUDE [name-format](../../_includes/name-format.md)]
@@ -40,7 +40,7 @@
 1. Получите список всех облачных сетей в каталоге по умолчанию:
 
     ```
-    yc vpc network list
+    $ yc vpc network list
     +----------------------+----------------+
     |          ID          |      NAME      |
     +----------------------+----------------+
@@ -49,20 +49,20 @@
     +----------------------+----------------+
     ```
 
-Получите тот же список c большим количеством деталей в формате YAML:
+    Получите тот же список c большим количеством деталей в формате YAML:
 
-```
-yc vpc network list --format yaml
-- id: enpiuvhhd4t80k4n80i8
-  folder_id: b1g6ci08ma55klukmdjs
-  created_at: "2018-10-23T11:12:51Z"
-  name: test-network-1
-  description: My first network
-- id: enplom7a98s1t0lhass8
-  folder_id: b1g6ci08ma55klukmdjs
-  created_at: "2018-09-24T08:23:00Z"
-  name: default
-  description: Auto-created default network
-```
+    ```
+    $ yc vpc network list --format yaml
+    - id: enpiuvhhd4t80k4n80i8
+      folder_id: b1g6ci08ma55klukmdjs
+      created_at: "2018-10-23T11:12:51Z"
+      name: test-network-1
+      description: My first network
+    - id: enplom7a98s1t0lhass8
+      folder_id: b1g6ci08ma55klukmdjs
+      created_at: "2018-09-24T08:23:00Z"
+      name: default
+      description: Auto-created default network
+    ```
 
 ---

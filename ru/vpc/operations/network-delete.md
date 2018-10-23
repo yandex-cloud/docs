@@ -23,19 +23,19 @@
 1. Посмотрите описание команд CLI для удаления облачных сетей:
 
     ```
-    yc vpc network delete --help
+    $ yc vpc network delete --help
     ```
 
 1. Получите список всех сетей в каталоге по умолчанию:
 
     ```
-    yc vpc network list
+    $ yc vpc network list
     ```
 
 1. Выберите `ID` или `NAME` нужной сети.
 1. Удалите сеть:
 
     ```
-    yc vpc network delete --name test-network-1 
+    $ yc vpc network delete --name test-network-1 
     ```
 ---
