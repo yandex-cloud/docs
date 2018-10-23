@@ -9,52 +9,57 @@
 Чтобы создать [облачную сеть](../concepts/network.md):
 1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать облачную сеть.
 1. Нажмите кнопку **Создать сеть.**
-1. Задайте имя сети. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
+1. Задайте имя сети. 
+	[!INCLUDE [name-format](../../_includes/name-format.md)]
 1. Нажмите кнопку **Создать сеть**.
 
 После этого будет создана облачная сеть.
 
 **[!TAB CLI]**
 
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
+
 Чтобы создать [облачную сеть](../concepts/network.md):
 1. Посмотрите описание команд CLI для создания облачных сетей:
 
-	```
-	yc vpc network create --help
-	```
+    ```
+    yc vpc network create --help
+    ```
 1. Создайте облачную сеть в каталоге по умолчанию:
 
-	```
-	yc vpc network create --name test-network-1 --description "My test network"
-	```
-Флаги `--name` и `--description` необязательные. Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не должен быть дефисом. Максимальная длина имени — 63 символа.
+    ```
+    yc vpc network create --name test-network-1 --description "My test network"
+    ```
+Флаги `--name` и `--description` необязательные. 
+
+	[!INCLUDE [name-format](../../_includes/name-format.md)]
 
 1. Получите список всех облачных сетей в каталоге по умолчанию:
 
-	```
-	yc vpc network list
-	+----------------------+----------------+
-	|          ID          |      NAME      |
-	+----------------------+----------------+
-	| enpiuvhhd4t80k4n80i8 | test-network-1 |
-	| enplom7a98s1t0lhass8 | default        |
-	+----------------------+----------------+
-	```
+    ```
+    yc vpc network list
+    +----------------------+----------------+
+    |          ID          |      NAME      |
+    +----------------------+----------------+
+    | enpiuvhhd4t80k4n80i8 | test-network-1 |
+    | enplom7a98s1t0lhass8 | default        |
+    +----------------------+----------------+
+    ```
 
 Получите тот же список c большим количеством деталей в формате YAML:
 
-	```
-	yc vpc network list --format yaml
-	- id: enpiuvhhd4t80k4n80i8
-	  folder_id: b1g6ci08ma55klukmdjs
-	  created_at: "2018-10-23T11:12:51Z"
-	  name: test-network-1
-	  description: My first network
-	- id: enplom7a98s1t0lhass8
-	  folder_id: b1g6ci08ma55klukmdjs
-	  created_at: "2018-09-24T08:23:00Z"
-	  name: default
-	  description: Auto-created default network
-	```
+    ```
+    yc vpc network list --format yaml
+    - id: enpiuvhhd4t80k4n80i8
+      folder_id: b1g6ci08ma55klukmdjs
+      created_at: "2018-10-23T11:12:51Z"
+      name: test-network-1
+      description: My first network
+    - id: enplom7a98s1t0lhass8
+      folder_id: b1g6ci08ma55klukmdjs
+      created_at: "2018-09-24T08:23:00Z"
+      name: default
+      description: Auto-created default network
+    ```
 
 ---
