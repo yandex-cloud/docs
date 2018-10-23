@@ -1,5 +1,7 @@
 # Создать облачную сеть
 
+Помимо облачной сети по умолчанию вы можете создавать дополнительные облачные сети.
+
 ---
 
 **[!TAB Консоль управления]**
@@ -16,10 +18,10 @@
 
 Чтобы создать [облачную сеть](../concepts/network.md):
 1. Посмотрите описание команд CLI для создания облачных сетей:
-
 ~~~
 yc vpc network create --help
 ~~~
+
 1. Создайте облачную сеть в каталоге по умолчанию:
 ~~~
 yc vpc network create --name test-network-1 --description "My test network"
@@ -51,3 +53,5 @@ yc vpc network list --format yaml
   name: default
   description: Auto-created default network
 ~~~
+
+---
