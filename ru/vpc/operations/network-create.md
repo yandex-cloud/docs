@@ -25,14 +25,16 @@
     ```
     yc vpc network create --help
     ```
+
 1. Создайте облачную сеть в каталоге по умолчанию:
 
     ```
     yc vpc network create --name test-network-1 --description "My test network"
     ```
+
 Флаги `--name` и `--description` необязательные. 
 
-	[!INCLUDE [name-format](../../_includes/name-format.md)]
+[!INCLUDE [name-format](../../_includes/name-format.md)]
 
 1. Получите список всех облачных сетей в каталоге по умолчанию:
 
