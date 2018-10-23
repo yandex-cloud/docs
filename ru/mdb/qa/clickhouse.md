@@ -60,4 +60,4 @@
 
 При создании кластера [!KEYREF CH] из 2 и более хостов [!KEYREF mdb-short-name] автоматически создает кластер из 3 хостов ZooKeeper для управления репликацией и отказоустойчивостью. Эти хосты учитываются в расчете использованной [квоты ресурсов](https://console.cloud.yandex.ru/?section=quotas) в облаке, и в расчете стоимости кластера. По умолчанию хосты ZooKeeper создаются с минимальным [классом БД](../concepts/instance-types.md).
  
-Подробнее об использовании ZooKeeper см. [документацию ClickHouse](https://clickhouse.yandex/docs/ru/operations/table_engines/replication/)).
+Подробнее об использовании ZooKeeper см. [документацию ClickHouse](https://clickhouse.yandex/docs/ru/operations/table_engines/replication/).
