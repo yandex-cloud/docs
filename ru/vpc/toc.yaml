@@ -15,6 +15,8 @@ items:
             href: operations/network-create.md
           - name: Удалить облачную сеть
             href: operations/network-delete.md
+          - name: Изменить облачную сеть
+            href: operations/network-create.md
       - name: Подсеть
         items:
           - name: Создать подсеть
