@@ -1,8 +1,8 @@
-#### [!KEYREF roles-cloud-member] {#member}
+#### [!KEYREF roles-cloud-member]
 
 [!INCLUDE [roles-cloud-member](roles-cloud-member.md)]
 
-#### [!KEYREF roles-cloud-owner] {#owner}
+#### [!KEYREF roles-cloud-owner]
 
 Роль `[!KEYREF roles-cloud-owner]` назначается на облако и делает пользователя [владельцем облака](../resource-manager/concepts/resources-hierarchy.md#owner). Владелец может выполнять любые операции с облаком и ресурсами в нем.
 
