@@ -10,7 +10,9 @@
 1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать облачную сеть.
 1. Нажмите кнопку **Создать сеть.**
 1. Задайте имя сети. 
-	[!INCLUDE [name-format](../../_includes/name-format.md)]
+	
+    [!INCLUDE [name-format](../../_includes/name-format.md)]
+
 1. Нажмите кнопку **Создать сеть**.
 
 После этого будет создана облачная сеть.
@@ -32,10 +34,9 @@
     yc vpc network create --name test-network-1 --description "My test network"
     ```
 
+    [!INCLUDE [name-format](../../_includes/name-format.md)]
+
 Флаги `--name` и `--description` необязательные. 
-
-[!INCLUDE [name-format](../../_includes/name-format.md)]
-
 1. Получите список всех облачных сетей в каталоге по умолчанию:
 
     ```
