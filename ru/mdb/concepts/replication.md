@@ -59,7 +59,7 @@ CREATE TABLE db_01.table_01 ON CLUSTER '{cluster}' (log_date Date, user_name Str
 
 Здесь:
 
-- `my_cluster` — имя кластера [!KEYREF mdb-short-name], которое было получено при его [создании](../operations/clickhouse/cluster-create.md).
+- `'{cluster}'` — имя кластера [!KEYREF mdb-short-name], которое было получено при его [создании](../operations/clickhouse/cluster-create.md).
 
 
 ## [!KEYREF MG]
