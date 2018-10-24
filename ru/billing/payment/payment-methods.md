@@ -3,18 +3,13 @@
 Оплата ресурсов — зачисление средств на индивидуальный [лицевой счет](../concepts/personal-account.md) на основании [договора](../concepts/contract.md). 
 <br/>Способ зачисления средств зависит от юридического статуса ([типа платежного аккаунта](../concepts/billing-account.md#ba-types)):
 
----
+**Физические лица**
 
-**[!TAB Физические лица]**
+[Перевод с банковской карты](payment-methods-individual.md#debit-card) 
 
-[Банковская карта](payment-methods-individual.md#debit-card) 
 
-       
-**[!TAB Юридические лица]**
+**Юридические лица**
+<br/>[Перевод с расчетного счета](payment-methods-business.md)
+<br/>[Перевод с банковской карты](payment-methods-card-business.md)
 
-[Банковский перевод](payment-methods-business.md)
-[Банковская карта](payment-methods-card-business.md)
 
-    
----   
-       
