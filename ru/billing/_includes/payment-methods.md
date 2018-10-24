@@ -4,13 +4,13 @@
 
 **[!TAB Физические лица]**
 
-[Оплата банковской картой](payment-methods-individual.md#debit-card) 
+- [Перевод с банковской карты](payment-methods-individual.md#debit-card) 
 
        
 **[!TAB Юридические лица]**
 
-[Оплата счета в банке](payment-methods-business.md)
-<br/>[Оплата банковской картой](payment-methods-card-business.md)
+- [Перевод с расчетного счета (через банк)](payment-methods-business.md)
+- [Перевод с банковской карты](payment-methods-card-business.md)
 
     
 ---   
