@@ -4,12 +4,12 @@
 
 ##Перевод с расчетного счета
 
-### Выставление счета {#payment-amount}
+#### Выставление счета {#payment-amount}
  
 [!INCLUDE [bill-note](../_includes/bill-note.md)]  
 
 
-### Сумма счета {#payment-summ}
+#### Сумма счета {#payment-summ}
 
 [!INCLUDE [bill-amount](../_includes/bill-amount.md)]
  
@@ -50,7 +50,7 @@
   ---    
 
   
-### Оплата счета {#payment}
+#### Оплата счета {#payment}
 
 Полученный счет можно оплатить с помощью банковского перевода в отделении любого банка или через систему клиент-банк.
 
@@ -68,7 +68,7 @@
 > Оплата счета должна быть проведена с расчетного счета, открытого на юридическое лицо (организация или ИП), на которое был заведен платежный аккаунт.   
 > 
 
-### Сроки оплаты  {#limits}
+#### Сроки оплаты  {#limits}
 
 Оплатить счет необходимо в сроки, предусмотренные [договором](../concepts/contract.md). Сроки зачисления средств на лицевой счет зависят от банка, проводящего платеж. 
 > [!NOTE]
@@ -80,16 +80,16 @@
 
 [!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]  
 
-### Привязка банковской карты {#pin-card}
+#### Привязка банковской карты {#pin-card}
 
 Юридические лица могут привязать корпоративную банковскую карту к платежному аккаунту как при его [создании](../quickstart/index.md), так и после.
 
 [!INCLUDE [payment-card-validation](../_includes/payment-card-validation.md)]  
 
-### Списание средств {#write-off}
+#### Списание средств {#write-off}
 
 [!INCLUDE [pay-by-card](../_includes/pay-by-card.md)] 
 
-### Сумма списания {#payment-amount}
+#### Сумма списания {#payment-amount}
 
 [!INCLUDE [payment-amount](../_includes/payment-amount.md)] 
