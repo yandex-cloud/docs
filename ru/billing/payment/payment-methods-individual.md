@@ -13,7 +13,7 @@
 ## Списание средств {#write-off}
 
 [!INCLUDE [pay-by-card](../_includes/pay-by-card.md)] 
->
+
 
 ## Сумма списания {#payment-amount}
 
