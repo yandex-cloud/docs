@@ -36,6 +36,6 @@
 1. Удалите подсеть:
 
     ```
-    $ yc vpc network delete --name test-network-1 
+    $ yc vpc subnet delete --name test-subnet-1 
     ```
 ---
