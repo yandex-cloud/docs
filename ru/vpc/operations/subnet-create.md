@@ -30,7 +30,7 @@
 1. Создайте подсеть в каталоге и облачной сети по умолчанию:
 
     ```
-    $ yc vpc subnet create --name test-subnet-1 --description "My test subnet" / 
+    $ yc vpc subnet create --name test-subnet-1 --description "My test subnet"
     --network-name default --zone ru-central1-b --range 192.168.0.0/24
     ```
 
