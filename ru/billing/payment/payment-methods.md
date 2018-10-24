@@ -13,6 +13,7 @@
 **[!TAB Юридические лица]**
 
 [Банковский перевод](payment-methods-business.md)
+[Банковская карта](payment-methods-card-business.md)
 
     
 ---   
