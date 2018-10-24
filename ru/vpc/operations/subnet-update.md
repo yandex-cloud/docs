@@ -8,7 +8,7 @@
 
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
-1. Посмотрите описание команд CLI для обновления параметров облачных сетей:
+1. Посмотрите описание команд CLI для обновления параметров подсетей:
 
     ```
     $ yc vpc subnet update --help
