@@ -53,7 +53,7 @@
 
 ---
 
-При создании виртуальной машине назначаются IP-адрес и имя хоста (FQDN). Эти данные можно использовать для доступа по SSH.
+[!INCLUDE [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md)]
 
 #### См. также
 - [[!TITLE]](../vm-control/vm-connect-ssh.md)
