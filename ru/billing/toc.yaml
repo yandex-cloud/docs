@@ -61,9 +61,9 @@ items:
           href: payment/payment-methods-individual.md
         - name: Для юридических лиц
           items:
-          - name: Оплата счета в банке
+          - name: Перевод с расчетного счета
             href: payment/payment-methods-business.md
-          - name: Оплата банковской картой
+          - name: Перевод с банковской карты
             href: payment/payment-methods-card-business.md
     - name: Цикл оплаты
       items:
