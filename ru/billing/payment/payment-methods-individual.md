@@ -14,7 +14,7 @@
 
 [!INCLUDE [refill-by-card](../_includes/refill-by-card.md)] 
 
-<br/>Дополнительную информацию см. в разделе [Цикл оплаты](../payment/billing-cycle-individual.md).
+Дополнительную информацию см. в разделе [Цикл оплаты](../payment/billing-cycle-individual.md).
 
 ## Списание средств {#write-off}
 
