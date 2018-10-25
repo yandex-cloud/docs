@@ -109,7 +109,9 @@
        <br/>Привяжите корпоративную банковскую карту:
          - Нажмите кнопку **Добавить карту**.
          - Укажите данные карты: 16-значный номер, срок действия, код CVV (с обратной стороны карты).
-         - Нажмите кнопку **Сохранить**.<br/>[!INCLUDE [payment-card-validation](../_includes/payment-card-validation.md)]  
+         - Нажмите кнопку **Сохранить**.
+         
+         [!INCLUDE [payment-card-validation](../_includes/payment-card-validation.md)]  
      
    ---     
    
