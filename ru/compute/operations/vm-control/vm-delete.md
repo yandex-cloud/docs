@@ -32,21 +32,13 @@
 
 1. Получите список виртуальных машин в каталоге по умолчанию:
 
-    ```
-    $ yc compute instance list
-    +----------------------+---------------+---------------+---------+---------------------+
-    |          ID          |     NAME      |    ZONE ID    | STATUS  |     DESCRIPTION     |
-    +----------------------+---------------+---------------+---------+---------------------+
-    | fhm0b28lgfp4tkoa3jl6 | my-windows-vm | ru-central1-a | RUNNING | my first vm via CLI |
-    | fhm9gk85nj7gcoji2f8s | my-linux-vm   | ru-central1-a | RUNNING | my second vm via CLI |
-    +----------------------+---------------+---------------+---------+---------------------+
-    ```
+    [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
 
-1. Выберите `ID` или `NAME` нужной машины.
+1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
 1. Удалите виртуальную машину:
 
     ```
-    $ yc compute instance delete my-windows-vm
+    $ yc compute instance delete first-instance
     ```
 
 ---
