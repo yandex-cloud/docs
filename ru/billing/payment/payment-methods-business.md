@@ -2,8 +2,6 @@
 
 Юридические лица могут оплачивать потребленные ресурсы на основании [договора](../concepts/contract.md) и выставленного [счета](../concepts/bill.md). Выставленный счет оплачивается с помощью перевода средств с расчетного счета в банке.
 
-[!INCLUDE [payment-bill-note](../_includes/payment-bill-note.md)]
-
 ## Выставление счета {#payment-amount}
  
 [!INCLUDE [bill-note](../_includes/bill-note.md)]  
@@ -21,6 +19,9 @@
 ## Оплата счета {#payment}
 
 [!INCLUDE [how-to-pay](../_includes/how-to-pay.md)]  
+
+[!INCLUDE [payment-bill-note](../_includes/payment-bill-note.md)]
+
 
 ## Сроки оплаты  {#limits}
 
