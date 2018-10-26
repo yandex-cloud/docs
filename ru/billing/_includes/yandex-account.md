@@ -1,19 +1,6 @@
-Доступ к Биллингу предоставляется пользователям с зарегистрированным аккаунтом в Яндекс.Паспорте или Яндекс.Коннекте.
-
-  ---  
-      
- **[!TAB Аккаунт Яндекс.Паспорта]**
+Доступ к Биллингу предоставляется пользователям с зарегистрированным аккаунтом в Яндекс.Паспорте или Яндекс.Коннекте: 
  
- - Если у вас еще нет аккаунта, [создайте его](https://passport.yandex.ru/registration). 
+ - Если у вас или вашего сотрудника еще нет аккаунта, создайте его в [Яндекс.Паспорте](https://passport.yandex.ru/registration) или [Яндекс.Коннекте](https://yandex.ru/support/connect/org-structure.html#org-structure__manage-user). 
  - Если для авторизации на Яндексе вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1). 
  
- 
-        
- **[!TAB Аккаунт Яндекс.Коннекта]**
- 
-  Если у вас или вашего сотрудника еще нет аккаунта, [создайте его](https://yandex.ru/support/connect/org-structure.html#org-structure__manage-user). 
- 
-       
-  ---   
-
-К аккаунту обязательно должен быть привязан ваш номер телефона. См. подробную инструкцию в [Помощи](https://yandex.ru/support/passport/authorization/registration.html) Яндекс.Паспорта и [Помощи](https://yandex.ru/support/connect/org-structure.html) Яндекс.Коннекта.
+К аккаунту обязательно должен быть привязан ваш номер телефона. Подробные инструкции смотри в помощи [Яндекс.Паспорта](https://yandex.ru/support/passport/authorization/registration.html) и [Яндекс.Коннекта](https://yandex.ru/support/connect/org-structure.html).
