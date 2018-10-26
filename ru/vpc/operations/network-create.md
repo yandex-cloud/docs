@@ -26,7 +26,7 @@ https://cloud.yandex.ru/docs/cli/quickstart#install
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы создать [облачную сеть](../concepts/network.md):
-1. Посмотрите описание команд CLI для создания облачных сетей:
+1. Посмотрите описание команд CLI для создания облачной сети:
 
     ```
     $ yc vpc network create --help
@@ -35,7 +35,8 @@ https://cloud.yandex.ru/docs/cli/quickstart#install
 1. Создайте облачную сеть в каталоге по умолчанию:
 
     ```
-    $ yc vpc network create --name test-network-1 --description "My test network"
+    $ yc vpc network create --name test-network-1 \
+        --description "My test network"
     ```
 
     [!INCLUDE [name-format](../../_includes/name-format.md)]
