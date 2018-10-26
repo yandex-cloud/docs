@@ -23,7 +23,7 @@
 
 1. Выберите виртуальную машину, например `my-instance`:
 
-    [!INCLUDE [cli-instance-list](../../_includes_service/cli-instance-list.md)]
+    [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
 
 1. Получите вывод последовательного порта. Вывод последовательного порта обычно длинный, поэтому его стоит писать в файл:
 
