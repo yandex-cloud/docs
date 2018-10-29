@@ -47,9 +47,10 @@
     $ yc vpc subnet delete test-subnet-1 
     ```
 
-    Чтобы удалить подсеть из другого каталога используйте флаги `folder-id` или `--folder-name`.
+    Чтобы удалить подсеть из другого каталога используйте флаги `--folder-id` или `--folder-name`.
 
     ```
+    $ yc vpc subnet delete test-subnet-2 --folder-id b1gnbfd11bq5g5vnjgr4
     $ yc vpc subnet delete test-subnet-2 --folder-name test-folder
     ```
 ---
