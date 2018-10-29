@@ -32,7 +32,7 @@ hosts.<br>clusterId | **string**<br><p>Идентификатор хоста Cli
 hosts.<br>zoneId | **string**<br><p>Идентификатор зоны доступности, в которой находится хост ClickHouse.</p> 
 hosts.<br>type | **string**<br><p>Тип хоста.</p> <ul> <li>CLICKHOUSE: Хост ClickHouse.</li> <li>ZOOKEEPER: Хост ZooKeeper.</li> </ul> 
 hosts.<br>resources | **object**<br><p>Ресурсы, выделенные хосту ClickHouse.</p> 
-hosts.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/mdb/concepts/instance-types">Классы баз данных</a></p> 
+hosts.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/mdb/concepts/instance-types">Классы хостов</a></p> 
 hosts.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступный хосту, в байтах.</p> 
 hosts.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>local-ssd — хранилище на базе локальных SSD-дисков.</li> </ul> 
 hosts.<br>health | **string**<br><p>Код работоспособности хоста.</p> <ul> <li>ALIVE: Хост выполняет все свои функции в нормальном режиме.</li> <li>DEAD: Хост не работает и не может выполнять свои основные функции.</li> <li>DEGRADED: Хост деградировал, и может выполнять только некоторые из своих основных функций.</li> </ul> 
