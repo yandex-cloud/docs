@@ -53,4 +53,13 @@
     $ yc vpc subnet delete test-subnet-2 --folder-id b1gnbfd11bq5g5vnjgr4
     $ yc vpc subnet delete test-subnet-2 --folder-name test-folder
     ```
+
+    Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
+
+    ```
+    $ yc vpc network delete --id enpavfmgapumnl7cqin8
+    ```
+    ```
+    $ yc vpc network delete --name test-network-1
+    ```
 ---

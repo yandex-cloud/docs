@@ -20,13 +20,13 @@
 
     ```
     $ yc vpc subnet list
-    +----------------------+-----------------------+----------------------+---------------+------------------+
-    |          ID          |         NAME          |      NETWORK ID      |     ZONE      |      RANGE       |
-    +----------------------+-----------------------+----------------------+---------------+------------------+
+    +----------------------+-----------------------+----------------------+
+    |          ID          |         NAME          |         ...          |
+    +----------------------+-----------------------+----------------------+
     ...
-    | e2l2prrbkbimvjuuhht2 |     test-subnet-1     |         ...          |      ...      |       ...        |
+    | e2l2prrbkbimvjuuhht2 |     test-subnet-1     |         ...          |
     ...
-    +----------------------+-----------------------+----------------------+---------------+------------------+
+    +----------------------+-----------------------+----------------------+
     ```
 
 1. Выберите `ID` или `NAME` нужной подсети.
@@ -68,10 +68,16 @@
     - 192.168.0.0/24
     ```
 
-    Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью флагов --id и --name:
+    Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
 
     ```
-    $ yc vpc network update --id enpavfmgapumnl7cqin8 --new-name test-network-renamed --labels new_label=test_label
-    $ yc vpc network update --name test-network-1 --new-name test-network-renamed --labels new_label=test_label
+    $ yc vpc network update --id enpavfmgapumnl7cqin8 \
+    --new-name test-network-renamed \
+    --labels new_label=test_label
+    ```
+    ```
+    $ yc vpc network update --name test-network-1 \
+    --new-name test-network-renamed \
+    --labels new_label=test_label
     ```
 ---
