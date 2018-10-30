@@ -22,7 +22,7 @@ items:
         - name: S3cmd
           href: instruments/s3cmd.md
         - name: s3fs
-          href: instrument/s3fs.md
+          href: instruments/s3fs.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
