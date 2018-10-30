@@ -1,0 +1,29 @@
+title: "Сценарии использования"
+icon: "/img/tutorials.svg"
+items:
+  - name: Сценарии использования
+    href: index.yaml
+  - name: Веб-сервисы
+    items:
+    - name: Обзор
+      href: web/index.md
+    - name: Статический сайт
+      href: web/static.md
+    - name: Динамический сайт на LAMP- или LEMP-стеке
+      href: web/lamp-lemp.md
+    - name: Сайт на базе WordPress с БД PostgeSQL
+      href: web/wordpress-postgresql.md
+    - name: DNS-балансировщик нагрузки с высокой доступностью
+      href: web/dns-load-balancer.md
+  - name: Тестовая среда
+    items:
+    - name: Создание и восстановление вытесняемой машины
+      href: test/index.md
+  - name: Архив данных
+    items:
+    - name: Обзор
+      href: archive/index.md
+    - name: Однонодовый файловый сервер
+      href: archive/single-node-file-server.md
+    - name: Система резервного копирования на базе Hystax
+      href: archive/hystax-based-buckup.md
