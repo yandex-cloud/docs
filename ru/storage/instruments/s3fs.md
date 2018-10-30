@@ -2,6 +2,10 @@
 
 [s3fs](https://github.com/s3fs-fuse/s3fs-fuse) — программа для Linux и MacOS, позволяющая монтировать корзины [!KEYREF objstorage-name] через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).
 
+> [!NOTE]
+>
+> Рекомендуем использовать s3fs версии не ниже 1.83
+
 ## Подготовка к работе {#preparations}
 
 [!INCLUDE [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md)]
@@ -25,11 +29,17 @@ chmod 600  ~/.passwd-s3fs
 2. Выполните команду вида:
 
     ```
-    s3fs bucket-name /mount/folder/name -o passwd_file=~/.passwd-s3fs -o url=http://storage.yandexcloud.net -o use_path_request_style
+    s3fs bucket-name /mount/folder/name -o passwd_file=~/.passwd-s3fs -o url=http://storage.yandexcloud.net -o use_path_request_style -o nocopyapi
     ```
 
 Можно настроить монтирование корзины при запуске системы для этого добавьте в файл `/etc/fstab` строку вида:
 
 ```
-s3fs#bucket-name /mount/folder/name fuse _netdev,allow_other,use_path_request_style,url=http://storage.yandexcloud.net 0 0
+s3fs#bucket-name /mount/folder/name fuse _netdev,allow_other,use_path_request_style,nocopyapi,url=http://storage.yandexcloud.net 0 0
 ```
+
+> [!NOTE]
+> 
+> Обязательно используйте параметры `use_path_request_style` и `nocopyapi`. Они обеспечивают совсестимость с HTTP API [!KEYREF objstorage-name], совместимым с Amazon S3.
+
+Описание всех параметров s3fs смотрите в [вики проекта](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Fuse-Over-Amazon) на GitHub.
