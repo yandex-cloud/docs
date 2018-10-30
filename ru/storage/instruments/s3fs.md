@@ -4,7 +4,7 @@
 
 > [!NOTE]
 >
-> Рекомендуем использовать версию s3fs не ниже 1.83.
+> Рекомендуем использовать версию s3fs не ниже 1.84.
 
 ## Подготовка к работе {#preparations}
 
@@ -40,6 +40,6 @@ s3fs#bucket-name /mount/folder/name fuse _netdev,allow_other,use_path_request_st
 
 > [!NOTE]
 > 
-> Обязательно используйте параметры `use_path_request_style` и `nocopyapi`. Они обеспечивают корректное взаимодействие с консолью управления Яндекс.Облака и HTTP API, совместимым с Amazon S3.
+> Обязательно используйте параметр `nocopyapi`, он обеспечивает корректное взаимодействие с HTTP API, совместимым с Amazon S3.
 
 Описание всех параметров s3fs смотрите в [вики проекта](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Fuse-Over-Amazon) на GitHub.
