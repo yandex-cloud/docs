@@ -40,4 +40,4 @@ http(s)://[!KEYREF s3-web-host]/<имя_корзины>
 
 >[!NOTE]
 >
->Сайт доступен только по протолу HTTP, например, `http://example.com` или http://example.com.[!KEYREF s3-web-host]`.
+>Сайт доступен только по протолу HTTP, например, `http://example.com` или `http://example.com.[!KEYREF s3-web-host]`.
