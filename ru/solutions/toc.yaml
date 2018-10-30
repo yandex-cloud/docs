@@ -13,7 +13,7 @@ items:
       href: web/lamp-lemp.md
     - name: Сайт на базе WordPress с БД PostgeSQL
       href: web/wordpress-postgresql.md
-    - name: DNS-балансировщик нагрузки с высокой доступностью
+    - name: Отказоустойчивый веб-сайт с DNS-балансировкой нагрузки
       href: web/dns-load-balancer.md
   - name: Тестовая среда
     items:
