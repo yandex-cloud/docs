@@ -47,13 +47,13 @@
         --ssh-key ~/.ssh/id_rsa.pub
     ```
 
-    Данная команда создаст виртуальную машину с OC CentOS 7, именем `my-yc-vm` в зоне `ru-central1-a` и с публичным IP.
+    Данная команда создаст виртуальную машину с OC CentOS 7, именем `my-yc-vm` в зоне `ru-central1-a` и с публичным IP. Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
 ---
 
-При создании виртуальной машине назначаются IP-адрес и имя хоста (FQDN). Эти данные можно использовать для доступа по SSH.
+[!INCLUDE [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md)]
 
 #### См. также
 - [[!TITLE]](../vm-control/vm-connect-ssh.md)

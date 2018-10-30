@@ -8,6 +8,8 @@
 
 [!INCLUDE [create-instance-via-concole-linux](../_includes_service/create-instance-via-concole-linux.md)]
 
+[!INCLUDE [ip-fqdn-connection](../../_includes/ip-fqdn-connection.md)]
+
 >[!NOTE]
 >
 >[!INCLUDE [change-vm-resources](../_includes_service/change-vm-resources.md)]

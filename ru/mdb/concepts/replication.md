@@ -3,7 +3,7 @@
 [!KEYREF mdb-short-name] обеспечивает автоматическое и ручное резервное копирование для всех поддерживаемых СУБД.
 
 
-## [!KEYREF PG]
+## [!KEYREF PG] {#postgresql}
 
 В кластерах [!KEYREF PG] используется синхронная репликация: результат запроса на запись информации отражается одновременно на хосте-мастере и приоритетной реплике. На остальных репликах кластера данные дублируются асинхронно.
 
@@ -12,7 +12,29 @@
 Подробнее о том, как организована репликация в [!KEYREF PG], читайте в [документации СУБД](https://www.postgresql.org/docs/10/static/warm-standby.html).
 
 
-## [!KEYREF CH]
+## [!KEYREF CH] {#clickhouse}
+
+[!KEYREF mdb-short-name] помогает организовать репликацию для кластеров [!KEYREF CH] из 2 и более хостов с помощью Apache ZooKeeper. Необходимо только создать таблицы нужного вида, хосты ZooKeeper будут настроены автоматически.
+
+> [!NOTE]
+>
+> Если вы создали кластер [!KEYREF CH] из 2 и более хостов, уменьшить количество хостов до 1 пока невозможно.
+
+
+### Хосты ZooKeeper {#zookeeper-hosts}
+
+Для каждого кластера [!KEYREF CH] из 2 и более хостов [!KEYREF mdb-short-name] создает кластер из 3 хостов ZooKeeper. Хосты ZooKeeper учитываются при расчете [потребления ресурсов](https://console.cloud.yandex.ru/?section=quotas) и стоимости кластера. 
+
+Как управляются хосты ZooKeeper:
+
+* По умолчанию хосты ZooKeeper создаются с минимальным [классом БД](../concepts/instance-types.md). Вы можете задать нужный класс БД при создании кластера [через API](../api-ref/clickhouse/Cluster/create.md).
+* Если вы не указали подсети для хостов ZooKeeper, [!KEYREF mdb-short-name] автоматически распределит их по подсетям той сети, к которой подключен [!KEYREF CH]-кластер.
+* Возможность подключиться к ZooKeeper и настроить его не предоставляется. Но вы можете изменить ресурсы, выделенные хостам ZooKeeper, изменив класс БД.
+
+Подробнее об использовании ZooKeeper для управления репликацией в [!KEYREF CH] см. [документацию [!KEYREF CH]](https://clickhouse.yandex/docs/ru/operations/table_engines/replication/).
+
+
+### Реплицируемые таблицы
 
 [!KEYREF CH] поддерживает автоматическую репликацию только для таблиц семейства `ReplicatedMergeTree` (см. раздел [Репликация данных](https://clickhouse.yandex/docs/ru/table_engines/replication/) в документации [!KEYREF CH]). Чтобы обеспечить репликацию, вы можете создать такие таблицы на каждой реплике по отдельности или использовать распределенный DDL-запрос.
 
@@ -31,13 +53,11 @@ CREATE TABLE db_01.table_01 (log_date Date, user_name String) \
 
 Чтобы создать реплицируемые таблицы на всех хостах кластера, отправьте распределенный DDL-запрос (описан в [документации [!KEYREF CH]](https://clickhouse.yandex/docs/ru/query_language/queries/#ddl-on-cluster)):
 ```
-CREATE TABLE db_01.table_01 ON CLUSTER 'my_cluster' (log_date Date, user_name String) \
+CREATE TABLE db_01.table_01 ON CLUSTER '{cluster}' (log_date Date, user_name String) \
  ENGINE = ReplicatedMergeTree('/table_01', '{replica}', log_date, (log_date, user_name), 8192);
 ```
 
-Здесь:
-
-- `my_cluster` — имя кластера [!KEYREF mdb-short-name], которое было получено при его [создании](../operations/clickhouse/cluster-create.md).
+Аргумент `'{cluster}'` автоматически разрешится в идентификатор кластера [!KEYREF mdb-short-name].
 
 
 ## [!KEYREF MG]

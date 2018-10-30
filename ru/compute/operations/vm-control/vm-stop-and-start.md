@@ -32,21 +32,13 @@
 
 1. Получите список всех виртуальных машин в каталоге по умолчанию:
 
-    ```
-    $ yc compute instance list
-    +----------------------+---------------+---------------+---------+---------------------+
-    |          ID          |     NAME      |    ZONE ID    | STATUS  |     DESCRIPTION     |
-    +----------------------+---------------+---------------+---------+---------------------+
-    | fhm0b28lgfp4tkoa3jl6 | my-windows-vm | ru-central1-a | RUNNING | my first vm via CLI |
-    | fhm9gk85nj7gcoji2f8s | my-linux-vm   | ru-central1-a | RUNNING | my second vm via CLI |
-    +----------------------+---------------+---------------+---------+---------------------+
-    ```
+    [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
 
-1. Выберите `ID` или `NAME` нужной машины.
+1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
 1. Остановите виртуальную машину:
 
     ```
-    $ yc compute instance stop my-windows-vm
+    $ yc compute instance stop first-instance
     ```
 
 ---
@@ -79,21 +71,13 @@
 
 1. Получите список всех виртуальных машин в каталоге по умолчанию:
 
-    ```
-    $ yc compute instance list
-    +----------------------+---------------+---------------+---------+---------------------+
-    |          ID          |     NAME      |    ZONE ID    | STATUS  |     DESCRIPTION     |
-    +----------------------+---------------+---------------+---------+---------------------+
-    | fhm0b28lgfp4tkoa3jl6 | my-windows-vm | ru-central1-a | STOPPED | my first vm via CLI |
-    | fhm9gk85nj7gcoji2f8s | my-linux-vm   | ru-central1-a | STOPPED | my second vm via CLI |
-    +----------------------+---------------+---------------+---------+---------------------+
-    ```
+    [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
 
-1. Выберите `ID` или `NAME` нужной машины.
+1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
 1. Запустите виртуальную машину:
 
     ```
-    $ yc compute instance start my-windows-vm
+    $ yc compute instance start first-instance
     ```
 
 ---
@@ -126,21 +110,13 @@
 
 1. Получите список всех виртуальных машин в каталоге по умолчанию:
 
-    ```
-    $ yc compute instance list
-    +----------------------+---------------+---------------+---------+---------------------+
-    |          ID          |     NAME      |    ZONE ID    | STATUS  |     DESCRIPTION     |
-    +----------------------+---------------+---------------+---------+---------------------+
-    | fhm0b28lgfp4tkoa3jl6 | my-windows-vm | ru-central1-a | RUNNING | my first vm via CLI |
-    | fhm9gk85nj7gcoji2f8s | my-linux-vm   | ru-central1-a | RUNNING | my second vm via CLI |
-    +----------------------+---------------+---------------+---------+---------------------+
-    ```
+    [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
 
-1. Выберите `ID` или `NAME` нужной машины.
+1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
 1. Перезапустите виртуальную машину:
 
     ```
-    $ yc compute instance restart my-windows-vm
+    $ yc compute instance restart first-instance
     ```
 
 ---
