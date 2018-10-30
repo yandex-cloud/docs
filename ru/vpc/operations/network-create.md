@@ -17,8 +17,6 @@ https://cloud.yandex.ru/docs/cli/quickstart#install
 
 1. Нажмите кнопку **Создать сеть**.
 
-После этого будет создана облачная сеть.
-
 **[!TAB CLI]**
 
 Если у вас еще нет интерфейса командной строки Яндекс.Облака, [установите его](https://cloud.yandex.ru/docs/cli/quickstart#install).
@@ -46,7 +44,9 @@ https://cloud.yandex.ru/docs/cli/quickstart#install
     Чтобы создать облачную сеть в другом каталоге, используйте флаг `--folder-id`:
 
     ```
-    $ yc vpc network create --folder-id b1gnbfd11bq5g5vnjgr4 --name test-network-1 --description "My test network"
+    $ yc vpc network create --name test-network-1 \ 
+      --description "My test network" \
+      --folder-id b1gnbfd11bq5g5vnjgr4 
     ```
 
 1. Получите список всех облачных сетей в каталоге по умолчанию:
