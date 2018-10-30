@@ -21,6 +21,10 @@ items:
             href: operations/vm-create/create-linux-vm.md
           - name: Создать ВМ Windows
             href: operations/vm-create/create-windows-vm.md
+          - name: Создать ВМ из набора дисков
+            href: operations/vm-create/create-from-disks.md
+          - name: Создать ВМ из набора снимков
+            href: operations/vm-create/create-from-snapshots.md
       - name: DSVM
         items:
           - name: Спецификация
@@ -51,6 +55,12 @@ items:
             href: operations/vm-control/vm-connect-rdp.md
           - name: Остановить и запустить ВМ
             href: operations/vm-control/vm-stop-and-start.md
+          - name: Подключить диск к ВМ
+            href: operations/vm-control/vm-attach-disk.md
+          - name: Отключить диск от ВМ
+            href: operations/vm-control/vm-detach-disk.md
+          - name: Изменить зону доступности ВМ
+            href: operations/vm-control/vm-change-zone.md
           - name: Изменить ВМ
             href: operations/vm-control/vm-update.md
           - name: Удалить ВМ
