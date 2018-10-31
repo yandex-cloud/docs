@@ -4,7 +4,7 @@
 
 > [!NOTE]
 >
-> Рекомендуем использовать версию s3fs не ниже 1.83.
+> Рекомендуется использовать s3fs с версией не ниже 1.83.
 
 ## Подготовка к работе {#preparations}
 
@@ -16,10 +16,10 @@
 
 ## Настройка {#setup}
 
-Для настройки s3fs сохраните идентификатор ключа и секретный ключ в файле `~/.passwd-s3fs` в формате `ACCESS_KEY_ID:SECRET_ACCESS_KEY`, а также ограничьте доступ к файлу `~/.passwd-s3fs` следующим образом:
+Для настройки s3fs сохраните идентификатор ключа и секретный ключ в файле `~/.passwd-s3fs` в формате `<идентификатор ключа>:<секретный ключ>`, а также ограничьте доступ к файлу `~/.passwd-s3fs` следующим образом:
 
 ```
-echo ACCESS_KEY_ID:SECRET_ACCESS_KEY >  ~/.passwd-s3fs
+echo <идентификатор ключа>:<секретный ключ> >  ~/.passwd-s3fs
 chmod 600  ~/.passwd-s3fs
 ```
 
@@ -29,7 +29,7 @@ chmod 600  ~/.passwd-s3fs
 2. Выполните команду вида:
 
     ```
-    s3fs bucket-name /mount/folder/name -o passwd_file=~/.passwd-s3fs -o url=http://storage.yandexcloud.net -o use_path_request_style -o nocopyapi
+    s3fs <имя корзины> /mount/<путь к папке> -o passwd_file=~/.passwd-s3fs -o url=http://storage.yandexcloud.net -o use_path_request_style -o nocopyapi
     ```
 
 Можно настроить монтирование корзины при запуске системы, для этого добавьте в файл `/etc/fstab` строку вида:
