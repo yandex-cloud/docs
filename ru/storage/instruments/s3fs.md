@@ -1,6 +1,6 @@
 # s3fs
 
-[s3fs](https://github.com/s3fs-fuse/s3fs-fuse) — программа для Linux и MacOS, позволяющая монтировать корзины [!KEYREF objstorage-name] через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).
+[s3fs](https://github.com/s3fs-fuse/s3fs-fuse) — программа для Linux и macOS, позволяющая монтировать корзины [!KEYREF objstorage-name] через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).
 
 > [!NOTE]
 >
