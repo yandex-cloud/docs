@@ -4,7 +4,7 @@
 
 > [!NOTE]
 >
-> Рекомендуется использовать s3fs с версией не ниже 1.83.
+> Рекомендуется использовать s3fs с версией не ниже 1.84.
 
 ## Подготовка к работе {#preparations}
 
@@ -35,11 +35,11 @@ chmod 600  ~/.passwd-s3fs
 Можно настроить монтирование корзины при запуске системы, для этого добавьте в файл `/etc/fstab` строку вида:
 
 ```
-s3fs#bucket-name /mount/folder/name fuse _netdev,allow_other,use_path_request_style,nocopyapi,url=http://storage.yandexcloud.net 0 0
+s3fs#<имя корзины> /mount/<путь к папке> fuse _netdev,allow_other,use_path_request_style,nocopyapi,url=http://storage.yandexcloud.net 0 0
 ```
 
 > [!NOTE]
 > 
-> Обязательно используйте параметры `use_path_request_style` и `nocopyapi`. Они обеспечивают корректное взаимодействие с консолью управления Яндекс.Облака и HTTP API, совместимым с Amazon S3.
+> Обязательно используйте параметр `nocopyapi`, он обеспечивает корректное взаимодействие с HTTP API, совместимым с Amazon S3.
 
 Описание всех параметров s3fs смотрите в [вики проекта](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Fuse-Over-Amazon) на GitHub.
