@@ -39,7 +39,7 @@
 
 **[!TAB Я использую кредитный лимит]**
 
-![](../_assets/billing-cycle-business-credit.svg)
+![](../_assets/billing-cycle-business-credit.png)
 
 1. Вы [активируете платную версию](../operations/activate-commercial.md) до истечения срока действия пробного периода. 
    <br/>Если вы не потратили всю сумму [стартового гранта](../concepts/bonus-account.md), то оставшуюся сумму можно использовать после перехода на платную версию.
