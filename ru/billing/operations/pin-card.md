@@ -29,4 +29,4 @@
 1. Укажите данные карты: 16-значный номер, срок действия, код CVV (с обратной стороны карты).
 1. Нажмите кнопку **Сохранить**.
 
-[!INCLUDE [payment-card-validation](../_includes/payment-card-validation.md)]  
+[!INCLUDE [yandex-account](../_includes/payment-card-validation.md)]
