@@ -12,7 +12,7 @@
 
 [!INCLUDE [bill-amount](../_includes/bill-amount.md)]
  
-![](../_assets/formula.svg)
+![](../_assets/formula.png)
 
   ---  
       

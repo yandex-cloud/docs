@@ -92,6 +92,8 @@
       
       [!INCLUDE [yandex-account](../_includes/payment-card-validation.md)]
        
+      [!INCLUDE [payment-card-validation](../_includes/payment-card-validation.md)]  
+       
     **[!TAB Бизнес-аккаунт]**
     
     Введите данные вашей организации: 
