@@ -6,6 +6,7 @@
 > [!NOTE]
 >
 > Не принимаются банковские карты Cirrus, Maestro, American Express и Visa Electron.
+>
 
 ## Привязка банковской карты {#pin-card}
 
