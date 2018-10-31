@@ -18,7 +18,7 @@
 
 ## Списание средств {#write-off}
 
-[!INCLUDE [pay-by-card](../_includes/pay-by-card.md)] 
+[!INCLUDE [pay-by-card-business](../_includes/pay-by-card-business.md)] 
 
 Дополнительную информацию см. в разделе [Цикл оплаты](../payment/billing-cycle-business.md).
 
