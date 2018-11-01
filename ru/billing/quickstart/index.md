@@ -90,8 +90,6 @@
       - Укажите данные карты: 16-значный номер, срок действия, код CVV (с обратной стороны карты).
       - Нажмите кнопку **Сохранить**.
       
-      [!INCLUDE [yandex-account](../_includes/payment-card-validation.md)]
-       
       [!INCLUDE [payment-card-validation](../_includes/payment-card-validation.md)]  
        
     **[!TAB Бизнес-аккаунт]**
