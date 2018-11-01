@@ -15,6 +15,7 @@
 - [[!TITLE]](images-with-pre-installed-software/create.md)
 - [[!TITLE]](images-with-pre-installed-software/setup.md)
 - [[!TITLE]](images-with-pre-installed-software/operate.md)
+- [[!TITLE]](../solutions/web/lamp-lemp.md)
 - [[!TITLE]](images-with-pre-installed-software/get-list.md)
 
 ## Получение информации о виртуальных машинах

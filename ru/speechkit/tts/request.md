@@ -2,13 +2,13 @@
 
 Генерирует речь по переданному тексту.
 
-## Запрос {#request}
+## HTTP-запрос {#http_request}
 
 ```
 POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 ```
 
-### Параметры в теле запроса
+## Параметры в теле запроса {#body_params}
 
 Для всех параметров обязательно используйте URL-кодирование. Максимальный размер тела POST-запроса 30 КБ.
 
@@ -27,9 +27,9 @@ POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 Если синтез прошел успешно, в ответе будет бинарное содержимое аудиофайла. Для аудиофайлов используется аудиокодек OPUS и контейнер OGG ([OggOpus](https://wiki.xiph.org/OggOpus)).
 
 
-## Примеры {#request-example}
+## Примеры {#examples}
 
-### Пример запроса
+### Пример запроса {#request_examples}
 
 ```httpget
 curl -X POST \
@@ -38,7 +38,7 @@ curl -X POST \
      "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
 ```
 
-### Пример ответа
+### Пример ответа {#response_examples}
 
 ```no-highlight
 HTTP/1.1 200 OK
