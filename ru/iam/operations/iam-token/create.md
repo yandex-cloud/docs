@@ -2,7 +2,7 @@
 
 Чтобы получить [IAM-токен](../../concepts/authorization/iam-token.md):
 
-1. Авторизуйтесь на Яндексе с [вашим аккаунтом Яндекс.Паспорта](https://yandex.ru/support/passport/auth.html).
+1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе или Яндекс.Коннекте.
 1. Получите OAuth-токен в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb), нажмите **Разрешить** и скопируйте полученный OAuth-токен.
 1. Обменяйте OAuth-токен на IAM-токен:
    ```
