@@ -49,3 +49,8 @@ subjects-allAuthenticatedUsers: allAuthenticatedUsers
 # Хосты
 s3-storage-host: storage.yandexcloud.net
 s3-web-host: website.yandexcloud.net
+
+# Команды CLI
+yc-mdb-mg: yc managed-mongodb
+yc-mdb-ch: yc managed-clickhouse
+yc-mdb-pg: yc managed-postgresql
