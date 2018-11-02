@@ -51,6 +51,6 @@ s3-storage-host: storage.yandexcloud.net
 s3-web-host: website.yandexcloud.net
 
 # Команды CLI
-mdb-mg: yc managed-mongodb
-mdb-ch: yc managed-clickhouse
-mdb-pg: yc managed-postgresql
+yc-mdb-mg: yc managed-mongodb
+yc-mdb-ch: yc managed-clickhouse
+yc-mdb-pg: yc managed-postgresql
