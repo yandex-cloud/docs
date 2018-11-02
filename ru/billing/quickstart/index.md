@@ -92,6 +92,8 @@
       
       [!INCLUDE [payment-card-validation](../_includes/payment-card-validation.md)]  
        
+      [!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]   
+       
     **[!TAB Бизнес-аккаунт]**
     
     Введите данные вашей организации: 
