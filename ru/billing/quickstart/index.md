@@ -90,10 +90,10 @@
       - Укажите данные карты: 16-значный номер, срок действия, код CVV (с обратной стороны карты).
       - Нажмите кнопку **Сохранить**.
       
+      [!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]  
+      
       [!INCLUDE [payment-card-validation](../_includes/payment-card-validation.md)]  
-       
-      [!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]   
-       
+             
     **[!TAB Бизнес-аккаунт]**
     
     Введите данные вашей организации: 
