@@ -47,7 +47,7 @@ $ yc managed-postgresql cluster list
 Чтобы получить информацию о [!KEYREF PG]-кластере, выполните команду:
 
 ```
-$ yc managed-postgresql cluster get <имя или идентификатор кластера>
+$ [!KEYREF yc-mdb-pg] cluster get <имя или идентификатор кластера>
 ```
 
 Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-users).

@@ -44,7 +44,7 @@
 1. Посмотрите описание команды CLI для создания кластера:
 
     ```
-    $ yc managed-postgresql cluster create --help
+    $ [!KEYREF yc-mdb-pg] cluster create --help
     ```
 
 1. Проверьте, есть ли в каталоге подсети для хостов кластера:
@@ -58,16 +58,16 @@
 1. Укажите параметры кластера в команде создания (в примере приведены только обязательные флаги):
 
     ```
-    yc managed-postgresql cluster create \
+    [!KEYREF yc-mdb-pg] cluster create \
        --name mypg \
        --environment=PRODUCTION \
        --network-name default-net \
        --host zone-id=ru-central1-c,subnet_id=b0rcctk2rvtr8efcch64 \
+       --resource-preset s1.nano \
        --user name=user1,password=user1user1 \
        --database name=db1,owner=user1 \
-       --disk-size 20 \
        --disk-type network-nvme \
-       --resource-preset s1.nano
+       --disk-size 20
     ```
     
     В результате будет создан [!KEYREF PG]-кластер со следующими характеристиками:
@@ -76,8 +76,8 @@
     - В окружении `PRODUCTION`.
     - В сети `default-net`.
     - С одним хостом класса `s1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
-    - С одним пользователем `user1`, с паролем `user1user1`.
-    - С базой данных `db1`, принадлежащей пользователю `user1`.
-    - С сетевым SSD-хранилищем объемом 20 ГБ для каждого хоста.
+    - С одним пользователем (`user1`), с паролем `user1user1`.
+    - С одной базой данных `db1`, принадлежащей пользователю `user1`.
+    - С сетевым SSD-хранилищем объемом 20 ГБ.
 
 ---
