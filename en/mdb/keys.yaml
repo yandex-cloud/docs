@@ -1,0 +1,9 @@
+pem-path: '/mdb/CA.pem'
+PG: PostgreSQL
+CH: ClickHouse
+MG: MongoDB
+service-name: MDB
+full-service-name: Managed Databases
+ru-central1-a: ru-central1-a
+ru-central1-b: ru-central1-b
+ru-central1-c: ru-central1-c
