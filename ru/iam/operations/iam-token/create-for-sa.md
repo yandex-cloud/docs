@@ -47,7 +47,7 @@ curl -H "Authorization: Bearer <IAM_TOKEN>" \
 
 ## 2. Создайте ключи шифрования {#keys-create}
 
-Чтобы создать и подписать JWT необходимы [ключи шифрования](../../concepts/users/service-accounts.md#keys).
+Чтобы создать JWT необходимы [ключи шифрования](../../concepts/users/service-accounts.md#keys).
 
 ---
 
@@ -85,6 +85,8 @@ curl -X POST \
 }
 ```
 
+Создать JWT можно с помощью разных инструментов, например [jwt.io](https://jwt.io), но обратите внимание на то, что IAM API возвращает ключи с `\n` вместо переносов строк.
+
 ---
 
 
@@ -100,10 +102,6 @@ curl -X POST \
 ```
 header.payload.signature
 ```
-
->[!NOTE]
->
->На сайте [jwt.io](https://jwt.io) вы можете сформировать токен самостоятельно или посмотреть библиотеки для работы с JWT.
 
 ### 3.1. Сформируйте header {#header}
 
@@ -156,10 +154,6 @@ header.payload
 Поддерживается только алгоритм [PS256](https://tools.ietf.org/html/rfc7518#section-3.5).
 
 Сохраните результат в кодировке Base64Url.
-
->[!NOTE]
->
->Если вы формируете токен на сайте [jwt.io](https://jwt.io), то замените в ключе `\n` на переносы строк.
 
 ### 3.4 Соедините все части {#concat}
 
