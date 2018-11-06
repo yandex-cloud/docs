@@ -15,6 +15,10 @@
 
 ## Добавить пользователя {#adduser}
 
+При добавлении пользователя для него по умолчанию запрашивается 50 подключений к [!KEYREF PG]-кластеру (настройка `connlimit`).
+
+[!INCLUDE [note-pg-user-connections.md](../../_includes-service/note-pg-user-connections.md)]
+
 ---
 
 **[!TAB Консоль управления]**
@@ -27,6 +31,8 @@
 ---
 
 ## Изменить пользователя {#updateuser}
+
+[!INCLUDE [note-pg-user-connections.md](../../_includes-service/note-pg-user-connections.md)]
 
 ---
 
