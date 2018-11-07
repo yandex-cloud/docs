@@ -1,0 +1,29 @@
+# Yandex Virtual Private Cloud
+title: "Yandex Virtual Private Cloud"
+description: "Yandex Virtual Private Cloud is a service for managing cloud networks."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex Virtual Private Cloud"
+# Блок с ссылками
+links:
+- title: "Getting started"
+  description: "Create your first cloud network"
+  href: "quickstart"
+- title: "Step-by-step instructions"
+  description: "Instructions on how to perform routine operations"
+  href: "operations/index"
+- title: "Basic concepts"
+  description: "Learn about the concepts and resources of the service"
+  href: "concepts/index"
+- title: "API reference"
+  description: "HTTP API method descriptions"
+  href: "api-ref/"
+- title: "Quotas and limits"
+  description: "Technical and organizational limitations of the service"
+  href: "concepts/limits"
+- title: "Identity and access management"
+  description: "Set up access rights to work with the service"
+  href: "security/"
+- title: "Pricing policy"
+  description: "Prices and rules for calculating the service cost"
+  href: "pricing"
