@@ -36,7 +36,7 @@ In the management console, you can only change the password of a database user:
 
 1. Go to the folder page and click on the tile **Yandex Managed Databases**.
 1. Click on the name of the cluster you need and select the tab **Users**.
-1. Click (../../../_assets/vertical-ellipsis.svg) and select **Change password**.
+1. Click ![](../../../_assets/vertical-ellipsis.svg) and select **Change password**.
 
 ---
 
@@ -48,7 +48,7 @@ In the management console, you can only change the password of a database user:
 
 1. Go to the folder page and click on the tile **Yandex Managed Databases**.
 1. Click on the name of the cluster you need and select the tab **Users**.
-1. Click (../../../_assets/vertical-ellipsis.svg) and select **Delete**.
+1. Click ![](../../../_assets/vertical-ellipsis.svg) and select **Delete**.
 
 ---
 

@@ -26,7 +26,7 @@ The number of hosts that can be created together with a [!KEYREF CH] cluster dep
     - DB name
     - User name
     - User password (a minimum of 8 characters).
-1. In the **Hosts** section, specify parameters for database hosts created with the cluster (keep in mind that if you use SSDs when creating [!KEYREF CH] clusters, you can set at least two hosts). To change the added host, place the cursor on the host line and click (../../../_assets/pencil.svg).
+1. In the **Hosts** section, specify parameters for database hosts created with the cluster (keep in mind that if you use SSDs when creating [!KEYREF CH] clusters, you can set at least two hosts). To change the added host, place the cursor on the host line and click ![](../../../_assets/pencil.svg).
 1. Click **Create a cluster**.
 
 ---
