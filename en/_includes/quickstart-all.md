@@ -1,6 +1,6 @@
 To start working with Yandex.Cloud:
 
-- [Register and create your first payment account](../billing/quickstart / index.md)
+- [Register and create your first payment account](../billing/quickstart/index.md)
 
 - Start using services:
 
