@@ -4,12 +4,12 @@
 Чтобы получить список всех зон доступности, используйте
 запрос [list](/docs/compute/api-ref/Zone/list).
  
-## HTTP-запрос
-`GET /compute/v1/zones/{zoneId}`
+## HTTP-запрос {#https-request}
+`GET https://compute.api.cloud.yandex.net/compute/v1/zones/{zoneId}`
  
 ## Path-параметры {#path_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
 zoneId | Обязательное поле. Идентификатор зоны доступности, о которой запрашивается информация.  Максимальная длина — 50 символов.
  

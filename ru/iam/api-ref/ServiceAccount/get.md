@@ -4,20 +4,19 @@
 Чтобы получить список доступных ресурсов ServiceAccount, используйте
 запрос [list](/docs/iam/api-ref/ServiceAccount/list).
  
-## HTTP-запрос
-`GET /iam/v1/serviceAccounts/{serviceAccountId}`
+## HTTP-запрос {#https-request}
+`GET https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}`
  
 ## Path-параметры {#path_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
-serviceAccountId | Обязательное поле. Идентификатор возвращаемого ресурса ServiceAccount. Чтобы получить идентификатор сервисного аккаунта, используйте запрос [list](/docs/iam/api-ref/ServiceAccount/list).  Максимальная длина — 50 символов.
+serviceAccountId | Обязательное поле. Идентификатор возвращаемого ресурса ServiceAccount. Чтобы получить идентификатор сервисного аккаунта, используйте запрос [list](/docs/iam/api-ref/ServiceAccount/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс ServiceAccount. Дополнительные сведения см. в разделе [Сервисные
-аккаунты](/docs/iam/concepts/users/service-accounts).
+Ресурс ServiceAccount. Подробнее см. [Сервисные аккаунты](/docs/iam/concepts/users/service-accounts).
  
 Поле | Описание
 --- | ---

@@ -3,21 +3,21 @@
  
 
  
-## HTTP-запрос
-`GET /resource-manager/v1/clouds/{resourceId}:listAccessBindings`
+## HTTP-запрос {#https-request}
+`GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{resourceId}:listAccessBindings`
  
 ## Path-параметры {#path_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
-resourceId | Обязательное поле. Идентификатор ресурса, для которого запрашивается список привязок прав доступа.  Чтобы получить идентификатор ресурса, используйте соответствующий запрос List. Например, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list) для получения идентификатора ресурса Cloud.  Максимальная длина — 50 символов.
+resourceId | Обязательное поле. ID of the resource to list access bindings for.  To get the resource ID, use a corresponding List request. For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.  Максимальная длина строки в символах — 50.
  
 ## Query-параметры {#query_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем pageSize, сервис вернет значение nextPageToken, которое можно использовать для получения следующей страницы. Допустимые значения от 0 до 1000 включительно. Значение по умолчанию: 100.  Допустимые значения — от 0 до 1000 включительно.
-pageToken | Токен страницы. Установите значение pageToken равным значению поля nextPageToken прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина — 100 символов.
+pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than pageSize, the service returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.  Максимальное значение — 1000.
+pageToken | Page token. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.  Максимальная длина строки в символах — 100.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
@@ -26,9 +26,9 @@ pageToken | Токен страницы. Установите значение p
  
 Поле | Описание
 --- | ---
-accessBindings | **object**<br><p>Список привязок прав доступа для указанного ресурса.</p> 
-accessBindings.<br>roleId | **string**<br><p>Идентификатор ресурса <a href="/docs/iam/api-ref/Role#representation">Role</a> который назначен для субъекта, указанного в параметре subject.</p> <p>Максимальная длина — 50 символов.</p> 
-accessBindings.<br>subject | **object**<br><p>Обязательное поле. Субъект, для которого создается привязка прав доступа. Может представлять собой учетную запись с уникальным идентификатором в облаке или системную группу с общим системным идентификатором.</p> <p>Может содержать один из следующих наборов параметров:</p> <ul> <li><code>type = system, id = allUsers</code>.</li> <li><code>type = system, id = allAuthenticatedUsers</code>.</li> <li><code>type = userAccount, id = &lt;идентификатор пользователя в облаке&gt;</code>.</li> <li><code>type = serviceAccount, id = &lt;идентификатор пользователя в облаке&gt;</code>.</li> </ul> 
-accessBindings.<br>subject.<br>id | **string**<br><p>Идентификатор субъекта.</p> <p>Может содержать одно из следующих значений:</p> <ul> <li> <p><code>allUsers</code>: Специальный системный идентификатор, представляющий любого пользователя. Его можно использовать только если в параметре type передано значение <code>system</code>.</p> </li> <li> <p><code>allAuthenticatedUsers</code>: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре type передано значение <code>system</code>.</p> </li> <li> <p><code>&lt;идентификатор пользователя в облаке&gt;</code>: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре type передано одно из следующих значений: <code>userAccount</code> или <code>serviceAccount</code>.</p> </li> </ul> <p>Максимальная длина — 50 символов.</p> 
-accessBindings.<br>subject.<br>type | **string**<br><p>Тип субъекта.</p> <p>Может содержать одно из следующих значений:</p> <ul> <li> <p><code>system</code>: Системная группа. Представляет несколько учетных записей с общим системным идентификатором.</p> </li> <li> <p><code>userAccount</code>: Учетная запись пользователя. Дополнительные сведения см. в разделе <a href="/docs/iam/concepts/users/users">Пользователи Яндекс.Облака</a>.</p> </li> <li> <p><code>serviceAccount</code>: Сервисный аккаунт. Дополнительные сведения см. в разделе <a href="/docs/iam/concepts/users/service-accounts">Сервисные аккаунты</a>.</p> </li> </ul> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем pageSize, используйте nextPageToken в качестве значения параметра pageToken в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения nextPageToken для перебора страниц результатов.</p> 
+accessBindings | **object**<br><p>List of access bindings for the specified resource.</p> 
+accessBindings.<br>roleId | **string**<br><p>ID of the <a href="/docs/iam/api-ref/Role#representation">Role</a> that is assigned to the subject.</p> <p>Максимальная длина строки в символах — 50.</p> 
+accessBindings.<br>subject | **object**<br><p>Обязательное поле. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier.</p> <p>It can contain one of the following sets of parameters:</p> <ul> <li><code>type = system, id = allUsers</code>.</li> <li><code>type = system, id = allAuthenticatedUsers</code>.</li> <li><code>type = userAccount, id = &lt;cloud generated id&gt;</code>.</li> <li><code>type = serviceAccount, id = &lt;cloud generated id&gt;</code>.</li> </ul> 
+accessBindings.<br>subject.<br>id | **string**<br><p>ID of the subject.</p> <p>It can contain one of the following values:</p> <ul> <li> <p><code>allUsers</code>: A special system identifier that represents anyone. It can be used only if the type is <code>system</code>.</p> </li> <li> <p><code>allAuthenticatedUsers</code>: A special system identifier that represents anyone who is authenticated. It can be used only if the type is <code>system</code>.</p> </li> <li> <p><code>&lt;cloud generated id&gt;</code>: An identifier that represents a user account. It can be used only if the type is <code>userAccount</code> or <code>serviceAccount</code>.</p> </li> </ul> <p>Максимальная длина строки в символах — 50.</p> 
+accessBindings.<br>subject.<br>type | **string**<br><p>Type of the subject.</p> <p>It can contain one of the following values:</p> <ul> <li> <p><code>system</code>: System type. It represents several accounts with a common system identifier.</p> </li> <li> <p><code>userAccount</code>: A user account. For more information, see <a href="/docs/iam/concepts/users/users">Users</a>.</p> </li> <li> <p><code>serviceAccount</code>: A service account. For more information, see <a href="/docs/iam/concepts/users/service-accounts">Service accounts</a>.</p> </li> </ul> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than pageSize, use the nextPageToken as the value for the pageToken query parameter in the next list request. Each subsequent list request will have its own nextPageToken to continue paging through the results.</p> 

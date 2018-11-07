@@ -3,21 +3,21 @@
  
 
  
-## HTTP-запрос
-`GET /managed-clickhouse/v1/clusters/{clusterId}/users`
+## HTTP-запрос {#https-request}
+`GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/users`
  
 ## Path-параметры {#path_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера для вывода списка пользователей ClickHouse. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/mdb/api-ref/clickhouse/Cluster/list).  Максимальная длина — 50 символов.
+clusterId | Обязательное поле. Идентификатор кластера для вывода списка пользователей ClickHouse. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/mdb/api-ref/clickhouse/Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Query-параметры {#query_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/clickhouse/User/list#query_params), сервис вернет значение [nextPageToken](/docs/mdb/api-ref/clickhouse/User/list#responses), которое можно использовать для получения следующей страницы.  Допустимые значения — от 0 до 1000 включительно.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/mdb/api-ref/clickhouse/User/list#query_params) равным значению поля [nextPageToken](/docs/mdb/api-ref/clickhouse/User/list#responses) прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина — 100 символов.
+pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/clickhouse/User/list#query_params), сервис вернет значение [nextPageToken](/docs/mdb/api-ref/clickhouse/User/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
+pageToken | Токен страницы. Установите значение [pageToken](/docs/mdb/api-ref/clickhouse/User/list#query_params) равным значению поля [nextPageToken](/docs/mdb/api-ref/clickhouse/User/list#responses) прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
@@ -26,7 +26,7 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-users | **object**<br><p>Ресурс User для ClickHouse. Подробнее см. в разделе <a href="/docs/mdb/concepts">Взаимосвязь ресурсов сервиса</a>.</p> 
+users | **object**<br><p>Ресурс User для ClickHouse. Подробнее см. в <a href="/docs/mdb/concepts">документации MDB</a>.</p> 
 users.<br>name | **string**<br><p>Имя пользователя ClickHouse.</p> 
 users.<br>clusterId | **string**<br><p>Идентификатор кластера ClickHouse, к которому принадлежит пользователь.</p> 
 users.<br>permissions | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 

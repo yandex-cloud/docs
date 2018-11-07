@@ -4,20 +4,19 @@
 Чтобы получить список доступных ресурсов Cloud, используйте
 запрос [list](/docs/resource-manager/api-ref/Cloud/list).
  
-## HTTP-запрос
-`GET /resource-manager/v1/clouds/{cloudId}`
+## HTTP-запрос {#https-request}
+`GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{cloudId}`
  
 ## Path-параметры {#path_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
-cloudId | Обязательное поле. Идентификатор запрашиваемого ресурса Cloud. Чтобы получить идентификатор облака, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list).  Максимальная длина — 50 символов.
+cloudId | Обязательное поле. Идентификатор запрашиваемого ресурса Cloud. Чтобы получить идентификатор облака, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс Cloud. Дополнительные сведения см. в разделе
-[Облако как ресурс Яндекс.Облака](/docs/resource-manager/concepts/resources-hierarchy#cloud).
+Ресурс Cloud. Подробнее см. [Облако как ресурс Яндекс.Облака](/docs/resource-manager/concepts/resources-hierarchy#cloud).
  
 Поле | Описание
 --- | ---

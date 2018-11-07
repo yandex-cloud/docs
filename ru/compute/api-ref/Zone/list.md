@@ -1,17 +1,17 @@
 # Метод list
-Возвращает список зон доступности.
+Возвращает список доступных ресурсов Zone.
  
 
  
-## HTTP-запрос
-`GET /compute/v1/zones`
+## HTTP-запрос {#https-request}
+`GET https://compute.api.cloud.yandex.net/compute/v1/zones`
  
 ## Query-параметры {#query_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Zone/list#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/Zone/list#responses), которое можно использовать для получения следующей страницы.  Допустимые значения — от 0 до 1000 включительно.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/Zone/list#query_params) равным значению поля [nextPageToken](/docs/compute/api-ref/Zone/list#responses) прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина — 100 символов.
+pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Zone/list#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/Zone/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
+pageToken | Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/Zone/list#query_params) равным значению поля [nextPageToken](/docs/compute/api-ref/Zone/list#responses) прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
