@@ -20,6 +20,6 @@ Yandex Data Science Virtual Machine (DSVM) — это виртуальная м�
         - [PyTorch](https://pytorch.org/);
     - Система управления контейнерами [Docker](https://www.docker.com).
     - Консольные клиенты систем контроля версий: [SVN](https://subversion.apache.org/), [Git](https://git-scm.com/), [Mercurial](https://www.mercurial-scm.org/).
-    - Оптимизированные компанией Intel библиотеки [NumPy](http://www.numpy.org), [scikit-learn](https://scikit-learn.org), [SciPy](https://www.scipy.org).
+    - Библиотеки [NumPy](https://pypi.org/project/intel-numpy/), [scikit-learn](https://pypi.org/project/intel-scikit-learn/), [SciPy](https://pypi.org/project/intel-scipy/), оптимизированные c помощью Intel Math Kernel Library и Data Analytics Acceleration Library.
     - Оптимизированные библиотеки для работы с изображениями: [libjpeg-turbo](https://libjpeg-turbo.org), [Pillow-SIMD](https://github.com/uploadcare/pillow-simd#pillow-simd).
 
