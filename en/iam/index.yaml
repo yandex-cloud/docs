@@ -1,0 +1,28 @@
+title: "Yandex Identity and Access Management"
+description: "Yandex Identity and Access Management (IAM) is the service that identifies users and enables centralized management of their rights to access your Yandex Cloud resources. IAM makes sure that all operations with resources are run only by users who have the appropriate permissions."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex Identity and Access Management"
+# Блок с ссылками
+links:
+- title: "Getting started"
+  description: "Add a user and assign a role to this user"
+  href: "quickstart"
+- title: "Step-by-step instructions"
+  description: "Instructions on how to perform routine operations"
+  href: "operations/"
+- title: "Basic concepts"
+  description: "Learn more about concepts and resources of the service"
+  href: "concepts/overview"
+- title: "API reference"
+  description: "HTTP API method descriptions"
+  href: "api-ref/"
+- title: "Quotas and limits"
+  description: "Technical and organizational limitations of the service"
+  href: "concepts/limits"
+- title: "Identity and access management"
+  description: "Set up access rights to work with the service"
+  href: "security/"
+- title: "Pricing policies"
+  description: "Pricing and cost calculation for services"
+  href: "pricing"
