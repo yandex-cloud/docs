@@ -30,7 +30,7 @@
 ```
 #####################################################################
 Welcome to Yandex Data Science Virtual Machine
-Image Build: Tue Nov  6 16:12:52 UTC 2018
+Image Build: ...
 
 Please use one of the following commands to activate
 the environment with the framework of your choice:
