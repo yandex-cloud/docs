@@ -1,4 +1,4 @@
-# Basic concepts
+# Concepts
 
 [!KEYREF objstorage-name] uses the following basic concepts:
 

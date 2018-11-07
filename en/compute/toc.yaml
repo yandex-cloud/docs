@@ -71,7 +71,7 @@ items:
         items:
           - name: Uploading your image
             href: operations/image-create/upload.md
-  - name: Basic concepts
+  - name: Concepts
     items:
       - name: Relationship between resources
         href: concepts/index.md

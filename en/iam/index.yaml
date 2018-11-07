@@ -11,7 +11,7 @@ links:
 - title: "Step-by-step instructions"
   description: "Instructions on how to perform routine operations"
   href: "operations/"
-- title: "Basic concepts"
+- title: "Concepts"
   description: "Learn more about concepts and resources of the service"
   href: "concepts/overview"
 - title: "API reference"

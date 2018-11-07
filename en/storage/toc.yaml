@@ -53,7 +53,7 @@ items:
             href: operations/security/get-static-key.md
           - name: Allowing public access to a bucket
             href: operations/security/bucket-availability.md
-  - name: Basic concepts
+  - name: Concepts
     items:
       - name: Overview
         href: concepts/index.md

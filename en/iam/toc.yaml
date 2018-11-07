@@ -35,7 +35,7 @@ items:
             href: operations/roles/revoke.md
       - name: Get IAM token
         href: operations/iam-token/create.md
-  - name: Basic concepts
+  - name: Concepts
     items:
       - name: Overview
         href: concepts/overview.md

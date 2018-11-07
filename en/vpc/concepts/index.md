@@ -1,4 +1,4 @@
-# Basic concepts [!KEYREF vpc-short-name]
+# Concepts
 
 [!KEYREF vpc-full-name] ([!KEYREF vpc-short-name]) is a service for creating cloud networks that are used for transmitting information within your cloud and connecting cloud resources to the internet.
 

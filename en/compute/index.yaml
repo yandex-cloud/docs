@@ -12,7 +12,7 @@ links:
 - title: "Step-by-step instructions"
   description: "Instructions on how to perform routine operations"
   href: "operations/"
-- title: "Basic concepts"
+- title: "Concepts"
   description: "Learn about relationship between VMs, disks, snapshots, and images"
   href: "concepts/"
 - title: "API reference"

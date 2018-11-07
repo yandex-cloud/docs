@@ -19,7 +19,7 @@ items:
             href: operations/folder/create.md
           - name: Set access rights
             href: operations/folder/set-access-bindings.md
-  - name: Basic concepts
+  - name: Concepts
     items:
       - name: Hierarchy of Yandex.Cloud resources
         href: concepts/resources-hierarchy.md
