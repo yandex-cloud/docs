@@ -15,7 +15,7 @@
 
 ## Добавить пользователя {#adduser}
 
-При добавлении пользователя для него по умолчанию запрашивается 50 подключений к [!KEYREF PG]-кластеру (настройка `connlimit`).
+При добавлении пользователя [!KEYREF mdb-short-name] по умолчанию устанавливает для него ограничение в 50 подключений к [!KEYREF PG]-кластеру (настройка `connlimit`).
 
 [!INCLUDE [note-pg-user-connections.md](../../_includes-service/note-pg-user-connections.md)]
 
