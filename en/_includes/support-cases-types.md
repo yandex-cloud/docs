@@ -6,7 +6,7 @@ You can contact Yandex.Cloud technical support for the following purposes:
 - Get information about issues related to billing.
 - Ask general questions like <q>How does this work?</q> and <q>What is this?</q> concerning Yandex.Cloud services and functionality.
 - Get answers to frequently asked questions.
-- Consulting on and assistance in setting up Yandex.Cloud services.
+- Consulting on and assistance in configuring Yandex.Cloud services.
 - Request for general recommendations on how to solve architecture-related tasks based on Yandex.Cloud services.
 
 Yandex.Cloud technical support engineers do not resolve the following categories of issues:
