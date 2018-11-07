@@ -30,23 +30,27 @@
 ```
 #####################################################################
 Welcome to Yandex Data Science Virtual Machine
-...
+Image Build: ...
 
 Please use one of the following commands to activate
 the environment with the framework of your choice:
     for Python2 ______________________ source activate py27
     for Python3 ______________________ source activate py36
 
-...
-
-To run public Jupyter notebook execute:
-    jupyter notebook --ip=* --no-browser
+Packages installed in each environment:
+    catboost, xgboost, lightgbm,
+    tensorflow, pytorch,
+    jupyter, matplotlib,
+    numpy, scipy, scikit-learn
 
 To run public JupyterLab execute:
-    jupyter lab --ip=* --no-browser
+    jupyter lab --no-browser
+
+To run public Jupyter notebook execute:
+    jupyter notebook --no-browser
 
 Description and help:
-    docs.cloud.yandex.ru/dsvm
+    https://cloud.yandex.ru/docs/compute/operations/dsvm/
 
 #####################################################################
 ```
