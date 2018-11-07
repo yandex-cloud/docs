@@ -1,0 +1,99 @@
+title: "Billing"
+icon: "/img/billing.svg"
+items:
+- name: Billing
+  href: index.yaml
+- name: Getting started
+  href: quickstart/index.md
+- name: Trial period
+  href: trial/activation.md
+- name: Step-by-step instructions
+  items:
+  - name: All instructions
+    href: operations/index.md
+  - name: Activate the paid version
+    href: operations/activate-commercial.md
+  - name: Monitor costs
+    items:
+    - name: View a summary of statistics
+      href: operations/check-diagram.md
+    - name: View usage details
+      href: operations/check-charges.md
+  - name: Top up your personal account
+    href: operations/pay-the-bill.md
+  - name: Enable the credit limit
+    href: operations/enable-credit.md
+  - name: Read your bill
+    href: operations/spell-out-bill.md
+  - name: View the payment history
+    href: operations/check-bill-history.md
+  - name: Change your billing account data
+    href: operations/change-data.md
+  - name: Link another bank card
+    href: operations/pin-card.md
+- name: Concepts
+  items:
+  - name: All concepts
+    href: concepts/index.md
+  - name: Promo code
+    href: concepts/promo-code.md
+  - name: Credit limit
+    href: concepts/credit-limit.md
+  - name: Billing account
+    href: concepts/billing-account.md
+  - name: Personal account
+    href: concepts/personal-account.md
+  - name: Grant
+    href: concepts/bonus-account.md
+  - name: Agreement
+    href: concepts/contract.md
+  - name: Glossary
+    href: concepts/glossary.md
+- name: How to pay for resources
+  items:
+  - name: General information
+    href: payment/index.md
+  - name: Payment method
+    items:
+    - name: General information
+      href: payment/payment-methods.md
+    - name: For individuals
+      href: payment/payment-methods-individual.md
+    - name: For businesses
+      href: payment/payment-methods-business.md
+  - name: Billing cycle
+    items:
+    - name: General information
+      href: payment/billing-cycle.md
+    - name: For individuals
+      href: payment/billing-cycle-individual.md
+    - name: For businesses
+      href: payment/billing-cycle-business.md
+  - name: Financial documents
+    items:
+    - name: General information
+      href: payment/documents.md
+    - name: Report
+      href: concepts/act.md
+    - name: Bill
+      href: concepts/bill.md
+    - name: Invoice
+      href: concepts/invoice.md
+    - name: Payment receipt
+      href: concepts/individual-bill.md
+  - name: Payment currency
+    href: payment/currency.md
+- name: Identity and access management
+  href: security/index.md
+- name: Pricing policies
+  href: pricing.md
+- name: Questions and answers
+  items:
+  - name: General questions
+    href: qa/common.md
+  - name: Questions about payment
+    href: qa/payment.md
+  - name: Questions about the free trial and paid version
+    href: qa/trial-commercial.md
+  - name: All questions on one page
+    href: qa/all.md
