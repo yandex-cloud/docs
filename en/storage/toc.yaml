@@ -1,0 +1,151 @@
+title: "Yandex Object Storage"
+icon: "/img/storage.svg"
+items:
+  - name: Yandex Object Storage
+    href: index.yaml
+  - name: Getting started
+    items:
+    - name: Creating a bucket
+      href: quickstart.md
+    - name: Configuring tools
+      items:
+        - name: Supported tools
+          href: instruments/index.md
+        - name: AWS CLI
+          href: instruments/aws-cli.md
+        - name: AWS SDK for Java
+          href: instruments/aws-sdk-java.md
+        - name: boto
+          href: instruments/boto.md
+        - name: CyberDuck
+          href: instruments/cyberduck.md
+        - name: S3cmd
+          href: instruments/s3cmd.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Buckets
+        items:
+          - name: Creating a bucket
+            href: operations/buckets/create.md
+          - name: Deleting a bucket
+            href: operations/buckets/delete.md
+          - name: Limiting the maximum size of a bucket
+            href: operations/buckets/limit-max-volume.md
+      - name: Objects
+        items:
+          - name: Uploading an object
+            href: operations/objects/upload.md
+          - name: Getting information about an object
+            href: operations/objects/info.md
+          - name: Downloading an object
+            href: operations/objects/download.md
+          - name: Getting the download link
+            href: operations/objects/link-for-download.md
+          - name: Deleting an object
+            href: operations/objects/delete.md
+      - name: Access permissions
+        items:
+          - name: Creating a service account
+            href: operations/security/service-account.md
+          - name: Getting a static key
+            href: operations/security/get-static-key.md
+          - name: Allowing public access to a bucket
+            href: operations/security/bucket-availability.md
+  - name: Basic concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Bucket
+        href: concepts/bucket.md
+      - name: Object
+        href: concepts/object.md
+      - name: Storage class
+        href: concepts/storage-class.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Static website hosting
+    items:
+      - name: Overview
+        href: hosting/index.md
+      - name: Configuring buckets
+        href: hosting/bucket-configuration.md
+      - name: Hosting setup in the management console
+        href: hosting/setup.md
+      - name: Response codes
+        href: hosting/answer-codes.md
+  - name: HTTP API compatible with Amazon S3
+    items:
+      - name: How to use the API
+        href: s3/index.md
+      - name: API reference
+        items:
+          - name: All services and methods
+            href: s3/api-ref/index.md
+          - name: Bucket
+            items:
+              - name: All methods
+                href: s3/api-ref/bucket.md
+              - name: create
+                href: s3/api-ref/bucket/create.md
+              - name: getMeta
+                href: s3/api-ref/bucket/getmeta.md
+              - name: listObjects
+                href: s3/api-ref/bucket/listobjects.md
+              - name: listBuckets
+                href: s3/api-ref/bucket/list.md
+              - name: deleteBucket
+                href: s3/api-ref/bucket/delete.md
+          - name: Object
+            items:
+              - name: All methods
+                href: s3/api-ref/object.md
+              - name: upload
+                href: s3/api-ref/object/upload.md
+              - name: get
+                href: s3/api-ref/object/get.md
+              - name: getObjectMeta
+                href: s3/api-ref/object/getobjectmeta.md
+              - name: delete
+                href: s3/api-ref/object/delete.md
+              - name: deleteMultipleObjects
+                href: s3/api-ref/object/deletemultipleobjects.md
+          - name: Multipart upload
+            items:
+              - name: General procedure for multipart upload
+                href: s3/api-ref/multipart.md
+              - name: startUpload
+                href: s3/api-ref/multipart/startupload.md
+              - name: uploadPart
+                href: s3/api-ref/multipart/uploadpart.md
+              - name: listParts
+                href: s3/api-ref/multipart/listparts.md
+              - name: abortUpload
+                href: s3/api-ref/multipart/abortupload.md
+              - name: completeUpload
+                href: s3/api-ref/multipart/completeupload.md
+              - name: listUploads
+                href: s3/api-ref/multipart/listuploads.md
+          - name: Static Website Hosting
+            items:
+              - name: All methods
+                href: s3/api-ref/hosting.md
+              - name: upload
+                href: s3/api-ref/hosting/upload.md
+              - name: get
+                href: s3/api-ref/hosting/get.md
+              - name: delete
+                href: s3/api-ref/hosting/delete.md
+          - name: Common request headers
+            href: s3/api-ref/common-request-headers.md
+          - name: Common response headers
+            href: s3/api-ref/common-response-headers.md
+          - name: Responses
+            href: s3/api-ref/response-codes.md
+  - name: Identity and access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: Questions and answers
+    href: qa.md
