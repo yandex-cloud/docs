@@ -8,12 +8,12 @@ API requests can be made by users with a registered Yandex.Passport account.
 
    To learn more, see the section [Getting started](../billing/quickstart/index.md) in the documentation on Billing.
 
-1. Assign the required [roles](../iam/concepts/access-control/roles.md)  to the user on whose behalf API requests will be made. Select one of the options:
+1. Determine the required [roles](../iam/concepts/access-control/roles.md) for the user on whose behalf API requests will be made. Select one of the options:
     * The `resource-manager.cloud.owner` role for the cloud.
     * A pair of roles:  `resource-manager.cloud.member`  for the cloud and `admin` for the cloud or folder.
     * A pair of roles: `resource-manager.cloud.member` for the cloud and `editor` for the cloud or folder.
 
-    To assign roles, execute:
+1. Assign roles:
 
     [!INCLUDE [grant-role-console](grant-role-console.md)]
 
@@ -22,7 +22,6 @@ API requests can be made by users with a registered Yandex.Passport account.
     > [!NOTE]
     >
     > If you have assigned the `admin` or `editor` role for a specific folder to the user who will make API requests, select that folder at this step.
-    >
 
     If there is no folder yet, create one:
 
