@@ -45,7 +45,7 @@ To run public JupyterLab execute:
     jupyter lab --ip=* --no-browser
 
 Description and help:
-    docs.cloud.yandex.ru/dsvm
+    https://cloud.yandex.ru/docs/compute/operations/dsvm/
 
 #####################################################################
 ```
