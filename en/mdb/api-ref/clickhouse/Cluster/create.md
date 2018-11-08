@@ -187,7 +187,7 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. ID of the folder to create the ClickHouse cluster in.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Required. Name of the ClickHouse cluster. The name must be unique within the folder.</p> <p>Value must match the regular expression <code>|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+name | **string**<br><p>Required. Name of the ClickHouse cluster. The name must be unique within the folder.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
 description | **string**<br><p>Description of the ClickHouse cluster. 0-256 characters long.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Custom labels for the ClickHouse cluster as <code>key:value</code> pairs. Maximum 64 per resource. For example, &quot;project&quot;: &quot;mvp&quot; or &quot;source&quot;: &quot;dictionary&quot;.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
 environment | **string**<br><p>Required. Deployment environment of the ClickHouse cluster.</p> <p>Deployment environment.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 

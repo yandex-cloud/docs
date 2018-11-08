@@ -340,7 +340,7 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. ID of the folder to create the PostgreSQL cluster in.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Required. The name can’t be changed after the PostgreSQL cluster is created.</p> <p>Value must match the regular expression <code>|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+name | **string**<br><p>Required. The name can’t be changed after the PostgreSQL cluster is created.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
 description | **string**<br><p>Description of the PostgreSQL cluster. 0-256 characters long.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Custom labels for the PostgreSQL cluster as <code>key:value</code> pairs. Maximum 64 per resource. For example, &quot;project&quot;: &quot;mvp&quot; or &quot;source&quot;: &quot;dictionary&quot;.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
 environment | **string**<br><p>Required. Deployment environment of the PostgreSQL cluster.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
@@ -503,8 +503,8 @@ configSpec.<br>postgresqlConfig_10.<br>randomPageCost | **number** (double)<br>
 databaseSpecs | **object**<br><p>Required. Descriptions of databases to be created in the PostgreSQL cluster.</p> 
 databaseSpecs.<br>name | **string**<br><p>Required. Name of the PostgreSQL database. 1-63 characters long.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]+</code>.</p> 
 databaseSpecs.<br>owner | **string**<br><p>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a <a href="/docs/mdb/api-ref/postgresql/User/list">list</a> request.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]+</code>.</p> 
-databaseSpecs.<br>lcCollate | **string**<br><p>POSIX locale for string sorting order. Can only be set at creation time.</p> <p>Value must match the regular expression <code>[a-zA-Z_]+.UTF-8|C</code>.</p> 
-databaseSpecs.<br>lcCtype | **string**<br><p>POSIX locale for character classification. Can only be set at creation time.</p> <p>Value must match the regular expression <code>[a-zA-Z_]+.UTF-8|C</code>.</p> 
+databaseSpecs.<br>lcCollate | **string**<br><p>POSIX locale for string sorting order. Can only be set at creation time.</p> <p>Value must match the regular expression <code>[a-zA-Z_]+.UTF-8\|C</code>.</p> 
+databaseSpecs.<br>lcCtype | **string**<br><p>POSIX locale for character classification. Can only be set at creation time.</p> <p>Value must match the regular expression <code>[a-zA-Z_]+.UTF-8\|C</code>.</p> 
 databaseSpecs.<br>extensions | **object**<br><p>PostgreSQL extensions to be enabled for the database.</p> 
 databaseSpecs.<br>extensions.<br>name | **string**<br><p>Name of the extension, e.g. <code>pg_trgm</code> or <code>pg_btree</code>. Extensions supported by MDB are <a href="/docs/mdb/concepts">listed in the Developer's Guide</a>.</p> 
 databaseSpecs.<br>extensions.<br>version | **string**<br><p>Version of the extension.</p> 

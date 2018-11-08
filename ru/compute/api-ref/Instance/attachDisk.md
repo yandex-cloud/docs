@@ -51,7 +51,7 @@ attachedDiskSpec.<br>mode | **string**<br><ul> <li>READ_ONLY: Доступ на 
 attachedDiskSpec.<br>deviceName | **string**<br><p>Задает уникальный серийный номер, который на виртуальной машине с операционной системой Linux отображается в директории /dev/disk/by-id/.</p> <p>Это значение может использоваться для ссылки на устройство внутри виртуальной машины при монтировании, изменении размера и т. д. Если не указано, будет сгенерировано случайное значение.</p> <p>Значение должно соответствовать регулярному выражению <code>[a-z][a-z0-9-_]{,19}</code>.</p> 
 attachedDiskSpec.<br>autoDelete | **boolean** (boolean)<br><p>Указывает, должен ли диск автоматически удалиться при удалении виртуальной машины.</p> 
 attachedDiskSpec.<br>diskSpec | **object** <br>`attachedDiskSpec` включает только одно из полей `diskSpec`, `diskId`<br><br>
-attachedDiskSpec.<br>diskSpec.<br>name | **string**<br><p>Имя диска.</p> <p>Значение должно соответствовать регулярному выражению <code>|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+attachedDiskSpec.<br>diskSpec.<br>name | **string**<br><p>Имя диска.</p> <p>Значение должно соответствовать регулярному выражению <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
 attachedDiskSpec.<br>diskSpec.<br>description | **string**<br><p>Описание диска.</p> <p>Максимальная длина строки в символах — 256.</p> 
 attachedDiskSpec.<br>diskSpec.<br>typeId | **string**<br><p>Идентификатор типа диска. Чтобы получить список доступных типов дисков, используйте запрос <a href="/docs/compute/api-ref/DiskType/list">list</a>.</p> <p>Максимальная длина строки в символах — 50.</p> 
 attachedDiskSpec.<br>diskSpec.<br>size | **string** (int64)<br><p>Обязательное поле. Размер диска в байтах.</p> <p>Допустимые значения — от 4194304 до 4398046511104 включительно.</p> 

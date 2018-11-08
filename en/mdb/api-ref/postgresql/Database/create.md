@@ -39,8 +39,8 @@ Field | Description
 databaseSpec | **object**<br><p>Required. Required. Configuration of the database to create.</p> 
 databaseSpec.<br>name | **string**<br><p>Required. Name of the PostgreSQL database. 1-63 characters long.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]+</code>.</p> 
 databaseSpec.<br>owner | **string**<br><p>Required. Name of the user to be assigned as the owner of the database. To get the list of available PostgreSQL users, make a <a href="/docs/mdb/api-ref/postgresql/User/list">list</a> request.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]+</code>.</p> 
-databaseSpec.<br>lcCollate | **string**<br><p>POSIX locale for string sorting order. Can only be set at creation time.</p> <p>Value must match the regular expression <code>[a-zA-Z_]+.UTF-8|C</code>.</p> 
-databaseSpec.<br>lcCtype | **string**<br><p>POSIX locale for character classification. Can only be set at creation time.</p> <p>Value must match the regular expression <code>[a-zA-Z_]+.UTF-8|C</code>.</p> 
+databaseSpec.<br>lcCollate | **string**<br><p>POSIX locale for string sorting order. Can only be set at creation time.</p> <p>Value must match the regular expression <code>[a-zA-Z_]+.UTF-8\|C</code>.</p> 
+databaseSpec.<br>lcCtype | **string**<br><p>POSIX locale for character classification. Can only be set at creation time.</p> <p>Value must match the regular expression <code>[a-zA-Z_]+.UTF-8\|C</code>.</p> 
 databaseSpec.<br>extensions | **object**<br><p>PostgreSQL extensions to be enabled for the database.</p> 
 databaseSpec.<br>extensions.<br>name | **string**<br><p>Name of the extension, e.g. <code>pg_trgm</code> or <code>pg_btree</code>. Extensions supported by MDB are <a href="/docs/mdb/concepts">listed in the Developer's Guide</a>.</p> 
 databaseSpec.<br>extensions.<br>version | **string**<br><p>Version of the extension.</p> 

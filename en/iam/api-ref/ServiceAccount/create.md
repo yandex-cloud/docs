@@ -22,7 +22,7 @@ POST https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. ID of the folder to create a service account in. To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Required. Name of the service account. The name must be unique within the cloud.</p> <p>Value must match the regular expression <code>|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+name | **string**<br><p>Required. Name of the service account. The name must be unique within the cloud.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
 description | **string**<br><p>Description of the service account.</p> <p>The maximum string length in characters is 256.</p> 
  
 ## Response {#responses}
