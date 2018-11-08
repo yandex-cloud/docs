@@ -4,6 +4,8 @@
 
 Через консоль управления нельзя установить права доступа к сервисному аккаунту. Вы можете [назначить роль на каталог](../../../resource-manager/operations/folder/set-access-bindings.md), которому принадлежит сервисный аккаунт.
 
+## Как назначить роль на сервисный аккаунт
+
 ---
 
 **[!TAB CLI]**
@@ -16,60 +18,101 @@
     $ yc iam service-account add-access-binding --help
     ```
 
-1. Выберите сервисный аккаунт, например `my-robot`:
+2. Выберите сервисный аккаунт, например `my-robot`:
 
     ```
     $ yc iam service-account list
-    +----------------------+------------------+-------------------------------+
-    |          ID          |       NAME       |          DESCRIPTION          |
-    +----------------------+------------------+-------------------------------+
-    | aje6o61dvog2h6g9a33s | my-robot         |                               |
-    | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
-    +----------------------+------------------+-------------------------------+
+    +----------------------+----------+------------------+
+    |          ID          |   NAME   |   DESCRIPTION    |
+    +----------------------+----------+------------------+
+    | ajebqtreob2dpblin8pe | test-sa  | test-description |
+    | aje6o61dvog2h6g9a33s | my-robot |                  |
+    +----------------------+----------+------------------+
     ```
 
-1. Выберите [роль](../../concepts/access-control/roles.md):
+3. Выберите [роль](../../concepts/access-control/roles.md):
 
     ```
     $ yc iam role list
     ```
-1. Узнайте идентификатор и [тип субъекта](../../concepts/users/users.md), которому назначается роль.
+4. Узнайте идентификатор и [тип субъекта](../../concepts/users/users.md), которому назначается роль.
 
-    Например, чтобы назначить роль обычному пользователю, узнайте его идентификатор по логину или адресу электронной почты:
+    Чтобы назначить роль [обычному пользователю](../../concepts/users/users.md#passport), узнайте его идентификатор по логину или адресу электронной почты:
 
-        ```
-        $ yc iam user-account get test-user
-        id: gfei8n54hmfhuk5nogse
-        yandex_passport_user_account:
-          login: test-user
-          default_email: test-user@yandex.ru
-        ```
-2. Назначьте субъекту роль на сервисный аккаунт. Вы можете назначать роли разным типам субъектов:
+    ```
+    $ yc iam user-account get test-user
+    id: gfei8n54hmfhuk5nogse
+    yandex_passport_user_account:
+        login: test-user
+        default_email: test-user@yandex.ru
+    ```
 
-    * Чтобы назначить роль [пользователю](../../concepts/users/users.md#passport), используйте тип субъекта `userAccount`. Например, назначьте пользователю `test-user` роль `editor` на сервисный аккаунт `my-robot`:
+    Чтобы назначить роль сервисному аккаунту или системной группе используйте [примеры](#examples) ниже.
+5. Назначьте пользователю `test-user` роль `editor` на сервисный аккаунт `my-robot`. В типе субъекта укажите `userAccount`:
 
-        ```
-        yc iam service-account add-access-binding my-robot \
-            --role editor \
-            --subject userAccount:gfei8n54hmfhuk5nogse
-        ```
-    * Чтобы назначить роль [сервисному аккаунту](../../concepts/users/users.md#sa), используйте тип субъекта `serviceAccount`. Например, разрешите сервисному аккаунту `blabla` управлять `my-robot`. Идентификатор `blabla` вы уже получили при выборе сервисного аккаунта:
-
-        ```
-        yc iam service-account add-access-binding my-robot \
-            --role editor \
-            --subject serviceAccount:aje9sda1ufvqcmfksd3f
-        ```
-    * Чтобы назначить роль [системной группе](../../concepts/users/users.md#system), используйте тип субъекта `system`. Например, разрешите любому пользователю Яндекс.Облака просматривать информацию о сервисном аккаунте `my-robot`:
-
-        ```
-        yc iam service-account add-access-binding my-robot \
-            --role viewer \
-            --subject system:allAuthenticatedUsers
-        ```
+    ```
+    $ yc iam service-account add-access-binding my-robot \
+        --role editor \
+        --subject userAccount:gfei8n54hmfhuk5nogse
+    ```
 
 **[!TAB API]**
 
 Чтобы назначить роль на сервисный аккаунт как на ресурс, воспользуйтесь методом [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md).
+
+---
+
+## Примеры {#examples}
+
+* [[!TITLE]](#access-to-sa)
+* [[!TITLE]](#access-to-all)
+
+### Доступ сервисного аккаунта к другому сервисному аккаунту {#access-to-sa}
+
+Разрешите сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot`:
+
+---
+
+**[!TAB CLI]**
+
+1. Узнайте идентификатор сервисного аккаунта, которому вы хотите назначить роль. Чтобы узнать идентификатор, получите список доступных сервисных аккаунтов:
+
+    ```
+    $ yc iam service-account list
+    +----------------------+----------+------------------+
+    |          ID          |   NAME   |   DESCRIPTION    |
+    +----------------------+----------+------------------+
+    | ajebqtreob2dpblin8pe | test-sa  | test-description |
+    | aje6o61dvog2h6g9a33s | my-robot |                  |
+    +----------------------+----------+------------------+
+    ```
+
+2. Назначьте роль `editor` сервисному аккаунту `test-sa`, указав его идентификатор. В типе субъекта укажите `serviceAccount`:
+
+    ```
+    $ yc iam service-account add-access-binding my-robot \
+        --role editor \
+        --subject serviceAccount:ajebqtreob2dpblin8pe
+    ```
+
+---
+
+### Доступ к ресурсу любому пользователю {#access-to-all}
+
+Вы можете предоставить доступ к ресурсу любому пользователю Яндекс.Облака. Для этого назначьте роль [системной группе](../../concepts/users/users.md#system) `allAuthenticatedUsers`.
+
+Разрешите любому прошедшему аутентификацию пользователю просматривать информацию о сервисном аккаунте `my-robot`:
+
+---
+
+**[!TAB CLI]**
+
+Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В типе субъекта укажите `system`:
+
+```
+$ yc iam service-account add-access-binding my-robot \
+    --role viewer \
+    --subject system:allAuthenticatedUsers
+```
 
 ---
