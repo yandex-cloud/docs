@@ -23,7 +23,7 @@ items:
     href: operations/pay-the-bill.md
   - name: Enable the credit limit
     href: operations/enable-credit.md
-  - name: Read your bill
+  - name: Read your your payment invoice
     href: operations/spell-out-bill.md
   - name: View the payment history
     href: operations/check-bill-history.md
@@ -75,7 +75,7 @@ items:
       href: payment/documents.md
     - name: Report
       href: concepts/act.md
-    - name: Bill
+    - name: Payment invoice
       href: concepts/bill.md
     - name: Invoice
       href: concepts/invoice.md
