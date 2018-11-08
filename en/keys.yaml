@@ -1,0 +1,51 @@
+# Полные имена сервисов
+iam-full-name: Yandex Identity and Access Management
+resmgr-full-name: Yandex Resource Manager
+compute-full-name: Yandex Compute Cloud
+objstorage-full-name: Yandex Object Storage
+mdb-full-name: Yandex Managed Databases
+vpc-full-name: Yandex Virtual Private Cloud
+dsvm-full-name: Yandex Data Science Virtual Machine
+speechkit-full-name: Yandex SpeechKit
+translate-full-name: Yandex Translate
+
+# Полные имена сервисов без Yandex
+iam-name: Identity and Access Management
+resmgr-name: Resource Manager
+compute-name: Compute Cloud
+objstorage-name: Object Storage
+mdb-name: Managed Databases
+vpc-name: Virtual Private Cloud
+dsvm-name: Data Science Virtual Machine
+speechkit-name: SpeechKit
+translate-name: Translate
+
+# Короткие имена
+iam-short-name: IAM
+resmgr-short-name: Resource Manager
+compute-short-name: Compute Cloud
+objstorage-short-name: Object Storage
+mdb-short-name: MDB
+vpc-short-name: VPC
+dsvm-short-name: DSVM
+speechkit-short-name: SpeechKit
+translate-short-name: Translate
+
+# Тарифы
+price-per-hour-count-per-second: The price is indicated for 1 hour of use. Charging per second.
+
+# Роли
+roles-image-user: compute.images.user
+roles-cloud-owner: resource-manager.clouds.owner
+roles-cloud-member: resource-manager.clouds.member
+roles-admin: admin
+roles-editor: editor
+roles-viewer: viewer
+
+# Системные субъекты
+subjects-allUsers: allUsers
+subjects-allAuthenticatedUsers: allAuthenticatedUsers
+
+# Хосты
+s3-storage-host: storage.yandexcloud.net
+s3-web-host: website.yandexcloud.net

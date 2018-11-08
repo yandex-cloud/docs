@@ -1,6 +1,6 @@
 # Cluster
 Набор методов для управления ресурсами Cluster для PostgreSQL.
-## JSON-представление
+## JSON-представление {#representation}
 ```json 
  {
   "id": "string",
@@ -490,7 +490,7 @@
 }
 ```
 
-## Методы
+## Методы {#methods}
 Метод | Описание
 --- | ---
 [addHosts](addHosts.md) | Создает новые хосты для кластера.
@@ -502,7 +502,7 @@
 [list](list.md) | Получает список ресурсов Cluster для PostgreSQL, принадлежащих указанному каталогу.
 [listBackups](listBackups.md) | Получает список доступных резервных копий для указанного кластера PostgreSQL.
 [listHosts](listHosts.md) | Получает список хостов для указанного кластера.
-[listLogs](listLogs.md) | Получает логи для указанного кластера PostgreSQL.
+[listLogs](listLogs.md) | Получает логи для указанного кластера PostgreSQL. Подробнее см. [документацию MDB](/docs/yandex-mdb-guide/concepts/logs).
 [listOperations](listOperations.md) | Получает список ресурсов Operation для указанного кластера.
 [restore](restore.md) | Создает новый кластер PostgreSQL с использованием указанной резервной копии.
 [update](update.md) | Изменяет указанный кластер PostgreSQL.

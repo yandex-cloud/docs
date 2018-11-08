@@ -1,0 +1,20 @@
+# All instructions
+
+[Activate the paid version](activate-commercial.md)
+
+[View a summary of your costs](check-diagram.md)
+
+[View service usage details](check-charges.md)
+
+[Top up your personal account](pay-the-bill.md)
+
+[Enable the credit limit](enable-credit.md)
+
+[Read your payment invoice](spell-out-bill.md)
+
+[View your payment history](check-bill-history.md)
+
+[Change your billing account data](change-data.md)
+
+[Link another bank card](pin-card.md)
+

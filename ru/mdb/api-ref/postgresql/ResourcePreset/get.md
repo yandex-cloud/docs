@@ -4,19 +4,21 @@
 Чтобы получить список доступных ресурсов ResourcePreset, используйте
 запрос [list](/docs/mdb/api-ref/postgresql/ResourcePreset/list).
  
-## HTTP-запрос
-`GET /managed-postgresql/v1/resourcePresets/{resourcePresetId}`
+## HTTP-запрос {#https-request}
+```
+GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/resourcePresets/{resourcePresetId}
+```
  
 ## Path-параметры {#path_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
 resourcePresetId | Обязательное поле. Обязательное поле. Идентификатор набора ресурсов, данные о котором запрашиваются. Чтобы получить идентификатор набора ресурсов, используйте запрос[list](/docs/mdb/api-ref/postgresql/ResourcePreset/list).
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс ResourcePreset для описания наборов ресурсов.
+Ресурс ResourcePreset для описания настроек конфигурации ресурсов.
  
 Поле | Описание
 --- | ---

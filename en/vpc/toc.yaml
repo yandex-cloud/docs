@@ -1,0 +1,85 @@
+title: "Yandex Virtual Private Cloud"
+icon: "/img/vpc.svg"
+items:
+  - name: Yandex Virtual Private Cloud
+    href: index.yaml
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Cloud network
+        items:
+          - name: Creating a cloud network
+            href: operations/network-create.md
+          - name: Deleting a cloud network
+            href: operations/network-delete.md
+      - name: Subnet
+        items:
+          - name: Creating a subnet
+            href: operations/subnet-create.md
+          - name: Deleting a subnet
+            href: operations/subnet-delete.md
+  - name: Сoncepts
+    items:
+      - name: Relationship between service resources
+        href: concepts/index.md
+      - name: Cloud networks and subnets
+        href: concepts/network.md
+      - name: Cloud resource addresses
+        href: concepts/address.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Identity and access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Overview
+        href: api-ref/index.md
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: Network
+        items:
+          - name: Overview
+            href: api-ref/Network/index.md
+          - name: create
+            href: api-ref/Network/create.md
+          - name: delete
+            href: api-ref/Network/delete.md
+          - name: get
+            href: api-ref/Network/get.md
+          - name: list
+            href: api-ref/Network/list.md
+          - name: listOperations
+            href: api-ref/Network/listOperations.md
+          - name: listSubnets
+            href: api-ref/Network/listSubnets.md
+          - name: update
+            href: api-ref/Network/update.md
+      - name: Operation
+        items:
+          - name: Overview
+            href: api-ref/Operation/index.md
+          - name: get
+            href: api-ref/Operation/get.md
+      - name: Subnet
+        items:
+          - name: Overview
+            href: api-ref/Subnet/index.md
+          - name: create
+            href: api-ref/Subnet/create.md
+          - name: delete
+            href: api-ref/Subnet/delete.md
+          - name: get
+            href: api-ref/Subnet/get.md
+          - name: list
+            href: api-ref/Subnet/list.md
+          - name: listOperations
+            href: api-ref/Subnet/listOperations.md
+          - name: update
+            href: api-ref/Subnet/update.md
+  - name: Questions and answers
+    href: qa/index.md
