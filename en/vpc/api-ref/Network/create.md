@@ -24,7 +24,7 @@ POST https://vpc.api.cloud.yandex.net/vpc/v1/networks
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. ID of the folder for this request to create a network in. To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Name of the network. The name must be unique within the folder.</p> <p>Value must match the regular expression `|[a-z][-a-z0-9]{1,61}[a-z0-9]`.</p> 
+name | **string**<br><p>Name of the network. The name must be unique within the folder.</p> <p>Value must match the regular expression `\|[a-z][-a-z0-9]{1,61}[a-z0-9]`.</p> 
 description | **string**<br><p>Description of the network.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
  
