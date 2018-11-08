@@ -27,4 +27,4 @@ createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://
 name | **string**<br><p>Name of the folder. The name is unique within the cloud. 3-63 characters long.</p> 
 description | **string**<br><p>Description of the folder. 0-256 characters long.</p> 
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs. Мaximum of 64 per resource.</p> 
-status | **string**<br><p>Status of the folder.</p> <p>Status of the folder.</p> <ul> <li>STATUS_UNSPECIFIED: Unspecified.</li> <li>ACTIVE: The folder is active.</li> <li>DELETING: The folder is being deleted.</li> </ul> 
+status | **string**<br><p>Status of the folder.</p> <ul> <li>ACTIVE: The folder is active.</li> <li>DELETING: The folder is being deleted.</li> </ul> 

@@ -18,7 +18,7 @@ resourceId | Required. ID of the resource to list access bindings for.  To get t
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than pageSize, the service returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.  The maximum value is 1000.
+pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than pageSize, the service returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
 pageToken | Page token. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.  The maximum string length in characters is 100.
  
 ## Response {#responses}
