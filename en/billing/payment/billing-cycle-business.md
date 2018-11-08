@@ -48,7 +48,7 @@ The diagrams show the cycle of issuing and paying bills for businesses, as well 
 
 **[!TAB I use the credit limit]**
 
-![](../_assets/billing-cycle-business-credit.svg)
+![](../_assets/billing-cycle-business-credit.png)
 
 1. You [activate the paid version](../operations/activate-commercial.md) before the end of the trial period.
 <br/>If you did not spend the entire amount of the [initial grant](../concepts/bonus-account.md), you can use the remaining amount after upgrading to the paid version.
