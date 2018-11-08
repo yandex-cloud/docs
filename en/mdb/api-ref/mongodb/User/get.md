@@ -4,7 +4,9 @@ Returns the specified MongoDB User resource.
 To get the list of available MongoDB User resources, make a [list](/docs/mdb/api-ref/mongodb/User/list) request.
  
 ## HTTP request {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}
+```
  
 ## Path parameters {#path_params}
  

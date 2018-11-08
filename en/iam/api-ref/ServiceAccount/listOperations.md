@@ -4,7 +4,9 @@ Lists operations for the specified service account.
 
  
 ## HTTP request {#https-request}
-`GET https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}/operations`
+```
+GET https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}/operations
+```
  
 ## Path parameters {#path_params}
  

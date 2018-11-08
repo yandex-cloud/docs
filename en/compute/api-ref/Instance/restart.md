@@ -4,7 +4,9 @@ Restarts the running instance.
 
  
 ## HTTP request {#https-request}
-`POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:restart`
+```
+POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:restart
+```
  
 ## Path parameters {#path_params}
  

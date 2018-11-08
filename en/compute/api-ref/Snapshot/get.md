@@ -4,7 +4,9 @@ Returns the specified Snapshot resource.
 To get the list of available Snapshot resources, make a [list](/docs/compute/api-ref/Snapshot/list) request.
  
 ## HTTP request {#https-request}
-`GET https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}`
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}
+```
  
 ## Path parameters {#path_params}
  

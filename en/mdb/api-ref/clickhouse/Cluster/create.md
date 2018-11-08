@@ -4,7 +4,9 @@ Creates a ClickHouse cluster in the specified folder.
 
  
 ## HTTP request {#https-request}
-`POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters`
+```
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
+```
  
 ## Body parameters {#body_params}
  

@@ -4,7 +4,9 @@ Deletes the specified instance.
 
  
 ## HTTP request {#https-request}
-`DELETE https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}`
+```
+DELETE https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}
+```
  
 ## Path parameters {#path_params}
  

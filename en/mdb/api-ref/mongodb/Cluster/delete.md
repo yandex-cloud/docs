@@ -4,7 +4,9 @@ Deletes the specified MongoDB cluster.
 
  
 ## HTTP request {#https-request}
-`DELETE https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}`
+```
+DELETE https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}
+```
  
 ## Path parameters {#path_params}
  

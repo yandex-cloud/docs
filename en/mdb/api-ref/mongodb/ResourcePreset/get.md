@@ -4,7 +4,9 @@ Returns the specified ResourcePreset resource.
 To get the list of available ResourcePreset resources, make a [list](/docs/mdb/api-ref/mongodb/ResourcePreset/list) request.
  
 ## HTTP request {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/resourcePresets/{resourcePresetId}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/resourcePresets/{resourcePresetId}
+```
  
 ## Path parameters {#path_params}
  

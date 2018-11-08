@@ -4,7 +4,9 @@ Retrieves the list of available ResourcePreset resources.
 
  
 ## HTTP request {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/resourcePresets`
+```
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/resourcePresets
+```
  
 ## Query parameters {#query_params}
  

@@ -4,7 +4,9 @@ Lists operations for the specified network.
 
  
 ## HTTP request {#https-request}
-`GET https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}/operations`
+```
+GET https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}/operations
+```
  
 ## Path parameters {#path_params}
  

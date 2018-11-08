@@ -4,7 +4,9 @@ Returns the specified ClickHouse Cluster resource.
 To get the list of available ClickHouse Cluster resources, make a [list](/docs/mdb/api-ref/clickhouse/Cluster/list) request.
  
 ## HTTP request {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}
+```
  
 ## Path parameters {#path_params}
  

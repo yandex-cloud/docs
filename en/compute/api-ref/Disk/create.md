@@ -5,7 +5,9 @@ You can create an empty disk or restore it from a snapshot or an image.
 Method starts an asynchronous operation that can be cancelled while it is in progress.
  
 ## HTTP request {#https-request}
-`POST https://compute.api.cloud.yandex.net/compute/v1/disks`
+```
+POST https://compute.api.cloud.yandex.net/compute/v1/disks
+```
  
 ## Body parameters {#body_params}
  

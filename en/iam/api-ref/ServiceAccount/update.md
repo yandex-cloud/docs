@@ -4,7 +4,9 @@ Updates the specified service account.
 
  
 ## HTTP request {#https-request}
-`PATCH https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}`
+```
+PATCH https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}
+```
  
 ## Path parameters {#path_params}
  

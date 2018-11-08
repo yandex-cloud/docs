@@ -4,7 +4,9 @@ Creates a ClickHouse user in the specified cluster.
 
  
 ## HTTP request {#https-request}
-`POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/users`
+```
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/users
+```
  
 ## Path parameters {#path_params}
  

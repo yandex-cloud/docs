@@ -4,7 +4,9 @@ Returns the specified PostgreSQL Cluster resource.
 To get the list of available PostgreSQL Cluster resources, make a [list](/docs/mdb/api-ref/postgresql/Cluster/list) request.
  
 ## HTTP request {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}
+```
  
 ## Path parameters {#path_params}
  

@@ -4,7 +4,9 @@ Retrieves the list of Image resources in the specified folder.
 
  
 ## HTTP request {#https-request}
-`GET https://compute.api.cloud.yandex.net/compute/v1/images`
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/images
+```
  
 ## Query parameters {#query_params}
  

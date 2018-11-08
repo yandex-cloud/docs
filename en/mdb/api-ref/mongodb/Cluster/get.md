@@ -4,7 +4,9 @@ Returns the specified MongoDB Cluster resource.
 To get the list of available MongoDB Cluster resources, make a [list](/docs/mdb/api-ref/mongodb/Cluster/list) request.
  
 ## HTTP request {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}
+```
  
 ## Path parameters {#path_params}
  

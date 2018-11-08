@@ -4,7 +4,9 @@ Returns the specified Role resource.
 To get the list of available Role resources, use a [list](/docs/iam/api-ref/Role/list) request.
  
 ## HTTP request {#https-request}
-`GET https://iam.api.cloud.yandex.net/iam/v1/roles/{roleId}`
+```
+GET https://iam.api.cloud.yandex.net/iam/v1/roles/{roleId}
+```
  
 ## Path parameters {#path_params}
  

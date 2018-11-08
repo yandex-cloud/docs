@@ -4,7 +4,9 @@ Returns the specified PostgreSQL User resource.
 To get the list of available PostgreSQL User resources, make a [list](/docs/mdb/api-ref/postgresql/User/list) request.
  
 ## HTTP request {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/users/{userName}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/users/{userName}
+```
  
 ## Path parameters {#path_params}
  

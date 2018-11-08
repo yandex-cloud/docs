@@ -4,7 +4,9 @@ Returns the specified Disk resource.
 To get the list of available Disk resources, make a [list](/docs/compute/api-ref/Disk/list) request.
  
 ## HTTP request {#https-request}
-`GET https://compute.api.cloud.yandex.net/compute/v1/disks/{diskId}`
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/disks/{diskId}
+```
  
 ## Path parameters {#path_params}
  

@@ -4,7 +4,9 @@ Returns the specified ServiceAccount resource.
 To get the list of available ServiceAccount resources, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
  
 ## HTTP request {#https-request}
-`GET https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}`
+```
+GET https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}
+```
  
 ## Path parameters {#path_params}
  

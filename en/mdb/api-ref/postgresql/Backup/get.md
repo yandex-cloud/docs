@@ -4,7 +4,9 @@ Returns the specified PostgreSQL Backup resource.
 To get the list of available PostgreSQL Backup resources, make a [list](/docs/mdb/api-ref/postgresql/Backup/list) request.
  
 ## HTTP request {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/backups/{backupId}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/backups/{backupId}
+```
  
 ## Path parameters {#path_params}
  

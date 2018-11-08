@@ -4,7 +4,9 @@ Returns the specified ClickHouse Backup resource.
 To get the list of available ClickHouse Backup resources, make a [list](/docs/mdb/api-ref/clickhouse/Backup/list) request.
  
 ## HTTP request {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups/{backupId}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups/{backupId}
+```
  
 ## Path parameters {#path_params}
  

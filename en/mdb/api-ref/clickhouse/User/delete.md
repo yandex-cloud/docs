@@ -4,7 +4,9 @@ Deletes the specified ClickHouse user.
 
  
 ## HTTP request {#https-request}
-`DELETE https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}`
+```
+DELETE https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}
+```
  
 ## Path parameters {#path_params}
  

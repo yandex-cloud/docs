@@ -4,7 +4,9 @@ Returns the specified MongoDB Backup resource.
 To get the list of available MongoDB Backup resources, make a [list](/docs/mdb/api-ref/mongodb/Backup/list) request.
  
 ## HTTP request {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/backups/{backupId}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/backups/{backupId}
+```
  
 ## Path parameters {#path_params}
  

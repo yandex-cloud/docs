@@ -4,7 +4,9 @@ Deletes the specified service account.
 
  
 ## HTTP request {#https-request}
-`DELETE https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}`
+```
+DELETE https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}
+```
  
 ## Path parameters {#path_params}
  

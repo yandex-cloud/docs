@@ -4,7 +4,9 @@ Updates the specified MongoDB user.
 
  
 ## HTTP request {#https-request}
-`PATCH https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}`
+```
+PATCH https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}
+```
  
 ## Path parameters {#path_params}
  

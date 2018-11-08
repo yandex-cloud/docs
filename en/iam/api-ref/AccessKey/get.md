@@ -4,7 +4,9 @@ Returns the specified AccessKey resource.
 To get the list of available AccessKey resources, make a [list](/docs/iam/api-ref/AccessKey/list) request.
  
 ## HTTP request {#https-request}
-`GET https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys/{accessKeyId}`
+```
+GET https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
+```
  
 ## Path parameters {#path_params}
  

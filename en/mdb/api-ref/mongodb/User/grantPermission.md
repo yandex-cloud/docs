@@ -4,7 +4,9 @@ Grants permission to the specified MongoDB user.
 
  
 ## HTTP request {#https-request}
-`POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}:grantPermission`
+```
+POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}:grantPermission
+```
  
 ## Path parameters {#path_params}
  

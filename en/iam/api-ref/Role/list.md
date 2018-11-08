@@ -4,7 +4,9 @@ Retrieves the list of Role resources.
 
  
 ## HTTP request {#https-request}
-`GET https://iam.api.cloud.yandex.net/iam/v1/roles`
+```
+GET https://iam.api.cloud.yandex.net/iam/v1/roles
+```
  
 ## Query parameters {#query_params}
  

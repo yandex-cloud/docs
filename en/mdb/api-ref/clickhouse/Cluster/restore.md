@@ -4,7 +4,9 @@ Creates a new ClickHouse cluster using the specified backup.
 
  
 ## HTTP request {#https-request}
-`POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore`
+```
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore
+```
  
 ## Body parameters {#body_params}
  

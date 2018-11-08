@@ -4,7 +4,9 @@ Deletes the specified snapshot.
 Deleting a snapshot removes its data permanently and is irreversible.
  
 ## HTTP request {#https-request}
-`DELETE https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}`
+```
+DELETE https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}
+```
  
 ## Path parameters {#path_params}
  

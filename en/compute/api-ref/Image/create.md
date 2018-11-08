@@ -5,7 +5,9 @@ You can create an image from a disk, snapshot, other image or URI.
 Method starts an asynchronous operation that can be cancelled while it is in progress.
  
 ## HTTP request {#https-request}
-`POST https://compute.api.cloud.yandex.net/compute/v1/images`
+```
+POST https://compute.api.cloud.yandex.net/compute/v1/images
+```
  
 ## Body parameters {#body_params}
  

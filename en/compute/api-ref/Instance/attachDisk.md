@@ -4,7 +4,9 @@ Attaches the disk to the instance.
 
  
 ## HTTP request {#https-request}
-`POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:attachDisk`
+```
+POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:attachDisk
+```
  
 ## Path parameters {#path_params}
  

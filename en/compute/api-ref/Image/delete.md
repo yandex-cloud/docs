@@ -4,7 +4,9 @@ Deletes the specified image.
 Deleting an image removes its data permanently and is irreversible.
  
 ## HTTP request {#https-request}
-`DELETE https://compute.api.cloud.yandex.net/compute/v1/images/{imageId}`
+```
+DELETE https://compute.api.cloud.yandex.net/compute/v1/images/{imageId}
+```
  
 ## Path parameters {#path_params}
  

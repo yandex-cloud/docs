@@ -5,7 +5,9 @@ For more information about logs, see the [Logs](/docs/yandex-mdb-guide/concepts/
 
  
 ## HTTP request {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}:logs`
+```
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}:logs
+```
  
 ## Path parameters {#path_params}
  

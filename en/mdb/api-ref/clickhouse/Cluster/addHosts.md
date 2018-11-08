@@ -4,7 +4,9 @@ Creates new hosts for a cluster.
 
  
 ## HTTP request {#https-request}
-`POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/hosts:batchCreate`
+```
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/hosts:batchCreate
+```
  
 ## Path parameters {#path_params}
  

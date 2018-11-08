@@ -4,7 +4,9 @@ Lists operations for the specified snapshot.
 
  
 ## HTTP request {#https-request}
-`GET https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}/operations`
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}/operations
+```
  
 ## Path parameters {#path_params}
  

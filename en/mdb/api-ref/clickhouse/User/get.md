@@ -4,7 +4,9 @@ Returns the specified ClickHouse User resource.
 To get the list of available ClickHouse User resources, make a [list](/docs/mdb/api-ref/clickhouse/User/list) request.
  
 ## HTTP request {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}
+```
  
 ## Path parameters {#path_params}
  

@@ -4,7 +4,9 @@ Retrieves the list of AccessKey resources for the specified service account.
 
  
 ## HTTP request {#https-request}
-`GET https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys`
+```
+GET https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys
+```
  
 ## Query parameters {#query_params}
  

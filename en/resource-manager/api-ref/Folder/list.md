@@ -4,7 +4,9 @@ Retrieves the list of Folder resources in the specified cloud.
 
  
 ## HTTP request {#https-request}
-`GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders`
+```
+GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders
+```
  
 ## Query parameters {#query_params}
  

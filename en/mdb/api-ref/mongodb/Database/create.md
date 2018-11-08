@@ -4,7 +4,9 @@ Creates a new MongoDB database in the specified cluster.
 
  
 ## HTTP request {#https-request}
-`POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/databases`
+```
+POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/databases
+```
  
 ## Path parameters {#path_params}
  

@@ -4,7 +4,9 @@ Revokes permission from the specified MongoDB user.
 
  
 ## HTTP request {#https-request}
-`POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}:revokePermission`
+```
+POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}:revokePermission
+```
  
 ## Path parameters {#path_params}
  

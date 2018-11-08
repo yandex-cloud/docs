@@ -4,7 +4,9 @@ Retrieves the list of Operation resources for the specified cluster.
 
  
 ## HTTP request {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/operations`
+```
+GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/operations
+```
  
 ## Path parameters {#path_params}
  

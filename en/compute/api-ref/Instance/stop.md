@@ -4,7 +4,9 @@ Stops the running instance.
 You can start the instance later using the [start](/docs/compute/api-ref/Instance/start) method.
  
 ## HTTP request {#https-request}
-`POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:stop`
+```
+POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:stop
+```
  
 ## Path parameters {#path_params}
  
