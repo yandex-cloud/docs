@@ -7,6 +7,8 @@
 3. [Создайте подписанный JWT](#jwt-create).
 4. [Обменяйте JWT на IAM-токен](#get-iam-token).
 
+[!INCLUDE [iam-token-lifetime](../../../_includes/iam-token-lifetime.md)]
+
 ## 1. Узнайте идентификатор сервисного аккаунта {#before-begin}
 
 ---
@@ -197,10 +199,10 @@ curl -X POST \
 
 [!INCLUDE [iam-token-usage](../../../_includes/iam-token-usage.md)]
 
-[!INCLUDE [iam-token-lifetime](../../../_includes/iam-token-lifetime.md)]
-
 
 ## Примеры
+
+### PyJWT
 
 Пример создания подписанного JWT с использованием [PyJWT](https://github.com/jpadilla/pyjwt/).
 

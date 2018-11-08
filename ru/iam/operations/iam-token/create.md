@@ -1,6 +1,8 @@
 # Получить IAM-токен для своей учетной записи
 
-Для выполнения операций в Яндекс.Облаке через API необходим [IAM-токен](../../concepts/authorization/iam-token.md). Чтобы получить IAM-токен для [своей учетной записи](../../concepts/users/users.md):
+Для выполнения операций в Яндекс.Облаке через API необходим [IAM-токен](../../concepts/authorization/iam-token.md).
+
+[!INCLUDE [iam-token-lifetime](../../../_includes/iam-token-lifetime.md)]
 
 ---
 
@@ -28,5 +30,3 @@ $ yc iam create-token
 ---
 
 [!INCLUDE [iam-token-usage](../../../_includes/iam-token-usage.md)]
-
-[!INCLUDE [iam-token-lifetime](../../../_includes/iam-token-lifetime.md)]
