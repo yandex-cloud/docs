@@ -5,7 +5,9 @@
 относительно `https://operation.api.cloud.yandex.net`.
  
 ## HTTP-запрос {#https-request}
-`GET https://operation.api.cloud.yandex.net/operations/{operationId}`
+```
+GET https://operation.api.cloud.yandex.net/operations/{operationId}
+```
  
 ## Path-параметры {#path_params}
  
