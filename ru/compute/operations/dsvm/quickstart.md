@@ -19,7 +19,7 @@
         Пару ключей для подключения по SSH необходимо создать самостоятельно. Для создания ключей используйте сторонние инструменты, например утилиты `ssh-keygen` в Linux и macOS или [PuTTygen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) в Windows.
 1. Нажмите кнопку **Создать ВМ**.
 
-При создании виртуальной машине назначаются IP-адрес и имя хоста (FQDN). Эти данные можно использовать для доступа к виртуальной машине по SSH.
+[!INCLUDE [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md)]
 
 ## Подключиться к виртуальной машине DSVM по протоколу SSH {#first-login}
 
@@ -30,23 +30,27 @@
 ```
 #####################################################################
 Welcome to Yandex Data Science Virtual Machine
-...
+Image Build: ...
 
 Please use one of the following commands to activate
 the environment with the framework of your choice:
     for Python2 ______________________ source activate py27
     for Python3 ______________________ source activate py36
 
-...
-
-To run public Jupyter notebook execute:
-    jupyter notebook --ip=* --no-browser
+Packages installed in each environment:
+    catboost, xgboost, lightgbm,
+    tensorflow, pytorch,
+    jupyter, matplotlib,
+    numpy, scipy, scikit-learn
 
 To run public JupyterLab execute:
-    jupyter lab --ip=* --no-browser
+    jupyter lab --no-browser
+
+To run public Jupyter notebook execute:
+    jupyter notebook --no-browser
 
 Description and help:
-    docs.cloud.yandex.ru/dsvm
+    https://cloud.yandex.ru/docs/compute/operations/dsvm/
 
 #####################################################################
 ```

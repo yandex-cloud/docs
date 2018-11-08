@@ -13,14 +13,14 @@
 
 ## Установка {#installation}
 
-Для устновки AWS CLI воспользуйтесь [инструкцией](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) на сайте производителя.
+Для установки AWS CLI воспользуйтесь [инструкцией](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) на сайте производителя.
 
 ## Настройка {#setup}
 
 Для настройки AWS CLI используйте команду `aws configure`. Команда запросит значения для следующих параметров:
 
 1. `AWS Access Key ID` — введите идентификатор ключа, который вы получили при генерации статического ключа.
-1. `AWS Secret Access Key` — введите секретный ключ, который вы получили при генерации секретного ключа.
+1. `AWS Secret Access Key` — введите секретный ключ, который вы получили при генерации статического ключа.
 1. `Default region name` — введите значение `us-east-1`.
    
    > [!NOTE]
