@@ -9,7 +9,6 @@
 Невозможно удалить диск, подключенный к виртуальной машине.
  
 ## HTTP-запрос {#https-request}
-
 ```
 DELETE https://compute.api.cloud.yandex.net/compute/v1/disks/{diskId}
 ```
