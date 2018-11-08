@@ -5,7 +5,9 @@
 запрос [list](/docs/compute/api-ref/Image/list).
  
 ## HTTP-запрос {#https-request}
-`GET https://compute.api.cloud.yandex.net/compute/v1/images/{imageId}`
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/images/{imageId}
+```
  
 ## Path-параметры {#path_params}
  

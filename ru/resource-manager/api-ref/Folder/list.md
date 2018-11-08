@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders`
+```
+GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders
+```
  
 ## Query-параметры {#query_params}
  

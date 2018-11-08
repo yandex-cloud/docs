@@ -5,7 +5,9 @@
 отправьте запрос [list](/docs/mdb/api-ref/mongodb/User/list).
  
 ## HTTP-запрос {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}
+```
  
 ## Path-параметры {#path_params}
  

@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{cloudId}/operations`
+```
+GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{cloudId}/operations
+```
  
 ## Path-параметры {#path_params}
  

@@ -5,7 +5,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters:restore`
+```
+POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters:restore
+```
  
 ## Параметры в теле запроса {#body_params}
  

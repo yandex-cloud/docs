@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/operations`
+```
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/operations
+```
  
 ## Path-параметры {#path_params}
  

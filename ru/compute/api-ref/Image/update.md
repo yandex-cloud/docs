@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`PATCH https://compute.api.cloud.yandex.net/compute/v1/images/{imageId}`
+```
+PATCH https://compute.api.cloud.yandex.net/compute/v1/images/{imageId}
+```
  
 ## Path-параметры {#path_params}
  

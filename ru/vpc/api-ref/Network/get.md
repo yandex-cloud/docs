@@ -5,7 +5,9 @@
 запрос [list](/docs/vpc/api-ref/Network/list).
  
 ## HTTP-запрос {#https-request}
-`GET https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}`
+```
+GET https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}
+```
  
 ## Path-параметры {#path_params}
  

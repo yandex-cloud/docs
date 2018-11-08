@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://vpc.api.cloud.yandex.net/vpc/v1/subnets`
+```
+GET https://vpc.api.cloud.yandex.net/vpc/v1/subnets
+```
  
 ## Query-параметры {#query_params}
  

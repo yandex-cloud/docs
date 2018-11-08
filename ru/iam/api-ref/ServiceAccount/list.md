@@ -5,7 +5,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts`
+```
+GET https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts
+```
  
 ## Query-параметры {#query_params}
  

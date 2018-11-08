@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://compute.api.cloud.yandex.net/compute/v1/images`
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/images
+```
  
 ## Query-параметры {#query_params}
  

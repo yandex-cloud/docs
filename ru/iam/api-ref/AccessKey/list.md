@@ -5,7 +5,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys`
+```
+GET https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys
+```
  
 ## Query-параметры {#query_params}
  

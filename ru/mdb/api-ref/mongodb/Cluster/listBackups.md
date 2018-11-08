@@ -5,7 +5,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/backups`
+```
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/backups
+```
  
 ## Path-параметры {#path_params}
  

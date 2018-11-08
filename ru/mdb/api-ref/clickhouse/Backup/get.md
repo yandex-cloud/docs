@@ -5,7 +5,9 @@
 отправьте запрос [list](/docs/mdb/api-ref/clickhouse/Backup/list).
  
 ## HTTP-запрос {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups/{backupId}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups/{backupId}
+```
  
 ## Path-параметры {#path_params}
  

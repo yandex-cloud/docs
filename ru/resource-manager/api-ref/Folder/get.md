@@ -5,7 +5,9 @@
 запрос [list](/docs/resource-manager/api-ref/Folder/list).
  
 ## HTTP-запрос {#https-request}
-`GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{folderId}`
+```
+GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{folderId}
+```
  
 ## Path-параметры {#path_params}
  

@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:detachDisk`
+```
+POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:detachDisk
+```
  
 ## Path-параметры {#path_params}
  

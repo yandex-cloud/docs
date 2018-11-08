@@ -5,7 +5,9 @@
 отправьте запрос [list](/docs/mdb/api-ref/postgresql/Cluster/list).
  
 ## HTTP-запрос {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}
+```
  
 ## Path-параметры {#path_params}
  

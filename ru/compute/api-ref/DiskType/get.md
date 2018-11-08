@@ -1,17 +1,19 @@
 # Метод get
-Возвращает информацию об указанном типе диска.
+Возвращает указанный ресурс DiskType.
  
-Чтобы получить список доступных типов дисков, используйте
+Чтобы получить список доступных ресурсов DiskType, используйте
 запрос [list](/docs/compute/api-ref/DiskType/list).
  
 ## HTTP-запрос {#https-request}
-`GET https://compute.api.cloud.yandex.net/compute/v1/diskTypes/{diskTypeId}`
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/diskTypes/{diskTypeId}
+```
  
 ## Path-параметры {#path_params}
  
 Параметр | Описание
 --- | ---
-diskTypeId | Обязательное поле. Идентификатор типа диска, о котором запрашивается информация. Чтобы получить идентификатор типа диска, используйте запрос [list](/docs/compute/api-ref/DiskType/list).
+diskTypeId | Обязательное поле. Идентификатор возвращаемого ресурса DiskType. Чтобы получить идентификатор типа диска, используйте запрос [list](/docs/compute/api-ref/DiskType/list).
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

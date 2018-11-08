@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`PATCH https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/users/{userName}`
+```
+PATCH https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/users/{userName}
+```
  
 ## Path-параметры {#path_params}
  

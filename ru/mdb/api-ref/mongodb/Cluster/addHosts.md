@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/hosts:batchCreate`
+```
+POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/hosts:batchCreate
+```
  
 ## Path-параметры {#path_params}
  

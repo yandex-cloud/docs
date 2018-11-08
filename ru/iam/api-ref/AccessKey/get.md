@@ -5,7 +5,9 @@
 запрос [list](/docs/iam/api-ref/AccessKey/list).
  
 ## HTTP-запрос {#https-request}
-`GET https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys/{accessKeyId}`
+```
+GET https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
+```
  
 ## Path-параметры {#path_params}
  

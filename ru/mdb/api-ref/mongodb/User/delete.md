@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`DELETE https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}`
+```
+DELETE https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}
+```
  
 ## Path-параметры {#path_params}
  

@@ -5,7 +5,9 @@
 отправьте запрос [list](/docs/mdb/api-ref/clickhouse/Database/list).
  
 ## HTTP-запрос {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/databases/{databaseName}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/databases/{databaseName}
+```
  
 ## Path-параметры {#path_params}
  

@@ -5,7 +5,9 @@
 запрос [list](/docs/mdb/api-ref/postgresql/ResourcePreset/list).
  
 ## HTTP-запрос {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/resourcePresets/{resourcePresetId}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/resourcePresets/{resourcePresetId}
+```
  
 ## Path-параметры {#path_params}
  

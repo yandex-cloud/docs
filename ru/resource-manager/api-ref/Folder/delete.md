@@ -7,7 +7,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`DELETE https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{folderId}`
+```
+DELETE https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{folderId}
+```
  
 ## Path-параметры {#path_params}
  

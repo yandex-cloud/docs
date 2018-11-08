@@ -6,7 +6,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`PATCH https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}`
+```
+PATCH https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}
+```
  
 ## Path-параметры {#path_params}
  

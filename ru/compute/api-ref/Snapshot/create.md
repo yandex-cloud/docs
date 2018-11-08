@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`POST https://compute.api.cloud.yandex.net/compute/v1/snapshots`
+```
+POST https://compute.api.cloud.yandex.net/compute/v1/snapshots
+```
  
 ## Параметры в теле запроса {#body_params}
  

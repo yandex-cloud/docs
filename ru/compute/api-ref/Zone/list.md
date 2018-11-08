@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://compute.api.cloud.yandex.net/compute/v1/zones`
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/zones
+```
  
 ## Query-параметры {#query_params}
  
@@ -20,7 +22,7 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-zones | **object**<br><p>Зона доступности. Дополнительные сведения см. в разделе <a href="/docs/overview/concepts/geo-scope">Зоны доступности</a>.</p> 
+zones | **object**<br><p>Ресурс Zone. Подробнее см. <a href="/docs/gen-ref/concepts/geo-scope">Зоны доступности</a>.</p> 
 zones.<br>id | **string**<br><p>Идентификатор зоны доступности.</p> 
 zones.<br>regionId | **string**<br><p>Идентификатор региона.</p> 
 zones.<br>status | **string**<br><p>Статус зоны доступности.</p> <ul> <li>UP: Зона доступна. Вы можете обращаться к ресурсам в этой зоне.</li> <li>DOWN: Зона недоступна.</li> </ul> 

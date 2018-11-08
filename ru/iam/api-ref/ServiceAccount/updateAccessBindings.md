@@ -5,7 +5,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`POST https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{resourceId}:updateAccessBindings`
+```
+POST https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{resourceId}:updateAccessBindings
+```
  
 ## Path-параметры {#path_params}
  

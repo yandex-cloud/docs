@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`DELETE https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}`
+```
+DELETE https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}
+```
  
 ## Path-параметры {#path_params}
  

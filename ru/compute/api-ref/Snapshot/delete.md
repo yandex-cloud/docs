@@ -5,7 +5,9 @@
 навсегда.
  
 ## HTTP-запрос {#https-request}
-`DELETE https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}`
+```
+DELETE https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}
+```
  
 ## Path-параметры {#path_params}
  

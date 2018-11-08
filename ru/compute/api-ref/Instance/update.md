@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`PATCH https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}`
+```
+PATCH https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}
+```
  
 ## Path-параметры {#path_params}
  

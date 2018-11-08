@@ -5,7 +5,9 @@ Instance.
 
  
 ## HTTP-запрос {#https-request}
-`GET https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:serialPortOutput`
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:serialPortOutput
+```
  
 ## Path-параметры {#path_params}
  

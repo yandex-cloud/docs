@@ -5,7 +5,9 @@
 [start](/docs/compute/api-ref/Instance/start).
  
 ## HTTP-запрос {#https-request}
-`POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:stop`
+```
+POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:stop
+```
  
 ## Path-параметры {#path_params}
  

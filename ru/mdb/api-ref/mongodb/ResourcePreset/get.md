@@ -5,7 +5,9 @@
 запрос [list](/docs/mdb/api-ref/mongodb/ResourcePreset/list).
  
 ## HTTP-запрос {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/resourcePresets/{resourcePresetId}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/resourcePresets/{resourcePresetId}
+```
  
 ## Path-параметры {#path_params}
  

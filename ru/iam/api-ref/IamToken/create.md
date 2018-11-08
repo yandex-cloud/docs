@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`POST https://iam.api.cloud.yandex.net/iam/v1/tokens`
+```
+POST https://iam.api.cloud.yandex.net/iam/v1/tokens
+```
  
 ## Параметры в теле запроса {#body_params}
  

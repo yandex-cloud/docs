@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin`
+```
+GET https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin
+```
  
 ## Query-параметры {#query_params}
  

@@ -4,7 +4,9 @@
 Чтобы получить список доступных подсетей, используйте запрос [list](/docs/vpc/api-ref/Subnet/list).
  
 ## HTTP-запрос {#https-request}
-`GET https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}`
+```
+GET https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}
+```
  
 ## Path-параметры {#path_params}
  

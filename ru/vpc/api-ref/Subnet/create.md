@@ -5,7 +5,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`POST https://vpc.api.cloud.yandex.net/vpc/v1/subnets`
+```
+POST https://vpc.api.cloud.yandex.net/vpc/v1/subnets
+```
  
 ## Параметры в теле запроса {#body_params}
  

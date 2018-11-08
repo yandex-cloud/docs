@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}/operations`
+```
+GET https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}/operations
+```
  
 ## Path-параметры {#path_params}
  

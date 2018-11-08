@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`POST https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{resourceId}:updateAccessBindings`
+```
+POST https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{resourceId}:updateAccessBindings
+```
  
 ## Path-параметры {#path_params}
  

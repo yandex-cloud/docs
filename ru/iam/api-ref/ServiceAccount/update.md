@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`PATCH https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}`
+```
+PATCH https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}
+```
  
 ## Path-параметры {#path_params}
  

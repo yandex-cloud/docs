@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/hosts`
+```
+GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/hosts
+```
  
 ## Path-параметры {#path_params}
  

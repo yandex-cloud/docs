@@ -6,7 +6,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`POST https://compute.api.cloud.yandex.net/compute/v1/instances`
+```
+POST https://compute.api.cloud.yandex.net/compute/v1/instances
+```
  
 ## Параметры в теле запроса {#body_params}
  

@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`POST https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders`
+```
+POST https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders
+```
  
 ## Параметры в теле запроса {#body_params}
  

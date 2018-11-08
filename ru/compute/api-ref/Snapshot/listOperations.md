@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}/operations`
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}/operations
+```
  
 ## Path-параметры {#path_params}
  

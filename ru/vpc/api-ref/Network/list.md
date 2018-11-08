@@ -5,7 +5,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://vpc.api.cloud.yandex.net/vpc/v1/networks`
+```
+GET https://vpc.api.cloud.yandex.net/vpc/v1/networks
+```
  
 ## Query-параметры {#query_params}
  

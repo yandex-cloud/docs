@@ -5,7 +5,9 @@
 запрос [list](/docs/compute/api-ref/Disk/list).
  
 ## HTTP-запрос {#https-request}
-`GET https://compute.api.cloud.yandex.net/compute/v1/disks/{diskId}`
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/disks/{diskId}
+```
  
 ## Path-параметры {#path_params}
  

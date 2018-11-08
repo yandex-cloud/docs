@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`DELETE https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys/{accessKeyId}`
+```
+DELETE https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
+```
  
 ## Path-параметры {#path_params}
  

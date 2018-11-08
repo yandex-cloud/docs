@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups`
+```
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups
+```
  
 ## Query-параметры {#query_params}
  

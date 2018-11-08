@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters`
+```
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
+```
  
 ## Параметры в теле запроса {#body_params}
  

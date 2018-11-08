@@ -5,7 +5,9 @@
 запрос [list](/docs/compute/api-ref/Snapshot/list).
  
 ## HTTP-запрос {#https-request}
-`GET https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}`
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}
+```
  
 ## Path-параметры {#path_params}
  

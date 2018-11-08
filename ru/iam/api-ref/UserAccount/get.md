@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://iam.api.cloud.yandex.net/iam/v1/userAccounts/{userAccountId}`
+```
+GET https://iam.api.cloud.yandex.net/iam/v1/userAccounts/{userAccountId}
+```
  
 ## Path-параметры {#path_params}
  

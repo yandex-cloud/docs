@@ -6,7 +6,9 @@
 которую можно отменить перед тем, как она завершится.
  
 ## HTTP-запрос {#https-request}
-`POST https://compute.api.cloud.yandex.net/compute/v1/images`
+```
+POST https://compute.api.cloud.yandex.net/compute/v1/images
+```
  
 ## Параметры в теле запроса {#body_params}
  

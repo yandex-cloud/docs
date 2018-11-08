@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/users`
+```
+POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/users
+```
  
 ## Path-параметры {#path_params}
  

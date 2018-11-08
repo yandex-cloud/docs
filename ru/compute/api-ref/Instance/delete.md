@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`DELETE https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}`
+```
+DELETE https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}
+```
  
 ## Path-параметры {#path_params}
  

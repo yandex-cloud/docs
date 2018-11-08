@@ -5,7 +5,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters`
+```
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters
+```
  
 ## Query-параметры {#query_params}
  

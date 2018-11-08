@@ -5,7 +5,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{resourceId}:listAccessBindings`
+```
+GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{resourceId}:listAccessBindings
+```
  
 ## Path-параметры {#path_params}
  

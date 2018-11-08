@@ -5,7 +5,9 @@
 отправьте запрос [list](/docs/mdb/api-ref/mongodb/Backup/list).
  
 ## HTTP-запрос {#https-request}
-`GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/backups/{backupId}`
+```
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/backups/{backupId}
+```
  
 ## Path-параметры {#path_params}
  

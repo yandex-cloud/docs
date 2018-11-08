@@ -4,7 +4,9 @@
 Значения опущенных параметров не изменяются.
  
 ## HTTP-запрос {#https-request}
-`PATCH https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}`
+```
+PATCH https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}
+```
  
 ## Path-параметры {#path_params}
  

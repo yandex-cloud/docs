@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`DELETE https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}`
+```
+DELETE https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}
+```
  
 ## Path-параметры {#path_params}
  

@@ -1,10 +1,13 @@
 # Метод list
-Возвращает список доступных типов дисков.
+Возвращает список доступных ресурсов DiskType в указанном
+каталоге.
  
 
  
 ## HTTP-запрос {#https-request}
-`GET https://compute.api.cloud.yandex.net/compute/v1/diskTypes`
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/diskTypes
+```
  
 ## Query-параметры {#query_params}
  
@@ -20,7 +23,7 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-diskTypes | **object**<br><p>Список типов диска</p> 
+diskTypes | **object**<br><p>Список ресурсов DiskType.</p> 
 diskTypes.<br>id | **string**<br><p>Идентификатор типа диска.</p> 
 diskTypes.<br>description | **string**<br><p>Описание типа диска. Длина описания должна быть от 0 до 256 символов.</p> 
 diskTypes.<br>zoneIds | **string**<br><p>Список зон доступности, в которых доступны диски этого типа.</p> 

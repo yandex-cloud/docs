@@ -4,7 +4,9 @@
 
  
 ## HTTP-запрос {#https-request}
-`PATCH https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{folderId}`
+```
+PATCH https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{folderId}
+```
  
 ## Path-параметры {#path_params}
  
