@@ -1,28 +1,28 @@
-# Метод get
-Возвращает указанный ресурс User для PostgreSQL.
+# Method get
+Returns the specified PostgreSQL User resource.
  
-Чтобы получить список доступных ресурсов User для PostgreSQL,
-отправьте запрос [list](/docs/mdb/api-ref/postgresql/User/list).
+To get the list of available PostgreSQL User resources, make a [list](/docs/mdb/api-ref/postgresql/User/list) request.
  
-## HTTP-запрос
-`GET /managed-postgresql/v1/clusters/{clusterId}/users/{userName}`
+## HTTP request {#https-request}
+`GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/users/{userName}`
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Name | Description
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Обязательное поле. Идентификатор кластера PostgreSQL, к которому принадлежит пользователь. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/mdb/api-ref/postgresql/Cluster/list).  Максимальная длина — 50 символов.
-userName | Обязательное поле. Обязательное поле. Имя запрашиваемого ресурса User для PostgreSQL. Чтобы получить имя пользователя, используйте запрос [list](/docs/mdb/api-ref/postgresql/User/list).  Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]+ ``.
+clusterId | Required. Required. ID of the PostgreSQL cluster the user belongs to. To get the cluster ID, use a [list](/docs/mdb/api-ref/postgresql/Cluster/list) request.  The maximum string length in characters is 50.
+userName | Required. Required. Name of the PostgreSQL User resource to return. To get the name of the user, use a [list](/docs/mdb/api-ref/postgresql/User/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_]+ ``.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс User для PostgreSQL. Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](/docs/mdb/concepts).
+A PostgreSQL User resource. For more information, see 
+the [Developer's Guide](/docs/mdb/concepts).
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя пользователя PostgreSQL.</p> 
-clusterId | **string**<br><p>Идентификатор кластера PostgreSQL, к которому принадлежит пользователь.</p> 
-permissions | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 
-permissions.<br>databaseName | **string**<br><p>Имя базы данных, к которой предоставляет доступ разрешение.</p> 
-connLimit | **string** (int64)<br><p>Количество доступных пользователю подключений к базе данных.</p> 
+name | **string**<br><p>Name of the PostgreSQL user.</p> 
+clusterId | **string**<br><p>ID of the PostgreSQL cluster the user belongs to.</p> 
+permissions | **object**<br><p>Set of permissions granted to the user.</p> 
+permissions.<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
+connLimit | **string** (int64)<br><p>Number of database connections available to the user.</p> 

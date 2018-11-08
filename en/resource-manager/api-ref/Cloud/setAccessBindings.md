@@ -1,18 +1,18 @@
-# Метод setAccessBindings
-Задает привязки прав доступа для указанного облака.
+# Method setAccessBindings
+Sets access bindings for the specified cloud.
  
 
  
-## HTTP-запрос
-`POST /resource-manager/v1/clouds/{resourceId}:setAccessBindings`
+## HTTP request {#https-request}
+`POST https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{resourceId}:setAccessBindings`
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Name | Description
+Parameter | Description
 --- | ---
-resourceId | Обязательное поле. Идентификатор ресурса, для которого задаются привязки прав доступа.  Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.  Максимальная длина — 50 символов.
+resourceId | Required. ID of the resource for which access bindings are being set.  To get the resource ID, use a corresponding List request.  The maximum string length in characters is 50.
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
  {
@@ -29,31 +29,30 @@ resourceId | Обязательное поле. Идентификатор ре�
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-accessBindings | **object**<br><p>Обязательное поле. Привязки прав доступа.</p> 
-accessBindings.<br>roleId | **string**<br><p>Идентификатор ресурса <a href="/docs/iam/api-ref/Role#representation">Role</a> который назначен для субъекта, указанного в параметре subject.</p> <p>Максимальная длина — 50 символов.</p> 
-accessBindings.<br>subject | **object**<br><p>Обязательное поле. Субъект, для которого создается привязка прав доступа. Может представлять собой учетную запись с уникальным идентификатором в облаке или системную группу с общим системным идентификатором.</p> <p>Может содержать один из следующих наборов параметров:</p> <ul> <li><code>type = system, id = allUsers</code>.</li> <li><code>type = system, id = allAuthenticatedUsers</code>.</li> <li><code>type = userAccount, id = &lt;идентификатор пользователя в облаке&gt;</code>.</li> <li><code>type = serviceAccount, id = &lt;идентификатор пользователя в облаке&gt;</code>.</li> </ul> 
-accessBindings.<br>subject.<br>id | **string**<br><p>Идентификатор субъекта.</p> <p>Может содержать одно из следующих значений:</p> <ul> <li> <p><code>allUsers</code>: Специальный системный идентификатор, представляющий любого пользователя. Его можно использовать только если в параметре type передано значение <code>system</code>.</p> </li> <li> <p><code>allAuthenticatedUsers</code>: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре type передано значение <code>system</code>.</p> </li> <li> <p><code>&lt;идентификатор пользователя в облаке&gt;</code>: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре type передано одно из следующих значений: <code>userAccount</code> или <code>serviceAccount</code>.</p> </li> </ul> <p>Максимальная длина — 50 символов.</p> 
-accessBindings.<br>subject.<br>type | **string**<br><p>Тип субъекта.</p> <p>Может содержать одно из следующих значений:</p> <ul> <li> <p><code>system</code>: Системная группа. Представляет несколько учетных записей с общим системным идентификатором.</p> </li> <li> <p><code>userAccount</code>: Учетная запись пользователя. Дополнительные сведения см. в разделе <a href="/docs/iam/concepts/users/users">Пользователи Яндекс.Облака</a>.</p> </li> <li> <p><code>serviceAccount</code>: Сервисный аккаунт. Дополнительные сведения см. в разделе <a href="/docs/iam/concepts/users/service-accounts">Сервисные аккаунты</a>.</p> </li> </ul> 
+accessBindings | **object**<br><p>Required. Access bindings to be set.</p> 
+accessBindings.<br>roleId | **string**<br><p>ID of the <a href="/docs/iam/api-ref/Role#representation">Role</a> that is assigned to the subject.</p> <p>The maximum string length in characters is 50.</p> 
+accessBindings.<br>subject | **object**<br><p>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier.</p> <p>It can contain one of the following sets of parameters:</p> <ul> <li><code>type = system, id = allUsers</code>.</li> <li><code>type = system, id = allAuthenticatedUsers</code>.</li> <li><code>type = userAccount, id = &lt;cloud generated id&gt;</code>.</li> <li><code>type = serviceAccount, id = &lt;cloud generated id&gt;</code>.</li> </ul> 
+accessBindings.<br>subject.<br>id | **string**<br><p>ID of the subject.</p> <p>It can contain one of the following values:</p> <ul> <li> <p><code>allUsers</code>: A special system identifier that represents anyone. It can be used only if the type is <code>system</code>.</p> </li> <li> <p><code>allAuthenticatedUsers</code>: A special system identifier that represents anyone who is authenticated. It can be used only if the type is <code>system</code>.</p> </li> <li> <p><code>&lt;cloud generated id&gt;</code>: An identifier that represents a user account. It can be used only if the type is <code>userAccount</code> or <code>serviceAccount</code>.</p> </li> </ul> <p>The maximum string length in characters is 50.</p> 
+accessBindings.<br>subject.<br>type | **string**<br><p>Type of the subject.</p> <p>It can contain one of the following values:</p> <ul> <li> <p><code>system</code>: System type. It represents several accounts with a common system identifier.</p> </li> <li> <p><code>userAccount</code>: A user account. For more information, see <a href="/docs/iam/concepts/users/users">Users</a>.</p> </li> <li> <p><code>serviceAccount</code>: A service account. For more information, see <a href="/docs/iam/concepts/users/service-accounts">Service accounts</a>.</p> </li> </ul> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс Operation. Дополнительные сведения см. в разделе
-[Объект Operation](/docs/api-design-guide/concepts/operation).
+An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Только для вывода. Идентификатор операции.</p> 
-description | **string**<br><p>Описание операции. Длина описания должна быть от 0 до 256 символов.</p> 
-createdAt | **string** (date-time)<br><p>Только для вывода. Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-createdBy | **string**<br><p>Только для вывода. Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.</p> 
-modifiedAt | **string** (date-time)<br><p>Только для вывода. Время, когда ресурс Operation последний раз обновлялся. Значение в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-done | **boolean** (boolean)<br><p>Только для вывода. Если значение равно <code>false</code> — операция еще выполняется. Если <code>true</code> — операция завершена, и задано значение одного из полей <code>error</code> или <code>response</code>.</p> 
-metadata | **object**<br><p>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля <code>metadata</code>.</p> 
-error | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
-error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>Текст ошибки.</p> 
-error.<br>details | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
-response | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля <code>response</code>.</p> 
+id | **string**<br><p>ID of the operation.</p> 
+description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
+modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified. This value is in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+done | **boolean** (boolean)<br><p>If the value is <code>false</code>, it means the operation is still in progress. If <code>true</code>, the operation is completed, and either <code>error</code> or <code>response</code> is available.</p> 
+metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
+error | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+error.<br>message | **string**<br><p>An error message.</p> 
+error.<br>details | **object**<br><p>A list of messages that carry the error details.</p> 
+response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 

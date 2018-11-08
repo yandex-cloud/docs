@@ -1,6 +1,6 @@
 # Database
-Набор методов для управления ресурсами Database для ClickHouse.
-## JSON-представление
+A set of methods for managing ClickHouse Database resources.
+## JSON Representation {#representation}
 ```json 
  {
   "name": "string",
@@ -8,10 +8,10 @@
 }
 ```
 
-## Методы
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает новую базу данных ClickHouse в указанном кластере.
-[delete](delete.md) | Удаляет указанную базу данных ClickHouse.
-[get](get.md) | Возвращает указанный ресурс Database для ClickHouse.
-[list](list.md) | Получает список ресурсов Database для указанного кластера ClickHouse.
+[create](create.md) | Creates a new ClickHouse database in the specified cluster.
+[delete](delete.md) | Deletes the specified ClickHouse database.
+[get](get.md) | Returns the specified ClickHouse Database resource.
+[list](list.md) | Retrieves the list of ClickHouse Database resources in the specified cluster.

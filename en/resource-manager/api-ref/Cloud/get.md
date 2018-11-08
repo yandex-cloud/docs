@@ -1,27 +1,25 @@
-# Метод get
-Возвращает указанный ресурс Cloud.
+# Method get
+Returns the specified Cloud resource.
  
-Чтобы получить список доступных ресурсов Cloud, используйте
-запрос [list](/docs/resource-manager/api-ref/Cloud/list).
+To get the list of available Cloud resources, make a [list](/docs/resource-manager/api-ref/Cloud/list) request.
  
-## HTTP-запрос
-`GET /resource-manager/v1/clouds/{cloudId}`
+## HTTP request {#https-request}
+`GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{cloudId}`
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Name | Description
+Parameter | Description
 --- | ---
-cloudId | Обязательное поле. Идентификатор запрашиваемого ресурса Cloud. Чтобы получить идентификатор облака, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list).  Максимальная длина — 50 символов.
+cloudId | Required. ID of the Cloud resource to return. To get the cloud ID, use a [list](/docs/resource-manager/api-ref/Cloud/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс Cloud. Дополнительные сведения см. в разделе
-[Облако как ресурс Яндекс.Облака](/docs/resource-manager/concepts/resources-hierarchy#cloud).
+A Cloud resource. For more information, see [Cloud](/docs/resource-manager/concepts/resources-hierarchy#cloud).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Только для вывода. Идентификатор облака.</p> 
-createdAt | **string** (date-time)<br><p>Только для вывода. Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-name | **string**<br><p>Имя облака. Длина имени должна быть от 3 до 63 символов.</p> 
-description | **string**<br><p>Описание облака. Длина описания должна быть от 0 до 256 символов.</p> 
+id | **string**<br><p>ID of the cloud.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the cloud. 3-63 characters long.</p> 
+description | **string**<br><p>Description of the cloud. 0-256 characters long.</p> 

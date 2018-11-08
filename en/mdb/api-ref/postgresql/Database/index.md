@@ -1,6 +1,6 @@
 # Database
-Набор методов для управления ресурсами Database для PostgreSQL.
-## JSON-представление
+A set of methods for managing PostgreSQL Database resources.
+## JSON Representation {#representation}
 ```json 
  {
   "name": "string",
@@ -17,11 +17,11 @@
 }
 ```
 
-## Методы
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает новую базу данных PostgreSQL в указанном кластере.
-[delete](delete.md) | Удаляет указанную базу данных PostgreSQL.
-[get](get.md) | Возвращает указанный ресурс Database для PostgreSQL.
-[list](list.md) | Получает список ресурсов Database для указанного кластера PostgreSQL.
-[update](update.md) | Изменяет указанную базу данных PostgreSQL.
+[create](create.md) | Creates a new PostgreSQL database in the specified cluster.
+[delete](delete.md) | Deletes the specified PostgreSQL database.
+[get](get.md) | Returns the specified PostgreSQL Database resource.
+[list](list.md) | Retrieves the list of PostgreSQL Database resources in the specified cluster.
+[update](update.md) | Updates the specified PostgreSQL database.

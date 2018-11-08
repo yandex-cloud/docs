@@ -1,6 +1,6 @@
 # Backup
-Набор методов для управления ресурсами Backup для MongoDB.
-## JSON-представление
+A set of methods for managing MongoDB Backup resources.
+## JSON Representation {#representation}
 ```json 
  {
   "id": "string",
@@ -11,8 +11,8 @@
 }
 ```
 
-## Методы
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает указанный ресурс Backup для MongoDB.
-[list](list.md) | Получение списка ресурсов Backup для указанного каталога.
+[get](get.md) | Returns the specified MongoDB Backup resource.
+[list](list.md) | Retrieves the list of Backup resources available for the specified folder.

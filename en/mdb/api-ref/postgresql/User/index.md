@@ -1,6 +1,6 @@
 # User
-Набор методов для управления ресурсами User для PostgreSQL.
-## JSON-представление
+A set of methods for managing PostgreSQL User resources.
+## JSON Representation {#representation}
 ```json 
  {
   "name": "string",
@@ -14,13 +14,13 @@
 }
 ```
 
-## Методы
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает пользователя PostgreSQL в указанном кластере.
-[delete](delete.md) | Удаляет указанного пользователя PostgreSQL.
-[get](get.md) | Возвращает указанный ресурс User для PostgreSQL.
-[grantPermission](grantPermission.md) | Выдает разрешение указанному пользователю PostgreSQL.
-[list](list.md) | Получает список ресурсов User для указанного кластера PostgreSQL.
-[revokePermission](revokePermission.md) | Отзывает разрешение у указанного пользователя PostgreSQL.
-[update](update.md) | Изменяет указанного пользователя PostgreSQL.
+[create](create.md) | Creates a PostgreSQL user in the specified cluster.
+[delete](delete.md) | Deletes the specified PostgreSQL user.
+[get](get.md) | Returns the specified PostgreSQL User resource.
+[grantPermission](grantPermission.md) | Grants permission to the specified PostgreSQL user.
+[list](list.md) | Retrieves the list of PostgreSQL User resources in the specified cluster.
+[revokePermission](revokePermission.md) | Revokes permission from the specified PostgreSQL user.
+[update](update.md) | Updates the specified PostgreSQL user.

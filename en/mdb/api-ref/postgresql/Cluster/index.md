@@ -1,6 +1,6 @@
 # Cluster
-Набор методов для управления ресурсами Cluster для PostgreSQL.
-## JSON-представление
+A set of methods for managing PostgreSQL Cluster resources.
+## JSON Representation {#representation}
 ```json 
  {
   "id": "string",
@@ -29,7 +29,7 @@
     },
     "autofailover": true,
 
-    // `config`включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`
+    // `config`includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10`
     "postgresqlConfig_9_6": {
       "effectiveConfig": {
         "maxConnections": "integer",
@@ -481,7 +481,7 @@
         "randomPageCost": "number"
       }
     },
-    // конец списка возможных полей`config`
+    // end of the list of possible fields`config`
 
   },
   "networkId": "string",
@@ -490,20 +490,20 @@
 }
 ```
 
-## Методы
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[addHosts](addHosts.md) | Создает новые хосты для кластера.
-[backup](backup.md) | Создает резервную копию для указанного кластера PostgreSQL.
-[create](create.md) | Создает кластер PostgreSQL в указанном каталоге.
-[delete](delete.md) | Удаляет указанный кластер PostgreSQL.
-[deleteHosts](deleteHosts.md) | Удаляет указанные хосты кластера.
-[get](get.md) | Возвращает указанный ресурс Cluster для PostgreSQL.
-[list](list.md) | Получает список ресурсов Cluster для PostgreSQL, принадлежащих указанному каталогу.
-[listBackups](listBackups.md) | Получает список доступных резервных копий для указанного кластера PostgreSQL.
-[listHosts](listHosts.md) | Получает список хостов для указанного кластера.
-[listLogs](listLogs.md) | Получает логи для указанного кластера PostgreSQL.
-[listOperations](listOperations.md) | Получает список ресурсов Operation для указанного кластера.
-[restore](restore.md) | Создает новый кластер PostgreSQL с использованием указанной резервной копии.
-[update](update.md) | Изменяет указанный кластер PostgreSQL.
-[updateHosts](updateHosts.md) | Обновляет указанные хосты.
+[addHosts](addHosts.md) | Creates new hosts for a cluster.
+[backup](backup.md) | Creates a backup for the specified PostgreSQL cluster.
+[create](create.md) | Creates a PostgreSQL cluster in the specified folder.
+[delete](delete.md) | Deletes the specified PostgreSQL cluster.
+[deleteHosts](deleteHosts.md) | Deletes the specified hosts for a cluster.
+[get](get.md) | Returns the specified PostgreSQL Cluster resource.
+[list](list.md) | Retrieves the list of PostgreSQL Cluster resources that belong to the specified folder.
+[listBackups](listBackups.md) | Retrieves the list of available backups for the specified PostgreSQL cluster.
+[listHosts](listHosts.md) | Retrieves a list of hosts for the specified cluster.
+[listLogs](listLogs.md) | Retrieves logs for the specified PostgreSQL cluster. For more information about logs, see the [Logs](/docs/yandex-mdb-guide/concepts/logs) section in the Developer's Guide.
+[listOperations](listOperations.md) | Retrieves the list of Operation resources for the specified cluster.
+[restore](restore.md) | Creates a new PostgreSQL cluster using the specified backup.
+[update](update.md) | Updates the specified PostgreSQL cluster.
+[updateHosts](updateHosts.md) | Updates the specified hosts.

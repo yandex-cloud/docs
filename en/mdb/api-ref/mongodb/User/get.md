@@ -1,28 +1,28 @@
-# Метод get
-Возвращает указанный ресурс User для MongoDB.
+# Method get
+Returns the specified MongoDB User resource.
  
-Чтобы получить список доступных ресурсов User для MongoDB,
-отправьте запрос [list](/docs/mdb/api-ref/mongodb/User/list).
+To get the list of available MongoDB User resources, make a [list](/docs/mdb/api-ref/mongodb/User/list) request.
  
-## HTTP-запрос
-`GET /managed-mongodb/v1/clusters/{clusterId}/users/{userName}`
+## HTTP request {#https-request}
+`GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}`
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Name | Description
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера MongoDB, к которому принадлежит пользователь. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/mdb/api-ref/mongodb/Cluster/list).  Максимальная длина — 50 символов.
-userName | Обязательное поле. Имя запрашиваемого ресурса User для MongoDB. Чтобы получить имя пользователя, используйте запрос [list](/docs/mdb/api-ref/mongodb/User/list).  Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]+ ``.
+clusterId | Required. ID of the MongoDB cluster the user belongs to. To get the cluster ID, use a [list](/docs/mdb/api-ref/mongodb/Cluster/list) request.  The maximum string length in characters is 50.
+userName | Required. Name of the MongoDB User resource to return. To get the name of the user, use a [list](/docs/mdb/api-ref/mongodb/User/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_]+ ``.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс User для MongoDB. Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](/docs/mdb/concepts).
+A MongoDB User resource. For more information, see the 
+[Developer's Guide](/docs/mdb/concepts).
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя пользователя MongoDB.</p> 
-clusterId | **string**<br><p>Идентификатор кластера MongoDB, к которому принадлежит пользователь.</p> 
-permissions | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 
-permissions.<br>databaseName | **string**<br><p>Имя базы данных, к которой предоставляет доступ разрешение.</p> 
-permissions.<br>roles | **string**<br><p>Роли MongoDB базы данных databaseName, которые предоставляет разрешение.</p> 
+name | **string**<br><p>Name of the MongoDB user.</p> 
+clusterId | **string**<br><p>ID of the MongoDB cluster the user belongs to.</p> 
+permissions | **object**<br><p>Set of permissions granted to the user.</p> 
+permissions.<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
+permissions.<br>roles | **string**<br><p>MongoDB roles for the databaseName database that the permission grants.</p> 

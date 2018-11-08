@@ -1,6 +1,6 @@
 # User
-Набор методов для управления ресурсами User для MongoDB.
-## JSON-представление
+A set of methods for managing MongoDB User resources.
+## JSON Representation {#representation}
 ```json 
  {
   "name": "string",
@@ -16,13 +16,13 @@
 }
 ```
 
-## Методы
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает пользователя MongoDB в указанном кластере.
-[delete](delete.md) | Удаляет указанного пользователя MongoDB.
-[get](get.md) | Возвращает указанный ресурс User для MongoDB.
-[grantPermission](grantPermission.md) | Предоставляет разрешение указанному пользователю MongoDB.
-[list](list.md) | Получает список ресурсов User для указанного кластера MongoDB.
-[revokePermission](revokePermission.md) | Отзывает разрешение у указанного пользователя MongoDB.
-[update](update.md) | Изменяет указанного пользователя MongoDB.
+[create](create.md) | Creates a MongoDB user in the specified cluster.
+[delete](delete.md) | Deletes the specified MongoDB user.
+[get](get.md) | Returns the specified MongoDB User resource.
+[grantPermission](grantPermission.md) | Grants permission to the specified MongoDB user.
+[list](list.md) | Retrieves the list of MongoDB User resources in the specified cluster.
+[revokePermission](revokePermission.md) | Revokes permission from the specified MongoDB user.
+[update](update.md) | Updates the specified MongoDB user.

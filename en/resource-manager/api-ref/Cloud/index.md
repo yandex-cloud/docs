@@ -1,6 +1,6 @@
 # Cloud
-Набор методов для управления ресурсом Cloud.
-## JSON-представление
+A set of methods for managing Cloud resources.
+## JSON Representation {#representation}
 ```json 
  {
   "id": "string",
@@ -10,12 +10,12 @@
 }
 ```
 
-## Методы
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает указанный ресурс Cloud.
-[list](list.md) | Возвращает список доступных ресурсов Cloud.
-[listAccessBindings](listAccessBindings.md) | Возвращает список привязок прав доступа к указанному облаку.
-[listOperations](listOperations.md) | Возвращает список операций для указанного облака.
-[setAccessBindings](setAccessBindings.md) | Задает привязки прав доступа для указанного облака.
-[updateAccessBindings](updateAccessBindings.md) | Обновляет привязки прав доступа для указанного облака.
+[get](get.md) | Returns the specified Cloud resource.
+[list](list.md) | Retrieves the list of Cloud resources.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the specified cloud.
+[listOperations](listOperations.md) | Lists operations for the specified cloud.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the specified cloud.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified cloud.

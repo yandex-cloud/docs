@@ -1,6 +1,6 @@
 # Database
-Набор методов для управления ресурсами Database для MongoDB.
-## JSON-представление
+A set of methods for managing MongoDB Database resources.
+## JSON Representation {#representation}
 ```json 
  {
   "name": "string",
@@ -8,10 +8,10 @@
 }
 ```
 
-## Методы
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает новую базу данных MongoDB в указанном кластере.
-[delete](delete.md) | Удаляет указанную базу данных MongoDB.
-[get](get.md) | Возвращает указанный ресурс Database для MongoDB.
-[list](list.md) | Получает список ресурсов Database для указанного кластера MongoDB.
+[create](create.md) | Creates a new MongoDB database in the specified cluster.
+[delete](delete.md) | Deletes the specified MongoDB database.
+[get](get.md) | Returns the specified MongoDB Database resource.
+[list](list.md) | Retrieves the list of MongoDB Database resources in the specified cluster.

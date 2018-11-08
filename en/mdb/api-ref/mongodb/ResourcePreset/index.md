@@ -1,6 +1,6 @@
 # ResourcePreset
-Набор методов для управления ресурсами ResourcePreset.
-## JSON-представление
+A set of methods for managing ResourcePreset resources.
+## JSON Representation {#representation}
 ```json 
  {
   "id": "string",
@@ -12,8 +12,8 @@
 }
 ```
 
-## Методы
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает указанный ресурс ResourcePreset.
-[list](list.md) | Получает список доступных ресурсов ResourcePreset.
+[get](get.md) | Returns the specified ResourcePreset resource.
+[list](list.md) | Retrieves the list of available ResourcePreset resources.

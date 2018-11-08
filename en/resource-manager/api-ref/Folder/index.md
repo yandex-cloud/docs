@@ -1,6 +1,6 @@
 # Folder
-Набор методов для управления ресурсом Folder.
-## JSON-представление
+A set of methods for managing Folder resources.
+## JSON Representation {#representation}
 ```json 
  {
   "id": "string",
@@ -13,15 +13,15 @@
 }
 ```
 
-## Методы
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает каталог в указанном облаке.
-[delete](delete.md) | Удаляет указанный каталог.
-[get](get.md) | Возвращает указанный ресурс Folder.
-[list](list.md) | Возвращает список доступных ресурсов Folder в указанном облаке.
-[listAccessBindings](listAccessBindings.md) | Возвращает список привязок прав доступа к указанному каталогу.
-[listOperations](listOperations.md) | Возвращает список операций для указанного каталога.
-[setAccessBindings](setAccessBindings.md) | Задает привязки прав доступа для указанного каталога.
-[update](update.md) | Обновляет указанный каталог.
-[updateAccessBindings](updateAccessBindings.md) | Обновляет привязки прав доступа для указанного каталога.
+[create](create.md) | Creates a folder in the specified cloud.
+[delete](delete.md) | Deletes the specified folder.
+[get](get.md) | Returns the specified Folder resource.
+[list](list.md) | Retrieves the list of Folder resources in the specified cloud.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the specified folder.
+[listOperations](listOperations.md) | Lists operations for the specified folder.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the specified folder.
+[update](update.md) | Updates the specified folder.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified folder.

@@ -1,6 +1,6 @@
 # Cluster
-Набор методов для управления ресурсами Cluster для MongoDB.
-## JSON-представление
+A set of methods for managing MongoDB Cluster resources.
+## JSON Representation {#representation}
 ```json 
  {
   "id": "string",
@@ -20,7 +20,7 @@
   "config": {
     "version": "string",
 
-    // `config`включает только одно из полей `mongodb_3_6`
+    // `config`includes only one of the fields `mongodb_3_6`
     "mongodb_3_6": {
       "mongod": {
         "config": {
@@ -101,7 +101,7 @@
         }
       }
     },
-    // конец списка возможных полей`config`
+    // end of the list of possible fields`config`
 
   },
   "networkId": "string",
@@ -110,19 +110,19 @@
 }
 ```
 
-## Методы
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[addHosts](addHosts.md) | Создает новые хосты для кластера.
-[backup](backup.md) | Создает резервную копию для указанного кластера MongoDB.
-[create](create.md) | Создает кластер MongoDB в указанном каталоге.
-[delete](delete.md) | Удаляет указанный кластер MongoDB.
-[deleteHosts](deleteHosts.md) | Удаляет указанные хосты кластера.
-[get](get.md) | Возвращает указанный ресурс Cluster для MongoDB.
-[list](list.md) | Получает список ресурсов Cluster для MongoDB, принадлежащих указанному каталогу.
-[listBackups](listBackups.md) | Получает список доступных резервных копий для указанного кластера MongoDB.
-[listHosts](listHosts.md) | Получает список хостов для указанного кластера.
-[listLogs](listLogs.md) | Получает логи для указанного кластера MongoDB.
-[listOperations](listOperations.md) | Получает список ресурсов Operation для указанного кластера.
-[restore](restore.md) | Создает новый кластер MongoDB с использованием указанной резервной копии.
-[update](update.md) | Изменяет указанный кластер MongoDB.
+[addHosts](addHosts.md) | Creates new hosts for a cluster.
+[backup](backup.md) | Creates a backup for the specified MongoDB cluster.
+[create](create.md) | Creates a MongoDB cluster in the specified folder.
+[delete](delete.md) | Deletes the specified MongoDB cluster.
+[deleteHosts](deleteHosts.md) | Deletes the specified hosts for a cluster.
+[get](get.md) | Returns the specified MongoDB Cluster resource.
+[list](list.md) | Retrieves the list of MongoDB Cluster resources that belong to the specified folder.
+[listBackups](listBackups.md) | Retrieves the list of available backups for the specified MongoDB cluster.
+[listHosts](listHosts.md) | Retrieves a list of hosts for the specified cluster.
+[listLogs](listLogs.md) | Retrieves logs for the specified MongoDB cluster. See the [Logs](/docs/yandex-mdb-guide/concepts/logs) section in the developers guide for detailed logs description.
+[listOperations](listOperations.md) | Retrieves the list of Operation resources for the specified cluster.
+[restore](restore.md) | Creates a new MongoDB cluster using the specified backup.
+[update](update.md) | Updates the specified MongoDB cluster.

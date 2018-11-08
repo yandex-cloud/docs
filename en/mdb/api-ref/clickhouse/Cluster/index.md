@@ -1,6 +1,6 @@
 # Cluster
-Набор методов для управления ресурсами Cluster для ClickHouse.
-## JSON-представление
+A set of methods for managing ClickHouse Cluster resources.
+## JSON Representation {#representation}
 ```json 
  {
   "id": "string",
@@ -69,13 +69,13 @@
                 "sizeInCells": "string"
               },
 
-              // `config.clickhouse.config.effectiveConfig.dictionaries`включает только одно из полей `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`
+              // `config.clickhouse.config.effectiveConfig.dictionaries`includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`
               "fixedLifetime": "string",
               "lifetimeRange": {
                 "min": "string",
                 "max": "string"
               },
-              // конец списка возможных полей`config.clickhouse.config.effectiveConfig.dictionaries`
+              // end of the list of possible fields`config.clickhouse.config.effectiveConfig.dictionaries`
 
               "httpSource": {
                 "url": "string",
@@ -191,13 +191,13 @@
                 "sizeInCells": "string"
               },
 
-              // `config.clickhouse.config.userConfig.dictionaries`включает только одно из полей `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`
+              // `config.clickhouse.config.userConfig.dictionaries`includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`
               "fixedLifetime": "string",
               "lifetimeRange": {
                 "min": "string",
                 "max": "string"
               },
-              // конец списка возможных полей`config.clickhouse.config.userConfig.dictionaries`
+              // end of the list of possible fields`config.clickhouse.config.userConfig.dictionaries`
 
               "httpSource": {
                 "url": "string",
@@ -313,13 +313,13 @@
                 "sizeInCells": "string"
               },
 
-              // `config.clickhouse.config.defaultConfig.dictionaries`включает только одно из полей `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`
+              // `config.clickhouse.config.defaultConfig.dictionaries`includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`
               "fixedLifetime": "string",
               "lifetimeRange": {
                 "min": "string",
                 "max": "string"
               },
-              // конец списка возможных полей`config.clickhouse.config.defaultConfig.dictionaries`
+              // end of the list of possible fields`config.clickhouse.config.defaultConfig.dictionaries`
 
               "httpSource": {
                 "url": "string",
@@ -408,19 +408,19 @@
 }
 ```
 
-## Методы
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[addHosts](addHosts.md) | Создает новые хосты для кластера.
-[backup](backup.md) | Создает резервную копию для указанного кластера ClickHouse.
-[create](create.md) | Создает кластер ClickHouse в указанной папке.
-[delete](delete.md) | Удаляет указанный кластер ClickHouse.
-[deleteHosts](deleteHosts.md) | Удаляет указанные хосты кластера.
-[get](get.md) | Возвращает указанный ресурс Cluster для ClickHouse.
-[list](list.md) | Получает список ресурсов Cluster для ClickHouse, принадлежащих указанному каталогу.
-[listBackups](listBackups.md) | Получает список доступных резервных копий для указанного кластера ClickHouse.
-[listHosts](listHosts.md) | Получает список хостов для указанного кластера.
-[listLogs](listLogs.md) | Получает логи для указанного кластера ClickHouse.
-[listOperations](listOperations.md) | Получает список ресурсов Operation для указанного кластера.
-[restore](restore.md) | Создает новый кластер ClickHouse с использованием указанной резервной копии.
-[update](update.md) | Изменяет указанный кластер ClickHouse.
+[addHosts](addHosts.md) | Creates new hosts for a cluster.
+[backup](backup.md) | Creates a backup for the specified ClickHouse cluster.
+[create](create.md) | Creates a ClickHouse cluster in the specified folder.
+[delete](delete.md) | Deletes the specified ClickHouse cluster.
+[deleteHosts](deleteHosts.md) | Deletes the specified hosts for a cluster.
+[get](get.md) | Returns the specified ClickHouse Cluster resource.
+[list](list.md) | Retrieves a list of ClickHouse Cluster resources that belong to the specified folder.
+[listBackups](listBackups.md) | Retrieves the list of available backups for the specified ClickHouse cluster.
+[listHosts](listHosts.md) | Retrieves a list of hosts for the specified cluster.
+[listLogs](listLogs.md) | Retrieves logs for the specified ClickHouse cluster. For more information about logs, see the [Logs](/docs/yandex-mdb-guide/concepts/logs) section in the Developer's Guide.
+[listOperations](listOperations.md) | Retrieves the list of Operation resources for the specified cluster.
+[restore](restore.md) | Creates a new ClickHouse cluster using the specified backup.
+[update](update.md) | Updates the specified ClickHouse cluster.

@@ -1,62 +1,62 @@
-# Метод listHosts
-Получает список хостов для указанного кластера.
+# Method listHosts
+Retrieves a list of hosts for the specified cluster.
  
 
  
-## HTTP-запрос
-`GET /managed-postgresql/v1/clusters/{clusterId}/hosts`
+## HTTP request {#https-request}
+`GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/hosts`
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Name | Description
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера PostgreSQL. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [list](/docs/mdb/api-ref/postgresql/Cluster/list).  Максимальная длина — 50 символов.
+clusterId | Required. ID of the PostgreSQL cluster. To get the PostgreSQL cluster ID use a [list](/docs/mdb/api-ref/postgresql/Cluster/list) request.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Name | Description
+Parameter | Description
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/postgresql/Cluster/listHosts#query_params), сервис вернет значение [nextPageToken](/docs/mdb/api-ref/postgresql/Cluster/listHosts#responses), которое можно использовать для получения следующей страницы.  Допустимые значения — от 0 до 1000 включительно.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/mdb/api-ref/postgresql/Cluster/listHosts#query_params) равным значению поля [nextPageToken](/docs/mdb/api-ref/postgresql/Cluster/listHosts#responses) прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина — 100 символов.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/mdb/api-ref/postgresql/Cluster/listHosts#query_params), the service returns a [nextPageToken](/docs/mdb/api-ref/postgresql/Cluster/listHosts#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
+pageToken | Page token.  To get the next page of results, set [pageToken](/docs/mdb/api-ref/postgresql/Cluster/listHosts#query_params) to the [nextPageToken](/docs/mdb/api-ref/postgresql/Cluster/listHosts#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 
  
-Поле | Описание
+Field | Description
 --- | ---
-hosts | **object**<br><p>Список ресурсов Host.</p> 
-hosts.<br>name | **string**<br><p>Имя хоста PostgreSQL. Имя хоста назначается MDB во время создания и не может быть изменено. Длина имени должна быть от 1 до 63 символов.</p> <p>Имя уникально для всех существующих хостов MDB в Яндекс.Облаке, так как оно определяет полное доменное имя (FQDN) хоста.</p> 
-hosts.<br>clusterId | **string**<br><p>Идентификатор хоста PostgreSQL. Этот идентификатор генерирует MDB при создании.</p> 
-hosts.<br>zoneId | **string**<br><p>Идентификатор зоны доступности, в которой находится хост PostgreSQL.</p> 
-hosts.<br>resources | **object**<br><p>Ресурсы, выделенные для хоста PostgreSQL.</p> 
-hosts.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/mdb/concepts/instance-types">Классы баз данных</a>.</p> 
-hosts.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступный хосту, в байтах.</p> 
-hosts.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>local-ssd — хранилище на базе локальных SSD-дисков.</li> </ul> 
-hosts.<br>role | **string**<br><p>Роль хоста в кластере.</p> <ul> <li>MASTER: Хост является мастером кластере в кластере PostgreSQL.</li> <li>REPLICA: Хост является репликой в кластере PostgreSQL.</li> </ul> 
-hosts.<br>health | **string**<br><p>Код работоспособности хоста.</p> <ul> <li>ALIVE: Хост выполняет все свои функции в нормальном режиме.</li> <li>DEAD: Хост не работает и не может выполнять свои основные функции.</li> <li>DEGRADED: Хост деградировал, и может выполнять только некоторые из своих основных функций.</li> </ul> 
-hosts.<br>services | **object**<br><p>Сервисы, предоставляемые хостом.</p> 
-hosts.<br>services.<br>type | **string**<br><p>Тип сервиса, предоставляемого хостом.</p> <ul> <li>POSTGRES: Данный хост — это сервер PostgreSQL.</li> <li>POOLER: Данный хост — это сервер PgBouncer.</li> </ul> 
-hosts.<br>services.<br>health | **string**<br><p>Код состояния доступности сервера.</p> <ul> <li>ALIVE: Сервер работает нормально.</li> <li>DEAD: Сервер отключен или не отвечает.</li> </ul> 
-hosts.<br>subnetId | **string**<br><p>Идентификатор подсети, к которой принадлежит хост.</p> 
+hosts | **object**<br><p>List of Host resources.</p> 
+hosts.<br>name | **string**<br><p>Name of the PostgreSQL host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long.</p> <p>The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host.</p> 
+hosts.<br>clusterId | **string**<br><p>ID of the PostgreSQL host. The ID is assigned by MDB at creation time.</p> 
+hosts.<br>zoneId | **string**<br><p>ID of the availability zone where the PostgreSQL host resides.</p> 
+hosts.<br>resources | **object**<br><p>Resources allocated to the PostgreSQL host.</p> 
+hosts.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/mdb/concepts/instance-types">documentation</a>.</p> 
+hosts.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
+hosts.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-nvme — network SSD drive,</li> <li>local-nvme — local SSD storage.</li> </ul> 
+hosts.<br>role | **string**<br><p>Role of the host in the cluster.</p> <ul> <li>ROLE_UNKNOWN: Role of the host in the cluster is unknown.</li> <li>MASTER: Host is the master PostgreSQL server in the cluster.</li> <li>REPLICA: Host is a replica (standby) PostgreSQL server in the cluster.</li> </ul> 
+hosts.<br>health | **string**<br><p>Status code of the aggregated health of the host.</p> <ul> <li>HEALTH_UNKNOWN: Health of the host is unknown.</li> <li>ALIVE: The host is performing all its functions normally.</li> <li>DEAD: The host is inoperable, and cannot perform any of its essential functions.</li> <li>DEGRADED: The host is degraded, and can perform only some of its essential functions.</li> </ul> 
+hosts.<br>services | **object**<br><p>Services provided by the host.</p> 
+hosts.<br>services.<br>type | **string**<br><p>Type of the service provided by the host.</p> <ul> <li>POSTGRESQL: The host is a PostgreSQL server.</li> <li>POOLER: The host is a PgBouncer server.</li> </ul> 
+hosts.<br>services.<br>health | **string**<br><p>Status code of server availability.</p> <ul> <li>HEALTH_UNKNOWN: Health of the server is unknown.</li> <li>ALIVE: The server is working normally.</li> <li>DEAD: The server is dead or unresponsive.</li> </ul> 
+hosts.<br>subnetId | **string**<br><p>ID of the subnet that the host belongs to.</p> 
 hosts.<br>replicationSource | **string**<br><p>name of the host to be used as the replication source for cascading replication.</p> 
-hosts.<br>priority | **integer** (int64)<br><p>Приоритет хоста как реплики. Более высокое значение соответствует более высокому приоритету.</p> <p>Хост с наивысшим приоритетом является синхронной репликой. Все остальные асинхронны. Синхронная реплика при необходимости заменяет мастер.</p> <p>Когда реплика становится мастером, ее приоритет игнорируется.</p> 
-hosts.<br>config | **object**<br><p>Конфигурация сервера PostgreSQL для хоста.</p> 
-hosts.<br>config.<br>postgresqlConfig_9_6 | **object** <br>`hosts.config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`<br><br><p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config">Документации PostgreSQL</a>.</p> 
+hosts.<br>priority | **integer** (int64)<br><p>Priority of the host as a replica. Higher value means higher priority.</p> <p>The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed.</p> <p>When a replica becomes the master, its priority is ignored.</p> 
+hosts.<br>config | **object**<br><p>Configuration of a PostgreSQL server for the host.</p> 
+hosts.<br>config.<br>postgresqlConfig_9_6 | **object** <br>`hosts.config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10`<br><br><p>Options and structure of <code>PostgresqlHostConfig</code> reflects parameters of a PostgreSQL configuration file. Detailed description is available in <a href="https://www.postgresql.org/docs/9.6/static/runtime-config.html">PostgreSQL documentation</a>.</p> 
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>recoveryMinApplyDelay | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>sharedBuffers | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>tempBuffers | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>workMem | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>replacementSortTuples | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>tempFileLimit | **integer** (int64)<br>
-hosts.<br>config.<br>postgresqlConfig_9_6.<br>backendFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
-hosts.<br>config.<br>postgresqlConfig_9_6.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Допустимые значения — от -1 до 86400 включительно.</p> 
+hosts.<br>config.<br>postgresqlConfig_9_6.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+hosts.<br>config.<br>postgresqlConfig_9_6.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400, inclusive.</p> 
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>constraintExclusion | **string**<br>
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>cursorTupleFraction | **number** (double)<br>
-hosts.<br>config.<br>postgresqlConfig_9_6.<br>fromCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
-hosts.<br>config.<br>postgresqlConfig_9_6.<br>joinCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+hosts.<br>config.<br>postgresqlConfig_9_6.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
+hosts.<br>config.<br>postgresqlConfig_9_6.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>forceParallelMode | **string**<br>
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>clientMinMessages | **string**<br>
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>logMinMessages | **string**<br>
@@ -96,21 +96,21 @@ hosts.<br>config.<br>postgresqlConfig_9_6.<br>transformNullEquals | **boolean** 
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>exitOnError | **boolean** (boolean)<br>
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>seqPageCost | **number** (double)<br>
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>randomPageCost | **number** (double)<br>
-hosts.<br>config.<br>postgresqlConfig_9_6.<br>sqlInheritance | **boolean** (boolean)<br><p>Эта настройка была удалена в PostgreSQL 10.</p> 
-hosts.<br>config.<br>postgresqlConfig_10 | **object** <br>`hosts.config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`<br><br><p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/static/runtime-config">документации PostgreSQL</a>.</p> 
+hosts.<br>config.<br>postgresqlConfig_9_6.<br>sqlInheritance | **boolean** (boolean)<br><p>This option has been removed in PostgreSQL 10.</p> 
+hosts.<br>config.<br>postgresqlConfig_10 | **object** <br>`hosts.config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10`<br><br><p>Options and structure of <code>PostgresqlHostConfig</code> reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/static/runtime-config">PostgreSQL documentation</a>.</p> 
 hosts.<br>config.<br>postgresqlConfig_10.<br>recoveryMinApplyDelay | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_10.<br>sharedBuffers | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_10.<br>tempBuffers | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_10.<br>workMem | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_10.<br>replacementSortTuples | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_10.<br>tempFileLimit | **integer** (int64)<br>
-hosts.<br>config.<br>postgresqlConfig_10.<br>backendFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
-hosts.<br>config.<br>postgresqlConfig_10.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Допустимые значения — от -1 до 86400 включительно.</p> 
+hosts.<br>config.<br>postgresqlConfig_10.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+hosts.<br>config.<br>postgresqlConfig_10.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400, inclusive.</p> 
 hosts.<br>config.<br>postgresqlConfig_10.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_10.<br>constraintExclusion | **string**<br>
 hosts.<br>config.<br>postgresqlConfig_10.<br>cursorTupleFraction | **number** (double)<br>
-hosts.<br>config.<br>postgresqlConfig_10.<br>fromCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
-hosts.<br>config.<br>postgresqlConfig_10.<br>joinCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+hosts.<br>config.<br>postgresqlConfig_10.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
+hosts.<br>config.<br>postgresqlConfig_10.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
 hosts.<br>config.<br>postgresqlConfig_10.<br>forceParallelMode | **string**<br>
 hosts.<br>config.<br>postgresqlConfig_10.<br>clientMinMessages | **string**<br>
 hosts.<br>config.<br>postgresqlConfig_10.<br>logMinMessages | **string**<br>
@@ -150,4 +150,4 @@ hosts.<br>config.<br>postgresqlConfig_10.<br>transformNullEquals | **boolean** (
 hosts.<br>config.<br>postgresqlConfig_10.<br>exitOnError | **boolean** (boolean)<br>
 hosts.<br>config.<br>postgresqlConfig_10.<br>seqPageCost | **number** (double)<br>
 hosts.<br>config.<br>postgresqlConfig_10.<br>randomPageCost | **number** (double)<br>
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/mdb/api-ref/postgresql/Cluster/listHosts#query_params">pageSize</a>, используйте <a href="/docs/mdb/api-ref/postgresql/Cluster/listHosts#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/mdb/api-ref/postgresql/Cluster/listHosts#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/mdb/api-ref/postgresql/Cluster/listHosts#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/mdb/api-ref/postgresql/Cluster/listHosts#query_params">pageSize</a>, use the <a href="/docs/mdb/api-ref/postgresql/Cluster/listHosts#responses">nextPageToken</a> as the value for the <a href="/docs/mdb/api-ref/postgresql/Cluster/listHosts#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/mdb/api-ref/postgresql/Cluster/listHosts#responses">nextPageToken</a> to continue paging through the results.</p> 

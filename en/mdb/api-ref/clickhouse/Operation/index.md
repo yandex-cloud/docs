@@ -1,9 +1,6 @@
 # Operation
-Набор методов для управления операциями в асинхронных запросах
-API.
-Ссылки указаны
-относительно `https://operation.api.cloud.yandex.net`.
-## JSON-представление
+A set of methods for managing operations for asynchronous API requests.
+## JSON Representation {#representation}
 ```json 
  {
   "id": "string",
@@ -14,7 +11,7 @@ API.
   "done": true,
   "metadata": "object",
 
-  // включает только одно из полей `error`, `response`
+  // includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
@@ -23,12 +20,12 @@ API.
     ]
   },
   "response": "object",
-  // конец списка возможных полей
+  // end of the list of possible fields
 
 }
 ```
 
-## Методы
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[get](get.md) | Возвращает информацию об указанной операции.
+[get](get.md) | Returns the specified Operation resource.

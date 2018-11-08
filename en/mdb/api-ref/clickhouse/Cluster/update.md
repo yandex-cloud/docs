@@ -1,18 +1,18 @@
-# Метод update
-Изменяет указанный кластер ClickHouse.
+# Method update
+Updates the specified ClickHouse cluster.
  
 
  
-## HTTP-запрос
-`PATCH /managed-clickhouse/v1/clusters/{clusterId}`
+## HTTP request {#https-request}
+`PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}`
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Name | Description
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор ресурса Cluster для ClickHouse, который следует обновить. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [list](/docs/mdb/api-ref/clickhouse/Cluster/list).  Максимальная длина — 50 символов.
+clusterId | Required. ID of the ClickHouse Cluster resource to update. To get the ClickHouse cluster ID, use a [list](/docs/mdb/api-ref/clickhouse/Cluster/list) request.  The maximum string length in characters is 50.
  
-## Параметры в теле запроса {#body_params}
+## Body parameters {#body_params}
  
 ```json 
  {
@@ -69,13 +69,13 @@ clusterId | Обязательное поле. Идентификатор рес
               "sizeInCells": "string"
             },
 
-            // `configSpec.clickhouse.config.dictionaries`включает только одно из полей `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`
+            // `configSpec.clickhouse.config.dictionaries`includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`
             "fixedLifetime": "string",
             "lifetimeRange": {
               "min": "string",
               "max": "string"
             },
-            // конец списка возможных полей`configSpec.clickhouse.config.dictionaries`
+            // end of the list of possible fields`configSpec.clickhouse.config.dictionaries`
 
             "httpSource": {
               "url": "string",
@@ -161,123 +161,122 @@ clusterId | Обязательное поле. Идентификатор рес
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-updateMask | **string**<br><p>Маска, которая указывает, какие поля ресурса Cluster должны быть изменены.</p> <p>Имена всех обновляемых полей, разделенные запятыми. Только значения указанных полей будут изменены. Остальные останутся нетронутыми. Если поле указано в параметре <code>update_mask</code> и в запросе не было отправлено значение для этого поля, значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.</p> <p>Если в запросе не передается <code>update_mask</code>, значения всех полей будут обновлены. Для полей, указанных в запросе, будут использованы переданные значения. Значения остальных полей будут сброшены на значения по умолчанию.</p> 
-description | **string**<br><p>Новое описание кластера ClickHouse. Длина описания должна быть от 0 до 256 символов.</p> <p>Максимальная длина — 256 символов.</p> 
-labels | **object**<br><p>Пользовательские метки для кластера ClickHouse в виде пар ключ-значение. Максимум 64 на ресурс. Например, &quot;project&quot;: &quot;mvp&quot; или &quot;source&quot;: &quot;dictionary&quot;.</p> <p>Новый набор меток полностью заменит старый. Чтобы добавить метку, запросите текущий набор меток с помощью метода <a href="/docs/mdb/api-ref/clickhouse/Cluster/get">get</a>, затем отправьте запрос <a href="/docs/mdb/api-ref/clickhouse/Cluster/update">update</a>, добавив новую метку в этот набор.</p> <p>Не более 64 на ресурс. Каждый ключ должен быть длиной от 1 до 63 символов и соответствовать регулярному выражению <code>[a-z][-_0-9a-z]*</code>. Максимальная длина каждого значения — не более 63 символов. Каждое значение должно соответствовать регулярному выражению <code>[-_0-9a-z]*</code>.</p> 
-configSpec | **object**<br><p>Новая конфигурация и ресурсы для хостов кластера.</p> 
-configSpec.<br>clickhouse | **object**<br><p>Конфигурация и ресурсы для сервера ClickHouse.</p> 
-configSpec.<br>clickhouse.<br>config | **object**<br><p>Конфигурация для сервера ClickHouse.</p> <p>Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек доступно в <a href="https://clickhouse.yandex/docs/ru/operations/server_settings/settings/">документации ClickHouse</a>. Любые настройки, не перечисленные здесь, не поддерживаются.</p> 
-configSpec.<br>clickhouse.<br>config.<br>logLevel | **string**<br><p>Уровень логирования для кластера ClickHouse.</p> 
-configSpec.<br>clickhouse.<br>config.<br>mergeTree | **object**<br><p>Параметры движка MergeTree. См. описание в <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#merge_tree">документации ClickHouse</a>.</p> <p>Настройки движка таблицы MergeTree.</p> 
-configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>replicatedDeduplicationWindow | **integer** (int64)<br><p>Количество блоков хэшей, которые должен хранить ZooKeeper. См. подробное описание в [исходном коде ClickHouse](https://github.com/yandex/ClickHouse/blob/v18.1.0-sta ble/dbms/src/Storages/MergeTree/MergeTreeSettings.h#L59).</p> 
-configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>replicatedDeduplicationWindowSeconds | **integer** (int64)<br><p>Период времени, в течение которого следует хранить блоки хэшей. См. подробное описание в [исходном коде ClickHouse](https://github.com/yandex/ClickHous e/blob/v18.1.0-stable/dbms/src/Storages/MergeTree/MergeTreeSettings.h#L64).</p> 
-configSpec.<br>clickhouse.<br>config.<br>compression | **object**<br><p>Параметры сжатия для кластера ClickHouse. См. подробное описание в <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression">документации ClickHouse</a>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>compression.<br>method | **string**<br><p>Метод сжатия, используемый для указанной комбинации <code>min_part_size</code> и <code>min_part_size_ratio</code>.</p> <ul> <li>LZ4: Алгоритм сжатия <a href="https://lz4.github.io/lz4/">LZ4</a>.</li> <li>ZSTD: Алгоритм сжатия <a href="https://facebook.github.io/zstd/">Zstandard</a>.</li> </ul> 
-configSpec.<br>clickhouse.<br>config.<br>compression.<br>minPartSize | **string** (int64)<br><p>Минимальный размер части таблицы.</p> <p>Минимальная значение — 1.</p> 
-configSpec.<br>clickhouse.<br>config.<br>compression.<br>minPartSizeRatio | **number** (double)<br><p>Минимальное отношение части к размеру всех данных в таблице.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries | **object**<br><p>Конфигурация внешних словарей для кластера ClickHouse. См. подробное описание в <a href="https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts/">документации ClickHouse</a>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>name | **string**<br><p>Обязательное поле. Имя внешнего словаря.</p> 
+updateMask | **string**<br><p>Field mask that specifies which fields of the ClickHouse Cluster resource should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+description | **string**<br><p>New description of the ClickHouse cluster. 0-256 characters long.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>Custom labels for the ClickHouse cluster as <code>key:value</code> pairs. Maximum 64 per resource. For example, &quot;project&quot;: &quot;mvp&quot; or &quot;source&quot;: &quot;dictionary&quot;.</p> <p>The new set of labels will completely replace the old ones. To add a label, request the current set with the <a href="/docs/mdb/api-ref/clickhouse/Cluster/get">get</a> method, then send an <a href="/docs/mdb/api-ref/clickhouse/Cluster/update">update</a> request with the new label added to the set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
+configSpec | **object**<br><p>New configuration and resources for hosts in the cluster.</p> 
+configSpec.<br>clickhouse | **object**<br><p>Configuration and resources for a ClickHouse server.</p> 
+configSpec.<br>clickhouse.<br>config | **object**<br><p>Configuration for a ClickHouse server.</p> <p>ClickHouse configuration options. Detailed description for each set of options is available in <a href="https://clickhouse.yandex/docs/ru/operations/server_settings/settings/">ClickHouse documentation</a>.</p> <p>Any options not listed here are not supported.</p> 
+configSpec.<br>clickhouse.<br>config.<br>logLevel | **string**<br><p>Logging level for the ClickHouse cluster.</p> 
+configSpec.<br>clickhouse.<br>config.<br>mergeTree | **object**<br><p>Settings for the MergeTree engine. See description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#merge_tree">ClickHouse documentation</a>.</p> <p>Options specific to the MergeTree table engine.</p> 
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>replicatedDeduplicationWindow | **integer** (int64)<br><p>Number of blocks of hashes to keep in ZooKeeper. See detailed description in <a href="https://github.com/yandex/ClickHouse/blob/v18.1.0-stable/dbms/src/Storages/MergeTree/MergeTreeSettings.h#L59">ClickHouse sources</a>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>mergeTree.<br>replicatedDeduplicationWindowSeconds | **integer** (int64)<br><p>Period of time to keep blocks of hashes for. See detailed description in <a href="https://github.com/yandex/ClickHouse/blob/v18.1.0-stable/dbms/src/Storages/MergeTree/MergeTreeSettings.h#L64">ClickHouse sources</a>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>compression | **object**<br><p>Compression settings for the ClickHouse cluster. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression">ClickHouse documentation</a>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>compression.<br>method | **string**<br><p>Compression method to use for the specified combination of <code>min_part_size</code> and <code>min_part_size_ratio</code>.</p> <ul> <li>LZ4: <a href="https://lz4.github.io/lz4/">LZ4 compression algorithm</a>.</li> <li>ZSTD: <a href="https://facebook.github.io/zstd/">Zstandard compression algorithm</a>.</li> </ul> 
+configSpec.<br>clickhouse.<br>config.<br>compression.<br>minPartSize | **string** (int64)<br><p>Minimum size of a part of a table.</p> <p>The minimum value is 1.</p> 
+configSpec.<br>clickhouse.<br>config.<br>compression.<br>minPartSizeRatio | **number** (double)<br><p>Minimum ratio of a part relative to the size of all the data in the table.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries | **object**<br><p>Configuration of external dictionaries to be used by the ClickHouse cluster. See in-depth description in <a href="https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts/">ClickHouse documentation</a>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>name | **string**<br><p>Required. Name of the external dictionary.</p> 
 configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure | **object**<br>
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>id | **object**<br><p>Идентификатор ключевого столбца для словаря.</p> <p>Ключевой столбец для словаря.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>id.<br>name | **string**<br><p>Обязательное поле. Имя числового ключа.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key | **object**<br><p>Составной ключ для словаря, содержащий один или больше ключевых столбцов.</p> <p>Составной ключ.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key.<br>attributes | **object**<br><p>Обязательное поле. Аттрибуты составного ключа.</p> <p>Должен содержать хотя бы один элемент.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key.<br>attributes.<br>name | **string**<br><p>Обязательное поле. Имя столбца.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key.<br>attributes.<br>type | **string**<br><p>Обязательное поле. Тип столбца.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key.<br>attributes.<br>nullValue | **string**<br><p>Значение по умолчанию для элемента без данных (например, пустая строка).</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key.<br>attributes.<br>expression | **string**<br><p>Выражение, описывающее атрибут, если применимо.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key.<br>attributes.<br>hierarchical | **boolean** (boolean)<br><p>Признак поддержки иерархии. Значение по умолчанию: &quot;false&quot;.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key.<br>attributes.<br>injective | **boolean** (boolean)<br><p>Признакт инъективного отображения &quot;id -&gt; атрибут&quot;. Значение по умолчанию: &quot;false&quot;.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>attributes | **object**<br><p>Обязательное поле. Описание полей, доступных для запросов к базе данных.</p> <p>Должен содержать хотя бы один элемент.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>attributes.<br>name | **string**<br><p>Обязательное поле. Имя столбца.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>attributes.<br>type | **string**<br><p>Обязательное поле. Тип столбца.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>attributes.<br>nullValue | **string**<br><p>Значение по умолчанию для элемента без данных (например, пустая строка).</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>attributes.<br>expression | **string**<br><p>Выражение, описывающее атрибут, если применимо.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>attributes.<br>hierarchical | **boolean** (boolean)<br><p>Признак поддержки иерархии. Значение по умолчанию: &quot;false&quot;.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>attributes.<br>injective | **boolean** (boolean)<br><p>Признакт инъективного отображения &quot;id -&gt; атрибут&quot;. Значение по умолчанию: &quot;false&quot;.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>layout | **object**<br><p>Макет, определяющий способ хранения словаря в памяти.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>layout.<br>type | **string**<br><p>Обязательное поле. Тип макета для внешнего словаря.</p> <ul> <li>FLAT: Весь словарь хранится в памяти в виде плоских массивов. Доступно для любого источника словаря.</li> <li>HASHED: Весь словарь хранится в памяти в виде хэш-таблицы. Доступно для любого источника словаря.</li> <li>COMPLEX_KEY_HASHED: Аналогичен HASHED, для использования с составными ключами. Доступно для любого источника словаря.</li> <li>RANGE_HASHED: Весь словарь хранится в памяти в виде хэш-таблицы, с упорядоченным массивом диапазонов и соответствующих им значений. Доступно для любого источника словаря.</li> <li>CACHE: Словарь хранится в кэше с заданным количеством ячеек. Доступно для источников словарей MySQL, ClickHouse и HTTP.</li> <li>COMPLEX_KEY_CACHE: Аналогичен CACHE, для использования с составными ключами. Доступно для источников словарей MySQL, ClickHouse и HTTP.</li> </ul> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>layout.<br>sizeInCells | **string** (int64)<br><p>Количество ячеек в кэше. Округляется до степени двойки. Применимо только для типов макета CACHE и COMPLEX_KEY_CACHE.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>fixedLifetime | **string** (int64) <br>`configSpec.clickhouse.config.dictionaries` включает только одно из полей `fixedLifetime`, `lifetimeRange`<br><br><p>Жесткий интервал между обновлениями словаря.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>lifetimeRange | **object** <br>`configSpec.clickhouse.config.dictionaries` включает только одно из полей `fixedLifetime`, `lifetimeRange`<br><br>
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>lifetimeRange.<br>min | **string** (int64)<br><p>Минимальное время жизни словаря.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>lifetimeRange.<br>max | **string** (int64)<br><p>Максимальное время жизни словаря.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>httpSource | **object** <br>`configSpec.clickhouse.config.dictionaries` включает только одно из полей `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`<br><br>
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>httpSource.<br>url | **string**<br><p>Обязательное поле. URL внешнего словаря, доступного по HTTP.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>httpSource.<br>format | **string**<br><p>Обязательное поле. Формат данных. Допустимые значения: все форматы, поддерживаемые диалектом ClickHouse SQL.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource | **object** <br>`configSpec.clickhouse.config.dictionaries` включает только одно из полей `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`<br><br>
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>db | **string**<br><p>Обязательное поле. Имя базы данных MySQL, к которой нужно подключаться.</p> <p>Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_]+</code>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>table | **string**<br><p>Обязательное поле. Имя таблицы базы данных, которую следует использовать в качестве словаря ClickHouse.</p> <p>Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_]+</code>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>port | **string** (int64)<br><p>Порт по умолчанию, который нужно использовать при подключении к реплике источника словаря.</p> <p>Допустимые значения — от 0 до 65535 включительно.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>user | **string**<br><p>Имя пользователя по умолчанию для реплик источника словаря.</p> <p>Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_]+</code>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>password | **string**<br><p>Пароль пользователя по умолчанию для реплик источника словаря.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>replicas | **object**<br><p>Обязательное поле. Список реплик базы данных MySQL, используемой в качестве источника словаря.</p> <p>Должен содержать хотя бы один элемент.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>replicas.<br>host | **string**<br><p>Обязательное поле. Хост реплики MySQL.</p> <p>Максимальная длина строки в символах — 253.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>replicas.<br>priority | **string** (int64)<br><p>Обязательное поле. Приоритет реплики, который ClickHouse должен учитывать при подключении. Реплике с наивысшим приоритетом должно соответствовать наименьшее значение в этом поле.</p> <p>Значение должно быть больше 0.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>replicas.<br>port | **string** (int64)<br><p>Порт, который нужно использовать при подключении к реплике. Если для какой-либо реплики не указан порт, ClickHouse использует порт, указанный для источника.</p> <p>Допустимые значения — от 0 до 65535 включительно.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>replicas.<br>user | **string**<br><p>Имя пользователя базы данных MySQL.</p> <p>Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_]+</code>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>replicas.<br>password | **string**<br><p>Пароль пользователя базы данных MySQL.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>where | **string**<br><p>Критерии выбора данных в указанной таблице MySQL.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>invalidateQuery | **string**<br><p>Запрос на проверку состояния словаря, который позволит извлекать только обновленные данные. Дополнительные сведения см. в <a href="https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_lifetime/">документации ClickHouse про словари</a>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource | **object** <br>`configSpec.clickhouse.config.dictionaries` включает только одно из полей `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`<br><br>
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource.<br>db | **string**<br><p>Обязательное поле. Имя базы данных ClickHouse.</p> <p>Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_]+</code>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource.<br>table | **string**<br><p>Обязательное поле. Имя таблицы в указанной базе данных, используемой в качестве источника словаря.</p> <p>Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_]+</code>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource.<br>host | **string**<br><p>Обязательное поле. Хост ClickHouse для указанной базы данных.</p> <p>Максимальная длина строки в символах — 253.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource.<br>port | **string** (int64)<br><p>Порт для подключения к хосту.</p> <p>Допустимые значения — от 0 до 65535 включительно.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource.<br>user | **string**<br><p>Имя пользователя базы данных ClickHouse.</p> <p>Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_]+</code>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource.<br>password | **string**<br><p>Пароль пользователя базы данных ClickHouse.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource.<br>where | **string**<br><p>Критерии выбора данных в указанной таблице ClickHouse.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mongodbSource | **object** <br>`configSpec.clickhouse.config.dictionaries` включает только одно из полей `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`<br><br>
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mongodbSource.<br>db | **string**<br><p>Обязательное поле. Имя базы данных MongoDB.</p> <p>Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_]+</code>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mongodbSource.<br>collection | **string**<br><p>Обязательное поле. Имя коллекции в указанной базе данных, которую следует использовать в качестве источника словаря.</p> <p>Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_]+</code>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mongodbSource.<br>host | **string**<br><p>Обязательное поле. Хост MongoDB для указанной базы данных.</p> <p>Максимальная длина строки в символах — 253.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mongodbSource.<br>port | **string** (int64)<br><p>Порт для подключения к хосту.</p> <p>Допустимые значения — от 0 до 65535 включительно.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mongodbSource.<br>user | **string**<br><p>Имя пользователя базы данных MongoDB.</p> <p>Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_]+</code>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mongodbSource.<br>password | **string**<br><p>Пароль пользователя базы данных MongoDB.</p> 
-configSpec.<br>clickhouse.<br>config.<br>graphiteRollup | **object**<br><p>Параметры свертки для движка таблицы GraphiteMergeTree.</p> 
-configSpec.<br>clickhouse.<br>config.<br>graphiteRollup.<br>name | **string**<br><p>Обязательное поле. Имя указанной комбинации параметров для свертки Graphite.</p> 
-configSpec.<br>clickhouse.<br>config.<br>graphiteRollup.<br>patterns | **object**<br><p>Обязательное поле. Шаблон, используемый для свертки.</p> <p>Должен содержать хотя бы один элемент.</p> 
-configSpec.<br>clickhouse.<br>config.<br>graphiteRollup.<br>patterns.<br>regexp | **string**<br><p>Шаблон для имен метрик.</p> 
-configSpec.<br>clickhouse.<br>config.<br>graphiteRollup.<br>patterns.<br>function | **string**<br><p>Обязательное поле. Имя агрегирующей функции, которую следует применить к данным старше возраста, указанного в retention.</p> 
-configSpec.<br>clickhouse.<br>config.<br>graphiteRollup.<br>patterns.<br>retention | **object**<br><p>Обязательное поле. Возраст данных, которые следует использовать для прореживания.</p> <p>Должен содержать хотя бы один элемент.</p> 
-configSpec.<br>clickhouse.<br>config.<br>graphiteRollup.<br>patterns.<br>retention.<br>age | **string** (int64)<br><p>Минимальный возраст данных в секундах.</p> <p>Значение должно быть больше 0.</p> 
-configSpec.<br>clickhouse.<br>config.<br>graphiteRollup.<br>patterns.<br>retention.<br>precision | **string** (int64)<br><p>Точность определения возраста данных, в секундах.</p> <p>Значение должно быть больше 0.</p> 
-configSpec.<br>clickhouse.<br>config.<br>maxConnections | **integer** (int64)<br><p>Максимальное количество входящих подключений.</p> <p>Минимальная значение — 10.</p> 
-configSpec.<br>clickhouse.<br>config.<br>maxConcurrentQueries | **integer** (int64)<br><p>Максимальное количество одновременно обрабатываемых запросов.</p> <p>Минимальная значение — 10.</p> 
-configSpec.<br>clickhouse.<br>config.<br>keepAliveTimeout | **integer** (int64)<br><p>Количество миллисекунд, в течение которых ClickHouse ожидает входящие запросы прежде чем закрыть подключение.</p> 
-configSpec.<br>clickhouse.<br>config.<br>uncompressedCacheSize | **integer** (int64)<br><p>Размер кэша (в байтах) для несжатых данных, используемых таблицами MergeTree. См. подробное описание в <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#uncompressed_cache_size">документации ClickHouse</a>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>markCacheSize | **integer** (int64)<br><p>Примерный размер (в байтах) кэша &quot;меток&quot;, используемых таблицами MergeTree. Подробнее в <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#mark_cache_size">документации ClickHouse</a>.</p> <p>Значение должно быть больше 5368709120.</p> 
-configSpec.<br>clickhouse.<br>config.<br>maxTableSizeToDrop | **integer** (int64)<br><p>Максимальный размер таблицы, которую можно удалить с помощью запроса DROP. См. подробное описание в <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_table_size_to_drop">документации ClickHouse</a>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>builtinDictionariesReloadInterval | **integer** (int64)<br><p>Интервал времени для перезагрузки встроенных словарей. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/en/operations/serv er_settings/settings/#builtin_dictionaries_reload_interval).</p> 
-configSpec.<br>clickhouse.<br>resources | **object**<br><p>Ресурсы, выделенные хостам ClickHouse.</p> 
-configSpec.<br>clickhouse.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/mdb/concepts/instance-types">Классы баз данных</a></p> 
-configSpec.<br>clickhouse.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступный хосту, в байтах.</p> 
-configSpec.<br>clickhouse.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>local-ssd — хранилище на базе локальных SSD-дисков.</li> </ul> 
-configSpec.<br>zookeeper | **object**<br><p>Конфигурация и ресурсы для сервера ZooKeeper.</p> 
-configSpec.<br>zookeeper.<br>resources | **object**<br><p>Ресурсы, выделенные хостам ZooKeeper.</p> 
-configSpec.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/mdb/concepts/instance-types">Классы баз данных</a></p> 
-configSpec.<br>zookeeper.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступный хосту, в байтах.</p> 
-configSpec.<br>zookeeper.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>local-ssd — хранилище на базе локальных SSD-дисков.</li> </ul> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>id | **object**<br><p>Single numeric key column for the dictionary.</p> <p>Numeric key.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>id.<br>name | **string**<br><p>Required. Name of the numeric key.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key | **object**<br><p>Complex key for the dictionary, containing of one or more key column(s).</p> <p>Complex key.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key.<br>attributes | **object**<br><p>Required. Attributes of a complex key.</p> <p>Must contain at least one element.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key.<br>attributes.<br>name | **string**<br><p>Required. Name of the column.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key.<br>attributes.<br>type | **string**<br><p>Required. Type of the column.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key.<br>attributes.<br>nullValue | **string**<br><p>Default value for an element without data (for example, an empty string).</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key.<br>attributes.<br>expression | **string**<br><p>Expression, describing the attribute, if appicable.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key.<br>attributes.<br>hierarchical | **boolean** (boolean)<br><p>Indication of hierarchy support. Default value: &quot;false&quot;.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>key.<br>attributes.<br>injective | **boolean** (boolean)<br><p>Indication of injective mapping &quot;id -&gt; attribute&quot;. Default value: &quot;false&quot;.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>attributes | **object**<br><p>Required. Description of the fields available for database queries.</p> <p>Must contain at least one element.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>attributes.<br>name | **string**<br><p>Required. Name of the column.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>attributes.<br>type | **string**<br><p>Required. Type of the column.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>attributes.<br>nullValue | **string**<br><p>Default value for an element without data (for example, an empty string).</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>attributes.<br>expression | **string**<br><p>Expression, describing the attribute, if appicable.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>attributes.<br>hierarchical | **boolean** (boolean)<br><p>Indication of hierarchy support. Default value: &quot;false&quot;.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>structure.<br>attributes.<br>injective | **boolean** (boolean)<br><p>Indication of injective mapping &quot;id -&gt; attribute&quot;. Default value: &quot;false&quot;.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>layout | **object**<br><p>Layout determining how to store the dictionary in memory.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>layout.<br>type | **string**<br><p>Required. Layout type for an external dictionary.</p> <ul> <li>FLAT: The entire dictionary is stored in memory in the form of flat arrays. Available for all dictionary sources.</li> <li>HASHED: The entire dictionary is stored in memory in the form of a hash table. Available for all dictionary sources.</li> <li>COMPLEX_KEY_HASHED: Similar to HASHED, to be used with composite keys. Available for all dictionary sources.</li> <li>RANGE_HASHED: The entire dictionary is stored in memory in the form of a hash table, with an ordered array of ranges and their corresponding values. Available for all dictionary sources.</li> <li>CACHE: The dictionary is stored in a cache with a set number of cells. Available for MySQL, ClickHouse and HTTP dictionary sources.</li> <li>COMPLEX_KEY_CACHE: Similar to CACHE, to be used with composite keys. Available for MySQL, ClickHouse and HTTP dictionary sources.</li> </ul> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>layout.<br>sizeInCells | **string** (int64)<br><p>Number of cells in the cache. Rounded up to a power of two. Applicable only for CACHE and COMPLEX_KEY_CACHE layout types.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>fixedLifetime | **string** (int64) <br>`configSpec.clickhouse.config.dictionaries` includes only one of the fields `fixedLifetime`, `lifetimeRange`<br><br><p>Fixed interval between dictionaty updates.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>lifetimeRange | **object** <br>`configSpec.clickhouse.config.dictionaries` includes only one of the fields `fixedLifetime`, `lifetimeRange`<br><br>
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>lifetimeRange.<br>min | **string** (int64)<br><p>Minimum dictionary lifetime.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>lifetimeRange.<br>max | **string** (int64)<br><p>Maximum dictionary lifetime.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>httpSource | **object** <br>`configSpec.clickhouse.config.dictionaries` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`<br><br>
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>httpSource.<br>url | **string**<br><p>Required. URL of the source dictionary available over HTTP.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>httpSource.<br>format | **string**<br><p>Required. The data format. Valid values are all formats supported by ClickHouse SQL dialect.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource | **object** <br>`configSpec.clickhouse.config.dictionaries` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`<br><br>
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>db | **string**<br><p>Required. Name of the MySQL database to connect to.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]+</code>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>table | **string**<br><p>Required. Name of the database table to use as a ClickHouse dictionary.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]+</code>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>port | **string** (int64)<br><p>Default port to use when connecting to a replica of the dictionary source.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>user | **string**<br><p>Name of the default user for replicas of the dictionary source.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]+</code>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>password | **string**<br><p>Password of the default user for replicas of the dictionary source.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>replicas | **object**<br><p>Required. List of MySQL replicas of the database used as dictionary source.</p> <p>Must contain at least one element.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>replicas.<br>host | **string**<br><p>Required. MySQL host of the replica.</p> <p>The maximum string length in characters is 253.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>replicas.<br>priority | **string** (int64)<br><p>Required. The priority of the replica that ClickHouse takes into account when connecting. Replica with the highest priority should have this field set to the lowest number.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>replicas.<br>port | **string** (int64)<br><p>Port to use when connecting to the replica. If a port is not specified for a replica, ClickHouse uses the port specified for the source.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>replicas.<br>user | **string**<br><p>Name of the MySQL database user.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]+</code>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>replicas.<br>password | **string**<br><p>Password of the MySQL database user.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>where | **string**<br><p>Selection criteria for the data in the specified MySQL table.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mysqlSource.<br>invalidateQuery | **string**<br><p>Query for checking the dictionary status, to pull only updated data. For more details, see <a href="https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_lifetime/">ClickHouse documentation on dictionaries</a>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource | **object** <br>`configSpec.clickhouse.config.dictionaries` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`<br><br>
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource.<br>db | **string**<br><p>Required. Name of the ClickHouse database.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]+</code>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource.<br>table | **string**<br><p>Required. Name of the table in the specified database to be used as the dictionary source.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]+</code>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource.<br>host | **string**<br><p>Required. ClickHouse host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource.<br>port | **string** (int64)<br><p>Port to use when connecting to the host.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource.<br>user | **string**<br><p>Name of the ClickHouse database user.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]+</code>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource.<br>password | **string**<br><p>Password of the ClickHouse database user.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>clickhouseSource.<br>where | **string**<br><p>Selection criteria for the data in the specified ClickHouse table.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mongodbSource | **object** <br>`configSpec.clickhouse.config.dictionaries` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`<br><br>
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mongodbSource.<br>db | **string**<br><p>Required. Name of the MongoDB database.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]+</code>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mongodbSource.<br>collection | **string**<br><p>Required. Name of the collection in the specified database to be used as the dictionary source.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]+</code>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mongodbSource.<br>host | **string**<br><p>Required. MongoDB host of the specified database.</p> <p>The maximum string length in characters is 253.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mongodbSource.<br>port | **string** (int64)<br><p>Port to use when connecting to the host.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mongodbSource.<br>user | **string**<br><p>Name of the MongoDB database user.</p> <p>The string length in characters must be 1-63. Value must match the regular expression <code>[a-zA-Z0-9_]+</code>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>dictionaries.<br>mongodbSource.<br>password | **string**<br><p>Password of the MongoDB database user.</p> 
+configSpec.<br>clickhouse.<br>config.<br>graphiteRollup | **object**<br><p>Rollup settings for the GraphiteMergeTree table engine.</p> 
+configSpec.<br>clickhouse.<br>config.<br>graphiteRollup.<br>name | **string**<br><p>Required. Name for the specified combination of settings for Graphite rollup.</p> 
+configSpec.<br>clickhouse.<br>config.<br>graphiteRollup.<br>patterns | **object**<br><p>Required. Pattern to use for the rollup.</p> <p>Must contain at least one element.</p> 
+configSpec.<br>clickhouse.<br>config.<br>graphiteRollup.<br>patterns.<br>regexp | **string**<br><p>Pattern for metric names.</p> 
+configSpec.<br>clickhouse.<br>config.<br>graphiteRollup.<br>patterns.<br>function | **string**<br><p>Required. Name of the aggregating function to apply to data of the age specified in retention.</p> 
+configSpec.<br>clickhouse.<br>config.<br>graphiteRollup.<br>patterns.<br>retention | **object**<br><p>Required. Age of data to use for thinning.</p> <p>Must contain at least one element.</p> 
+configSpec.<br>clickhouse.<br>config.<br>graphiteRollup.<br>patterns.<br>retention.<br>age | **string** (int64)<br><p>Minimum age of the data in seconds.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>graphiteRollup.<br>patterns.<br>retention.<br>precision | **string** (int64)<br><p>Precision of determining the age of the data, in seconds.</p> <p>Value must be greater than 0.</p> 
+configSpec.<br>clickhouse.<br>config.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections.</p> <p>The minimum value is 10.</p> 
+configSpec.<br>clickhouse.<br>config.<br>maxConcurrentQueries | **integer** (int64)<br><p>Maximum number of simultaneously processed requests.</p> <p>The minimum value is 10.</p> 
+configSpec.<br>clickhouse.<br>config.<br>keepAliveTimeout | **integer** (int64)<br><p>Number of milliseconds that ClickHouse waits for incoming requests before closing the connection.</p> 
+configSpec.<br>clickhouse.<br>config.<br>uncompressedCacheSize | **integer** (int64)<br><p>Cache size (in bytes) for uncompressed data used by MergeTree tables. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#uncompressed_cache_size">ClickHouse documentation</a>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>markCacheSize | **integer** (int64)<br><p>Approximate size (in bytes) of the cache of &quot;marks&quot; used by MergeTree tables. See details in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#mark_cache_size">ClickHouse documentation</a>.</p> <p>Value must be greater than 5368709120.</p> 
+configSpec.<br>clickhouse.<br>config.<br>maxTableSizeToDrop | **integer** (int64)<br><p>Maximum size of the table that can be deleted using a DROP query. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_table_size_to_drop">ClickHouse documentation</a>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>builtinDictionariesReloadInterval | **integer** (int64)<br><p>Time interval for reloading built-in dictionaries. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval">ClickHouse documentation</a>.</p> 
+configSpec.<br>clickhouse.<br>resources | **object**<br><p>Resources allocated to ClickHouse hosts.</p> 
+configSpec.<br>clickhouse.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/mdb/concepts/instance-types">documentation</a></p> 
+configSpec.<br>clickhouse.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
+configSpec.<br>clickhouse.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-nvme — network SSD drive,</li> <li>local-nvme — local SSD storage.</li> </ul> 
+configSpec.<br>zookeeper | **object**<br><p>Configuration and resources for a ZooKeeper server.</p> 
+configSpec.<br>zookeeper.<br>resources | **object**<br><p>Resources allocated to ZooKeeper hosts.</p> 
+configSpec.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/mdb/concepts/instance-types">documentation</a></p> 
+configSpec.<br>zookeeper.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
+configSpec.<br>zookeeper.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-nvme — network SSD drive,</li> <li>local-nvme — local SSD storage.</li> </ul> 
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс Operation. Дополнительные сведения см. в разделе
-[Объект Operation](/docs/api-design-guide/concepts/operation).
+An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Только для вывода. Идентификатор операции.</p> 
-description | **string**<br><p>Описание операции. Длина описания должна быть от 0 до 256 символов.</p> 
-createdAt | **string** (date-time)<br><p>Только для вывода. Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-createdBy | **string**<br><p>Только для вывода. Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию.</p> 
-modifiedAt | **string** (date-time)<br><p>Только для вывода. Время, когда ресурс Operation последний раз обновлялся. Значение в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-done | **boolean** (boolean)<br><p>Только для вывода. Если значение равно <code>false</code> — операция еще выполняется. Если <code>true</code> — операция завершена, и задано значение одного из полей <code>error</code> или <code>response</code>.</p> 
-metadata | **object**<br><p>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля <code>metadata</code>.</p> 
-error | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
-error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-error.<br>message | **string**<br><p>Текст ошибки.</p> 
-error.<br>details | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
-response | **object** <br> включает только одно из полей `error`, `response`<br><br><p>Результат операции в случае успешного завершения. Если исходный метод не возвращает никаких данных при успешном завершении, например метод Delete, поле содержит объект <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. Если исходный метод — это стандартный метод Create / Update, поле содержит целевой ресурс операции. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля <code>response</code>.</p> 
+id | **string**<br><p>ID of the operation.</p> 
+description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
+modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified. This value is in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+done | **boolean** (boolean)<br><p>If the value is <code>false</code>, it means the operation is still in progress. If <code>true</code>, the operation is completed, and either <code>error</code> or <code>response</code> is available.</p> 
+metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
+error | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+error.<br>message | **string**<br><p>An error message.</p> 
+error.<br>details | **object**<br><p>A list of messages that carry the error details.</p> 
+response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 

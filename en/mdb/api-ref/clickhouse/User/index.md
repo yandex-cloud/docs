@@ -1,6 +1,6 @@
 # User
-Набор методов для управления ресурсами User для ClickHouse.
-## JSON-представление
+A set of methods for managing ClickHouse User resources.
+## JSON Representation {#representation}
 ```json 
  {
   "name": "string",
@@ -13,13 +13,13 @@
 }
 ```
 
-## Методы
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает пользователя ClickHouse в указанном кластере.
-[delete](delete.md) | Удаляет указанного пользователя ClickHouse.
-[get](get.md) | Возвращает указанный ресурс User для ClickHouse.
-[grantPermission](grantPermission.md) | Предоставляет разрешение указанному пользователю ClickHouse.
-[list](list.md) | Получает список ресурсов User для указанного кластера ClickHouse.
-[revokePermission](revokePermission.md) | Отзывает разрешения у указанного пользователя ClickHouse.
-[update](update.md) | Изменяет указанного пользователя ClickHouse.
+[create](create.md) | Creates a ClickHouse user in the specified cluster.
+[delete](delete.md) | Deletes the specified ClickHouse user.
+[get](get.md) | Returns the specified ClickHouse User resource.
+[grantPermission](grantPermission.md) | Grants a permission to the specified ClickHouse user.
+[list](list.md) | Retrieves the list of ClickHouse User resources in the specified cluster.
+[revokePermission](revokePermission.md) | Revokes a permission from the specified ClickHouse user.
+[update](update.md) | Updates the specified ClickHouse user.

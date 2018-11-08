@@ -1,36 +1,37 @@
-# Метод listLogs
-Получает логи для указанного кластера MongoDB.
+# Method listLogs
+Retrieves logs for the specified MongoDB cluster.
+See the [Logs](/docs/yandex-mdb-guide/concepts/logs) section in the developers guide for detailed logs description.
  
 
  
-## HTTP-запрос
-`GET /managed-mongodb/v1/clusters/{clusterId}:logs`
+## HTTP request {#https-request}
+`GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:logs`
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Name | Description
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Обязательное поле. Идентификатор кластера MongoDB, для которого следует запросить логи. Чтобы получить идентификатор кластера MongoDB, используйте запрос [list](/docs/mdb/api-ref/mongodb/Cluster/list).  Максимальная длина — 50 символов.
+clusterId | Required. Required. ID of the MongoDB cluster to request logs for. To get the MongoDB cluster ID use a [list](/docs/mdb/api-ref/mongodb/Cluster/list) request.  The maximum string length in characters is 50.
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Name | Description
+Parameter | Description
 --- | ---
-columnFilter | Столбцы из таблицы логов для запроса. Если столбцы не указаны, записи логов возвращаются целиком.
-serviceType | Тип сервиса, для которого следует запросить логи.
-fromTime | Начало периода, для которого следует запросить логи, в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-toTime | Конец периода, для которого следует запросить логи, в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/mongodb/Cluster/listLogs#query_params), сервис вернет значение [nextPageToken](/docs/mdb/api-ref/mongodb/Cluster/listLogs#responses), которое можно использовать для получения следующей страницы.  Допустимые значения — от 0 до 1000 включительно.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/mdb/api-ref/mongodb/Cluster/listLogs#query_params) равным значению поля [nextPageToken](/docs/mdb/api-ref/mongodb/Cluster/listLogs#responses) прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина — 100 символов.
+columnFilter | Columns from the logs table to request. If no columns are specified, entire log records are returned.
+serviceType | Type of the service to request logs about.
+fromTime | Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+toTime | End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+pageSize | The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/mdb/api-ref/mongodb/Cluster/listLogs#query_params) to the [nextPageToken](/docs/mdb/api-ref/mongodb/Cluster/listLogs#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 
  
-Поле | Описание
+Field | Description
 --- | ---
-logs | **object**<br><p>Запрошенные записи логов.</p> 
-logs.<br>timestamp | **string** (date-time)<br><p>Время создания записи в журнале, в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-logs.<br>message | **object**<br><p>Содержание записи лога.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/mdb/api-ref/mongodb/Cluster/listLogs#query_params">pageSize</a>, используйте <a href="/docs/mdb/api-ref/mongodb/Cluster/listLogs#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/mdb/api-ref/mongodb/Cluster/listLogs#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/mdb/api-ref/mongodb/Cluster/listLogs#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+logs | **object**<br><p>Requested log records.</p> 
+logs.<br>timestamp | **string** (date-time)<br><p>Log record timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+logs.<br>message | **object**<br><p>Contents of the log record.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/mdb/api-ref/mongodb/Cluster/listLogs#query_params">pageSize</a>, use the <a href="/docs/mdb/api-ref/mongodb/Cluster/listLogs#responses">nextPageToken</a> as the value for the <a href="/docs/mdb/api-ref/mongodb/Cluster/listLogs#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/mdb/api-ref/mongodb/Cluster/listLogs#responses">nextPageToken</a> to continue paging through the results.</p> 

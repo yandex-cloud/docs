@@ -1,26 +1,25 @@
-# Метод get
-Возвращает указанный ресурс ResourcePreset.
+# Method get
+Returns the specified ResourcePreset resource.
  
-Чтобы получить список доступных ресурсов ResourcePreset, используйте
-запрос [list](/docs/mdb/api-ref/mongodb/ResourcePreset/list).
+To get the list of available ResourcePreset resources, make a [list](/docs/mdb/api-ref/mongodb/ResourcePreset/list) request.
  
-## HTTP-запрос
-`GET /managed-mongodb/v1/resourcePresets/{resourcePresetId}`
+## HTTP request {#https-request}
+`GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/resourcePresets/{resourcePresetId}`
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Name | Description
+Parameter | Description
 --- | ---
-resourcePresetId | Обязательное поле. Идентификатор набора ресурсов, данные о котором запрашиваются. Чтобы получить идентификатор набора ресурсов, используйте запрос[list](/docs/mdb/api-ref/mongodb/ResourcePreset/list).
+resourcePresetId | Required. ID of the resource preset to return. To get the resource preset ID, use a [list](/docs/mdb/api-ref/mongodb/ResourcePreset/list) request.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс ResourcePreset для описания наборов ресурсов.
+A ResourcePreset resource for describing hardware configuration presets.
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Идентификатор ресурса ResourcePreset.</p> 
-zoneIds | **string**<br><p>Идентификаторы зон доступности, в которых доступен данный набор ресурсов.</p> 
-cores | **string** (int64)<br><p>Количество ядер CPU для хоста MongoDB, созданного с данным набором ресурсов.</p> 
-memory | **string** (int64)<br><p>Объем оперативной памяти для хоста MongoDB, созданного с данным набором ресурсов, в байтах.</p> 
+id | **string**<br><p>ID of the ResourcePreset resource.</p> 
+zoneIds | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
+cores | **string** (int64)<br><p>Number of CPU cores for a MongoDB host created with the preset.</p> 
+memory | **string** (int64)<br><p>RAM volume for a MongoDB host created with the preset, in bytes.</p> 

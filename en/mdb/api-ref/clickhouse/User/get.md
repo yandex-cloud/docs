@@ -1,27 +1,27 @@
-# Метод get
-Возвращает указанный ресурс User для ClickHouse.
+# Method get
+Returns the specified ClickHouse User resource.
  
-Чтобы получить список доступных ресурсов User для ClickHouse,
-отправьте запрос [list](/docs/mdb/api-ref/clickhouse/User/list).
+To get the list of available ClickHouse User resources, make a [list](/docs/mdb/api-ref/clickhouse/User/list) request.
  
-## HTTP-запрос
-`GET /managed-clickhouse/v1/clusters/{clusterId}/users/{userName}`
+## HTTP request {#https-request}
+`GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}`
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Name | Description
+Parameter | Description
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера ClickHouse, к которому принадлежит пользователь. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/mdb/api-ref/clickhouse/Cluster/list).  Максимальная длина — 50 символов.
-userName | Обязательное поле. Имя запрашиваемого ресурса User для ClickHouse. Чтобы получить имя пользователя, используйте запрос [list](/docs/mdb/api-ref/clickhouse/User/list).  Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]+ ``.
+clusterId | Required. ID of the ClickHouse cluster the user belongs to. To get the cluster ID, use a [list](/docs/mdb/api-ref/clickhouse/Cluster/list) request.  The maximum string length in characters is 50.
+userName | Required. Name of the ClickHouse User resource to return. To get the name of the user, use a [list](/docs/mdb/api-ref/clickhouse/User/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_]+ ``.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс User для ClickHouse. Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](/docs/mdb/concepts).
+A ClickHouse User resource. For more information, see 
+the [Developer's guide](/docs/mdb/concepts).
  
-Поле | Описание
+Field | Description
 --- | ---
-name | **string**<br><p>Имя пользователя ClickHouse.</p> 
-clusterId | **string**<br><p>Идентификатор кластера ClickHouse, к которому принадлежит пользователь.</p> 
-permissions | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 
-permissions.<br>databaseName | **string**<br><p>Имя базы данных, к которой предоставляет доступ разрешение.</p> 
+name | **string**<br><p>Name of the ClickHouse user.</p> 
+clusterId | **string**<br><p>ID of the ClickHouse cluster the user belongs to.</p> 
+permissions | **object**<br><p>Set of permissions granted to the user.</p> 
+permissions.<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
