@@ -66,7 +66,9 @@
       name: default
       description: Auto-created default network
     ```
+
 ---
+
 ## Примеры {#examples}
 
 * [[!TITLE]](#create-network-with-folder-id)
@@ -84,4 +86,5 @@
       --description "My test network" \
       --folder-id b1gnbfd11bq5g5vnjgr4 
     ```
+
 ---
