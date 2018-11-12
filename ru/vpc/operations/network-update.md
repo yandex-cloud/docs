@@ -41,7 +41,12 @@
     labels:
       new_label: test_label
     ```
-Также можно изменять сеть, используя имя вместо идентификатора:
+Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
+
+```
+$ yc vpc network update --name test-network-1 --new-name test-network-renamed --labels new_label=test_label
+$ yc vpc network update --id enpavfmgapumnl7cqin8 --new-name test-network-renamed --labels new_label=test_label
+```
 
 ---
 
@@ -64,13 +69,6 @@ name: test-network-renamed
 description: My first network
 labels:
   new_label: test_label
-```
-
-Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
-
-```
-$ yc vpc network update --name test-network-1 --new-name test-network-renamed --labels new_label=test_label
-$ yc vpc network update --id enpavfmgapumnl7cqin8 --new-name test-network-renamed --labels new_label=test_label
 ```
 
 ---
