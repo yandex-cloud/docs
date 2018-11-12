@@ -43,22 +43,30 @@
     ```
 Также можно изменять сеть, используя имя вместо идентификатора:
 
-    ```
-    $ yc vpc network update test-network-1 --new-name test-network-renamed --labels new_label=test_label
-    id: enpavfmgapumnl7cqin8
-    folder_id: b1g6ci08ma55klukmdjs
-    created_at: "2018-10-23T14:05:32Z"
-    name: test-network-renamed
-    description: My first network
-    labels:
-      new_label: test_label
-    ```
+---
+
+## Примеры
+
+### Изменение подсети с использованием флага имени
+
+Можно изменять облачную сеть, используя имя вместо идентификатора:
+
+```
+$ yc vpc network update test-network-1 --new-name test-network-renamed --labels new_label=test_label
+id: enpavfmgapumnl7cqin8
+folder_id: b1g6ci08ma55klukmdjs
+created_at: "2018-10-23T14:05:32Z"
+name: test-network-renamed
+description: My first network
+labels:
+  new_label: test_label
+```
 
 Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
 
-    ```
-    $ yc vpc network update --name test-network-1 --new-name test-network-renamed --labels new_label=test_label
-    $ yc vpc network update --id enpavfmgapumnl7cqin8 --new-name test-network-renamed --labels new_label=test_label
-    ```
+```
+$ yc vpc network update --name test-network-1 --new-name test-network-renamed --labels new_label=test_label
+$ yc vpc network update --id enpavfmgapumnl7cqin8 --new-name test-network-renamed --labels new_label=test_label
+```
 
 ---
