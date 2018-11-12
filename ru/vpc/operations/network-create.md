@@ -1,6 +1,6 @@
 # Создать облачную сеть
 
-Помимо облачной сети в каталоге по умолчанию вы можете создавать дополнительные облачные сети.
+Помимо облачной сети в каталоге по умолчанию вы можете создавать дополнительные облачные сети в других каталогах.
 
 https://cloud.yandex.ru/docs/cli/quickstart#install
 
@@ -24,7 +24,7 @@ https://cloud.yandex.ru/docs/cli/quickstart#install
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы создать [облачную сеть](../concepts/network.md):
-1. Посмотрите описание команд CLI для создания облачной сети:
+1. Посмотрите описание команды CLI для создания облачной сети:
 
     ```
     $ yc vpc network create --help
@@ -40,14 +40,6 @@ https://cloud.yandex.ru/docs/cli/quickstart#install
     [!INCLUDE [name-format](../../_includes/name-format.md)]
 
     Флаги `--name` и `--description` необязательные — можно создать сеть без имени и описания и обращаться к ней по идентификатору. 
-
-    Чтобы создать облачную сеть в другом каталоге, используйте флаг `--folder-id`:
-
-    ```
-    $ yc vpc network create --name test-network-1 \ 
-      --description "My test network" \
-      --folder-id b1gnbfd11bq5g5vnjgr4 
-    ```
 
 1. Получите список всех облачных сетей в каталоге по умолчанию:
 
@@ -76,5 +68,21 @@ https://cloud.yandex.ru/docs/cli/quickstart#install
       name: default
       description: Auto-created default network
     ```
+---
 
+
+## Примеры
+
+### Создание облачной сети в указанном каталоге
+
+---
+**[!TAB CLI]**
+
+Чтобы создать облачную сеть в другом каталоге, c помощью флага `--folder-id` укажите идентификатор нужного каталога:
+
+    ```
+    $ yc vpc network create --name test-network-1 \ 
+      --description "My test network" \
+      --folder-id b1gnbfd11bq5g5vnjgr4 
+    ```
 ---
