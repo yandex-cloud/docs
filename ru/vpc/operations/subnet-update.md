@@ -59,33 +59,33 @@
 
 Можно изменять подсеть, используя ее имя вместо идентификатора:
 
-    ```
-    $ yc vpc subnet update test-subnet-1 \
-        --new-name test-subnet-renamed \
-        --labels new_label=test_label
-    id: e2l2prrbkbimvjuuhht2
-    folder_id: b1g6ci08ma55klukmdjs
-    created_at: "2018-10-24T13:54:10Z"
-    name: test-subnet-renamed
-    description: My test subnet
-    labels:
-      new_label: test_label
-    network_id: enplom7a98s1t0lhass8
-    zone_id: ru-central1-b
-    v4_cidr_blocks:
-    - 192.168.0.0/24
-    ```
-
-    Идентификатор и имя подсети можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
-
-    ```
-    $ yc vpc network update --id enpavfmgapumnl7cqin8 \
-    --new-name test-network-renamed \
+```
+$ yc vpc subnet update test-subnet-1 \
+    --new-name test-subnet-renamed \
     --labels new_label=test_label
-    ```
-    ```
-    $ yc vpc network update --name test-network-1 \
-    --new-name test-network-renamed \
-    --labels new_label=test_label
-    ```
+id: e2l2prrbkbimvjuuhht2
+folder_id: b1g6ci08ma55klukmdjs
+created_at: "2018-10-24T13:54:10Z"
+name: test-subnet-renamed
+description: My test subnet
+labels:
+  new_label: test_label
+network_id: enplom7a98s1t0lhass8
+zone_id: ru-central1-b
+v4_cidr_blocks:
+- 192.168.0.0/24
+```
+
+Идентификатор и имя подсети можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
+
+```
+$ yc vpc network update --id enpavfmgapumnl7cqin8 \
+--new-name test-network-renamed \
+--labels new_label=test_label
+```
+```
+$ yc vpc network update --name test-network-1 \
+--new-name test-network-renamed \
+--labels new_label=test_label
+```
 ---

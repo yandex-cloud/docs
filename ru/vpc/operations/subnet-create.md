@@ -70,10 +70,10 @@
     Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
 
     ```
-    $ yc vpc subnet create --id enpavfmgapumnl7cqin8
+    $ yc vpc subnet create --id enpavfmgapumnl7cqin8 ...
     ```
     ```
-    $ yc vpc subnet create --name test-subnet-1
+    $ yc vpc subnet create --name test-subnet-1 ...
     ```
 
 1. Получите список всех подсетей в каталоге по умолчанию:
@@ -113,12 +113,10 @@
 
 ## Примеры
 
-### Создание подсети сети в указанном каталоге
-
 ---
 **[!TAB CLI]**
 
-Чтобы создать подсеть в другом каталоге, c помощью флага `--folder-id` укажите идентификатор нужного каталога:
+Создайте подсеть с именем и описанием в выбранном каталоге:
 
     ```
     $ yc vpc subnet create test-subnet-1 \
