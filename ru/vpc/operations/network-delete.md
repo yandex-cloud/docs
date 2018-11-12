@@ -22,7 +22,7 @@
 
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
-1. Посмотрите описание команд CLI для удаления облачных сетей:
+1. Посмотрите описание команды CLI для удаления облачных сетей:
 
     ```
     $ yc vpc network delete --help
