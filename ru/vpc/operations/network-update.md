@@ -51,6 +51,10 @@
 
 Можно изменять облачную сеть, используя имя вместо идентификатора:
 
+---
+
+**[!TAB CLI]**
+
 ```
 $ yc vpc network update test-network-1 --new-name test-network-renamed --labels new_label=test_label
 id: enpavfmgapumnl7cqin8
