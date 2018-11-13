@@ -39,6 +39,8 @@ Below is a full list of supported extensions:
 - [ltree](https://www.postgresql.org/docs/10/static/ltree.html)
 - [moddatetime](https://www.postgresql.org/docs/10/static/contrib-spi.html#id-1.11.7.46.9)
 - [pg_repack](http://reorg.github.io/pg_repack/)
+- [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache)
+- [pg_stat_statements](https://www.postgresql.org/docs/10/pgstatstatements.html)
 - [pg_trgm](https://www.postgresql.org/docs/10/static/pgtrgm.html)
 - [pgcrypto](https://www.postgresql.org/docs/10/static/pgcrypto.html)
 - [pgrouting](http://pgrouting.org/)
