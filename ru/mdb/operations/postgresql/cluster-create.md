@@ -12,7 +12,7 @@
 [!INCLUDE [note-pg-user-connections.md](../../_includes-service/note-pg-user-connections.md)]
 
 
-## Как создать кластер [!KEYREF PG] 
+## Как создать кластер [!KEYREF PG] {#create-cluster}
 
 ---
 
