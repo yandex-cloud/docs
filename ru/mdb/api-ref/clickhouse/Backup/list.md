@@ -3,16 +3,18 @@
  
 
  
-## HTTP-запрос
-`GET /managed-clickhouse/v1/backups`
+## HTTP-запрос {#https-request}
+```
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups
+```
  
 ## Query-параметры {#query_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
-folderId | Обязательное поле. Идентификатор каталога для вывода списка резервных копий. Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).  Максимальная длина — 50 символов.
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/clickhouse/Backup/list#query_params), сервис вернет значение [nextPageToken](/docs/mdb/api-ref/clickhouse/Backup/list#responses), которое можно использовать для получения следующей страницы.  Допустимые значения — от 0 до 1000 включительно.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/mdb/api-ref/clickhouse/Backup/list#query_params) равным значению поля [nextPageToken](/docs/mdb/api-ref/clickhouse/Backup/list#responses) прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина — 100 символов.
+folderId | Обязательное поле. Идентификатор каталога для вывода списка резервных копий. Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).  Максимальная длина строки в символах — 50.
+pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/clickhouse/Backup/list#query_params), сервис вернет значение [nextPageToken](/docs/mdb/api-ref/clickhouse/Backup/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
+pageToken | Токен страницы. Установите значение [pageToken](/docs/mdb/api-ref/clickhouse/Backup/list#query_params) равным значению поля [nextPageToken](/docs/mdb/api-ref/clickhouse/Backup/list#responses) прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
@@ -21,7 +23,7 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-backups | **object**<br><p>Ресурс Backup для ClickHouse. Подробное описание см. в разделе <a href="/docs/mdb/concepts">Взаимосвязь ресурсов сервиса</a>.</p> 
+backups | **object**<br><p>Ресурс Backup для ClickHouse. Подробное описание см. в <a href="/docs/mdb/concepts">документации MDB</a>.</p> 
 backups.<br>id | **string**<br><p>Идентификатор резервной копии.</p> 
 backups.<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит резервная копия.</p> 
 backups.<br>createdAt | **string** (date-time)<br><p>Время создания в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> (т. е. когда операция резервного копирования была завершена).</p> 

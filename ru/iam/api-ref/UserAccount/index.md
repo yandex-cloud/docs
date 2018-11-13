@@ -1,6 +1,6 @@
 # UserAccount
 Набор методов для управления ресурсом UserAccount.
-## JSON-представление
+## JSON-представление {#representation}
 ```json 
  {
   "id": "string",
@@ -15,7 +15,7 @@
 }
 ```
 
-## Методы
+## Методы {#methods}
 Метод | Описание
 --- | ---
 [get](get.md) | Возвращает указанный ресурс UserAccount.

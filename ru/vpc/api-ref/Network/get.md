@@ -4,20 +4,21 @@
 Чтобы получить список доступных ресурсов Network, используйте
 запрос [list](/docs/vpc/api-ref/Network/list).
  
-## HTTP-запрос
-`GET /vpc/v1/networks/{networkId}`
+## HTTP-запрос {#https-request}
+```
+GET https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}
+```
  
 ## Path-параметры {#path_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
-networkId | Обязательное поле. Идентификатор возвращаемого ресурса Network. Чтобы получить идентификатор облачной сети, используйте запрос [list](/docs/vpc/api-ref/Network/list).  Максимальная длина — 50 символов.
+networkId | Обязательное поле. Идентификатор возвращаемого ресурса Network. Чтобы получить идентификатор облачной сети, используйте запрос [list](/docs/vpc/api-ref/Network/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс Network.
-Дополнительные сведения см. в разделе [Облачные сети](/docs/vpc/concepts/network).
+Ресурс Network. Подробнее см. [Networks](/docs/vpc/concepts/network).
  
 Поле | Описание
 --- | ---
