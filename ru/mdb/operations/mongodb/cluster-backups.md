@@ -26,8 +26,44 @@
 1. Посмотрите описание команды CLI для восстановления кластера [!KEYREF MG]:
 
     ```
-    $ yc managed-postgresql cluster restore --help
+    $ [!KEYREF yc-mdb-mg] cluster restore --help
     ```
+    
+1. Получите список доступных резервных копий [!KEYREF MG]-кластеров:
+
+    ```
+    $ [!KEYREF yc-mdb-mg] backup list
+    
+    +--------------------------+----------------------+----------------------+----------------------+
+    |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
+    +--------------------------+----------------------+----------------------+----------------------+
+    | c9qlk4v13uq79r9cgcku:... | 2018-11-02T10:08:38Z | c9qlk4v13uq79r9cgcku | 2018-11-02T10:08:37Z |
+    | ...                                                                                           |                          |
+    +--------------------------+----------------------+----------------------+----------------------+
+    ```
+
+1. Запросите создание кластера из резервной копии:
+
+    ```
+    $ [!KEYREF yc-mdb-mg] cluster restore \
+         --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
+         --name mynewmg \
+         --environment=PRODUCTION \
+         --network-name default \
+         --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
+         --mongod-disk-size 20 \
+         --mongod-disk-type network-nvme \
+         --mongod-resource-preset s1.nano
+    ```
+    
+     В результате будет создан [!KEYREF CH]-кластер со следующими характеристиками:
+        
+     - С именем `mynewmg`.
+     - В окружении `PRODUCTION`.
+     - В сети `default`.
+     - С одним хостом класса `s1.nano` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `ru-central1-c`.
+     - С базами данных и пользователями из резервной копии.
+     - С сетевым SSD-хранилищем объемом 20 ГБ.
 
 ---
 
@@ -51,15 +87,15 @@
 1. Посмотрите описание команды CLI для создания резервной копии [!KEYREF MG]:
 
     ```
-    $ yc managed-postgresql cluster backup --help
+    $ [!KEYREF yc-mdb-mg] cluster backup --help
     ```
 1. Запросите создание резервной копии, указав имя или идентификатор кластера:
 
     ```
-    $ yc managed-postgresql cluster backup my-mg-cluster
+    $ [!KEYREF yc-mdb-mg] cluster backup my-mg-cluster
     ```
     
-    Имя и идентификатор кластера можно получить со списком кластеров TODO 
+    Имя и идентификатор кластера можно получить со [списком кластеров](../cluster-list.md#list-clusters). 
     
 ---
 
@@ -80,7 +116,7 @@
 Чтобы получить список резервных копий кластеров [!KEYREF MG], доступных в каталоге по умолчанию, выполните команду:
 
 ```
-$ yc managed-postgresql backup list
+$ [!KEYREF yc-mdb-mg] backup list
 
 +----------+----------------------+----------------------+----------------------+
 |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -109,7 +145,7 @@ $ yc managed-postgresql backup list
 Чтобы получить данные о резервной копии кластера [!KEYREF MG], выполните команду:
 
 ```
-$ yc [!KEYREF mdb-mg] backup get <идентификатор резервной копии>
+$ yc [!KEYREF yc-mdb-mg] backup get <идентификатор резервной копии>
 ```
 
 Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).

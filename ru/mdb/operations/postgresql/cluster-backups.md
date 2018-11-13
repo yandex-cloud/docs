@@ -26,8 +26,47 @@
 1. Посмотрите описание команды CLI для восстановления кластера [!KEYREF PG]:
 
     ```
-    $ yc [!KEYREF mdb-pg] cluster restore --help
+    $ [!KEYREF yc-mdb-pg] cluster restore --help
     ```
+
+1. Получите список доступных резервных копий [!KEYREF PG]-кластеров:
+
+    ```
+    $ [!KEYREF yc-mdb-pg] backup list
+    
+    +--------------------------+----------------------+----------------------+----------------------+
+    |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
+    +--------------------------+----------------------+----------------------+----------------------+
+    | c9qlk4v13uq79r9cgcku:... | 2018-11-02T10:08:38Z | c9qlk4v13uq79r9cgcku | 2018-11-02T10:08:37Z |
+    | ...                                                                                           |                          |
+    +--------------------------+----------------------+----------------------+----------------------+
+    ```
+    
+    Вы можете восстановить [!KEYREF PG]-кластер на любой момент после создания резервной копии (время в столбце `CREATED AT`). 
+
+1. Запросите создание кластера из резервной копии:
+
+    ```
+    $ [!KEYREF yc-mdb-pg] cluster restore \
+           --backup-id c9qlk4v13uq79r9cgcku:base_000000010000000000000002 \
+           --time 2018-11-02T10:09:38Z \
+           --name mynewpg \
+           --environment=PRODUCTION \
+           --network-name default-net \
+           --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
+           --disk-size 20 \
+           --disk-type network-nvme \
+           --resource-preset s1.nano
+    ```
+
+    В результате будет создан [!KEYREF PG]-кластер со следующими характеристиками:
+    
+    - С именем `mynewpg`.
+    - В окружении `PRODUCTION`.
+    - В сети `default-net`.
+    - С одним хостом класса `s1.nano` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `ru-central1-c`.
+    - С базами данных и пользователями из резервной копии.
+    - С сетевым SSD-хранилищем объемом 20 ГБ.
 
 ---
 
@@ -51,15 +90,15 @@
 1. Посмотрите описание команды CLI для создания резервной копии [!KEYREF PG]:
 
     ```
-    $ yc [!KEYREF mdb-pg] cluster backup --help
+    $ [!KEYREF yc-mdb-pg] cluster backup --help
     ```
 1. Запросите создание резервной копии, указав имя или идентификатор кластера:
 
     ```
-    $ yc [!KEYREF mdb-pg] cluster backup my-pg-cluster
+    $ [!KEYREF yc-mdb-pg] cluster backup my-pg-cluster
     ```
     
-    Имя и идентификатор кластера можно получить со списком кластеров TODO 
+    Имя и идентификатор кластера можно получить со [списком кластеров](../cluster-list.md#list-clusters). 
     
 ---
 
@@ -80,7 +119,7 @@
 Чтобы получить список резервных копий кластеров [!KEYREF PG], доступных в каталоге по умолчанию, выполните команду:
 
 ```
-$ yc [!KEYREF mdb-pg] backup list
+$ [!KEYREF yc-mdb-pg] backup list
 
 +----------+----------------------+----------------------+----------------------+
 |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -109,7 +148,7 @@ $ yc [!KEYREF mdb-pg] backup list
 Чтобы получить данные о резервной копии кластера [!KEYREF PG], выполните команду:
 
 ```
-$ yc [!KEYREF mdb-pg] backup get <идентификатор резервной копии>
+$ [!KEYREF yc-mdb-pg] backup get <идентификатор резервной копии>
 ```
 
 Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
