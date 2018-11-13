@@ -9,35 +9,7 @@
 
 ## Установка {#installation}
 
----
-
-**[!TAB boto3]**
-
-С помощью [pip](https://pip.pypa.io/en/stable/):
-```bash
-pip install boto3
-```
-Из исходников:
-```bash
-git clone https://github.com/boto/boto3.git
-cd boto3
-python setup.py install
-```
-
-**[!TAB boto]**
-
-С помощью [pip](https://pip.pypa.io/en/stable/):
-```bash
-pip install boto
-```
-Из исходников:
-```bash
-git clone git://github.com/boto/boto.git
-cd boto
-python setup.py install
-```
-
----
+Для установки boto воспользуйтесь инструкциями в репозитории разработчика: [boto3](https://github.com/boto/boto3/blob/develop/README.rst#quick-start), [boto](https://github.com/boto/boto#installation).
 
 ## Настройка {#setup}
 
@@ -83,7 +55,7 @@ response = s3.delete_objects(Bucket='bucket-name', Delete={'Objects': forDeletio
 
 # Получить объект
 get_object_response = s3.get_object(Bucket='bucket-name',Key='py_script.py')
-print get_object_response['Body'].read()
+print(get_object_response['Body'].read())
 ```
 
 **[!TAB boto]**

@@ -1,0 +1,21 @@
+# Deleting an object
+
+---
+
+**[!TAB Management console]**
+
+1. In the management console, select the appropriate folder.
+
+1. Click on the **Yandex Object Storage** tile.
+
+1. Click on the name of the bucket you need.
+
+1. To delete a single object, click ![](../../../_assets/vertical-ellipsis.svg) to the left of the object name and then click **Delete** in the menu that appears.
+To do the same with multiple objects, select them in the list and click **Delete** at the bottom of the screen.
+    > [!NOTE]
+    >
+    >You cannot delete a folder that contains objects. First delete all the objects from the folder and then delete the folder itself.
+1. Confirm the deletion.
+
+---
+

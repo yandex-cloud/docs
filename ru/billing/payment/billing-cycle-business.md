@@ -81,3 +81,12 @@
 --- 
 
   [!INCLUDE [blocked-note](../_includes/blocked-note.md)]
+  
+  
+#### **См.также** 
+ 
+- [Грант](../concepts/bonus-account.md)
+- [Кредитный лимит](../concepts/credit-limit.md)
+- [Лицевой счет](../concepts/personal-account.md)
+- [Платежный аккаунт](../concepts/billing-account.md)
+ 

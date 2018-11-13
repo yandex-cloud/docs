@@ -4,19 +4,21 @@
 Чтобы получить список доступных ресурсов Backup для PostgreSQL,
 отправьте запрос [list](/docs/mdb/api-ref/postgresql/Backup/list).
  
-## HTTP-запрос
-`GET /managed-postgresql/v1/backups/{backupId}`
+## HTTP-запрос {#https-request}
+```
+GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/backups/{backupId}
+```
  
 ## Path-параметры {#path_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
 backupId | Обязательное поле. Идентификатор резервной копии, сведения о котором запрашиваются. Чтобы получить идентификатор резервной копии, используйте запрос [listBackups](/docs/mdb/api-ref/postgresql/Cluster/listBackups).
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс Backup для PostgreSQL. Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](/docs/mdb/concepts).
+Ресурс Backup для PostgreSQL. Подробнее см. в [документации MDB](/docs/mdb/concepts).
  
 Поле | Описание
 --- | ---

@@ -1,6 +1,6 @@
 # Instance
 Набор методов для управления ресурсами Instance.
-## JSON-представление
+## JSON-представление {#representation}
 ```json 
  {
   "id": "string",
@@ -43,6 +43,13 @@
           "address": "string",
           "ipVersion": "string"
         }
+      },
+      "primaryV6Address": {
+        "address": "string",
+        "oneToOneNat": {
+          "address": "string",
+          "ipVersion": "string"
+        }
       }
     }
   ],
@@ -50,11 +57,11 @@
 }
 ```
 
-## Методы
+## Методы {#methods}
 Метод | Описание
 --- | ---
 [attachDisk](attachDisk.md) | Присоединяет диск к виртуальной машине.
-[create](create.md) | Создает виртуальную машину в указанном каталоге.
+[create](create.md) | Создает виртуальную машину в указанном каталоге. Метод запускает асинхронную операцию, которую можно отменить перед тем, как она завершится.
 [delete](delete.md) | Удаляет указанную виртуальную машину.
 [detachDisk](detachDisk.md) | Отсоединяет диск от виртуальной машины.
 [get](get.md) | Возвращает указанный ресурс Instance.

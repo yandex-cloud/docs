@@ -1,0 +1,28 @@
+# Заголовок и описание на странице
+title: "Yandex Translate"
+description:
+  - "Yandex Translate allows application developers to access the online machine translation service. It supports more than 90 languages and can translate individual words or complete texts."
+  - "To access the service, use the HTTP API."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex Translate"
+# Блок с ссылками
+links:
+- title: "Text translation"
+  description: "Description of the translate API method"
+  href: "api-ref/translate"
+- title: "Language detection"
+  description: "Description of the detect API method"
+  href: "api-ref/detect"
+- title: "List of supported languages"
+  description: "Description of the languages API method"
+  href: "api-ref/languages"
+- title: "Authorization in the API"
+  description: "Get an access token and use it in requests"
+  href: "concepts/auth"
+- title: "Response format"
+  description: "Response headers and response codes"
+  href: "concepts/response"
+- title: "Pricing policy"
+  description: "Prices and rules for calculating the service cost"
+  href: "pricing"

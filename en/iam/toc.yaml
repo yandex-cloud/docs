@@ -1,0 +1,139 @@
+title: "Yandex Identity and Access Management"
+icon: "/img/iam.svg"
+items:
+  - name: Yandex Identity and Access Management
+    href: index.yaml
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Users
+        items:
+          - name: Add a user
+            href: operations/users/create.md
+          - name: Delete a user
+            href: operations/users/delete.md
+      - name: Service accounts
+        items:
+          - name: Create service account
+            href: operations/sa/create.md
+          - name: Edit service account
+            href: operations/sa/update.md
+          - name: Assign role to service account
+            href: operations/sa/assign-role-for-sa.md
+          - name: Set service account access rights
+            href: operations/sa/set-access-bindings.md
+          - name: Delete service account
+            href: operations/sa/delete.md
+      - name: Roles
+        items:
+          - name: Assign role
+            href: operations/roles/grant.md
+          - name: Revoke role
+            href: operations/roles/revoke.md
+      - name: Get IAM token
+        href: operations/iam-token/create.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/overview.md
+      - name: Yandex Cloud users
+        items:
+          - name: Overview
+            href: concepts/users/users.md
+          - name: Service accounts
+            href: concepts/users/service-accounts.md
+      - name: Authorization
+        items:
+          - name: Overview
+            href: concepts/authorization/authorization.md
+          - name: IAM token
+            href: concepts/authorization/iam-token.md
+          - name: OAuth token
+            href: concepts/authorization/oauth-token.md
+      - name: Manage resource access
+        items:
+          - name: Roles
+            href: concepts/access-control/roles.md
+          - name: Assign access rights
+            href: concepts/access-control/access-bindings.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Identity and access management
+    href: security/index.md
+  - name: Pricing policies
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Overview
+        href: api-ref/index.md
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: AccessKey
+        items:
+          - name: Overview
+            href: api-ref/AccessKey/index.md
+          - name: create
+            href: api-ref/AccessKey/create.md
+          - name: delete
+            href: api-ref/AccessKey/delete.md
+          - name: get
+            href: api-ref/AccessKey/get.md
+          - name: list
+            href: api-ref/AccessKey/list.md
+      - name: IamToken
+        items:
+          - name: Overview
+            href: api-ref/IamToken/index.md
+          - name: create
+            href: api-ref/IamToken/create.md
+      - name: Operation
+        items:
+          - name: Overview
+            href: api-ref/Operation/index.md
+          - name: get
+            href: api-ref/Operation/get.md
+      - name: Role
+        items:
+          - name: Overview
+            href: api-ref/Role/index.md
+          - name: get
+            href: api-ref/Role/get.md
+          - name: list
+            href: api-ref/Role/list.md
+      - name: ServiceAccount
+        items:
+          - name: Overview
+            href: api-ref/ServiceAccount/index.md
+          - name: create
+            href: api-ref/ServiceAccount/create.md
+          - name: delete
+            href: api-ref/ServiceAccount/delete.md
+          - name: get
+            href: api-ref/ServiceAccount/get.md
+          - name: list
+            href: api-ref/ServiceAccount/list.md
+          - name: listAccessBindings
+            href: api-ref/ServiceAccount/listAccessBindings.md
+          - name: listOperations
+            href: api-ref/ServiceAccount/listOperations.md
+          - name: setAccessBindings
+            href: api-ref/ServiceAccount/setAccessBindings.md
+          - name: update
+            href: api-ref/ServiceAccount/update.md
+          - name: updateAccessBindings
+            href: api-ref/ServiceAccount/updateAccessBindings.md
+      - name: UserAccount
+        items:
+          - name: Overview
+            href: api-ref/UserAccount/index.md
+          - name: get
+            href: api-ref/UserAccount/get.md
+      - name: YandexPassportUserAccount
+        items:
+          - name: Overview
+            href: api-ref/YandexPassportUserAccount/index.md
+          - name: getByLogin
+            href: api-ref/YandexPassportUserAccount/getByLogin.md
