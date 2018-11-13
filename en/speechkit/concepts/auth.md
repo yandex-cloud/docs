@@ -1,0 +1,1 @@
+[!INCLUDE [api-auth](../../_includes/api-auth-translate-speechkit.md)]

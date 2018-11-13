@@ -19,6 +19,10 @@
 #### Какие карты принимаются к оплате? {#card-types}
 [!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]  
 
+#### Какие карты принимаются к оплате? {#card-types}
+
+[!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]  
+
 #### Как изменить платежные реквизиты? {#change-requisites}
 
 Изменять реквизиты платежного аккаунта могут только их владельцы. Если вы являетесь владельцем, воспользуйтесь инструкцией [Изменить данные платежного аккаунта](../operations/change-data.md).

@@ -1,5 +1,5 @@
 # Yandex Virtual Private Cloud API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к указанному URL. Все URL указаны относительно хоста `https://vpc.api.cloud.yandex.net`.
+This API reference is organized by resource. All actions are performed by sending HTTP requests to resource URLs. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
 Ресурс | Описание
 --- | ---

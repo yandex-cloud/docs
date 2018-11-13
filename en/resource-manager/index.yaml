@@ -1,0 +1,25 @@
+title: "Yandex Resource Manager"
+description: "The Yandex Resource Manager service defines the Yandex.Cloud resource model and allows you to structure your resources using folders."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex Resource Manager"
+# Блок с ссылками
+links:
+- title: "Getting started"
+  description: "Create the first folder"
+  href: "quickstart"
+- title: "Step-by-step instructions"
+  description: "Instructions on how to perform routine operations"
+  href: "operations/all"
+- title: "Concepts"
+  description: "Learn about the Yandex.Cloud resource model"
+  href: "concepts/resources-hierarchy"
+- title: "API reference"
+  description: "HTTP API method descriptions"
+  href: "api-ref/"
+- title: "Quotas and limits"
+  description: "Technical and organizational limitations of the service"
+  href: "concepts/limits"
+- title: "Identity and access management"
+  description: "Set up access rights to work with the service"
+  href: "security/"
