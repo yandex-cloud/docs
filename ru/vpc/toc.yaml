@@ -21,6 +21,8 @@ items:
             href: operations/subnet-create.md
           - name: Удалить подсеть
             href: operations/subnet-delete.md
+          - name: Изменить подсеть
+            href: operations/subnet-update.md
   - name: Основные понятия
     items:
       - name: Взаимосвязь ресурсов сервиса
