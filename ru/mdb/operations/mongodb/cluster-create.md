@@ -93,9 +93,9 @@ $ [!KEYREF yc-mdb-mg] cluster create \
      --name mymg \
      --environment=PRODUCTION \
      --network-name default \
-     --resource-preset s1.nano \
+     --mongod-resource-preset s1.nano \
      --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
      --user name=user1,password=user1user1 \
-     --database name=db1,owner=user1 \
-     --disk-size 20 \
+     --mongod-disk-size 20 \
+     --mongod-disk-type network-nvme \
      --disk-type network-nvme

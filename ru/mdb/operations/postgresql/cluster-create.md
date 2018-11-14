@@ -62,6 +62,19 @@
 1. Укажите параметры кластера в команде создания (в примере приведены только обязательные флаги):
 
     ```
+    $ [!KEYREF yc-mdb-pg] cluster create \
+       --name <имя кластера> \
+       --environment=<окружение, PRESTABLE или PRODUCTION> \
+       --network-name <имя сети> \
+       --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+       --resource-preset <класс хоста> \
+       --user name=<имя пользователя>,password=<пароль пользователя> \
+       --database name=<имя базы данных>,owner=<имя владельца БД> \
+       --disk-type <тип хранилища, network-nvme или local-nvme> \
+       --disk-size <размер хранилища в гигабайтах>
+    ```
+    
+    ```
     [!KEYREF yc-mdb-pg] cluster create \
        --name mypg \
        --environment=PRODUCTION \
