@@ -8,7 +8,7 @@
 
 [Пополнить счет](pay-the-bill.md) 
 
-[Подключить кредитный лимит](enable-credit.md)
+[Изменить способ оплаты](change-payment-method.md)
 
 [Расшифровать счет на оплату](spell-out-bill.md)
 
