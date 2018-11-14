@@ -109,29 +109,29 @@
    
    **[!TAB Ubuntu 16/18]**
    
-   ```
-   sudo apt-get update
-   sudo apt-get install pdns-server pdns-backend-remote memcached python3-yaml python3-memcache python3-pip
+   ```bash
+   $ sudo apt-get update
+   $ sudo apt-get install pdns-server pdns-backend-remote memcached python3-yaml python3-memcache python3-pip
    ```
    
    **[!TAB CentOS 6/7]**
    
-   ```
-   sudo yum check-update
-   sudo yum -y install epel-release
-   sudo yum -y install pdns pdns-backend-remote memcached python34-yaml python34-setuptools git nano
-   sudo service memcached start
-   sudo chkconfig pdns on
-   sudo chkconfig memcached on
+   ```bash
+   $ sudo yum check-update
+   $ sudo yum -y install epel-release
+   $ sudo yum -y install pdns pdns-backend-remote memcached python34-yaml python34-setuptools git nano
+   $ sudo service memcached start
+   $ sudo chkconfig pdns on
+   $ sudo chkconfig memcached on
    ```
    
    ---
 
 1. Установите `polaris-gslb`:
-   ```
-   git clone https://github.com/polaris-gslb/polaris-gslb.git
-   cd polaris-gslb
-   sudo python3 setup.py install
+   ```bash
+   $ git clone https://github.com/polaris-gslb/polaris-gslb.git
+   $ cd polaris-gslb
+   $ sudo python3 setup.py install
    ```
 1. Скопируйте файлы конфигурации для polaris-gslb
    
@@ -139,44 +139,44 @@
    
    **[!TAB Ubuntu 16/18]**
    
-   ```
-   sudo cp /opt/polaris/etc/pdns.conf.dist /etc/powerdns/pdns.conf
-   cd /opt/polaris/etc
-   sudo cp polaris-lb.yaml.dist polaris-lb.yaml
-   sudo cp polaris-health.yaml.dist polaris-health.yaml
-   sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
-   sudo cp polaris-topology.yaml.dist polaris-topology.yaml
+   ```bash
+   $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/powerdns/pdns.conf
+   $ cd /opt/polaris/etc
+   $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
+   $ sudo cp polaris-health.yaml.dist polaris-health.yaml
+   $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
+   $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
    ```
    
    **[!TAB CentOS 6]**
    
-   ```
-   sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
-   cd /opt/polaris/etc
-   sudo cp polaris-lb.yaml.dist polaris-lb.yaml
-   sudo cp polaris-health.yaml.dist polaris-health.yaml
-   sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
-   sudo cp polaris-topology.yaml.dist polaris-topology.yaml
-   sudo cp -a /opt/polaris/bin/polaris-health /etc/init.d/polaris-health
-   sudo chkconfig polaris-health on
+   ```bash
+   $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
+   $ cd /opt/polaris/etc
+   $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
+   $ sudo cp polaris-health.yaml.dist polaris-health.yaml
+   $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
+   $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
+   $ sudo cp -a /opt/polaris/bin/polaris-health /etc/init.d/polaris-health
+   $ sudo chkconfig polaris-health on
    ```
    
    **[!TAB CentOS 7]**
    
-   ```
-   sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
-   cd /opt/polaris/etc
-   sudo cp polaris-lb.yaml.dist polaris-lb.yaml
-   sudo cp polaris-health.yaml.dist polaris-health.yaml
-   sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
-   sudo cp polaris-topology.yaml.dist polaris-topology.yaml
+   ```bash
+   $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
+   $ cd /opt/polaris/etc
+   $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
+   $ sudo cp polaris-health.yaml.dist polaris-health.yaml
+   $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
+   $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
    ```
    
    ---
 
 1. Узнайте внутренний адрес виртуальной машины:
-   ```
-   hostname -i
+   ```bash
+   $ hostname -i
    ```
 1. В конфигурационном файле `pdns.conf` укажите внутренний IP-адрес виртуальной машины. Вы можете отредактировать конфигурационный файл с помощью утилиты `nano`:
 
@@ -184,14 +184,14 @@
    
      **[!TAB Ubuntu 16/18]**
    
-     ```
-     sudo nano /etc/powerdns/pdns.conf
+     ```bash
+     $ sudo nano /etc/powerdns/pdns.conf
      ```
    
      **[!TAB CentOS 6/7]**
    
-     ```
-     sudo nano /etc/pdns/pdns.conf
+     ```bash
+     $ sudo nano /etc/pdns/pdns.conf
      ```
    
      ---
@@ -242,7 +242,7 @@
    Укажите внутренний IP-адрес в значении параметра `local-address` вместо `<INTERNAL IP ADRESS>`.
    
 1. Настройте `polaris-gslb`. Вы можете отредактировать конфигурационные файлы с помощью утилиты `nano`:
-   1. `sudo nano /opt/polaris/etc/polaris-lb.yaml`
+   1. `$ sudo nano /opt/polaris/etc/polaris-lb.yaml`
       
       Файл `polaris-lb.yaml` имеет вид:
    
@@ -275,7 +275,7 @@
        * Вместо `<dns-lb-tutorial-web-ru-central1-b PUBLIC IP>` — публичный IP-адрес виртуальной машины `dns-lb-tutorial-web-ru-central1-b`.
        
        Публичный адрес виртуальной машины вы можете найти в блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru).
-   1. `sudo nano /opt/polaris/etc/polaris-pdns.yaml`
+   1. `$ sudo nano /opt/polaris/etc/polaris-pdns.yaml`
       
       Файл `polaris-pdns.yaml` имеет вид:
       ```
@@ -346,8 +346,8 @@
    Настройте проверки состояния для `polaris-gslb`:
    1. Добавьте `systemd Unit` файл для проверки состояния `polaris-gslb`. Вы можете отредактировать файл с помощью утилиты `nano`:
        ```
-       sudo mkdir -p /etc/systemd/system
-       sudo nano /etc/systemd/system/polaris-health.service
+       $ sudo mkdir -p /etc/systemd/system
+       $ sudo nano /etc/systemd/system/polaris-health.service
        ```
       Приведите `polaris-health.service` файл к виду:
        ```
@@ -366,24 +366,24 @@
        WantedBy=multi-user.target
        ```
    1. Добавьте `polaris-health` в автозагрузку операционной системы:
-       ```
-       sudo systemctl enable polaris-health
+       ```bash
+       $ sudo systemctl enable polaris-health
        ``` 
 1. Перезапустите PowerDNS:
-   ```
-   sudo service pdns restart
+   ```bash
+   $ sudo service pdns restart
    ```
 1. Запустите проверку состояния `polaris-health`:
-   ```
-   sudo service polaris-health start
+   ```bash
+   $ sudo service polaris-health start
    ```
 1. Этот шаг нужно выполнять только на виртуальной машине с ОС CentOS 6.
    
    Откройте сетевой порт 53 с помощью утилиты `iptables`:
-   ```
-   sudo iptables -I INPUT -p tcp -m tcp --dport 53 -j ACCEPT
-   sudo iptables -I INPUT -p udp -m udp --dport 53 -j ACCEPT
-   sudo iptables-save | sudo tee /etc/sysconfig/iptables
+   ```bash
+   $ sudo iptables -I INPUT -p tcp -m tcp --dport 53 -j ACCEPT
+   $ sudo iptables -I INPUT -p udp -m udp --dport 53 -j ACCEPT
+   $ sudo iptables-save | sudo tee /etc/sysconfig/iptables
    ```
    
 ## Настроить DNS {#configure-dns}
@@ -414,10 +414,57 @@
 
 ## Протестировать отказоустойчивость {#test-ha}
 
-Чтобы протестировать отказоустойчивость, выполните:
-1. Остановите виртуальные машины `dns-lb-tutorial-slb-ru-central1-a` и `dns-lb-tutorial-web-ru-central1-a`:
-   1. В [консоли управления](https://console.cloud.yandex.ru) выберите каталог, которому принадлежит виртуальные машины.
-   1. Нажмите плитку **Yandex Compute Cloud**.
-   1. Выделите нужные виртуальные машины в списке и нажмите кнопку **Остановить** в нижней части экрана.
-1. Подождите, пока виртуальные перейдут в статус `STOPPED`.
-1. Подключитесь к вашему веб-сайту через браузер.
+### DNS-балансировщики {#test-dns-balancers}
+
+1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru) найдите публичный IP-адрес виртуальной машины `dns-lb-tutorial-slb-ru-central1-a`.
+1. [Подключитесь](../../compute/operations/vm-control/vm-connect-ssh.md) к виртуальной машине по протоколу SHH.
+1. Остановите сервис DNS, чтобы сымитировать сбой в работе DNS-баласировщика:
+   ```bash
+   $ sudo service pdns stop
+   ``` 
+1. Подключитесь к вашему веб-сайту через браузер. Несмотря на сбой в работе одного из DNS-балансировщиков, подключение должно пройти успешно.
+1. После завершения проверки запустите сервис DNS:
+   ```bash
+   $ sudo service pdns start
+   ```
+
+### Веб-серверы {#test-web-servers}
+
+1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru) найдите публичный IP-адрес виртуальной машины `dns-lb-tutorial-web-ru-central1-a`.
+1. [Подключитесь](../../compute/operations/vm-control/vm-connect-ssh.md) к виртуальной машине по протоколу SHH.
+1. Остановите веб-сервис, чтобы сымитировать сбой в работе веб-сервера:
+   
+   ---
+   
+   **[!TAB LAMP]**
+   
+   ```bash
+   $ sudo service apache2 stop
+   ```
+   
+   **[!TAB LEMP]**
+   
+   ```bash
+   $ sudo service nginx stop
+   ```
+   
+   ---
+1. Подключитесь к вашему веб-сайту через браузер. Несмотря на сбой в работе одного из веб-серверов, подключение должно пройти успешно.
+1. После завершения проверки запустите веб-сервис:
+   
+   ---
+   
+   **[!TAB LAMP]**
+   
+   ```bash
+   $ sudo service apache2 start
+   ```
+   
+   **[!TAB LEMP]**
+   
+   ```bash
+   $ sudo service nginx start
+   ```
+   
+   ---
+
