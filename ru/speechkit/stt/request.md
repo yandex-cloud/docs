@@ -91,11 +91,8 @@ if decodedData.get("error_code") is None:
 
 ```
 HTTP/1.1 200 OK
-YaCloud-Request-Id: YYXXYYXXYY-YXXY-YXXY-YXXY-YYXXYYXXYY
 YaCloud-Billing-Units: 15
 {
   "result": "твой номер 212-85-06"
 }        
 ```
-
-[!INCLUDE [request-id-note](../_includes/request-id-note.md)]
