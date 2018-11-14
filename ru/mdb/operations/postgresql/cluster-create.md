@@ -73,28 +73,39 @@
        --disk-type <тип хранилища, network-nvme или local-nvme> \
        --disk-size <размер хранилища в гигабайтах>
     ```
-    
-    ```
-    [!KEYREF yc-mdb-pg] cluster create \
-       --name mypg \
-       --environment=PRODUCTION \
-       --network-name default-net \
-       --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
-       --resource-preset s1.nano \
-       --user name=user1,password=user1user1 \
-       --database name=db1,owner=user1 \
-       --disk-type network-nvme \
-       --disk-size 20
-    ```
-    
-    В результате будет создан [!KEYREF PG]-кластер со следующими характеристиками:
-    
-    - С именем `mypg`.
-    - В окружении `PRODUCTION`.
-    - В сети `default-net`.
-    - С одним хостом класса `s1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
-    - С одним пользователем (`user1`), с паролем `user1user1`.
-    - С одной базой данных `db1`, принадлежащей пользователю `user1`.
-    - С сетевым SSD-хранилищем объемом 20 ГБ.
+
+    Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
 ---
+
+
+## Примеры
+
+### Создание кластера с одним хостом
+
+Чтобы создать кластер с одним хостом, следует передать один параметр `--host`.
+
+Допустим, нужно создать [!KEYREF PG]-кластер со следующими характеристиками:
+
+- С именем `mypg`.
+- В окружении `PRODUCTION`.
+- В сети `default`.
+- С одним хостом класса `s1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
+- С сетевым SSD-хранилищем объемом 20 ГБ.
+- С одним пользователем (`user1`), с паролем `user1user1`.
+- С одной базой данных `db1`, принадлежащей пользователю `user1`.
+
+Запустите следующую команду:
+
+```
+$ [!KEYREF yc-mdb-pg] cluster create \
+     --name mypg \
+     --environment=PRODUCTION \
+     --network-name default \
+     --resource-preset s1.nano \
+     --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
+     --user name=user1,password=user1user1 \
+     --database name=db1,owner=user1 \
+     --disk-type network-nvme \
+     --disk-size 20
+```

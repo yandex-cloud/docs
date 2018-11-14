@@ -83,19 +83,21 @@
 - В окружении `PRODUCTION`.
 - В сети `default`.
 - С одним хостом класса `s1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
-- С одним пользователем (`user1`), с паролем `user1user1`.
-- С одной базой данных `db1`, принадлежащей пользователю `user1`.
 - С сетевым SSD-хранилищем объемом 20 ГБ.
+- С одним пользователем (`user1`), с паролем `user1user1`.
+- С одной базой данных `db1`.
 
 Запустите следующую команду:
 
+```
 $ [!KEYREF yc-mdb-mg] cluster create \
      --name mymg \
      --environment=PRODUCTION \
      --network-name default \
      --mongod-resource-preset s1.nano \
      --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
-     --user name=user1,password=user1user1 \
      --mongod-disk-size 20 \
      --mongod-disk-type network-nvme \
-     --disk-type network-nvme
+     --user name=user1,password=user1user1 \
+     --database name=db1
+```
