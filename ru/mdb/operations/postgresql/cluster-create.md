@@ -66,7 +66,7 @@
        --name mypg \
        --environment=PRODUCTION \
        --network-name default-net \
-       --host zone-id=ru-central1-c,subnet_id=b0rcctk2rvtr8efcch64 \
+       --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
        --resource-preset s1.nano \
        --user name=user1,password=user1user1 \
        --database name=db1,owner=user1 \
