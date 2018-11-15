@@ -207,8 +207,6 @@ curl -X POST \
 Пример создания подписанного JWT с использованием [PyJWT](https://github.com/jpadilla/pyjwt/).
 
 ```
-#!python3
-
 import time
 import jwt
 
