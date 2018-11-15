@@ -58,7 +58,7 @@
     ```
     $ [!KEYREF yc-mdb-ch] cluster create \
        --name <имя кластера> \
-       --environment=<окружение, prestable или production> \
+       --environment <окружение, prestable или production> \
        --network-name <имя сети> \
        --host type=<clickhouse или zookeeper>,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
        --resource-preset <класс хоста> \

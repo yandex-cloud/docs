@@ -64,7 +64,7 @@
     ```
     $ [!KEYREF yc-mdb-pg] cluster create \
        --name <имя кластера> \
-       --environment=<окружение, prestable или production> \
+       --environment <окружение, prestable или production> \
        --network-name <имя сети> \
        --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
        --resource-preset <класс хоста> \
@@ -100,7 +100,7 @@
 ```
 $ [!KEYREF yc-mdb-pg] cluster create \
      --name mypg \
-     --environment=production \
+     --environment production \
      --network-name default \
      --resource-preset s1.nano \
      --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \

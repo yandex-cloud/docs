@@ -92,7 +92,7 @@
 ```
 $ [!KEYREF yc-mdb-mg] cluster create \
      --name mymg \
-     --environment=production \
+     --environment production \
      --network-name default \
      --mongod-resource-preset s1.nano \
      --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
