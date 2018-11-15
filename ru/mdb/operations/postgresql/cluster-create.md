@@ -64,7 +64,7 @@
     ```
     $ [!KEYREF yc-mdb-pg] cluster create \
        --name <имя кластера> \
-       --environment=<окружение, PRESTABLE или PRODUCTION> \
+       --environment=<окружение, prestable или production> \
        --network-name <имя сети> \
        --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
        --resource-preset <класс хоста> \
@@ -88,7 +88,7 @@
 Допустим, нужно создать [!KEYREF PG]-кластер со следующими характеристиками:
 
 - С именем `mypg`.
-- В окружении `PRODUCTION`.
+- В окружении `production`.
 - В сети `default`.
 - С одним хостом класса `s1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
 - С сетевым SSD-хранилищем объемом 20 ГБ.
@@ -100,7 +100,7 @@
 ```
 $ [!KEYREF yc-mdb-pg] cluster create \
      --name mypg \
-     --environment=PRODUCTION \
+     --environment=production \
      --network-name default \
      --resource-preset s1.nano \
      --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
