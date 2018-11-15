@@ -15,6 +15,8 @@ items:
       href: web/wordpress-postgresql.md
     - name: DNS-балансировщик нагрузки с высокой доступностью
       href: web/dns-load-balancer.md
+    - name: Сайт на базе Joomla с БД PostgreSQL
+      href: web/joomla-postgresql.md
   - name: Тестовая среда
     items:
     - name: Создание и восстановление вытесняемой машины
