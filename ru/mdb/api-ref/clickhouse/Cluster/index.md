@@ -1,6 +1,6 @@
 # Cluster
 Набор методов для управления ресурсами Cluster для ClickHouse.
-## JSON-представление
+## JSON-представление {#representation}
 ```json 
  {
   "id": "string",
@@ -408,7 +408,7 @@
 }
 ```
 
-## Методы
+## Методы {#methods}
 Метод | Описание
 --- | ---
 [addHosts](addHosts.md) | Создает новые хосты для кластера.
@@ -420,7 +420,7 @@
 [list](list.md) | Получает список ресурсов Cluster для ClickHouse, принадлежащих указанному каталогу.
 [listBackups](listBackups.md) | Получает список доступных резервных копий для указанного кластера ClickHouse.
 [listHosts](listHosts.md) | Получает список хостов для указанного кластера.
-[listLogs](listLogs.md) | Получает логи для указанного кластера ClickHouse.
+[listLogs](listLogs.md) | Получает логи для указанного кластера ClickHouse. Подробнее см. раздел [Logs](/docs/yandex-mdb-guide/concepts/logs) в руководстве разработчика.
 [listOperations](listOperations.md) | Получает список ресурсов Operation для указанного кластера.
 [restore](restore.md) | Создает новый кластер ClickHouse с использованием указанной резервной копии.
 [update](update.md) | Изменяет указанный кластер ClickHouse.

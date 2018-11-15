@@ -1,0 +1,52 @@
+# Virtual machines
+
+_A VM_ is similar to a server in the cloud infrastructure.
+
+## VM as a Yandex.Cloud resource {#project}
+
+A VM is created in one of the folders in your cloud and inherits access rights from them. [More information about the Yandex.Cloud resource model](../../resource-manager/concepts/resources-hierarchy.md).
+
+You cannot currently move a created VM to a different folder.
+
+Each VM has a unique ID and name. The name is unique within the folder. The ID is generated automatically when the VM is being created and is unique within Yandex.Cloud.
+
+## Availability zones {#az}
+
+When creating a VM, you can choose in which [availability zone](../../overview/concepts/geo-scope.md) of Yandex.Cloud it will be located.
+
+You can't move the VM to a different availability zone, but you can create a copy of it in a different availability zone.
+
+## Computing resources {#types}
+
+When creating a VM, you specify the amount of computing resources to be allocated to it: the number and performance of processor cores (vCPUs) and the amount of RAM. You can choose the appropriate amount of computing resources depending on the expected load. For more information, see the section [[!TITLE]](vm-types.md).
+
+## Disks {#disks}
+
+At least one disk must be attached to a VM, that is, a boot disk. Currently, you can only attach a boot disk when creating a VM.
+
+You can also attach additional disks to the VM. You can either attach a previously created disk or create a disk along with the VM. You can create a new disk empty or restore it from a snapshot or image.
+
+You can attach and detach additional disks even after you created the VM.
+
+Read more about disks in the section [[!TITLE]](disk.md).
+
+## Statuses {#status}
+
+The status of a VM affects which operations you can currently perform on it.
+
+> For example, the `STOPPED` status means that the VM is stopped and you cannot connect to it. To do that, first [start](../operations/vm-control/ vm-stop-and-start.md#start) the VM. After the status changes to `RUNNING` and the OS loading completes, you will be able to connect to the VM.
+
+For more information about statuses, see the section [[!TITLE]](vm-statuses.md).
+
+## Metadata {#metadata}
+
+Each VM stores information about itself on the metadata server. You can request this metadata from inside a VM using the Yandex.Cloud API or CLI.
+
+You can set your own metadata when creating or updating VMs. For example, to connect to a Linux VM, you need to pass an SSH key to it. This is done using the metadata service. For more information, see the section [[!TITLE]](vm-metadata.md).
+
+## Network {#network}
+
+When creating a VM, you should specify settings for the network interface connected to it: select the subnet to which the VM will be connected and configure internal and public IP addresses. This allows the VM to interact with other services on the intranet and internet.
+
+For more information, see the section [[!TITLE]](network.md).
+

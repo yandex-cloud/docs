@@ -4,20 +4,21 @@
 Чтобы получить список доступных ресурсов AccessKey, используйте
 запрос [list](/docs/iam/api-ref/AccessKey/list).
  
-## HTTP-запрос
-`GET /iam/aws-compatibility/v1/accessKeys/{accessKeyId}`
+## HTTP-запрос {#https-request}
+```
+GET https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
+```
  
 ## Path-параметры {#path_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
-accessKeyId | Обязательное поле. Идентификатор запрашиваемого ресурса AccessKey. Чтобы получить идентификатор ключа доступа, используйте запрос [list](/docs/iam/api-ref/AccessKey/list).  Максимальная длина — 50 символов.
+accessKeyId | Обязательное поле. Идентификатор запрашиваемого ресурса AccessKey. Чтобы получить идентификатор ключа доступа, используйте запрос [list](/docs/iam/api-ref/AccessKey/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс AccessKey — статический ключ доступа.
-Используется для авторизации в HTTP API, совместимом с Amazon S3.
+Ресурс AccessKey. Подробнее см. [Статические ключи доступа совместимые с AWS API](/docs/iam/concepts/users/service-accounts#access-keys).
  
 Поле | Описание
 --- | ---

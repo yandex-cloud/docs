@@ -1,0 +1,19 @@
+title: "Yandex Translate"
+icon: "/img/translate.svg"
+items:
+  - name: Yandex Translate
+    href: index.yaml
+  - name: Authorization in the API
+    href: concepts/auth.md
+  - name: API reference
+    items:
+      - name: Text translation
+        href: api-ref/translate.md
+      - name: Language detection
+        href: api-ref/detect.md
+      - name: List of supported languages
+        href: api-ref/languages.md
+  - name: Response format
+    href: concepts/response.md
+  - name: Pricing policy
+    href: pricing.md

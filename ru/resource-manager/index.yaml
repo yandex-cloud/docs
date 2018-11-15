@@ -10,7 +10,7 @@ links:
   href: "quickstart"
 - title: "Пошаговые инструкции"
   description: "Инструкции по выполнению рутинных операций"
-  href: "operations/all"
+  href: "operations/"
 - title: "Основные понятия"
   description: "Узнайте про ресурсную модель Яндекс.Облака"
   href: "concepts/resources-hierarchy"

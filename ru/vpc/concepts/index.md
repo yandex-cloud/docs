@@ -2,7 +2,7 @@
 
 [!KEYREF vpc-full-name] ([!KEYREF vpc-short-name]) — это сервис для создания облачных сетей, которые используются для передачи информации внутри облака и соединения облачных ресурсов с интернетом.
 
-![](../_assets/vpc-overview.svg)
+![](../_assets/vpc-overview.png)
 
 С помощью [!KEYREF vpc-short-name] вы можете:
 
