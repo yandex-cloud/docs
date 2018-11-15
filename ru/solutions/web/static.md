@@ -1,4 +1,4 @@
-# Разместить статический веб-сайт в [!KEYREF objstorage-full-name]
+# Статический веб-сайт в [!KEYREF objstorage-full-name]
 
 Чтобы разместить статический веб-сайт в Object Storage:
 
