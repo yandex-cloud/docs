@@ -55,7 +55,7 @@
     ```
     $ [!KEYREF yc-mdb-mg] cluster create \
        --name <имя кластера> \
-       --environment=<окружение, PRESTABLE или PRODUCTION> \
+       --environment=<окружение, prestable или production> \
        --network-name <имя сети> \
        --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
        --resource-preset <класс хоста> \
@@ -80,22 +80,24 @@
 Допустим, нужно создать [!KEYREF MG]-кластер со следующими характеристиками:
 
 - С именем `mymg`.
-- В окружении `PRODUCTION`.
+- В окружении `production`.
 - В сети `default`.
 - С одним хостом класса `s1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
-- С одним пользователем (`user1`), с паролем `user1user1`.
-- С одной базой данных `db1`, принадлежащей пользователю `user1`.
 - С сетевым SSD-хранилищем объемом 20 ГБ.
+- С одним пользователем, `user1`, с паролем `user1user1`.
+- С одной базой данных, `db1`.
 
 Запустите следующую команду:
 
+```
 $ [!KEYREF yc-mdb-mg] cluster create \
      --name mymg \
-     --environment=PRODUCTION \
+     --environment production \
      --network-name default \
-     --resource-preset s1.nano \
+     --mongod-resource-preset s1.nano \
      --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
+     --mongod-disk-size 20 \
+     --mongod-disk-type network-nvme \
      --user name=user1,password=user1user1 \
-     --database name=db1,owner=user1 \
-     --disk-size 20 \
-     --disk-type network-nvme
+     --database name=db1
+```

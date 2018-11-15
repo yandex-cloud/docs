@@ -32,5 +32,74 @@
     - Пароль пользователя. Минимум 8 символов.
 1. В блоке **Хосты** укажите параметры хостов БД, создаваемых вместе с кластером (помните, что используя SSD-диски при создании [!KEYREF CH]-кластера можно задать не меньше 2 хостов). Чтобы изменить добавленный хост, наведите курсор на строку хоста и нажмите значок ![](../../../_assets/pencil.svg).
 1. Нажмите кнопку **Создать кластер**.
+
+**[!TAB CLI]**
+
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+
+Чтобы создать кластер:
+
+1. Посмотрите описание команды CLI для создания кластера:
+
+    ```
+    $ [!KEYREF yc-mdb-pg] cluster create --help
+    ```
+
+1. Проверьте, есть ли в каталоге подсети для хостов кластера:
+
+    ```
+    $ yc vpc subnet list
+    ```
+    
+    Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../../vpc/operations/subnet-create.md) в сервисе [!KEYREF vpc-short-name].
+    
+1. Укажите параметры кластера в команде создания (в примере приведены только обязательные флаги):
+
+    ```
+    $ [!KEYREF yc-mdb-ch] cluster create \
+       --name <имя кластера> \
+       --environment <окружение, prestable или production> \
+       --network-name <имя сети> \
+       --host type=<clickhouse или zookeeper>,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+       --resource-preset <класс хоста> \
+       --clickhouse-disk-type <тип хранилища, network-nvme или local-nvme> \
+       --clickhouse-disk-size <размер хранилища в гигабайтах> \
+       --user name=<имя пользователя>,password=<пароль пользователя> \
+       --database name=<имя базы данных>
+    ```
+
+    Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
     
 ---
+
+
+## Примеры
+
+### Создание кластера с одним хостом
+
+Чтобы создать кластер с одним хостом, следует передать один параметр `--host`.
+
+Допустим, нужно создать [!KEYREF CH]-кластер со следующими характеристиками:
+
+- С именем `mych`.
+- В окружении `production`.
+- В сети `default`.
+- С одним хостом ClickHouse класса `s1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
+- С сетевым SSD-хранилищем объемом 20 ГБ.
+- С одним пользователем, `user1`, с паролем `user1user1`.
+- С одной базой данных, `db1`.
+
+Запустите следующую команду:
+
+```
+$ [!KEYREF yc-mdb-ch] cluster create \
+     --name mych \
+     --environment=production \
+     --network-name default \
+     --clickhouse-resource-preset s1.nano \
+     --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
+     --clickhouse-disk-size 20 \
+     --clickhouse-disk-type network-nvme \
+     --user name=user1,password=user1user1 \
+     --database name=db1
+```
