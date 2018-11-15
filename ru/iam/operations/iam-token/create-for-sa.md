@@ -176,7 +176,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiIsImtpZCI6ImIxZ3Ztb2IwM2dvb2hwbGNmNjQxIn0.eyJp
 * Ключ принадлежит сервисному аккаунту.
 * Подпись верна.
 
-На данный момент обменять JWT на IAM-токен можно только через API.
+[!INCLUDE [iam-token-lifetime](../../../_includes/iam-token-lifetime.md)]
 
 ---
 
@@ -190,7 +190,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiIsImtpZCI6ImIxZ3Ztb2IwM2dvb2hwbGNmNjQxIn0.eyJp
 curl -X POST \
     -H 'Content-Type: application/json' \
     -d '{"jwt": "<SIGNED-JWT>"}' \
-    https://api.cloud.yandex.net/iam/v1/tokens
+    https://iam.api.cloud.yandex.net/iam/v1/tokens
 ```
 
 где `<SIGNED-JWT>` — токен в формате JWT, полученный на предыдущем шаге.

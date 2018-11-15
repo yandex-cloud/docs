@@ -2,7 +2,9 @@
 
 Для выполнения операций в Яндекс.Облаке через API необходим [IAM-токен](../../concepts/authorization/iam-token.md).
 
-[!INCLUDE [iam-token-lifetime](../../../_includes/iam-token-lifetime.md)]
+> [!NOTE]
+>
+> [!INCLUDE [iam-token-lifetime](../../../_includes/iam-token-lifetime.md)]
 
 ---
 
