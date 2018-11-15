@@ -26,23 +26,16 @@
     $ yc compute snapshot delete --help
     ```
 
-1. Получите список всех снимков:
+1. Получите список снимков в каталоге по умолчанию:
 
-    ```
-    $ yc compute snapshot list
-    +----------------------+----------------------+----------------------+--------+--------------------------+
-    |          ID          |         NAME         |     PRODUCT IDS      | STATUS |       DESCRIPTION        |
-    +----------------------+----------------------+----------------------+--------+--------------------------+
-    | fd8rlt1u2rf0lps3rqm9 | my-yc-snapshot-fhm53 | f2ecl5vhsftdean0sr6s | READY  | my first snapshot via yc |
-    +----------------------+----------------------+----------------------+--------+--------------------------+
-    ```
+    [!INCLUDE [compute-snapshot-list](../../_includes_service/compute-snapshot-list.md)]
 
 1. Выберите `ID` или `NAME` нужного снимка.
 1. Удалите снимок:
 
     ```
     $ yc compute snapshot delete \
-        --name my-yc-snapshot-fhm53
+        --name first-snapshot
     ```
 
 ---

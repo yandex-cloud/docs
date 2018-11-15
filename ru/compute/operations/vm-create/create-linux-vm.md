@@ -40,14 +40,14 @@
 
     ```
     $ yc compute instance create \
-        --name my-yc-vm \
+        --name first-instance \
         --zone ru-central1-a \
         --public-ip \
         --create-boot-disk image-folder-id=standard-images,image-name=centos-7-1537787644 \
         --ssh-key ~/.ssh/id_rsa.pub
     ```
 
-    Данная команда создаст виртуальную машину с OC CentOS 7, именем `my-yc-vm` в зоне `ru-central1-a` и с публичным IP. Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
+    Данная команда создаст виртуальную машину с OC CentOS 7, именем `first-instance` в зоне `ru-central1-a` и с публичным IP. Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
