@@ -13,8 +13,9 @@ POST https://iam.api.cloud.yandex.net/iam/v1/tokens
 ```json 
  {
 
-  // включает только одно из полей `yandexPassportOauthToken`
+  // включает только одно из полей `yandexPassportOauthToken`, `jwt`
   "yandexPassportOauthToken": "string",
+  "jwt": "string",
   // конец списка возможных полей
 
 }
@@ -23,7 +24,8 @@ POST https://iam.api.cloud.yandex.net/iam/v1/tokens
  
 Поле | Описание
 --- | ---
-yandexPassportOauthToken | **string** <br> включает только одно из полей `yandexPassportOauthToken`<br><br><p>OAuth-токен для аккаунта в Яндекса.Паспорте. Подробнее см. <a href="/docs/iam/concepts/authorization/oauth-token">OAuth-токен</a>.</p> 
+yandexPassportOauthToken | **string** <br> включает только одно из полей `yandexPassportOauthToken`, `jwt`<br><br><p>OAuth-токен для аккаунта в Яндекса.Паспорте. Подробнее см. <a href="/docs/iam/concepts/authorization/oauth-token">OAuth-токен</a>.</p> 
+jwt | **string** <br> включает только одно из полей `yandexPassportOauthToken`, `jwt`<br><br><p>JSON Web Token (JWT) для сервисного аккаунта. Подробнее см. <a href="/docs/iam/operations/iam-token/create-for-sa">Получить IAM-токен для сервисного аккаунта</a>.</p> 
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

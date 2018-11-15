@@ -5,6 +5,7 @@ Resource | Description
 --- | ---
 [AccessKey](AccessKey/index.md) | A set of methods for managing AccessKey resources.
 [IamToken](IamToken/index.md) | A set of methods for managing IAM tokens.
+[Key](Key/index.md) | A set of methods for managing Key resources.
 [Role](Role/index.md) | A set of methods for managing Role resources.
 [ServiceAccount](ServiceAccount/index.md) | A set of methods for managing ServiceAccount resources.
 [UserAccount](UserAccount/index.md) | A set of methods for managing UserAccount resources.

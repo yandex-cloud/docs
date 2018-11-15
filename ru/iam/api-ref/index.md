@@ -5,6 +5,7 @@
 --- | ---
 [AccessKey](AccessKey/index.md) | Набор методов для управления ресурсами AccessKey.
 [IamToken](IamToken/index.md) | Набор методов для управления IAM-токенами.
+[Key](Key/index.md) | Набор методов для управления ресурсами Key.
 [Role](Role/index.md) | Набор методов для управления ресурсами Role.
 [ServiceAccount](ServiceAccount/index.md) | Набор методов для управления ресурсами ServiceAccount.
 [UserAccount](UserAccount/index.md) | Набор методов для управления ресурсом UserAccount.
