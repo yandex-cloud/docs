@@ -19,6 +19,8 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 Чтобы восстановить кластер из резервной копии:
@@ -83,6 +85,8 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 Чтобы создать резервную копию кластера:
@@ -114,6 +118,8 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 Чтобы получить список резервных копий кластеров [!KEYREF PG], доступных в каталоге по умолчанию, выполните команду:
@@ -142,6 +148,8 @@ $ [!KEYREF yc-mdb-pg] backup list
 1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
 
 **[!TAB CLI]**
+
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
 
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 

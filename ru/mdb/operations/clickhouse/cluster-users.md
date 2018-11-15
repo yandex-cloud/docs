@@ -13,6 +13,8 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 Чтобы получить список пользователей кластера, выполните команду:
@@ -38,6 +40,8 @@ $ [!KEYREF yc-mdb-ch] user list
 1. Введите имя пользователя БД и пароль (от 8 до 128 символов).
 
 **[!TAB CLI]**
+
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
 
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
@@ -68,6 +72,8 @@ $ [!KEYREF yc-mdb-ch] user create <имя пользователя>
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 Чтобы изменить пароль пользователя или список доступных ему баз данных, выполните команду:
@@ -94,6 +100,8 @@ $ [!KEYREF yc-mdb-ch] user update <имя пользователя>
 1. Нажмите значок ![](../../../_assets/vertical-ellipsis.svg) и выберите пункт **Удалить**.
    
 **[!TAB CLI]**
+
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
 
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 

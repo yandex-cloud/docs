@@ -13,6 +13,8 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
+
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы запросить список [!KEYREF PG]-кластеров в каталоге по умолчанию, выполните команду:
@@ -41,6 +43,8 @@ $ yc managed-postgresql cluster list
 1. Нажмите на имя нужного кластера.
 
 **[!TAB CLI]**
+
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
