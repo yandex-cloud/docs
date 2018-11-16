@@ -38,7 +38,7 @@ key | **object**<br><p>Ресурс Key.</p> <p>Ресурс Key. Подробн
 key.<br>id | **string**<br><p>Идентификатор ресурса Key</p> 
 key.<br>createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 key.<br>description | **string**<br><p>Описание ресурса Key. Длина описания должна быть от 0 до 256 символов.</p> 
-key.<br>keyAlgorithm | **string**<br><ul> <li>RSA_2048: RSA с длиной ключа 2048 бит.</li> <li>RSA_4096: RSA с длиной ключа 4096 бит.</li> </ul> 
+key.<br>keyAlgorithm | **string**<br><p>Алгоритм, используемый для создания пары ключей ресурса Key.</p> <ul> <li>RSA_2048: RSA с длиной ключа 2048 бит.</li> <li>RSA_4096: RSA с длиной ключа 4096 бит.</li> </ul> 
 key.<br>publicKey | **string**<br><p>Открытый ключ ресурса Key.</p> 
 key.<br>userAccountId | **string** <br>`key` включает только одно из полей `userAccountId`, `serviceAccountId`<br><br><p>Идентификатор аккаунта пользователя, которому принадлежит ресурс Key.</p> 
 key.<br>serviceAccountId | **string** <br>`key` включает только одно из полей `userAccountId`, `serviceAccountId`<br><br><p>Идентификатор сервисного аккаунта, которому принадлежит ресурс Key.</p> 

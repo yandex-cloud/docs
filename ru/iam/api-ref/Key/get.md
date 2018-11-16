@@ -31,7 +31,7 @@ format | Формат вывода ключа.
 id | **string**<br><p>Идентификатор ресурса Key</p> 
 createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 description | **string**<br><p>Описание ресурса Key. Длина описания должна быть от 0 до 256 символов.</p> 
-keyAlgorithm | **string**<br><ul> <li>RSA_2048: RSA с длиной ключа 2048 бит.</li> <li>RSA_4096: RSA с длиной ключа 4096 бит.</li> </ul> 
+keyAlgorithm | **string**<br><p>Алгоритм, используемый для создания пары ключей ресурса Key.</p> <ul> <li>RSA_2048: RSA с длиной ключа 2048 бит.</li> <li>RSA_4096: RSA с длиной ключа 4096 бит.</li> </ul> 
 publicKey | **string**<br><p>Открытый ключ ресурса Key.</p> 
 userAccountId | **string** <br> включает только одно из полей `userAccountId`, `serviceAccountId`<br><br><p>Идентификатор аккаунта пользователя, которому принадлежит ресурс Key.</p> 
 serviceAccountId | **string** <br> включает только одно из полей `userAccountId`, `serviceAccountId`<br><br><p>Идентификатор сервисного аккаунта, которому принадлежит ресурс Key.</p> 
