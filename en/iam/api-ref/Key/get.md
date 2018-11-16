@@ -30,7 +30,7 @@ Field | Description
 id | **string**<br><p>ID of the Key resource.</p> 
 createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 description | **string**<br><p>Description of the Key resource. 0-256 characters long.</p> 
-keyAlgorithm | **string**<br><ul> <li>RSA_2048: RSA with a 2048-bit key size.</li> <li>RSA_4096: RSA with a 4096-bit key size.</li> </ul> 
+keyAlgorithm | **string**<br><p>An algorithm used to generate a key pair of the Key resource.</p> <ul> <li>RSA_2048: RSA with a 2048-bit key size.</li> <li>RSA_4096: RSA with a 4096-bit key size.</li> </ul> 
 publicKey | **string**<br><p>A public key of the Key resource.</p> 
 userAccountId | **string** <br> includes only one of the fields `userAccountId`, `serviceAccountId`<br><br><p>ID of the user account that the Key resource belongs to.</p> 
 serviceAccountId | **string** <br> includes only one of the fields `userAccountId`, `serviceAccountId`<br><br><p>ID of the service account that the Key resource belongs to.</p> 
