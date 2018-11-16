@@ -61,7 +61,8 @@
 1. Узнайте ID сервисного аккаунта с помощью метода [list](../../api-ref/ServiceAccount/list.md):
     ```bash
     $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-    https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob03goohplct641
+        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob03goohplct641
+
     {
      "serviceAccounts": [
       {
@@ -70,11 +71,15 @@
        "createdAt": "2018-10-19T13:26:29Z",
        "name": "my-robot"
       }
+      ...
+     ]
+    }
     ```
 2. Узнайте ID пользователя по логину с помощью метода [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md):
     ```bash
     $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-    https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+        https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+
     {
      "id": "gfei8n54hmfhuk5nogse",
      "yandexPassportUserAccount": {
@@ -83,7 +88,7 @@
      }
     }
     ```
-3. Назначьте пользователю роль `editor` на сервисный аккаунт `my-robot`. В поле `action` укажите `ADD`, а в субъекте укажите тип `userAccount` и ID пользователя:
+3. Назначьте пользователю роль `editor` на сервисный аккаунт `my-robot`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
     ```bash
     $ curl -X POST \
@@ -119,7 +124,7 @@
 
 > [!WARNING]
 >
-> Команда `set-access-binding` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс, будут удалены.
+> Команда `set-access-binding` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
 
 1. Убедитесь, что на ресурс не назначено ролей, которые вы не хотите потерять:
     ```
@@ -219,7 +224,8 @@ curl -X POST \
 
     ```bash
     $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-    https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob03goohplct641
+        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob03goohplct641
+
     {
      "serviceAccounts": [
       {
@@ -239,7 +245,7 @@ curl -X POST \
     }
     ```
 
-2. Назначьте роль `editor` сервисному аккаунту `test-sa`, указав его ID в субъекте. В типе субъекта укажите `serviceAccount`:
+2. Назначьте сервисному аккаунту `test-sa` роль `editor` на другой сервисный аккаунт `my-robot`. В свойстве `subject` укажите тип `serviceAccount` и ID `test-sa`. В URL запроса в качестве ресурса укажите ID `my-robot`:
 
 ```bash
 $ curl -X POST \
@@ -280,7 +286,7 @@ $ yc iam service-account add-access-binding my-robot \
 **[!TAB API]**
 
 
-Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В типе субъекта укажите `system`:
+Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В свойстве `subject` укажите тип `system`:
 
 ```bash
 $ curl -X POST \
