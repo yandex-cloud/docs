@@ -1,12 +1,18 @@
 # Правила тарификации для Yandex Translate
 
+## Из чего складывается стоимость использования [!KEYREF translate-short-name] {#rules}
+
 [!INCLUDE [pricing-intro](../_includes/pricing-intro.md)]
 
-## Перевод и определение языка текста {#prices}
+### Использование перевода и определения языка текста {#rules-translate-detect}
 
 Стоимость использования Yandex Translate рассчитывается, исходя из суммарного количества символов, которые были отправлены в запросах на перевод и определение языка текста за календарный месяц (Отчетный период).
 
-[!INCLUDE [pricing-symbol-coun](../_includes/pricing-symbol-count.md)]
+[!INCLUDE [pricing-symbol-count](../_includes/pricing-symbol-count.md)]
+
+## Цены {#prices}
+
+### Перевод и определение языка текста {#prices-translate-detect}
 
 Услуга | Цена за 1 млн символов,<br/>без НДС | Цена за 1 млн символов,<br/>вкл. НДС
 ----- | ----- | -----
