@@ -1,5 +1,7 @@
 # Правила тарификации для Yandex [!KEYREF objstorage-name]
 
+## Из чего складывается стоимость использования [!KEYREF objstorage-short-name] {#rules}
+
 В рамках сервиса [!KEYREF objstorage-name] оплачиваются:
 
 - Объем хранилища, занятый данными.
