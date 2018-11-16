@@ -81,9 +81,9 @@
 
 1. Задайте конфигурацию Samba:
 
-```
-sudo nano /etc/samba/smb.conf
-```
+   ```
+   sudo nano /etc/samba/smb.conf
+   ```
 
    ---
    **[!TAB Ubuntu 14/16/18]**
