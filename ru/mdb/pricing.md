@@ -85,7 +85,7 @@ s1.xlarge | 80,09 ₽ | 94,51 ₽
 [!INCLUDE [pricing-egress-traffic](../_includes/pricing-egress-traffic.md)]
 
 
-## Цены после 1 декабря 2018 {#new}
+## Цены с 1 декабря 2018 {#new}
 
 ### [!KEYREF CH] и ZooKeeper
 
