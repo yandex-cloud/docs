@@ -243,6 +243,7 @@
    sudo iptables -I INPUT -p udp -s <подсеть> -j ACCEPT
    sudo iptables-save | sudo tee /etc/sysconfig/iptables
    ```
+   ---
 
 ## Проверьте работу хранилища
 
@@ -255,7 +256,7 @@
 
 Файлы сервера будут доступны на диске X.
 
-**[!TAB Windows]**
+**[!TAB Linux]**
 
 Выполните команду `mount -t nfs <внешний IP>:/data /<точка монтирования>`.
 
