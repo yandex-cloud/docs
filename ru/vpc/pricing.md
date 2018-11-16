@@ -1,5 +1,7 @@
 # Правила тарификации
 
+## Из чего складывается стоимость использования [!KEYREF vpc-short-name] {#rules}
+
 [!INCLUDE [pricing-intro](../_includes/pricing-intro.md)]
 
 ## Публичные IP-адреса
