@@ -10,10 +10,10 @@ meta:
 links:
 - title: "Распознавание речи"
   description: "Преобразуйте речь в текст"
-  href: "stt/index"
+  href: "stt/"
 - title: "Синтез речи"
   description: "Генерируйте речь по печатному тексту"
-  href: "tts/index"
+  href: "tts/"
 - title: "Авторизация в API"
   description: "Получите токен авторизации и используйте его в запросах"
   href: "concepts/auth"

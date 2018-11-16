@@ -3,15 +3,17 @@
  
 
  
-## HTTP-запрос
-`GET /managed-mongodb/v1/resourcePresets`
+## HTTP-запрос {#https-request}
+```
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/resourcePresets
+```
  
 ## Query-параметры {#query_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/mongodb/ResourcePreset/list#query_params), сервис вернет значение [nextPageToken](/docs/mdb/api-ref/mongodb/ResourcePreset/list#responses), которое можно использовать для получения следующей страницы.  Допустимые значения — от 0 до 1000 включительно.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/mdb/api-ref/mongodb/ResourcePreset/list#query_params) равным значению поля [nextPageToken](/docs/mdb/api-ref/mongodb/ResourcePreset/list#responses) прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина — 100 символов.
+pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/mongodb/ResourcePreset/list#query_params), сервис вернет значение [nextPageToken](/docs/mdb/api-ref/mongodb/ResourcePreset/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
+pageToken | Токен страницы. Установите значение [pageToken](/docs/mdb/api-ref/mongodb/ResourcePreset/list#query_params) равным значению поля [nextPageToken](/docs/mdb/api-ref/mongodb/ResourcePreset/list#responses) прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
@@ -20,7 +22,7 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-resourcePresets | **object**<br><p>Ресурс ResourcePreset для описания наборов ресурсов.</p> 
+resourcePresets | **object**<br><p>Ресурс ResourcePreset для описания настроек конфигурации ресурсов.</p> 
 resourcePresets.<br>id | **string**<br><p>Идентификатор ресурса ResourcePreset.</p> 
 resourcePresets.<br>zoneIds | **string**<br><p>Идентификаторы зон доступности, в которых доступен данный набор ресурсов.</p> 
 resourcePresets.<br>cores | **string** (int64)<br><p>Количество ядер CPU для хоста MongoDB, созданного с данным набором ресурсов.</p> 

@@ -49,28 +49,20 @@ _Снимок диска_ — это копия файловой системы 
     $ yc compute snapshot create --help
     ```
 
-1. Выберите диск, снимок которого необходимо создать. Получить список всех дисков в каталоге, указанном в вашем профиле CLI можно с помощью команды:
+1. Выберите диск, снимок которого необходимо создать. Получить список дисков в каталоге по умолчанию можно с помощью команды:
 
-    ```
-    $ yc compute disk list
-    +----------------------+------------+-------------+---------------+--------+----------------------+
-    |          ID          |    NAME    |    SIZE     |     ZONE      | STATUS |     DESCRIPTION      |
-    +----------------------+------------+-------------+---------------+--------+----------------------+
-    | fhm53hnjmvplsn5r0633 |            | 13958643712 | ru-central1-a | READY  |                      |
-    | fhmc3pdo4l7uqf8hq0ad |            | 42949672960 | ru-central1-a | READY  |                      |
-    +----------------------+------------+-------------+---------------+--------+----------------------+
-    ```
+    [!INCLUDE [compute-disk-list](../../_includes_service/compute-disk-list.md)]
 
 1. Создайте снимок в каталоге по умолчанию:
 
     ```
     $ yc compute snapshot create \
-        --name my-yc-snapshot-fhm53 \
-        --description "my first snapshot via yc" \
-        --disk-id fhm53hnjmvplsn5r0633
+        --name first-snapshot \
+        --description "my first snapshot via CLI" \
+        --disk-id fhm4aq4hvq5g3nepvt9b
     ```
 
-    Данная команда создаст снимок диска с именем `my-yc-snapshot-fhm53` и описанием `my first snapshot via yc`.
+    Данная команда создаст снимок диска с именем `first-snapshot` и описанием `my first snapshot via CLI`.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 

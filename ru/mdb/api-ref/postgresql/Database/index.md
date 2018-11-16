@@ -1,6 +1,6 @@
 # Database
 Набор методов для управления ресурсами Database для PostgreSQL.
-## JSON-представление
+## JSON-представление {#representation}
 ```json 
  {
   "name": "string",
@@ -17,7 +17,7 @@
 }
 ```
 
-## Методы
+## Методы {#methods}
 Метод | Описание
 --- | ---
 [create](create.md) | Создает новую базу данных PostgreSQL в указанном кластере.

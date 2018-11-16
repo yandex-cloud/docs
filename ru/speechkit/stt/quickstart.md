@@ -29,13 +29,12 @@ $ curl -X POST \
 
 Подробнее о параметрах запроса читайте в разделе [[!TITLE]](request.md).
 
-## Результат запроса
+## Результат запроса {#response}
 
 Тело ответа содержит результат в формате JSON. 
 
 ```
 HTTP/1.1 200 OK
-YaCloud-Request-Id: YYXXYYXXYY-YXXY-YXXY-YXXY-YYXXYYXXYY
 YaCloud-Billing-Units: 1
 
 {

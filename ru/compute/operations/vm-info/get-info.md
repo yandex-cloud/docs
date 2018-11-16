@@ -36,7 +36,7 @@
 
 1. Выберите виртуальную машину, например `my-instance`:
 
-    [!INCLUDE [cli-instance-list](../../_includes_service/cli-instance-list.md)]
+    [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
 
 1. Получите основную информацию о виртуальной машине:
 
@@ -69,7 +69,7 @@
 #### HTTP-запрос
 
 ```
-GET http://169.254.169.254/computeMetadata/v1/
+GET http://169.254.169.254/computeMetadata/v1/instance/
   ? alt=<json|text>
   & recursive=<true|false>
   & wait_for_change=<true|false>
@@ -91,19 +91,19 @@ Metadata-Flavor: Google
 Узнать идентификатор виртуальной машины изнутри машины:
 
 ```
-$ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/id
+$ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/id
 ```
 
 Получить метаданные в формате JSON:
 
 ```
-$ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/?recursive=true
+$ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true
 ```
 
 Получить метаданные в удобном для чтения формате. Воспользуйтесь утилитой [jq](https://stedolan.github.io/jq/):
 
 ```
-$ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/?recursive=true | jq -r '.'
+$ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true | jq -r '.'
 ```
 
 #### Список возвращаемых элементов

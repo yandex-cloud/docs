@@ -53,8 +53,16 @@ CLI поддерживает автодополнение команд в ком
 **[!TAB Windows]**
 
 1. Сформируйте ссылку, чтобы скачать актуальную версию CLI:
-    * для Windows 64-bit — `https://[!KEYREF s3-storage-host][!KEYREF yc-windows-path-amd64]`
-    * для Windows 32-bit — `https://[!KEYREF s3-storage-host][!KEYREF yc-windows-path-386]`
+    * для Windows 64-bit:
+    
+      ```
+      https://[!KEYREF s3-storage-host][!KEYREF yc-windows-path-amd64]
+      ```
+    * для Windows 32-bit:
+     
+      ```
+      https://[!KEYREF s3-storage-host][!KEYREF yc-windows-path-386]
+      ```
 
    Вместо `<current-version>` укажите версию CLI, опубликованную по [ссылке](https://[!KEYREF s3-storage-host]/yandexcloud-yc/release/stable).
 
