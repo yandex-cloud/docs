@@ -30,4 +30,76 @@
 1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером (помните, что используя SSD-диски при создании [!KEYREF MG]-кластера можно задать не меньше 3 хостов). Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
 1. Нажмите кнопку **Создать кластер**.
 
+**[!TAB CLI]**
+
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+
+Чтобы создать кластер:
+
+1. Посмотрите описание команды CLI для создания кластера:
+
+    ```
+    $ [!KEYREF yc-mdb-mg] cluster create --help
+    ```
+
+1. Проверьте, есть ли в каталоге подсети для хостов кластера:
+
+    ```
+    $ yc vpc subnet list
+    ```
+    
+    Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../../vpc/operations/subnet-create.md) в сервисе [!KEYREF vpc-short-name].
+    
+1. Укажите параметры кластера в команде создания (в примере приведены только обязательные флаги):
+
+    ```
+    $ [!KEYREF yc-mdb-mg] cluster create \
+       --name <имя кластера> \
+       --environment=<окружение, prestable или production> \
+       --network-name <имя сети> \
+       --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+       --resource-preset <класс хоста> \
+       --user name=<имя пользователя>,password=<пароль пользователя> \
+       --database name=<имя базы данных>,owner=<имя владельца БД> \
+       --disk-type <тип хранилища, network-nvme или local-nvme> \
+       --disk-size <размер хранилища в гигабайтах>
+    ```
+    
+    Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+
+
 ---
+
+
+## Примеры
+
+### Создание кластера с одним хостом
+
+Чтобы создать кластер с одним хостом, следует передать один параметр `--host`.
+
+Допустим, нужно создать [!KEYREF MG]-кластер со следующими характеристиками:
+
+- С именем `mymg`.
+- В окружении `production`.
+- В сети `default`.
+- С одним хостом класса `s1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
+- С сетевым SSD-хранилищем объемом 20 ГБ.
+- С одним пользователем, `user1`, с паролем `user1user1`.
+- С одной базой данных, `db1`.
+
+Запустите следующую команду:
+
+```
+$ [!KEYREF yc-mdb-mg] cluster create \
+     --name mymg \
+     --environment production \
+     --network-name default \
+     --mongod-resource-preset s1.nano \
+     --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
+     --mongod-disk-size 20 \
+     --mongod-disk-type network-nvme \
+     --user name=user1,password=user1user1 \
+     --database name=db1
+```

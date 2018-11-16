@@ -12,6 +12,20 @@
 1. Нажмите плитку **Yandex Managed Databases**.
 1. Нажмите значок ![](../../../_assets/vertical-ellipsis.svg) для нужного кластера и выберите пункт **Удалить**.
 
+**[!TAB CLI]**
+
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+
+Чтобы удалить кластер, выполните команду:
+
+```
+$ [!KEYREF yc-mdb-ch] cluster delete <имя или идентификатор кластера>
+```
+
+Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+
 ---
 
 

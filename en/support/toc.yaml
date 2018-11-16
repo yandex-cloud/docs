@@ -1,0 +1,9 @@
+title: "Technical Support"
+icon: "/img/support.svg"
+items:
+  - name: Yandex.Cloud Technical Support
+    href: index.yaml
+  - name: Requesting technical support
+    href: overview.md
+  - name: Questions and answers
+    href: qa.md

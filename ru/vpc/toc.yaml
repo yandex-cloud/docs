@@ -15,12 +15,16 @@ items:
             href: operations/network-create.md
           - name: Удалить облачную сеть
             href: operations/network-delete.md
+          - name: Изменить облачную сеть
+            href: operations/network-update.md
       - name: Подсеть
         items:
           - name: Создать подсеть
             href: operations/subnet-create.md
           - name: Удалить подсеть
             href: operations/subnet-delete.md
+          - name: Изменить подсеть
+            href: operations/subnet-update.md
   - name: Основные понятия
     items:
       - name: Взаимосвязь ресурсов сервиса

@@ -1,6 +1,6 @@
 # ResourcePreset
 Набор методов для управления ресурсами ResourcePreset.
-## JSON-представление
+## JSON-представление {#representation}
 ```json 
  {
   "id": "string",
@@ -12,7 +12,7 @@
 }
 ```
 
-## Методы
+## Методы {#methods}
 Метод | Описание
 --- | ---
 [get](get.md) | Возвращает указанный ресурс ResourcePreset.

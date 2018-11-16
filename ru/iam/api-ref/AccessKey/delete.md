@@ -3,14 +3,16 @@
  
 
  
-## HTTP-запрос
-`DELETE /iam/aws-compatibility/v1/accessKeys/{accessKeyId}`
+## HTTP-запрос {#https-request}
+```
+DELETE https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
+```
  
 ## Path-параметры {#path_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
-accessKeyId | Обязательное поле. Идентификатор удаляемого ключа доступа. Чтобы получить идентификатор ключа доступа, используйте запрос [list](/docs/iam/api-ref/AccessKey/list).  Максимальная длина — 50 символов.
+accessKeyId | Обязательное поле. Идентификатор удаляемого ключа доступа. Чтобы получить идентификатор ключа доступа, используйте запрос [list](/docs/iam/api-ref/AccessKey/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

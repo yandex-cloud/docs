@@ -3,8 +3,10 @@
  
 
  
-## HTTP-запрос
-`POST /iam/v1/tokens`
+## HTTP-запрос {#https-request}
+```
+POST https://iam.api.cloud.yandex.net/iam/v1/tokens
+```
  
 ## Параметры в теле запроса {#body_params}
  
@@ -21,7 +23,7 @@
  
 Поле | Описание
 --- | ---
-yandexPassportOauthToken | **string** <br> включает только одно из полей `yandexPassportOauthToken`<br><br><p>OAuth-токен для аккаунта в Яндекса.Паспорте. Дополнительные сведения см. в разделе <a href="/docs/iam/concepts/authorization/oauth-token">OAuth-токен</a>.</p> 
+yandexPassportOauthToken | **string** <br> включает только одно из полей `yandexPassportOauthToken`<br><br><p>OAuth-токен для аккаунта в Яндекса.Паспорте. Подробнее см. <a href="/docs/iam/concepts/authorization/oauth-token">OAuth-токен</a>.</p> 
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

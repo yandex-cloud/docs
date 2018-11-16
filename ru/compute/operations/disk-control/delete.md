@@ -32,23 +32,14 @@
 
 1. Получите список дисков в каталоге по умолчанию:
 
-    ```
-    $ yc compute disk list
-    +----------------------+------------+-------------+---------------+--------+----------------------+
-    |          ID          |    NAME    |    SIZE     |     ZONE      | STATUS |     DESCRIPTION      |
-    +----------------------+------------+-------------+---------------+--------+----------------------+
-    | fhm53hnjmvplsn5r0633 |            | 13958643712 | ru-central1-a | READY  |                      |
-    | fhmc3pdo4l7uqf8hq0ad |            | 42949672960 | ru-central1-a | READY  |                      |
-    | fhmj8jjlicm6g3poe32g | my-yc-disk | 10737418240 | ru-central1-a | READY  | my first disk via yc |
-    +----------------------+------------+-------------+---------------+--------+----------------------+
-    ```
+    [!INCLUDE [compute-disk-list](../../_includes_service/compute-disk-list.md)]
 
 1. Выберите `ID` или `NAME` нужного диска.
 1. Удалите диск:
 
     ```
     $ yc compute disk delete \
-        --name my-yc-disk
+        --name first-disk
     ```
 
 ---
