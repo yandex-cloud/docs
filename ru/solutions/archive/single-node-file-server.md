@@ -20,7 +20,7 @@
     [!INCLUDE [name-format](../../_includes/name-format.md)]
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
-1. В блоке **Публичные образы** выберите Ubuntu 18.04, 16.04 или 14.04 или Centos 6 или 7.
+1. В блоке **Публичные образы** выберите Ubuntu 18.04, 16.04 или 14.04 или CentOS 6 или 7.
 1. В блоке **Вычислительные ресурсы** выберите [тип использования ядра](../../compute/concepts/vm-types.md) (частичное или полное), укажите необходимое количество vCPU и объем RAM.
 
    Рекомендованные требования для достаточной производительности:
@@ -50,7 +50,7 @@
    sudo apt-get install nfs-kernel-server samba
    ```
 
-   **[!TAB Centos 6/7]**
+   **[!TAB CentOS 6/7]**
    ```
    sudo yum check-update
    sudo yum -y install nfs-utils nfs-utils-lib samba nano
@@ -61,26 +61,30 @@
 
 1. Подготовьте и смонтируйте файловую систему:
 
-```
-sudo mkfs -t ext4 -L data /dev/vdb
-sudo mkdir /data
-echo "LABEL=data /data ext4 defaults 0 0" | sudo tee -a /etc/fstab
-sudo mount /data
-```
+   ```
+   sudo mkfs -t ext4 -L data /dev/vdb
+   sudo mkdir /data
+   echo "LABEL=data /data ext4 defaults 0 0" | sudo tee -a /etc/fstab
+   sudo mount /data
+   ```
 
 1. Настройте NFS:
-    * Откройте файл `/etc/exports`: 
-        ```
-         sudo nano /etc/exports
-        ```
-    * Добавьте в файл следующие строки:
-        ```
-        /data <подсеть>(rw,no_subtree_check,fsid=100)
-        /data 127.0.0.1(rw,no_subtree_check,fsid=100)
-        ```
+
+* Откройте файл `/etc/exports`: 
+    ```
+     sudo nano /etc/exports
+    ```
+* Добавьте в файл следующие строки:
+    ```
+    /data <подсеть>(rw,no_subtree_check,fsid=100)
+    /data 127.0.0.1(rw,no_subtree_check,fsid=100)
+    ```
+
 1. Задайте конфигурацию Samba:
 
-`sudo nano /etc/samba/smb.conf`
+```
+sudo nano /etc/samba/smb.conf`
+```
 
    ---
    **[!TAB Ubuntu 14/16/18]**
@@ -128,7 +132,7 @@ sudo mount /data
       hosts deny = 0.0.0.0/0
    ```
 
-   **[!TAB Centos 6]**
+   **[!TAB CentOS 6]**
 
    ```
    [global]
@@ -163,7 +167,7 @@ sudo mount /data
       hosts deny = 0.0.0.0/0
    ```
 
-   **[!TAB Centos 7]**
+   **[!TAB CentOS 7]**
 
    ```
    [global]
@@ -220,7 +224,7 @@ sudo mount /data
    sudo service smbd restart
    ```
 
-   **[!TAB Centos 6/7]**
+   **[!TAB CentOS 6/7]**
    ```
    sudo chcon -t samba_share_t /data
    sudo semanage fcontext -a -t samba_share_t "/data(/.*)?"
@@ -234,7 +238,7 @@ sudo mount /data
 1. Если вы используете CentOS 6, настройте фаерволл:
 
    ---
-   **[!TAB Centos 6]**
+   **[!TAB CentOS 6]**
    ```
    sudo iptables -I INPUT -p tcp -s <подсеть> -j ACCEPT
    sudo iptables -I INPUT -p udp -s <подсеть> -j ACCEPT
@@ -256,6 +260,6 @@ sudo mount /data
 
 Выполните команду `mount -t nfs <внешний IP>:/data /<точка монтирования>`.
 
-Файла сервера будут доступны в указанной точке монтирования.
+Файлы сервера будут доступны в указанной точке монтирования.
 
 ---
