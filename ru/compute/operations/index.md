@@ -4,6 +4,8 @@
 
 - [[!TITLE]](vm-create/create-linux-vm.md)
 - [[!TITLE]](vm-create/create-windows-vm.md)
+- [[!TITLE]](vm-create/create-from-disks.md)
+- [[!TITLE]](vm-create/create-from-snapshots.md)
 
 ## DSVM
 
@@ -15,6 +17,7 @@
 - [[!TITLE]](images-with-pre-installed-software/create.md)
 - [[!TITLE]](images-with-pre-installed-software/setup.md)
 - [[!TITLE]](images-with-pre-installed-software/operate.md)
+- [[!TITLE]](../solutions/web/lamp-lemp.md)
 - [[!TITLE]](images-with-pre-installed-software/get-list.md)
 
 ## Получение информации о виртуальных машинах
@@ -27,6 +30,9 @@
 - [[!TITLE]](vm-control/vm-connect-ssh.md)
 - [[!TITLE]](vm-control/vm-connect-rdp.md)
 - [[!TITLE]](vm-control/vm-stop-and-start.md)
+- [[!TITLE]](vm-control/vm-attach-disk.md)
+- [[!TITLE]](vm-control/vm-detach-disk.md)
+- [[!TITLE]](vm-control/vm-change-zone.md)
 - [[!TITLE]](vm-control/vm-update.md)
 - [[!TITLE]](vm-control/vm-delete.md)
 

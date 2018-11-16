@@ -3,21 +3,23 @@
  
 
  
-## HTTP-запрос
-`GET /managed-postgresql/v1/clusters/{clusterId}/hosts`
+## HTTP-запрос {#https-request}
+```
+GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/hosts
+```
  
 ## Path-параметры {#path_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера PostgreSQL. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [list](/docs/mdb/api-ref/postgresql/Cluster/list).  Максимальная длина — 50 символов.
+clusterId | Обязательное поле. Идентификатор кластера PostgreSQL. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [list](/docs/mdb/api-ref/postgresql/Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Query-параметры {#query_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/postgresql/Cluster/listHosts#query_params), сервис вернет значение [nextPageToken](/docs/mdb/api-ref/postgresql/Cluster/listHosts#responses), которое можно использовать для получения следующей страницы.  Допустимые значения — от 0 до 1000 включительно.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/mdb/api-ref/postgresql/Cluster/listHosts#query_params) равным значению поля [nextPageToken](/docs/mdb/api-ref/postgresql/Cluster/listHosts#responses) прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина — 100 символов.
+pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/postgresql/Cluster/listHosts#query_params), сервис вернет значение [nextPageToken](/docs/mdb/api-ref/postgresql/Cluster/listHosts#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
+pageToken | Токен страницы. Установите значение [pageToken](/docs/mdb/api-ref/postgresql/Cluster/listHosts#query_params) равным значению поля [nextPageToken](/docs/mdb/api-ref/postgresql/Cluster/listHosts#responses) прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
@@ -27,23 +29,23 @@ pageToken | Токен страницы. Установите значение [
 Поле | Описание
 --- | ---
 hosts | **object**<br><p>Список ресурсов Host.</p> 
-hosts.<br>name | **string**<br><p>Имя хоста PostgreSQL. Имя хоста назначается MDB во время создания и не может быть изменено. Длина имени должна быть от 1 до 63 символов.</p> <p>Имя уникально для всех существующих хостов MDB в Яндекс.Облаке, так как оно определяет полное доменное имя (FQDN) хоста.</p> 
+hosts.<br>name | **string**<br><p>Имя хоста PostgreSQL. Имя хоста назначается MDB во время создания и не может быть изменено. Длина 1-63 символов.</p> <p>Имя уникально для всех существующих хостов MDB в Яндекс.Облаке, так как оно определяет полное доменное имя (FQDN) хоста.</p> 
 hosts.<br>clusterId | **string**<br><p>Идентификатор хоста PostgreSQL. Этот идентификатор генерирует MDB при создании.</p> 
 hosts.<br>zoneId | **string**<br><p>Идентификатор зоны доступности, в которой находится хост PostgreSQL.</p> 
 hosts.<br>resources | **object**<br><p>Ресурсы, выделенные для хоста PostgreSQL.</p> 
-hosts.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/mdb/concepts/instance-types">Классы баз данных</a>.</p> 
+hosts.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/mdb/concepts/instance-types">документации</a>.</p> 
 hosts.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступный хосту, в байтах.</p> 
-hosts.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>local-ssd — хранилище на базе локальных SSD-дисков.</li> </ul> 
-hosts.<br>role | **string**<br><p>Роль хоста в кластере.</p> <ul> <li>MASTER: Хост является мастером кластере в кластере PostgreSQL.</li> <li>REPLICA: Хост является репликой в кластере PostgreSQL.</li> </ul> 
-hosts.<br>health | **string**<br><p>Код работоспособности хоста.</p> <ul> <li>ALIVE: Хост выполняет все свои функции в нормальном режиме.</li> <li>DEAD: Хост не работает и не может выполнять свои основные функции.</li> <li>DEGRADED: Хост деградировал, и может выполнять только некоторые из своих основных функций.</li> </ul> 
+hosts.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-nvme — сетевой SSD-диск;</li> <li>local-nvme — локальное SSD-хранилище.</li> </ul> 
+hosts.<br>role | **string**<br><p>Роль хоста в кластере.</p> <ul> <li>ROLE_UNKNOWN: Роль хоста в кластере неизвестна.</li> <li>MASTER: Хост является мастером кластере в кластере PostgreSQL.</li> <li>REPLICA: Хост является репликой в кластере PostgreSQL.</li> </ul> 
+hosts.<br>health | **string**<br><p>Код работоспособности хоста.</p> <ul> <li>HEALTH_UNKNOWN: Состояние хоста неизвестно.</li> <li>ALIVE: Хост выполняет все свои функции в нормальном режиме.</li> <li>DEAD: Хост не работает и не может выполнять свои основные функции.</li> <li>DEGRADED: Хост деградировал, и может выполнять только некоторые из своих основных функций.</li> </ul> 
 hosts.<br>services | **object**<br><p>Сервисы, предоставляемые хостом.</p> 
-hosts.<br>services.<br>type | **string**<br><p>Тип сервиса, предоставляемого хостом.</p> <ul> <li>POSTGRES: Данный хост — это сервер PostgreSQL.</li> <li>POOLER: Данный хост — это сервер PgBouncer.</li> </ul> 
-hosts.<br>services.<br>health | **string**<br><p>Код состояния доступности сервера.</p> <ul> <li>ALIVE: Сервер работает нормально.</li> <li>DEAD: Сервер отключен или не отвечает.</li> </ul> 
+hosts.<br>services.<br>type | **string**<br><p>Тип сервиса, предоставляемого хостом.</p> <ul> <li>POSTGRESQL: Данный хост — это сервер PostgreSQL.</li> <li>POOLER: Данный хост — это сервер PgBouncer.</li> </ul> 
+hosts.<br>services.<br>health | **string**<br><p>Код состояния доступности сервера.</p> <ul> <li>HEALTH_UNKNOWN: Работоспособность сервера неизвестна.</li> <li>ALIVE: Сервер работает нормально.</li> <li>DEAD: Сервер отключен или не отвечает.</li> </ul> 
 hosts.<br>subnetId | **string**<br><p>Идентификатор подсети, к которой принадлежит хост.</p> 
-hosts.<br>replicationSource | **string**<br><p>name of the host to be used as the replication source for cascading replication.</p> 
+hosts.<br>replicationSource | **string**<br><p>name хоста, который будет использоваться в качестве источника репликации (для каскадной репликации).</p> 
 hosts.<br>priority | **integer** (int64)<br><p>Приоритет хоста как реплики. Более высокое значение соответствует более высокому приоритету.</p> <p>Хост с наивысшим приоритетом является синхронной репликой. Все остальные асинхронны. Синхронная реплика при необходимости заменяет мастер.</p> <p>Когда реплика становится мастером, ее приоритет игнорируется.</p> 
 hosts.<br>config | **object**<br><p>Конфигурация сервера PostgreSQL для хоста.</p> 
-hosts.<br>config.<br>postgresqlConfig_9_6 | **object** <br>`hosts.config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`<br><br><p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config">Документации PostgreSQL</a>.</p> 
+hosts.<br>config.<br>postgresqlConfig_9_6 | **object** <br>`hosts.config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`<br><br><p>Поля и структура <code>PostgresqlHostConfig</code> отражает параметры конфигурационного файла PostgreSQL. Подробное описание доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config.html">документации PostgreSQL</a>.</p> 
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>recoveryMinApplyDelay | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>sharedBuffers | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>tempBuffers | **integer** (int64)<br>
@@ -97,7 +99,7 @@ hosts.<br>config.<br>postgresqlConfig_9_6.<br>exitOnError | **boolean** (boolean
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>seqPageCost | **number** (double)<br>
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>randomPageCost | **number** (double)<br>
 hosts.<br>config.<br>postgresqlConfig_9_6.<br>sqlInheritance | **boolean** (boolean)<br><p>Эта настройка была удалена в PostgreSQL 10.</p> 
-hosts.<br>config.<br>postgresqlConfig_10 | **object** <br>`hosts.config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`<br><br><p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/static/runtime-config">документации PostgreSQL</a>.</p> 
+hosts.<br>config.<br>postgresqlConfig_10 | **object** <br>`hosts.config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`<br><br><p>Поля и структура <code>PostgresqlHostConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/static/runtime-config">документации PostgreSQL</a>.</p> 
 hosts.<br>config.<br>postgresqlConfig_10.<br>recoveryMinApplyDelay | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_10.<br>sharedBuffers | **integer** (int64)<br>
 hosts.<br>config.<br>postgresqlConfig_10.<br>tempBuffers | **integer** (int64)<br>

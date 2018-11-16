@@ -1,0 +1,13 @@
+title: "Сценарии использования"
+icon: "/img/tutorials.svg"
+items:
+  - name: Веб-сервисы
+    items:
+    - name: Обзор
+      href: web/index.md
+    - name: Cтатический сайт в Object Storage
+      href: web/static.md
+    - name: Cайт на LAMP- или LEMP-стеке
+      href: web/lamp-lemp.md
+    - name: Отказоустойчивый сайт с балансировкой нагрузки
+      href: web/dns-load-balancer.md

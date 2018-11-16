@@ -6,7 +6,7 @@
 
 **[!TAB Я не использую кредитный лимит]**
 
-![](../_assets/cloud-business-scheme-1.svg)
+![](../_assets/billing-cycle-business-no-credit.png)
 
 1. Вы [активируете платную версию](../operations/activate-commercial.md) до истечения срока действия пробного периода. 
    <br/>Если вы не потратили всю сумму [стартового гранта](../concepts/bonus-account.md), то оставшуюся сумму можно использовать после перехода на платную версию.
@@ -39,7 +39,7 @@
 
 **[!TAB Я использую кредитный лимит]**
 
-![](../_assets/cloud-business-scheme-credit.svg)
+![](../_assets/billing-cycle-business-credit.png)
 
 1. Вы [активируете платную версию](../operations/activate-commercial.md) до истечения срока действия пробного периода. 
    <br/>Если вы не потратили всю сумму [стартового гранта](../concepts/bonus-account.md), то оставшуюся сумму можно использовать после перехода на платную версию.
@@ -81,3 +81,12 @@
 --- 
 
   [!INCLUDE [blocked-note](../_includes/blocked-note.md)]
+  
+  
+#### **См.также** 
+ 
+- [Грант](../concepts/bonus-account.md)
+- [Кредитный лимит](../concepts/credit-limit.md)
+- [Лицевой счет](../concepts/personal-account.md)
+- [Платежный аккаунт](../concepts/billing-account.md)
+ 

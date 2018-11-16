@@ -4,14 +4,16 @@ Instance.
  
 
  
-## HTTP-запрос
-`GET /compute/v1/instances/{instanceId}:serialPortOutput`
+## HTTP-запрос {#https-request}
+```
+GET https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:serialPortOutput
+```
  
 ## Path-параметры {#path_params}
  
-Name | Description
+Параметр | Описание
 --- | ---
-instanceId | Обязательное поле. Идентификатор виртуальной машины для получения вывода последовательного порта.  Максимальная длина — 50 символов.
+instanceId | Обязательное поле. Идентификатор виртуальной машины для получения вывода последовательного порта.  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

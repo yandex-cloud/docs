@@ -1,0 +1,4 @@
+title: "Сommand-line interface"
+items:
+  - name: Getting started with the CLI
+    href: quickstart.md
