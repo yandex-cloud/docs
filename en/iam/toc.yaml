@@ -83,6 +83,18 @@ items:
             href: api-ref/AccessKey/get.md
           - name: list
             href: api-ref/AccessKey/list.md
+      - name: Key
+        items:
+          - name: Overview
+            href: api-ref/Key/index.md
+          - name: create
+            href: api-ref/Key/create.md
+          - name: delete
+            href: api-ref/Key/delete.md
+          - name: get
+            href: api-ref/Key/get.md
+          - name: list
+            href: api-ref/Key/list.md
       - name: IamToken
         items:
           - name: Overview

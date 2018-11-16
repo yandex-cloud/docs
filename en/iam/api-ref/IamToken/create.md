@@ -13,8 +13,9 @@ POST https://iam.api.cloud.yandex.net/iam/v1/tokens
 ```json 
  {
 
-  // includes only one of the fields `yandexPassportOauthToken`
+  // includes only one of the fields `yandexPassportOauthToken`, `jwt`
   "yandexPassportOauthToken": "string",
+  "jwt": "string",
   // end of the list of possible fields
 
 }
@@ -23,7 +24,8 @@ POST https://iam.api.cloud.yandex.net/iam/v1/tokens
  
 Field | Description
 --- | ---
-yandexPassportOauthToken | **string** <br> includes only one of the fields `yandexPassportOauthToken`<br><br><p>OAuth token for a Yandex.Passport account. For more information, see <a href="/docs/iam/concepts/authorization/oauth-token">OAuth token</a>.</p> 
+yandexPassportOauthToken | **string** <br> includes only one of the fields `yandexPassportOauthToken`, `jwt`<br><br><p>OAuth token for a Yandex.Passport account. For more information, see <a href="/docs/iam/concepts/authorization/oauth-token">OAuth token</a>.</p> 
+jwt | **string** <br> includes only one of the fields `yandexPassportOauthToken`, `jwt`<br><br><p>JSON Web Token (JWT) for a service account. For more information, see <a href="/docs/iam/operations/iam-token/create-for-sa">Get IAM token for a service account</a>.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

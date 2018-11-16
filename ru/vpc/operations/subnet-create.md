@@ -19,7 +19,7 @@
 
 **[!TAB CLI]**
 
-Если у вас еще нет интерфейса командной строки Яндекс.Облака, [установите его](../../cli/quickstart#install).
+Если у вас еще нет интерфейса командной строки Яндекс.Облака, [установите его](../../cli/quickstart.md#install).
 
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
