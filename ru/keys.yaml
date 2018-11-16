@@ -49,3 +49,8 @@ subjects-allAuthenticatedUsers: allAuthenticatedUsers
 # Хосты
 s3-storage-host: storage.yandexcloud.net
 s3-web-host: website.yandexcloud.net
+
+# MDB specific
+PG: PostgreSQL
+CH: ClickHouse
+MG: MongoDB
