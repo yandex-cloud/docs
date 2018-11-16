@@ -1,5 +1,7 @@
 # Правила тарификации для [!KEYREF compute-full-name]
 
+## Из чего складывается стоимость использования [!KEYREF compute-short-name] {#rules}
+
 [!INCLUDE [pricing-intro](../_includes/pricing-intro.md)]
 
 [!INCLUDE [pricing-gb-size](../_includes/pricing-gb-size.md)]
