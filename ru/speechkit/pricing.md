@@ -1,5 +1,7 @@
 # Правила тарификации для Yandex SpeechKit
 
+## Из чего складывается стоимость использования [!KEYREF speechkit-short-name]
+
 [!INCLUDE [pricing-intro](../_includes/pricing-intro.md)]
 
 

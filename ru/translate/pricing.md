@@ -1,5 +1,6 @@
 # Правила тарификации для Yandex Translate
 
+## Из чего складывается стоимость использования [!KEYREF translate-short-name]
 [!INCLUDE [pricing-intro](../_includes/pricing-intro.md)]
 
 ## Перевод и определение языка текста {#prices}
