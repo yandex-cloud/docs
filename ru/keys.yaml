@@ -54,3 +54,8 @@ s3-web-host: website.yandexcloud.net
 yc-mdb-mg: yc managed-mongodb
 yc-mdb-ch: yc managed-clickhouse
 yc-mdb-pg: yc managed-postgresql
+
+# MDB specific
+PG: PostgreSQL
+CH: ClickHouse
+MG: MongoDB
