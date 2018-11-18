@@ -65,6 +65,8 @@ items:
             href: operations/vm-control/vm-change-zone.md
           - name: Изменить ВМ
             href: operations/vm-control/vm-update.md
+          - name: Изменить конфигурацию ВМ
+            href: operations/vm-control/vm-update-resources.md
           - name: Удалить ВМ
             href: operations/vm-control/vm-delete.md
       - name: Создание нового диска

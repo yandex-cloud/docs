@@ -34,20 +34,20 @@
     $ yc compute instance get --help
     ```
 
-1. Выберите виртуальную машину, например `my-instance`:
+1. Выберите виртуальную машину, например `first-instance`:
 
     [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
 
 1. Получите основную информацию о виртуальной машине:
 
     ```
-    $ yc compute instance get my-instance
+    $ yc compute instance get first-instance
     ```
 
-1. Получить информацию о виртуальной машине вместе с [метаданными](../../concepts/vm-metadata.md) используйте флаг `--full`:
+    Чтобы получить информацию о виртуальной машине вместе с [метаданными](../../concepts/vm-metadata.md), используйте флаг `--full`:
 
     ```
-    $ yc compute instance get --full my-instance
+    $ yc compute instance get --full first-instance
     ```
 
 **[!TAB API]**

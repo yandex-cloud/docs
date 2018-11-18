@@ -10,7 +10,7 @@
 
 #### Как изменить объем памяти и количество ядер, выделенных виртуальной машине? {#update-type}
 
-[!INCLUDE [change-vm-resources](../_includes_service/change-vm-resources.md)]
+Подробнее читайте в разделе [[!TITLE]](../operations/vm-control/vm-update-resources.md).
 
 ## Операции с виртуальными машинами
 

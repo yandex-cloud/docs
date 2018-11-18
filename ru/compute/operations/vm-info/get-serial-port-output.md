@@ -21,14 +21,14 @@
     $ yc compute instance get-serial-port-output --help
     ```
 
-1. Выберите виртуальную машину, например `my-instance`:
+1. Выберите виртуальную машину, например `first-instance`:
 
     [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
 
 1. Получите вывод последовательного порта. Вывод последовательного порта обычно длинный, поэтому его стоит писать в файл:
 
     ```
-    $ yc compute instance get-serial-port-output my-instance > output.txt
+    $ yc compute instance get-serial-port-output first-instance > output.txt
     ```
 
 **[!TAB API]**

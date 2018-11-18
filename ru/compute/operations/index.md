@@ -34,6 +34,7 @@
 - [[!TITLE]](vm-control/vm-detach-disk.md)
 - [[!TITLE]](vm-control/vm-change-zone.md)
 - [[!TITLE]](vm-control/vm-update.md)
+- [[!TITLE]](vm-control/vm-update-resources.md)
 - [[!TITLE]](vm-control/vm-delete.md)
 
 ## Создание нового диска
