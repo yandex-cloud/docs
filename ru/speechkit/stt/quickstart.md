@@ -35,7 +35,6 @@ $ curl -X POST \
 
 ```
 HTTP/1.1 200 OK
-YaCloud-Request-Id: YYXXYYXXYY-YXXY-YXXY-YXXY-YYXXYYXXYY
 YaCloud-Billing-Units: 1
 
 {

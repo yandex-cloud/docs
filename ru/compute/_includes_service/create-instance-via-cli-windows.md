@@ -21,14 +21,14 @@
 
     ```
     $ yc compute instance create \
-        --name my-yc-vm \
+        --name second-instance \
         --metadata user-data="#ps1\nnet user Administrator <пароль>" \
         --zone ru-central1-a \
         --public-ip \
         --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk-1537967224
     ```
 
-    Данная команда создаст виртуальную машину с OC Windows Server 2016, именем `my-yc-vm`, пользователем `Administrator` в зоне `ru-central1-a` и публичным IP. Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
+    Данная команда создаст виртуальную машину с OC Windows Server 2016, именем `second-instance`, пользователем `Administrator` в зоне `ru-central1-a` и публичным IP. Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
 
     Задайте:
 

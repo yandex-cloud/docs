@@ -61,7 +61,7 @@ items:
     items:
     - name: Взаимосвязь ресурсов сервиса
       href: concepts/index.md
-    - name: Классы баз данных
+    - name: Классы хостов
       href: concepts/instance-types.md
     - name: Сеть в MDB
       href: concepts/network.md

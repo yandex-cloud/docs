@@ -35,8 +35,12 @@ items:
             href: operations/roles/grant.md
           - name: Отозвать роль
             href: operations/roles/revoke.md
-      - name: Получить IAM-токен
-        href: operations/iam-token/create.md
+      - name: IAM-токены
+        items:
+          - name: Получить свой IAM-токен
+            href: operations/iam-token/create.md
+          - name: Получить IAM-токен для сервисного аккаунта
+            href: operations/iam-token/create-for-sa.md
   - name: Основные понятия
     items:
       - name: Обзор
@@ -91,6 +95,18 @@ items:
             href: api-ref/IamToken/index.md
           - name: create
             href: api-ref/IamToken/create.md
+      - name: Key
+        items:
+          - name: Обзор
+            href: api-ref/Key/index.md
+          - name: create
+            href: api-ref/Key/create.md
+          - name: delete
+            href: api-ref/Key/delete.md
+          - name: get
+            href: api-ref/Key/get.md
+          - name: list
+            href: api-ref/Key/list.md
       - name: Operation
         items:
           - name: Обзор

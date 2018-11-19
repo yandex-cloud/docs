@@ -1,14 +1,34 @@
-# Получить IAM-токен
+# Получить IAM-токен для своей учетной записи
 
-Чтобы получить [IAM-токен](../../concepts/authorization/iam-token.md):
+Для выполнения операций в Яндекс.Облаке через API необходим [IAM-токен](../../concepts/authorization/iam-token.md).
+
+> [!NOTE]
+>
+> [!INCLUDE [iam-token-lifetime](../../../_includes/iam-token-lifetime.md)]
+
+---
+
+**[!TAB CLI]**
+
+Получите IAM-токен:
+
+```
+$ yc iam create-token
+```
+
+**[!TAB API]**
 
 1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе или Яндекс.Коннекте.
-1. Получите OAuth-токен в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb), нажмите **Разрешить** и скопируйте полученный OAuth-токен.
-1. Обменяйте OAuth-токен на IAM-токен:
-   ```
-   curl -X POST \
-        -H 'Content-Type: application/json' \
-        -d '{"yandexPassportOauthToken": "<OAuth-token>"}' \
-        https://iam.api.cloud.yandex.net/iam/v1/tokens
-   ```
-   Полученный IAM-токен действителен в течение 12 часов. После истечения срока действия получите новый IAM-токен.
+2. Получите OAuth-токен в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb), нажмите **Разрешить** и скопируйте полученный OAuth-токен.
+3. Обменяйте OAuth-токен на IAM-токен:
+
+    ```
+    curl -X POST \
+    -H 'Content-Type: application/json' \
+    -d '{"yandexPassportOauthToken": "<OAuth-token>"}' \
+    https://iam.api.cloud.yandex.net/iam/v1/tokens
+    ```
+
+---
+
+[!INCLUDE [iam-token-usage](../../../_includes/iam-token-usage.md)]
