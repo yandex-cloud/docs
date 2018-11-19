@@ -13,8 +13,6 @@ items:
       href: operations/index.md
     - name: Активировать платную версию
       href: operations/activate-commercial.md
-    - name: Активировать промокод
-      href: operations/activate-promocode.md
     - name: Проверить расходы
       items:
         - name: Посмотреть краткую статистику
@@ -25,14 +23,16 @@ items:
       href: operations/pay-the-bill.md
     - name: Изменить способ оплаты
       href: operations/change-payment-method.md
-    - name: Расшифровать счет
+    - name: Привязать другую карту
+      href: operations/pin-card.md
+    - name: Активировать промокод
+      href: operations/activate-promocode.md
+    - name: Расшифровать счет на оплату
       href: operations/spell-out-bill.md
     - name: Посмотреть историю платежей
       href: operations/check-bill-history.md
     - name: Изменить данные платежного аккаунта
       href: operations/change-data.md
-    - name: Привязать другую карту
-      href: operations/pin-card.md
 - name: Основные понятия
   items:  
     - name: Все понятия
