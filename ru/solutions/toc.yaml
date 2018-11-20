@@ -11,8 +11,6 @@ items:
       href: web/static.md
     - name: Cайт на LAMP- или LEMP-стеке
       href: web/lamp-lemp.md
-    - name: Сайт на базе WordPress с БД PostgeSQL
-      href: web/wordpress-postgresql.md
     - name: Отказоустойчивый сайт с балансировкой нагрузки
       href: web/dns-load-balancer.md
     - name: Сайт на базе Joomla с БД PostgreSQL
