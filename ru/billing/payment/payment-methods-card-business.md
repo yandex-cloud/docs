@@ -6,7 +6,7 @@
 
 ## Привязка банковской карты {#pin-card}
 
-Юридические лица могут привязать банковскую карту к платежному аккаунту как при его [создании](../quickstart/index.md), так и [после](../operations/pin-card.md). 
+Юридические лица могут привязать банковскую карту к платежному аккаунту только при его [создании](../quickstart/index.md). 
 
 [!INCLUDE [payment-card-validation](../_includes/payment-card-validation.md)]  
 
