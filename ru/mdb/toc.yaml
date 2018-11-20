@@ -17,7 +17,7 @@ items:
             href: operations/postgresql/cluster-create.md
           - name: Подключение к базе данных
             href: operations/postgresql/connect.md
-          - name: Изменение настроек кластера и базы данных
+          - name: Изменение настроек кластера
             href: operations/postgresql/update.md
           - name: Управление PostgreSQL-расширениями
             href: operations/postgresql/cluster-extensions.md
@@ -33,7 +33,7 @@ items:
             href: operations/clickhouse/cluster-create.md
           - name: Подключение к базе данных
             href: operations/clickhouse/connect.md
-          - name: Изменение настроек кластера и базы данных
+          - name: Изменение настроек кластера
             href: operations/clickhouse/update.md
           - name: Добавление данных и репликация в ClickHouse
             href: operations/clickhouse/insert.md
@@ -49,7 +49,7 @@ items:
           href: operations/mongodb/cluster-create.md
         - name: Подключение к базе данных
           href: operations/mongodb/connect.md
-        - name: Изменение настроек кластера и базы данных
+        - name: Изменение настроек кластера
           href: operations/mongodb/update.md
         - name: Управление пользователями БД
           href: operations/mongodb/cluster-users.md

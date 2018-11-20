@@ -2,12 +2,12 @@
 
 После создания кластера вы можете:
 
-- Изменить [класс хостов](../../concepts/instance-types.md).
-- Увеличить размер хранилища (доступно только для сетевого хранилища, `network-nvme`).
-- Настраивать серверы [!KEYREF CH] согласно [документации [!KEYREF CH]](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+- [Изменить класс хостов](#change-resource-preset).
+- [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища, `network-nvme`).
+- [Настраивать серверы](#change-clickhouse-config) [!KEYREF CH] согласно [документации [!KEYREF CH]](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
 
 
-## Изменить класс хостов
+## Изменить класс хостов {#change-resource-preset}
 
 ---
 
@@ -17,18 +17,18 @@
 
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
-Чтобы изменить класс хостов для кластера:
+Чтобы изменить [класс хостов](../../concepts/instance-types.md) для кластера:
 
 1. Посмотрите описание команды CLI для изменения кластера:
 
    ```
-   $ [yc-mdb-ch] cluster update --help
+   $ [!KEYREF yc-mdb-ch] cluster update --help
    ```
 
 1. Запросите список доступных классов хостов (в колонке `FOLDER ID` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
    ```
-   $ [yc-mdb-ch] resource-preset list
+   $ [!KEYREF yc-mdb-ch] resource-preset list
    
    +-----------+--------------------------------+-------+--------------+
    |    ID     |           FOLDER ID            | CORES |    MEMORY    |
@@ -37,34 +37,31 @@
    |           | ru-central1-c                  |       |              |
    | s1.micro  | ru-central1-a, ru-central1-b,  |     2 |   8589934592 |
    |           | ru-central1-c                  |       |              |
-   | s1.small  | ru-central1-a, ru-central1-b,  |     4 |  17179869184 |
-   |           | ru-central1-c                  |       |              |
-   | s1.medium | ru-central1-a, ru-central1-b,  |     8 |  34359738368 |
-   |           | ru-central1-c                  |       |              |
-   | s1.large  | ru-central1-a, ru-central1-b,  |    16 |  68719476736 |
-   |           | ru-central1-c                  |       |              |
-   | s1.xlarge | ru-central1-a, ru-central1-b,  |    32 | 137438953472 |
-   |           | ru-central1-c                  |       |              |
+   | ...                                                               |
    +-----------+--------------------------------+-------+--------------+
    ```   
 
 1. Укажите нужный класс в команде изменения кластера:
 
    ```
-   $ [yc-mdb-ch] cluster update <имя кластера>
+   $ [!KEYREF yc-mdb-ch] cluster update <имя кластера>
         --clickhouse-resource-preset <ID класса>
    ```
+   
+   [!KEYREF mdb-short-name] запустит операцию изменения класса хостов для кластера.
+   
+   Класс хоста ZooKeeper можно изменить аналогичным параметром, `--zookeeper-resource-preset`.
 
 **[!TAB API]**
 
-Изменить класс хостов кластера можно с помощью метода API [update](../../api-ref/clickhouse/Cluster/update.md): передайте в параметрах запроса нужное значение в свойстве `configSpec.clickhouse.resources.resourcePresetId`.
+Изменить [класс хостов](../../concepts/instance-types.md) кластера можно с помощью метода API [update](../../api-ref/clickhouse/Cluster/update.md): передайте в параметрах запроса нужное значение в свойстве `configSpec.clickhouse.resources.resourcePresetId` (для ZooKeeper — `configSpec.zookeeper.resources.resourcePresetId`).
 
 Список поддерживаемых значений запрашивайте методом [list](../../api-ref/clickhouse/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
 
 ---
 
 
-## Увеличить размер хранилища
+## Увеличить размер хранилища {#change-disk-size}
 
 ---
 
@@ -79,15 +76,15 @@
 1. Посмотрите описание команды CLI для изменения кластера:
 
    ```
-   $ [yc-mdb-ch] cluster update --help
+   $ [!KEYREF yc-mdb-ch] cluster update --help
    ```
 
-1. Проверьте, что у вас хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции [!KEYREF mdb-full-name] не исчерпано место в строке **space**.
+1. Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции [!KEYREF mdb-full-name] не исчерпано место в строке **space**.
 
 1. Проверьте, что нужный кластер использует именно сетевое хранилище (увеличить размер локального хранилища пока невозможно). Для этого запросите информацию о кластере и найдите поле `disk_type_id` — его значение должно быть `network-nvme`:
 
    ```
-   $ [yc-mdb-ch] cluster get <имя кластера>
+   $ [!KEYREF yc-mdb-ch] cluster get <имя кластера>
    
    id: c7qkvr3u78qiopj3u4k2
    folder_id: b1g0ftj57rrjk9thribv
@@ -104,22 +101,24 @@
 1. Укажите нужный объем хранилища в команде изменения кластера (должен быть не меньше, чем значение `disk_size` в свойствах кластера):
 
    ```
-   $ [yc-mdb-ch] cluster update <имя кластера>
+   $ [!KEYREF yc-mdb-ch] cluster update <имя кластера>
         --clickhouse-disk-size <размер хранилища в ГБ>
    ```
    
    Если все условия выполнены, [!KEYREF mdb-short-name] запустит операцию по увеличению объема хранилища.
+   
+   Объем хранилища для ZooKeeper можно изменить аналогичным параметром, `--zookeeper-disk-size`.
 
 **[!TAB API]**
 
-Изменить размер хранилища для кластера можно с помощью метода API [update](../../api-ref/clickhouse/Cluster/update.md): передайте в параметрах запроса нужное значение в свойстве `configSpec.clickhouse.resources.diskSize`.
+Изменить размер хранилища для кластера можно с помощью метода API [update](../../api-ref/clickhouse/Cluster/update.md): передайте в параметрах запроса нужное значение в свойстве `configSpec.clickhouse.resources.diskSize` (для ZooKeeper — `configSpec.zookeeper.resources.diskSize`).
 
-Проверьте, что у вас хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции [!KEYREF mdb-full-name] не исчерпано место в строке **space**.
+Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции [!KEYREF mdb-full-name] не исчерпано место в строке **space**.
 
 ---
 
 
-## Изменить настройки [!KEYREF CH]
+## Изменить настройки [!KEYREF CH] {#change-clickhouse-config}
 
 Вы можете изменить настройки СУБД для хостов вашего кластера. Все поддерживаемые настройки описаны [в справочнике API](../../api-ref/clickhouse/Cluster/update.md).
 
