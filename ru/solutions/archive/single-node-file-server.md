@@ -1,11 +1,12 @@
-# Создание однонодового файлового сервера
+# Однонодовый файлового сервера
 
 Чтобы создать однонодовый файловый сервер:
 
-* [Создайте виртуальную машину](#create-vm)
-* [Настройте NFS и Samba](#nfs-samba-setup)
+* [Создайте виртуальную машину для файлового сервера](#create-vm)
+* [Настройте Samba и NFS](#setup-samba-nfs)
+* [Протестируйте работу файлового сервера](#test-file-server)
 
-## Создать виртуальную машину с предустановленным веб-сервером {#create-vm}
+## Создать виртуальную машину для файлового сервера {#create-vm}
 
 Перед тем, как создавать виртуальную машину:
 
@@ -15,78 +16,94 @@
 Чтобы создать виртуальную машину:
 
 1. На странице каталога в [консоли управления](https://console.cloud.yandex.ru) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-1. В поле **Имя** введите имя виртуальной машины, например `fileserver`.
+1. В поле **Имя** введите имя виртуальной машины — `fileserver-tutorial`.
 
     [!INCLUDE [name-format](../../_includes/name-format.md)]
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
-1. В блоке **Публичные образы** выберите Ubuntu 18.04, 16.04 или 14.04 или CentOS 6 или 7.
+1. Выберите публичный образ **Ubuntu** или **CentOS**.
 1. В блоке **Вычислительные ресурсы** выберите [тип использования ядра](../../compute/concepts/vm-types.md) (частичное или полное), укажите необходимое количество vCPU и объем RAM.
 
-   Рекомендованные требования для достаточной производительности:
+   Рекомендованные значения для файлового сервера:
    * **Гарантированная доля vCPU** — 100%.
-   * **vCPU** — 8 и больше.
-   * **RAM** — 56 ГБ и больше.
-   * **Тип диска** — NVME.
+   * **vCPU** — 8 или больше.
+   * **RAM** — 56 ГБ или больше.
 
+1. В блоке **Диски** нажмите **Добавить диск**.
+1. В окне **Добавление диска** укажите параметры диска для хранения данные:
+
+   * **Имя** — `fileserver-tutorial-disk`;
+   * **Размер** — 100 ГБ;
+   * **Тип диска** — NVMe;
+   * **Наполнение** — Пустой.
+   
+   Нажмите **Добавить**.
 1. В блоке **Сетевые настройки** выберите, к какой подсети необходимо подключить виртуальную машину при создании.
 1. Укажите данные для доступа на виртуальную машину:
     - В поле **Логин** введите имя пользователя.
     - В поле **SSH ключ** вставьте содержимое файла открытого ключа.
-        Пару ключей для подключения по SSH необходимо создать самостоятельно. Для создания ключей используйте сторонние инструменты, например утилиты `ssh-keygen` в Linux и macOS.
+        Пару ключей для подключения по SSH необходимо создать самостоятельно. Для создания ключей используйте сторонние инструменты, например утилиты `ssh-keygen` в Linux и macOS или [PuTTygen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) в Windows.
 1. Нажмите кнопку **Создать ВМ**.
 
-## Установить и настроить NFS и Samba {#nfs-samba-setup}
+Создание виртуальной машины может занять несколько минут. Когда виртуальная машина перейдет в статус `RUNNING`, вы можете [настроить NFS и Samba](#setup-samba-nfs).
 
-1. После того как машина `fileserver` перейдет в состояние `running`, подключитесь к ней по [протоколу SSH](../../compute/operations/vm-control/vm-connect-ssh.md).
+При создании виртуальной машине назначаются IP-адрес и имя хоста (FQDN). Эти данные можно использовать для доступа по SSH.
+
+
+## Настроить Samba и NFS {#setup-samba-nfs}
+
+После того как виртуальная машина `fileserver-tutorial` перейдет в статус `RUNNING`, выполните: 
+1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru) найдите публичный IP-адрес виртуальной машины.
+1. [Подключитесь](../../compute/operations/vm-control/vm-connect-ssh.md) к виртуальной машине по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows. 
+    
+      Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей.  Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на виртуальную машину.
 1. Скачайте и установите Samba:
 
    ---
 
-   **[!TAB Ubuntu 14/16/18]**
-   ```
-   sudo apt-get update
-   sudo apt-get install nfs-kernel-server samba
+   **[!TAB Ubuntu]**
+   ```bash
+   $ sudo apt-get update
+   $ sudo apt-get install nfs-kernel-server samba
    ```
 
-   **[!TAB CentOS 6/7]**
-   ```
-   sudo yum check-update
-   sudo yum -y install nfs-utils nfs-utils-lib samba nano
-   sudo chkconfig smb on
-   sudo chkconfig nfs on
+   **[!TAB CentOS]**
+   ```bash
+   $ sudo yum check-update
+   $ sudo yum -y install nfs-utils nfs-utils-lib samba nano
+   $ sudo chkconfig smb on
+   $ sudo chkconfig nfs on
    ```
    ---
 
-1. Подготовьте и смонтируйте файловую систему:
+1. Подготовьте и смонтируйте файловую систему на диске для хранения данных:
 
-   ```
-   sudo mkfs -t ext4 -L data /dev/vdb
-   sudo mkdir /data
-   echo "LABEL=data /data ext4 defaults 0 0" | sudo tee -a /etc/fstab
-   sudo mount /data
-   ```
-
-1. Настройте NFS:
-
-   * Откройте файл `/etc/exports`: 
-       ```
-        sudo nano /etc/exports
-       ```
-   * Добавьте в файл следующие строки:
-       ```
-       /data <подсеть>(rw,no_subtree_check,fsid=100)
-       /data 127.0.0.1(rw,no_subtree_check,fsid=100)
-       ```
-
-1. Задайте конфигурацию Samba:
-
-   ```
-   sudo nano /etc/samba/smb.conf
+   ```bash
+   $ sudo mkfs -t ext4 -L data /dev/vdb
+   $ sudo mkdir /data
+   $ echo "LABEL=data /data ext4 defaults 0 0" | sudo tee -a /etc/fstab
+   $ sudo mount /data
    ```
 
+1. Задайте конфигурацию NFS в файле `/etc/exports`. Вы можете отредактировать файл с помощью утилиты `nano`:
+   ```bash
+   $ sudo nano /etc/exports
+   ```
+   Добавьте в файл следующие строки:
+   ```bash
+   $ /data <IP-адрес>(rw,no_subtree_check,fsid=100)
+   $ /data 127.0.0.1(rw,no_subtree_check,fsid=100)
+   ```
+   Вместо `<IP-адрес>` укажите IP-адрес компьютера, к которому вы будете подключать по NFS сетевой диск с данными. 
+1. Задайте конфигурацию Samba в файле `/etc/samba/smb.conf`. Вы можете отредактировать файл с помощью утилиты `nano`:
+
+   ```bash
+   $ sudo nano /etc/samba/smb.conf
+   ```
+   Приведите файл к виду:
+   
    ---
-   **[!TAB Ubuntu 14/16/18]**
+   **[!TAB Ubuntu]**
 
    ```
    [global]
@@ -127,7 +144,7 @@
       read only = no
       writable = yes
       guest ok = yes
-      hosts allow = <подсеть> 127.0.0.1
+      hosts allow = <IP-адрес> 127.0.0.1
       hosts deny = 0.0.0.0/0
    ```
 
@@ -162,7 +179,7 @@
       read only = no
       writable = yes
       guest ok = yes
-      hosts allow = <подсеть> 127.0.0.1
+      hosts allow = <IP-адрес> 127.0.0.1
       hosts deny = 0.0.0.0/0
    ```
 
@@ -208,58 +225,67 @@
       read only = no
       writable = yes
       guest ok = yes
-      hosts allow = <подсеть> 127.0.0.1
+      hosts allow = <IP-адрес> 127.0.0.1
       hosts deny = 0.0.0.0/0
    ```
 
    ---
-
-1. Перезапустите NFS и Samba, для CentOS 6 и 7 разрешите чтение файлов в папке `/data`:
-
-   ---
-   **[!TAB Ubuntu 14/16/18]**
-   ```
-   sudo service nfs-kernel-server restart
-   sudo service smbd restart
-   ```
-
-   **[!TAB CentOS 6/7]**
-   ```
-   sudo chcon -t samba_share_t /data
-   sudo semanage fcontext -a -t samba_share_t "/data(/.*)?"
-   sudo restorecon -R -v /data
-   sudo service rpcbind restart
-   sudo service nfs restart
-   sudo service smb restart
-   ```
-   ---
-
-1. Если вы используете CentOS 6, настройте фаерволл:
+   
+   В блоке `[data]` вместо `<IP-адрес>` укажите IP-адрес компьютера, к которому вы будете подключать по NFS сетевой диск с данными. 
+1. Перезапустите NFS и Samba, для CentOS 6 и 7 предварительно разрешите чтение файлов в `/data`
 
    ---
-   **[!TAB CentOS 6]**
+   
+   **[!TAB Ubuntu]**
+   ```bash
+   $ sudo service nfs-kernel-server restart
+   $ sudo service smbd restart
    ```
-   sudo iptables -I INPUT -p tcp -s <подсеть> -j ACCEPT
-   sudo iptables -I INPUT -p udp -s <подсеть> -j ACCEPT
-   sudo iptables-save | sudo tee /etc/sysconfig/iptables
+
+   **[!TAB CentOS]**
+   ```bash
+   $ sudo chcon -t samba_share_t /data
+   $ sudo semanage fcontext -a -t samba_share_t "/data(/.*)?"
+   $ sudo restorecon -R -v /data
+   $ sudo service rpcbind restart
+   $ sudo service nfs restart
+   $ sudo service smb restart
    ```
+   
    ---
 
-## Проверьте работу хранилища
+1. Этот шаг нужно выполнять только на виртуальной машине с ОС CentOS 6.
+   Откройте сетевой доступ к виртуальной машине с помощью утилиты `iptables`:
+   ```bash
+   $ sudo iptables -I INPUT -p tcp -s <IP-адрес> -j ACCEPT
+   $ sudo iptables -I INPUT -p udp -s <IP-адрес> -j ACCEPT
+   $ sudo iptables-save | sudo tee /etc/sysconfig/iptables
+   ```
+   Вместо `<IP-адрес>` укажите IP-адрес компьютера, к которому вы будете подключать по NFS сетевой диск с данными. 
 
----
+## Протестировать работу файлового сервера {#test-file-server}
 
-**[!TAB Windows]**
+1. Создайте на виртуальной машине `fileserver-tutorial` тестовую директорию и файл в ней:
+   ```bash
+   $ sudo mkdir /data/fileserver-tutorial
+   $ sudo setfacl -m u:<имя вашего пользователя>:w /data/fileserver-tutorial
+   $ echo "Hello world!" > /data/fileserver-tutorial/test.txt
+   ```
+1. Подключите по NFS сетевой диск к вашему компьютеру и проверьте доступность тестового файла:
 
-* Запустите **cmd.exe**.
-* Выполните команду `net use x: \\<внешний IP-адрес виртуальной машины>\data`
+   ---
 
-Файлы сервера будут доступны на диске X.
+   **[!TAB Linux/macOS]**
 
-**[!TAB Linux/MacOS]**
+   Выполните команду `mount -t nfs <внешний IP>:/data /<точка монтирования>`.
 
-Выполните команду `mount -t nfs <внешний IP>:/data /<точка монтирования>`.
+   Тестовая директория и файл должны быть доступны в указанной точке монтирования.
 
-Файлы сервера будут доступны в указанной точке монтирования.
+  **[!TAB Windows]**
 
----
+   * Запустите **cmd.exe**.
+   * Выполните команду `net use x: \\<внешний IP-адрес виртуальной машины>\data`
+
+   Тестовая директория и файл должны быть доступны должны быть доступны на диске X.
+
+   ---
