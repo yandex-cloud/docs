@@ -208,7 +208,7 @@ curl -X POST \
 
 Пример создания подписанного JWT с использованием [PyJWT](https://github.com/jpadilla/pyjwt/).
 
-```
+```python
 import time
 import jwt
 
@@ -314,6 +314,10 @@ func signedToken() string {
 	return signed
 }
 
+// By default, Go RSA PSS uses PSSSaltLengthAuto,
+// but https://tools.ietf.org/html/rfc7518#section-3.5 says
+// that "The size of the salt value is the same size as the hash function output."
+// May be removed after https://github.com/dgrijalva/jwt-go/issues/285 fix.
 var ps256WithSaltLengthEqualsHash = &jwt.SigningMethodRSAPSS{
 	SigningMethodRSA: jwt.SigningMethodPS256.SigningMethodRSA,
 	Options: &rsa.PSSOptions{
