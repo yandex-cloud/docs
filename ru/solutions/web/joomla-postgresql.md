@@ -64,7 +64,7 @@
 
 ## Установить Joomla и дополнительные компоненты {#install}
 
-После того как виртуальная машина `joomla-pg-tutorial-web` перейдет в состояние `RUNNING`, выполните:
+После того как виртуальная машина `joomla-pg-tutorial-web` перейдет в статус `RUNNING`, выполните:
 1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru) найдите публичный IP-адрес виртуальной машины.
 1. [Подключитесь](../../compute/operations/vm-control/vm-connect-ssh.md) к виртуальной машине по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows. 
     
