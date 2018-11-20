@@ -7,13 +7,13 @@ items:
     items:
     - name: Обзор
       href: web/index.md
-    - name: Статический сайт
+    - name: Cтатический сайт в Object Storage
       href: web/static.md
-    - name: Динамический сайт на LAMP- или LEMP-стеке
+    - name: Cайт на LAMP- или LEMP-стеке
       href: web/lamp-lemp.md
     - name: Сайт на базе WordPress с БД PostgeSQL
       href: web/wordpress-postgresql.md
-    - name: DNS-балансировщик нагрузки с высокой доступностью
+    - name: Отказоустойчивый сайт с балансировкой нагрузки
       href: web/dns-load-balancer.md
     - name: Сайт на базе Joomla с БД PostgreSQL
       href: web/joomla-postgresql.md
