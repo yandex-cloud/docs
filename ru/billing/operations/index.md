@@ -10,8 +10,6 @@
 
 [Пополнить счет](pay-the-bill.md) 
 
-[Изменить способ оплаты](change-payment-method.md)
-
 [Расшифровать счет на оплату](spell-out-bill.md)
 
 [Посмотреть историю платежей](check-bill-history.md)

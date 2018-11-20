@@ -23,8 +23,6 @@ items:
           href: operations/check-charges.md
     - name: Пополнить счет
       href: operations/pay-the-bill.md
-    - name: Изменить способ оплаты
-      href: operations/change-payment-method.md
     - name: Привязать другую карту
       href: operations/pin-card.md
     - name: Расшифровать счет на оплату
