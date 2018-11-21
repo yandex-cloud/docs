@@ -4,7 +4,7 @@
 
 Для описания ошибок в API используется сообщение [google.rpc.Status](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto). Данная модель ошибок используется как в gRPC, так и в REST интерфейсах. 
 
-В [таблице ниже](#error-list) приведен наглядный список ошибок, которые поддерживаются в API. 
+В [таблице ниже](#error-list) приведен список ошибок, которые поддерживаются в API. 
 Ознакомиться с .proto-спецификацией можно в [репозитории на GitHub](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). 
 
 ## Формат сообщения об ошибке {#error-message-format}
