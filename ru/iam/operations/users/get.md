@@ -27,6 +27,8 @@
 
 **[!TAB API]**
 
-Чтобы получить идентификатор пользователя, воспользуйтесь методом [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) для ресурса [YandexPassportUserAccount](../../api-ref/YandexPassportUserAccount/index.md).
+Получите информацию о пользователе (ресурс [UserAccount](../../api-ref/UserAccount/index.md)):
+* Если вы знаете логин пользователя, используйте метод [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) для ресурса [YandexPassportUserAccount](../../api-ref/YandexPassportUserAccount/index.md).
+* Если вы знаете идентификатор пользователя, используйте метод [get](../../api-ref/UserAccount/get.md) для ресурса [UserAccount](../../api-ref/UserAccount/index.md).
 
 ---

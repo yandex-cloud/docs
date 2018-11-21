@@ -1,6 +1,6 @@
 # Database
 Набор методов для управления ресурсами Database для ClickHouse.
-## JSON-представление
+## JSON-представление {#representation}
 ```json 
  {
   "name": "string",
@@ -8,7 +8,7 @@
 }
 ```
 
-## Методы
+## Методы {#methods}
 Метод | Описание
 --- | ---
 [create](create.md) | Создает новую базу данных ClickHouse в указанном кластере.

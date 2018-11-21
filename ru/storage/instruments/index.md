@@ -9,6 +9,7 @@
 [boto](boto.md) | Python SDK для работы с Amazon S3 
 [Cyberduck](cyberduck.md) | Файловый браузер 
 [S3cmd](s3cmd.md) | Интерфейс командной строки S3cmd
+[s3fs](s3fs.md) | Программа для подключения корзин через FUSE
 
 
 
