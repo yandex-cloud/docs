@@ -8,7 +8,7 @@
 
 **[!TAB Консоль управления]**
 
-1. Перейдите на страницу каталога и нажмите плитку **Yandex Managed PostgreSQL**.
+1. Перейдите на страницу каталога и нажмите плитку **Yandex Managed MongoDB**.
 1. Нажмите на имя нужного кластера, затем выберите вкладку **Базы данных**.
 
 
@@ -21,7 +21,7 @@
 Чтобы получить список баз данных в кластере, выполните команду:
 
 ```
-$ [!KEYREF yc-mdb-pg] database list
+$ [!KEYREF yc-mdb-mg] database list
      --cluster-name=<имя кластера>
 ```
 
@@ -30,7 +30,7 @@ $ [!KEYREF yc-mdb-pg] database list
 
 **[!TAB API]**
 
-Получить список баз данных кластера можно с помощью метода [list](../../api-ref/postgresql/Database/list.md).
+Получить список баз данных кластера можно с помощью метода [list](../../api-ref/mongodb/Database/list.md).
 
 ---
 
@@ -42,12 +42,11 @@ $ [!KEYREF yc-mdb-pg] database list
 
 **[!TAB Консоль управления]**
 
-1. Перейдите на страницу каталога и нажмите плитку **Yandex Managed PostgreSQL**.
+1. Перейдите на страницу каталога и нажмите плитку **Yandex Managed MongoDB**.
 1. Нажмите на имя нужного кластера.
-1. Если владельцем новой базы данных должен стать еще не существующий пользователь, [создайте его](cluster-users.md#adduser). 
 1. Выберите вкладку **Базы данных**.
 1. Нажмите кнопку **Добавить**.
-1. Введите имя для базы данных и выберите ее владельца.
+1. Введите имя для базы данных и нажмите кнопку **Добавить**.
 
 
 **[!TAB CLI]**
@@ -56,39 +55,21 @@ $ [!KEYREF yc-mdb-pg] database list
 
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
-Чтобы создать базу данных в кластере:
+Выполните команду создания БД, задав имя новой базы:
 
-1. Посмотрите описание команды CLI для создания БД:
+```
+$ [!KEYREF yc-mdb-mg] database create <имя базы данных>
+    --cluster-name <имя кластера>
+```
 
-   ```
-   $ [!KEYREF yc-mdb-pg] database create --help
-   ```
-
-1. Запросите список пользователей кластера, чтобы выбрать владельца новой базы данных:
-
-   ```
-   $ [!KEYREF yc-mdb-pg] user list
-        --cluster-name <имя кластера>
-   ```
-
-   Если нужного пользователя в списке нет, [создайте его](cluster-users.md#adduser).
-
-1. Выполните команду создания БД:
-
-   ```
-   $ [!KEYREF yc-mdb-pg] database create <имя базы данных>
-        --cluster-name <имя кластера>
-        --owner <имя пользователя-владельца>
-   ```
-   
-   [!KEYREF mdb-short-name] запустит операцию создания базы данных.
+[!KEYREF mdb-short-name] запустит операцию создания базы данных.
    
 Имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
 
 
 **[!TAB API]**
 
-Создать новую базу данных в кластере можно с помощью метода [create](../../api-ref/postgresql/Database/create.md).
+Создать новую базу данных в кластере можно с помощью метода [create](../../api-ref/mongodb/Database/create.md).
 
 ---
 
@@ -112,7 +93,7 @@ $ [!KEYREF yc-mdb-pg] database list
 Чтобы удалить базу данных, выполните команду:
 
 ```
-$ [!KEYREF yc-mdb-pg] database delete <имя базы данных>
+$ [!KEYREF yc-mdb-mg] database delete <имя базы данных>
      --cluster-name=<имя кластера>
 ```
 
@@ -121,6 +102,6 @@ $ [!KEYREF yc-mdb-pg] database delete <имя базы данных>
 
 **[!TAB API]**
 
-Удалить базу данных можно с помощью метода [delete](../../api-ref/postgresql/Database/delete.md).
+Удалить базу данных можно с помощью метода [delete](../../api-ref/mongodb/Database/delete.md).
 
 ---
