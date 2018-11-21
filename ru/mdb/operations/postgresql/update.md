@@ -46,7 +46,7 @@
 
    ```
    $ [!KEYREF yc-mdb-pg] cluster update <имя кластера>
-        --clickhouse-resource-preset <ID класса>
+        --resource-preset <ID класса>
    ```
  
    [!KEYREF mdb-short-name] запустит операцию изменения класса хостов для кластера.
@@ -90,11 +90,11 @@
    folder_id: b1g0ftj57rrjk9thribv
    ...
    config:
-     clickhouse:
-       resources:
-         resource_preset_id: s1.nano
-         disk_size: "21474836480"
-         disk_type_id: network-nvme
+     ...
+     resources:
+       resource_preset_id: s1.nano
+       disk_size: "10737418240"
+       disk_type_id: network-nvme
    ...
    ```
 
@@ -102,7 +102,7 @@
 
    ```
    $ [!KEYREF yc-mdb-pg] cluster update <имя кластера>
-        --clickhouse-disk-size <размер хранилища в ГБ>
+        --disk-size <размер хранилища в ГБ>
    ```
    
    Если все условия выполнены, [!KEYREF mdb-short-name] запустит операцию по увеличению объема хранилища.
