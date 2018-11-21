@@ -41,6 +41,8 @@ items:
             href: operations/clickhouse/cluster-delete.md
           - name: Изменение настроек кластера и базы данных
             href: operations/clickhouse/update.md
+          - name: Управление хостами кластера
+            href: operations/clickhouse/hosts.md
           - name: Добавление данных и репликация в ClickHouse
             href: operations/clickhouse/insert.md
           - name: Управление базами данных
@@ -49,7 +51,6 @@ items:
             href: operations/clickhouse/cluster-users.md
           - name: Управление резервными копиями
             href: operations/clickhouse/cluster-backups.md
-
       - name: MongoDB
         items:
         - name: Создание кластера
@@ -60,6 +61,8 @@ items:
           href: operations/mongodb/cluster-delete.md
         - name: Изменение настроек кластера и базы данных
           href: operations/mongodb/update.md
+        - name: Управление хостами кластера
+          href: operations/postgresql/hosts.md
         - name: Управление базами данных
           href: operations/mongodb/databases.md
         - name: Управление пользователями БД
