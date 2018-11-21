@@ -3,7 +3,7 @@ icon: "/img/tutorials.svg"
 items:
   - name: Сценарии использования
     href: index.yaml
-  - name: Веб-сервисы
+  - name: Веб-сервис
     items:
     - name: Обзор
       href: web/index.md
