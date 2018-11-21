@@ -38,7 +38,7 @@
 1. В блоке **Registration** укажите данные вашего аккаунта Acronis.
 1. Нажмите кнопку **DONE**.
 
-## Протестируйте резервное копирование {#test-backup}
+## Протестировать резервное копирование {#test-backup}
 
 1. Настройте резервное копирование в Acronis Backup по [инструкции](https://www.acronis.com/ru-ru/support/documentation/BackupService/index.html#33507.html).
 1. Выполните резервное копирование по [инструкции](https://www.acronis.com/ru-ru/support/documentation/BackupService/index.html#33512.html).
