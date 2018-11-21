@@ -1,7 +1,9 @@
 title: "Сценарии использования"
 icon: "/img/tutorials.svg"
 items:
-  - name: Веб-сервисы
+  - name: Сценарии использования
+    href: index.yaml
+  - name: Веб-сервис
     items:
     - name: Обзор
       href: web/index.md
@@ -11,3 +13,13 @@ items:
       href: web/lamp-lemp.md
     - name: Отказоустойчивый сайт с балансировкой нагрузки
       href: web/dns-load-balancer.md
+    - name: Сайт на базе Joomla с БД PostgreSQL
+      href: web/joomla-postgresql.md
+  - name: Архив данных
+    items:
+    - name: Обзор
+      href: archive/index.md
+    - name: Однонодовый файловый сервер
+      href: archive/single-node-file-server.md
+    - name: Резервное копирование в Object Storage через Acronis
+      href: archive/object-storage-acronis.md
