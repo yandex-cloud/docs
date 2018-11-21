@@ -15,10 +15,6 @@ items:
       href: web/dns-load-balancer.md
     - name: Сайт на базе Joomla с БД PostgreSQL
       href: web/joomla-postgresql.md
-  - name: Тестовая среда
-    items:
-    - name: Создание и восстановление вытесняемой машины
-      href: test/index.md
   - name: Архив данных
     items:
     - name: Обзор
