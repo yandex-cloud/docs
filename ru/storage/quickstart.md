@@ -6,11 +6,12 @@
 
    Подробнее читайте в разделе [Начало работы](../billing/quickstart/index.md) документации про Биллинг.
 1. Получите необходимые роли для работы с [!KEYREF objstorage-name]. Выберите один из вариантов:
+
     * роль `resource-manager.cloud.owner` на облако;
     * пара ролей `resource-manager.cloud.member` на облако и `admin` на облако или каталог;
     * пара ролей `resource-manager.cloud.member` на облако и `editor` на облако или каталог.
    
-    Чтобы назначить роли выполните:
+1. Чтобы назначить роли выполните:
    
     [!INCLUDE [grant-role-console](../_includes/grant-role-console.md)]
 

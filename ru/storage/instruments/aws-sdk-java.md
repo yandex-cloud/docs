@@ -41,7 +41,7 @@ AmazonS3 s3 = AmazonS3ClientBuilder.standard()
     .withCredentials(new AWSStaticCredentialsProvider(credentials))
     .withEndpointConfiguration(
         new AmazonS3ClientBuilder.EndpointConfiguration(
-            "storage.api.cloud.yandex.net","us-east-1"
+            "[!KEYREF s3-storage-host]","us-east-1"
         )
     )
     .build();
