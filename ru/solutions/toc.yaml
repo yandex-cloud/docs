@@ -25,7 +25,5 @@ items:
       href: archive/index.md
     - name: Однонодовый файловый сервер
       href: archive/single-node-file-server.md
-    - name: Система резервного копирования на базе Hystax
-      href: archive/hystax-based-buckup.md
-    - name: Резервное копирование в Object Storage через Acronis Backup Gateway
-      href: archive/object-storage-backup.md
+    - name: Резервное копирование в Object Storage через Acronis
+      href: archive/object-storage-acronis.md

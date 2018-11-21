@@ -1,4 +1,10 @@
-# Резервное копирование в Object Storage через Acronis Backup Gateway
+# Резервное копирование в [!KEYREF objstorage-full-name] через Acronis Backup Gateway
+
+Чтобы настроить резервное копирование в [!KEYREF objstorage-name] через Acronis Backup Gateway:
+* [Создайте публичную корзину](#create-public-bucket)
+* [Настройте Acronis Backup Gateway](#configure-acronis)
+* [Протестируйте резервное копирование](#test-backup)
+
 
 ## Создать публичную корзину {#create-public-bucket}
 
@@ -16,23 +22,23 @@
 1. Выберите **Публичный** доступ к корзине.
 1. Нажмите кнопку **Создать корзину**.
 
-## Настроить Acronis Backup Gateway
+## Настроить Acronis Backup Gateway {#configure-acronis}
 
-Чтобы настроить Acronis Backup Gateway для работы с Object Storage:
+Чтобы настроить Acronis Backup Gateway для работы с [!KEYREF objstorage-name]:
 
 1. В Acronis Storage откройте меню **Services** и выберите пункт **Acronis Backup Gateway**.
 1. Нажмите кнопку **Create Gateway**.
-1. Выберит тип хранилища **Public Cloud**.
+1. Выберите тип хранилища **Public Cloud**.
 1. В списке **ABGW private** выберите сетевой интерфейс с ролью **ABGW private**.
 1. В блоке **Public cloud parameters** задайте следующие настройки:
     1. Выберите тип провайдера **AuthV2 compatible**.
-    1. В поле **Endpoint URL** укажите `storage.api.cloud.yandex.net`.
-    1. Получите [статический ключ](../../storage/operations/security/get-static-key.md) и выберите его для аутентификации.
+    1. В поле **Endpoint URL** укажите `[!KEYREF s3-storage-host]`.
+    1. Получите [статический ключ](../../storage/operations/security/get-static-key.md) и укажите его для аутентификации.
     1. Укажите корзину `backup` для хранения резервных копий.
-1. Заполните регистрационные данные вашего аккаунта Acronis.
+1. В блоке **Registration** укажите данные вашего аккаунта Acronis.
 1. Нажмите кнопку **DONE**.
 
-## Проверить резервное копирование
+## Протестируйте резервное копирование {#test-backup}
 
 1. Настройте резервное копирование в Acronis Backup по [инструкции](https://www.acronis.com/ru-ru/support/documentation/BackupService/index.html#33507.html).
 1. Выполните резервное копирование по [инструкции](https://www.acronis.com/ru-ru/support/documentation/BackupService/index.html#33512.html).
