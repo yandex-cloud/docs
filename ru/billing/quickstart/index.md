@@ -41,12 +41,12 @@
       - Укажите данные карты: 16-значный номер, срок действия, код CVV (с обратной стороны карты).
       - Нажмите кнопку **Сохранить**.
       
+      [!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]  
+      
       > [!NOTE]
       >
       > Средства с привязанной карты могут быть списаны только после [активации платной версии](../operations/activate-commercial.md) и использования сервисов Яндекс.Облака. 
       >
-      
-      [!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]  
       
       [!INCLUDE [payment-card-validation](../_includes/payment-card-validation.md)]  
              
@@ -56,13 +56,13 @@
       - Нажмите кнопку **Добавить карту**.
       - Укажите данные карты: 16-значный номер, срок действия, код CVV (с обратной стороны карты).
       - Нажмите кнопку **Сохранить**.
+      
+      [!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]  
           
       > [!NOTE]
       >
       > Привязка банковской карты необходима только для создания платежного аккаунта. Средства с привязанной карты могут быть списаны только после [активации платной версии](../operations/activate-commercial.md) и использования сервисов Яндекс.Облака. Вы можете [изменить способ оплаты](../operations/change-payment-method.md) в любой момент после создания платежного аккаунта. <br/>Если вы хотите оплачивать ресурсы с помощью банковского перевода, отправьте запрос на почту [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru). Ваш запрос будет рассмотрен в течение трех рабочих дней.  
       >
-          
-      [!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]  
                 
       [!INCLUDE [yandex-account](../_includes/payment-card-validation.md)]
                  
