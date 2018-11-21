@@ -21,6 +21,8 @@ items:
             href: operations/postgresql/cluster-delete.md
           - name: Изменение настроек кластера и базы данных
             href: operations/postgresql/update.md
+          - name: Управление хостами кластера
+            href: operations/postgresql/hosts.md
           - name: Управление PostgreSQL-расширениями
             href: operations/postgresql/cluster-extensions.md
           - name: Управление базами данных
