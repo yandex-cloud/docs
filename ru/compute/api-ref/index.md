@@ -4,8 +4,8 @@
 Ресурс | Описание
 --- | ---
 [Disk](Disk/index.md) | Набор методов для управления ресурсами Disk.
-[DiskType](DiskType/index.md) | Набор методов для управления ресурсами DiskType.
+[DiskType](DiskType/index.md) | Набор методов для получения информации о типах дисков.
 [Image](Image/index.md) | Набор методов для управления ресурсами Image.
 [Instance](Instance/index.md) | Набор методов для управления ресурсами Instance.
 [Snapshot](Snapshot/index.md) | Набор методов для управления ресурсами Snapshot.
-[Zone](Zone/index.md) | Набор методов для управления ресурсами Zone.
+[Zone](Zone/index.md) | Набор методов для получения информации о зонах доступности.
