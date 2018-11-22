@@ -39,7 +39,7 @@ items:
             href: operations/clickhouse/connect.md
           - name: Удаление кластера
             href: operations/clickhouse/cluster-delete.md
-          - name: Изменение настроек кластера и базы данных
+          - name: Изменение настроек кластера
             href: operations/clickhouse/update.md
           - name: Управление хостами кластера
             href: operations/clickhouse/hosts.md
@@ -59,7 +59,7 @@ items:
           href: operations/mongodb/connect.md
         - name: Удаление кластера
           href: operations/mongodb/cluster-delete.md
-        - name: Изменение настроек кластера и базы данных
+        - name: Изменение настроек кластера
           href: operations/mongodb/update.md
         - name: Управление хостами кластера
           href: operations/postgresql/hosts.md
