@@ -1,0 +1,149 @@
+title: "Yandex Managed PostgreSQL"
+icon: "/img/translate.svg"
+items:
+  - name: Yandex Managed PostgreSQL
+    href: index.yaml
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+    - name: Все инструкции
+      href: operations/index.md
+    - name: Информация об имеющихся кластерах
+      href: operations/cluster-list.md
+    - name: Создание кластера
+      href: operations/cluster-create.md
+    - name: Подключение к базе данных
+      href: operations/connect.md
+    - name: Изменение настроек кластера и базы данных
+      href: operations/update.md
+    - name: Управление PostgreSQL-расширениями
+      href: operations/cluster-extensions.md
+    - name: Управление пользователями БД
+      href: operations/cluster-users.md
+    - name: Управление резервными копиями
+      href: operations/cluster-backups.md
+    - name: Удаление кластера
+      href: operations/cluster-delete.md
+  - name: Основные понятия
+    items:
+    - name: Взаимосвязь ресурсов сервиса
+      href: concepts/index.md
+    - name: Классы хостов
+      href: concepts/instance-types.md
+    - name: Сеть в Managed PostgreSQL
+      href: concepts/network.md
+    - name: Квоты и лимиты
+      href: concepts/limits.md
+    - name: Резервные копии
+      href: concepts/backup.md
+    - name: Репликация
+      href: concepts/replication.md
+    - name: Поддерживаемые клиенты
+      href: concepts/supported-clients.md
+  - name: Безопасность и управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API
+    items:
+    - name: Аутентификация в API
+      href: api-ref/authentication.md
+    - name: PostgreSQL
+      items:
+        - name: Обзор
+          href: api-ref/index.md
+        - name: Backup
+          items:
+            - name: Обзор
+              href: api-ref/Backup/index.md
+            - name: get
+              href: api-ref/Backup/get.md
+            - name: list
+              href: api-ref/Backup/list.md
+        - name: Cluster
+          items:
+            - name: Обзор
+              href: api-ref/Cluster/index.md
+            - name: addHosts
+              href: api-ref/Cluster/addHosts.md
+            - name: backup
+              href: api-ref/Cluster/backup.md
+            - name: create
+              href: api-ref/Cluster/create.md
+            - name: delete
+              href: api-ref/Cluster/delete.md
+            - name: deleteHosts
+              href: api-ref/Cluster/deleteHosts.md
+            - name: get
+              href: api-ref/Cluster/get.md
+            - name: list
+              href: api-ref/Cluster/list.md
+            - name: listBackups
+              href: api-ref/Cluster/listBackups.md
+            - name: listHosts
+              href: api-ref/Cluster/listHosts.md
+            - name: listLogs
+              href: api-ref/Cluster/listLogs.md
+            - name: listOperations
+              href: api-ref/Cluster/listOperations.md
+            - name: restore
+              href: api-ref/Cluster/restore.md
+            - name: update
+              href: api-ref/Cluster/update.md
+            - name: updateHosts
+              href: api-ref/Cluster/updateHosts.md
+        - name: Database
+          items:
+            - name: Обзор
+              href: api-ref/Database/index.md
+            - name: create
+              href: api-ref/Database/create.md
+            - name: delete
+              href: api-ref/Database/delete.md
+            - name: get
+              href: api-ref/Database/get.md
+            - name: list
+              href: api-ref/Database/list.md
+            - name: update
+              href: api-ref/Database/update.md
+        - name: Operation
+          items:
+            - name: Обзор
+              href: api-ref/Operation/index.md
+            - name: get
+              href: api-ref/Operation/get.md
+        - name: ResourcePreset
+          items:
+            - name: Обзор
+              href: api-ref/ResourcePreset/index.md
+            - name: get
+              href: api-ref/ResourcePreset/get.md
+            - name: list
+              href: api-ref/ResourcePreset/list.md
+        - name: User
+          items:
+            - name: Обзор
+              href: api-ref/User/index.md
+            - name: create
+              href: api-ref/User/create.md
+            - name: delete
+              href: api-ref/User/delete.md
+            - name: get
+              href: api-ref/User/get.md
+            - name: grantPermission
+              href: api-ref/User/grantPermission.md
+            - name: list
+              href: api-ref/User/list.md
+            - name: revokePermission
+              href: api-ref/User/revokePermission.md
+            - name: update
+              href: api-ref/User/update.md
+  - name: Вопросы и ответы
+    items:
+    - name: Общие вопросы
+      href: qa/general.md
+    - name: Вопросы о PostgreSQL
+      href: qa/postgresql.md
+    - name: Все вопросы на одной странице
+      href: qa/all.md
