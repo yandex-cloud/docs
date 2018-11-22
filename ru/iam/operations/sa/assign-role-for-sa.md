@@ -65,3 +65,8 @@ yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
 Чтобы назначить сервисному аккаунту роль на ресурс, воспользуйтесь методом `setAccessBindings` для того ресурса, на который нужно назначить роль.
 
 ---
+
+#### Что дальше
+
+- [[!TITLE]](create-access-key.md)
+- [[!TITLE]](set-access-bindings.md)

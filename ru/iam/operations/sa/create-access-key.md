@@ -81,3 +81,8 @@ $ curl -X POST \
 ```
 
 ---
+
+#### Что дальше
+
+- [Настроить инструменты для работы с [!KEYREF objstorage-name]](../../../storage/instruments/)
+- [[!TITLE]](assign-role-for-sa.md)

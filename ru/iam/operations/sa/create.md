@@ -73,3 +73,9 @@ curl -X POST \
 ```
 
 ---
+
+#### Что дальше
+
+- [[!TITLE]](assign-role-for-sa.md)
+- [[!TITLE]](create-access-key.md)
+- [[!TITLE]](set-access-bindings.md)
