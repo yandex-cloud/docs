@@ -27,6 +27,8 @@ items:
             href: operations/sa/assign-role-for-sa.md
           - name: Установить права доступа к сервисному аккаунту
             href: operations/sa/set-access-bindings.md
+          - name: Создать статические ключи доступа
+            href: operations/sa/create-access-key.md
           - name: Удалить сервисный аккаунт
             href: operations/sa/delete.md
       - name: Роли
