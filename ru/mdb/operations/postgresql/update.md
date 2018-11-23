@@ -32,7 +32,7 @@
    $ [!KEYREF yc-mdb-pg] resource-preset list
    
    +-----------+--------------------------------+-------+--------------+
-   |    ID     |           FOLDER ID            | CORES |    MEMORY    |
+   |    ID     |            ZONE IDS            | CORES |    MEMORY    |
    +-----------+--------------------------------+-------+--------------+
    | s1.nano   | ru-central1-a, ru-central1-b,  |     1 |   4294967296 |
    |           | ru-central1-c                  |       |              |
@@ -54,9 +54,9 @@
 
 **[!TAB API]**
 
-Изменить [класс хостов](../../concepts/instance-types.md) кластера можно с помощью метода API [update](../../api-ref/clickhouse/Cluster/update.md): передайте в параметрах запроса нужное значение в свойстве `configSpec.clickhouse.resources.resourcePresetId`.
+Изменить [класс хостов](../../concepts/instance-types.md) кластера можно с помощью метода API [update](../../api-ref/postgresql/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.clickhouse.resources.resourcePresetId`.
 
-Список поддерживаемых значений запрашивайте методом [list](../../api-ref/clickhouse/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
+Список поддерживаемых значений запрашивайте методом [list](../../api-ref/postgresql/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
 
 ---
 
@@ -110,7 +110,7 @@
 
 **[!TAB API]**
 
-Изменить размер хранилища для кластера можно с помощью метода API [update](../../api-ref/clickhouse/Cluster/update.md): передайте в параметрах запроса нужное значение в свойстве `configSpec.clickhouse.resources.diskSize`.
+Изменить размер хранилища для кластера можно с помощью метода API [update](../../api-ref/postgresql/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.postgresqlConfig_10.resources.diskSize`.
 
 Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции [!KEYREF mdb-full-name] не исчерпано место в строке **space**.
 
@@ -125,7 +125,7 @@
 
 **[!TAB API]**
 
-Изменить настройки СУБД для кластера можно с помощью метода API [update](../../api-ref/postgresql/Cluster/update.md): передайте в параметрах запроса нужные значения в свойстве `configSpec.postgresqlConfig_10.config`.
+Изменить настройки СУБД для кластера можно с помощью метода API [update](../../api-ref/postgresql/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.postgresqlConfig_10.config`.
 
 ---
 
@@ -138,6 +138,6 @@
 
 **[!TAB API]**
 
-Изменить режим работы менеджера подключений для кластера можно с помощью метода API [update](../../api-ref/postgresql/Cluster/update.md): передайте в параметрах запроса нужные значения в свойстве `configSpec.poolerConfig.poolingMode`.
+Изменить режим работы менеджера подключений для кластера можно с помощью метода API [update](../../api-ref/postgresql/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.poolerConfig.poolingMode`.
 
 ---

@@ -54,7 +54,7 @@
 
 **[!TAB API]**
 
-Изменить [класс хостов](../../concepts/instance-types.md) кластера можно с помощью метода API [update](../../api-ref/clickhouse/Cluster/update.md): передайте в параметрах запроса нужное значение в свойстве `configSpec.clickhouse.resources.resourcePresetId` (для ZooKeeper — `configSpec.zookeeper.resources.resourcePresetId`).
+Изменить [класс хостов](../../concepts/instance-types.md) кластера можно с помощью метода API [update](../../api-ref/clickhouse/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.resources.resourcePresetId` (для ZooKeeper — `configSpec.zookeeper.resources.resourcePresetId`).
 
 Список поддерживаемых значений запрашивайте методом [list](../../api-ref/clickhouse/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
 
@@ -111,7 +111,7 @@
 
 **[!TAB API]**
 
-Изменить размер хранилища для кластера можно с помощью метода API [update](../../api-ref/clickhouse/Cluster/update.md): передайте в параметрах запроса нужное значение в свойстве `configSpec.clickhouse.resources.diskSize` (для ZooKeeper — `configSpec.zookeeper.resources.diskSize`).
+Изменить размер хранилища для кластера можно с помощью метода API [update](../../api-ref/clickhouse/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.resources.diskSize` (для ZooKeeper — `configSpec.zookeeper.resources.diskSize`).
 
 Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции [!KEYREF mdb-full-name] не исчерпано место в строке **space**.
 
@@ -126,6 +126,6 @@
 
 **[!TAB API]**
 
-Изменить настройки СУБД для кластера можно с помощью метода API [update](../../api-ref/clickhouse/Cluster/update.md): передайте в параметрах запроса нужные значения в свойстве `configSpec.clickhouse.config`.
+Изменить настройки СУБД для кластера можно с помощью метода API [update](../../api-ref/clickhouse/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.config`.
 
 ---
