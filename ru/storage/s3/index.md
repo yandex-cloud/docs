@@ -12,8 +12,6 @@
 
 ## Общий вид запроса к API
 
-Общий вид запроса:
-
 ```
 {GET|HEAD|PUT|DELETE} {path} HTTP/1.1
 Host: [!KEYREF s3-storage-host]
