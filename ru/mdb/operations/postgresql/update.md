@@ -26,7 +26,7 @@
    $ [!KEYREF yc-mdb-pg] cluster update --help
    ```
 
-1. Запросите список доступных классов хостов (в колонке `FOLDER ID` указаны зоны доступности, в которых можно выбрать соответствующий класс):
+1. Запросите список доступных классов хостов (в колонке `ZONE IDS` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
    ```
    $ [!KEYREF yc-mdb-pg] resource-preset list
@@ -122,6 +122,32 @@
 Вы можете изменить настройки СУБД для хостов вашего кластера. Все поддерживаемые настройки описаны [в справочнике API](../../api-ref/postgresql/Cluster/update.md).
 
 ---
+
+**[!TAB CLI]**
+
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+
+Чтобы изменить настройки сервера [!KEYREF PG]:
+
+1. Посмотрите описание команды CLI для изменения конфигурации кластера:
+
+   ```
+   $ [!KEYREF yc-mdb-pg] cluster update-config --help
+   ```
+
+1. Установите нужные значения параметров.
+
+   Все поддерживаемые параметры перечислены в [формате запроса для метода update](../../api-ref/postgresql/Cluster/update.md), в поле `postgresqlConfig_10`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `logMinDurationStatement` из запроса к API преобразуется в `log_min_duration_statement` для команды CLI:
+   
+   ```
+   $ [!KEYREF yc-mdb-pg] cluster update-config <имя кластера>
+        --set log_min_duration_statement=100,<имя параметра>=<значение>,... 
+   ```
+ 
+   [!KEYREF mdb-short-name] запустит операцию по изменению настроек кластера.
+
 
 **[!TAB API]**
 
