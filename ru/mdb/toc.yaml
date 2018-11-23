@@ -17,46 +17,58 @@ items:
             href: operations/postgresql/cluster-create.md
           - name: Подключение к базе данных
             href: operations/postgresql/connect.md
+          - name: Удаление кластера
+            href: operations/postgresql/cluster-delete.md
           - name: Изменение настроек кластера и базы данных
             href: operations/postgresql/update.md
+          - name: Управление хостами кластера
+            href: operations/postgresql/hosts.md
           - name: Управление PostgreSQL-расширениями
             href: operations/postgresql/cluster-extensions.md
+          - name: Управление базами данных
+            href: operations/postgresql/databases.md
           - name: Управление пользователями БД
             href: operations/postgresql/cluster-users.md
           - name: Управление резервными копиями
             href: operations/postgresql/cluster-backups.md
-          - name: Удаление кластера
-            href: operations/postgresql/cluster-delete.md
       - name: ClickHouse
         items:
           - name: Создание кластера
             href: operations/clickhouse/cluster-create.md
           - name: Подключение к базе данных
             href: operations/clickhouse/connect.md
-          - name: Изменение настроек кластера и базы данных
+          - name: Удаление кластера
+            href: operations/clickhouse/cluster-delete.md
+          - name: Изменение настроек кластера
             href: operations/clickhouse/update.md
+          - name: Управление хостами кластера
+            href: operations/clickhouse/hosts.md
           - name: Добавление данных и репликация в ClickHouse
             href: operations/clickhouse/insert.md
+          - name: Управление базами данных
+            href: operations/clickhouse/databases.md
           - name: Управление пользователями БД
             href: operations/clickhouse/cluster-users.md
           - name: Управление резервными копиями
             href: operations/clickhouse/cluster-backups.md
-          - name: Удаление кластера
-            href: operations/clickhouse/cluster-delete.md
       - name: MongoDB
         items:
         - name: Создание кластера
           href: operations/mongodb/cluster-create.md
         - name: Подключение к базе данных
           href: operations/mongodb/connect.md
-        - name: Изменение настроек кластера и базы данных
+        - name: Удаление кластера
+          href: operations/mongodb/cluster-delete.md
+        - name: Изменение настроек кластера
           href: operations/mongodb/update.md
+        - name: Управление хостами кластера
+          href: operations/mongodb/hosts.md
+        - name: Управление базами данных
+          href: operations/mongodb/databases.md
         - name: Управление пользователями БД
           href: operations/mongodb/cluster-users.md
         - name: Управление резервными копиями
           href: operations/mongodb/cluster-backups.md
-        - name: Удаление кластера
-          href: operations/mongodb/cluster-delete.md
   - name: Основные понятия
     items:
     - name: Взаимосвязь ресурсов сервиса
