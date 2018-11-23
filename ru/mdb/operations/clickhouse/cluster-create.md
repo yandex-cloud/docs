@@ -44,7 +44,7 @@
 1. Посмотрите описание команды CLI для создания кластера:
 
     ```
-    $ [!KEYREF yc-mdb-pg] cluster create --help
+    $ [!KEYREF yc-mdb-ch] cluster create --help
     ```
 
 1. Проверьте, есть ли в каталоге подсети для хостов кластера:
