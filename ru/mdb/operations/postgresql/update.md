@@ -136,6 +136,30 @@
 
 ---
 
+**[!TAB CLI]**
+
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+
+Чтобы изменить режим работы PgBouncer:
+
+1. Посмотрите описание команды CLI для изменения кластера:
+
+   ```
+   $ [!KEYREF yc-mdb-pg] cluster update --help
+   ```
+
+1. Укажите нужный режим работы с помощью флага `--connection-pooling-mode`:
+
+   ```
+   $ [!KEYREF yc-mdb-pg] cluster update <имя кластера>
+        --connection-pooling-mode <SESSION, TRANSACTION или STATEMENT>
+   ```
+   
+   [!KEYREF mdb-short-name] запустит операцию по изменению режима работы менеджера подключений.
+
+
 **[!TAB API]**
 
 Изменить режим работы менеджера подключений для кластера можно с помощью метода API [update](../../api-ref/postgresql/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.poolerConfig.poolingMode`.
