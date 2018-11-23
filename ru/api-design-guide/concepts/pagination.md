@@ -12,7 +12,7 @@
 
 ### gRPC
 
-gRPC-описание метода [List]([List](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto#L24) для дисков:
+gRPC-описание метода [List](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto#L24) для дисков:
 ```protobuf
  // Метод возвращает список дисков в заданном каталоге.
  rpc List (ListDisksRequest) returns (ListDisksResponse) {

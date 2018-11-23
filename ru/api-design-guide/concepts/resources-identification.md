@@ -4,7 +4,7 @@
  
 Идентификаторы необходимо передавать в запросах к API при обращении к ресурсам.
 
-Пример gRPC-описания метода [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto#L20) для получения диска:
+Пример gRPC-описания метода [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto#L19) для получения диска:
 
 ```protobuf 
  rpc Get (GetDiskRequest) returns (Disk) {
