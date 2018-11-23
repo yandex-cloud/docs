@@ -32,7 +32,7 @@
    $ [!KEYREF yc-mdb-pg] resource-preset list
    
    +-----------+--------------------------------+-------+--------------+
-   |    ID     |            ZONE IDS            | CORES |    MEMORY    |
+   |    ID     |              ZONES             | CORES |    MEMORY    |
    +-----------+--------------------------------+-------+--------------+
    | s1.nano   | ru-central1-a, ru-central1-b,  |     1 |   4294967296 |
    |           | ru-central1-c                  |       |              |
