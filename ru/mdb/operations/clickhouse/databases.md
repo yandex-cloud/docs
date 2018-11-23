@@ -30,7 +30,7 @@ $ [!KEYREF yc-mdb-ch] database list
 
 **[!TAB API]**
 
-Получить список баз данных кластера можно с помощью метода [list](../../api-ref/postgresql/Database/list.md).
+Получить список баз данных кластера можно с помощью метода [list](../../api-ref/clickhouse/Database/list.md).
 
 ---
 
@@ -69,7 +69,7 @@ $ [!KEYREF yc-mdb-mg] database create <имя базы данных>
 
 **[!TAB API]**
 
-Создать новую базу данных в кластере можно с помощью метода [create](../../api-ref/postgresql/Database/create.md).
+Создать новую базу данных в кластере можно с помощью метода [create](../../api-ref/clickhouse/Database/create.md).
 
 ---
 
@@ -102,6 +102,6 @@ $ [!KEYREF yc-mdb-ch] database delete <имя базы данных>
 
 **[!TAB API]**
 
-Удалить базу данных можно с помощью метода [delete](../../api-ref/postgresql/Database/delete.md).
+Удалить базу данных можно с помощью метода [delete](../../api-ref/clickhouse/Database/delete.md).
 
 ---
