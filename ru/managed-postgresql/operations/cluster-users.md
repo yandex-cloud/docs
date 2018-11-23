@@ -32,7 +32,7 @@ $ [!KEYREF yc-mdb-pg] user list
 
 При добавлении пользователя [!KEYREF mdb-short-name] по умолчанию резервирует для него 50 подключений к [!KEYREF PG]-кластеру (параметр `connlimit`). Минимальное количество подключений на пользователя — 10.
 
-[!INCLUDE [note-pg-user-connections.md](../../_includes-service/note-pg-user-connections.md)]
+[!INCLUDE [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md)]
 
 ---
 

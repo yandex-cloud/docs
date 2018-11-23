@@ -9,7 +9,7 @@
 
 По умолчанию [!KEYREF mdb-short-name] выставляет максимально возможное ограничение на количество подключений к каждому хосту [!KEYREF PG]-кластера. Этот максимум рассчитывается так: `200 × <количество vCPU на каждом хосте>`. Например, для кластера [класса s1.micro](../../concepts/instance-types.md) значение параметра `max_connections` по умолчанию равно 400, и не может быть увеличено.
 
-[!INCLUDE [note-pg-user-connections.md](../../_includes-service/note-pg-user-connections.md)]
+[!INCLUDE [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md)]
 
 
 ## Как создать кластер [!KEYREF PG] {#create-cluster}
