@@ -6,7 +6,4 @@
 
 Размер каждой резервной копии, которую вы создаете вручную, всегда равен текущему объему баз данных (инкрементальное копирование для ручных резервных копий недоступно).
 
-Чтобы восстановить кластер из резервной копии, следуйте инструкциям:
-  - [[!KEYREF PG]](../operations/postgresql/cluster-backups.md)
-  - [[!KEYREF CH]](../operations/clickhouse/cluster-backups.md)
-  - [[!KEYREF MG]](../operations/mongodb/cluster-backups.md)
+Чтобы восстановить кластер из резервной копии, [следуйте инструкциям](../operations/cluster-backups.md).

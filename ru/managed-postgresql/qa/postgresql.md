@@ -22,7 +22,7 @@
 
 #### Какие расширения для [!KEYREF PG] поддерживаются в [!KEYREF mdb-short-name]? {#pg-extension}
 
-Список поддерживаемых расширений для [!KEYREF PG] приведен в разделе [[!TITLE]](../operations/postgresql/cluster-extensions.md).
+Список поддерживаемых расширений для [!KEYREF PG] приведен в разделе [[!TITLE]](../operations/cluster-extensions.md).
 
 #### Какие ограничения накладываются на кластеры БД [!KEYREF PG]? {#instance-limitations}
 

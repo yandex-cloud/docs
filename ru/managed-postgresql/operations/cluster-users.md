@@ -13,9 +13,9 @@
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы получить список пользователей кластера, выполните команду:
 
@@ -45,9 +45,9 @@ $ [!KEYREF yc-mdb-pg] user list
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы создать пользователя в кластере, выполните команду:
 
@@ -78,13 +78,13 @@ $ [!KEYREF yc-mdb-pg] user create <имя пользователя>
 
 1. Перейдите на страницу каталога и нажмите плитку **Yandex Managed Databases**.
 1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
-1. Нажмите значок ![](../../../_assets/vertical-ellipsis.svg) и выберите пункт **Изменить пароль**.
+1. Нажмите значок ![](../../_assets/vertical-ellipsis.svg) и выберите пункт **Изменить пароль**.
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы изменить пароль пользователя или список доступных ему баз данных, выполните команду:
 
@@ -107,13 +107,13 @@ $ [!KEYREF yc-mdb-pg] user update <имя пользователя>
 
 1. Перейдите на страницу каталога и нажмите плитку **Yandex Managed Databases**.
 1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
-1. Нажмите значок ![](../../../_assets/vertical-ellipsis.svg) и выберите пункт **Удалить**.
+1. Нажмите значок ![](../../_assets/vertical-ellipsis.svg) и выберите пункт **Удалить**.
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы удалить пользователя, выполните команду:
 

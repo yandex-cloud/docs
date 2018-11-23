@@ -6,7 +6,7 @@
 
 [!KEYREF PG]-кластеры [!KEYREF mdb-short-name] поддерживают только шифрованные соединения. Поэтому для подключения к такому кластеру необходим SSL-сертификат. Подготовить все нужные аутентификационные данные можно так:
 
-[!INCLUDE [get-cert](../../_includes-service/get-cert.md)]
+[!INCLUDE [get-cert](../../_includes/mdb/get-cert.md)]
 
 О том, как использовать сертификат с помощью `libpq`, читайте в [документации [!KEYREF PG]](https://www.postgresql.org/docs/10/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
 

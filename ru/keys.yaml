@@ -59,3 +59,4 @@ yc-mdb-pg: yc managed-postgresql
 PG: PostgreSQL
 CH: ClickHouse
 MG: MongoDB
+pem-path: '/mdb/CA.pem'

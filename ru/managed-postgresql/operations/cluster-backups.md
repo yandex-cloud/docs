@@ -5,7 +5,7 @@
 
 ## Восстановить кластер из резервной копии {#restore}
 
-Восстанавливая кластер из резервной копии, вы создаете новый кластер с данными из резервной копии. Если в каталоге не хватает [ресурсов](../../concepts/limits.md) для создания такого кластера, восстановиться из резервной копии не получится.
+Восстанавливая кластер из резервной копии, вы создаете новый кластер с данными из резервной копии. Если в каталоге не хватает [ресурсов](../concepts/limits.md) для создания такого кластера, восстановиться из резервной копии не получится.
 
 Для нового кластера необходимо задать все параметры, обязательные при создании, кроме типа кластера (резервную копию [!KEYREF CH] не получится восстановить как кластер [!KEYREF PG]).
 
@@ -15,13 +15,13 @@
 
 1. Перейдите на страницу каталога и нажмите плитку **Yandex Managed Databases**.
 1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
-1. Нажмите значок ![](../../../_assets/dots.svg) для нужной резервной копии, затем нажмите **Восстановить кластер**.
+1. Нажмите значок ![](../../_assets/dots.svg) для нужной резервной копии, затем нажмите **Восстановить кластер**.
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы восстановить кластер из резервной копии:
 
@@ -85,9 +85,9 @@
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы создать резервную копию кластера:
 
@@ -102,7 +102,7 @@
     $ [!KEYREF yc-mdb-pg] cluster backup my-pg-cluster
     ```
     
-    Имя и идентификатор кластера можно получить со [списком кластеров](../cluster-list.md#list-clusters). 
+    Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters). 
     
 ---
 
@@ -118,9 +118,9 @@
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы получить список резервных копий кластеров [!KEYREF PG], доступных в каталоге по умолчанию, выполните команду:
 
@@ -149,9 +149,9 @@ $ [!KEYREF yc-mdb-pg] backup list
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы получить данные о резервной копии кластера [!KEYREF PG], выполните команду:
 

@@ -14,9 +14,9 @@
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы получить список баз данных в кластере, выполните команду:
 
@@ -30,7 +30,7 @@ $ [!KEYREF yc-mdb-ch] database list
 
 **[!TAB API]**
 
-Получить список баз данных кластера можно с помощью метода [list](../../api-ref/clickhouse/Database/list.md).
+Получить список баз данных кластера можно с помощью метода [list](../api-ref/Database/list.md).
 
 ---
 
@@ -51,9 +51,9 @@ $ [!KEYREF yc-mdb-ch] database list
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Выполните команду создания БД, задав имя новой базы:
 
@@ -69,7 +69,7 @@ $ [!KEYREF yc-mdb-mg] database create <имя базы данных>
 
 **[!TAB API]**
 
-Создать новую базу данных в кластере можно с помощью метода [create](../../api-ref/clickhouse/Database/create.md).
+Создать новую базу данных в кластере можно с помощью метода [create](../api-ref/Database/create.md).
 
 ---
 
@@ -81,14 +81,14 @@ $ [!KEYREF yc-mdb-mg] database create <имя базы данных>
 
 1. Перейдите на страницу каталога и нажмите плитку **Yandex Managed ClickHouse**.
 1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
-1. Нажмите значок ![](../../../_assets/vertical-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
+1. Нажмите значок ![](../../_assets/vertical-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
 
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы удалить базу данных, выполните команду:
 
@@ -102,6 +102,6 @@ $ [!KEYREF yc-mdb-ch] database delete <имя базы данных>
 
 **[!TAB API]**
 
-Удалить базу данных можно с помощью метода [delete](../../api-ref/clickhouse/Database/delete.md).
+Удалить базу данных можно с помощью метода [delete](../api-ref/Database/delete.md).
 
 ---

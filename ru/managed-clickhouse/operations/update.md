@@ -13,11 +13,11 @@
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
-Чтобы изменить [класс хостов](../../concepts/instance-types.md) для кластера:
+Чтобы изменить [класс хостов](../concepts/instance-types.md) для кластера:
 
 1. Посмотрите описание команды CLI для изменения кластера:
 
@@ -54,9 +54,9 @@
 
 **[!TAB API]**
 
-Изменить [класс хостов](../../concepts/instance-types.md) кластера можно с помощью метода API [update](../../api-ref/clickhouse/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.resources.resourcePresetId` (для ZooKeeper — `configSpec.zookeeper.resources.resourcePresetId`).
+Изменить [класс хостов](../concepts/instance-types.md) кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.resources.resourcePresetId` (для ZooKeeper — `configSpec.zookeeper.resources.resourcePresetId`).
 
-Список поддерживаемых значений запрашивайте методом [list](../../api-ref/clickhouse/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
+Список поддерживаемых значений запрашивайте методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
 
 ---
 
@@ -67,9 +67,9 @@
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы увеличить размер хранилища для кластера:
 
@@ -111,7 +111,7 @@
 
 **[!TAB API]**
 
-Изменить размер хранилища для кластера можно с помощью метода API [update](../../api-ref/clickhouse/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.resources.diskSize` (для ZooKeeper — `configSpec.zookeeper.resources.diskSize`).
+Изменить размер хранилища для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.resources.diskSize` (для ZooKeeper — `configSpec.zookeeper.resources.diskSize`).
 
 Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции [!KEYREF mdb-full-name] не исчерпано место в строке **space**.
 
@@ -120,12 +120,12 @@
 
 ## Изменить настройки [!KEYREF CH] {#change-clickhouse-config}
 
-Вы можете изменить настройки СУБД для хостов вашего кластера. Все поддерживаемые настройки описаны [в справочнике API](../../api-ref/clickhouse/Cluster/update.md).
+Вы можете изменить настройки СУБД для хостов вашего кластера. Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md).
 
 ---
 
 **[!TAB API]**
 
-Изменить настройки СУБД для кластера можно с помощью метода API [update](../../api-ref/clickhouse/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.config`.
+Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.config`.
 
 ---

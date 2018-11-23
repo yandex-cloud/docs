@@ -14,11 +14,11 @@
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
-Чтобы изменить [класс хостов](../../concepts/instance-types.md) для кластера:
+Чтобы изменить [класс хостов](../concepts/instance-types.md) для кластера:
 
 1. Посмотрите описание команды CLI для изменения кластера:
 
@@ -54,9 +54,9 @@
 
 **[!TAB API]**
 
-Изменить [класс хостов](../../concepts/instance-types.md) кластера можно с помощью метода API [update](../../api-ref/postgresql/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.clickhouse.resources.resourcePresetId`.
+Изменить [класс хостов](../concepts/instance-types.md) кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.clickhouse.resources.resourcePresetId`.
 
-Список поддерживаемых значений запрашивайте методом [list](../../api-ref/postgresql/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
+Список поддерживаемых значений запрашивайте методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
 
 ---
 
@@ -67,9 +67,9 @@
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы увеличить размер хранилища для кластера:
 
@@ -110,7 +110,7 @@
 
 **[!TAB API]**
 
-Изменить размер хранилища для кластера можно с помощью метода API [update](../../api-ref/postgresql/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.postgresqlConfig_10.resources.diskSize`.
+Изменить размер хранилища для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.postgresqlConfig_10.resources.diskSize`.
 
 Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции [!KEYREF mdb-full-name] не исчерпано место в строке **space**.
 
@@ -119,15 +119,15 @@
 
 ## Изменить настройки [!KEYREF PG] {#change-postgresql-config}
 
-Вы можете изменить настройки СУБД для хостов вашего кластера. Все поддерживаемые настройки описаны [в справочнике API](../../api-ref/postgresql/Cluster/update.md).
+Вы можете изменить настройки СУБД для хостов вашего кластера. Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md).
 
 ---
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы изменить настройки сервера [!KEYREF PG]:
 
@@ -139,7 +139,7 @@
 
 1. Установите нужные значения параметров.
 
-   Все поддерживаемые параметры перечислены в [формате запроса для метода update](../../api-ref/postgresql/Cluster/update.md), в поле `postgresqlConfig_10`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `logMinDurationStatement` из запроса к API преобразуется в `log_min_duration_statement` для команды CLI:
+   Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `postgresqlConfig_10`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `logMinDurationStatement` из запроса к API преобразуется в `log_min_duration_statement` для команды CLI:
    
    ```
    $ [!KEYREF yc-mdb-pg] cluster update-config <имя кластера>
@@ -151,7 +151,7 @@
 
 **[!TAB API]**
 
-Изменить настройки СУБД для кластера можно с помощью метода API [update](../../api-ref/postgresql/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.postgresqlConfig_10.config`.
+Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.postgresqlConfig_10.config`.
 
 ---
 
@@ -164,9 +164,9 @@
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы изменить режим работы PgBouncer:
 
@@ -188,6 +188,6 @@
 
 **[!TAB API]**
 
-Изменить режим работы менеджера подключений для кластера можно с помощью метода API [update](../../api-ref/postgresql/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.poolerConfig.poolingMode`.
+Изменить режим работы менеджера подключений для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.poolerConfig.poolingMode`.
 
 ---

@@ -14,9 +14,9 @@
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы получить список баз данных в кластере, выполните команду:
 
@@ -30,7 +30,7 @@ $ [!KEYREF yc-mdb-pg] database list
 
 **[!TAB API]**
 
-Получить список баз данных кластера можно с помощью метода [list](../../api-ref/postgresql/Database/list.md).
+Получить список баз данных кластера можно с помощью метода [list](../api-ref/Database/list.md).
 
 ---
 
@@ -52,9 +52,9 @@ $ [!KEYREF yc-mdb-pg] database list
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы создать базу данных в кластере:
 
@@ -88,7 +88,7 @@ $ [!KEYREF yc-mdb-pg] database list
 
 **[!TAB API]**
 
-Создать новую базу данных в кластере можно с помощью метода [create](../../api-ref/postgresql/Database/create.md).
+Создать новую базу данных в кластере можно с помощью метода [create](../api-ref/Database/create.md).
 
 ---
 
@@ -100,14 +100,14 @@ $ [!KEYREF yc-mdb-pg] database list
 
 1. Перейдите на страницу каталога и нажмите плитку **Yandex Managed PostgreSQL**.
 1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
-1. Нажмите значок ![](../../../_assets/vertical-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
+1. Нажмите значок ![](../../_assets/vertical-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
 
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы удалить базу данных, выполните команду:
 
@@ -121,6 +121,6 @@ $ [!KEYREF yc-mdb-pg] database delete <имя базы данных>
 
 **[!TAB API]**
 
-Удалить базу данных можно с помощью метода [delete](../../api-ref/postgresql/Database/delete.md).
+Удалить базу данных можно с помощью метода [delete](../api-ref/Database/delete.md).
 
 ---

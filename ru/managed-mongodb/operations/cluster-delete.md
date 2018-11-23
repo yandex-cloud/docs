@@ -10,13 +10,13 @@
 
 1. Откройте страницу каталога в консоли управления.
 1. Нажмите плитку **Yandex Managed Databases**.
-1. Нажмите значок ![](../../../_assets/vertical-ellipsis.svg) для нужного кластера и выберите пункт **Удалить**.
+1. Нажмите значок ![](../../_assets/vertical-ellipsis.svg) для нужного кластера и выберите пункт **Удалить**.
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы удалить кластер, выполните команду:
 

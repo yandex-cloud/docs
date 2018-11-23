@@ -14,9 +14,9 @@
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы получить список баз данных в кластере, выполните команду:
 
@@ -32,12 +32,12 @@ $ [!KEYREF yc-mdb-mg] host list
 +----------------------------+--------------+---------+--------+---------------+
 ```
 
-Имя кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
 **[!TAB API]**
 
-Получить список хостов кластера можно с помощью метода [listHosts](../../api-ref/mongodb/Cluster/listHosts.md).
+Получить список хостов кластера можно с помощью метода [listHosts](../api-ref/Cluster/listHosts.md).
 
 ---
 
@@ -56,15 +56,15 @@ $ [!KEYREF yc-mdb-mg] host list
 1. Укажите параметры хоста:
 
    - зону доступности;
-   - подсеть (если нужной подсети в списке нет, [создайте ее](../../../vpc/operations/subnet-create.md));
+   - подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md));
    - выберите опцию **Публичный доступ**, если хост должен быть доступен извне Облака.
 
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы добавить хост в кластере:
 
@@ -89,7 +89,7 @@ $ [!KEYREF yc-mdb-mg] host list
    +-----------+-----------+------------+---------------+------------------+
    ```
 
-   Если нужной подсети в списке нет, [создайте ее](../../../vpc/operations/subnet-create.md).
+   Если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md).
 
 1. Выполните команду добавления хоста:
 
@@ -101,12 +101,12 @@ $ [!KEYREF yc-mdb-mg] host list
    
    [!KEYREF mdb-short-name] запустит операцию добавления хоста.
    
-   Идентификатор подсети необходимо указать, если в зоне доступности больше одной подсети, в противном случае [!KEYREF mdb-short-name] автоматически выберет единственную подсеть. Имя кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+   Идентификатор подсети необходимо указать, если в зоне доступности больше одной подсети, в противном случае [!KEYREF mdb-short-name] автоматически выберет единственную подсеть. Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
 **[!TAB API]**
 
-Добавить хост в кластер можно с помощью метода [addHosts](../../api-ref/mongodb/Cluster/addHosts.md).
+Добавить хост в кластер можно с помощью метода [addHosts](../api-ref/Cluster/addHosts.md).
 
 ---
 
@@ -123,14 +123,14 @@ $ [!KEYREF yc-mdb-mg] host list
 
 1. Перейдите на страницу каталога и нажмите плитку **Yandex Managed MongoDB**.
 1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
-1. Нажмите значок ![](../../../_assets/vertical-ellipsis.svg) в строке нужного хоста и выберите пункт **Удалить**.
+1. Нажмите значок ![](../../_assets/vertical-ellipsis.svg) в строке нужного хоста и выберите пункт **Удалить**.
 
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы удалить хост из кластера, выполните команду:
 
@@ -139,11 +139,11 @@ $ [!KEYREF yc-mdb-mg] host delete <имя хоста>
      --cluster-name=<имя кластера>
 ```
 
-Имя хоста можно запросить со [списком хостов в кластере](#list-hosts), имя кластера — со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+Имя хоста можно запросить со [списком хостов в кластере](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
 **[!TAB API]**
 
-Удалить хост можно с помощью метода [deleteHosts](../../api-ref/mongodb/Cluster/deleteHosts.md).
+Удалить хост можно с помощью метода [deleteHosts](../api-ref/Cluster/deleteHosts.md).
 
 ---
