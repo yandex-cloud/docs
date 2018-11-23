@@ -49,8 +49,6 @@ items:
             href: operations/objects/link-for-download.md
           - name: Удалить объект
             href: operations/objects/delete.md
-      - name: Доступы
-        items:
   - name: Основные понятия
     items:
       - name: Обзор
