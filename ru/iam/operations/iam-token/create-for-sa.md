@@ -224,6 +224,8 @@ payload = {
         'iss': service_account_id,
         'iat': now,
         'exp': now + 360}
+
+# Формирование JWT.
 encoded_token = jwt.encode(
     payload,
     private_key,
@@ -263,6 +265,7 @@ public class JwtTest {
 
         Instant now = Instant.now();
 
+        // Формирование JWT.
         String encodedToken = Jwts.builder()
                 .setHeaderParam("kid", keyId)
                 .setIssuer(serviceAccountId)
@@ -296,6 +299,7 @@ const (
 	keyFile          = "private.pem"
 )
 
+// Формирование JWT.
 func signedToken() string {
 	issuedAt := time.Now()
 	token := jwt.NewWithClaims(ps256WithSaltLengthEqualsHash, jwt.StandardClaims{
@@ -314,10 +318,11 @@ func signedToken() string {
 	return signed
 }
 
-// By default, Go RSA PSS uses PSSSaltLengthAuto,
-// but https://tools.ietf.org/html/rfc7518#section-3.5 says
-// that "The size of the salt value is the same size as the hash function output."
-// May be removed after https://github.com/dgrijalva/jwt-go/issues/285 fix.
+// По умолчанию Go RSA PSS использует PSSSaltLengthAuto,
+// но на странице https://tools.ietf.org/html/rfc7518#section-3.5 сказано, что
+// размер значения соли должен совпадать с размером вывода хеш-функции.
+// После исправления https://github.com/dgrijalva/jwt-go/issues/285
+// можно будет заменить на jwt.SigningMethodPS256
 var ps256WithSaltLengthEqualsHash = &jwt.SigningMethodRSAPSS{
 	SigningMethodRSA: jwt.SigningMethodPS256.SigningMethodRSA,
 	Options: &rsa.PSSOptions{
