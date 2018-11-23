@@ -35,6 +35,8 @@ items:
             href: operations/buckets/delete.md
           - name: Ограничить максимальный размер корзины
             href: operations/buckets/limit-max-volume.md
+          - name: Открыть публичный доступ к корзине
+            href: operations/buckets/bucket-availability.md
       - name: Объекты
         items:
           - name: Загрузить объект
@@ -49,8 +51,6 @@ items:
             href: operations/objects/delete.md
       - name: Доступы
         items:
-          - name: Открыть публичный доступ к корзине
-            href: operations/security/bucket-availability.md
   - name: Основные понятия
     items:
       - name: Обзор
