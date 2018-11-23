@@ -11,7 +11,7 @@
 Загрузите файл с образом в сервис [!KEYREF objstorage-full-name] и получите ссылку на загруженный образ:
 
 1. Если у вас еще нет корзины в [!KEYREF objstorage-name], [создайте](../../../storage/operations/buckets/create.md) ее.
-1. [Сделайте корзину публичной](../../../storage/operations/security/bucket-availability.md).
+1. [Сделайте корзину публичной](../../../storage/operations/buckets/bucket-availability.md).
 1. [Загрузите образ](../../../storage/operations/objects/upload.md) в вашу корзину. В терминах [!KEYREF objstorage-name] загружаемый файл образа будет называться _объектом_.
 1. [Получите ссылку](../../../storage/operations/objects/link-for-download.md) на загруженный образ. Используйте эту ссылку при создании образа в [!KEYREF compute-name].
 

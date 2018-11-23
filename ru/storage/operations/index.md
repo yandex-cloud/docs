@@ -5,7 +5,7 @@
 - [[!TITLE]](buckets/create.md)
 - [[!TITLE]](buckets/delete.md)
 - [[!TITLE]](buckets/limit-max-volume.md)
-- [[!TITLE]](security/bucket-availability.md)
+- [[!TITLE]](buckets/bucket-availability.md)
 
 ## Объекты
 
