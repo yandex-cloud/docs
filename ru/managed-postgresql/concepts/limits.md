@@ -1,6 +1,6 @@
 # Квоты и лимиты
 
-В сервисе [!KEYREF mdb-full-name] действуют следующие ограничения:
+В сервисе [!KEYREF mpg-name] действуют следующие ограничения:
 
 [!INCLUDE [quotes-limits-def.md](../../_includes/quotes-limits-def.md)]
 
