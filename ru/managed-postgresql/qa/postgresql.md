@@ -1,12 +1,12 @@
 # Вопросы о [!KEYREF PG]
 
-#### Как импортировать данные в кластер базы данных [!KEYREF PG] в [!KEYREF mdb-short-name]? {#migrate}
+#### Как импортировать данные в кластер базы данных [!KEYREF PG] в [!KEYREF mpg-short-name]? {#migrate}
 
-Используйте встроенный инструмент `pg_dump` для миграции данных в [!KEYREF PG]-кластер [!KEYREF mdb-short-name].
+Используйте встроенный инструмент `pg_dump` для миграции данных в [!KEYREF PG]-кластер [!KEYREF mpg-short-name].
 
-#### Какие версии [!KEYREF PG] поддерживает [!KEYREF mdb-short-name]? {#supported-version}
+#### Какие версии [!KEYREF PG] поддерживает [!KEYREF mpg-short-name]? {#supported-version}
 
-[!KEYREF mdb-short-name] поддерживает только [!KEYREF PG] 10.
+[!KEYREF mpg-short-name] поддерживает только [!KEYREF PG] 10.
 
 #### Включено ли резервное копирование кластеров БД по умолчанию? {#backup}
 
@@ -20,11 +20,11 @@
 
 Реплика для чтения — это доступный только для чтения хост в кластере БД [!KEYREF PG], данные на котором синхронизируются с хостом-мастером (применимо только если в кластере работает более 1 хоста). Вы можете использовать реплику для чтения для снижения нагрузки на мастер в базах данных с большим объемом запросов на чтение.
 
-#### Какие расширения для [!KEYREF PG] поддерживаются в [!KEYREF mdb-short-name]? {#pg-extension}
+#### Какие расширения для [!KEYREF PG] поддерживаются в [!KEYREF mpg-short-name]? {#pg-extension}
 
 Список поддерживаемых расширений для [!KEYREF PG] приведен в разделе [[!TITLE]](../operations/cluster-extensions.md).
 
 #### Какие ограничения накладываются на кластеры БД [!KEYREF PG]? {#instance-limitations}
 
-Подробнее об ограничениях [!KEYREF mdb-short-name] см. раздел [[!TITLE]](../concepts/limits.md). В разделе [[!TITLE]](../concepts/instance-types.md) приведены характеристики кластеров, которые можно создать с помощью [!KEYREF mdb-short-name].
+Подробнее об ограничениях [!KEYREF mpg-short-name] см. раздел [[!TITLE]](../concepts/limits.md). В разделе [[!TITLE]](../concepts/instance-types.md) приведены характеристики кластеров, которые можно создать с помощью [!KEYREF mpg-short-name].
 
