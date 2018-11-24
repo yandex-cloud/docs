@@ -1,10 +1,10 @@
 # Заголовок и описание на странице
-title: "Yandex Managed Databases"
+title: "Yandex Managed MongoDB"
 description:
-  - "Сервис Yandex Managed Databases (MDB) помогает разворачивать и поддерживать серверы различных СУБД в инфраструктуре Яндекс.Облака."
+  - "Сервис Yandex Managed MongoDB помогает разворачивать и поддерживать кластеры серверов MongoDB в инфраструктуре Яндекс.Облака."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
-  title: "Yandex Managed Databases"
+  title: "Yandex Managed MongoDB"
 # Блок с ссылками
 links:
 - title: "Начало работы"
