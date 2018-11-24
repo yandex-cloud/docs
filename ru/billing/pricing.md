@@ -15,7 +15,9 @@
 - [Yandex Compute Cloud](../compute/pricing.md)
 - [Yandex Object Storage](../storage/pricing.md)
 - [Yandex Virtual Private Cloud](../vpc/pricing.md)
-- [Yandex Managed Databases](../mdb/pricing.md)
+- [Yandex Managed ClickHouse](../managed-clickhouse/pricing.md)
+- [Yandex Managed MongoDB](../managed-mongodb/pricing.md)
+- [Yandex Managed PostgreSQL](../managed-postgresql/pricing.md)
 - [Yandex Speechkit](../speechkit/pricing.md)
 - [Yandex Translate](../translate/pricing.md)
 
