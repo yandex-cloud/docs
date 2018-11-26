@@ -1,7 +1,7 @@
 # Pricing policy for Yandex [!KEYREF objstorage-name]
 
 > [!NOTE]
-
+>
 > Starting from December 1, 2018, the pricing policy for operations on your data will change. Charges are being added for POST operations and data operations that resulted in an error.
 > 
 > For more information, see [the description of the new rates](#new).
