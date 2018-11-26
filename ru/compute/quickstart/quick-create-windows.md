@@ -10,10 +10,6 @@
 
 [!INCLUDE [initialization-windows-vm](../../_includes/initialization-windows-vm.md)]
 
->[!NOTE]
->
->[!INCLUDE [change-vm-resources](../_includes_service/change-vm-resources.md)]
-
 ## Подключитесь к виртуальной машине Windows по протоколу RDP
 
 [!INCLUDE [vm-connect-rdp](../../_includes/vm-connect-rdp.md)]

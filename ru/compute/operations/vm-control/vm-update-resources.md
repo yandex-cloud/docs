@@ -1,0 +1,59 @@
+# Изменить вычислительные ресурсы виртуальной машины
+
+После создания виртуальной машины вы можете изменить ее вычислительные ресурсы: количество и гарантированный уровень производительности ядер процессора (vCPU), количество памяти (RAM).
+
+Как изменить имя, описание, метки виртуальной машины читайте в разделе [[!TITLE]](vm-update.md).
+
+---
+
+**[!TAB CLI]**
+
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+
+1. Посмотрите описание команды CLI для обновления параметров виртуальных машин:
+
+    ```
+    $ yc compute instance update --help
+    ```
+
+1. Получите список виртуальных машин в каталоге по умолчанию:
+
+    [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
+
+1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
+1. Остановите виртуальную машину:
+
+    ```
+    $ yc compute instance stop first-instance
+    ```
+
+1. Получите информацию о виртуальной машине вместе с [метаданными](../../concepts/vm-metadata.md):
+
+    ```
+    $ yc compute instance get --full first-instance
+    ```
+
+1. Измените конфигурацию виртуальной машины:
+
+    ```
+    $ yc compute instance update first-instance \
+        --memory 32 \
+        --cores 4 \
+        --core-fraction 100
+    ```
+
+    Данная команда изменит конфигурацию виртуальной машины:
+
+    * **Гарантированную долю vCPU** — на 100%.
+    * **vCPU** — на 4.
+    * **RAM** — на 32 ГБ.
+
+1. Запустите виртуальную машину:
+
+    ```
+    $ yc compute instance start first-instance
+    ```
+
+---
