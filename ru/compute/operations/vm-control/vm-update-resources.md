@@ -50,4 +50,10 @@
     * **vCPU** — на 4.
     * **RAM** — на 32 ГБ.
 
+1. Запустите виртуальную машину:
+
+    ```
+    $ yc compute instance start first-instance
+    ```
+
 ---
