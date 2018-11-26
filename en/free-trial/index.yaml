@@ -2,7 +2,7 @@
 title: "Trial period"
 description:
   - "The trial period allows you to get hands-on experience using Yandex.Cloud without paying for the resources that you use."
-  - "During the trial period, a <a href=\"/docs/billing/concepts/bonus-account\">grant</a> of at least 4,000 rubles (₽) is credited to your billing account to be valid for 180 days. You can use these funds to pay for any Yandex.Cloud resources. The trial period ends automatically when you spend the entire grant amount or after 180 days, whichever is earlier."
+  - "During the trial period, a <a href=\"/docs/billing/concepts/bonus-account\">grant</a> of at least 4,000 rubles (₽) is credited to your billing account to be valid for 60 days. You can use these funds to pay for any Yandex.Cloud resources. The trial period ends automatically when you spend the entire grant amount or after 60 days, whichever is earlier."
   - "You can upgrade to the paid version of Yandex.Cloud at any time during the trial period or 30 days after it ends, with no data loss."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
