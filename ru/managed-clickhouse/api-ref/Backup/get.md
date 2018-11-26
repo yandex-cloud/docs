@@ -2,7 +2,7 @@
 Возвращает указанный ресурс Backup для ClickHouse.
  
 Чтобы получить список доступных ресурсов Backup для ClickHouse,
-отправьте запрос [list](/docs/mdb/api-ref/clickhouse/Backup/list).
+отправьте запрос [list](/docs/managed-clickhouse/api-ref//Backup/list).
  
 ## HTTP-запрос {#https-request}
 ```
@@ -13,12 +13,12 @@ GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups/{backupId}
  
 Параметр | Описание
 --- | ---
-backupId | Обязательное поле. Идентификатор резервной копии, сведения о котором запрашиваются. Чтобы получить идентификатор резервной копии, используйте запрос [listBackups](/docs/mdb/api-ref/clickhouse/Cluster/listBackups).
+backupId | Обязательное поле. Идентификатор резервной копии, сведения о котором запрашиваются. Чтобы получить идентификатор резервной копии, используйте запрос [listBackups](/docs/managed-clickhouse/api-ref//Cluster/listBackups).
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс Backup для ClickHouse. Подробное описание см. в [документации MDB](/docs/mdb/concepts).
+Ресурс Backup для ClickHouse. Подробное описание см. в [документации MDB](/docs/managed-clickhouse/concepts).
  
 Поле | Описание
 --- | ---

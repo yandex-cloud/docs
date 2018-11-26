@@ -2,7 +2,7 @@
 Возвращает указанный ресурс User для PostgreSQL.
  
 Чтобы получить список доступных ресурсов User для PostgreSQL,
-отправьте запрос [list](/docs/mdb/api-ref/postgresql/User/list).
+отправьте запрос [list](/docs/managed-postgresql/api-ref/User/list).
  
 ## HTTP-запрос {#https-request}
 ```
@@ -13,13 +13,13 @@ GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Обязательное поле. Идентификатор кластера PostgreSQL, к которому принадлежит пользователь. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/mdb/api-ref/postgresql/Cluster/list).  Максимальная длина строки в символах — 50.
-userName | Обязательное поле. Обязательное поле. Имя запрашиваемого ресурса User для PostgreSQL. Чтобы получить имя пользователя, используйте запрос [list](/docs/mdb/api-ref/postgresql/User/list).  Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]+ ``.
+clusterId | Обязательное поле. Обязательное поле. Идентификатор кластера PostgreSQL, к которому принадлежит пользователь. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-postgresql/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+userName | Обязательное поле. Обязательное поле. Имя запрашиваемого ресурса User для PostgreSQL. Чтобы получить имя пользователя, используйте запрос [list](/docs/managed-postgresql/api-ref/User/list).  Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]+ ``.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс User для PostgreSQL. Подробнее см. в [документации MDB](/docs/mdb/concepts).
+Ресурс User для PostgreSQL. Подробнее см. в [документации MDB](/docs/managed-postgresql/concepts).
  
 Поле | Описание
 --- | ---

@@ -2,7 +2,7 @@
 Возвращает указанный ресурс Cluster для MongoDB.
  
 Чтобы получить список доступных ресурсов Cluster для MongoDB,
-отправьте запрос [list](/docs/mdb/api-ref/mongodb/Cluster/list).
+отправьте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
  
 ## HTTP-запрос {#https-request}
 ```
@@ -13,12 +13,12 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор возвращаемого ресурса Cluster для MongoDB. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/mdb/api-ref/mongodb/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор возвращаемого ресурса Cluster для MongoDB. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс Cluster для MongoDB. Подробнее см. [документацию MDB](/docs/mdb/concepts).
+Ресурс Cluster для MongoDB. Подробнее см. [документацию MDB](/docs/managed-mongodb/concepts).
  
 Поле | Описание
 --- | ---
@@ -84,7 +84,7 @@ config.<br>mongodb_3_6.<br>mongod.<br>config.<br>defaultConfig.<br>operationProf
 config.<br>mongodb_3_6.<br>mongod.<br>config.<br>defaultConfig.<br>net | **object**<br><p>Раздел <code>net</code> конфигурации mongod.</p> 
 config.<br>mongodb_3_6.<br>mongod.<br>config.<br>defaultConfig.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>Максимальное количество одновременных подключений, которые принимает mongod.</p> <p>Допустимые значения — от 10 до 16384 включительно.</p> 
 config.<br>mongodb_3_6.<br>mongod.<br>resources | **object**<br><p>Ресурсы, выделенные хостам MongoDB.</p> 
-config.<br>mongodb_3_6.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/mdb/concepts/instance-types">документации</a>.</p> 
+config.<br>mongodb_3_6.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">документации</a>.</p> 
 config.<br>mongodb_3_6.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступный хосту, в байтах.</p> 
 config.<br>mongodb_3_6.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-nvme — сетевой SSD-диск;</li> <li>local-nvme — локальное SSD-хранилище.</li> </ul> 
 networkId | **string**<br><p>Идентификатор сети, к которой принадлежит кластер.</p> 

@@ -12,7 +12,7 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера ClickHouse, для которого следует добавить хосты. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [list](/docs/mdb/api-ref/clickhouse/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор кластера ClickHouse, для которого следует добавить хосты. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [list](/docs/managed-clickhouse/api-ref//Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Параметры в теле запроса {#body_params}
  
@@ -35,7 +35,7 @@ clusterId | Обязательное поле. Идентификатор кла
 hostSpecs | **object**<br><p>Обязательное поле. Конфигурации для хостов ClickHouse, которые должны быть добавлены в кластер.</p> <p>Должен содержать хотя бы один элемент.</p> 
 hostSpecs.<br>zoneId | **string**<br><p>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос <a href="/docs/compute/api-ref/Zone/list">list</a>.</p> <p>Максимальная длина строки в символах — 50.</p> 
 hostSpecs.<br>type | **string**<br><p>Обязательное поле. Тип развертываемого хоста.</p> <ul> <li>CLICKHOUSE: ClickHouse host.</li> <li>ZOOKEEPER: ZooKeeper host.</li> </ul> 
-hostSpecs.<br>subnetId | **string**<br><p>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задается в поле <a href="/docs/mdb/api-ref/clickhouse/Cluster#representation">Cluster.networkId</a>.</p> <p>Максимальная длина строки в символах — 50.</p> 
+hostSpecs.<br>subnetId | **string**<br><p>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети задается в поле <a href="/docs/managed-clickhouse/api-ref//Cluster#representation">Cluster.networkId</a>.</p> <p>Максимальная длина строки в символах — 50.</p> 
 hostSpecs.<br>assignPublicIp | **boolean** (boolean)<br><p>Должен ли хост получить публичный IP-адрес при создании.</p> <p>После создания узла этот параметр изменить нельзя. Чтобы удалить назначенный публичный IP-адрес или назначить публичный IP уже созданному хосту, пересоздайте хост с нужным значением поля assignPublicIp.</p> <p>Возможные значения:</p> <ul> <li>false — не назначать хосту публичный IP-адрес.</li> <li>true — у хоста должен быть публичный IP-адрес.</li> </ul> 
  
 ## Ответ {#responses}

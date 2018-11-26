@@ -12,7 +12,7 @@ DELETE https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterI
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера PostgreSQL, который следует удалить. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [list](/docs/mdb/api-ref/postgresql/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор кластера PostgreSQL, который следует удалить. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [list](/docs/managed-postgresql/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

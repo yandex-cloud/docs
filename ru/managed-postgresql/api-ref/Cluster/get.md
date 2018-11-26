@@ -2,7 +2,7 @@
 Возвращает указанный ресурс Cluster для PostgreSQL.
  
 Чтобы получить список доступных ресурсов Cluster для PostgreSQL,
-отправьте запрос [list](/docs/mdb/api-ref/postgresql/Cluster/list).
+отправьте запрос [list](/docs/managed-postgresql/api-ref/Cluster/list).
  
 ## HTTP-запрос {#https-request}
 ```
@@ -13,12 +13,12 @@ GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор возвращаемого ресурса Cluster для PostgreSQL. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/mdb/api-ref/postgresql/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор возвращаемого ресурса Cluster для PostgreSQL. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-postgresql/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс Cluster для PostgreSQL. Подробнее см. [документацию MDB](/docs/mdb/concepts) в
+Ресурс Cluster для PostgreSQL. Подробнее см. [документацию MDB](/docs/managed-postgresql/concepts) в
 руководстве разработчика.
  
 Поле | Описание
@@ -39,7 +39,7 @@ config.<br>version | **string**<br><p>Версия серверного прог
 config.<br>poolerConfig | **object**<br>
 config.<br>poolerConfig.<br>poolingMode | **string**<br><p>Режим, в котором работает менеджер подключений. См. описание всех режимов в <a href="https://pgbouncer.github.io/usage">документации PgBouncer</a>.</p> <ul> <li>SESSION: Сессионный режим управления подключениями.</li> <li>TRANSACTION: Транзакционный режим управления подключениями.</li> <li>STATEMENT: Операторный режим управления подключениями.</li> </ul> 
 config.<br>resources | **object**<br>
-config.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/mdb/concepts/instance-types">документации</a>.</p> 
+config.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-postgresql/concepts/instance-types">документации</a>.</p> 
 config.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступный хосту, в байтах.</p> 
 config.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-nvme — сетевой SSD-диск;</li> <li>local-nvme — локальное SSD-хранилище.</li> </ul> 
 config.<br>autofailover | **boolean** (boolean)<br><p>Параметр конфигурации, который включает / отключает отказоустойчивость в кластере.</p> 

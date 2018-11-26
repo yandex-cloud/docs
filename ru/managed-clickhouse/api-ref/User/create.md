@@ -12,7 +12,7 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера ClickHouse, в котором следует создать пользователя. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/mdb/api-ref/clickhouse/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор кластера ClickHouse, в котором следует создать пользователя. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-clickhouse/api-ref//Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Параметры в теле запроса {#body_params}
  

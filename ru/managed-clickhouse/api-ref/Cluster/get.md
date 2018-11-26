@@ -2,7 +2,7 @@
 Возвращает указанный ресурс Cluster для ClickHouse.
  
 Чтобы получить список доступных ресурсов Cluster для ClickHouse,
-отправьте запрос [list](/docs/mdb/api-ref/clickhouse/Cluster/list).
+отправьте запрос [list](/docs/managed-clickhouse/api-ref//Cluster/list).
  
 ## HTTP-запрос {#https-request}
 ```
@@ -13,13 +13,13 @@ GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор возвращаемого ресурса Cluster для ClickHouse. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/mdb/api-ref/clickhouse/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор возвращаемого ресурса Cluster для ClickHouse. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-clickhouse/api-ref//Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
 A ClickHouse Cluster resource. For more information, see the
-[Cluster](/docs/mdb/concepts) section in the Developer's Guide.
+[Cluster](/docs/managed-clickhouse/concepts) section in the Developer's Guide.
  
 Поле | Описание
 --- | ---
@@ -288,12 +288,12 @@ config.<br>clickhouse.<br>config.<br>defaultConfig.<br>markCacheSize | **integer
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>maxTableSizeToDrop | **integer** (int64)<br><p>Максимальный размер таблицы, которую можно удалить с помощью запроса DROP. См. подробное описание в <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_table_size_to_drop">документации ClickHouse</a>.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>builtinDictionariesReloadInterval | **integer** (int64)<br><p>Интервал времени для перезагрузки встроенных словарей. См. подробное описание в <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval">документации ClickHouse</a>.</p> 
 config.<br>clickhouse.<br>resources | **object**<br><p>Resources allocated to ClickHouse hosts.</p> 
-config.<br>clickhouse.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/mdb/concepts/instance-types">documentation</a></p> 
+config.<br>clickhouse.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-clickhouse/concepts/instance-types">documentation</a></p> 
 config.<br>clickhouse.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>clickhouse.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-nvme — network SSD drive,</li> <li>local-nvme — local SSD storage.</li> </ul> 
 config.<br>zookeeper | **object**<br><p>Configuration and resource allocation for ZooKeeper hosts.</p> 
 config.<br>zookeeper.<br>resources | **object**<br><p>Resources allocated to ZooKeeper hosts.</p> 
-config.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/mdb/concepts/instance-types">documentation</a></p> 
+config.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-clickhouse/concepts/instance-types">documentation</a></p> 
 config.<br>zookeeper.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 config.<br>zookeeper.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-nvme — network SSD drive,</li> <li>local-nvme — local SSD storage.</li> </ul> 
 networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 

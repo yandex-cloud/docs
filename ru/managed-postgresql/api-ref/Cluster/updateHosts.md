@@ -12,7 +12,7 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера PostgreSQL, в котором нужно изменить хосты. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [list](/docs/mdb/api-ref/postgresql/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор кластера PostgreSQL, в котором нужно изменить хосты. Чтобы получить идентификатор PostgreSQL кластера, используйте запрос [list](/docs/managed-postgresql/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Параметры в теле запроса {#body_params}
  
@@ -147,8 +147,8 @@ clusterId | Обязательное поле. Идентификатор кла
 Поле | Описание
 --- | ---
 updateHostSpecs | **object**<br><p>Обязательное поле. Новые конфигурации, которые следует применить к хостам.</p> <p>Должен содержать хотя бы один элемент.</p> 
-updateHostSpecs.<br>hostName | **string**<br><p>Обязательное поле. Имя хоста, который следует обновить. Чтобы получить имя хоста PostgreSQL, используйте запрос <a href="/docs/mdb/api-ref/postgresql/Cluster/listHosts">listHosts</a>.</p> 
-updateHostSpecs.<br>replicationSource | **string**<br><p>name хоста, который будет использоваться в качестве источника репликации (для каскадной репликации). Чтобы получить имя хоста PostgreSQL, используйте запрос <a href="/docs/mdb/api-ref/postgresql/Cluster/listHosts">listHosts</a>.</p> 
+updateHostSpecs.<br>hostName | **string**<br><p>Обязательное поле. Имя хоста, который следует обновить. Чтобы получить имя хоста PostgreSQL, используйте запрос <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts">listHosts</a>.</p> 
+updateHostSpecs.<br>replicationSource | **string**<br><p>name хоста, который будет использоваться в качестве источника репликации (для каскадной репликации). Чтобы получить имя хоста PostgreSQL, используйте запрос <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts">listHosts</a>.</p> 
 updateHostSpecs.<br>priority | **integer** (int64)<br><p>Хост с наивысшим приоритетом является синхронной репликой. Все остальные асинхронны. Синхронная реплика при необходимости заменяет мастер.</p> <p>Когда реплика становится мастером, ее приоритет игнорируется.</p> 
 updateHostSpecs.<br>configSpec | **object**<br><p>Конфигурация сервера PostgreSQL для хоста.</p> 
 updateHostSpecs.<br>configSpec.<br>postgresqlConfig_9_6 | **object** <br>`updateHostSpecs.configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`<br><br><p>Поля и структура <code>PostgresqlHostConfig</code> отражает параметры конфигурационного файла PostgreSQL. Подробное описание доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config.html">документации PostgreSQL</a>.</p> 

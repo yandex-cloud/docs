@@ -2,7 +2,7 @@
 Возвращает указанный ресурс Backup для PostgreSQL.
  
 Чтобы получить список доступных ресурсов Backup для PostgreSQL,
-отправьте запрос [list](/docs/mdb/api-ref/postgresql/Backup/list).
+отправьте запрос [list](/docs/managed-postgresql/api-ref/Backup/list).
  
 ## HTTP-запрос {#https-request}
 ```
@@ -13,12 +13,12 @@ GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/backups/{backupId}
  
 Параметр | Описание
 --- | ---
-backupId | Обязательное поле. Идентификатор резервной копии, сведения о котором запрашиваются. Чтобы получить идентификатор резервной копии, используйте запрос [listBackups](/docs/mdb/api-ref/postgresql/Cluster/listBackups).
+backupId | Обязательное поле. Идентификатор резервной копии, сведения о котором запрашиваются. Чтобы получить идентификатор резервной копии, используйте запрос [listBackups](/docs/managed-postgresql/api-ref/Cluster/listBackups).
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс Backup для PostgreSQL. Подробнее см. в [документации MDB](/docs/mdb/concepts).
+Ресурс Backup для PostgreSQL. Подробнее см. в [документации MDB](/docs/managed-postgresql/concepts).
  
 Поле | Описание
 --- | ---

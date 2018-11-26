@@ -12,7 +12,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:ba
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера MongoDB, для которого следует создать резервную копию. Чтобы получить идентификатор кластера MongoDB, используйте запрос [list](/docs/mdb/api-ref/mongodb/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор кластера MongoDB, для которого следует создать резервную копию. Чтобы получить идентификатор кластера MongoDB, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

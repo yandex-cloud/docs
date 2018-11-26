@@ -12,7 +12,7 @@ DELETE https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterI
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера ClickHouse, который нужно удалить. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [list](/docs/mdb/api-ref/clickhouse/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор кластера ClickHouse, который нужно удалить. Чтобы получить идентификатор кластера ClickHouse, используйте запрос [list](/docs/managed-clickhouse/api-ref//Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

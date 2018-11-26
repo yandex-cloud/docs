@@ -2,7 +2,7 @@
 Возвращает указанный ресурс Backup для MongoDB.
  
 Чтобы получить список доступных ресурсов Backup для MongoDB,
-отправьте запрос [list](/docs/mdb/api-ref/mongodb/Backup/list).
+отправьте запрос [list](/docs/managed-mongodb/api-ref/Backup/list).
  
 ## HTTP-запрос {#https-request}
 ```
@@ -13,12 +13,12 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/backups/{backupId}
  
 Параметр | Описание
 --- | ---
-backupId | Обязательное поле. Идентификатор резервной копии, сведения о котором запрашиваются. Чтобы получить идентификатор резервной копии, используйте запрос [listBackups](/docs/mdb/api-ref/mongodb/Cluster/listBackups).
+backupId | Обязательное поле. Идентификатор резервной копии, сведения о котором запрашиваются. Чтобы получить идентификатор резервной копии, используйте запрос [listBackups](/docs/managed-mongodb/api-ref/Cluster/listBackups).
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
-Ресурс Backup для MongoDB. Подробнее см. в [документации MDB](/docs/mdb/concepts).
+Ресурс Backup для MongoDB. Подробнее см. в [документации MDB](/docs/managed-mongodb/concepts).
  
 Поле | Описание
 --- | ---

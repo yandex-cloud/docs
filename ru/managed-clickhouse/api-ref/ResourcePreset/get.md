@@ -2,7 +2,7 @@
 Возвращает указанный ресурс ResourcePreset.
  
 Чтобы получить список доступных ресурсов ResourcePreset, используйте
-запрос [list](/docs/mdb/api-ref/clickhouse/ResourcePreset/list).
+запрос [list](/docs/managed-clickhouse/api-ref//ResourcePreset/list).
  
 ## HTTP-запрос {#https-request}
 ```
@@ -13,7 +13,7 @@ GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/resourcePresets/{reso
  
 Параметр | Описание
 --- | ---
-resourcePresetId | Обязательное поле. Идентификатор набора ресурсов, данные о котором запрашиваются. Чтобы получить идентификатор набора ресурсов, используйте запрос [list](/docs/mdb/api-ref/clickhouse/ResourcePreset/list).  Максимальная длина строки в символах — 50.
+resourcePresetId | Обязательное поле. Идентификатор набора ресурсов, данные о котором запрашиваются. Чтобы получить идентификатор набора ресурсов, используйте запрос [list](/docs/managed-clickhouse/api-ref//ResourcePreset/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

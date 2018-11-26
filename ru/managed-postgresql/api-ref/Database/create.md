@@ -12,7 +12,7 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Обязательное поле. Идентификатор кластера PostgreSQL, в котором следует создать базу данных. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/mdb/api-ref/postgresql/Cluster/list).  Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Обязательное поле. Идентификатор кластера PostgreSQL, в котором следует создать базу данных. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-postgresql/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Параметры в теле запроса {#body_params}
  
@@ -38,11 +38,11 @@ clusterId | Обязательное поле. Обязательное поле
 --- | ---
 databaseSpec | **object**<br><p>Обязательное поле. Обязательное поле. Конфигурация создаваемой базы данных.</p> 
 databaseSpec.<br>name | **string**<br><p>Обязательное поле. Имя базы данных PostgreSQL. Длина 1-63 символов.</p> <p>Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_]+</code>.</p> 
-databaseSpec.<br>owner | **string**<br><p>Обязательное поле. Имя пользователя, которого нужно назначить владельцем базы данных. Чтобы получить список доступных пользователей PostgreSQL, сделайте запрос <a href="/docs/mdb/api-ref/postgresql/User/list">list</a>.</p> <p>Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_]+</code>.</p> 
+databaseSpec.<br>owner | **string**<br><p>Обязательное поле. Имя пользователя, которого нужно назначить владельцем базы данных. Чтобы получить список доступных пользователей PostgreSQL, сделайте запрос <a href="/docs/managed-postgresql/api-ref/User/list">list</a>.</p> <p>Длина строки в символах должна быть от 1 до 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_]+</code>.</p> 
 databaseSpec.<br>lcCollate | **string**<br><p>POSIX-локаль для порядка сортировки строк. Может быть установлена только при создании.</p> <p>Значение должно соответствовать регулярному выражению <code>[a-zA-Z_]+.UTF-8\|C</code>.</p> 
 databaseSpec.<br>lcCtype | **string**<br><p>POSIX-локаль для классификации символов. Может быть установлена только при создании.</p> <p>Значение должно соответствовать регулярному выражению <code>[a-zA-Z_]+.UTF-8\|C</code>.</p> 
 databaseSpec.<br>extensions | **object**<br><p>Расширения PostgreSQL, которые следует подключить для базы данных.</p> 
-databaseSpec.<br>extensions.<br>name | **string**<br><p>Имя расширения, например <code>pg_trgm</code> или <code>pg_btree</code>. Расширения, поддерживаемые MDB <a href="/docs/mdb/concepts">перечислены в документации</a>.</p> 
+databaseSpec.<br>extensions.<br>name | **string**<br><p>Имя расширения, например <code>pg_trgm</code> или <code>pg_btree</code>. Расширения, поддерживаемые MDB <a href="/docs/managed-postgresql/concepts">перечислены в документации</a>.</p> 
 databaseSpec.<br>extensions.<br>version | **string**<br><p>Версия расширения.</p> 
  
 ## Ответ {#responses}

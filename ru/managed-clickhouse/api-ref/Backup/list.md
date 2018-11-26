@@ -13,8 +13,8 @@ GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups
 Параметр | Описание
 --- | ---
 folderId | Обязательное поле. Идентификатор каталога для вывода списка резервных копий. Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).  Максимальная длина строки в символах — 50.
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/mdb/api-ref/clickhouse/Backup/list#query_params), сервис вернет значение [nextPageToken](/docs/mdb/api-ref/clickhouse/Backup/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/mdb/api-ref/clickhouse/Backup/list#query_params) равным значению поля [nextPageToken](/docs/mdb/api-ref/clickhouse/Backup/list#responses) прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
+pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/managed-clickhouse/api-ref//Backup/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-clickhouse/api-ref//Backup/list#responses), которое можно использовать для получения следующей страницы.  Максимальное значение — 1000.
+pageToken | Токен страницы. Установите значение [pageToken](/docs/managed-clickhouse/api-ref//Backup/list#query_params) равным значению поля [nextPageToken](/docs/managed-clickhouse/api-ref//Backup/list#responses) прошлого запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
@@ -23,10 +23,10 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-backups | **object**<br><p>Ресурс Backup для ClickHouse. Подробное описание см. в <a href="/docs/mdb/concepts">документации MDB</a>.</p> 
+backups | **object**<br><p>Ресурс Backup для ClickHouse. Подробное описание см. в <a href="/docs/managed-clickhouse/concepts">документации MDB</a>.</p> 
 backups.<br>id | **string**<br><p>Идентификатор резервной копии.</p> 
 backups.<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит резервная копия.</p> 
 backups.<br>createdAt | **string** (date-time)<br><p>Время создания в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> (т. е. когда операция резервного копирования была завершена).</p> 
 backups.<br>sourceClusterId | **string**<br><p>Идентификатор кластера ClickHouse, для которого была создана резервная копия.</p> 
 backups.<br>startedAt | **string** (date-time)<br><p>Время запуска операции резервного копирования.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/mdb/api-ref/clickhouse/Backup/list#query_params">pageSize</a>, используйте <a href="/docs/mdb/api-ref/clickhouse/Backup/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/mdb/api-ref/clickhouse/Backup/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/mdb/api-ref/clickhouse/Backup/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/managed-clickhouse/api-ref//Backup/list#query_params">pageSize</a>, используйте <a href="/docs/managed-clickhouse/api-ref//Backup/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/managed-clickhouse/api-ref//Backup/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/managed-clickhouse/api-ref//Backup/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 

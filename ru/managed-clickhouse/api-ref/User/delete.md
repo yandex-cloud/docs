@@ -12,8 +12,8 @@ DELETE https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterI
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Идентификатор кластера ClickHouse, к которому принадлежит пользователь. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/mdb/api-ref/clickhouse/Cluster/list).
-userName | Обязательное поле. Имя удаляемого пользователя. Чтобы получить имя пользователя, используйте запрос [list](/docs/mdb/api-ref/clickhouse/User/list).
+clusterId | Обязательное поле. Идентификатор кластера ClickHouse, к которому принадлежит пользователь. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-clickhouse/api-ref//Cluster/list).
+userName | Обязательное поле. Имя удаляемого пользователя. Чтобы получить имя пользователя, используйте запрос [list](/docs/managed-clickhouse/api-ref//User/list).
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
