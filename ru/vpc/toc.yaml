@@ -26,6 +26,7 @@ items:
           - name: Изменить подсеть
             href: operations/subnet-update.md
       - name: IP-адрес
+        items:
           - name: Получить статический публичный IP-адрес
             href: operations/set-static-ip.md
   - name: Основные понятия
