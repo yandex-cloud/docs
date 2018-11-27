@@ -63,6 +63,8 @@ items:
             href: operations/vm-control/vm-detach-disk.md
           - name: Изменить зону доступности ВМ
             href: operations/vm-control/vm-change-zone.md
+          - name: Сделать публичный IP-адрес ВМ статическим
+            href: operations/vm-control/vm-set-static-ip.md
           - name: Изменить ВМ
             href: operations/vm-control/vm-update.md
           - name: Изменить конфигурацию ВМ
