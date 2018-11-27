@@ -1,7 +1,7 @@
 # Glossary
 
 > [!NOTE]
-> 
+>
 > All the terms are given in the Glossary for informational purposes. If there is a conflict between the term definitions in the Agreement and those in the Glossary, the terms of the former shall prevail.
 
 Report
@@ -21,7 +21,7 @@ Agreement
 <br/>See the section [Agreement](contract.md).
 
 Credit limit
-: Maximum negative [personal account balance](../concepts/personal-account.md#balance). The credit limit can be enabled after the [activation of the paid version](../operations/activate-commercial.md) and the end of the first billing period.
+:   Maximum negative [personal account balance](../concepts/personal-account.md#balance). The credit limit is activated automatically after you [switch to the paid version](../operations/activate-commercial.md) and the first billing period ends.
 <br/>See the section [Credit limit](credit-limit.md).
 
 Personal account
@@ -44,7 +44,7 @@ Trial period
 <br/>See the section [Trial period](../trial/activation.md).
 
 Promo code
-: A password that allows you to access the Yandex.Cloud management console.
+: A password that allows you to get an additional discount on using Yandex.Cloud services.
 <br/>See the section [Promo code](promo-code.md).
 
 Billing period
@@ -59,7 +59,7 @@ Invoice
 <br/>See the section [Invoice](invoice.md).
 
 Payment invoice / payment receipt amount
-: The total amount that a customer is required to pay within a certain period that depends on their legal status.
+: The total amount that a customer is required to pay within a certain period (the time period depends on their legal status).
 <br/>See the sections [Payment receipt](individual-bill.md) and [Payment invoice](bill.md).
 
 Payment receipt

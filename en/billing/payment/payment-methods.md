@@ -7,11 +7,12 @@ Resources are paid for by crediting funds to an individual [personal account](..
 
 **[!TAB Individuals]**
 
-[Bank card](payment-methods-individual.md#debit-card)
+- [Transfer from your bank card](../payment/payment-methods-individual.md)
 
 **[!TAB Businesses]**
 
-[Bank transfer](payment-methods-business.md)
+- [Transfer from your bank account (via a bank)](../payment/payment-methods-business.md)
+- [Transfer from your bank card](../payment/payment-methods-card-business.md)
 
 ---   
 

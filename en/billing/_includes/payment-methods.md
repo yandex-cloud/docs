@@ -9,6 +9,7 @@ The method for crediting funds depends on your legal status ([billing account ty
 **[!TAB Businesses]**
 
 - [Transfer from your bank account (via a bank)](../payment/payment-methods-business.md)
+- [Transfer from your bank card](../payment/payment-methods-card-business.md)
 
 ---   
 

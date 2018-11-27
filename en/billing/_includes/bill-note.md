@@ -6,8 +6,9 @@ A payment invoice is issued at the beginning of the next billing period if the t
 
 
 > [!NOTE]
-> 
+>
 > Yandex.Cloud reserves the right to issue a payment invoice during the current billing period if you exceed the established credit limit.
+>
 
 **[!TAB I don't use the credit limit]**
 

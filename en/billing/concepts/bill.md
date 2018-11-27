@@ -8,8 +8,17 @@ The relationship between the bill, billing account, and cloud is shown in the di
 
 ## Issuing a payment invoice {#agregate}
 
-[!INCLUDE [bill-note](../_includes/bill-note.md)]
+A payment invoice is issued at the beginning of the next billing period if the following conditions are met:
 
+- The selected payment method is [Transfer from your bank account](../payment/payment-methods-business.md).
+- The [credit limit](../concepts/credit-limit.md) is used.
+- [The total payment invoice amount](#payment-amount) is greater than zero.
+
+ > [!NOTE]
+ >
+ > Yandex.Cloud reserves the right to issue a payment invoice during the current billing period if you exceed the established credit limit.
+ >
+ 
 ## Payment invoice amount {#payment-amount}
 
 [!INCLUDE [bill-amount](../_includes/bill-amount.md)]
@@ -18,7 +27,7 @@ The relationship between the bill, billing account, and cloud is shown in the di
 
   ---  
 
-**[!TAB Example 1]**
+ **[!TAB Example 1]**
 
 <br/>The personal account balance at the beginning of the billing period is 0 rubles.
 <br/>The balance has not been topped up during the entire billing period (0 rubles).
@@ -61,14 +70,14 @@ Bills must be paid within the deadline stipulated in the [ agreement]( ../concep
 | Name | Description |
 | ----- | ----- |
 | Payment invoice number | Unique payment invoice ID |
-| Payment invoice date | The date of payment invoice generation in Yandex's accounting system |
+| Payment invoice date | The date when the payment invoice was generated in Yandex's accounting system |
 | Customer | Billing account owner |
 | Phone number | Phone number of the billing account owner |
 | Name of the product, work, or service | Information about the services rendered |
-| Total | Total amount for all lines of the bill, excluding VAT, in rubles |
-| Total VAT % | The amount of accrued taxes for all lines of the bill, in rubles |
-| Total amount payable | The total amount by all lines lines of the bill, including VAT, in rubles |
-| Due and payable | The total amount for all lines of the bill, including VAT, in rubles |
+| Total | Total amount for all lines of the payment invoice, excluding VAT, in rubles |
+| Total VAT % | The amount of accrued taxes for all lines of the payment invoice, in rubles |
+| Total amount payable | The total amount for all lines of the payment invoice, including VAT, in rubles |
+| Due and payable | The total amount for all lines of the payment invoice, including VAT, in rubles |
 
 ## VAT accounting {#nds}
 

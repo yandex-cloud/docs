@@ -8,7 +8,12 @@ Yes. For more information, see the document [Trial period](../../free-trial/).
 
 All new Yandex.Cloud customers.
 
-#### Can I upgrade to the paid version if the trial period hasn't expired yet?  {#activate-commercial}
+#### I created a new billing account but it is blocked. Why? {#blocked-account}
+
+Most likely, you created a billing account before, for which the initial grant was provided. The initial grant can only be given to one billing account within the trial period.
+To unblock your new billing account, [activate the paid version](../operations/activate-commercial.md).
+
+#### Can I upgrade to the paid version if the free trial period hasn't expired yet?  {#activate-commercial}
 
 Yes, you can. For more information, see [How to activate the paid version](../operations/activate-commercial.md).
 
