@@ -1,0 +1,15 @@
+# Заголовок и описание на странице
+title: "Yandex.Cloud use cases"
+description:
+  - "Detailed step-by-step instructions that will help you solve various infrastructure-related tasks using Yandex.Cloud services."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Use cases"
+# Блок с ссылками
+links:
+- title: "Web service"
+  description: ""
+  href: "web/"
+- title: "Data archive"
+  description: ""
+  href: "archive/"
