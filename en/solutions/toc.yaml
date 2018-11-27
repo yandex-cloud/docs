@@ -1,7 +1,7 @@
-title: "Use cases"
-icon: "/img/tutorials.svg"
+title: "Solution tutorials"
+icon: "/img/solutions.svg"
 items:
-  - name: Use cases
+  - name: Solution tutorials
     href: index.yaml
   - name: Web service
     items:
@@ -11,7 +11,7 @@ items:
       href: web/static.md
     - name: Website on LAMP or LEMP stack
       href: web/lamp-lemp.md
-    - name: Fail-safe website with load balancing
+    - name: Fault tolerant website with load balancing
       href: web/dns-load-balancer.md
     - name: Joomla-based website with PostgreSQL
       href: web/joomla-postgresql.md

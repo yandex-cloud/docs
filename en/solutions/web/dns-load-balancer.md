@@ -1,15 +1,15 @@
-# Fail-safe website with DNS load balancing
+# Fault tolerant website with DNS load balancing
 
-This scenario describes how to set up a website with load balancing between two availability zones. This protects the website from failures in one of the zones.
+This tutorial describes how to set up a website with load balancing between two availability zones. This protects the website from failures in one of the zones.
 
-To set up a fail-safe website with DNS load balancing:
+To set up a fault tolerant website with DNS load balancing:
 
 * [In different availability zones, create two VMs with a pre-installed web server](#create-web-server-vm)
 * [Upload the website files](#upload-files)
 * [In different availability zones, create two VMs for DNS load balancers](#create-dns-balancer-vm)
 * [Install and configure the DNS load balancer software](#install-configure-dns-balancer)
 * [Configure DNS](#configure-dns)
-* [Test the resiliency](#test-ha)
+* [Test the fault tolerance](#test-ha)
 
 ## Before you start {#before-begin}
 
@@ -446,7 +446,7 @@ To configure an external DNS server, do the following:
      * **Value**: `dns-lb-tutorial-slb-ru-central1-b.example.com.`.
 1. Wait 15-20 minutes for DNS record changes to take effect. The waiting time may differ for your DNS service.
 
-## Test the resilience {#test-ha}
+## Test the fault tolerance {#test-ha}
 
 ### DNS load balancers {#test-dns-balancers}
 

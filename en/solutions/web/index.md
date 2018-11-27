@@ -1,4 +1,4 @@
-# Scenarios for creating Yandex.Cloud web services
+# Tutorials for creating Yandex.Cloud web services
 
 * [[!TITLE]](static.md)
 * [[!TITLE]](lamp-lemp.md)

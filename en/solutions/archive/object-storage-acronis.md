@@ -44,6 +44,6 @@ To configure Acronis Backup Gateway to work with [!KEYREF objstorage-name]:
 
 ## Testing your backup {#test-backup}
 
-1. Set up backups in Acronis Backup Gateway following the [instructions](https://www.acronis.com/ru-ru/support/documentation/BackupService/index.html#33507.html).
+1. Set up backups in Acronis Backup following the [instructions](https://www.acronis.com/ru-ru/support/documentation/BackupService/index.html#33507.html).
 1. Run a backup following the [instructions](https://www.acronis.com/ru-ru/support/documentation/BackupService/index.html#33512.html).
 
