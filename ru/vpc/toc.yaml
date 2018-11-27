@@ -25,6 +25,10 @@ items:
             href: operations/subnet-delete.md
           - name: Изменить подсеть
             href: operations/subnet-update.md
+      - name: IP-адрес
+        items:
+          - name: Получить статический публичный IP-адрес
+            href: operations/set-static-ip.md
   - name: Основные понятия
     items:
       - name: Взаимосвязь ресурсов сервиса
