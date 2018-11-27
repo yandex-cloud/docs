@@ -2,7 +2,7 @@
 
 You need to activate the paid version within thirty days of the trial period expiry. Otherwise, all resources will be deleted automatically.
 
-If you didn't spend the entire amount of the [initial grant](../concepts/bonus-account.md), you can use the remaining amount in the future to pay for resources consumed.
+Unless you spent the entire amount of the[initial grant](../concepts/bonus-account.md), you can use the remaining amount in the future to pay for resources consumed.
 
 To upgrade to the paid version:
 

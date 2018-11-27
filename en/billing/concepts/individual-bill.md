@@ -42,8 +42,7 @@ The amount charged is calculated using the formula:
 <br/>The balance has not been topped up during the entire billing period (0 rubles).
 <br/>The grant amount is 1,000 rubles.
 <br/>The credit limit is 2,000 rubles.
-<br/>By the end of the billing period, the amount of resources consumed is 2,300 rubles.
- The credit limit has not been reached and the grant has been fully spent.
+<br/>By the end of the billing period, the amount of resources consumed is 2,300 rubles. The credit limit has not been reached and the grant has been fully spent.
 <br/>Total amount: 2300 - (0 + 0 + 1000) = 1300 (rubles).
 <br/>At the beginning of the next billing period, 1,300 rubles will be debited from the linked bank card. A payment receipt will also be generated for 1,300 rubles.
 

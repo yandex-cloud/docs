@@ -11,7 +11,6 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
 
 1. The grant amount and its validity period is verified during the entire billing period. <br/>See the table below.
 
-
    | Grant amount | Description |
    | ----- | ----- |
    | Greater than zero | If it is still valid, go back to step 2. <br/>If it has expired, go to step 4. |
@@ -37,9 +36,8 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
    [!INCLUDE [pay-by-card-note](../_includes/pay-by-card-note.md)]
 
 1. Payment for used resources is verified:
-
    - If the funds are debited from the bank card within one day, go back to step 4.
-   - If your bank card balance is insufficient on the day when funds are to be debited and you failed to [top up](../operations/pay-the-bill.md) your personal account,  the debit transaction will be repeated later. If the funds cannot be debited within one day, they may be debited from one of the bank cards linked to your Yandex.Passport account. <br/>If the funds cannot be debited from any of your bank cards, Yandex.Cloud reserves the right to change the status of your billing account to [Suspended](../concepts/billing-account.md#conditions). For more information, see step 10.
+   - If your bank card balance is insufficient on the day when funds are to be debited and you failed to [top up](../operations/pay-the-bill.md) your personal account, the debit transaction will be repeated later. If the funds cannot be debited within one day, they may be debited from one of the bank cards linked to your Yandex.Passport account. <br/>If the funds cannot be debited from any of your bank cards, Yandex.Cloud reserves the right to change the status of your billing account to [Suspended](../concepts/billing-account.md#conditions). For more information, see step 10.
 
 1. The use of the Yandex.Cloud services may be suspended if there are outstanding charges:
    - Your VM instances and DB clusters will be stopped completely.
@@ -50,7 +48,14 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
 1. Payment of the entire outstanding amount is verified within 60 days of suspension:
 
     11.1. If you pay the total amount due during this period, access to resources is restored within 24 hours. The billing account status will be changed to [Active](../concepts/billing-account.md#conditions). Go back to step 2.
-<br/>11.2. Otherwise, access to the use of Yandex.Cloud services may be permanently blocked. All your data, including your [billing account](../concepts/billing-account.md), will be permanently deleted.
+<br/>11.2. Otherwise, access to Yandex.Cloud services may be permanently blocked. All your data, including your [billing account](../concepts/billing-account.md), will be permanently deleted.
 
    [!INCLUDE [blocked-note](../_includes/blocked-note.md)]
+
+#### **See also**
+
+- [Grant](../concepts/bonus-account.md)
+- [Credit limit](../concepts/credit-limit.md)
+- [Personal account](../concepts/personal-account.md)
+- [Billing account](../concepts/billing-account.md)
 

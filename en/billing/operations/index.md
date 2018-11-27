@@ -2,13 +2,15 @@
 
 [Activate the paid version](activate-commercial.md)
 
+[Activate a promo code](activate-promocode.md)
+
 [View a summary of your costs](check-diagram.md)
 
 [View service usage details](check-charges.md)
 
 [Top up your personal account](pay-the-bill.md)
 
-[Enable the credit limit](enable-credit.md)
+[Change your payment method](change-payment-method.md)
 
 [Read your payment invoice](spell-out-bill.md)
 
