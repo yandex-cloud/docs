@@ -1,0 +1,25 @@
+title: "Solution tutorials"
+icon: "/img/solutions.svg"
+items:
+  - name: Solution tutorials
+    href: index.yaml
+  - name: Web service
+    items:
+    - name: Overview
+      href: web/index.md
+    - name: Static website in Object Storage
+      href: web/static.md
+    - name: Website on LAMP or LEMP stack
+      href: web/lamp-lemp.md
+    - name: Fault tolerant website with load balancing
+      href: web/dns-load-balancer.md
+    - name: Joomla-based website with PostgreSQL
+      href: web/joomla-postgresql.md
+  - name: Data archive
+    items:
+    - name: Overview
+      href: archive/index.md
+    - name: Single-node file server
+      href: archive/single-node-file-server.md
+    - name: Backup to Object Storage via Acronis Backup Gateway
+      href: archive/object-storage-acronis.md
