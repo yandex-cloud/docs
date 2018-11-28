@@ -9,7 +9,7 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
 
 1. If you are awarded a grant, you use it. The grant amount is reduced as the resources of Yandex.Cloud services are consumed.
 
-1. The grant amount and its validity period is verified during the entire billing period. <br/>See the table below.
+1. The grant amount and its validity period is verified during the entire reporting period. <br/>See the table below.
 
    | Grant amount | Description |
    | ----- | ----- |
@@ -22,16 +22,16 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
 
 1. You use the Yandex.Cloud resources. [The personal account balance](../concepts/personal-account.md#balance) decreases as resource usage increases. Go to step 6.
 
-1. Your personal account balance is checked throughout the billing period:
+1. Your personal account balance is checked throughout the reporting period:
      - If the balance is positive, go back to step 5.
      - If the balance is negative, go to step 7.
 
 1. You have used the [credit limit](../concepts/credit-limit.md) and there are outstanding charges. Go to step 8.
 
-1. Your personal account balance is checked throughout the billing period:
+1. Your personal account balance is checked throughout the reporting period:
 
-   8.1. If the credit limit has not been reached and the billing period has not ended, go back to step 7 or [top up](../operations/pay-the-bill.md) your personal account (step 4).
-<br/>8.2. If the billing period has ended, the system [calculates](payment-methods-individual.md#payment-amount) the total amount due and submits a charge to the linked bank card. Go to step 9.
+   8.1. If the credit limit has not been reached and the reporting period has not ended, go back to step 7 or [top up](../operations/pay-the-bill.md) your personal account (step 4).
+<br/>8.2. If the reporting period has ended, the system [calculates](payment-methods-individual.md#payment-amount) the total amount due and submits a charge to the linked bank card. Go to step 9.
 
    [!INCLUDE [pay-by-card-note](../_includes/pay-by-card-note.md)]
 

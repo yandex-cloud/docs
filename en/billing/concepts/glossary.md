@@ -21,7 +21,7 @@ Agreement
 <br/>See the section [Agreement](contract.md).
 
 Credit limit
-:   Maximum negative [personal account balance](../concepts/personal-account.md#balance). The credit limit is activated automatically after you [switch to the paid version](../operations/activate-commercial.md) and the first billing period ends.
+:   Maximum negative [personal account balance](../concepts/personal-account.md#balance). The credit limit is activated automatically after you [switch to the paid version](../operations/activate-commercial.md) and the first reporting period ends.
 <br/>See the section [Credit limit](credit-limit.md).
 
 Personal account
@@ -47,15 +47,15 @@ Promo code
 : A password that allows you to get an additional discount on using Yandex.Cloud services.
 <br/>See the section [Promo code](promo-code.md).
 
-Billing period
-: A billing period is equal to one calendar month. At the beginning of each month, you are required to pay for the resources consumed in the previous period. [The payment method](../payment/payment-methods.md) depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
+Reporting period
+: A reporting period is equal to one calendar month. At the beginning of each month, you are required to pay for the resources consumed in the previous period. [The payment method](../payment/payment-methods.md) depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
 
 Payment invoice
 : A document issued for you to pay for the resources consumed in the past month.
 <br/>See the section [Payment invoice](bill.md).
 
 Invoice
-: A tax document that is issued to a customer at the end of the billing period.
+: A tax document that is issued to a customer at the end of the reporting period.
 <br/>See the section [Invoice](invoice.md).
 
 Payment invoice / payment receipt amount
