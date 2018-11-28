@@ -2,12 +2,12 @@
 
 **[!TAB I use the credit limit]**
 
-A payment invoice is issued at the beginning of the next billing period if the total amount of the payment invoice is greater than zero.
+A payment invoice is issued at the beginning of the next reporting period if the total amount of the payment invoice is greater than zero.
 
 
 > [!NOTE]
 >
-> Yandex.Cloud reserves the right to issue a payment invoice during the current billing period if you exceed the established credit limit.
+> Yandex.Cloud reserves the right to issue a payment invoice during the current reporting period if you exceed the established credit limit.
 >
 
 **[!TAB I don't use the credit limit]**

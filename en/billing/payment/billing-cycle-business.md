@@ -9,7 +9,7 @@ The diagram shows the cycle of issuing and paying bills for businesses, as well 
 
 1. If you are awarded a grant, you use it. The grant amount is reduced as the resources of Yandex.Cloud services are consumed.
 
-1. The grant amount and its validity period is verified during the entire billing period. <br/>See the table below.
+1. The grant amount and its validity period is verified during the entire reporting period. <br/>See the table below.
 
    | Grant amount | Description |
    | ----- | ----- |
@@ -22,19 +22,19 @@ The diagram shows the cycle of issuing and paying bills for businesses, as well 
 
 1. You use the Yandex.Cloud resources. [The personal account balance](../concepts/personal-account.md#balance) decreases as resource usage increases. Go to step 6.
 
-1. Your personal account balance is checked throughout the billing period. <br/>See the table below.
+1. Your personal account balance is checked throughout the reporting period. <br/>See the table below.
 
     | Balance | Description |
     | ----- | ----- |
-    | Greater than zero | 6.1. If the billing period has not ended yet, go back to step 5. <br/>6.2. If the billing period has ended, a [statement](../concepts/act.md) and [invoice](../concepts/invoice.md) are generated. Copies of these documents will be sent to the email address of the billing account owner. Go back to step 5. |
+    | Greater than zero | 6.1. If the reporting period has not ended yet, go back to step 5. <br/>6.2. If the reporting period has ended, a [statement](../concepts/act.md) and [invoice](../concepts/invoice.md) are generated. Copies of these documents will be sent to the email address of the billing account owner. Go back to step 5. |
     | Less than zero | Go to step 7. |
 
 1. You have used the [credit limit](../concepts/credit-limit.md) and there are outstanding charges. Go to step 8.
 
-1. Your personal account balance is checked throughout the billing period:
+1. Your personal account balance is checked throughout the reporting period:
 
-    8.1. If the billing period has not ended and the credit limit has not been reached, go back to step 7 or [top up](../operations/pay-the-bill.md) your personal account (step 4). Otherwise, go to step 8.2.
-<br/>8.2. If the billing period has ended and/or the credit limit has been reached:
+    8.1. If the reporting period has not ended and the credit limit has not been reached, go back to step 7 or [top up](../operations/pay-the-bill.md) your personal account (step 4). Otherwise, go to step 8.2.
+<br/>8.2. If the reporting period has ended and/or the credit limit has been reached:
      - [Top up](../operations/pay-the-bill.md) your personal account to a positive value within the deadline stipulated in the agreement. Go to step 9.
      - If there is a bank card linked to your billing account, the system [calculates](payment-methods-card-business.md#payment-amount) the total amount due and submits a charge to the linked bank card. Go to step 9.
 

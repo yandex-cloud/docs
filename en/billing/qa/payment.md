@@ -55,5 +55,5 @@ For more information, see [Pricing](../pricing.md).
 
 #### How can I enable the credit limit?  {#credit}
 
-[The credit limit](../concepts/credit-limit.md) is enabled automatically after the [paid version is activated](../operations/activate-commercial.md) and the first billing period ends.
+[The credit limit](../concepts/credit-limit.md) is enabled automatically after the [paid version is activated](../operations/activate-commercial.md) and the first reporting period ends.
 

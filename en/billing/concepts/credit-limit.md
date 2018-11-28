@@ -16,7 +16,7 @@ You can find information about the credit limit amount in the [management consol
 
 ## Activating the credit limit {#enable}
 
-The credit limit is activated automatically after you [switch to the paid version](../operations/activate-commercial.md) and the first billing period ends.
+The credit limit is activated automatically after you [switch to the paid version](../operations/activate-commercial.md) and the first reporting period ends.
 
 ## Using the credit limit {#using}
 

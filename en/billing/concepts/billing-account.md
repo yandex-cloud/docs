@@ -30,7 +30,7 @@ The type of a billing account determines the Yandex.Cloud resource [payment meth
 - Intended for residents of Russia.
 - Resource usage is paid for via bank transfer from a business's bank account or a corporate bank card.
 - Payments for the resources consumed are made based on the [agreement](../concepts/contract.md) and [payment invoice](bill.md) or the amount is debited automatically from the associated bank card. For more information, see the section [Billing cycle for businesses](../payment/billing-cycle-business.md).
-- A report for services rendered and a payment invoice are sent to your email address at the beginning of the next billing period. For more information, see the section [Financial documents](../payment/documents.md).
+- A report for services rendered and a payment invoice are sent to your email address at the beginning of the next reporting period. For more information, see the section [Financial documents](../payment/documents.md).
 
   ---  
 
