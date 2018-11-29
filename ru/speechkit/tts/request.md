@@ -33,8 +33,8 @@ POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 ### Пример запроса {#request_examples}
 
 ```httpget
-export FOLDER_ID=xxxxxxx # ваш folderId
-export TOKEN=yyyyyy # ваш IAM токен
+export FOLDER_ID=xxxxxx # folderId
+export TOKEN=yyyyyy # IAM токен
 curl -X POST \
      -H "Authorization: Bearer ${TOKEN}" \
      -H "Transfer-Encoding: chunked" \
