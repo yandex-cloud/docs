@@ -34,9 +34,13 @@ POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 ### Пример запроса {#request_examples}
 
 ```httpget
+export FOLDER_ID=xxxxxxx # your folderId
+export TOKEN=yyyyyy # your IAM token
 curl -X POST \
-     -H "Authorization: Bearer <IAM-token>" \
-     -d "text=hello%20world&voice=zahar&emotion=good&folderId=<folder id>" \
+     -H "Authorization: Bearer ${TOKEN}" \
+     -H "Transfer-Encoding: chunked" \
+     --data-urlencode "text=привет мир" \
+     -d "voice=zahar&emotion=good&folderId=${FOLDER_ID}" \
      "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
 ```
 
