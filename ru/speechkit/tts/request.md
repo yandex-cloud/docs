@@ -8,9 +8,13 @@
 POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 ```
 
+Используйте заголовок `"Transfer-Encoding: chunked"` для потокового получения результата.
+
+
 ## Параметры в теле запроса {#body_params}
 
-Для всех параметров обязательно используйте URL-кодирование. Максимальный размер тела POST-запроса 30 КБ.
+Для всех параметров обязательно используйте URL-кодирование. Максимальный размер тела POST-запроса 30 КБ. 
+
 
 Параметр | Описание
 ----- | -----
@@ -19,8 +23,8 @@ POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 `voice` | Голос синтезированной речи.<br/>Можно выбрать один из следующих голосов:<ul><li>женские голоса: `jane`, `oksana`, `alyss` и `omazh`;</li><li>мужские голоса: `zahar` и `ermil`.</li></ul>Значение параметра по умолчанию: `oksana`.
 `emotion` | Эмоциональная окраска голоса.<br/>Допустимые значения:<ul><li>`good` — радостный, доброжелательный;</li><li>`evil` — раздраженный;</li><li>`neutral` — нейтральный.</li></ul>Значение параметра по умолчанию: `neutral`.
 `speed` | Скорость (темп) синтезированной речи.<br/>Скорость речи задается дробным числом в диапазоне от `0.1` до `3.0`. Где:<ul><li>`3.0` — самый быстрый темп;</li><li>`1.0` — средняя скорость человеческой речи;</li><li>`0.1` — самый медленный темп.</li></ul>Значение параметра по умолчанию: `1.0`.
-`format` | Формат синтезируемого аудио.<br/>Допустимые значения:<ul><li>`lpcm` — аудиофайл синтезируется в формате [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) без WAV-заголовка. Характеристики аудио:<ul><li>Дискретизация — 8, 16 или 48 kHz в зависимости от значения параметра `quality`.</li><li>Разрядность квантования — 16-bit.</li><li>Порядок байтов — обратный (little-endian).</li><li>Аудиоданные хранятся как знаковые числа (signed integer).</li></ul></li><li>`oggopus` — данные в аудиофайле кодируются с помощью аудиокодека OPUS и упаковываются в контейнер OGG ([OggOpus](https://wiki.xiph.org/OggOpus)).</li></ul>Значение параметра по умолчанию: `oggopus`.
-`quality` | Частота дискретизации синтезируемого аудио.<br/>Применяется, если значение `format` равно `lpcm`. Допустимые значения:<ul><li>`ultrahigh` — частота дискретизации 48 кГц;</li><li>`high` — частота дискретизации 16 кГц;</li><li>`low` — частота дискретизации 8 кГц.</li></ul>Значение параметра по умолчанию: `ultrahigh`.
+`format` | Формат синтезируемого аудио.<br/>Допустимые значения:<ul><li>`lpcm` — аудиофайл синтезируется в формате [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) без WAV-заголовка. Характеристики аудио:<ul><li>Дискретизация — 8, 16 или 48 kHz в зависимости от значения параметра `sampleRateHertz`.</li><li>Разрядность квантования — 16-bit.</li><li>Порядок байтов — обратный (little-endian).</li><li>Аудиоданные хранятся как знаковые числа (signed integer).</li></ul></li><li>`oggopus` — данные в аудиофайле кодируются с помощью аудиокодека OPUS и упаковываются в контейнер OGG ([OggOpus](https://wiki.xiph.org/OggOpus)).</li></ul>Значение параметра по умолчанию: `oggopus`.
+`sampleRateHertz` | Частота дискретизации синтезируемого аудио.<br/>Применяется, если значение `format` равно `lpcm`. Допустимые значения:<ul><li>`48000` — частота дискретизации 48 кГц;</li><li>`16000` — частота дискретизации 16 кГц;</li><li>`8000` — частота дискретизации 8 кГц.</li></ul>Значение параметра по умолчанию: `48000`. 
 `folderId` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
 
 
@@ -34,9 +38,13 @@ POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 ### Пример запроса {#request_examples}
 
 ```httpget
+export FOLDER_ID=<folder id>
+export TOKEN=<IAM-token>
 curl -X POST \
-     -H "Authorization: Bearer <IAM-token>" \
-     -d "text=hello%20world&voice=zahar&emotion=good&folderId=<folder id>" \
+     -H "Authorization: Bearer ${TOKEN}" \
+     -H "Transfer-Encoding: chunked" \
+     --data-urlencode "text=привет мир" \
+     -d "voice=zahar&emotion=good&folderId=${FOLDER_ID}" \
      "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
 ```
 
