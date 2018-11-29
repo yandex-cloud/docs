@@ -1,7 +1,7 @@
 # Объект Operation
 
 
-Каждая операция, которая изменяет состояние ресурса, приводит к созданию объекта [Operation](../../compute/api-ref/Operation/index.md). Этот объект содержит информацию об операции: статус, идентификатор, время вызова и т. д. 
+Каждая операция, которая изменяет состояние ресурса, приводит к созданию объекта [Operation](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation.proto). Этот объект содержит информацию об операции: статус, идентификатор, время вызова и т. д. 
 
 С помощью объекта `Operation` вы можете:
  
@@ -16,20 +16,20 @@
 Поле |  Описание
 ----- |  -----
 `id`* | <b>string</b><br/>Идентификатор операции. Генерируется на стороне сервиса.
-`created_at`* | <b>google.protobuf.Timestamp</b><br/>Время запуска операции. Указывается в формате [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt).
+`created_at`* | [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto)<br/>Время запуска операции. Указывается в формате [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt).
 `created_by`* |  <b>string</b><br/>Идентификатор пользователя, запустившего операцию.
-`modified_at`* | <b>google.protobuf.Timestamp</b><br/>Время последнего изменения ресурса. Указывается в формате [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt).
+`modified_at`* | [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto)<br/>Время последнего изменения ресурса. Указывается в формате [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt).
 `done`* | <b>bool</b><br/>Статус операции. Принимает одно из двух значений:<br/><q>true</q> — операция завершена. Обратите внимание, операция считается завершенной, даже если в ходе ее выполнения возникла ошибка.<br/><q>false</q> — операция не завершена.
-`response` | <b>google.protobuf.Any</b><br/>Поле присутствует только в том случае, если операция была успешно завершена.<br/><br/> Для методов `Create` и `Update` поле `response` содержит представление созданного или измененного ресурса. Для других операций поле может содержать пустое сообщение [google.protobuf.Empty](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/empty.proto) (например, при удалении ресурса).<br/></br>Поля `response` и `error` являются взаимоисключающими. Ответ не может одновременно содержать оба поля.
-`error` | <b>google.rpc.Status</b><br/>[Сообщение об ошибке](errors.md). Поле присутствует в том случае, если в ходе выполнения операции возникла ошибка.<br/><br/><br/>Поле `error` может появиться в ответе до того, как операция была завершена: когда возникает ошибка, сервис сразу добавляет поле `error` в объект `Operation`. Одновременно с этим сервис начинает откатываться к предыдущему состоянию: завершает все запущенные процедуры и удаляет ресурсы, которые были созданы в ходе операции. Только когда сервис вернется к предыдущему состоянию, операция будет считаться завершенной и значение ее поля `done` будет выставлено в <q>true</q>.<br/><br/>Поля `response` и `error` являются взаимоисключающими. Ответ не может одновременно содержать оба поля.
-`metadata` | <b>google.protobuf.Any</b><br/>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает объект `Operation`, в описании метода приведена структура соответствующего ему поля `metadata`.
+`response` | [google.protobuf.Any](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto)<br/>Поле присутствует только в том случае, если операция была успешно завершена.<br/><br/> Для методов `Create` и `Update` поле `response` содержит представление созданного или измененного ресурса. Для других операций поле может содержать пустое сообщение [google.protobuf.Empty](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/empty.proto) (например, при удалении ресурса).<br/></br>Поля `response` и `error` являются взаимоисключающими. Ответ не может одновременно содержать оба поля.
+`error` | [google.rpc.Status](https://github.com/grpc/grpc/blob/master/src/proto/grpc/status/status.proto)<br/>Сообщение об ошибке. Поле присутствует в том случае, если в ходе выполнения операции возникла ошибка.<br/><br/><br/>Поле `error` может появиться в ответе до того, как операция была завершена: когда возникает ошибка, сервис сразу добавляет поле `error` в объект `Operation`. Одновременно с этим сервис начинает откатываться к предыдущему состоянию: завершает все запущенные процедуры и удаляет ресурсы, которые были созданы в ходе операции. Только когда сервис вернется к предыдущему состоянию, операция будет считаться завершенной и значение ее поля `done` будет выставлено в <q>true</q>.<br/><br/>Поля `response` и `error` являются взаимоисключающими. Ответ не может одновременно содержать оба поля.
+`metadata` | [google.protobuf.Any](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto)<br/>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает объект `Operation`, в описании метода приведена структура соответствующего ему поля `metadata`.
 `description` | <b>string</b><br/>Описание операции. Максимальная длина составляет 256 символов.
 
 \* Обязательное поле.
 
 ## Отслеживание статуса операции {#monitoring}
 
-Узнать статус операции можно с помощью метода `Get`: 
+Узнать статус операции можно с помощью метода [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto#L14): 
 ```protobuf
  // Возвращает объект Operation по заданному идентификатору.
  rpc Get (GetOperationRequest) returns (operation.Operation) {
@@ -50,7 +50,7 @@ GET https://operation.api.cloud.yandex.net/operations/fcmq0j5033e516c56ctq
 
 ## Отмена операции {#cancel}
 
-Отменить операцию можно с помощью метода `Сancel`:
+Отменить операцию можно с помощью метода [Сancel](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto#L19):
 
 ```protobuf
  // Отменяет заданную операцию.
@@ -83,7 +83,7 @@ POST https://operation.api.cloud.yandex.net/operations/a3s17h9sbq5asdgss12:cance
 
 Обратите внимание, метод `ListOperations` позволяет получить список операций только над конкретным ресурсом, но не над категорией ресурсов. Например, вы не сможете посмотреть историю операций, которые производились над всеми дисками в вашем облаке.
 
-Пример gRPC-описания метода для операций над диском:
+Пример gRPC-описания метода [ListOperations](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto#L63) для просмотра списка операций над диском:
 ```protobuf
  // Выводит список операций, которые были произведены над заданным диском.
  rpc ListOperations (ListDiskOperationsRequest)
@@ -140,4 +140,3 @@ GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03/op
    ]
  }
 ```
-
