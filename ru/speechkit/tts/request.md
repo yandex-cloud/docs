@@ -8,7 +8,7 @@
 POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 ```
 
-Используйте заголовок `"Transfer-Encoding: chunked"` для потоковой передачи результата.
+Используйте заголовок `"Transfer-Encoding: chunked"` для потокового получения результата.
 
 
 ## Параметры в теле запроса {#body_params}
