@@ -1,9 +1,5 @@
 # Pricing policy for Yandex [!KEYREF mdb-short-name]
 
-> [!NOTE]
-> 
-> Host prices for [!KEYREF CH] will change from December 1, 2018, and Zookeeper hosts will be charged separately.
-> For more information, see [the description of the new rates](#new).
 
 ## What goes into the cost of [!KEYREF mdb-short-name] use {#rules}
 
@@ -43,47 +39,8 @@ The following is charged:
 
 The cost is specified for one month of use.  The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
 
-## Prices until December 1, 2018 {#old}
 
-### DB hosts {#prices-host-old}
-
-| Host class | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
-| ----- | ----- | ----- |
-| **ClickHouse** |  |
-| s1.nano | 3.81 ₽ | 4.50 ₽ |
-| s1.micro | 6.11 ₽ | 7.21 ₽ |
-| s1.small | 10.70 ₽ | 12.63 ₽ |
-| s1.medium | 19.87 ₽ | 23.45 ₽ |
-| s1.large | 38.23 ₽ | 45.11 ₽ |
-| s1.xlarge | 74.94 ₽ | 88.43 ₽ |
-| **PostgreSQL** |  |
-| s1.nano | 2.16 ₽ | 2.55 ₽ |
-| s1.micro | 4.31 ₽ | 5.09 ₽ |
-| s1.small | 8.62 ₽ | 10.17 ₽ |
-| s1.medium | 17.25 ₽ | 20.35 ₽ |
-| s1.large | 34.48 ₽ | 40.69 ₽ |
-| s1.xlarge | 68.97 ₽ | 81.39 ₽ |
-| **MongoDB** |  |
-| s1.nano | 2.50 ₽ | 2.95 ₽ |
-| s1.micro | 5.01 ₽ | 5.91 ₽ |
-| s1.small | 10.01 ₽ | 11.81 ₽ |
-| s1.medium | 20.03 ₽ | 23.63 ₽ |
-| s1.large | 40.04 ₽ | 47.25 ₽ |
-| s1.xlarge | 80.09 ₽ | 94.51 ₽ |
-
-### Storage and backups {#prices-storage-old}
-
-| Service | Cost of 1 GB per month, without VAT | Cost of 1 GB per month, with VAT |
-| ----- | ----- | ----- |
-| NVMe | 6.78 ₽ | 8.00 ₽ |
-| Fast networked storage | 6.78 ₽ | 8.00 ₽ |
-| Backups beyond the storage size | 2.12 ₽ | 2.50 ₽ |
-
-### Outgoing traffic {#prices-traffic-old}
-
-[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing-egress-traffic.md)]
-
-## Prices as of December 1, 2018 {#new}
+## Prices {#prices}
 
 ### [!KEYREF CH] and ZooKeeper {#prices-clickhouse}
 
