@@ -202,11 +202,13 @@ curl -X POST \
 
 ## Примеры
 
-### PyJWT
+---
+
+**[!TAB Python]**
 
 Пример создания подписанного JWT с использованием [PyJWT](https://github.com/jpadilla/pyjwt/).
 
-```
+```python
 import time
 import jwt
 
@@ -222,6 +224,8 @@ payload = {
         'iss': service_account_id,
         'iat': now,
         'exp': now + 360}
+
+# Формирование JWT.
 encoded_token = jwt.encode(
     payload,
     private_key,
@@ -229,6 +233,155 @@ encoded_token = jwt.encode(
     headers={'kid': key_id})
 ```
 
+**[!TAB Java]**
+
+Пример создания подписанного JWT с использованием [JJWT](https://github.com/jwtk/jjwt).
+
+```java
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import org.bouncycastle.util.io.pem.PemObject;
+import org.bouncycastle.util.io.pem.PemReader;
+
+import java.io.FileReader;
+import java.security.KeyFactory;
+import java.security.PrivateKey;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.time.Instant;
+import java.util.Date;
+
+public class JwtTest {
+    public static void main(String[] args) throws Exception {
+        PemObject privateKeyPem;
+        try (PemReader reader = new PemReader(new FileReader("private.pem"))) {
+            privateKeyPem = reader.readPemObject();
+        }
+
+        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+        PrivateKey privateKey = keyFactory.generatePrivate(new PKCS8EncodedKeySpec(privateKeyPem.getContent()));
+
+        String serviceAccountId = "ajepg0mjt06siua65usm";
+        String keyId = "b1gvmob03goohplcf641";
+
+        Instant now = Instant.now();
+
+        // Формирование JWT.
+        String encodedToken = Jwts.builder()
+                .setHeaderParam("kid", keyId)
+                .setIssuer(serviceAccountId)
+                .setAudience("https://iam.api.cloud.yandex.net/iam/v1/tokens")
+                .setIssuedAt(Date.from(now))
+                .setExpiration(Date.from(now.plusSeconds(360)))
+                .signWith(privateKey, SignatureAlgorithm.PS256)
+                .compact();
+    }
+}
+```
+
+**[!TAB Go]**
+
+Пример создания подписанного JWT с использованием [jwt-go](https://github.com/dgrijalva/jwt-go).
+
+Формирование JWT:
+
+```go
+import (
+	"crypto/rsa"
+	"io/ioutil"
+	"time"
+
+	"github.com/dgrijalva/jwt-go"
+)
+
+const (
+	keyID            = "b1gvmob03goohplcf641"
+	serviceAccountID = "ajepg0mjt06siua65usm"
+	keyFile          = "private.pem"
+)
+
+// Формирование JWT.
+func signedToken() string {
+	issuedAt := time.Now()
+	token := jwt.NewWithClaims(ps256WithSaltLengthEqualsHash, jwt.StandardClaims{
+		Issuer:    serviceAccountID,
+		IssuedAt:  issuedAt.Unix(),
+		ExpiresAt: issuedAt.Add(time.Hour).Unix(),
+		Audience:  "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+	})
+	token.Header["kid"] = keyID
+
+	privateKey := loadPrivateKey()
+	signed, err := token.SignedString(privateKey)
+	if err != nil {
+		panic(err)
+	}
+	return signed
+}
+
+// По умолчанию Go RSA PSS использует PSSSaltLengthAuto,
+// но на странице https://tools.ietf.org/html/rfc7518#section-3.5 сказано, что
+// размер значения соли должен совпадать с размером вывода хеш-функции.
+// После исправления https://github.com/dgrijalva/jwt-go/issues/285
+// можно будет заменить на jwt.SigningMethodPS256
+var ps256WithSaltLengthEqualsHash = &jwt.SigningMethodRSAPSS{
+	SigningMethodRSA: jwt.SigningMethodPS256.SigningMethodRSA,
+	Options: &rsa.PSSOptions{
+		SaltLength: rsa.PSSSaltLengthEqualsHash,
+	},
+}
+
+func loadPrivateKey() *rsa.PrivateKey {
+	data, err := ioutil.ReadFile(keyFile)
+	if err != nil {
+		panic(err)
+	}
+	rsaPrivateKey, err := jwt.ParseRSAPrivateKeyFromPEM(data)
+	if err != nil {
+		panic(err)
+	}
+	return rsaPrivateKey
+}
+```
+
+Обмен JWT на IAM-токен:
+
+```go
+import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"net/http"
+	"strings"
+)
+
+func getIAMToken() string {
+	jot := signedToken()
+	fmt.Println(jot)
+	resp, err := http.Post(
+		"https://iam.api.cloud.yandex.net/iam/v1/tokens",
+		"application/json",
+		strings.NewReader(fmt.Sprintf(`{"jwt":"%s"}`, jot)),
+	)
+	if err != nil {
+		panic(err)
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		body, _ := ioutil.ReadAll(resp.Body)
+		panic(fmt.Sprintf("%s: %s", resp.Status, body))
+	}
+	var data struct {
+		IAMToken string `json:"iamToken"`
+	}
+	err = json.NewDecoder(resp.Body).Decode(&data)
+	if err != nil {
+		panic(err)
+	}
+	return data.IAMToken
+}
+```
+
+---
 
 #### Что дальше
 
