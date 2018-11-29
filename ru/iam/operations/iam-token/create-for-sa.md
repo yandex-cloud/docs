@@ -53,6 +53,20 @@ curl -H "Authorization: Bearer <IAM_TOKEN>" \
 
 ---
 
+**[!TAB CLI]**
+
+Создайте ключи шифрования для сервисного аккаунта `my-robot`:
+
+```
+$  yc iam key create --service-account-name my-robot -o my-key.txt
+```
+
+В случае успеха в файл my-key.txt будет записан закрытый ключ (`privateKey`) и идентификатор открытого ключа (`id`).
+
+_my-key.txt_
+
+[!INCLUDE [key-response-format](../../../_includes/key-response-format.md)]
+
 **[!TAB API]**
 
 Чтобы создать ключи шифрования, воспользуйтесь методом `create` для ресурса `Key`.
@@ -73,21 +87,7 @@ curl -X POST \
 
 В случае успеха в ответе сервера будет указан закрытый ключ (`privateKey`) и идентификатор открытого ключа (`id`). Сохраните эти данные, они будут использованы ниже.
 
-```
-{
-    "key": {
-        "createdAt": "2018-10-30T15:55:00+00:00",
-        "description": "",
-        "id": "b1gvmob03goohplcf641",
-        "keyAlgorithm": "RSA_4096",
-        "publicKey": "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----\n",
-        "serviceAccountId": "ajepg0mjt06siua65usm"
-    },
-    "privateKey": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
-}
-```
-
-Создать JWT можно с помощью разных инструментов, например [jwt.io](https://jwt.io), но обратите внимание на то, что IAM API возвращает ключи с `\n` вместо переносов строк.
+[!INCLUDE [key-response-format](../../../_includes/key-response-format.md)]
 
 ---
 
