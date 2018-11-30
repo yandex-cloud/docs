@@ -41,10 +41,13 @@ POST https://translate.api.cloud.yandex.net/translate/v1/translate
 
 ### Пример запроса
 
-```no-highlight
+```httpget
+export FOLDER_ID=<folder id>
+export TOKEN=<IAM-token>
 curl -X POST \
-     -H "Authorization: Bearer <IAM-token>" \
-     -d "text=hello%20world&source=en&target=ru&folderId=<folder id>" \
+     -H "Authorization: Bearer ${TOKEN}" \
+     -d "folderId=${FOLDER_ID}&target=en" \
+     --data-urlencode "text=привет мир&text=доброе утро" \
      "https://translate.api.cloud.yandex.net/translate/v1/translate"
 ```
 
@@ -55,7 +58,12 @@ curl -X POST \
 ```json
 {
     "translations": [
-        {"text": "привет мир"}
+        {
+            "text": "Hello world"
+        },
+        {
+            "text": "good morning"
+        }
     ]
 }
 ```
