@@ -431,7 +431,7 @@ $jws = $jwsBuilder
 
 $serializer = new CompactSerializer($jsonConverter);
 
-// Получение сгенерированного JWT.
+// Формирование JWT.
 $token = $serializer->serialize($jws);
 ```
 
