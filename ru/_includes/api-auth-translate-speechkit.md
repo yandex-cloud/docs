@@ -27,7 +27,7 @@
 
     [!INCLUDE [create-folder](create-folder.md)]
 
-1. Найдите идентификатор каталога в URL страницы каталога в консоли управления. Скопируйте в ваш API запрос <folder-id> из URL страницы каталога в консоли управления. Например, если ваш каталог имеет URL https://console.cloud.yandex.ru/folders/b5gfc3ntettogerelqed7p, то ваш <folder-id> будет <b5gfc3ntettogerelqed7p>.
+1. Найдите идентификатор каталога в URL страницы каталога в консоли управления. Скопируйте в ваш API запрос <folder-id> из URL страницы каталога в консоли управления. Например, если ваш каталог имеет URL ```https://console.cloud.yandex.ru/folders/b5gfc3ntettogerelqed7p```, то ваш <folder-id> будет <b5gfc3ntettogerelqed7p>.
 2. [Получите IAM-токен](../iam/operations/iam-token/create.md).
 3. В каждом API запросе к сервису передавайте:
     * IAM-токен в заголовке `Authorization` в формате `Authorization: Bearer <IAM-token>`.
