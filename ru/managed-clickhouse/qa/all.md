@@ -1,4 +1,4 @@
-# Вопросы и ответы про [!KEYREF mdb-short-name]
+# Вопросы и ответы про [!KEYREF mch-short-name]
 
 
 ## Общие вопросы {#general}

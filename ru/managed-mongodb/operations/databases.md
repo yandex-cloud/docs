@@ -62,7 +62,7 @@ $ [!KEYREF yc-mdb-mg] database create <имя базы данных>
     --cluster-name <имя кластера>
 ```
 
-[!KEYREF mdb-short-name] запустит операцию создания базы данных.
+[!KEYREF mmg-short-name] запустит операцию создания базы данных.
    
 Имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
 
