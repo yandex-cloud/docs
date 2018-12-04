@@ -28,7 +28,7 @@
     [!INCLUDE [create-folder](create-folder.md)]
 
 1. Найдите идентификатор каталога в URL страницы каталога в консоли управления.
-2. [Получите IAM-токен](../iam/operations/iam-token/create.md).
+2. [Получите IAM-токен](../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта или [получите IAM-токен](../iam/operations/iam-token/create.md) для вашей учетной записи.
 3. В каждом API запросе к сервису передавайте:
     * IAM-токен в заголовке `Authorization` в формате `Authorization: Bearer <IAM-token>`.
     * Идентификатор каталога в параметре `folderId` в теле запроса в формате `folderId=<folder id>`.
