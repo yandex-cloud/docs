@@ -1,8 +1,7 @@
 title: "Техническая поддержка"
+href: index.yaml
 icon: "/img/support.svg"
 items:
-  - name: Техническая поддержка Яндекс.Облака
-    href: index.yaml
   - name: Порядок оказания технической поддержки
     href: overview.md
   - name: Вопросы и ответы

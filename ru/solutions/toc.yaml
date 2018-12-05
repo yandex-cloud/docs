@@ -1,8 +1,7 @@
 title: "Сценарии использования"
+href: index.yaml
 icon: "/img/solutions.svg"
 items:
-  - name: Сценарии использования
-    href: index.yaml
   - name: Веб-сервис
     items:
     - name: Обзор

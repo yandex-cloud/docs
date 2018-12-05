@@ -1,9 +1,8 @@
 # Заголовок оглавления для всех страниц в разделе
 title: "Yandex SpeechKit"
+href: index.yaml
 icon: "/img/speechkit.svg"
 items:
-  - name: Yandex SpeechKit
-    href: index.yaml
   - name: Авторизация в API
     href: concepts/auth.md
   - name: Распознавание речи

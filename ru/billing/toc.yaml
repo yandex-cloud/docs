@@ -1,8 +1,7 @@
 title: "Биллинг"
+href: index.yaml
 icon: "/img/billing.svg"
 items:
-- name: Биллинг
-  href: index.yaml
 - name: Начало работы
   href: quickstart/index.md
 - name: Пробный период

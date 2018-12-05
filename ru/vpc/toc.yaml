@@ -1,8 +1,7 @@
 title: "Yandex Virtual Private Cloud"
+href: index.yaml
 icon: "/img/vpc.svg"
 items:
-  - name: Yandex Virtual Private Cloud
-    href: index.yaml
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции

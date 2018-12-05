@@ -1,8 +1,7 @@
 title: "Yandex Object Storage"
+href: index.yaml
 icon: "/img/storage.svg"
 items:
-  - name: Yandex Object Storage
-    href: index.yaml
   - name: Начало работы
     items:
     - name: Создание корзины

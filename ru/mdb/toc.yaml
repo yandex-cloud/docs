@@ -1,8 +1,7 @@
 title: "Yandex Managed Databases"
+href: index.yaml
 icon: "/img/translate.svg"
 items:
-  - name: Yandex Managed Databases
-    href: index.yaml
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции

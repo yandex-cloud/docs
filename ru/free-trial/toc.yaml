@@ -1,8 +1,7 @@
 title: "Пробный период"
+href: index.yaml
 icon: "/img/free-trial.svg"
 items:
-  - name: Пробный период
-    href: index.yaml
   - name: Как воспользоваться пробным периодом
     href: concepts/quickstart.md
   - name: Ограничения пробного периода
