@@ -1,8 +1,6 @@
 title: "Trial period"
-icon: "/img/free-trial.svg"
+href: index.yaml
 items:
-  - name: Trial period
-    href: index.yaml
   - name: How to use the trial period
     href: concepts/quickstart.md
   - name: Trial period restrictions

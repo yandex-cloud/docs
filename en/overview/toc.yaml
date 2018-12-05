@@ -1,8 +1,6 @@
 title: "Yandex.Cloud overview"
-icon: "/img/overview.svg"
+href: index.yaml
 items:
-  - name: Yandex.Cloud overview
-    href: index.yaml
   - name: Yandex.Cloud services
     href: concepts/services.md
   - name: Availability zones

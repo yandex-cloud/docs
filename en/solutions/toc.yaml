@@ -1,8 +1,6 @@
 title: "Solution tutorials"
-icon: "/img/solutions.svg"
+href: index.yaml
 items:
-  - name: Solution tutorials
-    href: index.yaml
   - name: Web service
     items:
     - name: Overview
