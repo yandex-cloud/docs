@@ -1,6 +1,5 @@
 title: "Yandex Object Storage"
 href: index.yaml
-icon: "/img/storage.svg"
 items:
   - name: Начало работы
     items:

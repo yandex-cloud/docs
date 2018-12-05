@@ -1,6 +1,5 @@
 title: "Техническая поддержка"
 href: index.yaml
-icon: "/img/support.svg"
 items:
   - name: Порядок оказания технической поддержки
     href: overview.md

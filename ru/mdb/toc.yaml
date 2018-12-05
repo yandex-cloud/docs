@@ -1,6 +1,5 @@
 title: "Yandex Managed Databases"
 href: index.yaml
-icon: "/img/translate.svg"
 items:
   - name: Начало работы
     href: quickstart.md
@@ -88,10 +87,12 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочники API
     items:
     - name: Аутентификация в API
       href: api-ref/authentication.md
+    - name: Обзор
+      href: api-ref/index.md
     include:
       repo: docs-api
       path: ru/mdb/toc.yaml

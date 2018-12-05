@@ -1,6 +1,5 @@
 title: "Yandex Identity and Access Management"
 href: index.yaml
-icon: "/img/iam.svg"
 items:
   - name: Начало работы
     href: quickstart.md

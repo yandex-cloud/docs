@@ -1,6 +1,5 @@
 title: "Yandex Resource Manager"
 href: index.yaml
-icon: "/img/resource-manager.svg"
 items:
   - name: Начало работы
     href: quickstart.md

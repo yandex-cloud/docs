@@ -1,6 +1,5 @@
 title: "Биллинг"
 href: index.yaml
-icon: "/img/billing.svg"
 items:
 - name: Начало работы
   href: quickstart/index.md

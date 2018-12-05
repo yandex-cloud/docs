@@ -1,6 +1,5 @@
 title: "Обзор платформы"
 href: index.yaml
-icon: "/img/overview.svg"
 items:
   - name: Сервисы Яндекс.Облака
     href: concepts/services.md

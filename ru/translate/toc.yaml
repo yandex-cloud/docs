@@ -1,6 +1,5 @@
 title: "Yandex Translate"
 href: index.yaml
-icon: "/img/translate.svg"
 items:
   - name: Авторизация в API
     href: concepts/auth.md

@@ -77,10 +77,12 @@ items:
     href: security/index.md
   - name: Pricing rules
     href: pricing.md
-  - name: API reference
+  - name: API references
     items:
     - name: API Authentication
       href: api-ref/authentication.md
+    - name: Overview
+      href: api-ref/index.md
     include:
       repo: docs-api
       path: en/mdb/toc.yaml

@@ -1,6 +1,5 @@
 title: "Пробный период"
 href: index.yaml
-icon: "/img/free-trial.svg"
 items:
   - name: Как воспользоваться пробным периодом
     href: concepts/quickstart.md
