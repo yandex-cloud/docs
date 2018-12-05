@@ -60,4 +60,8 @@
     $ yc compute instance start first-instance
     ```
 
+**[!TAB API]**
+
+Воспользуйтесь методом [attachDisk](../../api-ref/Instance/attachDisk.md) для ресурса [Instance](../../api-ref/Instance/).
+
 ---

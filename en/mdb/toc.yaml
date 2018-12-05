@@ -77,6 +77,8 @@ items:
     href: pricing.md
   - name: API references
     items:
+    - name: Overview
+      href: api-ref/index.md
     - name: API Authentication
       href: api-ref/authentication.md
     - name: Overview

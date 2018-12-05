@@ -27,6 +27,8 @@ items:
         items:
           - name: Получить статический публичный IP-адрес
             href: operations/set-static-ip.md
+          - name: Удалить статический публичный IP-адрес
+            href: operations/address-delete.md
   - name: Основные понятия
     items:
       - name: Взаимосвязь ресурсов сервиса
