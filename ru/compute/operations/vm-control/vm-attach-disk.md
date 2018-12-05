@@ -60,4 +60,8 @@
     $ yc compute instance start first-instance
     ```
 
+**[!TAB API]**
+
+Чтобы подключить диск к виртуальной машине, воспользуйтесь методом [attachDisk](../../api-ref/Instance/attachDisk.md) для ресурса [Instance](../../api-ref/Instance/).
+
 ---

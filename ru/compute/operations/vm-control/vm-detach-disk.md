@@ -45,4 +45,8 @@
     $ yc compute instance start first-instance
     ```
 
+**[!TAB API]**
+
+Чтобы отключить диск от виртуальной машины, воспользуйтесь методом [detachDisk](../../api-ref/Instance/detachDisk.md) для ресурса [Instance](../../api-ref/Instance/).
+
 ---
