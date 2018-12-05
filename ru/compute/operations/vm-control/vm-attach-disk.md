@@ -62,6 +62,6 @@
 
 **[!TAB API]**
 
-Чтобы подключить диск к виртуальной машине, воспользуйтесь методом [attachDisk](../../api-ref/Instance/attachDisk.md) для ресурса [Instance](../../api-ref/Instance/).
+Воспользуйтесь методом [attachDisk](../../api-ref/Instance/attachDisk.md) для ресурса [Instance](../../api-ref/Instance/).
 
 ---
