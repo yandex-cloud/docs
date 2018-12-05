@@ -1,5 +1,5 @@
 # Yandex Virtual Private Cloud API
-This API reference is organized by resource. All actions are performed by sending HTTP requests to resource URLs. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
 
 Ресурс | Описание
 --- | ---
