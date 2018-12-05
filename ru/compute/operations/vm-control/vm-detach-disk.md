@@ -1,6 +1,6 @@
 # Отключить диск от виртуальной машины
 
-Что отключить диск от виртуальной машины:
+Чтобы отключить диск от виртуальной машины:
 
 ---
 
@@ -44,5 +44,9 @@
     ```
     $ yc compute instance start first-instance
     ```
+
+**[!TAB API]**
+
+Воспользуйтесь методом [detachDisk](../../api-ref/Instance/detachDisk.md) для ресурса [Instance](../../api-ref/Instance/).
 
 ---
