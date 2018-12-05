@@ -89,8 +89,10 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочники API
     items:
+    - name: Обзор
+      href: api-ref/index.md
     - name: Аутентификация в API
       href: api-ref/authentication.md
     - name: ClickHouse
