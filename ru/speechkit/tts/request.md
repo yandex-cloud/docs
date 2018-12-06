@@ -57,5 +57,22 @@ Content-Disposition: inline
 Content-Transfer-Encoding: binary
 YaCloud-Billing-Units: 11
         
-... (двоичное содержимое аудиофайла)   
+... (двоичное содержимое аудиофайла)
 ```
+
+### Пример запроса {#request_examples}
+В следующем примере текст синтезируется в формате LPCM с частотой дискретизации 48kHz и конвертируется в формат wav с помощью утилиты [SoX](http://sox.sourceforge.net/).
+```httpget
+export FOLDER_ID=<folder id>
+export TOKEN=<IAM-token>
+curl -X POST \
+    -H "Authorization: Bearer ${TOKEN}" \
+    -H "Transfer-Encoding: chunked" \
+    -o speech.raw \
+    --data-urlencode "text=привет мир" \
+    -d "voice=zahar&emotion=good&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
+    https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
+
+sox -r 48000 -b 16 -e signed-integer -c 1 speech.raw speech.wav
+```
+
