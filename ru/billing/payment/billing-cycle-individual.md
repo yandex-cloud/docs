@@ -46,7 +46,7 @@
 
    [!INCLUDE [blocked-note](../_includes/blocked-note.md)]  
 
-#### **См.также** 
+#### См.также 
 
 - [Грант](../concepts/bonus-account.md)
 - [Кредитный лимит](../concepts/credit-limit.md)

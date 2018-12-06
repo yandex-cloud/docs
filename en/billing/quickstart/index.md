@@ -9,7 +9,7 @@ To start using the Billing service:
 
 <a name="create_billing_account"></a>
 
-### **Create a billing account** {#create_billing_account}
+### Create a billing account {#create_billing_account}
 
 To create a [billing account](../concepts/billing-account.md):
 
