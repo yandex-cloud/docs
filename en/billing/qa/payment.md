@@ -21,7 +21,7 @@ The payment method can only be changed for a billing account of the **Business a
 
 #### How can I change my payment details? {#change-requisites}
 
-Only the owner of the billing account can change the details. If you are the owner, follow the instructions in [Change your billing account data](../operations/change-data.md).
+Only the owner of the billing account can change the payment details. If you are the owner, follow the instructions in the section [How to change billing account details](../operations/change-data.md).
 
 #### In which currency can I pay for Yandex.Cloud? {#currency}
 
@@ -29,7 +29,7 @@ You must pay for Yandex.Cloud resources in rubles (₽), regardless of your lega
 
 #### Can I pay for resources with a bank card in a foreign currency?  {#currency-2}
 
-Yes.
+Yes, you can.
 
 If you pay for resources with a bank card in a foreign currency, the equivalent amount in rubles, including VAT, is debited from the bank card. Additional bank fees for the currency conversion might be debited or credited a day or two later.
 
@@ -45,11 +45,11 @@ Businesses may conclude a contract that is signed by both parties. To do this, s
 
 #### How can I change the email address for receiving payment documents?  {#change-email}
 
-Only the owner of the billing account can change the details. If you are the owner, follow the instructions in [Change your billing account data](../operations/change-data.md).
+Only the owner of the billing account can change the payment details. If you are the owner, follow the instructions in the section [How to change billing account details](../operations/change-data.md).
 
 #### How is resource consumption charged?  {#tariffs}
 
-Yandex.Cloud resources are consumed on an as-needed basis. The amount of resources consumed is calculated individually for each service.
+Yandex.Cloud resources are consumed on an as-needed basis. The amount for resources consumed is calculated individually for each service.
 
 For more information, see [Pricing](../pricing.md).
 

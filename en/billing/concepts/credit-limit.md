@@ -7,7 +7,7 @@ The credit limit is the maximum negative [personal account balance](../concepts/
 The credit limit amount is calculated individually and depends on a combination of factors, including:
 
 - [Billing account type](../concepts/billing-account.md#ba-types).
-- Amount of resources consumed.
+- Amount for resources consumed.
 - Your financial standing.
 
 You can find information about the credit limit amount in the [management console](https://console.cloud.yandex.ru/billing).

@@ -8,7 +8,7 @@ The [Yandex Identity and Access Management](../iam/pricing.md) and [Yandex Resou
 
 ## Billable services {#t-services}
 
-The cost of using billable services is calculated based on the amount of resources consumed and the usage timeframe. The amount of resources consumed is calculated individually for each service.
+The cost of using billable services is calculated based on the amount for resources consumed and the usage timeframe. The amount for resources consumed is calculated individually for each service.
 
 For more information about billing calculations, see the documentation for the services:
 
