@@ -19,6 +19,6 @@ Copies of documents will be sent to the email address of the billing account own
 
 ## Documents for individuals {#docs-for-individual}
 
-Individuals shall be provided with a [payment receipt](../concepts/individual-bill.md) in accordance with Russian Federal Law No. [FZ-54 <q>"On the use of cash registers"</q>](http://base.garant.ru/12130951/). It is sent to the email address of the billing account owner. The original receipt is not sent.
+Individuals shall be provided with a [payment receipt](../concepts/individual-bill.md) in accordance with Russian Federal Law No. [FZ-54 <q>On the use of cash registers</q>](http://base.garant.ru/12130951/). It is sent to the email address of the billing account owner. The original receipt is not sent.
 <br/>You can also get a report of the services actually rendered. To do that, [send a request](../qa/common.md) to the support service for Yandex.Cloud through the management console.
 
