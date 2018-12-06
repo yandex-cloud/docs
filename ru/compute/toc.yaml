@@ -37,8 +37,6 @@ items:
             href: operations/images-with-pre-installed-software/setup.md
           - name: Работать с ВМ
             href: operations/images-with-pre-installed-software/operate.md
-          - name: Настроить сайт на LAMP- или LEMP-стеке
-            href: solutions/web/lamp-lemp.md
           - name: Получить список образов
             href: operations/images-with-pre-installed-software/get-list.md
       - name: Получение информации о виртуальной машине
