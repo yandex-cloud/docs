@@ -1,7 +1,6 @@
 title: "Концепции API Яндекс.Облака"
+href: index.yaml
 items:
-  - name: О документе
-    href: index.yaml
   - name: Основные принципы
     href: concepts/general.md
   - name: Ресурсы
