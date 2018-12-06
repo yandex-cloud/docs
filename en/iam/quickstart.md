@@ -43,7 +43,7 @@ To allow a user to create resources in a folder, assign the user the role of `[!
 
 1. Open the **Users and roles** page.
 2. Select the user to be assigned the role and click **Configure roles**.
-3. Select a folder in the **Roles in folders** section and click ** Assign role** .
+3. Select a folder in the **Roles in folders** section and click **Assign role** .
 4. Choose the role `[!KEYREF roles-editor]`.
 5. Click the  **Close**  button.
 
