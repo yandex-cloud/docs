@@ -61,7 +61,7 @@ A payment invoice is issued at the beginning of the next reporting period if the
 
 ## Payment {#payment}
 
-Payment invoices must be paid within the deadline stipulated in the [agreement]( ../concepts/contract.md). Payment is made by bank transfer. For more information, see [Payment methods for businesses](../payment/payment-methods-business.md).
+Payment invoices must be paid within the deadline stipulated in the [agreement](../concepts/contract.md). Payment is made by bank transfer. For more information, see [Payment methods for businesses](../payment/payment-methods-business.md).
 
 [!INCLUDE [payment-bill-note](../_includes/payment-bill-note.md)]
 
