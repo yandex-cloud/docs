@@ -4,7 +4,7 @@ A report is a primary accounting document that confirms services rendered. It co
 
 ## Generating a report {#create-act}
 
-Reports are generated at the end of the reporting period for the amount actually used from the [personal account]( ../concepts/personal-account.md).
+Reports are generated at the end of the reporting period for the amount actually used from the [personal account](../concepts/personal-account.md).
 
 Reports are then used as a basis for generating [invoices](../concepts/invoice.md).
 
