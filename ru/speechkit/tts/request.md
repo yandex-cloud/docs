@@ -61,7 +61,7 @@ YaCloud-Billing-Units: 11
 ```
 
 ### Пример запроса {#request_examples}
-В следующем примере текст синтезируется в формате LPCM с частотой дискретизации 48kHz и конвертируется в формат wav с помощью утилиты [SoX](http://sox.sourceforge.net/).
+В следующем примере аудиофайл синтезируется в формате LPCM с частотой дискретизации 48kHz и конвертируется в формат wav с помощью утилиты [SoX](http://sox.sourceforge.net/).
 ```httpget
 export FOLDER_ID=<folder id>
 export TOKEN=<IAM-token>
