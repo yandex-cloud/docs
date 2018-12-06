@@ -2,8 +2,8 @@
 
 Для выполнения операций в Яндекс.Облаке через API необходим [IAM-токен](../iam/concepts/authorization/iam-token.md).
 
-[!INCLUDE [iam-token-usage](iam-token-usage.md)]
+Получите IAM-токен:
+* [Инструкция](../iam/operations/iam-token/create.md) для аккаунта Яндекс.Паспорта;
+* [Инструкция](../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
 
-#### Что дальше
-- [Получите IAM-токен для аккаунта Яндекс.Паспорта](../iam/operations/iam-token/create.md)
-- [Получите IAM-токен для сервисного аккаунта](../iam/operations/iam-token/create-for-sa.md)
+[!INCLUDE [iam-token-usage](iam-token-usage.md)]
