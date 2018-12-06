@@ -82,12 +82,26 @@ curl -X POST \
 ```python
 import urllib.request
 import json
+
+FOLDER_ID = "" # folderId
+IAM_TOKEN = "" # IAM токен
+
 with open("speech.ogg", "rb") as f:
     data = f.read()
-url = urllib.request.Request("https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?topic=general&folderId=<folder id>", data=data)
-url.add_header("Authorization", "Bearer <IAM-token>")
+
+params = "&".join([
+    "topic=general",
+    "folderId=%s" % FOLDER_ID,
+    "lang=ru-RU"
+])
+
+url = urllib.request.Request("https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?%s" % params, data=data)
+url.add_header("Authorization", "Bearer %s" % IAM_TOKEN)
+url.add_header("Transfer-Encoding", "chunked")
+
 responseData = urllib.request.urlopen(url).read().decode('UTF-8')
 decodedData = json.loads(responseData)
+
 if decodedData.get("error_code") is None:
     print(decodedData.get("result"))
 ```
