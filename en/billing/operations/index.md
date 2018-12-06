@@ -10,7 +10,7 @@
 
 [Top up your personal account](pay-the-bill.md)
 
-[Change your payment method](change-payment-method.md)
+[Change the payment method](change-payment-method.md)
 
 [Read your payment invoice](spell-out-bill.md)
 

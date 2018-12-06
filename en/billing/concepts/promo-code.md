@@ -17,5 +17,3 @@ The terms of use and the validity period are specified in the message containing
 >
 > All previously issued and unused promo codes that were provided to access the Yandex.Cloud management console are no longer valid starting November 27, 2018.
 >
-
-

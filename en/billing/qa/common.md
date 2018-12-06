@@ -2,11 +2,11 @@
 
 #### Can I use my OS license for VM instances in Yandex.Cloud? {#os-license}
 
-Yes. For more information, see the section [How to create a VM instance](../../compute/operations/vm-create/create-linux-vm.md) in the documentation for [Yandex Compute Cloud](../../compute/).
+Yes, you can. For more information, see the section [How to create a VM instance](../../compute/operations/vm-create/create-linux-vm.md) in the documentation for [Yandex Compute Cloud](../../compute/).
 
 #### Where can I find SLAs? {#sla}
 
-In Yandex.Cloud, each service has its own SLA. You can learn more about SLAs in the section [Legal documents](https://yandex.ru/legal/cloud_sla/?lang=en).
+In Yandex.Cloud, each service has its own SLA. You can read the SLA in the [Legal documents](https://yandex.ru/legal/cloud_sla/?lang=en)  section.
 
 #### How do I contact technical support? {#support}
 
