@@ -37,7 +37,7 @@ Billing account
 <br/>See the section [Billing account](billing-account.md).
 
 Payer
-: An individual or business paying for the Yandex.Cloud service resources consumed. By a payer we basically mean payment details used when registering agreements, issuing bills, or debiting funds from a bank card.
+: An individual or business paying for the Yandex.Cloud service resources consumed. By a payer we basically mean payment details used when registering agreements, issuing payment invoices, or debiting funds from a bank card.
 
 Trial period
 : An opportunity to get a hands-on experience using Yandex.Cloud without paying for the resources consumed.

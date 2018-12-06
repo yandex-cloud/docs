@@ -13,7 +13,7 @@ All new Yandex.Cloud customers.
 Most likely, you previously created a billing account that used the initial grant. The initial grant can only be issued to one billing account within the trial period.
 To unblock your new billing account, [activate the paid version](../operations/activate-commercial.md).
 
-#### Can I upgrade to the paid version if the trial period period hasn't expired yet?  {#activate-commercial}
+#### Can I upgrade to the paid version if the trial period hasn't expired yet?  {#activate-commercial}
 
 Yes, you can. For more information, see [How to activate the paid version](../operations/activate-commercial.md).
 
