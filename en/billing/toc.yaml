@@ -1,8 +1,6 @@
 title: "Billing"
-icon: "/img/billing.svg"
+href: index.yaml
 items:
-- name: Billing
-  href: index.yaml
 - name: Getting started
   href: quickstart/index.md
 - name: Trial period

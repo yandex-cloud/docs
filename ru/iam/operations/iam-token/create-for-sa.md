@@ -381,6 +381,60 @@ func getIAMToken() string {
 }
 ```
 
+**[!TAB PHP]**
+
+Пример создания подписанного JWT с использованием [PHP JWT Framework](https://github.com/web-token/jwt-framework).
+
+```php
+use Jose\Component\Core\AlgorithmManager;
+use Jose\Component\Core\Converter\StandardConverter;
+use Jose\Component\KeyManagement\JWKFactory;
+use Jose\Component\Signature\JWSBuilder;
+use Jose\Component\Signature\Algorithm\PS256;
+use Jose\Component\Signature\Serializer\CompactSerializer;
+
+$service_account_id = 'ajepg0mjt06siua65usm';
+$key_id = 'b1gvmob03goohplcf641';
+
+$jsonConverter = new StandardConverter();
+$algorithmManager = AlgorithmManager::create([
+    new PS256()
+]);
+
+$jwsBuilder = new JWSBuilder($jsonConverter, $algorithmManager);
+
+$now = time();
+
+$claims = [
+    'aud' => 'https://iam.api.cloud.yandex.net/iam/v1/tokens',
+    'iss' => $service_account_id,
+    'iat' => $now,
+    'exp' => $now + 360
+];
+
+$header = [
+    'alg' => 'PS256',
+    'typ' => 'JWT',
+    'kid' => $key_id
+];
+
+$key = JWKFactory::createFromKeyFile('private.pem');
+
+$payload = $jsonConverter->encode($claims);
+
+// Формирование подписи.
+$jws = $jwsBuilder
+    ->create()
+    ->withPayload($payload)
+    ->addSignature($key, $header)
+    ->build();
+
+$serializer = new CompactSerializer($jsonConverter);
+
+// Формирование JWT.
+$token = $serializer->serialize($jws);
+```
+
 ---
 
 #### Что дальше
