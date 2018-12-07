@@ -13,6 +13,7 @@
 - [[!TITLE]](sa/update.md)
 - [[!TITLE]](sa/assign-role-for-sa.md)
 - [[!TITLE]](sa/set-access-bindings.md)
+- [[!TITLE]](sa/create-access-key.md)
 - [[!TITLE]](sa/delete.md)
 
 

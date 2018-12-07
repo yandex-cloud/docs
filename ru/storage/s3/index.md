@@ -4,15 +4,13 @@
 
 Чтобы воспользоваться API:
 
-1. [Создайте сервисный аккаунт](../operations/security/service-account.md).
-1. [Получите необходимые роли](../security/index.md).
-1. [Получите статический ключ](../operations/security/get-static-key.md). Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [[!TITLE]](../instruments/index.md).
+[!INCLUDE [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md)]
+
+Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [[!TITLE]](../instruments/index.md).
 
 Перечень поддерживаемых методов Amazon S3 HTTP API смотрите в [Справочнике API](api-ref/index.md).
 
 ## Общий вид запроса к API
-
-Общий вид запроса:
 
 ```
 {GET|HEAD|PUT|DELETE} {path} HTTP/1.1

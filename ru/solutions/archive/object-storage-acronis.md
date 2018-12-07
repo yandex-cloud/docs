@@ -33,7 +33,7 @@
 1. В блоке **Public cloud parameters** задайте следующие настройки:
     1. Выберите тип провайдера **AuthV2 compatible**.
     1. В поле **Endpoint URL** укажите `[!KEYREF s3-storage-host]`.
-    1. Получите [статический ключ](../../storage/operations/security/get-static-key.md) и укажите его для аутентификации.
+    1. Получите [статический ключ](../../iam/operations/sa/create-access-key.md) и укажите его для аутентификации.
     1. Укажите корзину `backup` для хранения резервных копий.
 1. В блоке **Registration** укажите данные вашего аккаунта Acronis.
 1. Нажмите кнопку **DONE**.
