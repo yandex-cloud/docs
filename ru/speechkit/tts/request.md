@@ -64,6 +64,8 @@ YaCloud-Billing-Units: 11
 
 В этом примере переданный текст синтезируется в формате LPCM с частотой дискретизации 48kHz и сохраняется в файле `speech.raw`. Затем этот файл конвертируется в формат WAV с помощью утилиты [SoX](http://sox.sourceforge.net/).
 
+## Пример C# {#examples}
+
 ```httpget
 export FOLDER_ID=<folder id>
 export TOKEN=<IAM-token>
@@ -76,5 +78,45 @@ curl -X POST \
     https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 
 sox -r 48000 -b 16 -e signed-integer -c 1 speech.raw speech.wav
+```
+
+```no-highlight
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace TTS
+{
+    class Program
+    {
+        static void Main()
+        {
+            Tts().GetAwaiter().GetResult();
+        }
+        
+        static async Task Tts()
+        {
+            const string iamToken = "";
+            const string folderId = "";
+            
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
+            client.DefaultRequestHeaders.Add("Transfer-Encoding", "chunked");
+            var values = new Dictionary<string, string>
+            {
+                { "voice", "zahar" },
+                { "emotion", "good" },
+                { "folderId", folderId },
+                { "text", "Привет мир"}
+            };
+var content = new FormUrlEncodedContent(values);
+var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
+var responseBytes = await response.Content.ReadAsByteArrayAsync();
+            File.WriteAllBytes("speech.ogg", responseBytes);     
+        }
+    }   
+}
 ```
 
