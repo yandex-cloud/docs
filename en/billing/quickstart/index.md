@@ -81,7 +81,7 @@ To create a [billing account](../concepts/billing-account.md):
 
    > [!NOTE]
    >
-   > Carefully fill in your contact information and payment details. This information is required not only to contact you, but also to issue payment invoices and send financial documents.
+   > Carefully fill in your contact information and payment details. This information is required not only to contact you, but also to issue invoices and send financial documents.
    >
 
 1. Read the agreement. If you agree to the terms and conditions, select **I have read and accept the Terms**.
