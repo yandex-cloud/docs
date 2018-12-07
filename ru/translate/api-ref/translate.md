@@ -47,7 +47,8 @@ export TOKEN=<IAM-token>
 curl -X POST \
      -H "Authorization: Bearer ${TOKEN}" \
      -d "folderId=${FOLDER_ID}&target=en" \
-     --data-urlencode "text=привет мир&text=доброе утро" \
+     --data-urlencode "text=привет мир" \
+     --data-urlencode "text=доброе утро" \
      "https://translate.api.cloud.yandex.net/translate/v1/translate"
 ```
 

@@ -1,8 +1,6 @@
 title: "Billing"
-icon: "/img/billing.svg"
+href: index.yaml
 items:
-- name: Billing
-  href: index.yaml
 - name: Getting started
   href: quickstart/index.md
 - name: Trial period
@@ -25,11 +23,11 @@ items:
       href: operations/pay-the-bill.md
     - name: Link another bank card
       href: operations/pin-card.md
-    - name: Change a payment method
+    - name: Change the payment method
       href: operations/change-payment-method.md
     - name: Read your payment invoice
       href: operations/spell-out-bill.md
-    - name: View your payment history
+    - name: View the payment history
       href: operations/check-bill-history.md
     - name: Change your billing account data
       href: operations/change-data.md

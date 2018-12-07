@@ -12,7 +12,7 @@ Businesses can link a bank card to their billing account only when [creating it]
 
 > [!NOTE]
 >
-> If you want to use only the **Transfer from your bank account** payment method, follow the instructions on [How to change your payment method](../operations/change-payment-method.md).
+> If you want to use only the**Transfer from your bank account** payment method, follow the instructions in the section [Change the payment method](../operations/change-payment-method.md).
 >
 
 ## Personal account top-up {#refill}
@@ -23,9 +23,9 @@ For more information, see the section [Billing cycle](../payment/billing-cycle-i
 
 ## Debiting of funds {#write-off}
 
-[!INCLUDE [pay-by-card-business](../_includes/pay-by-card-business.md)]
+[!INCLUDE [payment-card-validation](../_includes/payment-card-validation.md)]
 
-For more information, see [Billing cycle](../payment/billing-cycle-business.md).
+For more information, see the section [Billing cycle](../payment/billing-cycle-business.md).
 
 ## Charged amount {#payment-amount}
 

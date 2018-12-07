@@ -7,9 +7,9 @@ Funds for the resources consumed will only be debited from the bank card that yo
 
 > [!NOTE]
 >
-> If the selected bank card expires, it will no longer be linked to your account. If you have already received a new bank card, change your bank card details or select one of the previously added bank cards.
+> If the selected bank card expires, it will no longer be linked. If you have already received a new bank card, change your bank card details or select one of the previously added bank cards.
 
-## **Changing bank card details** {#change_card}
+## Changing bank card details {#change_card}
 
 To change your bank card details:
 
@@ -20,7 +20,7 @@ To change your bank card details:
 1. Make the necessary changes.
 1. Click **Save**.
 
-## **Adding a new bank card** {#add_card}
+## Adding a new bank card {#add_card}
 
 To link an additional bank card:
 

@@ -1,8 +1,6 @@
 title: "Yandex Object Storage"
-icon: "/img/storage.svg"
+href: index.yaml
 items:
-  - name: Yandex Object Storage
-    href: index.yaml
   - name: Getting started
     items:
     - name: Creating a bucket

@@ -7,7 +7,7 @@
 
 **[!TAB Как сайт]**
 
-- [Откройте публичный доступ](../operations/security/bucket-availability.md). Иначе, [!KEYREF objstorage-name] вернет пользователю ответ с кодом 403.
+- [Откройте публичный доступ](../operations/buckets/bucket-availability.md). Иначе, [!KEYREF objstorage-name] вернет пользователю ответ с кодом 403.
 - [Укажите главную страницу сайта](setup.md).
 - При желании можно указать страницу, которая будет возвращаться в случае ошибoк 4xx.
 

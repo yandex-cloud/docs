@@ -2,7 +2,7 @@
 
 Businesses can top up their personal accounts and pay for consumed resources by transferring funds from their bank accounts.
 
-## Funds transfer and bill payment{#transaction}
+## Funds transfer and payment against invoice{#transaction}
 
 To have funds transferred, you should first receive a [payment invoice](../concepts/bill.md). You can pay it at any bank or through an online banking system.
 <br/>Before making a transfer, make sure the following details in the payment order are entered correctly:
@@ -11,13 +11,13 @@ To have funds transferred, you should first receive a [payment invoice](../conce
    - Bank details of Yandex.Cloud LLC
    - Your company's TIN or sole proprietor's TIN
    - [Personal account number](../concepts/personal-account.md#id) in the Details of Payment field
-   - [Agreement number](../concepts/contract.md) in the Details of Payment field.
+   - [Contract number](../concepts/contract.md) in the Details of Payment field.
 
 [!INCLUDE [payment-bill-note](../_includes/payment-bill-note.md)]
 
-## Payment terms {#limits}
+## Payment terms  {#limits}
 
-Bills must be paid within the deadline stipulated in the [ agreement]( ../concepts/contract.md) . How fast the funds will be credited to your personal account depends on the bank performing the transaction.
+Invoices must be paid before the deadline stipulated in the [agreement](../concepts/contract.md). How fast the funds will be credited to your personal account depends on the bank performing the transaction.
 
 > [!NOTE]
 >
