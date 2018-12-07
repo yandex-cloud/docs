@@ -15,7 +15,7 @@ To create a [billing account](../concepts/billing-account.md):
 
 1. Go to [Yandex.Cloud](https://cloud.yandex.com/).
 
-1. Click **Console**.
+1. Click **Get started**.
 <br/>You will be redirected to the Yandex.Cloud [management console](https://console.cloud.yandex.ru/billing).
 
 1. Log in to Yandex:
