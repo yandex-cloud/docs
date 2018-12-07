@@ -8,7 +8,7 @@
 
 1. Перейдите в каталог, которому принадлежит сервисный аккаунт.
 1. Выберите вкладку **Сервисные аккаунты**.
-1. В строке с именем сервисного пользователя нажмите значок ![](../../../_assets/vertical-ellipsis.svg) и выберите **Создать ключ доступа**.
+1. В строке с именем сервисного аккаунта нажмите значок ![](../../../_assets/vertical-ellipsis.svg) и выберите **Создать ключ доступа**.
 1. Сохраните идентификатор и секретный ключ. После закрытия диалога значение ключа будет недоступно.
 
 **[!TAB CLI]**
@@ -64,7 +64,7 @@
 
 ```
 $ yc iam access-key create --service-account-name my-robot \
-    --description "this key for my bucket"
+    --description "this key is for my bucket"
 ```
 
 **[!TAB API]**
@@ -75,7 +75,7 @@ $ curl -X POST \
     -H "Authorization: Bearer <IAM-TOKEN>" \
     -d '{
         "serviceAccountId": "aje6o61dvog2h6g9a33s",
-        "description": "this key for my bucket"
+        "description": "this key is for my bucket"
     }' \
     https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys
 ```
