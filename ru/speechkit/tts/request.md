@@ -89,34 +89,34 @@ using System.IO;
 
 namespace TTS
 {
-    class Program
+  class Program
+  {
+    static void Main()
     {
-        static void Main()
-        {
-            Tts().GetAwaiter().GetResult();
-        }
+      Tts().GetAwaiter().GetResult();
+    }
         
-        static async Task Tts()
-        {
-            const string iamToken = "";
-            const string folderId = "";
+    static async Task Tts()
+    {
+      const string iamToken = "";
+      const string folderId = "";
             
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
-            client.DefaultRequestHeaders.Add("Transfer-Encoding", "chunked");
-            var values = new Dictionary<string, string>
-            {
-                { "voice", "zahar" },
-                { "emotion", "good" },
-                { "folderId", folderId },
-                { "text", "Привет мир"}
-            };
-var content = new FormUrlEncodedContent(values);
-var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
-var responseBytes = await response.Content.ReadAsByteArrayAsync();
-            File.WriteAllBytes("speech.ogg", responseBytes);     
-        }
-    }   
+      HttpClient client = new HttpClient();
+      client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
+      client.DefaultRequestHeaders.Add("Transfer-Encoding", "chunked");
+      var values = new Dictionary<string, string>
+      {
+        { "voice", "zahar" },
+        { "emotion", "good" },
+        { "folderId", folderId },
+        { "text", "Привет мир"}
+      };
+      var content = new FormUrlEncodedContent(values);
+      var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
+      var responseBytes = await response.Content.ReadAsByteArrayAsync();
+      File.WriteAllBytes("speech.ogg", responseBytes);     
+    }
+  }   
 }
 ```
 
