@@ -12,6 +12,10 @@
     * пара ролей `resource-manager.cloud.member` на облако и `admin` на облако или каталог;
     * пара ролей `resource-manager.cloud.member` на облако и `editor` на облако или каталог.
 
+    > [!NOTE]
+    >
+    > Для сервисного аккаунта необязательно назначать роль `resource-manager.cloud.member`.
+
 1. Назначьте выбранные роли аккаунту:
     * [Инструкция](../resource-manager/operations/cloud/set-access-bindings.md), как назначить роль на облако.
     * [Инструкция](../resource-manager/operations/folder/set-access-bindings.md), как назначить роль на каталог.
