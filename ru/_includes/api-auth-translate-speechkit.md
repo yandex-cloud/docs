@@ -33,7 +33,7 @@
     ```
     `b5gfc3ntettogerelqed7p` — это идентификатор каталога.
 1. Получите IAM-токен:
-    * [Инструкция](../iam/operations/iam-token/create.md) для аккаунта Яндекс.Паспорта.
+    * [Инструкция](../iam/operations/iam-token/create.md) для аккаунта Яндекса и Яндекс.Коннекта.
     * [Инструкция](../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
 1. В каждом API запросе к сервису передавайте:
     * IAM-токен в заголовке `Authorization` в формате `Authorization: Bearer <IAM-token>`.
