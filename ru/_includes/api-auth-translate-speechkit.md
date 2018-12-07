@@ -1,6 +1,6 @@
 # Авторизация в API
 
-Запросы к API могут выполнять пользователи от имени аккаунта Яндекс.Паспорта или сервисного аккаунта.
+Запросы к API могут выполнять пользователи от имени аккаунта Яндекса, Яндекс.Коннекта или сервисного аккаунта.
 
 **Чтобы воспользоваться API:**
 
@@ -12,9 +12,9 @@
     * пара ролей `resource-manager.cloud.member` на облако и `admin` на облако или каталог;
     * пара ролей `resource-manager.cloud.member` на облако и `editor` на облако или каталог.
 
-1. Назначьте выбранные роли на аккаунт:
+1. Назначьте выбранные роли аккаунту:
     * [Инструкция](../resource-manager/operations/cloud/set-access-bindings.md), как назначить роль на облако.
-    * [Инструкция](../resource-manager/operations/folder/set-access-bindings.md), как назначить роль на облако.
+    * [Инструкция](../resource-manager/operations/folder/set-access-bindings.md), как назначить роль на каталог.
 
 1. Если у вас уже есть каталог в Яндекс.Облаке, откройте страницу этого каталога в консоли управления.
 
@@ -27,7 +27,11 @@
 
     [!INCLUDE [create-folder](create-folder.md)]
 
-1. Получите идентификатор каталога, например из в URL страницы каталога в консоли управления. В URL `https://console.cloud.yandex.ru/folders/b5gfc3ntettogerelqed7p` идентификатор каталога — это `b5gfc3ntettogerelqed7p`.
+1. Получите идентификатор каталога, например из в URL страницы каталога в консоли управления:
+    ```
+    https://console.cloud.yandex.ru/folders/b5gfc3ntettogerelqed7p
+    ```
+    `b5gfc3ntettogerelqed7p` — это идентификатор каталога.
 1. Получите IAM-токен:
     * [Инструкция](../iam/operations/iam-token/create.md) для аккаунта Яндекс.Паспорта.
     * [Инструкция](../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
