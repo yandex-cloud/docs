@@ -15,7 +15,7 @@ To create a [billing account](../concepts/billing-account.md):
 
 1. Go to [Yandex.Cloud](https://cloud.yandex.com/).
 
-1. Click **Console**.
+1. Click **Get started**.
 <br/>You will be redirected to the Yandex.Cloud [management console](https://console.cloud.yandex.ru/billing).
 
 1. Log in to Yandex:
@@ -25,7 +25,7 @@ To create a [billing account](../concepts/billing-account.md):
 
 1. Read and agree to the terms and conditions of the [Privacy Policy](https://yandex.ru/legal/confidential/?lang=en) and [Terms of Use](https://yandex.ru/legal/cloud_termsofuse/?lang=en).
 
-1. Click **Create account** on the**List of accounts** page.
+1. Click **Create account** on the **List of accounts** page.
 
 1. If your Yandex account is linked to your account in [Yandex.Balance](https://balance.yandex.com/), the **Payers** block will display a list of available [payers](../concepts/glossary.md). Select the appropriate one or go to step 7.
 
@@ -81,7 +81,7 @@ To create a [billing account](../concepts/billing-account.md):
 
    > [!NOTE]
    >
-   > Carefully fill in your contact information and payment details. This information is required not only to contact you, but also to issue payment invoices and send financial documents.
+   > Carefully fill in your contact information and payment details. This information is required not only to contact you, but also to issue invoices and send financial documents.
    >
 
 1. Read the agreement. If you agree to the terms and conditions, select **I have read and accept the Terms**.
