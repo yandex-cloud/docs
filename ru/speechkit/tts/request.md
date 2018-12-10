@@ -35,52 +35,30 @@ POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 
 ## Примеры {#examples}
 
-### Пример запроса {#request_examples}
+### Превратить текст в речь в формате Ogg {#ogg}
 
-```httpget
-export FOLDER_ID=<folder id>
-export TOKEN=<IAM-token>
+В этом примере текст "Привет мир" синтезируется и записывается в аудиофайл.
+
+По умолчанию данные в аудиофайле кодируются с помощью аудиокодека OPUS и упаковываются в контейнер OGG ([OggOpus](https://wiki.xiph.org/OggOpus)).
+
+---
+
+**[!TAB cURL]**
+
+```bash
+export FOLDER_ID=b1gvmob03goohplct641
+export IAM_TOKEN=CggaATEVAgA...
 curl -X POST \
-     -H "Authorization: Bearer ${TOKEN}" \
+     -H "Authorization: Bearer ${IAM_TOKEN}" \
      -H "Transfer-Encoding: chunked" \
-     --data-urlencode "text=привет мир" \
+     --data-urlencode "text=Привет мир" \
      -d "voice=zahar&emotion=good&folderId=${FOLDER_ID}" \
      "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
 ```
 
-### Пример ответа {#response_examples}
+**[!TAB C#]**
 
-```no-highlight
-HTTP/1.1 200 OK
-Content-Type: audio/ogg
-Content-Disposition: inline
-Content-Transfer-Encoding: binary
-YaCloud-Billing-Units: 11
-
-... (двоичное содержимое аудиофайла)
-```
-
-### Пример запроса {#request_examples}
-
-В этом примере переданный текст синтезируется в формате LPCM с частотой дискретизации 48kHz и сохраняется в файле `speech.raw`. Затем этот файл конвертируется в формат WAV с помощью утилиты [SoX](http://sox.sourceforge.net/).
-
-## Пример C# {#examples}
-
-```httpget
-export FOLDER_ID=<folder id>
-export TOKEN=<IAM-token>
-curl -X POST \
-    -H "Authorization: Bearer ${TOKEN}" \
-    -H "Transfer-Encoding: chunked" \
-    -o speech.raw \
-    --data-urlencode "text=привет мир" \
-    -d "voice=zahar&emotion=good&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
-    https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
-
-sox -r 48000 -b 16 -e signed-integer -c 1 speech.raw speech.wav
-```
-
-```no-highlight
+```c#
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -95,12 +73,12 @@ namespace TTS
     {
       Tts().GetAwaiter().GetResult();
     }
-        
+
     static async Task Tts()
     {
-      const string iamToken = "";
-      const string folderId = "";
-            
+      const string iamToken = "CggaATEVAgA..."; // Укажите IAM-токен.
+      const string folderId = "b1gvmob03goohplct641"; // Укажите ID каталога.
+
       HttpClient client = new HttpClient();
       client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
       client.DefaultRequestHeaders.Add("Transfer-Encoding", "chunked");
@@ -114,9 +92,33 @@ namespace TTS
       var content = new FormUrlEncodedContent(values);
       var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
       var responseBytes = await response.Content.ReadAsByteArrayAsync();
-      File.WriteAllBytes("speech.ogg", responseBytes);     
+      File.WriteAllBytes("speech.ogg", responseBytes);
     }
-  }   
+  }
 }
 ```
 
+---
+
+### Превратить текст в речь в формате WAV {#wav}
+
+В этом примере переданный текст синтезируется в формате LPCM с частотой дискретизации 48kHz и сохраняется в файле `speech.raw`. Затем этот файл конвертируется в формат WAV с помощью утилиты [SoX](http://sox.sourceforge.net/).
+
+---
+
+**[!TAB cURL]**
+
+```bash
+export FOLDER_ID=b1gvmob03goohplct641
+export IAM_TOKEN=CggaATEVAgA...
+curl -X POST \
+    -H "Authorization: Bearer ${IAM_TOKEN}" \
+    -H "Transfer-Encoding: chunked" \
+    -o speech.raw \
+    --data-urlencode "text=Привет мир" \
+    -d "voice=zahar&emotion=good&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
+    https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
+
+sox -r 48000 -b 16 -e signed-integer -c 1 speech.raw speech.wav
+```
+---
