@@ -1,8 +1,6 @@
 title: "Обзор платформы"
-icon: "/img/overview.svg"
+href: index.yaml
 items:
-  - name: Обзор платформы
-    href: index.yaml
   - name: Сервисы Яндекс.Облака
     href: concepts/services.md
   - name: Зоны доступности
