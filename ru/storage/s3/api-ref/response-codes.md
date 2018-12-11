@@ -91,5 +91,5 @@ HTTP | Код ошибки| Описание
 416 | `InvalidRange` | Неправильный диапазон в заголовке Range.
 500 | `InternalError` | Внутренняя ошибка [!KEYREF objstorage-name]. Повторите запрос.
 501 | `NotImplemented` | Переданный заголовок не обрабатывается [!KEYREF objstorage-name].
-503 | `ServiceUnavailable` | [!KEYREF objstorage-name] недоступно.<br/>Уменьшите частоту ваших запросов.
+503 | `ServiceUnavailable` | [!KEYREF objstorage-name] недоступен.<br/>Уменьшите частоту ваших запросов.
 503 | `SlowDown` | Уменьшите частоту ваших запросов.
