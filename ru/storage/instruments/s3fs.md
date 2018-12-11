@@ -29,7 +29,8 @@ chmod 600  ~/.passwd-s3fs
 2. Выполните команду вида:
 
     ```
-    s3fs <имя корзины> /mount/<путь к папке> -o passwd_file=~/.passwd-s3fs -o url=http://storage.yandexcloud.net -o use_path_request_style -o nocopyapi
+    s3fs <имя корзины> /mount/<путь к папке> -o passwd_file=~/.passwd-s3fs \
+        -o url=http://storage.yandexcloud.net -o use_path_request_style -o nocopyapi
     ```
 
 Можно настроить монтирование корзины при запуске системы, для этого добавьте в файл `/etc/fstab` строку вида:

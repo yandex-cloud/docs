@@ -55,7 +55,7 @@ items:
         href: concepts/bucket.md
       - name: Объект
         href: concepts/object.md
-      - name: Класс хранения
+      - name: Класс хранилища
         href: concepts/storage-class.md
       - name: Квоты и лимиты
         href: concepts/limits.md
