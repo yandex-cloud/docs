@@ -1,6 +1,2 @@
-Visa, MasterCard, and MIR bank cards are accepted for payment.
-
-> [!NOTE]
->
-> Cirrus, Maestro, American Express, and Visa Electron cards are not accepted.
+Visa, MasterCard, and MIR bank cards are accepted. Yandex.Cloud services are provided only to residents of the Russian Federation.
 

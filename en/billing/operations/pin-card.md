@@ -1,15 +1,15 @@
 # Linking another bank card to your billing account
 
-If you are the owner of a billing account of the **Individual account** type, you can link multiple bank cards to it.
+The owner of a billing account of the **Individual account** or **Business account** type may link several bank cards to it.
 Funds for the resources consumed will only be debited from the bank card that you select yourself on the billing account page.
 
-Visa, MasterCard, and MIR bank cards are accepted for payment.
+[!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]
 
 > [!NOTE]
-> 
+>
 > If the selected bank card expires, it will no longer be linked. If you have already received a new bank card, change your bank card details or select one of the previously added bank cards.
 
-## **Changing bank card details** {#change_card}
+## Changing bank card details {#change_card}
 
 To change your bank card details:
 
@@ -20,7 +20,7 @@ To change your bank card details:
 1. Make the necessary changes.
 1. Click **Save**.
 
-## **Adding a new bank card** {#add_card}
+## Adding a new bank card {#add_card}
 
 To link an additional bank card:
 
@@ -30,6 +30,8 @@ To link an additional bank card:
 1. Click the link **Add card** in the **Bank card** section.
 1. Enter the bank card details: the 16-digit number, expiry date, and CVV (on the back of the card).
 1. Click **Save**.
+
+[!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]
 
 [!INCLUDE [yandex-account](../_includes/payment-card-validation.md)]
 

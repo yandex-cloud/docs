@@ -1,22 +1,36 @@
-# Pricing policies for [!KEYREF compute-full-name]
+# Pricing policy for [!KEYREF compute-full-name]
+
+## What goes into the cost of [!KEYREF compute-short-name] use {#rules}
+
+The cost of [!KEYREF compute-short-name] usage is based on:
+
+* Computing resources
+    * Type and number of cores (vCPU)
+    * Amount of memory (RAM)
+* Operating systems
+* Type and size of storage:
+    * Disks
+    * Images
+    * Snapshots
+* The amount of outgoing traffic.
+* Public IP address.
 
 [!INCLUDE [pricing-intro](../_includes/pricing-intro.md)]
 
 [!INCLUDE [pricing-gb-size](../_includes/pricing-gb-size.md)]
 
-## Virtual machines {#instance}
+### Use of VM instances {#instance}
 
-The cost of a VM depends on the allocated computing resources, operating system, and usage time. Attached disks and network usage are charged separately.
+The cost of a VM instance depends on the allocated computing resources, operating system, and usage time. Attached disks and network usage are charged separately.
 
 The cost is calculated for the time of using the VM, from the moment it is started (when its status changes to `RUNNING`) and to a complete stop. The time when the VM is stopped is not charged.
 
 The VM starts automatically once it is created.
 
-> [!NOTE]
->
->You are charged for your disks regardless of whether the VM is running. For more information about disk pricing, see the section [[!TITLE]](#disk).
+When creating a VM, you can specify a public IP address for it.
+For information about charges for using an external IP address, see the section [[!TITLE]](../vpc/pricing.md) in the Yandex Virtual Private Cloud documentation.
 
-### Computing resources {#burstable-instance-resources}
+#### Computing resources {#instance-resources}
 
 When creating a VM, you specify the number of vCPUs, the basic level of core performance, and the amount of RAM in GB. For more information, see the section [[!TITLE]](concepts/vm-types.md).
 
@@ -27,15 +41,11 @@ The basic level of core performance depends on the usage type:
 
 [!KEYREF price-per-hour-count-per-second]
 
-| Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
-| ----- | ----- | ----- |
-| 5%+ of vCPU | 0.16 ₽ | 0.19 ₽ |
-| 100% of vCPU | 0.58 ₽ | 0.69 ₽ |
-| RAM (for 1 GB) | 0.20 ₽ | 0.24 ₽ |
+#### Operating systems {#instance-os}
 
-> [!NOTE]
->
-> Pricing 0,5&nbsp;GB of RAM is equal to half the cost of 1&nbsp;GB.
+OS usage on a VM is charged, as well. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
+
+[!KEYREF price-per-hour-count-per-second]
 
 #### Example of cost calculation
 
@@ -66,11 +76,27 @@ The cost of the VM with full core usage is calculated as follows:
 
 The cost of the VM with partial core usage is almost half the cost of the VM with full core usage.
 
-### Operating systems {#burstable-instance-os}
+### Use of storage (disks, snapshots, and images) {#disk}
 
-OS usage on a VM is charged, as well. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
+When creating a disk, you specify its size, that is, the amount of block storage that the disk occupies. The cost of the service depends on the time between the disk's creation and deletion, the amount of disk space, and the disk type selected during its creation.
 
-[!KEYREF price-per-hour-count-per-second]
+You are charged for your disks regardless of whether the VM is running.
+
+If you created an image or snapshot, you pay for the storage of this object separately depending on its size.
+
+The cost is specified for one month of use. Charging per second.
+
+## Prices {#prices}
+
+### Computing resources  {#prices-instance-resources}
+
+| Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
+| ----- | ----- | ----- |
+| 5%+ of vCPU | 0.16 ₽ | 0.19 ₽ |
+| 100% of vCPU | 0.58 ₽ | 0.69 ₽ |
+| RAM (for 1 GB) | 0.20 ₽ | 0.24 ₽ |
+
+### Operating systems {#prices-instance-os}
 
 | OS | Cost per vCPU per hour,<br/> without VAT | Cost per vCPU per hour,<br/> with VAT |
 | ----- | ----- | ----- |
@@ -78,13 +104,7 @@ OS usage on a VM is charged, as well. The cost depends on the OS license and the
 | Windows Server for 5%+ of vCPU | 0.47 ₽ | 0.56 ₽ |
 | Windows Server for 1 vCPU | 0.95 ₽ | 1.12 ₽ |
 
-## Disks, snapshots, and images {#disk}
-
-When creating a disk, you specify its size, that is, the amount of block storage that the disk occupies. The cost of the service depends on the time between the disk's creation and deletion, the amount of disk space, and the disk type selected during its creation.
-
-If you created an image or snapshot, you pay for the storage of this object separately depending on its size.
-
-The cost is specified for one month of use. Per-second rating.
+### Disks, snapshots, and images {#prices-storage}
 
 | Type | Cost of 1 GB per month,<br/> without VAT | Cost of 1 GB per month,<br/> with VAT |
 | ----- | ----- | ----- |
@@ -93,13 +113,7 @@ The cost is specified for one month of use. Per-second rating.
 | Snapshot | 1.86 ₽ | 2.19 ₽ |
 | Image | 1.86 ₽ | 2.19 ₽ |
 
-## Network {#network}
-
-### Outgoing traffic
+### Outgoing traffic {#prices-traffic}
 
 [!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing-egress-traffic.md)]
 
-### Public IP
-
-When creating a VM, you can specify a public IP address for it.
-For information about charges for using an external IP address, see the section [[!TITLE]](../vpc/pricing.md) in the Yandex Virtual Private Cloud documentation.

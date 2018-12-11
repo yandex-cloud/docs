@@ -25,7 +25,7 @@ POST https://translate.api.cloud.yandex.net/translate/v1/detect
 
 ```json
 {
-    "language": <язык текста>
+    "language": <код языка текста>
 }
 ```
 
@@ -34,10 +34,13 @@ POST https://translate.api.cloud.yandex.net/translate/v1/detect
 
 ### Пример запроса
 
-```no-highlight
+```httpget
+export FOLDER_ID=<folder id>
+export TOKEN=<IAM-token>
 curl -X POST \
-     -H "Authorization: Bearer <IAM-token>" \
-     -d "text=hello%20world&hint=en,ru&folderId=<folder id>" \
+     -H "Authorization: Bearer ${TOKEN}" \
+     -d "folderId=${FOLDER_ID}" \
+     --data-urlencode "text=привет мир" \
      "https://translate.api.cloud.yandex.net/translate/v1/detect"
 ```
 
@@ -47,7 +50,7 @@ curl -X POST \
 
 ```json
 {
-    "language": "en"
+    "language": "ru"
 }
 ```
 

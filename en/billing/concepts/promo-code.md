@@ -1,31 +1,19 @@
 # Promo code
 
-**A promo code** is a password that allows you to access the Yandex.Cloud management console.
+**A promo code** is a password that allows you to get an additional discount on using Yandex.Cloud services.
 
-## How to get a promo code {#get-promo}
+## Get and activate a promo code {#activate-promocode}
 
-You can get a promo code as part of Yandex's promotional offer by requesting one on the [Yandex.Cloud](https://cloud.yandex.com/) page.
-
-Your request will be reviewed within two weeks. As soon as the decision is made, a Yandex.Cloud manager will contact you. If the decision is positive, the promo code will be sent to the email address specified in the request.
-
-## How to activate a promo code {#activate-promocode}
-
-Promo codes can be activated by individuals and businesses with a registered Yandex.Passport account:
-
-- If you don't have an account, [create one](https://passport.yandex.com/registration).
-- If you use a social network profile to log in to Yandex, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1).
-
-Your phone number must be linked to this account. See detailed instructions in the [Help](https://yandex.com/support/passport/authorization/registration.html) for Yandex.Passport.
-
-## Number of activations {#activation-number}
-
-You can activate a promo code only once during the period specified in the message.
+A promo code can be provided to you as part of Yandex's promotional offer.
+You can activate your promo code only once. For more information, see [How to activate a promo code](../operations/activate-promocode.md).
 
 ## Terms of use and validity period {#terms-of-use}
 
-One promo code can only be linked to one Yandex.Passport account.
+One promo code can only be linked to one billing account.
 
-The terms of use and the validity period are specified in the message containing the promo code. Activate your promo code before the deadline specified in the message; otherwise, the promo code becomes invalid. The promo code's validity period cannot be extended.
+The terms of use and the validity period are specified in the message containing the promo code. Activate your promo code before the deadline specified in the message; otherwise, the promo code becomes invalid. You cannot replace or extend the promo code.
 
-For detailed instructions on how to get and activate a promo code, see the section [Getting started](../quickstart/index.md).
-
+> [!NOTE]
+>
+> All previously issued and unused promo codes that were provided to access the Yandex.Cloud management console are no longer valid starting November 27, 2018.
+>

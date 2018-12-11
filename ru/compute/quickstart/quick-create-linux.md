@@ -10,10 +10,6 @@
 
 [!INCLUDE [ip-fqdn-connection](../../_includes/ip-fqdn-connection.md)]
 
->[!NOTE]
->
->[!INCLUDE [change-vm-resources](../_includes_service/change-vm-resources.md)]
-
 ## Подключитесь к виртуальной машине Linux по протоколу SSH
 
 [!INCLUDE [vm-connect-ssh](../../_includes/vm-connect-ssh.md)]

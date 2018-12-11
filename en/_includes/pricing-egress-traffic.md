@@ -1,4 +1,4 @@
-## Outgoing traffic {#traffic}
+### Outgoing traffic {#prices-traffic}
 
 When using the service, you pay for the traffic from the Cloud to the internet. The traffic between Cloud services and the incoming traffic from the internet are free of charge.
 

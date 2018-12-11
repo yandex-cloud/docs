@@ -23,6 +23,6 @@ links:
 - title: "Identity and access management"
   description: "Set up access rights to manage your billing account"
   href: "security/index"
-- title: "Pricing policies"
+- title: "Pricing policy"
   description: "Prices and rates of Yandex.Cloud services"
   href: "pricing"

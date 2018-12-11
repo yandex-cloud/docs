@@ -10,7 +10,7 @@ We recommend that you keep all your payment receipts, as this will help you if a
 
 The payment receipt amount is equal to the amount debited from the bank card linked to your account.
 
-The total amount charged depends on whether you have used your [grant](../concepts/bonus-account.md) and topped up your [personal account](../concepts/personal-account.md#balance) during the billing period.
+The total debited amount depends on whether you have used your [grant](../concepts/bonus-account.md) and topped up your [personal account](../concepts/personal-account.md#balance) during the reporting period.
 
 The amount charged is calculated using the formula:
 <br/> ![](../_assets/formula.png)
@@ -19,33 +19,32 @@ The amount charged is calculated using the formula:
 
 **[!TAB Example 1]**
 
-<br/>The personal account balance at the beginning of the billing period is 0 rubles.
-<br/>The balance has not been topped up during the entire billing period (0 rubles).
+<br/>The personal account balance at the beginning of the reporting period is 0 rubles.
+<br/>The balance has not been topped up during the entire reporting period (0 rubles).
 <br/>The grant amount is 1,000 rubles.
 <br/>The credit limit is 2,000 rubles.
-<br/>In the middle of the billing period, the established credit limit has been reached and the amount of resources consumed is 3,000 rubles.
+<br/>In the middle of the reporting period, the established credit limit has been reached and the amount for resources consumed is 3,000 rubles.
 <br/>Total amount: 3000 - (0 + 0 + 1000) = 2000 (rubles).
-<br/>In the middle of the billing period, 2,000 rubles will be debited from the linked bank card. A payment receipt will also be generated for 2,000 rubles.
+<br/>In the middle of the reporting period, 2,000 rubles will be debited from the linked bank card. A payment receipt will also be generated for 2,000 rubles.
 
 **[!TAB Example 2]**
 
-<br/>The personal account balance at the beginning of the billing period is 0 rubles.
-<br/>The balance has not been topped up during the entire billing period (0 rubles).
+<br/>The personal account balance at the beginning of the reporting period is 0 rubles.
+<br/>The balance has not been topped up during the entire reporting period (0 rubles).
 <br/>The grant amount is 1,000 rubles.
-<br/>By the end of the billing period, the amount of resources consumed is 800 rubles.
-<br/>The grant amount at the end of the billing period is 200 rubles. The personal account balance has not changed.
+<br/>By the end of the reporting period, the amount for resources consumed is 800 rubles.
+<br/>The grant amount at the end of the reporting period is 200 rubles. The personal account balance has not changed.
 <br/>At the beginning of the next billing month, no funds will be debited from the linked bank card. No payment receipt will be generated.
 
 **[!TAB Example 3]**
 
-<br/>The personal account balance at the beginning of the billing period is 0 rubles.
-<br/>The balance has not been topped up during the entire billing period (0 rubles).
+<br/>The personal account balance at the beginning of the reporting period is 0 rubles.
+<br/>The balance has not been topped up during the entire reporting period (0 rubles).
 <br/>The grant amount is 1,000 rubles.
 <br/>The credit limit is 2,000 rubles.
-<br/>By the end of the billing period, the amount of resources consumed is 2,300 rubles.
- The credit limit has not been reached and the grant has been fully spent.
+<br/>By the end of the reporting period, the amount for resources consumed is 2,300 rubles. The credit limit has not been reached and the grant has been fully spent.
 <br/>Total amount: 2300 - (0 + 0 + 1000) = 1300 (rubles).
-<br/>At the beginning of the next billing period, 1,300 rubles will be debited from the linked bank card. A payment receipt will also be generated for 1,300 rubles.
+<br/>At the beginning of the next reporting period, 1,300 rubles will be debited from the linked bank card. A payment receipt will also be generated for 1,300 rubles.
 
   ---    
 

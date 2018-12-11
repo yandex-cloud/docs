@@ -45,15 +45,37 @@
 
 ## Примеры
 
+### Добавить описание при создании
+
 Создайте сервисный аккаунт с именем и описанием:
 
 ---
 
 **[!TAB CLI]**
 
-```
+```bash
 $ yc iam service-account create --name my-robot \
     --description "this is my favorite service account"
 ```
 
+**[!TAB API]**
+
+```bash
+curl -X POST \
+    -H 'Content-Type: application/json' \
+    -H "Authorization: Bearer <IAM-TOKEN>" \
+    -d '{
+        "folderId": "b1gd129pp9ha0vnao5g7",
+        "name": "my-robot",
+        "description": "this is my favorite service account"
+    }' \
+    https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts
+```
+
 ---
+
+#### Что дальше
+
+- [[!TITLE]](assign-role-for-sa.md)
+- [[!TITLE]](create-access-key.md)
+- [[!TITLE]](set-access-bindings.md)

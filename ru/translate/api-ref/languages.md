@@ -25,9 +25,9 @@ POST https://translate.api.cloud.yandex.net/translate/v1/languages
 ```json
 {
    "languages": [
-        {"language": <код текста>},
+        {"language": <код языка>},
         ...
-        {"language": <код текста>}
+        {"language": <код языка>}
    ]
 } 
 ```
@@ -37,10 +37,12 @@ POST https://translate.api.cloud.yandex.net/translate/v1/languages
 
 ### Пример запроса
 
-```no-highlight
+```httpget
+export FOLDER_ID=<folder id>
+export TOKEN=<IAM-token>
 curl -X POST \
-     -H "Authorization: Bearer <IAM-token>" \
-     -d "folderId=<folder id>" \
+     -H "Authorization: Bearer ${TOKEN}" \
+     -d "folderId=${FOLDER_ID}" \
      "https://translate.api.cloud.yandex.net/translate/v1/languages"
 ```
 

@@ -1,6 +1,6 @@
 # End of the trial period
 
-The trial period ends automatically when you spend the entire grant amount or after 180 days, whichever is earlier.
+The trial period ends automatically when you spend the entire grant amount or after 60 days, whichever is earlier.
 
 You will not upgrade to the paid version automatically after the end of the trial period. You can [ upgrade to the paid version]( upgrade-to-paid.md) of Yandex.Cloud at any time during the trial period or 30 days after it ends.
 

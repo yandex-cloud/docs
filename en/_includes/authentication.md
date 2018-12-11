@@ -36,5 +36,5 @@ executed.
 
 #### See also
 
-- [the IAM User Guide](../iam/)
+- [the IAM User Guide](../iam/index.yaml)
 

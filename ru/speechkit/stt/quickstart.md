@@ -21,6 +21,7 @@ $ curl -LO https://download.cdn.yandex.net/from/yandex.ru/tech/ru/speechkit/clou
   
 $ curl -X POST \
      -H "Authorization: Bearer <IAM-token>" \
+     -H "Transfer-Encoding: chunked" \
      --data-binary "@speech.ogg" \
      "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?topic=general&folderId=<folder id>"
 ```
