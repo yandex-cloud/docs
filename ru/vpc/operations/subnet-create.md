@@ -46,7 +46,7 @@
 1. Выберите `NAME` или `ID` требуемой облачной сети. Создайте подсеть в каталоге по умолчанию, указав идентификатор облачной сети с помощью флага `--network-id`:
 
     ```
-    $ yc vpc subnet create test-subnet-1 \
+    $ yc vpc subnet create --name test-subnet-1 \
       --description "My test subnet" \
       --network-id enplom7a98s1t0lhass8 \
       --zone ru-central1-b \
@@ -58,7 +58,7 @@
     [!INCLUDE [name-format](../../_includes/name-format.md)]
 
     ```
-    $ yc vpc subnet create test-subnet-1 \
+    $ yc vpc subnet create --name test-subnet-1 \
       --description "My test subnet" \
       --network-name test-network-1 \
       --zone ru-central1-b \
@@ -66,15 +66,6 @@
     ```
 
     Флаги `--name` и `--description` необязательные — можно создать подсеть без имени и описания и обращаться к ней по идентификатору. 
-
-    Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
-
-    ```
-    $ yc vpc subnet create --id enpavfmgapumnl7cqin8 ...
-    ```
-    ```
-    $ yc vpc subnet create --name test-subnet-1 ...
-    ```
 
 1. Получите список всех подсетей в каталоге по умолчанию:
 
@@ -119,7 +110,7 @@
 Создайте подсеть с именем и описанием в выбранном каталоге:
 
   ```
-  $ yc vpc subnet create test-subnet-1 \
+  $ yc vpc subnet create --name test-subnet-1 \
     --description "My test subnet" \
     --folder-id b1g6ci08ma55klukmdjs \
     --network-id enplom7a98s1t0lhass8 \
