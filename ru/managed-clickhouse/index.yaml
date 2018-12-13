@@ -1,10 +1,10 @@
 # Заголовок и описание на странице
-title: "Yandex Managed ClickHouse"
+title: "Yandex Managed Service for ClickHouse"
 description:
-  - "Сервис Yandex Managed ClickHouse помогает разворачивать и поддерживать кластеры серверов ClickHouse в инфраструктуре Яндекс.Облака."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - "Сервис Managed Service for ClickHouse помогает разворачивать и поддерживать кластеры серверов ClickHouse в инфраструктуре Яндекс.Облака."
+# Мета-информация title, description, keywords и т.п.
 meta:
-  title: "Yandex Managed ClickHouse"
+  title: "Yandex Managed Service for ClickHouse"
 # Блок с ссылками
 links:
 - title: "Начало работы"

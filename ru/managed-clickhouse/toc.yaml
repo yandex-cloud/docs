@@ -1,4 +1,4 @@
-title: "Yandex Managed Databases"
+title: "Yandex Managed Service for ClickHouse"
 href: index.yaml
 items:
   - name: Начало работы
@@ -27,7 +27,7 @@ items:
       href: concepts/index.md
     - name: Классы хостов
       href: concepts/instance-types.md
-    - name: Сеть в Managed ClickHouse
+    - name: Сеть в Managed Service for ClickHouse
       href: concepts/network.md
     - name: Квоты и лимиты
       href: concepts/limits.md
@@ -45,17 +45,13 @@ items:
     items:
     - name: Аутентификация в API
       href: api-ref/authentication.md
-    - name: Список API
-      href: api-ref/index.md
     include:
       repo: docs-api
-      path: ru/mdb/toc.yaml
+      path: ru/managed-clickhouse/toc.yaml
   - name: Вопросы и ответы
     items:
     - name: Общие вопросы
       href: qa/general.md
-    - name: Вопросы о PostgreSQL
-      href: qa/postgresql.md
     - name: Вопросы о ClickHouse
       href: qa/clickhouse.md
     - name: Все вопросы на одной странице
