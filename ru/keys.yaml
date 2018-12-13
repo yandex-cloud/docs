@@ -3,10 +3,9 @@ iam-full-name: Yandex Identity and Access Management
 resmgr-full-name: Yandex Resource Manager
 compute-full-name: Yandex Compute Cloud
 objstorage-full-name: Yandex Object Storage
-mdb-full-name: Yandex Managed Databases
-mch-full-name: Yandex Managed ClickHouse
-mmg-full-name: Yandex Managed MongoDB
-mpg-full-name: Yandex Managed PostgreSQL
+mpg-full-name: Yandex Managed Service for PostgreSQL
+mch-full-name: Yandex Managed Service for ClickHouse
+mmg-full-name: Yandex Managed Service for MongoDB
 vpc-full-name: Yandex Virtual Private Cloud
 dsvm-full-name: Yandex Data Science Virtual Machine
 speechkit-full-name: Yandex SpeechKit
@@ -17,10 +16,9 @@ iam-name: Identity and Access Management
 resmgr-name: Resource Manager
 compute-name: Compute Cloud
 objstorage-name: Object Storage
-mdb-name: Managed Databases
-mch-name: Managed ClickHouse
-mmg-name: Managed MongoDB
-mpg-name: Managed PostgreSQL
+mpg-name: Managed Service for PostgreSQL
+mch-name: Managed Service for ClickHouse
+mmg-name: Managed Service for MongoDB
 vpc-name: Virtual Private Cloud
 dsvm-name: Data Science Virtual Machine
 speechkit-name: SpeechKit
@@ -31,10 +29,9 @@ iam-short-name: IAM
 resmgr-short-name: Resource Manager
 compute-short-name: Compute Cloud
 objstorage-short-name: Object Storage
-mdb-short-name: MDB
-mch-short-name: Managed ClickHouse
-mmg-short-name: Managed MongoDB
-mpg-short-name: Managed PostgreSQL
+mpg-short-name: Managed Service for PostgreSQL
+mch-short-name: Managed Service for ClickHouse
+mmg-short-name: Managed Service for MongoDB
 vpc-short-name: VPC
 dsvm-short-name: DSVM
 speechkit-short-name: SpeechKit
@@ -68,4 +65,3 @@ yc-mdb-pg: yc managed-postgresql
 PG: PostgreSQL
 CH: ClickHouse
 MG: MongoDB
-pem-path: '/mdb/CA.pem'
