@@ -1,6 +1,5 @@
 title: "Yandex Managed Service for PostgreSQL"
 href: index.yaml
-icon: "/img/translate.svg"
 items:
   - name: Начало работы
     href: quickstart.md
