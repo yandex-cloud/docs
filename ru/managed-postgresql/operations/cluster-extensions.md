@@ -102,4 +102,3 @@ $ [!KEYREF yc-mdb-pg] database update <имя базы данных> \
 - [unaccent](https://www.postgresql.org/docs/10/static/unaccent.html)
 - [uuid-ossp](https://www.postgresql.org/docs/10/static/uuid-ossp.html)
 - [xml2](https://www.postgresql.org/docs/10/static/xml2.html)
-

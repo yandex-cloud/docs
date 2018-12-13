@@ -1,10 +1,10 @@
 # Заголовок и описание на странице
-title: "Yandex Managed PostgreSQL"
+title: "Yandex Managed Service for PostgreSQL"
 description:
-  - "Сервис Yandex Managed PostgreSQL помогает разворачивать и поддерживать кластеры серверов PostgreSQL в инфраструктуре Яндекс.Облака."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - "Сервис Managed Service for PostgreSQL помогает разворачивать и поддерживать кластеры серверов PostgreSQL в инфраструктуре Яндекс.Облака."
+# Мета-информация title, description, keywords и т.п.
 meta:
-  title: "Yandex Managed PostgreSQL"
+  title: "Yandex Managed Service for PostgreSQL"
 # Блок с ссылками
 links:
 - title: "Начало работы"
