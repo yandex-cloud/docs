@@ -8,9 +8,9 @@
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы получить список расширений для определенной базы данных, выполните команду:
 
@@ -24,7 +24,7 @@ $ [!KEYREF yc-mdb-pg] database get <имя базы данных> \
 
 **[!TAB API]**
 
-Получить список расширений для базы данных кластера можно с помощью метода [get](../../api-ref/postgresql/Database/get.md).
+Получить список расширений для базы данных кластера можно с помощью метода [get](../api-ref/postgresql/Database/get.md).
 
 ---
 
@@ -35,9 +35,9 @@ $ [!KEYREF yc-mdb-pg] database get <имя базы данных> \
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
 Чтобы включить или выключить [!KEYREF PG]-расширения для базы данных, передайте полный список нужных расширений командой CLI. Включенные расширения, которых не будет в списке, будут отключены.
 
@@ -54,7 +54,7 @@ $ [!KEYREF yc-mdb-pg] database update <имя базы данных> \
 
 **[!TAB API]**
 
-Передать новый список расширений для базы данных можно с помощью метода [update](../../api-ref/postgresql/Database/update.md).
+Передать новый список расширений для базы данных можно с помощью метода [update](../api-ref/postgresql/Database/update.md).
 
 ---
 
