@@ -271,7 +271,7 @@ During the configuration process, you'll need the DB connection settings. To get
 
 1. Get the addresses of the DB cluster hosts in the management console:
     1. Open the folder where the DB cluster was created.
-    1. Click the **Yandex Managed PostgreSQL** tile.
+    1. Click the **Managed Service for PostgreSQL** tile.
     1. Select the cluster `joomla-pg-tutorial-db-cluster`.
     1. Open the **Hosts** tab.
     1. In the **Address (domain name)** column, find the host addresses.

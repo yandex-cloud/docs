@@ -15,7 +15,7 @@ Follow the instructions below to quickly create a cluster and test your connecti
 **[!TAB [!KEYREF PG]]**
 
 1. In the management console, select the folder where you want to create a DB cluster.
-1. Click on the tile **Yandex Managed Databases**.
+1. Click on the tile **Managed Service for PostgreSQL**.
 1. Click **Create a cluster** and select the necessary DBMS.
 1. Set the cluster settings and click **Create a cluster**. The process is described in detail in the section [[!TITLE]](operations/postgresql/cluster-create.md).
 1. When the cluster is ready to operate, its status on the [!KEYREF mdb-short-name] dashboard will change to **RUNNING**.
@@ -39,7 +39,7 @@ Follow the instructions below to quickly create a cluster and test your connecti
 **[!TAB [!KEYREF CH]]**
 
 1. In the management console, select the folder where you want to create a DB cluster.
-1. Click on the tile **Yandex Managed Databases**.
+1. Click on the tile **Managed Service for ClickHouse**.
 1. Click **Create a cluster** and select the necessary DBMS.
 1. Set the cluster settings and click **Create a cluster**. The process is described in detail in the section [[!TITLE]](operations/clickhouse/cluster-create.md).
 1. When the cluster is ready to operate, its status on the [!KEYREF mdb-short-name] dashboard will change to **RUNNING**.
@@ -60,7 +60,7 @@ Follow the instructions below to quickly create a cluster and test your connecti
 **[!TAB [!KEYREF MG]]**
 
 1. In the management console, select the folder where you want to create a DB cluster.
-1. Click on the tile **Yandex Managed Databases**.
+1. Click on the tile **Managed Service for MongoDB**.
 1. Click **Create a cluster** and select the necessary DBMS.
 1. Set the cluster settings and click **Create a cluster**. The process is described in detail in the section [[!TITLE]](operations/mongodb/cluster-create.md).
 1. When the cluster is ready to operate, its status on the [!KEYREF mdb-short-name] dashboard will change to **RUNNING**.

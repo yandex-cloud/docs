@@ -8,7 +8,9 @@ _Сервис_ в составе Яндекс.Облака позволяюет 
   - [Yandex Identity and Access Management](../../iam/) — сервис по управлению доступом к облачным ресурсам.
   - [Yandex Resource Manager](../../resource-manager/) — сервис по управлению облачными ресурсами.
   - [Yandex Virtual Private Cloud](../../vpc/) — сервис для управлениями сетями.
-  - [Yandex Managed Databases](../../mdb/) — сервис управления данными.
+  - [[!KEYREF mpg-full-name]](../../managed-postgresql/) — сервис управления для PostgreSQL.
+  - [[!KEYREF mch-full-name]](../../managed-clickhouse/) — сервис управления для ClickHouse.
+  - [[!KEYREF mmg-full-name]](../../managed-mongodb/) — сервис управления для MongoDB.
   - [Yandex SpeechKit](../../speechkit/) — сервис речевых технологий.
   - [Yandex Translate](../../translate/) — сервис машинного перевода.
 

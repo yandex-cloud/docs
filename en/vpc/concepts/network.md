@@ -4,7 +4,7 @@
 
 _A cloud network_ is similar to a traditional LAN in a data center. Cloud networks are created in folders and used for transmitting information between cloud resources and connecting resources to the internet.
 
-Yandex Compute Cloud VM instances and Yandex Managed Databases hosts provide access to and from the internet via public IP addresses.
+[!KEYREF compute-full-name] VM instances and [!KEYREF mdb-full-name] hosts provide access to and from the internet via public IP addresses.
 
 ### Outgoing traffic filtering {#egress-traffic-filter}
 

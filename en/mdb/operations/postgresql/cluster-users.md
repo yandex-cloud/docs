@@ -8,7 +8,7 @@ You can add and remove users, as well as manage their individual settings.
 
 **[!TAB Management console]**
 
-1. Go to the folder page and click on the tile **Yandex Managed Databases**.
+1. Go to the folder page and click on the tile **Managed Service for PostgreSQL**.
 1. Click on the name of the cluster you need and then select the tab **Users**.
 
 ---
@@ -19,7 +19,7 @@ You can add and remove users, as well as manage their individual settings.
 
 **[!TAB Management console]**
 
-1. Go to the folder page and click on the tile **Yandex Managed Databases**.
+1. Go to the folder page and click on the tile **Managed Service for PostgreSQL**.
 1. Click on the name of the cluster you need and select the tab **Users**.
 1. Click **Add**.
 1. Enter the database user name and password (from 8 to 128 characters).
@@ -34,7 +34,7 @@ You can add and remove users, as well as manage their individual settings.
 
 In the management console, you can only change the password of a database user:
 
-1. Go to the folder page and click on the tile **Yandex Managed Databases**.
+1. Go to the folder page and click on the tile **Managed Service for PostgreSQL**.
 1. Click on the name of the cluster you need and select the tab **Users**.
 1. Click ![](../../../_assets/vertical-ellipsis.svg) and select **Change password**.
 
@@ -46,7 +46,7 @@ In the management console, you can only change the password of a database user:
 
 **[!TAB Management console]**
 
-1. Go to the folder page and click on the tile **Yandex Managed Databases**.
+1. Go to the folder page and click on the tile **Managed Service for PostgreSQL**.
 1. Click on the name of the cluster you need and select the tab **Users**.
 1. Click ![](../../../_assets/vertical-ellipsis.svg) and select **Delete**.
 

@@ -1,0 +1,58 @@
+title: "Yandex Managed Service for MongoDB"
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+    - name: Все инструкции
+      href: operations/index.md
+    - name: Информация об имеющихся кластерах
+      href: operations/cluster-list.md
+    - name: Создание кластера
+      href: operations/cluster-create.md
+    - name: Подключение к базе данных
+      href: operations/connect.md
+    - name: Изменение настроек кластера и базы данных
+      href: operations/update.md
+    - name: Управление пользователями БД
+      href: operations/cluster-users.md
+    - name: Управление резервными копиями
+      href: operations/cluster-backups.md
+    - name: Удаление кластера
+      href: operations/cluster-delete.md
+  - name: Основные понятия
+    items:
+    - name: Взаимосвязь ресурсов сервиса
+      href: concepts/index.md
+    - name: Классы хостов
+      href: concepts/instance-types.md
+    - name: Сеть в Managed Service for MongoDB
+      href: concepts/network.md
+    - name: Квоты и лимиты
+      href: concepts/limits.md
+    - name: Резервные копии
+      href: concepts/backup.md
+    - name: Репликация
+      href: concepts/replication.md
+    - name: Поддерживаемые клиенты
+      href: concepts/supported-clients.md
+  - name: Безопасность и управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API
+    items:
+    - name: Аутентификация в API
+      href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: ru/managed-mongodb/toc.yaml
+  - name: Вопросы и ответы
+    items:
+    - name: Общие вопросы
+      href: qa/general.md
+    - name: Вопросы о MongoDB
+      href: qa/mongodb.md
+    - name: Все вопросы на одной странице
+      href: qa/all.md

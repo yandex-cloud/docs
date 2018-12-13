@@ -11,5 +11,5 @@ SLA details are available at:
 * Service Level warranties for Yandex.Cloud services:
   * [Yandex Compute Cloud](https://yandex.ru/legal/cloud_sla_compute/?lang=en)
   * [Yandex Object Storage](https://yandex.ru/legal/cloud_sla_storage/?lang=en)
-  * [Yandex Managed Databases](https://yandex.ru/legal/cloud_sla_mdb/?lang=en)
+  * [[!KEYREF mdb-full-name]](https://yandex.ru/legal/cloud_sla_mdb/?lang=en)
 

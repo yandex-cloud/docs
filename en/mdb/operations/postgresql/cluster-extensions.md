@@ -8,7 +8,7 @@
 
 **[!TAB Management console]**
 
-1. Go to the folder page and click on the tile **Yandex Managed Databases**.
+1. Go to the folder page and click on the tile **Managed Service for PostgreSQL**.
 1. Click on the name of the cluster you need and select the **Extensions** tab.
 
 ---
