@@ -24,7 +24,7 @@ $ [!KEYREF yc-mdb-pg] database get <имя базы данных> \
 
 **[!TAB API]**
 
-Получить список расширений для базы данных кластера можно с помощью метода [get](../api-ref/postgresql/Database/get.md).
+Получить список расширений для базы данных кластера можно с помощью метода [get](../api-ref/Database/get.md).
 
 ---
 
@@ -54,7 +54,7 @@ $ [!KEYREF yc-mdb-pg] database update <имя базы данных> \
 
 **[!TAB API]**
 
-Передать новый список расширений для базы данных можно с помощью метода [update](../api-ref/postgresql/Database/update.md).
+Передать новый список расширений для базы данных можно с помощью метода [update](../api-ref/Database/update.md).
 
 ---
 
