@@ -45,6 +45,9 @@ items:
     items:
     - name: Аутентификация в API
       href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: ru/managed-mongodb/toc.yaml
   - name: Вопросы и ответы
     items:
     - name: Общие вопросы
