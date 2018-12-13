@@ -11,9 +11,9 @@
 - [[!KEYREF iam-full-name]](../iam/api-ref/)
 - [[!KEYREF resmgr-full-name]](../resource-manager/api-ref/)
 - [[!KEYREF vpc-full-name]](../vpc/api-ref/)
-- [!KEYREF mdb-full-name]:
-   * [ClickHouse](../mdb/api-ref/clickhouse/)
-   * [MongoDB](../mdb/api-ref/mongodb/)
-   * [PostgreSQL](../mdb/api-ref/postgresql/)
+- Сервисы баз данных:
+   * [ClickHouse](../managed-clickhouse/api-ref/)
+   * [MongoDB](../managed-mongodb/api-ref/)
+   * [PostgreSQL](../managed-postgresql/api-ref/)
 - [[!KEYREF speechkit-full-name]](../speechkit/)
 - [[!KEYREF translate-full-name]](../translate/)
