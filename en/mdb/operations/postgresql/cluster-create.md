@@ -12,7 +12,7 @@ The number of hosts that can be created together with a [!KEYREF PG] cluster dep
 **[!TAB Management console]**
 
 1. In the management console, select the folder where you want to create a DB cluster.
-1. Click on the tile **Yandex Managed Databases**.
+1. Click on the tile **Managed Service for PostgreSQL**.
 1. Click **Create a cluster** and select the necessary DBMS. Once a cluster is created, you cannot change the DBMS.
 1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the Cloud.
 1. Select the environment where you want to create the cluster (you cannot change the environment after cluster creation):

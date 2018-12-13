@@ -15,7 +15,7 @@ For more information about billing calculations, see the documentation for the s
 - [Yandex Compute Cloud](../compute/pricing.md)
 - [Yandex Object Storage](../storage/pricing.md)
 - [Yandex Virtual Private Cloud](../vpc/pricing.md)
-- [Yandex Managed Databases](../mdb/pricing.md)
+- [[!KEYREF mdb-full-name]](../mdb/pricing.md)
 - [Yandex Speechkit](../speechkit/pricing.md)
 - [Yandex Translate](../translate/pricing.md)
 

@@ -8,7 +8,7 @@ You can create backups and restore clusters from existing backups.
 
 **[!TAB Management console]**
 
-1. Go to the folder page and click on the tile **Yandex Managed Databases**.
+1. Go to the folder page and click on the tile **Managed Service for PostgreSQL**.
 1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
 ---
@@ -19,7 +19,7 @@ You can create backups and restore clusters from existing backups.
 
 **[!TAB Management console]**
 
-1. Go to the folder page and click on the tile **Yandex Managed Databases**.
+1. Go to the folder page and click on the tile **Managed Service for PostgreSQL**.
 1. Click on the name of the cluster you need and select the tab **Backup copies**.
 1. Click **Create a backup**.
 
