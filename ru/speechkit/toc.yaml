@@ -8,8 +8,6 @@ items:
     items:
       - name: О технологии
         href: stt/index.md
-      - name: Быстрый старт
-        href: stt/quickstart.md
       - name: Описание метода API
         href: stt/request.md
   - name: Синтез речи
