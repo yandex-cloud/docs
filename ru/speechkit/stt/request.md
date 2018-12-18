@@ -51,6 +51,8 @@ POST https://stt.api.cloud.yandex.net/speech/v1/stt:recognize
 
 ## Примеры {#examples}
 
+Чтобы распознать русскую речь с помощью SpeechKit API, отправьте небольшой аудиофрагмент, например [speech.ogg](https://download.cdn.yandex.net/from/yandex.ru/tech/ru/speechkit/cloud/doc/guide/files/speech.ogg), с помощью POST-запроса.
+
 ### Пример запроса {#request_examples}
 
 ---
