@@ -12,8 +12,6 @@ The cost of [!KEYREF mdb-name] usage is based on:
    - Settings and number of backups.
    - The amount of outgoing traffic.
 
-[!INCLUDE [pricing-intro](../_includes/pricing-intro.md)]
-
 [!INCLUDE [pricing-gb-size](../_includes/pricing-gb-size.md)]
 
 ### Use of DB hosts {#rules-hosts-uptime}
@@ -40,7 +38,72 @@ The following is charged:
 The cost is specified for one month of use.  The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
 
 
-## Prices {#prices}
+## Prices until January 1, 2019 {#prices-old}
+
+### [!KEYREF CH] and ZooKeeper {#prices-clickhouse-old}
+
+You can choose the host class for the [!KEYREF CH] hosts and ZooKeeper hosts (as appropriate for the expected replication load).
+
+For example, let's say you created a [!KEYREF CH] cluster with 3 hosts using the `s1.micro` host class, and did not specify the class for the ZooKeeper hosts. [!KEYREF mdb-short-name] automatically creates 3 ZooKeeper hosts using the `s1.nano` class.
+
+The hourly price will be calculated using the rates below (including VAT): `3 × ₽5.42 + 3 × ₽1.72 = ₽21.42`.
+
+| Host class | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
+| ----- | ----- | ----- |
+**[!KEYREF CH]** | | 
+s1.nano | 2,2966 ₽ | 2,7100 ₽
+s1.micro | 4,5932 ₽ | 5,4200 ₽ 
+s1.small | 9,1780 ₽ | 10,8300 ₽ 
+s1.medium | 18,3559 ₽ | 21,6600 ₽ 
+s1.large | 36,7119 ₽ | 43,3200 ₽ 
+s1.xlarge | 73,4153 ₽ | 86,6300 ₽
+**ZooKeeper** | | 
+s1.nano | 1,4576 ₽ | 1,7200 ₽
+s1.micro | 2,8475 ₽ | 3,3600 ₽
+s1.small | 5,6271 ₽ | 6,6400 ₽
+s1.medium | 11,1864 ₽ | 13,2000 ₽
+s1.large | 22,3220 ₽ | 26,3400 ₽
+s1.xlarge | 44,5678 ₽ | 52,5900 ₽
+
+
+### [!KEYREF PG] {#prices-postgresql-old}
+
+| Host class | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
+| ----- | ----- | ----- |
+s1.nano | 2,1610 ₽ | 2,5500 ₽
+s1.micro | 4,3136 ₽ | 5,0900 ₽
+s1.small | 8,6186 ₽ | 10,1700 ₽
+s1.medium | 17,2458 ₽ | 20,3500 ₽
+s1.large | 34,4831 ₽ | 40,6900 ₽
+s1.xlarge | 68,9746 ₽ | 81,3900 ₽
+
+
+### [!KEYREF MG] {#prices-mongodb-old}
+
+| Host class | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
+| ----- | ----- | ----- |
+s1.nano | 2,5000 ₽ | 2,9500 ₽
+s1.micro | 5,0085 ₽ | 5,9100 ₽
+s1.small | 10,0085 ₽ | 11,8100 ₽
+s1.medium | 20,0254 ₽ | 23,6300 ₽
+s1.large | 40,0424 ₽ | 47,2500 ₽
+s1.xlarge | 80,0932 ₽ | 94,5100 ₽
+
+### Storage and backups {#prices-storage-old}
+
+| Service | Cost of 1 GB per month, without VAT | Cost of 1 GB per month, with VAT |
+| ----- | ----- | ----- |
+| Standard network storage | 1.9068 ₽ | 2.2500 ₽ |
+| Fast network storage | 6.7797 ₽ | 8.0000 ₽ |
+| NVMe | 6.7797 ₽ | 8.0000 ₽ |
+| Backups beyond the storage size | 2.1186 ₽ | 2.5000 ₽ |
+
+### Outgoing traffic {#prices-traffic-old}
+
+[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing-egress-traffic-old.md)]
+
+
+## Prices as of January 1, 2019 {#prices}
 
 ### [!KEYREF CH] and ZooKeeper {#prices-clickhouse}
 
@@ -52,52 +115,52 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
 
 | Host class | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
 | ----- | ----- | ----- |
-| **[!KEYREF CH]]** |  |
-| s1.nano | 2.30 ₽ | 2.71 ₽ |
-| s1.micro | 4.59 ₽ | 5.42 ₽ |
-| s1.small | 9.18 ₽ | 10.83 ₽ |
-| s1.medium | 18.36 ₽ | 21.66 ₽ |
-| s1.large | 36.71 ₽ | 43.32 ₽ |
-| s1.xlarge | 73.42 ₽ | 86.63 ₽ |
-| **ZooKeeper** |  |
-| s1.nano | 1.46 ₽ | 1.72 ₽ |
-| s1.micro | 2.85 ₽ | 3.36 ₽ |
-| s1.small | 5.63 ₽ | 6.64 ₽ |
-| s1.medium | 11.19 ₽ | 13.20 ₽ |
-| s1.large | 22.32 ₽ | 26.34 ₽ |
-| s1.xlarge | 44.57 ₽ | 52.59 ₽ |
+| **[!KEYREF CH]** | | 
+| s1.nano | 2.2966 ₽ | 2.7559 ₽
+| s1.micro | 4.5932 ₽ | 5.5119 ₽ 
+  s1.small | 9.1780 ₽ | 11.0136 ₽ 
+  s1.medium | 18.3559 ₽ | 22.0271 ₽ 
+  s1.large | 36.7119 ₽ | 44.0542 ₽ 
+  s1.xlarge | 73.4153 ₽ | 88.0983 ₽
+  **ZooKeeper** | | 
+  s1.nano | 1.4576 ₽ | 1.7492 ₽
+  s1.micro | 2.8475 ₽ | 3.4169 ₽
+  s1.small | 5.6271 ₽ | 6.7525 ₽
+  s1.medium | 11.1864 ₽ | 13.4237 ₽
+  s1.large | 22.3220 ₽ | 26.7864 ₽
+  s1.xlarge | 44.5678 ₽ | 53.4814 ₽
 
 ### [!KEYREF PG] {#prices-postgresql}
 
 | Host class | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
 | ----- | ----- | ----- |
-| s1.nano | 2.16 ₽ | 2.55 ₽ |
-| s1.micro | 4.31 ₽ | 5.09 ₽ |
-| s1.small | 8.62 ₽ | 10.17 ₽ |
-| s1.medium | 17.25 ₽ | 20.35 ₽ |
-| s1.large | 34.48 ₽ | 40.69 ₽ |
-| s1.xlarge | 68.97 ₽ | 81.39 ₽ |
+s1.nano | 2.1610 ₽ | 2.5932 ₽
+s1.micro | 4.3136 ₽ | 5.1763 ₽
+s1.small | 8.6186 ₽ | 10.3424 ₽
+s1.medium | 17.2458 ₽ | 20.6949 ₽
+s1.large | 34.4831 ₽ | 41.3797 ₽
+s1.xlarge | 68.9746 ₽ | 82.7695 ₽
 
 ### [!KEYREF MG] {#prices-mongodb}
 
 | Host class | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
 | ----- | ----- | ----- |
-| s1.nano | 2.50 ₽ | 2.95 ₽ |
-| s1.micro | 5.01 ₽ | 5.91 ₽ |
-| s1.small | 10.01 ₽ | 11.81 ₽ |
-| s1.medium | 20.03 ₽ | 23.63 ₽ |
-| s1.large | 40.04 ₽ | 47.25 ₽ |
-| s1.xlarge | 80.09 ₽ | 94.51 ₽ |
+s1.nano | 2.5000 ₽ | 3.0000 ₽
+s1.micro | 5.0085 ₽ | 6.0102 ₽
+s1.small | 10.0085 ₽ | 12.0102 ₽
+s1.medium | 20.0254 ₽ | 24.0305 ₽
+s1.large | 40.0424 ₽ | 48.0508 ₽
+s1.xlarge | 80.0932 ₽ | 96.1119 ₽
 
-### Storage and backups {#prices-storage-old}
+### Storage and backups {#prices-storage}
 
 | Service | Cost of 1 GB per month, without VAT | Cost of 1 GB per month, with VAT |
 | ----- | ----- | ----- |
-| NVMe | 6.78 ₽ | 8.00 ₽ |
-| Fast networked storage | 6.78 ₽ | 8.00 ₽ |
-| Backups beyond the storage size | 2.12 ₽ | 2.50 ₽ |
+| Standard network storage | 1.9068 ₽ | 2.2881 ₽ |
+| Fast network storage | 6.7797 ₽ | 8.1356 ₽ |
+| NVMe | 6.7797 ₽ | 8.1356 ₽ |
+| Backups beyond the storage size | 2.1186 ₽ | 2.5424 ₽ |
 
 ### Outgoing traffic {#prices-traffic}
 
 [!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing-egress-traffic.md)]
-
