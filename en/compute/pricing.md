@@ -15,13 +15,11 @@ The cost of [!KEYREF compute-short-name] usage is based on:
 * The amount of outgoing traffic.
 * Public IP address.
 
-[!INCLUDE [pricing-intro](../_includes/pricing-intro.md)]
-
 [!INCLUDE [pricing-gb-size](../_includes/pricing-gb-size.md)]
 
 ### Use of VM instances {#instance}
 
-The cost of a VM instance depends on the allocated computing resources, operating system, and usage time. Attached disks and network usage are charged separately.
+The cost of a VM depends on the allocated computing resources, operating system, and usage time. Attached disks and network usage are charged separately.
 
 The cost is calculated for the time of using the VM, from the moment it is started (when its status changes to `RUNNING`) and to a complete stop. The time when the VM is stopped is not charged.
 
@@ -41,7 +39,7 @@ The basic level of core performance depends on the usage type:
 
 [!KEYREF price-per-hour-count-per-second]
 
-#### Operating systems {#instance-os}
+#### Operating systems {#burstable-instance-os}
 
 OS usage on a VM is charged, as well. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
 
@@ -61,18 +59,18 @@ Both VMs have been running for 30 days.
 The cost of the VM with partial core usage is calculated as follows:
 
 > 5% of vCPU = ₽0.19/hour * 30 days * 24 hours = 136.8 ₽
->
->1 GB RAM = ₽0.24/hour * 30 days * 24 hours = 172.8 ₽
->
->Total: 309.6&nbsp;₽
+> 
+> 1 GB RAM = ₽0.24/hour * 30 days * 24 hours = 172.8 ₽
+> 
+> Total: 309.6&nbsp;₽
 
 The cost of the VM with full core usage is calculated as follows:
 
 > 1 vCPU = ₽0.69/hour * 30 days * 24 hours = 496.8 ₽
->
->1 GB RAM = ₽0.24/hour * 30 days * 24 hours = 172.8 ₽
->
->Total: 669.6&nbsp;₽
+> 
+> 1 GB RAM = ₽0.24/hour * 30 days * 24 hours = 172.8 ₽
+> 
+> Total: 669.6&nbsp;₽
 
 The cost of the VM with partial core usage is almost half the cost of the VM with full core usage.
 
@@ -86,32 +84,63 @@ If you created an image or snapshot, you pay for the storage of this object sepa
 
 The cost is specified for one month of use. Charging per second.
 
-## Prices {#prices}
+## Prices until January 1, 2019 {#prices-old}
+
+### VM computing resources {#prices-instance-resources-old}
+
+| Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
+| ----- | ----- | ----- |
+| 5%+ of vCPU | 0.1610 ₽ | 0.1900 ₽
+| 100% of vCPU | 0.5847 ₽ | 0.6900 ₽
+| RAM (for 1 GB) | 0.2034 ₽ | 0.2400 ₽
+
+### Operating systems {#prices-instance-os-old}
+
+| OS | Cost per vCPU per hour,<br/> without VAT | Cost per vCPU per hour,<br/> with VAT |
+| ----- | ----- | ----- |
+| Linux for all core types | 0 ₽ | 0 ₽ |
+| Windows Server for 5%+ of vCPU | 0.4746 ₽ | 0.5600 ₽
+| Windows Server for 1 vCPU | 0.9492 ₽ | 1.1200 ₽
+
+### Disks, snapshots, and images {#prices-storage-old}
+
+| Type | Cost of 1 GB per month,<br/> without VAT | Cost of 1 GB per month,<br/> with VAT |
+| ----- | ----- | ----- |
+| Fast network drive (NVMe) | 6.2034 ₽ | 7.3200 ₽
+| Standard disk drive (HDD) | 1.7373 ₽ | 2.0500 ₽
+| Snapshot | 1.8559 ₽ | 2.1900 ₽
+| Image | 1.8559 ₽ | 2.1900 ₽
+
+### Outgoing traffic {#prices-traffic-old}
+
+[!INCLUDE-NOTITLE [pricing-egress-traffic-old](../_includes/pricing-egress-traffic-old.md)]
+
+## Prices as of January 1, 2019 {#prices}
 
 ### Computing resources  {#prices-instance-resources}
 
 | Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
 | ----- | ----- | ----- |
-| 5%+ of vCPU | 0.16 ₽ | 0.19 ₽ |
-| 100% of vCPU | 0.58 ₽ | 0.69 ₽ |
-| RAM (for 1 GB) | 0.20 ₽ | 0.24 ₽ |
+| 5%+ of vCPU | 0.1610 ₽ | 0.1932 ₽
+| 100% of vCPU | 0.5847 ₽ | 0.7017 ₽
+| RAM (for 1 GB) | 0.2034 ₽ | 0.2441 ₽
 
-### Operating systems {#prices-instance-os}
+### Operating systems {#burstable-instance-os}
 
 | OS | Cost per vCPU per hour,<br/> without VAT | Cost per vCPU per hour,<br/> with VAT |
 | ----- | ----- | ----- |
 | Linux for all core types | 0 ₽ | 0 ₽ |
-| Windows Server for 5%+ of vCPU | 0.47 ₽ | 0.56 ₽ |
-| Windows Server for 1 vCPU | 0.95 ₽ | 1.12 ₽ |
+| Windows Server for 5%+ of vCPU | 0.5288 ₽ | 0.6346 ₽
+| Windows Server for 1 vCPU | 1.0576 ₽ | 1.2691 ₽
 
 ### Disks, snapshots, and images {#prices-storage}
 
 | Type | Cost of 1 GB per month,<br/> without VAT | Cost of 1 GB per month,<br/> with VAT |
 | ----- | ----- | ----- |
-| Fast network drive (NVMe) | 6.20 ₽ | 7.32 ₽ |
-| Standard disk drive (HDD) | 1.74 ₽ | 2.05 ₽ |
-| Snapshot | 1.86 ₽ | 2.19 ₽ |
-| Image | 1.86 ₽ | 2.19 ₽ |
+| Fast network drive (NVMe) | 6.2034 ₽ | 7.4441 ₽
+| Standard disk drive (HDD) | 1.7373 ₽ | 2.0847 ₽
+| Snapshot | 1.8559 ₽ | 2.2271 ₽
+| Image | 1.8559 ₽ | 2.2271 ₽
 
 ### Outgoing traffic {#prices-traffic}
 
