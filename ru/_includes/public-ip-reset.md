@@ -2,4 +2,4 @@
 
 Публичный IP-адрес можно сделать статическим. Подробнее читайте в разделе [[!TITLE]](../compute/operations/vm-control/vm-set-static-ip.md).
 
-Публичные и публичные статические IP-адреса имеют разные правила тарификации. Подробнее читайте в разделе [[!TITLE]](../vpc/pricing.md#prices-public-ip) документации сервиса [!KEYREF vpc-name].
+Подробнее о правилах тарификации IP-адресов читайте в разделе [[!TITLE]](../vpc/pricing.md#prices-public-ip) документации сервиса [!KEYREF vpc-name].
