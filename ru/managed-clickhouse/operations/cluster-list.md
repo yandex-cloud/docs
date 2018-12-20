@@ -17,10 +17,10 @@
 
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
-Чтобы запросить список [!KEYREF PG]-кластеров в каталоге по умолчанию, выполните команду:
+Чтобы запросить список [!KEYREF CH]-кластеров в каталоге по умолчанию, выполните команду:
 
 ```
-$ yc managed-postgresql cluster list
+$ [!KEYREF yc-mdb-ch] cluster list
 
 +----------------------+---------------+-----------------------------+--------+---------+
 |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
@@ -48,10 +48,10 @@ $ yc managed-postgresql cluster list
 
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
-Чтобы получить информацию о [!KEYREF PG]-кластере, выполните команду:
+Чтобы получить информацию о [!KEYREF CH]-кластере, выполните команду:
 
 ```
-$ [!KEYREF yc-mdb-pg] cluster get <имя или идентификатор кластера>
+$ [!KEYREF yc-mdb-ch] cluster get <имя или идентификатор кластера>
 ```
 
 Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).

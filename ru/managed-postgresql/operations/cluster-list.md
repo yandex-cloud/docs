@@ -20,7 +20,7 @@
 Чтобы запросить список [!KEYREF PG]-кластеров в каталоге по умолчанию, выполните команду:
 
 ```
-$ yc managed-postgresql cluster list
+$ [!KEYREF yc-mdb-pg] cluster list
 
 +----------------------+---------------+-----------------------------+--------+---------+
 |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
