@@ -4,7 +4,7 @@
 
 [!INCLUDE [yandex-account](../_includes/yandex-account.md)]
 
-### Access to billing accounts {#billing-account}
+### Access to billing account {#billing-account}
 
 Access to [billing accounts](../concepts/billing-account.md) of the Billing system is provided by the service[Yandex.Cloud IAM](../../iam/).
 Once you create a billing account, you are automatically assigned the _Owner_ role.

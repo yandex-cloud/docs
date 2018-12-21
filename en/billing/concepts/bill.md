@@ -4,7 +4,7 @@ A payment invoice is a document issued for you to pay for the resources consumed
 
 The relationship between the payment invoice, billing account, and cloud is shown in the diagram below.
 
-![](../_assets/1-1-cloud.png)
+![image](../_assets/1-1-cloud.png)
 
 ## Issuing a payment invoice {#agregate}
 
@@ -23,7 +23,7 @@ A payment invoice is issued at the beginning of the next reporting period if the
 
 [!INCLUDE [bill-amount](../_includes/bill-amount.md)]
 
-<br/>![](../_assets/formula.png)
+<br/>![image](../_assets/formula.png)
 
   ---  
 
@@ -45,7 +45,7 @@ A payment invoice is issued at the beginning of the next reporting period if the
 <br/>The credit limit is not enabled.
 <br/>By the end of the reporting period, the amount for resources consumed is 800 rubles.
 <br/>The grant amount at the end of the reporting period is 200 rubles. The personal account balance has not changed.
-<br/>At the beginning of the next billing month, no payment invoice will be generated.
+<br/>At the beginning of the next reporting month, no payment invoice will be generated.
 
 **[!TAB Example 3]**
 
@@ -70,14 +70,14 @@ Invoices must be paid before the deadline stipulated in the [agreement](../conce
 | Name | Description |
 | ----- | ----- |
 | Payment invoice number | Unique payment invoice ID |
-| Payment invoice date | The date of payment invoice generation in Yandex's accounting system |
+| Date of invoicing | The date when the payment invoice was generated in Yandex's accounting system |
 | Customer | Billing account owner |
 | Phone number | Phone number of the billing account owner |
 | Name of the product, work, or service | Information about the services rendered |
 | Total | Total amount for all lines of the payment invoice, excluding VAT, in rubles |
 | Total VAT % | The amount of accrued taxes for all lines of the payment invoice, in rubles |
-| Total amount payable | The total amount by all lines lines of the payment invoice, including VAT, in rubles |
-| Due and payable | The total amount by all lines lines of the payment invoice, including VAT, in rubles |
+| Total amount payable | The total amount for all lines of the payment invoice, including VAT, in rubles |
+| Due and payable | The total amount for all lines of the payment invoice, including VAT, in rubles |
 
 ## VAT accounting {#nds}
 

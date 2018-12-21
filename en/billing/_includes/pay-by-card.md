@@ -1,4 +1,4 @@
-Funds are automatically debited from the bank card linked to the billing account at the beginning of the next billing month if the total debited amount is greater than zero.
+Funds are automatically debited from the bank card linked to the billing account at the beginning of the next reporting month if the total debited amount is greater than zero.
 
 > [!NOTE]
 >

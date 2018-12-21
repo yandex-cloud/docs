@@ -11,7 +11,7 @@ To have funds transferred, you should first receive a [payment invoice](../conce
    - Bank details of Yandex.Cloud LLC
    - Your company's TIN or sole proprietor's TIN
    - [Personal account number](../concepts/personal-account.md#id) in the Details of Payment field
-   - [Contract number](../concepts/contract.md) in the Details of Payment field.
+   - [Contract number](../concepts/contract.md) in the Details of Payment field
 
 [!INCLUDE [payment-bill-note](../_includes/payment-bill-note.md)]
 

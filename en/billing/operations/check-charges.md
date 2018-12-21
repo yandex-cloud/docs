@@ -1,4 +1,4 @@
-# How to view service usage details
+# View service usage details
 
 On the page **Usage details**, you can view detailed information about your usage of Yandex.Cloud services for the selected period.
 

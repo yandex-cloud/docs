@@ -10,10 +10,7 @@ For more information, see [How to pay for resources](../payment/index.md).
 
 [!INCLUDE [payment-methods](../_includes/payment-methods.md)]
 
-#### How do I change my payment method? {#change-payment}
-
-The payment method can only be changed for a billing account of the **Business account** type: you can only use a [transfer from your bank account](../payment/payment-methods-business.md) instead of a transfer from your bank card.
-<br/>The payment method cannot be changed for a billing account of the **Individual account** type.
+[!INCLUDE [change-payment-method](../_includes/change-payment-method.md)]
 
 #### What cards are accepted for payment? {#card-types}
 
@@ -21,7 +18,7 @@ The payment method can only be changed for a billing account of the **Business a
 
 #### How can I change my payment details? {#change-requisites}
 
-Only the owner of the billing account can change the payment details. If you are the owner, follow the instructions in the section [How to change billing account details](../operations/change-data.md).
+[!INCLUDE [change-address](../_includes/change-address.md)]
 
 #### In which currency can I pay for Yandex.Cloud? {#currency}
 
@@ -43,17 +40,9 @@ For more information, see [Agreement](../concepts/contract.md).
 
 Businesses may conclude a contract that is signed by both parties. To do this, submit a request using the **Contact the Sales Department** form on the support page. A Yandex.Cloud manager will contact you to discuss the contract signing terms and conditions.
 
-#### How can I change the email address for receiving payment documents?  {#change-email}
-
-Only the owner of the billing account can change the payment details. If you are the owner, follow the instructions in the section [How to change billing account details](../operations/change-data.md).
-
 #### How is resource consumption charged?  {#tariffs}
 
 Yandex.Cloud resources are consumed on an as-needed basis. The amount for resources consumed is calculated individually for each service.
 
 For more information, see [Pricing](../pricing.md).
-
-#### How can I enable the credit limit?  {#credit}
-
-[The credit limit](../concepts/credit-limit.md) is enabled automatically after the [paid version is activated](../operations/activate-commercial.md) and the first reporting period ends.
 

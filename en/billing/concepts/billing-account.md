@@ -2,11 +2,11 @@
 
 A billing account is used to identify the user paying for resources in Yandex.Cloud.
 
-The billing account can only be linked to one [personal account](personal-account.md). You can use only the payment method which corresponds to the type of billing account and your [agreement](contract.md).
+The billing account can only be linked to one [personal account](personal-account.md) and one cloud. You can use only the payment method which corresponds to the type of billing account and your [agreement](contract.md).
 
-You can link more than one cloud to your billing account, but only one billing account can be linked to one cloud. The relationship between the cloud, billing account, personal account, and payment method is shown in the diagram below.
+The relationship between the cloud, billing account, personal account, and payment method is shown in the diagram below.
 
-![](../_assets/cloud-billing-account.png)
+![image](../_assets/cloud-billing-account.png)
 
 > [!NOTE]
 >
@@ -28,9 +28,9 @@ The type of a billing account determines the Yandex.Cloud resource [payment meth
 **[!TAB Business account]**
 
 - Intended for residents of Russia.
-- Resource usage is paid for via bank transfer from a business's bank account and a corporate bank card.
+- Resource usage is paid for via bank transfer from a business's bank account or a corporate bank card.
 - Payments for the resources consumed are made based on the [agreement](../concepts/contract.md) and [payment invoice](bill.md), or the amount is debited automatically from the linked bank card. For more information, see the section [Billing cycle for businesses](../payment/billing-cycle-business.md).
-- A report for services provided and an invoice are sent to your email address at the beginning of the next reporting period. For more information, see the section [Financial documents](../payment/documents.md).
+- A report for services rendered and an invoice are sent to your email address at the beginning of the next reporting period. For more information, see the section [Financial documents](../payment/documents.md).
 
   ---  
 

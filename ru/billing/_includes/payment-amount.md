@@ -1,7 +1,7 @@
 Итоговая сумма списания зависит от того, был ли использован [грант](../concepts/bonus-account.md) и пополнялся ли [лицевой счет (ЛС)](../concepts/personal-account.md#balance) в течение отчетного периода.
 
 Сумма списания определяется по формуле:
-![](../_assets/formula.png)
+![image](../_assets/formula.png)
 
 
   ---  

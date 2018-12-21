@@ -6,7 +6,7 @@ Yes, you can. For more information, see the section [How to create a VM instance
 
 #### Where can I find SLAs? {#sla}
 
-In Yandex.Cloud, each service has its own SLA. You can read the SLA in the [Legal documents](https://yandex.ru/legal/cloud_sla/?lang=en)  section.
+In Yandex.Cloud, each service has its own SLA. You can learn more about SLAs in the section [Legal documents](https://yandex.ru/legal/cloud_sla/?lang=en).
 
 #### How do I contact technical support? {#support}
 

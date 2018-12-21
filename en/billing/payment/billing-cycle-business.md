@@ -2,10 +2,10 @@
 
 The diagram shows the cycle of issuing and paying invoices for businesses, as well as suspending and blocking access to the use of resources.
 
-![](../_assets/billing-cycle-business-credit.png)
+![image](../_assets/billing-cycle-business-credit.png)
 
 1. You [activate the paid version](../operations/activate-commercial.md) before the end of the trial period.
-<br/>If you did not spend the entire amount of the [initial grant](../concepts/bonus-account.md), you can use the remaining amount after upgrading to the paid version.
+<br/>Unless you spent the entire amount of the [initial grant](../concepts/bonus-account.md), you can use the remaining amount after upgrading to the paid version.
 
 1. If you are awarded a grant, you use it. The grant amount is reduced as the resources of Yandex.Cloud services are consumed.
 
@@ -41,7 +41,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses, as we
       [!INCLUDE [pay-by-card-note](../_includes/pay-by-card-note.md)]
 
 1. Payment for used resources is verified:
-   - If you top up your personal account within the deadline stipulated in the agreement or the funds are debited from the linked bank card within one day, go back to step 4.
+   - If you top up your personal account before the deadline stipulated in the agreement or the funds are debited from the linked bank card within one day, go back to step 4.
    - If your bank card balance is insufficient on the day when funds are to be debited and you failed to [top up](../operations/pay-the-bill.md) your personal account,  the debit transaction will be repeated later.
    - If you didn't top up your personal account, you don't have a linked bank card, or the funds cannot be debited from any of your bank cards, Yandex.Cloud reserves the right to change the status of your billing account to [Suspended](../concepts/billing-account.md#conditions). For more information, see step 10.
 
