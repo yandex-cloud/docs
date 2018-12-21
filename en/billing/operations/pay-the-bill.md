@@ -8,7 +8,7 @@ The method of personal account top-up depends on your legal status.
 
 To top up your personal account:
 
-1. In the [management console](https://console.cloud.yandex.ru/billing), click ![](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. In the [management console](https://console.cloud.yandex.ru/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
 1. Go to the **Overview** page.
 1. Click **Top up**.
 1. Enter the payment amount and click **Pay**.
@@ -19,7 +19,7 @@ To top up your personal account:
 
 To top up your personal account:
 
-1. In the [management console](https://console.cloud.yandex.ru/billing), click ![](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. In the [management console](https://console.cloud.yandex.ru/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
 1. Go to the **Overview** page.
 1. Click **Top up**.
 1. Select a payment method:
@@ -42,7 +42,7 @@ To top up your personal account:
    - Bank details of Yandex.Cloud LLC
    - Your company's TIN or sole proprietor's TIN
    - [Personal account number](../concepts/personal-account.md#id) in the Details of Payment field
-   - [Contract number](../concepts/contract.md) in the Details of Payment field.
+   - [Contract number](../concepts/contract.md) in the Details of Payment field
 <br/>How fast the funds will be credited to your personal account depends on the bank performing the transaction.
 
    [!INCLUDE [payment-bill-note](../_includes/payment-bill-note.md)]

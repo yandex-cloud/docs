@@ -27,6 +27,6 @@ The credit limit can only be used if you don't have a [grant](../concepts/bonus-
 The outstanding charges shall be paid within the deadline stipulated in the [agreement](../concepts/contract.md). [The payment method](../payment/payment-methods.md) depends on your legal status.
 
 > [!NOTE]
-> 
-> We recommend that you independently monitor the spending of funds on your personal account and [top up the balance so that it is always positive](../operations/pay-the-bill.md). If your personal account balance exceeds the maximum amount of the credit limit and you fail to pay the outstanding charges within the deadline stipulated in the agreement, Yandex.Cloud reserves the right to change the status of your personal account to [Suspended](../concepts/personal-account.md#conditions). For more information, see the sections [Billing cycle](../payment/billing-cycle-business.md) and [Payment methods](../payment/payment-methods.md).
+>
+> We recommend that you independently monitor the spending of funds on your personal account and [top up the balance so that it is always positive](../operations/pay-the-bill.md). If your personal account balance exceeds the maximum amount of the credit limit and you fail to pay the outstanding charges before the deadline stipulated in the agreement, Yandex.Cloud reserves the right to change the status of your personal account to [Suspended](../concepts/personal-account.md#conditions). For more information, see the sections [Billing cycle](../payment/billing-cycle-business.md) and [Payment methods](../payment/payment-methods.md).
 >

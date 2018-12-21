@@ -58,7 +58,7 @@ $ [!KEYREF yc-mdb-ch] database list
 Выполните команду создания БД, задав имя новой базы:
 
 ```
-$ [!KEYREF yc-mdb-mg] database create <имя базы данных>
+$ [!KEYREF yc-mdb-ch] database create <имя базы данных>
     --cluster-name <имя кластера>
 ```
 

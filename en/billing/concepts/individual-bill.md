@@ -13,7 +13,7 @@ The payment receipt amount is equal to the amount debited from the bank card lin
 The total debited amount depends on whether you have used your [grant](../concepts/bonus-account.md) and topped up your [personal account](../concepts/personal-account.md#balance) during the reporting period.
 
 The amount charged is calculated using the formula:
-<br/> ![](../_assets/formula.png)
+<br/> ![image](../_assets/formula.png)
 
   ---  
 
@@ -32,9 +32,9 @@ The amount charged is calculated using the formula:
 <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
 <br/>The balance has not been topped up during the entire reporting period (0 rubles).
 <br/>The grant amount is 1,000 rubles.
-<br/>By the end of the reporting period, the amount for resources consumed is 800 rubles.
+<br/>At the end of the reporting period, the amount for consumed resources is 800 rubles.
 <br/>The grant amount at the end of the reporting period is 200 rubles. The personal account balance has not changed.
-<br/>At the beginning of the next billing month, no funds will be debited from the linked bank card. No payment receipt will be generated.
+<br/>At the beginning of the next reporting month, no funds will be debited from the linked bank card. No payment receipt will be generated.
 
 **[!TAB Example 3]**
 
@@ -42,7 +42,7 @@ The amount charged is calculated using the formula:
 <br/>The balance has not been topped up during the entire reporting period (0 rubles).
 <br/>The grant amount is 1,000 rubles.
 <br/>The credit limit is 2,000 rubles.
-<br/>By the end of the reporting period, the amount for resources consumed is 2,300 rubles. The credit limit has not been reached and the grant has been fully spent.
+<br/>At the end of the reporting period, the amount for consumed resources is 2,300 rubles. The credit limit has not been reached and the grant has been fully spent.
 <br/>Total amount: 2300 - (0 + 0 + 1000) = 1300 (rubles).
 <br/>At the beginning of the next reporting period, 1,300 rubles will be debited from the linked bank card. A payment receipt will also be generated for 1,300 rubles.
 

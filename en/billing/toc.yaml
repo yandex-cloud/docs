@@ -27,7 +27,7 @@ items:
       href: operations/change-payment-method.md
     - name: Read your payment invoice
       href: operations/spell-out-bill.md
-    - name: View the payment history
+    - name: View your payment history
       href: operations/check-bill-history.md
     - name: Change your billing account data
       href: operations/change-data.md
@@ -97,7 +97,9 @@ items:
       href: qa/common.md
     - name: Questions about payment
       href: qa/payment.md
+    - name: Questions about the billing account
+      href: qa/billing-account.md
     - name: Questions about the trial period and paid version
       href: qa/trial-commercial.md
-    - name: All questions on one page
+    - name: All questions on the same page
       href: qa/all.md

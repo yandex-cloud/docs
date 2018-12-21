@@ -23,6 +23,8 @@ items:
             href: operations/vm-create/create-from-disks.md
           - name: Создать ВМ из набора снимков
             href: operations/vm-create/create-from-snapshots.md
+          - name: Создать ВМ из пользовательского образа
+            href: operations/vm-create/create-from-user-image.md
       - name: DSVM
         items:
           - name: Спецификация

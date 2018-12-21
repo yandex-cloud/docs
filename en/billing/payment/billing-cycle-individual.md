@@ -2,10 +2,10 @@
 
 The diagram shows the cycle of debiting funds from an individual's bank card, as well as suspending and blocking the use of resources.
 
-![](../_assets/billing-cycle-individual.png)
+![image](../_assets/billing-cycle-individual.png)
 
 1. You [activate the paid version](../operations/activate-commercial.md) before the end of the trial period.
-<br/>If you did not spend the entire amount of the [initial grant](../concepts/bonus-account.md), you can use the remaining amount after upgrading to the paid version.
+<br/>Unless you spent the entire amount of the [initial grant](../concepts/bonus-account.md), you can use the remaining amount after upgrading to the paid version.
 
 1. If you are awarded a grant, you use it. The grant amount is reduced as the resources of Yandex.Cloud services are consumed.
 

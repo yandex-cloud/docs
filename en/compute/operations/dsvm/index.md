@@ -18,8 +18,6 @@ Installed packages
         - [XGBoost](https://xgboost.readthedocs.io/en/latest/)
         - [TensorFlow](https://www.tensorflow.org/)
         - [PyTorch](https://pytorch.org/)
-        - [Keras](https://keras.io/)
-    - Compilers: Clang, GCC, Node.js, and Go.
     - The [Docker](https://www.docker.com) container management system.
     - Console clients of version control systems: [SVN](https://subversion.apache.org/), [Git](https://git-scm.com/), and [Mercurial](https://www.mercurial-scm.org/).
 

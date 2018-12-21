@@ -1,6 +1,6 @@
 При добавлении нового пользователя в облако ему автоматически назначается роль участника облака — `[!KEYREF roles-cloud-member]`.
 
-Эта роль необходима для доступа к ресурсам в облаке всем, кроме [владельцев облака](../resource-manager/concepts/resources-hierarchy.md#owner) и [системной группы](../iam/concepts/users/users.md#system) `allAuthenticatedUsers`.
+Эта роль необходима для доступа к ресурсам в облаке всем, кроме [владельцев облака](../resource-manager/concepts/resources-hierarchy.md#owner), [сервисных аккаунтов](../iam/concepts/users/users.md#sa) и [системной группы](../iam/concepts/users/users.md#system) `allAuthenticatedUsers`.
 
 Сама по себе эта роль не дает права выполнять какие-либо операции и используется только в сочетании с другими ролями, например с `admin`, `editor` или `viewer`.
 

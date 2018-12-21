@@ -17,7 +17,7 @@ Yandex Data Science Virtual Machine (DSVM) — это виртуальная м�
         - [LightGBM](https://github.com/Microsoft/LightGBM);
         - [XGBoost](https://xgboost.readthedocs.io/en/latest/);
         - [TensorFlow](https://www.tensorflow.org/);
-        - [PyTorch](https://pytorch.org/);
+        - [PyTorch](https://pytorch.org/).
     - Система управления контейнерами [Docker](https://www.docker.com).
     - Консольные клиенты систем контроля версий: [SVN](https://subversion.apache.org/), [Git](https://git-scm.com/), [Mercurial](https://www.mercurial-scm.org/).
     - Библиотеки [NumPy](https://anaconda.org/intel/numpy), [scikit-learn](https://anaconda.org/intel/scikit-learn), [SciPy](https://anaconda.org/intel/scipy), оптимизированные c помощью Intel Math Kernel Library и Data Analytics Acceleration Library.

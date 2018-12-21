@@ -2,7 +2,7 @@
 
 > [!NOTE]
 >
-> Until December 31, 2018, technical support is included in the cost of the paid services and no extra fees are charged for it.
+> Until March 31, 2019, technical support is included in the cost of the paid services and no extra fees are charged for it.
 
 ## How to contact support
 

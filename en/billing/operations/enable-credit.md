@@ -7,7 +7,7 @@ After [the paid version is activated](../operations/activate-commercial.md) and 
 
 To submit a request:
 
-1. In the [management console](https://console.cloud.yandex.ru/billing), click ![](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. In the [management console](https://console.cloud.yandex.ru/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
 1. Select an account on the **List of accounts** page.
 1. Click **Switch to post-payment** on the **Overview** page. The request form opens.
 1. Fill in all the request fields and attach the following documents:

@@ -21,3 +21,9 @@ items:
       href: archive/single-node-file-server.md
     - name: Резервное копирование в Object Storage через Acronis
       href: archive/object-storage-acronis.md
+  - name: Тестовая среда
+    items:
+    - name: Обзор
+      href: testing/index.md
+    - name: Создание тестовых ВМ через GitLab CI
+      href: testing/ci-for-snapshots.md

@@ -1,9 +1,7 @@
 # How to use the trial period
 
-The trial period is a one-time introductory offer for new clients. You can use the trial period if you:
+[!INCLUDE [free-trial-conditions](../../_includes/free-trial-conditions.md)]
 
-- Have never purchased Yandex.Cloud services.
-- Have not activated the trial period before.
 
 ## Registration
 

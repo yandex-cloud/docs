@@ -1,4 +1,4 @@
-# Вопросы и ответы про [!KEYREF mmg-short-name]
+# Вопросы и ответы про [!KEYREF mpg-short-name]
 
 ## Общие вопросы {#general}
 

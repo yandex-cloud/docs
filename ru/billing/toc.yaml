@@ -97,7 +97,9 @@ items:
       href: qa/common.md
     - name: Вопросы по оплате
       href: qa/payment.md
+    - name: Вопросы о платежном аккаунте
+      href: qa/billing-account.md
     - name: Вопросы о пробном периоде и платной версии
-      href: qa/trial-commercial.md
+      href: qa/trial-commercial.md  
     - name: Все вопросы на одной странице
       href: qa/all.md
