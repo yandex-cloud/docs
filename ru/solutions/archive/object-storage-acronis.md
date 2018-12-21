@@ -1,12 +1,12 @@
 # Резервное копирование в [!KEYREF objstorage-full-name] через Acronis Backup Gateway
 
 Чтобы настроить резервное копирование в [!KEYREF objstorage-name] через Acronis Backup Gateway:
-* [Создайте публичную корзину](#create-public-bucket)
-* [Настройте Acronis Backup Gateway](#configure-acronis)
-* [Протестируйте резервное копирование](#test-backup)
+1. [Создайте публичную корзину](#create-public-bucket)
+1. [Настройте Acronis Backup Gateway](#configure-acronis)
+1. [Протестируйте резервное копирование](#test-backup)
 
 
-## Создать публичную корзину {#create-public-bucket}
+## 1. Создайте публичную корзину {#create-public-bucket}
 
 Чтобы создать корзину для резервного копирования:
 
@@ -22,7 +22,7 @@
 1. Выберите **Публичный** доступ к корзине.
 1. Нажмите кнопку **Создать корзину**.
 
-## Настроить Acronis Backup Gateway {#configure-acronis}
+## 2. Настройте Acronis Backup Gateway {#configure-acronis}
 
 Чтобы настроить Acronis Backup Gateway для работы с [!KEYREF objstorage-name]:
 
@@ -38,7 +38,7 @@
 1. В блоке **Registration** укажите данные вашего аккаунта Acronis.
 1. Нажмите кнопку **DONE**.
 
-## Протестировать резервное копирование {#test-backup}
+## 3. Протестируйте резервное копирование {#test-backup}
 
 1. Настройте резервное копирование в Acronis Backup по [инструкции](https://www.acronis.com/ru-ru/support/documentation/BackupService/index.html#33507.html).
 1. Выполните резервное копирование по [инструкции](https://www.acronis.com/ru-ru/support/documentation/BackupService/index.html#33512.html).
