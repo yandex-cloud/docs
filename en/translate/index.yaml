@@ -1,7 +1,7 @@
 # Заголовок и описание на странице
 title: "Yandex Translate"
 description:
-  - "Yandex Translate allows application developers to access the online machine translation service. It supports more than 90 languages and can translate individual words or complete texts."
+  - "Use this service to integrate <a href=\"https://translate.yandex.com\">Yandex.Translate</a> algorithms into end-user applications or web projects. Yandex Translate supports more than 90 languages and can translate individual words or complete texts."
   - "To access the service, use the HTTP API."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
