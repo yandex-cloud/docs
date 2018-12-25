@@ -21,6 +21,8 @@ items:
       href: archive/single-node-file-server.md
     - name: Резервное копирование в Object Storage через Acronis
       href: archive/object-storage-acronis.md
+    - name: Резервное копирование в Object Storage через CloudBerry Desktop Backup
+      href: archive/object-storage-cloudberry.md
   - name: Тестовая среда
     items:
     - name: Обзор
