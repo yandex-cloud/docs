@@ -3,8 +3,8 @@
 Для выполнения операций в Яндекс.Облаке через API необходим [IAM-токен](../../concepts/authorization/iam-token.md). Чтобы получить IAM-токен для [сервисного аккаунта](../../concepts/users/service-accounts.md), обменяйте его на [JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT):
 
 1. [Узнайте идентификатор](#before-begin) сервисного аккаунта.
-2. [Создайте ключи шифрования](#keys-create), которые необходимы для подписи JWT.
-3. [Создайте подписанный JWT](#jwt-create).
+2. [Создайте авторизованные ключи](#keys-create), которые необходимы при создании JWT.
+3. [Создайте JWT](#jwt-create).
 4. [Обменяйте JWT на IAM-токен](#get-iam-token).
 
 [!INCLUDE [iam-token-lifetime](../../../_includes/iam-token-lifetime.md)]
@@ -47,15 +47,15 @@ curl -H "Authorization: Bearer <IAM_TOKEN>" \
 ---
 
 
-## 2. Создайте ключи шифрования {#keys-create}
+## 2. Создайте авторизованные ключи {#keys-create}
 
-Чтобы создать JWT необходимы [ключи шифрования](../../concepts/users/service-accounts.md#keys).
+Чтобы создать JWT необходимы [авторизованные ключи](../../concepts/users/service-accounts.md#keys).
 
 ---
 
 **[!TAB CLI]**
 
-Создайте ключи шифрования для сервисного аккаунта `my-robot`:
+Создайте авторизованные ключи для сервисного аккаунта `my-robot`:
 
 ```
 $  yc iam key create --service-account-name my-robot -o my-key.txt
@@ -69,7 +69,7 @@ _my-key.txt_
 
 **[!TAB API]**
 
-Чтобы создать ключи шифрования, воспользуйтесь методом `create` для ресурса `Key`.
+Чтобы создать авторизованные ключи, воспользуйтесь методом `create` для ресурса `Key`.
 
 Пример запроса с помощью curl:
 
@@ -92,14 +92,14 @@ curl -X POST \
 ---
 
 
-## 3. Создайте подписанный JWT {#jwt-create}
+## 3. Создайте JWT {#jwt-create}
 
 Сгенерируйте части, из которых состоит JWT:
 * [header](#header) — заголовки JWT в формате Base64Url.
 * [payload](#payload) — JWT Claims Set в формате Base64Url.
 * [signature](#signature) — подпись, которая создается на основе частей header и payload.
 
-Чтобы создать подписанный JWT, [создайте строку](#concat) из этих частей, разделенных точкой:
+Чтобы создать JWT, [создайте строку](#concat) из этих частей, разделенных точкой:
 
 ```
 header.payload.signature
@@ -110,7 +110,7 @@ header.payload.signature
 Header JWT для сервисного аккаунта должен содержать поля:
 * `typ` — тип токена, значение всегда `JWT`.
 * `alg` — алгоритм шифрования. Поддерживается только алгоритм [PS256](https://tools.ietf.org/html/rfc7518#section-3.5).
-* `kid` — идентификатор открытого ключа, полученный при [создании ключей шифрования](#keys-create). Ключ должен принадлежать сервисному аккаунту, для которого запрашивается IAM-токен.
+* `kid` — идентификатор открытого ключа, полученный при [создании авторизованных ключей](#keys-create). Ключ должен принадлежать сервисному аккаунту, для которого запрашивается IAM-токен.
 
 Пример:
 
@@ -147,7 +147,7 @@ Payload JWT для сервисного аккаунта должен содер
 
 ### 3.3. Сформируйте signature {#signature}
 
-Создайте подпись с помощью закрытого ключа, полученного при [создании ключей шифрования](#keys-create). Для этого зашифруйте закрытым ключом строку из header и payload (в формате Base64Url), разделенных точкой (`.`):
+Создайте подпись с помощью закрытого ключа, полученного при [создании авторизованных ключей](#keys-create). Для подписи используйте строку из header и payload, разделенных точкой (`.`):
 
 ```
 header.payload
@@ -206,7 +206,7 @@ curl -X POST \
 
 **[!TAB Python]**
 
-Пример создания подписанного JWT с использованием [PyJWT](https://github.com/jpadilla/pyjwt/).
+Пример создания JWT с использованием [PyJWT](https://github.com/jpadilla/pyjwt/).
 
 ```python
 import time
@@ -235,7 +235,7 @@ encoded_token = jwt.encode(
 
 **[!TAB Java]**
 
-Пример создания подписанного JWT с использованием [JJWT](https://github.com/jwtk/jjwt).
+Пример создания JWT с использованием [JJWT](https://github.com/jwtk/jjwt).
 
 ```java
 import io.jsonwebtoken.Jwts;
@@ -280,7 +280,7 @@ public class JwtTest {
 
 **[!TAB Go]**
 
-Пример создания подписанного JWT с использованием [jwt-go](https://github.com/dgrijalva/jwt-go).
+Пример создания JWT с использованием [jwt-go](https://github.com/dgrijalva/jwt-go).
 
 Формирование JWT:
 
@@ -383,7 +383,7 @@ func getIAMToken() string {
 
 **[!TAB PHP]**
 
-Пример создания подписанного JWT с использованием [PHP JWT Framework](https://github.com/web-token/jwt-framework).
+Пример создания JWT с использованием [PHP JWT Framework](https://github.com/web-token/jwt-framework).
 
 ```php
 use Jose\Component\Core\AlgorithmManager;
