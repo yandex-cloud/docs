@@ -6,6 +6,7 @@ _Speech synthesis (Text-to-speech, TTS) )_ is the process of generating speech f
 
 - Russian
 - English
+- Turkish
 
 ## Quality of speech synthesis {#accuracy}
 

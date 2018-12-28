@@ -4,18 +4,9 @@
     $ yc compute instance create --help
     ```
 
-1. Выберите один из публичных [образов](../operations/images-with-pre-installed-software/get-list.md) на базе операционной системы Windows. Получить список доступных образов можно с помощью команды:
+1. Выберите один из публичных [образов](../operations/images-with-pre-installed-software/get-list.md) на базе операционной системы Windows.
 
-    ```
-    $ yc compute image list --folder-id standard-images
-    +----------------------+------------------------------+-------------------+----------------------+--------+-------------+
-    |          ID          |             NAME             |       FAMILY      |     PRODUCT IDS      | STATUS | DESCRIPTION |
-    +----------------------+------------------------------+-------------------+----------------------+--------+-------------+
-    ...
-    | fd8hph1ebp3md34nmo2v | windows-2016-gvlk-1537967224 | windows-2016-gvlk | f2eeomdch319df69gaib | READY  |     ...     |
-    ...
-    +----------------------+------------------------------+-------------------+----------------------+--------+-------------+
-    ```
+    [!INCLUDE [standard-images](../../_includes/standard-images.md)]
 
 1. Создайте виртуальную машину в каталоге по умолчанию:
 

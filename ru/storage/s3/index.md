@@ -27,5 +27,8 @@ Request_body
 Если вы используете API напрямую (без SDK и приложений), то для подписи запросов вам придется самостоятельно генерировать заголовок `Authorization`. О том, как это сделать, читайте в разделе [Authenticating Requests (AWS Signature Version 4) ](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) документации Amazon S3.
 
 
+## CORS запросы
 
+Кросс-доменные запросы доступны для всех методов API, которые управляют объектами. 
 
+Для проверки разрешений, CORS подразумевает предварительный запрос [options](api-ref/object/options.md) к ресурсу. [!KEYREF objstorage-name] позволяет отправлять кросс-доменные запросы к ресурсам без предварительного запроса, при этом в запросе должны быть те же [заголовки](api-ref/object/options.md#request-headers), что и у предварительного запроса.

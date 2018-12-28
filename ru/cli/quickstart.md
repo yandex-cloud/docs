@@ -52,33 +52,41 @@ CLI поддерживает автодополнение команд в ком
 
 **[!TAB Windows]**
 
-1. Сформируйте ссылку, чтобы скачать актуальную версию CLI:
+Для Windows CLI можно установить с помощью PowerShell и `cmd`:
 
-	Вместо `<current-version>` укажите версию CLI, опубликованную по [ссылке](https://[!KEYREF s3-storage-host]/yandexcloud-yc/release/stable).
-	
-    * для Windows 64-bit:
+* Для установки с помощью PowerShell: 
     
-      ```
-      https://[!KEYREF s3-storage-host][!KEYREF yc-windows-path-amd64]
-      ```
-    * для Windows 32-bit:
-     
-      ```
-      https://[!KEYREF s3-storage-host][!KEYREF yc-windows-path-386]
-      ```
+    1. Выполните команду:
+    
+        ```
+        iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))
+        ```
+	
+    1. Скрипт установки спросит, нужно ли добавить путь до `yc` в переменную PATH:
+        
+        ```
+        Add yc installation dir to your PATH? [Y/n]
+        ```
+        
+    1. Введите `Y`. После этого CLI Яндекс.Облака можно пользоваться, командную оболочку перезапускать не нужно.
 
-1. Скачайте исполняемый файл CLI и сохраните на своем компьютере, например, в директории `C:\Yandex-Cloud`.
-1. Добавить в переменную окружения **PATH** путь до директории с исполняемым файлом CLI:
-   1. Нажмите комбинацию клавиш **Windows**+**R** и выполните команду ` control.exe /name Microsoft.System`.
-   2. Перейдите по ссылке **Дополнительные параметры системы**.
-   3. Нажмите кнопку **Переменные среды**.
-   4. Выберите переменную **PATH** и нажмите кнопку **Изменить**.
-   5. В поле **Значение переменной** к текущему значению допишите символ `;` и путь до директории с исполняемым файлом CLI, например, `C:\Yandex-Cloud`.
+* Для установки с помощью `cmd`:
+    
+    1. Выполните команду:
+        
+        ```
+        @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
+        ```
+    
+    1. Скрипт установки спросит, нужно ли добавить путь до `yc` в переменную PATH:
+    
+        ```
+        Add yc installation dir to your PATH? [Y/n]
+        ```
+    
+    1. Введите `Y`.
 
-      Нажмите **ОК** последовательно в окнах **Изменение пользовательской переменной**, **Переменные среды**, **Свойства системы**.
-
-
-
+    1. Перезапустите командную оболочку, чтобы перезагрузить переменные окружения.
 
 ---
 

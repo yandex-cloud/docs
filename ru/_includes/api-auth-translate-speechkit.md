@@ -29,7 +29,7 @@
 
     [!INCLUDE [create-folder](create-folder.md)]
 
-1. Получите идентификатор каталога, например из в URL страницы каталога в консоли управления:
+1. Получите идентификатор каталога, например из URL страницы каталога в консоли управления:
     ```
     https://console.cloud.yandex.ru/folders/b5gfc3ntettogerelqed7p
     ```

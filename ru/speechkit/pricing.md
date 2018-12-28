@@ -6,7 +6,7 @@
 
 Стоимость использования SpeechKit API для синтеза речи рассчитывается, исходя из суммарного количества символов, которые были отправлены для генерации речи из текста за календарный месяц (Отчетный период).
 
-[!INCLUDE [pricing-symbol-coun](../_includes/pricing-symbol-count.md)]
+[!INCLUDE [pricing-symbol-count](../_includes/pricing-symbol-count.md)]
 
 ### Использование распознавания речи {#rules-stt}
 

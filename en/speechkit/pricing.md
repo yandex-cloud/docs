@@ -2,6 +2,8 @@
 
 ## What goes into the cost of [!KEYREF speechkit-short-name] use {#rules}
 
+### Speech synthesis use {#rules-tts}
+
 The cost of using the SpeechKit API for speech synthesis is calculated from the total number of characters sent to generate speech from text over a calendar month (the reporting period).
 
 [!INCLUDE [pricing-symbol-count](../_includes/pricing-symbol-count.md)]
@@ -21,13 +23,13 @@ The cost of using the SpeechKit API for speech recognition is calculated from th
 
 | Service | Rate per 1 million characters,<br/>without VAT | Rate per 1 million characters,<br/>with VAT |
 | ----- | ----- | ----- |
-| Speech synthesis | 152.5424 ₽ | 180.0000 ₽
+| Speech synthesis | 152.5424 ₽ | 180.0000 ₽ |
 
 ### Speech recognition {#prices-stt-old}
 
 | Service | Price per<br/>15 sec<br/> segment, without VAT | Price per<br/>15 sec<br/> segment, with VAT |
 | ----- | ----- | ----- |
-| Speech recognition | 0.1270 ₽ | 0.1500 ₽
+| Speech recognition | 0.1270 ₽ | 0.1500 ₽ |
 
 ## Prices as of January 1, 2019 {#prices}
 
@@ -35,7 +37,7 @@ The cost of using the SpeechKit API for speech recognition is calculated from th
 
 | Service | Rate per 1 million characters,<br/>without VAT | Rate per 1 million characters,<br/>with VAT |
 | ----- | ----- | ----- |
-| Speech synthesis | 152.5424 ₽ | 183.0508 ₽
+| Speech synthesis | 152.5424 ₽ | 183.0508 ₽ |
 
 ### Speech recognition {#prices-stt}
 

@@ -21,3 +21,9 @@ items:
       href: archive/single-node-file-server.md
     - name: Backup to Object Storage via Acronis Backup Gateway
       href: archive/object-storage-acronis.md
+  - name: Test environments
+    items:
+    - name: Overview
+      href: testing/index.md
+    - name: Creating test VMs using GitLab CI
+      href: testing/ci-for-snapshots.md

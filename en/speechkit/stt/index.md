@@ -28,7 +28,7 @@ For example:
     - [еще чашку кофе и две мягких французских булочки]
     - [какая погода во владивостоке]
     - [напомни купить овощей и фруктов по дороге домой]
-- _Addresses_ (`maps`) — Addresses and names of companies and geographical features.
+- _Addresses_ (`maps`) — Addresses and names of companies or geographical features.
 For example:
     - [поехали на улицу кирпичные выемки пять]
     - [сколько ехать от льва толстого до новой земли]
@@ -53,7 +53,6 @@ For example:
     - [connect me to the sales department]
     - [another cup of coffee and two soft French rolls]
 - _Addresses_ (`maps`) — Addresses and names of companies or geographical features.
-
     - [go to Abbey Road]
 
 ---

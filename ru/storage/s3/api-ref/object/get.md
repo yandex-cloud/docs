@@ -43,8 +43,6 @@ GET /{bucket}/{key} HTTP/1.1
 `If-Match` | Если указан, то [!KEYREF objstorage-name] возвращает:<br/>- Объект. Если его `ETag` совпадает с переданным.<br/>- Код 412. Если его `ETag` не совпадает с переданным.<br/><br/><br/>Если в запросе одновременно присутствуют заголовки `If-Unmodified-Since` и `If-Match` и проверки по ним разрешаются как `If-Unmodified-Since -> false` и `If-Match -> true`, то [!KEYREF objstorage-name] возвращает код 200 и запрошенные данные. Подробности смотрите в [RFC 7232](https://tools.ietf.org/html/rfc7232).
 `If-None-Match` | Если указан, то [!KEYREF objstorage-name] возвращает:<br/>- Объект. Если его `ETag` не совпадает с переданным.<br/>- Код 304. Если его `ETag` совпадает с переданным.<br/><br/><br/>Если в запросе одновременно присутствуют заголовки `If-Modified-Since` и `If-None-Match` и проверки по ним разрешаются как `If-Modified-Since -> true` и `If-None-Match -> false`, то [!KEYREF objstorage-name] возвращает код 304. Подробности смотрите в [RFC 7232](https://tools.ietf.org/html/rfc7232).
 
-
-
 ## Ответ {#response}
 
 ### Заголовки {#response-headers}
@@ -55,7 +53,6 @@ GET /{bucket}/{key} HTTP/1.1
 ----- | -----
 `x-amz-meta-*` | Пользовательские метаданные объекта, сохраненные вместе объектом.
 `x-amz-storage-class` | Класс хранения объекта `COLD`, если объект хранится в Холодном хранилище.<br/><br/>Если объект сохранен в Стандартном хранилище, то заголовка не будет.
-
 
 ### Коды ответов {#response-codes}
 

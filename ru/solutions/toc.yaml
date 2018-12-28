@@ -31,3 +31,7 @@ items:
       href: testing/index.md
     - name: Создание тестовых ВМ через GitLab CI
       href: testing/ci-for-snapshots.md
+  - name: Управление инфраструктурой
+    items:
+      - name: Начало работы с Terraform
+        href: infrastructure-management/terraform-quickstart.md

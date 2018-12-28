@@ -70,7 +70,7 @@
         product_ids:
         - f2en2dtd08b5la74mlde
         status: READY
-        source_image_id: fd83869rbingor0in0ui
+        source_image_id: fdvcl0b1no2hjb423igi
         instance_ids:
         - fhm5b617fjnj44ovhcun
     ```
