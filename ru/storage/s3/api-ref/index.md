@@ -7,7 +7,8 @@
 [Bucket](bucket.md) | Управляет корзинами.
 [Object](object.md) | Управляет объектами.
 [Multipart upload](multipart.md) | Управляет загрузкой больших объектов.
-
+[Static Website Hosting](hosting.md) | Управляет конфигурациями корзин для статического веб-хостинга.
+[CORS](cors.md) | Управляет CORS конфигурациями для корзин.
 
 ## Поддерживаемые методы {#operations-list}
 
@@ -30,6 +31,7 @@
 [getObjectMeta](object/getobjectmeta.md) | Выгружает метаданные объекта.
 [delete](object/delete.md) | Удаляет объект.
 [deleteMultipleObjecs](object/deletemultipleobjects.md) | Удаляет объекты по списку.
+[options](object/options.md) | Проверяет возможность CORS запроса к объекту.
 
 ### Сервис Multipart upload
 
@@ -46,9 +48,17 @@
 
 Метод | Описание
 ----- | -----
-[upload](hosting/upload.md) | Загружает конфигурацию корзины для хостинга статических сайтов в  [!KEYREF objstorage-name].
+[upload](hosting/upload.md) | Загружает конфигурацию корзины для хостинга статических сайтов в [!KEYREF objstorage-name].
 [get](hosting/get.md) | Возвращает конфигурацию корзины для хостинга статических сайтов  из [!KEYREF objstorage-name].
 [delete](hosting/delete.md) | Удаляет конфигурацию корзины для хостинга статических сайтов.
+
+### Сервис CORS
+
+Метод | Описание
+----- | -----
+[upload](cors/upload.md) | Загружает конфигурацию CORS для корзины.
+[get](cors/get.md) | Возвращает конфигурацию CORS для корзины.
+[delete](cors/delete.md) | Удаляет конфигурацию CORS для корзины.
 
 ## См. также
 - [[!TITLE]](../../s3/index.md)

@@ -1,12 +1,12 @@
 # Метод delete
 
-Удаляет объект.
+Удаляет конфигурацию CORS для корзины.
 
 
 ## Запрос {#request}
 
 ```
-DELETE /{bucket}/{key} HTTP/1.1
+DELETE /{bucket}?cors HTTP/1.1
 ```
 
 ### Path параметры {#path-parameters}
@@ -14,12 +14,17 @@ DELETE /{bucket}/{key} HTTP/1.1
 Параметр | Описание
 ----- | -----
 `bucket` | Имя корзины.
-`key` | Ключ объекта.
 
+### Query параметры {#parameters}
+
+Параметр | Описание
+----- | -----
+`cors` | Обязательный параметр для обозначения типа операции.
 
 ### Заголовки {#request-headers}
 
 Используйте в запросе только [общие заголовки](../common-request-headers.md).
+
 
 ## Ответ {#response}
 
@@ -31,3 +36,4 @@ DELETE /{bucket}/{key} HTTP/1.1
 
 Перечень возможных ответов смотрите в разделе [[!TITLE]](../response-codes.md).
 
+Если конфигурация CORS не существует, то [!KEYREF objstorage-name] ответит кодом `204 No Content`.

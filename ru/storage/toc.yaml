@@ -69,6 +69,12 @@ items:
         href: hosting/setup.md
       - name: Коды ответов
         href: hosting/answer-codes.md
+  - name: CORS
+    items:
+      - name: Обзор
+        href: cors/index.md
+      - name: Конфигурирование корзин
+        href: cors/configuration.md
   - name: HTTP API, совместимый с Amazon S3
     items:
       - name: Как пользоваться API
@@ -105,6 +111,8 @@ items:
                 href: s3/api-ref/object/delete.md
               - name: deleteMultipleObjects
                 href: s3/api-ref/object/deletemultipleobjects.md
+              - name: options
+                href: s3/api-ref/object/options.md
           - name: Multipart upload
             items:
               - name: Общий порядок составной загрузки
@@ -131,6 +139,16 @@ items:
                 href: s3/api-ref/hosting/get.md
               - name: delete
                 href: s3/api-ref/hosting/delete.md
+          - name: CORS
+            items:
+              - name: Все методы
+                href: s3/api-ref/cors.md
+              - name: upload
+                href: s3/api-ref/cors/upload.md
+              - name: get
+                href: s3/api-ref/cors/get.md
+              - name: delete
+                href: s3/api-ref/cors/delete.md
           - name: Общие заголовки запросов
             href: s3/api-ref/common-request-headers.md
           - name: Общие заголовки ответов
