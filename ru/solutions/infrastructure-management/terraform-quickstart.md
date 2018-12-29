@@ -4,21 +4,51 @@ Terraform позволяет быстро создать облачную инф
 
 Конфигурации для Terraform записываются в файлы в формате `.tf` на языке HashiCorp Configuration Language (HCL).
 
-## Установка Terraform Provider for Yandex Cloud
+Чтобы установить, настроить Terraform и создать первую конфигурацию:
+
+1. [Установите Terraform](#install-terraform)
+1. [Установите Terraform Provider for Yandex Cloud](#install-provider)
+1. [Настройте Terraform ](#configure-terraform)
+1. [Настройте провайдер](#configure-provider)
+1. [Подготовьте план инфраструктуры](#prepare-plan)
+1. [Создайте ресурсы](#create-resources)
+1. [Удалите ресурсы](#delete-resources)
+
+## 1. Установите Terraform {#install-terraform}
+
+Установите Terraform:
+
+---
+
+**[!TAB macOS]**
+
+Установите Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh):
+
+```
+$ brew install terraform
+```
+
+**[!TAB Windows/Linux]**
+
+Скачайте дистрибутив Terraform и установите его по [инструкции](https://www.terraform.io/intro/getting-started/install.html).
+
+---
+
+## 2. Установите Terraform Provider for Yandex Cloud {#install-provider}
 
 Установите Terraform Provider for Yandex Cloud: 
 
 ```
-curl -s https://terraform-provider-yandex.website.yandexcloud.net/terraform-provider-yandex/install.sh | bash
+$ curl -s https://terraform-provider-yandex.website.yandexcloud.net/terraform-provider-yandex/install.sh | bash
 ```
 
-## Конфигурация Terraform
+## 3. Настройте Terraform {#configure-terraform}
 
 Создайте в любом месте новую директорию с произвольным названием, например `yandex-cloud-terraform` — в ней будут храниться конфигурационные файлы и сохраненные состояния Terraform и инфраструктуры.
 
 Чтобы создать ресурсы в Яндекс.Облаке с помощью Terraform, создайте в новой директории конфигурационный файл в формате `.tf`, например, `example.tf`. 
 
-### Конфигурация провайдера
+## 4. Настройте провайдер {#configure-provider}
 
 В начале конфигурационного файла необходимо задать настройки провайдера. 
 
@@ -39,13 +69,11 @@ provider "yandex" {
 
 После настройки сохраните файл и выполните команду `terraform init` в папке с конфигурационным файлом. Эта команда инициализирует провайдеров, указанных в файлах `.tf` в поле `provider` и позволяет работать с ресурсами и источниками данных провайдера.
 
-### Конфигурация ресурсов
+## 5. Подготовьте план инфраструктуры {#prepare-plan}
 
 С помощью Terraform в Яндекс.Облаке можно создавать облачные ресурсы всех типов: виртуальные машины, диски, образы и т.д. Подробную информацию о ресурсах, создающихся с помощью Terraform, см. в [документации провайдера](https://terraform-provider-yandex.website.yandexcloud.net/yandex/index.html).
 
 Для создания ресурса необходимо указать набор обязательных и опциональных параметров, определяющих свойства ресурса. Такие описания ресурсов составляют план инфраструктуры.
-
-#### Подготовка плана инфраструктуры 
 
 По плану будут созданы две виртуальные машины: `terraform1` и `terraform2`, а также облачная сеть `network-1` с подсетью `subnet-1`. 
 
@@ -138,7 +166,7 @@ output "external_ip_address_vm_2" {
 }
 ~~~ 
 
-### Создание ресурсов
+## 6. Создайте ресурсы {#create-resources}
 
 После подготовки конфигурации выполните команду `terraform plan`. Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. Это проверочный этап: ресурсы не будут созданы.
 
@@ -149,6 +177,6 @@ output "external_ip_address_vm_2" {
 
 Если в конфигурации нет ошибок, выполните команду `terraform apply`. Terraform запросит подтверждение создания ресурсов: введите в терминал слово `yes` и нажмите Enter. После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.cloud.yandex.ru).
 
-### Удаление ресурсов
+## 7. Удалите ресурсы {#delete-resources}
 
 Все созданные с помощью Terraform ресурсы можно удалить с помощью команды `terraform destroy`. После выполнения команды в терминале отобразится список ресурсов, которые будут удалены. Для подтверждения введите слово `yes` и нажмите Enter. 
