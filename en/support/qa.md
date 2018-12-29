@@ -41,7 +41,7 @@ To get help with architecture-related tasks, use the [support contact form](http
 Technical support includes troubleshooting of problems with third-party software that is used in conjunction with the cloud infrastructure, and assistance in solving identified problems to a limited extent. Technical support engineers can help you with installation, basic configuration, and diagnostics of the following software:
 
 - Operating systems running on Yandex.Cloud VM instances that were created using public images provided by Yandex.Cloud.
-- Databases created in the [[!KEYREF mdb-full-name]](../mdb/) service.
+- Databases created with Managed Services for various DBMS.
 
 #### What happens if you can't solve my problem with third-party software? {#unresolved-third-party-issues}
 

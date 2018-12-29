@@ -15,7 +15,9 @@ For more information about billing calculations, see the documentation for the s
 - [Yandex Compute Cloud](../compute/pricing.md)
 - [Yandex Object Storage](../storage/pricing.md)
 - [Yandex Virtual Private Cloud](../vpc/pricing.md)
-- [[!KEYREF mdb-full-name]](../mdb/pricing.md)
+- [[!KEYREF mch-full-name]](../managed-clickhouse/pricing.md)
+- [[!KEYREF mmg-full-name]](../managed-mongodb/pricing.md)
+- [[!KEYREF mpg-full-name]](../managed-postgresql/pricing.md)
 - [Yandex Speechkit](../speechkit/pricing.md)
 - [Yandex Translate](../translate/pricing.md)
 

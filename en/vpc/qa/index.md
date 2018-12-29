@@ -18,7 +18,7 @@ When creating a folder through the management console, subnets will be created a
 
 #### What resources can be assigned IP addresses?
 
-Addresses can be assigned to [VM instances](../../compute/concepts/vm.md) and [DB clusters](../../mdb/concepts/index.md).
+Addresses can be assigned to [VM instances](../../compute/concepts/vm.md) and to hosts in database clusters.
 
 #### How are IP addresses assigned to cloud resources?
 
