@@ -18,7 +18,7 @@
 
 #### Каким ресурсам можно назначать IP-адреса?
 
-Адреса можно назначить [виртуальным машинам](../../compute/concepts/vm.md) и кластерам баз данных [ClickHouse](../../managed-clickhouse/concepts/index.md), [MongoDB](../../managed-mongodb/concepts/index.md) и [PostgreSQL](../../managed-postgresql/concepts/index.md).
+Адреса можно назначить [виртуальным машинам](../../compute/concepts/vm.md) и хостам в кластерах баз данных.
 
 #### Как назначаются IP-адреса облачным ресурсам?
 

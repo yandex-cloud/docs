@@ -8,7 +8,12 @@ Currently, the following services are available as part of the Yandex.Cloud plat
   - [Yandex Identity and Access Management](../../iam/) — identification and access control to cloud resources.
   - [Yandex Resource Manager](../../resource-manager/) — cloud resource management service.
   - [Yandex Virtual Private Cloud](../../vpc/) — cloud network environment.
-  - [[!KEYREF mdb-full-name]](../../mdb/) — managed databases.
+  - Managed databases:
+    
+    - [[!KEYREF mch-full-name]] — managed ClickHouse clusters,
+    - [[!KEYREF mmg-full-name]] — managed MongoDB clusters,
+    - [[!KEYREF mch-full-name]] — managed PostgreSQL clusters.
+    
   - [Yandex SpeechKit](../../speechkit/) — speech recognition and speech synthesis technologies.
   - [Yandex Translate](../../translate/) — machine translation service.
 
