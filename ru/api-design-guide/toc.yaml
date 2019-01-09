@@ -1,5 +1,6 @@
 title: "Концепции API Яндекс.Облака"
 href: index.yaml
+editable: false
 items:
   - name: Основные принципы
     href: concepts/general.md

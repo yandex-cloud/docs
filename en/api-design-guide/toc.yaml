@@ -1,5 +1,6 @@
 title: "Yandex.Cloud API concepts"
 href: index.yaml
+editable: false
 items:
   - name: Basic principles
     href: concepts/general.md
