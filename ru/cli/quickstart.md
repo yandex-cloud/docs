@@ -59,7 +59,7 @@ CLI поддерживает автодополнение команд в ком
     1. Выполните команду:
     
         ```
-        iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))
+        iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1')
         ```
 	
     1. Скрипт установки спросит, нужно ли добавить путь до `yc` в переменную PATH:
