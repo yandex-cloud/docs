@@ -1,6 +1,6 @@
 # CORS
 
-[!KEYREF objstorage-full-name] поддерживает кросс-доменные запросы между корзинами.
+[!KEYREF objstorage-full-name] поддерживает кросс-доменные запросы к объектам в корзине.
 
 Настройка [конфигурации CORS](configuration.md) для каждой корзины доступна через [HTTP API, совместимый с Amazon S3](../s3/index.md). Таким образом, можно управлять конфигурацией CORS с помощью [инструментов](../instruments/index.md), которые взаимодействуют с [!KEYREF objstorage-name] через S3 HTTP API.
 
