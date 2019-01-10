@@ -59,6 +59,7 @@
    $ ssh <Логин>@<Публичный_IP-адрес_виртуальной_машины>
    ```
 
+1. Выполните команду `apt update`, чтобы обновить списки доступных для установки пакетов. 
 1. Установите необходимые пакеты: JSON-процессор jq, git-клиент, менеджер пакетов PIP, систему управления виртуальными средами virtualenv, набор заголовочных файлов для Python C API и веб-сервер nginx:
 
    ```
@@ -194,8 +195,8 @@
    User=www-data
    Group=www-data
    WorkingDirectory=/srv/test-app
-   Environment="PATH=/srv/test-app/venv/bin"
-   ExecStart=/srv/test-app/venv/bin/uwsgi --ini test-app.ini
+   Environment="PATH=/srv/test-app/test-venv/bin"
+   ExecStart=/srv/test-app/test-venv/bin/uwsgi --ini test-app.ini
 
    [Install]
    WantedBy=multi-user.target

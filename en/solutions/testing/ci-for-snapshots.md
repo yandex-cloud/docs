@@ -63,6 +63,7 @@ On the created VM, install the set of components required for the test applicati
    $ ssh <Login>@<Public_IP_of_the_VM>
    ```
 
+1. Run the `apt update` command to update lists of available packages.
 1. Install the necessary packages (jq JSON processor, git client, PIP package manager, virtualenv virtual environment management system, the set of header files for Python C API, and the nginx web server):
 
    ```
@@ -197,8 +198,8 @@ On the created VM, install the set of components required for the test applicati
    User=www-data
    Group=www-data
    WorkingDirectory=/srv/test-app
-   Environment="PATH=/srv/test-app/venv/bin"
-   ExecStart=/srv/test-app/venv/bin/uwsgi --ini test-app.ini
+   Environment="PATH=/srv/test-app/test-venv/bin"
+   ExecStart=/srv/test-app/test-venv/bin/uwsgi --ini test-app.ini
 
    [Install]
    WantedBy=multi-user.target
