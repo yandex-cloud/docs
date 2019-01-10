@@ -1,5 +1,6 @@
 title: "Billing"
 href: index.yaml
+editable: false
 items:
 - name: Getting started
   href: quickstart/index.md

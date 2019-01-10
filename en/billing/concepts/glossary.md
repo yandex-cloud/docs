@@ -10,7 +10,7 @@ Report
 
 Grant
 : A discount given to a business or individual for using any Yandex.Cloud services.
-<br/>See the section [Trial period](../trial/activation.md).
+<br/>See the section [Grant](bonus-account.md).
 
 Usage details
 : A table with detailed information about cloud resource consumption.

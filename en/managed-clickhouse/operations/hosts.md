@@ -3,8 +3,8 @@
 You can add and remove cluster hosts and manage [!KEYREF CH] settings for individual clusters.
 
 > [!IMPORTANT]
-
-It is not currently possible to add hosts to a single-host cluster or reduce the number of hosts in a cluster to 1. When creating a [!KEYREF CH] cluster, you need to decide right away whether data in the cluster should be replicated.
+> 
+> It is not currently possible to add hosts to a single-host cluster or reduce the number of hosts in a cluster to 1. When creating a [!KEYREF CH] cluster, you need to decide right away whether data in the cluster should be replicated.
 
 ## Getting a list of cluster hosts {#list-hosts}
 

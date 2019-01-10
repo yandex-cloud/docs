@@ -1,8 +1,8 @@
 # Deleting a cluster
 
 > [!IMPORTANT]
-
-You cannot restore a DB cluster that has been deleted, because all the cluster's backups are removed with it.
+> 
+> You cannot restore a DB cluster that has been deleted, because all the cluster's backups are removed with it.
 
 ---
 

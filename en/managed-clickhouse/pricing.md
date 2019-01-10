@@ -17,8 +17,8 @@ The cost of [!KEYREF mch-name] usage is based on:
 The cost is calculated for each hour of the host's operation in accordance with its class. The exact class characteristics are given in the section [[!TITLE]](concepts/instance-types.md).
 
 > [!IMPORTANT]
-
-For each [!KEYREF CH] cluster with two or more hosts, [!KEYREF CH] automatically creates 3 ZooKeeper hosts.
+> 
+> For each [!KEYREF CH] cluster with two or more hosts, [!KEYREF CH] automatically creates 3 ZooKeeper hosts.
 
 The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation). The time when the DBMS host or ZooKeeper cannot perform its main functions is not charged.
 
@@ -41,7 +41,7 @@ You can choose the host class for the [!KEYREF CH] hosts and ZooKeeper hosts (as
 
 For example, let's say you created a [!KEYREF CH] cluster with 3 hosts using the `s1.micro` host class, and did not specify the class for the ZooKeeper hosts. [!KEYREF mch-short-name] automatically creates 3 ZooKeeper hosts using the `s1.nano` class.
 
-The hourly price will be calculated using the rates below (including VAT): `3 × ₽5.42 + 3 × ₽1.72 = ₽21.42`.
+The hourly price will be calculated using the rates below (including VAT): `3 × ₽5.5119 + 3 × ₽1.7492 = ₽21.78`.
 
 ## Prices until January 1, 2019 {#prices-old}
 

@@ -7,7 +7,7 @@
 1. Grant your user write rights to the directory `/var/www/html`:
 
    ```bash
-   $ sudo setfacl -m u:<your user's name>:w /var/www/html
+   sudo chown -R "$USER":www-data /var/www/html
    ```
 
 1. Upload the website files to the VM via the SCP.
