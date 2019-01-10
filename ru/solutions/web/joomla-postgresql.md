@@ -273,10 +273,7 @@
    * **Тип базы данных**: `PostgreSQL`.
    * **Имя сервера базы данных**: 
      ```
-     host=<адрес хоста 1>,<адрес хоста 2>,<адрес хоста 3> \
-     port=6432 \
-     sslmode=verify-full \
-     target_session_attrs=read-write
+     <адрес хоста 1>,<адрес хоста 2>,<адрес хоста 3> port=6432 sslmode=verify-full target_session_attrs=read-write
      ```
    * **Имя пользователя**:`joomla`.
    * **Пароль**: укажите пароль пользователя БД.

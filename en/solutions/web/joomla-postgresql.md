@@ -281,10 +281,7 @@ During the configuration process, you'll need the DB connection settings. To get
    * **DB server name**:
 
      ```
-     host=<address of host 1>,<address of host 2>,<address of host 3> \
-     port=6432 \
-     sslmode=verify-full \
-     target_session_attrs=read-write
+     <address of host 1>,<address of host 2>,<address of host 3> port=6432 sslmode=verify-full target_session_attrs=read-write
      ```
    * **Username**:`joomla`.
    * **Password**: enter the DB user's password.
