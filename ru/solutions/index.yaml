@@ -16,3 +16,6 @@ links:
 - title: "Тестовая среда"
   description: ""
   href: "testing/"
+- title: "Управление инфраструктурой"
+  description: ""
+  href: "infrastructure-management/"

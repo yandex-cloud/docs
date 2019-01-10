@@ -33,5 +33,7 @@ items:
       href: testing/ci-for-snapshots.md
   - name: Управление инфраструктурой
     items:
+      - name: Обзор
+        href: infrastructure-management/index.md
       - name: Начало работы с Terraform
         href: infrastructure-management/terraform-quickstart.md
