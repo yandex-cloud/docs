@@ -3,8 +3,8 @@
 [!KEYREF mch-short-name] helps enable replication for [!KEYREF CH] clusters consisting of two or more hosts via Apache ZooKeeper. You just need to create tables of the required type. ZooKeeper hosts will be created and configured automatically.
 
 > [!NOTE]
-
-If you created a [!KEYREF CH] cluster with two or more hosts, it is not yet possible to reduce the number of hosts to one. And vice versa, if you created a single-host cluster, you will not be able to add hosts to it.
+> 
+> If you created a [!KEYREF CH] cluster with two or more hosts, it is not yet possible to reduce the number of hosts to one. And vice versa, if you created a single-host cluster, you will not be able to add hosts to it.
 
 ### Replicated tables
 

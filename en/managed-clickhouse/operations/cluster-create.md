@@ -3,8 +3,8 @@
 [!KEYREF CH] cluster is one or more database hosts that can have replication configured between them.
 
 > [!IMPORTANT]
-
-When creating a [!KEYREF CH] cluster with two or more hosts, [!KEYREF mch-short-name] automatically creates a cluster of three ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the [resource quotas](https://console.cloud.yandex.ru/?section=quotas) used in the cloud and when calculating the cost of the cluster. For more information, see the section on replication for [[!KEYREF CH]](../concepts/replication.md#clickhouse).
+> 
+> When creating a [!KEYREF CH] cluster with two or more hosts, [!KEYREF mch-short-name] automatically creates a cluster of three ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the [resource quotas](https://console.cloud.yandex.ru/?section=quotas) used in the cloud and when calculating the cost of the cluster. For more information, see the section on replication for [[!KEYREF CH]](../concepts/replication.md#clickhouse).
 
 The number of hosts that can be created together with a [!KEYREF CH] cluster depends on the storage option selected:
 
