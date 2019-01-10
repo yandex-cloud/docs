@@ -58,19 +58,19 @@ Both VMs have been running for 30 days.
 
 The cost of the VM with partial core usage is calculated as follows:
 
-> 5% of vCPU = ₽0.19/hour * 30 days * 24 hours = 136.8 ₽
-> 
-> 1 GB RAM = ₽0.24/hour * 30 days * 24 hours = 172.8 ₽
-> 
-> Total: 309.6&nbsp;₽
+> 5% of vCPU = ₽0.1932/hour * 30 days * 24 hours = ₽139.1040
+>
+> 1 GB RAM = ₽0.2441/hour * 30 days * 24 hours = ₽175.7520
+>
+> Total: ₽314.8560
 
 The cost of the VM with full core usage is calculated as follows:
 
-> 1 vCPU = ₽0.69/hour * 30 days * 24 hours = 496.8 ₽
-> 
-> 1 GB RAM = ₽0.24/hour * 30 days * 24 hours = 172.8 ₽
-> 
-> Total: 669.6&nbsp;₽
+> 1 vCPU = ₽0.7017/hour * 30 days * 24 hours = ₽505.2240
+>
+> 1 GB RAM = ₽0.2441/hour * 30 days * 24 hours = ₽175.7520
+>
+> Total: ₽680.9760
 
 The cost of the VM with partial core usage is almost half the cost of the VM with full core usage.
 
