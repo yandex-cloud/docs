@@ -1,10 +1,10 @@
-# End of the trial period
+# End of trial period
 
-The trial period ends automatically when you spend the entire grant amount or after 60 days, whichever is earlier.
+The free trial ends automatically when you spend the entire grant amount or after 60 days, whichever is earlier.
 
-You will not upgrade to the paid version automatically after the end of the trial period. You can [ upgrade to the paid version]( upgrade-to-paid.md) of Yandex.Cloud at any time during the trial period or 30 days after it ends.
+You will not upgrade to the paid version automatically after the end of the trial period. You can [ upgrade to the paid version]( upgrade-to-paid.md) of Yandex.Cloud at any time during the free trial or 30 days after it ends.
 
-If the trial period ends and you haven't upgraded to the paid version, access to your resources will be suspended for 30 days:
+If the free trial ends and you haven't upgraded to the paid version, access to your resources will be suspended for 30 days:
 
 * Your VM instances and DB clusters will be stopped.
 * You will not be able to read or download any saved data.
