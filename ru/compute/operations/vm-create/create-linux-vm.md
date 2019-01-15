@@ -22,12 +22,12 @@
     $ yc compute instance create --help
     ```
 
-2. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на виртуальную машину.
-3. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, CentOS 7).
+1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на виртуальную машину.
+1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, CentOS 7).
 
     [!INCLUDE [standard-images](../../../_includes/standard-images.md)]
 
-4.  Создайте виртуальную машину в каталоге по умолчанию:
+1.  Создайте виртуальную машину в каталоге по умолчанию:
 
     ```
     $ yc compute instance create \
@@ -47,4 +47,5 @@
 [!INCLUDE [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md)]
 
 #### См. также
+
 - [[!TITLE]](../vm-control/vm-connect-ssh.md)

@@ -16,7 +16,7 @@ To stop a VM:
 
 1. In the management console, select the folder the VM belongs to.
 1. Click on the **Yandex Compute Cloud** tile.
-1. To stop a single VM, select the machine → click ![](../../../_assets/dots.png) → select **Stop**.
+1. To stop a single VM, select the machine → click ![image](../../../_assets/dots.svg) → select **Stop**.
 
     To do this with multiple VMs, select the VMs you need to stop from the list → click **Stop** at the bottom of the screen.
 
@@ -34,7 +34,7 @@ To stop a VM:
 
     [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
 
-1. Select the `ID` or `NAME` of the VM you need, for example `first-instance`.
+1. Select the `ID` or `NAME` of the VM you need (for example, `first-instance`).
 1. Stop the VM:
 
     ```
@@ -55,7 +55,7 @@ To start a VM:
 
 1. In the management console, select the folder the VM belongs to.
 1. Click on the **Yandex Compute Cloud** tile.
-1. To start a single VM, select the machine → click ![](../../../_assets/dots.png) → select **Start**.
+1. To start a single VM, select the machine → click ![image](../../../_assets/dots.svg) → select **Start**.
 
     To do this with multiple VMs, select the VMs you need to start from the list → click **Start** at the bottom of the screen.
 
@@ -73,7 +73,7 @@ To start a VM:
 
     [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
 
-1. Select the `ID` or `NAME` of the VM you need, for example `first-instance`.
+1. Select the `ID` or `NAME` of the VM you need (for example, `first-instance`).
 1. Start the VM:
 
     ```
@@ -93,10 +93,8 @@ To restart a VM:
 **[!TAB Management console]**
 
 1. In the management console, select the folder the VM belongs to.
-
 1. Click on the **Yandex Compute Cloud** tile.
-
-1. To restart a single VM, select the machine → click ![](../../../_assets/dots.png) → select **Restart**.
+1. To restart a single VM, select the machine → click ![image](../../../_assets/dots.svg) → select **Restart**.
 
     To do this with multiple VMs, select the VMs you need to restart from the list → click **Restart** at the bottom of the screen.
 
@@ -112,22 +110,13 @@ To restart a VM:
 
 1. Get a list of all VMs in the default folder:
 
-    ```
-    $ yc compute instance list
-    +----------------------+---------------+---------------+---------+---------------------+
-    |          ID          |     NAME      |    ZONE ID    | STATUS  |     DESCRIPTION     |
-    +----------------------+---------------+---------------+---------+---------------------+
-    | fhm0b28lgfp4tkoa3jl6 | my-windows-vm | ru-central1-a | RUNNING | my first vm via CLI |
-    | fhm9gk85nj7gcoji2f8s | my-linux-vm   | ru-central1-a | RUNNING | my second vm via CLI |
-    +----------------------+---------------+---------------+---------+---------------------+
-    ```
+    [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
 
-1. Select the `ID` or `NAME` of the VM you need.
-
+1. Select the `ID` or `NAME` of the VM you need (for example, `first-instance`).
 1. Restart the VM:
 
     ```
-    $ yc compute instance restart my-windows-vm
+    $ yc compute instance restart first-instance
     ```
 
 ---

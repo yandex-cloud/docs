@@ -1,6 +1,6 @@
-# Trial period restrictions
+# Restrictions on the trial period
 
-The trial period is intended for testing and exploring the features of the cloud infrastructure. During the trial period, you can use Yandex.Cloud resources with some restrictions.
+The free trial is intended for testing and exploring the features of the cloud infrastructure. During the trial period, you can use Yandex.Cloud resources with some restrictions.
 
 ## Service Level Agreement (SLA) {#sla}
 
@@ -43,3 +43,4 @@ Quotas and limits for Yandex.Cloud services during the trial period are listed b
 ### [!KEYREF mpg-full-name] {#mdb}
 
 [!INCLUDE [mpg-limits.md](../../_includes/mdb/mpg-limits.md)]
+

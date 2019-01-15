@@ -10,7 +10,7 @@
 
 1. Select the folder.
 2. Select the **Service accounts**  tab.
-3. Click [](../../../_assets/dots.png) next to the service account and select **Delete service account**.
+3. Click ![](../../../_assets/dots.png) next to the service account and select **Delete service account**.
 4. Confirm the deletion.
 
 **[!TAB CLI]**

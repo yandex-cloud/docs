@@ -1,18 +1,18 @@
 # Uploading your disk image to Yandex.Cloud
 
-These guidelines describe how to upload a disk image file to Yandex.Cloud and create an [image](../../concepts/images.md) in the [!KEYREF compute-name] service. Currently, the following image formats are supported: Qcow2, VMDK, and VHD.
+These guidelines describe how to upload a disk image file to Yandex.Cloud and create an [image](../../concepts/images.md) in the [!KEYREF compute-name] service. Supported image formats: Qcow2, VMDK, and VHD. Currently, you cannot upload your own image with the Windows OS.
 
 > [!NOTE]
 >
-> Creating images from external sources is allowed only via links to public baskets in [!KEYREF objstorage-name].
+> You can only create images from external sources with links to public buckets in [!KEYREF objstorage-name].
 
 ## 1. Upload an image file to Yandex.Cloud
 
 Upload your image file to [!KEYREF objstorage-full-name] and get a link to the uploaded image:
 
 1. If you don't have a bucket in [!KEYREF objstorage-name], [create](../../../storage/operations/buckets/create.md) it.
-1. [Make the bucket public](../../../storage/operations/security/bucket-availability.md).
-1. [Upload the image](../../../storage/operations/objects/upload.md) to your bucket. In terms of [!KEYREF objstorage-name], the uploaded image file will be called an _object_.
+1. [Make the bucket public](../../../storage/operations/buckets/bucket-availability.md).
+1. [Upload the image](../../../storage/operations/objects/upload.md) to your bucket. In [!KEYREF objstorage-name] terms, the uploaded image file will be called an _object_.
 1. [Get a link](../../../storage/operations/objects/link-for-download.md) to the uploaded image. Use this link when creating an image in [!KEYREF compute-name].
 
 ## 2. Create an image in [!KEYREF compute-name]
@@ -45,8 +45,8 @@ $ yc compute image create --name <IMAGE-NAME> --source-uri <IMAGE-URL>
 
 where:
 
-* `<IMAGE-NAME>` is the name to be assigned to the image.
-* `<IMAGE-URL>` is the link to the image received in [!KEYREF objstorage-name].
+- `<IMAGE-NAME>` is the name to be assigned to the image.
+- `<IMAGE-URL>` is the link to the image received in [!KEYREF objstorage-name].
 
 If necessary, add a description and specify the [family](../../concepts/images.md#family) to which the image refers:
 

@@ -4,21 +4,21 @@ This tutorial describes how to set up a website with load balancing between two 
 
 To set up a fault tolerant website with DNS load balancing:
 
-* [In different availability zones, create two VMs with a pre-installed web server](#create-web-server-vm)
-* [Upload the website files](#upload-files)
-* [In different availability zones, create two VMs for DNS load balancers](#create-dns-balancer-vm)
-* [Install and configure the DNS load balancer software](#install-configure-dns-balancer)
-* [Configure DNS](#configure-dns)
-* [Test the fault tolerance](#test-ha)
+1. [In different availability zones, create two VMs with a pre-installed web server](#create-web-server-vm)
+1. [Upload the website files](#upload-files)
+1. [In different availability zones, create two VMs for DNS load balancers](#create-dns-balancer-vm)
+1. [Install and configure the DNS load balancer software](#install-configure-dns-balancer)
+1. [Configure DNS](#configure-dns)
+1. [Test the fault tolerance](#test-ha)
 
 ## Before you start {#before-begin}
 
 Before creating VMs:
 
 1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.ru) and select the folder where you want to perform the operations.
-1. Make sure the selected folder has a network with subnets in the availability zones `ru-cental1-a` and `ru-central1-b`. For that, on the folder page, click the tile **Yandex Virtual Private Cloud**. If the list contains a network, click on its name to see the list of subnets. If there are no subnets or network you need, [create them](../../vpc/quickstart.md).
+1. Make sure the selected folder has a network with subnets in the availability zones `ru-cental1-a` and `ru-central1-b`. To do this, click the **Yandex Virtual Private Cloud** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
-## Creating VMs with a pre-installed web server {#create-web-server-vm}
+## 1. Create VMs with a pre-installed web server {#create-web-server-vm}
 
 Create two VMs in sequence, following the instructions:
 
@@ -54,19 +54,19 @@ You need to create a key pair for SSH connection yourself. To generate keys, use
 
 Creating the VM may take several minutes. When the VM status changes to `RUNNING`, you can [upload the website files to it](#upload-files).
 
-When a VM is being created, it is assigned an IP address and hostname (FQDN). This data can be used for SSH access.
+When a VM is created, it is assigned an IP address and hostname (FQDN). This data can be used for SSH access.
 
 #### See also
 
 - [[!TITLE]](../../compute/operations/vm-control/vm-connect-ssh.md)
 
-## Uploading website files {#upload-files}
+## 2. Upload the website files {#upload-files}
 
 For the `dns-lb-tutorial-web-ru-central1-a` and `dns-lb-tutorial-web-ru-central1-b`VMs, do the following:
 
 [!INCLUDE [upload-files](../_solutions_includes/upload-web-site-files.md)]
 
-## Creating VMs for DNS load balancers {#create-dns-balancer-vm}
+## 3. Create VMs for DNS load balancers {#create-dns-balancer-vm}
 
 Create two VMs in sequence, following the instructions:
 
@@ -100,19 +100,19 @@ You need to create a key pair for SSH connection yourself. To generate keys, use
 
 Creating the VM may take several minutes. When the VM status changes to `RUNNING`, you can [install and configure the DNS load balancer software](#upload-files).
 
-When a VM is being created, it is assigned an IP address and hostname (FQDN). This data can be used for SSH access.
+When a VM is created, it is assigned an IP address and hostname (FQDN). This data can be used for SSH access.
 
 #### See also
 
 - [[!TITLE]](../../compute/operations/vm-control/vm-connect-ssh.md)
 
-## Installing and configuring DNS load balancer software {#install-configure-dns-balancer}
+## 4. Install and configure the DNS load balancer software {#install-configure-dns-balancer}
 
 For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1-b` VMs, do the following:
 
-1. In the **Network** section on the VM page of the [management console](https://console.cloud.yandex.ru), find the VM's public IP address.
+1. Go to the VM page of the [management console](https://console.cloud.yandex.ru). In the **Network** section, find the VM's public IP address.
 
-1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM via SSH. You can use the `ssh` tool on Linux and macOS and [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
+1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
    The recommended authentication method when connecting over SSH is using a key pair.  Don't forget to set up the created key pair: the private key must match the public key sent to the VM.
 
@@ -213,7 +213,7 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
 
      ---
 
-   The `pdns.conf` file is as follows:
+   The `pdns.conf` file has the format:
 
    ```
    # Polaris specific PDNS configuration
@@ -258,13 +258,13 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
    query-cache-ttl=0
    ```
 
-   Specify the internal IP address in the `local-address` parameter value instead of `<INTERNAL IP ADRESS>`.
+   Specify the internal IP address in the `local-address` parameter value in place of `<INTERNAL IP ADDRESS>`.
 
 1. Configure `polaris-gslb`. You can edit the configuration files using the `nano` utility:
 
    1. `$ sudo nano /opt/polaris/etc/polaris-lb.yaml`
 
-      The `polaris-lb.yaml` file is as follows:
+      The `polaris-lb.yaml` file has the format:
 
        ```
        pools:
@@ -291,14 +291,14 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
 
        Specify the following in the file:
        * Your domain name instead of `www.example.com`.
-       * Instead of `<dns-lb-tutorial-web-ru-central1-a PUBLIC IP>`, the public IP address of the `dns-lb-tutorial-web-ru-central1-a` VM.
-       * Instead of `<dns-lb-tutorial-web-ru-central1-b PUBLIC IP>`, the public IP address of the `dns-lb-tutorial-web-ru-central1-b` VM.
+       * In place of `<dns-lb-tutorial-web-ru-central1-a PUBLIC IP>`, enter the public IP address of the `dns-lb-tutorial-web-ru-central1-a` VM.
+       * In place of `<dns-lb-tutorial-web-ru-central1-b PUBLIC IP>`,  enter the public IP address of the `dns-lb-tutorial-web-ru-central1-b` VM.
 
        You can find out the VM's public address in the **Network** section on the VM page in the [management console](https://console.cloud.yandex.ru).
 
    1. `$ sudo nano /opt/polaris/etc/polaris-pdns.yaml`
 
-      The `polaris-pdns.yaml` file is as follows:
+      The `polaris-pdns.yaml` file has the format:
 
       ```
       ###############################
@@ -420,7 +420,7 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
    $ sudo iptables-save | sudo tee /etc/sysconfig/iptables
    ```
 
-## Configuring DNS {#configure-dns}
+## 5. Configure DNS {#configure-dns}
 
 The domain name that you want to use for your website must be associated with the created VMs.
 
@@ -446,29 +446,29 @@ To configure an external DNS server, do the following:
      * **Value**: `dns-lb-tutorial-slb-ru-central1-b.example.com.`.
 1. Wait 15-20 minutes for DNS record changes to take effect. The waiting time may differ for your DNS service.
 
-## Test the fault tolerance {#test-ha}
+## 6. Test the fault tolerance {#test-ha}
 
-### DNS load balancers {#test-dns-balancers}
+### 6.1. DNS load balancers {#test-dns-balancers}
 
 1. In the **Network** section on the VM page of the [management console](https://console.cloud.yandex.ru), find the public IP address of the `dns-lb-tutorial-slb-ru-central1-a` VM.
-1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM via SSH.
+1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM over SSH.
 1. Stop the DNS service to simulate a failure of the DNS load balancer:
 
    ```bash
    $ sudo service pdns stop
    ```
-1. Connect to your website through a browser. Although one of the DNS load balancers fails, the connection should be successful.
+1. Connect to your website through a browser. The connection should be successful, even though one of the DNS load balancers has failed.
 1. After the check is complete, restart the DNS service:
 
    ```bash
    $ sudo service pdns start
    ```
 
-### Web servers {#test-web-servers}
+### 6.2. Web servers {#test-web-servers}
 
 1. In the **Network** section on the VM page of the [management console](https://console.cloud.yandex.ru), find the public IP address of the `dns-lb-tutorial-web-ru-central1-a` VM.
 
-1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM via SSH.
+1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM over SSH.
 
 1. Stop the web service to simulate a failure on the web server:
 

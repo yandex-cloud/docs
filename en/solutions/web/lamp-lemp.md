@@ -1,17 +1,19 @@
 # Website on LAMP or LEMP stack
 
-To configure a static website or dynamic website on your PHP:
+To configure a static website or dynamic website in PHP:
 
-* [Create a VM with a pre-installed web server](#create-vm)
-* [Upload the website files](#upload-files)
-* [Configure DNS](#configure-dns)
+1. [Create a VM with a pre-installed web server](#create-vm)
+1. [Upload the website files](#upload-files)
+1. [Configure DNS](#configure-dns)
 
-## Creating a VM with a pre-installed web server {#create-vm}
+## Before you start {#before-begin}
 
 Before creating a VM:
 
 1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.ru) and select the folder where you want to perform the operations.
-1. Make sure the selected folder has a network with a subnet that the VM can be connected to. For that, on the folder page, click the tile **Yandex Virtual Private Cloud**. If the list contains a network, click on its name to see the list of subnets. If there is neither network nor subnet, [create them](../../vpc/quickstart.md).
+1. Make sure the selected folder has a network with a subnet that the VM can be connected to. To do this, click the **Yandex Virtual Private Cloud** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If there aren't any networks or subnets, [create them](../../vpc/quickstart.md).
+
+## 1. Create a VM with a pre-installed web server {#create-vm}
 
 To create a VM:
 
@@ -24,7 +26,7 @@ To create a VM:
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to locate the VM in.
 
 1. Select a public image:
-   * **LEMP** for Linux, nginx, MySQL, and PHP.
+   * **LEMP** for Linux, nginx, MySQL, and PHP
    * **LAMP** for Linux, Apache, MySQL, and PHP
 
    For static websites, we recommend using **LEMP**.
@@ -47,17 +49,17 @@ You need to create a key pair for SSH connection yourself. To generate keys, use
 
 Creating the VM may take several minutes. When the VM status changes to `RUNNING`, you can [upload the website files to it](#upload-files).
 
-When a VM is being created, it is assigned an IP address and hostname (FQDN). This data can be used for SSH access.
+When a VM is created, it is assigned an IP address and hostname (FQDN). This data can be used for SSH access.
 
 #### See also
 
 - [[!TITLE]](../../compute/operations/vm-control/vm-connect-ssh.md)
 
-## Uploading website files {#upload-files}
+## 2. Upload the website files {#upload-files}
 
 [!INCLUDE [upload-files](../_solutions_includes/upload-web-site-files.md)]
 
-## Configuring DNS {#configure-dns}
+## 3. Configure DNS {#configure-dns}
 
 The domain name that you want to use for your website must be associated with the created VM.
 

@@ -1,6 +1,6 @@
 # Creating a VM from a public Linux image
 
-This section provides guidelines on how to create a VM with Linux OS. To create a Windows-based VM, follow the instructions [[!TITLE]](create-windows-vm.md).
+This section provides guidelines for creating a VM with Linux OS To create a Windows-based VM, follow the instructions [[!TITLE]](create-windows-vm.md).
 
 ---
 
@@ -22,32 +22,23 @@ To create a VM:
     $ yc compute instance create --help
     ```
 
-1. Prepare a key pair (public and private) for SSH access to the VM.
-1. Select a public [image](../images-with-pre-installed-software/get-list.md) based on Linux OS (for example, CentOS 7). To get a list of available images, use the command:
+1. Prepare the key pair (public and private) for SSH access to the VM.
+1. Select a public [image](../images-with-pre-installed-software/get-list.md) based on Linux OS (for example, CentOS 7).
 
-    ```
-    $ yc compute image list --folder-id standard-images
-    +----------------------+---------------------+----------+----------------------+--------+-------------+
-    |          ID          |        NAME         |  FAMILY  |     PRODUCT IDS      | STATUS | DESCRIPTION |
-    +----------------------+---------------------+----------+----------------------+--------+-------------+
-    ...
-    | fd83869rbingor0in0ui | centos-7-1537787644 | centos-7 | f2en2dtd08b5la74mlde | READY  |     ...     |
-    ...
-    +----------------------+---------------------+----------+----------------------+--------+-------------+
-    ```
+    [!INCLUDE [standard-images](../../../_includes/standard-images.md)]
 
 1. Create a VM in the default folder:
 
     ```
     $ yc compute instance create \
-        --name my-yc-vm \
+        --name first-instance \
         --zone ru-central1-a \
         --public-ip \
         --create-boot-disk image-folder-id=standard-images,image-name=centos-7-1537787644 \
         --ssh-key ~/.ssh/id_rsa.pub
     ```
 
-    This command creates a VM named `my-yc-vm` with CentOS 7 in the `ru-central1-a` zone and with a public IP.
+    This command creates a VM named `first-instance` with CentOS 7 in the `ru-central1-a` zone and with a public IP. To create a VM without a public IP, remove the `--public-ip` flag.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
@@ -56,4 +47,6 @@ To create a VM:
 [!INCLUDE [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md)]
 
 #### See also
+
 - [[!TITLE]](../vm-control/vm-connect-ssh.md)
+

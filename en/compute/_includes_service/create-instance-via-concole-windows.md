@@ -14,3 +14,4 @@
     [!INCLUDE [password-requirements](../../_includes/password-requirements.md)]
 
 1. Click **Create VM**.
+

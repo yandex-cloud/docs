@@ -3,21 +3,18 @@
 _Services_ in Yandex.Cloud allow you to manage specific categories of cloud resources and access to them.
 Currently, the following services are available as part of the Yandex.Cloud platform:
 
-  - [Yandex Compute Cloud](../../compute/) — virtual machines and block storage.
-  - [Yandex Object Storage](../../storage/) — scalable data storage.
-  - [Yandex Identity and Access Management](../../iam/) — identification and access control to cloud resources.
+  - [Yandex Compute Cloud](../../compute/) — cloud computing service.
+  - [Yandex Object Storage](../../storage/) — object storage service.
+  - [Yandex Identity and Access Management](../../iam/) — service for managing access to cloud resources.
   - [Yandex Resource Manager](../../resource-manager/) — cloud resource management service.
-  - [Yandex Virtual Private Cloud](../../vpc/) — cloud network environment.
-  - Managed databases:
-    
-    - [[!KEYREF mch-full-name]] — managed ClickHouse clusters,
-    - [[!KEYREF mmg-full-name]] — managed MongoDB clusters,
-    - [[!KEYREF mch-full-name]] — managed PostgreSQL clusters.
-    
-  - [Yandex SpeechKit](../../speechkit/) — speech recognition and speech synthesis technologies.
+  - [Yandex Virtual Private Cloud](../../vpc/) — network management service.
+  - [[!KEYREF mpg-full-name]](../../managed-postgresql/) — PostgreSQL management service.
+  - [[!KEYREF mch-full-name]](../../managed-clickhouse/) — ClickHouse management service.
+  - [[!KEYREF mmg-full-name]](../../managed-mongodb/) — MongoDB management service.
+  - [Yandex SpeechKit](../../speechkit/) — service for accessing speech technologies.
   - [Yandex Translate](../../translate/) — machine translation service.
 
 ### How to connect to services
 
-You can use the Yandex.Cloud [management console](https://console.cloud.yandex.ru) to connect to services and manage resources. It allows you to launch VM instances in Yandex.Cloud and connect to them, access object storage, create databases, and so on.
+You can use the Yandex.Cloud management console to connect to services and manage resources. It allows you to launch VM instances in Yandex.Cloud and connect to them, access object storage, create databases, and so on.
 

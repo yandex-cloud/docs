@@ -1,6 +1,7 @@
 # Relationships between resources in [!KEYREF compute-full-name]
 
 All resources in [!KEYREF compute-short-name] can be divided into three types:
+
 * _Basic_ resources including [virtual machines](vm.md) and [disks](disk.md).
 * _Auxiliary_ resources including [snapshots](snapshot.md) and [images](images.md). These resources are only used for creating other resources.
 * _Information_ resources such as disk type and availability zone. These resources are read-only.
@@ -34,3 +35,4 @@ When creating a disk, you also specify the disk type. You can view possible disk
 When creating a VM, you specify the subnet to which it will be connected. [For more information about cloud networks, see](../../vpc/concepts/network.md).
 
 All [!KEYREF compute-short-name] resources are created within folders. Disk types and availability zones are public resources that do not belong to any folder. [Learn more about the resource hierarchy in the Cloud](../../resource-manager/concepts/resources-hierarchy.md).
+

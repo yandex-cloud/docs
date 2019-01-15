@@ -8,9 +8,6 @@
 POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 ```
 
-Используйте заголовок `"Transfer-Encoding: chunked"` для потокового получения результата.
-
-
 ## Параметры в теле запроса {#body_params}
 
 Для всех параметров обязательно используйте URL-кодирование. Максимальный размер тела POST-запроса 30 КБ.
@@ -46,11 +43,10 @@ POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 **[!TAB cURL]**
 
 ```bash
-export FOLDER_ID=b1gvmob03goohplct641
+export FOLDER_ID=b1gvm4b03aoopfsct641
 export IAM_TOKEN=CggaATEVAgA...
 curl -X POST \
      -H "Authorization: Bearer ${IAM_TOKEN}" \
-     -H "Transfer-Encoding: chunked" \
      --data-urlencode "text=Привет мир" \
      -d "voice=zahar&emotion=good&folderId=${FOLDER_ID}" \
      "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
@@ -77,25 +73,69 @@ namespace TTS
     static async Task Tts()
     {
       const string iamToken = "CggaATEVAgA..."; // Укажите IAM-токен.
-      const string folderId = "b1gvmob03goohplct641"; // Укажите ID каталога.
+      const string folderId = "b1gvm4b03aoopfsct641"; // Укажите ID каталога.
 
       HttpClient client = new HttpClient();
       client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
-      client.DefaultRequestHeaders.Add("Transfer-Encoding", "chunked");
       var values = new Dictionary<string, string>
       {
         { "voice", "zahar" },
         { "emotion", "good" },
         { "folderId", folderId },
-        { "text", "Привет мир"}
+        { "text", "Привет мир" },
+        { 'format': 'lpcm' },
+        { 'sampleRateHertz': 48000 }
       };
       var content = new FormUrlEncodedContent(values);
       var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
       var responseBytes = await response.Content.ReadAsByteArrayAsync();
-      File.WriteAllBytes("speech.ogg", responseBytes);
+      File.WriteAllBytes("speech.pcm", responseBytes);
     }
   }
 }
+```
+
+**[!TAB Python]**
+
+```python
+import argparse
+
+import requests
+
+
+def synthesize(folder_id, iam_token, text):
+    url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
+    headers = {
+        'Authorization': 'Bearer ' + iam_token,
+    }
+
+    data = {
+        'text': text,
+        'voice': 'alyss',
+        'emotion': 'good',
+        'folderId': folder_id,
+        'format': 'lpcm',
+        'sampleRateHertz': 48000,
+    }
+
+    resp = requests.post(url, headers=headers, data=data)
+    if resp.status_code != 200:
+        raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
+
+    return resp.content
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--iam_token", required=True, help="IAM token")
+    parser.add_argument("--folder_id", required=True, help="Folder id")
+    parser.add_argument("--text", required=True, help="Text for synthesize")
+    parser.add_argument("--output", required=True, help="Output file name")
+    args = parser.parse_args()
+
+    audio_content = synthesize(args.folder_id, args.iam_token, args.text)
+    with open(args.output, "wb") as f:
+        f.write(audio_content)
 ```
 
 ---
@@ -109,11 +149,10 @@ namespace TTS
 **[!TAB cURL]**
 
 ```bash
-export FOLDER_ID=b1gvmob03goohplct641
+export FOLDER_ID=b1gvm4b03aoopfsct641
 export IAM_TOKEN=CggaATEVAgA...
 curl -X POST \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
-    -H "Transfer-Encoding: chunked" \
     -o speech.raw \
     --data-urlencode "text=Привет мир" \
     -d "voice=zahar&emotion=good&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \

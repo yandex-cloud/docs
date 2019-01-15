@@ -1,4 +1,4 @@
-title: "Yandex Compute Cloud"
+title: Yandex Compute Cloud
 href: index.yaml
 items:
   - name: Getting started
@@ -19,6 +19,12 @@ items:
             href: operations/vm-create/create-linux-vm.md
           - name: Creating a Windows VM
             href: operations/vm-create/create-windows-vm.md
+          - name: Creating a VM from a set of disks
+            href: operations/vm-create/create-from-disks.md
+          - name: Creating a VM from a set of snapshots
+            href: operations/vm-create/create-from-snapshots.md
+          - name: Creating a VM from a custom image
+            href: operations/vm-create/create-from-user-image.md
       - name: DSVM
         items:
           - name: Specification
@@ -49,8 +55,18 @@ items:
             href: operations/vm-control/vm-connect-rdp.md
           - name: Stopping and starting a VM
             href: operations/vm-control/vm-stop-and-start.md
+          - name: Attaching a disk to a VM
+            href: operations/vm-control/vm-attach-disk.md
+          - name: Detaching a disk from a VM
+            href: operations/vm-control/vm-detach-disk.md
+          - name: Changing a VM's availability zone
+            href: operations/vm-control/vm-change-zone.md
+          - name: Making a VM's public IP address static
+            href: operations/vm-control/vm-set-static-ip.md
           - name: Updating a VM
             href: operations/vm-control/vm-update.md
+          - name: Changing a VM's configuration
+            href: operations/vm-control/vm-update-resources.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
       - name: Creating a new disk
@@ -97,7 +113,7 @@ items:
         href: concepts/limits.md
   - name: Identity and access management
     href: security/index.md
-  - name: Pricing policies
+  - name: Pricing policy
     href: pricing.md
   - name: API reference
     items:
@@ -105,7 +121,7 @@ items:
         href: api-ref/authentication.md
     include:
       repo: docs-api
-      path: en/compute/toc.yaml
+      path: ru/compute/toc.yaml
   - name: Questions and answers
     items:
       - name: General questions

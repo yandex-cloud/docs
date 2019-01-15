@@ -14,7 +14,7 @@ The maximum size of the POST request body is 30 KB.
 
 | Parameter | Description |
 | ----- | ----- |
-| `folderId` | Required parameter.<br/>ID of your folder.<br/>For more information about how to find out the folder ID, see the section [Authorization in the API](../concepts/auth.md). |
+| `folderId` | Required parameter.<br/>ID of your folder.<br/>For more information about how to find the folder ID, see the section [Authorization in the API](../concepts/auth.md). |
 
 ## Response {#response}
 
@@ -23,9 +23,9 @@ The response is returned in JSON format.
 ```json
 {
    "languages": [
-        {"language": <text code>},
+        {"language": <language code>},
         ...
-        {"language": <text code>}
+        {"language": <language code>}
    ]
 } 
 ```
@@ -34,14 +34,16 @@ The response is returned in JSON format.
 
 ### Sample request
 
-```no-highlight
+```httpget
+export FOLDER_ID=<folder id>
+export TOKEN=<IAM-token>
 curl -X POST \
-     -H "Authorization: Bearer <IAM-token>" \
-     -d "folderId=<folder id>" \
+     -H "Authorization: Bearer ${TOKEN}" \
+     -d "folderId=${FOLDER_ID}" \
      "https://translate.api.cloud.yandex.net/translate/v1/languages"
 ```
 
-### Sample response
+### Response example
 
 The response is returned in JSON format.
 

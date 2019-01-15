@@ -13,7 +13,7 @@ The owner can create folders and resources in this cloud, and manage access righ
     [!INCLUDE [create-folder](../_includes/create-folder.md)]
 
 2. Grant users access to the folder you have created:
-    1. In the management console, click [](../_assets/ugly-sandwich.svg) and go to **Access management**.
+    1. In the management console, click ![image](../_assets/ugly-sandwich.svg) and go to **Access management**.
     2. Select the **Users and roles** tab.
     3. In the line with the appropriate user name, click **Set up roles**.
     4. Make sure that the user has one of the following roles for the cloud: `[!KEYREF roles-cloud-member]` or `[!KEYREF roles-cloud-owner]`.

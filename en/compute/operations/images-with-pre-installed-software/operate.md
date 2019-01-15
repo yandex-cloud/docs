@@ -31,3 +31,4 @@ You can view a list of open ports for a particular VM when [connecting to it via
 ## Installing updates {#updates}
 
 On public image-based VMs, the OS and software are not updated automatically. You can update them on your own.
+

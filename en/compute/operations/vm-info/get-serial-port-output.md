@@ -25,7 +25,7 @@ You can get the information that the VM outputs to the serial port. This can be 
 
     [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
 
-1. Get the output of the serial port. The serial port's output is usually long, so it should be written to a file:
+1. Get the serial port output. The serial port's output is usually long, so it should be written to a file:
 
     ```
     $ yc compute instance get-serial-port-output first-instance > output.txt
@@ -36,3 +36,4 @@ You can get the information that the VM outputs to the serial port. This can be 
 To get the serial port output, use the [getSerialPortOutput](../../api-ref/Instance/getSerialPortOutput.md) method of the [Instance](../../api-ref/Instance/index.md) resource.
 
 ---
+

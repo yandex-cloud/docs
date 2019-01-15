@@ -4,7 +4,7 @@
 >
 > Deleting a VM is an operation that cannot be canceled or reversed. You cannot restore a deleted VM.
 
-When you select a disk to attach to a VM, you can specify whether that disk should be deleted when deleting the VM. You can choose this option when creating a VM, updating it, and attaching a new disk to it.
+[!INCLUDE [disk-auto-delete](../../_includes_service/disk-auto-delete.md)]
 
 If previously created disks are attached to the VM, they will be detached when the VM is deleted. The disk data will be preserved and you will be able to attach these disks to another VM in the future.
 
@@ -14,7 +14,7 @@ If previously created disks are attached to the VM, they will be detached when t
 
 1. Select the folder the VM belongs to.
 1. Click on the **Yandex Compute Cloud** tile.
-1. Select the VM → click ![](../../../_assets/dots.png) → select **Delete**.
+1. Select the VM → click ![image](../../../_assets/dots.svg) → select **Delete**.
 
     To do this with multiple VMs, select the VMs you need to delete from the list → click **Delete** at the bottom of the screen.
 
@@ -34,7 +34,7 @@ If previously created disks are attached to the VM, they will be detached when t
 
     [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
 
-1. Select the `ID` or `NAME` of the VM you need, for example `first-instance`.
+1. Select the `ID` or `NAME` of the VM you need (for example, `first-instance`).
 1. Delete the VM:
 
     ```
@@ -42,3 +42,4 @@ If previously created disks are attached to the VM, they will be detached when t
     ```
 
 ---
+

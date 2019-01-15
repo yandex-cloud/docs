@@ -54,42 +54,47 @@ The CLI supports command completion for the  `bash` shell. For command completio
 
 **[!TAB Windows]**
 
-1. Construct a link to download the current version of the CLI:
-    * for Windows 64-bit:
-     
-      ```
-      https://[!KEYREF s3-storage-host][!KEYREF yc-windows-path-amd64]
-      ```
-    * for Windows 32-bit:
-     
-      ```
-      https://[!KEYREF s3-storage-host][!KEYREF yc-windows-path-386]
-      ```
+For Windows, the CLI can be installed using PowerShell and `cmd`:
 
-   Replace `<current-version>` with the CLI version from the [link](https://[!KEYREF s3-storage-host]/yandexcloud-yc/release/stable).
+* To install using PowerShell:
 
-1. Download the CLI executable file and save it on your computer, for example, in the `C:\Yandex-Cloud` directory.
+    1. Run the command:
 
-1. Add the executable file path to the **PATH** environment variable:
+        ```
+        iex (New-Object System.Net.WebClient).DownloadString('https://[!KEYREF s3-storage-host]/[!KEYREF yc-windows-path]'))
+        ```
 
-   1. Press the keyboard shortcut **Windows**+**R** and run the command `control.exe /name Microsoft.System`.
+    1. The installation script will ask whether to add the path to `yc` to the PATH variable:
 
-   2. Click the **Advanced system settings** link.
+        ```
+        Add yc installation dir to your PATH? [Y/n]
+        ```
 
-   3. Click **Environment Variables**.
+    1. Enter `Y`. After this, you can use the Yandex.Cloud CLI without restarting the command shell.
 
-   4. Select the **PATH**  environment variable and click **Edit**.
+* To install using `cmd`:
 
-   5. In the list in the **Variable value** field, add the character  `;` and the CLI executable path, for example, `C:\Yandex-Cloud`.
+    1. Run the command:
 
-      Click **OK** in the **Edit System Variable**, **Environment Variables**, and **System Properties** windows to close them.
+        ```
+        @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://[!KEYREF s3-storage-host]/[!KEYREF yc-windows-path]'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
+        ```
+
+    1. The installation script will ask whether to add the path to `yc` to the PATH variable:
+
+        ```
+        Add yc installation dir to your PATH? [Y/n]
+        ```
+
+    1. Enter `Y`.
+
+    1. Restart your terminal for the changes to take effect.
 
 ---
 
 ## Initialization {#initialize}
 
-  1. Get an OAuth token from Yandex.OAuth. To do this, follow the [link](https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) and click
-**Allow**.
+  1. Get an OAuth token from Yandex OAuth. To do this, follow the [link](https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) and click **Allow**.
   1. To configure your CLI profile, run the command `yc init`.
   1. Enter your OAuth token when prompted by the command.
 
@@ -198,7 +203,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 
       ```
       $ yc compute instance create \
-          --name my-yc-instance \ 
+          --name my-yc-instance \
           --network-interface subnet-name=my-yc-subnet-b,nat-ip-version=ipv4 \
           --ssh-key ~/.ssh/id_rsa.pub
       ```

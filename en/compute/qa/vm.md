@@ -10,7 +10,7 @@ For more information, see the section [[!TITLE]](../concepts/vm-types.md).
 
 #### How can I change the amount of RAM and the number of cores allocated to a VM? {#update-type}
 
-[!INCLUDE [change-vm-resources](../_includes_service/change-vm-resources.md)]
+For more information, see the section [[!TITLE]](../operations/vm-control/vm-update-resources.md).
 
 ## Operations on VMs
 

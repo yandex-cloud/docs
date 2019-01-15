@@ -1,3 +1,2 @@
 yc-install-path: /yandexcloud-yc/install.sh
-yc-windows-path-amd64: /yandexcloud-yc/release/<current-version>/windows/amd64/yc.exe
-yc-windows-path-386: /yandexcloud-yc/release/<current-version>/windows/386/yc.exe
+yc-windows-path: /yandexcloud-yc/install.ps1

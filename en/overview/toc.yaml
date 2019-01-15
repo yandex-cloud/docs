@@ -7,9 +7,9 @@ items:
     href: concepts/geo-scope.md
   - name: Getting started
     href: quickstart.md
-  - name: APIs
+  - name: API
     href: api.md
-  - name: Launch stages
+  - name: Release stages
     href: concepts/launch-stages.md
   - name: SLA
     href: sla.md

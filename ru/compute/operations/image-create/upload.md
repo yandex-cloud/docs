@@ -45,8 +45,8 @@ $ yc compute image create --name <IMAGE-NAME> --source-uri <IMAGE-URL>
 
 где:
 
-* `<IMAGE-NAME>` — имя, которое будет присвоено образу.
-* `<IMAGE-URL>` — ссылка на образ, полученная в [!KEYREF objstorage-name].
+- `<IMAGE-NAME>` — имя, которое будет присвоено образу.
+- `<IMAGE-URL>` — ссылка на образ, полученная в [!KEYREF objstorage-name].
 
 Если необходимо, добавьте описание и укажите [семейство](../../concepts/images.md#family), к которому относится этот образ:
 

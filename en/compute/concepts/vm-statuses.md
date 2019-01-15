@@ -29,11 +29,11 @@ The diagram does not show the following intermediate statuses:
 - `DELETING` ([deletion](#delete))
 - `CRASHED` and `ERROR` ([error occurrence](#error)).
 
-![](../_assets/create-and-run.svg)
+![image](../_assets/create-and-run.svg)
 
 ### Creation {#create}
 
-When being [created](../operations/vm-create/create-from-image.md), a VM gets the `PROVISIONING` status. At this stage, the VM is allocated computing resources: the number and performance of processor cores (vCPUs) and the amount of RAM. It is assigned an IP address and its disks are created.
+When it is [created](../operations/vm-create/create-linux-vm.md), a VM gets the `PROVISIONING` status. At this stage, the VM is allocated computing resources: the number and performance of processor cores (vCPUs) and the amount of RAM. It is assigned an IP address and its disks are created.
 
 After that, the VM starts automatically and switches to the `STARTING` status.
 
@@ -72,3 +72,4 @@ There are two error statuses:
 - `ERROR`: a fatal error has occurred and the VM cannot be recovered.
 
     If the VM has switched to this status or is continuously switching to the `CRASHED` status, contact the [technical support](../../support/overview.md) or create a new VM.
+
