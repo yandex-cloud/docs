@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Pricing policy for [!KEYREF PG]
 
 ## What goes into the cost of using [!KEYREF mpg-short-name] {#rules}

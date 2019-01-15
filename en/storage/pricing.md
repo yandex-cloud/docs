@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Pricing policy for Yandex [!KEYREF objstorage-name]
 
 ## What goes into the cost of [!KEYREF objstorage-short-name] use {#rules}

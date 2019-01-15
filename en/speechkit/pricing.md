@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Yandex SpeechKit pricing
 
 ## What goes into the cost of [!KEYREF speechkit-short-name] use {#rules}

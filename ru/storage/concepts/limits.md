@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Квоты и лимиты
 
 В сервисе [!KEYREF objstorage-full-name] действуют следующие ограничения:
