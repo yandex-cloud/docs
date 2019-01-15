@@ -1,6 +1,6 @@
 # Резервное копирование в [!KEYREF objstorage-full-name] через Duplicati
 
-Чтобы настроить резервное копирование в [!KEYREF objstorage-name] через CloudBerry Desktop Backup:
+Чтобы настроить резервное копирование в [!KEYREF objstorage-name] через Duplicati:
 1. [Создайте публичную корзину](#create-public-bucket)
 1. [Создайте сервисный аккаунт](#create-service-account)
 1. [Создайте статический ключ доступа](#create-access-key)
