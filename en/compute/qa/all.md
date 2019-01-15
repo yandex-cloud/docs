@@ -8,7 +8,7 @@
 
 [!INCLUDE-NOTITLE [vm](vm.md)]
 
-## Disks and snapshots {#disks}
+## Disks snapshots {#disks}
 
 [!INCLUDE-NOTITLE [disks](disks.md)]
 

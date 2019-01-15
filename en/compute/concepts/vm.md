@@ -12,9 +12,7 @@ Each VM has a unique ID and name. The name is unique within the folder. The ID i
 
 ## Availability zones {#az}
 
-When creating a VM, you can choose in which [availability zone](../../overview/concepts/geo-scope.md) of Yandex.Cloud it will be located.
-
-You can't move the VM to a different availability zone, but you can create a copy of it in a different availability zone.
+[!INCLUDE [instance-az](../_includes_service/instance-az.md)]
 
 ## Computing resources {#types}
 
@@ -34,7 +32,7 @@ Read more about disks in the section [[!TITLE]](disk.md).
 
 The status of a VM affects which operations you can currently perform on it.
 
-> For example, the `STOPPED` status means that the VM is stopped and you cannot connect to it. To do that, first [start](../operations/vm-control/ vm-stop-and-start.md#start) the VM. After the status changes to `RUNNING` and the OS loading completes, you will be able to connect to the VM.
+> For example, the `STOPPED` status means that the VM is stopped and you cannot connect to it. To do that, first [start](../operations/vm-control/vm-stop-and-start.md#start) the VM. After the status changes to `RUNNING` and the OS loading completes, you will be able to connect to the VM.
 
 For more information about statuses, see the section [[!TITLE]](vm-statuses.md).
 

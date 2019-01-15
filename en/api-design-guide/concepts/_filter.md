@@ -4,8 +4,8 @@ The `List` method allows filtering results by certain criteria. For example, you
 <q>test</q>.
 
 > [!NOTE]
-
-Currently, you can only filter results by the `name` field.
+>
+> Currently, you can only filter results by the `name` field.
 
 Filtering parameters are passed in the `filter` field in the following format:
 

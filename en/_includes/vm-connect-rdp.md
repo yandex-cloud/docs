@@ -23,7 +23,7 @@ To connect to a VM:
 **[!TAB macOS]**
 
 1. Install and run [Microsoft Remote Desktop](https://itunes.apple.com/app/microsoft-remote-desktop/id1295203466) (free official RDP client for Mac).
-1. Press ![](../_assets / plus.svg) → **Desktop**.
+1. Press ![](../_assets/plus.svg) → **Desktop**.
 1. In the **Add Desktop** dialog enter the public IP address of the virtual machine to connect to in the field **PC Name**.
 1. In the **User Account** field select **Add User Account**.
 1. In the **Add User Account** dialog specify the account settings:

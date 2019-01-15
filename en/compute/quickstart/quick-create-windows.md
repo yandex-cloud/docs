@@ -10,10 +10,7 @@ To create a VM:
 
 [!INCLUDE [initialization-windows-vm](../../_includes/initialization-windows-vm.md)]
 
-> [!NOTE]
->
-> [!INCLUDE [change-vm-resources](../_includes_service/change-vm-resources.md)]
-
 ## Connect to a Windows VM via RDP
 
 [!INCLUDE [vm-connect-rdp](../../_includes/vm-connect-rdp.md)]
+

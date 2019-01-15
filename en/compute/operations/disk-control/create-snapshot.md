@@ -31,7 +31,7 @@ To create a disk snapshot:
 1. In the management console, select the folder where the disk is located.
 1. Click on the **Yandex Compute Cloud** tile.
 1. On the **Virtual machines** page, go to the **Disks** tab.
-1. In the line with the disk name, click ![](../../../_assets/dots.png) and select the **Create snapshot** command.
+1. In the line with the disk name, click ![image](../../../_assets/dots.svg) and select the **Create snapshot** command.
 1. Enter the snapshot name.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
@@ -49,28 +49,20 @@ To create a disk snapshot:
     $ yc compute snapshot create --help
     ```
 
-1. Select the disk to take a snapshot of. To get a list of all the disks in the folder specified in your CLI profile, run the command:
+1. Select the disk to take a snapshot of. To get a list of disks in the default folder, run the command:
 
-    ```
-    $ yc compute disk list
-    +----------------------+------------+-------------+---------------+--------+----------------------+
-    |          ID          |    NAME    |    SIZE     |     ZONE      | STATUS |     DESCRIPTION      |
-    +----------------------+------------+-------------+---------------+--------+----------------------+
-    | fhm53hnjmvplsn5r0633 |            | 13958643712 | ru-central1-a | READY  |                      |
-    | fhmc3pdo4l7uqf8hq0ad |            | 42949672960 | ru-central1-a | READY  |                      |
-    +----------------------+------------+-------------+---------------+--------+----------------------+
-    ```
+    [!INCLUDE [compute-disk-list](../../_includes_service/compute-disk-list.md)]
 
 1. Create a snapshot in the default folder:
 
     ```
     $ yc compute snapshot create \
-        --name my-yc-snapshot-fhm53 \
-        --description "my first snapshot via yc" \
-        --disk-id fhm53hnjmvplsn5r0633
+        --name first-snapshot \
+        --description "my first snapshot via CLI" \
+        --disk-id fhm4aq4hvq5g3nepvt9b
     ```
 
-    This command creates a disk snapshot with the name `my-yc-snapshot-fhm53` and description `my first snapshot via yc`.
+    This command creates a disk snapshot with the name `first-snapshot` and description `my first snapshot via CLI`.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
@@ -79,3 +71,4 @@ To create a disk snapshot:
 A snapshot is created asynchronously. The snapshot is created immediately after the create command is run. It gets the `CREATING` status. From this point on, you can resume writing data to disk, and disk operations will not affect the data in the snapshot.
 
 Once the snapshot has been created, its status changes to `READY`. From this point on, you can use the snapshot for creating images, filling disks, and so on.
+

@@ -24,5 +24,9 @@ To create a VM:
 
 When a VM is being created, it is assigned an IP address and FQDN. You can use this data to access the VM via RDP.
 
+You can make a public IP address static. For more information, see the section [[!TITLE]](../vm-control/vm-set-static-ip.md).
+
 #### See also
+
 - [[!TITLE]](../vm-control/vm-connect-rdp.md)
+

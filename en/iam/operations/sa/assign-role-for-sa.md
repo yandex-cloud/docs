@@ -12,7 +12,7 @@ To assign a role for the folder where  the service account was created:
 
 1. Select the folder.
 2. Select the **Service accounts**  tab.
-3. Click [](../../../_assets/dots.png) next to the service account and select **Edit service account**.
+3. Click ![](../../../_assets/dots.png) next to the service account and select **Edit service account**.
 4. Click **Add role** and select a role.
 5. Click **Save**.
 

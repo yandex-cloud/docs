@@ -44,7 +44,7 @@ Tabs:
     $ yc compute instance get first-instance
     ```
 
-1. To get information about a VM with [metadata](../../concepts/vm-metadata.md) use the `--full` flag:
+    To get information about a VM with [metadata](../../concepts/vm-metadata.md), use the `--full` flag:
 
     ```
     $ yc compute instance get --full first-instance
@@ -165,3 +165,4 @@ Get an internal IP address from inside a VM:
 ```
 $ curl http://169.254.169.254/latest/meta-data/local-ipv4
 ```
+

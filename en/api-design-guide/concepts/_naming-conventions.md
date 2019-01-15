@@ -49,8 +49,8 @@ service DiskService {
 ```
 
 > [!NOTE]
-
-The term "interfaces" is introduced to avoid confusion between a service in gRPC terms and a service in Yandex.Cloud terms.
+> 
+> The term "interfaces" is introduced to avoid confusion between a service in gRPC terms and a service in Yandex.Cloud terms.
 
 ## Method naming
 

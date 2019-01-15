@@ -13,7 +13,7 @@ To delete a snapshot:
 1. In the management console, select the folder the snapshot belongs to.
 1. Click on the **Yandex Compute Cloud** tile.
 1. On the **Virtual machines** page, go to the **Disk snapshots** tab.
-1. In the line with the appropriate snapshot, click ![](../../../_assets/dots.png) and select the **Delete** command.
+1. In the line with the appropriate snapshot, click ![image](../../../_assets/dots.svg) and select the **Delete** command.
 1. Confirm the deletion.
 
 **[!TAB CLI]**
@@ -26,23 +26,17 @@ To delete a snapshot:
     $ yc compute snapshot delete --help
     ```
 
-1. Get a list of all snapshots:
+1. Get a list of snapshots in the default folder:
 
-    ```
-    $ yc compute snapshot list
-    +----------------------+----------------------+----------------------+--------+--------------------------+
-    |          ID          |         NAME         |     PRODUCT IDS      | STATUS |       DESCRIPTION        |
-    +----------------------+----------------------+----------------------+--------+--------------------------+
-    | fd8rlt1u2rf0lps3rqm9 | my-yc-snapshot-fhm53 | f2ecl5vhsftdean0sr6s | READY  | my first snapshot via yc |
-    +----------------------+----------------------+----------------------+--------+--------------------------+
-    ```
+    [!INCLUDE [compute-snapshot-list](../../_includes_service/compute-snapshot-list.md)]
 
 1. Select the `ID` or `NAME` of the snapshot you need.
 1. Delete the snapshot:
 
     ```
     $ yc compute snapshot delete \
-        --name my-yc-snapshot-fhm53
+        --name first-snapshot
     ```
 
 ---
+
