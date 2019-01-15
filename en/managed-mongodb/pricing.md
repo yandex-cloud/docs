@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Pricing policy for [!KEYREF MG]
 
 ## What goes into the cost of using [!KEYREF mmg-short-name] {#rules}

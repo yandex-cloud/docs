@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Pricing policy for [!KEYREF compute-full-name]
 
 ## What is included in the cost of using [!KEYREF compute-short-name] {#rules}

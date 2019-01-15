@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Yandex Translate pricing
 
 ## What goes into the cost of using [!KEYREF translate-short-name] {#rules}

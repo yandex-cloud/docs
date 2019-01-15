@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Правила тарификации для Yandex SpeechKit
 
 ## Из чего складывается стоимость использования [!KEYREF speechkit-short-name] {#rules}

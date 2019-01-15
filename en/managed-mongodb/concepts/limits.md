@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Quotas and limits
 
 In the [!KEYREF mmg-name] service, the following limitations apply:

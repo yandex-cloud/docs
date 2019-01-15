@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Правила тарификации для [!KEYREF compute-full-name]
 
 ## Из чего складывается стоимость использования [!KEYREF compute-short-name] {#rules}

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Правила тарификации для Yandex Translate
 
 ## Из чего складывается стоимость использования [!KEYREF translate-short-name] {#rules}

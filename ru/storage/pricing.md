@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Правила тарификации для Yandex [!KEYREF objstorage-name]
 
 

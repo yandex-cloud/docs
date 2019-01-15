@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Pricing policy for Yandex [!KEYREF mch-short-name]
 
 ## What goes into the cost of using [!KEYREF mch-short-name] {#rules}

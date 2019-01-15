@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Quotas and limits
 
 In the [!KEYREF mch-name] service, the following limitations apply:

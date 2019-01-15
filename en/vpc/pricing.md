@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Pricing policy
 
 ## What goes into the cost of [!KEYREF vpc-short-name] use {#rules}
