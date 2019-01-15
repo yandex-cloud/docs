@@ -8,7 +8,7 @@ _A cloud network_ is similar to a traditional LAN in a data center. Cloud networ
 
 ### Outgoing traffic filtering {#egress-traffic-filter}
 
-Yandex.Cloud always blocks outgoing traffic to ports 25, 465, and 587:
+Yandex.Cloud always blocks outgoing traffic to port 25:
 
 * To any servers on the internet other than Yandex.Mail servers.
 * To Yandex Compute Cloud VM instances when accessed via a public IP address.
