@@ -22,7 +22,7 @@ Support request response time:
 
   [!INCLUDE [support-reaction-time](../_includes/support-reaction-time.md)]
 
-Technical support responds to requests 7 days a week from 10 a.m. to 10 p.m. (UTC+3).
+Technical support responds to requests 24 hours a day, 7 days a week.
 
 #### How quickly will technical support solve the problem? {#resolution-time}
 
@@ -34,16 +34,16 @@ You can contact technical support an unlimited number of times.
 
 #### How can I get help with architecture-related tasks? {#help-with-arch-tasks}
 
-To get help with architecture-related tasks, use the [support contact form](https://console.cloud.yandex.ru/support) in the management console.
+To get help with architecture-related tasks, use the feedback form on the management console support page.
 
 #### What third-party software is covered by Yandex.Cloud technical support? {#supported-third-party-sw}
 
 Technical support includes troubleshooting of problems with third-party software that is used in conjunction with the cloud infrastructure, and assistance in solving identified problems to a limited extent. Technical support engineers can help you with installation, basic configuration, and diagnostics of the following software:
 
 - Operating systems running on Yandex.Cloud VM instances that were created using public images provided by Yandex.Cloud.
-- Databases created with Managed Services for various DBMS.
+- Databases created with [[!KEYREF mpg-full-name]](../managed-postgresql/), [[!KEYREF mch-full-name]](../managed-clickhouse/), [[!KEYREF mmg-full-name]](../managed-mongodb/).
 
 #### What happens if you can't solve my problem with third-party software? {#unresolved-third-party-issues}
 
-If the technical support team can't resolve the issue with third-party software, you will need to contact the support service of the corresponding software vendor. In some cases, contacting the support service requires a valid contract for technical support with the vendors or their partners.
+If the technical support team can't resolve the issue with third-party software, you will need to contact the support service of the software vendor. In some cases, contacting the support service requires a valid contract for technical support with the vendors or their partners.
 
