@@ -61,7 +61,7 @@ For Windows, the CLI can be installed using PowerShell and `cmd`:
     1. Run the command:
 
         ```
-        iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))
+        iex (New-Object System.Net.WebClient).DownloadString('https://[!KEYREF s3-storage-host]/[!KEYREF yc-windows-path]'))
         ```
 
     1. The installation script will ask whether to add the path to `yc` to the PATH variable:
@@ -77,7 +77,7 @@ For Windows, the CLI can be installed using PowerShell and `cmd`:
     1. Run the command:
 
         ```
-        @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
+        @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://[!KEYREF s3-storage-host]/[!KEYREF yc-windows-path]'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
         ```
 
     1. The installation script will ask whether to add the path to `yc` to the PATH variable:
