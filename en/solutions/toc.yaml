@@ -19,11 +19,21 @@ items:
       href: archive/index.md
     - name: Single-node file server
       href: archive/single-node-file-server.md
-    - name: Backup to Object Storage via Acronis Backup Gateway
+    - name: Backup to Object Storage via Acronis Backup
       href: archive/object-storage-acronis.md
-  - name: Test environments
+    - name: Backup to Object Storage via CloudBerry Desktop Backup
+      href: archive/object-storage-cloudberry.md
+    - name: Backup to Object Storage via Duplicati
+      href: archive/object-storage-duplicati.md
+  - name: Test environment
     items:
     - name: Overview
       href: testing/index.md
     - name: Creating test VMs using GitLab CI
       href: testing/ci-for-snapshots.md
+  - name: Performing infrastructure management
+    items:
+    - name: Overview
+      href: infrastructure-management/index.md
+    - name: Getting started with Terraform
+      href: infrastructure-management/terraform-quickstart.md

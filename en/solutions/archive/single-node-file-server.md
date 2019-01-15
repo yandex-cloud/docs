@@ -2,16 +2,18 @@
 
 To create a single-node file server:
 
-* [Create a VM for the file server](#create-vm)
-* [Set up Samba and NFS](#setup-samba-nfs)
-* [Test the file server operation](#test-file-server)
+1. [Create a VM for the file server](#create-vm)
+1. [Set up Samba and NFS](#setup-samba-nfs)
+1. [Test the file server operation](#test-file-server)
 
-## Creating a VM for the file server {#create-vm}
+## Before you start {#before-begin}
 
 Before creating a VM:
 
 1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.ru) and select the folder where you want to perform the operations.
-1. Make sure the selected folder has a network with a subnet that the VM can be connected to. For that, on the folder page, click the tile **Yandex Virtual Private Cloud**. If the list contains a network, click on its name to see the list of subnets. If there is neither network nor subnet, [create them](../../vpc/quickstart.md).
+1. Make sure the selected folder has a network with a subnet that the VM can be connected to. To do this, click the **Yandex Virtual Private Cloud** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If there aren't any networks or subnets, [create them](../../vpc/quickstart.md).
+
+## 1. Create a VM for the file server {#create-vm}
 
 To create a VM:
 
@@ -49,15 +51,15 @@ You need to create a key pair for SSH connection yourself. To generate keys, use
 
 Creating the VM may take several minutes. When the VM's status changes to `RUNNING`, you can [set up NFS and Samba](#setup-samba-nfs).
 
-When a VM is being created, it is assigned an IP address and hostname (FQDN). This data can be used for SSH access.
+When a VM is created, it is assigned an IP address and hostname (FQDN). This data can be used for SSH access.
 
-## Setting up Samba and NFS {#setup-samba-nfs}
+## 2. Set up Samba and NFS {#setup-samba-nfs}
 
 After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the following:
 
-1. In the **Network** section on the VM page of the [management console](https://console.cloud.yandex.ru), find the VM's public IP address.
+1. Go to the VM page of the [management console](https://console.cloud.yandex.ru). In the **Network** section, find the VM's public IP address.
 
-1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM via SSH. You can use the `ssh` tool on Linux and macOS and [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
+1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
       The recommended authentication method when connecting over SSH is using a key pair.  Don't forget to set up the created key pair: the private key must match the public key sent to the VM.
 
@@ -283,9 +285,9 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
 
    Instead of`<IP address>`, specify the IP address of the computer to which you are going to connect the network data disk via NFS.
 
-## Testing the file server operation {#test-file-server}
+## 3. Test the file server operation {#test-file-server}
 
-1. On the `fileserver-tutorial` VM, create a test directory with a file:
+1. On the `fileserver-tutorial` VM, create a test directory with a file as follows:
 
    ```bash
    $ sudo mkdir /data/fileserver-tutorial

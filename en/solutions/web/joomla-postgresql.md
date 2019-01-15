@@ -2,13 +2,13 @@
 
 To set up a static website on Joomla:
 
-* [Create a VM for Joomla](#create-vm)
-* [Create a PostgreSQL DB cluster](#create-cluster)
-* [Install Joomla and additional components](#install)
-* [Configure Apache2 web server](#configure-apache2)
-* [Configure Joomla](#configure-joomla)
-* [Upload the website files](#upload-files)
-* [Configure DNS](#configure-dns)
+1. [Create a VM for Joomla](#create-vm)
+1. [Create a PostgreSQL DB cluster](#create-cluster)
+1. [Install Joomla and additional components](#install)
+1. [Configure Apache2 web server](#configure-apache2)
+1. [Configure Joomla](#configure-joomla)
+1. [Upload the website files](#upload-files)
+1. [Configure DNS](#configure-dns)
 
 ## Before you start {#before-begin}
 
@@ -17,7 +17,7 @@ Before creating a VM and a DB cluster:
 1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.ru) and select the folder where you want to perform the operations.
 1. Make sure the selected folder has a network with subnets in the availability zones `ru-cental1-a`, `ru-central1-b`, and `ru-central1-c`. To do this, click the **Yandex Virtual Private Cloud** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
-## Creating a VM for Joomla {#create-vm}
+## 1. Create a VM for Joomla {#create-vm}
 
 To create a VM:
 
@@ -47,9 +47,9 @@ You need to create a key pair for SSH connection yourself. To generate keys, use
 
 Creating the VM may take several minutes.
 
-When a VM is being created, it is assigned an IP address and hostname (FQDN). This data can be used for SSH access.
+When a VM is created, it is assigned an IP address and hostname (FQDN). This data can be used for SSH access.
 
-## Creating a PostgreSQL DB cluster {#create-cluster}
+## 2. Create a PostgreSQL DB cluster {#create-cluster}
 
 1. On the folder page, click **Create resource** and select **PostgreSQL cluster**.
 1. In the **Name** field, enter the cluster name: `joomla-pg-tutorial-db-cluster`.
@@ -65,13 +65,13 @@ When a VM is being created, it is assigned an IP address and hostname (FQDN). Th
 
 Creating the DB cluster may take several minutes.
 
-## Installing Joomla and additional components {#install}
+## 3. Install Joomla and additional components {#install}
 
 After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the following:
 
-1. In the **Network** section on the VM page of the [management console](https://console.cloud.yandex.ru), find the VM's public IP address.
+1. Go to the VM page of the [management console](https://console.cloud.yandex.ru). In the **Network** section, find the VM's public IP address.
 
-1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM via SSH. You can use the `ssh` tool on Linux and macOS and [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
+1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
       The recommended authentication method when connecting over SSH is using a key pair.  Don't forget to set up the created key pair: the private key must match the public key sent to the VM.
 
@@ -157,7 +157,7 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
 
     ---
 
-## Configuring Apache2 web server {#configure-apache2}
+## 4. Configure Apache2 web server {#configure-apache2}
 
 1. Perform the basic configuration of Apache2:
 
@@ -264,14 +264,14 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
    $ sudo iptables-save | sudo tee /etc/sysconfig/iptables
    ```
 
-## Configuring Joomla {#configure-joomla}
+## 5. Configure Joomla {#configure-joomla}
 
 Configure Joomla following the [instructions](https://docs.joomla.org/J3.x:Installing_Joomla/ru) on the project website.
 During the configuration process, you'll need the DB connection settings. To get the parameters and configure them correctly, do the following:
 
 1. Get the addresses of the DB cluster hosts in the management console:
     1. Open the folder where the DB cluster was created.
-    1. Click the **Managed Service for PostgreSQL** tile.
+    1. Click on **[!KEYREF mpg-name]**.
     1. Select the cluster `joomla-pg-tutorial-db-cluster`.
     1. Open the **Hosts** tab.
     1. In the **Address (domain name)** column, find the host addresses.
@@ -281,17 +281,20 @@ During the configuration process, you'll need the DB connection settings. To get
    * **DB server name**:
 
      ```
-     <address of host 1>,<address of host 2>,<address of host 3> port=6432 sslmode=verify-full target_session_attrs=read-write
+     host=<address of host 1>,<address of host 2>,<address of host 3> \
+     port=6432 \
+     sslmode=verify-full \
+     target_session_attrs=read-write
      ```
    * **Username**:`joomla`.
    * **Password**: enter the DB user's password.
    * **DB name**: `joomla-pg-tutorial-db`.
 
-## Uploading website files {#upload-files}
+## 6. Upload the website files {#upload-files}
 
 [!INCLUDE [upload-files](../_solutions_includes/upload-web-site-files.md)]
 
-## Configuring DNS {#configure-dns}
+## 7. Configure DNS {#configure-dns}
 
 The domain name that you want to use for your website must be associated with the created `joomla-pg-tutorial-web` VM.
 
