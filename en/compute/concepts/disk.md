@@ -2,7 +2,7 @@
 
 _A disk_ is a virtual analog of physical storage devices, such as SSD and HDD.
 
-Disks are designed for storing data. They are attached to VMs to work with them. You can attach an unlimited number of disks to a VM. If you detach a disk, its data is not deleted.
+Disks are designed for storing data. They are attached to VMs to work with them. If you detach a disk, its data is not deleted.
 
 Each disk is located in one of the availability zones and is not automatically replicated to other zones.
 
