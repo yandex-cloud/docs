@@ -14,14 +14,14 @@ To set up a static website on Joomla:
 
 Before creating a VM and a DB cluster:
 
-1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.ru) and select the folder where you want to perform the operations.
+1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.com) and select the folder where you want to perform the operations.
 1. Make sure the selected folder has a network with subnets in the availability zones `ru-cental1-a`, `ru-central1-b`, and `ru-central1-c`. To do this, click the **Yandex Virtual Private Cloud** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
 ## 1. Create a VM for Joomla {#create-vm}
 
 To create a VM:
 
-1. On the folder page of the [management console](https://console.cloud.yandex.ru), click **Create resource** and select **Virtual machine**.
+1. On the folder page of the [management console](https://console.cloud.yandex.com), click **Create resource** and select **Virtual machine**.
 
 1. In the **Name** field, enter the VM name: `joomla-pg-tutorial-web`.
 
@@ -69,7 +69,7 @@ Creating the DB cluster may take several minutes.
 
 After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the following:
 
-1. Go to the VM page of the [management console](https://console.cloud.yandex.ru). In the **Network** section, find the VM's public IP address.
+1. Go to the VM page of the [management console](https://console.cloud.yandex.com). In the **Network** section, find the VM's public IP address.
 
 1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
@@ -97,10 +97,10 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
     $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
     $ sudo apt-get update
     $ sudo apt-get -q -y install php5-pgsql php5-curl php5-json php5-cgi php5 libapache2-mod-php5 php5-mcrypt apache2 php5-common cron debconf-utils sendmail unzip iptables postgresql-client-10
-    $ sudo mkdir ~apache/.postgresql
-    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
-    $ sudo chmod 0600 ~apache/.postgresql/root.crt
-    $ sudo chown -R apache:apache ~apache/.postgresql
+    $ sudo mkdir ~www-data/.postgresql
+    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
+    $ sudo chmod 0600 ~www-data/.postgresql/root.crt
+    $ sudo chown -R www-data:www-data ~www-data/.postgresql
     ```
 
     **[!TAB Ubuntu 16]**
@@ -110,10 +110,10 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
     $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
     $ sudo apt-get update
     $ sudo apt-get -q -y install php7.0-pgsql php7.0-curl php7.0-json php7.0-cgi php7.0 libapache2-mod-php7.0 php7.0-mcrypt apache2 php-mail php7.0-common cron debconf-utils sendmail unzip iptables composer postgresql-client-10
-    $ sudo mkdir ~apache/.postgresql
-    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
-    $ sudo chmod 0600 ~apache/.postgresql/root.crt
-    $ sudo chown -R apache:apache ~apache/.postgresql
+    $ sudo mkdir ~www-data/.postgresql
+    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
+    $ sudo chmod 0600 ~www-data/.postgresql/root.crt
+    $ sudo chown -R www-data:www-data ~www-data/.postgresql
     ```
 
     **[!TAB Ubuntu 18]**
@@ -123,10 +123,10 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
     $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
     $ sudo apt-get update
     $ sudo apt-get -q -y install php7.2-pgsql php7.2-curl php7.2-json php7.2-cgi php7.2 libapache2-mod-php7.2 apache2 php-mail php7.2-common cron debconf-utils sendmail unzip iptables composer postgresql-client-10
-    $ sudo mkdir ~apache/.postgresql
-    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
-    $ sudo chmod 0600 ~apache/.postgresql/root.crt
-    $ sudo chown -R apache:apache ~apache/.postgresql
+    $ sudo mkdir ~www-data/.postgresql
+    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
+    $ sudo chmod 0600 ~www-data/.postgresql/root.crt
+    $ sudo chown -R www-data:www-data ~www-data/.postgresql
     ```
 
     **[!TAB CentOS 6]**
@@ -146,7 +146,7 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
 
     ```bash
     $ sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
-    $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+    $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
     $ sudo yum check-update
     $ sudo yum -y install --enablerepo remi-php72 httpd php php-pgsql php php-common php-mbstring php-zip php-xml nano wget postgresql10
     $ sudo mkdir ~apache/.postgresql
@@ -201,7 +201,7 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
 
    ---
 
-1. Specify the virtual host settings in the Apache2 configuration file. You can edit the file using the `nano` utility:
+1. Specify the virtual host settings in the Apache2 configuration file. You can edit the file using the `nano` editor:
 
    ---
 
@@ -254,6 +254,17 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
 
    ---
 
+1. This step should only be performed on a VM running CentOS.
+
+   Change SELinux settings:
+   
+   ```bash
+   $ sudo semanage fcontext -a -t httpd_sys_content_t "/var/www/html(/.*)?"
+   $ sudo semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/html(/.*)?"
+   $ sudo restorecon -R /var/www/html
+   $ setsebool -P httpd_can_network_connect 1
+   ```
+
 1. This step should only be performed on a VM running CentOS 6.
 
    Open network ports 80 and 443 using the `iptables` utility:
@@ -264,9 +275,11 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
    $ sudo iptables-save | sudo tee /etc/sysconfig/iptables
    ```
 
+To check privacy Joomla may require to delete a test file. Open the `/var/www/html/installation` directory on your VM and delete a file.
+
 ## 5. Configure Joomla {#configure-joomla}
 
-Configure Joomla following the [instructions](https://docs.joomla.org/J3.x:Installing_Joomla/ru) on the project website.
+Configure Joomla following the [instructions](https://docs.joomla.org/J3.x:Installing_Joomla/en) on the project website.
 During the configuration process, you'll need the DB connection settings. To get the parameters and configure them correctly, do the following:
 
 1. Get the addresses of the DB cluster hosts in the management console:
@@ -279,12 +292,8 @@ During the configuration process, you'll need the DB connection settings. To get
 1. At the **Database** step, fill in the following fields  in the Joomla web installer:
    * **DB type**: `PostgreSQL`.
    * **DB server name**:
-
      ```
-     host=<address of host 1>,<address of host 2>,<address of host 3> \
-     port=6432 \
-     sslmode=verify-full \
-     target_session_attrs=read-write
+     <address of host 1>,<address of host 2>,<address of host 3> port=6432 sslmode=verify-full target_session_attrs=read-write
      ```
    * **Username**:`joomla`.
    * **Password**: enter the DB user's password.

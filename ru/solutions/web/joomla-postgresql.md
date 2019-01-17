@@ -90,10 +90,10 @@
     $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
     $ sudo apt-get update
     $ sudo apt-get -q -y install php5-pgsql php5-curl php5-json php5-cgi php5 libapache2-mod-php5 php5-mcrypt apache2 php5-common cron debconf-utils sendmail unzip iptables postgresql-client-10
-    $ sudo mkdir ~apache/.postgresql
-    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
-    $ sudo chmod 0600 ~apache/.postgresql/root.crt
-    $ sudo chown -R apache:apache ~apache/.postgresql
+    $ sudo mkdir ~www-data/.postgresql
+    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
+    $ sudo chmod 0600 ~www-data/.postgresql/root.crt
+    $ sudo chown -R www-data:www-data ~www-data/.postgresql
     ```
     
     **[!TAB Ubuntu 16]**
@@ -103,10 +103,10 @@
     $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
     $ sudo apt-get update
     $ sudo apt-get -q -y install php7.0-pgsql php7.0-curl php7.0-json php7.0-cgi php7.0 libapache2-mod-php7.0 php7.0-mcrypt apache2 php-mail php7.0-common cron debconf-utils sendmail unzip iptables composer postgresql-client-10
-    $ sudo mkdir ~apache/.postgresql
-    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
-    $ sudo chmod 0600 ~apache/.postgresql/root.crt
-    $ sudo chown -R apache:apache ~apache/.postgresql
+    $ sudo mkdir ~www-data/.postgresql
+    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
+    $ sudo chmod 0600 ~www-data/.postgresql/root.crt
+    $ sudo chown -R www-data:www-data ~www-data/.postgresql
     ```
     
     **[!TAB Ubuntu 18]**
@@ -116,10 +116,10 @@
     $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
     $ sudo apt-get update
     $ sudo apt-get -q -y install php7.2-pgsql php7.2-curl php7.2-json php7.2-cgi php7.2 libapache2-mod-php7.2 apache2 php-mail php7.2-common cron debconf-utils sendmail unzip iptables composer postgresql-client-10
-    $ sudo mkdir ~apache/.postgresql
-    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
-    $ sudo chmod 0600 ~apache/.postgresql/root.crt
-    $ sudo chown -R apache:apache ~apache/.postgresql
+    $ sudo mkdir ~www-data/.postgresql
+    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
+    $ sudo chmod 0600 ~www-data/.postgresql/root.crt
+    $ sudo chown -R www-data:www-data ~www-data/.postgresql
     ```
     
     **[!TAB CentOS 6]**
@@ -139,7 +139,7 @@
     
     ```bash
     $ sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
-    $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+    $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
     $ sudo yum check-update
     $ sudo yum -y install --enablerepo remi-php72 httpd php php-pgsql php php-common php-mbstring php-zip php-xml nano wget postgresql10
     $ sudo mkdir ~apache/.postgresql
@@ -194,7 +194,7 @@
 
    ---
 
-1. Задайте настройки виртуального хоста в конфигурационном файле Apache2. Вы можете отредактировать файл с помощью утилиты `nano`:
+1. Задайте настройки виртуального хоста в конфигурационном файле Apache2. Вы можете отредактировать файл с помощью редактора `nano`:
 
    ---
 
@@ -247,7 +247,18 @@
 
    ---
 
-1. Этот шаг нужно выполнять только на виртуальной машине с ОС CentOS 6.
+1. Этот шаг нужно выполнять только на виртуальной машине с CentOS.
+
+   Измените настройки SELinux:
+   
+   ```bash
+   $ sudo semanage fcontext -a -t httpd_sys_content_t "/var/www/html(/.*)?"
+   $ sudo semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/html(/.*)?"
+   $ sudo restorecon -R /var/www/html
+   $ setsebool -P httpd_can_network_connect 1
+   ```
+
+1. Этот шаг нужно выполнять только на виртуальной машине с CentOS 6.
 
    Откройте сетевые порты 80 и 443 с помощью утилиты `iptables`:
    ```bash
@@ -255,7 +266,6 @@
    $ sudo iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
    $ sudo iptables-save | sudo tee /etc/sysconfig/iptables
    ```
-
 
 ## 5. Настройте Joomla {#configure-joomla}
 
@@ -275,10 +285,11 @@
      ```
      <адрес хоста 1>,<адрес хоста 2>,<адрес хоста 3> port=6432 sslmode=verify-full target_session_attrs=read-write
      ```
-   * **Имя пользователя**:`joomla`.
+   * **Имя пользователя**: `joomla`.
    * **Пароль**: укажите пароль пользователя БД.
    * **Имя базы данных**: `joomla-pg-tutorial-db`.
 
+Для проверки безопасности Joomla может потребовать удалить специальный тестовый файл. На ВМ перейдите в каталог `/var/www/html/installation` и удалите оттуда указанный файл.
 
 ## 6. Загрузите файлы веб-сайта {#upload-files}
 
