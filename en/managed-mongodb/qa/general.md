@@ -57,12 +57,7 @@ For detailed instructions, see the section [[!TITLE]](../quickstart.md).
 
 For a network-based storage (NBS), the number of hosts in a cluster is limited only by the requested computing resources and the size of the storage for the cluster.
 
-For NVMe SSD storage, the number of hosts is limited during cluster creation:
-
-- For [!KEYREF PG] and [!KEYREF MG] clusters, at least three hosts can be created.
-- For [!KEYREF CH] clusters, at least two hosts can be created.
-
-However, after cluster creation, hosts can be added within [available resources](../concepts/limits.md).
+For NVMe SSD storage, the number of hosts is limited during cluster creation: for [!KEYREF MG] clusters, at least three hosts must be created.
 
 #### How can I access a running DB host? {#db-access}
 
