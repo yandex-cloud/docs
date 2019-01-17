@@ -17,7 +17,7 @@
 | ----- | ----- |
 | Maximum number of vCPUs per VM | 32 |
 | Maximum virtual memory per VM | 256 GB |
-| Maximum number of disks connected to a single VM | 4 |
+| Maximum number of disks connected to a single VM | 6 |
 | Maximum disk size | 4 TB |
 | Maximum disk snapshot size | 4 TB |
 

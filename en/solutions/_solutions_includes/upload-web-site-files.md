@@ -6,9 +6,21 @@
 
 1. Grant your user write access to the directory `/var/www/html`:
 
+   ---
+   
+   **[!TAB Ubuntu]**
+
    ```bash
-   $ sudo setfacl -m u:<your user's name>:w /var/www/html
+   $ sudo chown -R "$USER":www-data /var/www/html
    ```
+
+   **[!TAB CentOS]**
+
+   ```bash
+   $ sudo chown -R "$USER":apache /var/www/html
+   ``` 
+   
+   ---
 
 1. Upload the website files to the VM over SCP.
 
