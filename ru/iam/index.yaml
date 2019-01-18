@@ -13,7 +13,7 @@ links:
   href: "operations/"
 - title: "Основные понятия"
   description: "Узнайте про концепции и ресурсы сервиса"
-  href: "concepts/overview"
+  href: "concepts/"
 - title: "Справочник API"
   description: "Описание методов HTTP API"
   href: "api-ref/"
