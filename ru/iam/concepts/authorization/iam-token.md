@@ -12,5 +12,4 @@ IAM-токен (токен) — уникальная последователь
 
 - [[!TITLE]](../../operations/iam-token/create.md)
 - [[!TITLE]](../../operations/iam-token/create-for-sa.md)
-- [[!TITLE]](authorization.md)
-
+- [[!TITLE]](index.md)

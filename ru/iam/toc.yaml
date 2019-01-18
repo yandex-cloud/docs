@@ -44,27 +44,29 @@ items:
   - name: Основные понятия
     items:
       - name: Обзор
-        href: concepts/overview.md
-      - name: Пользователи Яндекс.Облака
+        href: concepts/index.md
+      - name: Управление доступом к ресурсам
         items:
           - name: Обзор
-            href: concepts/users/users.md
-          - name: Сервисные аккаунты
-            href: concepts/users/service-accounts.md
+            href: concepts/access-control/index.md
+          - name: Роли
+            href: concepts/access-control/roles.md
+          - name: Системная группа allAuthenticatedUsers
+            href: concepts/access-control/system-group.md
       - name: Авторизация
         items:
           - name: Обзор
-            href: concepts/authorization/authorization.md
+            href: concepts/authorization/index.md
           - name: IAM-токен
             href: concepts/authorization/iam-token.md
           - name: OAuth-токен
             href: concepts/authorization/oauth-token.md
-      - name: Управление доступом к ресурсам
-        items:
-          - name: Роли
-            href: concepts/access-control/roles.md
-          - name: Привязка прав доступа
-            href: concepts/access-control/access-bindings.md
+          - name: Авторизованные ключи
+            href: concepts/authorization/key.md
+          - name: AWS-совместимые ключи доступа
+            href: concepts/authorization/access-key.md
+      - name: Сервисные аккаунты
+        href: concepts/users/service-accounts.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Безопасность и управление доступом
