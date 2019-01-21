@@ -16,6 +16,9 @@
 #### Какие карты принимаются к оплате? {#card-types}
 [!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]  
 
+#### Существует ли минимальная сумма платежа? {#minimum}
+Да. Минимальная сумма платежа отображается в момент оплаты в окне **Пополнить счет**. 
+
 #### Как изменить платежные реквизиты? {#change-requisites}
 
 [!INCLUDE [change-address](../_includes/change-address.md)]
