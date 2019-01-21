@@ -15,7 +15,7 @@ POST https://translate.api.cloud.yandex.net/translate/v1/languages
 
 Параметр | Описание
 ----- | -----
-`folderId` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../concepts/auth.md).
+`folderId` | Обязательный параметр.<br/>Идентификатор вашего каталога.<br/>Подробнее о том, как узнать идентификатор каталога читайте в разделе [Авторизация в API](../../concepts/auth.md).
 
 
 ## Ответ {#response}
@@ -29,7 +29,7 @@ POST https://translate.api.cloud.yandex.net/translate/v1/languages
         ...
         {"language": <код языка>}
    ]
-} 
+}
 ```
 
 
@@ -57,7 +57,7 @@ curl -X POST \
         ...
         {"language": "ja"}
    ]
-} 
+}
 ```
 
 

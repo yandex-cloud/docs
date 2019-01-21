@@ -5,13 +5,22 @@ items:
     href: concepts/auth.md
   - name: Справочник API
     items:
+    - name: v2
+      items:
+      include:
+        repo: docs-api
+        path: ru/translate/toc.yaml
+    - name: v1 (DEPRECATED)
+      items:
+      - name: Обзор
+        href: api-ref/v1/index.md
       - name: Перевод текста
-        href: api-ref/translate.md
+        href: api-ref/v1/translate.md
       - name: Определение языка текста
-        href: api-ref/detect.md
+        href: api-ref/v1/detect.md
       - name: Список поддерживаемых языков
-        href: api-ref/languages.md
-  - name: Формат ответа
-    href: concepts/response.md
+        href: api-ref/v1/languages.md
+      - name: Формат ответа
+        href: api-ref/v1/response.md
   - name: Правила тарификации
     href: pricing.md

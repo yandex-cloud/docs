@@ -1,1 +1,0 @@
-[!INCLUDE [response](../../_includes/response-translate-speechkit.md)]
