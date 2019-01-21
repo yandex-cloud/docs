@@ -3,13 +3,14 @@
 > [!NOTE]
 >
 > All the terms are given in the Glossary for informational purposes. If there is a conflict between the term definitions in the Agreement and those in the Glossary, the terms of the former shall prevail.
+>
 
 Report
 : A primary accounting document that confirms services rendered.
 <br/>See the section [Report](act.md).
 
 Grant
-: A discount given to a business or individual for using any Yandex.Cloud services.
+: A discount given to a business or individual for using any Yandex.Cloud services. The discount is applied to the total cost of services consumed, including VAT.
 <br/>See the section [Grant](bonus-account.md).
 
 Usage details

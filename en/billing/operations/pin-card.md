@@ -7,7 +7,8 @@ Funds for the resources consumed will only be debited from the bank card that yo
 
 > [!NOTE]
 >
-> If the selected bank card expires, it will no longer be linked to your billing account account. If you have already received a new bank card, change your bank card details or select one of the previously added bank cards.
+> If the selected bank card expires, it will no longer be linked to your billing account. If you have already received a new bank card, change your bank card details or select one of the previously added bank cards.
+>
 
 ## Changing bank card details {#change_card}
 

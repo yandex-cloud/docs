@@ -16,6 +16,10 @@ For more information, see [How to pay for resources](../payment/index.md).
 
 [!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]
 
+#### Is there a minimum payment amount? {#minimum}
+
+Yes. The minimum payment amount is shown at the time of payment in the **Top up account**  window.
+
 #### How can I change my payment details? {#change-requisites}
 
 [!INCLUDE [change-address](../_includes/change-address.md)]
@@ -24,9 +28,9 @@ For more information, see [How to pay for resources](../payment/index.md).
 
 You must pay for Yandex.Cloud resources in rubles (₽), regardless of your legal status ([billing account type](../concepts/billing-account.md#ba-types)) and the country you live in.
 
-#### Can I pay for resources with a bank card in a foreign currency?  {#currency-2}
+#### Can I pay for resources with a bank card in a different currency?  {#currency-2}
 
-Yes, you can.
+Yes.
 
 If you pay for resources with a bank card in a foreign currency, the equivalent amount in rubles, including VAT, is debited from the bank card. Additional bank fees for the currency conversion might be debited or credited a day or two later.
 
