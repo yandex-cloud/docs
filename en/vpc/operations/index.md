@@ -10,3 +10,8 @@
 - [[!TITLE]](subnet-create.md)
 - [[!TITLE]](subnet-delete.md)
 
+## Addresses
+
+- [[!TITLE]](set-static-ip.md)
+- [[!TITLE]](address-delete.md)
+

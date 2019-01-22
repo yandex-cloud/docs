@@ -1,10 +1,10 @@
-# Concepts
+# Concepts [!KEYREF vpc-short-name]
 
 [!KEYREF vpc-full-name] ([!KEYREF vpc-short-name]) is a service for creating cloud networks that are used for transmitting information within your cloud and connecting cloud resources to the internet.
 
-![](../_assets/vpc-overview.png)
+![vpc-overview](../_assets/vpc-overview.png)
 
-With [!KEYREF vpc-short-name], you can:
+Use [!KEYREF vpc-short-name] to:
 
 - Create subnets and connect cloud resources to them.
 - Enable the transfer of information between the cloud resources.

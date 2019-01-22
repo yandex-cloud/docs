@@ -1,7 +1,3 @@
----
-editable: false
----
-
 # Quotas and limits
 
 In the [!KEYREF vpc-full-name] service, the following limitations apply:

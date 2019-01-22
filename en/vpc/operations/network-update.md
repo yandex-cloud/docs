@@ -1,22 +1,22 @@
-# Изменить облачную сеть
+# Updating a cloud network
 
-После создания облачной сети вы можете изменить ее имя, описание и метки.
+After creating a cloud network, you can change its name, description, and tags.
 
 ---
 
 **[!TAB CLI]**
 
-Если у вас еще нет интерфейса командной строки Яндекс.Облака, [установите его](https://cloud.yandex.ru/docs/cli/quickstart#install).
+If you don't have the Yandex.Cloud command line interface yet, [install it](https://cloud.yandex.ru/docs/cli/quickstart#install).
 
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
-1. Посмотрите описание команды CLI для обновления параметров облачной сети:
+1. See the description of the CLI command for updating cloud network parameters:
 
     ```
     $ yc vpc network update --help
     ```
 
-1. Получите список всех сетей в каталоге по умолчанию:
+1. Get a list of all networks in the default folder:
 
     ```
     $ yc vpc network list
@@ -28,8 +28,9 @@
     +----------------------+----------------+
     ```
 
-1. Выберите `ID` или `NAME` нужной сети.
-1. Измените параметры облачной сети указав ее имя:
+1. Select the `ID` or `NAME` of the network you need.
+
+1. Change the parameters of the cloud network by specifying its name:
 
     ```
     $ yc vpc network update enpavfmgapumnl7cqin8 --new-name test-network-renamed
@@ -41,7 +42,8 @@
     labels:
       new_label: test_label
     ```
-Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
+
+You can pass the ID and name as positional arguments, or you can use the `--id` and `--name` flags:
 
 ```
 $ yc vpc network update --name test-network-1 --new-name test-network-renamed --labels new_label=test_label
@@ -50,11 +52,11 @@ $ yc vpc network update --id enpavfmgapumnl7cqin8 --new-name test-network-rename
 
 ---
 
-## Примеры
+## Examples
 
-### Изменение облачной сети с использованием имени
+### Changing a cloud network using its name
 
-Можно изменять облачную сеть, используя имя вместо идентификатора:
+You can change a cloud network using its name instead of its ID:
 
 ---
 
@@ -72,3 +74,4 @@ labels:
 ```
 
 ---
+

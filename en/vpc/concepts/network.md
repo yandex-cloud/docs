@@ -4,18 +4,18 @@
 
 _A cloud network_ is similar to a traditional LAN in a data center. Cloud networks are created in folders and used for transmitting information between cloud resources and connecting resources to the internet.
 
-[!KEYREF compute-full-name] VM instances and hosts of managed databases provide access to and from the internet via public IP addresses.
+Public IP addresses are used for providing internet access to and from [!KEYREF compute-full-name] VMs and database hosts.
 
-### Outgoing traffic filtering {#egress-traffic-filter}
+### Filtering outgoing traffic {#egress-traffic-filter}
 
-Yandex.Cloud always blocks outgoing traffic to port 25:
+Yandex.Cloud always blocks outgoing traffic to ports 25:
 
 * To any servers on the internet other than Yandex.Mail servers.
-* To Yandex Compute Cloud VM instances when accessed via a public IP address.
+* To Yandex Compute Cloud VMs when accessed via a public IP address.
 
 ## Subnets {#subnet}
 
-_A subnet_ is a range of IP addresses in a cloud network. Addresses from this range can be assigned to cloud resources, such as VM instances and DB clusters. Subnets can only be created in the folder the cloud network belongs to.
+_A subnet_ is a range of IP addresses in a cloud network. Addresses from this range can be assigned to cloud resources, such as VMs and DB clusters. Subnets can only be created in the folder the cloud network belongs to.
 
 The size of a subnet is set using the Classless Inter-Domain Routing (CIDR) method. Subnets can only use private IPv4 addresses from the ranges defined by [RFC 1918](https://tools.ietf.org/html/rfc1918):
 
