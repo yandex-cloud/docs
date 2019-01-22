@@ -6,7 +6,7 @@ The funds are debited from your personal account only if you have no [grants](bo
 
 ## Creating a personal account {#create-ls}
 
-Your personal account is created automatically once you [activate the paid version](../operations/activate-commercial.md). The account is virtual and has no status of a settlement or bank account. It cannot be disabled.
+Your personal account is created automatically once you [activate the paid version](../operations/activate-commercial.md). The account is virtual and does not have the status of a settlement or bank account. It cannot be disabled.
 
 ## Personal account number  {#id}
 

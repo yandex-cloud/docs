@@ -2,7 +2,7 @@
 
 #### Is there a trial period for Yandex.Cloud?  {#trial}
 
-Yes, you can. For more information, see the document [Trial period](../../free-trial/).
+Yes. For more information, see the document [Trial period](../../free-trial/).
 
 #### Who can use the trial period? {#who-can-use-trial}
 

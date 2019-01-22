@@ -13,13 +13,23 @@ items:
             href: operations/network-create.md
           - name: Deleting a cloud network
             href: operations/network-delete.md
+          - name: Updating a cloud network
+            href: operations/network-update.md
       - name: Subnet
         items:
           - name: Creating a subnet
             href: operations/subnet-create.md
           - name: Deleting a subnet
             href: operations/subnet-delete.md
-  - name: Сoncepts
+          - name: Updating a subnet
+            href: operations/subnet-update.md
+      - name: IP address
+        items:
+          - name: Getting a static public IP address
+            href: operations/set-static-ip.md
+          - name: Deleting a static public IP address
+            href: operations/address-delete.md
+  - name: Concepts
     items:
       - name: Relationship between service resources
         href: concepts/index.md

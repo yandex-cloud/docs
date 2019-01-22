@@ -14,7 +14,7 @@ The maximum size of the POST request body is 30 KB.
 
 | Parameter | Description |
 | ----- | ----- |
-| `folderId` | Required parameter.<br/>ID of your folder.<br/>For more information about how to find the folder ID, see the section [Authorization in the API](../concepts/auth.md). |
+| `folderId` | Required parameter.<br/>ID of your folder.<br/>For more information about how to find out the folder ID, see the section [Authorization in the API](../../concepts/auth.md). |
 
 ## Response {#response}
 
@@ -27,7 +27,7 @@ The response is returned in JSON format.
         ...
         {"language": <language code>}
    ]
-} 
+}
 ```
 
 ## Examples {#examples}
@@ -54,6 +54,6 @@ The response is returned in JSON format.
         ...
         {"language": "ja"}
    ]
-} 
+}
 ```
 

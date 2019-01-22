@@ -5,13 +5,20 @@ items:
     href: concepts/auth.md
   - name: API reference
     items:
+    - name: v2
+      items:
+      include:
+        repo: docs-api
+        path: en/translate/toc.yaml
+    - name: v1 (DEPRECATED)
+      items:
       - name: Text translation
-        href: api-ref/translate.md
+        href: api-ref/v1/translate.md
       - name: Language detection
-        href: api-ref/detect.md
+        href: api-ref/v1/detect.md
       - name: List of supported languages
-        href: api-ref/languages.md
-  - name: Response format
-    href: concepts/response.md
+        href: api-ref/v1/languages.md
+      - name: Response format
+        href: api-ref/v1/response.md
   - name: Pricing policy
     href: pricing.md

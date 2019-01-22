@@ -39,7 +39,7 @@ To create a [billing account](../concepts/billing-account.md):
 
     **[!TAB Individual account]**
 
-     Link your bank card:
+     Enter your full name and link your bank card:
       - Click **Add card**.
       - Enter the bank card details: the 16-digit number, expiry date, and CVV (on the back of the card).
       - Click **Save**.
@@ -61,14 +61,14 @@ To create a [billing account](../concepts/billing-account.md):
 <br/>Link your corporate bank card:
       - Click **Add card**.
       - Enter the bank card details: the 16-digit number, expiry date, and CVV (on the back of the card).
-      - Click **Save**.
+      - Click **Link**.
 
       [!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]
 
-      > [!NOTE]
-      >
-      > Linking a bank card is only necessary for creating a billing account. Funds from the associated card can only be debited after [activating the paid version](../operations/activate-commercial.md). At any time after creating a payment account, you can [change your payment method](../operations/change-payment-method.md).
-      >
+   > [!NOTE]
+   >
+   > Linking a bank card is only necessary for creating a billing account. Funds from the associated card can only be debited after [activating the paid version](../operations/activate-commercial.md). At any time after creating a payment account, you can [change your payment method](../operations/change-payment-method.md).
+   >
 
       [!INCLUDE [yandex-account](../_includes/payment-card-validation.md)]
 
@@ -86,7 +86,7 @@ To create a [billing account](../concepts/billing-account.md):
 
 1. Read the agreement. If you agree to the terms and conditions, select **I have read and accept the Terms**.
 
-1. Click **Create**.
+1. Click **Activate**.
 
     > [!NOTE]
     >
