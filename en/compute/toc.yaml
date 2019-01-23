@@ -121,7 +121,7 @@ items:
         href: api-ref/authentication.md
     include:
       repo: docs-api
-      path: ru/compute/toc.yaml
+      path: en/compute/toc.yaml
   - name: Questions and answers
     items:
       - name: General questions
