@@ -10,6 +10,8 @@ items:
         href: stt/index.md
       - name: Описание метода API
         href: stt/request.md
+      - name: Потоковое распознавание
+        href: stt/streaming.md
   - name: Синтез речи
     items:
       - name: О технологии
