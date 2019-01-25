@@ -6,7 +6,7 @@ Disks are designed for storing data. They are attached to VMs to work with them.
 
 Each disk is located in one of the availability zones and is not automatically replicated to other zones.
 
-## A disk as a Yandex.Cloud resource {#concept_cnc_yvc_v2b}
+## A disk as a Yandex.Cloud resource {#disk-as-resource}
 
 A disk is created within a folder and inherits its access rights.
 

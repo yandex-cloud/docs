@@ -8,18 +8,18 @@
 
 VMs are divided into two types: with partial and full core usage.
 
-### VMs with full &nbsp;core {#standard-cores} usage
+### VMs with full core usage {#standard-cores}
 
 If using VMs of this type, the user is guaranteed the performance of the entire core for each VM core.
 
 Allowed configurations of computing resources:
 
-* Number of cores:&1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32.
-* RAM allocated per core:&1&nbsp;GB, 2&nbsp;GB, 3&nbsp;GB, 4&nbsp;GB, 5&nbsp;GB, 6&nbsp;GB, 7&nbsp;GB, 8&nbsp;GB.
+* Number of cores: 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32.
+* RAM allocated per core: 1&nbsp;GB, 2&nbsp;GB, 3&nbsp;GB, 4&nbsp;GB, 5&nbsp;GB, 6&nbsp;GB, 7&nbsp;GB, 8&nbsp;GB.
 
 > For example, if you decide to create a VM with 10 vCPUs, you can allocate 10, 20, 30,..., 70 or 80&nbsp;GB of memory  to it.
 
-### VMs with partial &nbsp;core {#burstable-cores} usage
+### VMs with partial core usage {#burstable-cores}
 
 VMs of this type operate with partial use of the core. For each core, a minimum performance level of 5% of its capacity is guaranteed.
 
@@ -31,8 +31,8 @@ Allocation of only a part of the core does not mean that your computing capacity
 
 Allowed configurations of computing resources:
 
-* The number of vCPUs:&1, 2, 4.
-* RAM allocated per core:&0.5&nbsp;GB, 1&nbsp;GB, 1.5&nbsp;GB, 2&nbsp;GB.
+* The number of vCPUs: 1, 2, 4.
+* RAM allocated per core: 0.5&nbsp;GB, 1&nbsp;GB, 1.5&nbsp;GB, 2&nbsp;GB.
 
 > For example, if you decide to create a VM with 2 vCPUs, 5% each, you can allocate 1, 2,..., 3 or 4&nbsp;GB of memory to it.
 
