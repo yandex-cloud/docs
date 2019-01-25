@@ -19,7 +19,7 @@ To change your bank card details:
 1. Go to the **Account data** page.
 1. Click the link **Change card details** in the **Bank card** section.
 1. Make the necessary changes.
-1. Click **Save**.
+1. Click **Link**.
 
 ## Adding a new bank card {#add_card}
 
@@ -30,7 +30,7 @@ To link an additional bank card:
 1. Go to the **Account data** page.
 1. Click the link **Add card** in the **Bank card** section.
 1. Enter the bank card details: the 16-digit number, expiry date, and CVV (on the back of the card).
-1. Click **Save**.
+1. Click **Link**.
 
 [!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]
 

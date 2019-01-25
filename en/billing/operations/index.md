@@ -4,7 +4,9 @@
 
 [Activate a promo code](activate-promocode.md)
 
-[View usage details](check-charges.md)
+[View a summary of your costs](check-diagram.md)
+
+[View service usage details](check-charges.md)
 
 [Top up your personal account](pay-the-bill.md)
 

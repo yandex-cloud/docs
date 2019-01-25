@@ -1,7 +1,6 @@
 ---
 editable: false
 ---
-
 # Pricing policy
 
 In Yandex.Cloud, you can use resources of both billable and non-billable services.

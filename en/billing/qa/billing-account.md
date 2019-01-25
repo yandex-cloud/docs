@@ -15,7 +15,7 @@ To unblock your new billing account, [activate the paid version](../operations/a
 
 [!INCLUDE [change-payment-method](../_includes/change-payment-method.md)]
 
-#### How can I change my payment settings?  {#change-email}
+#### How can I change my payment details or the delivery address?  {#change-email}
 
 [!INCLUDE [change-address](../_includes/change-address.md)]
 

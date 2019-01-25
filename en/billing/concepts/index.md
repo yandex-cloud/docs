@@ -1,6 +1,6 @@
 # All concepts
 
-Yandex.Cloud Billing uses the following Concepts:
+Yandex.Cloud Billing uses the following concepts:
 
 - [Grant](bonus-account.md)
 - [Agreement](contract.md)
