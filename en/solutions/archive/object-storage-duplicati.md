@@ -2,7 +2,7 @@
 
 To set up backups in [!KEYREF objstorage-name] via Duplicati:
 
-1. [Create a public bucket](#create-public-bucket)
+1. [Create a bucket](#create-bucket)
 1. [Create a service account](#create-service-account)
 1. [Create a static access key](#create-access-key)
 1. [Install Duplicati](#install-duplicati)
@@ -11,11 +11,11 @@ To set up backups in [!KEYREF objstorage-name] via Duplicati:
 
 The free version of Duplicati allows you to create a maximum of 200 GB of backups.
 
-## 1. Create a public bucket {#create-public-bucket}
+## 1. Create a bucket {#create-bucket}
 
 To create a bucket for backups:
 
-[!INCLUDE [create-public-bucket](../_solutions_includes/create-public-bucket.md)]
+[!INCLUDE [create-bucket](../_solutions_includes/create-public-bucket.md)]
 
 ## 2. Create a service account {#create-service-account}
 
@@ -51,7 +51,7 @@ To configure Duplicati to work with [!KEYREF objstorage-name]:
 1. Enter the backup plan name: `Yandex Cloud`. Enter the password and confirm if you chose to encrypt the backup. Click **Next**.
 1. In the **Storage Type** field, specify `S3 compatible`.
 1. In the **Server** list, specify `Custom server URL`. In the field below, enter the address `storage.yandexcloud.net/`.
-1. In the **Bucket name** field, enter the name of your public bucket: `backup`.
+1. In the **Bucket name** field, enter the name of your bucket: `backup`.
 1. In the **AWS Access ID** field, specify the ID of the static access key.
 1. In the **AWS Access Key** field, enter the private key.
 1. Click **Test connection** to make sure the settings are correct. A window opens prompting you to add the username to the bucket name. Click **No**.

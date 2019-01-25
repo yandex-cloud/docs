@@ -1,7 +1,7 @@
 # Резервное копирование в [!KEYREF objstorage-full-name] через CloudBerry Desktop Backup
 
 Чтобы настроить резервное копирование в [!KEYREF objstorage-name] через CloudBerry Desktop Backup:
-1. [Создайте публичную корзину](#create-public-bucket)
+1. [Создайте корзину](#create-bucket)
 1. [Создайте сервисный аккаунт](#create-service-account)
 1. [Создайте статический ключ доступа](#create-access-key)
 1. [Установите CloudBerry Desktop Backup](#install-cloudberry)
@@ -10,11 +10,11 @@
 
 Бесплатная версия Cloudberry Desktop Backup позволяет создать не более 200 ГБ резервных копий.
 
-## 1. Создайте публичную корзину {#create-public-bucket}
+## 1. Создайте корзину {#create-bucket}
 
 Чтобы создать корзину для резервного копирования:
 
-[!INCLUDE [create-public-bucket](../_solutions_includes/create-public-bucket.md)]
+[!INCLUDE [create-bucket](../_solutions_includes/create-public-bucket.md)]
 
 ## 2. Создайте сервисный аккаунт {#create-service-account}
 
@@ -71,7 +71,7 @@
    1. В поле **Display Name** введите `Yandex Cloud`.
    1. В поле **Access Key** укажите идентификатор статического ключа доступа.
    1. В поле **Secret Key** укажите закрытый ключ.
-   1. В поле **Service point** укажите `http://storage.yandexcloud.net/`. В поле `Bucket name` должен отобразиться список ваших публичных корзин.
+   1. В поле **Service point** укажите `http://storage.yandexcloud.net/`. В поле `Bucket name` должен отобразиться список ваших корзин.
    1. Выберите в поле **Bucket name** корзину, в которой будут храниться резервные копии.
    1. Нажмите кнопку **OK**. Если все настроено верно, хранилище `Yandex Cloud` появится в окне **Registered accounts**. Закройте окно.
 1. Откройте вкладку **Home**. Откроется окно мастера создания резервных копий.
@@ -101,7 +101,7 @@
    1. В поле **Display Name** введите `Yandex Cloud`.
    1. В поле **Access Key** укажите идентификатор статического ключа доступа.
    1. В поле **Secret Key** укажите закрытый ключ.
-   1. В поле **Endpoint** укажите `http://storage.yandexcloud.net/`. В поле `Bucket` должен отобразиться список ваших публичных корзин.
+   1. В поле **Endpoint** укажите `http://storage.yandexcloud.net/`. В поле `Bucket` должен отобразиться список ваших корзин.
    1. Выберите в поле **Bucket** корзину, в которой будут храниться резервные копии.
    1. Нажмите кнопку **OK**. Если все настроено верно, хранилище `Yandex Cloud` появится в списке.
 1. Выберите хранилище `Yandex Cloud` и нажмите кнопку **Continue**.

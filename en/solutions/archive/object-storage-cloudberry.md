@@ -2,7 +2,7 @@
 
 To set up backups in [!KEYREF objstorage-name] via CloudBerry Desktop Backup:
 
-1. [Create a public bucket](#create-public-bucket)
+1. [Create a bucket](#create-bucket)
 1. [Create a service account](#create-service-account)
 1. [Create a static access key](#create-access-key)
 1. [Install CloudBerry Desktop Backup](#install-cloudberry)
@@ -11,11 +11,11 @@ To set up backups in [!KEYREF objstorage-name] via CloudBerry Desktop Backup:
 
 The free version of CloudBerry Desktop Backup allows you to create a maximum of 200 GB of backups.
 
-## 1. Create a public bucket {#create-public-bucket}
+## 1. Create a bucket {#create-bucket}
 
 To create a bucket for backups:
 
-[!INCLUDE [create-public-bucket](../_solutions_includes/create-public-bucket.md)]
+[!INCLUDE [create-bucket](../_solutions_includes/create-public-bucket.md)]
 
 ## 2. Create a service account {#create-service-account}
 
@@ -77,7 +77,7 @@ To configure CloudBerry Backup to work with [!KEYREF objstorage-name]:
    1. In the **Display Name** field, enter `Yandex Cloud`.
    1. In the **Access Key** field, specify the ID of the static access key.
    1. In the **Secret Key** field, specify the private key.
-   1. In the **Service point** field, specify `http://storage.yandexcloud.net/`. The `Bucket name` field should display a list of your public buckets.
+   1. In the **Service point** field, specify `http://storage.yandexcloud.net/`. The `Bucket name` field should display a list of your buckets.
    1. In the **Bucket name** field, select the bucket where your backups will be stored.
    1. Click **OK**. If everything is configured correctly, the `Yandex Cloud` storage will appear in the **Registered accounts** window. Close the window.
 
@@ -125,7 +125,7 @@ To configure CloudBerry Backup to work with [!KEYREF objstorage-name]:
    1. In the **Display Name** field, enter `Yandex Cloud`.
    1. In the **Access Key** field, specify the ID of the static access key.
    1. In the **Secret Key** field, specify the private key.
-   1. In the **Endpoint** field, specify `http://storage.yandexcloud.net/`. The `Bucket` field should display a list of your public buckets.
+   1. In the **Endpoint** field, specify `http://storage.yandexcloud.net/`. The `Bucket` field should display a list of your buckets.
    1. In the **Bucket** field, select the bucket where your backups will be stored.
    1. Click **OK**. If everything is configured correctly, the `Yandex Cloud` storage will appear in the list.
 
