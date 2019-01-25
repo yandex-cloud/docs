@@ -22,8 +22,9 @@ To create a bucket for static website files:
    [!INCLUDE [bucket-name-reqs](../../_includes/bucket-name-reqs.md)]
 
    > [!NOTE]
-
-If you plan to use your own domain for the website, the bucket name must exactly match the name of your domain.
+   >
+   > If you plan to use your own domain for the website, the bucket name must exactly match the name of your domain.
+   >
 
 1. Specify the maximum bucket size in GB.
 
@@ -58,8 +59,9 @@ To use your own domain for a website:
 - Create a CNAME (Canonical Name) record at your DNS provider or on your own DNS server.
 
 > [!NOTE]
-
-If you use your own domain, the website will only be accessible over HTTP, for instance, `http://example.com`.
+>
+>If you use your own domain, the website will only be accessible over HTTP, for instance, `http://example.com`.
+>
 
 You can use HTTPS when accessing the website at [!KEYREF objstorage-name] addresses, for instance, `http(s)://example.com.[!KEYREF s3-web-host]`.
 
