@@ -21,8 +21,8 @@ If you don't have a folder yet, create one:
 
 To grant another user access to your resources, add the user to your cloud:
 
-1. In the management console, click ![](../_assets/ugly-sandwich.svg) and go to **Access management**.
-2. On the **Users and roles** page, click **Add user** in the upper right corner.
+1. In the management console, click ![image](../_assets/ugly-sandwich.svg) and go to **Access management**.
+2. On the **Users and roles** page, click **Add user** in the upper-right corner.
 3. Enter the user's Yandex email address.
 4. Click **Add**.
 
@@ -33,18 +33,18 @@ To grant another user access to your resources, add the user to your cloud:
 To grant a user access to view resources in your cloud, assign the user the role of `[!KEYREF roles-viewer]`:
 
 1. Open the **Users and roles** page.
-2. Select the user to be assigned the role and click **Configure roles**.
+2. Select the user to assign the role to and click **Configure roles**.
 3. Click **Assign role** in the **Roles in the cloud for <cloud name>** section.
-4. Choose the role `[!KEYREF roles-viewer]`.
+4. Choose the role of `[!KEYREF roles-viewer]`.
 
-## Assign a user a role for folder {#folder-role}
+## Assign a user a role for a folder {#folder-role}
 
 To allow a user to create resources in a folder, assign the user the role of `[!KEYREF roles-editor]` for this folder:
 
 1. Open the **Users and roles** page.
-2. Select the user to be assigned the role and click **Configure roles**.
+2. Select the user to assign the role to and click **Configure roles**.
 3. Select a folder in the **Roles in folders** section and click **Assign role** .
-4. Choose the role `[!KEYREF roles-editor]`.
+4. Choose the role of `[!KEYREF roles-editor]`.
 5. Click the  **Close**  button.
 
 ## Revoke assigned roles {#revoke-roles}
