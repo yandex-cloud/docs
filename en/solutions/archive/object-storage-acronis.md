@@ -2,15 +2,15 @@
 
 To set up backups in [!KEYREF objstorage-name] via Acronis Backup Gateway:
 
-1. [Create a public bucket](#create-public-bucket)
+1. [Create a bucket](#create-bucket)
 1. [Configure Acronis Backup Gateway](#configure-acronis)
 1. [Test your backup](#test-backup)
 
-## 1. Create a public bucket {#create-public-bucket}
+## 1. Create a bucket {#create-bucket}
 
 To create a bucket for backups:
 
-[!INCLUDE [create-public-bucket](../_solutions_includes/create-public-bucket.md)]
+[!INCLUDE [create-bucket](../_solutions_includes/create-public-bucket.md)]
 
 ## 2. Configure Acronis Backup Gateway {#configure-acronis}
 

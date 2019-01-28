@@ -25,7 +25,7 @@ items:
       href: operations/cluster-backups.md
     - name: Удаление кластера
       href: operations/cluster-delete.md
-  - name: Основные понятия
+  - name: Концепции
     items:
     - name: Взаимосвязь ресурсов сервиса
       href: concepts/index.md
@@ -41,7 +41,7 @@ items:
       href: concepts/replication.md
     - name: Поддерживаемые клиенты
       href: concepts/supported-clients.md
-  - name: Безопасность и управление доступом
+  - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md

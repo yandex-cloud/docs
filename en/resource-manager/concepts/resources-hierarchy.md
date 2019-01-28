@@ -50,7 +50,7 @@ The role of `[!KEYREF roles-cloud-member]` itself does not grant any rights to d
 
 You can make your cloud  (and any of its resources) public. In this case, you don't have to be a cloud member to access them.
 
-To make a cloud or resource public, you need to assign it a role for the [system group](../../iam/concepts/users/users.md#system) `[!KEYREF subjects-allAuthenticatedUsers]`.
+To make a cloud or resource public, you need to assign it a role for the [system group](../../iam/concepts/access-control/system-group.md) `[!KEYREF subjects-allAuthenticatedUsers]`.
 
 > For example, you can grant any user access to view all resources in the cloud. To do this, just assign the role of `[!KEYREF roles-viewer]` to the subject `[!KEYREF subjects-allAuthenticatedUsers]` for this cloud.
 

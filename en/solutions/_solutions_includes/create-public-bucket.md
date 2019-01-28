@@ -10,7 +10,5 @@
 
 1. Specify the maximum bucket size in GB.
 
-1. Select **Public** access to the bucket.
-
 1. Click **Create bucket**.
 

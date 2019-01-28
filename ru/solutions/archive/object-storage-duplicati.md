@@ -1,18 +1,18 @@
 # Резервное копирование в [!KEYREF objstorage-full-name] через Duplicati
 
 Чтобы настроить резервное копирование в [!KEYREF objstorage-name] через Duplicati:
-1. [Создайте публичную корзину](#create-public-bucket)
+1. [Создайте корзину](#create-bucket)
 1. [Создайте сервисный аккаунт](#create-service-account)
 1. [Создайте статический ключ доступа](#create-access-key)
 1. [Установите Duplicati](#install-duplicati)
 1. [Настройте Duplicati](#configure-duplicati)
 1. [Протестируйте резервное копирование](#test-backup)
 
-## 1. Создайте публичную корзину {#create-public-bucket}
+## 1. Создайте корзину {#create-bucket}
 
 Чтобы создать корзину для резервного копирования:
 
-[!INCLUDE [create-public-bucket](../_solutions_includes/create-public-bucket.md)]
+[!INCLUDE [create-bucket](../_solutions_includes/create-public-bucket.md)]
 
 ## 2. Создайте сервисный аккаунт {#create-service-account}
 
@@ -48,7 +48,7 @@
 1. Введите имя плана резервного копирования: `Yandex Cloud`. Введите пароль и подтверждение, если вы выбрали шифрование резервной копии. Нажмите кнопку **Next**.
 1. В поле **Storage Type** укажите `S3 compatible`.
 1. В списке **Server** укажите `Custom server URL`. В поле ниже укажите адрес `storage.yandexcloud.net/`.
-1. В поле **Bucket name** укажите имя вашей публичной корзины — `backup`.
+1. В поле **Bucket name** укажите имя вашей корзины — `backup`.
 1. В поле **AWS Access ID** укажите идентификатор статического ключа доступа.
 1. В поле **AWS Access Key** укажите секретный ключ.
 1. Нажмите кнопку **Test connection**, чтобы убедиться, что настройки заданы верно. Появится окно с предложением добавить имя пользователя к имени корзины, нажмите кнопку **No**. 

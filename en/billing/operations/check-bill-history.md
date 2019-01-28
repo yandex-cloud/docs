@@ -21,7 +21,7 @@ Individuals can view the full history of payments on the page **Payment history*
 | Status | Payment status. |
 | Payment amount | The amount actually credited to the  personal account balance, in rubles. |
 
-<br/>The payment history contains aggregate data on all services. Detailed information about the services rendered is available on the page [Usage details](../operations/check-charges.md).
+<br/>The payment history contains aggregate data on all services. Detailed information about the services rendered is available on the [Usage details](../operations/check-charges.md) page.
 
 ---
 

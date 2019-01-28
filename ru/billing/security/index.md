@@ -1,4 +1,4 @@
-# Безопасность и управление доступом
+# Управление доступом
 
 ### Доступ к Биллингу {#billing} 
 [!INCLUDE [yandex-account](../_includes/yandex-account.md)]

@@ -1,14 +1,14 @@
 # Identity and access management
 
-Yandex Cloud users can only apply those operations to resources that are allowed by their assigned roles. As long as the user has no roles assigned, no operations are allowed.
+Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them. If the user has no roles assigned, all operations are forbidden.
 
 To allow access to the [!KEYREF iam-full-name] service resources (service accounts and their access keys), assign appropriate roles to the user from the list below. You can assign a user a role for the service account, the folder hosting the account, or the entire cloud: access rights are inherited in Yandex Cloud.
 
 > [!NOTE]
 >
-> For more information about role inheritance, see [[!TITLE]](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the [!KEYREF resmgr-full-name] service documentation.
+> For more information about role inheritance, see [[!TITLE]](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the [!KEYREF resmgr-full-name] documentation.
 
-## Assign roles
+## Assigning roles
 
 To assign a user a role for the cloud or folder:
 
@@ -16,7 +16,7 @@ To assign a user a role for the cloud or folder:
 
 ## Roles
 
-Below is a list of all roles that are used for verifying access rights in the [!KEYREF iam-short-name] service.
+The list below shows all roles that are considered when verifying access rights in the [!KEYREF iam-short-name] service.
 
 ### Service roles
 
@@ -30,17 +30,17 @@ You can assign common roles to any resource in any service.
 
 #### [!KEYREF roles-viewer]
 
-A user with the role of `[!KEYREF roles-viewer]` can view information about resources, for example, get a list of access keys for a service account.
+A user with the `[!KEYREF roles-viewer]` can view information about resources, for example, get a list of access keys for a service account.
 
 #### [!KEYREF roles-editor]
 
-A user with the role of `[!KEYREF roles-editor]` can manage any resources, for example, create a service account or its access keys.
+A user with the `[!KEYREF roles-editor]` can manage any resources, for example, create a service account or its access keys.
 
-In addition, the role `[!KEYREF roles-editor]` includes all permissions of the role `[!KEYREF roles-viewer]`.
+In addition, the `[!KEYREF roles-editor]` role includes all permissions of the `[!KEYREF roles-viewer]` role.
 
 #### [!KEYREF roles-admin]
 
-A user with the role of `[!KEYREF roles-admin]` can manage access rights to resources, for example, allow other users to view service accounts or view information about them.
+A user with the `[!KEYREF roles-admin]` can manage access rights to resources, for example, allow other users to view service accounts or view information about them.
 
-In addition, the role `[!KEYREF roles-admin]` includes all permissions of the role of `[!KEYREF roles-editor]`.
+In addition, the `[!KEYREF roles-admin]` role includes all permissions of the role of `[!KEYREF roles-editor]`.
 

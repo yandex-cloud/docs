@@ -85,7 +85,7 @@ items:
         items:
           - name: Загрузить свой образ
             href: operations/image-create/upload.md
-  - name: Основные понятия
+  - name: Концепции
     items:
       - name: Взаимосвязь ресурсов
         href: concepts/index.md
@@ -111,7 +111,7 @@ items:
         href: concepts/images.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Безопасность и управление доступом
+  - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md

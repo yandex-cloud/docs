@@ -9,6 +9,7 @@ When [creating your first billing account](../quickstart/index.md), you are prov
 > [!NOTE]
 >
 > Only one initial grant can given to an individual or business.
+>
 
 ## Additional grants {#additional}
 

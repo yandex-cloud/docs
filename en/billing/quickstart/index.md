@@ -42,7 +42,7 @@ To create a [billing account](../concepts/billing-account.md):
      Enter your full name and link your bank card:
       - Click **Add card**.
       - Enter the bank card details: the 16-digit number, expiry date, and CVV (on the back of the card).
-      - Click **Save**.
+      - Click **Link**.
 
       [!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]
 
@@ -67,13 +67,13 @@ To create a [billing account](../concepts/billing-account.md):
 
    > [!NOTE]
    >
-   > Linking a bank card is only necessary for creating a billing account. Funds from the associated card can only be debited after [activating the paid version](../operations/activate-commercial.md). At any time after creating a payment account, you can [change your payment method](../operations/change-payment-method.md).
+   > Linking a bank card is only necessary for creating a billing account. Funds from the associated card can only be debited after [activating the paid version](../operations/activate-commercial.md). At any time after creating a billing account, you can [change your payment method](../operations/change-payment-method.md).
    >
 
       [!INCLUDE [yandex-account](../_includes/payment-card-validation.md)]
 
     - **Bank transfer**.
-<br/>After you click the **Create**  button (step 11), the payment account is created with the [Not verified](../concepts/billing-account.md#conditions) status. An email with further instructions will be sent to your email address specified in your Yandex or Yandex.Connect  account. It may take up to three business days to activate your payment account.
+<br/>After you click the **Activate**  button (step 11), the billing account is created with the [Not verified](../concepts/billing-account.md#conditions) status. An email with further instructions will be sent to your email address specified in your Yandex or Yandex.Connect  account. It may take up to three business days to activate your billing account.
 
    9.2. Enter the legal details of your organization.
 

@@ -74,7 +74,7 @@ SpeechKit решает задачу распознавания в два эта�
 
 #### См. также
 
-- [[!TITLE](request.md)
-- [[!TITLE](streaming.md)
+- [[!TITLE]](request.md)
+- [[!TITLE]](streaming.md)
 - [Речевые технологии Яндекса (пост на Хабрахабре)](https://habrahabr.ru/company/yandex/blog/243813/)
 - [Под капотом у Yandex.SpeechKit (пост на Хабрахабре)](https://habrahabr.ru/company/yandex/blog/198556/)

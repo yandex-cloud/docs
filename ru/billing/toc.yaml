@@ -32,7 +32,7 @@ items:
       href: operations/check-bill-history.md
     - name: Изменить данные платежного аккаунта
       href: operations/change-data.md
-- name: Основные понятия
+- name: Концепции
   items:  
     - name: Все понятия
       href: concepts/index.md
@@ -88,7 +88,7 @@ items:
           href: concepts/individual-bill.md
     - name: Валюта расчетов
       href: payment/currency.md
-- name: Безопасность и управление доступом
+- name: Управление доступом
   href: security/index.md
 - name: Правила тарификации
   href: pricing.md

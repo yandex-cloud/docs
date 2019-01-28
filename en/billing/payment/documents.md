@@ -16,6 +16,7 @@ Copies of documents will be sent to the email address of the billing account own
 > [!NOTE]
 >
 > Documents are sent to the email address and mailing address specified in the billing account. Make sure the addresses are specified correctly.
+>
 
 ## Documents for individuals {#docs-for-individual}
 

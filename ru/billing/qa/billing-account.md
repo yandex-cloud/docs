@@ -17,9 +17,10 @@
 [!INCLUDE [change-payment-method](../_includes/change-payment-method.md)]
 
 
-#### Как изменить реквизиты?  {#change-email}
+#### Как изменить платежные реквизиты или адрес доставки документов?  {#change-email}
 
 [!INCLUDE [change-address](../_includes/change-address.md)]
+
 
  
  

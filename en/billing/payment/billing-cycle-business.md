@@ -22,7 +22,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses, as we
 
 1. You use the Yandex.Cloud resources. [The personal account balance](../concepts/personal-account.md#balance) decreases as resource usage increases. Go to step 6.
 
-1. Your personal account balance is checked throughout the reporting period. <br/>They are described in the table below.
+1. Your personal account balance is checked throughout the reporting period. <br/>Columns are described in the table below.
 
     | Balance | Description |
     | ----- | ----- |
