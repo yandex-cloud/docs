@@ -41,7 +41,7 @@ items:
             href: operations/iam-token/create.md
           - name: Получить IAM-токен для сервисного аккаунта
             href: operations/iam-token/create-for-sa.md
-  - name: Основные понятия
+  - name: Концепции
     items:
       - name: Обзор
         href: concepts/index.md
@@ -69,7 +69,7 @@ items:
         href: concepts/users/service-accounts.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Безопасность и управление доступом
+  - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md

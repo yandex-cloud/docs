@@ -47,7 +47,7 @@ items:
             href: operations/objects/link-for-download.md
           - name: Удалить объект
             href: operations/objects/delete.md
-  - name: Основные понятия
+  - name: Концепции
     items:
       - name: Обзор
         href: concepts/index.md
@@ -155,7 +155,7 @@ items:
             href: s3/api-ref/common-response-headers.md
           - name: Ответы
             href: s3/api-ref/response-codes.md
-  - name: Безопасность и управление доступом
+  - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md

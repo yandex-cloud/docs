@@ -23,13 +23,13 @@ items:
             href: operations/folder/set-access-bindings.md
           - name: Удалить каталог
             href: operations/folder/delete.md
-  - name: Основные понятия
+  - name: Концепции
     items:
       - name: Иерархия ресурсов Яндекс.Облака
         href: concepts/resources-hierarchy.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Безопасность и управление доступом
+  - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md

@@ -23,7 +23,7 @@
 **[!TAB macOS]**
 
 1. Установите и запустите [Microsoft Remote Desktop](https://itunes.apple.com/ru/app/microsoft-remote-desktop/id1295203466) (бесплатный официальный RDP-клиент для Mac).
-2. Нажмите ![](../_assets/plus.svg) → **Desktop**.
+2. Нажмите ![image](../_assets/plus.svg) → **Desktop**.
 3. В диалоговом окне **Add Desktop** в поле **PC Name** введите публичный IP-адрес виртуальной машины, к которой необходимо подключиться.
 4. В поле **User Account** выберите **Add User Account**.
 5. В диалоговом окне **Add User Account** укажите параметры учетной записи:
@@ -46,7 +46,7 @@
     ```
 
 2. Запустите Remmina.
-3. Нажмите значок ![](../_assets/plus.svg).
+3. Нажмите значок ![image](../_assets/plus.svg).
 4. В блоке **Profile** укажите следующие данные:
     - **Name**: произвольное имя подключения.
     - **Protocol**: **RDP - Remote Desktop Protocol**.
