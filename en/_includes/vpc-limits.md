@@ -11,4 +11,5 @@
 | ----- | ----- |
 | Minimum CIDR size for a subnet | /28 |
 | Maximum CIDR size for a subnet | /16 |
+| Maximum number of simultaneous TCP/UDP connections for a single VM | 50000 |
 
