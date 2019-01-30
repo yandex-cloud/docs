@@ -75,6 +75,8 @@ items:
         href: cors/index.md
       - name: Конфигурирование корзин
         href: cors/configuration.md
+      - name: Настройка CORS в консоли управления
+        href: cors/setup.md
   - name: HTTP API, совместимый с Amazon S3
     items:
       - name: Как пользоваться API
