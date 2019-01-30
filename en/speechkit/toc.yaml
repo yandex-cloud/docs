@@ -10,6 +10,8 @@ items:
         href: stt/index.md
       - name: API method description
         href: stt/request.md
+      - name: Data streaming recognition
+        href: stt/streaming.md
   - name: Speech synthesis
     items:
       - name: About the technology

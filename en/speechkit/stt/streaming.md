@@ -1,0 +1,227 @@
+# Streaming speech recognition
+
+Data streaming mode allows you to use the SpeechKit Cloud API to send audio data in chunks. In contrast to the [HTTP POST API](request.md), you can get intermediate results of speech recognition when using data streaming. The service automatically detects pauses for sending the final speech recognition results. This mode is suitable for recognizing speech transmitted as a stream.
+
+> For example, as soon as the user starts speaking, your app immediately begins transmitting their speech to the server for recognition. The server processes the data and sends your app the intermediate and final results of each utterance recognition. The intermediate results are used for showing the user the progress of speech recognition.
+
+To use the service, create an app that will perform speech recognition in data streaming mode, i.e., send audio fragments and process responses with recognition results.
+
+## Using the service
+
+### Before getting started
+
+1. Get the ID of a folder you are allowed to access (for example, from the URL of the folder page in the management console):
+
+    ```
+    https://console.cloud.yandex.ru/folders/b5gfc3ntettogerelqed7p
+    ```
+
+    `b5gfc3ntettogerelqed7p` is the folder ID.
+1. Download the protobuf file with the description of the service: [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto). This file will be used for creating the client interface code.
+
+### Creating a client app
+
+For speech recognition, the app should first send a [message with recognition settings](#specification-msg) and then send [messages with audio fragments](#audio-msg).
+
+As the audio fragments are being sent, the service returns [recognized text fragments](#response) to be processed (for example, to output them to the console).
+
+To enable the app to access the service, you need to generate the client interface code for the programming language you use. Generate this code from the downloaded [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) file.
+
+See [examples](#examples) of client apps below. In addition, see the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and deploy client apps for various programming languages.
+
+### Authorization in the service
+
+For authorization, the app must send an [IAM token](../../iam/concepts/authorization/iam-token.md) in every message. Please note that the IAM token validity is limited.
+
+Find out how to get an IAM token for your account in the corresponding instructions
+
+* [Instructions](../../iam/operations/iam-token/create.md) for a Yandex account.
+* [Instructions](../../iam/operations/iam-token/create-for-sa.md) for a [service account](../../iam/concepts/users/service-accounts.md).
+
+### Recognition result
+
+During the recognition process, the speech is segmented into phrases (known as utterances). An utterance is a fragment of speech consisting of one or more words, followed by a period of silence. An utterance may contain multiple sentences if there is no pause between them.
+
+A speech recognition result provides alternative versions of a single utterance. The response from the service may contain multiple utterances.
+
+_Final results_ of speech recognition are formed when the speech recognition system detects the end of an utterance. You can send multiple messages with an audio fragment and it will be a single utterance.
+
+_Intermediate results_ of speech recognition are formed during utterance recognition. Getting intermediate results allows you to quickly respond to the recognized speech without waiting for the end of the utterance to get the final result.
+
+You can configure the service to return intermediate recognition results. In the [message with recognition settings](#specification-msg), set `specification.partial_results=true`. In the response, `final=false` indicates intermediate results and `final=true` indicates the final results.
+
+### Limitations of a speech recognition session
+
+After receiving the message with the recognition settings, the service starts a recognition session. The following limitations apply to each session:
+
+* The time between sending messages to the service must not exceed 5 seconds.
+* The maximum duration of transmitted audio for the entire session is 5 minutes.
+* The maximum size of audio data transmitted is 10 MB.
+
+If messages have not been sent to the service within 5 seconds or the limit on the duration or size of data has been reached, the session is terminated. To continue speech recognition, send the message with the recognition settings again and the service will start a new session.
+
+## Service API
+
+The service is located at: `stt.api.cloud.yandex.net:443`
+
+### Message with recognition settings {#specification-msg}
+
+| Parameter | Description |
+| ----- | ----- |
+| `specification.language_code` | The language for speech recognition.<br/>Acceptable values:<ul><li>`ru-RU` (default) — Russian.</li><li>`en-US` — English.</li><li>`tr-TR` — Turkish.</li></ul> |
+| `specification.model` | The language model to be used for recognition.<br/>The closer the model is matched, the better the recognition result. You can only specify one model per request.<br/>[Acceptable values](../stt/index.md#model) depend on the selected language. Default parameter value: `general`. |
+| `specification.profanity_filter` | The profanity filter.<br/>Acceptable values:<ul><li>`true` — Exclude profanity from recognition results.</li><li>`false` (default) — Do not exclude profanity from recognition results.</li></ul> |
+| `specification.partial_results` | The intermediate results filter.<br/>Acceptable values:<ul><li>`true` — Return intermediate results (part of the recognized utterance). For intermediate results, `final` is set to `false`.</li><li>`false` (default) — Return only the final results (the entire recognized utterance). |
+| `specification.format` | The format of the submitted audio.<br/>Acceptable values:<ul><li>`LINEAR16_PCM` — Audio file in the [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with no WAV header. Audio characteristics:<ul><li>Sampling — 8, 16, or 48 kHz, depending on the `sampleRateHertz` parameter value.</li><li>Bit depth — 16-bit.</li><li>Byte order — Reversed (little-endian).</li><li>Audio data is stored as signed integers.</li></ul></li><li>`OGG_OPUS` (default) — Data is encoded using the OPUS audio codec and compressed using the OGG container format ([OggOpus](https://wiki.xiph.org/OggOpus)).</li></ul> |
+| `specification.sampleRateHertz` | The sampling frequency of the submitted audio.<br/>Required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default) — Sampling rate of 48 kHz.</li><li>`16000` — Sampling rate of 16 kHz.</li><li>`8000` — Sampling rate of 8 kHz.</li></ul> |
+| `folder_id` | Required parameter. ID of the folder your account is allowed to access. |
+
+### Audio message  {#audio-msg}
+
+| Parameter | Description |
+| ----- | ----- |
+| `audio_content` | An audio fragment represented as an array of bytes. Audio should be in the [OggOpus](https://wiki.xiph.org/OggOpus) or [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format. |
+
+### Response structure {#response}
+
+If speech fragment recognition is successful, you will receive a message containing a list of recognition results `chunks[]`. Each result contains the following fields:
+
+* `alternatives[]` —  List of recognized text alternatives. Each alternative contains the following fields:
+    * `text` — Recognized text.
+    * `confidence` — Recognition accuracy. Currently, the service always returns the value of 100%.
+* `final` — Set to `true` if the result is final and to `false` if it is intermediate.
+
+### Error codes returned by the server {#error_codes}
+
+To see how gRPC statuses correspond to HTTP codes, see [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+
+List of possible gRPC errors returned by the service:
+
+| Code | Status | Description |
+| ----- | ----- | ----- |
+| 3 | `INVALID_ARGUMENT` | Incorrect request parameters specified. Details are provided in the `details` field. |
+| 16 | `UNAUTHENTICATED` | The operation requires authentication. Check the IAM token and the ID of the folder that you passed |
+| 13 | `INTERNAL` | Internal server error. This error means that the operation cannot be performed due to a server-side technical problem. For example, due to insufficient computing resources. |
+
+## Examples {#examples}
+
+To try the examples in this section:
+
+1. Download the protobuf file with the description of the service, [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto), to the same folder.
+1. Find out the ID of the folder that your account has access to.
+1. Get an IAM token:
+    * [Instructions](../../iam/operations/iam-token/create.md) for a Yandex account.
+    * [Instructions](../../iam/operations/iam-token/create-for-sa.md) for a service account.
+1. Select an audio file for recognition. The examples use the `speech.pcm`  audio file in the [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with a sampling rate of 8000.
+
+    > [!NOTE]
+    >
+    > Don't have an audio file for speech recognition? Download a prepared [sample](https://storage.yandexcloud.net/speechkit/speech.pcm).
+
+Then proceed to creating a client app.
+
+---
+
+**[!TAB Python]**
+
+1. Install the grpcio-tools package using the [pip](https://pip.pypa.io/en/stable/) package manager:
+
+    ```bash
+    pip install grpcio-tools
+    ```
+
+1. Go to the folder where you downloaded the [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) file and run:
+
+    ```
+    python -m grpc_tools.protoc -I . --python_out=. --grpc_python_out=. ./stt_service.proto
+    ```
+
+    As a result, `stt_service_pb2.py` and `stt_service_pb2_grpc.py` files with the client interface will be created in this folder.
+
+1. Create a file (for example, `test.py`), and add the following code to it:
+
+    ```Python
+    import argparse
+
+    import grpc
+
+    import stt_service_pb2
+    import stt_service_pb2_grpc
+
+
+    CHUNK_SIZE = 16000
+
+    def gen(folder_id, audio_file_name):
+        # Specifying the recognition settings.
+        specification = stt_service_pb2.RecognitionSpec(
+            language_code='ru-RU',
+            profanity_filter=True,
+            model='general',
+            partial_results=True,
+            audio_encoding='LINEAR16_PCM',
+            sample_rate_hertz=8000
+        )
+        streaming_config = stt_service_pb2.RecognitionConfig(specification=specification, folder_id=folder_id)
+
+        # Sending a message with the recognition settings.
+        yield stt_service_pb2.StreamingRecognitionRequest(config=streaming_config)
+
+        # Reading the audio file and sending its content in chunks.
+        with open(audio_file_name, 'rb') as f:
+            data = f.read(CHUNK_SIZE)
+            while data != b'':
+                yield stt_service_pb2.StreamingRecognitionRequest(audio_content=data)
+                data = f.read(CHUNK_SIZE)
+
+
+    def run(folder_id, iam_token, audio_file_name):
+        # Establishing a connection with the server.
+        cred = grpc.ssl_channel_credentials()
+        channel = grpc.secure_channel('stt.api.cloud.yandex.net:443', cred)
+        stub = stt_service_pb2_grpc.SttServiceStub(channel)
+
+        # Sending data for recognition.
+        it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(('authorization', 'Bearer %s' % iam_token),))
+
+        # Processing the server responses and outputting the result to the console.
+        try:
+            for r in it:
+                try:
+                    print('Start chunk: ')
+                    for alternative in r.chunks[0].alternatives:
+                        print('alternative: ', alternative.text)
+                    print('Is final: ', r.chunks[0].final)
+                    print('')
+                except LookupError:
+                    print('Not available chunks')
+        except grpc._channel._Rendezvous as err:
+            print('Error code %s, message: %s' % (err._state.code, err._state.details))
+
+
+    if __name__ == '__main__':
+        parser = argparse.ArgumentParser()
+        parser.add_argument('--token', required=True, help='IAM token')
+        parser.add_argument('--folder_id', required=True, help='folder ID')
+        parser.add_argument('--path', required=True, help='audio file path')
+        args = parser.parse_args()
+
+        run(args.folder_id, args.token, args.path)
+    ```
+
+1. Execute the created file by passing arguments with the IAM token, folder ID, and path to the audio file to recognize:
+
+    ```bash
+    $ export FOLDER_ID=b1gvmob95yysaplct532
+    $ export IAM_TOKEN=CggaATEVAgA...
+    $ python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --path speech.pcm
+    Start chunk:
+    alternative: Hello
+    ('Is final: ', False)
+
+    Start chunk:
+    alternative: Hello world
+    ('Is final: ', True)
+    ```
+
+---
+
