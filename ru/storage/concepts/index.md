@@ -4,4 +4,4 @@
 
 - [Корзина](bucket.md)
 - [Объект](object.md)
-- [Класс хранения](storage-class.md)
+- [Класс хранилища](storage-class.md)
