@@ -15,7 +15,7 @@ POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 
 Параметр | Описание
 ----- | -----
-`text` | Обязательный параметр.<br/>Текст, который нужно озвучить, в кодировке UTF-8.<br/>Для передачи слов-омографов используйте `+` перед ударной гласной. Например, `гот+ов` или `def+ect`.<br/>Ограничение на длину строки: 5000 символов.
+`text` | Обязательный параметр.<br/>Текст, который нужно озвучить, в кодировке UTF-8.<br/>Для передачи слов-омографов используйте `+` перед ударной гласной. Например, `гот+ов` или `def+ect`.<br/>Чтобы отметить паузу между словами, используйте `-`.<br/>Ограничение на длину строки: 5000 символов.
 `lang` | Язык.<br/>Допустимые значения:<ul><li>`ru-RU` (по умолчанию) — русский язык,</li><li>`en-US` — английский язык;</li><li>`tr-TR` — турецкий язык.</li></ul>
 `voice` | Голос синтезированной речи.<br/>Можно выбрать один из следующих голосов:<ul><li>женские голоса:  `alyss`, `jane`, `oksana` и `omazh`;</li><li>мужские голоса: `zahar` и `ermil`.</li></ul>Значение параметра по умолчанию: `oksana`.
 `emotion` | Эмоциональная окраска голоса.<br/>Допустимые значения:<ul><li>`good` — радостный, доброжелательный;</li><li>`evil` — раздраженный;</li><li>`neutral` (по умолчанию) — нейтральный.</li></ul>
@@ -43,9 +43,9 @@ POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 **[!TAB cURL]**
 
 ```bash
-export FOLDER_ID=b1gvm4b03aoopfsct641
-export IAM_TOKEN=CggaATEVAgA...
-curl -X POST \
+$ export FOLDER_ID=b1gvmob95yysaplct532
+$ export IAM_TOKEN=CggaATEVAgA...
+$ curl -X POST \
      -H "Authorization: Bearer ${IAM_TOKEN}" \
      --data-urlencode "text=Привет мир" \
      -d "voice=zahar&emotion=good&folderId=${FOLDER_ID}" \
@@ -73,7 +73,7 @@ namespace TTS
     static async Task Tts()
     {
       const string iamToken = "CggaATEVAgA..."; // Укажите IAM-токен.
-      const string folderId = "b1gvm4b03aoopfsct641"; // Укажите ID каталога.
+      const string folderId = "b1gvmob95yysaplct532"; // Укажите ID каталога.
 
       HttpClient client = new HttpClient();
       client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
@@ -96,6 +96,8 @@ namespace TTS
 ```
 
 **[!TAB Python]**
+
+1. Создайте файл, например `test.py`, и добавьте в него следующий код:
 
 ```python
 import argparse
@@ -127,7 +129,7 @@ def synthesize(folder_id, iam_token, text):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--iam_token", required=True, help="IAM token")
+    parser.add_argument("--token", required=True, help="IAM token")
     parser.add_argument("--folder_id", required=True, help="Folder id")
     parser.add_argument("--text", required=True, help="Text for synthesize")
     parser.add_argument("--output", required=True, help="Output file name")
@@ -137,6 +139,58 @@ if __name__ == "__main__":
     with open(args.output, "wb") as f:
         f.write(audio_content)
 ```
+
+1. Выполните созданный файл, передав в аргументах IAM-токен, идентификатор каталога, текст и имя файла для записи аудио:
+
+    ```bash
+    $ export FOLDER_ID=b1gvmob95yysaplct532
+    $ export IAM_TOKEN=CggaATEVAgA...
+    $ python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --path speech.pcm
+
+**[!TAB PHP]**
+
+```php
+<?
+
+const FORMAT_PCM = "lpcm";
+const FORMAT_OPUS = "oggopus";
+
+$token = 'CggaATEVAgA...'; # IAM-токен
+$folderId = "b1gvmob95yysaplct532"; # Идентификатор каталога
+$url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
+
+$post = "folderId=${folderId}&text=" . urlencode("тест") . "&lang=ru-RU&sampleRateHertz=48000&format=" . FORMAT_PCM;
+$headers = ['Authorization: Bearer ' . $token];
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+curl_setopt($ch, CURLOPT_HEADER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+if ($post !== false) {
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+}
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+
+$response = curl_exec($ch);
+if (curl_errno($ch)) {
+    print "Error: " . curl_error($ch);
+}
+if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200) {
+    $decodedResponse = json_decode($response, true);
+    echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
+    echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
+} else {
+    file_put_contents("audio.pcm", $response);
+}
+curl_close($ch);
+```
+
 
 ---
 
@@ -149,9 +203,9 @@ if __name__ == "__main__":
 **[!TAB cURL]**
 
 ```bash
-export FOLDER_ID=b1gvm4b03aoopfsct641
-export IAM_TOKEN=CggaATEVAgA...
-curl -X POST \
+$ export FOLDER_ID=b1gvmob95yysaplct532
+$ export IAM_TOKEN=CggaATEVAgA...
+$ curl -X POST \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
     -o speech.raw \
     --data-urlencode "text=Привет мир" \
@@ -160,4 +214,5 @@ curl -X POST \
 
 sox -r 48000 -b 16 -e signed-integer -c 1 speech.raw speech.wav
 ```
+
 ---
