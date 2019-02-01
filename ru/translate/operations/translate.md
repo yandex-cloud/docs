@@ -51,7 +51,7 @@
 
     ```json
     {
-        "folder_id": "b1gvmob03goohplct641",
+        "folder_id": "b1gvmob95yysaplct532",
         "texts": ["Hello", "World"],
         "targetLanguageCode": "ru"
     }
@@ -81,3 +81,37 @@
         ]
     }
     ```
+
+### Укажите язык исходного текста
+
+Есть слова, которые пишутся одинаково в разных языках, но переводятся по-разному. Например, слово <q>angel</q> в английском языке означает духовное существо, а в немецком — удочку. Если переданный текст состоит из таких слов, то SpeechKit может ошибиться при определении языка текста.
+
+Чтобы избежать ошибки, укажите в поле `sourceLanguageCode` язык, с которого необходимо перевести текст:
+
+```json
+{
+    "folder_id": "b1gvmob95yysaplct532",
+    "texts": ["angel"],
+    "targetLanguageCode": "ru",
+    "sourceLanguageCode": "de"
+}
+```
+
+Сохраните тело запроса в файле, например `body.json`, и передайте его с помощью метода [translate](../api-ref/v2/Translation/translate):
+
+```bash
+$ export IAM_TOKEN=CggaATEVAgA...
+$ curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer ${IAM_TOKEN}" \
+    -d @body.json \
+    "https://translate.api.cloud.yandex.net/translate/v2/translate"
+
+{
+    "translations": [
+        {
+            "text": "удочка"
+        }
+    ]
+}
+```

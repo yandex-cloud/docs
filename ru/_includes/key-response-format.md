@@ -4,7 +4,7 @@
         "createdAt": "2018-10-30T15:55:00+00:00",
         "description": "",
         "id": "b1gvmob03goohplcf641",
-        "keyAlgorithm": "RSA_4096",
+        "keyAlgorithm": "RSA_2048",
         "publicKey": "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----\n",
         "serviceAccountId": "ajepg0mjt06siua65usm"
     },

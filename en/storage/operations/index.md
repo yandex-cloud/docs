@@ -5,6 +5,7 @@
 - [[!TITLE]](buckets/create.md)
 - [[!TITLE]](buckets/delete.md)
 - [[!TITLE]](buckets/limit-max-volume.md)
+- [[!TITLE]](buckets/bucket-availability.md)
 
 ## Objects
 
@@ -13,10 +14,4 @@
 - [[!TITLE]](objects/download.md)
 - [[!TITLE]](objects/link-for-download.md)
 - [[!TITLE]](objects/delete.md)
-
-## Access permissions
-
-- [[!TITLE]](security/service-account.md)
-- [[!TITLE]](security/get-static-key.md)
-- [[!TITLE]](security/bucket-availability.md)
 

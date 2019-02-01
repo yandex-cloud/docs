@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Правила тарификации для Yandex [!KEYREF mch-short-name]
+# Правила тарификации для [!KEYREF mch-short-name]
 
 
 ## Из чего складывается стоимость использования [!KEYREF mch-short-name] {#rules}
@@ -52,46 +52,7 @@ editable: false
 Цена за час будет рассчитана по приведенным ниже тарифам (включая НДС): `3 × 5,5119 ₽ + 3 × 1,7492 ₽ = 21,78 ₽`. 
 
 
-
-## Цены до 1 января 2019 года {#prices-old}
-
-
-### Хосты {prices-hosts-old}
-
-Класс хостов | Цена за 1 час, без НДС | Цена за 1 час, вкл. НДС
------ | ----- | ----- 
-**[!KEYREF CH]** | | 
-s1.nano | 2,2966 ₽ | 2,7100 ₽
-s1.micro | 4,5932 ₽ | 5,4200 ₽ 
-s1.small | 9,1780 ₽ | 10,8300 ₽ 
-s1.medium | 18,3559 ₽ | 21,6600 ₽ 
-s1.large | 36,7119 ₽ | 43,3200 ₽ 
-s1.xlarge | 73,4153 ₽ | 86,6300 ₽
-**ZooKeeper** | | 
-s1.nano | 1,4576 ₽ | 1,7200 ₽
-s1.micro | 2,8475 ₽ | 3,3600 ₽
-s1.small | 5,6271 ₽ | 6,6400 ₽
-s1.medium | 11,1864 ₽ | 13,2000 ₽
-s1.large | 22,3220 ₽ | 26,3400 ₽
-s1.xlarge | 44,5678 ₽ | 52,5900 ₽
-
-
-### Хранилище и резервные копии {#prices-storage-old}
-   
-Услуга | Цена за ГБ в месяц, без НДС | Цена за ГБ в месяц, вкл. НДС
------ | ----- | -----
-Стандартное сетевое хранилище | 1,9068 ₽ | 2,2500 ₽
-Быстрое сетевое хранилище | 6,7797 ₽ | 8,000 ₽
-Быстрое локальное хранилище | 6,7797 ₽ | 8,000 ₽
-Резервные копии сверх размера хранилища | 2,1186 ₽ | 2,5000 ₽
-
-
-### Исходящий трафик {#prices-traffic-old}
-
-[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing-egress-traffic-old.md)]
-
-
-## Цены с 1 января 2019 года {#prices}
+## Цены {#prices}
 
 
 ### Хосты {prices-hosts}
@@ -126,4 +87,4 @@ s1.xlarge | 44,5678 ₽ | 53,4814 ₽
 
 ### Исходящий трафик {#prices-traffic}
 
-[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing-egress-traffic.md)]
+[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md)]

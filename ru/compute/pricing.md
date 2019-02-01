@@ -85,38 +85,7 @@ editable: false
 
 Цена указывается за 1 месяц использования. Тарификация посекундная.
 
-## Цены до 1 января 2019 года {#prices-old}
-
-### Вычислительные ресурсы ВМ {#prices-instance-resources-old}
-
-Вычислительные ресурсы | Цена за 1 час, без НДС | Цена за 1 час, вкл. НДС
------ | ----- | -----
-за 5%+ vCPU | 0,1610 ₽ | 0,1900 ₽
-за 100% vCPU | 0,5847 ₽ | 0,6900 ₽
-RAM (за 1 ГБ) | 0,2034 ₽ | 0,2400 ₽
-
-### Операционные системы {#prices-instance-os-old}
-
-ОС | Цена за vCPU в час,<br/>без НДС | Цена за vCPU в час,<br/>вкл. НДС
------ | ----- | -----
-Linux всех типов ядра | 0 ₽ | 0 ₽
-Windows Server для 5%+ vCPU | 0,4746 ₽ | 0,5600 ₽
-Windows Server для 1 vCPU | 0,9492 ₽ | 1,1200 ₽
-
-### Диски, снимки и образы {#prices-storage-old}
-
-Тип | Цена за ГБ в месяц,<br/>без НДС | Цена за ГБ в месяц,<br/>вкл. НДС
------ | ----- | -----
-Быстрый диск (NVMe) | 6,2034 ₽ | 7,3200 ₽
-Стандартный диск (HDD) | 1,7373 ₽ | 2,0500 ₽
-Снимок | 1,8559 ₽ | 2,1900 ₽
-Образ | 1,8559 ₽ | 2,1900 ₽
-
-### Исходящий трафик {#prices-traffic-old}
-
-[!INCLUDE-NOTITLE [pricing-egress-traffic-old](../_includes/pricing-egress-traffic-old.md)]
-
-## Цены с 1 января 2019 года {#prices}
+## Цены {#prices}
 
 ### Вычислительные ресурсы ВМ {#prices-instance-resources}
 
@@ -145,4 +114,4 @@ Windows Server для 1 vCPU | 1,0576 ₽ | 1,2691 ₽
 
 ### Исходящий трафик {#prices-traffic}
 
-[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing-egress-traffic.md)]
+[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md)]

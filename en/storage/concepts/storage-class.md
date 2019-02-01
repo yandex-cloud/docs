@@ -11,4 +11,3 @@ The storage class is specified when uploading each individual object. You can't 
 Pricing differs for storing and accessing objects in standard storage and cold storage. For more information, see [[!TITLE]](../pricing.md).
 
 You can specify the storage class when uploading an object via the HTTP API compatible with Amazon S3.
-

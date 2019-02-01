@@ -91,7 +91,7 @@
 }
 ```
 
-Сохраните тело запроса в файле, например `body.json`, и передайте его с помощью метода [detectLanguage](../api-ref/v2/Translation/detectLanguage).
+Сохраните тело запроса в файле, например `body.json`, и передайте его с помощью метода [detectLanguage](../api-ref/v2/Translation/detectLanguage):
 
 ```bash
 $ export IAM_TOKEN=CggaATEVAgA...

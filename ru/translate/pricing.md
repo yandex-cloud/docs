@@ -2,9 +2,12 @@
 editable: false
 ---
 
+
 # Правила тарификации для Yandex Translate
 
+
 ## Из чего складывается стоимость использования [!KEYREF translate-short-name] {#rules}
+
 
 ### Использование перевода и определения языка текста {#rules-translate-detect}
 
@@ -12,16 +15,8 @@ editable: false
 
 [!INCLUDE [pricing-symbol-count](../_includes/pricing-symbol-count.md)]
 
-## Цены до 1 января 2019 года {#prices-old}
 
-### Перевод и определение языка текста {#prices-translate-detect-old}
-
-Услуга | Цена за 1 млн символов,<br/>без НДС | Цена за 1 млн символов,<br/>вкл. НДС
------ | ----- | -----
-Перевод | 372,8814 ₽ | 440,0000 ₽
-Определение языка | 372,8814 ₽ | 440,0000 ₽
-
-## Цены с 1 января 2019 года {#prices}
+## Цены {#prices}
 
 ### Перевод и определение языка текста {#prices-translate-detect}
 

@@ -1,4 +1,4 @@
-# Пошаговые инструкции для Yandex MDB
+# Пошаговые инструкции для [!KEYREF mpg-name]
 
 - [[!TITLE]](cluster-list.md)
 - [[!TITLE]](cluster-create.md)

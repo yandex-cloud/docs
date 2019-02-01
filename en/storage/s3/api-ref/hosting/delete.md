@@ -1,6 +1,6 @@
 # delete method
 
-Deletes the configuration of static website hosting for a bucket.
+Deletes a static website hosting configuration for a bucket.
 
 ## Request {#request}
 

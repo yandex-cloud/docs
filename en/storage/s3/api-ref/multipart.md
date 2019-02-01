@@ -16,14 +16,13 @@ For each uploaded part, [!KEYREF objstorage-name] returns the `ETag` header in t
 During the upload, you can get from [!KEYREF objstorage-name] [a list of already uploaded object parts](multipart/listparts.md).
 
 1. Completing upload.
-Upon receipt of the [complete upload request](multipart/completeupload.md) [!KEYREF objstorage-name] combines all the uploaded parts into a single object and attaches the metadata that was passed for starting the upload.
+Upon receipt of the [complete upload request](multipart/completeupload.md,) [!KEYREF objstorage-name] combines all the uploaded parts into a single object and attaches the metadata that was passed for starting the upload.
 
-  > [!NOTE]
-  >
-  >Until the upload is completed, the object parts are stored separately and occupy some space, therefore they cannot be retrieved from [!KEYREF objstorage-name]. Incomplete uploads are taken into account when calculating the space used.
+    > [!NOTE]
+    >
+    > Until the upload is completed, the object parts are stored separately and occupy some space, therefore they cannot be retrieved from [!KEYREF objstorage-name]. Incomplete uploads are taken into account when calculating the space used.
 
-  In addition to the complete upload request, the user can send the [abort upload request](multipart/abortupload.md). In this case, [!KEYREF objstorage-name] deletes all the object parts received for the specified upload and the upload itself.
-
+    In addition to the complete upload request, the user can send the [abort upload request](multipart/abortupload.md). In this case, [!KEYREF objstorage-name] deletes all the object parts received for the specified upload and the upload itself.
 After completing or aborting an upload, the user will not be able to use the ID of that upload in requests.
 
 You can run several multipart uploads simultaneously.

@@ -20,6 +20,8 @@ To log in, enter your [OAuth token](oauth-token.md) during [profile initializati
 
 **[!TAB API]**
 
+[!INCLUDE [owner-warning](../../../_includes/iam/owner-warning.md)]
+
 To log in:
 
 1. [Get an IAM token](../../operations/iam-token/create.md) in exchange for your [OAuth token](oauth-token.md)

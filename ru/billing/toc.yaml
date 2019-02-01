@@ -14,12 +14,8 @@ items:
       href: operations/activate-commercial.md
     - name: Активировать промокод
       href: operations/activate-promocode.md
-    - name: Проверить расходы
-      items:
-        - name: Посмотреть краткую статистику
-          href: operations/check-diagram.md
-        - name: Посмотреть детализацию
-          href: operations/check-charges.md
+    - name: Посмотреть детализацию
+      href: operations/check-charges.md
     - name: Пополнить счет
       href: operations/pay-the-bill.md
     - name: Привязать другую карту

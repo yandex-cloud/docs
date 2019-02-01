@@ -18,6 +18,8 @@ $ yc iam create-token
 
 **[!TAB API]**
 
+[!INCLUDE [owner-warning](../../../_includes/iam/owner-warning.md)]
+
 1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе или Яндекс.Коннекте.
 2. Получите OAuth-токен в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb), нажмите **Разрешить** и скопируйте полученный OAuth-токен.
 3. Обменяйте OAuth-токен на IAM-токен:
