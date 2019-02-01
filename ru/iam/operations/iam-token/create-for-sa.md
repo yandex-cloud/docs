@@ -200,7 +200,7 @@ curl -X POST \
 [!INCLUDE [iam-token-usage](../../../_includes/iam-token-usage.md)]
 
 
-## Примеры
+## Примеры {#examples}
 
 ---
 
@@ -379,6 +379,36 @@ func getIAMToken() string {
 	}
 	return data.IAMToken
 }
+```
+
+**[!TAB Node.js]**
+
+Пример создания JWT с использованием [node-jose](https://github.com/cisco/node-jose):
+
+```js
+var jose = require('node-jose');
+var fs = require('fs');
+
+var key = fs.readFileSync(require.resolve('private.pem'));
+
+var serviceAccountId = 'ajepg0mjt06siua65usm';
+var keyId = 'b1gvmob03goohplcf641';
+var now = Math.floor(new Date().getTime() / 1000);
+
+var payload = { aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+                iss: serviceAccountId,
+                iat: now,
+                exp: now + 3600 }
+
+jose.JWK.asKey(key, 'pem', { kid: keyId, alg: 'PS256' })
+    .then(function(result) {
+        jose.JWS.createSign({ format: 'compact' }, result)
+            .update(JSON.stringify(payload))
+            .final()
+            .then(function(result) {
+                // result — это сформированный JWT.
+            });
+    });
 ```
 
 **[!TAB PHP]**
