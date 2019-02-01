@@ -20,6 +20,8 @@
 
 **[!TAB API]**
 
+[!INCLUDE [owner-warning](../../../_includes/iam/owner-warning.md)]
+
 Чтобы авторизоваться:
 
 1. [Получите IAM-токен](../../operations/iam-token/create.md) в обмен на [OAuth-токен](oauth-token.md)
