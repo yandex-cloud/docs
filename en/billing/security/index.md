@@ -1,4 +1,4 @@
-# Identity and access management
+# Access management
 
 ### Access to Billing {#billing}
 

@@ -20,7 +20,7 @@ links:
 - title: "How to pay for resources"
   description: "Find out about payment methods and billing cycles for individuals and businesses"
   href: "payment/index"
-- title: "Identity and access management"
+- title: "Access management"
   description: "Set up access rights to manage your billing account"
   href: "security/index"
 - title: "Pricing policy"

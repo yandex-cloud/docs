@@ -14,12 +14,8 @@ items:
       href: operations/activate-commercial.md
     - name: Activate a promo code
       href: operations/activate-promocode.md
-    - name: Monitor costs
-      items:
-        - name: View a summary of statistics
-          href: operations/check-diagram.md
-        - name: View usage details
-          href: operations/check-charges.md
+    - name: View usage details
+      href: operations/check-charges.md
     - name: Top up your personal account
       href: operations/pay-the-bill.md
     - name: Link another bank card
@@ -88,7 +84,7 @@ items:
           href: concepts/individual-bill.md
     - name: Payment currency
       href: payment/currency.md
-- name: Identity and access management
+- name: Access management
   href: security/index.md
 - name: Pricing policy
   href: pricing.md
