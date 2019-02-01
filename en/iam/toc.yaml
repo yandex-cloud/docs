@@ -45,7 +45,7 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Manage resource access
+      - name: How access management works
         items:
           - name: Overview
             href: concepts/access-control/index.md
@@ -69,7 +69,7 @@ items:
         href: concepts/users/service-accounts.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Identity and access management
+  - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md

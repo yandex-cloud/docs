@@ -1,4 +1,4 @@
-# Access management
+# How access management in Yandex.Cloud works
 
 On this page, you can find out how to manage access to resources and how [!KEYREF iam-short-name] checks access rights to them.
 
@@ -63,7 +63,7 @@ If a child resource is also assigned some roles, a list of permissions for this 
 
 #### See also
 
-For more information about managing access to a specific Yandex.Cloud service, see the <q>Security and access management</q> section in the documentation on that service.
+For more information about managing access to a specific Yandex.Cloud service, see the <q>Access management</q> section in the documentation on that service.
 
 Step-by-step instructions and examples:
 

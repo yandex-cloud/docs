@@ -45,7 +45,7 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
-      - name: Управление доступом к ресурсам
+      - name: Как устроено управление доступом
         items:
           - name: Обзор
             href: concepts/access-control/index.md
