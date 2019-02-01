@@ -12,7 +12,7 @@ To install the AWS SDK for JAVA, follow the [instructions](https://docs.aws.amaz
 
 > [!NOTE]
 >
->Install SDK 1.11.336 or higher.
+> Install SDK 1.11.336 or higher.
 
 ## Setup {#setup}
 
@@ -22,7 +22,7 @@ To install the AWS SDK for JAVA, follow the [instructions](https://docs.aws.amaz
 
 For sample code, see `aws-java-sdk/samples/AmazonS3` in the archive with the SDK distribution package.
 
-To connect to [!KEYREF objstorage-name], the code in the example
+To connect to [!KEYREF objstorage-name], the code in the example should be replaced
 
 ```cpp
 AmazonS3 s3 = AmazonS3ClientBuilder.standard()
@@ -31,7 +31,7 @@ AmazonS3 s3 = AmazonS3ClientBuilder.standard()
     .build();
 ```
 
-should be replaced with
+with
 
 ```cpp
 AmazonS3 s3 = AmazonS3ClientBuilder.standard()

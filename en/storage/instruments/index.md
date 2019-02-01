@@ -8,5 +8,6 @@
 | [aws-sdk-java](aws-sdk-java.md) | Java SDK for Amazon Web Services |
 | [boto](boto.md) | Python SDK for Amazon S3 |
 | [Cyberduck](cyberduck.md) | File browser |
-| [S3cmd](s3cmd.md) | Command line client |
+| [S3cmd](s3cmd.md) | Сommand-line interface |
+| [s3fs](s3fs.md) | Utility to mount buckets through FUSE |
 

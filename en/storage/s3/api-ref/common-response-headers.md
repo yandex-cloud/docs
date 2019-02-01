@@ -10,3 +10,5 @@ The table below describes additional headers as well as standard headers that ne
 | `x-amz-id-2` | Special ID that is used with the `x-amz-request-id` header when solving problems with [!KEYREF objstorage-name]. |
 | `x-amz-request-id` | Unique request ID.<br/><br/>You may need it when contacting the Yandex.Cloud support service if any problems occur. |
 
+If a request is sent with CORS headers, a response may contain the [headers of a response](object/options.md#response-headers) to the `OPTIONS` preflight request.
+

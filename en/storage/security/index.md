@@ -7,7 +7,7 @@ This section lists the roles required for an account to perform operations with 
 
 > [!NOTE]
 >
->Resource access rights are inherited from the cloud and folder.
+> Resource access rights are inherited from the cloud and folder.
 
 ## Assigning roles
 

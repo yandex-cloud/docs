@@ -1,11 +1,11 @@
-# delete method
+# get method
 
-Deletes a static website hosting configuration for a bucket.
+Returns a CORS configuration for a bucket.
 
 ## Request {#request}
 
 ```
-DELETE /{bucket}?website HTTP/1.1
+GET /{bucket}?cors HTTP/1.1
 ```
 
 ### Path parameters {#path-parameters}
@@ -14,15 +14,15 @@ DELETE /{bucket}?website HTTP/1.1
 | ----- | ----- |
 | `bucket` | Bucket name. |
 
-### Query parameters {#parameters}
+### Query parameters {#request-params}
 
 | Parameter | Description |
 | ----- | ----- |
-| `website` | Mandatory parameter to indicate the type of operation. |
+| `cors` | Mandatory parameter to indicate the type of operation. |
 
 ### Headers {#request-headers}
 
-In a request, use only [common request headers](../common-request-headers.md).
+In a request, use the necessary [common request headers](../common-request-headers.md).
 
 ## Response {#response}
 
@@ -34,5 +34,7 @@ A response can only contain [common response headers](../common-response-headers
 
 For a list of possible responses, see [[!TITLE]](../response-codes.md).
 
-If there is no hosting configuration, [!KEYREF objstorage-name] returns 200.
+### Data schema {#response-scheme}
+
+The structure of returned data is the same as that of the data passed by the [upload](upload.md) method.
 

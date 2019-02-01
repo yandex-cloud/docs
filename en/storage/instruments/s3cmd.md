@@ -21,14 +21,14 @@ To configure S3cmd, use the `s3cmd --configure` command. The command will reques
 1. `Default Region`: enter `us-east-1`.
 
    > [!NOTE]
-   >
-   >To work with [!KEYREF objstorage-name], always specify the `us-east-1` region. A different value of the region may lead to an authorization error.
+   > 
+   > To work with [!KEYREF objstorage-name], always specify the `us-east-1` region. A different value of the region may lead to an authorization error.
 
 1. `S3 Endpoint`: enter `[!KEYREF s3-storage-host]`.
 
 1. `DNS-style bucket+hostname:port template for accessing a bucket`: enter `%(bucket)s.[!KEYREF s3-storage-host]`.
 
-1. Leave the other parameter values unchanged.
+1. Leave the other parameter values of the other parameters unchanged.
 
 The client will try to establish a connection with [!KEYREF objstorage-name] and get a list of buckets. If successful, it will return `Success. Your access key and secret key worked fine :-)`.
 
@@ -65,7 +65,7 @@ Remember that S3cmd works with [!KEYREF objstorage-name] like a hierarchical fil
 
 > [!NOTE]
 >
->When creating a bucket, follow the [naming guidelines](../concepts/bucket.md#naming).
+> When creating a bucket, follow the [naming guidelines](../concepts/bucket.md#naming).
 
 ### Uploading an object
 
@@ -79,7 +79,7 @@ s3cmd put local_file s3://bucket/object
 s3cmd ls s3://bucket
 ```
 
-### Getting an object
+### Retrieve an object
 
 ```bash
 s3cmd get s3://bucket/object local_file

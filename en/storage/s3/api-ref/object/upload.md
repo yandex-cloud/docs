@@ -3,8 +3,8 @@
 Uploads an object and its metadata to Yandex [!KEYREF objstorage-name].
 
 > [!NOTE]
->
->[!KEYREF objstorage-name] does not lock an object for writing and can simultaneously accept multiple write requests for the same object, but the user will only get the last object written from [!KEYREF objstorage-name].
+> 
+> [!KEYREF objstorage-name] does not lock an object for writing and can simultaneously accept multiple write requests for the same object, but the user will only get the last object written from [!KEYREF objstorage-name].
 
 To make sure an object is passed via the network without any corruption, use the `Content-MD5` header. [!KEYREF objstorage-name] calculates the `MD5` value for a saved object and, if the calculated `MD5` value does not match the one passed in the header, it returns an error. You can also perform this check on the client side by comparing the `ETag` from the [!KEYREF objstorage-name] response with the precalculated `MD5` value.
 

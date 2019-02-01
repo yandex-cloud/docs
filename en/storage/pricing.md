@@ -1,10 +1,6 @@
----
-editable: false
----
-
 # Pricing policy for Yandex [!KEYREF objstorage-name]
 
-## What goes into the cost of [!KEYREF objstorage-short-name] use {#rules}
+## What goes into the cost of using [!KEYREF objstorage-short-name] {#rules}
 
 The cost of [!KEYREF objstorage-name] usage is based on:
 
@@ -39,8 +35,8 @@ Prices are specified for a 30-day month. For shorter months, the price is higher
 
 | Service | Cost of 1 GB per month, without VAT | Cost of 1 GB per month, with VAT |
 | ----- | ----- | ----- |
-| Standard storage | 1.0508 ₽| 1.2400 ₽
-| Cold storage | 0.5593 ₽| 0.6600 ₽
+| Standard storage | 1.0508 ₽ | 1.2400 ₽ |
+| Cold storage | 0.5593 ₽ | 0.6600 ₽ |
 
 Here is an example of proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a month that is 30 days long. The total cost of storage can be calculated using the formula:
 
@@ -53,16 +49,16 @@ Storage_cost = Cost_per_GB_per_month * 15 * 11.5 / 24 / 30
 | Service | Cost, rubles without VAT | Cost, rubles with VAT |
 | ----- | ----- | ----- |
 | **Standard storage** |  |
-| 1.000 PUT or POST operations | 0.2542 ₽ | 0.3000 ₽
-| 10.000 GET or HEAD operations | 0.2034 ₽ | 0.2400 ₽
+| 1,000 PUT or POST operations | 0.2542 ₽ | 0.3000 ₽ |
+| 10,000 GET or HEAD operations | 0.2034 ₽ | 0.2400 ₽ |
 | **Cold storage** |  |
-| 1.000 PUT or POST operations | 0.6186 ₽| 0.7300 ₽
-| 10.000 GET or HEAD operations | 0.5085 ₽| 0.6000 ₽
+| 1,000 PUT or POST operations | 0.6186 ₽ | 0.7300 ₽ |
+| 10,000 GET or HEAD operations | 0.5085 ₽ | 0.6000 ₽ |
 
 > [!NOTE]
-
+>
 > Operations with data that resulted in an error are charged only in the following cases:
-> 
+>
 > * Error code 403 for a GET or HEAD operation.
 > * Error code 404 for a PUT, POST, GET, or HEAD operation.
 > 
@@ -78,8 +74,8 @@ Prices are specified for a 30-day month. For shorter months, the price is higher
 
 | Service | Cost of 1 GB per month, without VAT | Cost of 1 GB per month, with VAT |
 | ----- | ----- | ----- |
-| Standard storage | 1.0508 ₽| 1.2610 ₽
-| Cold storage | 0.5593 ₽| 0.6712 ₽
+| Standard storage | 1.0508 ₽ | 1.2610 ₽ |
+| Cold storage | 0.5593 ₽ | 0.6712 ₽ |
 
 Here is an example of proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a month that is 30 days long. The total cost of storage can be calculated using the formula:
 
@@ -92,11 +88,11 @@ Storage_cost = Cost_per_GB_per_month * 15 * 11.5 / 24 / 30
 | Service | Cost, rubles without VAT | Cost, rubles with VAT |
 | ----- | ----- | ----- |
 | **Standard storage** |  |
-| 1.000 PUT or POST operations | 0.2542 ₽ | 0.3051 ₽
-| 10.000 GET or HEAD operations | 0.2034 ₽ | 0.2441 ₽
+| 1,000 PUT or POST operations | 0.2542 ₽ | 0.3051 ₽ |
+| 10,000 GET or HEAD operations | 0.2034 ₽ | 0.2441 ₽ |
 | **Cold storage** |  |
-| 1.000 PUT or POST operations | 0.6186 ₽| 0.7424 ₽
-| 10.000 GET or HEAD operations | 0.5085 ₽| 0.6102 ₽
+| 1,000 PUT or POST operations | 0.6186 ₽ | 0.7424 ₽ |
+| 10,000 GET or HEAD operations | 0.5085 ₽ | 0.6102 ₽ |
 
 > [!NOTE]
 > 

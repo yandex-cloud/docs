@@ -26,10 +26,10 @@ To configure the AWS CLI, use the `aws configure` command. The command will requ
 1. `Default region name`: enter `us-east-1`.
 
    > [!NOTE]
-   >
-   >To work with Yandex Object Storage, always specify the `us-east-1` region. A different value of the region may lead to an authorization error.
+   > 
+   > To work with Yandex Object Storage, always specify the `us-east-1` region. A different value of the region may lead to an authorization error.
 
-1. Leave the other parameter values unchanged.
+1. Leave the other parameter values of the other parameters unchanged.
 
 ### Configuration files {#config-files}
 
@@ -71,8 +71,8 @@ When using the AWS CLI to work with [!KEYREF objstorage-name], keep the followin
    ```
 
 > [!NOTE]
->
->When creating a bucket, follow the [naming guidelines](../concepts/bucket.md#naming).
+> 
+> When creating a bucket, follow the [naming guidelines](../concepts/bucket.md#naming).
 
 ### Uploading objects
 
@@ -129,7 +129,7 @@ You can delete objects using one of the following methods:
        s3 rm s3://bucket-name/path_style_prefix/textfile.txt
    ```
 
-### Getting an object
+### Retrieve an object
 
    ```bash
    aws --endpoint-url=https://[!KEYREF s3-storage-host] \

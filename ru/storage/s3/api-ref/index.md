@@ -8,7 +8,7 @@
 [Object](object.md) | Управляет объектами.
 [Multipart upload](multipart.md) | Управляет загрузкой больших объектов.
 [Static Website Hosting](hosting.md) | Управляет конфигурациями корзин для статического веб-хостинга.
-[CORS](cors.md) | Управляет CORS конфигурациями для корзин.
+[CORS](cors.md) | Управляет Cross-Origin Resource Sharing (CORS) конфигурациями для корзин.
 
 ## Поддерживаемые методы {#operations-list}
 

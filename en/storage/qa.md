@@ -1,8 +1,8 @@
 # Questions and answers about [!KEYREF objstorage-full-name]
 
-#### What is  [!KEYREF objstorage-full-name]? {#qa-what-is}
+#### What is [!KEYREF objstorage-full-name]? {#qa-what-is}
 
-[!KEYREF objstorage-full-name] is a universal, scalable solution for data storage. It is the perfect choice both for high-load services that require reliable and fast access to data, and for projects with minimum requirements for storage infrastructure.
+[!KEYREF objstorage-full-name] is a universal, scalable solution for data storage. It is the perfect choice both for high-load services that require reliable and fast access to data, and for projects with minimal requirements for storage infrastructure.
 
 #### What can I do with [!KEYREF objstorage-full-name]? {#qa-usecases}
 
@@ -34,7 +34,7 @@ Use the feedback form on the support page in the management console.
 
 #### How do I contact technical support? {qa-support-channels}
 
-You can contact technical support using one of these methods:
+You can contact technical support using any of these methods:
 
 [!INCLUDE [support-channels](../_includes/support-channels.md)]
 

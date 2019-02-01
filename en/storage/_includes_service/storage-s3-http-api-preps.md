@@ -1,4 +1,4 @@
-1. [Create a service account](../operations/security/service-account.md).
-1. [Get the necessary roles](../security/index.md).
-1. [Get a static key](../operations/security/get-static-key.md).
+1. [Create a service account](../../iam/operations/sa/create.md).
+1. [Assign a role to a service account](../../iam/operations/sa/assign-role-for-sa.md).
+1. [Create a static access key](../../iam/operations/sa/create-access-key.md).
 

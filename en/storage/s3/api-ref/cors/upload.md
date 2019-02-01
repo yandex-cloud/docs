@@ -1,11 +1,13 @@
-# get method
+# upload method
 
-Returns the configuration of static website hosting for a bucket.
+Uploads a CORS configuration for a bucket. It replaces any existing configuration.
+
+A CORS configuration is an XML file no larger than 64 KB. A configuration may contain no more than 100 rules.
 
 ## Request {#request}
 
 ```
-GET /{bucket}?website HTTP/1.1
+PUT /{bucket}?cors HTTP/1.1
 ```
 
 ### Path parameters {#path-parameters}
@@ -18,11 +20,17 @@ GET /{bucket}?website HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `website` | Mandatory parameter to indicate the type of operation. |
+| `cors` | Mandatory parameter to indicate the type of operation. |
 
 ### Headers {#request-headers}
 
 In a request, use the necessary [common request headers](../common-request-headers.md).
+
+The `Content-MD5` header is required.
+
+### Data schema {#request-scheme}
+
+A CORS configuration is passed as an XML document. For the schema description, see [[!TITLE]](../../../cors/configuration.md)
 
 ## Response {#response}
 
@@ -33,8 +41,4 @@ A response can only contain [common response headers](../common-response-headers
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [[!TITLE]](../response-codes.md).
-
-### Data schema {#response-scheme}
-
-The structure of returned data is the same as that of the data passed by the [upload](upload.md) method.
 

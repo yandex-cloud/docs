@@ -19,6 +19,10 @@ or
 http(s)://[!KEYREF s3-web-host]/<bucket_name>
 ```
 
+> [!NOTE]
+>
+> You can use HTTPS only if there is no dot in a bucket name.
+
 ## Your own domain
 
 You can use your own domain to display the website.
@@ -37,5 +41,5 @@ In this case:
 
 > [!NOTE]
 >
->The website is accessible only over HTTP, for instance, `http://example.com`. You can use HTTPS when accessing websites at [!KEYREF objstorage-name] addresses, for instance, `http(s)://example.com.[!KEYREF s3-web-host]`.
+> The website is accessible only over HTTP, for instance, `http://example.com` or `http://example.com.[!KEYREF s3-web-host]`.
 

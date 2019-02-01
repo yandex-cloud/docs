@@ -7,6 +7,8 @@
 | [Bucket](bucket.md) | Performs bucket management. |
 | [Object](object.md) | Performs object management. |
 | [Multipart upload](multipart.md) | Controls uploading of large objects. |
+| [Static Website Hosting](hosting.md) | Manages bucket configurations for static web hosting. |
+| [CORS](cors.md) | Manages Cross-Origin Resource Sharing (CORS) configurations for buckets. |
 
 ## Supported methods {#operations-list}
 
@@ -29,6 +31,7 @@
 | [getObjectMeta](object/getobjectmeta.md) | Retrieves object metadata. |
 | [delete](object/delete.md) | Deletes an object. |
 | [deleteMultipleObjecs](object/deletemultipleobjects.md) | Deletes objects based on a list. |
+| [options](object/options.md) | Checks whether a CORS request to an object can be made. |
 
 ### Multipart Upload service
 
@@ -48,6 +51,14 @@
 | [upload](hosting/upload.md) | Uploads a bucket's configuration for static website hosting to [!KEYREF objstorage-name]. |
 | [get](hosting/get.md) | Returns a bucket's configuration for static website hosting from [!KEYREF objstorage-name]. |
 | [delete](hosting/delete.md) | Deletes a bucket's configuration for static website hosting. |
+
+### CORS service
+
+| Method | Description |
+| ----- | ----- |
+| [upload](cors/upload.md) | Uploads a CORS configuration for a bucket. |
+| [get](cors/get.md) | Returns a CORS configuration for a bucket. |
+| [delete](cors/delete.md) | Deletes a CORS configuration for a bucket. |
 
 ## See also
 

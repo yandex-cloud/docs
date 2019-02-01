@@ -6,7 +6,7 @@ You can configure a bucket:
 
 **[!TAB As a website]**
 
-- [Allow public access](../operations/security/bucket-availability.md). Otherwise, [!KEYREF objstorage-name] returns a 403 response to the user.
+- [Allow public access](../operations/buckets/bucket-availability.md). Otherwise, [!KEYREF objstorage-name] returns error code 403 to the user.
 - [Specify the website's home page](setup.md).
 - You can optionally specify the web page that will be returned if 4xx errors occur.
 

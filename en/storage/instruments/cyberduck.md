@@ -21,4 +21,5 @@ Create a connection with the following parameters:
 
 > [!NOTE]
 >
->CyberDuck works with [!KEYREF objstorage-name] like a hierarchical file system. This means that keys for objects uploaded via CyberDuck will look like a file path. For example, `prefix/subprefix/picture.jpg`.
+> CyberDuck works with [!KEYREF objstorage-name] like a hierarchical file system. This means that keys for objects uploaded via CyberDuck will look like a file path. For example, `prefix/subprefix/picture.jpg`.
+

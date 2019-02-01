@@ -6,12 +6,12 @@
 
    For more information, see the section [Getting started](../billing/quickstart/index.md) in the documentation on Billing.
 
-1. Select the roles required to work with [!KEYREF objstorage-name]. There are the following options:
+1. Get the roles required to work with [!KEYREF objstorage-name]. Select one of the options:
     * The `resource-manager.cloud.owner` role for the cloud.
-    * A pair of roles:  `resource-manager.cloud.member`  for the cloud and `admin` for the cloud or folder.
+    * A pair of roles: `resource-manager.cloud.member` for the cloud and `admin` for the cloud or folder.
     * A pair of roles: `resource-manager.cloud.member` for the cloud and `editor` for the cloud or folder.
 
-1. To assign selected roles:
+1. To assign roles:
 
     [!INCLUDE [grant-role-console](../_includes/grant-role-console.md)]
 
