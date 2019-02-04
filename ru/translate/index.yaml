@@ -13,7 +13,7 @@ links:
   href: "operations/index"
 - title: "Справочник API"
   description: "Описание методов HTTP API"
-  href: "api-ref/"
+  href: "api-ref/v2/Translation/"
 - title: "Авторизация в API"
   description: "Получите токен авторизации и используйте его в запросах"
   href: "concepts/auth"
