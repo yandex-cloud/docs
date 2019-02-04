@@ -98,7 +98,7 @@ You need to create a key pair for SSH connection yourself. To generate keys, use
 
 1. Click **Create VM**.
 
-Creating the VM may take several minutes. When the VM status changes to `RUNNING`, you can [install and configure the DNS load balancer software](#upload-files).
+Creating the VM may take several minutes. When the VM status changes to `RUNNING`, you can [install and configure the DNS load balancer software](#install-configure-dns-balancer).
 
 When a VM is created, it is assigned an IP address and hostname (FQDN). This data can be used for SSH access.
 
