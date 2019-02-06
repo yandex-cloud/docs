@@ -15,7 +15,7 @@ items:
       href: operations/connect.md
     - name: How to change cluster and database settings
       href: operations/update.md
-    - name: How to manage ClickHouse hosts
+    - name: Managing PostgreSQL hosts
       href: operations/hosts.md
     - name: How to perform database user management
       href: operations/cluster-users.md
@@ -39,10 +39,16 @@ items:
       href: concepts/replication.md
     - name: Supported clients
       href: concepts/supported-clients.md
-  - name: Identity and access management
+  - name: Access management
     href: security/index.md
   - name: Pricing policy
-    href: pricing.md
+    items:
+      - name: Current policy
+        href: pricing.md
+      - name: Archive
+        items:
+          - name: Policy before January 1, 2019
+            href: pricing-archive/pricing-01012019.md
   - name: API Reference
     items:
     - name: Authentication in the API

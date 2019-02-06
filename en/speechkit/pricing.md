@@ -1,10 +1,9 @@
 ---
 editable: false
 ---
-
 # Yandex SpeechKit pricing
 
-## What goes into the cost of [!KEYREF speechkit-short-name] use {#rules}
+## What goes into the cost of using [!KEYREF speechkit-short-name] {#rules}
 
 ### Speech synthesis use {#rules-tts}
 
@@ -21,21 +20,7 @@ The cost of using the SpeechKit API for speech recognition is calculated from th
 - You send a 37-second fragment for speech recognition. Your request is split into three segments: two that are 15 seconds long, and one that is 7 seconds long. The length of the last segment is rounded up to 15 seconds. The final cost of the request is calculated for 45 seconds.
 - You made two requests, for 5 and 8 seconds, respectively. The length of each request is rounded up to 15 seconds. The final cost of the request is calculated for 30 seconds.
 
-## Prices until January 1, 2019 {#prices-old}
-
-### Speech synthesis {#prices-tts-old}
-
-| Service | Rate per 1 million characters,<br/>without VAT | Rate per 1 million characters,<br/>with VAT |
-| ----- | ----- | ----- |
-| Speech synthesis | 152.5424 ₽ | 180.0000 ₽ |
-
-### Speech recognition {#prices-stt-old}
-
-| Service | Price per<br/>15 sec<br/> segment, without VAT | Price per<br/>15 sec<br/> segment, with VAT |
-| ----- | ----- | ----- |
-| Speech recognition | 0.1270 ₽ | 0.1500 ₽ |
-
-## Prices as of January 1, 2019 {#prices}
+## Prices {#prices}
 
 ### Speech synthesis {#prices-tts}
 

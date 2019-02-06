@@ -1,4 +1,4 @@
-- Through the [support contact form](https://console.cloud.yandex.ru/support) in the management console.
+- Through the feedback form on the support page in the management console.
 - By email.
 - Via the chat.
 
