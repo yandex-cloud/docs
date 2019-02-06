@@ -7,17 +7,10 @@ The response may contain:
 
   ```json
   {
-    "error_code": "{string}", 
+    "error_code": "{string}",
     "error_message": "{string}"
   }
   ```
-
-## Response headers {#response-headers}
-
-| Header | Description |
-| ----- | ----- |
-| YaCloud-Request-Id | Used for contacting technical support. Contains a unique request ID assigned by the server. |
-| YaCloud-Billing-Units | Number of units to be sent to billing. |
 
 ## Response codes {#response-codes}
 

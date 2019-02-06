@@ -73,7 +73,7 @@ To create a [billing account](../concepts/billing-account.md):
       [!INCLUDE [yandex-account](../_includes/payment-card-validation.md)]
 
     - **Bank transfer**.
-<br/>After you click the **Activate**  button (step 11), the billing account is created with the [Not verified](../concepts/billing-account.md#conditions) status. An email with further instructions will be sent to your email address specified in your Yandex or Yandex.Connect  account. It may take up to three business days to activate your billing account.
+<br/>After you click the **Activate** button (step 11), the billing account is created with the [Not verified](../concepts/billing-account.md#conditions) status. An email with further instructions will be sent to the email address specified in your Yandex or Yandex.Connect account. It may take up to three business days to activate your billing account.
 
    9.2. Enter the legal details of your organization.
 
@@ -90,9 +90,9 @@ To create a [billing account](../concepts/billing-account.md):
 
     > [!NOTE]
     >
-    > Once you create a billing account, you are automatically assigned the _Owner_ role. You cannot change the owner or grant another user access to your billing account. For more information, see [Access management](../security/index.md).
+    >Once you create a billing account, you are automatically assigned the _Owner_ role. You cannot change the owner or grant another user access to your billing account. For more information, see [Access management](../security/index.md).
     >
-
+    
 <a name="start"></a>
 
 ### Get started {#start}

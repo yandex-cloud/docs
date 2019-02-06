@@ -15,8 +15,10 @@ items:
       href: operations/connect.md
     - name: How to change cluster and database settings
       href: operations/update.md
-    - name: How to manage PostgreSQL hosts
+    - name: Managing PostgreSQL hosts
       href: operations/hosts.md
+    - name: Database management
+      href: operations/databases.md
     - name: How to manage PostgreSQL extensions
       href: operations/cluster-extensions.md
     - name: How to perform database user management
@@ -41,10 +43,16 @@ items:
       href: concepts/replication.md
     - name: Supported clients
       href: concepts/supported-clients.md
-  - name: Identity and access management
+  - name: Access management
     href: security/index.md
   - name: Pricing policy
-    href: pricing.md
+    items:
+      - name: Current policy
+        href: pricing.md
+      - name: Archive
+        items:
+          - name: Policy before January 1, 2019
+            href: pricing-archive/pricing-01012019.md
   - name: API reference
     items:
     - name: Authentication in the API

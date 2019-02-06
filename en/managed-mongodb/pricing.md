@@ -1,7 +1,6 @@
 ---
 editable: false
 ---
-
 # Pricing policy for [!KEYREF MG]
 
 ## What goes into the cost of using [!KEYREF mmg-short-name] {#rules}
@@ -35,32 +34,6 @@ The following is charged:
 
 The cost is specified for one month of use.  The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
 
-## Prices until January 1, 2019 {#prices-old}
-
-### Hosts {prices-hosts-old}
-
-| Host class | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
-| ----- | ----- | ----- |
-| s1.nano | 2.5000 ₽ | 2.9500 ₽ |
-| s1.micro | 5.0085 ₽ | 5.9100 ₽ |
-| s1.small | 10.0085 ₽ | 11.8100 ₽ |
-| s1.medium | 20.0254 ₽ | 23.6300 ₽ |
-| s1.large | 40.0424 ₽ | 47.2500 ₽ |
-| s1.xlarge | 80.0932 ₽ | 94.5100 ₽ |
-
-### Storage and backups {#prices-storage-old}
-
-| Service | Cost of 1 GB per month, without VAT | Cost of 1 GB per month, with VAT |
-| ----- | ----- | ----- |
-| Standard network storage | 1.9068 ₽ | 2.2500 ₽ |
-| Fast network storage | 6.7797 ₽ | 8.000 ₽ |
-| NVMe | 6.7797 ₽ | 8.000 ₽ |
-| Backups beyond the storage size | 2.1186 ₽ | 2.5000 ₽ |
-
-### Outgoing traffic {#prices-traffic-old}
-
-[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing-egress-traffic-old.md)]
-
 ## Prices as of January 1, 2019 {#prices}
 
 ### Hosts {prices-hosts}
@@ -85,5 +58,5 @@ The cost is specified for one month of use.  The minimum billing unit is 1 GB pe
 
 ### Outgoing traffic {#prices-traffic}
 
-[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing-egress-traffic.md)]
+[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md)]
 

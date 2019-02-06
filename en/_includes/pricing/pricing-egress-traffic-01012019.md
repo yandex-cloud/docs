@@ -6,5 +6,5 @@ The minimum charging unit is 1 MB.
 
 | Resource category | Cost of 1 GB, without VAT | Cost of 1 GB, incl. VAT |
 | ----- | ----- | ----- |
-| Outgoing traffic | 1.2712 ₽| 1.5000 ₽
+| Outgoing traffic | 1.2712 ₽ | 1.5000 ₽ |
 

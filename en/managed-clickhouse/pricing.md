@@ -1,8 +1,7 @@
 ---
 editable: false
 ---
-
-# Pricing policy for Yandex [!KEYREF mch-short-name]
+# Pricing policy for [!KEYREF mch-short-name]
 
 ## What goes into the cost of using [!KEYREF mch-short-name] {#rules}
 
@@ -21,8 +20,8 @@ The cost of [!KEYREF mch-name] usage is based on:
 The cost is calculated for each hour of the host's operation in accordance with its class. The exact class characteristics are given in the section [[!TITLE]](concepts/instance-types.md).
 
 > [!IMPORTANT]
-> 
-> For each [!KEYREF CH] cluster with two or more hosts, [!KEYREF CH] automatically creates 3 ZooKeeper hosts.
+
+For each [!KEYREF CH] cluster with 2 or more hosts, [!KEYREF CH] automatically creates 3 ZooKeeper hosts.
 
 The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation). The time when the DBMS host or ZooKeeper cannot perform its main functions is not charged.
 
@@ -47,41 +46,7 @@ For example, let's say you created a [!KEYREF CH] cluster with 3 hosts using the
 
 The hourly price will be calculated using the rates below (including VAT): `3 × ₽5.5119 + 3 × ₽1.7492 = ₽21.78`.
 
-## Prices until January 1, 2019 {#prices-old}
-
-### Hosts {prices-hosts-old}
-
-| Host class | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
-| ----- | ----- | ----- |
-| **[!KEYREF CH]]** |  |
-| s1.nano | 2.2966 ₽ | 2.7100 ₽ |
-| s1.micro | 4.5932 ₽ | 5.4200 ₽ |
-| s1.small | 9.1780 ₽ | 10.8300 ₽ |
-| s1.medium | 18.3559 ₽ | 21.6600 ₽ |
-| s1.large | 36.7119 ₽ | 43.3200 ₽ |
-| s1.xlarge | 73.4153 ₽ | 86.6300 ₽ |
-| **ZooKeeper** |  |
-| s1.nano | 1.4576 ₽ | 1.7200 ₽ |
-| s1.micro | 2.8475 ₽ | 3.3600 ₽ |
-| s1.small | 5.6271 ₽ | 6.6400 ₽ |
-| s1.medium | 11.1864 ₽ | 13.2000 ₽ |
-| s1.large | 22.3220 ₽ | 26.3400 ₽ |
-| s1.xlarge | 44.5678 ₽ | 52.5900 ₽ |
-
-### Storage and backups {#prices-storage-old}
-
-| Service | Cost of 1 GB per month, without VAT | Cost of 1 GB per month, with VAT |
-| ----- | ----- | ----- |
-| Standard network storage | 1.9068 ₽ | 2.2500 ₽ |
-| Fast network storage | 6.7797 ₽ | 8.000 ₽ |
-| NVMe | 6.7797 ₽ | 8.000 ₽ |
-| Backups beyond the storage size | 2.1186 ₽ | 2.5000 ₽ |
-
-### Outgoing traffic {#prices-traffic-old}
-
-[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing-egress-traffic-old.md)]
-
-## Prices as of January 1, 2019 {#prices}
+## Prices {#prices}
 
 ### Hosts {prices-hosts}
 
@@ -113,5 +78,5 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
 
 ### Outgoing traffic {#prices-traffic}
 
-[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing-egress-traffic.md)]
+[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md)]
 

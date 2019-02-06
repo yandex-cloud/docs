@@ -1,3 +1,10 @@
+#### Quotas
+
+| Type of limit | Value |
+| ----- | ----- |
+| Storage volume in a cloud | 5 TB |
+| Number of buckets per cloud | 25 |
+
 #### Limits
 
 | Type of limit | Value |
