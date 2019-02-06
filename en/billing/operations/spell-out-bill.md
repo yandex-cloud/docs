@@ -4,7 +4,7 @@ At the beginning of the next reporting period, a business may be issued a [payme
 
 The payment invoice contains aggregate data on all services. Detailed information about the services rendered is available on the [Usage details](../operations/check-charges.md) page.
 
-Each payment invoice contains a set of details. They are described in the table below.
+Each payment invoice contains a set of details. They are described in the following table.
 
 | Name | Description |
 | ----- | ----- |

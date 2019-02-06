@@ -9,7 +9,7 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
 
 1. If you are awarded a grant, you use it. The grant amount is reduced as the resources of Yandex.Cloud services are consumed.
 
-1. The grant amount and its validity period is verified during the entire reporting period. <br/>They are described in the table below.
+1. The grant amount and its validity period is verified during the entire reporting period. <br/>They are described in the following table.
 
    | Grant amount | Description |
    | ----- | ----- |

@@ -9,7 +9,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses, as we
 
 1. If you are awarded a grant, you use it. The grant amount is reduced as the resources of Yandex.Cloud services are consumed.
 
-1. The grant amount and its validity period is verified during the entire reporting period. <br/>They are described in the table below.
+1. The grant amount and its validity period is verified during the entire reporting period. <br/>They are described in the following table.
 
    | Grant amount | Description |
    | ----- | ----- |
@@ -22,7 +22,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses, as we
 
 1. You use the Yandex.Cloud resources. [The personal account balance](../concepts/personal-account.md#balance) decreases as resource usage increases. Go to step 6.
 
-1. Your personal account balance is checked throughout the reporting period. <br/>Columns are described in the table below.
+1. Your personal account balance is checked throughout the reporting period. <br/>They are described in the following table.
 
     | Balance | Description |
     | ----- | ----- |
