@@ -1,0 +1,1 @@
+Для установки AWS CLI воспользуйтесь [инструкцией](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) на сайте производителя.

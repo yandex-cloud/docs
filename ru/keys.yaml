@@ -6,36 +6,50 @@ objstorage-full-name: Yandex Object Storage
 mpg-full-name: Yandex Managed Service for PostgreSQL
 mch-full-name: Yandex Managed Service for ClickHouse
 mmg-full-name: Yandex Managed Service for MongoDB
+mmy-full-name: Yandex Managed Service for MySQL
+mrd-full-name: Yandex Managed Service for Redis
 vpc-full-name: Yandex Virtual Private Cloud
 dsvm-full-name: Yandex Data Science Virtual Machine
 speechkit-full-name: Yandex SpeechKit
 translate-full-name: Yandex Translate
+load-balancer-full-name: Yandex Load Balancer
+message-queue-full-name: Yandex Message Queue
 
 # Полные имена сервисов без Yandex
 iam-name: Identity and Access Management
+instance-groups-name: Instance Groups
 resmgr-name: Resource Manager
 compute-name: Compute Cloud
 objstorage-name: Object Storage
 mpg-name: Managed Service for PostgreSQL
 mch-name: Managed Service for ClickHouse
 mmg-name: Managed Service for MongoDB
+mmy-name: Managed Service for MySQL
+mrd-name: Managed Service for Redis
 vpc-name: Virtual Private Cloud
 dsvm-name: Data Science Virtual Machine
 speechkit-name: SpeechKit
 translate-name: Translate
+load-balancer-name: Load Balancer
+message-queue-name: Message Queue
 
 # Короткие имена
 iam-short-name: IAM
+instance-groups-short-name: Instance Groups
 resmgr-short-name: Resource Manager
 compute-short-name: Compute Cloud
 objstorage-short-name: Object Storage
 mpg-short-name: Managed Service for PostgreSQL
 mch-short-name: Managed Service for ClickHouse
 mmg-short-name: Managed Service for MongoDB
+mrd-short-name: Managed Service for Redis
+mmy-short-name: Managed Service for MySQL
 vpc-short-name: VPC
 dsvm-short-name: DSVM
 speechkit-short-name: SpeechKit
 translate-short-name: Translate
+load-balancer-short-name: Load Balancer
+message-queue-short-name: Message Queue
 
 # Тарифы
 price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
@@ -60,9 +74,14 @@ s3-web-host: website.yandexcloud.net
 yc-mdb-mg: yc managed-mongodb
 yc-mdb-ch: yc managed-clickhouse
 yc-mdb-pg: yc managed-postgresql
+yc-mdb-rd: yc managed-redis
+yc-mdb-my: yc managed-mysql
+yc-compute-ig: yc compute instance-group
 
 # MDB specific
 pem-path: '/mdb/CA.pem'
 PG: PostgreSQL
 CH: ClickHouse
 MG: MongoDB
+MY: MySQL
+RD: Redis

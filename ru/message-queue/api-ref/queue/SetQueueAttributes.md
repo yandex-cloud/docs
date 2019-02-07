@@ -1,0 +1,81 @@
+# SetQueueAttributes
+
+Метод для задания атрибутов указанной очереди. Изменение атрибутов может занять до 60 секунд. Изменение атрибута `MessageRetentionPeriod` может занять до 15 минут.
+
+## Запрос {#request}
+
+### Параметры запроса {#request-parameters}
+
+Параметр | Тип | Обязательный параметр | Описание
+----- | ----- | ----- | -----
+`QueueUrl` | **string** | Да | URL очереди.
+`Attributes.N.*` | [список атрибутов](#attributes) | Да | Список атрибутов очереди.
+
+#### Атрибуты {#attributes}
+
+Атрибуты очереди. Атрибуты передаются в виде списка. Подробнее о передаче списочных параметров см. [Использование API](../index.md#array-parameters).
+
+```
+Attribute.N.Name (атрибут)
+Attribute.N.Value (значение атрибута)
+```
+
+Атрибут | Тип | Описание
+----- | ----- | -----
+`DelaySeconds` | **integer** | Время в секундах, на которое сообщения будут скрыты после отправки. Возможные значения от 0 до 900 секунд (15 минут). Значение по умолчанию: 0.
+`MaximumMessageSize` | **integer** | Максимальный размер сообщения в байтах. Возможные значения: 1024 байта (1 KБ) до 262144 байт (256 КБ). Значение по умолчанию: 262144 (256 КБ).
+`MessageRetentionPeriod` | **integer** | Срок хранения сообщений в секундах. Возможные значения: от 60 секунда (1 минута) до 1209600 секунд (14 дней). Значение по умолчанию: 345600 (4 дня).
+`ReceiveMessageWaitTimeSeconds` | **integer** | Время ожидания для метода [ReceiveMessage](../message/ReceiveMessage) в секундах. Возможные значения: от 0 to 20 секунд. Значение по умолчанию: 0.
+`VisibilityTimeout` | **integer** | [Таймаут видимости](../../concepts/visibility-timeout.md) сообщений в очереди в секундах. Возможные значения: от 0 до 43000 секунд. Значение по умолчанию: 30.
+
+#### Атрибуты очередей FIFO {#fifo-path-parameters}
+
+Атрибут | Описание
+----- | -----
+`ContentBasedDeduplication` | Флаг, включающий [дедупликацию по содержимому сообщения](../../concepts/deduplication.md#content-based-deduplication). Возможные значения: `true` или `false`.
+
+#### Неподдерживаемые атрибуты
+
+Атрибут | Тип | Описание
+----- | ----- | -----
+`RedrivePolicy` | **string** | Атрибут не поддерживается в Yandex Message Queue.
+`KmsMasterKeyId` | **string** | Атрибут не поддерживается в Yandex Message Queue.
+`KmsDataKeyReusePeriodSeconds` | **string** | Атрибут не поддерживается в Yandex Message Queue.
+
+## Ответ {#response}
+
+### Поля успешного ответа {#response-parameters}
+
+Ответ не содержит полей.
+
+### Ошибки SetQueueAttributes {#errors}
+
+Перечень общих для всех методов ошибок смотрите в разделе [[!TITLE]](../common-errors.md).
+
+Код HTTP | Идентификатор ошибки | Описание
+----- | ----- | -----
+400 | `InvalidAttributeName` | Неверное имя атрибута.
+
+## Пример запроса {#request-example}
+
+```
+Action=SetQueueAttributes
+&Version=2012-11-05
+&QueueUrl=https%3A%2F%2Fmessage-queue.api.cloud.yandex.net%2Fb1g8ad42m6he1ooql78r%2Fdj600000000000le07ol%2Fsample-queue
+&Attribute.1.Name=DelaySeconds
+&Attribute.1.Value=10
+&Attribute.2.Name=VisibilityTimeout
+&Attribute.2.Value=20
+```
+
+Подробнее о формировании запросов см. в разделе [Общий вид запросов к API](../index.md#api-request).
+
+## Пример ответа {#response-example}
+
+```xml
+<SetQueueAttributesResponse>
+    <ResponseMetadata>
+        <RequestId>87acfbed-5254a88a-ef8d6306-e5fd93e-74626d14b02d992c99e5fa1b97c0ac82</RequestId>
+    </ResponseMetadata>
+</SetQueueAttributesResponse>
+```
