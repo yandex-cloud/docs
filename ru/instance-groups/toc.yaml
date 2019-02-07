@@ -1,0 +1,63 @@
+title: Instance Groups
+href: index.yaml
+stage: alpha
+items:
+  - name: Начало работы
+    items:
+      - name: Создание группы ВМ фиксированного размера
+        href: quickstart/index.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Создание группы виртуальных машин
+        items:
+          - name: Создать группу ВМ фиксированного размера
+            href: operations/create-fixed-group.md
+          - name: Создать группу ВМ фиксированного размера с балансировщиком
+            href: operations/create-with-balancer.md
+      - name: Получение информации о группе виртуальных машин
+        items:
+          - name: Получить список групп
+            href: operations/get-list.md
+          - name: Получить основную информацию и метаданные
+            href: operations/get-info.md
+          - name: Получить список ВМ в группе
+            href: operations/get-list-instances.md
+      - name: Управление группой виртуальных машин
+        items:
+          - name: Изменить группу
+            href: operations/update.md
+          - name: Удалить группу
+            href: operations/delete.md
+          - name: Восстановить группу
+            href: operations/recover.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Типы групп
+        href: concepts/instance-group-types.md
+      - name: Шаблон виртуальной машины
+        href: concepts/instance-group-instance-template.md
+      - name: Статусы виртуальной машины
+        href: concepts/instance-group-statuses-vm.md
+      - name:	Политики
+        href: concepts/instance-group-policies.md
+      - name: Лимиты
+        href: concepts/limits.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: ru/instance-groups/toc.yaml
+  - name: Управление доступом
+    href: security/index.md
+  - name: Вопросы и ответы
+    items:
+    - name: Общие вопросы
+      href: qa/general.md
