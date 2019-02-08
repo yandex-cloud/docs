@@ -4,7 +4,7 @@
 
 | Service | Description |
 | ------- | --------- |
-| [Bucket](bucket.md) | Performs bucket management. |
+| [Bucket](bucket.md) | Manages the buckets. |
 | [Object](object.md) | Performs object management. |
 | [Multipart upload](multipart.md) | Controls uploading of large objects. |
 | [Static Website Hosting](hosting.md) | Manages bucket configurations for static web hosting. |

@@ -33,6 +33,10 @@ Offer
 : A method for entering into an agreement.
 <br/>See the section [Agreement](contract.md).
 
+Penalties
+: A penalty for a failure to comply with the agreement terms and conditions regarding the deadline for service payment.
+<br/>For more information about how penalties are charged, see the [Offer to Enter into the Contract to Use Yandex.Cloud Platform Services](https://yandex.ru/legal/cloud_oferta/) (clause 6, subclause 6.15).
+
 Billing account
 : A unique customer ID in Yandex.Cloud.
 <br/>See the section [Billing account](billing-account.md).

@@ -1,4 +1,4 @@
-# Identity and access management
+# Access management
 
 This section lists the roles required for an account to perform operations with [!KEYREF objstorage-name] resources. The following user categories can be granted access to [!KEYREF objstorage-name]:
 

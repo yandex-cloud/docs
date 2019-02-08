@@ -4,9 +4,9 @@ Objects are placed in buckets and contain user data in whatever format it was up
 
 The object ID is the string [key](#key).
 
-Along with the object, Yandex [!KEYREF objstorage-name] stores metadata such as [user-defined ](#user-meta) and [system](#system-meta).
+Along with the object, [!KEYREF objstorage-name] stores [user-defined ](#user-meta) and [system](#system-meta) metadata.
 
-[!KEYREF objstorage-name] allows you to store objects in the standard and cold storage. For more information, see the section [[!TITLE]](storage-class.md).
+[!KEYREF objstorage-name] allows you to store objects in standard and cold storage. For more information, see the section [[!TITLE]](storage-class.md).
 
 ## Key {#key}
 
@@ -56,6 +56,6 @@ In the HTTP API compatible with Amazon S3, metadata is passed as HTTP headers. T
 Metadata names must conform to the HTTP header naming convention and be in lowercase.
 
 > [!NOTE]
-> 
+>
 > The PUT request header must not exceed 8 KB. The maximum size of user-defined metadata in this header is 2 KB.
 

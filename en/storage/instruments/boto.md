@@ -1,54 +1,23 @@
-# boto3 and boto
+# boto3 и boto
 
-[The boto3](https://github.com/boto/boto3) and [boto](https://github.com/boto/boto) development tools offer SDKs for the Python 2.x and 3.x programming languages. The SDKs are designed for working with AWS services.
+[boto3](https://github.com/boto/boto3) и [boto](https://github.com/boto/boto) — это комплекты средств разработки (SDK) для языков программирования Python 2.x и 3.x. SDK предназначены для работы с сервисами AWS.
 
-## Before you start {#preparations}
+
+## Подготовка к работе {#preparations}
 
 [!INCLUDE [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md)]
 
-## Installation {#installation}
+## Установка {#installation}
 
----
+Для установки boto воспользуйтесь инструкциями в репозитории разработчика: [boto3](https://github.com/boto/boto3/blob/develop/README.rst#quick-start), [boto](https://github.com/boto/boto#installation).
 
-**[!TAB boto3]**
-
-Using [pip](https://pip.pypa.io/en/stable/):
-
-```bash
-pip install boto3
-```
-
-From sources:
-
-```bash
-git clone https://github.com/boto/boto3.git
-cd boto3
-python setup.py install
-```
-
-**[!TAB boto]**
-
-Using [pip](https://pip.pypa.io/en/stable/):
-
-```bash
-pip install boto
-```
-
-From sources:
-
-```bash
-git clone git://github.com/boto/boto.git
-cd boto
-python setup.py install
-```
-
----
-
-## Setup {#setup}
+## Настройка {#setup}
 
 [!INCLUDE [storage-sdk-setup](../_includes_service/storage-sdk-setup.md)]
 
-## Example {#boto-example}
+
+## Пример {#boto-example}
+
 
 ---
 
@@ -64,29 +33,29 @@ s3 = session.client(
     endpoint_url='https://[!KEYREF s3-storage-host]'
 )
 
-# Create a new bucket
+# Создать новый бакет
 s3.create_bucket(Bucket='bucket-name')
 
-# Upload objects to the bucket
+# Загрузить объекты в бакет
 
-## From a string
+## Из строки
 s3.put_object(Bucket='bucket-name', Key='object_name', Body='TEST', StorageClass='COLD')
 
-## From a file
+## Из файла
 s3.upload_file('this_script.py', 'bucket-name', 'py_script.py')
 s3.upload_file('this_script.py', 'bucket-name', 'script/py_script.py')
 
-# Get the list of objects in the bucket
+# Получить перечень объектов в бакет
 for key in s3.list_objects(Bucket='bucket-name')['Contents']:
     print(key['Key'])
 
-# Delete multiple objects
+# Удалить несколько объектов
 forDeletion = [{'Key':'object_name'}, {'Key':'script/py_script.py'}]
 response = s3.delete_objects(Bucket='bucket-name', Delete={'Objects': forDeletion})
 
-# Retrieve an object
+# Получить объект
 get_object_response = s3.get_object(Bucket='bucket-name',Key='py_script.py')
-print get_object_response['Body'].read()
+print(get_object_response['Body'].read())
 ```
 
 **[!TAB boto]**
@@ -103,16 +72,16 @@ conn = S3Connection(
 )
 conn.auth_region_name = 'us-east-1'
 
-# Create a new bucket
+# Создать новый бакет
 conn.create_bucket('bucket-name')
 bucket = conn.get_bucket('bucket-name')
 
-# Upload objects to the bucket
+# Загрузить объекты в бакет
 
-## From a string
+## Из строки
 bucket.new_key('test-string').set_contents_from_string('TEST')
 
-## From a file
+## Из файла
 file_key_1 = Key(bucket)
 file_key_1.key = 'py_script.py'
 file_key_1.set_contents_from_filename('this_script.py')
@@ -120,18 +89,17 @@ file_key_2 = Key(bucket)
 file_key_2.key = 'script/py_script.py'
 file_key_2.set_contents_from_filename('this_script.py')
 
-# Get a list of objects in the bucket
+# Получить список объектов в бакете
 keys_list=bucket.list()
 for key in keys_list:
     print key.key
 
-# Delete multiple objects
+# Удалить несколько объектов
 response = bucket.delete_keys(['test-string', 'py_script.py'])
 
-# Retrieve an object
+# Получить объект
 key = bucket.get_key('script/py_script.py')
 print key.get_contents_as_string()
 ```
 
 ---
-

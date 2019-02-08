@@ -1,8 +1,14 @@
 # CORS
 
-[!KEYREF objstorage-full-name] supports cross-domain bucket requests.
+[!KEYREF objstorage-full-name] supports cross-domain requests to bucket objects.
 
-You can set up a [CORS configuration](configuration.md) for each bucket via the [HTTP API compatible with Amazon S3](../s3/index.md). This allows you to manage CORS configurations using [tools](../instruments/index.md) that interact with [!KEYREF objstorage-name] via the S3 HTTP API.
+You can set up a [CORS configuration](configuration.md) for each bucket via:
+
+- [The Yandex.Cloud management console](setup.md).
+
+- [The HTTP API compatible with Amazon S3](../s3/index.md).
+
+    This allows you to manage CORS configurations using [tools](../instruments/index.md) that interact with [!KEYREF objstorage-name] via the HTTP API compatible with Amazon S3.
 
 ## Example of uploading a CORS configuration via the AWS CLI
 

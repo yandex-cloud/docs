@@ -15,7 +15,7 @@ POST /{bucket}/{key}?uploads HTTP/1.1
 
 Параметр | Описание
 ----- | -----
-`bucket` | Имя корзины.
+`bucket` | Имя бакета.
 `key` | Ключ объекта. Под указанным именем объект будет сохранен в [!KEYREF objstorage-name].
 
 
@@ -64,6 +64,6 @@ POST /{bucket}/{key}?uploads HTTP/1.1
 Тег | Описание
 ----- | -----
 `InitiateMultipartUploadResult` | Корневой тег ответа.<br/><br/>Путь: `/InitiateMultipartUploadResult`.
-`Bucket` | Имя корзины в которую загружается объект.<br/><br/>Путь: `/InitiateMultipartUploadResult/Bucket`.
+`Bucket` | Имя бакета в который загружается объект.<br/><br/>Путь: `/InitiateMultipartUploadResult/Bucket`.
 `Key` | Ключ, который ассоциируется с объектом, после окончания загрузки.<br/><br/>Путь: `/InitiateMultipartUploadResult/Key`.
 `UploadId` | Идентификатор загрузки.<br/><br/>Все последующие операции с загрузкой должны передавать в [!KEYREF objstorage-name] этот идентификатор.<br/><br/>Путь: `/InitiateMultipartUploadResult/UploadId`.

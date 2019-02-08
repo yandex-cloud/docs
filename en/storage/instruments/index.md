@@ -1,6 +1,6 @@
 # Supported tools
 
-[!KEYREF objstorage-name] supports some of the Amazon S3 HTTP API methods. This allows you to use not only Yandex.Cloud tools when working with [!KEYREF objstorage-name], but also popular tools designed for Amazon S3.
+[!KEYREF objstorage-name] supports some of the Amazon S3 HTTP API methods. This allows you to use not only Yandex.Cloud tools when working with [!KEYREF objstorage-name] , but also popular tools designed for Amazon S3.
 
 | Tool | Description |
 | ----- | ----- |

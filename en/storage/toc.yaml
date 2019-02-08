@@ -27,9 +27,9 @@ items:
         href: operations/index.md
       - name: Buckets
         items:
-          - name: Creating a bucket
+          - name: Create a bucket
             href: operations/buckets/create.md
-          - name: Deleting a bucket
+          - name: Removing a bucket
             href: operations/buckets/delete.md
           - name: Limiting the maximum size of a bucket
             href: operations/buckets/limit-max-volume.md
@@ -55,6 +55,8 @@ items:
         href: concepts/bucket.md
       - name: Object
         href: concepts/object.md
+      - name: Multipart upload
+        href: concepts/multipart.md
       - name: Storage class
         href: concepts/storage-class.md
       - name: Quotas and limits
@@ -75,6 +77,8 @@ items:
         href: cors/index.md
       - name: Configuring buckets
         href: cors/configuration.md
+      - name: Configuring CORS in the management console
+        href: cors/setup.md
   - name: HTTP API compatible with Amazon S3
     items:
       - name: How to use the API
@@ -159,7 +163,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     items:
-      - name: Current policy
+      - name: Current rules
         href: pricing.md
       - name: Archive
         items:

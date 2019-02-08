@@ -8,7 +8,7 @@
 
 1. Click on the **Yandex Object Storage** tile.
 
-1. Click on the name of the bucket you need.
+1. Click on the name of the desired bucket.
 
 1. To delete a single object, click ![image](../../../_assets/vertical-ellipsis.svg) to the left of the object name and then click **Delete** in the menu that appears.
 To do the same with multiple objects, select them in the list and click **Delete** at the bottom of the screen.

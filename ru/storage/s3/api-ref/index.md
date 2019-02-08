@@ -4,11 +4,11 @@
 
 Сервис | Описание
 -------|---------
-[Bucket](bucket.md) | Управляет корзинами.
+[Bucket](bucket.md) | Управляет бакетами.
 [Object](object.md) | Управляет объектами.
 [Multipart upload](multipart.md) | Управляет загрузкой больших объектов.
-[Static Website Hosting](hosting.md) | Управляет конфигурациями корзин для статического веб-хостинга.
-[CORS](cors.md) | Управляет Cross-Origin Resource Sharing (CORS) конфигурациями для корзин.
+[Static Website Hosting](hosting.md) | Управляет конфигурациями бакетов для статического веб-хостинга.
+[CORS](cors.md) | Управляет Cross-Origin Resource Sharing (CORS) конфигурациями для бакетов.
 
 ## Поддерживаемые методы {#operations-list}
 
@@ -16,11 +16,11 @@
 
 Метод | Описание
 ----- | -----
-[create](bucket/create.md) | Создает корзину.
-[getMeta](bucket/getmeta.md) | Проверяет существование корзины и доступ к ней.
-[listObjects](bucket/listobjects.md) | Возвращает список объектов в корзине.
-[listBuckets](bucket/list.md) | Возвращает список корзин.
-[deleteBucket](bucket/delete.md) | Удаляет корзину.
+[create](bucket/create.md) | Создает бакет.
+[getMeta](bucket/getmeta.md) | Проверяет существование бакета и доступ к ней.
+[listObjects](bucket/listobjects.md) | Возвращает список объектов в бакете.
+[listBuckets](bucket/list.md) | Возвращает список бакетов.
+[deleteBucket](bucket/delete.md) | Удаляет бакет.
 
 ### Сервис Object
 
@@ -48,17 +48,17 @@
 
 Метод | Описание
 ----- | -----
-[upload](hosting/upload.md) | Загружает конфигурацию корзины для хостинга статических сайтов в [!KEYREF objstorage-name].
-[get](hosting/get.md) | Возвращает конфигурацию корзины для хостинга статических сайтов  из [!KEYREF objstorage-name].
-[delete](hosting/delete.md) | Удаляет конфигурацию корзины для хостинга статических сайтов.
+[upload](hosting/upload.md) | Загружает конфигурацию бакета для хостинга статических сайтов в [!KEYREF objstorage-name].
+[get](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов  из [!KEYREF objstorage-name].
+[delete](hosting/delete.md) | Удаляет конфигурацию бакета для хостинга статических сайтов.
 
 ### Сервис CORS
 
 Метод | Описание
 ----- | -----
-[upload](cors/upload.md) | Загружает конфигурацию CORS для корзины.
-[get](cors/get.md) | Возвращает конфигурацию CORS для корзины.
-[delete](cors/delete.md) | Удаляет конфигурацию CORS для корзины.
+[upload](cors/upload.md) | Загружает конфигурацию CORS для бакета.
+[get](cors/get.md) | Возвращает конфигурацию CORS для бакета.
+[delete](cors/delete.md) | Удаляет конфигурацию CORS для бакета.
 
 ## См. также
 - [[!TITLE]](../../s3/index.md)

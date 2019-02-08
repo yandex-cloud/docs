@@ -21,7 +21,7 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 
 Параметр | Описание
 ----- | -----
-`bucket` | Имя корзины.
+`bucket` | Имя бакета.
 `key` | Ключ объекта.
 
 

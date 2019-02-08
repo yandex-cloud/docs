@@ -25,7 +25,7 @@ POST /{bucket}?delete HTTP/1.1
 
 Параметр | Описание
 ----- | -----
-`bucket` | Имя корзины.
+`bucket` | Имя бакета.
 
 
 ### Query параметры {#request-parameters}

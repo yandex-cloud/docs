@@ -4,8 +4,8 @@ Returns the bucket's metadata or an error.
 
 Use this method to check:
 
-- If the bucket exists.
-- If the user has sufficient permissions to access the bucket.
+- Whether the bucket exists.
+- Whether the user has sufficient permissions to access the bucket.
 
 ## Request {#request}
 
@@ -17,7 +17,7 @@ HEAD /{bucket} HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Bucket name. |
+| `bucket` | Name of the bucket. |
 
 ### Headers {#request-headers}
 

@@ -42,7 +42,7 @@ In case of an error, [!KEYREF objstorage-name] returns a message with the approp
 | 400 | `InlineDataTooLarge` | Request data exceeds the maximum allowed size. |
 | 400 | `InvalidDigest` | The hash passed in the Content-MD5 header is not valid. |
 | 400 | `InvalidArgument` | Invalid argument. |
-| 400 | `InvalidBucketName` | Invalid bucket name. |
+| 400 | `InvalidBucketName` | Unacceptable name of the bucket. |
 | 400 | `InvalidPart` | One or more parts of multipart upload not found. Check whether the list is correct. The missing parts may not have been uploaded. |
 | 400 | `InvalidPartOrder` | The list of multipart upload parts is incorrect. The parts must be sorted by number in ascending order. |
 | 400 | `InvalidRequest` | Use AWS4-HMAC-SHA256. |

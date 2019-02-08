@@ -1,6 +1,6 @@
 # Все инструкции
 
-## Корзины
+## Бакеты
 
 - [[!TITLE]](buckets/create.md)
 - [[!TITLE]](buckets/delete.md)

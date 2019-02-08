@@ -60,7 +60,7 @@
 
 ## Примеры операций {#aws-cli-examples}
 
-### Создать корзину
+### Создать бакет
 
    ```bash
    aws --endpoint-url=https://[!KEYREF s3-storage-host] s3 mb s3://bucket-name
@@ -68,7 +68,7 @@
    
 > [!NOTE]
 >
-> При создании корзины помните об [ограничениях на имя](../concepts/bucket.md#naming).
+> При создании бакета помните об [ограничениях на имя](../concepts/bucket.md#naming).
 
 ### Загрузить объекты
 

@@ -9,7 +9,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses, as we
 
 1. If you are awarded a grant, you use it. The grant amount is reduced as the resources of Yandex.Cloud services are consumed.
 
-1. The grant amount and its validity period is verified during the entire reporting period. <br/>They are described in the following table.
+1. The grant amount and its validity period is verified during the entire reporting period. <br/>They are described in the table below.
 
    | Grant amount | Description |
    | ----- | ----- |
@@ -22,7 +22,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses, as we
 
 1. You use the Yandex.Cloud resources. [The personal account balance](../concepts/personal-account.md#balance) decreases as resource usage increases. Go to step 6.
 
-1. Your personal account balance is checked throughout the reporting period. <br/>They are described in the following table.
+1. Your personal account balance is checked throughout the reporting period. <br/>Columns are described in the table below.
 
     | Balance | Description |
     | ----- | ----- |
@@ -43,7 +43,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses, as we
 1. Payment for used resources is verified:
    - If you top up your personal account before the deadline stipulated in the agreement or the funds are debited from the linked bank card within one day, go back to step 4.
    - If your bank card balance is insufficient on the day when funds are to be debited and you failed to [top up](../operations/pay-the-bill.md) your personal account,  the debit transaction will be repeated later.
-   - If you didn't top up your personal account, you don't have a linked bank card, or the funds cannot be debited from any of your bank cards, Yandex.Cloud reserves the right to change the status of your billing account to [Suspended](../concepts/billing-account.md#conditions). For more information, see step 10.
+   - If you didn't top up your personal account, you don't have a linked bank card, or the funds cannot be debited from any of your bank cards, Yandex.Cloud reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md). For more information, see step 10.
 
 1. The use of the Yandex.Cloud services may be suspended if there are outstanding charges:
    - Your VM instances and DB clusters will be stopped completely.
@@ -53,7 +53,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses, as we
 
 1. Payment of the entire outstanding amount is verified within 60 days of suspension:
 
-    11.1. If you pay the total amount due during this period, access to resources is restored within 24 hours. The billing account status will be changed to [Active](../concepts/billing-account.md#conditions). Go back to step 4.
+    11.1. If you pay the total amount due during this period, access to resources is restored within 24 hours. The billing account status will be changed to [ACTIVE](../concepts/billing-account-statuses.md). Go back to step 4.
 <br/>11.2. Otherwise, access to the use of Yandex.Cloud services may be permanently blocked. All your data, including your [billing account](../concepts/billing-account.md), will be permanently deleted.
 
 [!INCLUDE [blocked-note](../_includes/blocked-note.md)]

@@ -1,6 +1,6 @@
 # s3fs
 
-[s3fs](https://github.com/s3fs-fuse/s3fs-fuse) — программа для Linux и macOS, позволяющая монтировать корзины [!KEYREF objstorage-name] через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).
+[s3fs](https://github.com/s3fs-fuse/s3fs-fuse) — программа для Linux и macOS, позволяющая монтировать бакеты [!KEYREF objstorage-name] через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).
 
 > [!NOTE]
 >
@@ -23,20 +23,20 @@ echo <идентификатор ключа>:<секретный ключ> >  ~/
 chmod 600  ~/.passwd-s3fs
 ```
 
-## Монтирование корзины
+## Монтирование бакета
 
-1. Выберите каталог, в который вы будете монтировать корзину и убедитесь, что у вас достаточно прав для операции монтирования.
+1. Выберите каталог, в который вы будете монтировать бакет и убедитесь, что у вас достаточно прав для операции монтирования.
 2. Выполните команду вида:
 
     ```
-    s3fs <имя корзины> /mount/<путь к папке> -o passwd_file=~/.passwd-s3fs \
+    s3fs <имя бакета> /mount/<путь к папке> -o passwd_file=~/.passwd-s3fs \
         -o url=http://storage.yandexcloud.net -o use_path_request_style -o nocopyapi
     ```
 
-Можно настроить монтирование корзины при запуске системы, для этого добавьте в файл `/etc/fstab` строку вида:
+Можно настроить монтирование бакета при запуске системы, для этого добавьте в файл `/etc/fstab` строку вида:
 
 ```
-s3fs#<имя корзины> /mount/<путь к папке> fuse _netdev,allow_other,use_path_request_style,nocopyapi,url=http://storage.yandexcloud.net 0 0
+s3fs#<имя бакета> /mount/<путь к папке> fuse _netdev,allow_other,use_path_request_style,nocopyapi,url=http://storage.yandexcloud.net 0 0
 ```
 
 > [!NOTE]

@@ -26,7 +26,7 @@
 1. `DNS-style bucket+hostname:port template for accessing a bucket` — введите  `%(bucket)s.[!KEYREF s3-storage-host]`.
 1. Значения остальных параметров оставьте без изменений.
 
-Программа попытается установить соединение с [!KEYREF objstorage-name] и получить список корзин. В случае успеха, программа выведет `Success. Your access key and secret key worked fine :-)`.
+Программа попытается установить соединение с [!KEYREF objstorage-name] и получить список бакетов. В случае успеха, программа выведет `Success. Your access key and secret key worked fine :-)`.
 
 Команда `s3cmd --configure` сохранит настройки в файле `~/.s3cfg` в формате:
 
@@ -53,7 +53,7 @@ website_endpoint = http://%(bucket)s.[!KEYREF s3-web-host]
 
 ## Примеры операций {#s3cmd-examples}
 
-### Создать корзину
+### Создать бакет
 
    ```bash
    s3cmd  mb s3://bucket
@@ -61,7 +61,7 @@ website_endpoint = http://%(bucket)s.[!KEYREF s3-web-host]
    
 > [!NOTE]
 >
-> При создании корзины помните об [ограничениях на имя](../concepts/bucket.md#naming).
+> При создании бакета помните об [ограничениях на имя](../concepts/bucket.md#naming).
 
 ### Загрузить объект
 

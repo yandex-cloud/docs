@@ -37,7 +37,11 @@ items:
     - name: Credit limit
       href: concepts/credit-limit.md
     - name: Billing account
-      href: concepts/billing-account.md
+      items:
+        - name: Overview
+          href: concepts/billing-account.md
+        - name: Statuses
+          href: concepts/billing-account-statuses.md
     - name: Personal account
       href: concepts/personal-account.md
     - name: Grant

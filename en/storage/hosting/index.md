@@ -10,13 +10,13 @@ To host a website:
 After you configure the bucket for hosting, the website becomes accessible at:
 
 ```
-http(s)://<bucket_name>.[!KEYREF s3-web-host]
+http(s)://<bucket name>.[!KEYREF s3-web-host]
 ```
 
 or
 
 ```
-http(s)://[!KEYREF s3-web-host]/<bucket_name>
+http(s)://[!KEYREF s3-web-host]/<bucket name>
 ```
 
 > [!NOTE]

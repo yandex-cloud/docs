@@ -14,7 +14,7 @@ DELETE /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Bucket name. |
+| `bucket` | Name of the bucket. |
 | `key` | Object key. |
 
 ### Query parameters {#request-parameters}

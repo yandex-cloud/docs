@@ -4,15 +4,15 @@
 
 >[!NOTE]
 >
->Создавать образы из внешних источников разрешено только по ссылкам на публичные корзины в [!KEYREF objstorage-name].
+>Создавать образы из внешних источников разрешено только по ссылкам на публичные бакеты в [!KEYREF objstorage-name].
 
 ## 1. Загрузите файл образа в Яндекс.Облако
 
 Загрузите файл с образом в сервис [!KEYREF objstorage-full-name] и получите ссылку на загруженный образ:
 
-1. Если у вас еще нет корзины в [!KEYREF objstorage-name], [создайте](../../../storage/operations/buckets/create.md) ее.
-1. [Сделайте корзину публичной](../../../storage/operations/buckets/bucket-availability.md).
-1. [Загрузите образ](../../../storage/operations/objects/upload.md) в вашу корзину. В терминах [!KEYREF objstorage-name] загружаемый файл образа будет называться _объектом_.
+1. Если у вас еще нет бакета в [!KEYREF objstorage-name], [создайте](../../../storage/operations/buckets/create.md) ее.
+1. [Сделайте бакет публичным](../../../storage/operations/buckets/bucket-availability.md).
+1. [Загрузите образ](../../../storage/operations/objects/upload.md) в ваш бакет. В терминах [!KEYREF objstorage-name] загружаемый файл образа будет называться _объектом_.
 1. [Получите ссылку](../../../storage/operations/objects/link-for-download.md) на загруженный образ. Используйте эту ссылку при создании образа в [!KEYREF compute-name].
 
 ## 2. Создайте образ в [!KEYREF compute-name]
@@ -79,6 +79,6 @@ $ yc compute image create  \
 
 ## 3. Удалите образ из [!KEYREF objstorage-name]
 
-Если образ был успешно создан, вы можете [удалить файл образа](../../../storage/operations/objects/delete.md) из сервиса [!KEYREF objstorage-name]. Также можно [удалить корзину](../../../storage/operations/buckets/delete.md), если в ней не осталось объектов.
+Если образ был успешно создан, вы можете [удалить файл образа](../../../storage/operations/objects/delete.md) из сервиса [!KEYREF objstorage-name]. Также можно [удалить бакет](../../../storage/operations/buckets/delete.md), если в нем не осталось объектов.
 
 О стоимости использования [!KEYREF objstorage-name] читайте в разделе [[!TITLE]](../../../storage/pricing.md).

@@ -4,5 +4,6 @@
 
 - [Bucket](bucket.md)
 - [Object](object.md)
+- [Multipart upload](multipart.md)
 - [Storage class](storage-class.md)
 

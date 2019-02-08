@@ -23,7 +23,7 @@ POST /{bucket}?delete HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Bucket name. |
+| `bucket` | Name of the bucket. |
 
 ### Query parameters {#request-parameters}
 

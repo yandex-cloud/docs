@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Начало работы
     items:
-    - name: Создание корзины
+    - name: Создание бакета
       href: quickstart.md
     - name: Настройка инструментов
       items:
@@ -25,15 +25,15 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Корзины
+      - name: Бакеты
         items:
-          - name: Создать корзину
+          - name: Создать бакет
             href: operations/buckets/create.md
-          - name: Удалить корзину
+          - name: Удалить бакет
             href: operations/buckets/delete.md
-          - name: Ограничить максимальный размер корзины
+          - name: Ограничить максимальный размер бакета
             href: operations/buckets/limit-max-volume.md
-          - name: Открыть публичный доступ к корзине
+          - name: Открыть публичный доступ к бакету
             href: operations/buckets/bucket-availability.md
       - name: Объекты
         items:
@@ -51,10 +51,12 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
-      - name: Корзина
+      - name: Бакет
         href: concepts/bucket.md
       - name: Объект
         href: concepts/object.md
+      - name: Составная (multipart) загрузка
+        href: concepts/multipart.md
       - name: Класс хранилища
         href: concepts/storage-class.md
       - name: Квоты и лимиты
@@ -63,7 +65,7 @@ items:
     items:
       - name: Обзор
         href: hosting/index.md
-      - name: Конфигурирование корзин
+      - name: Конфигурирование бакетов
         href: hosting/bucket-configuration.md
       - name: Настройка хостинга в консоли управления
         href: hosting/setup.md
@@ -73,7 +75,7 @@ items:
     items:
       - name: Обзор
         href: cors/index.md
-      - name: Конфигурирование корзин
+      - name: Конфигурирование бакетов
         href: cors/configuration.md
       - name: Настройка CORS в консоли управления
         href: cors/setup.md
