@@ -1,6 +1,6 @@
 # Метод listBuckets
 
-Возвращает перечень корзин, доступных пользователю.
+Возвращает перечень бакетов, доступных пользователю.
 
 
 ## Запрос {#request}
@@ -40,8 +40,8 @@ GET / HTTP/1.1
 
 Элемент | Описание
 ----- | -----
-`Bucket` | Содержит описание корзины.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets/Bucket`.
-`Buckets` | Содержит перечень корзин.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets`.
-`CreationDate` | Время создания корзины в формате `yyyy-mm-ddThh:mm:ss.timezone`.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets/Bucket/CreationDate`.
+`Bucket` | Содержит описание бакета.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets/Bucket`.
+`Buckets` | Содержит перечень бакетов.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets`.
+`CreationDate` | Время создания бакета в формате `yyyy-mm-ddThh:mm:ss.timezone`.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets/Bucket/CreationDate`.
 `ListAllMyBucketsResult` | Корневой элемент ответа.<br/><br/>Путь: `/ListAllMyBucketsResult`.
-`Name` | Имя корзины.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets/Bucket/Name`.
+`Name` | Имя бакета.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets/Bucket/Name`.

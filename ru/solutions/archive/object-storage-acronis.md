@@ -1,14 +1,14 @@
 # Резервное копирование в [!KEYREF objstorage-full-name] через Acronis Backup Gateway
 
 Чтобы настроить резервное копирование в [!KEYREF objstorage-name] через Acronis Backup Gateway:
-1. [Создайте корзину](#create-bucket)
+1. [Создайте бакет](#create-bucket)
 1. [Настройте Acronis Backup Gateway](#configure-acronis)
 1. [Протестируйте резервное копирование](#test-backup)
 
 
-## 1. Создайте корзину {#create-bucket}
+## 1. Создайте бакет {#create-bucket}
 
-Чтобы создать корзину для резервного копирования:
+Чтобы создать бакет для резервного копирования:
 
 [!INCLUDE [create-bucket](../_solutions_includes/create-public-bucket.md)]
 
@@ -24,7 +24,7 @@
     1. Выберите тип провайдера **AuthV2 compatible**.
     1. В поле **Endpoint URL** укажите `[!KEYREF s3-storage-host]`.
     1. Получите [статический ключ](../../iam/operations/sa/create-access-key.md) и укажите его для аутентификации.
-    1. Укажите корзину `backup` для хранения резервных копий.
+    1. Укажите бакет `backup` для хранения резервных копий.
 1. В блоке **Registration** укажите данные вашего аккаунта Acronis.
 1. Нажмите кнопку **DONE**.
 

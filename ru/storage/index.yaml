@@ -6,7 +6,7 @@ meta:
   title: "Yandex Object Storage"
 links:
 - title: "Начало работы"
-  description: "Создайте первую корзину и загрузите данные"
+  description: "Создайте первый бакет и загрузите данные"
   href: "quickstart"
 - title: "Пошаговые инструкции"
   description: "Инструкции по выполнению рутинных операций"

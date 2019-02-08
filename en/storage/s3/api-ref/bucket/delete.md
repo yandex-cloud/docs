@@ -12,7 +12,7 @@ DELETE /{bucket} HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Bucket name. |
+| `bucket` | Name of the bucket. |
 
 ### Headers {#request-headers}
 

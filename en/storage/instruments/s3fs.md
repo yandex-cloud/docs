@@ -16,10 +16,10 @@ To install s3fs, follow the [instructions](https://github.com/s3fs-fuse/s3fs-fus
 
 ## Setup {#setup}
 
-To configure s3fs, save the key ID and secret key to a `~/.passwd-s3fs` file in the `<key ID>:<secret key>` format and restrict access to the `~/.passwd-s3fs` file as follows:
+To configure s3fs, save the key ID and secret key to a `~/.passwd-s3fs` file in the format `<key ID>:<secret key>` and restrict access to the `~/.passwd-s3fs` file like this:
 
 ```
-echo <key ID>:<secret key> >  ~/.passwd-s3fs
+echo  <key ID>:<secret key> >  ~/.passwd-s3fs
 chmod 600  ~/.passwd-s3fs
 ```
 
@@ -41,7 +41,7 @@ s3fs#<bucket name> /mount/<folder path> fuse _netdev,allow_other,use_path_reques
 ```
 
 > [!NOTE]
->
+> 
 > Make sure you use the `nocopyapi` parameter. It provides correct interaction with the HTTP API compatible with Amazon S3.
 
 For descriptions of all s3fs parameters, see the [project's wiki page](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Fuse-Over-Amazon) on GitHub.

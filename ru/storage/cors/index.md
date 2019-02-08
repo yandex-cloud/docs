@@ -1,8 +1,8 @@
 # CORS
 
-[!KEYREF objstorage-full-name] поддерживает кросс-доменные запросы к объектам в корзине.
+[!KEYREF objstorage-full-name] поддерживает кросс-доменные запросы к объектам в бакете.
 
-Настройка [конфигурации CORS](configuration.md) для каждой корзины доступна через:
+Настройка [конфигурации CORS](configuration.md) для каждого бакета доступна через:
 
 - [Консоль управления](setup.md) Яндекс.Облака.
 - [HTTP API, совместимый с Amazon S3](../s3/index.md).
@@ -26,7 +26,7 @@
 }
 ```
 
-Загрузим `cors.json` в корзину `shared-bucket`:
+Загрузим `cors.json` в бакет `shared-bucket`:
 
 ```
 aws s3api put-bucket-cors --bucket shared-bucket --cors-configuration file://cors.json \

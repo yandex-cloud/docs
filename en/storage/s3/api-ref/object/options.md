@@ -12,7 +12,7 @@ OPTIONS /{bucket}/{key} HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Bucket name. |
+| `bucket` | Name of the bucket. |
 | `key` | Object key. ID to use for saving the object in [!KEYREF objstorage-name]. |
 
 ### Headers {#request-headers}

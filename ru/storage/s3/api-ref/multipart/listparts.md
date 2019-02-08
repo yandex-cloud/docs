@@ -15,7 +15,7 @@ GET /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 
 Параметр | Описание
 ----- | -----
-`bucket` | Имя корзины.
+`bucket` | Имя бакета.
 `key` | Ключ объекта.
 
 
@@ -86,7 +86,7 @@ GET /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 Тег | Описание
 ----- | -----
 `ListPartsResult` | Корневой элемент ответа.<br/><br/>Путь: `/ListPartsResult`.
-`Bucket` | Корзина, к которой относится составная загрузка.<br/><br/>Путь: `/ListPartsResult/Bucket`.
+`Bucket` | Бакет, к которому относится составная загрузка.<br/><br/>Путь: `/ListPartsResult/Bucket`.
 `Encoding-Type` | Кодировка, в которой [!KEYREF objstorage-name] представляет ключ в XML-ответе.<br/><br/>Появляется, если клиент при запросе передал параметр `encoding-type`.<br/><br/>Путь: `/ListPartsResult/Encoding-Type`.
 `Key` | Ключ, для которого производится составная загрузка.<br/><br/>Путь: `/ListPartsResult/Key`.
 `UploadId` | Идентификатор составной загрузки.<br/><br/>Путь: `/ListPartsResult/UploadId`.

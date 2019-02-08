@@ -1,6 +1,6 @@
 # Метод upload
 
-Загружает конфигурацию хостинга статического сайта для корзины.
+Загружает конфигурацию хостинга статического сайта для бакета.
 
 
 ## Запрос {#request}
@@ -13,7 +13,7 @@ PUT /{bucket}?website HTTP/1.1
 
 Параметр | Описание
 ----- | -----
-`bucket` | Имя корзины.
+`bucket` | Имя бакета.
 
 
 ### Query параметры {#request-params}
@@ -29,7 +29,7 @@ PUT /{bucket}?website HTTP/1.1
 
 ### Схема данных {#request-scheme}
 
-Корзину можно сконфигурировать:
+Бакета можно сконфигурировать:
 
 ---
 
@@ -74,7 +74,7 @@ PUT /{bucket}?website HTTP/1.1
 Элемент | Описание
 ----- | -----
 `RedirectAllRequestsTo` | Содержит конфигурацию редиректов всех запросов.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo`.
-`HostName` | Хост, на который перенаравляются все запросы к корзине.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo/HostName`.
+`HostName` | Хост, на который перенаравляются все запросы к бакету.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo/HostName`.
 `Protocol` | Протокол, который используется при перенаправлении: `http`, `https`. Необязательный элемент.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo/Protocol`.
 
 ---

@@ -27,7 +27,7 @@ To create your first bucket in [!KEYREF objstorage-name]:
 
 1. Click **Create bucket**.
 
-1. Enter the bucket name.
+1. Enter the name of the bucket.
 
    The name must meet the following requirements:
 
@@ -37,5 +37,5 @@ To create your first bucket in [!KEYREF objstorage-name]:
 
 1. In the bucket, click **Upload objects**.
 
-You can perform operations with buckets and objects not only in the Yandex.Cloud management console, but also using [other tools](instruments/index.md).
+To perform operations with buckets and objects, you can use [alternative tools](instruments/index.md) in addition to the Yandex.Cloud management console.
 

@@ -10,7 +10,7 @@ To upload an object:
 
 1. In the management console, select the appropriate folder.
 1. Click on the **Yandex Object Storage** tile.
-1. Click on the name of the bucket you need.
+1. Click on the name of the desired bucket.
 1. If you want to upload the object to a particular folder, go to that folder by clicking on its name. If you want to create a new folder, click **Create folder**.
 1. Once you are in the appropriate folder, click **Upload**.
 1. In the window that opens, select the required files and click **Open**.

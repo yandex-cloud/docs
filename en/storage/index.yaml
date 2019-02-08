@@ -23,7 +23,7 @@ links:
 - title: "Pricing policy"
   description: "Pricing and cost calculation for services"
   href: "pricing"
-- title: "Identity and access management"
+- title: "Access management"
   description: "Set up access rights to work with the service"
   href: "security/"
 - title: "Quotas and limits"

@@ -59,11 +59,11 @@ Storage_cost = Cost_per_GB_per_month * 15 * 11.5 / 24 / 30
 | 10,000 GET or HEAD operations | 0.5085 ₽ | 0.6102 ₽ |
 
 > [!NOTE]
-
-Operations with data that resulted in an error are charged only in the following cases:
-
-* Error code 403 for a GET or HEAD operation.
-* Error code 404 for a PUT, POST, GET, or HEAD operation.
+>
+> Operations with data that resulted in an error are charged only in the following cases:
+>
+> * Error code 403 for a GET or HEAD operation.
+> * Error code 404 for a PUT, POST, GET, or HEAD operation.
 
 Prices for standard storage are applied when calculating costs.
 

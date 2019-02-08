@@ -7,14 +7,14 @@ The method is equivalent to [get](get.md), but the object itself is not included
 ## Request {#request}
 
 ```
-HEAD /{Key} HTTP/1.1
+HEAD /{bucket}/{key} HTTP/1.1
 ```
 
 ### Path parameters {#path-parameters}
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Bucket name. |
+| `bucket` | Name of the bucket. |
 | `key` | Object key. |
 
 ### Headers {#request-headers}
@@ -40,7 +40,7 @@ In addition to [common response headers](../common-response-headers.md), respons
 | Header name | Description |
 | ----- | ----- |
 | `x-amz-meta-*` | User-defined object metadata that is stored with the object. |
-| `x-amz-storage-class` | `COLD` object storage class if the object is stored in the cold storage.<br/><br/>If it is stored in the standard storage, there will be no header. |
+| `x-amz-storage-class` | Object storage class.<br/>The value is `COLD` if the object is stored in cold storage.<br/><br/>If it is stored in standard storage, the header is omitted. |
 
 ### Response codes {#response-codes}
 

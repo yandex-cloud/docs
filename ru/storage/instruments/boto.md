@@ -33,10 +33,10 @@ s3 = session.client(
     endpoint_url='https://[!KEYREF s3-storage-host]'
 )
 
-# Создать новую корзину
+# Создать новый бакет
 s3.create_bucket(Bucket='bucket-name')
 
-# Загрузить объекты в корзину
+# Загрузить объекты в бакет
 
 ## Из строки
 s3.put_object(Bucket='bucket-name', Key='object_name', Body='TEST', StorageClass='COLD')
@@ -45,7 +45,7 @@ s3.put_object(Bucket='bucket-name', Key='object_name', Body='TEST', StorageClass
 s3.upload_file('this_script.py', 'bucket-name', 'py_script.py')
 s3.upload_file('this_script.py', 'bucket-name', 'script/py_script.py')
 
-# Получить перечень объектов в корзине
+# Получить перечень объектов в бакет
 for key in s3.list_objects(Bucket='bucket-name')['Contents']:
     print(key['Key'])
 
@@ -72,11 +72,11 @@ conn = S3Connection(
 )
 conn.auth_region_name = 'us-east-1'
 
-# Создать новую корзину
+# Создать новый бакет
 conn.create_bucket('bucket-name')
 bucket = conn.get_bucket('bucket-name')
 
-# Загрузить объекты в корзину
+# Загрузить объекты в бакет
 
 ## Из строки
 bucket.new_key('test-string').set_contents_from_string('TEST')
@@ -89,7 +89,7 @@ file_key_2 = Key(bucket)
 file_key_2.key = 'script/py_script.py'
 file_key_2.set_contents_from_filename('this_script.py')
 
-# Получить список объектов в корзине
+# Получить список объектов в бакете
 keys_list=bucket.list()
 for key in keys_list:
     print key.key

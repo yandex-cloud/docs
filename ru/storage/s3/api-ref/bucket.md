@@ -2,10 +2,10 @@
 
 Метод | Описание
 ----- | -----
-[create](bucket/create.md) | Создает корзину.
-[getMeta](bucket/getmeta.md) | Проверяет существование корзины и доступ к ней.
-[listObjects](bucket/listobjects.md) | Возвращает список объектов в корзине.
-[listBuckets](bucket/list.md) | Возвращает список корзин.
-[deleteBucket](bucket/delete.md) | Удаляет корзину.
+[create](bucket/create.md) | Создает бакет.
+[getMeta](bucket/getmeta.md) | Проверяет существование бакета и доступ к нему.
+[listObjects](bucket/listobjects.md) | Возвращает список объектов в бакете.
+[listBuckets](bucket/list.md) | Возвращает список бакетов.
+[deleteBucket](bucket/delete.md) | Удаляет бакет.
 
 

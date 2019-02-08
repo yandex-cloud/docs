@@ -14,7 +14,7 @@ GET /{bucket}?uploads HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Bucket name. |
+| `bucket` | Name of the bucket. |
 
 ### Query parameters {#request-parameters}
 
@@ -96,14 +96,14 @@ A successful response contains additional data in XML format with the schema des
 | `NextKeyMarker` | Key.<br/><br/>If the output failed to include all the elements the user should have received, this value is to be used in the `key-marker` parameter for subsequent requests.<br/><br/>Present if some of the elements do not fit in the response.<br/><br/>Path: `/ListMultipartUploadsResult/NextKeyMarker`. |
 | `NextUploadIdMarker` | Upload ID.<br/><br/>If the output failed to include all the elements the user should have received, this value is to be used in the `upload-id-marker` parameter for subsequent requests.<br/><br/>Present if some of the elements do not fit in the response.<br/><br/>Path: `/ListMultipartUploadsResult/NextUploadMarker`. |
 | `Encoding-Type` | Encoding in which [!KEYREF objstorage-name] provides a key in an XML response.<br/><br/>See the `encoding-type` request parameter description.<br/><br/>Path: `/ListMultipartUploadsResult/Encoding-Type`. |
-| `MaxUploads` | Maximum list length for a single response.<br/><br/>See the description of the `max-uploads` request parameter.<br/><br/>Path: `/ListMultipartUploadsResult/MaxParts`. |
+| `MaxUploads` | Maximum list length for a single response. <br/><br/>See the description of the `max-uploads` request parameter. <br/><br/>Path: `/ListMultipartUploadsResult/MaxParts`. |
 | `IsTruncated` | Flag indicating that a list is incomplete.<br/><br/>If `IsTruncated` is `true`, this means that [!KEYREF objstorage-name] returned an incomplete list of uploads.<br/><br/>Path: `/ListMultipartUploadsResult/IsTruncated`. |
 | `Upload` | Upload description.<br/><br/>Path: `/ListMultipartUploadsResult/Upload`. |
 | `Key` | Key of the last upload object.<br/><br/>Path: `/ListMultipartUploadsResult/Upload/Key`. |
 | `UploadId` | Multipart upload ID.<br/><br/>Path: `/ListMultipartUploadsResult/Upload/UploadId`. |
 | `Initiator` | Multipart upload initiator.<br/><br/>Path: `/ListMultipartUploadsResult/Upload/Initiator`. |
 | `ID` | User ID.<br/><br/>Possible paths:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/ID` |
-| `DisplayName` | User name displayed.<br/><br/>Possible paths:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/ID` |
+| `DisplayName` | User name displayed.<br/><br/>Possible paths:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/DisplayName` |
 | `StorageClass` | Object storage class: `STANDARD` or `COLD`.<br/><br/>Path: `/ListMultipartUploadsResult/Upload/StorageClass`. |
 | `Initiated` | Date and time of the request for [starting multipart upload](startupload.md). |
 | `/ListMultipartUploadsResult/Prefix` | Key prefix.<br/><br/>See the `prefix` request parameter description.<br/><br/>Path: `/ListMultipartUploadsResult/Prefix`. |

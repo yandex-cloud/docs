@@ -15,14 +15,14 @@ GET /{bucket}?uploads HTTP/1.1
 
 Параметр | Описание
 ----- | -----
-`bucket` | Имя корзины.
+`bucket` | Имя бакета.
 
 
 ### Query параметры {#request-parameters}
 
 Параметр | Описание
 ----- | -----
-`delimiter` | Символ-разделитель.<br/><br/>Если параметр указан, то [!KEYREF objstorage-name] рассматривает ключ как путь к файлу, где имена каталогов разделяются символом `delimiter`. На выходе пользователь увидит перечень <q>файлов</q> и <q>каталогов</q> в <q>корне</q> корзины. <q>Файлы</q> будут выведены в элементах `Uploads`, а <q>каталоги</q> в элементах `CommonPrefixes`.<br/><br/>Если в запросе указан еще и параметр `prefix`, то [!KEYREF objstorage-name] вернет перечень <q>файлов</q> и <q>каталогов</q> в <q>каталоге</q>`prefix`.
+`delimiter` | Символ-разделитель.<br/><br/>Если параметр указан, то [!KEYREF objstorage-name] рассматривает ключ как путь к файлу, где имена каталогов разделяются символом `delimiter`. На выходе пользователь увидит перечень <q>файлов</q> и <q>каталогов</q> в <q>корне</q> бакета. <q>Файлы</q> будут выведены в элементах `Uploads`, а <q>каталоги</q> в элементах `CommonPrefixes`.<br/><br/>Если в запросе указан еще и параметр `prefix`, то [!KEYREF objstorage-name] вернет перечень <q>файлов</q> и <q>каталогов</q> в <q>каталоге</q>`prefix`.
 `max-uploads` | Максимальное количество загрузок в ответе.<br/><br/>По умолчанию [!KEYREF objstorage-name] выдает не более 1000 ключей. Этот параметр следует использовать если вам нужно получать менее 1000 ключей в одном ответе.<br/><br/>Если под критерии отбора попадает больше ключей, чем поместилось в выдаче, то ответ содержит `<IsTruncated>true</IsTruncated>`.<br/><br/>Чтобы получить все объекты выдачи, если их больше `max-keys`, необходимо выполнить несколько последовательных запросов к [!KEYREF objstorage-name] с параметром `key-marker`, где для каждого запроса `key-marker` равен значению элемента `NextKeyMarker` предыдущего ответа.
 `key-marker` | Ключ. Выдача начнется с ключа, следующего за указанным в значении параметра.<br/><br/>Используется вместе с `upload-id-marker` для фильтрации выдачи.<br/><br/>Если `upload-id-marker` указан, то в выдачу попадет и `key-marker` тоже.
 `prefix` | Строка, с которой должен начинаться ключ.<br/><br/>[!KEYREF objstorage-name] выберет только те ключи, которые начинаются с `prefix`.
@@ -94,20 +94,20 @@ GET /{bucket}?uploads HTTP/1.1
 Тег | Описание
 ----- | -----
 `ListMultipartUploadsResult` | Корневой тег ответа.<br/><br/>Путь: `/ListMultipartUploadsResult`.
-`Bucket` | Корзина, к которой относится составная загрузка.<br/><br/>Путь: `/ListMultipartUploadsResult/Bucket`.
+`Bucket` | Бакет, к которому относится составная загрузка.<br/><br/>Путь: `/ListMultipartUploadsResult/Bucket`.
 `KeyMarker` | Ключ.<br/><br/>Выдача начинается с ключа, следующего за указанным в значении элемента.<br/><br/>Смотрите описание параметра запроса `key-marker`.<br/><br/>Путь: `/ListMultipartUploadsResult/KeyMarker`.
 `UploadIdMarker` | Идентификатор загрузки.<br/><br/>Выдача начнется с той загрузки, идентификатор которой следует за указанной в параметре.<br/><br/>Смотрите описание параметра запроса `upload-id-​marker`.<br/><br/>Путь: `/ListMultipartUploadsResult/UploadIdMarker`.
 `NextKeyMarker` | Ключ.<br/><br/>Если выдача не вместила все элементы, которые должен получить пользователь, то это значение необходимо использовать в параметре `key-marker` для последующих запросов.<br/><br/>Присутствует в случае, когда в ответ не поместился все элементы.<br/><br/>Путь: `/ListMultipartUploadsResult/NextKeyMarker`.
 `NextUploadIdMarker` | Идентификатор загрузки.<br/><br/>Если выдача не вместила все элементы, которые должен получить пользователь, то это значение необходимо использовать в параметре `upload-id-marker` для последующих запросов.<br/><br/>Присутствует в случае, когда в ответ не поместились все элементы.<br/><br/>Путь: `/ListMultipartUploadsResult/NextUploadMarker`.
 `Encoding-Type` | Кодировка, в которой [!KEYREF objstorage-name] представляет ключ в XML-ответе.<br/><br/>Смотрите описание параметра запроса `encoding-type`.<br/><br/>Путь: `/ListMultipartUploadsResult/Encoding-Type`.
-`MaxUploads` | Максимальная длина списка для одного ответа.<br/><br/>Смотрите параметр запроса `max-uploads`<br/><br/>Путь: `/ListMultipartUploadsResult/MaxParts`.
+`MaxUploads` | Максимальная длина списка для одного ответа.<br/><br/>Смотрите параметр запроса `max-uploads`.<br/><br/>Путь: `/ListMultipartUploadsResult/MaxUploads`.
 `IsTruncated` | Признак неполноты списка.<br/><br/>Если `IsTruncated` — `true`, то это означает, что [!KEYREF objstorage-name] вернуло не полный список загрузок.<br/><br/>Путь: `/ListMultipartUploadsResult/IsTruncated`.
 `Upload` | Описание загрузки.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload`.
 `Key` | Ключ конечного объекта загрузки.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/Key`.
 `UploadId` | Идентификатор составной загрузки.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/UploadId`.
 `Initiator` | Инициатор составной загрузки.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/Initiator`.
 `ID` | Идентификатор пользователя.<br/><br/>Возможные пути:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/ID`
-`DisplayName` | Отображаемое имя пользователя.<br/><br/>Возможные пути:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/ID`
+`DisplayName` | Отображаемое имя пользователя.<br/><br/>Возможные пути:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/DisplayName`
 `StorageClass` | Класс хранения объекта: `STANDARD` или `COLD`.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/StorageClass`.
 `Initiated` | Дата и время запроса на [начало составной загрузки](startupload.md).
 `/ListMultipartUploadsResult/Prefix` | Префикс ключа.<br/><br/>Смотрите параметр запроса `prefix`.<br/><br/>Путь: `/ListMultipartUploadsResult/Prefix`.

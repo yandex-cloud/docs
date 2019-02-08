@@ -1,6 +1,6 @@
 # listObjects method
 
-Returns a list of objects in a bucket.
+Returns a list of bucket objects.
 
 Pagination is used for output. You can get a list of up to 1,000 objects per request. If there are more objects, make several consecutive requests.
 
@@ -14,7 +14,7 @@ GET /{bucket} HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Bucket name. |
+| `bucket` | Name of the bucket. |
 
 ### Query parameters {#parameters}
 

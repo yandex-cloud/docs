@@ -20,7 +20,7 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Bucket name. |
+| `bucket` | Name of the bucket. |
 | `key` | Object key. |
 
 ### Query parameters {#request-parameters}
@@ -44,7 +44,7 @@ A response may contain [common response headers](../common-response-headers.md) 
 
 | Header name | Description |
 | ----- | ----- |
-| `x-amz-storage-class` | `COLD` object storage class if the object is stored in the cold storage.<br/><br/>If it is stored in the standard storage, there will be no header. |
+| `x-amz-storage-class` | Object storage class.<br/>The value is `COLD` if the object is stored in cold storage.<br/><br/>If it is stored in standard storage, the header is omitted. |
 
 ### Response codes {#response-codes}
 

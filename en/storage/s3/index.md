@@ -30,5 +30,5 @@ If you use the API directly (without the SDK or apps), you will need to generate
 
 Cross-domain requests are available for all API methods used for object management.
 
-To check permissions, CORS sends the [OPTIONS](api-ref/object/options.md) preflight request to a resource. [!KEYREF objstorage-name] allows you to skip the preflight request when sending cross-domain requests to resources. In this case, your request's [headers](api-ref/object/options.md#request-headers) must be the same as those of the preflight request.
+To check permissions, CORS sends the [options](api-ref/object/options.md) preflight request to a resource. [!KEYREF objstorage-name] allows you to skip the preflight request when sending cross-domain requests to resources. In this case, your request's [headers](api-ref/object/options.md#request-headers) must be the same as those of the preflight request.
 
