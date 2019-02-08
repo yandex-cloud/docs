@@ -8,7 +8,8 @@ Create [static access keys](../../concepts/users/service-accounts.md#access-keys
 
 1. Go to the folder that the service account belongs to.
 1. Select the **Service accounts** tab.
-1. In the line with the service account name, click ![image](../../../_assets/vertical-ellipsis.svg) and select **Create access key**.
+1. Choose a service account and click the line with its name.
+1. Click **Create access key** in the top panel.
 1. Save the ID and private key. After the dialog is closed, the private key value will be unavailable.
 
 **[!TAB CLI]**
@@ -37,7 +38,7 @@ Create [static access keys](../../concepts/users/service-accounts.md#access-keys
 
     ```
     $ yc iam access-key create --service-account-name my-robot
-
+    
     access_key:
       id: aje6t3vsbj8lp9r4vk2u
       service_account_id: ajepg0mjt06siuj65usm
