@@ -52,6 +52,16 @@ To create a JWT, you need [authorized keys](../../concepts/users/service-account
 
 ---
 
+**[!TAB Management console]**
+
+1. Go to the folder that the service account belongs to.
+1. Select the **Service accounts** tab.
+1. Choose a service account and click the line with its name.
+1. Click **Create an authorized key** in the top panel.
+1. Select the encryption algorithm.
+1. Enter a description of the key so that you can find it easily in the management console.
+1. Save both the public and private keys. The private key is not saved in Yandex.Cloud, and you won't be able to view the public key in the management console.
+
 **[!TAB CLI]**
 
 Create authorized keys for the `my-robot` service account:
@@ -99,7 +109,7 @@ Generate the parts that make up a JWT:
 * [payload](#payload): JWT Claims Set in Base64Url format.
 * [signature](#signature): signature generated based on the header and payload.
 
-To generate a JWT, [create](#concat) a dot-separated string of these parts:
+To generate a JWT, [create a ](#concat) dot-separated string of these parts:
 
 ```
 header.payload.signature
@@ -130,9 +140,9 @@ Save the result as a Base64Url encoded string.
 A service account's JWT payload must contain the following fields:
 
 * `iss`: ID of the service account whose key the JWT is signed with.
-* `aud`: link by which an IAM token will be requested: `https://iam.api.cloud.yandex.net/iam/v1/tokens`.
+* `aud`: link by which an IAM token will be requested: `https://iam.api.cloud.yandex.net/iam/v1/tokens.`
 * `iat`: token issue time, in [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time) format.
-* `exp`: token expiration time, in Unix timestamp format. The expiration time must not exceed the issue time by more than one hour, i.e., `exp - iat ≤ 3600`.
+* `exp`: token expiration time, in Unix timestamp format. The expiration time must not exceed the issue time by more than one hour, i.e., `exp-iat ≤ 3600`.
 
 Example:
 
@@ -235,7 +245,7 @@ encoded_token = jwt.encode(
     headers={'kid': key_id})
 ```
 
-**[!TAB Java]**
+**[!Tab Java]**
 
 Example of creating a JWT using [JJWT](https://github.com/jwtk/jjwt).
 
