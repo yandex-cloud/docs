@@ -45,18 +45,3 @@ However, if the use of Yandex.Cloud services is suspended due to outstanding cha
 
 Each customer is allowed to create only one billing account.
 
-## Account status {#conditions}
-
-The status of your billing account depends on whether you have any outstanding charges resulting from a failure to pay for resource usage.
-
-The table describes the statuses.
-
-| Name | Balance | Reason | Description |
-| ----- | ----- | ----- | ----- |
-| Unverified | None | When creating the billing account, the **Bank transfer** method was selected. | The status persists until the account is validated by a Yandex.Cloud manager. |
-| Active | Positive | There are no outstanding charges for resource usage. | This status is maintained until unpaid usage accumulates. |
-| Suspended | Negative | There are outstanding charges for resource usage that was not paid for in time. | The use of the Yandex.Cloud services is suspended.<br/>During the suspension period, a fee is charged for data storage services, in addition to a late payment fee.<br/><br/>The maximum data storage period upon suspension is 60 calendar days.<br/><br/>If you pay the entire outstanding amount within 60 calendar days of suspension, your access to resources will be restored within 24 hours. |
-| Blocked | Negative | More than 60 calendar days passed after the payment deadline. | Access to the use of the Yandex.Cloud services is blocked.<br/><br/>Within 60 calendar days of blocking access, the system checks whether a payment is made: <br/> - If you pay the entire outstanding amount, your access to resources will be restored within 24 hours. <br/> - If you do not pay the entire outstanding amount, all your data, including the billing account, will be permanently blocked and deleted. |
-
-For more information, see the section [Billing cycle](../payment/billing-cycle.md).
-

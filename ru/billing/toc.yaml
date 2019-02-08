@@ -37,7 +37,11 @@ items:
     - name: Кредитный лимит
       href: concepts/credit-limit.md
     - name: Платежный аккаунт
-      href: concepts/billing-account.md
+      items:
+        - name: Обзор
+          href: concepts/billing-account.md
+        - name: Статусы
+          href: concepts/billing-account-statuses.md
     - name: Лицевой счет
       href: concepts/personal-account.md
     - name: Грант

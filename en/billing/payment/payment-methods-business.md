@@ -21,5 +21,5 @@ Invoices must be paid before the deadline stipulated in the [agreement](../conce
 
 > [!NOTE]
 >
-> We recommend that you independently monitor the spending of funds on your personal account and [top up the balance so that it is always positive](../operations/pay-the-bill.md). If the personal account balance drops to zero or exceeds the maximum amount of the credit limit, Yandex.Cloud reserves the right to change the status of your billing account to [Suspended](../concepts/billing-account.md#conditions). For more information, see [Billing cycle](../payment/billing-cycle-business.md).
+>We recommend that you independently monitor the spending of funds on your personal account and [top up the balance so that it is always positive](../operations/pay-the-bill.md). If the personal account balance drops to zero or exceeds the maximum amount of the credit limit, Yandex.Cloud reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md#conditions). For more information, see [Billing cycle](../payment/billing-cycle-business.md).
 >
