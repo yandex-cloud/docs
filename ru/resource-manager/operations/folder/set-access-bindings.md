@@ -322,5 +322,5 @@ $ curl -X POST \
 
 #### Что дальше
 
-* [[!TITLE]](../folder/update.md)
+* [[!TITLE]](update.md)
 * [[!TITLE]](../../concepts/resources-hierarchy.md)

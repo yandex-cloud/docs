@@ -6,17 +6,23 @@ items:
   - name: Step-by-step instructions
     items:
       - name: All instructions
-        href: operations/all.md
+        href: operations/index.md
       - name: Cloud
         items:
           - name: Set access rights
             href: operations/cloud/set-access-bindings.md
+          - name: Switch to another cloud
+            href: operations/cloud/switch-cloud.md
       - name: Folder
         items:
           - name: Create a folder
             href: operations/folder/create.md
+          - name: Update a folder
+            href: operations/folder/update.md
           - name: Set access rights
             href: operations/folder/set-access-bindings.md
+          - name: Delete a  folder
+            href: operations/folder/delete.md
   - name: Concepts
     items:
       - name: Hierarchy of Yandex.Cloud resources
@@ -25,7 +31,7 @@ items:
         href: concepts/limits.md
   - name: Identity and access management
     href: security/index.md
-  - name: Pricing policies
+  - name: Pricing policy
     href: pricing.md
   - name: API reference
     items:

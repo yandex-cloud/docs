@@ -4,7 +4,7 @@ When a user registers with Yandex.Cloud, a _cloud_ is created for the user. The 
 
 > [!NOTE]
 >
-> Currently, users cannot create clouds themselves.
+> Currently, users are not allowed to create clouds themselves.
 
 The owner can create folders and resources in this cloud, and manage access rights to them.
 
@@ -22,5 +22,5 @@ The owner can create folders and resources in this cloud, and manage access righ
 
 > [!NOTE]
 >
-> When you create a new user in the cloud, he is automatically assigned the role of `[!KEYREF roles-cloud-member]` for this cloud. This role is necessary for the user to access resources in the cloud. The role of `[!KEYREF roles-cloud-member]` is used in combination with other roles, such as `[!KEYREF roles-admin]`, `[!KEYREF roles-editor]` or `[!KEYREF roles-viewer]`. For more information about roles, see the [Roles](../iam/concepts/access-control/roles.md) section.
+> When a new user is created in the cloud, they are automatically assigned the role of a `[!KEYREF roles-cloud-member]` for this cloud. This role is necessary for the user to access resources in the cloud. The role of `[!KEYREF roles-cloud-member]` is used in combination with other roles, such as `[!KEYREF roles-admin]`, `[!KEYREF roles-editor]` or `[!KEYREF roles-viewer]` role. For more information about roles, see the [Roles](../iam/concepts/access-control/roles.md) section.
 

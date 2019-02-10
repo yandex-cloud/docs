@@ -4,7 +4,7 @@ _A role_ is a set of user permissions to perform operations with Yandex.Cloud re
 
 There are two types of roles:
 
-- _Common roles_ contain permissions that apply to all types of Yandex.Cloud resources. These are the roles of `[!KEYREF roles-admin]`, `[!KEYREF roles-editor]` and `[!KEYREF roles-viewer]`.
+- _Primitive roles_ contain permissions that apply to all types of Yandex.Cloud resources. These are the roles of `[!KEYREF roles-admin]`, `[!KEYREF roles-editor]` and `[!KEYREF roles-viewer]`.
 
 - _Service roles_ contain permissions only for a specific type of resource in a particular service. The ID of a service role is specified in `service.resources.role` format. For example, the role of `[!KEYREF roles-image-user]` allows you to use images in the Yandex Compute Cloud service.
 
@@ -12,7 +12,7 @@ There are two types of roles:
 
 Currently, users are not allowed to create new roles with a custom set of permissions.
 
-## Common roles {#common-roles}
+## Primitive roles {#primitive-roles}
 
 #### [!KEYREF roles-viewer] {#viewer}
 
