@@ -1,6 +1,6 @@
 # Вопросы о [!KEYREF MY]
 
-#### Какие версии [!KEYREF MY] поддерживает [!KEYREF mmy-short-name]? {#supported-version}
+#### Какие версии [!KEYREF MY] поддерживает [!KEYREF mmy-short-name]®? {#supported-version}
 
 [!KEYREF mmy-short-name] поддерживает только [!KEYREF MY] 5.7.
 

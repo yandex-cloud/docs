@@ -1,4 +1,4 @@
-title: "Yandex Managed Service for MySQL"
+title: "Yandex Managed Service for MySQL®"
 stage: alpha
 href: index.yaml
 items:
@@ -14,7 +14,7 @@ items:
       href: operations/cluster-create.md
     - name: Подключение к базе данных
       href: operations/connect.md
-    - name: Управление хостами MySQL
+    - name: Управление хостами MySQL®
       href: operations/hosts.md
     - name: Управление базами данных
       href: operations/databases.md
@@ -30,7 +30,7 @@ items:
       href: concepts/index.md
     - name: Классы хостов
       href: concepts/instance-types.md
-    - name: Сеть в Managed Service for MySQL
+    - name: Сеть в Managed Service for MySQL®
       href: concepts/network.md
     - name: Квоты и лимиты
       href: concepts/limits.md
@@ -53,7 +53,7 @@ items:
     items:
     - name: Общие вопросы
       href: qa/general.md
-    - name: Вопросы о MySQL
+    - name: Вопросы о MySQL®
       href: qa/mysql.md
     - name: Все вопросы на одной странице
       href: qa/all.md
