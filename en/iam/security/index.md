@@ -24,9 +24,9 @@ _Service roles_ are roles that allow access to the resources of a particular ser
 
 [!INCLUDE [cloud-roles](../../_includes/cloud-roles.md)]
 
-### Common roles
+### Primitive roles
 
-You can assign common roles to any resource in any service.
+You can assign primitive roles to any resource in any service.
 
 #### [!KEYREF roles-viewer]
 

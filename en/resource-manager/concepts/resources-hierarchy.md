@@ -2,11 +2,11 @@
 
 When you get access to Yandex.Cloud, you are allocated a separate workspace, i.e., a _cloud_. This is where you will create folders.
 
-Folders contain resources such as virtual machines, disks, and others. When you create a resource, you specify a folder where it is created.
+Folders contain resources such as virtual machines, disks, and others. When you create a resource, you specify a folder where it is created. Nested folders are not supported for now.
 
-[!KEYREF service-name-short] provides a standard resource model shown in the picture below. This model is used in most of the Yandex.Cloud services.
+[!KEYREF resmgr-name] provides the standard resource model shown in the following image. This model is used in most of the Yandex.Cloud services.
 
-[](../../_assets/resource-structure.png)
+![image](../../_assets/resource-structure.png)
 
 All resources inside the cloud are isolated from outside users by default. The cloud owner can manage access rights for the cloud and its resources.
 
@@ -26,7 +26,7 @@ When a cloud is created, an owner is assigned to it. The cloud owner is a user a
 
 The owner can perform any operations with the cloud and its resources.
 
-The owner can grant access to the cloud to other users: i.e., assign roles or revoke them. For example, the owner can appoint other cloud owners or give up the owner role.
+The owner can grant access to the cloud to other users: i.e., assign roles or revoke them. For example, the owner can appoint other cloud owners or denounce their owner role.
 
 A cloud must have at least one owner. The sole owner of a cloud may not give up this role.
 
@@ -36,7 +36,7 @@ At this time, you can only own a single cloud. You can't create a cloud yourself
 
 A cloud member is a user that has been assigned the role of `[!KEYREF roles-cloud-member]` for this cloud.
 
-The cloud member role is necessary to apply operations to a cloud resource, except for resources granted [public access](#public-access). Without the role of `[!KEYREF roles-cloud-member]`, the user can't do anything with a resource, even if they have the necessary role for this particular resource.
+The user needs the cloud member role to perform operations with cloud resources, except for resources that allow [public access](#public-access).
 
 > For example, if a cloud member is assigned the role of `[!KEYREF roles-editor]` for a cloud folder, they can create resources in this folder. If the cloud member role is revoked for a user, the user can no longer perform any operations.
 
@@ -44,7 +44,7 @@ The role of `[!KEYREF roles-cloud-member]` itself does not grant any rights to d
 
 > [!NOTE]
 >
-> The cloud owner is already a member, and it's not needed to assign him the role of `[!KEYREF roles-cloud-member]`.
+> The role of `[!KEYREF roles-cloud-member]` is not required for cloud owners and service accounts.
 
 ### Public access to the cloud {#public-access}
 
@@ -59,10 +59,6 @@ To make a cloud or resource public, you need to assign it a role for the [system
 _A folder_ is an isolated space where Yandex.Cloud resources are created and grouped.
 
 Just like folders in your file system, folders in Yandex.Cloud make resource management easier for you. You can group your resources into folders by the resource type, project, department that uses those resources, or any other criteria of your choice.
-
-> [!NOTE]
->
-> Currently, folders cannot contain nested folders, and you cannot delete a folder. To delete a folder, contact technical support.
 
 You can manage access rights for all resources in the folder at once. Let's say your company has employees working with virtual machines only. You can create a folder containing virtual machines only and grant employees access to this folder.
 

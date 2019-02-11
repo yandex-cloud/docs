@@ -2,6 +2,10 @@
 
 _A folder_ is an isolated space where Yandex.Cloud resources are created and grouped.
 
+> [!WARNING]
+>
+> When creating folders, keep in mind the [quotas and limits](../../concepts/limits.md). Currently, you cannot delete a folder yourself. To have a folder deleted, contact [technical support](../../../support/overview.md).
+
 ---
 
 **[!TAB Management console]**

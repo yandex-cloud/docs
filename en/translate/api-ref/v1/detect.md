@@ -1,5 +1,7 @@
 # Language detection
 
+[!INCLUDE [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md)]
+
 Detects the language of the source text. The response is returned as the language code.
 
 ## Request {#request}

@@ -14,7 +14,7 @@ All parameters must be URL-encoded. The maximum size of the POST request body is
 
 | Parameter | Description |
 | ----- | ----- |
-| `text` | Required parameter.<br/>UTF-8 encoded text to be converted into speech.<br/>For homographs, use `+` before the stressed vowel. For example, `contr+ol` or `def+ect`.<br/>Maximum string length: 5000 characters. |
+| `text` | Required parameter.<br/>UTF-8 encoded text to be converted into speech.<br/>For homographs, use `+` before the stressed vowel. For example, `con+trol` or `de+fect`.<br/>To indicate a pause between words, use `-`.<br/>Maximum string length: 5000 characters. |
 | `lang` | Language.<br/>Acceptable values:<ul><li>`ru-RU` (default) — Russian.</li><li>`en-US` — English.</li><li>`tr-TR` — Turkish.</li></ul> |
 | `voice` | The voice for the synthesized speech.<br/>You can choose one of the following voices:<ul><li>Female voice: `alyss`, `jane`, `oksana` and `omazh`.</li><li>Male voice: `zahar` and `ermil`.</li></ul>Default value of the parameter: `oksana`. |
 | `emotion` | Emotional tone of the voice.<br/>Acceptable values:<ul><li>`good` —  Cheerful and friendly.</li><li>`evil` — Irritated.</li><li>`neutral` (default) — Without emotion.</li></ul> |
@@ -29,7 +29,7 @@ If speech synthesis is successful, the response contains the binary content of t
 
 ## Examples {#examples}
 
-### Conversion of text to speech in Ogg format {#ogg}
+### Convert text to speech in Ogg format {#ogg}
 
 In this example, the text "Hello world" is synthesized and recorded as an audio file.
 
@@ -40,9 +40,9 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
 **[!TAB cURL]**
 
 ```bash
-export FOLDER_ID=b1gvm4b03aoopfsct641
-export IAM_TOKEN=CggaATEVAgA...
-curl -X POST \
+$ export FOLDER_ID=b1gvmob95yysaplct532
+$ export IAM_TOKEN=CggaATEVAgA...
+$ curl -X POST \
      -H "Authorization: Bearer ${IAM_TOKEN}" \
      --data-urlencode "text=Hello world" \
      -d "voice=zahar&emotion=good&folderId=${FOLDER_ID}" \
@@ -70,7 +70,7 @@ namespace TTS
     static async Task Tts()
     {
       const string iamToken = "CggaATEVAgA..."; // Specify the IAM token.
-      const string folderId = "b1gvm4b03aoopfsct641"; // Specify the folder ID.
+      const string folderId = "b1gvmob95yysaplct532"; // Specify the folder ID.
 
       HttpClient client = new HttpClient();
       client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
@@ -79,8 +79,7 @@ namespace TTS
         { "voice", "zahar" },
         { "emotion", "good" },
         { "folderId", folderId },
-        { "lang", "en-US" },
-        { "text": "Hello world" },
+        { "text", "Hello world" },
         { 'format': 'lpcm' },
         { 'sampleRateHertz': 48000 }
       };
@@ -95,51 +94,104 @@ namespace TTS
 
 **[!TAB Python]**
 
-```python
-import argparse
+1. Create a file (for example, `test.py`), and add the following code to it:
 
-import requests
+    ```python
+    import argparse
 
-
-def synthesize(folder_id, iam_token, text):
-    url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
-    headers = {
-        'Authorization': 'Bearer ' + iam_token,
-    }
-
-    data = {
-        'text': text,
-        'voice': 'alyss',
-        'emotion': 'good',
-        'folderId': folder_id,
-        'lang': 'en-US',
-        'format': 'lpcm',
-        'sampleRateHertz': 48000,
-    }
-
-    resp = requests.post(url, headers=headers, data=data)
-    if resp.status_code != 200:
-        raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
-
-    return resp.content
+    import requests
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--iam_token", required=True, help="IAM token")
-    parser.add_argument("--folder_id", required=True, help="Folder id")
-    parser.add_argument("--text", required=True, help="Text for synthesize")
-    parser.add_argument("--output", required=True, help="Output file name")
-    args = parser.parse_args()
+    def synthesize(folder_id, iam_token, text):
+        url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
+        headers = {
+            'Authorization': 'Bearer ' + iam_token,
+        }
 
-    audio_content = synthesize(args.folder_id, args.iam_token, args.text)
-    with open(args.output, "wb") as f:
-        f.write(audio_content)
+        data = {
+            'text': text,
+            'voice': 'alyss',
+            'emotion': 'good',
+            'folderId': folder_id,
+            'format': 'lpcm',
+            'sampleRateHertz': 48000,
+        }
+
+        resp = requests.post(url, headers=headers, data=data)
+        if resp.status_code != 200:
+            raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
+
+        return resp.content
+
+
+    if __name__ == "__main__":
+        parser = argparse.ArgumentParser()
+        parser.add_argument("--token", required=True, help="IAM token")
+        parser.add_argument("--folder_id", required=True, help="Folder id")
+        parser.add_argument("--text", required=True, help="Text for synthesize")
+        parser.add_argument("--output", required=True, help="Output file name")
+        args = parser.parse_args()
+
+        audio_content = synthesize(args.folder_id, args.iam_token, args.text)
+        with open(args.output, "wb") as f:
+            f.write(audio_content)
+    ```
+
+1. Execute the created file by passing arguments with the IAM token, folder ID, text, and name of the file for audio recording:
+
+    ```bash
+    $ export FOLDER_ID=b1gvmob95yysaplct532
+    $ export IAM_TOKEN=CggaATEVAgA...
+    $ python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --path speech.pcm
+
+
+**[!TAB PHP]**
+
+```php
+<?
+
+const FORMAT_PCM = "lpcm";
+const FORMAT_OPUS = "oggopus";
+
+$token = 'CggaATEVAgA...'; # IAM token
+$folderId = "b1gvmob95yysaplct532"; # ID of the folder
+$url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
+
+$post = "folderId=${folderId}&text=" . urlencode("test") . "&lang=en-US&sampleRateHertz=48000&format=" . FORMAT_PCM;
+$headers = ['Authorization: Bearer ' . $token];
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+curl_setopt($ch, CURLOPT_HEADER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+if ($post !== false) {
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+}
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+
+$response = curl_exec($ch);
+if (curl_errno($ch)) {
+    print "Error: " . curl_error($ch);
+}
+if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200) {
+    $decodedResponse = json_decode($response, true);
+    echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
+    echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
+} else {
+    file_put_contents("audio.pcm", $response);
+}
+curl_close($ch);
 ```
 
 ---
 
-### Conversion of text to speech in WAV format {#wav}
+### Convert text to speech in WAV format {#wav}
 
 In this example, the submitted text is synthesized in the LPCM format with a sampling rate of 48kHz and saved to a `speech.raw` file. This file is then converted to WAV format using the [SoX](http://sox.sourceforge.net/) utility.
 
@@ -148,13 +200,13 @@ In this example, the submitted text is synthesized in the LPCM format with a sam
 **[!TAB cURL]**
 
 ```bash
-export FOLDER_ID=b1gvm4b03aoopfsct641
-export IAM_TOKEN=CggaATEVAgA...
-curl -X POST \
+$ export FOLDER_ID=b1gvmob95yysaplct532
+$ export IAM_TOKEN=CggaATEVAgA...
+$ curl -X POST \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
     -o speech.raw \
     --data-urlencode "text=Hello world" \
-    -d "voice=zahar&emotion=good&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000&lang=en-US" \
+    -d "voice=zahar&emotion=good&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
     https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 
 sox -r 48000 -b 16 -e signed-integer -c 1 speech.raw speech.wav

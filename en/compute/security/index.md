@@ -5,7 +5,7 @@ Yandex.Cloud users can only perform operations on resources that are allowed by 
 To allow access to [!KEYREF compute-full-name] resources (VMs, disks, images, and snapshots), assign the user the required roles from the list below. At this time, a role can only be assigned to a parent resource (folder or cloud), and the roles are inherited by nested resources.
 
 > [!NOTE]
-> 
+>
 > For more information about role inheritance, see [[!TITLE]](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the [!KEYREF resmgr-full-name] documentation.
 
 ## Assigning roles
@@ -26,9 +26,9 @@ _Service roles_ are roles that allow access to the resources of a particular ser
 
 [!INCLUDE [cloud-roles](../../_includes/cloud-roles.md)]
 
-### Common roles
+### Primitive roles
 
-You can assign common roles to any resource in any service.
+You can assign primitive roles to any resource in any service.
 
 #### [!KEYREF roles-viewer]
 

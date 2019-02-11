@@ -1,6 +1,6 @@
 # Identity and access management
 
-Yandex.Cloud users can only apply those operations to resources that are allowed by their assigned roles. If the user has no roles assigned, all operations are forbidden.
+Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them. If the user has no roles assigned, all operations are forbidden.
 
 To allow access to the [!KEYREF resmgr-full-name] service resources (clouds and folders), assign applicable roles to the user from the list below. The roles assigned to the parent resource are inherited by nested resources.
 
@@ -30,17 +30,17 @@ You can assign primitive roles to any resource in any service.
 
 #### [!KEYREF roles-viewer]
 
-A user with the role of `[!KEYREF roles-viewer]` can view information about resources, for example, view a list of folders in the cloud or obtain information about a folder.
+A user with the `[!KEYREF roles-viewer]` can view information about resources, for example, view a list of folders in the cloud or obtain information about a folder.
 
 #### [!KEYREF roles-editor]
 
-A user with the role of `[!KEYREF roles-editor]` can manage all resources, for example, create a folder.
+A user with the `[!KEYREF roles-editor]` can manage all resources, for example, create a folder.
 
-In addition, the role of `[!KEYREF roles-editor]` includes all permissions of the role `[!KEYREF roles-viewer]`.
+In addition, the `[!KEYREF roles-editor]` role includes all permissions of the `[!KEYREF roles-viewer]` role.
 
 #### [!KEYREF roles-admin]
 
-A user with the role of `[!KEYREF roles-admin]` can manage access rights to resources, for example, allow other users to create folders or view information about them.
+A user with the `[!KEYREF roles-admin]` can manage access rights to resources, for example, allow other users to create folders or view information about them.
 
-In addition, the role of `[!KEYREF roles-admin]` includes all permissions of the role of `[!KEYREF roles-editor]`.
+In addition, the `[!KEYREF roles-admin]` role includes all permissions of the role of `[!KEYREF roles-editor]`.
 

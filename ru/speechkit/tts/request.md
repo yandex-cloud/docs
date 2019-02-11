@@ -99,46 +99,46 @@ namespace TTS
 
 1. Создайте файл, например `test.py`, и добавьте в него следующий код:
 
-```python
-import argparse
+    ```python
+    import argparse
 
-import requests
-
-
-def synthesize(folder_id, iam_token, text):
-    url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
-    headers = {
-        'Authorization': 'Bearer ' + iam_token,
-    }
-
-    data = {
-        'text': text,
-        'voice': 'alyss',
-        'emotion': 'good',
-        'folderId': folder_id,
-        'format': 'lpcm',
-        'sampleRateHertz': 48000,
-    }
-
-    resp = requests.post(url, headers=headers, data=data)
-    if resp.status_code != 200:
-        raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
-
-    return resp.content
+    import requests
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--token", required=True, help="IAM token")
-    parser.add_argument("--folder_id", required=True, help="Folder id")
-    parser.add_argument("--text", required=True, help="Text for synthesize")
-    parser.add_argument("--output", required=True, help="Output file name")
-    args = parser.parse_args()
+    def synthesize(folder_id, iam_token, text):
+        url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
+        headers = {
+            'Authorization': 'Bearer ' + iam_token,
+        }
 
-    audio_content = synthesize(args.folder_id, args.iam_token, args.text)
-    with open(args.output, "wb") as f:
-        f.write(audio_content)
-```
+        data = {
+            'text': text,
+            'voice': 'alyss',
+            'emotion': 'good',
+            'folderId': folder_id,
+            'format': 'lpcm',
+            'sampleRateHertz': 48000,
+        }
+
+        resp = requests.post(url, headers=headers, data=data)
+        if resp.status_code != 200:
+            raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
+
+        return resp.content
+
+
+    if __name__ == "__main__":
+        parser = argparse.ArgumentParser()
+        parser.add_argument("--token", required=True, help="IAM token")
+        parser.add_argument("--folder_id", required=True, help="Folder id")
+        parser.add_argument("--text", required=True, help="Text for synthesize")
+        parser.add_argument("--output", required=True, help="Output file name")
+        args = parser.parse_args()
+
+        audio_content = synthesize(args.folder_id, args.iam_token, args.text)
+        with open(args.output, "wb") as f:
+            f.write(audio_content)
+    ```
 
 1. Выполните созданный файл, передав в аргументах IAM-токен, идентификатор каталога, текст и имя файла для записи аудио:
 

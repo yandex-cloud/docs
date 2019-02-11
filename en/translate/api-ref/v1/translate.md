@@ -1,6 +1,8 @@
 # Text translation
 
-Translates the source text to the specified language.
+[!INCLUDE [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md)]
+
+Translates the source text into the specified language.
 
 ## Request {#request}
 
