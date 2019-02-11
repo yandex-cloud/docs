@@ -1,6 +1,14 @@
 title: "Yandex Translate"
 href: index.yaml
 items:
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Translate text
+        href: operations/translate.md
+      - name: Detect the language of the text
+        href: operations/detect.md
   - name: Authorization in the API
     href: concepts/auth.md
   - name: API reference
@@ -12,6 +20,8 @@ items:
         path: en/translate/toc.yaml
     - name: v1 (DEPRECATED)
       items:
+      - name: Overview
+        href: api-ref/v1/index.md
       - name: Text translation
         href: api-ref/v1/translate.md
       - name: Language detection

@@ -56,9 +56,9 @@ To use the SpeechKit API for speech recognition in Russian, send a small audio f
 **[!TAB POST request]**
 
 ```httpget
-POST /speech/v1/stt:recognize/?topic=general&lang=ru-RU&folderId=<folder id> HTTP/1.1
+POST /speech/v1/stt:recognize/?topic=general&lang=ru-RU&folderId={folder ID} HTTP/1.1
 Host: stt.api.cloud.yandex.net
-Authorization: Bearer <IAM-token>
+Authorization: Bearer <IAM-TOKEN>
 
 ... (binary content of an audio file)
 ```
@@ -66,10 +66,10 @@ Authorization: Bearer <IAM-token>
 **[!TAB cURL]**
 
 ```httpget
-export FOLDER_ID=<folder id>
-export TOKEN=<IAM-token>
-curl -X POST \
-     -H "Authorization: Bearer ${TOKEN}" \
+$ export FOLDER_ID=b1gvmob95yysaplct532
+$ export IAM_TOKEN=CggaATEVAgA...
+$ curl -X POST \
+     -H "Authorization: Bearer ${IAM_TOKEN}" \
      -H "Transfer-Encoding: chunked" \
      --data-binary "@speech.ogg" \
      "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?topic=general&folderId=${FOLDER_ID}"
@@ -81,8 +81,8 @@ curl -X POST \
 import urllib.request
 import json
 
-FOLDER_ID = "" # ID of the directory
-IAM_TOKEN = "" # IAM token
+FOLDER_ID = "b1gvmob95yysaplct532" # ID of the folder
+IAM_TOKEN = "CggaATEVAgA..." # IAM token
 
 with open("speech.ogg", "rb") as f:
     data = f.read()
@@ -102,6 +102,41 @@ decodedData = json.loads(responseData)
 
 if decodedData.get("error_code") is None:
     print(decodedData.get("result"))
+```
+
+**[!TAB PHP]**
+
+```php
+<?php
+
+$token = 'CggaATEVAgA...'; # IAM token
+$folderId = "b1gvmob95yysaplct532"; # ID of the folder
+$audioFileName = "speech.ogg";
+
+$file = fopen($audioFileName, 'rb');
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?lang=ru-RU&folderId=${folderId}&format=oggopus");
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $token, 'Transfer-Encoding: chunked'));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
+
+curl_setopt($ch, CURLOPT_INFILE, $file);
+curl_setopt($ch, CURLOPT_INFILESIZE, filesize($audioFileName));
+$res = curl_exec($ch);
+curl_close($ch);
+$decodedResponse = json_decode($res, true);
+if (isset($decodedResponse["result"])) {
+    echo $decodedResponse["result"];
+} else {
+    echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
+    echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
+}
+
+fclose($file);
 ```
 
 ---

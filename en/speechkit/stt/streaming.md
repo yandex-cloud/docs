@@ -33,7 +33,7 @@ See [examples](#examples) of client apps below. In addition, see the [gRPC docum
 
 For authorization, the app must send an [IAM token](../../iam/concepts/authorization/iam-token.md) in every message. Please note that the IAM token validity is limited.
 
-Find out how to get an IAM token for your account in the corresponding instructions
+Find out how to get an IAM token for your account in the corresponding instructions:
 
 * [Instructions](../../iam/operations/iam-token/create.md) for a Yandex account.
 * [Instructions](../../iam/operations/iam-token/create-for-sa.md) for a [service account](../../iam/concepts/users/service-accounts.md).
@@ -58,7 +58,7 @@ After receiving the message with the recognition settings, the service starts a 
 * The maximum duration of transmitted audio for the entire session is 5 minutes.
 * The maximum size of audio data transmitted is 10 MB.
 
-If messages have not been sent to the service within 5 seconds or the limit on the duration or size of data has been reached, the session is terminated. To continue speech recognition, send the message with the recognition settings again and the service will start a new session.
+If messages have not been sent to the service within 5 seconds or the limit on the duration or size of data has been reached, the session is terminated. To continue speech recognition, reconnect and send a new message with the speech recognition settings.
 
 ## Service API
 
@@ -84,11 +84,11 @@ The service is located at: `stt.api.cloud.yandex.net:443`
 
 ### Response structure {#response}
 
-If speech fragment recognition is successful, you will receive a message containing a list of recognition results `chunks[]`. Each result contains the following fields:
+If speech fragment recognition is successful, you will receive a message containing a list of recognition results (`chunks[]`). Each result contains the following fields:
 
 * `alternatives[]` —  List of recognized text alternatives. Each alternative contains the following fields:
     * `text` — Recognized text.
-    * `confidence` — Recognition accuracy. Currently, the service always returns the value of 100%.
+    * `confidence` — Recognition accuracy. Currently the service always returns `1`, which is equivalent to 100%.
 * `final` — Set to `true` if the result is final and to `false` if it is intermediate.
 
 ### Error codes returned by the server {#error_codes}
@@ -107,12 +107,12 @@ List of possible gRPC errors returned by the service:
 
 To try the examples in this section:
 
-1. Download the protobuf file with the description of the service, [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto), to the same folder.
+1. Download the protobuf file with the description of the service ([stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto)) and save it in the same folder.
 1. Find out the ID of the folder that your account has access to.
 1. Get an IAM token:
     * [Instructions](../../iam/operations/iam-token/create.md) for a Yandex account.
     * [Instructions](../../iam/operations/iam-token/create-for-sa.md) for a service account.
-1. Select an audio file for recognition. The examples use the `speech.pcm`  audio file in the [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with a sampling rate of 8000.
+1. Select an audio file for recognition. The examples use the `speech.pcm` audio file in the [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with a sampling rate of 8000.
 
     > [!NOTE]
     >
@@ -130,13 +130,13 @@ Then proceed to creating a client app.
     pip install grpcio-tools
     ```
 
-1. Go to the folder where you downloaded the [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) file and run:
+1. Go to the folder with the [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) file and run:
 
     ```
     python -m grpc_tools.protoc -I . --python_out=. --grpc_python_out=. ./stt_service.proto
     ```
 
-    As a result, `stt_service_pb2.py` and `stt_service_pb2_grpc.py` files with the client interface will be created in this folder.
+    As a result, the `stt_service_pb2.py` and `stt_service_pb2_grpc.py` files with the client interface will be created in this folder.
 
 1. Create a file (for example, `test.py`), and add the following code to it:
 

@@ -1,6 +1,6 @@
 # Speech recognition
 
-_Speech recognition (speech-to-text, STT)_  is the process of converting speech to text. The service can recognize spontaneous speech in several languages.
+_Speech recognition (speech-to-text, STT)_ is the process of converting speech to text. The service can recognize spontaneous speech in several languages.
 
 ## Languages {#langs}
 

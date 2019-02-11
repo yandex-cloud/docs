@@ -1,5 +1,7 @@
 # List of supported languages
 
+[!INCLUDE [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md)]
+
 Get a list of translation directions supported by the service.
 
 ## Request {#request}

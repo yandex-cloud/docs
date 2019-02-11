@@ -8,6 +8,9 @@ meta:
   title: "Yandex Translate"
 # Блок с ссылками
 links:
+- title: "Step-by-step instructions"
+  description: "Instructions on how to perform routine operations"
+  href: "operations/index"
 - title: "API reference"
   description: "HTTP API method descriptions"
   href: "api-ref/v2/Translation/"

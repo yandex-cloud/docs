@@ -16,8 +16,3 @@ A highlight of Yandex speech technology is that we do not stitch fragments of re
 
 The statistical approach also allows us to change the parameters of existing voices. So you can choose the intonation to pronounce your text.
 
-#### See also
-
-- [Yandex speech technologies (a post on Habrahabr, in Russian)](https://habrahabr.ru/company/yandex/blog/243813/)
-- [Under the hood of Yandex.SpeechKit (a post on Habrahabr, in Russian)](https://habrahabr.ru/company/yandex/blog/198556/)
-
