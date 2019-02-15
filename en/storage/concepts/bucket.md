@@ -20,7 +20,7 @@ Names containing dots should only be used for [static website hosting](../hostin
 
 You can:
 
-- [Limit the maximum size of a bucket](../operations/buckets /limit-max-volume.md).[!KEYREF objstorage-name] will not allow uploading an object if, when adding it, the bucket size exceeds the maximum value.
+- [Limit the maximum size of a bucket](../operations/buckets/limit-max-volume.md).[!KEYREF objstorage-name] will not allow uploading an object if, when adding it, the bucket size exceeds the maximum value.
 - Configure a bucket for [static website hosting](../hosting/index.md).
 - Download a [CORS configuration](../cors/index.md) for a bucket.
 
