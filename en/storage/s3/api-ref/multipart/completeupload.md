@@ -9,7 +9,7 @@ When receiving the request, [!KEYREF objstorage-name]:
 
 When completing the upload, the client must provide the list of the parts it sent. Each part's description must contain the `ETag` which the client receives in response to each uploaded part. See the section [[!TITLE]](uploadpart.md).
 
-The operation may take several minutes depending on the object size and the number of parts.
+The operation may take several minutes, depending on the object size and the number of parts.
 
 If the request failed, the client app must be ready to repeat the request.
 
