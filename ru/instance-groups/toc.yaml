@@ -46,6 +46,8 @@ items:
         href: concepts/instance-group-policies.md
       - name: Лимиты
         href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md        
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник API
@@ -55,8 +57,6 @@ items:
     include:
       repo: docs-api
       path: ru/instance-groups/toc.yaml
-  - name: Управление доступом
-    href: security/index.md
   - name: Вопросы и ответы
     items:
     - name: Общие вопросы
