@@ -80,7 +80,7 @@ yc-mdb-my: yc managed-mysql
 yc-compute-ig: yc compute instance-group
 
 # MDB specific
-pem-path: '/mdb/CA.pem'
+pem-path: '/cloud-certs/CA.pem'
 dns-zone: mdb.yandexcloud.net
 network-name: default
 PG: PostgreSQL
