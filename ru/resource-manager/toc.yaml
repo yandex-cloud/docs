@@ -21,6 +21,8 @@ items:
             href: operations/folder/update.md
           - name: Установить права доступа
             href: operations/folder/set-access-bindings.md
+          - name: Получить идентификатор каталога
+            href: operations/folder/get-id.md
   - name: Концепции
     items:
       - name: Иерархия ресурсов Яндекс.Облака
