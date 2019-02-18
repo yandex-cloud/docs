@@ -15,6 +15,7 @@ wget "https://[!KEYREF s3-storage-host][!KEYREF pem-path]"
 ## Подключение с помощью [!KEYREF CH] CLI {#cli}
 
 Чтобы подключиться к кластеру с помощью клиента командной строки, укажите путь к SSL-сертификату в [конфигурационном файле](https://clickhouse.yandex/docs/ru/interfaces/cli/#interfaces_cli_configuration), в элементе `<caConfig>`:
+
 ```xml
 <config>
   <openSSL>

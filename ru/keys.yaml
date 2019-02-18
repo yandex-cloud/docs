@@ -58,6 +58,7 @@ price-per-hour-count-per-second: Цена указывается за 1 час �
 roles-image-user: compute.images.user
 roles-cloud-owner: resource-manager.clouds.owner
 roles-cloud-member: resource-manager.clouds.member
+roles-owner: owner
 roles-admin: admin
 roles-editor: editor
 roles-viewer: viewer
@@ -79,9 +80,13 @@ yc-mdb-my: yc managed-mysql
 yc-compute-ig: yc compute instance-group
 
 # MDB specific
-pem-path: '/mdb/CA.pem'
+pem-path: '/cloud-certs/CA.pem'
+dns-zone: mdb.yandexcloud.net
+network-name: default
 PG: PostgreSQL
 CH: ClickHouse
 MG: MongoDB
 MY: MySQL
 RD: Redis
+zone-id: ru-central1-c
+host-class: s1.nano

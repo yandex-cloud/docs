@@ -62,7 +62,7 @@ yc-mdb-ch: yc managed-clickhouse
 yc-mdb-pg: yc managed-postgresql
 
 # MDB specific
-pem-path: '/mdb/CA.pem'
+pem-path: '/cloud-certs/CA.pem'
 PG: PostgreSQL
 CH: ClickHouse
 MG: MongoDB

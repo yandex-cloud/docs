@@ -15,15 +15,13 @@ items:
       href: operations/connect.md
     - name: Изменение настроек кластера и базы данных
       href: operations/update.md
-    - name: Управление хостами MongoDB
-      href: operations/hosts.md
     - name: Управление пользователями БД
       href: operations/cluster-users.md
     - name: Управление резервными копиями
       href: operations/cluster-backups.md
     - name: Удаление кластера
       href: operations/cluster-delete.md
-  - name: Концепции
+  - name: Основные понятия
     items:
     - name: Взаимосвязь ресурсов сервиса
       href: concepts/index.md
@@ -39,16 +37,10 @@ items:
       href: concepts/replication.md
     - name: Поддерживаемые клиенты
       href: concepts/supported-clients.md
-  - name: Управление доступом
+  - name: Безопасность и управление доступом
     href: security/index.md
   - name: Правила тарификации
-    items:
-      - name: Действующие правила
-        href: pricing.md
-      - name: Архив
-        items:
-          - name: Правила до 1 января 2019 года
-            href: pricing-archive/pricing-01012019.md
+    href: pricing.md
   - name: Справочник API
     items:
     - name: Аутентификация в API

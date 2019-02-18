@@ -20,9 +20,11 @@ items:
         href: tts/request.md
   - name: Response format
     href: concepts/response.md
+  - name: IVR integration
+    href: concepts/ivr-integration.md
   - name: Pricing policy
     items:
-      - name: Current policy
+      - name: Current rules
         href: pricing.md
       - name: Archive
         items:

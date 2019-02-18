@@ -21,15 +21,15 @@ items:
             href: operations/folder/update.md
           - name: Set access rights
             href: operations/folder/set-access-bindings.md
-          - name: Delete a  folder
-            href: operations/folder/delete.md
+          - name: Get a folder ID
+            href: operations/folder/get-id.md
   - name: Concepts
     items:
       - name: Hierarchy of Yandex.Cloud resources
         href: concepts/resources-hierarchy.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Identity and access management
+  - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
