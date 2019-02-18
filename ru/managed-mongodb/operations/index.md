@@ -1,4 +1,4 @@
-# Пошаговые инструкции для [!KEYREF MG]
+# Пошаговые инструкции для [!KEYREF mmg-name]
 
 - [[!TITLE]](cluster-list.md)
 - [[!TITLE]](cluster-create.md)

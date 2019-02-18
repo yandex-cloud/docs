@@ -6,11 +6,11 @@
 
 [!KEYREF MY]-кластеры [!KEYREF mmy-short-name] поддерживают только шифрованные соединения. Поэтому для подключения к такому кластеру необходим SSL-сертификат. Подготовить все нужные аутентификационные данные можно так:
 
-    ```bash
-    $ mkdir ~/.mysql
-    $ wget "https://[!KEYREF s3-storage-host][!KEYREF pem-path]" -O ~/.mysql/root.crt
-    $ chmod 0600 ~/.mysql/root.crt
-    ```
+```bash
+$ mkdir ~/.mysql
+$ wget "https://[!KEYREF s3-storage-host][!KEYREF pem-path]" -O ~/.mysql/root.crt
+$ chmod 0600 ~/.mysql/root.crt
+```
 
 ## Строка подключения
 

@@ -81,8 +81,12 @@ yc-compute-ig: yc compute instance-group
 
 # MDB specific
 pem-path: '/mdb/CA.pem'
+dns-zone: mdb.yandexcloud.net
+network-name: default
 PG: PostgreSQL
 CH: ClickHouse
 MG: MongoDB
 MY: MySQL
 RD: Redis
+zone-id: ru-central1-c
+host-class: s1.nano
