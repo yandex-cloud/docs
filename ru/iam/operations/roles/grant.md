@@ -1,18 +1,194 @@
-# Назначение роли на ресурс
+# Назначить роль
 
-_Роль_ — это набор разрешений, который определяет допустимые операции с ресурсами в Яндекс.Облаке.
+Чтобы предоставить доступ к ресурсу, назначьте субъекту [роль](../../../iam/concepts/access-control/roles.md) на сам ресурс или ресурс, от которого наследуются права доступа, например на каталог или облако. Подробнее читайте в разделе [[!TITLE]](../../concepts/access-control/index.md).
 
-Чтобы предоставить пользователю доступ к ресурсу, назначьте ему роль на сам ресурс или ресурс, от которого наследуются права доступа, например на каталог или облако.
+## Как назначить роль пользователю {#access-to-user}
+
+В этом разделе описывается, как назначить роль для аккаунта пользователя на Яндексе. В примерах ниже описано, как назначить роль [сервисному аккаунту](#access-to-sa) или [всем пользователям сразу](#access-to-all).
 
 ---
 
 **[!TAB Консоль управления]**
 
-1. В консоли управления нажмите значок ![image](../../../_assets/ugly-sandwich.svg) и перейдите в раздел **Управление доступом**.
-2. Выберите вкладку **Пользователи и роли**.
-3. В строке с нужным пользователем нажмите **Настроить роли**.
-4. Чтобы добавить роль в облаке, нажмите значок ![image](../../../_assets/plus-sign.svg) в блоке **Роли в облаке**.
-    Чтобы добавить роль в каталоге, выберите каталог в блоке **Роли в каталогах** и нажмите **Назначить роль**.
-5. Выберите необходимую роль из списка. Подробнее о ролях в разделе [[!TITLE]](../../concepts/access-control/roles.md).
+В консоли управления можно назначить роль только на облако или каталог:
+
+1. [!INCLUDE [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md)]
+1. В строке с нужным пользователем нажмите **Настроить роли**.
+1. Чтобы назначить роль, нажмите значок ![image](../../../_assets/plus-sign.svg) в блоке **Роли в облаке** или в блоке **Роли в каталогах** напротив желаемого каталога.
+1. Выберите [роль](../../concepts/access-control/roles.md) из списка.
+
+
+**[!TAB CLI]**
+
+1. Выберите роль из списка в разделе [Роли](../../../iam/concepts/access-control/roles.md).
+1. [Получите идентификатор пользователя](../users/get.md).
+1. Назначьте роль с помощью команды:
+
+    ```
+    yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
+        --role <ROLE-ID> \
+        --subject userAccount:<USER-ACCOUNT-ID>
+    ```
+
+    где:
+
+    * `<SERVICE-NAME>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
+    * `<RESOURCE>` — категория ресурса, например `cloud`.
+    * `<RESOURCE-NAME>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
+    * `<RESOURCE-ID>` — идентификатор ресурса.
+    * `<ROLE-ID>` — идентификатор роли, например `[!KEYREF roles-cloud-owner]`.
+    * `<USER-ACCOUNT-ID>` — идентификатор аккаунта пользователя, которому назначается роль.
+
+    Например, назначьте роль `viewer` на [облако](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
+
+    ```
+    $ yc resource-manager cloud add-access-binding mycloud \
+        --role viewer \
+        --subject userAccount:aje6o61dvog2h6g9a33s
+    ```
+
+**[!TAB API]**
+
+Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
+
+1. Выберите роль из списка в разделе [Роли](../../../iam/concepts/access-control/roles.md).
+1. [Получите идентификатор пользователя](../users/get.md).
+1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
+
+    **body.json:**
+    ```json
+    {
+        "accessBindingDeltas": [{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "editor",
+                "subject": {
+                    "id": "gfei8n54hmfhuk5nogse",
+                    "type": "userAccount"
+                    }
+                }
+            }
+        ]
+    }
+    ```
+1. [!INCLUDE [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md)]
+
+Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса:
+* [[!TITLE]](../sa/set-access-bindings.md)
+* [[!TITLE]](../../../resource-manager/operations/cloud/set-access-bindings.md)
+* [[!TITLE]](../../../resource-manager/operations/folder/set-access-bindings.md)
 
 ---
+
+## Примеры {#examples}
+
+* [[!TITLE]](#multiple-roles)
+* [[!TITLE]](#access-to-sa)
+* [[!TITLE]](#access-to-all)
+
+### Назначить несколько ролей {#multiple-roles}
+
+---
+
+**[!TAB Консоль управления]**
+
+Воспользуйтесь инструкцией в [начале раздела](#access-to-user) и назначьте пользователю несколько ролей.
+
+Чтобы назначить роль другому пользователю, выполните заново все шаги инструкции.
+
+**[!TAB CLI]**
+
+Команда `add-access-binding` позволяет добавить только одну роль. Вы можете назначить несколько ролей с помощью команды `set-access-binding`.
+
+> [!WARNING]
+>
+> Команда `set-access-binding` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
+
+Например, чтобы назначить несколько ролей на каталог:
+
+1. Убедитесь, что на ресурс не назначено ролей, которые вы не хотите потерять:
+    ```
+    $ yc resource-manager folder list-access-binding my-folder
+    ```
+2. Назначьте роли. Например, назначьте одному пользователю роль `editor`, а другому `viewer`:
+    ```
+    $ yc resource-manager folder set-access-bindings my-folder \
+        --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
+        --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
+    ```
+
+**[!TAB API]**
+
+1. Чтобы назначить одному пользователю роль `editor`, а другому `viewer`, в файл с телом запроса добавьте несколько привязок прав доступа в `accessBindingDeltas`.
+
+    **body.json:**
+    ```json
+    {
+        "accessBindingDeltas": [{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "editor",
+                "subject": {
+                    "id": "gfei8n54hmfhuk5nogse",
+                    "type": "userAccount"
+                }
+            }
+        },{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "viewer",
+                "subject": {
+                    "id": "helj89sfj80aj24nugsz",
+                    "type": "userAccount"
+                }
+            }
+        }]
+    }
+    ```
+2. Назначьте указанные роли, например на каталог с идентификатором `b1gvmob95yysaplct532`:
+
+    [!INCLUDE [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md)]
+
+Вы также можете назначать роли с помощью метода `setAccessBinings`.
+
+> [!WARNING]
+>
+> Метод `setAccessBindings` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
+
+1. В теле запроса укажите список новых привязок прав доступа.
+
+    **body.json:**
+    ```json
+    {
+        "accessBindings": [{
+            "roleId": "editor",
+            "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
+        },{
+            "roleId": "viewer",
+            "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
+        }]
+    }
+    ```
+
+2. Назначьте роли:
+
+    ```bash
+    $ export FOLDER_ID=b1gvmob95yysaplct532
+    $ export IAM_TOKEN=CggaATEVAgA...
+    $ curl -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer ${IAM_TOKEN}" \
+        -d @body.json \
+        "https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/${FOLDER_ID}:setAccessBindings"
+    ```
+
+---
+
+
+### Доступ к ресурсу для сервисного аккаунта {#access-to-sa}
+
+[!INCLUDE [grant-role-for-sa](../../../_includes/iam/grant-role-for-sa.md)]
+
+### Доступ к ресурсу всем пользователям {#access-to-all}
+
+[!INCLUDE [grant-role-for-sa](../../../_includes/iam/grant-role-for-all.md)]
