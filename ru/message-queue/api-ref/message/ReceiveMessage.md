@@ -72,7 +72,7 @@ Attribute.N.Value (значение атрибута)
 ```
 Action=ReceiveMessage
 &Version=2012-11-05
-&QueueUrl=https%3A%2F%2Fmessage-queue.api.cloud.yandex.net%2Fb1g8ad42m6he1ooql78r%2Fdj600000000000le07ol%2Fsample-queue
+&QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
 &AttributeName.1=All
 &MessageAttributeName.1=All
 &VisibilityTimeout=15
