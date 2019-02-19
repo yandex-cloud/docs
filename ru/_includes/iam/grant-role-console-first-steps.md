@@ -1,0 +1,1 @@
+Откройте страницу [Управление доступом](https://console.cloud.yandex.ru/iam) для выбранного облака. Если необходимо, [переключитесь на другое облако](../../resource-manager/operations/cloud/switch-cloud.md).

@@ -8,11 +8,10 @@
 
 **[!TAB Консоль управления]**
 
-1. В консоли управления нажмите значок ![image](../../../_assets/ugly-sandwich.svg) и перейдите в раздел **Управление доступом**.
-2. Выберите вкладку **Пользователи и роли**.
-3. Выберите пользователя, которому хотите назначить роль, и нажмите кнопку **Настроить роли**.
-4. Выберите каталог в блоке **Роли в каталогах** и нажмите кнопку **Назначить роль**.
-5. Выберите необходимую роль из списка.
+1. [!INCLUDE [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md)]
+1. В строке с нужным пользователем нажмите **Настроить роли**.
+1. Выберите каталог в блоке **Роли в каталогах** и нажмите кнопку **Назначить роль**.
+1. Выберите необходимую роль из списка.
 
 **[!TAB CLI]**
 
@@ -219,105 +218,17 @@ curl -X POST \
 
 **[!TAB CLI]**
 
-1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
-
-    ```
-    $ yc iam service-account list
-    +----------------------+----------+------------------+
-    |          ID          |   NAME   |   DESCRIPTION    |
-    +----------------------+----------+------------------+
-    | ajebqtreob2dpblin8pe | test-sa  | test-description |
-    +----------------------+----------+------------------+
-    ```
-
-2. Назначьте роль `editor` сервисному аккаунту `test-sa`, указав его ID. В типе субъекта укажите `serviceAccount`:
-
-    ```
-    $ yc resource-manager folder add-access-binding my-folder \
-        --role editor \
-        --subject serviceAccount:ajebqtreob2dpblin8pe
-    ```
+[!INCLUDE [grant-role-for-sa-to-folder-via-cli](../../../_includes/iam/grant-role-for-sa-to-folder-via-cli.md)]
 
 **[!TAB API]**
 
-1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
-
-    ```bash
-    $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gd129pp9ha0vnvf5g7
-
-    {
-     "serviceAccounts": [
-      {
-       "id": "ajebqtreob2dpblin8pe",
-       "folderId": "b1gd129pp9ha0vnvf5g7",
-       "createdAt": "2018-10-18T13:42:40Z",
-       "name": "test-sa",
-       "description": "test-description"
-      }
-     ]
-    }
-    ```
-
-2. Назначьте сервисному аккаунту `test-sa` роль `editor` на каталог `my-folder`. В свойстве `subject` укажите тип `serviceAccount` и ID `test-sa`. В URL запроса в качестве ресурса укажите ID каталога `my-folder`:
-
-```bash
-$ curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM-TOKEN>" \
-    -d '{
-    "accessBindingDeltas": [{
-        "action": "ADD",
-        "accessBinding": {
-            "roleId": "editor",
-            "subject": {
-                "id": "ajebqtreob2dpblin8pe",
-                "type": "serviceAccount"
-    }}}]}' \
-    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
-```
+[!INCLUDE [grant-role-for-sa-to-folder-via-api](../../../_includes/iam/grant-role-for-sa-to-folder-via-api.md)]
 
 ---
 
-### Доступ к ресурсу любому пользователю {#access-to-all}
+### Доступ к ресурсу всем пользователям {#access-to-all}
 
-Вы можете предоставить доступ к ресурсу любому пользователю Яндекс.Облака. Для этого назначьте роль [системной группе](../../../iam/concepts/access-control/system-group.md) `allAuthenticatedUsers`.
-
-Разрешите любому прошедшему аутентификацию пользователю просматривать информацию об каталоге `my-folder` и ресурсах в нем:
-
----
-
-**[!TAB CLI]**
-
-Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В типе субъекта укажите `system`:
-
-```
-$ yc resource-manager folder add-access-binding my-folder \
-    --role viewer \
-    --subject system:allAuthenticatedUsers
-```
-
-**[!TAB API]**
-
-Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В свойстве `subject` укажите тип `system`:
-
-```bash
-$ curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM-TOKEN>" \
-    -d '{
-    "accessBindingDeltas": [{
-        "action": "ADD",
-        "accessBinding": {
-            "roleId": "viewer",
-            "subject": {
-                "id": "allAuthenticatedUsers",
-                "type": "system"
-    }}}]}' \
-    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
-```
-
----
+[!INCLUDE [grant-role-for-sa](../../../_includes/iam/grant-role-for-all.md)]
 
 
 #### Что дальше
