@@ -1,6 +1,6 @@
 # Перевести текст
 
-Чтобы перевести текст, воспользуйтесь методом [translate](../api-ref/v2/Translation/translate).
+Чтобы перевести текст, воспользуйтесь методом [translate](../api-ref/Translation/translate).
 
 ## Примеры
 
@@ -22,7 +22,7 @@
 
 В этом примере мы переведем на русский язык две строки с текстом: <q>Hello</q> и <q>World</q>.
 
-1. Узнайте код языка, на который вы хотите перевести текст, с помощью метода [listLanguages](../api-ref/v2/Translation/listLanguages):
+1. Узнайте код языка, на который вы хотите перевести текст, с помощью метода [listLanguages](../api-ref/Translation/listLanguages):
 
     ```bash
     curl -X POST \
@@ -56,7 +56,7 @@
         "targetLanguageCode": "ru"
     }
     ```
-3. Передайте файл на перевод с помощью метода [translate](../api-ref/v2/Translation/translate):
+3. Передайте файл на перевод с помощью метода [translate](../api-ref/Translation/translate):
     ```bash
     $ export IAM_TOKEN=CggaATEVAgA...
     $ curl -X POST \
@@ -97,7 +97,7 @@
 }
 ```
 
-Сохраните тело запроса в файле, например `body.json`, и передайте его с помощью метода [translate](../api-ref/v2/Translation/translate):
+Сохраните тело запроса в файле, например `body.json`, и передайте его с помощью метода [translate](../api-ref/Translation/translate):
 
 ```bash
 $ export IAM_TOKEN=CggaATEVAgA...

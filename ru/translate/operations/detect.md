@@ -1,6 +1,6 @@
 # Определить язык текста
 
-Чтобы определить, на каком языке написан текст, воспользуйтесь методом [detectLanguage](../api-ref/v2/Translation/detectLanguage).
+Чтобы определить, на каком языке написан текст, воспользуйтесь методом [detectLanguage](../api-ref/Translation/detectLanguage).
 
 ## Примеры
 
@@ -22,7 +22,7 @@
 
 В этом примере мы определим, на каком языке написана фраза <q>Hello, world</q>.
 
-1. Чтобы определить, на каком языке написан текст, передайте его в теле запроса [detectLanguage](../api-ref/v2/Translation/detectLanguage):
+1. Чтобы определить, на каком языке написан текст, передайте его в теле запроса [detectLanguage](../api-ref/Translation/detectLanguage):
     ```bash
     $ export FOLDER_ID=b1gvmob95yysaplct532
     $ export IAM_TOKEN=CggaATEVAgA...
@@ -41,7 +41,7 @@
         "languageCode": "en"
     }
     ```
-1. Узнайте, какому языку соответствует полученный код, с помощью метода [listLanguages](../api-ref/v2/Translation/listLanguages):
+1. Узнайте, какому языку соответствует полученный код, с помощью метода [listLanguages](../api-ref/Translation/listLanguages):
 
     ```bash
     curl -X POST \
@@ -91,7 +91,7 @@
 }
 ```
 
-Сохраните тело запроса в файле, например `body.json`, и передайте его с помощью метода [detectLanguage](../api-ref/v2/Translation/detectLanguage):
+Сохраните тело запроса в файле, например `body.json`, и передайте его с помощью метода [detectLanguage](../api-ref/Translation/detectLanguage):
 
 ```bash
 $ export IAM_TOKEN=CggaATEVAgA...
