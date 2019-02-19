@@ -15,7 +15,7 @@
 Перед тем, как создавать виртуальную машину и кластер БД:
 
 1. Перейдите в [консоль управления](https://console.cloud.yandex.ru) Яндекс.Облака и выберите каталог, в котором будете выполнять операции.
-1. Убедитесь, что в выбранном каталоге есть сеть с подсетями в зонах доступности `ru-cental1-a`, `ru-central1-b` и `ru-central1-c`. Для этого на странице каталога нажмите плитку **Yandex Virtual Private Cloud**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md). 
+1. Убедитесь, что в выбранном каталоге есть сеть с подсетями в зонах доступности `ru-cental1-a`, `ru-central1-b` и `ru-central1-c`. Для этого на странице каталога нажмите плитку **Yandex Virtual Private Cloud**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md).
 
 
 ## 1. Создайте виртуальную машину для Joomla {#create-vm}
@@ -26,7 +26,9 @@
 1. В поле **Имя** введите имя виртуальной машины — `joomla-pg-tutorial-web`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 1. Выберите публичный образ **Ubuntu** или **Centos**.
-1. В блоке **Вычислительные ресурсы** выберите [тип использования ядра](../../compute/concepts/vm-types.md) (частичное или полное), укажите необходимое количество vCPU и объем RAM.
+1. В блоке **Вычислительные ресурсы**:
+    - Выберите [тип виртуальной машины](../../compute/concepts/vm-types.md) (легкая или стандартная).
+    - Укажите необходимое количество vCPU и объем RAM.
 
    Для функционального тестирования хватит минимальной конфигурации:
    * **Гарантированная доля vCPU** — 5%.
@@ -40,7 +42,7 @@
         Пару ключей для подключения по SSH необходимо создать самостоятельно. Для создания ключей используйте сторонние инструменты, например утилиты `ssh-keygen` в Linux и macOS или [PuTTygen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) в Windows.
 1. Нажмите кнопку **Создать ВМ**.
 
-Создание виртуальной машины может занять несколько минут. 
+Создание виртуальной машины может занять несколько минут.
 
 При создании виртуальной машине назначаются IP-адрес и имя хоста (FQDN). Эти данные можно использовать для доступа по SSH.
 
@@ -66,8 +68,8 @@
 
 После того как виртуальная машина `joomla-pg-tutorial-web` перейдет в статус `RUNNING`, выполните:
 1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru) найдите публичный IP-адрес виртуальной машины.
-1. [Подключитесь](../../compute/operations/vm-control/vm-connect-ssh.md) к виртуальной машине по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows. 
-    
+1. [Подключитесь](../../compute/operations/vm-control/vm-connect-ssh.md) к виртуальной машине по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows.
+
       Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей.  Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на виртуальную машину.
 1. Скачайте и распакуйте архив с Joomla:
 
@@ -82,9 +84,9 @@
 1. Установите дополнительные компоненты:
 
     ---
-    
+
     **[!TAB Ubuntu 14]**
-    
+
     ```bash
     $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
     $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -95,9 +97,9 @@
     $ sudo chmod 0600 ~www-data/.postgresql/root.crt
     $ sudo chown -R www-data:www-data ~www-data/.postgresql
     ```
-    
+
     **[!TAB Ubuntu 16]**
-    
+
     ```bash
     $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
     $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -108,9 +110,9 @@
     $ sudo chmod 0600 ~www-data/.postgresql/root.crt
     $ sudo chown -R www-data:www-data ~www-data/.postgresql
     ```
-    
+
     **[!TAB Ubuntu 18]**
-    
+
     ```bash
     $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
     $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -121,9 +123,9 @@
     $ sudo chmod 0600 ~www-data/.postgresql/root.crt
     $ sudo chown -R www-data:www-data ~www-data/.postgresql
     ```
-    
+
     **[!TAB CentOS 6]**
-    
+
     ```bash
     $ sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-6-x86_64/pgdg-centos10-10-2.noarch.rpm
     $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
@@ -134,9 +136,9 @@
     $ sudo chmod 0600 ~apache/.postgresql/root.crt
     $ sudo chown -R apache:apache ~apache/.postgresql
     ```
-    
+
     **[!TAB CentOS 7]**
-    
+
     ```bash
     $ sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
     $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
@@ -147,7 +149,7 @@
     $ sudo chmod 0600 ~apache/.postgresql/root.crt
     $ sudo chown -R apache:apache ~apache/.postgresql
     ```
-    
+
     ---
 
 ## 4. Настройте веб-сервер Apache2 {#configure-apache2}
@@ -250,7 +252,7 @@
 1. Этот шаг нужно выполнять только на виртуальной машине с CentOS.
 
    Измените настройки SELinux:
-   
+
    ```bash
    $ sudo semanage fcontext -a -t httpd_sys_content_t "/var/www/html(/.*)?"
    $ sudo semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/html(/.*)?"
@@ -269,11 +271,11 @@
 
 ## 5. Настройте Joomla {#configure-joomla}
 
-Настройте Joomla по [инструкции](https://docs.joomla.org/J3.x:Installing_Joomla/ru) на сайте проекта. 
+Настройте Joomla по [инструкции](https://docs.joomla.org/J3.x:Installing_Joomla/ru) на сайте проекта.
 В процессе настройки вам потребуются параметры подключения к базе данных. Чтобы узнать и правильно прописать параметры, выполните:
 
  1. Получите адреса хостов кластера БД в консоли управления:
- 
+
     1. Откройте каталог, в котором создан кластер БД.
     1. Нажмите плитку **[!KEYREF mpg-name]**.
     1. Выберите кластер `joomla-pg-tutorial-db-cluster`.
@@ -281,7 +283,7 @@
     1. В колонке **Адрес (доменное имя)** найдите адреса хостов.
 1. На шаге **Database** в веб-установщике Joomla заполните поля:
    * **Тип базы данных**: `PostgreSQL`.
-   * **Имя сервера базы данных**: 
+   * **Имя сервера базы данных**:
      ```
      <адрес хоста 1>,<адрес хоста 2>,<адрес хоста 3> port=6432 sslmode=verify-full target_session_attrs=read-write
      ```

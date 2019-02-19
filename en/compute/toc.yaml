@@ -93,7 +93,7 @@ items:
         items:
           - name: Overview
             href: concepts/vm.md
-          - name: Computing resources
+          - name: VM types
             href: concepts/vm-types.md
           - name: Network on a VM
             href: concepts/network.md

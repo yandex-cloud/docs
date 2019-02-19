@@ -1,6 +1,6 @@
 # Translate text
 
-To translate the text, use the [translate](../api-ref/v2/Translation/translate) method.
+To translate the text, use the [translate](../api-ref/Translation/translate) method.
 
 ## Examples
 
@@ -24,7 +24,7 @@ To try the examples in this section:
 
 In this example, we will translate two text strings into Russian: <q>Hello</q> and <q>World</q>.
 
-1. Use the [listLanguages](../api-ref/v2/Translation/listLanguages) method to get the code of the target language:
+1. Use the [listLanguages](../api-ref/Translation/listLanguages) method to get the code of the target language:
 
     ```bash
     curl -X POST \
@@ -60,7 +60,7 @@ List the text strings to translate in the `texts` field. Specify the target lang
     }
     ```
 
-3. Use the [translate](../api-ref/v2/Translation/translate) method to pass the file to be translated:
+3. Use the [translate](../api-ref/Translation/translate) method to pass the file to be translated:
 
     ```bash
     $ export IAM_TOKEN=CggaATEVAgA...
@@ -103,7 +103,7 @@ To avoid mistakes, specify the source language in the `sourceLanguageCode` field
 }
 ```
 
-Save the request body in a file (for example, `body.json`) and pass it using the [translate](../api-ref/v2/Translation/translate) method:
+Save the request body in a file (for example, `body.json`) and pass it using the [translate](../api-ref/Translation/translate) method:
 
 ```bash
 $ export IAM_TOKEN=CggaATEVAgA...

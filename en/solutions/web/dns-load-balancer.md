@@ -36,12 +36,16 @@ Create two VMs in sequence, following the instructions:
    * **LEMP** for Linux, nginx, MySQL, and PHP
    * **LAMP** for Linux, Apache, MySQL, and PHP
 
-1. In the **Computing resources** section, select the [type of core usage](../../compute/concepts/vm-types.md) (partial or full) and specify the necessary number of vCPUs and amount of RAM. The characteristics of both VMs must match.
+1. In the **Computing resources** section:
+    - Choose the [type of virtual machine](../../compute/concepts/vm-types.md) (light or standard).
+    - Specify the required amount of vCPUs and RAM.
 
-   The minimum configuration is enough for functional testing:
-   * **Guaranteed vCPU share**: 5%.
-   * **vCPU**: 1.
-   * **RAM**: 1 GB.
+    The characteristics of both VMs must match.
+
+    The minimum configuration is enough for functional testing:
+    * **Guaranteed vCPU share**: 5%.
+    * **vCPU**: 1.
+    * **RAM**: 1 GB.
 
 1. In the **Network settings** section, select the subnet to connect the VM to when creating it.
 
@@ -82,12 +86,16 @@ Create two VMs in sequence, following the instructions:
 
 1. Select the **Ubuntu** or **CentOS** public image. Supported **Ubuntu** versions: 16.04 or higher.
 
-1. In the **Computing resources** section, select the [type of core usage](../../compute/concepts/vm-types.md) (partial or full) and specify the necessary number of vCPUs and amount of RAM. The characteristics of both VMs must match.
+1. In the **Computing resources** section:
+    - Choose the [type of virtual machine](../../compute/concepts/vm-types.md) (light or standard).
+    - Specify the required amount of vCPUs and RAM.
 
-   The minimum configuration is enough for functional testing:
-   * **Guaranteed vCPU share**: 5%.
-   * **vCPU**: 1.
-   * **RAM**: 1 GB.
+    The characteristics of both VMs must match.
+
+    The minimum configuration is enough for functional testing:
+    * **Guaranteed vCPU share**: 5%.
+    * **vCPU**: 1.
+    * **RAM**: 1 GB.
 
 1. In the **Network settings** section, select the subnet to connect the VM to when creating it.
 
@@ -217,40 +225,40 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
 
    ```
    # Polaris specific PDNS configuration
-   
+
    #################################
    # launch    Which backends to launch and order to query them in
    #
    # Python3 binary must be in the $PATH!
    launch=remote
    remote-connection-string=pipe:command=/opt/polaris/bin/polaris-pdns,timeout=2000
-   
+
    local-address=<INTERNAL IP ADRESS>
-   
+
    #################################
    # distributor-threads   Default number of Distributor (backend) threads to start
    #
    # distributor-threads=3
-   
+
    # logs received from a Polaris remotebackend will be logged from loglevel 6
    #
    # loglevel=6
-   
+
    # If not using the topology load balancing method, comment out the caching
    # options below to greatly improve the backend performance
-   
+
    #################################
    # cache-ttl Seconds to store packets in the PacketCache
    #
    # cache-ttl=20
    cache-ttl=0
-   
+
    #################################
    # negquery-cache-ttl    Seconds to store negative query results in the QueryCache
    #
    # negquery-cache-ttl=60
    negquery-cache-ttl=0
-   
+
    #################################
    # query-cache-ttl   Seconds to store query results in the QueryCache
    #
@@ -282,7 +290,7 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
                - ip: <dns-lb-tutorial-web-ru-central1-b PUBLIC IP>
                  name: dns-lb-tutorial-web-ru-central1-b
                  weight: 1
-       
+
        globalnames:
            www.example.com:
                pool: www-example
@@ -305,49 +313,49 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
       # SOA record format
       # MNAME                RNAME                           SERIAL REFRESH RETRY EXPIRE MINIMUM
       # polaris.example.com. hostmaster.polaris.example.com. 42     3600    600   86400  1
-      
+
       ###############################
       # SOA MNAME, must end with a dot.
       #
       SOA_MNAME: dns-lb-tutorial-slb-ru-central1-a.example.com.
-      
+
       ###############################
       # SOA_RNAME, must end with a dot.
       #
       SOA_RNAME: hostmaster.example.com.
-      
+
       ###############################
       # SOA serial can either be an absolute numeric value e.g. 1(default), or "auto",
       # which automatically sets the serial to seconds since the epoch of the last state
       # update.
       #
       # SOA_SERIAL: 1
-      
+
       ###############################
       # SOA REFRESH
       #
       # SOA_REFRESH: 3600
-      
+
       ###############################
       # SOA RETRY
       #
       # SOA_RETRY: 600
-      
+
       ###############################
       # SOA EXPIRE
       #
       # SOA_EXPIRE: 86400
-      
+
       ###############################
       # SOA MINIMUM
       #
       # SOA_MINIMUM: 1
-      
+
       ###############################
       # TTL to set on SOA record
       #
       # SOA_TTL: 86400
-      
+
       ################################
       # Whether to log a detailed request/response information to pdns.
       # If set to "true", pdns.conf "loglevel" option must be set to 6 or higher.
@@ -355,7 +363,7 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
       # Setting to "false" will improve the backend performance.
       #
       # LOG: false
-      
+
       ################################
       # Memcache hostname/ip:port to use e.g. "192.168.1.10:12345",
       # if port is omitted the default memcache port is used.
@@ -381,14 +389,14 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
        [Unit]
        Description=Polaris-GSLB Health Check
        After=network-online.target
-       
+
        [Service]
        ExecStart=/opt/polaris/bin/polaris-health start
        Type=forking
        Restart=on-failure
        RestartSec=1
        StartLimitInterval=0
-       
+
        [Install]
        WantedBy=multi-user.target
        ```

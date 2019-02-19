@@ -31,12 +31,14 @@ To create a VM:
 
    For static websites, we recommend using **LEMP**.
 
-1. In the **Computing resources** section, select the [type of core usage](../../compute/concepts/vm-types.md) (partial or full) and specify the necessary number of vCPUs and amount of RAM.
+1. In the **Computing resources** section:
+    - Choose the [type of virtual machine](../../compute/concepts/vm-types.md) (light or standard).
+    - Specify the required amount of vCPUs and RAM.
 
-   The minimum configuration is enough for functional testing:
-   * **Guaranteed vCPU share**: 5%.
-   * **vCPU**: 1.
-   * **RAM**: 1 GB.
+    The minimum configuration is enough for functional testing:
+    * **Guaranteed vCPU share**: 5%.
+    * **vCPU**: 1.
+    * **RAM**: 1 GB.
 
 1. In the **Network settings** section, select the subnet to connect the VM to when creating it.
 

@@ -29,7 +29,9 @@ To create a VM:
 
 1. Select the **Ubuntu** or **CentOS** public image.
 
-1. In the **Computing resources** section, select the [type of core usage](../../compute/concepts/vm-types.md) (partial or full) and specify the necessary number of vCPUs and amount of RAM.
+1. In the **Computing resources** section:
+    - Choose the [type of virtual machine](../../compute/concepts/vm-types.md) (light or standard).
+    - Specify the required amount of vCPUs and RAM.
 
    The minimum configuration is enough for functional testing:
    * **Guaranteed vCPU share**: 5%.
@@ -225,7 +227,7 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
    <VirtualHost *:80 [::]:80>
            ServerAdmin webmaster@localhost
            DocumentRoot /var/www/html/
-   
+
            <Directory /var/www/html/>
                    DirectoryIndex index.php index.html
                    DirectorySlash off
@@ -257,7 +259,7 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
 1. This step should only be performed on a VM running CentOS.
 
    Change SELinux settings:
-   
+
    ```bash
    $ sudo semanage fcontext -a -t httpd_sys_content_t "/var/www/html(/.*)?"
    $ sudo semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/html(/.*)?"

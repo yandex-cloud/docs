@@ -14,7 +14,9 @@ For more information about how to change the name, description, and tags of a VM
 1. Go to the VM's page.
 1. Click **Stop** in the top right corner of the page.
 1. Wait until the VM status changes to `STOPPED` and click **Update VM** in the top right corner of the page.
-1. Change the VM's configuration: in the **Computing resources** section, select the [type of core usage](../../concepts/vm-types.md) (partial or full), and specify the necessary number of vCPUs and the amount of RAM.
+1. Change the VM's configuration: in the **Computing resources** section:
+    - Choose the [type of virtual machine](../../concepts/vm-types.md) (light or standard).
+    - Specify the required amount of vCPUs and RAM.
 1. Click **Save changes**.
 1. Click **Run** in the top right corner of the page.
 
