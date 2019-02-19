@@ -11,8 +11,6 @@
  
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
-
 1. Посмотрите список доступных для загрузки Docker-образов:
     
     ```
