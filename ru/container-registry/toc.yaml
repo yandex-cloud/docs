@@ -1,0 +1,67 @@
+title: "Yandex Container Registry"
+href: index.yaml
+stage: alpha
+items:
+  - name: Начало работы
+    href: quickstart/index.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Аутентифицироваться в Container Registry
+        href: operations/authentication.md
+      - name: Docker-образ
+        items:
+          - name: Получить информацию об имеющихся Docker-образах
+            href: operations/docker-image/docker-image-list.md
+          - name: Создать Docker-образ
+            href: operations/docker-image/docker-image-create.md
+          - name: Загрузить Docker-образ в реестр
+            href: operations/docker-image/docker-image-push.md
+          - name: Скачать Docker-образ из реестра
+            href: operations/docker-image/docker-image-pull.md
+          - name: Удалить Docker-образ из реестра
+            href: operations/docker-image/docker-image-delete.md
+      - name: Реестр
+        items:
+          - name: Получить информацию об имеющихся реестрах
+            href: operations/registry/registry-list.md
+          - name: Создать реестр
+            href: operations/registry/registry-create.md
+          - name: Изменить реестр
+            href: operations/registry/registry-update.md
+          - name: Удалить реестр
+            href: operations/registry/registry-delete.md
+      - name: Репозиторий
+        items:
+          - name: Получить список репозиториев в реестре
+            href: operations/repository/repository-list.md
+  - name: Концепции
+    items:
+        - name: Обзор
+          href: concepts/index.md
+        - name: Docker-образ
+          href: concepts/docker-image.md
+        - name: Реестр
+          href: concepts/registry.md
+        - name: Репозиторий
+          href: concepts/repository.md
+        - name: Квоты и лимиты
+          href: concepts/limits.md
+  - name: Сценарии использования
+    items:
+      - name: Запуск Docker-образа на виртуальной машине
+        href: scenario/index.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: ru/container-registry/toc.yaml
+  # - name: Вопросы и ответы
+  #   href: qa/index.md
