@@ -13,7 +13,7 @@ links:
   href: "operations/index"
 - title: "API reference"
   description: "HTTP API method descriptions"
-  href: "api-ref/v2/Translation/"
+  href: "api-ref/Translation/"
 - title: "Authorization in the API"
   description: "Get an access token and use it in requests"
   href: "concepts/auth"
