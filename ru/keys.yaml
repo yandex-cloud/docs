@@ -63,6 +63,7 @@ roles-cloud-owner: resource-manager.clouds.owner
 roles-cloud-member: resource-manager.clouds.member
 roles-owner: owner
 roles-admin: admin
+roles-owner: owner
 roles-editor: editor
 roles-viewer: viewer
 

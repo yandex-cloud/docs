@@ -25,7 +25,9 @@ To create a VM:
 
 1. Select the **Ubuntu** or **CentOS** public image.
 
-1. In the **Computing resources** section, select the [type of core usage](../../compute/concepts/vm-types.md) (partial or full) and specify the necessary number of vCPUs and amount of RAM.
+1. In the **Computing resources** section:
+    - Choose the [type of virtual machine](../../compute/concepts/vm-types.md) (light or standard).
+    - Specify the required amount of vCPUs and RAM.
 
    Recommended values for the file server:
    * **Guaranteed vCPU share**: 100%.
@@ -205,28 +207,28 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
    [global]
            workgroup = SAMBA
            security = user
-   
+
            passdb backend = tdbsam
-   
+
            printing = cups
            printcap name = cups
            load printers = yes
            cups options = raw
-   
+
    [homes]
            comment = Home Directories
            valid users = %S, %D%w%S
            browseable = No
            read only = No
            inherit acls = Yes
-   
+
    [printers]
            comment = All Printers
            path = /var/tmp
            printable = Yes
            create mask = 0600
            browseable = No
-   
+
    [print$]
            comment = Printer Drivers
            path = /var/lib/samba/drivers

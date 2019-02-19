@@ -30,7 +30,9 @@ Make sure the uploaded image is in the `READY` status.
    1. Select the necessary image.
    1. Click **Add**
 
-1. In the **Computing resources** section, select the [type of core usage](../../concepts/vm-types.md) (partial or full), and specify the necessary number of vCPUs and the amount of RAM.
+1. In the **Computing resources** section:
+    - Choose the [type of virtual machine](../../concepts/vm-types.md) (light or standard).
+    - Specify the required amount of vCPUs and RAM.
 1. In the **Network settings** section, select the subnet to connect the VM to when creating it and assign a public address to access the VM.
 1. Specify data required for accessing the VM:
     - Enter the username in the **Login** field.

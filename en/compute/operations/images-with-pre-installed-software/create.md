@@ -11,7 +11,9 @@ To create a VM:
 
 1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to locate the VM in.
 1. Select a public image with the software you want to use.
-1. In the **Computing resources** section, select the [type of core usage](../../concepts/vm-types.md) (partial or full), and specify the necessary number of vCPUs and the amount of RAM.
+1. In the **Computing resources** section:
+    - Choose the [type of virtual machine](../../concepts/vm-types.md) (light or standard).
+    - Specify the required amount of vCPUs and RAM.
 
     > [!NOTE]
     >

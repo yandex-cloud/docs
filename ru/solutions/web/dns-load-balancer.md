@@ -30,13 +30,17 @@
    * для второй машины — `ru-central1-b`.
 1. Выберите один публичный образ для обеих виртуальных машин:
    * **LEMP** для Linux, nginx, MySQL, PHP;
-   * **LAMP** для Linux, Apache, MySQL, PHP. 
-1. В блоке **Вычислительные ресурсы** выберите [тип использования ядра](../../compute/concepts/vm-types.md) (частичное или полное), укажите необходимое количество vCPU и объем RAM. Характеристики обеих виртуальных машин должны совпадать.
+   * **LAMP** для Linux, Apache, MySQL, PHP.
+1. В блоке **Вычислительные ресурсы**:
+    - Выберите [тип виртуальной машины](../../compute/concepts/vm-types.md) (легкая или стандартная).
+    - Укажите необходимое количество vCPU и объем RAM.
 
-   Для функционального тестирования хватит минимальной конфигурации:
-   * **Гарантированная доля vCPU** — 5%.
-   * **vCPU** — 1.
-   * **RAM** — 1 ГБ.
+    Характеристики обеих виртуальных машин должны совпадать.
+
+    Для функционального тестирования хватит минимальной конфигурации:
+    * **Гарантированная доля vCPU** — 5%.
+    * **vCPU** — 1.
+    * **RAM** — 1 ГБ.
 1. В блоке **Сетевые настройки** выберите, к какой подсети необходимо подключить виртуальную машину при создании.
 1. Укажите данные для доступа на виртуальную машину:
     - В поле **Логин** введите имя пользователя.
@@ -72,12 +76,16 @@
    * для первой машины — `ru-central1-a`;
    * для второй машины — `ru-central1-b`.
 1. Выберите публичный образ **Ubuntu** или **CentOS**. Поддерживаемые версии для **Ubuntu**: 16.04 или выше.
-1. В блоке **Вычислительные ресурсы** выберите [тип использования ядра](../../compute/concepts/vm-types.md) (частичное или полное), укажите необходимое количество vCPU и объем RAM. Характеристики обеих виртуальных машин должны совпадать.
+1. В блоке **Вычислительные ресурсы**:
+    - Выберите [тип виртуальной машины](../../compute/concepts/vm-types.md) (легкая или стандартная).
+    - Укажите необходимое количество vCPU и объем RAM.
 
-   Для функционального тестирования хватит минимальной конфигурации:
-   * **Гарантированная доля vCPU** — 5%.
-   * **vCPU** — 1.
-   * **RAM** — 1 ГБ.
+    Характеристики обеих виртуальных машин должны совпадать.
+
+    Для функционального тестирования хватит минимальной конфигурации:
+    * **Гарантированная доля vCPU** — 5%.
+    * **vCPU** — 1.
+    * **RAM** — 1 ГБ.
 1. В блоке **Сетевые настройки** выберите, к какой подсети необходимо подключить виртуальную машину при создании.
 1. Укажите данные для доступа на виртуальную машину:
     - В поле **Логин** введите имя пользователя.
@@ -99,22 +107,22 @@
 Для виртуальных машин `dns-lb-tutorial-slb-ru-central1-a` и `dns-lb-tutorial-slb-ru-central1-b` выполните:
 
 1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru) найдите публичный IP-адрес виртуальной машины.
-1. [Подключитесь](../../compute/operations/vm-control/vm-connect-ssh.md) к виртуальной машине по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows. 
- 
+1. [Подключитесь](../../compute/operations/vm-control/vm-connect-ssh.md) к виртуальной машине по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows.
+
    Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей.  Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на виртуальную машину.
 1. Установите необходимые зависимости:
-   
+
    ---
-   
+
    **[!TAB Ubuntu 16/18]**
-   
+
    ```bash
    $ sudo apt-get update
    $ sudo apt-get install pdns-server pdns-backend-remote memcached python3-yaml python3-memcache python3-pip
    ```
-   
+
    **[!TAB CentOS 6/7]**
-   
+
    ```bash
    $ sudo yum check-update
    $ sudo yum -y install epel-release
@@ -123,7 +131,7 @@
    $ sudo chkconfig pdns on
    $ sudo chkconfig memcached on
    ```
-   
+
    ---
 
 1. Установите `polaris-gslb`:
@@ -133,11 +141,11 @@
    $ sudo python3 setup.py install
    ```
 1. Скопируйте файлы конфигурации для polaris-gslb
-   
+
    ---
-   
+
    **[!TAB Ubuntu 16/18]**
-   
+
    ```bash
    $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/powerdns/pdns.conf
    $ cd /opt/polaris/etc
@@ -146,9 +154,9 @@
    $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
    $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
    ```
-   
+
    **[!TAB CentOS 6]**
-   
+
    ```bash
    $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
    $ cd /opt/polaris/etc
@@ -159,9 +167,9 @@
    $ sudo cp -a /opt/polaris/bin/polaris-health /etc/init.d/polaris-health
    $ sudo chkconfig polaris-health on
    ```
-   
+
    **[!TAB CentOS 7]**
-   
+
    ```bash
    $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
    $ cd /opt/polaris/etc
@@ -170,7 +178,7 @@
    $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
    $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
    ```
-   
+
    ---
 
 1. Узнайте внутренний адрес виртуальной машины:
@@ -180,58 +188,58 @@
 1. В конфигурационном файле `pdns.conf` укажите внутренний IP-адрес виртуальной машины. Вы можете отредактировать конфигурационный файл с помощью утилиты `nano`:
 
      ---
-   
+
      **[!TAB Ubuntu 16/18]**
-   
+
      ```bash
      $ sudo nano /etc/powerdns/pdns.conf
      ```
-   
+
      **[!TAB CentOS 6/7]**
-   
+
      ```bash
      $ sudo nano /etc/pdns/pdns.conf
      ```
-   
+
      ---
-   
+
    Файл `pdns.conf` имеет вид:
    ```
    # Polaris specific PDNS configuration
-   
+
    #################################
    # launch    Which backends to launch and order to query them in
    #
    # Python3 binary must be in the $PATH!
    launch=remote
    remote-connection-string=pipe:command=/opt/polaris/bin/polaris-pdns,timeout=2000
-   
+
    local-address=<INTERNAL IP ADRESS>
-   
+
    #################################
    # distributor-threads   Default number of Distributor (backend) threads to start
    #
    # distributor-threads=3
-   
+
    # logs received from a Polaris remotebackend will be logged from loglevel 6
    #
    # loglevel=6
-   
+
    # If not using the topology load balancing method, comment out the caching
    # options below to greatly improve the backend performance
-   
+
    #################################
    # cache-ttl Seconds to store packets in the PacketCache
    #
    # cache-ttl=20
    cache-ttl=0
-   
+
    #################################
    # negquery-cache-ttl    Seconds to store negative query results in the QueryCache
    #
    # negquery-cache-ttl=60
    negquery-cache-ttl=0
-   
+
    #################################
    # query-cache-ttl   Seconds to store query results in the QueryCache
    #
@@ -239,12 +247,12 @@
    query-cache-ttl=0
    ```
    Укажите внутренний IP-адрес в значении параметра `local-address` вместо `<INTERNAL IP ADRESS>`.
-   
+
 1. Настройте `polaris-gslb`. Вы можете отредактировать конфигурационные файлы с помощью утилиты `nano`:
    1. `$ sudo nano /opt/polaris/etc/polaris-lb.yaml`
-      
+
       Файл `polaris-lb.yaml` имеет вид:
-   
+
        ```
        pools:
            www-example:
@@ -261,70 +269,70 @@
                - ip: <dns-lb-tutorial-web-ru-central1-b PUBLIC IP>
                  name: dns-lb-tutorial-web-ru-central1-b
                  weight: 1
-       
+
        globalnames:
            www.example.com:
                pool: www-example
                ttl: 1
        ```
-       
+
        Укажите в файле:
        * Вместо `www.example.com` — имя вашего домена.
        * Вместо `<dns-lb-tutorial-web-ru-central1-a PUBLIC IP>` — публичный IP-адрес виртуальной машины `dns-lb-tutorial-web-ru-central1-a`.
        * Вместо `<dns-lb-tutorial-web-ru-central1-b PUBLIC IP>` — публичный IP-адрес виртуальной машины `dns-lb-tutorial-web-ru-central1-b`.
-       
+
        Публичный адрес виртуальной машины вы можете найти в блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru).
    1. `$ sudo nano /opt/polaris/etc/polaris-pdns.yaml`
-      
+
       Файл `polaris-pdns.yaml` имеет вид:
       ```
       ###############################
       # SOA record format
       # MNAME                RNAME                           SERIAL REFRESH RETRY EXPIRE MINIMUM
       # polaris.example.com. hostmaster.polaris.example.com. 42     3600    600   86400  1
-      
+
       ###############################
       # SOA MNAME, must end with a dot.
       #
       SOA_MNAME: dns-lb-tutorial-slb-ru-central1-a.example.com.
-      
+
       ###############################
       # SOA_RNAME, must end with a dot.
       #
       SOA_RNAME: hostmaster.example.com.
-      
+
       ###############################
       # SOA serial can either be an absolute numeric value e.g. 1(default), or "auto",
       # which automatically sets the serial to seconds since the epoch of the last state
       # update.
       #
       # SOA_SERIAL: 1
-      
+
       ###############################
       # SOA REFRESH
       #
       # SOA_REFRESH: 3600
-      
+
       ###############################
       # SOA RETRY
       #
       # SOA_RETRY: 600
-      
+
       ###############################
       # SOA EXPIRE
       #
       # SOA_EXPIRE: 86400
-      
+
       ###############################
       # SOA MINIMUM
       #
       # SOA_MINIMUM: 1
-      
+
       ###############################
       # TTL to set on SOA record
       #
       # SOA_TTL: 86400
-      
+
       ################################
       # Whether to log a detailed request/response information to pdns.
       # If set to "true", pdns.conf "loglevel" option must be set to 6 or higher.
@@ -332,7 +340,7 @@
       # Setting to "false" will improve the backend performance.
       #
       # LOG: false
-      
+
       ################################
       # Memcache hostname/ip:port to use e.g. "192.168.1.10:12345",
       # if port is omitted the default memcache port is used.
@@ -341,7 +349,7 @@
       ```
       Укажите в файле вместо `www.example.com` — имя вашего домена.
 1. Если на виртуальной машине установлена ОС CentOS 6, пропустите этот шаг.
-   
+
    Настройте проверки состояния для `polaris-gslb`:
    1. Добавьте `systemd Unit` файл для проверки состояния `polaris-gslb`. Вы можете отредактировать файл с помощью утилиты `nano`:
        ```
@@ -353,21 +361,21 @@
        [Unit]
        Description=Polaris-GSLB Health Check
        After=network-online.target
-       
+
        [Service]
        ExecStart=/opt/polaris/bin/polaris-health start
        Type=forking
        Restart=on-failure
        RestartSec=1
        StartLimitInterval=0
-       
+
        [Install]
        WantedBy=multi-user.target
        ```
    1. Добавьте `polaris-health` в автозагрузку операционной системы:
        ```bash
        $ sudo systemctl enable polaris-health
-       ``` 
+       ```
 1. Перезапустите PowerDNS:
    ```bash
    $ sudo service pdns restart
@@ -377,14 +385,14 @@
    $ sudo service polaris-health start
    ```
 1. Этот шаг нужно выполнять только на виртуальной машине с ОС CentOS 6.
-   
+
    Откройте сетевой порт 53 с помощью утилиты `iptables`:
    ```bash
    $ sudo iptables -I INPUT -p tcp -m tcp --dport 53 -j ACCEPT
    $ sudo iptables -I INPUT -p udp -m udp --dport 53 -j ACCEPT
    $ sudo iptables-save | sudo tee /etc/sysconfig/iptables
    ```
-   
+
 ## 5. Настройте DNS {#configure-dns}
 
 Доменное имя, которое вы хотите использовать для веб-сайта, нужно связать с созданными виртуальными машинами.
@@ -420,7 +428,7 @@
 1. Остановите сервис DNS, чтобы сымитировать сбой в работе DNS-баласировщика:
    ```bash
    $ sudo service pdns stop
-   ``` 
+   ```
 1. Подключитесь к вашему веб-сайту через браузер. Несмотря на сбой в работе одного из DNS-балансировщиков, подключение должно пройти успешно.
 1. После завершения проверки запустите сервис DNS:
    ```bash
@@ -432,38 +440,38 @@
 1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru) найдите публичный IP-адрес виртуальной машины `dns-lb-tutorial-web-ru-central1-a`.
 1. [Подключитесь](../../compute/operations/vm-control/vm-connect-ssh.md) к виртуальной машине по протоколу SSH.
 1. Остановите веб-сервис, чтобы сымитировать сбой в работе веб-сервера:
-   
+
    ---
-   
+
    **[!TAB LAMP]**
-   
+
    ```bash
    $ sudo service apache2 stop
    ```
-   
+
    **[!TAB LEMP]**
-   
+
    ```bash
    $ sudo service nginx stop
    ```
-   
+
    ---
 1. Подключитесь к вашему веб-сайту через браузер. Несмотря на сбой в работе одного из веб-серверов, подключение должно пройти успешно.
 1. После завершения проверки запустите веб-сервис:
-   
+
    ---
-   
+
    **[!TAB LAMP]**
-   
+
    ```bash
    $ sudo service apache2 start
    ```
-   
+
    **[!TAB LEMP]**
-   
+
    ```bash
    $ sudo service nginx start
    ```
-   
+
    ---
 

@@ -93,7 +93,7 @@ items:
         items:
           - name: Обзор
             href: concepts/vm.md
-          - name: Вычислительные ресурсы
+          - name: Типы виртуальных машин
             href: concepts/vm-types.md
           - name: Сеть на виртуальной машине
             href: concepts/network.md
