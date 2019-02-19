@@ -61,7 +61,6 @@ price-per-hour-count-per-second: Цена указывается за 1 час �
 roles-image-user: compute.images.user
 roles-cloud-owner: resource-manager.clouds.owner
 roles-cloud-member: resource-manager.clouds.member
-roles-owner: owner
 roles-admin: admin
 roles-owner: owner
 roles-editor: editor
