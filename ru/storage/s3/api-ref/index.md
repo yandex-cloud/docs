@@ -28,6 +28,7 @@
 ----- | -----
 [upload](object/upload.md) | Загружает объект в [!KEYREF objstorage-name].
 [get](object/get.md) | Выгружает объект из [!KEYREF objstorage-name].
+[copy](object/copy.md) | Копирует объект, хранящийся в [!KEYREF objstorage-name].
 [getObjectMeta](object/getobjectmeta.md) | Выгружает метаданные объекта.
 [delete](object/delete.md) | Удаляет объект.
 [deleteMultipleObjecs](object/deletemultipleobjects.md) | Удаляет объекты по списку.
@@ -39,6 +40,7 @@
 ----- | -----
 [startUpload](multipart/startupload.md) | Инициализирует составную загрузку.
 [uploadPart](multipart/uploadpart.md) | Загружает часть объекта.
+[copyPart](multipart/copypart.md) | Копирует часть объекта.
 [listParts](multipart/listparts.md) | Выдает список загруженных частей.
 [abortUpload](multipart/abortupload.md) | Прерывает составную загрузку.
 [completeUpload](multipart/completeupload.md) | Завершает составную загрузку.

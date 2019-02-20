@@ -88,6 +88,7 @@ HTTP | Код ошибки| Описание
 409 | `InvalidBucketState` | Запрос не может быть выполнен для текущего состояния бакета.
 409 | `OperationAborted` | Конфликтующие условные операции.
 411 | `MissingContentLength` | Добавьте `Content-Length` в заголовки.
+412 | `Precondition Failed` | Не выполнено одно из указанных в запросе условий.
 416 | `InvalidRange` | Неправильный диапазон в заголовке Range.
 500 | `InternalError` | Внутренняя ошибка [!KEYREF objstorage-name]. Повторите запрос.
 501 | `NotImplemented` | Переданный заголовок не обрабатывается [!KEYREF objstorage-name].
