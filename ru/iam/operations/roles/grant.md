@@ -149,7 +149,7 @@
 
     [!INCLUDE [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md)]
 
-Вы также можете назначать роли с помощью метода `setAccessBinings`.
+Вы также можете назначать роли с помощью метода `setAccessBindings`.
 
 > [!WARNING]
 >

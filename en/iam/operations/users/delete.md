@@ -8,7 +8,7 @@
 
 **[!TAB Management console]**
 
-1. In the management console, click ![image](../../../_assets/ugly-sandwich.svg) and go to **Access management**.
+1. [!INCLUDE [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md)]
 2. On the **Users and roles** page, go to the line containing a given user and click ![image](../../../_assets/dots.svg). Select the **Delete** command.
 
 ---

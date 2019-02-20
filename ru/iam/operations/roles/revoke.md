@@ -24,6 +24,7 @@
 
 1. Посмотрите, кому и какие роли назначены на ресурс:
     `yc <SERVICE-NAME> <RESOURCE> list-access-bindings <RESOURCE-NAME>|<RESOURCE-ID>`
+
     Например, посмотрите привязки прав доступа на каталог `default`:
     ```
     $  yc resource-manager folder list-access-bindings default

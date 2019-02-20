@@ -13,12 +13,11 @@ The owner can create folders and resources in this cloud, and manage access righ
     [!INCLUDE [create-folder](../_includes/create-folder.md)]
 
 2. Grant users access to the folder you have created:
-    1. In the management console, click ![image](../_assets/ugly-sandwich.svg) and go to **Access management**.
-    2. Select the **Users and roles** tab.
-    3. In the line with the appropriate user name, click **Set up roles**.
-    4. Make sure that the user has one of the following roles for the cloud: `[!KEYREF roles-cloud-member]` or `[!KEYREF roles-cloud-owner]`.
-    5. Select a folder in **Roles in folders**  and click **Assign role**.
-    6. Select a role from the list. For example, grant the user access to create resources in the folder by assigning the role of `[!KEYREF roles-editor]`.
+    1. [!INCLUDE [grant-role-console-first-steps](../_includes/iam/grant-role-console-first-steps.md)]
+    1. In the line with the appropriate user name, click **Configure roles**.
+    1. Make sure that the user has one of the following roles for the cloud: `[!KEYREF roles-cloud-member]` or `[!KEYREF roles-cloud-owner]`.
+    1. Select a folder in **Roles in folders**  and click **Assign role**.
+    1. Select a role from the list. For example, grant the user access to create resources in the folder by assigning the role of `[!KEYREF roles-editor]`.
 
 > [!NOTE]
 >
