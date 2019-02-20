@@ -6,6 +6,8 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 1. Посмотрите описание команды CLI для создания виртуальной машины:
@@ -35,5 +37,9 @@
     Данная команда создаст виртуальную машину именем `first-instance` в зоне `ru-central1-a`, с публичным IP и дисками из снимков. Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
+
+**[!TAB API]**
+
+Воспользуйтесь методом [Create](../../api-ref/Instance/create.md) для ресурса `Instance`.
 
 ---

@@ -27,7 +27,7 @@ items:
             href: operations/vm-create/create-from-user-image.md
       - name: DSVM
         items:
-          - name: Specification
+          - name: Overview
             href: operations/dsvm/index.md
           - name: Creating a VM and connecting to it
             href: operations/dsvm/quickstart.md
