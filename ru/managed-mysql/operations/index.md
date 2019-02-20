@@ -1,4 +1,4 @@
-# Пошаговые инструкции для [!KEYREF mmy-name]
+# Пошаговые инструкции для [!KEYREF mmy-name]<sup>®</sup>
 
 - [[!TITLE]](cluster-list.md)
 - [[!TITLE]](cluster-create.md)
