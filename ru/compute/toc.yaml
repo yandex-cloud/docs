@@ -25,9 +25,11 @@ items:
             href: operations/vm-create/create-from-snapshots.md
           - name: Создать ВМ из пользовательского образа
             href: operations/vm-create/create-from-user-image.md
+          - name: Создать прерываемую ВМ
+            href: operations/vm-create/create-preemptible-vm.md
       - name: DSVM
         items:
-          - name: Спецификация
+          - name: Обзор
             href: operations/dsvm/index.md
           - name: Создать ВМ и подключиться
             href: operations/dsvm/quickstart.md
@@ -93,6 +95,8 @@ items:
         items:
           - name: Обзор
             href: concepts/vm.md
+          - name: Прерываемые виртуальные машины
+            href: concepts/preemptible-vm.md
           - name: Типы виртуальных машин
             href: concepts/vm-types.md
           - name: Сеть на виртуальной машине

@@ -2,19 +2,19 @@
 
 В этом разделе приведена инструкция для создания виртуальной машины с операционной системой Linux. Для создания виртуальной машины на базе Windows воспользуйтесь инструкцией [[!TITLE]](create-windows-vm.md).
 
+Чтобы создать виртуальную машину:
+
 ---
 
 **[!TAB Консоль управления]**
-
-Чтобы создать виртуальную машину:
 
 [!INCLUDE [create-instance-via-concole-linux](../../_includes_service/create-instance-via-concole-linux.md)]
 
 **[!TAB CLI]**
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
 
-Чтобы создать виртуальную машину:
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 1. Посмотрите описание команды CLI для создания виртуальной машины:
 
@@ -34,13 +34,28 @@
         --name first-instance \
         --zone ru-central1-a \
         --public-ip \
-        --create-boot-disk image-folder-id=standard-images,image-name=centos-7-1537787644 \
+        --memory 4 \
+        --cores 1 \
+        --create-boot-disk image-folder-id=standard-images,image-name=centos-7-1549279494,size=34359738368 \
         --ssh-key ~/.ssh/id_rsa.pub
     ```
 
-    Данная команда создаст виртуальную машину с OC CentOS 7, именем `first-instance` в зоне `ru-central1-a` и с публичным IP. Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
+    Данная команда создаст виртуальную машину со следующими характеристиками:
+
+    - С именем `first-instance`.
+    - С OC CentOS 7.
+    - В зоне доступности `ru-central1-a`.
+    - С одним ядром и RAM 4 ГБ.
+    - С сетевым HDD-диском объемом 32 ГБ.
+    - C публичным IP.
+
+    Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
+
+**[!TAB API]**
+
+Воспользуйтесь методом [Create](../../api-ref/Instance/create.md) для ресурса `Instance`.
 
 ---
 

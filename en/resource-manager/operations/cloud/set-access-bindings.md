@@ -8,11 +8,10 @@ To grant a user access to all the cloud resources, assign them a [role](../../..
 
 **[!TAB Management console]**
 
-1. In the management console, click (../..../_assets/ugly-sandwich.svg) and go to **Access management**.
-2. Select the **Users and roles** tab.
-3. Select the user to assign the role to and click **Configure roles**.
-4. Click ![image](../../../_assets/plus-sign.svg) in the **Roles for cloud <cloud name>** section.
-5. Select a role from the list.
+1. [!INCLUDE [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md)]
+1. In the line with the appropriate user name, click **Configure roles**.
+1. Click ![image](../../../_assets/plus-sign.svg) in the **Roles for the cloud <cloud name>** section.
+1. Select a role from the list.
 
 **[!TAB CLI]**
 

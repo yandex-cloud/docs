@@ -32,6 +32,7 @@
 -----|--------
 [startUpload](multipart/startupload.md) | Инициализирует составную загрузку.
 [uploadPart](multipart/uploadpart.md) | Загружает часть объекта.
+[copyPart](multipart/copypart.md) | Копирует часть объекта.
 [listParts](multipart/listparts.md) | Выдает список загруженных частей.
 [abortUpload](multipart/abortupload.md) | Прерывает составную загрузку.
 [completeUpload](multipart/completeupload.md) | Завершает составную загрузку.

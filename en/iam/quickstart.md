@@ -21,7 +21,7 @@ If you don't have a folder yet, create one:
 
 To grant another user access to your resources, add the user to your cloud:
 
-1. In the management console, click ![image](../_assets/ugly-sandwich.svg) and go to **Access management**.
+1. [!INCLUDE [grant-role-console-first-steps](../_includes/iam/grant-role-console-first-steps.md)]
 2. On the **Users and roles** page, click **Add user** in the upper-right corner.
 3. Enter the user's Yandex email address.
 4. Click **Add**.
@@ -34,7 +34,7 @@ To grant a user access to view resources in your cloud, assign the user the role
 
 1. Open the **Users and roles** page.
 2. Select the user to assign the role to and click **Configure roles**.
-3. Click **Assign role** in the **Roles in the cloud for <cloud name>** section.
+3. Click **Assign role** in the **Roles for the cloud for <cloud name>** section.
 4. Choose the role of `[!KEYREF roles-viewer]`.
 
 ## Assign a user a role for a folder {#folder-role}

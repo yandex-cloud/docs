@@ -42,6 +42,10 @@ Make sure the uploaded image is in the `READY` status.
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+
 1. See the description of the CLI's create VM command:
 
     ```

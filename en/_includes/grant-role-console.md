@@ -1,10 +1,6 @@
-1. In the management console, click ![image](../_assets/ugly-sandwich.svg) and go to **Access management**.
-
-1. Select the **Users and roles** tab.
-
-1. In the line with the appropriate user name, click **Set up roles**.
-
-1. To add a cloud role, click ![image](../_assets/plus-sign.svg) in the **Roles for cloud <cloud name>** section.
+1. [!INCLUDE [grant-role-console-first-steps](iam/grant-role-console-first-steps.md)]
+1. In the line with the appropriate user name, click **Configure roles**.
+1. To add a cloud role, click ![image](../_assets/plus-sign.svg) in the **Roles for the cloud <cloud name>** section.
 
     To add a folder role, select the folder and click **Assign role** in the **Roles in folders** section.
 

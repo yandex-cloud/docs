@@ -70,7 +70,7 @@ You can create an empty disk of the specified size.
         product_ids:
         - f2en2dtd08b5la74mlde
         status: READY
-        source_image_id: fdvcl0b1no2hjb423igi
+        source_image_id: fdvk34al8k5nltb58shr
         instance_ids:
         - fhm5b617fjnj44ovhcun
     ```

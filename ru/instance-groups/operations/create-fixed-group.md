@@ -64,7 +64,7 @@
             boot_disk_spec:
                 mode: READ_WRITE
                 disk_spec:
-                    image_id: fdvcl0b1no2hjb423igi
+                    image_id: fdvk34al8k5nltb58shr
                     type_id: network-hdd
                     size: 34359738368
             network_interface_specs:
@@ -121,7 +121,7 @@
             boot_disk_spec:
                 mode: READ_WRITE
                 disk_spec:
-                    image_id: fdvcl0b1no2hjb423igi
+                    image_id: fdvk34al8k5nltb58shr
                     type_id: network-hdd
                     size: 34359738368
             network_interface_specs:

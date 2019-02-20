@@ -44,7 +44,7 @@ You can't set service account access rights via the management console. You can 
     +--------------------------------+-------------+
     ```
 
-4. Find out the user's ID by login or email address. To assign a role to a service account or group of users instead of a user, see the [examples](#examples) below.
+4. Find out the user's ID from the login or email address. To assign a role to a service account or group of users, see the [examples](#examples) below.
 
     ```
     $ yc iam user-account get test-user
@@ -85,7 +85,7 @@ Use the [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings
     }
     ```
 
-2. Find out the user ID by login using the [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) method:
+2. Find out the user ID from the login using the [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) method:
 
     ```bash
     $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
@@ -153,7 +153,7 @@ The `add-access-binding` command allows you to add only one role. You can assign
 
 **[!TAB API]**
 
-Assign the `editor` role to one user and the `viewer` role to another:
+Assign the `editor` role to one user and the `viewer` role to another user:
 
 ```bash
 $ curl -X POST \
@@ -184,7 +184,7 @@ You can also assign roles using the [setAccessBindings](../../api-ref/ServiceAcc
 
 > [!WARNING]
 >
-> The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
+> The `setAccessBindings` method completely rewrites the access rights to the resource. All current resource roles will be deleted.
 
 ```bash
 curl -X POST \
@@ -278,9 +278,9 @@ $ curl -X POST \
 
 ---
 
-### Access to a resource granted to any user {#access-to-all}
+### Access to a resource for all users {#access-to-all}
 
-You can grant access to a resource to any Yandex.Cloud user. To do this, assign a role to the [system group](../../concepts/access-control/system-group.md) `allAuthenticatedUsers`.
+You can grant access to a resource to all Yandex.Cloud users. To do this, assign a role to the [system group](../../concepts/access-control/system-group.md) `allAuthenticatedUsers`.
 
 Allow any authenticated user to view information about the `my-robot` service account:
 

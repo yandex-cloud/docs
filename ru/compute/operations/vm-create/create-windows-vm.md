@@ -2,21 +2,25 @@
 
 В этом разделе приведена инструкция для создания виртуальной машины с операционной системой Windows. Для создания виртуальной машины на базе Linux воспользуйтесь инструкцией [[!TITLE]](create-linux-vm.md).
 
+Чтобы создать виртуальную машину:
+
 ---
 
 **[!TAB Консоль управления]**
-
-Чтобы создать виртуальную машину:
 
 [!INCLUDE [create-instance-via-concole-windows](../../_includes_service/create-instance-via-concole-windows.md)]
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
-Чтобы создать виртуальную машину:
-
 [!INCLUDE [create-instance-via-cli-windows](../../_includes_service/create-instance-via-cli-windows.md)]
+
+**[!TAB API]**
+
+Воспользуйтесь методом [Create](../../api-ref/Instance/create.md) для ресурса `Instance`.
 
 ---
 

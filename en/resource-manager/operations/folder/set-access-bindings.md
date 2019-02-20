@@ -8,11 +8,10 @@ To grant a user access to all the folder resources, assign them a [role](../../.
 
 **[!TAB Management console]**
 
-1. In the management console, click ![image](../../../_assets/ugly-sandwich.svg) and go to **Access management**.
-2. Select the **Users and roles** tab.
-3. Select the user to assign the role to and click **Configure roles**.
-4. Select a folder in the **Roles in folders** section and click **Assign role** .
-5. Select a role from the list.
+1. [!INCLUDE [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md)]
+1. In the line with the appropriate user name, click **Configure roles**.
+1. Select a folder in the **Roles in folders** section and click **Assign role** .
+1. Select a role from the list.
 
 **[!TAB CLI]**
 
@@ -226,105 +225,17 @@ Allow the service account to manage the folder and its resources:
 
 **[!TAB CLI]**
 
-1. Find out the ID of the `test-sa` service account that you want to assign the role to. To do this, get a list of available service accounts:
-
-    ```
-    $ yc iam service-account list
-    +----------------------+----------+------------------+
-    |          ID          |   NAME   |   DESCRIPTION    |
-    +----------------------+----------+------------------+
-    | ajebqtreob2dpblin8pe | test-sa  | test-description |
-    +----------------------+----------+------------------+
-    ```
-
-2. Assign the `editor` role to the `test-sa` service account by specifying its ID. In the subject type, specify `serviceAccount`:
-
-    ```
-    $ yc resource-manager folder add-access-binding my-folder \
-        --role editor \
-        --subject serviceAccount:ajebqtreob2dpblin8pe
-    ```
+[!INCLUDE [grant-role-for-sa-to-folder-via-cli](../../../_includes/iam/grant-role-for-sa-to-folder-via-cli.md)]
 
 **[!TAB API]**
 
-1. Find out the ID of the `test-sa` service account that you want to assign the role to. To do this, get a list of available service accounts:
-
-    ```bash
-    $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gd129pp9ha0vnvf5g7
-
-    {
-     "serviceAccounts": [
-      {
-       "id": "ajebqtreob2dpblin8pe",
-       "folderId": "b1gd129pp9ha0vnvf5g7",
-       "createdAt": "2018-10-18T13:42:40Z",
-       "name": "test-sa",
-       "description": "test-description"
-      }
-     ]
-    }
-    ```
-
-2. Assign the `editor` role for the `my-folder` folder to the `test-sa` service account. In the `subject` property, specify the `serviceAccount` type and the `test-sa` ID. In the request URL, specify the ID of the `my-folder` folder as a resource:
-
-```bash
-$ curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM-TOKEN>" \
-    -d '{
-    "accessBindingDeltas": [{
-        "action": "ADD",
-        "accessBinding": {
-            "roleId": "editor",
-            "subject": {
-                "id": "ajebqtreob2dpblin8pe",
-                "type": "serviceAccount"
-    }}}]}' \
-    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
-```
+[!INCLUDE [grant-role-for-sa-to-folder-via-api](../../../_includes/iam/grant-role-for-sa-to-folder-via-api.md)]
 
 ---
 
 ### Access to a resource for all users {#access-to-all}
 
-You can grant access to a resource to all Yandex.Cloud users. To do this, assign a role to the [system group](../../../iam/concepts/access-control/system-group.md) `allAuthenticatedUsers`.
-
-Allow any authenticated user to view information about the `my-folder` folder and its resources:
-
----
-
-**[!TAB CLI]**
-
-Assign the `viewer` role to the `allAuthenticatedUsers` system group. In the subject type, specify `system`:
-
-```
-$ yc resource-manager folder add-access-binding my-folder \
-    --role viewer \
-    --subject system:allAuthenticatedUsers
-```
-
-**[!TAB API]**
-
-Assign the `viewer` role to the `allAuthenticatedUsers` system group. In the `subject` property, specify the `system` type:
-
-```bash
-$ curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM-TOKEN>" \
-    -d '{
-    "accessBindingDeltas": [{
-        "action": "ADD",
-        "accessBinding": {
-            "roleId": "viewer",
-            "subject": {
-                "id": "allAuthenticatedUsers",
-                "type": "system"
-    }}}]}' \
-    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
-```
-
----
+[!INCLUDE [grant-role-for-sa](../../../_includes/iam/grant-role-for-all.md)]
 
 #### What's next
 

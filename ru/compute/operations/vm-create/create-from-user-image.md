@@ -40,6 +40,10 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+
 1. Посмотрите описание команды CLI для создания виртуальной машины:
 
     ```
@@ -76,5 +80,9 @@
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
     На машине будет создан пользователь `yc-user` с публичным ключом из файла `~/.ssh/id_rsa.pub`. Виртуальная машина получит публичный IP-адрес. Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
+
+**[!TAB API]**
+
+Воспользуйтесь методом [Create](../../api-ref/Instance/create.md) для ресурса `Instance`.
 
 ---

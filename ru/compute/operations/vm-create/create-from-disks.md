@@ -10,6 +10,8 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 1. Посмотрите описание команды CLI для создания виртуальной машины:
@@ -50,5 +52,9 @@
     --attach-disk disk-name=second-disk,auto-delete=yes \
     --ssh-key ~/.ssh/id_rsa.pub
     ```
+
+**[!TAB API]**
+
+Воспользуйтесь методом [Create](../../api-ref/Instance/create.md) для ресурса `Instance`.
 
 ---

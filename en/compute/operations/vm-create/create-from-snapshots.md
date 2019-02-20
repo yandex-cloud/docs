@@ -6,6 +6,8 @@ To create a VM from a set of disk snapshots:
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 1. See the description of the CLI's create VM command:
