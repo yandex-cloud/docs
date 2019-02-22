@@ -29,7 +29,7 @@
 
 ## Отслеживание статуса операции {#monitoring}
 
-Узнать статус операции можно с помощью метода [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto#L14): 
+Узнать статус операции можно с помощью метода [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto): 
 ```protobuf
  // Возвращает объект Operation по заданному идентификатору.
  rpc Get (GetOperationRequest) returns (operation.Operation) {
@@ -50,7 +50,7 @@ GET https://operation.api.cloud.yandex.net/operations/fcmq0j5033e516c56ctq
 
 ## Отмена операции {#cancel}
 
-Отменить операцию можно с помощью метода [Сancel](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto#L19):
+Отменить операцию можно с помощью метода [Сancel](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto):
 
 ```protobuf
  // Отменяет заданную операцию.
@@ -83,7 +83,7 @@ POST https://operation.api.cloud.yandex.net/operations/a3s17h9sbq5asdgss12:cance
 
 Обратите внимание, метод `ListOperations` позволяет получить список операций только над конкретным ресурсом, но не над категорией ресурсов. Например, вы не сможете посмотреть историю операций, которые производились над всеми дисками в вашем облаке.
 
-Пример gRPC-описания метода [ListOperations](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto#L63) для просмотра списка операций над диском:
+Пример gRPC-описания метода [ListOperations](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) для просмотра списка операций над диском:
 ```protobuf
  // Выводит список операций, которые были произведены над заданным диском.
  rpc ListOperations (ListDiskOperationsRequest)
