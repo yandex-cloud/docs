@@ -8,7 +8,7 @@ The recommended method for connecting to a virtual machine over SSH is based on 
 
 ## Connecting to a VM {#vm-connect}
 
-You can connect to a VM using the SSH protocol when it is running (the VM's status is `RUNNING`). You can use the `ssh` tool on Linux and macOS or [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
+You can connect to a VM using the SSH protocol when it is running (the VM's status is `RUNNING`). You can use the `ssh` tool on Linux and macOS or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
 To connect to the VM, specify its public address. You can find out the public IP address in the management console. Go to the VM's page, find the **Network** section, and see the **Public IPv4** field. If you created a VM with only an internal address, you need to create a new VM with a public address to make it accessible through the internet.
 

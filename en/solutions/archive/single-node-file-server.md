@@ -47,7 +47,7 @@ To create a VM:
 1. Specify data required for accessing the VM.
     - Enter the username in the **Login** field.
     - In the **SSH key** field, paste the contents of the public key file.
-You need to create a key pair for SSH connection yourself. To generate keys, use third-party tools, such as `ssh-keygen` utilities on Linux and macOS or [PuTTygen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) on Windows.
+You need to create a key pair for SSH connection yourself. To generate keys, use third-party tools, such as `ssh-keygen` utilities on Linux and macOS or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) on Windows.
 
 1. Click **Create VM**.
 
@@ -61,7 +61,7 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
 
 1. Go to the VM page of the [management console](https://console.cloud.yandex.ru). In the **Network** section, find the VM's public IP address.
 
-1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
+1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
       The recommended authentication method when connecting over SSH is using a key pair.  Don't forget to set up the created key pair: the private key must match the public key sent to the VM.
 
