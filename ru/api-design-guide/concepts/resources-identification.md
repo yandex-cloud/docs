@@ -4,7 +4,7 @@
  
 Идентификаторы необходимо передавать в запросах к API при обращении к ресурсам.
 
-Пример gRPC-описания метода [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto#L19) для получения диска:
+Пример gRPC-описания метода [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) для получения диска:
 
 ```protobuf 
  rpc Get (GetDiskRequest) returns (Disk) {
@@ -48,7 +48,7 @@ https://<домен>/<сервис>/<версия API>/<категория ре�
 
 Имя вложенного ресурса задается пользователем и должно быть уникальным в рамках родительского ресурса. Например, в одном кластере не могут быть созданы  две базы данных с одинаковыми именами.
  
-Пример gRPC-описания метода [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/database_service.proto#L19) для получения ресурса базы данных:
+Пример gRPC-описания метода [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/database_service.proto) для получения ресурса базы данных:
 ```protobuf
  rpc Get (GetDatabaseRequest) returns (Database) {
    option (google.api.http) = {

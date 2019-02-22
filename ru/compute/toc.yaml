@@ -87,6 +87,13 @@ items:
         items:
           - name: Загрузить свой образ
             href: operations/image-create/upload.md
+      - name: Управление серийной консолью
+        items:
+          - name: Начало работы
+            href: operations/serial-console/index.md
+          - name: Подключиться к серийной консоли по SSH
+            href: operations/serial-console/connect.md
+
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

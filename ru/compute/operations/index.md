@@ -50,3 +50,10 @@
 ## Создание нового образа
 
 - [[!TITLE]](image-create/upload.md)
+
+## Управление серийной консолью
+
+- [[!TITLE]](serial-console/index.md)
+- [[!TITLE]](serial-console/connect.md)
+
+

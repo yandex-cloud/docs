@@ -18,7 +18,7 @@
 
 Методу соответствует HTTP-метод `GET`.
 
-Пример gRPC-описания метода [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto#L19) для получения диска:
+Пример gRPC-описания метода [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) для получения диска:
 ```protobuf 
  rpc Get (GetDiskRequest) returns (Disk) {
    // Методу Get соответствует HTTP-метод GET.
@@ -48,7 +48,7 @@ GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
 
 Метод `List` поддерживает [постраничное отображение результатов](pagination.md).
  
-Пример gRPC-описания метода [List](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto#L24) для получения списка дисков:
+Пример gRPC-описания метода [List](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) для получения списка дисков:
 ```protobuf
  rpc List (ListDisksRequest) returns (ListDisksResponse) {
    // Методу List соответствует HTTP-метод GET.
@@ -103,7 +103,7 @@ GET https://compute.api.cloud.yandex.net/compute/v1/disks?folderId=a3s17h9sbq5as
 При попытке создать ресурс, который уже существует, метод вернет ошибку `ALREADY_EXISTS`. [Подробнее об ошибках](errors.md)
 
 
-Пример gRPC-описания метода [Create](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto#L31) для создания диска в заданном каталоге:
+Пример gRPC-описания метода [Create](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) для создания диска в заданном каталоге:
 ```protobuf
  rpc Create (CreateDiskRequest) returns (operation.Operation) {
    // Методу Create соответствует HTTP-метод POST.
@@ -187,7 +187,7 @@ GET https://compute.api.cloud.yandex.net/compute/v1/disks?folderId=a3s17h9sbq5as
 
 Метод имеет асинхронную сигнатуру. Он возвращает объект [Operation](operation.md), который содержит статус операции и представление измененного ресурса.
 
-Пример gRPC-описания метода [Update](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto#L40) для изменения дискового ресурса:
+Пример gRPC-описания метода [Update](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) для изменения дискового ресурса:
 ```protobuf
  rpc Update (UpdateDiskRequest) returns (operation.Operation) {
    // Методу Update соответствует HTTP-метод PATCH.
@@ -254,7 +254,7 @@ PATCH https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
 Метод имеет асинхронную сигнатуру. Он возвращает объект [Operation](operation.md), который
  содержит статус операции удаления. 
  
-Пример gRPC-описания метода [Delete](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto#L54) для удаления диска:
+Пример gRPC-описания метода [Delete](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) для удаления диска:
 ```protobuf
  rpc Delete (DeleteDiskRequest) returns (operation.Operation) {
    // Методу соответствует HTTP-метод DELETE.
