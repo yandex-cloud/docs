@@ -43,7 +43,7 @@ Create a VM where the test application will be installed, the set of components 
 1. Specify data required for accessing the VM.
     - Enter the username in the **Login** field.
     - In the **SSH key** field, copy the contents of the public key file.
-You need to create a key pair for SSH connection yourself. To generate keys, use third-party tools, such as `ssh-keygen` utilities on Linux and macOS or [PuTTygen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) on Windows.
+You need to create a key pair for SSH connection yourself. To generate keys, use third-party tools, such as `ssh-keygen` utilities on Linux and macOS or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) on Windows.
 
 1. Click **Create VM**.
 
@@ -57,7 +57,7 @@ On the created VM, install the set of components required for the test applicati
 
 1. In the **Network** section on the VM page of the [management console](https://console.cloud.yandex.ru), find the VM's public IP address.
 
-1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
+1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
    ```
    $ ssh <Login>@<Public_IP_of_the_VM>
@@ -293,7 +293,7 @@ One of the ways to set up CI in Yandex.Cloud is to take advantage of a public im
 1. Specify data required for accessing the VM.
     - Enter the username in the **Login** field.
     - In the **SSH key** field, copy the contents of the public key file.
-You need to create a key pair for SSH connection yourself. To generate keys, use third-party tools, such as `ssh-keygen` utilities on Linux and macOS or [PuTTygen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) on Windows.
+You need to create a key pair for SSH connection yourself. To generate keys, use third-party tools, such as `ssh-keygen` utilities on Linux and macOS or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) on Windows.
 
 1. Click **Create VM**.
 
