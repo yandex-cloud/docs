@@ -19,7 +19,7 @@ Go to the folder page and click **[!KEYREF mpg-name]**.
 To request a list of [!KEYREF PG] clusters in the default folder, run the command:
 
 ```
-$ yc managed-postgresql cluster list
+$ [!KEYREF yc-mdb-pg] cluster list
 
 +----------------------+---------------+-----------------------------+--------+---------+
 |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |

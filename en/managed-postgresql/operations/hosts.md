@@ -9,7 +9,8 @@ You can add and remove cluster hosts and manage [!KEYREF PG] settings for indivi
 **[!TAB Management console]**
 
 1. Go to the folder page and click **[!KEYREF mpg-name]**.
-1. Click on the name of the cluster you need and select the **Hosts** tab.
+
+2. Click on the name of the cluster you need and select the **Hosts** tab.
 
 **[!TAB CLI]**
 
@@ -41,7 +42,8 @@ To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts
 
 ## Adding a host  {#add}
 
-The number of hosts in [!KEYREF mpg-short-name] clusters is limited by the quotas on the number of CPUs and the amount of RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page and find the **[!KEYREF mpg-full-name]**.
+The number of hosts in [!KEYREF mpg-short-name] clusters is limited by the quotas on CPUs and RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas](https://console.cloud.yandex.ru/?section=quotas
+) and find the **[!KEYREF mpg-full-name]**.
 
 ---
 
@@ -49,16 +51,21 @@ The number of hosts in [!KEYREF mpg-short-name] clusters is limited by the quota
 
 1. Go to the folder page and click **[!KEYREF mpg-name]**.
 
-1. Click on the name of the cluster you need and go to the **Hosts** tab.
+2. Click on the name of the cluster you need and go to the **Hosts** tab.
 
-1. Click **Add host**.
+3. Click **Add host**.
 
 1. Specify the host parameters:
-   - Availability zone.
-   - Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
-   - Priority of the host as a [!KEYREF PG] replica.
-   - Replication source (if you use cascading replication).
-   - Select the **Public access** option if the host must be accessible from outside the Cloud.
+
+    * Availability zone.
+
+    * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
+
+    * Priority of the host as a [!KEYREF PG] replica.
+
+    * Replication source (if you use cascading replication).
+
+    * Select the **Public access** option if the host must be accessible from outside the Cloud.
 
 **[!TAB CLI]**
 
@@ -68,40 +75,38 @@ The number of hosts in [!KEYREF mpg-short-name] clusters is limited by the quota
 
 To add a host to the cluster:
 
-1. See the description of the CLI command for adding a host:
-
-   ```
-   $ [!KEYREF yc-mdb-pg] host add --help
-   ```
-
 1. Request a list of cluster subnets to select one for the new host:
 
-   ```
-   $ yc vpc subnet list
-   
-   +-----------+-----------+------------+---------------+------------------+
-   |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
-   +-----------+-----------+------------+---------------+------------------+
-   | b0cl69... | default-c | enp6rq7... | ru-central1-c | [172.16.0.0/20]  |
-   | e2lkj9... | default-b | enp6rq7... | ru-central1-b | [10.10.0.0/16]   |
-   | e9b0ph... | a-2       | enp6rq7... | ru-central1-a | [172.16.32.0/20] |
-   | e9b9v2... | default-a | enp6rq7... | ru-central1-a | [172.16.16.0/20] |
-   +-----------+-----------+------------+---------------+------------------+
-   ```
+    ```
+    $ yc vpc subnet list
+    
+    +-----------+-----------+------------+---------------+------------------+
+    |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
+    +-----------+-----------+------------+---------------+------------------+
+    | b0cl69... | default-c | enp6rq7... | ru-central1-c | [172.16.0.0/20]  |
+    | e2lkj9... | default-b | enp6rq7... | ru-central1-b | [10.10.0.0/16]   |
+    | e9b0ph... | a-2       | enp6rq7... | ru-central1-a | [172.16.32.0/20] |
+    | e9b9v2... | default-a | enp6rq7... | ru-central1-a | [172.16.16.0/20] |
+    +-----------+-----------+------------+---------------+------------------+
+    ```
 
-   If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+2. See the description of the CLI command for adding a host:
 
-1. Run the add host command:
+    ```
+    $ [!KEYREF yc-mdb-pg] host add --help
+    ```
 
-   ```
-   $ [!KEYREF yc-mdb-pg] host add
-        --cluster-name <cluster name>
-        --host zone-id=<availability zone>,subnet-id=<subnet ID>
-   ```
+3. Run the add host command:
 
-   [!KEYREF mpg-short-name] will run the add host operation.
+    ```
+    $ [!KEYREF yc-mdb-pg] host add
+         --cluster-name <cluster name>
+         --host zone-id=<availability zone>,subnet-id=<subnet ID>
+    ```
 
-   The subnet ID should be specified if the availability zone contains multiple subnets, otherwise [!KEYREF mpg-short-name] automatically selects a single subnet. The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+    [!KEYREF mpg-short-name] will run the add host operation.
+
+    The subnet ID should be specified if the availability zone contains multiple subnets, otherwise [!KEYREF mpg-short-name] automatically selects a single subnet. The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
 
 **[!TAB API]**
 
@@ -113,8 +118,9 @@ To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md)
 
 For each host in a [!KEYREF PG] cluster, you can change:
 
-- The host's priority in the cluster, according to which a new master is selected when the old one is unavailable.
-- The host that should be the replication source for the current host (if you use [cascading replication](https://www.postgresql.org/docs/10/warm-standby.html#CASCADING-REPLICATION)).
+* The host's priority in the cluster, according to which a new master is selected when the old one is unavailable.
+
+* The host that should be the replication source for the current host (if you use [cascading replication](https://www.postgresql.org/docs/10/warm-standby.html#CASCADING-REPLICATION)).
 
 ---
 
@@ -127,10 +133,10 @@ For each host in a [!KEYREF PG] cluster, you can change:
 To change the parameters of the [!KEYREF PG] host, run the command:
 
 ```
-$ [!KEYREF yc-mdb-pg] host update <hostname>
+$ [!KEYREF yc-mdb-pg] host update <host name>
      --cluster-name <cluster name>
-     --replication-source <source host's name>
-     --priority <replica's priority>
+     --replication-source <source host name>
+     --priority <replica priority>
 ```
 
 The host names can be requested with a [list of cluster hosts](#list-hosts) and the cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
@@ -152,8 +158,10 @@ If the host is a master at the time of deletion, [!KEYREF mpg-short-name] automa
 **[!TAB Management console]**
 
 1. Go to the folder page and click **[!KEYREF mpg-name]**.
-1. Click on the name of the cluster you need and select the **Hosts** tab.
-1. Click ![](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
+
+2. Click on the name of the cluster you need and select the **Hosts** tab.
+
+3. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
 
 **[!TAB CLI]**
 
@@ -164,7 +172,7 @@ If the host is a master at the time of deletion, [!KEYREF mpg-short-name] automa
 To remove a host from the cluster, run:
 
 ```
-$ [!KEYREF yc-mdb-pg] host delete <hostname>
+$ [!KEYREF yc-mdb-pg] host delete <host name>
      --cluster-name=<cluster name>
 ```
 

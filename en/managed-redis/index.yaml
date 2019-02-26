@@ -1,0 +1,26 @@
+# Заголовок и описание на странице
+title: "Yandex Managed Service for Redis"
+description:
+- "<em>This is an alpha version of the Managed Service for Redis that helps you deploy and maintain Redis server clusters in the Yandex.Cloud infrastructure.</em> The stability of the service is not guaranteed at this stage. There are no SLA obligations. For more information, see <a href=\"/docs/overview/concepts/launch-stages\">Launch stages</a>."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex Managed Service for Redis"
+# Блок с ссылками
+links:
+- title: "Getting started"
+  description: "Create the first database cluster"
+  href: "quickstart"
+- title: "Step-by-step instructions"
+  description: "Instructions on how to perform routine operations"
+  href: "operations/"
+- title: "Concepts"
+  description: "Learn about basic concepts and how the service works"
+  href: "concepts/"
+- title: "API reference"
+  description: "HTTP API method descriptions"
+- title: "Quotas and limits"
+  description: "Technical and organizational limitations of the service"
+  href: "concepts/limits"
+- title: "Access management"
+  description: "Set up access rights to work with the service"
+  href: "security/"

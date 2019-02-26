@@ -4,7 +4,7 @@ Inside Yandex.Cloud, you can connect to a DB cluster only from a VM whose addres
 
 ## Authentication
 
-[!KEYREF MG] clusters in [!KEYREF mmg-short-name] support only encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
+[!KEYREF MG]-clusters in [!KEYREF mmg-short-name] support only encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
 
 ```bash
 $ mkdir ~/.mongodb

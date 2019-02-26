@@ -3,7 +3,7 @@
 [!KEYREF mch-short-name] helps enable replication for [!KEYREF CH] clusters consisting of two or more hosts via Apache ZooKeeper. You just need to create tables of the required type. ZooKeeper hosts will be created and configured automatically.
 
 > [!NOTE]
-> 
+>
 > If you created a [!KEYREF CH] cluster with two or more hosts, it is not yet possible to reduce the number of hosts to one. And vice versa, if you created a single-host cluster, you will not be able to add hosts to it.
 
 ### Replicated tables
@@ -19,10 +19,13 @@ CREATE TABLE db_01.table_01 (log_date Date, user_name String) \
 
 Where:
 
-- `db_01` is the DB name.
-- `table_01` is the table name.
-- `/table_01` is the path to the table in ZooKeeper, which must start with a forward slash <q>/</q>.
-- `{replica}` is the host ID macro.
+* `db_01` is the DB name.
+
+* `table_01` is the table name.
+
+* `/table_01` is the path to the table in ZooKeeper, which must start with a forward slash <q>/</q>.
+
+* `{replica}` is the host ID macro.
 
 To create replicated tables on all hosts in the cluster, send a distributed DDL query (described in [the documentation for [!KEYREF CH]](https://clickhouse.yandex/docs/ru/query_language/queries/#ddl-on-cluster)):
 
@@ -40,8 +43,10 @@ For each [!KEYREF CH] cluster consisting of two or more hosts, [!KEYREF mch-shor
 How ZooKeeper hosts are managed:
 
 * By default, ZooKeeper hosts are created with a minimal [host class](instance-types.md). You can specify the necessary host class when creating a cluster [via the API](../api-ref/Cluster/create.md).
-* If you didn't specify any subnets for ZooKeeper hosts, [!KEYREF mch-short-name] automatically distributes them among the subnets of the network to which a [!KEYREF CH] cluster is connected.
+
 * [!KEYREF mch-short-name] does not enable you to connect to ZopKeeper servers and configure them. However, you can change the resources allocated to ZooKeeper hosts by changing the host class.
+
+* If you didn't specify any subnets for ZooKeeper hosts, [!KEYREF mch-short-name] automatically distributes them among the subnets of the network to which a [!KEYREF CH] cluster is connected.
 
 To learn more about using ZooKeeper for replication management in [!KEYREF CH], see [the documentation [!KEYREF CH]](https://clickhouse.yandex/docs/ru/operations/table_engines/replication/).
 

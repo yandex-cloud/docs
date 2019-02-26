@@ -1,4 +1,4 @@
-# [!KEYREF PG] extension management
+# Managing [!KEYREF PG] extensions
 
 [!KEYREF mpg-short-name] supports a large number of standard [!KEYREF PG] extensions and some non-standard ones. A full list of available extensions is [ given below](#postgresql).
 
@@ -46,8 +46,8 @@ $ [!KEYREF yc-mdb-pg] database update <DB name> \
 ```
 
 > [!NOTE]
-> 
-> The extension version is not considered when handling the command: you can pass any non-empty string as a version.
+
+The extension version is not considered when handling the command: you can pass any non-empty string as a version.
 
 **[!TAB API]**
 
@@ -57,7 +57,7 @@ To pass a new list of DB extensions, use the [update](../api-ref/Database/update
 
 ## Supported [!KEYREF PG] extensions {#postgresql}
 
-Below is a full list of supported extensions:
+All supported extensions are listed here:
 
 - [address_standardizer](https://postgis.net/docs/Address_Standardizer.html)
 - [address_standardizer_data_us](https://postgis.net/docs/Address_Standardizer.html)

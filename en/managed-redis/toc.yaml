@@ -1,0 +1,39 @@
+title: "Yandex Managed Service for Redis"
+href: index.yaml
+stage: alpha
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Concepts
+    items:
+    - name: Overview
+      href: concepts/index.md
+    - name: Host classes
+      href: concepts/instance-types.md
+    - name: Network in Managed Service for Redis
+      href: concepts/network.md
+    - name: Service quotas and limits
+      href: concepts/limits.md
+    - name: Backups
+      href: concepts/backup.md
+    - name: Replication and fault tolerance
+      href: concepts/replication.md
+    - name: Supported clients
+      href: concepts/supported-clients.md
+    - name: Limitations of Managed Service for Redis
+      href: concepts/supported-features.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: ru/managed-redis/toc.yaml
+  - name: Questions and answers
+    items:
+    - name: General questions
+      href: qa/general.md

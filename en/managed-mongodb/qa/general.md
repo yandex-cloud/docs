@@ -57,7 +57,7 @@ For detailed instructions, see the section [[!TITLE]](../quickstart.md).
 
 For a network-based storage (NBS), the number of hosts in a cluster is limited only by the requested computing resources and the size of the storage for the cluster.
 
-For NVMe SSD storage, the number of hosts is limited during cluster creation: for [!KEYREF MG] clusters, at least three hosts must be created.
+For NVMe SSD storage, the number of hosts is limited during cluster creation: for [!KEYREF MG]-clusters, at least three hosts must be created.
 
 #### How can I access a running DB host? {#db-access}
 
@@ -126,7 +126,7 @@ For all DBMS types, you can track:
 - Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster's host class.
 - The amount of data in the DB cluster and the remaining free space in the data storage.
 
-For any DB hosts, you can track metrics specific to the type of the corresponding DBMS. For example, for [!KEYREF PG], you can track:
+For any DB hosts, you can track metrics specific to the type of the corresponding DBMS. For example, for [!KEYREF MG], you can track:
 
 - Average query execution time
 - Number of queries per second

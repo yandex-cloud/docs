@@ -1,4 +1,4 @@
-# Managing backups
+# How to manage backups
 
 You can create backups and restore clusters from existing backups.
 
@@ -13,8 +13,10 @@ For a new cluster, you should set all the parameters that are required at creati
 **[!TAB Management console]**
 
 1. Go to the folder page and click **[!KEYREF mpg-name]**.
-1. Click on the name of the cluster you need and select the tab **Backup copies**.
-1. Click ![](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
+
+2. Click on the name of the cluster you need and select the tab **Backup copies**.
+
+3. Click ![image](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
 
 **[!TAB CLI]**
 
@@ -30,7 +32,7 @@ To restore a cluster from a backup:
     $ [!KEYREF yc-mdb-pg] cluster restore --help
     ```
 
-1. Get a list of available backups for [!KEYREF PG] clusters:
+2. Get a list of available backups for [!KEYREF PG] clusters:
 
     ```
     $ [!KEYREF yc-mdb-pg] backup list
@@ -45,9 +47,9 @@ To restore a cluster from a backup:
 
     You can restore a [!KEYREF PG] cluster at any time after creating a backup (time in the `CREATED AT` column).
 
-1. Request creation of a cluster from a backup:
+3. Request creation of a cluster from a backup:
 
-    ```
+    ```bash
     $ [!KEYREF yc-mdb-pg] cluster restore \
            --backup-id c9qlk4v13uq79r9cgcku:base_000000010000000000000002 \
            --time 2018-11-02T10:09:38Z \
@@ -61,12 +63,18 @@ To restore a cluster from a backup:
     ```
 
     This results in a new [!KEYREF PG] cluster with the following characteristics:
-    - Named `mynewpg`.
-    - In the `PRODUCTION` environment.
-    - In the `default-net` network.
-    - With a single host of the `s1.nano` class in the `b0rcctk2rvtr8efcch63` subnet and the `ru-central1-c` availability zone.
-    - With the databases and users from the backup.
-    - With SSD network storage of 20 GB.
+
+    * Named `mynewpg`.
+
+    * In the `PRODUCTION` environment.
+
+    * In the `default-net` network.
+
+    * With a single host of the `[!KEYREF host-class]` in the `b0rcctk2rvtr8efcch63` subnet and the ` availability zone[!KEYREF zone-id]`.
+
+    * With the databases and users from the backup.
+
+    * With SSD network storage of 20 GB.
 
 ---
 
@@ -77,8 +85,10 @@ To restore a cluster from a backup:
 **[!TAB Management console]**
 
 1. Go to the folder page and click **[!KEYREF mpg-name]**.
-1. Click on the name of the cluster you need and select the tab **Backup copies**.
-1. Click **Create a backup**.
+
+2. Click on the name of the cluster you need and select the tab **Backup copies**.
+
+3. Click **Create a backup**.
 
 **[!TAB CLI]**
 
@@ -94,7 +104,7 @@ To create a cluster backup:
     $ [!KEYREF yc-mdb-pg] cluster backup --help
     ```
 
-1. Request creation of a backup specifying the cluster name or ID:
+2. Request creation of a backup specifying the cluster name or ID:
 
     ```
     $ [!KEYREF yc-mdb-pg] cluster backup my-pg-cluster
@@ -111,7 +121,8 @@ To create a cluster backup:
 **[!TAB Management console]**
 
 1. Go to the folder page and click **[!KEYREF mpg-name]**.
-1. Click on the name of the cluster you need and select the tab **Backup copies**.
+
+2. Click on the name of the cluster you need and select the tab **Backup copies**.
 
 **[!TAB CLI]**
 
@@ -141,7 +152,8 @@ $ [!KEYREF yc-mdb-pg] backup list
 **[!TAB Management console]**
 
 1. Go to the folder page and click **[!KEYREF mpg-name]**.
-1. Click on the name of the cluster you need and select the tab **Backup copies**.
+
+2. Click on the name of the cluster you need and select the tab **Backup copies**.
 
 **[!TAB CLI]**
 

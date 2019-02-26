@@ -1,4 +1,4 @@
-# How to perform database user management
+# How to manage database users
 
 You can add and remove users, as well as manage their individual settings.
 
@@ -21,10 +21,10 @@ To get a list of cluster users, run the command:
 
 ```
 $ [!KEYREF yc-mdb-mg] user list
-     --cluster-name=<cluster name>
+     --cluster-name <cluster name>
 ```
 
-The cluster name can be requested with a [list of folder clusters](#list-clusters).
+The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
 
 ---
 
@@ -45,16 +45,25 @@ The cluster name can be requested with a [list of folder clusters](#list-cluster
 
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
-To create a user in a cluster, run the command:
+To create a user in a cluster:
 
-```
-$ [!KEYREF yc-mdb-mg] user create <user name>
-     --cluster-name=<cluster name>
-     --password=<user password>
-     --permissions=<list of DBs the user can access>
-```
+1. See the description of the CLI's create user command:
 
-The cluster name can be requested with a [list of folder clusters](#list-clusters).
+   ```
+   $ [!KEYREF yc-mdb-mg] user create --help
+   ```
+
+1. Specify the user properties in the create command:
+
+   ```
+   $ [!KEYREF yc-mdb-mg] user create <user name>
+      --cluster-name <cluster name>
+      --password <user password>
+      --permission database=<DB name>,role=<role>,role=<another role>,...
+      --permission database=<another DB name>,role=<role>,...
+   ```
+
+   The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
 
 ---
 
@@ -68,7 +77,7 @@ In the management console, you can only change the password of a database user:
 
 1. Go to the folder page and click **[!KEYREF mmg-name]**.
 1. Click on the name of the cluster you need and select the tab **Users**.
-1. Click ![](../../_assets/vertical-ellipsis.svg) and select **Change password**.
+1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Change password**.
 
 **[!TAB CLI]**
 
@@ -76,16 +85,25 @@ In the management console, you can only change the password of a database user:
 
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
-To change the user's password or the list of databases available to the user, run:
+To change the user's password or the list of databases available to the user:
 
-```
-$ [!KEYREF yc-mdb-mg] user update <user name>
-     --cluster-name=<cluster name>
-     --password=<user password>
-     --permissions=<list of DBs the user can access>
-```
+1. See the description of the CLI's update user command:
 
-The cluster name can be requested with a [list of folder clusters](#list-clusters).
+   ```
+   $ [!KEYREF yc-mdb-mg] user update --help
+   ```
+
+1. Specify the user properties in the create command:
+
+   ```
+   $ [!KEYREF yc-mdb-mg] user update <user name>
+      --cluster-name <cluster name>
+      --password <user password>
+      --permission database=<DB name>,role=<role>,role=<another role>,...
+      --permission database=<another DB name>,role=<role>,...
+   ```
+
+   The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
 
 ---
 
@@ -97,7 +115,7 @@ The cluster name can be requested with a [list of folder clusters](#list-cluster
 
 1. Go to the folder page and click **[!KEYREF mmg-name]**.
 1. Click on the name of the cluster you need and select the tab **Users**.
-1. Click ![](../../_assets/vertical-ellipsis.svg) and select **Delete**.
+1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Delete**.
 
 **[!TAB CLI]**
 
@@ -109,10 +127,10 @@ To remove a user, run:
 
 ```
 $ [!KEYREF yc-mdb-mg] user delete <user name>
-     --cluster-name=<cluster name>
+     --cluster-name <cluster name>
 ```
 
-The cluster name can be requested with a [list of folder clusters](#list-clusters).
+The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
 
 ---
 

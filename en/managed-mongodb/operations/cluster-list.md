@@ -16,17 +16,17 @@ Go to the folder page and click **[!KEYREF mmg-name]**.
 
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
-To request a list of [!KEYREF PG] clusters in the default folder, run the command:
+To request a list of [!KEYREF MG] clusters in the default folder, run the command:
 
 ```
 $ yc managed-postgresql cluster list
 
-+----------------------+---------------+-----------------------------+--------+---------+
-|          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
-+----------------------+---------------+-----------------------------+--------+---------+
-| c9wlk4v14uq79r9cgcku | mypg          | 2018-11-02T10:04:14.645214Z | ALIVE  | RUNNING |
-| ...                                                                                   |
-+----------------------+---------------+-----------------------------+--------+---------+
++----------------------+------------+-----------------------------+--------+---------+
+|          ID          |    NAME    |         CREATED AT          | HEALTH | STATUS  |
++----------------------+------------+-----------------------------+--------+---------+
+| c9wlk4v14uq79r9cgcku | mymg       | 2018-11-02T10:04:14.645214Z | ALIVE  | RUNNING |
+| ...                                                                                |
++----------------------+------------+-----------------------------+--------+---------+
 ```
 
 ---
@@ -46,10 +46,10 @@ $ yc managed-postgresql cluster list
 
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
-To get information about a [!KEYREF PG] cluster, run the command:
+To get information about a [!KEYREF MG] cluster, run the command:
 
 ```
-$ [!KEYREF yc-mdb-pg] cluster get <cluster name or ID>
+$ [!KEYREF yc-mdb-mg] cluster get <cluster name or ID>
 ```
 
 The cluster name and ID can be requested with a [list of folder clusters](#list-clusters).
