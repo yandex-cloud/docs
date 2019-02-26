@@ -2,15 +2,17 @@
 
 When creating a cluster, you can:
 
-- Set the network for the cluster itself.
-- Set the subnets for each host in the cluster.
-- Request a public IP address to access the cluster from outside the Cloud.
+* Set the network for the cluster itself.
+
+* Set the subnets for each host in the cluster.
+
+* Request a public IP address to access the cluster from outside the Cloud.
 
 You can create a cluster without specifying any subnets for the hosts, if the availability zone selected for each host contains exactly one subnet of the cluster network.
 
 ## Hostname and FQDN {#hostname}
 
-The name of each host in the cluster [!KEYREF mmg-short-name] is generated when it is being created. This name will be the host's fully qualified domain name (FQDN).
+[!KEYREF mmg-short-name] generates the name of each cluster host when it is being created. This name will be the host's fully qualified domain name (FQDN).
 
 You can use the FQDN to access the host within a single cloud network. Read more in the [documentation on Yandex [!KEYREF vpc-short-name]](../../vpc/).
 

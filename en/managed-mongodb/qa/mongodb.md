@@ -18,7 +18,7 @@ The only way data may be lost is if the cluster's only host fails.
 
 #### Is it possible to deploy a [!KEYREF MG] cluster in multiple availability zones? {#multiple-az}
 
-Yes, you can. A database cluster may consist of hosts that reside in different availability zones and even different availability regions.
+Yes. A database cluster may consist of hosts that reside in different availability zones and even different availability regions.
 
 #### How is backup performed for[!KEYREF MG] clusters? {#backup}
 

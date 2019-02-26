@@ -16,10 +16,10 @@ Go to the folder page and click **[!KEYREF mch-name]**.
 
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
-To request a list of [!KEYREF PG] clusters in the default folder, run the command:
+To request a list of [!KEYREF CH] clusters in the default folder, run the command:
 
 ```
-$ yc managed-postgresql cluster list
+$ [!KEYREF yc-mdb-ch] cluster list
 
 +----------------------+---------------+-----------------------------+--------+---------+
 |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
@@ -46,10 +46,10 @@ $ yc managed-postgresql cluster list
 
 [!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
 
-To get information about a [!KEYREF PG] cluster, run the command:
+To get information about a [!KEYREF CH] cluster, run the command:
 
 ```
-$ [!KEYREF yc-mdb-pg] cluster get <cluster name or ID>
+$ [!KEYREF yc-mdb-ch] cluster get <cluster name or ID>
 ```
 
 The cluster name and ID can be requested with a [list of folder clusters](#list-clusters).

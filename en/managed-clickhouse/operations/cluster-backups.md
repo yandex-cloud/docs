@@ -1,4 +1,4 @@
-# Managing backups
+# How to manage backups
 
 You can create backups and restore clusters from existing backups.
 
@@ -9,8 +9,10 @@ You can create backups and restore clusters from existing backups.
 **[!TAB Management console]**
 
 1. Go to the folder page and click **[!KEYREF mch-name]**.
-1. Click on the name of the cluster you need and select the tab **Backup copies**.
-1. Click **Create a backup**.
+
+2. Click on the name of the cluster you need and select the tab **Backup copies**.
+
+3. Click **Create a backup**.
 
 **[!TAB CLI]**
 
@@ -26,10 +28,10 @@ To create a cluster backup:
     $ [!KEYREF yc-mdb-ch] cluster backup --help
     ```
 
-1. Request creation of a backup specifying the cluster name or ID:
+2. Request creation of a backup specifying the cluster name or ID:
 
     ```
-    $ [!KEYREF yc-mdb-ch] cluster backup my-mg-cluster
+    $ [!KEYREF yc-mdb-ch] cluster backup my-ch-cluster
     ```
 
     The cluster name and ID can be obtained with a [list of clusters](cluster-list.md#list-clusters).
@@ -38,7 +40,7 @@ To create a cluster backup:
 
 ## Restoring clusters from backups {#restore}
 
-When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
+When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the cloud has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
 
 For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a [!KEYREF CH] backup cannot be restored as a [!KEYREF PG] cluster).
 
@@ -47,8 +49,10 @@ For a new cluster, you should set all the parameters that are required at creati
 **[!TAB Management console]**
 
 1. Go to the folder page and click **[!KEYREF mch-name]**.
-1. Click on the name of the cluster you need and select the tab **Backup copies**.
-1. Click ![](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
+
+2. Click on the name of the cluster you need and select the tab **Backup copies**.
+
+3. Click ![image](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
 
 **[!TAB CLI]**
 
@@ -64,7 +68,7 @@ To restore a cluster from a backup:
     $ [!KEYREF yc-mdb-ch] cluster restore --help
     ```
 
-1. Get a list of available backups for [!KEYREF CH] clusters:
+2. Get a list of available backups for [!KEYREF CH] clusters:
 
     ```
     $ [!KEYREF yc-mdb-ch] backup list
@@ -73,31 +77,37 @@ To restore a cluster from a backup:
     |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
     +--------------------------+----------------------+----------------------+----------------------+
     | c9qlk4v13uq79r9cgcku:... | 2018-11-02T10:08:38Z | c9qlk4v13uq79r9cgcku | 2018-11-02T10:08:37Z |
-    | ...                                                                                           |                          |
+    | ...                                                                                           |
     +--------------------------+----------------------+----------------------+----------------------+
     ```
 
-1. Request creation of a cluster from a backup:
+3. Request creation of a cluster from a backup:
 
     ```
     $ [!KEYREF yc-mdb-ch] cluster restore \
            --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
            --name mynewch \
            --environment=PRODUCTION \
-           --network-name default-net \
-           --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
+           --network-name [!KEYREF network-name] \
+           --host type=clickhouse,zone-id=[!KEYREF zone-id],subnet-id=b0rcctk2rvtr8efcch63 \
            --clickhouse-disk-size 20 \
            --clickhouse-disk-type network-nvme \
-           --clickhouse-resource-preset s1.nano
+           --clickhouse-resource-preset [!KEYREF host-class]
     ```
 
     This results in a new [!KEYREF CH] cluster with the following characteristics:
-    - Named `mynewch`.
-    - In the `PRODUCTION` environment.
-    - In the `default-net` network.
-    - With a single host of the `s1.nano` class in the `b0rcctk2rvtr8efcch63` subnet and the `ru-central1-c` availability zone.
-    - With the databases and users from the backup.
-    - With SSD network storage of 20 GB.
+
+    * Named `mynewch`.
+
+    * In the `PRODUCTION` environment.
+
+    * In the network `[!KEYREF network-name]`.
+
+    * With a single host of the `[!KEYREF host-class]` in the `b0rcctk2rvtr8efcch63` subnet and the ` availability zone[!KEYREF zone-id]`.
+
+    * With the databases and users from the backup.
+
+    * With SSD network storage of 20 GB.
 
 ---
 
@@ -108,7 +118,8 @@ To restore a cluster from a backup:
 **[!TAB Management console]**
 
 1. Go to the folder page and click **[!KEYREF mch-name]**.
-1. Click on the name of the cluster you need and select the tab **Backup copies**.
+
+2. Click on the name of the cluster you need and select the tab **Backup copies**.
 
 **[!TAB CLI]**
 
@@ -138,7 +149,8 @@ $ [!KEYREF yc-mdb-ch] backup list
 **[!TAB Management console]**
 
 1. Go to the folder page and click **[!KEYREF mch-name]**.
-1. Click on the name of the cluster you need and select the tab **Backup copies**.
+
+2. Click on the name of the cluster you need and select the tab **Backup copies**.
 
 **[!TAB CLI]**
 

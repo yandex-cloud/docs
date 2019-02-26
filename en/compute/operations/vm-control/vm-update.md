@@ -102,16 +102,23 @@ To change a VM's metadata, follow these steps:
     - `--metadata` — to change a value from a single string.
     - `--metadata-from-file` — to change a value from multiple strings.
 
-    Example of changing the administrator's password on a Windows-based VM.
+    Example of changing the administrator's password on a Windows-based VM:
 
-    ```
-    $ yc compute instance update first-instance \
-        --metadata user-data="#ps1\nnet user Administrator <password>"
-    ```
+    1. Create a YAML file (for example, `metadata.yaml`) and specify the following:
+
+        ```yaml
+        #ps1
+        net user administrator "<password>"
+        ```
+
+    1. Run the command:
+
+        ```
+        $ yc compute instance update first-instance \
+            --metadata-from-file user-data=metadata.yaml
+        ```
 
     The existing metadata set will be completely overwritten.
-
-    [!INCLUDE [metadata-from-file](../../_includes_service/metadata-from-file.md)]
 
 ---
 

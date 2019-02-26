@@ -4,11 +4,15 @@
 
 [!KEYREF mch-short-name] automates routine database maintenance:
 
-- Quick DB deployment with the necessary available resources.
-- Data backup.
-- Regular software updates.
-- DB cluster failover.
-- Database usage monitoring and statistics.
+* Quick DB deployment with the necessary available resources.
+
+* Data backup.
+
+* Regular software updates.
+
+* DB cluster failover.
+
+* Database usage monitoring and statistics.
 
 #### When should I use [!KEYREF CH] instead of [!KEYREF PG]? {#clickhouse-advantages-pg}
 
@@ -16,10 +20,11 @@
 
 #### Is it possible to connect to individual [!KEYREF CH] hosts? {#connect-node}
 
-Yes, you can. You can connect to the hosts of a [!KEYREF CH] cluster via an encrypted connection:
+Yes. You can connect to the hosts of a [!KEYREF CH] cluster via an encrypted connection:
 
-- Using the [HTTPS interface](https://clickhouse.yandex/docs/ru/interfaces/http_interface/), port 8443.
-- Using the [command-line client](https://clickhouse.yandex/docs/ru/interfaces/cli/), port 9440.
+* Using the [HTTPS interface](https://clickhouse.yandex/docs/ru/interfaces/http_interface/), port 8443.
+
+* Using the [command-line client](https://clickhouse.yandex/docs/ru/interfaces/cli/), port 9440.
 
 SSH connections are not supported.
 
@@ -41,7 +46,7 @@ Data may be lost only if a node with a [non-replicated table](https://clickhouse
 
 #### Is it possible to deploy a [!KEYREF CH] DB cluster in multiple availability zones? {#multiple-az}
 
-Yes, you can. A database cluster may consist of hosts that reside in different availability zones and even different availability regions.
+Yes. A database cluster may consist of hosts that reside in different availability zones and even different availability regions.
 
 #### How can I back up a [!KEYREF CH] database? {#backup}
 
@@ -55,7 +60,7 @@ Access to ZooKeeper and its setup are not available to Cloud users.
 
 #### Why does a [!KEYREF CH] cluster take up 3 hosts more than it should?
 
-When creating a [!KEYREF CH] cluster with two or more hosts, [!KEYREF mch-short-name] automatically creates a cluster of three ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the [resource quotas](https://console.cloud.yandex.ru/?section=quotas) used in the cloud and when calculating the cost of the cluster. By default, ZooKeeper hosts are created with a minimal [host class](../concepts/instance-types.md).
+When creating a [!KEYREF CH] cluster with two or more hosts, [!KEYREF mch-short-name] automatically creates a cluster of three ZooKeeper hosts for managing replication and fault tolerance. These hosts are included when calculating the [resource quotas](https://console.cloud.yandex.ru/?section=quotas) used in the cloud and when calculating the cost of the cluster. By default, ZooKeeper hosts are created with a minimal [host class](../concepts/instance-types.md).
 
 For more information about using ZooKeeper, see [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/table_engines/replication/).
 

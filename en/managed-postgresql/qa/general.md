@@ -57,7 +57,7 @@ For detailed instructions, see the section [[!TITLE]](../quickstart.md).
 
 For a network-based storage (NBS), the number of hosts in a cluster is limited only by the requested computing resources and the size of the storage for the cluster.
 
-For NVMe SSD storage, the number of hosts is limited during cluster creation: for [!KEYREF PG] clusters, at least three hosts must be created.
+For NVMe SSD storage, the number of hosts is limited during cluster creation: for [!KEYREF PG]-clusters, at least three hosts must be created.
 
 #### How can I access a running DB host? {#db-access}
 
@@ -77,7 +77,7 @@ Maintenance in [!KEYREF mpg-short-name] implies:
 - Changes to the host class and storage size.
 - Other [!KEYREF mpg-short-name] maintenance activities.
 
-#### Which [!KEYREF PG] version does [!KEYREF mch-short-name] use? {#dbms-version}
+#### Which [!KEYREF PG] version does [!KEYREF mpg-short-name] use? {#dbms-version}
 
 [!KEYREF mpg-short-name] supports [!KEYREF PG] 10.
 

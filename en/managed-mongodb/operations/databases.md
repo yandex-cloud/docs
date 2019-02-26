@@ -38,7 +38,7 @@ The number of databases in a cluster is unlimited.
 
 > [!NOTE]
 >
-> Newly created databases are by default not accessible to any users of the database cluster. To connect to a new database, don't forget to grant necessary permissions to a user. 
+> Created databases are not available to cluster users by default. To allow a user to connect to a new database, don't forget to grant them the necessary permission.
 
 ---
 
@@ -49,7 +49,7 @@ The number of databases in a cluster is unlimited.
 1. Select the **Databases** tab.
 1. Click **Add**.
 1. Enter the DB name and click **Add**.
-1. Don't forget to [grant access](cluster-users.md#updateuser) to the newly created database to a cluster user (available only through CLI and API).
+1. Make sure you [grant permission](cluster-users.md#updateuser) to access the created DB to the appropriate cluster user (currently available only via the CLI and API).
 
 **[!TAB CLI]**
 
@@ -64,15 +64,15 @@ $ [!KEYREF yc-mdb-mg] database create <DB name>
     --cluster-name <cluster name>
 ```
 
-Don't forget to [grant access](cluster-users.md#updateuser) to the newly created database to a cluster user.
-
 [!KEYREF mmg-short-name] runs the create database operation.
 
 The cluster name can be requested with a [list of folder clusters](#list-clusters).
 
+Make sure you [grant permission](cluster-users.md#updateuser) to access the created database to the appropriate cluster user.
+
 **[!TAB API]**
 
-You can create a new database in a cluster using the [create](../api-ref/Database/create.md) method. Permissions for the new database can be set using the [update](../api-ref/User/update.md) method.
+You can create a new database in a cluster using the [create](../api-ref/Database/create.md) method. You can allow access to the created database using the [update](../api-ref/User/update.md) method.
 
 ---
 
@@ -84,7 +84,7 @@ You can create a new database in a cluster using the [create](../api-ref/Databas
 
 1. Go to the folder page and click **[!KEYREF mmg-name]**.
 1. Click on the name of the cluster you need and select the **Databases** tab.
-1. Click ![](../../_assets/vertical-ellipsis.svg) in the line of the necessary DB and select **Delete**.
+1. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary DB and select **Delete**.
 
 **[!TAB CLI]**
 

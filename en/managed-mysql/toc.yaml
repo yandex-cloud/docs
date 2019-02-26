@@ -1,0 +1,59 @@
+title: "Yandex Managed Service for MySQL"
+stage: alpha
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+    - name: All instructions
+      href: operations/index.md
+    - name: Information about existing clusters
+      href: operations/cluster-list.md
+    - name: How to create a cluster
+      href: operations/cluster-create.md
+    - name: How to connect to a database
+      href: operations/connect.md
+    - name: How to manage MySQL hosts
+      href: operations/hosts.md
+    - name: Database management
+      href: operations/databases.md
+    - name: How to manage database users
+      href: operations/cluster-users.md
+    - name: How to manage backups
+      href: operations/cluster-backups.md
+    - name: Deleting a cluster
+      href: operations/cluster-delete.md
+  - name: Concepts
+    items:
+    - name: Relationship between service resources
+      href: concepts/index.md
+    - name: Host classes
+      href: concepts/instance-types.md
+    - name: Network in Managed Service for MySQL
+      href: concepts/network.md
+    - name: Quotas and limits
+      href: concepts/limits.md
+    - name: Backups
+      href: concepts/backup.md
+    - name: Replication
+      href: concepts/replication.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+#  - name: API reference
+#    items:
+#    - name: Authentication in the API
+#      href: api-ref/authentication.md
+#    include:
+#      repo: docs-api
+#      path: ru/managed-mysql/toc.yaml
+  - name: Questions and answers
+    items:
+    - name: General questions
+      href: qa/general.md
+    - name: Questions about MySQL
+      href: qa/mysql.md
+    - name: All questions on the same page
+      href: qa/all.md

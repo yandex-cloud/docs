@@ -55,7 +55,7 @@ The number of databases in a cluster is unlimited.
 Run the create database command and set the name of the new database:
 
 ```
-$ [!KEYREF yc-mdb-mg] database create <DB name>
+$ [!KEYREF yc-mdb-ch] database create <DB name>
     --cluster-name <cluster name>
 ```
 
@@ -77,7 +77,7 @@ You can create a new database in a cluster using the [create](../api-ref/Databas
 
 1. Go to the folder page and click **[!KEYREF mch-name]**.
 1. Click on the name of the cluster you need and select the **Databases** tab.
-1. Click ![](../../_assets/vertical-ellipsis.svg) in the line of the necessary DB and select **Delete**.
+1. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary DB and select **Delete**.
 
 **[!TAB CLI]**
 
