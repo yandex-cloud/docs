@@ -102,16 +102,23 @@ $ yc compute instance update --help
     - `--metadata` — для изменения значения из одной строки;
     - `--metadata-from-file` — для изменения значения из нескольких строк.
 
-    Пример изменения пароля администратора на виртуальной машине, на базе операционной системы Windows.
+    Пример изменения пароля администратора на виртуальной машине, на базе ОС Windows:
 
-    ```
-    $ yc compute instance update first-instance \
-        --metadata user-data="#ps1\nnet user Administrator <пароль>"
-    ```
+    1. Создайте YAML-файл (например, `metadata.yaml`) и укажите следующие данные:
 
-    Имеющийся набор метаданных будет полностью перезаписан.
+        ```yaml
+        #ps1
+        net user administrator "<пароль>"
+        ```
 
-    [!INCLUDE [metadata-from-file](../../_includes_service/metadata-from-file.md)]
+    1. Выполните команду:
+
+        ```
+        $ yc compute instance update first-instance \
+            --metadata-from-file user-data=metadata.yaml
+        ```
+
+        Имеющийся набор метаданных будет полностью перезаписан.
 
 ---
 
