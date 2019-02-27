@@ -56,6 +56,7 @@ $ [!KEYREF yc-mdb-pg] user create <user name>
      --cluster-name=<cluster name>
      --password=<DB user password>
      --permissions=<list of DBs the user can access>
+     --conn-limit=<number of connections available to the user>
 ```
 
 The cluster name can be requested with a [list of folder clusters](#list-clusters).
@@ -93,6 +94,7 @@ $ [!KEYREF yc-mdb-pg] user update <user name>
      --cluster-name=<cluster name>
      --password=<DB user password>
      --permissions=<list of DBs the user can access>
+     --conn-limit=<number of connections available to the user>
 ```
 
 The cluster name can be requested with a [list of folder clusters](#list-clusters).
