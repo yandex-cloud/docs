@@ -36,7 +36,7 @@
         --public-ip \
         --memory 4 \
         --cores 1 \
-        --create-boot-disk image-folder-id=standard-images,image-name=centos-7-1549279494,size=34359738368 \
+        --create-boot-disk image-folder-id=standard-images,image-family=centos-7,size=32 \
         --ssh-key ~/.ssh/id_rsa.pub
     ```
 
@@ -52,6 +52,10 @@
     Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
+
+    > [!NOTE]
+    >
+    > Имя вирутуальной машины используется для генерации имени FQDN, которое в последствии нельзя изменить. Если для вас важно имя FQDN, учитывайте это и задавайте нужное имя виртуальной машины при создании. Подробнее про генерацию имени FQDN читайте в разделе [[!TITLE]](../../concepts/network.md#hostname).
 
 **[!TAB API]**
 

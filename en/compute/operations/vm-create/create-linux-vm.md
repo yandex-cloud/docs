@@ -36,7 +36,7 @@ To create a VM:
         --name first-instance \
         --zone ru-central1-a \
         --public-ip \
-        --create-boot-disk image-folder-id=standard-images,image-name=centos-7-1537787644 \
+        --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
         --ssh-key ~/.ssh/id_rsa.pub
     ```
 

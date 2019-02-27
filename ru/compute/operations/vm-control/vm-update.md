@@ -72,6 +72,10 @@ $ yc compute instance update --help
         --description "changed description vm via CLI"
     ```
 
+    > [!NOTE]
+    >
+    > При изменении имени виртуальной машины, имя хоста и, соответственно, FQDN не изменяются. Подробнее про генерацию имени FQDN читайте в разделе [[!TITLE]](../../concepts/network.md#hostname).
+
 ---
 
 ### Изменить метаданные {#change-metadata}
