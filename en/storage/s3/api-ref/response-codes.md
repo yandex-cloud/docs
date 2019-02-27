@@ -86,6 +86,7 @@ In case of an error, [!KEYREF objstorage-name] returns a message with the approp
 | 409 | `InvalidBucketState` | The request cannot be executed for the current state of the bucket. |
 | 409 | `OperationAborted` | Conflicting conditional operations. |
 | 411 | `MissingContentLength` | Add `Content-Length` to the headers. |
+| 412 | `Precondition Failed` | One of the conditions specified in the request is not met. |
 | 416 | `InvalidRange` | Invalid range in the Range header. |
 | 500 | `InternalError` | [!KEYREF objstorage-name] internal error. Repeat the request. |
 | 501 | `NotImplemented` | The passed header is not handled by [!KEYREF objstorage-name]. |

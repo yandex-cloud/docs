@@ -109,6 +109,8 @@ items:
                 href: s3/api-ref/object/upload.md
               - name: get
                 href: s3/api-ref/object/get.md
+              - name: copy
+                href: s3/api-ref/object/copy.md
               - name: getObjectMeta
                 href: s3/api-ref/object/getobjectmeta.md
               - name: delete
@@ -125,6 +127,8 @@ items:
                 href: s3/api-ref/multipart/startupload.md
               - name: uploadPart
                 href: s3/api-ref/multipart/uploadpart.md
+              - name: copyPart
+                href: s3/api-ref/multipart/copypart.md
               - name: listParts
                 href: s3/api-ref/multipart/listparts.md
               - name: abortUpload
