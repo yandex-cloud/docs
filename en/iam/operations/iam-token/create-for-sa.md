@@ -245,7 +245,7 @@ encoded_token = jwt.encode(
     headers={'kid': key_id})
 ```
 
-**[!Tab Java]**
+**[!TAB Java]**
 
 Example of creating a JWT using [JJWT](https://github.com/jwtk/jjwt).
 
@@ -475,6 +475,43 @@ $serializer = new CompactSerializer($jsonConverter);
 
 // JWT generation.
 $token = $serializer->serialize($jws);
+```
+
+**[!TAB C++]**
+
+Example of creating a JWT using [jwt-cpp](https://github.com/Thalhammer/jwt-cpp).
+
+```cpp
+#include <chrono>
+#include <fstream>
+#include <iterator>
+
+#include "jwt-cpp/jwt.h"
+
+int main(int argc, char *argv[])
+{
+    std::ifstream priv_key_file("private.pem");
+    std::ifstream pub_key_file("public.pem");
+
+    auto now = std::chrono::system_clock::now();
+    auto expires_at = now + std::chrono::hours(1);
+    auto serviceAccountId = "ajepg0mjt06siua65usm";
+    auto keyId = "b1gvmob03goohplcf641";
+    std::set<std::string> audience;
+    audience.insert("https://iam.api.cloud.yandex.net/iam/v1/tokens");
+    auto algorithm = jwt::algorithm::ps256(
+        std::string(std::istreambuf_iterator<char>{pub_key_file}, {}),
+        std::string(std::istreambuf_iterator<char>{priv_key_file}, {}));
+
+    // JWT generation.
+    auto encoded_token = jwt::create()
+        .set_key_id(keyId)
+        .set_issuer(serviceAccountId)
+        .set_audience(audience)
+        .set_issued_at(now)
+        .set_expires_at(expires_at)
+        .sign(algorithm);
+}
 ```
 
 ---

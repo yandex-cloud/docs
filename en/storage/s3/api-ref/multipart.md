@@ -35,6 +35,7 @@ Multipart upload methods:
 | ----- | -------- |
 | [startUpload](multipart/startupload.md) | Starts multipart upload. |
 | [uploadPart](multipart/uploadpart.md) | Uploads a part of an object. |
+| [copyPart](multipart/copypart.md) | Copies part of an object. |
 | [listParts](multipart/listparts.md) | Displays a list of uploaded parts. |
 | [abortUpload](multipart/abortupload.md) | Aborts multipart upload. |
 | [completeUpload](multipart/completeupload.md) | Completes multipart upload. |

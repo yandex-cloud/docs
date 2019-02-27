@@ -8,11 +8,19 @@ Along with the object, [!KEYREF objstorage-name] stores [user-defined ](#user-me
 
 [!KEYREF objstorage-name] allows you to store objects in standard and cold storage. For more information, see the section [[!TITLE]](storage-class.md).
 
+[!KEYREF objstorage-name] supports the following operations with objects:
+
+- Uploading an object to storage
+- Downloading an object from storage.
+- Copying an object inside the storage (for example, from one bucket to another).
+
+All other operations that can be performed using [tools](../instruments/index.md) are combinations of the above.
+
 ## Key {#key}
 
 Key is the ID of an object in a bucket.
 
-The structure for storing objects is flat, but GUI-based [tools](../instruments/index.md) allow you to work with [!KEYREF objstorage-name] like a hierarchical file system. The hierarchical view is possible because keys can be written as paths in a file system, for example, `top_level_prefix/subprefix/text_data.txt`. In the Yandex.Cloud management console, prefixes are called folders.
+The structure for storing objects is flat, but GUI-based [tools](../instruments/index.md) allow you to work with [!KEYREF objstorage-name] like a hierarchical file system. The hierarchical view is possible because keys can be written as paths in a file system (for example, `top_level_prefix/subprefix/text_data.txt`). In the Yandex.Cloud management console, prefixes are called folders.
 
 A key must:
 

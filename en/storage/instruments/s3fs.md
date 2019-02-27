@@ -31,18 +31,14 @@ chmod 600  ~/.passwd-s3fs
 
     ```
     s3fs <bucket name> /mount/<folder path> -o passwd_file=~/.passwd-s3fs \
-        -o url=http://storage.yandexcloud.net -o use_path_request_style -o nocopyapi
+        -o url=http://storage.yandexcloud.net -o use_path_request_style
     ```
 
 You can configure mounting a bucket at system startup. To do this, open the `/etc/fstab` file and add a line in the following format:
 
 ```
-s3fs#<bucket name> /mount/<folder path> fuse _netdev,allow_other,use_path_request_style,nocopyapi,url=http://storage.yandexcloud.net 0 0
+s3fs#<bucket name> /mount/<folder path> fuse _netdev,allow_other,use_path_request_style,url=http://storage.yandexcloud.net 0 0
 ```
-
-> [!NOTE]
-> 
-> Make sure you use the `nocopyapi` parameter. It provides correct interaction with the HTTP API compatible with Amazon S3.
 
 For descriptions of all s3fs parameters, see the [project's wiki page](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Fuse-Over-Amazon) on GitHub.
 

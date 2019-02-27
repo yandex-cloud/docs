@@ -28,6 +28,7 @@
 | ----- | ----- |
 | [upload](object/upload.md) | Uploads an object to [!KEYREF objstorage-name]. |
 | [get](object/get.md) | Retrieves an object from [!KEYREF objstorage-name]. |
+| [copy](object/copy.md) | Copies an object stored in [!KEYREF objstorage-name]. |
 | [getObjectMeta](object/getobjectmeta.md) | Retrieves object metadata. |
 | [delete](object/delete.md) | Deletes an object. |
 | [deleteMultipleObjecs](object/deletemultipleobjects.md) | Deletes objects based on a list. |
@@ -39,6 +40,7 @@
 | ----- | ----- |
 | [startUpload](multipart/startupload.md) | Starts multipart upload. |
 | [uploadPart](multipart/uploadpart.md) | Uploads a part of an object. |
+| [copyPart](multipart/copypart.md) | Copies part of an object. |
 | [listParts](multipart/listparts.md) | Displays a list of uploaded parts. |
 | [abortUpload](multipart/abortupload.md) | Aborts multipart upload. |
 | [completeUpload](multipart/completeupload.md) | Completes multipart upload. |
