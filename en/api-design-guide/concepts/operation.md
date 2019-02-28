@@ -28,7 +28,7 @@ The `Operation` object contains the following fields:
 
 ## Operation status monitoring {#monitoring}
 
-To find out the operation status, use the [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto)method:
+To find out the operation status, use the [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto) method:
 
 ```protobuf
  // Returns the Operation object by the specified ID.
@@ -51,7 +51,7 @@ GET https://operation.api.cloud.yandex.net/operations/fcmq0j5033e516c56ctq
 
 ## Canceling an operation {#cancel}
 
-To cancel the operation, use the [Сancel](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto)method:
+To cancel the operation, use the [Сancel](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto) method:
 
 ```protobuf
  // Cancels the specified operation.
@@ -86,7 +86,7 @@ To view a list of operations that were performed on the specified resource, use 
 
 Note that the `ListOperations` method returns a list of operations only for a specific resource, but not for a category of resources. For example, you cannot view the history of operations performed on all disks in your cloud.
 
-Sample gRPC description of the [ListOperations](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto)method for operations performed on a disk:
+Sample gRPC description of the [ListOperations](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method for operations performed on a disk:
 
 ```protobuf
  // Returns a list of operations performed on the specified disk.
