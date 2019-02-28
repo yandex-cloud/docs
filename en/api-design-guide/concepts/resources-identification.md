@@ -1,10 +1,10 @@
 # Resource identification
 
-Each resource in an API has its own unique ID. IDs are generated on the service side. An ID is a string consisting of Latin letters and numbers.
+Each resource in the Yandex.Cloud API has its own unique ID. IDs are generated on the service side. An ID is a string consisting of Latin letters and numbers.
 
 IDs should be passed in API requests when accessing resources.
 
-Sample gRPC description of the `Get` method used to get a disk:
+Sample gRPC description of the [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method for getting a disk:
 
 ```protobuf
  rpc Get (GetDiskRequest) returns (Disk) {
@@ -22,7 +22,7 @@ Sample gRPC description of the `Get` method used to get a disk:
 In the REST API, each resource has its own unique URL generated according to the pattern:
 
 ```http
-https://<domain>/<service>/<API version>/<resource category>/<resource ID>
+https://<domain>/<service>/<API version>/<resource category>/<resource identifier>
 ```
 
 Sample REST request for a disk:
@@ -33,11 +33,11 @@ Sample REST request for a disk:
 
 As you can see from the example, a resource URL is identified by the <q>resource category and resource ID</q> bundle.
 
-A resource category determines the type of resource. For example, `disks` is a category of disks; `instances` is a category of virtual machine instances; `images` is a category of images.
+The resource category determines the type of resource. For example, `disks` is a category of disks; `instances` is a category of VMs; `images` is a category of images.
 
 > [!NOTE]
 >
-> A resource category should not be confused with the concept of collection in the REST API. Categories are not independent resources and you cannot manage them (create, change them, or request information). Categories are for service use only, i.e., they are used in resource URLs for routing requests on the service side.
+> A resource category should not be confused with the concept of collection in the REST API. Categories are not independent resources and you cannot manage them (create, change them, or request information). Categories are for service use, i.e., they are used in resource URLs for routing requests on the service side.
 
 ## Nested resource IDs {#nested-resources-identification}
 
@@ -48,7 +48,7 @@ Some resources in APIs are nested, that is, created in the context of other reso
 
 The name of a nested resource is specified by the user and must be unique within the parent resource. For example, you cannot create two DBs with the same names in the same cluster.
 
-Sample gRPC description of the `Get` method used to get a DB resource:
+Sample gRPC description of the [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/database_service.proto) method used to get a DB resource:
 
 ```protobuf
  rpc Get (GetDatabaseRequest) returns (Database) {
@@ -73,7 +73,7 @@ In the REST API, the unique URI of a nested resource has a hierarchical structur
 /<parent resource category>/<parent resource ID>/<nested resource category>/<nested resource ID>
 ```
 
-Sample REST request used to get a DB:
+Sample REST request for getting a DB:
 
 ```
  GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/24f17h0gfqf7oeuis2f/databases/db-testing
@@ -84,9 +84,10 @@ Where:
 - `clusters` — The category of the parent resource.
 - `24f17h0gfqf7oeuis2f` — ID of the parent resource.
 - `databases` — The category of the nested resource.
-- `db-testing` — ID of the nested resource.
+- `db-testing` —  ID of the nested resource.
 
 #### See also {#see-also}
 
-[[!TITLE]](../../resource-manager/concepts/resources-hierarchy.md)
+- [Yandex.Cloud API repository](https://github.com/yandex-cloud/cloudapi) —The link to the .proto specifications of the API.
+- [Yandex Resource Manager documentation](../../resource-manager/concepts/resources-hierarchy.md) — The link to the <q>Hierarchy of Yandex.Cloud resources</q> section.
 

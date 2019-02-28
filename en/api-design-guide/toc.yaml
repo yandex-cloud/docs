@@ -16,7 +16,7 @@ items:
         href: concepts/about-methods.md
       - name: Standard methods
         href: concepts/standard-methods.md
-      - name: Custom methods
+      - name: Additional methods
         href: concepts/custom-methods.md
       - name: Pagination
         href: concepts/pagination.md

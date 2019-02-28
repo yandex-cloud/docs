@@ -1,14 +1,14 @@
-# Custom methods
+# Additional methods
 
-Custom API methods allow you to perform operations that cannot be performed using standard methods. For example, start or stop a VM instance.
+Additional API methods allow you to perform operations that cannot be performed using standard methods. For example, start or stop a VM.
 
-Each service has its own set of custom methods available. The methods are listed in the corresponding API references.
+Each service has its own set of additional methods available. The methods are listed in the corresponding API references.
 
 [!INCLUDE [grpc-api-ref-note](../_includes/grpc-api-ref-note.md)]
 
-The custom methods are mapped to HTTP `POST` method. The semantics of custom methods differs from that of HTTP methods. The name of an custom method is specified in the resource URL after a colon (<q>:</q>).
+The `POST` HTTP method is mapped to additional methods. The signature of additional methods differs from the standard signature of HTTP methods. The name of an additional method is specified in the resource URL after a colon (<q>:</q>).
 
-Sample gRPC description of the `AttachDisk` method:
+Sample gRPC description of the [AttachDisk](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instance_service.proto) method:
 
 ```protobuf
  rpc AttachDisk (AttachInstanceDiskRequest) returns (operation.Operation) {
@@ -19,14 +19,14 @@ Sample gRPC description of the `AttachDisk` method:
    // there is an `AttachInstanceDiskMetadata` view.
    // If the operation is successful, 
    // the `response` field of the Operation object 
-   // contains a view of the updated VM instance.
+   // contains a view of the updated VM.
    option (yandex.api.operation) = {
      metadata: "AttachInstanceDiskMetadata"
      response: "Instance"
    };
  }
  message AttachInstanceDiskRequest {
-   // ID of the VM instance to which
+   // ID of the VM to which
    // the disk should be attached.
    string instance_id = 1;
  
@@ -35,7 +35,7 @@ Sample gRPC description of the `AttachDisk` method:
  }
  
  message AttachInstanceDiskMetadata {
-   // ID of the VM instance 
+   // ID of the VM 
    // the disk is attached to.
    string instance_id = 1;
 
@@ -46,7 +46,7 @@ Sample gRPC description of the `AttachDisk` method:
 
 Example of attaching a disk in the REST API:
 
-```
+```json
 POST https://compute.api.cloud.yandex.net/compute/v1/instances/e0m97h0gbq0foeuis03:attachDisk
 
  {
