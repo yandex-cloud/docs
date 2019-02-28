@@ -18,7 +18,7 @@ Returns a view of the requested resource.
 
 The corresponding HTTP method is `GET`.
 
-Sample gRPC description of the `Get` method used to get a disk:
+Sample gRPC description of the [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method for getting a disk:
 
 ```protobuf
  rpc Get (GetDiskRequest) returns (Disk) {
@@ -42,7 +42,7 @@ GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
 
 ## List {#method-list}
 
-Returns a list of resources of a certain category. For example, a list of disks or VM instances.
+Returns a list of resources of a certain category. For example, a list of disks or VMs.
 
 Currently, resource lists can only be obtained relative to their direct parent. For example, you can get a list of disks in a folder, but you can't view a list of disks in the entire cloud.
 
@@ -50,7 +50,7 @@ The `List` method corresponds to the HTTP `GET` method. The ID of the parent res
 
 The `List` method supports [result pagination](pagination.md).
 
-Sample gRPC description of the `List` method used to get a list of disks:
+Sample gRPC description of the [List](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method used to get a list of disks:
 
 ```protobuf
  rpc List (ListDisksRequest) returns (ListDisksResponse) {
@@ -100,11 +100,11 @@ Creates a resource in the specified cloud, folder, network, etc.
 
 The `Create` method corresponds to the HTTP `POST` method. As parameters, pass the ID of the parent resource to create the new resource in (for example, the folder ID).
 
-`Create` is an asynchronous method. It returns the [Operation](operation.md) object with the operation status and the ID of the new resource.
+`Create` is an asynchronous signature method. It returns the [Operation](operation.md) object with the operation status and the ID of the new resource.
 
-If you try to create a resource that already exists, the method returns the `ALREADY_EXISTS` error. [Learn more about errors](errors.md).
+If you try to create a resource that already exists, the method returns the `ALREADY_EXISTS` error. [Learn more about errors](errors.md)
 
-Sample gRPC description of the `Create` method used to create a disk in a specific folder:
+Sample gRPC description of the [Create](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method used to create a disk in a specific folder:
 
 ```protobuf
  rpc Create (CreateDiskRequest) returns (operation.Operation) {
@@ -187,9 +187,9 @@ The `Update` method supports partial resource updates. The fields to update are 
 - The passed values will be used for the fields specified in the request.
 - The values of the other fields will be reset to their defaults.
 
-It is an asynchronous method. It returns the [Operation](operation.md) object that contains the operation status and the view of the updated resource.
+It is an asynchronous signature method. It returns the [Operation](operation.md) object that contains the operation status and the view of the updated resource.
 
-Sample gRPC description of the `Update` method used to update a disk resource:
+Sample gRPC description of the [Update](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method used to update a disk resource:
 
 ```protobuf
  rpc Update (UpdateDiskRequest) returns (operation.Operation) {
@@ -255,9 +255,9 @@ Deletes the specified resource.
 
 The `Delete` method corresponds to the HTTP `DELETE` method. In the request parameters, pass the ID of the resource to delete.
 
-It is an asynchronous method. It returns the [Operation](operation.md) object with the status of the deletion operation.
+It is an asynchronous signature method. It returns the [Operation](operation.md) object with the status of the deletion operation.
 
-Sample gRPC description of the `Delete` method used to delete a disk:
+Sample gRPC description of the [Delete](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method used to delete a disk:
 
 ```protobuf
  rpc Delete (DeleteDiskRequest) returns (operation.Operation) {

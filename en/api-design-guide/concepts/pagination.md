@@ -1,6 +1,6 @@
 # Pagination
 
-Some API methods support _pagination_. Pagination is when a server returns results page by page, and not all of them at once. Pagination is generally used for the `List*` method that returns a list.
+Some API methods support _pagination_. Pagination is when a server returns results in parts, page by page, and not all of them at once. Pagination is generally used for the `List*` method that returns a list.
 
 To get the desired page with results, pass the following parameters in a request:
 
@@ -12,7 +12,7 @@ To get the desired page with results, pass the following parameters in a request
 
 ### gRPC
 
-gRPC description of the `List` method used for disks:
+Sample gRPC description of the [List](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method used to get a list of disks:
 
 ```protobuf
  // The method returns a list of disks in the specified folder.

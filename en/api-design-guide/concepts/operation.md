@@ -1,10 +1,10 @@
 # Operation object
 
-Each operation that changes the state of a resource results in the creation of the object  [Operation](../../compute/api-ref/Operation/index.md). This object contains information about the operation: its status, ID, call time, and so on.
+Each operation that changes the state of a resource results in the creation of the [Operation](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation.proto) object. This object contains information about the operation: its status, ID, call time, and so on.
 
 Using the `Operation` object, you can:
 
-- [Monitor the status of operations](#monitoring) with indefinite duration. For example, starting a VM instance or attaching a disk.
+- [Monitor the status of operations](#monitoring) with indefinite duration. For example, starting a VM or attaching a disk.
 - [Cancel operations](#cancel).
 - [View a list of operations](#operation-listing) that were performed on the specified resource.
 
@@ -15,20 +15,20 @@ The `Operation` object contains the following fields:
 | Field | Description |
 | ----- | ----- |
 | `id`* | <b>string</b><br/>Operation ID. Generated on the service side. |
-| `created_at`* | <b>google.protobuf.Timestamp</b><br/>Operation start time. Specified in the [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt) format. |
+| `created_at`* | [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto)<br/>Operation start time. Specified in the [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt) format. |
 | `created_by`* | <b>string</b><br/>ID of the user who started the operation. |
-| `modified_at`* | <b>google.protobuf.Timestamp</b><br/>The time when the resource was last updated. Specified in the [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt) format. |
+| `modified_at`* | [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto)<br/>The time when the resource was last updated. Specified in the [RFC3339 (Timestamps)](https://www.ietf.org/rfc/rfc3339.txt) format. |
 | `done`* | <b>bool</b><br/>Operation status. Can take one of the following two values:<br/><q>true</q> — the operation is completed. Note that the operation is considered completed even if an error occurred during its execution.<br/><q>false</q> — the operation is not completed. |
-| `response` | <b>google.protobuf.Any</b><br/>This field is present only if the operation completed successfully.<br/><br/> For the `Create` and `Update`  methods, the `response` field contains a view of the created or updated resource. For other operations, the field may contain an empty message, [google.protobuf.Empty](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/empty.proto), for example, when deleting a resource.<br/></br>The `response` and `error` fields are mutually exclusive. A response cannot contain both of the fields at the same time. |
-| `error` | <b>google.rpc.Status</b><br/>[Error message](errors.md). This field is present if an error occurrs during the operation.<br/><br/><br/>The `error` field may appear in the response before the operation is completed: when an error occurs, the service immediately adds the `error` field to the `Operation` object. At the same time, the service starts rolling back to the previous state: it aborts all running procedures and deletes the resources created during the operation. Only when the service returns to the previous state will the operation be considered completed and the value of its `done` field will be set to <q>true</q>.<br/><br/>The `response` and `error` fields are mutually exclusive. A response cannot contain both of the fields at the same time. |
-| `metadata` | <b>google.protobuf.Any</b><br/>Operation metadata. This field usually contains the ID of the resource the operation is being performed on. If the method returns the `Operation` object, the method description contains the structure of the corresponding `metadata` field. |
+| `response` | [google.protobuf.Any](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto)<br/>This field is present only if the operation completed successfully.<br/><br/> For the `Create` and `Update` methods, the `response` field contains a view of the created or updated resource. For other operations, the field may contain an empty message,[google.protobuf.Empty](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/empty.proto), for example, when deleting a resource.<br/></br>The `response` and `error` fields are mutually exclusive. A response cannot contain both of the fields at the same time. |
+| `error` | [google.rpc.Status](https://github.com/grpc/grpc/blob/master/src/proto/grpc/status/status.proto)<br/>Error message. This field is present if an error occurrs during the operation.<br/><br/><br/>The `error` field may appear in the response before the operation is completed: when an error occurs, the service immediately adds the `error` field to the `Operation` object. At the same time, the service starts rolling back to the previous state: it aborts all running procedures and deletes the resources created during the operation. Only when the service returns to the previous state will the operation be considered completed and the value of its `done` field will be set to <q>true</q>.<br/><br/>The `response` and `error` fields are mutually exclusive. A response cannot contain both of the fields at the same time. |
+| `metadata` | [google.protobuf.Any](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto)<br/>Operation metadata. This field usually contains the ID of the resource the operation is being performed on. If the method returns the `Operation` object, the method description contains the structure of the corresponding `metadata` field. |
 | `description` | <b>string</b><br/>Operation description. The maximum length is 256 characters. |
 
 \* Required field.
 
 ## Operation status monitoring {#monitoring}
 
-To find out the operation status, use the `Get` method:
+To find out the operation status, use the [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto)method:
 
 ```protobuf
  // Returns the Operation object by the specified ID.
@@ -51,7 +51,7 @@ GET https://operation.api.cloud.yandex.net/operations/fcmq0j5033e516c56ctq
 
 ## Canceling an operation {#cancel}
 
-To cancel an operation, use the `Сancel` method:
+To cancel the operation, use the [Сancel](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto)method:
 
 ```protobuf
  // Cancels the specified operation.
@@ -86,7 +86,7 @@ To view a list of operations that were performed on the specified resource, use 
 
 Note that the `ListOperations` method returns a list of operations only for a specific resource, but not for a category of resources. For example, you cannot view the history of operations performed on all disks in your cloud.
 
-Sample gRPC description of the method for operations performed on a disk:
+Sample gRPC description of the [ListOperations](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto)method for operations performed on a disk:
 
 ```protobuf
  // Returns a list of operations performed on the specified disk.
