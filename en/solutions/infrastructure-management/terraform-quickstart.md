@@ -4,7 +4,37 @@ Terraform allows you to quickly create a cloud infrastructure in Yandex.Cloud. T
 
 Configurations for Terraform are written to `.tf` files in HashiCorp Configuration Language (HCL).
 
-## Installing Terraform Provider for Yandex Cloud
+To install and configure Terraform and create your first configuration:
+
+1. [Install Terraform](#install-terraform)
+1. [Install Terraform Provider for Yandex Cloud](#install-provider)
+1. [Configure Terraform ](#configure-terraform)
+1. [Configure provider](#configure-provider)
+1. [Prepare an infrastructure plan](#prepare-plan)
+1. [Create resources](#create-resources)
+1. [Delete resources](#delete-resources)
+
+## 1. Install Terraform {#install-terraform}
+
+Install Terraform:
+
+---
+
+**[!TAB macOS]**
+
+Install Terraform via [Homebrew](https://brew.sh):
+
+```
+$ brew install terraform
+```
+
+**[!TAB Windows/Linux]**
+
+Download Terraform installer and follow the [instructions](https://www.terraform.io/intro/getting-started/install.html).
+
+---
+
+## 2. Install Terraform Provider for Yandex Cloud {#install-provider}
 
 Install the Terraform Provider for Yandex Cloud:
 
@@ -12,13 +42,13 @@ Install the Terraform Provider for Yandex Cloud:
 curl -s https://terraform-provider-yandex.website.yandexcloud.net/terraform-provider-yandex/install.sh | bash
 ```
 
-## Terraform configuration
+## 3. Configure Terraform {#configure-terraform}
 
-Create a new directory anywhere and with any name, for example, `yandex-cloud-terraform`. It will store configuration files and saved Terraform and infrastructure statuses.
+Create a new directory anywhere and with any name, for example, `yandex-cloud-terraform`. It will store configuration files and saved Terraform and infrastructure states.
 
 To create resources in Yandex.Cloud via Terraform, create a `.tf` configuration file in the new directory, for instance, `example.tf`.
 
-### Provider configuration
+## 4. Configure provider {#configure-provider}
 
 At the beginning of the configuration file, specify the provider settings.
 
@@ -39,13 +69,11 @@ provider "yandex" {
 
 After configuration is completed, save the file and run the `terraform init` command in the folder with the configuration file. This command initializes the providers specified in the `provider` field of the `.tf` files and allows you to work with the provider's resources and data sources.
 
-### Resource configuration
+## 5. Prepare an infrastructure plan {#prepare-plan}
 
-By using Terraform in Yandex.Cloud, you can create any types of cloud resources: VMs, disks, images, etc. For more information about resources that can be created via Terraform, see the [provider documentation](https://terraform-provider-yandex.website.yandexcloud.net/yandex/index.html).
+By using Terraform in Yandex.Cloud, you can create any types of cloud resources: VMs, disks, images, etc. For more information about resources that can be created via Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
 
 To create a resource, specify a set of required and optional parameters that define the resource properties. Such resource descriptions make up an infrastructure plan.
-
-#### Preparing an infrastructure plan
 
 Two VMs, `terraform1` and `terraform2`, as well as the `network-1` cloud network with the `subnet-1` subnet will be created according to the plan.
 
@@ -138,7 +166,7 @@ output "external_ip_address_vm_2" {
 }
 ~~~
 
-### Creating resources
+## 6. Create resources {#create-resources}
 
 After the configuration is completed, run the `terraform plan` command. If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If there are errors in the configuration, Terraform will point them out. This is a verification stage, so no resources will be created.
 
@@ -149,7 +177,7 @@ After the configuration is completed, run the `terraform plan` command. If the c
 
 If there are no errors in the configuration, run the `terraform apply` command. Terraform will ask you to confirm the resource creation: type `yes` in the terminal and press Enter. After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check the availability of the resources and their settings in the [management console](https://console.cloud.yandex.ru).
 
-### Deleting resources
+## 7. Delete resources {#delete-resources}
 
 To delete all resources created via Terraform, run the `terraform destroy` command. After the command has been executed, the terminal will display a list of resources that will be deleted. Type `yes` to confirm them and press Enter.
 
