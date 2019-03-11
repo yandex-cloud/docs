@@ -1,37 +1,21 @@
 # Получить список репозиториев в реестре
 
-Чтобы получить список [репозиториев](../../concepts/repository.md) в реестре, необходимо указать реестр с помощью 
-`--registry-id` или `--registry-name`. Узнать данные параметры можно [запросив список реестров](../registry/registry-list.md#registry-list).
-
 ---
 
 **[!TAB CLI]**
 
 [!INCLUDE [cli-install](../../../_includes/cli-install.md)]
 
-Получите список репозиториев в реестре:
+Получите список репозиториев в текущем реестре:
     
-* Используя параметр `--registry-id`:
-    
-    ```
-    $ yc container repository list --registry-id crp3qleutgksvd1prhvb
-    +-----------------------------+
-    |            NAME             |
-    +-----------------------------+
-    | crp3qleutgksvd1prhvb/ubuntu |
-    +-----------------------------+
-    ```
-
-* Используя параметр `--registry-name`:
-    
-    ```
-    $ yc container repository list --registry-name new-reg
-    +-----------------------------+
-    |            NAME             |
-    +-----------------------------+
-    | crp3qleutgksvd1prhvb/ubuntu |
-    +-----------------------------+
-    ```
+```
+$ yc container repository list
++-----------------------------+
+|            NAME             |
++-----------------------------+
+| crp2hlbs67tj4ggrfodb/ubuntu |
++-----------------------------+
+```
 
 **[!TAB API]**
 

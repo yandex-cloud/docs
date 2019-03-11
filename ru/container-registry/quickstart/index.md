@@ -9,7 +9,7 @@
 
 [!INCLUDE [create-folder](../../_includes/create-folder.md)]
 
-Также вам понадобятся [Yandex CLI](https://cloud.yandex.ru/docs/cli/quickstart) и [Docker](https://docs.docker.com/install/). 
+Также вам понадобятся [Yandex CLI](../../cli/quickstart.md) и [Docker](https://docs.docker.com/install/). 
 
 
 ## Создание реестра и базовые операции с Docker-образом
@@ -67,9 +67,9 @@
 
 #### Смотрите также
 
-* [Создание реестра](../operations/registry/registry-create.md)
-* [Аутентификация в [!KEYREF container-registry-short-name]](../operations/authentication.md)
-* [Создание Docker-образа](../operations/docker-image/docker-image-create.md)
-* [Загрузка Docker-образа](../operations/docker-image/docker-image-push.md)
-* [Скачивание Docker-образа](../operations/docker-image/docker-image-pull.md)
-* [Запуск Docker-образа на виртуальной машине](../scenario/index.md)
+- [Создание реестра](../operations/registry/registry-create.md)
+- [Аутентификация в [!KEYREF container-registry-short-name]](../operations/authentication.md)
+- [Создание Docker-образа](../operations/docker-image/docker-image-create.md)
+- [Загрузка Docker-образа](../operations/docker-image/docker-image-push.md)
+- [Скачивание Docker-образа](../operations/docker-image/docker-image-pull.md)
+- [Запуск Docker-образа на виртуальной машине](../scenario/index.md)

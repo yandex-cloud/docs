@@ -1,16 +1,16 @@
-# Скачать Docker-образ из реестра
+# Pulling a Docker image from a registry
 
-Для скачивания [Docker-образа](../../concepts/docker-image.md) необходимо знать в каком репозитории он хранится, а также его тег или хеш.
+To pull a [Docker image](../../concepts/docker-image.md), you need to know the repository it is stored in and its tag or digest.
 
 ---
 
 **[!TAB CLI]**
 
-1. Выберите необходимый вам Docker-образ. Для этого [получите список Docker-образов в реестре](docker-image-list.md#docker-image-list). 
+1. Select the Docker image you need. To do this, [get a list of Docker images in the registry](docker-image-list.md#docker-image-list).
 
-1. Скачайте Docker-образ из реестра:
+1. Pull the Docker image from the registry:
 
-    - Используя **тег**:
+    * Using the **tag**:
 
         ```
         $ docker pull container-registry.cloud.yandex.net/crpd50616s9a2t7gr8mi/ubuntu:hello
@@ -22,8 +22,8 @@
         Digest: sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec7b49f80d
         Status: Downloaded newer image for container-registry.cloud.yandex.net/crpd50616s9a2t7gr8mi/ubuntu:hello
         ```
-   
-    - Используя **хеш**:
+
+    * Using the **digest**:
 
         ```
         $ docker pull container-registry.cloud.yandex.net/crpd50616s9a2t7gr8mi/ubuntu@sha256:035ac8e1bd9c49871a2fd76
@@ -36,18 +36,17 @@
         Digest: sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec7b49f80d
         Status: Downloaded newer image for container-registry.cloud.yandex.net/crpd50616s9a2t7gr8mi/ubuntu@sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec7b49f80d
         ```
-    
-    Обратите внимание, что в данном случае Docker-образ будет скачан без тега. В поле `TAG` будет указано `<none>`.
-    
-1. Проверьте, что Docker-образ действительно скачался:
-    
+
+    Note that in this case the Docker image will be pulled with no tag. The `TAG` field value will be `<none>`.
+
+1. Make sure the Docker image has been pulled:
+
     ```
     $ docker image list
     REPOSITORY                                                        TAG                 IMAGE ID            CREATED             SIZE
     container-registry.cloud.yandex.net/crpd50616s9a2t7gr8mi/ubuntu   <none>              50ff4b0e5783        24 hours ago        86.7MB
     ubuntu                                                            latest              1d9c17228a9e        2 weeks ago         86.7MB
     ```
-
 
 ---
 
