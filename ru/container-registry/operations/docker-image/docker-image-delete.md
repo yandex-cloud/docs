@@ -1,4 +1,4 @@
-## Удалить Docker-образ из реестра
+# Удалить Docker-образ из реестра
 
 Для удаления [Docker-образа](../../concepts/docker-image.md) используйте его идентификатор. Узнать идентификатор можно
 [запросив список Docker-образов в нужном реестре](docker-image-list.md#docker-image-list). 
@@ -12,7 +12,7 @@
 1. Удалите Docker-образ: 
 
     ```
-    $ yc container image delete --id crp9vik7sgeco7emq743
+    $ yc container image delete crp9vik7sgeco7emq743
     ```
     
 1. Проверьте, что Docker-образ действительно удален:

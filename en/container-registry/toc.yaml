@@ -1,0 +1,65 @@
+title: "Yandex Container Registry"
+href: index.yaml
+stage: alpha
+items:
+  - name: Getting started
+    href: quickstart/index.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Authentication in Yandex Container Registry
+        href: operations/authentication.md
+      - name: Docker image
+        items:
+          - name: Getting information about available Docker images
+            href: operations/docker-image/docker-image-list.md
+          - name: Creating a Docker image
+            href: operations/docker-image/docker-image-create.md
+          - name: Pushing a Docker image to a registry
+            href: operations/docker-image/docker-image-push.md
+          - name: Pulling a Docker image from a registry
+            href: operations/docker-image/docker-image-pull.md
+          - name: Deleting a Docker image from a registry
+            href: operations/docker-image/docker-image-delete.md
+      - name: Registry
+        items:
+          - name: Getting information about existing registries
+            href: operations/registry/registry-list.md
+          - name: Creating a registry
+            href: operations/registry/registry-create.md
+          - name: Updating a registry
+            href: operations/registry/registry-update.md
+          - name: Deleting a registry
+            href: operations/registry/registry-delete.md
+      - name: Repository
+        items:
+          - name: Getting a list of repositories in a registry
+            href: operations/repository/repository-list.md
+  - name: Concepts
+    items:
+        - name: Overview
+          href: concepts/index.md
+        - name: Docker image
+          href: concepts/docker-image.md
+        - name: Registry
+          href: concepts/registry.md
+        - name: Repository
+          href: concepts/repository.md
+        - name: Quotas and limits
+          href: concepts/limits.md
+  - name: Tutorials
+    items:
+      - name: Running a Docker image on a VM
+        href: scenario/index.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: en/container-registry/toc.yaml

@@ -4,25 +4,24 @@
 * [Список Docker-образов в реестре](#docker-image-list)
 * [Подробную информацию о Docker-образе](#docker-image-get)
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
-
-
 ## Получить список Docker-образов в реестре {#docker-image-list}
 
 ---
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 Получите список [Docker-образов](../../concepts/docker-image.md) в текущем реестре:
 
-   ```
-   $ yc container image list
-   +----------------------+---------------------+----------------------------+------+-----------------+
-   |          ID          |       CREATED       |            NAME            | TAGS | COMPRESSED SIZE |
-   +----------------------+---------------------+----------------------------+------+-----------------+
-   | crp9vik7sgeco7emq743 | 2019-01-17 17:00:48 | crph8pf7irvcu3p7gjpb/myimg |  111 | 30.7 MB         |
-   +----------------------+---------------------+----------------------------+------+-----------------+
-   ```
+```
+$ yc container image list
++----------------------+---------------------+----------------------------+------+-----------------+
+|          ID          |       CREATED       |            NAME            | TAGS | COMPRESSED SIZE |
++----------------------+---------------------+----------------------------+------+-----------------+
+| crp9vik7sgeco7emq743 | 2019-01-17 17:00:48 | crph8pf7irvcu3p7gjpb/myimg |  111 | 30.7 MB         |
++----------------------+---------------------+----------------------------+------+-----------------+
+```
 
 **[!TAB API]**
 
@@ -36,10 +35,12 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 Получите подробную информацию о Docker-образе с помощью `id` из [предыдущего](#docker-image-list) пункта:
 
 ```
-$ yc container image get --image-id crphc7nnrvhlg73oeiv5
+$ yc container image get crphc7nnrvhlg73oeiv5
 id:crphc7nnrvhlg73oeiv5
 name: crpd50616s9a2t7gr8mi/ubuntu
 digest: sha256:035ac8e1bd9c49871a2fd76ccb3c4b0f84e7eee775919ccd345337ec7b49f80d

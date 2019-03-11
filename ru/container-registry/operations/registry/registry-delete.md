@@ -14,20 +14,11 @@
 [!INCLUDE [cli-install](../../../_includes/cli-install.md)]
 
 1. Удалите реестр:
-    
-    * Используя `id`:
-        
-        ```
-        $ yc container registry delete --id crp3qleutgksvd1prhvb
-        ..done
-        ```
-       
-    * Используя `name`:
-        
-        ```
-        $ yc container registry delete --name new-reg
-        ..done
-        ```
+
+    ```
+    $ yc container registry delete new-reg 
+    ..done
+    ```
     
 1. Проверьте, что реестр действительно удален: 
     
@@ -42,7 +33,6 @@
 **[!TAB API]**
 
 Чтобы удалить реестр, воспользуйтесь методом [delete](../../api-ref/Registry/delete.md) для ресурса [Registry](../../api-ref/Registry/).
-
 
 
 ---
