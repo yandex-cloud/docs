@@ -22,6 +22,8 @@ The list below shows all roles that are considered when verifying access rights 
 
 _Service roles_ are roles that allow access to the resources of a particular service. When checking  [!KEYREF compute-short-name] resource access rights, [!KEYREF compute-short-name] and [!KEYREF resmgr-name] service roles are considered.
 
+[!INCLUDE [roles-disks-user](../../_includes/roles-disks-user.md)]
+
 [!INCLUDE [roles-images-user](../../_includes/roles-images-user.md)]
 
 [!INCLUDE [cloud-roles](../../_includes/cloud-roles.md)]
