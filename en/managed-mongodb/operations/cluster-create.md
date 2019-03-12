@@ -1,6 +1,6 @@
 # Creating a [!KEYREF MG] cluster
 
-[!KEYREF MG]cluster is one or more database hosts that can have replication configured between them. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
+[!KEYREF MG] cluster is one or more database hosts that can have replication configured between them. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
 
 The number of hosts that can be created together with a [!KEYREF MG] cluster depends on the storage option selected:
 
