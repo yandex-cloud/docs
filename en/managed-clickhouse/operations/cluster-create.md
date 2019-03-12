@@ -1,6 +1,6 @@
 # Creating a [!KEYREF CH] cluster
 
-[!KEYREF CH]cluster is one or more database hosts that can have replication configured between them.
+[!KEYREF CH] cluster is one or more database hosts that can have replication configured between them.
 
 > [!IMPORTANT]
 >

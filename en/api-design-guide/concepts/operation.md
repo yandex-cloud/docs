@@ -51,7 +51,7 @@ GET https://operation.api.cloud.yandex.net/operations/fcmq0j5033e516c56ctq
 
 ## Canceling an operation {#cancel}
 
-To cancel the operation, use the [Сancel](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto) method:
+To cancel the operation, use the [Cancel](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto) method:
 
 ```protobuf
  // Cancels the specified operation.
@@ -78,7 +78,7 @@ You can only cancel operations that change the state of a resource. In the refer
 
 > [!NOTE]
 >
-> The `Сancel` method works on a best effort basis. Calling the method does not guarantee that the operation will be canceled. The operation may be at a stage when no cancellation is possible.
+> The `Cancel` method works on a best effort basis. Calling the method does not guarantee that the operation will be canceled. The operation may be at a stage when no cancellation is possible.
 
 ## Viewing a list of operations {#operation-listing}
 
@@ -141,7 +141,7 @@ Server response:
         "description": "Test disk",
         "zoneId" : "ru-central1-a",
         "typeId" : "network-nvme",
-        "size" : 10737418240 
+        "size" : 10737418240
       }
     },
     ...

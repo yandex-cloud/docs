@@ -1,6 +1,6 @@
 # Authentication in the API
 
-To perform operations in Yandex.Cloud via the API, you need an  [IAM-токен](../iam/concepts/authorization/iam-token.md).
+To perform operations in Yandex.Cloud via the API, you need an [IAM-token](../iam/concepts/authorization/iam-token.md).
 
 To authenticate successfully in the API:
 

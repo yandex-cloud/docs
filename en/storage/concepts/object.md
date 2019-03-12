@@ -50,7 +50,7 @@ System metadata is defined by [!KEYREF objstorage-name].
 
 | Name | Description |
 | ----- | ----- |
-| Datе | Date and time of sending a request to upload an object to [!KEYREF objstorage-name]. |
+| Date | Date and time of sending a request to upload an object to [!KEYREF objstorage-name]. |
 | Content-Length | Object size in bytes. |
 | Last-Modified | Date when the object was created or last modified. |
 | Content-MD5 | Object MD5 hash value, base64 encoded. |

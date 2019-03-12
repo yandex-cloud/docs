@@ -1,6 +1,6 @@
 # Creating a [!KEYREF MY] cluster
 
-[!KEYREF MY]cluster is one or more database hosts that can have replication configured between them. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, synchronously duplicates changes in the primary replica, and does it asynchronously in all the others.
+[!KEYREF MY] cluster is one or more database hosts that can have replication configured between them. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, synchronously duplicates changes in the primary replica, and does it asynchronously in all the others.
 
 The number of hosts that can be created together with a [!KEYREF MY] cluster depends on the storage option selected:
 

@@ -1,10 +1,10 @@
 # Объект Operation
 
 
-Каждая операция, которая изменяет состояние ресурса, приводит к созданию объекта [Operation](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation.proto). Этот объект содержит информацию об операции: статус, идентификатор, время вызова и т. д. 
+Каждая операция, которая изменяет состояние ресурса, приводит к созданию объекта [Operation](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation.proto). Этот объект содержит информацию об операции: статус, идентификатор, время вызова и т. д.
 
 С помощью объекта `Operation` вы можете:
- 
+
 - [Отслеживать статус операций](#monitoring), которые занимают неопределенное время. Например, запуск виртуальной машины или подключение диска.
 - [Отменять операции](#cancel).
 - [Просматривать список операций](#operation-listing), которые были выполнены над заданным ресурсом.
@@ -29,7 +29,7 @@
 
 ## Отслеживание статуса операции {#monitoring}
 
-Узнать статус операции можно с помощью метода [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto): 
+Узнать статус операции можно с помощью метода [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto):
 ```protobuf
  // Возвращает объект Operation по заданному идентификатору.
  rpc Get (GetOperationRequest) returns (operation.Operation) {
@@ -42,7 +42,7 @@
    string operation_id = 1;
  }
 ```
- 
+
 Пример REST запроса на получение статуса операции:
 ```
 GET https://operation.api.cloud.yandex.net/operations/fcmq0j5033e516c56ctq
@@ -50,7 +50,7 @@ GET https://operation.api.cloud.yandex.net/operations/fcmq0j5033e516c56ctq
 
 ## Отмена операции {#cancel}
 
-Отменить операцию можно с помощью метода [Сancel](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto):
+Отменить операцию можно с помощью метода [Cancel](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto):
 
 ```protobuf
  // Отменяет заданную операцию.
@@ -75,8 +75,8 @@ POST https://operation.api.cloud.yandex.net/operations/a3s17h9sbq5asdgss12:cance
 
 > [!NOTE]
 >
-> Метод `Сancel` работает по принципу Best Effort. Вызов метода не гарантирует, что операция будет отменена. Операция может находиться на стадии, когда отмена уже невозможна.
- 
+> Метод `Cancel` работает по принципу Best Effort. Вызов метода не гарантирует, что операция будет отменена. Операция может находиться на стадии, когда отмена уже невозможна.
+
 ## Просмотр списка операций {#operation-listing}
 
 Для просмотра списка операций, которые были выполнены над заданным ресурсом, предназначен метод `ListOperations`. Метод поддерживает [постраничное отображение результатов](pagination.md).
@@ -133,7 +133,7 @@ GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03/op
         "description": "Test disk",
         "zoneId" : "ru-central1-a",
         "typeId" : "network-nvme",
-        "size" : 10737418240 
+        "size" : 10737418240
       }
     },
     ...
