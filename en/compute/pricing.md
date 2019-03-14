@@ -42,7 +42,7 @@ The basic level of core performance depends on the VM type:
 
 [!KEYREF price-per-hour-count-per-second]
 
-#### Operating systems {#burstable-instance-os}
+#### Operating systems {#instance-os}
 
 OS usage on a VM is charged, as well. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
 
@@ -97,7 +97,7 @@ The cost is specified for one month of use. Charging per second.
 | 100% of vCPU | 0.5847 ₽ | 0.7017 ₽ |
 | RAM (for 1 GB) | 0.2034 ₽ | 0.2441 ₽ |
 
-### Operating systems {#burstable-instance-os}
+### Operating systems {#prices-instance-os}
 
 | OS | Cost per vCPU per hour,<br/> without VAT | Cost per vCPU per hour,<br/> with VAT |
 | ----- | ----- | ----- |
