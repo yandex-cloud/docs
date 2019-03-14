@@ -37,7 +37,7 @@ items:
       href: concepts/replication.md
     - name: Supported clients
       href: concepts/supported-clients.md
-  - name: Identity and access management
+  - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md

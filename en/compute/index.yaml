@@ -21,7 +21,7 @@ links:
 - title: "Quotas and limits"
   description: "Technical and organizational limitations of the service"
   href: "concepts/limits"
-- title: "Identity and access management"
+- title: "Access management"
   description: "Set up access rights to work with the service"
   href: "security/"
 - title: "Pricing policy"
