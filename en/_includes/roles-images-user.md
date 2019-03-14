@@ -1,13 +1,11 @@
-#### [!KEYREF roles-image-user] {#user}
+#### compute.images.user {#compute-images-user}
 
-The role of `[!KEYREF roles-image-user]` applies to images only. A user with the role `[!KEYREF roles-image-user]` can use the appropriate image when creating new disks, VMs, and other images.
+The `compute.images.user` role includes the following permissions:
 
-The role of `[!KEYREF roles-image-user]` can only be assigned for a folder or cloud. Currently, you cannot assign this role for an image itself.
-
-The role `[!KEYREF roles-image-user]` includes the following permissions:
-
-- To get a list of images.
+- Get a list of [images](../compute/concepts/images.md).
 - Get information about an image.
 - Get information about the last image in the specified family.
-- To use the image when creating new resources.
+- Use an image for creating new resources (virtual machines, disks, or other images).
+
+[!INCLUDE [roles-restriction-only-parents](iam/roles-restriction-only-parents.md)]
 

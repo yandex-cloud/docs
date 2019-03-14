@@ -1,4 +1,4 @@
-# Identity and access management
+# Access management
 
 Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden. Regardless of the roles assigned, the user can view reference lists of availability zones and disk types.
 
@@ -21,6 +21,8 @@ The list below shows all roles that are considered when verifying access rights 
 ### Service roles
 
 _Service roles_ are roles that allow access to the resources of a particular service. When checking  [!KEYREF compute-short-name] resource access rights, [!KEYREF compute-short-name] and [!KEYREF resmgr-name] service roles are considered.
+
+[!INCLUDE [roles-disks-user](../../_includes/roles-disks-user.md)]
 
 [!INCLUDE [roles-images-user](../../_includes/roles-images-user.md)]
 

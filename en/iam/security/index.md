@@ -1,4 +1,4 @@
-# Identity and access management
+# Access management
 
 Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them. If the user has no roles assigned, all operations are forbidden.
 

@@ -49,4 +49,6 @@ _Роль_ — это набор разрешений, который опре�
 
 ### Yandex Compute Cloud {#compute-roles}
 
+[!INCLUDE [roles-disks-user](../../../_includes/roles-disks-user.md)]
+
 [!INCLUDE [roles-images-user](../../../_includes/roles-images-user.md)]

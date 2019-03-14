@@ -22,6 +22,8 @@
 
 _Сервисные роли_ — роли, дающие доступ к ресурсам определенного сервиса. При проверке прав доступа к ресурсам [!KEYREF compute-short-name] учитываются сервисные роли [!KEYREF compute-short-name] и [!KEYREF resmgr-name].
 
+[!INCLUDE [roles-disks-user](../../_includes/roles-disks-user.md)]
+
 [!INCLUDE [roles-images-user](../../_includes/roles-images-user.md)]
 
 [!INCLUDE [cloud-roles](../../_includes/cloud-roles.md)]

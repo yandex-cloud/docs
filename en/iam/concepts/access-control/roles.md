@@ -53,5 +53,7 @@ For example, the role of `[!KEYREF roles-admin]` allows you to perform the follo
 
 ### Yandex Compute Cloud {#compute-roles}
 
+[!INCLUDE [roles-disks-user](../../../_includes/roles-disks-user.md)]
+
 [!INCLUDE [roles-images-user](../../../_includes/roles-images-user.md)]
 
