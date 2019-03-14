@@ -56,7 +56,7 @@ The CLI supports command completion for the  `bash` shell. For command completio
 
 For Windows, the CLI can be installed using PowerShell and `cmd`:
 
-* To install using PowerShell:
+- To install using PowerShell:
 
     1. Run the command:
 
@@ -72,7 +72,7 @@ For Windows, the CLI can be installed using PowerShell and `cmd`:
 
     1. Enter `Y`. After this, you can use the Yandex.Cloud CLI without restarting the command shell.
 
-* To install using `cmd`:
+- To install using `cmd`:
 
     1. Run the command:
 

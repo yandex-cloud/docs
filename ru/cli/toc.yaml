@@ -2,3 +2,15 @@ title: "Интерфейс командной строки"
 items:
   - name: Начало работы с CLI
     href: quickstart.md
+  - name: Принципы работы c CLI
+    items:
+      - name: Запуск команд
+        href: concepts/index.md
+      - name: Конфигурация CLI
+        href: concepts/core-propreties.md
+      - name: Профили
+        href: concepts/profile.md
+      - name: Синхронный и асинхронный режимы выполнения команд
+        href: concepts/mode.md
+  - name: Произошла ошибка?
+    href: error.md
