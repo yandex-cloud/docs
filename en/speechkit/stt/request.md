@@ -56,7 +56,7 @@ To use the SpeechKit API for speech recognition in Russian, send a small audio f
 **[!TAB POST request]**
 
 ```httpget
-POST /speech/v1/stt:recognize/?topic=general&lang=ru-RU&folderId={folder ID} HTTP/1.1
+POST /speech/v1/stt:recognize?topic=general&lang=ru-RU&folderId={folder ID} HTTP/1.1
 Host: stt.api.cloud.yandex.net
 Authorization: Bearer <IAM-TOKEN>
 
@@ -72,7 +72,7 @@ $ curl -X POST \
      -H "Authorization: Bearer ${IAM_TOKEN}" \
      -H "Transfer-Encoding: chunked" \
      --data-binary "@speech.ogg" \
-     "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?topic=general&folderId=${FOLDER_ID}"
+     "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?topic=general&folderId=${FOLDER_ID}"
 ```
 
 **[!TAB Python]**
@@ -93,7 +93,7 @@ params = "&".join([
     "lang=ru-RU"
 ])
 
-url = urllib.request.Request("https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?%s" % params, data=data)
+url = urllib.request.Request("https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?%s" % params, data=data)
 url.add_header("Authorization", "Bearer %s" % IAM_TOKEN)
 
 responseData = urllib.request.urlopen(url).read().decode('UTF-8')
@@ -115,7 +115,7 @@ $audioFileName = "speech.ogg";
 $file = fopen($audioFileName, 'rb');
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize/?lang=ru-RU&folderId=${folderId}&format=oggopus");
+curl_setopt($ch, CURLOPT_URL, "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?lang=ru-RU&folderId=${folderId}&format=oggopus");
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $token, 'Transfer-Encoding: chunked'));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
