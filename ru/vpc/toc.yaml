@@ -47,7 +47,7 @@ items:
         href: pricing.md
       - name: Архив
         items:
-          - name: Правила до 1 января 2019 года
+          - name: До 1 января 2019 года
             href: pricing-archive/pricing-01012019.md
   - name: Справочник API
     items:
