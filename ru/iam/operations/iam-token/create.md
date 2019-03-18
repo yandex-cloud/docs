@@ -25,3 +25,26 @@ $ yc iam create-token
 ---
 
 [!INCLUDE [iam-token-usage](../../../_includes/iam-token-usage.md)]
+
+## Примеры
+
+Запишите IAM-токен в переменную и используйте его в других запросах из командной строки:
+
+---
+
+**[!TAB Bash]**
+
+```bash
+$ export IAM_TOKEN=`yc iam create-token`
+$ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
+```
+
+**[!TAB Powershell]**
+
+```
+$IAM_TOKEN=yc iam create-token
+curl.exe -H "Authorization: Bearer $IAM_TOKEN" https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
+```
+
+---
