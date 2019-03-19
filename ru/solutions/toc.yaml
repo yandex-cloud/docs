@@ -13,6 +13,8 @@ items:
       href: web/dns-load-balancer.md
     - name: Сайт на базе Joomla с БД PostgreSQL
       href: web/joomla-postgresql.md
+    - name: Сайт на WordPress
+      href: web/wordpress.md
   - name: Архив данных
     items:
     - name: Обзор
