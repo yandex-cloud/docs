@@ -81,17 +81,17 @@
 
 Восстановление лучше всего проводить с флагом `--single-transaction`, чтобы избежать неопределенного состояния базы в случае ошибки:
 
-    ```
-    pg_restore -Fd \
-               -v \
-               -h <pgsql_host_address> \
-               -U <username>
-               -d <database_name> \
-               -p 6432 \
-               /tmp/db_dump \
-               --single-transaction \
-               --no-acl
-    ```
+```
+pg_restore -Fd \
+           -v \
+           -h <pgsql_host_address> \
+           -U <username>
+           -d <database_name> \
+           -p 6432 \
+           /tmp/db_dump \
+           --single-transaction \
+           --no-acl
+```
 
 Если нужно восстановить только одну схему, добавьте флаг `-n <имя схемы>`.
 
