@@ -10,9 +10,9 @@ This opens a page with a list of buckets.
 1. Click **Create bucket**.
 1. On the bucket creation page:
     1. Enter the bucket name, following the [naming guidelines](../../concepts/bucket.md#naming).
-    2. Select the access type
-    3. If necessary, limit the maximum bucket size.
-    3. Click **Create bucket** to complete the operation.
+    1. If necessary, limit the maximum bucket size.
+    1. Select the access type.
+    1. Click **Create bucket** to complete the operation.
 
 ---
 

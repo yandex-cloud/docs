@@ -2,16 +2,11 @@
 
 Эта инструкция описывает, как загрузить файл с образом диска в Яндекс.Облако и создать из него [образ](../../concepts/images.md) в сервисе [!KEYREF compute-name]. Поддерживаемые форматы образов: Qcow2, VMDK, VHD. На данный момент нельзя загрузить свой образ с операционной системой Windows.
 
->[!NOTE]
->
->Создавать образы из внешних источников разрешено только по ссылкам на публичные бакеты в [!KEYREF objstorage-name].
-
 ## 1. Загрузите файл образа в Яндекс.Облако
 
 Загрузите файл с образом в сервис [!KEYREF objstorage-full-name] и получите ссылку на загруженный образ:
 
-1. Если у вас еще нет бакета в [!KEYREF objstorage-name], [создайте](../../../storage/operations/buckets/create.md) ее.
-1. [Сделайте бакет публичным](../../../storage/operations/buckets/bucket-availability.md).
+1. Если у вас еще нет бакета в [!KEYREF objstorage-name], [создайте](../../../storage/operations/buckets/create.md) его.
 1. [Загрузите образ](../../../storage/operations/objects/upload.md) в ваш бакет. В терминах [!KEYREF objstorage-name] загружаемый файл образа будет называться _объектом_.
 1. [Получите ссылку](../../../storage/operations/objects/link-for-download.md) на загруженный образ. Используйте эту ссылку при создании образа в [!KEYREF compute-name].
 
