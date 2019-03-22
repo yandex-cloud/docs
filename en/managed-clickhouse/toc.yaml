@@ -49,7 +49,7 @@ items:
       href: api-ref/authentication.md
     include:
       repo: docs-api
-      path: ru/mdb/clickhouse/toc.yaml
+      path: en/mdb/clickhouse/toc.yaml
   - name: Questions and answers
     items:
     - name: General questions

@@ -47,7 +47,7 @@ items:
       href: api-ref/authentication.md
     include:
       repo: docs-api
-      path: ru/mdb/mongodb/toc.yaml
+      path: en/mdb/mongodb/toc.yaml
   - name: Questions and answers
     items:
     - name: General questions
