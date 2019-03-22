@@ -17,7 +17,7 @@ items:
       items:
       include:
         repo: docs-api
-        path: en/translate/toc.yaml
+        path: en/ai/translate/toc.yaml
     - name: v1 (DEPRECATED)
       items:
       - name: Overview

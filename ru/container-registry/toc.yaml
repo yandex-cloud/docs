@@ -62,6 +62,6 @@ items:
         href: api-ref/authentication.md
     include:
       repo: docs-api
-      path: ru/container-registry/toc.yaml
+      path: ru/containerregistry/toc.yaml
   # - name: Вопросы и ответы
   #   href: qa/index.md

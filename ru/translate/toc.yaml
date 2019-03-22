@@ -17,7 +17,7 @@ items:
       items:
       include:
         repo: docs-api
-        path: ru/translate/toc.yaml
+        path: ru/ai/translate/toc.yaml
     - name: v1 (DEPRECATED)
       items:
       - name: Обзор

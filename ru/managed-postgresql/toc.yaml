@@ -63,7 +63,7 @@ items:
       href: api-ref/authentication.md
     include:
       repo: docs-api
-      path: ru/managed-postgresql/toc.yaml
+      path: ru/mdb/postgresql/toc.yaml
   - name: Вопросы и ответы
     items:
     - name: Общие вопросы

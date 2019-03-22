@@ -32,7 +32,7 @@ items:
         href: api-ref/authentication.md
     include:
       repo: docs-api
-      path: ru/managed-redis/toc.yaml
+      path: ru/mdb/redis/toc.yaml
   - name: Questions and answers
     items:
     - name: General questions
