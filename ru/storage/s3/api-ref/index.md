@@ -8,7 +8,8 @@
 [Object](object.md) | Управляет объектами.
 [Multipart upload](multipart.md) | Управляет загрузкой больших объектов.
 [Static Website Hosting](hosting.md) | Управляет конфигурациями бакетов для статического веб-хостинга.
-[CORS](cors.md) | Управляет Cross-Origin Resource Sharing (CORS) конфигурациями для бакетов.
+[CORS](cors.md) | Управляет конфигурациями CORS для бакетов.
+[Lifecycles](lifecycles.md) | Управляет конфигурациям жизненных циклов для объектов в бакетах.
 
 ## Поддерживаемые методы {#operations-list}
 
@@ -61,6 +62,15 @@
 [upload](cors/upload.md) | Загружает конфигурацию CORS для бакета.
 [get](cors/get.md) | Возвращает конфигурацию CORS для бакета.
 [delete](cors/delete.md) | Удаляет конфигурацию CORS для бакета.
+
+### Сервис Lifecycles
+
+Метод | Описание
+----- | -----
+[upload](lifecycles/upload.md) | Загружает конфигурацию жизненного цикла объектов в [!KEYREF objstorage-name].
+[get](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из [!KEYREF objstorage-name].
+[delete](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из [!KEYREF objstorage-name].
+
 
 ## См. также
 - [[!TITLE]](../../s3/index.md)
