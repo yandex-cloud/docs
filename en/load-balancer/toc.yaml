@@ -52,4 +52,4 @@ items:
         href: api-ref/authentication.md
     include:
       repo: docs-api
-      path: en/load-balancer/toc.yaml
+      path: en/loadbalancer/toc.yaml

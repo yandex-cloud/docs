@@ -56,7 +56,7 @@ items:
         href: api-ref/authentication.md
     include:
       repo: docs-api
-      path: ru/instance-groups/toc.yaml
+      path: ru/compute/instancegroup/toc.yaml
   - name: Вопросы и ответы
     items:
     - name: Общие вопросы

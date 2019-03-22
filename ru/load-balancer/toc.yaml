@@ -52,6 +52,6 @@ items:
         href: api-ref/authentication.md
     include:
       repo: docs-api
-      path: ru/load-balancer/toc.yaml
+      path: ru/loadbalancer/toc.yaml
   # - name: Вопросы и ответы
   #   href: qa/index.md

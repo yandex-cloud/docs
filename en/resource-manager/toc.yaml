@@ -39,4 +39,4 @@ items:
         href: api-ref/authentication.md
     include:
       repo: docs-api
-      path: en/resource-manager/toc.yaml
+      path: en/resourcemanager/toc.yaml

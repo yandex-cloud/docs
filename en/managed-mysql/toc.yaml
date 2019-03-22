@@ -42,13 +42,13 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-#  - name: API reference
-#    items:
-#    - name: Authentication in the API
-#      href: api-ref/authentication.md
-#    include:
-#      repo: docs-api
-#      path: ru/managed-mysql/toc.yaml
+  - name: API reference
+    items:
+    - name: Authentication in the API
+      href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: en/mdb/mysql/toc.yaml
   - name: Questions and answers
     items:
     - name: General questions

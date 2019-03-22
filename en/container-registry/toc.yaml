@@ -62,4 +62,4 @@ items:
         href: api-ref/authentication.md
     include:
       repo: docs-api
-      path: en/container-registry/toc.yaml
+      path: en/containerregistry/toc.yaml
