@@ -18,15 +18,16 @@
     {
         "Rules": [
             {
-                "ID": "Delete old backups",
-                "Prefix": "backup/",
+                "ID": "DeleteOldBackups",
+                "Filter": {
+                    "Prefix": "backup/"
+                },
                 "Status": "Enabled",
-                "Expiration": [
-                    {
-                        "Days": "180"
-                    }
-                ]
+                "Expiration": {
+                        "Days": 180
+                }
             }
+        ]
     }
     ```
 
