@@ -1,6 +1,6 @@
-# Create a group of fixed-size instances with a load balancer
+# Create a fixed-size group with a load balancer
 
-You can create a group of fixed-size instances along with a network load balancer that will evenly distribute the load across cloud resources. For more information, see [[!TITLE]](../../load-balancer/concepts/index.md) in the [!KEYREF load-balancer-full-name] documentation.
+You can create a fixed-size group along with a network load balancer that will evenly distribute the load across cloud resources. For more information, see [[!TITLE]](../../load-balancer/concepts/index.md) in the [!KEYREF load-balancer-full-name] documentation.
 
 [!INCLUDE [warning.md](../../_includes/instance-groups/warning.md)]
 

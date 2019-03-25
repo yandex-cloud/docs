@@ -110,7 +110,7 @@
                     size: 34359738368
             network_interface_specs:
                 - network_id: c64mknqgnd8avp6edhbt
-                    primary_v4_address_spec: {}
+                  primary_v4_address_spec: {}
         ```
 
         Ключи (в таблице приведены ключи, которые непосредственно определяют параметры ВМ):
@@ -182,7 +182,7 @@
                     size: 34359738368
             network_interface_specs:
                 - network_id: c64mknqgnd8avp6edhbt
-                    primary_v4_address_spec: {}
+                  primary_v4_address_spec: {}
         deploy_policy:
             max_unavailable: 1
             max_expansion: 0

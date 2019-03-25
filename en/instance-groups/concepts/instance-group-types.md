@@ -4,7 +4,7 @@ When creating a group, you need to select its type. The type determines whether 
 
 To set the type, select the appropriate [scaling policy](instance-group-policies.md#scale-policy) when creating a group.
 
-## A group of fixed-size instances {#fixed-scale}
+## A fixed-size group {#fixed-scale}
 
 [!KEYREF compute-full-name] allows you to create groups of similar instances of a fixed size. To do this, select a fixed [scaling policy](instance-group-policies.md#scale-policy) for instances. The group size will be set manually.
 

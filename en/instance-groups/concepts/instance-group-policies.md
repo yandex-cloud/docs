@@ -78,7 +78,7 @@ An application's scaling policy is defined in the `scale_policy` key.
 
 ### fixed_scale {#fixed-scale-policy}
 
-The `fixed_scale` key defines a group of fixed-size instances. The value can only be the group size that is defined in the `size` key. You can specify any number of instances necessary to handle the current load on the service.
+The `fixed_scale` key defines a fixed-size group. The value can only be the group size that is defined in the `size` key. You can specify any number of instances necessary to handle the current load on the service.
 When creating a group, keep the [limits](../concepts/limits.md) in mind.
 
 Example of a YAML file entry:
@@ -95,6 +95,6 @@ Keys:
 
 | Key | Value |
 | ----- | ----- |
-| `fixed_scale` | A group of fixed-size instances. |
+| `fixed_scale` | A fixed-size group. |
 | `size` | Number of instances in the group. Each group may contain a maximum of 1,000 instances. |
 
