@@ -5,7 +5,7 @@ _An image_ is a complete copy of the file system structure and data on a disk.
 It is designed to quickly create a data disk, primarily a VM's boot disk. Images can be used for distributing software, such as OS distributions or disks with pre-installed software.
 
 > [!NOTE]
-> 
+>
 > To regularly back up your data on disks, use [snapshots](snapshot.md).
 
 If you already have an image file, you can [import](../operations/image-create/upload.md) it to Yandex.Cloud. Currently, you cannot upload your own image with the Windows OS.

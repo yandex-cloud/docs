@@ -97,6 +97,14 @@ The cost is specified for one month of use. Charging per second.
 | 100% of vCPU | 0.5847 ₽ | 0.7017 ₽ |
 | RAM (for 1 GB) | 0.2034 ₽ | 0.2441 ₽ |
 
+### Computing resources for preemptible instances{#prices-preemptible-instance-resources}
+
+Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT
+----- | ----- | -----
+за 5%+ vCPU | 0,0998 ₽ | 0,1198 ₽
+за 100% vCPU | 0,1800 ₽ | 0,2160 ₽
+RAM (for 1 GB) | 0,0625 ₽ | 0,0750 ₽
+
 ### Operating systems {#prices-instance-os}
 
 | OS | Cost per vCPU per hour,<br/> without VAT | Cost per vCPU per hour,<br/> with VAT |

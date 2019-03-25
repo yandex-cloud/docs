@@ -1,0 +1,63 @@
+title: Instance Groups
+href: index.yaml
+stage: alpha
+items:
+  - name: Getting started
+    items:
+      - name: Creating a fixed-size instance group
+        href: quickstart/index.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Creating an instance group
+        items:
+          - name: Create a fixed-size instance group
+            href: operations/create-fixed-group.md
+          - name: Create a fixed-size instance group with a load balancer
+            href: operations/create-with-balancer.md
+      - name: Getting information about an instance group
+        items:
+          - name: Getting a list of groups
+            href: operations/get-list.md
+          - name: Getting basic information and metadata
+            href: operations/get-info.md
+          - name: Getting a list of instances in a group
+            href: operations/get-list-instances.md
+      - name: Managing an instance group
+        items:
+          - name: Update a group
+            href: operations/update.md
+          - name: Delete a group
+            href: operations/delete.md
+          - name: Recover a group
+            href: operations/recover.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Group types
+        href: concepts/instance-group-types.md
+      - name: Instance template
+        href: concepts/instance-group-instance-template.md
+      - name: VM statuses
+        href: concepts/instance-group-statuses-vm.md
+      - name:	Policies
+        href : concepts/instance-group-policies.md
+      - name: Limits
+        href: concepts/limits.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: en/instance-groups/toc.yaml
+  - name: Access management
+    href: security/index.md
+  - name: Questions and answers
+    items:
+    - name: General questions
+      href: qa/general.md

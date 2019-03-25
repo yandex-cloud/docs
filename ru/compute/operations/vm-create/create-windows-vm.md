@@ -31,4 +31,5 @@
 Публичный IP-адрес можно сделать статическим. Подробнее читайте в разделе [[!TITLE]](../vm-control/vm-set-static-ip.md).
 
 #### См. также
+
 - [[!TITLE]](../vm-control/vm-connect-rdp.md)

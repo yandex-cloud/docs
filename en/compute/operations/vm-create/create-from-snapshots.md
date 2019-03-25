@@ -17,11 +17,13 @@ To create a VM from a set of disk snapshots:
     ```
 
 1. Prepare the snapshots of the disks you need, see [[!TITLE]](../disk-control/create-snapshot.md).
+
 1. Get a list of snapshots in the default folder:
 
     [!INCLUDE [compute-snapshot-list](../../_includes_service/compute-snapshot-list.md)]
 
 1. Select the `ID` or `NAME` of the necessary snapshots.
+
 1. Create a VM in the default folder:
 
     ```
@@ -37,6 +39,10 @@ To create a VM from a set of disk snapshots:
     This command creates a VM named `first-instance` in the `ru-central1-a` availability zone, with a public IP and the disks from the snapshots. To create a VM without a public IP, remove the `--public-ip` flag.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
+
+**[!TAB API]**
+
+Use the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource.
 
 ---
 

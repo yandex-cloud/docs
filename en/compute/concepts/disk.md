@@ -6,7 +6,7 @@ Disks are designed for storing data. They are attached to VMs to work with them.
 
 Each disk is located in one of the availability zones and is not automatically replicated to other zones.
 
-## A disk as a Yandex.Cloud resource {#disk-as-resource}
+## Disk as a Yandex.Cloud resource {#disk-as-resource}
 
 A disk is created within a folder and inherits its access rights.
 
@@ -14,7 +14,7 @@ Disks use storage capacity that incurs additional fees. For more information, se
 
 If a disk is created from a snapshot or image, the disk information contains the ID of the source resource. In addition, the license IDs are inherited from the source resource (`product_ids`), which are used to calculate the cost of disk usage.
 
-## Disk types {#concept_z5t_rtr_52b}
+## Disk types {#disks_types}
 
 In Yandex.Cloud, there are two types of disks:
 

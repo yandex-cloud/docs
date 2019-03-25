@@ -25,6 +25,8 @@ items:
             href: operations/vm-create/create-from-snapshots.md
           - name: Creating a VM from a custom image
             href: operations/vm-create/create-from-user-image.md
+          - name: Creating a preemptible VM
+            href: operations/vm-create/create-preemptible-vm.md
       - name: DSVM
         items:
           - name: Overview
@@ -85,6 +87,12 @@ items:
         items:
           - name: Uploading your image
             href: operations/image-create/upload.md
+      - name: Performing a serial console management
+        items:
+          - name: Getting started
+            href: operations/serial-console/index.md
+          - name: Connecting to a VM's serial console via SSH
+            href: operations/serial-console/connect.md
   - name: Concepts
     items:
       - name: Relationship between resources
@@ -93,6 +101,8 @@ items:
         items:
           - name: Overview
             href: concepts/vm.md
+          - name: Preemptible VMs
+            href: concepts/preemptible-vm.md
           - name: VM types
             href: concepts/vm-types.md
           - name: Network on a VM

@@ -46,8 +46,8 @@ $ [!KEYREF yc-mdb-pg] database update <DB name> \
 ```
 
 > [!NOTE]
-
-The extension version is not considered when handling the command: you can pass any non-empty string as a version.
+>
+> The extension version is not considered when handling the command: you can pass any non-empty string as a version.
 
 **[!TAB API]**
 

@@ -54,5 +54,9 @@ To create a VM from a set of disks:
     --ssh-key ~/.ssh/id_rsa.pub
     ```
 
+**[!TAB API]**
+
+Use the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource.
+
 ---
 

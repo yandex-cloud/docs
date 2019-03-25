@@ -1,8 +1,8 @@
 # Create a network load balancer
 
 > [!NOTE]
-
-Before creating a load balancer, [create](target-group-create.md) a target group to attach to it.
+>
+> Before creating a load balancer, [create](target-group-create.md) a target group to attach to it.
 
 ---
 
