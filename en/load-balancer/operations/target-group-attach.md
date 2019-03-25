@@ -1,8 +1,8 @@
 # Attach a target group to a load balancer
 
 > [!NOTE]
-
-If a stopped VM instance is added to a target group, the load balancer will not start routing traffic to it after it is restarted. To start routing traffic to the running VM instance, you need to delete it from the group and add it again, or restart the load balancer.
+>
+> If a stopped VM instance is added to a target group, the load balancer will not start routing traffic to it after it is restarted. To start routing traffic to the running VM instance, you need to delete it from the group and add it again, or restart the load balancer.
 
 ---
 

@@ -6,6 +6,8 @@
 - [[!TITLE]](vm-create/create-windows-vm.md)
 - [[!TITLE]](vm-create/create-from-disks.md)
 - [[!TITLE]](vm-create/create-from-snapshots.md)
+- [[!TITLE]](vm-create/create-from-user-image.md)
+- [[!TITLE]](vm-create/create-preemptible-vm.md)
 
 ## DSVM
 
@@ -51,3 +53,7 @@
 
 - [[!TITLE]](image-create/upload.md)
 
+## Performing a serial console management
+
+- [[!TITLE]](serial-console/index.md)
+- [[!TITLE]](serial-console/connect.md)

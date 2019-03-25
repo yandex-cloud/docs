@@ -3,8 +3,8 @@
 If you want to prohibit a [subject](../../concepts/access-control/index.md#subject) from accessing a resource, revoke the subject's roles for that resource or the resource that the access rights are inherited from. For more information, see the section [[!TITLE]](../../concepts/access-control/index.md).
 
 > [!NOTE]
-
-If you need to temporarily revoke all access rights from a user with a Yandex account, you can just revoke the role of `[!KEYREF roles-cloud-member]`. Although the user keeps all the other roles, they can't perform any operations with the cloud resources. When you add the user to the cloud again, the access rights will already be configured.
+>
+> If you need to temporarily revoke all access rights from a user with a Yandex account, you can just revoke the role of `[!KEYREF roles-cloud-member]`. Although the user keeps all the other roles, they can't perform any operations with the cloud resources. When you add the user to the cloud again, the access rights will already be configured.
 
 ## How to revoke a role {#revoke-one-role}
 

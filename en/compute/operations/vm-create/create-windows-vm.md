@@ -2,11 +2,11 @@
 
 This section provides guidelines on how to create a VM with Windows OS. To create a Linux-based VM, follow the instructions [[!TITLE]](create-linux-vm.md).
 
+To create a VM:
+
 ---
 
 **[!TAB Management console]**
-
-To create a VM:
 
 [!INCLUDE [create-instance-via-concole-windows](../../_includes_service/create-instance-via-concole-windows.md)]
 
@@ -16,9 +16,11 @@ To create a VM:
 
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
-To create a VM:
-
 [!INCLUDE [create-instance-via-cli-windows](../../_includes_service/create-instance-via-cli-windows.md)]
+
+**[!TAB API]**
+
+Use the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource.
 
 ---
 

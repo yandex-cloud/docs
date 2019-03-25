@@ -24,7 +24,7 @@
 1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Добавить**:
     - Выберите нужный публичный [образ](../../compute/operations/images-with-pre-installed-software/get-list.md).
     - В блоке **Диски**:
-        - Выберите [тип диска](../../compute/concepts/disk.md#concept_z5t_rtr_52b) (HDD или NVME).
+        - Выберите [тип диска](../../compute/concepts/disk.md#disks_types) (HDD или NVME).
         - Укажите размер диска.
 
             Чтобы добавить дополнительные диски, нажмите **Добавить диск**.
@@ -110,7 +110,7 @@
                     size: 34359738368
             network_interface_specs:
                 - network_id: c64mknqgnd8avp6edhbt
-                    primary_v4_address_spec: {}
+                  primary_v4_address_spec: {}
         ```
 
         Ключи (в таблице приведены ключи, которые непосредственно определяют параметры ВМ):
@@ -182,7 +182,7 @@
                     size: 34359738368
             network_interface_specs:
                 - network_id: c64mknqgnd8avp6edhbt
-                    primary_v4_address_spec: {}
+                  primary_v4_address_spec: {}
         deploy_policy:
             max_unavailable: 1
             max_expansion: 0

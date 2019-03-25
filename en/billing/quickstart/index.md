@@ -14,10 +14,7 @@ To start using the Billing service:
 To create a [billing account](../concepts/billing-account.md):
 
 1. Go to [Yandex.Cloud](https://cloud.yandex.com/).
-
-1. Click **Console**.
-<br/>You will be redirected to the Yandex.Cloud [management console](https://console.cloud.yandex.ru/billing).
-
+1. Click **Console**.<br/>You will be redirected to the Yandex.Cloud [management console](https://console.cloud.yandex.ru/billing).
 1. Log in to Yandex:
     - If you are already logged in to Yandex or Yandex.Connect with your username and password, go to step 4.
     - If you are logged in to Yandex through a social network profile, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1) for your account, and then go to step 4.
@@ -35,7 +32,7 @@ To create a [billing account](../concepts/billing-account.md):
 
 1. Fill in the questionnaire:
 
-   ---
+    ---
 
     **[!TAB Individual account]**
 
@@ -49,40 +46,34 @@ To create a [billing account](../concepts/billing-account.md):
       > [!NOTE]
       >
       > Funds from the linked card can only be debited after [activating the paid version](../operations/activate-commercial.md) and the use of Yandex.Cloud services.
-      >
 
       [!INCLUDE [payment-card-validation](../_includes/payment-card-validation.md)]
 
     **[!TAB Business account]**
 
     9.1. Select a payment method:
-
-    - **Bank card**.
-<br/>Link your corporate bank card:
+    - **Bank card**.<br/>Link your corporate bank card:
       - Click **Add card**.
       - Enter the bank card details: the 16-digit number, expiry date, and CVV (on the back of the card).
       - Click **Link**.
 
       [!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]
 
-   > [!NOTE]
-   >
-   > Linking a bank card is only necessary for creating a billing account. Funds from the associated card can only be debited after [activating the paid version](../operations/activate-commercial.md). At any time after creating a billing account, you can [change your payment method](../operations/change-payment-method.md).
-   >
+      > [!NOTE]
+      >
+      > Linking a bank card is only necessary for creating a billing account. Funds from the associated card can only be debited after [activating the paid version](../operations/activate-commercial.md). At any time after creating a billing account, you can [change your payment method](../operations/change-payment-method.md).
 
       [!INCLUDE [yandex-account](../_includes/payment-card-validation.md)]
 
-    - **Bank transfer**.
-<br/>After you click the **Activate** button (step 11), a billing account is created with the [PAYMENT_NOT_CONFIRMED](../concepts/billing-account-statuses.md) status. An email with further instructions will be sent to the email address specified in your Yandex or Yandex.Connect account. It may take up to three business days to activate your billing account.
+    - **Bank transfer**.<br/>After you click the **Activate** button (step 11), the billing account is created with the [Not verified](../concepts/billing-account.md#conditions) status. An email with further instructions will be sent to the email address specified in your Yandex or Yandex.Connect account. It may take up to three business days to activate your billing account.
 
-   9.2. Enter the legal details of your organization.
+    9.2. Enter the legal details of your organization.
 
-   ---
+    ---
 
-   > [!NOTE]
-   >
-   > Carefully fill in your contact information and payment details. This information is required not only to contact you, but also to issue payment invoices and send financial documents.
-   >
+    > [!NOTE]
+    >
+    > Carefully fill in your contact information and payment details. This information is required not only to contact you, but also to issue payment invoices and send financial documents.
 
 1. Read the agreement. If you agree to the terms and conditions, select **I have read and accept the Terms**.
 
@@ -90,8 +81,7 @@ To create a [billing account](../concepts/billing-account.md):
 
     > [!NOTE]
     >
-    >Once you create a billing account, you are automatically assigned the _Owner_ role. You cannot change  the owner or grant another user access to your billing account. For more information, see [Access management](../security/index.md).
-    >
+    > Once you create a billing account, you are automatically assigned the _Owner_ role. You cannot change the owner or grant another user access to your billing account. For more information, see [Access management](../security/index.md).
 
 <a name="start"></a>
 
@@ -100,4 +90,3 @@ To create a [billing account](../concepts/billing-account.md):
 To start working with Yandex.Cloud:
 
    [!INCLUDE [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md)]
-

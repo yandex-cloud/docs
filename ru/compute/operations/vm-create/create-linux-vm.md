@@ -33,10 +33,7 @@
     $ yc compute instance create \
         --name first-instance \
         --zone ru-central1-a \
-        --public-ip \
-        --memory 4 \
-        --cores 1 \
-        --create-boot-disk image-folder-id=standard-images,image-family=centos-7,size=32 \
+        --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
         --ssh-key ~/.ssh/id_rsa.pub
     ```
 
@@ -45,11 +42,6 @@
     - С именем `first-instance`.
     - С OC CentOS 7.
     - В зоне доступности `ru-central1-a`.
-    - С одним ядром и RAM 4 ГБ.
-    - С сетевым HDD-диском объемом 32 ГБ.
-    - C публичным IP.
-
-    Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
