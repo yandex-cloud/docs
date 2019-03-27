@@ -113,11 +113,12 @@ namespace TTS
             'folderId': folder_id
         }
 
-        resp = requests.post(url, headers=headers, data=data)
-        if resp.status_code != 200:
-            raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
+        with requests.post(url, headers=headers, data=data, stream=True) as resp:
+            if resp.status_code != 200:
+                raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
 
-        return resp.content
+            for chunk in resp.iter_content(chunk_size=None):
+                yield chunk
 
 
     if __name__ == "__main__":
@@ -128,9 +129,9 @@ namespace TTS
         parser.add_argument("--output", required=True, help="Output file name")
         args = parser.parse_args()
 
-        audio_content = synthesize(args.folder_id, args.iam_token, args.text)
         with open(args.output, "wb") as f:
-            f.write(audio_content)
+            for audio_content in synthesize(args.folder_id, args.token, args.text):
+                f.write(audio_content)
     ```
 
 1. Выполните созданный файл, передав в аргументах IAM-токен, идентификатор каталога, текст и имя файла для записи аудио:
@@ -271,11 +272,12 @@ curl_close($ch);
                 'sampleRateHertz': 48000,
             }
 
-            resp = requests.post(url, headers=headers, data=data)
-            if resp.status_code != 200:
-                raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
+            with requests.post(url, headers=headers, data=data, stream=True) as resp:
+                if resp.status_code != 200:
+                    raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
 
-            return resp.content
+                for chunk in resp.iter_content(chunk_size=None):
+                    yield chunk
 
 
         if __name__ == "__main__":
@@ -286,9 +288,9 @@ curl_close($ch);
             parser.add_argument("--output", required=True, help="Output file name")
             args = parser.parse_args()
 
-            audio_content = synthesize(args.folder_id, args.iam_token, args.text)
             with open(args.output, "wb") as f:
-                f.write(audio_content)
+                for audio_content in synthesize(args.folder_id, args.token, args.text):
+                    f.write(audio_content)
         ```
 
     1. Выполните созданный файл, передав в аргументах IAM-токен, идентификатор каталога, текст и имя файла для записи аудио:
