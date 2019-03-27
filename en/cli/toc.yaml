@@ -1,32 +1,44 @@
-title: "Сommand-line interface"
+title: "Command-line interface"
 items:
-  - name: Getting started with the CLI
+  - name: Getting started with the command-line interface
     href: quickstart.md
-#  - name: CLI reference
-#    items:
-#      - name: Overview
-#        href: command-tree/index.md
-#      - name: Manage YC CLI
-#        items:
-#          - name: yc operation
-#            href: command-tree/manage-yc/operation.md
-#          - name: yc config
-#            href: command-tree/manage-yc/config.md
-#          - name: yc components
-#            href: command-tree/manage-yc/components.md
-#      - name: Manage services
-#        items:
-#          - name: yc iam
-#            href: command-tree/manage-services/iam.md
-#          - name: yc resource-manager
-#            href: command-tree/manage-services/resource-manager.md
-#          - name: yc compute
-#            href: command-tree/manage-services/compute.md
-#          - name: yc vpc
-#            href: command-tree/manage-services/vpc.md
-#          - name: yc managed-clickhouse
-#            href: command-tree/manage-services/managed-clickhouse.md
-#          - name: yc managed-mongodb
-#            href: command-tree/manage-services/managed-mongodb.md
-#          - name: yc managed-postgresql
-#            href: command-tree/manage-services/managed-postgresql.md
+  - name: CLI concepts
+    items:
+      - name: Running commands
+        href: concepts/index.md
+      - name: CLI configuration
+        href: concepts/core-propreties.md
+      - name: Profiles
+        href: concepts/profile.md
+      - name: Synchronous and asynchronous modes of command execution
+        href: concepts/mode.md
+  - name: Did an error occur?
+    href: error.md
+  - name: CLI reference
+    items:
+      - name: Overview
+        href: command-tree/index.md
+      - name: Manage YC CLI
+        items:
+          - name: yc operation
+            href: command-tree/manage-yc/operation.md
+          - name: yc config
+            href: command-tree/manage-yc/config.md
+          - name: yc components
+            href: command-tree/manage-yc/components.md
+      - name: Manage services
+        items:
+          - name: yc iam
+            href: command-tree/manage-services/iam.md
+          - name: yc resource-manager
+            href: command-tree/manage-services/resource-manager.md
+          - name: yc compute
+            href: command-tree/manage-services/compute.md
+          - name: yc vpc
+            href: command-tree/manage-services/vpc.md
+          - name: yc managed-clickhouse
+            href: command-tree/manage-services/managed-clickhouse.md
+          - name: yc managed-mongodb
+            href: command-tree/manage-services/managed-mongodb.md
+          - name: yc managed-postgresql
+            href: command-tree/manage-services/managed-postgresql.md
