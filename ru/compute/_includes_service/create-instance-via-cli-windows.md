@@ -26,7 +26,15 @@
         --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk
     ```
 
-    Данная команда создаст виртуальную машину с OC Windows Server 2016, с именем `second-instance`, пользователем `administrator` в зоне `ru-central1-a` и публичным IP. Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
+    Данная команда создаст виртуальную машину со следующими характеристиками:
+
+    - С именем `second-instance`.
+    - С OC Windows Server 2016.
+    - В зоне доступности `ru-central1-a`.
+    - С пользователем `administrator`.
+    - С публичным IP.
+
+    Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
 
     Задайте:
 

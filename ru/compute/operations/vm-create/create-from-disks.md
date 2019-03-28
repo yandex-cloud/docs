@@ -31,13 +31,20 @@
     $ yc compute instance create \
         --name first-instance \
         --zone ru-central1-a \
-        --public-ip \
+        --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
         --use-boot-disk disk-name=first-disk \
         --attach-disk disk-name=second-disk \
         --ssh-key ~/.ssh/id_rsa.pub
     ```
 
-    Данная команда создаст виртуальную машину именем `first-instance` в зоне `ru-central1-a`, с публичным IP и двумя дисками. Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
+    Данная команда создаст виртуальную машину:
+
+    - С именем `first-instance`.
+    - В зоне доступности `ru-central1-a`.
+    - В подсети `default-a`.
+    - С публичным IP и двумя дисками.
+
+    Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
@@ -51,7 +58,7 @@
     yc compute instance create \
     --name first-instance \
     --zone ru-central1-a \
-    --public-ip \
+    --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
     --use-boot-disk disk-name=first-disk,auto-delete=yes \
     --attach-disk disk-name=second-disk,auto-delete=yes \
     --ssh-key ~/.ssh/id_rsa.pub

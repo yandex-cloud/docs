@@ -57,6 +57,6 @@
 ## Управление серийной консолью
 
 - [[!TITLE]](serial-console/index.md)
-- [[!TITLE]](serial-console/connect.md)
-
-
+- [[!TITLE]](serial-console/connect-cli.md)
+- [[!TITLE]](serial-console/connect-ssh.md)
+- [[!TITLE]](serial-console/disable.md)

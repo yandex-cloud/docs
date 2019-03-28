@@ -22,6 +22,8 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 1. Посмотрите описание команды CLI для удаления виртуальных машин:
