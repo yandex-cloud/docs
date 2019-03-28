@@ -94,8 +94,11 @@ items:
           - name: Начало работы
             href: operations/serial-console/index.md
           - name: Подключиться к серийной консоли по SSH
-            href: operations/serial-console/connect.md
-
+            href: operations/serial-console/connect-ssh.md
+          - name: Подключиться к серийной консоли с помощью CLI
+            href: operations/serial-console/connect-cli.md
+          - name: Отключить доступ к серийной консоли
+            href: operations/serial-console/disable.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

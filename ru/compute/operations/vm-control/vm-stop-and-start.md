@@ -22,6 +22,8 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 1. Посмотрите описание команды CLI для остановки виртуальной машины:
@@ -61,6 +63,8 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 1. Посмотрите описание команды CLI для запуска виртуальной машины:
@@ -99,6 +103,8 @@
     Чтобы выполнить это действие с несколькими виртуальными машинами, выделите нужные в списке → нажмите кнопку **Перезапустить** в нижней части экрана.
 
 **[!TAB CLI]**
+
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
 
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 

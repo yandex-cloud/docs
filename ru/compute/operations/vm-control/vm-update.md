@@ -8,6 +8,8 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 1. Посмотрите описание команды CLI для обновления параметров виртуальных машин:
@@ -57,6 +59,8 @@ $ yc compute instance update --help
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 1. Получите список виртуальных машин в каталоге по умолчанию:
@@ -87,6 +91,8 @@ $ yc compute instance update --help
 ---
 
 **[!TAB CLI]**
+
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
 
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
@@ -133,6 +139,8 @@ $ yc compute instance update --help
 ---
 
 **[!TAB CLI]**
+
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
 
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 

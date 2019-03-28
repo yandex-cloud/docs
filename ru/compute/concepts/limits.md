@@ -4,7 +4,7 @@ editable: false
 
 # Квоты и лимиты
 
-В сервисе [!KEYREF compute-full-name] действуют следующие ограничения:
+В сервисе [!KEYREF compute-name] действуют следующие ограничения:
 
 [!INCLUDE [quotes-limits-def.md](../../_includes/quotes-limits-def.md)]
 
