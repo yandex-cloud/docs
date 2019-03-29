@@ -33,7 +33,7 @@
     
     ```
     $ docker build . \
-    -tcontainer-registry.cloud.yandex.net/${REGISTRY_ID}/ubuntu:hello
+    -t cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```
     
 1. Аутентифицируйтесь в реестре от своего имени:
@@ -42,14 +42,14 @@
     $ docker login \
     --username oauth \
     --password ${OAUTH} \
-    container-registry.cloud.yandex.net
+    cr.yandex
     ```
     
 1. Загрузите собранный Docker-образ в Yandex Cloud Registry:
     
     ```
     $ docker push \
-    container-registry.cloud.yandex.net/${REGISTRY_ID}/ubuntu:hello
+    cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```
     
 1. Зайдите по SSH на виртуальную машину и пройдите аутентификацию от имени сервисного аккаунта, привязанного к этой машине:
@@ -58,19 +58,19 @@
     $ ssh ${INSTANCE_ID} docker login \
     --username iam \
     --password ${IAM} \
-    container-registry.cloud.yandex.net
+    cr.yandex
     ```
     
 1. Скачайте Docker-образ на виртуальную машину:
 
     ```
     $ ssh ${INSTANCE_ID} \
-    docker pull container-registry.cloud.yandex.net/${REGISTRY_ID}/ubuntu:hello
+    docker pull cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```
     
 1. Запустите Docker-образ на виртуальной машине:
 
     ```
     $ ssh ${INSTANCE_ID} \
-    docker run container-registry.cloud.yandex.net/${REGISTRY_ID}/ubuntu:hello
+    docker run cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```

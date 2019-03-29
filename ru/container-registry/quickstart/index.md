@@ -35,7 +35,7 @@
     $ docker login \ 
     --username oauth \ # тип используемого токена
     --password <OAuth-токен> \
-    container-registry.cloud.yandex.net
+    cr.yandex
     ```
 
 1. Скачайте Docker-образ из репозитория [Docker Hub](https://hub.docker.com):
@@ -48,21 +48,21 @@
 
     ```
     $ docker tag <ID образа> \
-    container-registry.cloud.yandex.net/crpc9qeoft236r8tfalm/ubuntu:hello
+    cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
     ```
 
 1. Загрузите Docker-образ в репозиторий:
     
     ```
     $ docker push \
-    container-registry.cloud.yandex.net/crpc9qeoft236r8tfalm/ubuntu:hello
+    cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
     ```
     
 1. Запустите Docker-образ:
 
     ```
     $ docker run \
-    container-registry.cloud.yandex.net/crpc9qeoft236r8tfalm/ubuntu:hello
+    cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
     ```
 
 #### Смотрите также

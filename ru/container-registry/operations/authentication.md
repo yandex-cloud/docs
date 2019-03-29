@@ -35,7 +35,7 @@
 
 > [!IMPORTANT]
 >    
-> Не забудьте после всех параметров указать адрес для аутентификации `container-registry.cloud.yandex.net`, иначе 
+> Не забудьте после всех параметров указать адрес для аутентификации `cr.yandex`, иначе 
 > запрос пойдет в сервис по умолчанию — [Docker Hub](https://hub.docker.com).
 
 Выполните в командной строке:
@@ -44,7 +44,7 @@
 $ docker login \
 --username <тип токена> \
 --password <токен> \
-container-registry.cloud.yandex.net
+cr.yandex
 ```
 
 - В параметр `username` передается тип токена `<тип токена>`. Допустимые значения: `oauth` или `iam`. 
@@ -68,7 +68,7 @@ container-registry.cloud.yandex.net
 $ docker login \
 --username oauth \
 --password <OAuth-токен> \
-container-registry.cloud.yandex.net
+cr.yandex
 ```
 
 ---
@@ -91,7 +91,7 @@ container-registry.cloud.yandex.net
     $ docker login \
     --username iam \
     --password <IAM-токен> \
-    container-registry.cloud.yandex.net
+    cr.yandex
     ```
 
 ---
