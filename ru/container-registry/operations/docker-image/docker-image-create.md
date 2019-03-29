@@ -20,7 +20,7 @@
 
     ```
     $ docker build . \
-    -t container-registry.cloud.yandex.net/<ID реестра>/ubuntu:hello
+    -t cr.yandex/<ID реестра>/ubuntu:hello
     ```
 
     Флаг `-t` необязательный — можно собрать Docker-образ без указания тега. В таком случае Docker CLI присвоит метку 
@@ -30,7 +30,7 @@
 
 После выполнения данных команд будет создан Docker-образ со следующими параметрами:
 - Полный адрес репозитория, состоящий из: 
-    - Адрес сервиса Yandex Container Registry `container-registry.cloud.yandex.net`.
+    - Адрес сервиса Yandex Container Registry `cr.yandex`.
     - Идентификатор вашего реестра `<ID реестра>`.
     - Имя вашего репозитория `ubuntu`.
 - Тег Docker-образа в вашем репозитории: `hello`.

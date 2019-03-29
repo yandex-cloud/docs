@@ -67,12 +67,23 @@ To create a JWT, you need [authorized keys](../../concepts/users/service-account
 Create authorized keys for the `my-robot` service account:
 
 ```
-$  yc iam key create --service-account-name my-robot -o my-key.txt
+$  yc iam key create --service-account-name my-robot -o my-robot-key.json
 ```
 
-If successful, a private key (`privateKey`) and public key ID (`id`) will be written to the my-key.txt file.
+If successful, a private key (`privateKey`) and public key ID (`id`) will be written to the my-robot-key.json file.
 
-_my-key.txt_
+_my-robot-key.json_
+
+```json
+{
+   "id": "b1gvmob03goohplcf641",
+   "service_account_id": "ajepg0mjt06siua65usm",
+   "created_at": "2019-03-20T10:04:56Z",
+   "key_algorithm": "RSA_2048",
+   "public_key": "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----\n",
+   "private_key": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+}
+```
 
 [!INCLUDE [key-response-format](../../../_includes/key-response-format.md)]
 
@@ -96,6 +107,20 @@ where:
 * `<SERVICE-ACCOUNT-ID>` is the `ID` of the service account that the keys are created for.
 
 If successful, the server response will contain the private key (`privateKey`) and public key ID (`id`). Save this data because it will be used later.
+
+```json
+{
+    "key": {
+        "createdAt": "2018-10-30T15:55:00+00:00",
+        "description": "",
+        "id": "b1gvmob03goohplcf641",
+        "keyAlgorithm": "RSA_2048",
+        "publicKey": "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----\n",
+        "serviceAccountId": "ajepg0mjt06siua65usm"
+    },
+    "privateKey": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+}
+```
 
 [!INCLUDE [key-response-format](../../../_includes/key-response-format.md)]
 

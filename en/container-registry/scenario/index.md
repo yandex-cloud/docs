@@ -33,7 +33,7 @@ If you don't have a VM yet, you can [create one](../../compute/quickstart/index.
 
     ```
     $ docker build . \
-    -tcontainer-registry.cloud.yandex.net/${REGISTRY_ID}/ubuntu:hello
+    -t cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```
 
 1. Log in to the registry under your username:
@@ -42,14 +42,14 @@ If you don't have a VM yet, you can [create one](../../compute/quickstart/index.
     $ docker login \
     --username oauth \
     --password ${OAUTH} \
-    container-registry.cloud.yandex.net
+    cr.yandex
     ```
 
 1. Push the created Docker image to Yandex Cloud Registry:
 
     ```
     $ docker push \
-    container-registry.cloud.yandex.net/${REGISTRY_ID}/ubuntu:hello
+    cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```
 
 1. Log in to the VM via SSH and authenticate as the service account associated with this VM:
@@ -58,20 +58,20 @@ If you don't have a VM yet, you can [create one](../../compute/quickstart/index.
     $ ssh ${INSTANCE_ID} docker login \
     --username iam \
     --password ${IAM} \
-    container-registry.cloud.yandex.net
+    cr.yandex
     ```
 
 1. Pull the Docker image to the VM:
 
     ```
     $ ssh ${INSTANCE_ID} \
-    docker pull container-registry.cloud.yandex.net/${REGISTRY_ID}/ubuntu:hello
+    docker pull cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```
 
 1. Run the Docker image on the VM:
 
     ```
     $ ssh ${INSTANCE_ID} \
-    docker run container-registry.cloud.yandex.net/${REGISTRY_ID}/ubuntu:hello
+    docker run cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```
 

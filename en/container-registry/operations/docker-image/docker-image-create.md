@@ -20,7 +20,7 @@ The instructions describe how to build a [Docker image](../../concepts/docker-im
 
     ```
     $ docker build . \
-    -t container-registry.cloud.yandex.net/<registry ID>/ubuntu:hello
+    -t cr.yandex/<registry ID>/ubuntu:hello
     ```
 
     The `-t` flag is optional: a Docker image can be assembled without any tag. In this case, the Docker CLI will assign the default label: `latest`.
@@ -30,7 +30,7 @@ The instructions describe how to build a [Docker image](../../concepts/docker-im
 After running these commands, the Docker image will be created with the following parameters:
 
 - Full address of the repository consisting of:
-    - Address of Yandex Container Registry `container-registry.cloud.yandex.net`.
+    - Address of Yandex Container Registry `cr.yandex`.
     - ID of your registry `<registry ID>`.
     - Name of your `ubuntu` repository.
 - Docker image tag in your repository: `hello`.

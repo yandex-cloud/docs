@@ -2,7 +2,7 @@
 
 The diagram shows the cycle of debiting funds from an individual's bank card, as well as suspending and blocking the use of resources.
 
-![image](../_assets/billing-cycle-individual.png)
+![image](../_assets/billing-cycle-individual.svg)
 
 1. You [activate the paid version](../operations/activate-commercial.md) before the end of the trial period.
 <br/>Unless you spent the entire amount of the [initial grant](../concepts/bonus-account.md), you can use the remaining amount after upgrading to the paid version.
@@ -45,7 +45,7 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
 
    During the suspension period, a fee is charged for data storage services, in addition to a late payment fee. Go to step 11.
 
-1. Payment of the entire outstanding amount is verified within 60 days of suspension:
+1. Payment of the entire outstanding amount is verified within 30 days of suspension:
 
     11.1. If you pay the total amount due during this period, access to resources is restored within 24 hours. The billing account status will be changed to [ACTIVE](../concepts/billing-account-statuses.md). Go back to step 2.
 <br/>11.2. Otherwise, access to the use of Yandex.Cloud services may be permanently blocked. All your data, including your [billing account](../concepts/billing-account.md), will be permanently deleted.

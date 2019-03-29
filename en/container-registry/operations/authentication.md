@@ -34,7 +34,7 @@ Once you have selected the authentication method, proceed directly to the execut
 
 > [!IMPORTANT]
 >  
-> After specifying all the parameters, don't forget to set as the address for authentication `container-registry.cloud.yandex.net`, otherwise
+> After specifying all the parameters, don't forget to set as the address for authentication `cr.yandex`, otherwise
 > the request will be sent to the default service, [Docker Hub](https://hub.docker.com).
 
 From the command line, run:
@@ -43,7 +43,7 @@ From the command line, run:
 $ docker login \
 --username <token type> \
 --password <token> \
-container-registry.cloud.yandex.net
+cr.yandex
 ```
 
 * Pass the token type in `<token type>` for the `username` parameter. Acceptable values: `oauth` or `iam`.
@@ -67,7 +67,7 @@ Run the command:
 $ docker login \
 --username oauth \
 --password <OAuth token> \
-container-registry.cloud.yandex.net
+cr.yandex
 ```
 
 ---
@@ -90,7 +90,7 @@ container-registry.cloud.yandex.net
     $ docker login \
     --username iam \
     --password <IAM token> \
-    container-registry.cloud.yandex.net
+    cr.yandex
     ```
 
 ---

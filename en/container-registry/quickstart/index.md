@@ -32,7 +32,7 @@ You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https:
     $ docker login \ 
     --username oauth \ # type of token used
     --password <OAuth token> \
-    container-registry.cloud.yandex.net
+    cr.yandex
     ```
 
 1. Pull a Docker image from the [Docker Hub](https://hub.docker.com) repository:
@@ -45,21 +45,21 @@ You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https:
 
     ```
     $ docker tag <image ID> \
-    container-registry.cloud.yandex.net/crpc9qeoft236r8tfalm/ubuntu:hello
+    cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
     ```
 
 1. Push the Docker image to the repository:
 
     ```
     $ docker push \
-    container-registry.cloud.yandex.net/crpc9qeoft236r8tfalm/ubuntu:hello
+    cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
     ```
 
 1. Run the Docker image:
 
     ```
     $ docker run \
-    container-registry.cloud.yandex.net/crpc9qeoft236r8tfalm/ubuntu:hello
+    cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
     ```
 
 #### See also
