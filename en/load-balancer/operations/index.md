@@ -6,6 +6,7 @@
 - [[!TITLE]](load-balancer-start.md)
 - [[!TITLE]](load-balancer-stop.md)
 - [[!TITLE]](load-balancer-delete.md)
+- [[!TITLE]](check-resource-health.md)
 
 ## Target group {#target-group}
 

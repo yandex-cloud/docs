@@ -34,8 +34,82 @@
 1. Нажмите кнопку **Добавить**.
 1. Нажмите кнопку **Создать балансировщик**.
 
+**[!TAB CLI]**
+
+Если у вас еще нет интерфейса командной строки Яндекс.Облака, [установите его](https://cloud.yandex.ru/docs/cli/quickstart#install).
+
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
+
+1. Посмотрите описание команды CLI для создания сетевого балансировщика:
+
+   ```
+   $ yc load-balancer network-load-balancer create --help
+   ```
+
+1. Чтобы создать балансировщик с [обработчиком](../concepts/listener.md), выполните в терминале команду:
+
+      ```
+      $ yc load-balancer network-load-balancer create \
+      --region-id ru-central1 \
+      --name test-load-balancer-2 \
+      --listener name=test-listener,external-ip-version=ipv4,port=80
+      ```
+
+1. Получите список всех балансировщиков, чтобы убедиться, что балансировщик создан:
+
+   ```
+   $ yc load-balancer network-load-balancer list
+   ```
+
 **[!TAB API]**
 
 Создать новый балансировщик можно с помощью метода API [create](../api-ref/NetworkLoadBalancer/create.md).
+
+---
+
+## Примеры
+
+### Создание балансировщика без обработчика
+
+---
+
+**[!TAB CLI]**
+
+Чтобы создать балансировщик без обработчика, выполните в терминале команду:
+
+```
+   $ yc load-balancer network-load-balancer create \
+   --region-id ru-central1 \
+   --name test-load-balancer-1
+```
+
+---
+
+### Создание балансировщика с обработчиком и подключенной целевой группой
+
+---
+**[!TAB CLI]**
+
+1. Чтобы создать балансировщик с [обработчиком](../concepts/listener.md) и сразу подключить к нему заранее [созданную](target-group-create.md) целевую группу, получите список целевых групп:
+
+   ```
+   $ yc load-balancer target-group list
+   +----------------------+-------------------+---------------------+-------------+--------------+
+   |          ID          |       NAME        |       CREATED       |  REGION ID  | TARGET COUNT |
+   +----------------------+-------------------+---------------------+-------------+--------------+
+   | b7roi767je4c574iivrk | test-target-group | 2018-12-03 14:41:04 | ru-central1 |            1 |
+   +----------------------+-------------------+---------------------+-------------+--------------+
+   ```
+   
+1. Выполните следующую команду, используя идентификатор нужной целевой группы в параметре `target-group-id`:
+
+   ```
+   $ yc load-balancer network-load-balancer create \
+   --region-id ru-central1 \
+   --name test-load-balancer-3 \
+   --listener name=test-listener,external-ip-version=ipv4,port=80 \
+   --target-group target-group-id=b7rjtf12qdeehrj31hri,healthcheck-name=http,healthcheck-interval=2s,healthcheck-timeout=1s,healthcheck-unhealthythreshold=2,healthcheck-healthythreshold=2,healthcheck-http-port=80
+   ```
+   Обратите внимание на формат параметров `healthcheck-interval` и `healthcheck-timeout`: необходимо указывать значение в формате `Ns`.
 
 ---

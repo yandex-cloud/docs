@@ -18,6 +18,12 @@ items:
             href: operations/load-balancer-stop.md
           - name: Удалить балансировщик
             href: operations/load-balancer-delete.md
+          - name: Проверить состояние целевых ресурсов
+            href: operations/check-resource-health.md
+          - name: Добавить обработчик
+            href: operations/listener-add.md
+          - name: Удалить обработчик
+            href: operations/listener-remove.md
       - name: Целевые группы
         items:
           - name: Создать целевую группу

@@ -18,6 +18,8 @@ items:
             href: operations/load-balancer-stop.md
           - name: Delete a load balancer
             href: operations/load-balancer-delete.md
+          - name: Check target health statuses
+            href: operations/check-resource-health.md
       - name: Target groups
         items:
           - name: Create a target group
