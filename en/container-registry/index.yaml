@@ -1,7 +1,7 @@
 # Yandex Container Registry
 title: "Yandex Container Registry"
 description:
-- "<em>Container Registry is in the <a href=\"/docs/overview/concepts/launch-stages\">preview stage</a></em>."
+- "<em>Container Registry is in the <a href=\"/docs/overview/concepts/launch-stages\">Preview stage</a></em>."
 - "Yandex Container Registry is a service for storing and distributing Docker images."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:

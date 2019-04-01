@@ -1,6 +1,7 @@
 # Заголовок и описание на странице
 title: "Instance Groups"
 description:
+- "<em>Instance Groups are in the <a href=\"/docs/overview/concepts/launch-stages\">Preview stage</a></em>."
 - "This is the Instance Groups component of Yandex Compute Cloud that allows you to create groups of similar instances."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
