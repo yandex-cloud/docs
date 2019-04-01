@@ -23,8 +23,3 @@ To select the appropriate number of instances and minimize costs:
 
 - Estimate the amount of computing resources required for your service and see the calculation examples and [pricing policy](../../compute/pricing.md) for [!KEYREF compute-full-name].
 - Try to frequently monitor the load on the service at different times of the day.
-
-#### What types of groups are available? {#what-type}
-
-The alpha version of [!KEYREF instance-groups-short-name] supports fixed-size groups only. Users control the group size themselves, depending on the current load on the service.
-

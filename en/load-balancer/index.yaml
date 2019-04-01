@@ -1,7 +1,6 @@
 # Yandex Load Balancer
 title: "Yandex Load Balancer"
-description: 
-- "<em>This is an alpha version of Yandex Load Balancer, a service for managing network load balancers.</em> The stability of the service is not guaranteed at this stage. There are no SLA obligations. For more information, see <a href=\"/docs/overview/concepts/launch-stages\">Launch stages</a>."
+description:
 - "Yandex Load Balancer is a service that evenly distributes network load across cloud resources."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:

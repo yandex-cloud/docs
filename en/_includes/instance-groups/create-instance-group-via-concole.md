@@ -41,6 +41,6 @@
 
         For more information, see [[!TITLE]](../../instance-groups/concepts/instance-group-policies.md#deploy-policy).
 1. In the **Scalability** section:
-    - Select the [group type](../../instance-groups/concepts/instance-group-types.md). The alpha version allows creating fixed type groups only.
+    - Select the [group type](../../instance-groups/concepts/instance-group-types.md).
     - Specify the required number of instances.
 1. Click **Create**.

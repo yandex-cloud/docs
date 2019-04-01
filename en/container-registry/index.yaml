@@ -1,9 +1,7 @@
 # Yandex Container Registry
 title: "Yandex Container Registry"
 description:
-- "<em>This is an alpha version of Yandex Container Registry, a service for managing Docker images.</em> At 
-this stage, the stability of the service is not guaranteed. There are no SLA obligations. 
-For more information, see <a href=\"/docs/overview/concepts/launch-stages\">Launch stages</a>."
+- "<em>Container Registry is in the <a href=\"/docs/overview/concepts/launch-stages\">preview stage</a></em>."
 - "Yandex Container Registry is a service for storing and distributing Docker images."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:

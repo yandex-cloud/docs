@@ -1,6 +1,6 @@
 title: "Yandex Message Queue"
 href: index.yaml
-stage: alpha
+stage: preview
 items:
   - name: Начало работы
     items:
@@ -37,7 +37,7 @@ items:
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
-    href: security/security.md        
+    href: security/security.md
   - name: Правила тарификации
     href: pricing.md
   - name: Yandex Message Queue API
