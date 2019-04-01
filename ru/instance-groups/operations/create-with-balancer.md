@@ -48,7 +48,7 @@
 
         Подробнее читайте в разделе [[!TITLE]](../../instance-groups/concepts/instance-group-policies.md#deploy-policy).
 1. В блоке **Масштабирование**:
-    - Выберите [тип группы](../../instance-groups/concepts/instance-group-types.md). В альфа-версии можно создавать только группы с фиксированным типом.
+    - Выберите [тип группы](../../instance-groups/concepts/instance-group-types.md).
     - Укажите необходимое количество виртуальных машин.
 1. В блоке **Интеграция с [!KEYREF load-balancer-name]** передвиньте переключатель вправо напротив поля **Создать целевую группу**.
 1. Нажмите кнопку **Создать**.

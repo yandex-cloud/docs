@@ -1,9 +1,8 @@
 # Заголовок и описание на странице
 title: "Instance Groups"
 description:
-- "<em>Это альфа-версия компонента Instance Groups сервиса Yandex Compute Cloud.</em> Компонент позволяет управлять группами виртуальных машин."
-- "На альфа-стадии стабильность работы компонента не гарантируется. Для компонента не действует соглашение об уровне обслуживания (SLA). Подробнее читайте в разделе <a href=\"/docs/overview/concepts/launch-stages\">Стадии готовности сервисов</a>."
-- "Компонент Instance Groups позволяет создавать группы однотипных виртуальных машин в инфраструктуре Yandex Compute Cloud."
+- "<em>Компонент Instance Groups сервиса Yandex Compute Cloud находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a></em>."
+- "Instance Groups позволяет легко управлять группами однотипных виртуальных машин."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Instance Groups"

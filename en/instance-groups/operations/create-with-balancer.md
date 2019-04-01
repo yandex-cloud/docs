@@ -53,7 +53,7 @@ To create an instance group with a load balancer:
 
         For more information, see [[!TITLE]](../../instance-groups/concepts/instance-group-policies.md#deploy-policy).
 1. In the **Scalability** section:
-    - Select the [group type](../../instance-groups/concepts/instance-group-types.md). The alpha version allows creating fixed type groups only.
+    - Select the [group type](../../instance-groups/concepts/instance-group-types.md).
     - Specify the required number of instances.
 1. In the **Integration with [!KEYREF load-balancer-name]** section, switch the **Create target group** option to the right.
 1. Click **Create**.

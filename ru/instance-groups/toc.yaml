@@ -1,6 +1,6 @@
 title: Instance Groups
 href: index.yaml
-stage: alpha
+stage: preview
 items:
   - name: Начало работы
     items:
@@ -47,7 +47,7 @@ items:
       - name: Лимиты
         href: concepts/limits.md
   - name: Управление доступом
-    href: security/index.md        
+    href: security/index.md
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник API

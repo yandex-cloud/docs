@@ -1,6 +1,6 @@
 title: "Yandex Container Registry"
 href: index.yaml
-stage: alpha
+stage: preview
 items:
   - name: Getting started
     href: quickstart/index.md

@@ -1,7 +1,8 @@
 # Заголовок и описание на странице
 title: "Yandex Managed Service for Redis"
 description:
-- "<em>Это альфа-версия сервиса Managed Service for Redis, который помогает разворачивать и поддерживать кластеры серверов Redis в инфраструктуре Яндекс.Облака.</em> На этой стадии стабильность работы сервиса не гарантируется. Для сервиса не действует соглашение об уровне обслуживания (SLA). Подробнее смотрите в разделе <a href=\"/docs/overview/concepts/launch-stages\">Стадии готовности сервисов</a>."
+- "<em>Cервис Managed Service for Redis находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a></em>."
+- "Yandex Managed Service for Redis помогает разворачивать и поддерживать кластеры серверов Redis в инфраструктуре Яндекс.Облака."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Managed Service for Redis"
