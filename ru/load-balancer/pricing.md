@@ -1,6 +1,7 @@
 ---
 editable: false
 ---
+# Правила тарификации для [!KEYREF load-balancer-name]
 
 На стадии Preview использование сервиса [!KEYREF load-balancer-name] не тарифицируется.  
 
