@@ -1,5 +1,6 @@
 title: Instance Groups
 href: index.yaml
+stage: preview
 items:
   - name: Getting started
     items:
