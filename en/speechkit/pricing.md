@@ -3,7 +3,7 @@ editable: false
 ---
 # Yandex SpeechKit pricing
 
-## What goes into the cost of using [!KEYREF speechkit-short-name] {#rules}
+## What goes into the cost of use for [!KEYREF speechkit-short-name] {#rules}
 
 ### Speech synthesis use {#rules-tts}
 

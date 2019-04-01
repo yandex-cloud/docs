@@ -16,6 +16,39 @@ To delete a [target group](../concepts/target-resources.md):
 1. In the menu that opens, click **Delete**.
 1. In the window that opens, click **Delete**.
 
+**[!TAB CLI]**
+
+If you don't have the Yandex.Cloud command line interface yet, [install it](https://cloud.yandex.ru/docs/cli/quickstart#install).
+
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
+
+1. See the description of the CLI's delete target group command:
+
+   ```
+   $ yc load-balancer target-group delete --help
+   ```
+
+1. Get a list of target groups:
+
+   ```
+   $ yc load-balancer target-group list
+   +----------------------+-------------------+-------+
+   |          ID          |       NAME        |  ...  |
+   +----------------------+-------------------+-------+
+   ...
+   | b7roi767je4c574iivrk | test-target-group |  ...  |
+   ...
+   +----------------------+-------------------+-------+
+   ```
+
+1. Choose the `ID` or `NAME` of the target group to delete.
+
+1. Delete the target group from the default folder:
+
+   ```
+   $ yc load-balancer target-group delete b7roi767je4c574iivrk
+   ```
+
 **[!TAB API]**
 
 You can delete target groups using the [delete](../api-ref/TargetGroup/delete.md) API method.

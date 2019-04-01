@@ -10,6 +10,38 @@
 1. Нажмите кнопку **Запустить**.
 1. В открывшемся окне нажмите кнопку **Запустить**.
 
+**[!TAB CLI]**
+
+Если у вас еще нет интерфейса командной строки Яндекс.Облака, [установите его](https://cloud.yandex.ru/docs/cli/quickstart#install).
+
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
+
+1. Посмотрите описание команды CLI для запуска сетевого балансировщика:
+
+   ```
+   $ yc load-balancer network-load-balancer start --help
+   ```
+
+1. Получите список всех балансировщиков:
+
+   ```
+   $ yc load-balancer network-load-balancer list
+   +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
+   |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
+   +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
+   ...
+   | b7r97ah2jn5rmo6k1dsk | test-load-balancer | ru-central1 | EXTERNAL |              1 | b7r97ah2jn5rmo6k1dsk   | INACTIVE |
+   ...
+   +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
+   ```
+
+1. Выберите `ID` или `NAME` нужного балансировщика, находящегося в состоянии `INACTIVE`.
+1. Запустите балансировщик:
+   
+   ```
+   $ yc load-balancer network-load-balancer start b7r97ah2jn5rmo6k1dsk
+   ```
+
 **[!TAB API]**
 
 Запустить балансировщик можно с помощью метода API [start](../api-ref/NetworkLoadBalancer/start.md).

@@ -20,18 +20,31 @@ $ yc iam create-token
 
 [!INCLUDE [owner-warning](../../../_includes/iam/owner-warning.md)]
 
-1. [Log in](https://passport.yandex.com/auth) to your Yandex or Yandex.Connect account.
-2. Get an OAuth token from Yandex.OAuth. To do this, follow the [link](https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb), click **Allow** and copy the OAuth token that is issued.
-3. Exchange the OAuth token for an IAM token:
-
-    ```
-    curl -X POST \
-    -H 'Content-Type: application/json' \
-    -d '{"yandexPassportOauthToken": "<OAuth-token>"}' \
-    https://iam.api.cloud.yandex.net/iam/v1/tokens
-    ```
+[!INCLUDE [create-iam-token-api-steps](../../../_includes/iam/create-iam-token-api-steps.md)]
 
 ---
 
 [!INCLUDE [iam-token-usage](../../../_includes/iam-token-usage.md)]
 
+## Examples
+
+Save the IAM token to a variable and use it in other requests from the command line:
+
+---
+
+**[!TAB Bash]**
+
+```bash
+$ export IAM_TOKEN=`yc iam create-token`
+$ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
+```
+
+**[!TAB Powershell]**
+
+```
+$IAM_TOKEN=yc iam create-token
+curl.exe -H "Authorization: Bearer $IAM_TOKEN" https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
+```
+
+---
