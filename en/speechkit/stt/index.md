@@ -4,9 +4,9 @@ _Speech recognition (speech-to-text, STT)_ is the process of converting speech t
 
 ## Languages {#langs}
 
-- Russian
-- English
-- Turkish
+* Russian
+* English
+* Turkish
 
 ## Language models {#model}
 
@@ -22,47 +22,43 @@ The supported language models are listed below.
 
 **[!TAB Russian]**
 
-- _Queries_ (`general`) — Short phrases containing 3-5 words on various topics, including search engine or website queries.
+* _Queries_ (`general`) — Short phrases containing 3-5 words on various topics, including search engine or website queries.
 For example:
-    - [покажи следующий поворот]
-    - [соединить с отделом продаж]
-    - [еще чашку кофе и две мягких французских булочки]
-    - [какая погода во владивостоке]
-    - [напомни купить овощей и фруктов по дороге домой]
-- _Addresses_ (`maps`) — Addresses and names of companies or geographical features.
-For example:
-    - [поехали на улицу кирпичные выемки пять]
-    - [сколько ехать от льва толстого до новой земли]
-    - [покажи маршрут до музея маяковского]
-- _Dates_ (`dates`) — Names of months, ordinal numbers, and cardinal numbers.
-For example:
-    - [второго ноль седьмого две тысячи первого]
-    - [двадцать седьмое апреля тысяча девятьсот девятнадцатого года]
-- _Names_ (`names`) — First and last names and phone call requests.
-For example:
-    - [щукин платон]
-    - [соедините с людчиком]
-    - [переговорить с васей васиным]
-- _Numbers_ (`numbers`) — Cardinal numbers from 1 to 999 and delimiters (dot, comma, and dash). This model can be used to dictate phone numbers, account numbers, or document numbers.
-For example:
-    - [два двенадцать восемьдесят пять ноль шесть]
-    - [сто пятьдесят семь запятая пятнадцать сорок три]
+    * _покажи следующий поворот_
+    * _соединить с отделом продаж_
+    * _еще чашку кофе и две мягких французских булочки_
+    * _какая погода во владивостоке_
+    * _напомни купить овощей и фруктов по дороге домой_
+* _Addresses_ (`maps`) — Addresses and names of companies or geographical features:
+    * _поехали на улицу кирпичные выемки пять_
+    * _сколько ехать от льва толстого до новой земли_
+    * _покажи маршрут до музея маяковского_
+* _Dates_ (`dates`) — Names of months, ordinal numbers, and cardinal numbers:
+    * _второго ноль седьмого две тысячи первого_
+    * _двадцать седьмое апреля тысяча девятьсот девятнадцатого года_
+* _Names_ (`names`) — First and last names and phone call requests:
+    * _щукин платон_
+    * _соедините с людчиком_
+    * _переговорить с васей васиным_
+* _Numbers_ (`numbers`) — Cardinal numbers from 1 to 999 and delimiters (dot, comma, and dash). This model can be used to dictate phone numbers, account numbers, or document numbers:
+    * _два двенадцать восемьдесят пять ноль шесть_
+    * _сто пятьдесят семь запятая пятнадцать сорок три_
 
 **[!TAB English]**
 
-- _Queries_ (`general`) — Short phrases containing 3-5 words on various topics, including search engine or website queries.
-    - [connect me to the sales department]
-    - [another cup of coffee and two soft French rolls]
-- _Addresses_ (`maps`) — Addresses and names of companies or geographical features.
-    - [go to Abbey Road]
+* _Queries_ (`general`) — Short phrases containing 3-5 words on various topics, including search engine or website queries:
+    * _connect me to the sales department_
+    * _another cup of coffee and two soft French rolls_
+* _Addresses_ (`maps`) — Addresses and names of companies or geographical features:
+    * _go to Abbey Road_
 
 **[!TAB Turkish]**
 
-- _Queries_ (`general`) — Short phrases containing 3-5 words on various topics, including search engine or website queries.
-    - [connect me to the sales department]
-    - [another cup of coffee and two soft French rolls]
-- _Addresses_ (`maps`) — Addresses and names of companies or geographical features.
-    - [go to Abbey Road]
+* _Queries_ (`general`) — Short phrases containing 3-5 words on various topics, including search engine or website queries:
+    * _satış departmanıyla görüşmek istiyorum_
+    * _bir kahve daha ve iki küçük kurabiye_
+* _Addresses_ (`maps`) — Addresses and names of companies or geographical features:
+    * _Atatürk Bulvarı'na git_
 
 ---
 
@@ -74,8 +70,8 @@ The accuracy of recognition depends on the quality of the source sound, audio en
 
 #### See also
 
-- [[!TITLE]](request.md)
-- [[!TITLE]](streaming.md)
-- [Yandex speech technologies (a post on Habrahabr, in Russian)](https://habrahabr.ru/company/yandex/blog/243813/)
-- [Under the hood of Yandex.SpeechKit (a post on Habrahabr, in Russian)](https://habrahabr.ru/company/yandex/blog/198556/)
+* [[!TITLE]](request.md)
+* [[!TITLE]](streaming.md)
+* [Yandex speech technologies (a post on Habrahabr, in Russian)](https://habrahabr.ru/company/yandex/blog/243813/)
+* [Under the hood of Yandex.SpeechKit (a post on Habrahabr, in Russian)](https://habrahabr.ru/company/yandex/blog/198556/)
 
