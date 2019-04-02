@@ -34,6 +34,8 @@ items:
         href: concepts/visibility-timeout.md
       - name: Long Polling
         href: concepts/long-polling.md
+      - name: Dead Letter Queue
+        href: concepts/dlq.md        
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

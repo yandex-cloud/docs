@@ -1,9 +1,9 @@
 # Delete a target group
 
 > [!WARNING]
-
-Before deleting a target group, detach it from the load balancer.
-You cannot restore a target group after it is deleted.
+>
+> Before deleting a target group, detach it from the load balancer.
+> You cannot restore a target group after it is deleted.
 
 ---
 

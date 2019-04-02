@@ -26,6 +26,7 @@ Attribute.N.Value (значение атрибута)
 `MaximumMessageSize` | **integer** | Максимальный размер сообщения в байтах. Возможные значения: 1024 байта (1 KБ) до 262144 байт (256 КБ). Значение по умолчанию: 262144 (256 КБ).
 `MessageRetentionPeriod` | **integer** | Срок хранения сообщений в секундах. Возможные значения: от 60 секунда (1 минута) до 1209600 секунд (14 дней). Значение по умолчанию: 345600 (4 дня).
 `ReceiveMessageWaitTimeSeconds` | **integer** | Время ожидания для метода [ReceiveMessage](../message/ReceiveMessage) в секундах. Возможные значения: от 0 to 20 секунд. Значение по умолчанию: 0.
+`RedrivePolicy` | **string** | Политика перенаправления сообщений в [Dead Letter Queue](../../concepts/dlq.md). Тип исходной очереди и очереди DLQ должны быть одинаковыми: для очередей FIFO очередь DLQ тоже должна быть очередью FIFO. Включает два параметра: <ul><li>`deadLetterTargetArn` — ARN очереди, в которую будут перенаправляться сообщения. ARN очереди можно получить с помощью вызова метода [GetQueueAttributes](GetQueueAttributes.md).</li><li>`maxReceiveCount` — максимальное количество попыток считывания сообщения из очереди перед перенаправлением в DLQ. Когда значение параметра `ReceiveCount` у сообщения превышает значение `maxReceiveCount`, сообщение перенаправляется в DLQ.</li></ul>
 `VisibilityTimeout` | **integer** | [Таймаут видимости](../../concepts/visibility-timeout.md) сообщений в очереди в секундах. Возможные значения: от 0 до 43000 секунд. Значение по умолчанию: 30.
 
 #### Атрибуты очередей FIFO {#fifo-path-parameters}
@@ -38,7 +39,6 @@ Attribute.N.Value (значение атрибута)
 
 Атрибут | Тип | Описание
 ----- | ----- | -----
-`RedrivePolicy` | **string** | Атрибут не поддерживается в Yandex Message Queue.
 `KmsMasterKeyId` | **string** | Атрибут не поддерживается в Yandex Message Queue.
 `KmsDataKeyReusePeriodSeconds` | **string** | Атрибут не поддерживается в Yandex Message Queue.
 

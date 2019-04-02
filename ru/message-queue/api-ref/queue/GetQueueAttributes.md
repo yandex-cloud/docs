@@ -33,7 +33,9 @@ Attribute.N.Value (значение атрибута)
 `LastModifiedTimestamp` | Возвращает время последнего изменения очереди в секундах (epoch time).
 `MaximumMessageSize` | Возвращает максимальный размер сообщения в байтах.
 `MessageRetentionPeriod` | Возвращает срок хранения сообщений в секундах.
+`QueueArn` | ARN очереди, используемый в атрибуте `RedrivePolicy`.
 `ReceiveMessageWaitTimeSeconds` | Возвращает время ожидания для метода [ReceiveMessage](../message/ReceiveMessage) в секундах.
+`RedrivePolicy` | Политика перенаправления сообщений в [Dead Letter Queue](../../concepts/dlq.md). Тип исходной очереди и очереди DLQ должны быть одинаковыми: для очередей FIFO очередь DLQ тоже должна быть очередью FIFO. Включает два параметра: <ul><li>`deadLetterTargetArn` — ARN очереди, в которую будут перенаправляться сообщения.</li> <li>`maxReceiveCount` — максимальное количество попыток считывания сообщения из очереди перед перенаправлением в DLQ. Когда значение параметра `ReceiveCount` у сообщения превышает значение `maxReceiveCount`, сообщение перенаправляется в DLQ.</li></ul>
 `VisibilityTimeout` | Возвращает [таймаут видимости](../../concepts/visibility-timeout.md) сообщений в очереди в секундах.
 
 #### Атрибуты очередей FIFO {#fifo-path-parameters}
@@ -47,7 +49,6 @@ Attribute.N.Value (значение атрибута)
 
 Атрибут | Тип | Описание
 ----- | ----- | -----
-`RedrivePolicy` | **string** | Атрибут не поддерживается в Yandex Message Queue.
 `KmsMasterKeyId` | **string** | Атрибут не поддерживается в Yandex Message Queue.
 `KmsDataKeyReusePeriodSeconds` | **string** | Атрибут не поддерживается в Yandex Message Queue.
 
