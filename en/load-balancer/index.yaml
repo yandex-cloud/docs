@@ -1,7 +1,6 @@
 # Yandex Load Balancer
 title: "Yandex Load Balancer"
 description:
-- "<em>Load Balancer is in the <a href=\"/docs/overview/concepts/launch-stages\">Preview stage</a>. During the Preview stage, [!KEYREF load-balancer-name] can be used free of charge.</em>."
 - "Yandex Load Balancer is a service that evenly distributes network load across cloud resources."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:

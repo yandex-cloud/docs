@@ -1,6 +1,5 @@
 title: "Yandex Load Balancer"
 href: index.yaml
-stage: preview
 items:
   - name: Начало работы
     href: quickstart.md
