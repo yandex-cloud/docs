@@ -62,7 +62,7 @@ items:
             href: operations/dashboard/manage-access.md
   - name: Концепции
     items:
-      - name: Обзор сервиса сервиса
+      - name: Обзор сервиса
         href: concepts/index.md
       - name: Подключение
         href: concepts/connection.md
