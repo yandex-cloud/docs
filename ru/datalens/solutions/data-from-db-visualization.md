@@ -10,12 +10,12 @@
 
 В виде шагов это будет выглядеть следующим образом: 
 
-- [Шаг 1. Создайте датасет](data-from-db-vizualization.md#step1)
-- [Шаг 2. Создайте чарт — столбчатая диаграмма](data-from-db-vizualization.md#step2)
-- [Шаг 3. Создайте чарт — сводная таблица](data-from-db-vizualization.md#step3)
-- [Шаг 4. Создайте дашборд](data-from-db-vizualization.md#step4)
-- [Шаг 5. Добавьте чарты на дашборд](data-from-db-vizualization.md#step5)
-- [Шаг 6. Добавьте селекторы на дашборд](data-from-db-vizualization.md#step6)
+- [Шаг 1. Создайте датасет](data-from-db-visualization.md#step1)
+- [Шаг 2. Создайте чарт — столбчатая диаграмма](data-from-db-visualization.md#step2)
+- [Шаг 3. Создайте чарт — сводная таблица](data-from-db-visualization.md#step3)
+- [Шаг 4. Создайте дашборд](data-from-db-visualization.md#step4)
+- [Шаг 5. Добавьте чарты на дашборд](data-from-db-visualization.md#step5)
+- [Шаг 6. Добавьте селекторы на дашборд](data-from-db-visualization.md#step6)
 
 Создайте [подключение](../concepts/connection.md) к базе данных ClickHouse, в которой хранится таблица.
 

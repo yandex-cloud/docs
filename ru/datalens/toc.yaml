@@ -81,7 +81,7 @@ items:
       - name: Визуализация данных из CSV-файла
         href: solutions/data-from-csv-visualization.md
       - name: Визуализация данных из базы данных ClickHouse
-        href: solutions/data-from-db-vizualization.md
+        href: solutions/data-from-db-visualization.md
       - name: Визуализация данных из Metriсa
         href: solutions/data-from-metrica-visualization.md
   - name: Управление доступом
