@@ -79,6 +79,14 @@ items:
         href: cors/configuration.md
       - name: Configuring CORS in the management console
         href: cors/setup.md
+  - name: Bucket object lifecycles
+    items:
+      - name: Overview
+        href: lifecycles/index.md
+      - name: Configuring buckets
+        href: lifecycles/configuration.md
+      - name: Configuring lifecycles in the management console
+        href: lifecycles/setup.md
   - name: HTTP API compatible with Amazon S3
     items:
       - name: How to use the API
@@ -157,6 +165,16 @@ items:
                 href: s3/api-ref/cors/get.md
               - name: delete
                 href: s3/api-ref/cors/delete.md
+          - name: Lifecycles
+            items:
+              - name: All methods
+                href: s3/api-ref/lifecycles.md
+              - name: upload
+                href: s3/api-ref/lifecycles/upload.md
+              - name: get
+                href: s3/api-ref/lifecycles/get.md
+              - name: delete
+                href: s3/api-ref/lifecycles/delete.md
           - name: Common request headers
             href: s3/api-ref/common-request-headers.md
           - name: Common response headers

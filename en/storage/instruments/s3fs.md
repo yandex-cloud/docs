@@ -4,7 +4,7 @@
 
 > [!NOTE]
 >
-> We recommend using s3fs version 1.84 or higher.
+>We recommend using s3fs version 1.84 or higher.
 
 ## Before you start {#preparations}
 
