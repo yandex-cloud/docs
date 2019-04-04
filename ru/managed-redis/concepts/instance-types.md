@@ -15,5 +15,21 @@
 
 ## Доступные классы хостов {#available-flavors}
 
-* Хосты для небольших баз данных (`burstable`) могут иметь 2 ГБ или 4 ГБ оперативной памяти.
-* Стандартные хосты (`high-memory`) могут иметь от 8 до 256 ГБ памяти, с увеличивающимся шагом: 8, 16, 32, 48, 64, 80, 96, 128, 160, 192, 224, 256.
+Класс хостов | Тип кластера | RAM, ГБ
+----- | ----- | -----
+b1.nano | `burstable` | 2
+b1.small | `burstable` | 4
+hm1.nano | `high-memory` | 8
+hm1.micro | `high-memory` | 12
+hm1.small | `high-memory` | 16
+hm1.medium | `high-memory` | 24
+hm1.large | `high-memory` | 32
+hm1.xlarge | `high-memory` | 48
+hm1.2xlarge | `high-memory` | 64
+hm1.3xlarge | `high-memory` | 80
+hm1.4xlarge | `high-memory` | 96
+hm1.5xlarge | `high-memory` | 128
+hm1.6xlarge | `high-memory` | 160
+hm1.7xlarge | `high-memory` | 192
+hm1.8xlarge | `high-memory` | 224
+hm1.9xlarge | `high-memory` | 256

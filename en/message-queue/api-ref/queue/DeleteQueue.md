@@ -1,0 +1,50 @@
+# DeleteQueue
+
+Method for deleting a queue. If the specified queue does not exist, Message Queue returns a successful response.
+
+The deletion process takes up to 60 seconds. During this time, some requests might succeed (such as sending messages to that queue), but after 60 seconds the queue and the messages will no longer exist.
+
+> [!WARNING]
+
+After the queue is deleted, all messages in it become unavailable.
+
+When you delete a queue, you must wait at least 60 seconds before creating another queue with the same name.
+
+## Request {#request}
+
+### Request parameters {#request-parameters}
+
+| Parameter | Type | Required parameter | Description |
+| ----- | ----- | ----- | ----- |
+| `QueueUrl` | **string** | Yes | URL of a queue. Case-sensitive. |
+
+## Response {#response}
+
+### Successful response fields {#response-parameters}
+
+The response does not contain any fields.
+
+### DeleteQueue errors {#errors}
+
+The method does not return any specific errors. For a list of errors that are common to all methods, see the section [[!TITLE]](../common-errors.md).
+
+## Sample request {#request-example}
+
+```
+Action=DeleteQueue
+&Version=2012-11-05
+&QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+```
+
+For more information about forming requests, see [General format of an API request](../index.md#api-request).
+
+## Sample response {#response-example}
+
+```xml
+<DeleteQueueResponse>
+    <ResponseMetadata>
+        <RequestId>d9188512-606825cd-4ff7192b-e6a3ae2-037bd301dbd569121621293337ebea98</RequestId>
+    </ResponseMetadata>
+</DeleteQueueResponse>
+```
+
