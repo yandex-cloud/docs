@@ -16,6 +16,11 @@ Along with the object, [!KEYREF objstorage-name] stores [user-defined ](#user-me
 
 All other operations that can be performed using [tools](../instruments/index.md) are combinations of the above.
 
+You can configure the following for a bucket's object:
+
+- [CORS](../cors/index.md).
+- [Lifecycle](../lifecycles/index.md).
+
 ## Key {#key}
 
 Key is the ID of an object in a bucket.
@@ -25,14 +30,14 @@ The structure for storing objects is flat, but GUI-based [tools](../instruments/
 A key must:
 
 - Be UTF-8 encoded.
-- Be less than 1024 bytes.
+- Be less than 1024 bytes in size.
 - Not contain the characters `: * ? " < > | !`.
 
 The following characters are safe to use in a key: `[a-zA-Z0-9]`, `-`, `_`, `/`, `\`. Other characters may cause various problems when using [!KEYREF objstorage-name].
 
 ### Folder
 
-There are no folders in [!KEYREF objstorage-name], but GUI-based file management clients like [CyberDuck](../instruments/cyberduck.md) or the interface to [!KEYREF objstorage-name] simulate folders in the Yandex.Cloud management console. A zero-size object, whose key is included in the keys of other objects as a prefix, serves as a folder. For example, an object with an `x` key and zero size will be a folder in the management console, while an object with an `x/y.txt` key will be a `y.txt` object located in the `x` folder.
+There are no folders in [!KEYREF objstorage-name], but GUI-based file management clients like [CyberDuck](../instruments/cyberduck.md) or the interface to [!KEYREF objstorage-name] simulate folders in the Yandex.Cloud management console. A zero-size object serves as a folder. Its key is included in the keys of other objects as a prefix. For example, an object with the `x` key and zero size will be a folder in the management console, while an object with the `x/y.txt` key will be the `y.txt` object located in the `x` folder.
 
 Each of the [tools](../instruments/index.md) manages objects and folders according to their own logic described in their respective documentation.
 
@@ -65,5 +70,5 @@ Metadata names must conform to the HTTP header naming convention and be in lower
 
 > [!NOTE]
 >
-> The PUT request header must not exceed 8 KB. The maximum size of user-defined metadata in this header is 2 KB.
+>The PUT request header must not exceed 8 KB. The maximum size of user-defined metadata in this header is 2 KB.
 

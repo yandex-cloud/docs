@@ -8,7 +8,8 @@
 | [Object](object.md) | Performs object management. |
 | [Multipart upload](multipart.md) | Controls uploading of large objects. |
 | [Static Website Hosting](hosting.md) | Manages bucket configurations for static web hosting. |
-| [CORS](cors.md) | Manages Cross-Origin Resource Sharing (CORS) configurations for buckets. |
+| [CORS](cors.md) | Manages CORS configurations for buckets. |
+| [Lifecycles](lifecycles.md) | Manages bucket object lifecycle configurations. |
 
 ## Supported methods {#operations-list}
 
@@ -61,6 +62,14 @@
 | [upload](cors/upload.md) | Uploads a CORS configuration for a bucket. |
 | [get](cors/get.md) | Returns a CORS configuration for a bucket. |
 | [delete](cors/delete.md) | Deletes a CORS configuration for a bucket. |
+
+### Lifecycles service
+
+| Method | Description |
+| ----- | ----- |
+| [upload](lifecycles/upload.md) | Uploads an object lifecycle configuration to [!KEYREF objstorage-name]. |
+| [get](lifecycles/get.md) | Returns an object lifecycle configuration from [!KEYREF objstorage-name]. |
+| [delete](lifecycles/delete.md) | Deletes an object lifecycle configuration from [!KEYREF objstorage-name]. |
 
 ## See also
 

@@ -23,6 +23,7 @@ You can:
 - [Limit the maximum size of a bucket](../operations/buckets/limit-max-volume.md).[!KEYREF objstorage-name] will not allow uploading an object if, when adding it, the bucket size exceeds the maximum value.
 - Configure a bucket for [static website hosting](../hosting/index.md).
 - Download a [CORS configuration](../cors/index.md) for a bucket.
+- Configure the [lifecycle of objects](../lifecycle/index.md).
 
 ## Usage {#details-of-usage}
 
@@ -42,5 +43,5 @@ You can:
 
   > [!NOTE]
   >
-  > If you have limited the maximum size of a bucket, it may remain unavailable for writes for some time, even if you free up enough space for new objects.
+  >If you have limited the maximum size of a bucket, it may remain unavailable for writes for some time, even if you free up enough space for new objects.
 
