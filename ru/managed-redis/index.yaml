@@ -1,7 +1,6 @@
 # Заголовок и описание на странице
 title: "Yandex Managed Service for Redis"
 description:
-- "<em>Cервис Managed Service for Redis находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a></em>."
 - "Yandex Managed Service for Redis помогает разворачивать и поддерживать кластеры серверов Redis в инфраструктуре Яндекс.Облака."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
