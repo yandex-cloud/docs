@@ -1,0 +1,59 @@
+title: "Yandex Monitoring"
+stage: preview
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Работа с графиками
+        items:
+          - name: Создание графика с помощью  конструктора запроса
+            href: operations/chart/create.md
+          - name: Создание графика с помощью текстового запроса
+            href: operations/chart/create-query.md
+      - name: Работа с дашбордами
+        items:
+          - name: Создание дашборда
+            href: operations/dashboard/create.md
+          - name: Копирование дашборда
+            href: operations/dashboard/copy.md
+          - name: Добавление виджета на дашборд
+            href: operations/dashboard/add-widget.md
+      - name: Работа с метриками
+        items:
+          - name: Получение списка метрик
+            href: operations/metric/list.md
+          - name: Выгрузка метрик
+            href: operations/metric/get.md
+          - name: Запись пользовательских метрик
+            href: operations/metric/add.md
+  - name: Концепции
+    items:
+      - name: Обзор сервиса
+        href: concepts/index.md
+      - name: Модель данных
+        href: concepts/data-model.md
+      - name: Визуализация
+        items:
+          - name: Обзор
+            href: concepts/visualization/index.md
+          - name: Виджеты
+            href: concepts/visualization/widget.md
+          - name: Дашборд
+            href: concepts/visualization/dashboard.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: ru/monitoring/toc.yaml
