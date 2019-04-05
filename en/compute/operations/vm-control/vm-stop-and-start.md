@@ -15,7 +15,7 @@ To stop a VM:
 **[!TAB Management console]**
 
 1. In the management console, select the folder the VM belongs to.
-1. Click on the **Yandex Compute Cloud** tile.
+1. Click on the **Compute Cloud** tile.
 1. To stop a single VM, select the machine → click ![image](../../../_assets/dots.svg) → select **Stop**.
 
     To do this with multiple VMs, select the VMs you need to stop from the list → click **Stop** at the bottom of the screen.
@@ -54,7 +54,7 @@ To start a VM:
 **[!TAB Management console]**
 
 1. In the management console, select the folder the VM belongs to.
-1. Click on the **Yandex Compute Cloud** tile.
+1. Click on the **Compute Cloud** tile.
 1. To start a single VM, select the machine → click ![image](../../../_assets/dots.svg) → select **Start**.
 
     To do this with multiple VMs, select the VMs you need to start from the list → click **Start** at the bottom of the screen.
@@ -93,7 +93,7 @@ To restart a VM:
 **[!TAB Management console]**
 
 1. In the management console, select the folder the VM belongs to.
-1. Click on the **Yandex Compute Cloud** tile.
+1. Click on the **Compute Cloud** tile.
 1. To restart a single VM, select the machine → click ![image](../../../_assets/dots.svg) → select **Restart**.
 
     To do this with multiple VMs, select the VMs you need to restart from the list → click **Restart** at the bottom of the screen.

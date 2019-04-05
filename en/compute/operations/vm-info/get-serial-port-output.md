@@ -7,7 +7,7 @@ You can get the information that the VM outputs to the serial port. This can be 
 **[!TAB Management console]**
 
 1. Select the folder the VM belongs to.
-1. Click on the **Yandex Compute Cloud** tile.
+1. Click on the **Compute Cloud** tile.
 1. Click on the line with the VM you need.
 1. Go to the **Serial port** tab.
 

@@ -9,7 +9,7 @@ meta:
 links:
 - title: "Начало работы"
   description: "Установите CLI и выполните первую команду"
-  href: "quickstart.md"
+  href: "quickstart"
 - title: "Принципы работы с CLI"
   description: "Запуск команд, работа с профилями и конфигурация CLI"
   href: "concepts/"

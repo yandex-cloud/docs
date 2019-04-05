@@ -15,7 +15,7 @@ To delete a disk:
 **[!TAB Management console]**
 
 1. In the management console, select the folder the disk belongs to.
-1. Click on the **Yandex Compute Cloud** tile.
+1. Click on the **Compute Cloud** tile.
 1. On the **Virtual machines** page, go to the **Disks** tab.
 1. In the row with the appropriate disk, click on the icon ![image](../../../_assets/dots.svg) and select the **Delete** command.
 1. Confirm the deletion.

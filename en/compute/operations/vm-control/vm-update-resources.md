@@ -9,7 +9,7 @@ For more information about how to change the name, description, and tags of a VM
 **[!TAB Management console]**
 
 1. In the management console, select the folder the VM belongs to.
-1. Click on the **Yandex Compute Cloud** tile.
+1. Click on the **Compute Cloud** tile.
 1. Select the VM.
 1. Go to the VM's page.
 1. Click **Stop** in the top right corner of the page.

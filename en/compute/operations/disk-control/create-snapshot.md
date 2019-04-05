@@ -29,7 +29,7 @@ To create a disk snapshot:
 **[!TAB Management console]**
 
 1. In the management console, select the folder where the disk is located.
-1. Click on the **Yandex Compute Cloud** tile.
+1. Click on the **Compute Cloud** tile.
 1. On the **Virtual machines** page, go to the **Disks** tab.
 1. In the line with the disk name, click ![image](../../../_assets/dots.svg) and select the **Create snapshot** command.
 1. Enter the snapshot name.
