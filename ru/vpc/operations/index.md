@@ -12,5 +12,7 @@
 
 ## Адреса
 
+- [[!TITLE]](get-static-ip.md)
 - [[!TITLE]](set-static-ip.md)
 - [[!TITLE]](address-delete.md)
+- [[!TITLE]](set-dynamic-ip.md)
