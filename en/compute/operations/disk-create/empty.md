@@ -7,7 +7,7 @@ You can create an empty disk of the specified size.
 **[!TAB Management console]**
 
 1. In the management console, select the folder where you want to create a disk.
-1. Click on the **Yandex Compute Cloud** tile.
+1. Click on the **Compute Cloud** tile.
 1. On the **Virtual machines** page, go to the **Disks** tab.
 1. Click **Create disk**.
 1. Enter the disk name.

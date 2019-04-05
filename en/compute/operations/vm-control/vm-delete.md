@@ -13,7 +13,7 @@ If previously created disks are attached to the VM, they will be detached when t
 **[!TAB Management console]**
 
 1. Select the folder the VM belongs to.
-1. Click on the **Yandex Compute Cloud** tile.
+1. Click on the **Compute Cloud** tile.
 1. Select the VM → click ![image](../../../_assets/dots.svg) → select **Delete**.
 
     To do this with multiple VMs, select the VMs you need to delete from the list → click **Delete** at the bottom of the screen.

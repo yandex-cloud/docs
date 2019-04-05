@@ -19,7 +19,7 @@ Create a new image from the link received in [!KEYREF objstorage-name]:
 **[!TAB Management console]**
 
 1. In the management console, select the folder where you want to create an image.
-1. Click on the **Yandex Compute Cloud** tile.
+1. Click on the **Compute Cloud** tile.
 1. On the **Virtual machines** page, go to the **Images** tab.
 1. Click **Upload image**.
 1. Enter the image name.
