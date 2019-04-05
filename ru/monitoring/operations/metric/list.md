@@ -50,7 +50,7 @@ $ curl -H "Content-Type: application/json" \
       "createdAt": "2019-04-02T03:38:01Z"
     },
     ...
-      ],
+  ],
   "page": {
     "pagesCount": 3,
     "totalCount": 72,
