@@ -58,64 +58,64 @@ editable: false
 
 Класс хостов | Цена за месяц, без НДС | Цена за месяц, вкл. НДС 
 ----- | ----- | ----- | -----
-b1.nano | 423 ₽ | 508 ₽
-b1.small | 1 094 ₽ | 1 313 ₽
-hm1.nano | 3 140 ₽ | 3 768 ₽
-hm1.micro | 4 347 ₽ | 5 216 ₽
-hm1.small | 5 313 ₽ | 6 375 ₽
-hm1.medium | 7 550 ₽ | 9 060 ₽
-hm1.large | 9 506 ₽ | 11 407 ₽
-hm1.xlarge | 13 465 ₽ | 16 158 ₽
-hm1.2xlarge | 16 902 ₽ | 20 282 ₽
-hm1.3xlarge | 20 316 ₽ | 24 379 ₽
-hm1.4xlarge | 23 791 ₽ | 28 549 ₽
-hm1.5xlarge | 30 984 ₽ | 37 181 ₽
-hm1.6xlarge | 37 809 ₽ | 45 370 ₽
-hm1.7xlarge | 44 251 ₽ | 53 101 ₽
-hm1.8xlarge | 50 335 ₽ | 60 402 ₽
-hm1.9xlarge | 56 052 ₽ | 67 262 ₽
+[!KEYREF b1.nano]| 423 ₽ | 508 ₽
+[!KEYREF b1.small] | 1 094 ₽ | 1 313 ₽
+[!KEYREF hm1.nano]| 3 140 ₽ | 3 768 ₽
+[!KEYREF hm1.micro] | 4 347 ₽ | 5 216 ₽
+[!KEYREF hm1.small] | 5 313 ₽ | 6 375 ₽
+[!KEYREF hm1.medium] | 7 550 ₽ | 9 060 ₽
+[!KEYREF hm1.large] | 9 506 ₽ | 11 407 ₽
+[!KEYREF hm1.xlarge] | 13 465 ₽ | 16 158 ₽
+[!KEYREF hm1.2xlarge] | 16 902 ₽ | 20 282 ₽
+[!KEYREF hm1.3xlarge] | 20 316 ₽ | 24 379 ₽
+[!KEYREF hm1.4xlarge]| 23 791 ₽ | 28 549 ₽
+[!KEYREF hm1.5xlarge]| 30 984 ₽ | 37 181 ₽
+[!KEYREF hm1.6xlarge]| 37 809 ₽ | 45 370 ₽
+[!KEYREF hm1.7xlarge]| 44 251 ₽ | 53 101 ₽
+[!KEYREF hm1.8xlarge]| 50 335 ₽ | 60 402 ₽
+[!KEYREF hm1.9xlarge]| 56 052 ₽ | 67 262 ₽
 
 **[!TAB За 1 час работы хоста]**
 
 Класс хостов | Цена за час, без НДС | Цена за час, вкл. НДС 
 ----- | ----- | ----- | -----
-b1.nano | 0.5880 ₽ | 0.7056 ₽
-b1.small | 1.5200 ₽ | 1.8240 ₽
-hm1.nano | 4.3608 ₽ | 5.2332 ₽
-hm1.micro | 6.0372 ₽ | 7.2444 ₽
-hm1.small | 7.3792 ₽ | 8.8548 ₽
-hm1.medium | 10.4856 ₽ | 12.5832 ₽
-hm1.large | 13.2032 ₽ | 15.8436 ₽
-hm1.xlarge | 18.7008 ₽ | 22.4412 ₽
-hm1.2xlarge | 23.4752 ₽ | 28.1700 ₽
-hm1.3xlarge | 28.2160 ₽ | 33.8592 ₽
-hm1.4xlarge | 33.0432 ₽ | 39.6516 ₽
-hm1.5xlarge | 43.0336 ₽ | 51.6408 ₽
-hm1.6xlarge | 52.5120 ₽ | 63.0144 ₽
-hm1.7xlarge | 61.4592 ₽ | 73.7508 ₽
-hm1.8xlarge | 69.9104 ₽ | 83.8920 ₽
-hm1.9xlarge | 77.8496 ₽ | 93.4200 ₽
+[!KEYREF b1.nano] | 0,5880 ₽ | 0,7056 ₽
+[!KEYREF b1.small] | 1,5200 ₽ | 1,8240 ₽
+[!KEYREF hm1.nano] | 4,3608 ₽ | 5,2332 ₽
+[!KEYREF hm1.micro] | 6,0372 ₽ | 7,2444 ₽
+[!KEYREF hm1.small] | 7,3792 ₽ | 8,8548 ₽
+[!KEYREF hm1.medium] | 10,4856 ₽ | 12,5832 ₽
+[!KEYREF hm1.large] | 13,2032 ₽ | 15,8436 ₽
+[!KEYREF hm1.xlarge] | 18,7008 ₽ | 22,4412 ₽
+[!KEYREF hm1.2xlarge] | 23,4752 ₽ | 28,1700 ₽
+[!KEYREF hm1.3xlarge] | 28,2160 ₽ | 33,8592 ₽
+[!KEYREF hm1.4xlarge] | 33,0432 ₽ | 39,6516 ₽
+[!KEYREF hm1.5xlarge] | 43,0336 ₽ | 51,6408 ₽
+[!KEYREF hm1.6xlarge] | 52,5120 ₽ | 63,0144 ₽
+[!KEYREF hm1.7xlarge] | 61,4592 ₽ | 73,7508 ₽
+[!KEYREF hm1.8xlarge] | 69,9104 ₽ | 83,8920 ₽
+[!KEYREF hm1.9xlarge] | 77,8496 ₽ | 93,4200 ₽
 
 **[!TAB За 1 ГБ RAM]**
 
 Класс хостов | Цена за ГБ в час, без НДС | 1 ГБ в час, вкл. НДС 
 ----- | ----- | ----- | -----
-b1.nano | 0,2940 ₽ | 0,3528 ₽
-b1.small | 0,3800 ₽ | 0,4560 ₽
-hm1.nano | 0,5451 ₽ | 0,6541 ₽
-hm1.micro | 0,5031 ₽ | 0,6037 ₽
-hm1.small | 0,4612 ₽ | 0,5534 ₽
-hm1.medium | 0,4369 ₽ | 0,5243 ₽
-hm1.large | 0,4126 ₽ | 0,4951 ₽
-hm1.xlarge | 0,3896 ₽ | 0,4675 ₽
-hm1.2xlarge | 0,3668 ₽ | 0,4402 ₽
-hm1.3xlarge | 0,3527 ₽ | 0,4232 ₽
-hm1.4xlarge | 0,3442 ₽ | 0,4130 ₽
-hm1.5xlarge | 0,3362 ₽ | 0,4034 ₽
-hm1.6xlarge | 0,3282 ₽ | 0,3938 ₽
-hm1.7xlarge | 0,3201 ₽ | 0,3841 ₽
-hm1.8xlarge | 0,3121 ₽ | 0,3745 ₽
-hm1.9xlarge | 0,3041 ₽ | 0,3649 ₽
+[!KEYREF b1.nano] | 0,2940 ₽ | 0,3528 ₽
+[!KEYREF b1.small] | 0,3800 ₽ | 0,4560 ₽
+[!KEYREF hm1.nano] | 0,5451 ₽ | 0,6541 ₽
+[!KEYREF hm1.micro] | 0,5031 ₽ | 0,6037 ₽
+[!KEYREF hm1.small] | 0,4612 ₽ | 0,5534 ₽
+[!KEYREF hm1.medium] | 0,4369 ₽ | 0,5243 ₽
+[!KEYREF hm1.large] | 0,4126 ₽ | 0,4951 ₽
+[!KEYREF hm1.xlarge] | 0,3896 ₽ | 0,4675 ₽
+[!KEYREF hm1.2xlarge] | 0,3668 ₽ | 0,4402 ₽
+[!KEYREF hm1.3xlarge] | 0,3527 ₽ | 0,4232 ₽
+[!KEYREF hm1.4xlarge] | 0,3442 ₽ | 0,4130 ₽
+[!KEYREF hm1.5xlarge] | 0,3362 ₽ | 0,4034 ₽
+[!KEYREF hm1.6xlarge] | 0,3282 ₽ | 0,3938 ₽
+[!KEYREF hm1.7xlarge] | 0,3201 ₽ | 0,3841 ₽
+[!KEYREF hm1.8xlarge] | 0,3121 ₽ | 0,3745 ₽
+[!KEYREF hm1.9xlarge] | 0,3041 ₽ | 0,3649 ₽
 
 ---
 
