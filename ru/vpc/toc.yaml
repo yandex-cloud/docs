@@ -25,8 +25,12 @@ items:
             href: operations/subnet-update.md
       - name: IP-адрес
         items:
-          - name: Получить статический публичный IP-адрес
+          - name: Зарезервировать статический публичный IP-адрес
+            href: operations/get-static-ip.md
+          - name: Сделать динамический публичный IP-адрес статическим
             href: operations/set-static-ip.md
+          - name: Сделать статический публичный IP-адрес динамическим
+            href: operations/set-dynamic-ip.md
           - name: Удалить статический публичный IP-адрес
             href: operations/address-delete.md
   - name: Концепции
