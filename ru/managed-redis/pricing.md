@@ -130,4 +130,3 @@ editable: false
 ### Исходящий трафик {#prices-traffic}
 
 [!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md)]
-

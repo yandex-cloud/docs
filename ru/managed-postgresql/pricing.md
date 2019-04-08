@@ -73,4 +73,3 @@ s1.xlarge | 68,9746 ₽ | 82,7695 ₽
 ### Исходящий трафик {#prices-traffic}
 
 [!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md)]
-

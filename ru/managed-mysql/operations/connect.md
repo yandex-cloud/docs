@@ -12,6 +12,7 @@ $ wget "https://[!KEYREF s3-storage-host][!KEYREF pem-path]" -O ~/.mysql/root.cr
 $ chmod 0600 ~/.mysql/root.crt
 ```
 
+
 ## Строка подключения
 
 Теперь вы можете подключиться к БД с помощью команды `mysql`:
