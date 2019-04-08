@@ -1,5 +1,5 @@
-title: "Yandex Managed Service for MySQL<sup>®</sup>"
-stage: preview
+title: "Yandex Managed Service for MySQL"
+stage: alpha
 href: index.yaml
 items:
   - name: Начало работы
@@ -46,9 +46,9 @@ items:
     items:
     - name: Аутентификация в API
       href: api-ref/authentication.md
-    include:
-      repo: docs-api
-      path: ru/mdb/mysql/toc.yaml
+#    include:
+#      repo: docs-api
+#      path: ru/managed-mysql/toc.yaml
   - name: Вопросы и ответы
     items:
     - name: Общие вопросы

@@ -23,36 +23,36 @@
 
 1. Посмотрите описание команды CLI для изменения кластера:
 
-    ```
-    $ [!KEYREF yc-mdb-ch] cluster update --help
-    ```
+   ```
+   $ [!KEYREF yc-mdb-ch] cluster update --help
+   ```
 
-2. Запросите список доступных классов хостов (в колонке `ZONES` указаны зоны доступности, в которых можно выбрать соответствующий класс):
+1. Запросите список доступных классов хостов (в колонке `ZONES` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
-    ```bash
-    $ [!KEYREF yc-mdb-ch] resource-preset list
-    
-    +-----------+--------------------------------+-------+----------+
-    |    ID     |            ZONE IDS            | CORES |  MEMORY  |
-    +-----------+--------------------------------+-------+----------+
-    | s1.nano   | ru-central1-a, ru-central1-b,  |     1 | 4.0 GB   |
-    |           | ru-central1-c                  |       |          |
-    | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
-    |           | ru-central1-c                  |       |          |
-    | ...                                                           |
-    +-----------+--------------------------------+-------+----------+
-    ```
+   ```bash
+   $ [!KEYREF yc-mdb-ch] resource-preset list
+   
+   +-----------+--------------------------------+-------+----------+
+   |    ID     |            ZONE IDS            | CORES |  MEMORY  |
+   +-----------+--------------------------------+-------+----------+
+   | s1.nano   | ru-central1-a, ru-central1-b,  |     1 | 4.0 GB   |
+   |           | ru-central1-c                  |       |          |
+   | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
+   |           | ru-central1-c                  |       |          |
+   | ...                                                           |
+   +-----------+--------------------------------+-------+----------+
+   ```
 
 3. Укажите нужный класс в команде изменения кластера:
 
-    ```
-    $ [!KEYREF yc-mdb-ch] cluster update <имя кластера>
-         --clickhouse-resource-preset <ID класса>
-    ```
-
-    [!KEYREF mch-short-name] запустит операцию изменения класса хостов для кластера.
-
-    Для хоста ZooKeeper класс можно задать в аналогичном параметре, `--zookeeper-resource-preset`.
+   ```
+   $ [!KEYREF yc-mdb-ch] cluster update <имя кластера>
+        --clickhouse-resource-preset <ID класса>
+   ```
+   
+   [!KEYREF mch-short-name] запустит операцию изменения класса хостов для кластера.
+   
+   Для хоста ZooKeeper класс можно задать в аналогичном параметре, `--zookeeper-resource-preset`.
 
 **[!TAB API]**
 
@@ -61,6 +61,7 @@
 Список поддерживаемых значений запрашивайте методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
 
 ---
+
 
 ## Увеличить размер хранилища {#change-disk-size}
 
@@ -74,41 +75,41 @@
 
 Чтобы увеличить размер хранилища для кластера:
 
+1. Проверьте, что нужный кластер использует именно сетевое хранилище (увеличить размер локального хранилища пока невозможно). Для этого запросите информацию о кластере и найдите поле `disk_type_id` — его значение должно быть `network-hdd` или `network-nvme`:
+
+   ```
+   $ [!KEYREF yc-mdb-ch] cluster get <имя кластера>
+   
+   id: c7qkvr3u78qiopj3u4k2
+   folder_id: b1g0ftj57rrjk9thribv
+   ...
+   config:
+     clickhouse:
+       resources:
+         resource_preset_id: s1.nano
+         disk_size: "21474836480"
+         disk_type_id: network-nvme
+   ...
+   ```
+
 1. Посмотрите описание команды CLI для изменения кластера:
 
-    ```
-    $ [!KEYREF yc-mdb-ch] cluster update --help
-    ```
+   ```
+   $ [!KEYREF yc-mdb-ch] cluster update --help
+   ```
 
-2. Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции [!KEYREF mch-full-name] не исчерпано место в строке **space**.
+1. Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции [!KEYREF mch-full-name] не исчерпано место в строке **space**.
 
-3. Проверьте, что нужный кластер использует именно сетевое хранилище (увеличить размер локального хранилища пока невозможно). Для этого запросите информацию о кластере и найдите поле `disk_type_id` — его значение должно быть `network-hdd` или `network-nvme`:
+1. Укажите нужный объем хранилища в команде изменения кластера (должен быть не меньше, чем значение `disk_size` в свойствах кластера):
 
-    ```
-    $ [!KEYREF yc-mdb-ch] cluster get <имя кластера>
-    
-    id: c7qkvr3u78qiopj3u4k2
-    folder_id: b1g0ftj57rrjk9thribv
-    ...
-    config:
-      clickhouse:
-        resources:
-          resource_preset_id: s1.nano
-          disk_size: "21474836480"
-          disk_type_id: network-nvme
-    ...
-    ```
-
-4. Укажите нужный объем хранилища в команде изменения кластера (должен быть не меньше, чем значение `disk_size` в свойствах кластера):
-
-    ```
-    $ [!KEYREF yc-mdb-ch] cluster update <имя кластера>
-         --clickhouse-disk-size <размер хранилища в ГБ>
-    ```
-
-    Если все условия выполнены, [!KEYREF mch-short-name] запустит операцию по увеличению объема хранилища.
-
-    Объем хранилища для ZooKeeper можно изменить аналогичным параметром, `--zookeeper-disk-size`.
+   ```
+   $ [!KEYREF yc-mdb-ch] cluster update <имя кластера>
+        --clickhouse-disk-size <размер хранилища в ГБ>
+   ```
+   
+   Если все условия выполнены, [!KEYREF mch-short-name] запустит операцию по увеличению объема хранилища.
+   
+   Объем хранилища для ZooKeeper можно изменить аналогичным параметром, `--zookeeper-disk-size`.
 
 **[!TAB API]**
 
@@ -117,6 +118,7 @@
 Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции [!KEYREF mch-full-name] не исчерпано место в строке **space**.
 
 ---
+
 
 ## Изменить настройки [!KEYREF CH] {#change-clickhouse-config}
 
@@ -129,4 +131,3 @@
 Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.clickhouse.config`.
 
 ---
-

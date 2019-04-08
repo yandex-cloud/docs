@@ -36,7 +36,7 @@
 
    ```
    $ yc load-balancer network-load-balancer add-listener c580id04kvumgn7ssfh1 \
-   --listener name=test-listener,port=80,external-ip-version=ipv4
+        --listener name=test-listener,port=80,external-ip-version=ipv4
    .....done
    id: c58r8boim8qfkcqtuioj
    folder_id: aoerb349v3h4bupphtaf

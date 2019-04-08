@@ -29,19 +29,19 @@
 
 2. Запросите список доступных классов хостов (в колонке `ZONES` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
-    ```bash
-    $ [!KEYREF yc-mdb-mg] resource-preset list
-    
-    +-----------+--------------------------------+-------+----------+
-    |    ID     |            ZONE IDS            | CORES |  MEMORY  |
-    +-----------+--------------------------------+-------+----------+
-    | s1.nano   | ru-central1-a, ru-central1-b,  |     1 | 4.0 GB   |
-    |           | ru-central1-c                  |       |          |
-    | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
-    |           | ru-central1-c                  |       |          |
-    | ...                                                           |
-    +-----------+--------------------------------+-------+----------+
-    ```
+   ```bash
+   $ [!KEYREF yc-mdb-mg] resource-preset list
+   
+   +-----------+--------------------------------+-------+----------+
+   |    ID     |            ZONE IDS            | CORES |  MEMORY  |
+   +-----------+--------------------------------+-------+----------+
+   | s1.nano   | ru-central1-a, ru-central1-b,  |     1 | 4.0 GB   |
+   |           | ru-central1-c                  |       |          |
+   | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
+   |           | ru-central1-c                  |       |          |
+   | ...                                                           |
+   +-----------+--------------------------------+-------+----------+
+   ```
 
 3. Укажите нужный класс в команде изменения кластера:
 
@@ -52,6 +52,7 @@
 
     [!KEYREF mmg-short-name] запустит операцию изменения класса хостов для кластера.
 
+
 **[!TAB API]**
 
 Изменить [класс хостов](../concepts/instance-types.md) кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_3_6.mongod.config.resourcePresetId`.
@@ -59,6 +60,7 @@
 Список поддерживаемых значений запрашивайте методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
 
 ---
+
 
 ## Увеличить размер хранилища {#change-disk-size}
 
@@ -78,7 +80,7 @@
     $ [!KEYREF yc-mdb-mg] cluster update --help
     ```
 
-2. Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции [!KEYREF mmg-full-name] не исчерпано место в строке **space**.
+1. Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции [!KEYREF mmg-full-name] не исчерпано место в строке **space**.
 
 3. Проверьте, что нужный кластер использует именно сетевое хранилище (увеличить размер локального хранилища пока невозможно). Для этого запросите информацию о кластере и найдите поле `disk_type_id` — его значение должно быть `network-hdd` или `network-nvme`:
 
@@ -117,15 +119,35 @@
 
 ---
 
+
 ## Изменить настройки [!KEYREF MG] {#change-mongod-config}
 
 Вы можете изменить настройки СУБД для хостов вашего кластера. Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md).
 
 ---
 
+**[!TAB CLI]**
+
+[!INCLUDE [cli-install](../../_includes/cli-install.md)]
+
+[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
+
+Чтобы изменить настройки СУБД для кластера, используйте команду:
+```
+$ [!KEYREF yc-mdb-mg] cluster update-config
+```
+
+Например, для установки значения параметра [net.maxIncomingConnections](https://docs.mongodb.com/v4.0/reference/configuration-options/#net.maxIncomingConnections) в `4096`, выполните следующую команду:
+
+```
+$ [!KEYREF yc-mdb-mg] cluster update-config <имя кластера>
+    --set net.max_incoming_connections=4096
+```
+
+[!KEYREF mmg-short-name] запустит операцию изменения настроек СУБД для кластера. Если изменяемая настройка применяется только с перезапуском СУБД, то [!KEYREF mmg-short-name] последовательно перезапустит СУБД на всех хостах кластера.
+
 **[!TAB API]**
 
 Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_3_6.mongod.config.resourcePresetId`.
 
 ---
-

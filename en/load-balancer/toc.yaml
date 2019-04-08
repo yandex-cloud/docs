@@ -20,6 +20,10 @@ items:
             href: operations/load-balancer-delete.md
           - name: Check target health statuses
             href: operations/check-resource-health.md
+          - name: Add a listener to a load balancer
+            href: operations/listener-add.md
+          - name: Remove a listener
+            href: operations/listener-remove.md
       - name: Target groups
         items:
           - name: Create a target group

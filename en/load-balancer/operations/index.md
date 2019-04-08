@@ -7,6 +7,8 @@
 - [[!TITLE]](load-balancer-stop.md)
 - [[!TITLE]](load-balancer-delete.md)
 - [[!TITLE]](check-resource-health.md)
+- [[!TITLE]](listener-add.md)
+- [[!TITLE]](listener-remove.md)
 
 ## Target group {#target-group}
 
