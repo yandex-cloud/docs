@@ -8,6 +8,15 @@ To access the [registry](../../concepts/registry.md), use its ID or name. For in
 
 ---
 
+**[!TAB Management console]**
+
+To delete a [registry](../../concepts/registry.md):
+
+1. Open the **Container Registry** section in the folder where you want to delete the registry.
+1. Click ![image](../../../_assets/vertical-ellipsis.svg) in the line of the registry to delete.
+1. In the menu that opens, click **Delete**.
+1. In the window that opens, click **Delete**.
+
 **[!TAB CLI]**
 
 [!INCLUDE [cli-install](../../../_includes/cli-install.md)]
@@ -15,7 +24,7 @@ To access the [registry](../../concepts/registry.md), use its ID or name. For in
 1. Delete the registry:
 
     ```
-    $ yc container registry delete new-reg
+    $ yc container registry delete new-reg 
     ..done
     ```
 
