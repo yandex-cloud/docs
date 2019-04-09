@@ -61,7 +61,7 @@ For Windows, the CLI can be installed using PowerShell and `cmd`:
     1. Run the command:
 
         ```
-        iex (New-Object System.Net.WebClient).DownloadString('https://[!KEYREF s3-storage-host]/[!KEYREF yc-windows-path]'))
+        iex (New-Object System.Net.WebClient).DownloadString('https://[!KEYREF s3-storage-host][!KEYREF yc-windows-path]')
         ```
 
     1. The installation script will ask whether to add the path to `yc` to the PATH variable:
