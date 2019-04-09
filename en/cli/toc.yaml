@@ -1,4 +1,5 @@
 title: "Command-line interface"
+href: index.yaml
 items:
   - name: Getting started with the command-line interface
     href: quickstart.md
