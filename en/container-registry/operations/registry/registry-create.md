@@ -4,13 +4,27 @@ One folder may have only one [registry](../../concepts/registry.md). Anyone with
 
 ---
 
+**[!TAB Management console]**
+
+To create a [registry](../../concepts/registry.md):
+
+1. Open the **Container Registry** section in the folder where you want to create the registry.
+
+1. Click **Create registry**.
+
+1. Specify a name for the registry.
+
+    [!INCLUDE [name-format](../../../_includes/name-format.md)]
+
+1. Click **Create registry**.
+
 **[!TAB CLI]**
 
 [!INCLUDE [cli-install](../../../_includes/cli-install.md)]
 
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
-1. Get a list of registries in the default folder:
+1. Make sure that a registry has not been created in the folder yet:
 
     ```
     $ yc container registry list
@@ -34,11 +48,11 @@ One folder may have only one [registry](../../concepts/registry.md). Anyone with
     created_at: "2019-01-09T14:34:06.601Z"
     ```
 
-    The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters.
+    [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
     Note:
-    * The `--name` flag is optional: you can create a registry without any name and access it using the ID.
-    * The `name` field is user-defined: it is used for listing in the YC CLI and is **not used** in the Docker CLI.
+    - The `--name` flag is optional: you can create a registry without any name and access it using the ID.
+    - The `name` field is user-defined: it is used for listing in the YC CLI and is **not used** in the Docker CLI.
 
 1. Make sure the registry has been created:
 
