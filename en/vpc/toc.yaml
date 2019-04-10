@@ -29,6 +29,11 @@ items:
             href: operations/set-static-ip.md
           - name: Deleting a static public IP address
             href: operations/address-delete.md
+      - name: DDoS Protection
+        stage: new
+        items:
+          - name: Enable protection from DDoS attacks
+            href: operations/enable-ddos-protection.md
   - name: Concepts
     items:
       - name: Relationship between service resources
@@ -39,6 +44,9 @@ items:
         href: concepts/address.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: DDoS Protection
+    stage: new
+    href: ddos-protection/index.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
