@@ -33,6 +33,11 @@ items:
             href: operations/set-dynamic-ip.md
           - name: Удалить статический публичный IP-адрес
             href: operations/address-delete.md
+      - name: Защита от DDoS-атак
+        stage: new
+        items:
+          - name: Включить защиту от DDoS-атак
+            href: operations/enable-ddos-protection.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -43,6 +48,9 @@ items:
         href: concepts/address.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: DDoS Protection
+    stage: new
+    href: ddos-protection/index.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
