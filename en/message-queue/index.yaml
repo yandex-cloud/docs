@@ -1,7 +1,7 @@
 # Yandex Load Balancer
 title: "Yandex Message Queue"
 description: 
-- "<em>This is an alpha version of Yandex Message Queue, a service for managing message queues.</em> At this stage, the stability of the service is not guaranteed. There are no SLA obligations. For more information, see <a href=\"/docs/overview/concepts/launch-stages\">Launch stages</a>."
+- "<em>Yandex Message Queue is in the <a href=\"/docs/overview/concepts/launch-stages\">Preview stage</a></em>."
 - "Yandex Message Queue is a service for managing message queues."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
