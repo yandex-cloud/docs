@@ -41,7 +41,18 @@ CLI поддерживает автодополнение команд в ком
    ```
    $ brew install bash-completion
    ```
-1. После завершения установки добавьте в файл ` ~/.bash_profile` строки (расположите их выше, добавленных автоматически скриптом установки, запущенном в п. 1):
+   
+   Скрипт установки автоматически дополнит файл ` ~/.bash_profile`: 
+    
+   ```
+   # The next line updates PATH for Yandex Cloud CLI.
+   if [ -f '/Users/<username>/yandex-cloud/path.bash.inc' ]; then source '/Users/<username>/yandex-cloud/path.bash.inc'; fi
+   # The next line enables shell command completion for yc.
+   if [ -f '/Users/<username>/yandex-cloud/completion.bash.inc' ]; then source '/Users/<username>/yandex-cloud/completion.bash.inc'; fi
+   ```
+     
+1. После завершения установки добавьте в файл ` ~/.bash_profile` следующие строки. Расположите их выше строк, автоматически добавленных скриптом установки.
+
    ```
    if [ -f $(brew --prefix)/etc/bash_completion ]; then
    . $(brew --prefix)/etc/bash_completion
