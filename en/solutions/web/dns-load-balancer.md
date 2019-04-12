@@ -37,7 +37,7 @@ Create two VMs in sequence, following the instructions:
    * **LAMP** for Linux, Apache, MySQL, and PHP
 
 1. In the **Computing resources** section:
-    - Choose the [type of virtual machine](../../compute/concepts/vm-types.md) (light or standard).
+    - Choose the platform.
     - Specify the required amount of vCPUs and RAM.
 
     The characteristics of both VMs must match.
@@ -87,7 +87,7 @@ Create two VMs in sequence, following the instructions:
 1. Select the **Ubuntu** or **CentOS** public image. Supported **Ubuntu** versions: 16.04 or higher.
 
 1. In the **Computing resources** section:
-    - Choose the [type of virtual machine](../../compute/concepts/vm-types.md) (light or standard).
+    - Choose the platform.
     - Specify the required amount of vCPUs and RAM.
 
     The characteristics of both VMs must match.

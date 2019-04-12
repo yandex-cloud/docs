@@ -6,7 +6,7 @@ The template description and [policy](instance-group-policies.md) description ar
 
 ## Computing resources {#types}
 
-When describing a template, you specify the computing resources to allocate to each instance: the number and guaranteed performance of processor cores (vCPUs) and the amount of RAM. You can choose the amount of computing resources that is appropriate for the expected load. For more information, see [[!TITLE]](../../compute/concepts/vm-types.md).
+When describing a template, you specify the computing resources to allocate to each instance: the number and guaranteed performance of processor cores (vCPUs) and the amount of RAM. You can choose the amount of computing resources that is appropriate for the expected load. For more information, see [[!TITLE]](../../compute/concepts/performance-levels.md).
 
 ## Disks {#disks}
 

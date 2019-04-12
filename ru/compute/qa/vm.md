@@ -4,9 +4,9 @@
 
 #### Какую конфигурацию виртуальной машины (память, процессор) я могу использовать? {#configure-vm}
 
-[!INCLUDE-NOTITLE [compute-resources]](../_includes_service/compute-resources.md)]
+[!INCLUDE [support-channels](../../_includes/compute/compute-resources.md)]
 
-Подробнее читайте в разделе [[!TITLE]](../concepts/vm-types.md).
+Подробнее читайте в разделе [[!TITLE]](../concepts/performance-levels.md).
 
 #### Как изменить объем памяти и количество ядер, выделенных виртуальной машине? {#update-type}
 

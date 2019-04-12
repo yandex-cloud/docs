@@ -101,10 +101,12 @@ items:
         items:
           - name: Overview
             href: concepts/vm.md
+          - name: Platforms
+            href: concepts/vm-platforms.md
+          - name: Levels of core performance
+            href: concepts/performance-levels.md
           - name: Preemptible VMs
             href: concepts/preemptible-vm.md
-          - name: VM types
-            href: concepts/vm-types.md
           - name: Network on a VM
             href: concepts/network.md
           - name: Statuses

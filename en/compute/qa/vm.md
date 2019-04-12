@@ -4,9 +4,9 @@
 
 #### What VM configuration (memory, vCPU) can I use? {#configure-vm}
 
-[!INCLUDE-NOTITLE [compute-resources]](../_includes_service/compute-resources.md)]
+[!INCLUDE [support-channels](../../_includes/compute/compute-resources.md)]
 
-For more information, see the section [[!TITLE]](../concepts/vm-types.md).
+For more information, see the section [[!TITLE]](../concepts/performance-levels.md).
 
 #### How can I change the amount of RAM and the number of cores allocated to a VM? {#update-type}
 

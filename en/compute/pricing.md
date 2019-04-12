@@ -1,7 +1,7 @@
 ---
 editable: false
 ---
-# Pricing policy for [!KEYREF compute-full-name]
+# Pricing [!KEYREF compute-full-name]
 
 ## What goes into the cost of using [!KEYREF compute-short-name] {#rules}
 
@@ -33,16 +33,13 @@ For information about charges for using an external IP address, see the section 
 
 #### Computing resources {#instance-resources}
 
-When creating a VM, you specify the number of vCPUs, the basic level of core performance, and the amount of RAM in GB. For more information, see the section [[!TITLE]](concepts/vm-types.md).
+When creating a VM, you specify the number of vCPUs, the basic level of core performance, and the amount of RAM in GB. For more information, see the section [[!TITLE]](concepts/vm-platforms.md).
 
-The basic level of core performance depends on the VM type:
-
-* [[!TITLE]](concepts/vm-types.md#light-vms): at least 5% of the core is guaranteed.
-* [[!TITLE]](concepts/vm-types.md#standard-vms): 100% of the core is guaranteed.
+The baseline core performance level depends on the type of [platform](concepts/vm-platforms.md).
 
 [!KEYREF price-per-hour-count-per-second]
 
-#### Operating systems {#instance-os}
+#### Operating systems {#burstable-instance-os}
 
 OS usage on a VM is charged, as well. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
 
@@ -50,24 +47,24 @@ OS usage on a VM is charged, as well. The cost depends on the OS license and the
 
 #### Example of cost calculation
 
-Let's compare the cost of light and standard VMs.
+Compare costs using virtual machines with diferents levels of core performance.
 
-Two VMs have been created running Linux OS:
+Two VMs are running Linux OS:
 
-* Light (5%+ vCPU, 1 GB RAM).
-* Standard (1 vCPU, 1 GB RAM).
+* 5% vCPU, 1 GB RAM.
+* 100% vCPU, 1 GB RAM.
 
 Both VMs have been running for 30 days.
 
-The cost of the light VM is calculated as follows:
+Cost of the virtual machine with 5% core usage:
 
 > 5% of vCPU = ₽0.1932/hour * 30 days * 24 hours = 139.1040 ₽
 >
->1 GB RAM = ₽0.2441/hour * 30 days * 24 hours = 175.7520 ₽
+> 1 GB RAM = ₽0.2441/hour * 30 days * 24 hours = 175.7520 ₽
 >
->Total: 314.8560 ₽
+> Total: 314.8560 ₽
 
-The cost of the standard VM is calculated as follows:
+Cost of the virtual machine with 100% core usage:
 
 > 1 vCPU = ₽0.7017/hour * 30 days * 24 hours = 505.2240 ₽
 >
@@ -75,7 +72,7 @@ The cost of the standard VM is calculated as follows:
 >
 >Total: 680.9760 ₽
 
-The cost of the light VM is almost half the cost of the standard VM.
+The cost of a VM with 5% core usage is about half as much as a VM with 100% core usage.
 
 ### Use of storage (disks, snapshots, and images) {#disk}
 
@@ -87,25 +84,51 @@ If you created an image or snapshot, you pay for the storage of this object sepa
 
 The cost is specified for one month of use. Charging per second.
 
-## Prices {#prices}
+## Price list {#prices}
 
 ### Computing resources  {#prices-instance-resources}
 
-| Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
-| ----- | ----- | ----- |
-| 5%+ of vCPU | 0.1610 ₽ | 0.1932 ₽ |
-| 100% of vCPU | 0.5847 ₽ | 0.7017 ₽ |
-| RAM (for 1 GB) | 0.2034 ₽ | 0.2441 ₽ |
+- Platform Intel Broadwell:
 
-### Computing resources for preemptible instances{#prices-preemptible-instance-resources}
+    | Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
+    | ----- | ----- | ----- |
+    | 5%+ of vCPU | 0.1610 ₽ | 0.1932 ₽ |
+    | 20%+ vCPU | 0,4583 ₽ | 0,5500 ₽ |
+    | 100% of vCPU | 0.5847 ₽ | 0.7017 ₽ |
+    | RAM (for 1 GB) | 0.2034 ₽ | 0.2441 ₽ |
 
-Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT
------ | ----- | -----
-за 5%+ vCPU | 0,0998 ₽ | 0,1198 ₽
-за 100% vCPU | 0,1800 ₽ | 0,2160 ₽
-RAM (for 1 GB) | 0,0625 ₽ | 0,0750 ₽
+- Platform Intel Cascade Lake:
 
-### Operating systems {#prices-instance-os}
+    | Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
+    | ----- | ----- | ----- |
+    | 5%+ of vCPU | 0.0850 ₽ | 0.1020 ₽ |
+    | 20%+ vCPU | 0.2550 ₽ | 0.3060 ₽ |
+    | 50%+ vCPU | 0.3740 ₽ | 0.4488 ₽ |
+    | 100% of vCPU | 0.6230 ₽ | 0.7476 ₽ |
+    | RAM (for 1 GB) | 0.1650 ₽ | 0.1980 ₽ |
+
+### Computing resources of preemptible VMs {#prices-preemptible-instance-resources}
+
+- Platform Intel Broadwell:
+
+    | Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
+    | ----- | ----- | ----- |
+    | 5%+ of vCPU | 0.0998 ₽ | 0.1198 ₽ |
+    | 20%+ vCPU | 0,2840 ₽ | 0,3408 ₽ |
+    | 100% of vCPU | 0.1800 ₽ | 0.2160 ₽ |
+    | RAM (for 1 GB) | 0.0625 ₽ | 0.0750 ₽ |
+
+- Platform Intel Cascade Lake:
+
+    | Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
+    | ----- | ----- | ----- |
+    | 5%+ of vCPU | 0.0530 ₽ | 0.0636 ₽ |
+    | 20%+ vCPU | 0,1590 ₽ | 0,1908 ₽ |
+    | 50%+ vCPU | 0,2330 ₽ | 0,2796 ₽ |
+    | 100% of vCPU | 0.1700 ₽ | 0.2040 ₽ |
+    | RAM (for 1 GB) | 0.0410 ₽ | 0.0492 ₽ |
+
+### Operating systems {#burstable-instance-os}
 
 | OS | Cost per vCPU per hour,<br/> without VAT | Cost per vCPU per hour,<br/> with VAT |
 | ----- | ----- | ----- |
@@ -125,4 +148,3 @@ RAM (for 1 GB) | 0,0625 ₽ | 0,0750 ₽
 ### Outgoing traffic {#prices-traffic}
 
 [!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md)]
-

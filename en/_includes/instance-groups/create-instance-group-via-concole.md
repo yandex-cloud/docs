@@ -18,7 +18,7 @@
 
             To add more disks, click **Add disk**.
     - In the **Computing resources** section:
-        - Select the [core usage type](../../compute/concepts/vm-types.md) (full or partial).
+        - Select the platform.
         - Specify the necessary number of vCPUs and amount of RAM.
     - In the **Network settings** section:
         - Select the [cloud network](../../compute/concepts/vm.md#network).
