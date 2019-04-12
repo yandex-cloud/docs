@@ -22,20 +22,33 @@ Make sure the uploaded image is in the `READY` status.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
+    > [!NOTE]
+    >
+    > The virtual machine name is used for generating the FQDN, which cannot be changed later. If the FQDN is important to you, choose an appropriate name for the virtual machine at the creation stage. For more information about generating FQDN names, see the section [[!TITLE]](../../concepts/network.md#hostname).
+
 1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to locate the VM in.
 
 1. In the **Disks** section, click **Add disk**.
    1. In the **Name** field, enter the disk name.
    1. Set the required disk size.
-   1. In the **Disk purpose** section, choose **Boot**
+   1. In **Disk designation**, choose **Boot**.
    1. Select the [disk type](../../concepts/disk.md#disks_types): **HDD** or **NVMe**.
-   1. In the **Content** section, choose **Image**. A list of images that you uploaded opens.
+   1. In **Content**, choose **Image**. A list of images that you uploaded opens.
    1. Select the necessary image.
    1. Click **Add**.
 
-1. In the **Computing resources** section, select the [type of core usage](../../concepts/vm-types.md) (partial or full), and specify the necessary number of vCPUs and the amount of RAM.
+1. In the **Computing resources** section:
+    - Choose the [platform](../../concepts/vm-platforms.md).
+    - Specify the necessary number of vCPUs and amount of RAM.
 
-1. In the **Network settings** section, select the subnet to connect the VM to when creating it and assign a public address to access the VM.
+1. In the **Network settings** section, click **Add network**.
+
+1. In the window that opens, select the subnet to connect the VM to when creating it.
+
+1. In **Public address**, choose:
+    - **Automatically** — to set a public IP address automatically. The address is allocated from the pool of Yandex.Cloud addresses.
+    - **List** — to select a public IP address from the list of static addresses. For more information, see the section [[!TITLE]](../../../vpc/operations/set-static-ip.md) in the [!KEYREF vpc-name] service documentation.
+    - **No address** — to not assign a public IP address.
 
 1. Specify data required for accessing the VM:
     - Enter the username in the **Login** field.
@@ -84,6 +97,10 @@ You need to create a key pair for SSH connection yourself. To generate keys, use
     This command creates a VM with a 5 GB boot disk from the pre-loaded image named `test-vm-from-image`.
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
+
+    > [!NOTE]
+    >
+    > The virtual machine name is used for generating the FQDN, which cannot be changed later. If the FQDN is important to you, choose an appropriate name for the virtual machine at the creation stage. For more information about generating FQDN names, see the section [[!TITLE]](../../concepts/network.md#hostname).
 
     The `yc-user` user will be created on the VM with a public key from the `~/.ssh/id_rsa.pub` file. The VM gets a public IP address. To create a VM without a public IP, remove the `--public-ip` flag.
 

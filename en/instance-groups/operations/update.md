@@ -3,7 +3,7 @@
 After creating an instance group, you can:
 
 - [Change its name and description](#change-name).
-- [Change the computing resources](#change-vm-type).
+- [Change the computing resources](#change-compute-resources).
 - [Increase the disk size](#change-disk-size).
 
 ## Changing the name and description {#change-name}
@@ -58,7 +58,7 @@ To request a list of available groups, use the [listInstances](../../instance-gr
 
 ---
 
-## Changing computing resources {#change-vm-type}
+## Changing computing resources {#change-compute-resources}
 
 After creating an instance group, you can change:
 

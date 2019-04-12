@@ -4,7 +4,7 @@ Host class needs to be defined to create each cluster. The class defines computi
 
 For  [!KEYREF mrd-name] host classes are defined by the type of CPU usage and RAM volume:
 
-* For small datasets and loads you can create clusters with low performance guarantee (`burstable`), like [light virtual machines](../../compute/concepts/vm-types.md#light-vms).
+* For small datasets and loads you can create clusters with low performance guarantee (`burstable`). For more information, see the section [[!TITLE]](../../compute/concepts/performance-levels.md).
 * For big loads, or high performance requirements use standard hosts (`high-memory`).
 
 > [!NOTE]

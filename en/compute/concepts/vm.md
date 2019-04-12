@@ -16,7 +16,7 @@ Each VM has a unique ID and name. The name is unique within the folder. The ID i
 
 ## Computing resources {#types}
 
-When creating a VM, you specify the amount of computing resources to be allocated to it: the number and performance of processor cores (vCPUs) and the amount of RAM. You can choose the appropriate amount of computing resources depending on the expected load. For more information, see the section [[!TITLE]](vm-types.md).
+When creating a VM, you specify the amount of computing resources to be allocated to it: the number and performance of processor cores (vCPUs) and the amount of RAM. You can choose the appropriate amount of computing resources depending on the expected load. For more information, see the section [[!TITLE]](performance-levels.md).
 
 ## Disks {#disks}
 

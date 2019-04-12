@@ -30,7 +30,7 @@ To create a VM:
 1. Select the **Ubuntu** or **CentOS** public image.
 
 1. In the **Computing resources** section:
-    - Choose the [type of virtual machine](../../compute/concepts/vm-types.md) (light or standard).
+    - Choose the platform.
     - Specify the required amount of vCPUs and RAM.
 
    The minimum configuration is enough for functional testing:
