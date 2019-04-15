@@ -1,0 +1,37 @@
+title: "Yandex Vision"
+stage: new
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Recognizing text on an image
+        href: operations/ocr/text-detection.md
+      - name: Encode a file to Base64
+        href: operations/base64-encode.md
+  - name: Concepts
+    items:
+      - name: Recognizing text
+        href: concepts/index.md
+      - name: Supported languages
+        href: concepts/ocr/supported-languages.md
+      - name: Restrictions for the current version
+        href: concepts/ocr/known-issues.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: Handling errors
+        href: api-ref/errors-handling.md
+    include:
+      repo: docs-api
+      path: en/ai/vision_old/toc.yaml
