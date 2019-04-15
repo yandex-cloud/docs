@@ -20,7 +20,7 @@ Minimum and maximum configurations for:
 
     | Configuration | vCPU | RAM, GB |
     | --- | --- | --- | --- |
-    | Min | 2 | 2 |
+    | Min | 2 | 0.5 |
     | Max | 48 | 384 |
 
 Available configurations of computing resources:
