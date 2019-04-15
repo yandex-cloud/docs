@@ -52,14 +52,67 @@ editable: false
 
 ### Хосты {prices-hosts}
 
-Класс хостов | Цена за 1 час, без НДС | Цена за 1 час, вкл. НДС 
------ | ----- | -----
-s1.nano | 2,1610 ₽ | 2,5932 ₽ | 
-s1.micro | 4,3136 ₽ | 5,1763 ₽ | 
-s1.small | 8,6186 ₽ | 10,3424 ₽ | 
-s1.medium | 17,2458 ₽ | 20,6949 ₽ | 
-s1.large | 34,4831 ₽ | 41,3797 ₽ | 
-s1.xlarge | 68,9746 ₽ | 82,7695 ₽ 
+
+---
+
+**[!TAB За месяц работы хоста]**
+
+Класс хостов | Цена за месяц, без НДС | Цена за месяц, вкл. НДС 
+----- | ----- | ----- | -----
+**Intel Broadwell** | | 
+[!KEYREF b1.nano] | 423 ₽ | 508 ₽
+[!KEYREF b1.micro] | 715 ₽ | 858 ₽
+[!KEYREF b1.medium] | 1 318 ₽ | 1 581 ₽
+[!KEYREF s1.nano]| 2 863 ₽ | 3 768 ₽
+[!KEYREF s1.micro] | 5 728 ₽ | 5 216 ₽
+[!KEYREF s1.small] | 11 454 ₽ | 6 375 ₽
+[!KEYREF s1.medium] | 17 181 ₽ | 9 060 ₽
+[!KEYREF s1.large] | 22 909 ₽ | 11 407 ₽
+[!KEYREF s1.xlarge] | 34 364 ₽ | 16 158 ₽
+**Intel Cascade Lake** | | 
+[!KEYREF b2.nano]| 423 ₽ | 508 ₽
+[!KEYREF b2.micro] | 715 ₽ | 858 ₽
+[!KEYREF b2.medium] | 1 318 ₽ | 1 581 ₽
+[!KEYREF s2.micro] | 2 863 ₽ | 3 436 ₽
+[!KEYREF s2.small] | 5 728 ₽ | 6 873 ₽
+[!KEYREF s2.medium] | 11 454 ₽ | 13 745 ₽
+[!KEYREF s2.large] | 17 181 ₽ | 20 618 ₽
+[!KEYREF s2.xlarge] | 22 909 ₽ | 27 491 ₽
+[!KEYREF s2.2xlarge] | 34 364 ₽ | 41 237 ₽
+[!KEYREF s2.3xlarge] | 45 819 ₽ | 54 982 ₽
+[!KEYREF s2.4xlarge]| 57 273 ₽ | 68 728 ₽
+[!KEYREF s2.5xlarge]| 68 728 ₽ | 82 473 ₽
+
+**[!TAB За 1 час работы хоста]**
+
+Класс хостов | Цена за час, без НДС | Цена за час, вкл. НДС 
+----- | ----- | ----- | -----
+**Intel Broadwell** | |
+[!KEYREF b1.nano]| 0,5880 ₽ | 0,7056 ₽
+[!KEYREF b1.micro] | 0,9930 ₽ | 1,1916 ₽
+[!KEYREF b1.medium] | 1,8300 ₽ | 2,1960 ₽
+[!KEYREF s1.nano] | 2,1610 ₽ | 2,5932 ₽ | 
+[!KEYREF s1.micro] | 4,3136 ₽ | 5,1763 ₽ | 
+[!KEYREF s1.small] | 8,6186 ₽ | 10,3424 ₽ | 
+[!KEYREF s1.medium] | 17,2458 ₽ | 20,6949 ₽ | 
+[!KEYREF s1.large] | 34,4831 ₽ | 41,3797 ₽ | 
+[!KEYREF s1.xlarge] | 68,9746 ₽ | 82,7695 ₽ 
+**Intel Cascade Lake** | |  
+[!KEYREF b2.nano]| 0,5880 ₽ | 0,7056 ₽
+[!KEYREF b2.micro] | 0,9930 ₽ | 1,1916 ₽
+[!KEYREF b2.medium] | 1,8300 ₽ | 2,1960 ₽
+[!KEYREF s2.micro] | 3,9770 ₽ | 4,7724 ₽
+[!KEYREF s2.small] | 7,9550 ₽ | 9,5460 ₽
+[!KEYREF s2.medium] | 15,9090 ₽ | 19,0908 ₽
+[!KEYREF s2.large] | 23,8630 ₽ | 28,6356 ₽
+[!KEYREF s2.xlarge] | 31,8180 ₽ | 38,1816 ₽
+[!KEYREF s2.2xlarge] | 47,7280 ₽ | 57,2736 ₽
+[!KEYREF s2.3xlarge] | 63,6370 ₽ | 76,3644 ₽
+[!KEYREF s2.4xlarge]| 79,5460 ₽ | 95,4552 ₽
+[!KEYREF s2.5xlarge]| 95,4550 ₽ | 114,5460 ₽
+
+---
+
 
 ### Хранилище и резервные копии {#prices-storage}
 

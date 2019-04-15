@@ -95,3 +95,28 @@ MY: MySQL
 RD: Redis
 zone-id: ru-central1-c
 host-class: s1.nano
+
+b1.nano: b1.nano (2 vCPU × 5%, 2 ГБ)
+b1.micro: b1.micro (2 vCPU × 20%, 2 ГБ)
+b1.small: b1.small (2 vCPU × 20%, 4 ГБ)
+b1.medium: b1.medium (2 vCPU × 50%, 4 ГБ)
+s1.nano: s1.nano (1 vCPU, 4 ГБ)
+s1.micro: s1.micro (2 vCPU, 8 ГБ)
+s1.small: s1.small (4 vCPU, 16 ГБ)
+s1.medium: s1.medium (8 vCPU, 32 ГБ)
+s1.large: s1.large (12 vCPU, 48 ГБ)
+s1.xlarge: s1.xlarge (16 vCPU, 64 ГБ)
+
+b2.nano: b2.nano (2 vCPU × 5%, 2 ГБ)
+b2.micro: b2.micro (2 vCPU × 20%, 2 ГБ)
+b2.small: b2.small (2 vCPU × 20%, 4 ГБ)
+b2.medium: b2.medium (2 vCPU × 50%, 4 ГБ)
+s2.micro: s2.micro (2 vCPU, 8 ГБ)
+s2.small: s2.small (4 vCPU, 16 ГБ)
+s2.medium: s2.medium (8 vCPU, 32 ГБ)
+s2.large: s2.large (12 vCPU, 48 ГБ)
+s2.xlarge: s2.xlarge (16 vCPU, 64 ГБ)
+s2.2xlarge: s2.xlarge (24 vCPU, 96 ГБ)
+s2.3xlarge: s2.xlarge (32 vCPU, 128 ГБ)
+s2.4xlarge: s2.xlarge (40 vCPU, 160 ГБ)
+s2.5xlarge: s2.xlarge (48 vCPU, 192 ГБ)
