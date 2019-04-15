@@ -89,7 +89,7 @@ editable: false
 ----- | ----- | ----- | -----
 **Intel Broadwell** | |
 [!KEYREF b1.nano]| 0,5880 ₽ | 0,7056 ₽
-[!KEYREF b1.small] | 0,9930 ₽ | 1,1916 ₽
+[!KEYREF b1.micro] | 0,9930 ₽ | 1,1916 ₽
 [!KEYREF b1.medium] | 1,8300 ₽ | 2,1960 ₽
 [!KEYREF s1.nano] | 2,1610 ₽ | 2,5932 ₽ | 
 [!KEYREF s1.micro] | 4,3136 ₽ | 5,1763 ₽ | 
