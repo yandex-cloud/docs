@@ -1,0 +1,101 @@
+1. Подготовьте файл изображения, соответствующий требованиям:
+
+    [!INCLUDE [file-restrictions](../../_includes/vision/file-restrictions.md)]
+
+    > [!NOTE]
+    >
+    > Нужен пример изображения? Скачайте изображение дорожного знака, [предупреждающего о пингвинах](https://storage.yandexcloud.net/vision/penguins_sample.jpg).
+1. Кодируйте файл в формат Base64:
+
+    [!INCLUDE [base64-encode-command](base64-encode-command.md)]
+1. Создайте файл с телом запроса, например `body.json`. В свойстве `content` укажите изображение, [кодированное в Base64](../../vision/operations/base64-encode.md).
+    В настройках распознавания перечислите языки, на которых может быть написан текст на изображении, например английский (`en`). Можно указать от 1 до 8 языков:
+
+    **body.json:**
+    ```json
+    {
+        "folderId": "ajk55f3mblj12eghq2oe",
+        "analyze_specs": [{
+            "content": "iVBORw0KGgo...",
+            "features": [{
+                "type": "TEXT_DETECTION",
+                "text_detection_config": {
+                    "language_codes": ["en"]
+                }
+            }]
+        }]
+    }
+    ```
+
+1. Отправьте запрос на распознавание с помощью метода [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) и сохраните ответ в файл, например `output.json`:
+
+    ```bash
+    $ export IAM_TOKEN=CggaATEVAgA...
+    $ curl -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer ${IAM_TOKEN}" \
+        -d @body.json \
+        https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze > output.json
+    ```
+
+    Ответ будет состоять из распознанных блоков текста, строк и слов с указанием их местоположения на изображении:
+
+    ```json
+    {
+      "results": [{
+        "results": [{
+          "textDetection": {
+            "pages": [{
+              "blocks": [{
+                "boundingBox": { ... },
+                "lines": [{
+                    "boundingBox": { ... },
+                    "words": [{
+                      "boundingBox": {
+                        "vertices": [{
+                            "x": "504",
+                            "y": "760"
+                          },
+                          {
+                            "x": "504",
+                            "y": "836"
+                          },
+                          {
+                            "x": "826",
+                            "y": "836"
+                          },
+                          {
+                            "x": "826",
+                            "y": "760"
+                          }
+                        ]
+                      },
+                      "languages": [{
+                        "languageCode": "en",
+                        "confidence": 0.9520227313
+                      }],
+                      "text": "PENGUINS",
+                      "confidence": 0.9520227313
+                    }],
+                    "confidence": 0.9520227313
+                  },
+                  ...
+                ]
+              }],
+              "width": "1920",
+              "height": "1280"
+            }]
+          }
+        }]
+      }]
+    }
+    ```
+
+1. Чтобы получить весь текст с изображения, найдите все строки с свойством `text`, например с помощью [grep](https://www.gnu.org/software/grep/):
+
+    ```bash
+    $ grep -o "\"text\":\s\".*\"" output.json
+    "text": "PENGUINS"
+    "text": "CROSSING"
+    "text": "SLOW"
+    ```
