@@ -15,7 +15,7 @@ You can add and remove cluster hosts and manage [!KEYREF MY] settings for indivi
 
 ## Adding a host  {#add}
 
-The number of hosts in [!KEYREF mmy-short-name] clusters is limited by the quotas on CPUs and RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page and find the **[!KEYREF mmy-full-name]**.
+The number of hosts in [!KEYREF mmy-short-name] clusters is limited by the quotas on the number of CPUs and RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page and find the **[!KEYREF mmy-full-name]**.
 
 ---
 

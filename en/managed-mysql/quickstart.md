@@ -1,12 +1,14 @@
-# Getting started with [!KEYREF mmy-short-name]
+# How to get started with [!KEYREF mmy-short-name]<sup>®</sup>
 
-Before creating a database cluster:
+To use the service, create a cluster and connect to a DBMS:
 
-1. If you already have a folder in Yandex.Cloud, open the page of that folder in the management console. If there is no folder yet, create one:
+1. All you need to create a database cluster is a folder in Yandex.Cloud that you are allowed to access. If you already have a folder in Yandex.Cloud, open the page of that folder in the management console. If there is no folder yet, create one:
 
     [!INCLUDE [create-folder](../_includes/create-folder.md)]
 
-1. Create a VM (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)) that you will use for accessing the DB cluster. If you plan to connect to the database from outside the Cloud, request external IP addresses for hosts when creating a cluster.
+1. You can connect to DB clusters from both inside and outside of the Cloud:
+   1. To connect to a DB cluster from inside the Cloud, create a VM in the same network as the DB cluster (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows md)).
+   1. To enable connection to a cluster over the internet, request external IP addresses for hosts when creating the cluster.
 
 Follow the instructions below to quickly create a cluster and test your connection to it.
 

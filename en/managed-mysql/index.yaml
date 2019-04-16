@@ -1,8 +1,7 @@
 # Заголовок и описание на странице
-title: "Yandex Managed Service for MySQL"
+title: "Yandex Managed Service for MySQL<sup>®</sup>"
 description:
-- "<em>Managed Service for MySQL is in the <a href=\"/docs/overview/concepts/launch-stages\">Preview stage</a></em>."
-- "Yandex Managed Service for MySQL is a service that helps you deploy and maintain MySQL server clusters in the Yandex.Cloud infrastructure."
+  - "Yandex Managed Service for MySQL<sup>®</sup> helps you deploy and maintain MySQL database clusters in the Yandex.Cloud infrastructure."
 # Мета-информация title, description, keywords и т.п.
 meta:
   title: "Yandex Managed Service for MySQL"

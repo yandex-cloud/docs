@@ -1,4 +1,4 @@
-# Questions and answers about [!KEYREF mmy-short-name]
+# Questions and answers about [!KEYREF mmy-short-name]<sup>®</sup>
 
 ## General questions {#general}
 

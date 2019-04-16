@@ -28,19 +28,19 @@ To change the [host class](../concepts / instance-types.md) for the cluster:
 
 2. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
 
-    ```
-    $ [!KEYREF yc-mdb-my] resource-preset list
-    
-    +-----------+--------------------------------+-------+----------+
-    |    ID     |            ZONE IDS            | CORES |  MEMORY  |
-    +-----------+--------------------------------+-------+----------+
-    | s1.nano   | ru-central1-a, ru-central1-b,  |     1 | 4.0 GB   |
-    |           | ru-central1-c                  |       |          |
-    | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
-    |           | ru-central1-c                  |       |          |
-    | ...                                                           |
-    +-----------+--------------------------------+-------+----------+
-    ```
+   ```
+   $ [!KEYREF yc-mdb-my] resource-preset list
+   
+   +-----------+--------------------------------+-------+----------+
+   |    ID     |            ZONE IDS            | CORES |  MEMORY  |
+   +-----------+--------------------------------+-------+----------+
+   | s1.nano   | ru-central1-a, ru-central1-b,  |     1 | 4.0 GB   |
+   |           | ru-central1-c                  |       |          |
+   | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
+   |           | ru-central1-c                  |       |          |
+   | ...                                                           |
+   +-----------+--------------------------------+-------+----------+
+   ```
 
 3. Specify the class in the update cluster command:
 
@@ -135,14 +135,14 @@ To change [!KEYREF MY] server settings:
 
 2. Set the required parameter values.
 
-    All supported parameters are listed in [the request format for the update method](../api-ref/Cluster/update.md), in the `mysql_config_5_7` field. To specify the parameter name in the CLI's call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `logMinDurationStatement` parameter from an API request should be converted to `log_min_duration_statement` for the CLI command:
+   All supported parameters are listed in [the request format for the update method](../api-ref/Cluster/update.md), in the `mysql_config_5_7` field. To specify the parameter name in the CLI's call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `logMinDurationStatement` parameter from an API request should be converted to `log_min_duration_statement` for the CLI command:
 
-    ```
-    $ [!KEYREF yc-mdb-my] cluster update-config <cluster name>
-         --set log_min_duration_statement=100,<parameter name>=<value>,...
-    ```
+   ```
+   $ [!KEYREF yc-mdb-my] cluster update-config <cluster name>
+        --set log_min_duration_statement=100,<parameter name>=,... 
+   ```
 
-    [!KEYREF mmy-short-name] will run the operation for changing the cluster settings.
+   [!KEYREF mmy-short-name] will run the operation for changing the cluster settings.
 
 **[!TAB API]**
 

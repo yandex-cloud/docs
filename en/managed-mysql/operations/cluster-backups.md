@@ -13,10 +13,8 @@ For a new cluster, you should set all the parameters that are required at creati
 **[!TAB Management console]**
 
 1. Go to the folder page and click **[!KEYREF mmy-name]**.
-
-2. Click on the name of the cluster you need and select the tab **Backup copies**.
-
-3. Click ![image](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
+1. Click on the name of the cluster you need and select the tab **Backup copies**.
+1. Click ![image](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
 
 ---
 
@@ -27,10 +25,8 @@ For a new cluster, you should set all the parameters that are required at creati
 **[!TAB Management console]**
 
 1. Go to the folder page and click **[!KEYREF mmy-name]**.
-
-2. Click on the name of the cluster you need and select the tab **Backup copies**.
-
-3. Click **Create a backup**.
+1. Click on the name of the cluster you need and select the tab **Backup copies**.
+1. Click **Create a backup**.
 
 ---
 
@@ -41,8 +37,7 @@ For a new cluster, you should set all the parameters that are required at creati
 **[!TAB Management console]**
 
 1. Go to the folder page and click **[!KEYREF mmy-name]**.
-
-2. Click on the name of the cluster you need and select the tab **Backup copies**.
+1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
 ---
 
@@ -53,8 +48,7 @@ For a new cluster, you should set all the parameters that are required at creati
 **[!TAB Management console]**
 
 1. Go to the folder page and click **[!KEYREF mmy-name]**.
-
-2. Click on the name of the cluster you need and select the tab **Backup copies**.
+1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
 ---
 
