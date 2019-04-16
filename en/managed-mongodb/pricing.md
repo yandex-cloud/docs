@@ -1,15 +1,15 @@
 ---
 editable: false
 ---
-# Pricing policy for [!KEYREF MG]
+# Pricing for [!KEYREF MG]
 
 ## What goes into the cost of using [!KEYREF mmg-short-name] {#rules}
 
 The cost of [!KEYREF mmg-name] usage is based on:
 
-* Storage (disk space) type and size.
+* Storage type and size (disk space).
 
-* [The DB class](concepts/instance-types.md) selected for the cluster.
+* [The DB host class](concepts/instance-types.md) selected for the cluster.
 
 * How many DB hosts are in the clusters.
 
@@ -46,23 +46,70 @@ The cost is specified for one month of use.  The minimum billing unit is 1 GB pe
 
 ### Hosts {prices-hosts}
 
+---
+
+**[!TAB Per host per month]**
+
+| Host class | Cost per month, without VAT | Cost per month, with VAT |
+| ----- | ----- | ----- | ----- |
+| [!KEYREF b1.nano] | ₽646 | ₽775 |
+| [!KEYREF b1.micro] | ₽948 | ₽1 138 |
+| [!KEYREF b1.medium] | ₽1 770 | ₽2 124 |
+| [!KEYREF s1.nano] | ₽1 800 | ₽2 160 |
+| [!KEYREF s1.micro] | ₽3 606 | ₽4 327 |
+| [!KEYREF s1.small] | ₽7 206 | ₽8 647 |
+| [!KEYREF s1.medium] | ₽14 418 | ₽17 302 |
+| [!KEYREF s1.large] | ₽28 830 | ₽34 597 |
+| [!KEYREF s1.xlarge] | ₽57 667 | ₽69 201 |
+| [!KEYREF b2.nano] | ₽646 | ₽775 |
+| [!KEYREF b2.micro] | ₽948 | ₽1 138 |
+| [!KEYREF b2.medium] | ₽1 770 | ₽2 124 |
+| [!KEYREF s2.micro] | ₽3 326 | ₽3 991 |
+| [!KEYREF s2.small] | ₽6 651 | ₽7 982 |
+| [!KEYREF s2.medium] | ₽13 302 | ₽15 962 |
+| [!KEYREF s2.large] | ₽19 953 | ₽23 943 |
+| [!KEYREF s2.xlarge] | ₽26 604 | ₽31 925 |
+| [!KEYREF s2.2xlarge] | ₽39 906 | ₽47 887 |
+| [!KEYREF s2.3xlarge] | ₽53 209 | ₽63 850 |
+| [!KEYREF s2.4xlarge] | ₽66 511 | ₽79 813 |
+| [!KEYREF s2.5xlarge] | ₽79 813 | ₽95 775 |
+
+**[!TAB Per hour per host]**
+
 | Host class | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
-| ----- | ----- | ----- |
-| s1.nano | ₽2.5000 | ₽3.0000 |
-| s1.micro | ₽5.0085 ₽ | ₽6.0102 |
-| s1.small | ₽10.0085 ₽ | ₽12.0102 |
-| s1.medium | ₽20.0254 ₽ | ₽24.0305 |
-| s1.large | ₽40.0424 ₽ | ₽48.0508 |
-| s1.xlarge | ₽80.0932 ₽ | ₽96.1119 |
+| ----- | ----- | ----- | ----- |
+| [!KEYREF b1.nano] | ₽0.8975 | ₽1.0770 |
+| [!KEYREF b1.micro] | ₽1.3167 | ₽1.5800 |
+| [!KEYREF b1.medium] | ₽2.4583 | ₽2.9500 |
+| [!KEYREF s1.nano] | ₽2.5000 | ₽3.0000 |
+| [!KEYREF s1.micro] | ₽5.0085 | ₽6.0102 |
+| [!KEYREF s1.small] | ₽10.0085 | ₽12.0102 |
+| [!KEYREF s1.medium] | ₽20.0254 | ₽24.0305 |
+| [!KEYREF s1.large] | ₽40.0424 | ₽48.0508 |
+| [!KEYREF s1.xlarge] | ₽80.0932 | ₽96.1119 |
+| [!KEYREF b2.nano] | ₽0.8975 | ₽1.0770 |
+| [!KEYREF b2.small] | ₽1.3167 | ₽1.5800 |
+| [!KEYREF b2.medium] | ₽2.4583 | ₽2.9500 |
+| [!KEYREF s2.micro] | ₽4.6190 | ₽5.5428 |
+| [!KEYREF s2.small] | ₽9.2380 | ₽11.0856 |
+| [!KEYREF s2.medium] | ₽18.4750 | ₽22.1700 |
+| [!KEYREF s2.large] | ₽27.7120 | ₽33.2544 |
+| [!KEYREF s2.xlarge] | ₽36.9500 | ₽44.3400 |
+| [!KEYREF s2.2xlarge] | ₽55.4250 | ₽66.5100 |
+| [!KEYREF s2.3xlarge] | ₽73.9010 | ₽88.6812 |
+| [!KEYREF s2.4xlarge] | ₽92.3760 | ₽110.8512 |
+| [!KEYREF s2.5xlarge] | ₽110.8510 | ₽133.0212 |
+
+---
 
 ### Storage and backups {#prices-storage}
 
-Service | Cost of 1 GB per month, without VAT | Cost of 1 GB per month, with VAT
+| Service | Cost of 1 GB per month, without VAT | Cost of 1 GB per month, with VAT |
 | ----- | ----- | ----- |
-The standard NAS | ₽1.9068 | ₽2.2881 |
-Fast network storage | ₽6.7797 | ₽8.1356 |
-Fast local storage | ₽6.7797 | ₽8.1356 |
-Backup over storage size | ₽2.1186 | ₽2.5424
+| Standard network storage | ₽1.9068 | ₽2.2881 |
+| Fast network storage | ₽6.7797 | ₽8.1356 |
+| NVMe | ₽6.7797 | ₽8.1356 |
+| Backups beyond the storage size | ₽2.1186 | ₽2.5424 |
 
 ### Outgoing traffic {#prices-traffic}
 

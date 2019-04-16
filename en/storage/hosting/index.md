@@ -21,25 +21,29 @@ http(s)://[!KEYREF s3-web-host]/<bucket name>
 
 > [!NOTE]
 >
-> You can use HTTPS only if there is no dot in a bucket name.
+>You can use HTTPS only if there is no dot in a bucket name.
 
 ## Your own domain
 
-You can use your own domain to display the website.
+To display the site, you can use your own domain (for example, `www.example.com`).
 
 In this case:
 
-- The bucket name must exactly match the domain name.
+- The name of the bucket must match the domain name (for example, `www.example.com`).
+
+    > [!NOTE]
+    >
+    > Use only for hosting third-level domains or higher in [!KEYREF objstorage-name]. This is related to how `CNAME` records are processed on DNS hosting. Read more in point 2.4 in [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt).
 
 - Set up an alias for the bucket through your DNS provider or on your own DNS server.
 
-    For instance, for the `example.com` domain, the following record should be added:
+    For instance, for the `www.example.com` domain, the following record should be added:
 
     ```
-    example.com CNAME example.com.[!KEYREF s3-web-host]
+    www.example.com CNAME www.example.com.[!KEYREF s3-web-host]
     ```
 
 > [!NOTE]
 >
-> The website is accessible only over HTTP, for instance, `http://example.com` or `http://example.com.[!KEYREF s3-web-host]`.
+>The website is accessible only over HTTP, for instance, `http://www.example.com` or `http://www.example.com.[!KEYREF s3-web-host]`.
 

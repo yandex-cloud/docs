@@ -14,6 +14,8 @@ items:
         href: operations/cluster-create.md
       - name: Подключение к базе данных
         href: operations/connect.md
+      - name: Изменение кластера
+        href: operations/update.md
       - name: Управление хостами MySQL
         href: operations/hosts.md
       - name: Управление базами данных

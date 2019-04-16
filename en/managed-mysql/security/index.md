@@ -2,7 +2,7 @@
 
 Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden.
 
-To allow access to the [!KEYREF mmy-name] service resources (DB clusters and hosts, cluster backups, databases, and their users), assign the user the appropriate roles from the list below. At this time, a role can only be assigned to a parent resource (folder or cloud), and the roles are inherited by nested resources.
+To allow access to the [!KEYREF mmy-name] service resources (DB clusters and hosts, cluster backups, databases, and their users), assign the user the appropriate roles from the list below. For now, a role can only be assigned to a parent resource (folder or cloud), whose roles are inherited by nested resources.
 
 > [!NOTE]
 >

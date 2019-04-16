@@ -4,4 +4,5 @@
 * [[!TITLE]](lamp-lemp.md)
 * [[!TITLE]](dns-load-balancer.md)
 * [[!TITLE]](joomla-postgresql.md)
+* [[!TITLE]](wordpress.md)
 
