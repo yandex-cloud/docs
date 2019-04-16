@@ -17,7 +17,7 @@ You can configure a bucket:
 
 ---
 
-If you are going to use your own domain to publish a website, the bucket name must exactly match the domain name. For instance, `example.com`.
+If you are going to use your own domain to publish a website, the bucket name must match the domain name. For instance, `www.example.com`.
 
 Buckets can be configured:
 
@@ -28,17 +28,18 @@ Buckets can be configured:
 
 If you want to have multiple domain names supported for your website, for instance, `example.com` and `www.example.com`, you can do this as follows:
 
-1. Create the `example.com` bucket and upload your data to it.
+1. Create the `www.example.com` bucket and upload your data to it.
 2. Set up an alias for the bucket through your provider.
-
-    ```
-    example.com CNAME example.com.[!KEYREF s3-web-host]
-    ```
-3. Create the `www.example.com` bucket and leave it empty.
-4. Set up an alias for the bucket through your provider.
 
     ```
     www.example.com CNAME www.example.com.[!KEYREF s3-web-host]
     ```
-5. Set up a [redirect](setup.md) for all data from the `www.example.com` bucket to the `example.com` one.
+3. Set up a redirect from the `example.com` domain to the `www.example.com` domain on the provider side.
+
+If for some reason you can't or don't want to redirect the domain, you can do the following:
+
+1. Purchase a virtual machine with an external IP address.
+2. Configure the `example.com` domain to use the IP address of the virtual machine.
+3. Set up all necessary aliases on the provider side.
+4. Install a web server on the virtual machine and configure a redirect to the [!KEYREF objstorage-name] bucket.
 
