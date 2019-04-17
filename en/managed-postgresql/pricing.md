@@ -56,12 +56,12 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 | [!KEYREF b1.nano] | ₽423 | ₽508 |
 | [!KEYREF b1.micro] | ₽715 | ₽858 |
 | [!KEYREF b1.medium] | ₽1 318 | ₽1 581 |
-| [!KEYREF s1.nano] | ₽2 863 | ₽3 768 |
-| [!KEYREF s1.micro] | ₽5 728 | ₽5 216 |
-| [!KEYREF s1.small] | ₽11 454 | ₽6 375 |
-| [!KEYREF s1.medium] | ₽17 181 | ₽9 060 |
-| [!KEYREF s1.large] | ₽22 909 | ₽11 407 |
-| [!KEYREF s1.xlarge] | ₽34 364 | ₽16 158 |
+| [!KEYREF s1.nano] | ₽1 556 | ₽1 867 |
+| [!KEYREF s1.micro] | ₽3 106 | ₽3 727 |
+| [!KEYREF s1.small] | ₽6 205 | ₽7 447 |
+| [!KEYREF s1.medium] | ₽12 417 | ₽14 900 |
+| [!KEYREF s1.large] | ₽24 828 | ₽29 793 |
+| [!KEYREF s1.xlarge] | ₽49 662 | ₽59 594 |
 | **Intel Cascade Lake** |  |
 | [!KEYREF b2.nano] | ₽423 | ₽508 |
 | [!KEYREF b2.micro] | ₽715 | ₽858 |

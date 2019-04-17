@@ -89,6 +89,7 @@ You need to create a key pair for SSH connection yourself. To generate keys, use
     ```
     $ yc compute instance create \
       --name test-vm-from-image \
+      --zone ru-central1-a \
       --create-boot-disk name=disk1,size=5,image-id=fd8gkcd3l6ov84aon8s1 \
       --public-ip \
       --ssh-key ~/.ssh/id_rsa.pub

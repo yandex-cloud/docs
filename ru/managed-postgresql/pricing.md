@@ -65,7 +65,7 @@ editable: false
 [!KEYREF b1.medium] | 1 318 ₽ | 1 581 ₽
 [!KEYREF s1.nano]| 1 556 ₽ | 1 867 ₽
 [!KEYREF s1.micro] | 3 106 ₽ | 3 727 ₽
-[!KEYREF s1.small] | 6 205 | 7 447 ₽
+[!KEYREF s1.small] | 6 205 ₽ | 7 447 ₽
 [!KEYREF s1.medium] | 12 417 ₽ | 14 900 ₽
 [!KEYREF s1.large] | 24 828 ₽ | 29 793 ₽
 [!KEYREF s1.xlarge] | 49 662 ₽ | 59 594 ₽

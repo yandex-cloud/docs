@@ -134,7 +134,7 @@ editable: false
 ----- | ----- | -----
 Linux всех типов ядра | 0 ₽ | 0 ₽
 Windows Server для 5% vCPU | 0,5288 ₽ | 0,6346 ₽
-Windows Server для 1 vCPU | 1,0576 ₽ | 1,2691 ₽
+Windows Server для 20%+, 50%+ и 100% vCPU | 1,0576 ₽ | 1,2691 ₽
 
 ### Диски, снимки и образы {#prices-storage}
 

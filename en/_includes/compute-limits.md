@@ -15,8 +15,8 @@
 
 | Type of limit | Value |
 | ----- | ----- |
-| Maximum number of vCPUs per VM | 32 |
-| Maximum virtual memory per VM | 256 GB |
+| Maximum number of vCPUs per VM | 32/48 for `standard-v1`/`standard-v2` [platforms](../compute/concepts/vm-platforms.md) |
+| Maximum virtual memory per VM | 256/384 GB for `standard-v1`/`standard-v2` [platforms](../compute/concepts/vm-platforms.md) |
 | Maximum number of disks connected to a single VM | 6 |
 | Maximum disk size | 4 TB |
 | Maximum disk snapshot size | 4 TB |
