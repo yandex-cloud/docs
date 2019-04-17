@@ -168,28 +168,28 @@ editable: false
 Класс хостов | Цена за 1 час, без НДС | Цена за 1 час, вкл. НДС 
 ----- | ----- | -----
 **Intel Broadwell** | | 
-[!KEYREF b1.nano]| 0,5880 ₽ | 0,7056 ₽
-[!KEYREF b1.micro] | 0,9930 ₽ | 1,1916 ₽
-[!KEYREF b1.medium] | 1,8300 ₽ | 2,1960 ₽
-[!KEYREF s1.nano] | 2,2966 ₽ | 2,7559 ₽ | 
-[!KEYREF s1.micro] | 4,5932 ₽ | 5,5119 ₽ | 
-[!KEYREF s1.small] | 9,1780 ₽ | 11,0136 ₽ | 
-[!KEYREF s1.medium] | 18,3559 ₽ | 22,0271 ₽ | 
-[!KEYREF s1.large] | 36,7119 ₽ | 44,0542 ₽ | 
-[!KEYREF s1.xlarge] | 73,4153 ₽ | 88,0983 ₽ | 
+[!KEYREF b1.nano]| 0,5840 ₽ | 0,7008 ₽
+[!KEYREF b1.micro] | 0,9240 ₽ | 1,1088 ₽
+[!KEYREF b1.medium] | 1,4920 ₽ | 1,7904 ₽
+[!KEYREF s1.nano] | 1,4577 ₽ | 1,7492 ₽ | 
+[!KEYREF s1.micro] | 2,8474 ₽ | 3,4169 ₽ | 
+[!KEYREF s1.small] | 5,6271 ₽ | 6,7525 ₽ | 
+[!KEYREF s1.medium] | 11,1864 ₽ | 13,4237 ₽ | 
+[!KEYREF s1.large] | 22,3220 ₽ | 26,7864 ₽ | 
+[!KEYREF s1.xlarge] | 44,5678 ₽ | 53,4814 ₽ | 
 **Intel Cascade Lake** | | 
-[!KEYREF b2.nano]| 0,5880 ₽ | 0,7056 ₽
-[!KEYREF b2.micro] | 0,9930 ₽ | 1,1916 ₽
-[!KEYREF b2.medium] | 1,8300 ₽ | 2,1960 ₽
-[!KEYREF s2.micro] | 4,2340 ₽ | 5,0808 ₽
-[!KEYREF s2.small] | 8,4680 ₽ | 10,1616 ₽
-[!KEYREF s2.medium] | 16,9360 ₽ | 20,3232 ₽
-[!KEYREF s2.large] | 25,4030 ₽ | 30,4836 ₽
-[!KEYREF s2.xlarge] | 33,8710 ₽ | 40,6452 ₽
-[!KEYREF s2.2xlarge] | 50,8060 ₽ | 60,9672 ₽
-[!KEYREF s2.3xlarge] | 67,7420 ₽ | 81,2904 ₽
-[!KEYREF s2.4xlarge]| 84,6780 ₽ | 101,6136 ₽
-[!KEYREF s2.5xlarge]| 101,6130 ₽ | 121,9356 ₽
+[!KEYREF b2.nano]| 0,5840 ₽ | 0,7008 ₽
+[!KEYREF b2.micro] | 0,9240 ₽ | 1,1088 ₽
+[!KEYREF b2.medium] | 1,4920 ₽ | 1,7904 ₽
+[!KEYREF s2.micro] | 2,6510 ₽ | 3,1812 ₽
+[!KEYREF s2.small] | 5,2170 ₽ | 6,2604 ₽
+[!KEYREF s2.medium] | 10,3490 ₽ | 12,4188 ₽
+[!KEYREF s2.large] | 15,4810 ₽ | 18,5772 ₽
+[!KEYREF s2.xlarge] | 20,6130 ₽ | 24,7356 ₽
+[!KEYREF s2.2xlarge] | 30,8770 ₽ | 37,0524 ₽
+[!KEYREF s2.3xlarge] | 41,1410 ₽ | 49,3692 ₽
+[!KEYREF s2.4xlarge]| 51,4050 ₽ | 61,6860 ₽
+[!KEYREF s2.5xlarge]| 61,6690 ₽ | 74,0028 ₽
 
 ---
 
