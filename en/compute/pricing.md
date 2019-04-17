@@ -134,7 +134,7 @@ The cost is specified for one month of use. Charging per second.
 | ----- | ----- | ----- |
 | Linux for all core types | 0 ₽ | 0 ₽ |
 | Windows Server for 5%+ of vCPU | 0.5288 ₽ | 0.6346 ₽ |
-| Windows Server for 1 vCPU | 1.0576 ₽ | 1.2691 ₽ |
+| Windows Server for 20%+, 50%+, 100% vCPU | 1.0576 ₽ | 1.2691 ₽ |
 
 ### Disks, snapshots, and images {#prices-storage}
 
