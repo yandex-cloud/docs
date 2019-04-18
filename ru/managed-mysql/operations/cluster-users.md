@@ -15,8 +15,6 @@
 
 ## Добавить пользователя {#adduser}
 
-[!INCLUDE [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md)]
-
 ---
 
 **[!TAB Консоль управления]**

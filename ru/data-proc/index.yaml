@@ -2,7 +2,7 @@
 title: "Yandex Data Proc"
 description:
   - "<em>Сервис Data Proc находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a></em>."
-  - "Сервис помогает разворачивать кластеры Apache Hadoop® и Apache Spark в инфраструктуре Яндекс.Облака. Вы сами определяете размер кластера, мощность узлов и набор сервисов Apache® (Spark, HDFS, YARN, Hive, HBase, Oozie, Sqoop, Flume, Tez, Zeppelin)."
+  - "Сервис помогает разворачивать кластеры Apache Hadoop<sup>®</sup> и Apache Spark в инфраструктуре Яндекс.Облака. Вы сами определяете размер кластера, мощность узлов и набор сервисов Apache<sup>®</sup> (Spark, HDFS, YARN, Hive, HBase, Oozie, Sqoop, Flume, Tez, Zeppelin)."
 # Мета-информация title, description, keywords и т.п.
 meta:
   title: "Yandex Data Proc"
@@ -15,7 +15,7 @@ links:
 #  description: "Инструкции по выполнению рутинных операций"
 #  href: "operations/"
 - title: "Концепции"
-  description: "Узнайте про концепции и общее устройство сервиса"
+  description: "Концепции и общее устройство сервиса"
   href: "concepts/"
 #- title: "Справочник API"
 #  description: "Описание методов HTTP API"
@@ -24,7 +24,7 @@ links:
   description: "Технические и организационные ограничения сервиса"
   href: "concepts/limits"
 - title: "Управление доступом"
-  description: "Настройте права доступа для работы с сервисом"
+  description: "Настройка прав доступа для работы с сервисом"
   href: "security/"
 - title: "Правила тарификации"
   description: "Цены и правила расчета стоимости услуг сервиса"
