@@ -22,7 +22,13 @@
 
 ### Сервисные роли
 
-_Сервисные роли_ — роли, дающие доступ к ресурсам определенного сервиса. При проверке прав доступа к ресурсам [!KEYREF iam-short-name] учитываются сервисные роли [!KEYREF resmgr-name].
+_Сервисные роли_ — роли, дающие доступ к ресурсам определенного сервиса. При проверке прав доступа к ресурсам [!KEYREF iam-short-name] также учитываются сервисные роли [!KEYREF resmgr-name].
+
+### Yandex [!KEYREF iam-full-name] {#yrm-roles}
+
+[!INCLUDE [roles-sa-user](../../_includes/roles-sa-user.md)]
+
+### Yandex Resource Manager {#yrm-roles}
 
 [!INCLUDE [cloud-roles](../../_includes/cloud-roles.md)]
 
