@@ -1,10 +1,10 @@
 # How to start working with instance groups
 
-[!INCLUDE [before-begin.md](../../_includes/before-begin.md)]
+[!INCLUDE [before-begin](../../_includes/before-begin.md)]
 
 ## Create a fixed-size instance group
 
-You can create a group with a set number of virtual machine instances. You control the group size manually. For more information, see [[!TITLE]](../concepts/instance-group-types.md#fixed-scale).
+You can create a group with a set number of virtual machine instances. You control the group size manually. For more information, see [[!TITLE]](../concepts/scale.md#fixed-scale).
 
 [!INCLUDE [warning.md](../../_includes/instance-groups/warning.md)]
 

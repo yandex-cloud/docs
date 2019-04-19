@@ -1,4 +1,4 @@
-# Step-by-step instructions for the component [!KEYREF instance-groups-name]
+# Step-by-step instructions for the component [!KEYREF ig-name]
 
 ## Creating an instance group
 

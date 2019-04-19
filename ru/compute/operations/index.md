@@ -60,3 +60,20 @@
 - [[!TITLE]](serial-console/connect-cli.md)
 - [[!TITLE]](serial-console/connect-ssh.md)
 - [[!TITLE]](serial-console/disable.md)
+
+## Создание группы виртуальных машин
+
+- [[!TITLE]](instance-groups/create-fixed-group.md)
+- [[!TITLE]](instance-groups/create-with-balancer.md)
+
+## Получение информации о группе виртуальных машин
+
+- [[!TITLE]](instance-groups/get-list.md)
+- [[!TITLE]](instance-groups/get-info.md)
+- [[!TITLE]](instance-groups/get-list-instances.md)
+
+## Управление группой виртуальных машин
+
+- [[!TITLE]](instance-groups/update.md)
+- [[!TITLE]](instance-groups/delete.md)
+- [[!TITLE]](instance-groups/enable-autohealing.md)

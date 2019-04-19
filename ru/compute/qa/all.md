@@ -11,3 +11,7 @@
 ## Диски и снимки {#disks}
 
 [!INCLUDE-NOTITLE [disks](disks.md)]
+
+## Группы виртуальных машин {#instance-groups}
+
+[!INCLUDE-NOTITLE [disks](instance-groups/general.md)]

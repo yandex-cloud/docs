@@ -1,6 +1,6 @@
 # Create a fixed-size instance group
 
-You can create a group with a fixed number of instances. The group size is set manually. For more information, see [[!TITLE]](../concepts/instance-group-types.md#fixed-scale).
+You can create a group with a fixed number of instances. The group size is set manually. For more information, see [[!TITLE]](../concepts/scale.md#fixed-scale).
 
 [!INCLUDE [warning.md](../../_includes/instance-groups/warning.md)]
 
@@ -54,7 +54,7 @@ To create a fixed-size instance group:
         | `name` | A name for the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters. |
         | `description` | A description of the instance group. |
 
-    - [The instance template](../concepts/instance-group-instance-template.md):
+    - [The instance template](../concepts/instance-template.md):
 
         ```
         instance_template:
@@ -85,9 +85,9 @@ To create a fixed-size instance group:
         | `type_id` | Disk type. |
         | `size` | Disk size. |
         | `network_id` | The `default-net` ID. |
-        | `primary_v4_address_spec` | IPv4 specification. Only IPv4 is currently available. You can allow public access to group instances by specifying the IP version for the public IP address. For more information, see [[!TITLE]](../concepts/instance-group-instance-template.md#instance-template). |
+        | `primary_v4_address_spec` | IPv4 specification. Only IPv4 is currently available. You can allow public access to group instances by specifying the IP version for the public IP address. For more information, see [[!TITLE]](../concepts/instance-template.md#instance-template). |
 
-    - [Policies](../concepts/instance-group-policies.md):
+    - [Policies](../concepts/policies.md):
 
         ```
         deploy_policy:

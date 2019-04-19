@@ -9,6 +9,8 @@ items:
         href: quickstart/quick-create-linux.md
       - name: Создать виртуальную машину Windows
         href: quickstart/quick-create-windows.md
+      - name: Начало работы с Instance Groups
+        href: quickstart/ig.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -99,6 +101,28 @@ items:
             href: operations/serial-console/connect-cli.md
           - name: Отключить доступ к серийной консоли
             href: operations/serial-console/disable.md
+      - name: Создание группы виртуальных машин
+        items:
+          - name: Создать группу ВМ фиксированного размера
+            href: operations/instance-groups/create-fixed-group.md
+          - name: Создать группу ВМ фиксированного размера с балансировщиком
+            href: operations/instance-groups/create-with-balancer.md
+      - name: Получение информации о группе виртуальных машин
+        items:
+          - name: Получить список групп
+            href: operations/instance-groups/get-list.md
+          - name: Получить основную информацию и метаданные
+            href: operations/instance-groups/get-info.md
+          - name: Получить список ВМ в группе
+            href: operations/instance-groups/get-list-instances.md
+      - name: Управление группой виртуальных машин
+        items:
+          - name: Изменить группу
+            href: operations/instance-groups/update.md
+          - name: Удалить группу
+            href: operations/instance-groups/delete.md
+          - name: Настроить автоматическое восстановление виртуальных машин
+            href: operations/instance-groups/enable-autohealing.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов
@@ -127,6 +151,24 @@ items:
             href: concepts/snapshot.md
       - name: Образы
         href: concepts/images.md
+      - name: Instance Groups
+        items:
+          - name: Обзор
+            href: concepts/instance-groups/index.md
+          - name: Доступ
+            href: concepts/instance-groups/access.md
+          - name: Шаблон виртуальной машины
+            href: concepts/instance-groups/instance-template.md
+          - name:	Политики
+            href: concepts/instance-groups/policies.md
+          - name: Типы масштабирования
+            href: concepts/instance-groups/scale.md
+          - name: Автоматическое восстановление
+            href: concepts/instance-groups/autohealing.md
+          - name: Конфигурационное обновление
+            href: concepts/instance-groups/configuration-update.md
+          - name: Статусы виртуальных машин
+            href: concepts/instance-groups/vm-statuses.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
@@ -148,6 +190,10 @@ items:
     include:
       repo: docs-api
       path: ru/compute/toc.yaml
+  - name: Справочник API Instance Groups
+    include:
+      repo: docs-api
+      path: ru/compute/instancegroup/toc.yaml
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

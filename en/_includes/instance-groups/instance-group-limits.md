@@ -1,4 +1,4 @@
-In the [!KEYREF instance-groups-name] component, the following limitations apply:
+In the [!KEYREF ig-name] component, the following limitations apply:
 
 | Type of limit | Value |
 | ----- | ----- |
