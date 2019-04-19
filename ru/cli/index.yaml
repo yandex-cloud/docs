@@ -15,7 +15,7 @@ links:
   href: "concepts/"
 - title: "Произошла ошибка?"
   description: "Узнайте, как собрать диагностическую информацию"
-  href: "operations/"
+  href: "error"
 - title: "Справочник CLI"
   description: "Дерево команд CLI"
   href: "command-tree/"
