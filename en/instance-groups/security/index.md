@@ -2,7 +2,7 @@
 
 Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden. Regardless of the roles assigned, the user can view reference lists of availability zones and disk types.
 
-To allow access to the resources of the [!KEYREF instance-groups-name] component of [!KEYREF compute-full-name] (instance groups, instances, disks, images, and snapshots), assign the user the required roles from the list below. For now, a role can only be assigned to a parent resource (folder or cloud), whose roles are inherited by nested resources.
+To allow access to the resources of the [!KEYREF ig-name] component of [!KEYREF compute-full-name] (instance groups, instances, disks, images, and snapshots), assign the user the required roles from the list below. For now, a role can only be assigned to a parent resource (folder or cloud), whose roles are inherited by nested resources.
 
 > [!NOTE]
 >
@@ -16,7 +16,7 @@ To assign a role to a user:
 
 ## Roles
 
-Below is a list of all roles that are considered when verifying access rights in the [!KEYREF instance-groups-name] component of [!KEYREF compute-short-name].
+Below is a list of all roles that are considered when verifying access rights in the [!KEYREF ig-name] component of [!KEYREF compute-short-name].
 
 ### Primitive roles
 

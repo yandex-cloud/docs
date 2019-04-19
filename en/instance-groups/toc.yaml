@@ -37,13 +37,13 @@ items:
       - name: Overview
         href: concepts/index.md
       - name: Group types
-        href: concepts/instance-group-types.md
+        href: concepts/scale.md
       - name: Instance template
-        href: concepts/instance-group-instance-template.md
+        href: concepts/instance-template.md
       - name: VM statuses
-        href: concepts/instance-group-statuses-vm.md
+        href: concepts/vm-statuses.md
       - name:	Policies
-        href : concepts/instance-group-policies.md
+        href : concepts/policies.md
       - name: Limits
         href: concepts/limits.md
   - name: Pricing policy

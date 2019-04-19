@@ -1,10 +1,10 @@
 # General questions
 
-#### What is [!KEYREF instance-groups-short-name]? {#what-is}
+#### What is [!KEYREF ig-name]? {#what-is}
 
-[!KEYREF instance-groups-short-name] is a component that allows you to create, use, and scale groups of similar instances in the [!KEYREF compute-full-name] infrastructure.
+[!KEYREF ig-name] is a component that allows you to create, use, and scale groups of similar instances in the [!KEYREF compute-full-name] infrastructure.
 
-With [!KEYREF instance-groups-short-name], you can:
+With [!KEYREF ig-name], you can:
 
 - Create groups with the required number of instances and performance parameters.
 - Scale the computing capacity up or down, depending on the load.

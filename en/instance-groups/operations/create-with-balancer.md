@@ -51,9 +51,9 @@ To create an instance group with a load balancer:
 
     - Maximum number of instances when deleting a group.
 
-        For more information, see [[!TITLE]](../../instance-groups/concepts/instance-group-policies.md#deploy-policy).
+        For more information, see [[!TITLE]](../../instance-groups/concepts/policies.md#deploy-policy).
 1. In the **Scalability** section:
-    - Select the [group type](../../instance-groups/concepts/instance-group-types.md).
+    - Select the [scale type](../../instance-groups/concepts/scale.md).
     - Specify the required number of instances.
 1. In the **Integration with [!KEYREF load-balancer-name]** section, switch the **Create target group** option to the right.
 1. Click **Create**.
@@ -100,7 +100,7 @@ To create an instance group with a load balancer:
         | `name` | A name for the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters. |
         | `description` | A description of the instance group. |
 
-    - [The instance template](../concepts/instance-group-instance-template.md):
+    - [The instance template](../concepts/instance-template.md):
 
         ```
         instance_template:
@@ -131,9 +131,9 @@ To create an instance group with a load balancer:
         | `type_id` | Disk type. |
         | `size` | Disk size. |
         | `network_id` | The `default-net` ID. |
-        | `primary_v4_address_spec` | IPv4 specification. Only IPv4 is currently available. You can allow public access to group instances by specifying the IP version for the public IP address. For more information, see [[!TITLE]](../concepts/instance-group-instance-template.md#instance-template). |
+        | `primary_v4_address_spec` | IPv4 specification. Only IPv4 is currently available. You can allow public access to group instances by specifying the IP version for the public IP address. For more information, see [[!TITLE]](../concepts/instance-template.md#instance-template). |
 
-    - [Policies](../concepts/instance-group-policies.md):
+    - [Policies](../concepts/policies.md):
 
         ```
         deploy_policy:

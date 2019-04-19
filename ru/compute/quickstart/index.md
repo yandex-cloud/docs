@@ -1,6 +1,12 @@
 # Начало работы с Yandex Compute Cloud
 
-Выберите сценарий для знакомства с Yandex Compute Cloud:
+Выберите сценарий для знакомства с:
 
-- [Создание виртуальной машины Linux](quick-create-linux.md)
-- [Создание виртуальной машины Windows](quick-create-windows.md)
+- Yandex Compute Cloud
+
+    - [Создание виртуальной машины Linux](quick-create-linux.md)
+    - [Создание виртуальной машины Windows](quick-create-windows.md)
+
+- [!KEYREF ig-name]
+
+    - [Создание группы виртуальных машин фиксированного размера](ig.md)

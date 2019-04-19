@@ -19,7 +19,7 @@ vision-full-name: Yandex Vision
 
 # Полные имена сервисов без Yandex
 iam-name: Identity and Access Management
-instance-groups-name: Instance Groups
+ig-name: Instance Groups
 resmgr-name: Resource Manager
 compute-name: Compute Cloud
 objstorage-name: Object Storage
@@ -39,7 +39,6 @@ vision-name: Vision
 
 # Короткие имена
 iam-short-name: IAM
-instance-groups-short-name: Instance Groups
 resmgr-short-name: Resource Manager
 compute-short-name: Compute Cloud
 objstorage-short-name: Object Storage

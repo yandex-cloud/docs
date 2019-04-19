@@ -39,7 +39,7 @@ To delete an instance group:
     $ [!KEYREF yc-compute-ig] delete --name first-instance-group
     ```
 
-    [!KEYREF instance-groups-name] starts the operation to delete the instance group.
+    [!KEYREF ig-name] starts the operation to delete the instance group.
 
 **[!TAB API]**
 

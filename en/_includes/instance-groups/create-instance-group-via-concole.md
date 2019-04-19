@@ -39,8 +39,8 @@
 
     - Maximum number of instances when deleting a group.
 
-        For more information, see [[!TITLE]](../../instance-groups/concepts/instance-group-policies.md#deploy-policy).
+        For more information, see [[!TITLE]](../../instance-groups/concepts/policies.md#deploy-policy).
 1. In the **Scalability** section:
-    - Select the [group type](../../instance-groups/concepts/instance-group-types.md).
+    - Select the [scale type](../../instance-groups/concepts/scale.md).
     - Specify the required number of instances.
 1. Click **Create**.

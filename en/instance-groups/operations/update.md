@@ -48,7 +48,7 @@ To change the name and description of an instance group:
     $ [!KEYREF yc-compute-ig] update --name first-instance-group --file template.yaml
     ```
 
-   [!KEYREF instance-groups-name] starts the operation to update the instance group.
+   [!KEYREF ig-name] starts the operation to update the instance group.
 
 **[!TAB API]**
 
@@ -105,7 +105,7 @@ To change the computing resources of an instance group:
     $ [!KEYREF yc-compute-ig] update --name first-instance-group --file template.yaml
     ```
 
-   [!KEYREF instance-groups-name] starts the operation to update the instance group.
+   [!KEYREF ig-name] starts the operation to update the instance group.
 
 **[!TAB API]**
 
@@ -157,7 +157,7 @@ To increase the disk size of an instance group:
     $ [!KEYREF yc-compute-ig] update --name first-instance-group --file template.yaml
     ```
 
-   [!KEYREF instance-groups-name] starts the operation to update the instance group.
+   [!KEYREF ig-name] starts the operation to update the instance group.
 
 **[!TAB API]**
 

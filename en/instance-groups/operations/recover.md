@@ -1,6 +1,6 @@
 # Recover an instance group
 
-You can recover a group if one of its instances becomes unhealthy and the status changes to `FAILED`. For more information about statuses, see the section [[!TITLE]](../concepts/instance-group-statuses-vm.md).
+You can recover a group if one of its instances becomes unhealthy and the status changes to `FAILED`. For more information about statuses, see the section [[!TITLE]](../concepts/vm-statuses.md).
 
 To recover an instance group:
 
@@ -38,7 +38,7 @@ To recover an instance group:
     $ [!KEYREF yc-compute-ig] recover --name first-instance-group
     ```
 
-   [!KEYREF instance-groups-name] starts the operation to recover the instance group.
+   [!KEYREF ig-name] starts the operation to recover the instance group.
 
 **[!TAB API]**
 
