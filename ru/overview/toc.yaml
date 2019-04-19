@@ -13,5 +13,7 @@ items:
     href: concepts/launch-stages.md
   - name: SLA
     href: sla.md
+  - name: Удаление данных пользователей
+    href: concepts/data-deletion.md
   - name: Вопросы и ответы
     href: qa.md

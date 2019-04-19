@@ -13,5 +13,7 @@ items:
     href: concepts/launch-stages.md
   - name: SLA
     href: sla.md
-  - name: Questions and answers
+  - name: Terms of deleting user data
+    href: concepts/data-deletion.md
+  - name: Frequently asked questions
     href: qa.md
