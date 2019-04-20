@@ -27,16 +27,7 @@
     }
     ```
 
-1. Отправьте запрос на распознавание с помощью метода [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) и сохраните ответ в файл, например `output.json`:
-
-    ```bash
-    $ export IAM_TOKEN=CggaATEVAgA...
-    $ curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d @body.json \
-        https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze > output.json
-    ```
+1. [!INCLUDE [send-request](send-request.md)]
 
     Ответ будет состоять из распознанных блоков текста, строк и слов с указанием их местоположения на изображении:
 
@@ -91,7 +82,7 @@
     }
     ```
 
-1. Чтобы получить весь текст с изображения, найдите все строки с свойством `text`, например с помощью [grep](https://www.gnu.org/software/grep/):
+1. Чтобы получить все распознанные слова с изображения, найдите все строки с свойством `text`, например с помощью [grep](https://www.gnu.org/software/grep/):
 
     ```bash
     $ grep -o "\"text\":\s\".*\"" output.json
