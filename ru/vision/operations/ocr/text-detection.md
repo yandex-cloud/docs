@@ -1,6 +1,8 @@
 # Распознать текст на картинке
 
-Чтобы распознать текст на картинке, воспользуйтесь методом [batchAnalyze](../../api-ref/Vision/batchAnalyze.md). В свойстве `type` укажите `TEXT_DETECTION`, а в свойстве `textDetectionConfig` задайте настройки распознавания.
+Чтобы распознать текст на картинке, воспользуйтесь возможностью [Распознавание текста](../../concepts/ocr/index.md).
+
+Для этого в методе [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) в свойстве `type` укажите `TEXT_DETECTION`, а в свойстве `textDetectionConfig` задайте настройки распознавания.
 
 > [!NOTE]
 >
