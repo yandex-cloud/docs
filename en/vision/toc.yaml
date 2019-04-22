@@ -10,16 +10,41 @@ items:
         href: operations/index.md
       - name: Recognizing text on an image
         href: operations/ocr/text-detection.md
+      - name: Evaluate image quality
+        stage: preview
+        href: operations/classification/quality.md
+      - name: Moderate images
+        stage: preview
+        href: operations/classification/moderation.md
+      - name: Detect faces in an image
+        stage: preview
+        href: operations/face-detection/index.md
       - name: Encode a file to Base64
         href: operations/base64-encode.md
   - name: Concepts
     items:
-      - name: Recognizing text
+      - name: Overview
         href: concepts/index.md
-      - name: Supported languages
-        href: concepts/ocr/supported-languages.md
-      - name: Restrictions for the current version
-        href: concepts/ocr/known-issues.md
+      - name: Optical character recognition (OCR)
+        items:
+          - name: Overview
+            href: concepts/ocr/index.md
+          - name: Supported languages
+            href: concepts/ocr/supported-languages.md
+          - name: Restrictions for the current version
+            href: concepts/ocr/known-issues.md
+      - name: Image classification
+        stage: preview
+        items:
+          - name: Overview
+            stage: preview
+            href: concepts/classification/index.md
+          - name: Supported models
+            stage: preview
+            href: concepts/classification/supported-models.md
+      - name: Face detection
+        stage: preview
+        href: concepts/face-detection/index.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
@@ -34,4 +59,4 @@ items:
         href: api-ref/errors-handling.md
     include:
       repo: docs-api
-      path: en/ai/vision_old/toc.yaml
+      path: en/ai/vision/toc.yaml

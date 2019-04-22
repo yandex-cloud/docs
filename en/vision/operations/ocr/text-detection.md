@@ -1,6 +1,8 @@
-# Recognizing text on an image
+# Recognizing text in an image
 
-To recognize text on an image, use the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method. In  the `type` property, specify `TEXT_DETECTION`, and in the `textDetectionConfig` property, specify the recognition settings.
+To recognize text in an image, use the [Text recognition](../../concepts/ocr/index.md) feature.
+
+In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `TEXT_DETECTION`, and specify the recognition settings in the `textDetectionConfig` property.
 
 > [!NOTE]
 >
@@ -50,7 +52,7 @@ To recognize text on an image, use the [batchAnalyze](../../api-ref/Vision/batch
        ```
 
    * If the languages are from different models, set multiple configurations in the `features` property.
-        For example, you can recognize images in Hebrew, Arabic, and English:
+For example, you can recognize images in Hebrew, Arabic, and English:
 
        **body.json:**
 

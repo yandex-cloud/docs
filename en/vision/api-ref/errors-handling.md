@@ -41,7 +41,7 @@ If a file processing error occurs, the gRPC error code is always `3`, and the er
 
 ## Errors performing analysis {#feature-error}
 
-An error that occurs if the service failed to perform one of the requested types of analysis (`Feature`) for the file. For example, it failed to recognize text due to an incorrect configuration:
+An error that occurs if the service failed to analyze one of the requested `features` for the file. For example, it failed to recognize text due to an incorrect configuration:
 
 ```json
 {
@@ -68,5 +68,6 @@ Possible errors:
 | Error code | Error description |
 | ---- | ---- |
 | 3 | Invalid request parameters. For example, the configuration specifies an incorrect number of languages. |
+| 8 | The [limit](../concepts/limits.md) for the given feature has been exceeded. |
 | 13 | Internal server error. This error means that the operation cannot be performed due to a server-side technical problem. For example, due to insufficient computing resources. |
 

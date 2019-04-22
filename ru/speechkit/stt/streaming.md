@@ -15,7 +15,11 @@
     https://console.cloud.yandex.ru/folders/b5gfc3ntettogerelqed7p
     ```
     `b5gfc3ntettogerelqed7p` — это идентификатор каталога.
-1. Скачайте protobuf-файл с описанием сервиса [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto). Этот файл будет использоваться для создания кода интерфейса клиента.
+1. Склонируйте репозиторий [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi):
+    ```
+    git clone https://github.com/yandex-cloud/cloudapi
+    ```
+    Файл [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) из этого репозитория будет использоваться для создания кода интерфейса клиента.
 
 ### Создание клиентского приложения
 
@@ -128,10 +132,11 @@ _Промежуточные результаты_ распознавания ф�
     pip install grpcio-tools
     ```
 
-1. Перейдите в директорию, в которую вы скачали файл [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto), и выполните:
+1. Перейдите в директорию с репозиторием [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) и сгенерируйте код интерфейса клиента:
 
-    ```
-    python -m grpc_tools.protoc -I . --python_out=. --grpc_python_out=. ./stt_service.proto
+    ```bash
+    cd cloudapi
+    python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=. --grpc_python_out=. yandex/cloud/ai/stt/v2/stt_service.proto
     ```
 
     В результате в этой директории будут созданы файлы с интерфейсом клиента: `stt_service_pb2.py` и `stt_service_pb2_grpc.py`.
