@@ -28,8 +28,8 @@
 
 **[!TAB API]**
 
-Воспользуйтесь методом API [list](../../api-ref/InstanceGroup/list.md).
+Воспользуйтесь методом API [list](../../instancegroup/api-ref/InstanceGroup/list.md).
 
-Список доступных групп запрашивайте методом [listInstances](../../api-ref/InstanceGroup/listInstances.md).
+Список доступных групп запрашивайте методом [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md).
 
 ---
