@@ -1,6 +1,6 @@
 # Evaluate image quality
 
-_Image classification is currently in the [Preview stage] (/docs/overview/concepts/launch-stages)._
+_Image classification is currently in the [Preview stage](/docs/overview/concepts/launch-stages)._
 
 To evaluate the quality of an image, use the [Image Classification](../../concepts/classification/index.md) feature.
 
