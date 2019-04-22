@@ -11,12 +11,7 @@ Pass the content of the resulting `output.txt` file in the request body's `conte
     "folderId": "ajk55f3mblj12eghq2oe",
     "analyze_specs": [{
         "content": "iVBORw0KGgo...",
-        "features": [{
-            "type": "TEXT_DETECTION",
-            "text_detection_config": {
-                "language_codes": ["en", "ru"]
-            }
-        }]
+        ...
     }]
 }
 ```

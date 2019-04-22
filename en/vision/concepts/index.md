@@ -1,96 +1,71 @@
 # About the computer vision service
 
-The service recognizes text in an image using Optical Character Recognition (OCR) technology.
+The [!KEYREF vision-full-name] computer vision service analyzes a transmitted image and returns you the result.
 
-This section describes how text recognition works.
+## Analysis features {#features}
 
-## Text recognition process
+_Features_ are various types of analysis that the service provides. For example:
 
-Text in an image is recognized in two stages:
+* [Text recognition](ocr/index.md)
+* [Face detection](face-detection/index.md)
+* [Image classification](classification/index.md)
 
-1. [Detecting the language model for text recognition](#detect-model).
-1. [Detecting text in the image](#detect-text).
+## Request body format
 
-As a result of recognition, the service returns a JSON object with the recognized text, its position on the page, and the [recognition confidence](#confidence) value.
+The body of a request consists of _specifications_ (`analyzeSpecs`). In each spec, you pass a file with an image (`content`) and a list of `features` to be applied.
 
-### Detecting the language model {#detect-model}
-
-In your request, specify the languages for recognition. The list of languages and their order affect model selection and recognition quality. If the service tries to recognize Chinese in text written in Arabic, the result will be meaningless. For more information, see [[!TITLE]](ocr/supported-languages.md).
-
-> [!NOTE]
->
-> If your text is in Russian and English, do not specify any other languages in the configuration because the [English-Russian model](ocr/supported-languages.md#engrus) works best.
-
-### Detecting text in the image {#detect-text}
-
-The service highlights the text characters found in the image and groups them by level: words are grouped into lines, the lines into blocks, and the blocks into pages.
-
-![image](../../_assets/text-detection.jpg)
-
-As a result, the service returns a JSON object, where additional information is provided for each of the levels:
-
-* `pages[]` — Page size.
-* text `blocks[]` — Position of the text on the page.
-* `lines[]` — Position and [recognition](#confidence).
-* `words[]` — Position, confidence, text, and language used for recognition.
-
-To show the position of the text, the service returns the coordinates of the rectangle that frames the text. Coordinates are the number of pixels from the upper-left corner of the image.
-
-The coordinates of the rectangle are specified counter-clockwise:
-
-```
-1←4
-↓ ↑
-2→3
-```
-
-Example of a recognized word with coordinates:
+For example, if you want the service to detect faces and recognize text in an image, the request body will look like this:
 
 ```json
 {
-  "boundingBox": {
-    "vertices": [{
-        "x": "410",
-        "y": "404"
-      },
-      {
-        "x": "410",
-        "y": "467"
-      },
-      {
-        "x": "559",
-        "y": "467"
-      },
-      {
-        "x": "559",
-        "y": "404"
-      }
-    ]
-  },
-  "languages": [{
-    "languageCode": "en",
-    "confidence": 0.9412244558
-  }],
-  "text": "you",
-  "confidence": 0.9412244558
+    "folderId": "ajk55f3mblj12eghq2oe",
+    "analyze_specs": [{
+        "content": "iVBORw0KGgo...",
+        "features": [{
+            "type": "FACE_DETECTION"
+        },
+        {
+            "type": "TEXT_DETECTION",
+            "text_detection_config": {
+                "language_codes": ["ru", "en"]
+            }
+        }]
+    }]
 }
 ```
 
-## Image requirements
+You can pass up to 8 specs in a request and use up to 8 features in each spec. If you need to use more than 8 features for a single image, pass it twice in different specs.
 
-An image in a request must meet the following requirements:
+## Service response
 
-[!INCLUDE [file-restrictions](../../_includes/vision/file-restrictions.md)]
+The service returns an array of analysis results for each of the passed specs. Each element of the array is also an array of results for each of the requested features:
 
-## Recognition confidence {#confidence}
+```json
+{
+  "results": [{
+    // Results for the first spec.
+    "results": [{
+        // Results for the first requested feature, i.e., face detection.
+        "faceDetection": { ... }
+      },
+      {
+        // Results for the second requested feature, i.e., text recognition.
+        "textDetection": { ... }
+      }
+    ]
+  }]
+}
+```
 
-The confidence of recognition shows the service's confidence in the result. For example, the value `"confidence": 0.9412244558` for the line <q>we like you</q> means that the text is recognized correctly with a probability of 94%.
+The service returns the results in the same order as they were specified in the request. If you passed two specs and the first contains an image with cats and the second has an image with dogs, the first element in the array will be the result for the image with the cats.
 
-Currently, the recognition confidence value is only calculated for lines. The `confidence` value for words and language is substituted with the line's `confidence` value.
+The service also returns the results for each of the requested features.
+
+If an error occurs during any of the analyses, the service returns the error as a result. [More about handling errors](../api-ref/errors-handling.md).
 
 #### What's next
 
-* [View the list of supported languages and models](ocr/supported-languages.md)
-* [View known restrictions for the current version](ocr/known-issues.md)
-* [Try out text recognition with an image](../operations/ocr/text-detection.md)
+* [How text recognition works](ocr/index.md)
+* [How face detection works](face-detection/index.md)
+* [How image classification works](classification/index.md)
 

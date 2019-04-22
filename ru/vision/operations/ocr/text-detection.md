@@ -55,7 +55,7 @@
        {
            "folderId": "ajk55f3mblj12eghq2oe",
            "analyze_specs": [{
-               "content": "<BASE64_ENCODED_DATA>",
+               "content": "iVBORw0KGgo...",
                "features": [{
                    "type": "TEXT_DETECTION",
                    "text_detection_config": {
