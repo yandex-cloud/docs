@@ -46,6 +46,8 @@ items:
         href: concepts/network.md
       - name: Адреса облачных ресурсов
         href: concepts/address.md
+      - name: MTU и MSS
+        href: concepts/mtu-mss.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: DDoS Protection
