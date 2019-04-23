@@ -55,10 +55,12 @@ System metadata is defined by [!KEYREF objstorage-name].
 
 | Name | Description |
 | ----- | ----- |
-| Date | Date and time of sending a request to upload an object to [!KEYREF objstorage-name]. |
-| Content-Length | Object size in bytes. |
-| Last-Modified | Date when the object was created or last modified. |
-| Content-MD5 | Object MD5 hash value, base64 encoded. |
+| `Date` | Date and time of sending a request to upload an object to [!KEYREF objstorage-name]. |
+| `Content-Length` | Object size in bytes. |
+| `Last-Modified` | Date when the object was created or last modified. |
+| `Content-MD5` | Object MD5 hash value, base64 encoded. |
+| `Cache-Control` | The value of the `Cache-Control` HTTP header passed by the client when saving the object to the bucket. [!KEYREF objstorage-name] later returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Cache-Control: max-age=200` header indicates that the object expires 200 seconds after the client has received it. Read more about the header in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.2). |
+| `Expires` | The value of the `Expires` HTTP header passed by the client when saving the object to the bucket. [!KEYREF objstorage-name] later returns this header to clients when responding to a request for an object or its metadata.<br/><br/>For example, the `Expires: Thu, 15 Apr 2020 20:00:00 GMT` header indicates that the object expires at 20:00:00 (GMT) on April 15, 2020. Read more about the header in [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.3). |
 
 ### User-defined metadata {#user-meta}
 
