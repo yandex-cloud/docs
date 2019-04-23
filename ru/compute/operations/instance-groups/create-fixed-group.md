@@ -4,6 +4,8 @@
 
 [!INCLUDE [warning.md](../../../_includes/instance-groups/warning.md)]
 
+[!INCLUDE [sa.md](../../../_includes/instance-groups/sa.md)]
+
 Чтобы создать группу виртуальных машин фиксированного размера:
 
 ---
@@ -36,14 +38,16 @@
 
     [!INCLUDE [standard-images.md](../../../_includes/standard-images.md)]
 
-1. Создайте YAML-файл с произвольным именем, например `template.yaml`.
+1. Создайте YAML-файл с произвольным именем, например `specification.yaml`.
+
 1. Опишите в созданном файле:
 
     - Общую информацию о группе:
 
         ```
-        name: first-instance-group
-        description: "This instance group was created from yaml config"
+        name: first-group
+        service_account_id: <ID>
+        description: "This instance group was created from YAML config"
         ```
 
         Ключи:
@@ -51,6 +55,7 @@
         Ключ | Значение
         ----- | -----
         `name` | Произвольное имя группы виртуальных машин. Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
+        `service_account_id` | Идентификатор сервисного аккаунта.
         `description` | Произвольное описание группы виртуальных машин.
 
     - [Шаблон виртуальной машины](../../concepts/instance-groups/instance-template.md):
@@ -108,11 +113,12 @@
         `scale_policy` | Политика масштабирования виртуальных машин в группе.
         `allocation_policy` | Политика распределения виртуальных машин по зонам и регионам.
 
-        Полный код файла `template.yaml`:
+        Полный код файла `specification.yaml`:
 
         ```
-        name: first-instance-group
-        description: "This instance group was created from yaml config"
+        name: first-group
+        service_account_id: ajed6ilf11qg839dcl1e
+        description: "This instance group was created from YAML config"
         instance_template:
             platform_id: standard-v1
             resources_spec:
@@ -141,12 +147,12 @@
 1. Создайте группу виртуальных машин в каталоге по умолчанию:
 
     ```
-    $ [!KEYREF yc-compute-ig] create --file template.yaml
+    $ [!KEYREF yc-compute-ig] create --file specification.yaml
     ```
 
     Данная команда создаст группу из трех однотипных виртуальных машин со следующими характеристиками:
 
-    - С именем `first-instance-group`.
+    - С именем `first-group`.
     - С OC CentOS 7.
     - В сети `default-net`.
     - В зоне доступности `ru-central1-a`.

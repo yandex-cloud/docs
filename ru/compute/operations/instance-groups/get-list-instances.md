@@ -30,11 +30,11 @@
 
     [!INCLUDE [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md)]
 
-1. Выберите `ID` или `NAME` нужной группы, например `first-instance-group`.
+1. Выберите `ID` или `NAME` нужной группы, например `first-group`.
 1. Получите информацию о группе виртуальных машин:
 
     ```
-    $ [!KEYREF yc-compute-ig] list-instances --name first-instance-group
+    $ [!KEYREF yc-compute-ig] list-instances --name first-group
     ```
 
 **[!TAB API]**
