@@ -1,5 +1,7 @@
 # Пошаговые инструкции для компонента [!KEYREF ig-name]
 
+[!INCLUDE [sa.md](../../../_includes/instance-groups/sa.md)]
+
 ## Создание группы виртуальных машин
 
 - [[!TITLE]](create-fixed-group.md)

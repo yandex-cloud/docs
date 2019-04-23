@@ -21,7 +21,7 @@
 
 1. Выберите **Metriсa**.
 
-    ![image](../../_assets/datalens/solution3/metrica-choice.png) 
+    ![image](../../_assets/datalens/solution3/create-connection.png) 
 
 1. Введите имя подключения **Metriсa connect**.
 1. Нажмите кнопку **Получить токен**.
@@ -30,14 +30,14 @@
 1. Включите опцию **Автоматически создать дашборд на данном подключении**.
 1. Нажмите кнопку **Создать подключение**.
 
-    ![image](../../_assets/datalens/solution3/metrica-connect-create.png) 
+    ![image](../../_assets/datalens/solution3/connection-settings.png) 
 
 
 ## Шаг 2. Измените стандартный дашборд {#step2}
 
 > [!IMPORTANT]
 >
-> Если у вас нет счетчика Метрики и вы пропустили шаг 1, дашборд **Metriсa Live Demo Dashboard**.
+> Если у вас нет счетчика Метрики и вы пропустили шаг 1, используйте дашборд **Metriсa Live Demo Dashboard**.
 
 Вы можете изменять [дашборд](../concepts/dashboard.md), так как вам удобно, например, удалив ненужный график. 
 

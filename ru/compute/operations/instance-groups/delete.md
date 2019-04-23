@@ -34,11 +34,11 @@
 
     [!INCLUDE [instance-group-list](../../../_includes/instance-groups/instance-group-list.md)]
 
-1. Выберите `ID` или `NAME` нужной группы, например `first-instance-group`.
+1. Выберите `ID` или `NAME` нужной группы, например `first-group`.
 1. Удалите группу виртуальных машин:
 
     ```
-    $ [!KEYREF yc-compute-ig] delete --name first-instance-group
+    $ [!KEYREF yc-compute-ig] delete --name first-group
     ```
 
     [!KEYREF ig-name] запустит операцию удаления группы виртуальных машин.
