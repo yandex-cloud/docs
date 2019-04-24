@@ -9,3 +9,4 @@
 - [[!TITLE]](cluster-delete.md)
 - [[!TITLE]](cluster-users.md)
 - [[!TITLE]](update.md)
+- [[!TITLE]](cluster-version-update.md)
