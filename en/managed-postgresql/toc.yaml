@@ -33,7 +33,7 @@ items:
       href: concepts/index.md
     - name: Host classes
       href: concepts/instance-types.md
-    - name: Network in Yandex Managed Service for PostgreSQL
+    - name: Network in Managed Service for PostgreSQL
       href: concepts/network.md
     - name: Quotas and limits
       href: concepts/limits.md
