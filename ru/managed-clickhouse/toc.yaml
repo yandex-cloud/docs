@@ -18,7 +18,7 @@ items:
       stage: preview
     - name: Изменение настроек кластера и базы данных
       href: operations/update.md
-    - name: Обновлении версии кластера
+    - name: Обновление версии кластера
       href: operations/cluster-version-update.md
     - name: Управление хостами ClickHouse
       href: operations/hosts.md
