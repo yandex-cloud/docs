@@ -7,20 +7,22 @@ To start using the Billing service:
 - [Create a billing account](#create_billing_account)
 - [Start exploring Yandex.Cloud](#start)
 
-<a name="create_billing_account"></a>
 
-### Create a billing account {#create_billing_account}
+## Create a billing account {#create_billing_account}
 
 To create a [billing account](../concepts/billing-account.md):
 
 1. Go to [Yandex.Cloud](https://cloud.yandex.com/).
-1. Click **Console**.<br/>You will be redirected to the Yandex.Cloud [management console](https://console.cloud.yandex.ru/billing).
+1. Click **Console**.
+   You will be redirected to the Yandex.Cloud [management console](https://console.cloud.yandex.ru).
 1. Log in to Yandex:
     - If you are already logged in to Yandex or Yandex.Connect with your username and password, go to step 4.
     - If you are logged in to Yandex through a social network profile, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1) for your account, and then go to step 4.
     - If you are not logged in to Yandex or Yandex.Connect, click **Log in**. Then enter your username and password and click **Log in**.
 
 1. Read and agree to the terms and conditions of the [Privacy Policy](https://yandex.ru/legal/confidential/?lang=en) and [Terms of Use](https://yandex.ru/legal/cloud_termsofuse/?lang=en).
+
+1. In the management console, click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
 
 1. Click **Create account** on the **List of accounts** page.
 
