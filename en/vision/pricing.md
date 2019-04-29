@@ -1,7 +1,9 @@
 ---
 editable: false
 ---
-# Pricing for [!KEYREF vision-name]
+# Pricing policy for [!KEYREF vision-name]
+
+[!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
 
 ## What goes into the cost of using [!KEYREF vision-short-name] {#rules}
 
@@ -17,7 +19,19 @@ Each successful analysis performed using any feature is charged as a single _uni
 
 ## Pricing {#prices}
 
-| Feature | For 1000 units<br>/month, without VAT | For 1000 units<br>/month, with VAT |
-| ----- | ----- | ----- |
-| [Text recognition](concepts/ocr/index.md) | 100 ₽ | 120 ₽ |
 
+---
+
+**[!TAB Prices in USD]**
+
+| Feature | Rate for 1000 units per month, without VAT |
+| ----- | ----- |
+| [Text recognition](concepts/ocr/index.md) | $1.538461 |
+
+**[!TAB Prices in roubles]**
+
+| Feature | Rate for 1000 units per month, with VAT |
+| ----- | ----- |
+| [Text recognition](concepts/ocr/index.md) | ₽120 |
+
+---

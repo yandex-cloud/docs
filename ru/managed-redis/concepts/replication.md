@@ -9,6 +9,8 @@
 
 Из-за асинхронности репликации данные на репликах могут быть неактуальными: пока реплика обрабатывает обновления, полученные от мастера, она продолжает отвечать на запросы уже имеющимися данными (выставлен параметр [replica-serve-stale-data yes](http://download.redis.io/redis-stable/redis.conf)).
 
+[!INCLUDE [non-replicating-hosts](../../_includes/mdb/non-replicating-hosts.md)]
+
 Подробнее о том, как организована репликация в [!KEYREF RD], читайте в [документации СУБД](https://redis.io/topics/replication).
 
 

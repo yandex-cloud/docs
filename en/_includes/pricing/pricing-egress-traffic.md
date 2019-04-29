@@ -4,10 +4,18 @@ When using the service, you pay for the traffic from the Cloud to the internet. 
 
 The minimum charging unit is 1 MB. The price of a gigabyte of traffic changes depending on the amount of egress traffic in a given month.
 
-| Resource category | Cost of 1 GB, without VAT | Cost of 1 GB, incl. VAT |
-| ----- | ----- | ----- |
-| Outgoing traffic, <10 TB | ₽1.2712 | ₽1.5254 |
-| Outgoing traffic, next 40 TB | ₽1.0600 | ₽1.2720 |
-| Outgoing traffic, next 100 TB | ₽0.9000 | ₽1.0800 |
-| Outgoing traffic, >150 TB | ₽0.7500 | ₽0.9000 |
+---
 
+**[!TAB Prices in USD]**
+| Resource category | Cost of 1 GB, without VAT |
+| ----- | -----
+| Outgoing traffic, <10 GB | $0 |
+| Outgoing traffic, >10 GB | $0.012307 |
+
+**[!TAB Prices in roubles]**
+| Resource category | Cost of 1 GB, with VAT |
+| ----- | -----
+| Outgoing traffic, <10 GB | ₽0 |
+| Outgoing traffic, >10 GB | ₽0,9600 |
+
+---

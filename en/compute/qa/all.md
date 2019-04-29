@@ -1,4 +1,4 @@
-# Questions and answers about Yandex Compute Cloud
+# Questions and answers about [!KEYREF compute-name]
 
 ## General questions {#general}
 

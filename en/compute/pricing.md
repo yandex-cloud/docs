@@ -1,7 +1,9 @@
 ---
 editable: false
 ---
-# Pricing [!KEYREF compute-full-name]
+# Pricing policy for [!KEYREF compute-name]
+
+[!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
 
 ## What goes into the cost of using [!KEYREF compute-short-name] {#rules}
 
@@ -85,133 +87,152 @@ If you created an image or snapshot, you pay for the storage of this object sepa
 The cost is specified for one month of use. Charging per second.
 
 
-## Prices until May 1st 2019 {#prices}
+## Prices {#prices}
 
 ### Computing resources  {#prices-instance-resources}
 
-- Platform Intel Broadwell:
+---
 
-    | Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
-    | ----- | ----- | ----- |
-    | 5%+ of vCPU | ₽0.1610 | ₽0.1932 |
-    | 20%+ vCPU | ₽0.4583 | ₽0.5500 |
-    | 100% of vCPU | ₽0.5847 | ₽0.7017 |
-    | RAM (for 1 GB) | ₽0.2034 | ₽0.2441 |
+**[!TAB Prices in USD]**
 
-- Platform Intel Cascade Lake:
+Computing resources | Rate for 1 hour, without VAT |
+----- | -----
+**Intel Broadwell** | 
+5% vCPU | $0.002476
+20% vCPU | $0.007051 |
+100% vCPU | $0.008996 |
+RAM (за 1 ГБ) | $0.003129
+**Intel Cascade Lake** | 
+5% vCPU | $0.001307
+20%+ vCPU | $0.003923
+50%+ vCPU | $0.005753
+100% vCPU | $0.009584
+RAM (за 1 ГБ) | $0.002538
 
-    | Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
-    | ----- | ----- | ----- |
-    | 5%+ of vCPU | ₽0.0850 | ₽0.1020 |
-    | 20%+ vCPU | ₽0.2550 | ₽0.3060 |
-    | 50%+ vCPU | ₽0.3740 | ₽0.4488 |
-    | 100% of vCPU | ₽0.6230 | ₽0.7476 |
-    | RAM (for 1 GB) | ₽0.1650 | ₽0.1980 |
+**[!TAB Prices in roubles]**
+
+Computing resources | Rate for 1 hour, with VAT |
+----- | -----
+**Intel Broadwell** | 
+5% vCPU | ₽0.1932
+20% vCPU | ₽0.5500 |
+100% vCPU | ₽0.7017 |
+RAM (за 1 ГБ) | ₽0.2441
+**Intel Cascade Lake** | 
+5% vCPU | ₽0.1020
+20%+ vCPU | ₽0.3060
+50%+ vCPU | ₽0.4488
+100% vCPU | ₽0.7476
+RAM (за 1 ГБ) | ₽0.1980
+
+---
+
 
 ### Computing resources of preemptible VMs {#prices-preemptible-instance-resources}
 
-- Platform Intel Broadwell:
 
-    | Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
-    | ----- | ----- | ----- |
-    | 5%+ of vCPU | ₽0.0998 | ₽0.1198 |
-    | 20%+ vCPU | ₽0.2840 | ₽0.3408 |
-    | 100% of vCPU | ₽0.1800 | ₽0.2160 |
-    | RAM (for 1 GB) | ₽0.0625 | ₽0.0750 |
+#### Prices until May 1st 2019
 
-- Platform Intel Cascade Lake:
+Computing resources | Rate for 1 hour, with VAT |
+----- | -----
+**Intel Broadwell** | 
+| 5%+ of vCPU| ₽0.1198 |
+| 20%+ vCPU| ₽0.3408 |
+| 100% of vCPU| ₽0.2160 |
+| RAM (for 1 GB)| ₽0.0750 |
+**Intel Cascade Lake** | 
+| 5%+ of vCPU| ₽0.0636 |
+| 20%+ vCPU| ₽0.1908 |
+| 50%+ vCPU| ₽0.2796 |
+| 100% of vCPU| ₽0.2040 |
+| RAM (for 1 GB)| ₽0.0492 |
 
-    | Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
-    | ----- | ----- | ----- |
-    | 5%+ of vCPU | ₽0.0530 | ₽0.0636 |
-    | 20%+ vCPU | ₽0.1590 | ₽0.1908 |
-    | 50%+ vCPU | ₽0.2330 | ₽0.2796 |
-    | 100% of vCPU | ₽0.1700 | ₽0.2040 |
-    | RAM (for 1 GB) | ₽0.0410 | ₽0.0492 |
+
+#### Prices starting May 1st 2019
+
+---
+
+**[!TAB Prices in USD]**
+
+Computing resources | Rate for 1 hour, without VAT |
+----- | -----
+**Intel Broadwell** | 
+5% vCPU | $0.001535
+20% vCPU | $0.002187 |
+100% vCPU | $0.002769 |
+RAM (за 1 ГБ) | $0.000961
+**Intel Cascade Lake** | 
+5% vCPU | $0.000815
+20%+ vCPU | $0.001282
+50%+ vCPU | $0.001794
+100% vCPU | $0.002615
+RAM (за 1 ГБ) | $0.000630
+
+**[!TAB Prices in roubles]**
+
+Computing resources | Rate for 1 hour, with VAT |
+----- | -----
+**Intel Broadwell** | 
+| 5%+ of vCPU| ₽0.1198 |
+| 20%+ vCPU| ₽0.1706 |
+| 100% of vCPU| ₽0.2160 |
+| RAM (for 1 GB)| ₽0.0750 |
+**Intel Cascade Lake** | 
+| 5%+ of vCPU| ₽0.0636 |
+| 20%+ vCPU| ₽0.1000 |
+| 50%+ vCPU| ₽0.1400 |
+| 100% of vCPU| ₽0.2040 |
+| RAM (for 1 GB)| ₽0.0492 |
+
+---
 
 ### Operating systems {#burstable-instance-os}
 
-| OS | Cost per vCPU per hour,<br/> without VAT | Cost per vCPU per hour,<br/> with VAT |
-| ----- | ----- | ----- |
-| Linux for all core types | ₽0 | ₽0 |
-| Windows Server for 5%+ of vCPU | ₽0.5288 | ₽0.6346 |
-| Windows Server for 20%+, 50%+, 100% vCPU | ₽1.0576 | ₽1.2691 |
+---
+
+**[!TAB Prices in USD]**
+
+| OS | Cost per vCPU per hour, without VAT
+----- | -----
+| Linux for all core types  | $0 |
+| Windows Server for 5%+ of vCPU | $0.008135 |
+| Windows Server for 20%+, 50%+, 100% vCPU | $0.016270 |
+
+**[!TAB Prices in roubles]**
+
+| OS | Cost per vCPU per hour, with VAT |
+----- | -----
+| Linux for all core types  | ₽0 |
+| Windows Server for 5%+ of vCPU | ₽0.6346 |
+| Windows Server for 20%+, 50%+, 100% vCPU | ₽1.2691 |
+
+---
 
 ### Disks, snapshots, and images {#prices-storage}
 
-| Type | Cost of 1 GB per month,<br/> without VAT | Cost of 1 GB per month,<br/> with VAT |
-| ----- | ----- | ----- |
-| Fast network drive (NVMe) | ₽6.2034 | ₽7.4441 |
-| Standard disk drive (HDD) | ₽1.7373 | ₽2.0847 |
-| Snapshot | ₽1.8559 | ₽2.2271 |
-| Image | ₽1.8559 | ₽2.2271 |
+---
+
+**[!TAB Prices in USD]**
+
+| Type | Rate for 1 GB per month, without VAT
+----- | -----
+| Fast network drive (NVMe) | ₽0.095437 |
+| Standard disk drive (HDD) | ₽0.026726 |
+| Snapshot | ₽0.028552 |
+| Image | ₽0.028552 |
+
+**[!TAB Prices in roubles]**
+
+| Type | Rate for 1 GB per month, with VAT |
+----- | -----
+| Fast network drive (NVMe) | ₽7.4441 |
+| Standard disk drive (HDD) | ₽2.0847 |
+| Snapshot | ₽2.2271 |
+| Image | ₽2.2271 |
+
+---
+
 
 ### Outgoing traffic {#prices-traffic}
-
-[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md)]
-
-
-## Prices starting May 1st 2019 {#prices-new}
-
-### Computing resources  {#prices-instance-resources-new}
-
-- Platform Intel Broadwell:
-
-    | Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
-    | ----- | ----- | ----- |
-    | 5%+ of vCPU | ₽0.1610 | ₽0.1932 |
-    | 20%+ vCPU | ₽0.4583 | ₽0.5500 |
-    | 100% of vCPU | ₽0.5847 | ₽0.7017 |
-    | RAM (for 1 GB) | ₽0.2034 | ₽0.2441 |
-
-- Platform Intel Cascade Lake:
-
-    | Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
-    | ----- | ----- | ----- |
-    | 5%+ of vCPU | ₽0.0850 | ₽0.1020 |
-    | 20%+ vCPU | ₽0.2550 | ₽0.3060 |
-    | 50%+ vCPU | ₽0.3740 | ₽0.4488 |
-    | 100% of vCPU | ₽0.6230 | ₽0.7476 |
-    | RAM (for 1 GB) | ₽0.1650 | ₽0.1980 |
-
-### Computing resources of preemptible VMs {#prices-preemptible-instance-resources-new}
-
-- Platform Intel Broadwell:
-
-    | Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
-    | ----- | ----- | ----- |
-    | 5%+ of vCPU | ₽0.0998 | ₽0.1198 |
-    | 20%+ vCPU | ₽0.1422 | ₽0.1706 |
-    | 100% of vCPU | ₽0.1800 | ₽0.2160 |
-    | RAM (for 1 GB) | ₽0.0625 | ₽0.0750 |
-
-- Platform Intel Cascade Lake:
-
-    | Computing resources | Cost of 1 hour, without VAT | Cost of 1 hour, with VAT |
-    | ----- | ----- | ----- |
-    | 5%+ of vCPU | ₽0.0530 | ₽0.0636 |
-    | 20%+ vCPU | ₽0.0833 | ₽0.1000 |
-    | 50%+ vCPU | ₽0.1167 | ₽0.1400 |
-    | 100% of vCPU | ₽0.1700 | ₽0.2040 |
-    | RAM (for 1 GB) | ₽0.0410 | ₽0.0492 |
-
-### Operating systems {#burstable-instance-os-new}
-
-| OS | Cost per vCPU per hour,<br/> without VAT | Cost per vCPU per hour,<br/> with VAT |
-| ----- | ----- | ----- |
-| Linux for all core types | 0 ₽ | 0 ₽ |
-| Windows Server for 5%+ of vCPU | ₽0.5288 | ₽0.6346 |
-| Windows Server for 20%+, 50%+, 100% vCPU | ₽1.0576 | ₽1.2691 |
-
-### Disks, snapshots, and images {#prices-storage-new}
-
-| Type | Cost of 1 GB per month,<br/> without VAT | Cost of 1 GB per month,<br/> with VAT |
-| ----- | ----- | ----- |
-| Fast network drive (NVMe) | ₽6.2034 | ₽7.4441 |
-| Standard disk drive (HDD) | ₽1.7373 | ₽2.0847 |
-| Snapshot | ₽1.8559 | ₽2.2271 |
-| Image | ₽1.8559 | ₽2.2271 |
-
-### Outgoing traffic {#prices-traffic-new}
 
 [!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md)]

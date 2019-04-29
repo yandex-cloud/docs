@@ -125,3 +125,12 @@ s2.2xlarge: s2.2xlarge (24 vCPU, 96 ГБ)
 s2.3xlarge: s2.3xlarge (32 vCPU, 128 ГБ)
 s2.4xlarge: s2.4xlarge (40 vCPU, 160 ГБ)
 s2.5xlarge: s2.5xlarge (48 vCPU, 192 ГБ)
+
+stt-short—fileSize: 1 МБ
+stt-short-audioLength: 1 минута
+stt-short-channelsCount: 1
+stt-long-fileSize: 1 ГБ
+stt-long-resultsStorageTime: 3 суток
+stt-streaming-fileSize: 10 МБ
+stt-streaming-audioLength: 5 минут
+

@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для [!KEYREF MG]
 
+[!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
+
 ## Из чего складывается стоимость использования [!KEYREF mmg-short-name] {#rules}
 
 Расчет стоимости использования [!KEYREF mmg-name] учитывает:
@@ -56,70 +58,70 @@ editable: false
 
 **[!TAB За месяц работы хоста]**
 
-Класс хостов | Цена за месяц, без НДС | Цена за месяц, вкл. НДС 
------ | ----- | ----- | -----
+Класс хостов | Цена за месяц, вкл. НДС 
+----- | ----- 
 | **Intel Broadwell** |  |
-[!KEYREF b1.nano]| 646 ₽ | 775 ₽
-[!KEYREF b1.micro] | 948 ₽ | 1 138 ₽
-[!KEYREF b1.medium] | 1 770 ₽ | 2 124 ₽
-[!KEYREF s1.nano]| 1 800 ₽ | 2 160 ₽
-[!KEYREF s1.micro] | 3 606 ₽ | 4 327 ₽
-[!KEYREF s1.small] | 7 206 ₽ | 8 647 ₽
-[!KEYREF s1.medium] | 14 418 ₽ | 17 302 ₽
-[!KEYREF s1.large] | 28 830 ₽ | 34 597 ₽
-[!KEYREF s1.xlarge] | 57 667 ₽ | 69 201 ₽
+[!KEYREF b1.nano]| 775 ₽
+[!KEYREF b1.micro] | 1 138 ₽
+[!KEYREF b1.medium] | 2 124 ₽
+[!KEYREF s1.nano]| 2 160 ₽
+[!KEYREF s1.micro] | 4 327 ₽
+[!KEYREF s1.small] | 8 647 ₽
+[!KEYREF s1.medium] | 17 302 ₽
+[!KEYREF s1.large] | 34 597 ₽
+[!KEYREF s1.xlarge] | 69 201 ₽
 **Intel Cascade Lake** | | 
-[!KEYREF b2.nano]| 646 ₽ | 775 ₽
-[!KEYREF b2.micro] | 948 ₽ | 1 138 ₽
-[!KEYREF b2.medium] | 1 770 ₽ | 2 124 ₽
-[!KEYREF s2.micro] | 3 606 ₽ | 4 327 ₽
-[!KEYREF s2.small] | 7 206 ₽ | 8 647 ₽
-[!KEYREF s2.medium] | 14 418 ₽ | 17 302 ₽
-[!KEYREF s2.large] | 21 746 ₽ | 26 095 ₽
-[!KEYREF s2.xlarge] | 28 831 ₽ | 34 597 ₽
-[!KEYREF s2.2xlarge] | 43 493 ₽ | 52 192 ₽
-[!KEYREF s2.3xlarge] | 57 667 ₽ | 69 201 ₽
-[!KEYREF s2.4xlarge]| 72 488 ₽ | 86 986 ₽
-[!KEYREF s2.5xlarge]| 86 985 ₽ | 104 382 ₽
+[!KEYREF b2.nano]| 775 ₽
+[!KEYREF b2.micro] | 1 138 ₽
+[!KEYREF b2.medium] | 2 124 ₽
+[!KEYREF s2.micro] | 4 327 ₽
+[!KEYREF s2.small] | 8 647 ₽
+[!KEYREF s2.medium] | 17 302 ₽
+[!KEYREF s2.large] | 26 095 ₽
+[!KEYREF s2.xlarge] | 34 597 ₽
+[!KEYREF s2.2xlarge] | 52 192 ₽
+[!KEYREF s2.3xlarge] | 69 201 ₽
+[!KEYREF s2.4xlarge]| 86 986 ₽
+[!KEYREF s2.5xlarge]| 104 382 ₽
 
 **[!TAB За 1 час работы хоста]**
 
-Класс хостов | Цена за час, без НДС | Цена за час, вкл. НДС 
------ | ----- | ----- | -----
-| **Intel Broadwell** |  |
-[!KEYREF b1.nano]| 0,8975 ₽ | 1,0770 ₽
-[!KEYREF b1.micro] | 1,3167 ₽ | 1,5800 ₽
-[!KEYREF b1.medium] | 2,4583 ₽ | 2,9500 ₽
-[!KEYREF s1.nano] | 2,5000 ₽ | 3,0000 ₽ | 
-[!KEYREF s1.micro] | 5,0085 ₽ | 6,0102 ₽ | 
-[!KEYREF s1.small] | 10,0085 ₽ | 12,0102 ₽ | 
-[!KEYREF s1.medium] | 20,0254 ₽ | 24,0305 ₽ | 
-[!KEYREF s1.large] | 40,0424 ₽ | 48,0508 ₽ | 
-[!KEYREF s1.xlarge] | 80,0932 ₽ | 96,1119 ₽ 
-**Intel Cascade Lake** | | 
-[!KEYREF b2.nano]| 0,8975 ₽ | 1,0770 ₽
-[!KEYREF b2.small] | 1,3167 ₽ | 1,5800 ₽
-[!KEYREF b2.medium] | 2,4583 ₽ | 2,9500 ₽
-[!KEYREF s2.micro] | 5.0085 ₽ | 6.0102 ₽
-[!KEYREF s2.small] | 10.0085 ₽ | 12.0102 ₽
-[!KEYREF s2.medium] | 20.0254 ₽ | 24.0305 ₽
-[!KEYREF s2.large] | 30.2030 ₽ | 36.2436 ₽
-[!KEYREF s2.xlarge] | 40.0424 ₽ | 48.0508 ₽
-[!KEYREF s2.2xlarge] | 60.4070 ₽ | 72.4884 ₽
-[!KEYREF s2.3xlarge] | 80.0932 ₽ | 96.1119 ₽
-[!KEYREF s2.4xlarge]| 100.6780 ₽ | 120.8136 ₽
-[!KEYREF s2.5xlarge]| 120.8130 ₽ | 144.9756 ₽
+Класс хостов | Цена за час, вкл. НДС 
+----- | ----- 
+| **Intel Broadwell** | 
+[!KEYREF b1.nano]| 1,0770 ₽
+[!KEYREF b1.micro] | 1,5800 ₽
+[!KEYREF b1.medium] | 2,9500 ₽
+[!KEYREF s1.nano] | 3,0000 ₽ | 
+[!KEYREF s1.micro] | 6,0102 ₽ | 
+[!KEYREF s1.small] | 12,0102 ₽ | 
+[!KEYREF s1.medium] | 24,0305 ₽ | 
+[!KEYREF s1.large] | 48,0508 ₽ | 
+[!KEYREF s1.xlarge] | 96,1119 ₽ 
+**Intel Cascade Lake** |  
+[!KEYREF b2.nano]| 1,0770 ₽
+[!KEYREF b2.small] | 1,5800 ₽
+[!KEYREF b2.medium] | 2,9500 ₽
+[!KEYREF s2.micro] | 6.0102 ₽
+[!KEYREF s2.small] | 12.0102 ₽
+[!KEYREF s2.medium] | 24.0305 ₽
+[!KEYREF s2.large] | 36.2436 ₽
+[!KEYREF s2.xlarge] | 48.0508 ₽
+[!KEYREF s2.2xlarge] | 72.4884 ₽
+[!KEYREF s2.3xlarge] | 96.1119 ₽
+[!KEYREF s2.4xlarge]| 120.8136 ₽
+[!KEYREF s2.5xlarge]| 144.9756 ₽
 
 ---
 
 ### Хранилище и резервные копии {#prices-storage}
 
-Услуга | Цена за ГБ в месяц, без НДС | Цена за ГБ в месяц, вкл. НДС 
------ | ----- | -----
-Стандартное сетевое хранилище | 1,9068 ₽ | 2,2881 ₽ | 
-Быстрое сетевое хранилище | 6,7797 ₽ | 8,1356 ₽ | 
-Быстрое локальное хранилище | 6,7797 ₽ | 8,1356 ₽ | 
-Резервные копии сверх размера хранилища | 2,1186 ₽ | 2,5424 ₽ 
+Услуга | Цена за ГБ в месяц, вкл. НДС 
+----- | -----
+Стандартное сетевое хранилище | 2,2881 ₽ | 
+Быстрое сетевое хранилище | 8,1356 ₽ | 
+Быстрое локальное хранилище | 8,1356 ₽ | 
+Резервные копии сверх размера хранилища | 2,5424 ₽ 
 
 ### Исходящий трафик {#prices-traffic}
 
