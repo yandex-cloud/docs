@@ -8,10 +8,17 @@ items:
     items:
       - name: О технологии
         href: stt/index.md
-      - name: Описание метода API
+      - name: Распознавание коротких аудиофайлов
         href: stt/request.md
+      - name: Распознавание длинных аудиофайлов
+        stage: preview
+        href: stt/transcribation.md
       - name: Потоковое распознавание
         href: stt/streaming.md
+      - name: Форматы аудио
+        href: stt/formats.md
+      - name: Языковые модели
+        href: stt/models.md
   - name: Синтез речи
     items:
       - name: О технологии
@@ -22,6 +29,8 @@ items:
     href: concepts/response.md
   - name: Интеграция телефонии
     href: concepts/ivr-integration.md
+  - name: Квоты и лимиты
+    href: concepts/limits.md
   - name: Правила тарификации
     items:
       - name: Действующие правила
