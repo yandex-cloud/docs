@@ -10,6 +10,7 @@
 [Static Website Hosting](hosting.md) | Управляет конфигурациями бакетов для статического веб-хостинга.
 [CORS](cors.md) | Управляет конфигурациями CORS для бакетов.
 [Lifecycles](lifecycles.md) | Управляет конфигурациям жизненных циклов для объектов в бакетах.
+[ACL](acl.md) | Управляет списками управления доступом.
 
 ## Поддерживаемые методы {#operations-list}
 
@@ -52,7 +53,7 @@
 Метод | Описание
 ----- | -----
 [upload](hosting/upload.md) | Загружает конфигурацию бакета для хостинга статических сайтов в [!KEYREF objstorage-name].
-[get](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов  из [!KEYREF objstorage-name].
+[get](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из [!KEYREF objstorage-name].
 [delete](hosting/delete.md) | Удаляет конфигурацию бакета для хостинга статических сайтов.
 
 ### Сервис CORS
@@ -71,8 +72,16 @@
 [get](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из [!KEYREF objstorage-name].
 [delete](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из [!KEYREF objstorage-name].
 
+### Сервис ACL
+
+Метод | Описание
+----- | -----
+[objectGetAcl](acl/objectget.md) | Возвращает список управления доступом для объекта.
+[objectPutAcl](acl/objectput.md) | Загружает список управления доступом для объекта.
+[bucketGetAcl](acl/bucketget.md) | Возвращает список управления доступом для бакета.
+[bucketPutAcl](acl/bucketput.md) | Загружает список управления доступом для бакета.
+
 
 ## См. также
 - [[!TITLE]](../../s3/index.md)
 - [[!TITLE]](../../instruments/index.md)
-
