@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для [!KEYREF vision-name]
 
+[!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
+
 ## Из чего складывается стоимость использования [!KEYREF vision-short-name] {#rules}
 
 Сервис [!KEYREF vision-short-name] предоставляет [возможности для анализа](concepts/index.md#features) изображений.
@@ -18,6 +20,6 @@ editable: false
 
 ## Цены {#prices}
 
-Услуга | Цена за 1000 единиц<br>в месяц, без НДС | Цена за 1000 единиц<br>в месяц, вкл. НДС
------ | ----- | -----
-[Распознавание текста](concepts/ocr/index.md) | 100 ₽ | 120 ₽
+Услуга | Цена за 1000 единиц<br>в месяц, вкл. НДС
+----- | -----
+[Распознавание текста](concepts/ocr/index.md) | 120 ₽

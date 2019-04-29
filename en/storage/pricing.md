@@ -3,6 +3,8 @@ editable: false
 ---
 # Pricing policy for [!KEYREF objstorage-name]
 
+[!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
+
 ## What goes into the cost of using [!KEYREF objstorage-short-name] {#rules}
 
 The cost of [!KEYREF objstorage-name] usage is based on:
@@ -32,14 +34,27 @@ Operations on data are rated according to the rules:
 
 ## Prices {#prices}
 
-### Data storage {#prices-storage-old}
+### Data storage {#prices-storage}
 
 Prices are specified for a 30-day month. For shorter months, the price is higher. For longer months, it is lower.
 
-| Service | Cost of 1 GB per month, without VAT | Cost of 1 GB per month, with VAT |
-| ----- | ----- | ----- |
-| Standard storage | 1.0508 ₽ | 1.2610 ₽ |
-| Cold storage | 0.5593 ₽ | 0.6712 ₽ |
+---
+
+**[!TAB Prices in USD]**
+
+| Service | Rate for 1 GB per month, without VAT
+| ----- | ----- 
+| Standard storage | $0.016166 |
+| Cold storage |  $0.008605 |
+
+**[!TAB Prices in roubles]**
+
+| Service | Rate for 1 GB per month, with VAT |
+| ----- | ----- 
+| Standard storage | ₽1.2610 |
+| Cold storage |  ₽0.6712 |
+
+---
 
 Here is an example of proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a month that is 30 days long. The total cost of storage can be calculated using the formula:
 
@@ -47,16 +62,34 @@ Here is an example of proportional calculation: let's say the user stores 15 GB 
 Storage_cost = Cost_per_GB_per_month * 15 * 11.5 / 24 / 30
 ```
 
-### Operations on data {#prices-operations-old}
+### Operations with data {#prices-operations}
 
-| Service | Cost, rubles without VAT | Cost, rubles with VAT |
-| ----- | ----- | ----- |
-| **Standard storage** |  |
-| 1,000 PUT or POST operations | 0.2542 ₽ | 0.3051 ₽ |
-| 10,000 GET or HEAD operations | 0.2034 ₽ | 0.2441 ₽ |
-| **Cold storage** |  |
-| 1,000 PUT or POST operations | 0.6186 ₽ | 0.7424 ₽ |
-| 10,000 GET or HEAD operations | 0.5085 ₽ | 0.6102 ₽ |
+
+---
+
+**[!TAB Prices in USD]**
+
+| Service | Cost, without VAT
+| ----- | ----- | 
+| **Standard storage** | 
+| 1,000 PUT or POST operations | $0.003911 |
+| 10,000 GET or HEAD operations | $0.003129 |
+| **Cold storage** | 
+| 1,000 PUT or POST operations | $0.009517 |
+| 10,000 GET or HEAD operations | $0.007823 |
+
+**[!TAB Prices in roubles]**
+
+| Service | Cost, with VAT |
+| ----- | ----- 
+| **Standard storage** | 
+| 1,000 PUT or POST operations | ₽0.3051 |
+| 10,000 GET or HEAD operations | ₽0.2441 |
+| **Cold storage** | 
+| 1,000 PUT or POST operations | ₽0.7424 |
+| 10,000 GET or HEAD operations | ₽0.6102 |
+
+---
 
 > [!NOTE]
 >

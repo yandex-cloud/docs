@@ -1,7 +1,9 @@
 ---
 editable: false
 ---
-# Yandex Translate pricing
+# Pricing policy for [!KEYREF translate-name]
+
+[!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
 
 ## What goes into the cost of using [!KEYREF translate-short-name] {#rules}
 
@@ -15,8 +17,20 @@ The cost for using Yandex Translate is calculated based on the total number of c
 
 ### Text translation and language detection {#prices-translate-detect}
 
-| Service | Rate per 1 million characters,<br/>without VAT | Rate per 1 million characters,<br/>with VAT |
-| ----- | ----- | ----- |
-| Translation | 372.8814 ₽ | 447.4576 ₽ |
-| Language detection | 372.8814 ₽ | 447.4576 ₽ |
+---
 
+**[!TAB Prices in USD]**
+
+| Service | Rate per 1 million characters, without VAT |
+| ----- | ----- |
+| Translation | $5.736635 |
+| Language detection | $5.736635 |
+
+**[!TAB Prices in roubles]**
+
+| Service | Rate per 1 million characters, with VAT |
+| ----- | ----- |
+| Translation | ₽447.4576 |
+| Language detection | ₽447.4576 |
+
+---

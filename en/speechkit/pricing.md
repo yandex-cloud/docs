@@ -1,7 +1,9 @@
 ---
 editable: false
 ---
-# Yandex SpeechKit pricing
+# Pricing policy for [!KEYREF speechkit-name]
+
+[!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
 
 ## What goes into the cost of use for [!KEYREF speechkit-short-name] {#rules}
 
@@ -24,13 +26,36 @@ The cost of using the SpeechKit API for speech recognition is calculated from th
 
 ### Speech synthesis {#prices-tts}
 
-| Service | Rate per 1 million characters,<br/>without VAT | Rate per 1 million characters,<br/>with VAT |
-| ----- | ----- | ----- |
-| Speech synthesis | 152.5424 ₽ | 183.0508 ₽ |
+---
+
+**[!TAB Prices in USD]**
+
+| Service | Rate for 1 million characters, without VAT |
+| ----- | ----- |
+| Speech synthesis | $2.346805 |
+
+**[!TAB Prices in roubles]**
+
+| Service | Rate per 1 million characters,<br/>with VAT |
+| ----- | ----- |
+| Speech synthesis | ₽183.0508 |
+
+---
 
 ### Speech recognition {#prices-stt}
 
-| Service | Price per<br/>15 sec<br/> segment, without VAT | Price per<br/>15 sec<br/> segment, with VAT |
-| ----- | ----- | ----- |
-| Speech recognition | 0.1270 ₽ | 0.1524 ₽ |
+---
 
+**[!TAB Prices in USD]**
+
+| Service | Rate for 15 sec segment, without VAT |
+| ----- | ----- |
+| Speech recognition | $0.001953 |
+
+**[!TAB Prices in roubles]**
+
+| Service | Rate for 15 sec segment, with VAT |
+| ----- | ----- |
+| Speech recognition | ₽0.1524 |
+
+---

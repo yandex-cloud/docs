@@ -1,7 +1,9 @@
 ---
 editable: false
 ---
-# Pricing for [!KEYREF MG]
+# Pricing policy for [!KEYREF MG]
+
+[!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
 
 ## What goes into the cost of using [!KEYREF mmg-short-name] {#rules}
 
@@ -48,72 +50,85 @@ The cost is specified for one month of use.  The minimum billing unit is 1 GB pe
 
 ---
 
-**[!TAB Per host per month]**
+**[!TAB Prices in USD]**
 
-| Host class | Cost per month,<br/>without VAT | Cost per month,<br/>with VAT |
-| ----- | ----- | ----- | ----- |
+| Host class | Rate for 1 hour, without VAT
+| ----- | ----- 
+| **Intel Broadwell** | 
+[!KEYREF b1.nano]| $0.013807
+[!KEYREF b1.micro] | $0.020256
+[!KEYREF b1.medium] | $0.037820
+[!KEYREF s1.nano]| $0.038461
+[!KEYREF s1.micro] | $0.077053
+[!KEYREF s1.small] | $0.153976
+[!KEYREF s1.medium] | $0.308083
+[!KEYREF s1.large] | $0.616035
+[!KEYREF s1.xlarge] | $1.232203
+**Intel Cascade Lake** | 
+[!KEYREF b2.nano]| $0.013807
+[!KEYREF b2.micro] | $0.020256
+[!KEYREF b2.medium] | $0.037820
+[!KEYREF s2.micro] | $0.077053
+[!KEYREF s2.small] | $0.153976
+[!KEYREF s2.medium] | $0.308083
+[!KEYREF s2.large] | $0.464661
+[!KEYREF s2.xlarge] | $0.616035
+[!KEYREF s2.2xlarge] | $0.929338
+[!KEYREF s2.3xlarge] | $1.232203
+[!KEYREF s2.4xlarge]| $1.548892
+[!KEYREF s2.5xlarge]| $1.858661
+
+**[!TAB Prices in roubles]**
+
+| Host class | Rate for 1 hour, with VAT |
+| ----- | -----
 | **Intel Broadwell** |  |
-[!KEYREF b1.nano]| ₽646 | ₽775
-[!KEYREF b1.micro] | ₽948 | ₽1 138
-[!KEYREF b1.medium] | ₽1 770 | ₽2 124
-[!KEYREF s1.nano]| ₽1 800 | ₽2 160
-[!KEYREF s1.micro] | ₽3 606 | ₽4 327
-[!KEYREF s1.small] | ₽7 206 | ₽8 647
-[!KEYREF s1.medium] | ₽14 418 | ₽17 302
-[!KEYREF s1.large] | ₽28 830 | ₽34 597
-[!KEYREF s1.xlarge] | ₽57 667 | ₽69 201
+[!KEYREF b1.nano]| ₽1.0770
+[!KEYREF b1.micro] | ₽1.5800
+[!KEYREF b1.medium] | ₽2.9500
+[!KEYREF s1.nano] | ₽3.0000 | 
+[!KEYREF s1.micro] | ₽6.0102 | 
+[!KEYREF s1.small] | ₽12.0102 | 
+[!KEYREF s1.medium] | ₽24.0305 | 
+[!KEYREF s1.large] | ₽48.0508 | 
+[!KEYREF s1.xlarge] | ₽96.1119 
 **Intel Cascade Lake** | | 
-[!KEYREF b2.nano]| ₽646 | ₽775
-[!KEYREF b2.micro] | ₽948 | ₽1 138
-[!KEYREF b2.medium] | ₽1 770 | ₽2 124
-[!KEYREF s2.micro] | ₽3 606 | ₽4 327
-[!KEYREF s2.small] | ₽7 206 | ₽8 647
-[!KEYREF s2.medium] | ₽14 418 | ₽17 302
-[!KEYREF s2.large] | ₽21 746 | ₽26 095
-[!KEYREF s2.xlarge] | ₽28 831 | ₽34 597
-[!KEYREF s2.2xlarge] | ₽43 493 | ₽52 192
-[!KEYREF s2.3xlarge] | ₽57 667 | ₽69 201
-[!KEYREF s2.4xlarge]| ₽72 488 | ₽86 986
-[!KEYREF s2.5xlarge]| ₽86 985 | ₽104 382
-
-**[!TAB Per hour per host]**
-
-| Host class | Cost of 1 hour,<br/>without VAT | Cost of 1 hour,<br/>with VAT |
-| ----- | ----- | ----- | ----- |
-| **Intel Broadwell** |  |
-[!KEYREF b1.nano]| ₽0.8975 | ₽1.0770
-[!KEYREF b1.micro] | ₽1.3167 | ₽1.5800
-[!KEYREF b1.medium] | ₽2.4583 | ₽2.9500
-[!KEYREF s1.nano] | ₽2.5000 | ₽3.0000 | 
-[!KEYREF s1.micro] | ₽5.0085 | ₽6.0102 | 
-[!KEYREF s1.small] | ₽10.0085 | ₽12.0102 | 
-[!KEYREF s1.medium] | ₽20.0254 | ₽24.0305 | 
-[!KEYREF s1.large] | ₽40.0424 | ₽48.0508 | 
-[!KEYREF s1.xlarge] | ₽80.0932 | ₽96.1119 
-**Intel Cascade Lake** | | 
-[!KEYREF b2.nano]| ₽0.8975 | ₽1.0770
-[!KEYREF b2.small] | ₽1.3167 | ₽1.5800
-[!KEYREF b2.medium] | ₽2.4583 | ₽2.9500
-[!KEYREF s2.micro] | ₽5.0085 | ₽6.0102
-[!KEYREF s2.small] | ₽10.0085 | ₽12.0102
-[!KEYREF s2.medium] | ₽20.0254 | ₽24.0305
-[!KEYREF s2.large] | ₽30.2030 | ₽36.2436
-[!KEYREF s2.xlarge] | ₽40.0424 | ₽48.0508
-[!KEYREF s2.2xlarge] | ₽60.4070 | ₽72.4884
-[!KEYREF s2.3xlarge] | ₽80.0932 | ₽96.1119
-[!KEYREF s2.4xlarge]| ₽100.6780 | ₽120.8136
-[!KEYREF s2.5xlarge]| ₽120.8130 | ₽144.9756
+[!KEYREF b2.nano]| ₽1.0770
+[!KEYREF b2.small] | ₽1.5800
+[!KEYREF b2.medium] | ₽2.9500
+[!KEYREF s2.micro] | ₽6.0102
+[!KEYREF s2.small] | ₽12.0102
+[!KEYREF s2.medium] | ₽24.0305
+[!KEYREF s2.large] | ₽36.2436
+[!KEYREF s2.xlarge] | ₽48.0508
+[!KEYREF s2.2xlarge] | ₽72.4884
+[!KEYREF s2.3xlarge] | ₽96.1119
+[!KEYREF s2.4xlarge]| ₽120.8136
+[!KEYREF s2.5xlarge]| ₽144.9756
 
 ---
 
 ### Storage and backups {#prices-storage}
 
-| Service | Cost of 1 GB per month, without VAT | Cost of 1 GB per month, with VAT |
-| ----- | ----- | ----- |
-| Standard network storage | ₽1.9068 | ₽2.2881 |
-| Fast network storage | ₽6.7797 | ₽8.1356 |
-| NVMe | ₽6.7797 | ₽8.1356 |
-| Backups beyond the storage size | ₽2.1186 | ₽2.5424 |
+---
+
+**[!TAB Prices in USD]**
+| Service | Rate for 1 GB per month, without VAT |
+| ----- | ----- 
+| Standard network storage| $0.029334 |
+| Fast network storage| $0.104302 |
+| NVMe| $0.104302 |
+| Backups beyond the storage size| $0.032594 |
+
+**[!TAB Prices in roubles]**
+| Service | Rate for 1 GB per month, with VAT |
+| ----- | ----- 
+| Standard network storage| ₽2.2881 |
+| Fast network storage| ₽8.1356 |
+| NVMe| ₽8.1356 |
+| Backups beyond the storage size| ₽2.5424 |
+
+---
 
 ### Outgoing traffic {#prices-traffic}
 
