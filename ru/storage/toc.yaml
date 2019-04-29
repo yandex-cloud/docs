@@ -57,6 +57,8 @@ items:
         href: concepts/object.md
       - name: Составная (multipart) загрузка
         href: concepts/multipart.md
+      - name: Список управления доступом (ACL)
+        href: concepts/acl.md
       - name: Класс хранилища
         href: concepts/storage-class.md
       - name: Квоты и лимиты
@@ -175,6 +177,20 @@ items:
                 href: s3/api-ref/lifecycles/get.md
               - name: delete
                 href: s3/api-ref/lifecycles/delete.md
+          - name: ACL
+            items:
+              - name: Все методы
+                href: s3/api-ref/acl.md
+              - name: XML-схема ACL
+                href: s3/api-ref/acl/xmlscheme.md
+              - name: objectGetAcl
+                href: s3/api-ref/acl/objectget.md
+              - name: objectPutAcl
+                href: s3/api-ref/acl/objectput.md
+              - name: bucketGetAcl
+                href: s3/api-ref/acl/bucketget.md
+              - name: bucketPutAcl
+                href: s3/api-ref/acl/bucketput.md
           - name: Общие заголовки запросов
             href: s3/api-ref/common-request-headers.md
           - name: Общие заголовки ответов
