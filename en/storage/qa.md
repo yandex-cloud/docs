@@ -1,4 +1,4 @@
-# Questions and answers about [!KEYREF objstorage-full-name]
+# Questions and answers about [!KEYREF objstorage-name]
 
 #### What is [!KEYREF objstorage-full-name]? {#qa-what-is}
 
