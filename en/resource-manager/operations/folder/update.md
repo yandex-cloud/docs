@@ -7,7 +7,7 @@ The management console only allows you to change the name of a folder. To change
 **[!TAB Management console]**
 
 1. Select a folder on the [Home page](https://console.cloud.yandex.ru) of the management console. This page displays folders for the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
-2. Click ![image](../../../_assets/dots.svg) next to the folder and select **Rename**.
+2. Click ![image](../../../_assets/options.svg) next to the folder and select **Rename**.
 3. Enter a new name for the folder.
 4. Click **Rename**.
 

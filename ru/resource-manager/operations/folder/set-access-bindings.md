@@ -9,8 +9,8 @@
 **[!TAB Консоль управления]**
 
 1. [!INCLUDE [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md)]
-1. В строке с нужным пользователем нажмите **Настроить роли**.
-1. Выберите каталог в блоке **Роли в каталогах** и нажмите кнопку **Назначить роль**.
+1. [!INCLUDE [configure-roles-console](../../../_includes/iam/configure-roles-console.md)]
+1. Выберите каталог в блоке **Роли в каталогах** и нажмите значок ![image](../../../_assets/plus-sign.svg).
 1. Выберите необходимую роль из списка.
 
 **[!TAB CLI]**

@@ -4,6 +4,12 @@ stage: new
 items:
   - name: Начало работы
     href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Сменить мастер
+        href: operations/failover.md
   - name: Концепции
     items:
     - name: Обзор
