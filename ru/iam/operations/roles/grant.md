@@ -12,10 +12,7 @@
 
 В консоли управления можно назначить роль только на облако или каталог:
 
-1. [!INCLUDE [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md)]
-1. В строке с нужным пользователем нажмите **Настроить роли**.
-1. Чтобы назначить роль, нажмите значок ![image](../../../_assets/plus-sign.svg) в блоке **Роли на облако** или в блоке **Роли в каталогах** напротив желаемого каталога.
-1. Выберите [роль](../../concepts/access-control/roles.md) из списка.
+[!INCLUDE [grant-role-console](../../../_includes/grant-role-console.md)]
 
 
 **[!TAB CLI]**

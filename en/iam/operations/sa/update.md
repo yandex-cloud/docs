@@ -10,7 +10,7 @@ You can use the management console to immediately add or remove [roles](../../co
 
 1. Select a folder.
 2. Select the **Service accounts** tab.
-3. Click ![image](../../../_assets/dots.svg) next to the service account and select **Edit service account**.
+3. Click ![image](../../../_assets/options.svg) next to the service account and select **Edit service account**.
 4. Change the name of your service account.
 5. Add or remove roles assigned to the service account. The roles will be assigned for the folder where the service account was created.
 6. Click **Save**.

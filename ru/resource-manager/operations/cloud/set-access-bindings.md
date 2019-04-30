@@ -9,7 +9,7 @@
 **[!TAB Консоль управления]**
 
 1. [!INCLUDE [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md)]
-1. В строке с нужным пользователем нажмите **Настроить роли**.
+1. [!INCLUDE [configure-roles-console](../../../_includes/iam/configure-roles-console.md)]
 1. Нажмите значок ![image](../../../_assets/plus-sign.svg) в блоке **Роли на облако <имя облака>**.
 1. Выберите необходимую роль из списка.
 
