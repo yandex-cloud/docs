@@ -131,8 +131,10 @@ items:
         href: pricing.md
       - name: Archive
         items:
-        - name: Policy before January 1, 2019
+        - name: Prices before January 1, 2019
           href: pricing-archive/pricing-01012019.md
+        - name: Prices from March 1 till May 1 2019
+          href: pricing-archive/pricing-30042019.md
   - name: API reference
     items:
       - name: Authentication in the API

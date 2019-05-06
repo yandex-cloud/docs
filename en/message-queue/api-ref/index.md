@@ -42,7 +42,7 @@ Example of using an attribute with multiple parameters:
 Attribute.1.Name=VisibilityTimeout
 Attribute.1.Value=40
 Attribute.2.Name=MessageRetentionPeriod
-Attribute.2.Name=1000
+Attribute.2.Value=1000
 ```
 
 In this example, attribute 1 is the `VisibilityTimeout` set to 40; attribute 2 is the `MessageRetentionPeriod` set to 1000.
