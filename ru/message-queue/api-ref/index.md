@@ -42,7 +42,7 @@ Request parameters
 Attribute.1.Name=VisibilityTimeout
 Attribute.1.Value=40
 Attribute.2.Name=MessageRetentionPeriod
-Attribute.2.Name=1000
+Attribute.2.Value=1000
 ```
 
 В этом примере атрибутом 1 служит `VisibilityTimeout`, которому присваивается значение 40 и атрибутом 2 — `MessageRetentionPeriod`, которому присваивается значение 1000.

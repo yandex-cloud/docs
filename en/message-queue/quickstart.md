@@ -114,7 +114,7 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
    **[!TAB AWS CLI]**
 
    ```
-   $ aws sqs receive-message \
+   $ aws sqs delete-message \
                --endpoint https://message-queue.api.cloud.yandex.net/ \
                --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
                --receipt-handle EAEggbjIg_8sKAM
