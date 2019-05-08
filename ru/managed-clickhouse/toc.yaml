@@ -13,6 +13,8 @@ items:
       href: operations/cluster-create.md
     - name: Подключение к базе данных
       href: operations/connect.md
+    - name: Миграция данных ClickHouse
+      href: operations/data-migration.md
     - name: SQL-запросы в консоли управления
       href: operations/web-sql-query.md
       stage: preview
@@ -73,3 +75,5 @@ items:
       href: qa/clickhouse.md
     - name: Все вопросы на одной странице
       href: qa/all.md
+data-migration:
+  md:
