@@ -9,6 +9,7 @@ mmg-full-name: Yandex Managed Service for MongoDB
 mmy-full-name: Yandex Managed Service for MySQL
 mrd-full-name: Yandex Managed Service for Redis
 vpc-full-name: Yandex Virtual Private Cloud
+monitoring-full-name: Yandex Monitoring
 dsvm-full-name: Yandex Data Science Virtual Machine
 speechkit-full-name: Yandex SpeechKit
 translate-full-name: Yandex Translate
@@ -17,6 +18,7 @@ message-queue-full-name: Yandex Message Queue
 container-registry-full-name: Yandex Container Registry
 dataproc-full-name: Yandex Data Proc
 vision-full-name: Yandex Vision
+datalens-full-name: Yandex DataLens
 
 # Полные имена сервисов без Yandex
 iam-name: Identity and Access Management
@@ -29,6 +31,7 @@ mch-name: Managed Service for ClickHouse
 mmg-name: Managed Service for MongoDB
 mmy-name: Managed Service for MySQL
 mrd-name: Managed Service for Redis
+monitoring-name: Yandex Monitoring
 vpc-name: Virtual Private Cloud
 dsvm-name: Data Science Virtual Machine
 speechkit-name: SpeechKit
@@ -38,6 +41,7 @@ message-queue-name: Message Queue
 container-registry-name: Container Registry
 dataproc-name: Data Proc
 vision-name: Vision
+datalens-name: DataLens
 
 # Короткие имена
 iam-short-name: IAM
@@ -49,6 +53,7 @@ mch-short-name: Managed Service for ClickHouse
 mmg-short-name: Managed Service for MongoDB
 mrd-short-name: Managed Service for Redis
 mmy-short-name: Managed Service for MySQL
+monitoring-short-name: Monitoring
 vpc-short-name: VPC
 dsvm-short-name: DSVM
 speechkit-short-name: SpeechKit
@@ -58,6 +63,7 @@ message-queue-short-name: Message Queue
 container-registry-short-name: Container Registry
 dataproc-short-name: Data Proc
 vision-short-name: Vision
+datalens-short-name: DataLens
 
 # Тарифы
 price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
