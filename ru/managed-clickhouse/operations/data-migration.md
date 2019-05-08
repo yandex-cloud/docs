@@ -1,0 +1,274 @@
+# Импорт данных в [!KEYREF mch-name]
+
+Чтобы перенести существующий кластер [!KEYREF CH] в сервис [!KEYREF mch-name], можно использовать [Apache ZooKeeper](http://zookeeper.apache.org) и стандартную утилиту [clickhouse-copier](https://clickhouse.yandex/docs/ru/operations/utils/clickhouse-copier/).
+
+Вы можете произвести миграцию с помощью [виртуальной машины в Облаке](../../compute/operations/vm-create/create-linux-vm.md), если:
+
+* К кластеру [!KEYREF mch-name] нет доступа из интернета.
+* Сетевое оборудование или соединение с [!KEYREF CH]-кластером в Облаке не 
+обладают достаточной надежностью.
+* Нет среды, в которой можно запустить `clickhouse-copier`.
+
+Этапы миграции:
+1. [Подготовьтесь к миграции](#prepare).
+1. [Установите Zookeeper](#zookeeper-install).
+1. [Создайте кластер [!KEYREF mch-name]](#create-cluster).
+1. [Создайте задачу](#copier-task) для `clickhouse-copier`.
+1. [Добавьте задачу](#zookeeper-task) для `clickhouse-copier` в Zookeeper.
+1. [Запустите](#copier-run) `clickhouse-copier`.
+
+## 1. Подготовка {#prepare}
+
+1. Необходимые условия:
+
+    1. Версии [!KEYREF CH] в обоих кластерах должны совпадать.
+    1. Версия `clickhouse-copier` должна быть не ниже версии [!KEYREF CH] в кластере 
+    [!KEYREF mch-name].
+    1. Версия ZooKeeper — не ниже 3.4.10.
+
+2. Проверьте, что кластер-источник готов к миграции: 
+
+    * включен SSL для шифрования трафика;
+    * нагрузка на базу или шард, с которого будут копироваться данные, не создаст 
+    проблем;
+    * у `clickhouse-copier` есть доступ к базе данных, и используемый аккаунт имеет 
+    доступ только на чтение.
+
+3. Если вы используете для миграции виртуальную машину в Облаке:
+    * ВМ следует создавать в той же облачной сети, что и кластер [!KEYREF mch-name].
+    * Вычислительную мощность ВМ стоит выбирать исходя из объема переносимых данных.
+
+
+## 2. Установка Zookeeper {#zookeeper-install}
+
+Чтобы выполнить задачу копирования данных достаточно запустить ZooKeeper в конфигурации с
+одним узлом.
+
+1. Установите Java Runtime Environment:
+
+    ```bash
+    $ sudo apt-get install default-jre
+    ```
+
+1. Добавьте пользователя, от имени которого будет запускаться Zookeeper:
+
+    ```
+    $ sudo adduser hadoop
+    ```
+
+1. Создайте каталоги для данных ZooKeeper:
+
+    ```bash
+    $ sudo mkdir -p /var/data/zookeeper
+    $ sudo chown -R hadoop:hadoop /var/data
+    ```
+
+1. Установите ZooKeeper в режиме одного узла:
+
+    1. Скачайте дистрибутив, например, версии 3.4.13:
+    
+        ```bash
+        $ cd /opt
+        $ sudo wget http://apache.is.co.za/zookeeper/zookeeper-3.4.13/zookeeper-3.4.13.tar.gz
+        $ sudo tar -xvf zookeeper-3.4.13.tar.gz
+        $ sudo chown hadoop:hadoop -R  zookeeper-3.4.13
+        ```
+    1. Переключитесь на созданного ранее пользователя для запуска ZooKeeper:
+
+        ```
+        $ su hadoop
+        ```
+    
+    1. Создайте файл `/opt/zookeeper-3.4.13/conf/zoo.cfg` со следующим содержимым:
+
+        ```ini
+        tickTime=2000
+        dataDir=/var/data/zookeeper
+        clientPort=2181
+        ```
+    
+    1. Мастер-узел должен иметь уникальный идентификатор. Чтобы задать его, создайте файл  `/var/data/zookeeper/myid` с этим идентификатором в качестве содержимого (например, «1»).
+
+1. Запустить ZooKeeper для отладки можно так:
+    
+    ```bash
+    $ bash /opt/zookeeper-3.4.13/bin/zkServer.sh start-foreground
+    ```
+
+1. Чтобы запустить ZooKeeper в обычном режиме:
+
+    ```bash
+     $ bash /opt/zookeeper-3.4.13/bin/zkServer.sh start
+    ```
+ 
+
+## 3. Создание кластера [!KEYREF mch-name] {#create-cluster}
+
+Убедитесь, что вычислительная мощность и размер хранилища кластера соответствуют среде,
+ в которой развернуты уже имеющиеся базы данных. Подробно о создании кластера [!KEYREF 
+ mch-name] — на странице [[!TITLE]](cluster-create.md).
+
+## 4. Создание задачи для clickhouse-copier {#copier-task}
+
+Чтобы запустить `clickhouse-copier` с помощью ZooKeeper, нужно подготовить:
+
+* конфигурационный файл для Zookeeper;
+* файл описания задачи.
+
+Официальная инструкция по использованию `clickhouse-copier` приведена в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/utils/clickhouse-copier/).
+
+
+### 4.1. Подготовка конфигурационного файла ZooKeper {#zookeeper-config}
+
+В конфигурационном файле (`config.xml`) нужно указать:
+
+* В элементе `<zookeeper>` — адрес хоста, на котором установлен ZooKeeper.
+* В элементе `<caConfig>` — путь к сертификату для подключения к [!KEYREF mch-name].
+
+Скачать сертификат можно по адресу [https://[!KEYREF s3-storage-host][!KEYREF pem-path]](https://[!KEYREF s3-storage-host][!KEYREF pem-path]).
+
+Пример конфигурации:
+
+```xml
+<yandex>
+  <zookeeper>
+    <node>
+      <host>127.0.0.1</host>
+      <port>2181</port>
+    </node>
+  </zookeeper>
+
+  <logger>
+    <level>trace</level>
+    <log>log.log</log>
+    <errorlog>log.err.log</errorlog>
+    <size>never</size>
+  </logger>
+
+  <openSSL>
+    <client>
+      <loadDefaultCAFile>true</loadDefaultCAFile>
+      <caConfig>CA.pem</caConfig>
+      <cacheSessions>true</cacheSessions>
+      <disableProtocols>sslv2,sslv3</disableProtocols>
+      <preferServerCiphers>true</preferServerCiphers>
+      <invalidCertificateHandler>
+        <name>RejectCertificateHandler</name>
+      </invalidCertificateHandler>
+    </client>
+  </openSSL>
+</yandex>
+```
+
+### 4.2. Составление описания задачи {#task-description}
+
+Пример описания задачи переноса данных (`cp-task.xml`):
+
+```xml
+<yandex>
+    <tcp_port_secure>9440</tcp_port_secure> <!-- опционально -->
+    <remote_servers>
+        <source_cluster>
+            <shard>
+                <internal_replication>false</internal_replication>
+                    <replica>
+                        <host>your-clickhouse-server.com</host>
+                        <port>9440</port>
+                        <user>your-user</user>
+                        <password>password</password>
+                        <secure>1</secure>
+                    </replica>
+            </shard>
+        </source_cluster>
+
+        <destination_cluster>
+               <shard>
+                <internal_replication>false</internal_replication>
+                    <replica>
+                        <host>your-cloud-clickhouse.mdb.cloud.yandex.net</host>
+                        <port>9440</port>
+                        <user>your-user</user>
+                        <password>password</password>
+                        <secure>1</secure>
+                    </replica>
+               </shard>
+        </destination_cluster>
+    </remote_servers>
+
+    <max_workers>2</max_workers>
+
+    <settings_pull>
+        <readonly>1</readonly>
+    </settings_pull>
+
+    <settings_push>
+        <readonly>0</readonly>
+    </settings_push>
+
+    <settings>
+        <connect_timeout>3</connect_timeout>
+        <insert_distributed_sync>1</insert_distributed_sync>
+    </settings>
+
+    <tables>
+        <table_hits>
+            <cluster_pull>source_cluster</cluster_pull>
+    	    <database_pull>your-db</database_pull>
+            <table_pull>your-table</table_pull>
+
+            <cluster_push>destination_cluster</cluster_push>
+            <database_push>your-db</database_push>
+            <table_push>your-table</table_push>
+
+            <engine>
+                <!-- Описание движка таблицы, такое же как в процедуре CREATE TABLE 
+                в кластере-источнике. Для существующей таблицы описание можно 
+                получить запросом SHOW CREATE table_name -->
+	            ENGINE = MergeTree() PARTITION BY Year ORDER BY (Year, FlightDate) SETTINGS index_granularity=8192
+	        </engine>
+
+    	    <sharding_key>jumpConsistentHash(intHash64(Year), 2)</sharding_key>
+
+            <enabled_partitions>
+                <partition>'2017'</partition>
+	        </enabled_partitions>
+        </table_hits>
+    </tables>
+</yandex>
+```
+
+
+## 5. Добавление задачи копирования в ZooKeeper {#zookeeper-task}
+
+Чтобы добавить задачу в ZooKeeper, выполните следующие команды:
+
+```bash
+/opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 rmr /cp-task.xml/description
+/opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 rmr /cp-task.xml/task_active_workers
+/opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 rmr /cp-task.xml
+
+fc=$(cat ./cp-task.xml)
+/opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 create /cp-task.xml ""
+/opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 create /cp-task.xml/description "$fc"
+```
+
+## 6. Запуск clickhouse-copier {#copier-run}
+
+> [!IMPORTANT]
+>
+> Если вы не создали каталоги, которые указываете в значении флага `--base-dir` или для
+ сохранения файлов с логами, `clickhouse-copier` может не запуститься.
+
+Запустить copier можно с помощью следующей команды (чтобы запустить в режиме демона 
+добавьте флаг `--daemon`):
+
+```bash
+$ clickhouse-copier
+  --config ./config.xml \
+  --task-path ./cp-task.xml \
+  --base-dir ./clickhouse \
+  --log-level debug
+```
+
+После завершения операции обязательно проверьте логи, чтобы убедиться, что копирование 
+завершилось успешно.
