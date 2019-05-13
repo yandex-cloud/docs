@@ -9,7 +9,7 @@ editable: false
 
 The [!KEYREF vision-short-name] service provides [a set of features for image analysis](concepts/index.md#features).
 
-Each successful analysis performed using any feature is charged as a single _unit_:
+Each successful image analysis performed using any feature is charged as a single _unit_:
 
 * If your request contains multiple images, each analyzed image is charged separately.
 * If you send two requests to recognize text on the same image, you will be charged for two units. This makes sense when a text  [is written in languages from different language models](operations/ocr/text-detection.md#multiple-languages) (for example, it includes Arabic and Hebrew).
