@@ -6,7 +6,7 @@ After creating a cluster, you can:
 
 * [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-nvme`).
 
-* [Configure the servers](#change-postgresql-config) [!KEYREF PG] as described in the [documentation [!KEYREF PG]](https://www.postgresql.org/docs/10/runtime-config.html).
+* [Configure the servers](#change-postgresql-config) [!KEYREF PG] as described in the [documentation [!KEYREF PG]](https://www.postgresql.org/docs/current/runtime-config.html).
 
 * [Set the operation mode for the connection pooler ](#change-pgbouncer-config).
 
@@ -110,14 +110,14 @@ To increase the storage size for a cluster:
 
 **[!TAB API]**
 
-You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.postgresqlConfig_10.resources.diskSize`.
+You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.postgresqlConfig_<version>.resources.diskSize`.
 
 Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.ru/?section=quotas
 ) page for your cloud and check that the [!KEYREF mpg-full-name] section still has space remaining in the **space** line.
 
 ---
 
-## Changing [!KEYREF PG] {#change-postgresql-config} settings
+## Changing [!KEYREF PG] settings {#change-postgresql-config}
 
 You can change the DBMS settings of the hosts in your cluster. All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
 
@@ -139,7 +139,7 @@ To change [!KEYREF PG] server settings:
 
 2. Set the required parameter values.
 
-    All supported parameters are listed in [the request format for the update method](../api-ref/Cluster/update.md), in the `postgresqlConfig_10` field. To specify the parameter name in the CLI's call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `logMinDurationStatement` parameter from an API request should be converted to `log_min_duration_statement` for the CLI command:
+    All supported parameters are listed in [the request format for the update method](../api-ref/Cluster/update.md), in the `postgresqlConfig_<version>` field. To specify the parameter name in the CLI's call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `logMinDurationStatement` parameter from an API request should be converted to `log_min_duration_statement` for the CLI command:
 
     ```
     $ [!KEYREF yc-mdb-pg] cluster update-config <cluster name>
@@ -150,7 +150,7 @@ To change [!KEYREF PG] server settings:
 
 **[!TAB API]**
 
-You can change the DBMS settings for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.postgresqlConfig_10.config`.
+You can change the DBMS settings for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.postgresqlConfig_<version>.config`.
 
 ---
 

@@ -12,7 +12,7 @@ $ mkdir ~/.postgresql
 $ wget "https://[!KEYREF s3-storage-host][!KEYREF pem-path]" -O ~/.postgresql/CA.pem
 ```
 
-О том, как использовать сертификат с помощью `libpq`, читайте в [документации [!KEYREF PG]](https://www.postgresql.org/docs/10/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
+О том, как использовать сертификат с помощью `libpq`, читайте в [документации [!KEYREF PG]](https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
 
 ## Строка подключения
 

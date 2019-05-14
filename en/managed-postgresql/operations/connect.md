@@ -8,7 +8,7 @@ Inside Yandex.Cloud, you can connect to a DB cluster only from a VM whose addres
 
 [!INCLUDE [get-cert](../../_includes/mdb/get-cert.md)]
 
-For information about how to use a certificate via `libpq`, read the [documentation on [!KEYREF PG]](https://www.postgresql.org/docs/10/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
+For information about how to use a certificate via `libpq`, read the [documentation on [!KEYREF PG]](https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
 
 ## Connection string
 

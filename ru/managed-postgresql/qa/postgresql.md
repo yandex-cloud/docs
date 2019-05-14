@@ -6,7 +6,7 @@
 
 #### Какие версии [!KEYREF PG] поддерживает [!KEYREF mpg-short-name]? {#supported-version}
 
-[!KEYREF mpg-short-name] поддерживает только [!KEYREF PG] 10.
+[!KEYREF mpg-short-name] поддерживает [!KEYREF PG] 10 и 11.
 
 #### Включено ли резервное копирование кластеров БД по умолчанию? {#backup}
 

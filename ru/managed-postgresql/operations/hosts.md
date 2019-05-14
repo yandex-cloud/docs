@@ -122,7 +122,7 @@ $ [!KEYREF yc-mdb-pg] host list
 
 * Приоритет хоста в кластере, согласно которому выбирается новый мастер при недоступности старого.
 
-* Хост, который должен быть источником репликации для данного хоста (если вы используете [каскадную репликацию](https://www.postgresql.org/docs/10/warm-standby.html#CASCADING-REPLICATION)).
+* Хост, который должен быть источником репликации для данного хоста (если вы используете [каскадную репликацию](https://www.postgresql.org/docs/current/warm-standby.html#CASCADING-REPLICATION)).
 
 
 ---
