@@ -25,7 +25,8 @@
 1. Узнайте код языка, на который вы хотите перевести текст, с помощью метода [listLanguages](../api-ref/Translation/listLanguages):
 
     ```bash
-    curl -X POST \
+    $ export IAM_TOKEN=CggaATEVAgA...
+    $ curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d "{\"folder_id\": \"${FOLDER_ID}\"}" \

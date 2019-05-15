@@ -27,6 +27,8 @@ items:
             href: operations/sa/set-access-bindings.md
           - name: Создать статические ключи доступа
             href: operations/sa/create-access-key.md
+          - name: Узнать идентификатор сервисного аккаунта
+            href: operations/sa/get-id.md
           - name: Удалить сервисный аккаунт
             href: operations/sa/delete.md
       - name: Роли
@@ -41,6 +43,12 @@ items:
             href: operations/iam-token/create.md
           - name: Получить IAM-токен для сервисного аккаунта
             href: operations/iam-token/create-for-sa.md
+      - name: API-ключи
+        items:
+          - name: Получить API-ключ
+            href: operations/api-key/create.md
+          - name: Удалить API-ключ
+            href: operations/api-key/delete.md
   - name: Концепции
     items:
       - name: Обзор
@@ -61,6 +69,8 @@ items:
             href: concepts/authorization/iam-token.md
           - name: OAuth-токен
             href: concepts/authorization/oauth-token.md
+          - name: API-ключ
+            href: concepts/authorization/api-key.md
           - name: Авторизованные ключи
             href: concepts/authorization/key.md
           - name: AWS-совместимые ключи доступа

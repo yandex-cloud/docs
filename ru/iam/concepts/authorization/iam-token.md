@@ -8,8 +8,12 @@ IAM-токен (токен) — уникальная последователь
 
 Если пользователь работает через консоль управления или интерфейса командной строки (CLI), то процесс получения и использования токена незаметен для пользователя.
 
+## Сервисы, поддерживающие этот способ аутентификации {#supported-services}
+
+Этот способ авторизации поддерживают все сервисы, кроме сервисов с AWS-совместимым API (в них IAM-токен нужен только для управления [ключами доступа](access-key.md) и [сервисными аккаунтами](../users/service-accounts.md)).
+
 #### См. также
 
-- [[!TITLE]](../../operations/iam-token/create.md)
-- [[!TITLE]](../../operations/iam-token/create-for-sa.md)
-- [[!TITLE]](index.md)
+* [[!TITLE]](../../operations/iam-token/create.md)
+* [[!TITLE]](../../operations/iam-token/create-for-sa.md)
+* [[!TITLE]](index.md)

@@ -1,6 +1,6 @@
 # Создать статические ключи доступа
 
-Создайте [статические ключи доступа](../../concepts/users/service-accounts.md#access-keys) для сервисного аккаунта.
+Это инструкция по созданию  [статических ключей доступа](../../concepts/users/service-accounts.md#access-keys) для [сервисного аккаунта](../../concepts/users/service-accounts.md). Если у вас еще нет сервисного аккаунта, [создайте его](../sa/create.md) и [настройте права доступа](../sa/assign-role-for-sa.md) для него.
 
 ---
 
@@ -49,7 +49,7 @@
 
 **[!TAB API]**
 
-Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../api-ref/AccessKey/create.md) для ресурса [ServiceAccount](../../api-ref/AccessKey/index.md).
+Чтобы создать ключ доступа, воспользуйтесь методом [create](../../api-ref/AccessKey/create.md) для ресурса [AccessKey](../../api-ref/AccessKey/index.md).
 
 ---
 
