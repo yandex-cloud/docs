@@ -32,6 +32,8 @@ items:
         href: api-ref/v1/languages.md
       - name: Формат ответа
         href: api-ref/v1/response.md
+  - name: Квоты и лимиты
+    href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

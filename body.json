@@ -1,0 +1,11 @@
+{
+    "config": {
+        "specification": {
+            "languageCode": "ru-RU"
+        }
+    },
+    "audio": {
+        "uri": "https://storage.yandexcloud.net/speechkit/speech.ogg"
+    }
+
+}
