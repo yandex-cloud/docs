@@ -79,7 +79,7 @@ Maintenance in [!KEYREF mpg-short-name] implies:
 
 #### Which [!KEYREF PG] version does [!KEYREF mpg-short-name] use? {#dbms-version}
 
-[!KEYREF mpg-short-name] supports [!KEYREF PG] 10.
+[!KEYREF mpg-short-name] supports [!KEYREF PG] 10 and 11.
 
 #### What happens when a new DBMS version is released? {#new-version}
 

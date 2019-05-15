@@ -1,7 +1,7 @@
 # Заголовок и описание на странице
 title: "Yandex Managed Service for PostgreSQL"
 description:
-  - "Сервис Managed Service for PostgreSQL помогает разворачивать и поддерживать кластеры серверов PostgreSQL в инфраструктуре Яндекс.Облака."
+  - "Сервис Managed Service for PostgreSQL помогает разворачивать и поддерживать кластеры серверов PostgreSQL 10 и 11 в инфраструктуре Яндекс.Облака."
 # Мета-информация title, description, keywords и т.п.
 meta:
   title: "Yandex Managed Service for PostgreSQL"

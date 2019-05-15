@@ -77,9 +77,9 @@ Maintenance in [!KEYREF mmg-short-name] implies:
 - Changes to the host class and storage size.
 - Other [!KEYREF mmg-short-name] maintenance activities.
 
-#### Which [!KEYREF MG] version does [!KEYREF mch-short-name] use? {#dbms-version}
+#### Which [!KEYREF MG] version does [!KEYREF mmg-short-name] use? {#dbms-version}
 
-[!KEYREF mmg-short-name] supports [!KEYREF MG] 3.6.
+[!KEYREF mmg-short-name] supports [!KEYREF MG] 3.6 and 4.0.
 
 #### What happens when a new DBMS version is released? {#new-version}
 

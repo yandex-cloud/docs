@@ -6,7 +6,7 @@ Use the built-in tool `pg_dump` to migrate data to a [!KEYREF PG] cluster in [!K
 
 #### Which [!KEYREF PG] versions does [!KEYREF mpg-short-name] support? {#supported-version}
 
-[!KEYREF mpg-short-name] supports only [!KEYREF PG] 10.
+[!KEYREF mpg-short-name] supports only [!KEYREF PG] 10 and 11.
 
 #### Is DB cluster backup enabled by default? {#backup}
 

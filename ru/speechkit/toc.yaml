@@ -2,7 +2,7 @@
 title: "Yandex SpeechKit"
 href: index.yaml
 items:
-  - name: Авторизация в API
+  - name: Аутентификация в API
     href: concepts/auth.md
   - name: Распознавание речи
     items:
@@ -31,6 +31,8 @@ items:
     href: concepts/ivr-integration.md
   - name: Квоты и лимиты
     href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
   - name: Правила тарификации
     items:
       - name: Действующие правила

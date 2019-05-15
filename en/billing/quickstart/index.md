@@ -53,7 +53,7 @@ To create a [billing account](../concepts/billing-account.md):
 
     **[!TAB Business account]**
 
-    9.1. Select a payment method:
+    10.1. Select a payment method:
     - **Bank card**.<br/>Link your corporate bank card:
       - Click **Add card**.
       - Enter the bank card details: the 16-digit number, expiry date, and CVV (on the back of the card).
@@ -69,7 +69,7 @@ To create a [billing account](../concepts/billing-account.md):
 
     - **Bank transfer**.<br/>After you click the **Activate** button (step 11), the billing account is created with the [Not verified](../concepts/billing-account.md#conditions) status. An email with further instructions will be sent to the email address specified in your Yandex or Yandex.Connect account. It may take up to three business days to activate your billing account.
 
-    9.2. Enter the legal details of your organization.
+    10.2. Enter the legal details of your organization.
 
     ---
 

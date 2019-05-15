@@ -8,6 +8,10 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Информация об имеющихся кластерах
+        href: operations/cluster-list.md
+      - name: Создание кластера
+        href: operations/cluster-create.md
       - name: Сменить мастер
         href: operations/failover.md
   - name: Концепции

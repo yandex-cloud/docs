@@ -6,7 +6,7 @@
 
 * [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища, `network-hdd` и `network-nvme`).
 
-* [Настраивать серверы](#change-postgresql-config) [!KEYREF PG] согласно [документации [!KEYREF PG]](https://www.postgresql.org/docs/10/runtime-config.html).
+* [Настраивать серверы](#change-postgresql-config) [!KEYREF PG] согласно [документации [!KEYREF PG]](https://www.postgresql.org/docs/current/runtime-config.html).
 
 * [Устанавливать режим работы менеджера подключений](#change-pgbouncer-config).
 
@@ -113,7 +113,7 @@
 
 **[!TAB API]**
 
-Изменить размер хранилища для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.postgresqlConfig_10.resources.diskSize`.
+Изменить размер хранилища для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.postgresqlConfig_<версия>.resources.diskSize`.
 
 Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции [!KEYREF mpg-full-name] не исчерпано место в строке **space**.
 
@@ -160,7 +160,7 @@
 
 2. Установите нужные значения параметров.
 
-    Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `postgresqlConfig_10`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `logMinDurationStatement` из запроса к API преобразуется в `log_min_duration_statement` для команды CLI:
+    Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `postgresqlConfig_<версия>`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `logMinDurationStatement` из запроса к API преобразуется в `log_min_duration_statement` для команды CLI:
 
     ```
     $ [!KEYREF yc-mdb-pg] cluster update-config <имя кластера>
@@ -172,7 +172,7 @@
 
 **[!TAB API]**
 
-Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.postgresqlConfig_10.config`.
+Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.postgresqlConfig_<версия>.config`.
 
 ---
 

@@ -15,7 +15,7 @@
 
 ## Создание дампа {#dump}
 
-Создать дамп базы данных следует с помощью утилиты [pg_dump](https://www.postgresql.org/docs/10/app-pgdump.html).
+Создать дамп базы данных следует с помощью утилиты [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
 
 1. Перед созданием дампа рекомендуется переключить базу в режим «только чтение», чтобы не потерять данные, которые бы появились во время создания дампа. Сам дамп базы данных создается следующей командой:
 
@@ -35,7 +35,7 @@
     $ tar -cvzf db_dump.tar.gz ~/db_dump
     ```
 
-Подробно утилита `pg_dump` описана в [документации [!KEYREF PG]](https://www.postgresql.org/docs/10/app-pgdump.html).
+Подробно утилита `pg_dump` описана в [документации [!KEYREF PG]](https://www.postgresql.org/docs/current/app-pgdump.html).
 
 
 ## (опционально) Создание виртуальной машины в Облаке и загрузка дампа {#create-vm}
@@ -75,7 +75,7 @@
 
 ## Восстановление данных {#restore}
 
-Восстанавливать дамп базы данных следует с помощью утилиты [pg_restore](https://www.postgresql.org/docs/10/app-pgrestore.html).
+Восстанавливать дамп базы данных следует с помощью утилиты [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html).
 
 Версия `pg_restore` должна совпадать с версией `pg_dump`, а мажорная версия должна быть не меньше, чем у базы на которую дамп разворачивается. То есть `pg_restore 10` следует использовать с PostgreSQL 10, а если необходимо развернуть дамп для PostgreSQL 11, то лучше воспользоваться `pg_restore 11`.
 
@@ -95,4 +95,4 @@ pg_restore -Fd \
 
 Если нужно восстановить только одну схему, добавьте флаг `-n <имя схемы>`.
 
-Подробно утилита `pg_restore` описана в [документации [!KEYREF PG]](https://www.postgresql.org/docs/10/app-pgrestore.html).
+Подробно утилита `pg_restore` описана в [документации [!KEYREF PG]](https://www.postgresql.org/docs/current/app-pgrestore.html).

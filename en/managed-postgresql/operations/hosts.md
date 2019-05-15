@@ -120,7 +120,7 @@ For each host in a [!KEYREF PG] cluster, you can change:
 
 * The host's priority in the cluster, according to which a new master is selected when the old one is unavailable.
 
-* The host that should be the replication source for the current host (if you use [cascading replication](https://www.postgresql.org/docs/10/warm-standby.html#CASCADING-REPLICATION)).
+* The host that should be the replication source for the current host (if you use [cascading replication](https://www.postgresql.org/docs/current/warm-standby.html#CASCADING-REPLICATION)).
 
 ---
 
