@@ -62,10 +62,10 @@
 
 ACL | Описание
 ----|---------
-`private`<br/>`bucket-owner-full-control` | Полный доступ для создателя.
-`public-read` | Полный доступ для создателя ресурса. Предопределенная группа `AllUsers` получает разрешение `READ`.
-`public-read-write` | Полный доступ для создателя ресурса. Предопределенная группа `AllUsers` получает разрешения `READ` и `WRITE`.
-`authenticated-read` | Полный доступ для создателя ресурса. Предопределенная группа `AuthenticatedUsers` получает разрешение `READ`.
+`private`<br/>`bucket-owner-full-control` | Пользователи Облака получают разрешения в соответствии со своими ролями в IAM.
+`public-read` | Системная группа `AllUsers` получает разрешение `READ`.
+`public-read-write` | Системная группа `AllUsers` получает разрешения `READ` и `WRITE`.
+`authenticated-read` | Системная группа `AuthenticatedUsers` получает разрешение `READ`.
 
 Предопределенные ACL могут применяться как к объектам, так и к бакетам. ACL `public-read-write`, примененный к объекту, эквивалентен `public-read`.
 
