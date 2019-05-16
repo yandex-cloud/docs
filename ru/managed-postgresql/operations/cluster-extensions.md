@@ -83,6 +83,7 @@ $ [!KEYREF yc-mdb-pg] database update <имя базы данных> \
 - [lo](https://www.postgresql.org/docs/current/static/lo.html)
 - [ltree](https://www.postgresql.org/docs/current/static/ltree.html)
 - [moddatetime](https://www.postgresql.org/docs/current/static/contrib-spi.html#id-1.11.7.46.9)
+- [pg_partman](https://github.com/pgpartman/pg_partman)
 - [pg_repack](http://reorg.github.io/pg_repack/)
 - [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache)
 - [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html)
