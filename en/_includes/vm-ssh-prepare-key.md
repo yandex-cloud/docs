@@ -28,7 +28,7 @@ Prepare the keys for use with your virtual machines. To do this:
    $ ssh-keygen -t rsa -b 2048
    ```
 
-   After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\\.ssh\` directory.
+   After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\<user name>\.ssh\` directory.
 
    The public part of the key will be saved in a file with the name `<key name>.pub`. Open the file using Notepad or another text editor and copy the key string to the public key field when creating a new virtual machine via the management console.
 
@@ -46,7 +46,7 @@ To create keys for Windows, use the PuTTY application.
 
 1. Launch the PuTTYgen app.
 
-1. Select **RSA** for the type of pair to generate and set the length to `2048`. Click **Generate** and move the mouse in the field above it until the key creation is complete.
+1. Select **RSA** for the type of pair to generate and set the length to `2048`. Click **Generate** and move the cursor in the field above it until key creation is complete.
 
    ![ssh_generate_key](../compute/_assets/ssh-putty/ssh_generate_key.png)
 
@@ -54,7 +54,9 @@ To create keys for Windows, use the PuTTY application.
 
 1. Click **Save private key** and save the private key. Never share it with anyone and do not tell anyone the passphrase for it.
 
-1. Save the public key from the text field in a text file with the name `id_rsa.pub`. The key will be saved in a single line in this file. Open the file using Notepad or another text editor and copy the key string to the public key field when creating a new virtual machine via the management console.
+1. Save the key in a text file in a single line. To do this, copy the public key from the text field to a text file with the name `id_rsa.pub`.
+
+1. When creating a virtual machine via the management console, specify the public key. To do this, open the `id_rsa.pub` file in Notepad and copy the key value to the **SSH key** field.
 
 ---
 
