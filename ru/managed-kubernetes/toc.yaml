@@ -25,6 +25,8 @@ items:
 #      path: ru/instance-groups/toc.yaml
   - name: Управление доступом
     href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
 
 
 

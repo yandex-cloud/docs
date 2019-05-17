@@ -25,3 +25,5 @@ items:
 #      path: ru/instance-groups/toc.yaml
   - name: Access management
     href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
