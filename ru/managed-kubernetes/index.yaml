@@ -1,0 +1,31 @@
+# Заголовок и описание на странице
+title: "Managed Service for Kubernetes"
+description:
+- "<em>Сервис Managed Service for Kubernetes находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a></em>."
+- "Сервис Managed Service for Kubernetes предоставляет окружение для удобного управления контейнерными приложениями с помощью Kubernetes в инфраструктуре Яндекс.Облака."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Managed Kubernetes"
+# Блок с ссылками
+links:
+- title: "Начало работы"
+  description: "Создайте первый кластер Kubernetes"
+  href: "quickstart"
+#- title: "Пошаговые инструкции"
+#  description: "Инструкции по выполнению рутинных операций"
+#  href: "operations/"
+- title: "Концепции"
+  description: "Описание общего устройства сервиса"
+  href: "concepts/"
+#- title: "Справочник API"
+#  description: "Описание методов HTTP API"
+#  href: "api-ref/"
+- title: "Квоты и лимиты"
+  description: "Технические и организационные ограничения сервиса"
+  href: "concepts/limits"
+- title: "Управление доступом"
+  description: "Настройте права доступа для работы с сервисом"
+  href: "security/"
+#- title: "Правила тарификации"
+#  description: "Цены и правила расчета стоимости услуг сервиса"
+#  href: "pricing"

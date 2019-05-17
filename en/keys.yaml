@@ -19,6 +19,7 @@ container-registry-full-name: Yandex Container Registry
 dataproc-full-name: Yandex Data Proc
 vision-full-name: Yandex Vision
 datalens-full-name: Yandex DataLens
+managed-k8s-full-name: Yandex Managed Service for Kubernetes
 
 # Полные имена сервисов без Yandex
 iam-name: Identity and Access Management
@@ -42,6 +43,7 @@ container-registry-name: Container Registry
 dataproc-name: Data Proc
 vision-name: Vision
 datalens-name: DataLens
+managed-k8s-name: Managed Service for Kubernetes
 
 # Короткие имена
 iam-short-name: IAM
@@ -64,6 +66,7 @@ container-registry-short-name: Container Registry
 dataproc-short-name: Data Proc
 vision-short-name: Vision
 datalens-short-name: DataLens
+managed-k8s-short-name: Managed Service for Kubernetes
 
 # Тарифы
 price-per-hour-count-per-second: The price is indicated for 1 hour of use. Charging per second.
@@ -131,3 +134,6 @@ s2.2xlarge: s2.2xlarge (24 vCPU, 96 GB)
 s2.3xlarge: s2.3xlarge (32 vCPU, 128 GB)
 s2.4xlarge: s2.4xlarge (40 vCPU, 160 GB)
 s2.5xlarge: s2.5xlarge (48 vCPU, 192 GB)
+
+# K8s specific
+k8s: Kubernetes

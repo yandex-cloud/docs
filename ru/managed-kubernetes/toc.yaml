@@ -1,0 +1,30 @@
+title: Yandex Managed Service for Kubernetes
+href: index.yaml
+stage: preview
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Настроить виртуальную машину в качестве NAT-шлюза
+        href: operations/nat-instance.md
+      - name: Подключиться к узлу по SSH
+        href: operations/node-connect-ssh.md
+  - name: Концепции
+    items:
+      - name: Взаимосвязь ресурсов сервиса
+        href: concepts/index.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+#  - name: Справочник API
+#    items:
+#      - name: Аутентификация в API
+#        href: api-ref/authentication.md
+#    include:
+#      repo: docs-api
+#      path: ru/instance-groups/toc.yaml
+  - name: Управление доступом
+    href: security/index.md
+
+
+

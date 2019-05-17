@@ -19,6 +19,7 @@ container-registry-full-name: Yandex Container Registry
 dataproc-full-name: Yandex Data Proc
 vision-full-name: Yandex Vision
 datalens-full-name: Yandex DataLens
+managed-k8s-full-name: Yandex Managed Service for Kubernetes
 
 # Полные имена сервисов без Yandex
 iam-name: Identity and Access Management
@@ -42,6 +43,7 @@ container-registry-name: Container Registry
 dataproc-name: Data Proc
 vision-name: Vision
 datalens-name: DataLens
+managed-k8s-name: Managed Service for Kubernetes
 
 # Короткие имена
 iam-short-name: IAM
@@ -64,6 +66,7 @@ container-registry-short-name: Container Registry
 dataproc-short-name: Data Proc
 vision-short-name: Vision
 datalens-short-name: DataLens
+managed-k8s-short-name: Managed Service for Kubernetes
 
 # Тарифы
 price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
@@ -140,3 +143,5 @@ stt-long-resultsStorageTime: 3 суток
 stt-streaming-fileSize: 10 МБ
 stt-streaming-audioLength: 5 минут
 
+# K8s specific
+k8s: Kubernetes
