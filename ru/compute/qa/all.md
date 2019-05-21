@@ -15,3 +15,7 @@
 ## Группы виртуальных машин {#instance-groups}
 
 [!INCLUDE-NOTITLE [disks](instance-groups/general.md)]
+
+## Лицензирование {#licensing}
+
+[!INCLUDE-NOTITLE [licensing](licensing.md)]

@@ -204,5 +204,7 @@ items:
         href: qa/vm.md
       - name: Диски и снимки
         href: qa/disks.md
+      - name: Лицензирование
+        href: qa/licensing.md
       - name: Все вопросы на одной странице
         href: qa/all.md
