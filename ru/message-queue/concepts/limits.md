@@ -8,4 +8,4 @@ editable: false
 
 [!INCLUDE [quotes-limits-def.md](../../_includes/quotes-limits-def.md)]
 
-[!INCLUDE [vpc-limits.md](../../_includes/ymq-limits.md)]
+[!INCLUDE [ymq-limits.md](../../_includes/ymq-limits.md)]
