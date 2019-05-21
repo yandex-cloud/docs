@@ -4,6 +4,16 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
+  - name: Сценарии использования
+    items:
+      - name: Все сценарии
+        href: solutions/index.md
+      - name: Визуализация данных из CSV-файла
+        href: solutions/data-from-csv-visualization.md
+      - name: Визуализация данных из базы данных ClickHouse
+        href: solutions/data-from-db-visualization.md
+      - name: Визуализация данных из Metriсa
+        href: solutions/data-from-metrica-visualization.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -74,16 +84,6 @@ items:
         href: concepts/dashboard.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Сценарии использования
-    items:
-      - name: Все сценарии
-        href: solutions/index.md
-      - name: Визуализация данных из CSV-файла
-        href: solutions/data-from-csv-visualization.md
-      - name: Визуализация данных из базы данных ClickHouse
-        href: solutions/data-from-db-visualization.md
-      - name: Визуализация данных из Metriсa
-        href: solutions/data-from-metrica-visualization.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
