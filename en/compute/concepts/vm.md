@@ -16,17 +16,19 @@ Each VM has a unique ID and name. The name is unique within the folder. The ID i
 
 ## Computing resources {#types}
 
-When creating a VM, you specify the amount of computing resources to be allocated to it: the number and performance of processor cores (vCPUs) and the amount of RAM. You can choose the appropriate amount of computing resources depending on the expected load. For more information, see the section [[!TITLE]](performance-levels.md).
+When creating a VM, you specify the amount of computing resources to be allocated to it: the number and performance of processor cores (vCPUs) and the amount of RAM. You can choose the amount of computing resources that is appropriate for the expected load. For more information, see [[!TITLE]](performance-levels.md).
 
 ## Disks {#disks}
 
 At least one disk must be attached to a VM, that is, a boot disk. Currently, you can only attach a boot disk when creating a VM.
 
-You can also attach additional disks to the VM. You can either attach a previously created disk or create a disk along with the VM. You can create a new disk empty or restore it from a snapshot or image.
+You can also attach additional disks to the VM. You can either attach a previously created disk or create a disk along with the VM. The new disk can be empty, or you can restore it from a snapshot or image.
+
+[!INCLUDE [attach_empty_disk](../_includes_service/attach-empty-disk.md)]
 
 You can attach and detach additional disks even after you created the VM.
 
-Read more about disks in the section [[!TITLE]](disk.md).
+Read more about disks in [[!TITLE]](disk.md).
 
 ## Statuses {#status}
 
@@ -40,11 +42,11 @@ For more information about statuses, see the section [[!TITLE]](vm-statuses.md).
 
 Each VM stores information about itself on the metadata server. You can request this metadata from inside a VM using the Yandex.Cloud API or CLI.
 
-You can set your own metadata when creating or updating VMs. For example, to connect to a Linux VM, you need to pass an SSH key to it. This is done using the metadata service. For more information, see the section [[!TITLE]](vm-metadata.md).
+You can set your own metadata when creating or updating VMs. For example, to connect to a Linux VM, you need to pass an SSH key to it. This is done using the metadata service. For more information, see [[!TITLE]](vm-metadata.md).
 
 ## Network {#network}
 
 When creating a VM, you should specify settings for the network interface connected to it: select the subnet to which the VM will be connected and configure internal and public IP addresses. This allows the VM to interact with other services on the intranet and internet.
 
-For more information, see the section [[!TITLE]](network.md).
+For more information, see [[!TITLE]](network.md).
 
