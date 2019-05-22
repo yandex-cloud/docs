@@ -16,11 +16,12 @@ Naming rules:
 
 Names containing dots should only be used for [static website hosting](../hosting/index.md).
 
-## Bucket settings
+## Bucket settings {#bucket-settings}
 
 You can:
 
-- [Limit the maximum size of a bucket](../operations/buckets/limit-max-volume.md).[!KEYREF objstorage-name] will not allow uploading an object if, when adding it, the bucket size exceeds the maximum value.
+- [Limit the maximum size of a bucket](../operations/buckets/limit-max-volume.md). [!KEYREF objstorage-name] will not allow uploading an object if, when adding it, the bucket size exceeds the maximum value.
+- Set the default [storage class](storage-class.md). Objects uploaded to a bucket are by default saved with the storage class specified for that bucket.
 - Configure a bucket for [static website hosting](../hosting/index.md).
 - Download a [CORS configuration](../cors/index.md) for a bucket.
 - Configure the [lifecycle of objects](../lifecycles/index.md).
