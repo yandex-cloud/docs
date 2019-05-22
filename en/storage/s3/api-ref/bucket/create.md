@@ -16,13 +16,17 @@ PUT /{bucket} HTTP/1.1
 
 ### Headers {#request-headers}
 
-In a request, use only [common request headers](../common-request-headers.md).
+Use [common request headers](../common-request-headers.md) in requests.
+
+By using the headers listed below, you can set the [ACL](../../../concepts/acl.md) of a bucket to be created by using the headers listed below.
+
+[!INCLUDE [storage-acl-headers](../../../_includes_service/storage-acl-bucket-headers.md)]
 
 ## Response {#response}
 
 ### Headers {#response-headers}
 
-A response can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common response headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 

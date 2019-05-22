@@ -10,6 +10,7 @@
 | [Static Website Hosting](hosting.md) | Manages bucket configurations for static web hosting. |
 | [CORS](cors.md) | Manages CORS configurations for buckets. |
 | [Lifecycles](lifecycles.md) | Manages bucket object lifecycle configurations. |
+| [ACL](acl.md) | Manages access control lists. |
 
 ## Supported methods {#operations-list}
 
@@ -70,6 +71,15 @@
 | [upload](lifecycles/upload.md) | Uploads an object lifecycle configuration to [!KEYREF objstorage-name]. |
 | [get](lifecycles/get.md) | Returns an object lifecycle configuration from [!KEYREF objstorage-name]. |
 | [delete](lifecycles/delete.md) | Deletes an object lifecycle configuration from [!KEYREF objstorage-name]. |
+
+### ACL service
+
+| Method | Description |
+| ----- | ----- |
+| [objectGetAcl](acl/objectget.md) | Returns the access control list for an object. |
+| [objectPutAcl](acl/objectput.md) | Uploads an access control list for an object. |
+| [bucketGetAcl](acl/bucketget.md) | Returns the access control list for a bucket. |
+| [bucketPutAcl](acl/bucketput.md) | Uploads an access control list for a bucket. |
 
 ## See also
 
