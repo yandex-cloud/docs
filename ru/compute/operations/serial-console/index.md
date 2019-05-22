@@ -8,7 +8,7 @@
 >
 > Включенный доступ к серийной консоли небезопасен: злоумышленники могут получить доступ к вашей виртуальной машине. Используйте эту инструкцию, если точно знаете, что делаете.
 
-## Перед началом работы
+## Перед началом работы {#before-begin}
 
 Перед тем, как включить доступ к серийной консоли на виртуальной машине:
 
@@ -28,13 +28,17 @@
 
     По умолчанию пользовательские SSH-ключи хранятся в каталоге `~/.ssh` этого пользователя. Получить открытый ключ можно с помощью команды `cat ~/.ssh/<имя открытого ключа>.pub`.
 
-## Включение консоли при создании виртуальной машины из публичного образа Linux {#turn-on-for-new-instance}
+## Включение консоли при создании виртуальной машины из публичного образа {#turn-on-for-new-instance}
 
 Чтобы включить доступ к серийной консоли при создании виртуальной машины, установите в метаданных параметр `serial-port-enable` в значение `1`.
 
 [!INCLUDE [cli-install](../../../_includes/cli-install.md)]
 
 [!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+
+---
+
+**[!TAB Linux]**
 
 1. Посмотрите описание команды CLI для создания виртуальной машины:
 
@@ -48,7 +52,7 @@
 
 1.  Создайте виртуальную машину в каталоге по умолчанию:
 
-    ```bash
+    ```
     $ yc compute instance create \
         --name first-instance \
         --zone ru-central1-a \
@@ -60,17 +64,50 @@
     ```
 
     Данная команда создаст виртуальную машину:
-
+    
     - С OC Ubuntu.
     - С именем `first-instance`.
     - В зоне `ru-central1-a`.
     - С активной серийной консолью.
-
+    
     В ОС виртуальной машины будет автоматически создан пользователь `yc-user` с указанным открытым ключом.
 
-    [!INCLUDE [name-format](../../../_includes/name-format.md)]
+**[!TAB Windows]**
 
-## Включение консоли при изменении виртуальной машины на базе ОС Linux {#turn-on-for-current-instance}
+1. Посмотрите описание команды CLI для создания виртуальной машины:
+
+   ```
+   $ yc compute instance create --help
+   ```
+
+1. Выберите публичный [образ](../images-with-pre-installed-software/get-list.md) на базе операционной системы Windows.
+
+    [!INCLUDE [standard-images](../../../_includes/standard-images.md)]
+
+1.  Создайте виртуальную машину в каталоге по умолчанию:
+
+    ```
+    $ yc compute instance create \
+    --name win-instance \
+    --metadata-from-file user-data=metadata.yaml \
+    --zone ru-central1-c \
+    --network-interface subnet-name=default-c,nat-ip-version=ipv4 \
+    --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
+    --metadata serial-port-enable=1
+    ```
+    
+    Данная команда создаст виртуальную машину:
+    
+    - С OC Windows.
+    - С именем `win-instance`.
+    - В зоне `ru-central1-c`.
+    - С активной серийной консолью.
+    
+    В ОС виртуальной машины будет автоматически создан пользователь `Administrator` с паролем, указанном в файле `metadata.yaml`.
+
+--- 
+
+## Включение консоли при изменении виртуальной машины {#turn-on-for-current-instance}
 
 Чтобы включить доступ к серийной консоли при изменении виртуальной машины, установите в метаданных параметр `serial-port-enable` в значение `1`.
 
@@ -86,7 +123,7 @@
 
 1. Установите в метаданных виртуальной машины параметр `serial-port-enable=1`:
 
-    ```bash
+    ```
     $ yc compute instance add-metadata \
         --name first-instance \
         --metadata serial-port-enable=1
@@ -94,11 +131,15 @@
 
     Данная команда запустит операцию активации серийной консоли на машине с именем `first-instance`.
 
-## Настройка Linux для доступа через серийный порт {#linux-configuration}
+## Настройка виртуальной машины для доступа через серийный порт {#configuration}
+
+---
+
+**[!TAB Linux]**
 
 Перед подключением к серийной консоли убедитесь, что выполнены следующие настройки.
 
-### Отключение SSH-авторизации по паролю
+### Отключение SSH-авторизации по паролю {#ssh-pass-off}
 
 [!INCLUDE [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md)]
 
@@ -111,10 +152,10 @@
 1. Перезапустите SSH-сервер:
 
     ```
-    sudo systemctl restart ssh
+    $ sudo systemctl restart ssh
     ```
 
-### Создание пароля для пользователя Linux
+### Создание пароля для пользователя Linux {#create-pass}
 
 Некоторые операционные системы могут запрашивать данные пользователя для доступа на виртуальную машину. Поэтому перед подключением к таким машинам необходимо создать локальный пароль для пользователя по умолчанию.
 
@@ -132,14 +173,13 @@
 
 1. Получите публичный IP-адрес виртуальной машины.
 
-
-    ```bash
+    ```
     $ yc compute instance get first-instance
     ```
 
     В выводе команды найдите адрес виртуальной машины в блоке `one_to_one_nat`:
 
-    ```bash
+    ```
     ...
     one_to_one_nat:
         address: <публичный IP-адрес>
@@ -154,13 +194,39 @@
 1. Создайте локальный пароль. В OC Linux задать пароль можно с помощью команды `passwd`:
 
     ```
-    sudo passwd <имя пользователя>
+    $ sudo passwd <имя пользователя>
     ```
 
     Пример для пользователя `yc-user`:
 
     ```
-    sudo passwd yc-user
+    $ sudo passwd yc-user
     ```
 
 1. Завершите SSH-сессию с помощью команды `exit`.
+
+**[!TAB Windows]**
+
+Перед подключением к серийной консоли убедитесь, что выполнены следующие настройки.
+
+### Включение серийной консоли Windows (SAC) {#sac-activation}
+
+Включите серийную консоль на виртуальной машине: 
+
+1. [Подключитесь к виртуальной машине по RDP](../vm-control/vm-connect-rdp.md).
+
+1. Включите серийную консоль через реестр. Для этого запустите `cmd` или PowerShell и выполните следующие команды: 
+    
+    ```
+    $ bcdedit /ems "{current}" on
+    The operation completed successfully.
+    ```
+    
+    ```
+    $ bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200
+    The operation completed successfully.
+    ```
+
+1. Перезагрузите виртуальную машину.
+
+---

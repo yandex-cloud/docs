@@ -1,16 +1,16 @@
 # Disks
 
-_A disk_ is a virtual analog of physical storage devices, such as SSD and HDD.
+_A disk_ is a virtual version of physical storage devices, such as SSD and HDD.
 
 Disks are designed for storing data. They are attached to VMs to work with them. If you detach a disk, its data is not deleted.
 
 Each disk is located in one of the availability zones and is not automatically replicated to other zones.
 
-## Disk as a Yandex.Cloud resource {#disk-as-resource}
+## Disks as Yandex.Cloud resources {#disk-as-resource}
 
 A disk is created within a folder and inherits its access rights.
 
-Disks use storage capacity that incurs additional fees. For more information, see the section [[!TITLE]](../pricing.md). The size of a disk is specified when creating it. This is the capacity that you are charged for.
+Disks use storage capacity that incurs additional fees. For more information, see [[!TITLE]](../pricing.md). The size of a disk is specified when creating it. This is the capacity that you are charged for.
 
 If a disk is created from a snapshot or image, the disk information contains the ID of the source resource. In addition, the license IDs are inherited from the source resource (`product_ids`), which are used to calculate the cost of disk usage.
 
@@ -18,18 +18,20 @@ If a disk is created from a snapshot or image, the disk information contains the
 
 In Yandex.Cloud, there are two types of disks:
 
-- Fast network drive (`network-nvme`), that is, network block storage on an SSD connected via the NVME interface.
-- Standard network drive (`network-hdd`), that is, network block storage on a HDD.
+- Fast network disks (`network-nvme`) — network block storage on an SSD connected via the NVMe interface.
+- Standard network disks (`network-hdd`) — network block storage on an HDD.
 
 The availability zone affects which types of disks you can create in it.
 
 ## Attaching and detaching disks {#attach-detach}
 
-Each disk can only be attached to one VM. The disk and VM must live in the same availability zone.
+Each disk can only be attached to one VM. The disk and VM must be located in the same availability zone.
 
-You need to attach a boot disk to a VM and can also attach additional disks.
+You need to attach a boot disk to a VM, and additional attached disks are optional.
 
-When you select a disk to attach to a VM, you can specify whether the disk should be deleted along with the VM. You can choose this option when creating a VM, updating it, and attaching a new disk to it.
+[!INCLUDE [attach-empty-disk](../_includes_service/attach-empty-disk.md)]
+
+When you select a disk to attach to a VM, you can specify whether the disk should be deleted along with the VM. You can choose this option when creating a VM, updating it, or attaching a new disk to it.
 
 If previously created disks are attached to the VM, they will be detached when the VM is deleted. The disk data is preserved and this disk can be attached to another VM in the future.
 

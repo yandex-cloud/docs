@@ -2,7 +2,7 @@
 
 Чтобы записать метрику, воспользуйтесь методом [write](../../api-ref/MetricsData/write.md).
 
-[!INCLUDE [ai-before-beginning](../../../_includes/ai-before-beginning.md)]
+[!INCLUDE [before-beginning](../../../_includes/monitoring/before-beginning.md)]
 
 ### Пример запроса
 
@@ -12,11 +12,11 @@
     ```json
     {
         "metrics": [{
-            "name": "temperature", 
+            "name": "temperature",
             "labels": {
                 "building": "office",
                 "room": "openspace"
-                }, 
+                },
             "value": 18.6
         }]
     }
