@@ -13,9 +13,7 @@
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
-    > [!NOTE]
-    >
-    > Имя виртуальной машины используется для генерации имени FQDN, которое в последствии нельзя изменить. Если для вас важно имя FQDN, учитывайте это и задавайте нужное имя виртуальной машины при создании. Подробнее про генерацию имени FQDN читайте в разделе [[!TITLE]](../../concepts/network.md#hostname).
+    [!INCLUDE [name-fqdn](../../../_includes/compute/name-fqdn.md)]
 
 1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 1. Выберите один из публичных [образов](../../operations/images-with-pre-installed-software/get-list.md) на базе операционной системы Linux.
@@ -76,9 +74,7 @@
 
     [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
-    > [!NOTE]
-    >
-    > Имя виртуальной машины используется для генерации имени FQDN, которое в последствии нельзя изменить. Если для вас важно имя FQDN, учитывайте это и задавайте нужное имя виртуальной машины при создании. Подробнее про генерацию имени FQDN читайте в разделе [[!TITLE]](../../concepts/network.md#hostname).
+    [!INCLUDE [name-fqdn](../../../_includes/compute/name-fqdn.md)]
 
 **[!TAB API]**
 
