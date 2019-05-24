@@ -17,6 +17,8 @@ items:
       items:
       - name: Обработка ошибок
         href: api-ref/errors-handling.md
+      - name: Диагностика ошибок
+        href: api-ref/support-headers.md
       include:
         repo: docs-api
         path: ru/ai/translate/toc.yaml

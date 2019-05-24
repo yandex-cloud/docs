@@ -4,8 +4,6 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
-  - name: Аутентификация в API
-    href: concepts/auth.md
   - name: Распознавание речи
     items:
       - name: О технологии
@@ -27,10 +25,16 @@ items:
         href: tts/index.md
       - name: Описание метода API
         href: tts/request.md
-  - name: Формат ответа
-    href: concepts/response.md
   - name: Интеграция телефонии
     href: concepts/ivr-integration.md
+  - name: Использование API
+    items:
+      - name: Аутентификация в API
+        href: concepts/auth.md
+      - name: Формат ответа
+        href: concepts/response.md
+      - name: Диагностика ошибок
+        href: concepts/support-headers.md
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Управление доступом
