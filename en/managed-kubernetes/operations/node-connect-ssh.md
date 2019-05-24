@@ -3,10 +3,10 @@
 To connect to a node over SSH, you must add the public key to the metainformation when creating the node group.
 
 > [!NOTE]
-> 
+>
 > SSH connection using a login and password is disabled by default on Linux images that are used on nodes.
 
-For more information about connecting over SSH, see [Connecting to a VM via SSH](../../compute/operations/vm-control/vm-connect-ssh.md).
+For more information about connecting over SSH, see [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
 
 ## Create SSH key pairs {#creating-ssh-keys}
 
@@ -97,12 +97,12 @@ To create a node group with the necessary parameters, use the following command:
 
 ```
 $ yc managed-kubernetes node-group create \
---name <node group name> \ 
+--name <node group name> \
 --cluster-name <Kubernetes cluster name>
---fixed-size <number of nodes in the group> \ 
+--fixed-size <number of nodes in the group> \
 --location zone=<availability zone>, subnet-name=<subnet name> \
 --public-ip \
---metadata-from-file=ssh-keys=<name of the file with public keys> \ 
+--metadata-from-file=ssh-keys=<name of the file with public keys> \
 ```
 
 ## Get the public IP address of the node {#node-public-ip}

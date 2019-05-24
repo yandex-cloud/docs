@@ -55,5 +55,5 @@ Use the [Create](../../api-ref/Instance/create.md) method for the `Instance` res
 
 #### See also
 
-- [[!TITLE]](../vm-control/vm-connect-ssh.md)
+- [[!TITLE]](../vm-connect/ssh.md)
 

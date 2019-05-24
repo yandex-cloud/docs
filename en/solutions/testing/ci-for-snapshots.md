@@ -57,7 +57,7 @@ On the created VM, install the set of components required for the test applicati
 
 1. In the **Network** section on the VM page of the [management console](https://console.cloud.yandex.ru), find the VM's public IP address.
 
-1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
    ```
    $ ssh <Login>@<Public_IP_of_the_VM>
@@ -160,7 +160,7 @@ On the created VM, install the set of components required for the test applicati
 1. Create the `test-app.ini` file in the `/srv/test-app` folder:
 
    ```
-   $ touch test-app.ini 
+   $ touch test-app.ini
    ```
 
 1. Open the `test-app.ini` file using any text editor and insert the configuration of the uWSGI server:
@@ -182,7 +182,7 @@ On the created VM, install the set of components required for the test applicati
 
 1. Assign the `www-data` user as the owner of the `/srv/test-app` folder and the files it contains:
 
-   ``` 
+   ```
    $ sudo chown -R www-data:www-data /srv/test-app
    ```
 
@@ -340,7 +340,7 @@ To configure GitLab and prepare CI, you must create a new repository and enter t
 
 Runner is a tool for performing tasks that a user creates. You need to install Runner on the VM and register it in GitLab. In order for Runner to perform tasks, prepare additional components: install the Yandex.Cloud CLI and create a test to check the created VM.
 
-1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM with GitLab over SSH.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM with GitLab over SSH.
 
    ```
    $ ssh <Login>@<Public_IP_of_the_GitLab_VM>
@@ -453,7 +453,7 @@ You need to define the configuration for CI.
    stages:
      - build
      - test
-     
+
    build:
      stage: build
      variables:
@@ -471,7 +471,7 @@ You need to define the configuration for CI.
          --zone ru-central1-c
          --network-interface subnet-name=$subnet_name,nat-ip-version=ipv4
          --create-boot-disk name=$instance_name-boot,type=network-nvme,size=15,snapshot-name=$snapshot_name,auto-delete=true
-         --memory 1 
+         --memory 1
          --cores 1
          --hostname $instance_name > instance-creation.out
        - sleep 30

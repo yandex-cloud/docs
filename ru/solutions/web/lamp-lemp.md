@@ -50,7 +50,7 @@
 
 #### См. также
 
-- [[!TITLE]](../../compute/operations/vm-control/vm-connect-ssh.md)
+- [[!TITLE]](../../compute/operations/vm-connect/ssh.md)
 
 
 ## 2. Загрузите файлы веб-сайта {#upload-files}

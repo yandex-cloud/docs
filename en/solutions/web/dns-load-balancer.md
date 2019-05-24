@@ -62,7 +62,7 @@ When a VM is created, it is assigned an IP address and hostname (FQDN). This dat
 
 #### See also
 
-- [[!TITLE]](../../compute/operations/vm-control/vm-connect-ssh.md)
+- [[!TITLE]](../../compute/operations/vm-connect/ssh.md)
 
 ## 2. Upload the website files {#upload-files}
 
@@ -112,7 +112,7 @@ When a VM is created, it is assigned an IP address and hostname (FQDN). This dat
 
 #### See also
 
-- [[!TITLE]](../../compute/operations/vm-control/vm-connect-ssh.md)
+- [[!TITLE]](../../compute/operations/vm-connect/ssh.md)
 
 ## 4. Install and configure the DNS load balancer software {#install-configure-dns-balancer}
 
@@ -120,7 +120,7 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
 
 1. Go to the VM page of the [management console](https://console.cloud.yandex.ru). In the **Network** section, find the VM's public IP address.
 
-1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
    The recommended authentication method when connecting over SSH is using a key pair.  Don't forget to set up the created key pair: the private key must match the public key sent to the VM.
 
@@ -459,7 +459,7 @@ To configure an external DNS server, do the following:
 ### 6.1. DNS load balancers {#test-dns-balancers}
 
 1. In the **Network** section on the VM page of the [management console](https://console.cloud.yandex.ru), find the public IP address of the `dns-lb-tutorial-slb-ru-central1-a` VM.
-1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM over SSH.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 1. Stop the DNS service to simulate a failure of the DNS load balancer:
 
    ```bash
@@ -476,7 +476,7 @@ To configure an external DNS server, do the following:
 
 1. In the **Network** section on the VM page of the [management console](https://console.cloud.yandex.ru), find the public IP address of the `dns-lb-tutorial-web-ru-central1-a` VM.
 
-1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM over SSH.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 
 1. Stop the web service to simulate a failure on the web server:
 

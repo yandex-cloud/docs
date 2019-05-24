@@ -62,4 +62,4 @@
 
 #### См. также
 
-- [[!TITLE]](../vm-control/vm-connect-ssh.md)
+- [[!TITLE]](../vm-connect/ssh.md)

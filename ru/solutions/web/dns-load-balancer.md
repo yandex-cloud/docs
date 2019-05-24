@@ -54,7 +54,7 @@
 
 #### См. также
 
-- [[!TITLE]](../../compute/operations/vm-control/vm-connect-ssh.md)
+- [[!TITLE]](../../compute/operations/vm-connect/ssh.md)
 
 
 ## 2. Загрузите файлы веб-сайта {#upload-files}
@@ -99,7 +99,7 @@
 
 #### См. также
 
-- [[!TITLE]](../../compute/operations/vm-control/vm-connect-ssh.md)
+- [[!TITLE]](../../compute/operations/vm-connect/ssh.md)
 
 
 ## 4. Установите и настройте ПО DNS-балансировщика {#install-configure-dns-balancer}
@@ -107,7 +107,7 @@
 Для виртуальных машин `dns-lb-tutorial-slb-ru-central1-a` и `dns-lb-tutorial-slb-ru-central1-b` выполните:
 
 1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru) найдите публичный IP-адрес виртуальной машины.
-1. [Подключитесь](../../compute/operations/vm-control/vm-connect-ssh.md) к виртуальной машине по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows.
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows.
 
    Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей.  Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на виртуальную машину.
 1. Установите необходимые зависимости:
@@ -424,7 +424,7 @@
 ### 6.1. DNS-балансировщики {#test-dns-balancers}
 
 1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru) найдите публичный IP-адрес виртуальной машины `dns-lb-tutorial-slb-ru-central1-a`.
-1. [Подключитесь](../../compute/operations/vm-control/vm-connect-ssh.md) к виртуальной машине по протоколу SSH.
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH.
 1. Остановите сервис DNS, чтобы сымитировать сбой в работе DNS-баласировщика:
    ```bash
    $ sudo service pdns stop
@@ -438,7 +438,7 @@
 ### 6.2. Веб-серверы {#test-web-servers}
 
 1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru) найдите публичный IP-адрес виртуальной машины `dns-lb-tutorial-web-ru-central1-a`.
-1. [Подключитесь](../../compute/operations/vm-control/vm-connect-ssh.md) к виртуальной машине по протоколу SSH.
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH.
 1. Остановите веб-сервис, чтобы сымитировать сбой в работе веб-сервера:
 
    ---
