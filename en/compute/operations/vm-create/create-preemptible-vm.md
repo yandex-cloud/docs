@@ -41,7 +41,7 @@ To create a preemptible VM:
 1. Specify data required for accessing the VM:
     - Enter the username in the **Login** field.
     - In the **SSH key** field, paste the contents of the public key file.
-        You need to create a key pair for SSH connection yourself. For more information, see the section [[!TITLE]](../vm-control/vm-connect-ssh.md).
+        You need to create a key pair for SSH connection yourself. For more information, see the section [[!TITLE]](../vm-connect/ssh.md).
 
 1. Click **Create VM**.
 
@@ -100,4 +100,4 @@ Use the [Create](../../api-ref/Instance/create.md) method for the `Instance` res
 
 #### See also
 
-- [[!TITLE]](../vm-control/vm-connect-ssh.md)
+- [[!TITLE]](../vm-connect/ssh.md)

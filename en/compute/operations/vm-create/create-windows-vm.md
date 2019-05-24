@@ -32,5 +32,5 @@ You can make a public IP address static. For more information, see the section [
 
 #### See also
 
-- [[!TITLE]](../vm-control/vm-connect-rdp.md)
+- [[!TITLE]](../vm-connect/rdp.md)
 

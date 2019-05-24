@@ -32,4 +32,4 @@
 
 #### См. также
 
-- [[!TITLE]](../vm-control/vm-connect-rdp.md)
+- [[!TITLE]](../vm-connect/rdp.md)

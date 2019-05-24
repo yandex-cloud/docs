@@ -28,8 +28,6 @@
 
 ## Управление виртуальной машиной
 
-- [[!TITLE]](vm-control/vm-connect-ssh.md)
-- [[!TITLE]](vm-control/vm-connect-rdp.md)
 - [[!TITLE]](vm-control/vm-stop-and-start.md)
 - [[!TITLE]](vm-control/vm-attach-disk.md)
 - [[!TITLE]](vm-control/vm-detach-disk.md)
@@ -38,6 +36,11 @@
 - [[!TITLE]](vm-control/vm-update.md)
 - [[!TITLE]](vm-control/vm-update-resources.md)
 - [[!TITLE]](vm-control/vm-delete.md)
+
+## Подключение к виртуальной машине
+
+- [[!TITLE]](vm-connect/ssh.md)
+- [[!TITLE]](vm-connect/rdp.md)
 
 ## Создание нового диска
 

@@ -53,10 +53,6 @@ items:
             href: operations/vm-info/get-serial-port-output.md
       - name: Управление виртуальной машиной
         items:
-          - name: Подключиться к ВМ по SSH
-            href: operations/vm-control/vm-connect-ssh.md
-          - name: Подключиться к ВМ по RDP
-            href: operations/vm-control/vm-connect-rdp.md
           - name: Остановить и запустить ВМ
             href: operations/vm-control/vm-stop-and-start.md
           - name: Подключить диск к ВМ
@@ -73,6 +69,12 @@ items:
             href: operations/vm-control/vm-update-resources.md
           - name: Удалить ВМ
             href: operations/vm-control/vm-delete.md
+      - name: Подключение к виртуальной машине
+        items:
+          - name: Подключиться к ВМ по SSH
+            href: operations/vm-connect/ssh.md
+          - name: Подключиться к ВМ по RDP
+            href: operations/vm-connect/rdp.md
       - name: Создание нового диска
         items:
           - name: Создать пустой диcк

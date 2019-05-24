@@ -39,7 +39,7 @@ You can find out the IP addresses, FQDN and other information in the management 
 
 For more information, see the section [[!TITLE]](../concepts/network.md)
 
-To connect to Linux VMs, [use SSH](../operations/vm-control/vm-connect-ssh.md). Connect to Windows VMs via RDP.
+To connect to Linux VMs, [use SSH](../operations/vm-connect/ssh.md). Connect to Windows VMs via RDP.
 
 #### How quickly can I change the performance of my information systems? {#scalability}
 

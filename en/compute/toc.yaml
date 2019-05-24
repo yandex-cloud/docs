@@ -51,10 +51,6 @@ items:
             href: operations/vm-info/get-serial-port-output.md
       - name: Performing VM management
         items:
-          - name: Connecting to a VM via SSH
-            href: operations/vm-control/vm-connect-ssh.md
-          - name: Connecting to a VM via RDP
-            href: operations/vm-control/vm-connect-rdp.md
           - name: Stopping and starting a VM
             href: operations/vm-control/vm-stop-and-start.md
           - name: Attaching a disk to a VM
@@ -71,6 +67,12 @@ items:
             href: operations/vm-control/vm-update-resources.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
+      - name: Connecting to a VM
+        items:
+          - name: Connecting to a VM via SSH
+            href: operations/vm-connect/ssh.md
+          - name: Connecting to a VM via RDP
+            href: operations/vm-connect/rdp.md
       - name: Creating a new disk
         items:
           - name: Creating an empty disk

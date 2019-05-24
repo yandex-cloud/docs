@@ -5,7 +5,7 @@ The serial console allows you to access a VM regardless of the network or OS sta
 Serial console access is disabled by default.
 
 > [!IMPORTANT]
-> 
+>
 > Serial console access is not secure, so enabling it might allow hackers to access your VM. Use these instructions if you are sure you know what you are doing.
 
 ## Before you start {#before-begin}
@@ -103,7 +103,7 @@ To enable access to the serial console when creating a VM, set the `serial-port-
 
     The `Administrator` user with the password specified in the `metadata.yaml` file will be automatically created in the OS.
 
---- 
+---
 
 ## Enabling the console when updating a VM {#turn-on-for-current-instance}
 
@@ -189,7 +189,7 @@ To create a local password, use the CLI.
 
     If there is no public IP address, [update the VM](../vm-control/vm-update.md) by additionally specifying the `--public-ip` flag.
 
-1. Connect to the VM. For more information, see [[!TITLE]](../vm-control/vm-connect-ssh.md#vm-connect).
+1. Connect to the VM. For more information, see [[!TITLE]](../vm-connect/ssh.md#vm-connect).
 
 1. Create a local password. In Linux, you can set a password using the `passwd` command:
 
@@ -213,7 +213,7 @@ Before connecting to the serial console, make sure that you have configured the 
 
 Enable the serial console on the VM:
 
-1. [Connect to the VM via RDP](../vm-control/vm-connect-rdp.md).
+1. [Connect to the VM via RDP](../vm-connect/rdp.md).
 
 1. Enable the serial console using the registry. To do this, run `cmd` or PowerShell and execute the following commands:
 

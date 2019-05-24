@@ -4,7 +4,7 @@
 
 1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с публичным IP-адресом в той же подсети, где находится хост Redis.
 
-1. Подключитесь к созданной ВМ [через SSH](../../compute/operations/vm-control/vm-connect-ssh.md).
+1. Подключитесь к созданной ВМ [через SSH](../../compute/operations/vm-connect/ssh.md).
 
    ```
    $ ssh <логин>@<публичный IP-адрес ВМ>
