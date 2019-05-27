@@ -51,7 +51,7 @@ To create a disk snapshot:
 
 1. Select the disk to take a snapshot of. To get a list of disks in the default folder, run the command:
 
-    [!INCLUDE [compute-disk-list](../../_includes_service/compute-disk-list.md)]
+    [!INCLUDE [compute-disk-list](../../../_includes/compute/disk-list.md)]
 
 1. Create a snapshot in the default folder:
 

@@ -32,7 +32,7 @@ To delete a disk:
 
 1. Get a list of disks in the default folder:
 
-    [!INCLUDE [compute-disk-list](../../_includes_service/compute-disk-list.md)]
+    [!INCLUDE [compute-disk-list](../../../_includes/compute/disk-list.md)]
 
 1. Select the `ID` or `NAME` of the necessary disk.
 1. Delete the disk:

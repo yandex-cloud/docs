@@ -39,7 +39,7 @@
 
 1. Запросите список доступных дисков:
 
-    [!INCLUDE [compute-disk-list](../../../_includes/compute/compute-disk-list.md)]
+    [!INCLUDE [compute-disk-list](../../../_includes/compute/disk-list.md)]
 
 1. Выберите `ID` или `NAME` нужного диска, например `first-disk`.
 1. Укажите нужное имя и описание в команде изменения диска:
@@ -99,7 +99,7 @@
 
 1. Запросите список доступных дисков:
 
-    [!INCLUDE [compute-disk-list](../../../_includes/compute/compute-disk-list.md)]
+    [!INCLUDE [compute-disk-list](../../../_includes/compute/disk-list.md)]
 
 1. Остановите виртуальную машину, диск которой нужно обновить. Для этого выберите `ID` нужной машины:
 

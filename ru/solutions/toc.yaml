@@ -39,3 +39,5 @@ items:
         href: infrastructure-management/index.md
       - name: Начало работы с Terraform
         href: infrastructure-management/terraform-quickstart.md
+      - name: Начало работы с Packer
+        href: infrastructure-management/packer-quickstart.md

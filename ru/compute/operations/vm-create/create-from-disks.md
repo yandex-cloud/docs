@@ -51,7 +51,7 @@
 
 1. Получите список дисков в каталоге по умолчанию:
 
-    [!INCLUDE [compute-disk-list](../../_includes_service/compute-disk-list.md)]
+    [!INCLUDE [compute-disk-list](../../../_includes/compute/disk-list.md)]
 
 1. Выберите `ID` или `NAME` нужных дисков.
 1. Создайте виртуальную машину в каталоге по умолчанию:
