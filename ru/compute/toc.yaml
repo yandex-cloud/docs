@@ -93,6 +93,10 @@ items:
         items:
           - name: Загрузить свой образ
             href: operations/image-create/upload.md
+      - name: Управление образом
+        items:
+          - name: Удалить образ
+            href: operations/image-control/delete.md
       - name: Управление серийной консолью
         items:
           - name: Начало работы

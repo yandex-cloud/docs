@@ -32,7 +32,7 @@ To attach a disk to a VM:
 
 1. Get a list of disks in the default folder:
 
-    [!INCLUDE [compute-disk-list](../../_includes_service/compute-disk-list.md)]
+    [!INCLUDE [compute-disk-list](../../../_includes/compute/disk-list.md)]
 
 1. Select the `ID` or `NAME` of the necessary disk (for example, `first-disk`). To view the list of disks attached to the VM, run the command:
 

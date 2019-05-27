@@ -31,7 +31,7 @@
 
 1. Получите список дисков в каталоге по умолчанию:
 
-    [!INCLUDE [compute-disk-list](../../_includes_service/compute-disk-list.md)]
+    [!INCLUDE [compute-disk-list](../../../_includes/compute/disk-list.md)]
 
 1. Выберите `ID` или `NAME` нужного диска, например `first-disk`. Посмотреть список подключенных к виртуальной машине дисков можно с помощью команды:
 
@@ -46,7 +46,7 @@
         --disk-name first-disk \
         --mode rw
     ```
-    
+
     [!INCLUDE [attach_empty_disk](../../_includes_service/attach-empty-disk.md)]
 
     Чтобы указать необходимость удаления диска при удалении машины, установите флаг `--auto-delete`:

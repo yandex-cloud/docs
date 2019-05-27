@@ -57,6 +57,10 @@
 
 - [[!TITLE]](image-create/upload.md)
 
+## Управление образом
+
+- [[!TITLE]](image-control/delete.md)
+
 ## Управление серийной консолью
 
 - [[!TITLE]](serial-console/index.md)
