@@ -84,7 +84,7 @@ items:
           - name: Сделать снимок диска
             href: operations/disk-control/create-snapshot.md
           - name: Изменить диск
-            href: operations/disk-control/disk-update.md
+            href: operations/disk-control/update.md
           - name: Удалить диcк
             href: operations/disk-control/delete.md
           - name: Удалить снимок диска

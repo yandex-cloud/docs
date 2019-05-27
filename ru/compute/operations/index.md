@@ -49,7 +49,7 @@
 ## Управление диском
 
 - [[!TITLE]](disk-control/create-snapshot.md)
-- [[!TITLE]](disk-control/disk-update.md)
+- [[!TITLE]](disk-control/update.md)
 - [[!TITLE]](disk-control/delete.md)
 - [[!TITLE]](snapshot-control/delete.md)
 
