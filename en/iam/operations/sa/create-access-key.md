@@ -1,6 +1,6 @@
 # Create static access keys
 
-Create [static access keys](../../concepts/users/service-accounts.md#access-keys) for a service account.
+Instructions for how to create [static access keys](../../concepts/users/service-accounts.md#access-keys) for a [service account](../../concepts/users/service-accounts.md). If you don't have a service account yet, [create one](../sa/create.md) and [configure access rights](../sa/assign-role-for-sa.md) for it.
 
 ---
 
@@ -51,13 +51,13 @@ Create [static access keys](../../concepts/users/service-accounts.md#access-keys
 
 **[!TAB API]**
 
-To create a service account, use the [create](../../api-ref/AccessKey/create.md) method for the [ServiceAccount](../../api-ref/AccessKey/index.md) resource.
+To create an access key, use the [create](../../api-ref/AccessKey/create.md) method for the [AccessKey](../../api-ref/AccessKey/index.md) resource.
 
 ---
 
 ## Examples
 
-### Add a description when creating
+### Create with a description
 
 Add a description when creating an access key.
 

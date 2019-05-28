@@ -1,11 +1,11 @@
 ---
 editable: false
 ---
-# Pricing policy for [!KEYREF translate-name]
+# Pricing for [!KEYREF translate-name]
 
 [!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
 
-## What goes into the cost of using [!KEYREF translate-short-name] {#rules}
+## What goes into the cost of use for [!KEYREF translate-short-name] {#rules}
 
 ### Use of text translation and language detection {#rules-translate-detect}
 
@@ -13,7 +13,7 @@ The cost for using Yandex Translate is calculated based on the total number of c
 
 [!INCLUDE [pricing-symbol-count](../_includes/pricing-symbol-count.md)]
 
-## Prices {#prices}
+## Pricing {#prices}
 
 ### Text translation and language detection {#prices-translate-detect}
 

@@ -5,7 +5,7 @@
 1. In the **Basic parameters** section, enter:
     - A group name in the **Name** field. The group name must be unique within the cloud.
 
-        [!INCLUDE [name-format](../../_includes/name-format.md)]
+        [!INCLUDE [name-format](../name-format.md)]
 
     - A group description in the **Description** field.
 1. In the **Allocation** section, select availability zones. Cluster VMs may reside in different availability zones and regions. [Learn more about the Cloud geography](../../overview/concepts/geo-scope.md).
@@ -39,8 +39,8 @@
 
     - Maximum number of instances when deleting a group.
 
-        For more information, see [[!TITLE]](../../instance-groups/concepts/policies.md#deploy-policy).
+        For more information, see [[!TITLE]](../../compute/concepts/instance-groups/policies.md#deploy-policy).
 1. In the **Scalability** section:
-    - Select the [scale type](../../instance-groups/concepts/scale.md).
+    - Select the [scale type](../../compute/concepts/instance-groups/scale.md).
     - Specify the required number of instances.
 1. Click **Create**.

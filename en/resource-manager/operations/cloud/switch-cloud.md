@@ -4,13 +4,11 @@
 
 **[!TAB Management console]**
 
-1. In the management console, click ![image](../../../_assets/ugly-sandwich.svg).
-2. Click on the name of the cloud you are currently using.
-3. Choose the cloud you want to switch to.
+1. Click on the name of the current folder in the upper-right corner.
 
-> [!NOTE]
->
-> If nothing happens when you click on the cloud name, you have access to one cloud only. To access the cloud you need, ask the [owner](../../concepts/resources-hierarchy.md#owner) of that cloud to [add](../../../iam/operations/users/create.md) you to it.
+    ![image](../../../_assets/resource-manager/switch-cloud.png)
+
+1. Choose the cloud or folder you want to switch to.
 
 **[!TAB CLI]**
 
@@ -50,3 +48,4 @@ To change the `cloud-id` parameter for the current profile:
     ```
 
 ---
+

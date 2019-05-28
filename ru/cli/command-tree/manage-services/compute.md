@@ -35,7 +35,7 @@
 - `yc compute disk-type` — получение информации о доступных типах диска.
     - `get` —  получить информацию об указанном типе диска. 
     - `list` — получить список типов диска.
-- `yc compute image` — управление [образами](../../../compute/concepts/images.md).
+- `yc compute image` — управление [образами](../../../compute/concepts/image.md).
     - `get` — получить информацию об указанном образе.
     - `list`— [получить список образов](../../../compute/operations/images-with-pre-installed-software/get-list.md).
     - `get-latest-from-family` — получить информацию о последнем образе, который является частью семейства образов.

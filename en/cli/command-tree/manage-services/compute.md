@@ -35,7 +35,7 @@ Syntax:
 - `yc compute disk-type` — show available disk types.
     - `get` — show information about the specified disk type.
     - `list` — list disk types.
-- `yc compute image` — manage [images](../../../compute/concepts/images.md).
+- `yc compute image` — manage [images](../../../compute/concepts/image.md).
     - `get` — show information about the specified image.
     - `list` — [list images](../../../compute/operations/images-with-pre-installed-software/get-list.md).
     - `get-latest-from-family` — show information about the latest image that is part of an image family.

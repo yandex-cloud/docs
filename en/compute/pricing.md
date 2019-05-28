@@ -86,6 +86,11 @@ If you created an image or snapshot, you pay for the storage of this object sepa
 
 The cost is specified for one month of use. Charging per second.
 
+### Use of [!KEYREF ig-name]
+
+[!KEYREF ig-name] can be used free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
+
+All other Yandex.Cloud services, such as creation of VMs or allocation of external IP addresses, are [charged as usual](../billing/pricing.md). Outgoing traffic is [charged](#prices-traffic) similarly to other services.
 
 ## Prices {#prices}
 
@@ -97,12 +102,12 @@ The cost is specified for one month of use. Charging per second.
 
 Computing resources | Rate for 1 hour, without VAT |
 ----- | -----
-**Intel Broadwell** | 
+**Intel Broadwell** |
 5% vCPU | $0.002476
 20% vCPU | $0.007051 |
 100% vCPU | $0.008996 |
 RAM (за 1 ГБ) | $0.003129
-**Intel Cascade Lake** | 
+**Intel Cascade Lake** |
 5% vCPU | $0.001307
 20%+ vCPU | $0.003923
 50%+ vCPU | $0.005753
@@ -113,12 +118,12 @@ RAM (за 1 ГБ) | $0.002538
 
 Computing resources | Rate for 1 hour, with VAT |
 ----- | -----
-**Intel Broadwell** | 
+**Intel Broadwell** |
 5% vCPU | ₽0.1932
 20% vCPU | ₽0.5500 |
 100% vCPU | ₽0.7017 |
 RAM (за 1 ГБ) | ₽0.2441
-**Intel Cascade Lake** | 
+**Intel Cascade Lake** |
 5% vCPU | ₽0.1020
 20%+ vCPU | ₽0.3060
 50%+ vCPU | ₽0.4488
@@ -136,12 +141,12 @@ RAM (за 1 ГБ) | ₽0.1980
 
 Computing resources | Rate for 1 hour, without VAT |
 ----- | -----
-**Intel Broadwell** | 
+**Intel Broadwell** |
 5% vCPU | $0.001535
 20% vCPU | $0.002187 |
 100% vCPU | $0.002769 |
 RAM (за 1 ГБ) | $0.000961
-**Intel Cascade Lake** | 
+**Intel Cascade Lake** |
 5% vCPU | $0.000815
 20%+ vCPU | $0.001282
 50%+ vCPU | $0.001794
@@ -152,12 +157,12 @@ RAM (за 1 ГБ) | $0.000630
 
 Computing resources | Rate for 1 hour, with VAT |
 ----- | -----
-**Intel Broadwell** | 
+**Intel Broadwell** |
 | 5%+ of vCPU| ₽0.1198 |
 | 20%+ vCPU| ₽0.1706 |
 | 100% of vCPU| ₽0.2160 |
 | RAM (for 1 GB)| ₽0.0750 |
-**Intel Cascade Lake** | 
+**Intel Cascade Lake** |
 | 5%+ of vCPU| ₽0.0636 |
 | 20%+ vCPU| ₽0.1000 |
 | 50%+ vCPU| ₽0.1400 |

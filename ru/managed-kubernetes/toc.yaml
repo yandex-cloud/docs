@@ -16,17 +16,18 @@ items:
         href: concepts/index.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-#  - name: Справочник API
-#    items:
-#      - name: Аутентификация в API
-#        href: api-ref/authentication.md
-#    include:
-#      repo: docs-api
-#      path: ru/instance-groups/toc.yaml
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+    include:
+      repo: docs-api
+      path: ru/k8s/toc.yaml
+
 
 
 

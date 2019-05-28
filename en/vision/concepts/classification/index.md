@@ -1,6 +1,6 @@
 # Image classification
 
-_Image classification is currently in the [Preview stage](/docs/overview/concepts/launch-stages)._
+_Image classification is currently at the [Preview stage](/docs/overview/concepts/launch-stages)._
 
 This section describes how the _image classification_ feature works in the service.
 

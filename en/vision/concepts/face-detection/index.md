@@ -1,6 +1,6 @@
 # Face detection
 
-_Face detection is currently in the [Preview stage](/docs/overview/concepts/launch-stages)._
+_Face detection is currently at the [Preview stage](/docs/overview/concepts/launch-stages)._
 
 This section describes how the _face detection_ feature works in the service.
 
@@ -78,6 +78,6 @@ An image in a request must meet the following requirements:
 
 #### What's next
 
-* [Try to detect faces in an image](../../operations/face-detection/index.md)
+* [Try detecting faces in an image](../../operations/face-detection/index.md)
 * [See how to handle errors](../../api-ref/errors-handling.md)
 

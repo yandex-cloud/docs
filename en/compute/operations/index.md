@@ -61,3 +61,20 @@
 
 - [[!TITLE]](serial-console/index.md)
 - [[!TITLE]](serial-console/connect.md)
+
+## Creating an instance group
+
+- [[!TITLE]](instance-groups/create-fixed-group.md)
+- [[!TITLE]](instance-groups/create-with-balancer.md)
+
+## Getting information about an instance group
+
+- [[!TITLE]](instance-groups/get-list.md)
+- [[!TITLE]](instance-groups/get-info.md)
+- [[!TITLE]](instance-groups/get-list-instances.md)
+
+## Managing an instance group
+
+- [[!TITLE]](instance-groups/update.md)
+- [[!TITLE]](instance-groups/delete.md)
+- [[!TITLE]](instance-groups/recover.md)

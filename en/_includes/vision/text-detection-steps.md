@@ -30,16 +30,7 @@ In the recognition settings, list the languages that image text might be written
     }
     ```
 
-1. Send a recognition request using the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method and save the response to a file, such as `output.json`:
-
-    ```bash
-    $ export IAM_TOKEN=CggaATEVAgA...
-    $ curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d @body.json \
-        https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze > output.json
-    ```
+1. [!INCLUDE [send-request](send-request.md)]
 
     The response will consist of recognized blocks of text, lines, and words with their position on the image indicated:
 
@@ -94,7 +85,7 @@ In the recognition settings, list the languages that image text might be written
     }
     ```
 
-1. To get all the text characters from the image, find all the lines with the `text` property (one way to do this is using the [grep](https://www.gnu.org/software/grep/) utility):
+1. To get all the recognized words from the image, find all the lines with the `text` property (one way to do this is using the [grep](https://www.gnu.org/software/grep/) utility):
 
     ```bash
     $ grep -o "\"text\":\s\".*\"" output.json

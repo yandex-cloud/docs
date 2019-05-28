@@ -20,7 +20,7 @@ All parameters must be URL-encoded. The maximum size of the POST request body is
 | `source` | Language of the source text.<br/>Set as a two-letter language code according to [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) (for example, `ru`). If this parameter is omitted, the service tries to detect the source language automatically. |
 | `target` | Required parameter.<br/>Translation direction.<br/>Set as a two-letter language code according to [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) (for example `en`). |
 | `format` | Text format.<br/>Possible values:<br/><ul><li>`plain` — Text without markup (default value).</li><li>`html` — Text in HTML format.</li></ul> |
-| `folderId` | Required parameter.<br/>ID of your folder.<br/>For more information about how to find out the folder ID, see the section [Authorization in the API](../../concepts/auth.md). |
+| `folderId` | Required parameter.<br/>The ID of your folder.<br/> |
 
 ## Response {#response}
 
@@ -58,7 +58,7 @@ The response is returned in JSON format.
 {
     "translations": [
         {
-            "text": "Hello world"
+            "text": "hello world"
         },
         {
             "text": "good morning"

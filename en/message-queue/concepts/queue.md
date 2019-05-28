@@ -25,6 +25,6 @@ With group IDs, you can send multiple ordered message groups to different consum
 FIFO queues deduplicate messages being enqueued by their deduplication ID or content. For more information, see ["Deduplication"](deduplication.md).
 
 > [!NOTE]
-
-Yandex Message Queue automatically deletes messages that are in a queue beyond the retention period. The standard message retention period is 4 days. It can be changed within the range of 60 seconds to 14 days. You can change it when creating a queue or by using the [SetQueueAttributes](../api-ref/queue/SetQueueAttributes.md) method.
+>
+> Yandex Message Queue automatically deletes messages that are in a queue beyond the retention period. The standard message retention period is 4 days. It can be changed within the range of 60 seconds to 14 days. You can change it when creating a queue or by using the [SetQueueAttributes](../api-ref/queue/SetQueueAttributes.md) method.
 

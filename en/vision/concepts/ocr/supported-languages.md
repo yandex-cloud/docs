@@ -74,5 +74,5 @@ Other models only support a single basic language plus Russian and English:
 #### What's next
 
 * [View known restrictions for the current version](known-issues.md)
-* [Try out text recognition with an image](../../operations/ocr/text-detection.md)
+* [Try recognizing text in an image](../../operations/ocr/text-detection.md)
 

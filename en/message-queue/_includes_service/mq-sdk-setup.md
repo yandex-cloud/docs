@@ -16,6 +16,6 @@ To configure the SDK, create configuration files in your home folder and set the
    ```
 
    > [!NOTE]
-
-To work with Yandex Object Storage, always specify the `RU-CENTRAL` region. A different value of the region may lead to an authorization error.
+   >
+   > To work with Yandex Object Storage, always specify the `RU-CENTRAL` region. A different value of the region may lead to an authorization error.
 

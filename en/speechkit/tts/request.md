@@ -10,7 +10,7 @@ POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
 
 ## Parameters in the request body {#body_params}
 
-All parameters must be URL-encoded. The maximum size of the POST request body is 30 KB.
+All parameters must be URL-encoded. The maximum size of the POST request body is 15 KB.
 
 | Parameter | Description |
 | ----- | ----- |
@@ -21,7 +21,7 @@ All parameters must be URL-encoded. The maximum size of the POST request body is
 | `speed` | The rate (tempo) of the synthesized speech.<br/>The speech rate is set as a decimal number in the range from `0.1` to `3.0`. Where:<ul><li>`3.0` — Fastest rate.</li><li>`1.0` (default) — Average human speech rate.</li><li>`0.1` — Slowest speech rate.</li></ul> |
 | `format` | The format of the synthesized audio.<br/>Acceptable values:<ul><li>`lpcm` — Audio file is synthesized in the [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with no WAV header. Audio characteristics:<ul><li>Sampling — 8, 16, or 48 kHz, depending on the `sampleRateHertz` parameter value.</li><li>Bit depth — 16-bit.</li><li>Byte order — Reversed (little-endian).</li><li>Audio data is stored as signed integers.</li></ul></li><li>`oggopus` (default) — Data in the audio file is encoded using the OPUS audio codec and compressed using the OGG container format ([OggOpus](https://wiki.xiph.org/OggOpus)).</li></ul> |
 | `sampleRateHertz` | The sampling frequency of the synthesized audio.<br/>Used if `format` is set to `lpcm`. Acceptable values:<ul><li>`48000` (default) — Sampling rate of 48 kHz.</li><li>`16000` — Sampling rate of 16 kHz.</li><li>`8000` — Sampling rate of 8 kHz.</li></ul> |
-| `folderId` | Required parameter.<br/>ID of your folder.<br/>For more information about how to find the folder ID, see the section [Authorization in the API](../concepts/auth.md). |
+| `folderId` | <p>ID of the folder that you have access to. Required for authorization with a user account (see the <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
 
 ## Response {#response}
 
@@ -96,27 +96,28 @@ namespace TTS
     ```python
     import argparse
     import requests
-    
-    
+
+
     def synthesize(folder_id, iam_token, text):
         url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
         headers = {
             'Authorization': 'Bearer ' + iam_token,
         }
-    
+
         data = {
             'text': text,
             'lang': 'en-US',
             'folderId': folder_id
         }
-    
-        resp = requests.post(url, headers=headers, data=data)
-        if resp.status_code != 200:
-            raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
-    
-        return resp.content
-    
-    
+
+        with requests.post(url, headers=headers, data=data, stream=True) as resp:
+            if resp.status_code != 200:
+                raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
+
+            for chunk in resp.iter_content(chunk_size=None):
+                yield chunk
+
+
     if __name__ == "__main__":
         parser = argparse.ArgumentParser()
         parser.add_argument("--token", required=True, help="IAM token")
@@ -124,10 +125,10 @@ namespace TTS
         parser.add_argument("--text", required=True, help="Text for synthesize")
         parser.add_argument("--output", required=True, help="Output file name")
         args = parser.parse_args()
-    
-        audio_content = synthesize(args.folder_id, args.iam_token, args.text)
+
         with open(args.output, "wb") as f:
-            f.write(audio_content)
+            for audio_content in synthesize(args.folder_id, args.token, args.text):
+                f.write(audio_content)
     ```
 
 1. Execute the created file by passing arguments with the IAM token, folder ID, text, and name of the file for audio recording:
@@ -210,7 +211,7 @@ In this example, the submitted text is synthesized in the LPCM format with a sam
     using System.Net.Http;
     using System.Threading.Tasks;
     using System.IO;
-    
+
     namespace TTS
     {
       class Program
@@ -219,12 +220,12 @@ In this example, the submitted text is synthesized in the LPCM format with a sam
         {
           Tts().GetAwaiter().GetResult();
         }
-    
+
         static async Task Tts()
         {
           const string iamToken = "CggaATEVAgA..."; // Specify the IAM token.
           const string folderId = "b1gvmob95yysaplct532"; // Specify the folder ID.
-    
+
           HttpClient client = new HttpClient();
           client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
           var values = new Dictionary<string, string>
@@ -251,14 +252,14 @@ In this example, the submitted text is synthesized in the LPCM format with a sam
         ```python
         import argparse
         import requests
-        
-        
+
+
         def synthesize(folder_id, iam_token, text):
             url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
             headers = {
                 'Authorization': 'Bearer ' + iam_token,
             }
-        
+
             data = {
                 'text': text,
                 'lang': 'en-US',
@@ -266,14 +267,15 @@ In this example, the submitted text is synthesized in the LPCM format with a sam
                 'format': 'lpcm',
                 'sampleRateHertz': 48000,
             }
-        
-            resp = requests.post(url, headers=headers, data=data)
-            if resp.status_code != 200:
-                raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
-        
-            return resp.content
-        
-        
+
+            with requests.post(url, headers=headers, data=data, stream=True) as resp:
+                if resp.status_code != 200:
+                    raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
+
+                for chunk in resp.iter_content(chunk_size=None):
+                    yield chunk
+
+
         if __name__ == "__main__":
             parser = argparse.ArgumentParser()
             parser.add_argument("--token", required=True, help="IAM token")
@@ -281,10 +283,10 @@ In this example, the submitted text is synthesized in the LPCM format with a sam
             parser.add_argument("--text", required=True, help="Text for synthesize")
             parser.add_argument("--output", required=True, help="Output file name")
             args = parser.parse_args()
-        
-            audio_content = synthesize(args.folder_id, args.iam_token, args.text)
+
             with open(args.output, "wb") as f:
-                f.write(audio_content)
+                for audio_content in synthesize(args.folder_id, args.token, args.text):
+                    f.write(audio_content)
         ```
 
     1. Execute the created file by passing arguments with the IAM token, folder ID, text, and name of the file for audio recording:
@@ -299,17 +301,17 @@ In this example, the submitted text is synthesized in the LPCM format with a sam
 
     ```php
     <?
-    
+
     const FORMAT_PCM = "lpcm";
     const FORMAT_OPUS = "oggopus";
-    
+
     $token = 'CggaATEVAgA...'; # IAM token
     $folderId = "b1gvmob95yysaplct532"; # ID of the folder
     $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
     $post = "text=" . urlencode("Hello World") . "&lang=en-US&folderId=${folderId}&sampleRateHertz=48000&format=" . FORMAT_PCM;
     $headers = ['Authorization: Bearer ' . $token];
     $ch = curl_init();
-    
+
     curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -322,8 +324,8 @@ In this example, the submitted text is synthesized in the LPCM format with a sam
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
     }
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    
-    
+
+
     $response = curl_exec($ch);
     if (curl_errno($ch)) {
         print "Error: " . curl_error($ch);

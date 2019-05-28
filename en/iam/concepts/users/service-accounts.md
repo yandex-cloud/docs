@@ -16,10 +16,11 @@ Service accounts should be used when performing operations as a normal user is e
 
 ## Service account keys
 
-The following keys are used for authorizing service accounts in Yandex.Cloud:
+The following keys are used for service account authentication in Yandex.Cloud:
 
-* [Authorized keys](../authorization/key.md): keys used to [get an IAM token](../../operations/iam-token/create-for-sa.md).
-* [Static access keys](../authorization/access-key.md): keys used in services with AWS-compatible APIs.
+* [Authorized keys](../authorization/key.md) — keys used to [get an IAM token](../../operations/iam-token/create-for-sa.md).
+* [API keys](../authorization/api-key.md) — keys used in some services for simplified authentication instead of IAM tokens.
+* [Static access keys](../authorization/access-key.md) — keys used in services with AWS-compatible APIs.
 
 Generated keys belong to the service account and permissions to manage them are inherited from the service account. For example, if you have the `viewer` role in the service account, you can view the list of keys that belong to this account, but you cannot delete them or create new keys.
 

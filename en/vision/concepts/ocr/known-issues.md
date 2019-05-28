@@ -13,6 +13,6 @@ The service is currently running with a number of restrictions. Please read them
 
 #### What's next
 
-* [Try out text recognition with an image](../../operations/ocr/text-detection.md)
+* [Try recognizing text in an image](../../operations/ocr/text-detection.md)
 * [View the list of supported languages and models](supported-languages.md)
 

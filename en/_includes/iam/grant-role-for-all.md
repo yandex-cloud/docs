@@ -1,6 +1,6 @@
 You can grant access to a resource to all Yandex.Cloud users. To do this, assign a role to the [system group](../../iam/concepts/access-control/system-group.md) `allAuthenticatedUsers`.
 
-Allow any authenticated user to view information about a folder and its resources:
+For example, allow any authenticated user to view information about a folder and its resources:
 
 ---
 

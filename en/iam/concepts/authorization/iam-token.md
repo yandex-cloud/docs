@@ -8,9 +8,13 @@ An IAM token (or just token) is a unique sequence of characters issued to a user
 
 In the management console and the command line interface (CLI), the token is obtained and used without the user needing to do anything.
 
+## Services that support this authentication method {#supported-services}
+
+This authentication method is supported by all services, except for those with AWS-compatible APIs (they only need an IAM token for managing [access keys](access-key.md) and [service accounts](../users/service-accounts.md)).
+
 #### See also
 
-- [[!TITLE]](../../operations/iam-token/create.md)
-- [[!TITLE]](../../operations/iam-token/create-for-sa.md)
-- [[!TITLE]](index.md)
+* [[!TITLE]](../../operations/iam-token/create.md)
+* [[!TITLE]](../../operations/iam-token/create-for-sa.md)
+* [[!TITLE]](index.md)
 

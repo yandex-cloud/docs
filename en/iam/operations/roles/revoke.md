@@ -1,6 +1,6 @@
 # Revoke a role for a resource
 
-If you want to prohibit a [subject](../../concepts/access-control/index.md#subject) from accessing a resource, revoke the subject's roles for that resource or the resource that the access rights are inherited from. For more information, see the section [[!TITLE]](../../concepts/access-control/index.md).
+If you want to prohibit a [subject](../../concepts/access-control/index.md#subject) from accessing a resource, revoke the subject's roles for that resource or the resource that the access rights are inherited from. For more information, see [[!TITLE]](../../concepts/access-control/index.md).
 
 > [!NOTE]
 >
@@ -14,18 +14,18 @@ If you want to prohibit a [subject](../../concepts/access-control/index.md#subje
 
 In the management console, you can only revoke a cloud or folder role:
 
-1. Open the [Access management](https://console.cloud.yandex.ru/iam) page for the selected cloud. If necessary, [switch to another cloud](../../../resource-manager/operations/cloud/switch-cloud.md).
-1. In the line with the appropriate user name, click **Configure roles**.
-1. Click the x next to the role to remove it. In the **Roles for the cloud** section, you can delete the roles assigned to this user in this cloud. In the **Roles in folders** section, you can delete roles assigned to a user for a folder.
+1. [!INCLUDE [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md)]
+1. [!INCLUDE [configure-roles-console](../../../_includes/iam/configure-roles-console.md)]
+1. Click the x next to the role to remove it. In the **Roles in the cloud <cloud name>** section, you can delete the roles assigned to the user in this cloud. In the **Roles in folders** section, you can delete folder roles assigned to the user.
 
 **[!TAB CLI]**
 
 To revoke a role from a subject, delete the corresponding access binding for the appropriate resource:
 
 1. See which users are assigned roles to the resource and what the roles are:
-    `yc <SERVICE-NAME> <RESOURCE> list-access-bindings <RESOURCE-NAME>|<RESOURCE-ID>`
+`yc <SERVICE-NAME> <RESOURCE> list-access-bindings <RESOURCE-NAME>|<RESOURCE-ID>`
 
-    For example, see the `default` folder access bindings:
+    For example, see the access bindings for the `default` folder:
 
     ```
     $  yc resource-manager folder list-access-bindings default
@@ -46,12 +46,12 @@ To revoke a role from a subject, delete the corresponding access binding for the
     ```
 
     where:
-    * `<SERVICE-NAME>` is the name of the service  that the resource belongs to (for example, `resource-manager`).
+    * `<SERVICE-NAME>` is the name of the service that the resource belongs to (for example, `resource-manager`).
     * `<RESOURCE>` is the category of the resource, such as `folder`.
-    * `<RESOURCE-NAME>` is the resource name. You can specify a resource by its name or identifier.
+    * `<RESOURCE-NAME>` is the name of the resource. You can specify a resource by its name or identifier.
     * `<RESOURCE-ID>` is the resource identifier.
-    * `<ROLE-ID>`  is the identifier of the role to revoke (such as `[!KEYREF roles-cloud-owner]`).
-    * `<SUBJECT-TYPE>`  is the type of the [subject](../../concepts/access-control/index.md#subject) to revoke the role from.
+    * `<ROLE-ID>` is the identifier of the role to revoke (such as `[!KEYREF roles-cloud-owner]`).
+    * `<SUBJECT-TYPE>` is the type of the [subject](../../concepts/access-control/index.md#subject) to revoke the role from.
     * `<SUBJECT-ID>` is the identifier of the subject.
 
     For example, to revoke a role from the user with the `aje6o61dvog2h6g9a33s` ID:

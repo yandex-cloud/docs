@@ -1,4 +1,4 @@
-# Delete a user from the cloud
+# Deleting a user from the cloud
 
 > [!IMPORTANT]
 >
@@ -9,7 +9,7 @@
 **[!TAB Management console]**
 
 1. [!INCLUDE [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md)]
-2. On the **Users and roles** page, go to the line containing a given user and click ![image](../../../_assets/options.svg). Select the **Delete** command.
+2. On the **Users and roles** page, go to the line with the user and click ![image](../../../_assets/options.svg), then select the **Delete** command.
 
 ---
 

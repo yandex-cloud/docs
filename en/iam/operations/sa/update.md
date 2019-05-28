@@ -8,7 +8,7 @@ You can use the management console to immediately add or remove [roles](../../co
 
 **[!TAB Management console]**
 
-1. Select a folder.
+1. Go to the folder that the service account belongs to.
 2. Select the **Service accounts** tab.
 3. Click ![image](../../../_assets/options.svg) next to the service account and select **Edit service account**.
 4. Change the name of your service account.

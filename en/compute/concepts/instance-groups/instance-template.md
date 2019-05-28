@@ -1,0 +1,76 @@
+# Instance template
+
+When creating a group, you need to describe an _instance template_, which is the basic instance configuration that will be used for deploying all the instances in the group.
+
+The template description and [policy](policies.md) description are passed to the CLI in a YAML file when creating or updating an instance group, via the `--file` flag. This is convenient for passing values consisting of multiple strings. For more information, see [[!TITLE]](../../operations/instance-groups/create-fixed-group.md).
+
+## Computing resources {#types}
+
+When describing a template, you specify the computing resources to allocate to each instance: the number and guaranteed performance of processor cores (vCPUs) and the amount of RAM. You can choose the amount of computing resources that is appropriate for the expected load. For more information, see [[!TITLE]](../performance-levels.md).
+
+## Disks {#disks}
+
+At least one disk must be attached to each instance, that is, a boot disk. Each boot disk is created automatically and attached to only one instance when creating an instance group.
+
+You can also attach additional disks to each instance. You can create an additional disk along with an instance group. The new disk can be empty, or you can restore it from a snapshot or image. It is only possible to attach or detach additional disks when creating or updating a group. For more information, see [[!TITLE]](../disk.md).
+
+## Network {#network}
+
+When creating a group, you should specify settings for the network interface connected to each instance: select the network that the instance will be connected to. You can also configure a public IP address. This allows the instance to interact with other services over the internet. For more information, see [[!TITLE]](../network.md).
+
+## Template description in a YAML file {#instance-template}
+
+A template describes the configuration of the base instance. It is defined in the `instance_template` key  in a YAML file.
+
+Example of a YAML file entry:
+
+```
+...
+instance_template:
+    platform_id: standard-v1
+    resources_spec:
+        memory: 4294967296
+        cores: 1
+        core_fraction: 5
+    boot_disk_spec:
+        mode: READ_WRITE
+        disk_spec:
+            image_id: fdvcl0b1no2hjb423igi
+            type_id: network-hdd
+            size: 34359738368
+    secondary_disk_specs:
+        mode: READ_WRITE
+        disk_spec:
+            image_id: fdvcl0b1no2hjb423igi
+            type_id: network-hdd
+            size: 34359738368
+    network_interface_specs:
+        - network_id: c64mknqgnd8avp6edhbt
+          subnet_ids:
+              - blt022m2diah5j3rcj8v
+          primary_v4_address_spec: {
+              one_to_one_nat_spec: {
+                  ip_version: IPV4
+              }
+          }
+...
+```
+
+Keys (the table lists keys that directly define the base instance's configuration):
+
+| Key | Value |
+| ----- | ----- |
+| `platform_id` | ID of the instance's hardware platform. |
+| `memory` | The amount of RAM available to the instance, specified in bytes. The maximum value is 274877906944 (275 GB). |
+| `cores` | The number of cores available to the instance. The value must be equal to 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, or 32. |
+| `core_fraction` | Base CPU performance. The value must be 0, 5, or 100. |
+| `mode` | Disk access mode. </br> - `READ_ONLY`: read-only access. </br>- `READ_WRITE`: read/write access. |
+| `image_id` | ID of the image that will be used for disk creation. |
+| `type_id` | ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.diskTypes](../../api-ref/DiskType/list.md) request. |
+| `size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB). |
+| `network_id` | ID of the network. |
+| `subnet_ids` | IDs of cloud subnets. |
+| `ip_version` | IP version for the public IP address. |
+
+For information about technical restrictions of the [!KEYREF ig-name] component, see [[!TITLE]](../limits.md).
+

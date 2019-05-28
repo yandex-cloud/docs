@@ -1,8 +1,10 @@
 # Streaming speech recognition
 
-Data streaming mode allows you to use the SpeechKit Cloud API to send audio data in chunks. In contrast to the [HTTP POST API](request.md), you can get intermediate results of speech recognition when using data streaming. The service automatically detects pauses for sending the final speech recognition results. This mode is suitable for recognizing speech transmitted as a stream.
+Data streaming mode allows you to simultaneously send audio for recognition and get recognition results while the speech continues.
 
-> For example, as soon as the user starts speaking, your app immediately begins transmitting their speech to the server for recognition. The server processes the data and sends your app the intermediate and final results of each utterance recognition. The intermediate results are used for showing the user the progress of speech recognition.
+In contrast to other [recognition methods](index.md#stt-ways), you can get intermediate results of speech recognition while the person continues speaking. After a pause, the service returns final results and starts recognizing the next utterance.
+
+> For example, as soon as the user starts talking to [Yandex.Station](https://station.yandex.ru/), the speaker begins transmitting the speech to the server for recognition. The server processes the data and returns the intermediate and final results of each utterance recognition. The intermediate results are used for showing the user the progress of speech recognition. Once the final results are available, Yandex.Station performs the requested action, such as playing a movie.
 
 To use the service, create an app that will perform speech recognition in data streaming mode, i.e., send audio fragments and process responses with recognition results.
 
@@ -17,7 +19,13 @@ To use the service, create an app that will perform speech recognition in data s
     ```
 
     `b5gfc3ntettogerelqed7p` is the folder ID.
-1. Download the protobuf file with the description of the service: [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto). This file will be used for creating the client interface code.
+1. Clone the [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) repository:
+
+    ```
+    git clone https://github.com/yandex-cloud/cloudapi
+    ```
+
+    The [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) file from this repository will be used for creating the client interface code.
 
 ### Creating a client app
 
@@ -31,7 +39,7 @@ See [examples](#examples) of client apps below. In addition, see the [gRPC docum
 
 ### Authorization in the service
 
-For authorization, the app must send an [IAM token](../../iam/concepts/authorization/iam-token.md) in every message. Please note that the IAM token validity is limited.
+For authorization, the app must send an [IAM token](../../iam/concepts/authorization/iam-token.md). Please note that the IAM token validity is limited.
 
 Find out how to get an IAM token for your account in the corresponding instructions:
 
@@ -48,15 +56,15 @@ _Final results_ of speech recognition are formed when the speech recognition sys
 
 _Intermediate results_ of speech recognition are formed during utterance recognition. Getting intermediate results allows you to quickly respond to the recognized speech without waiting for the end of the utterance to get the final result.
 
-You can configure the service to return intermediate recognition results. In the [message with recognition settings](#specification-msg), set `specification.partial_results=true`. In the response, `final=false` indicates intermediate results and `final=true` indicates the final results.
+You can configure the service to return intermediate recognition results. In the [message with recognition settings](#specification-msg), set `config.specification.partial_results=true`. In the response, `final=false` indicates the intermediate results and `final=true` indicates the final results.
 
 ### Limitations of a speech recognition session
 
 After receiving the message with the recognition settings, the service starts a recognition session. The following limitations apply to each session:
 
 * The time between sending messages to the service must not exceed 5 seconds.
-* The maximum duration of transmitted audio for the entire session is 5 minutes.
-* The maximum size of audio data transmitted is 10 MB.
+* Maximum duration of transmitted audio for the entire session: [!KEYREF stt-streaming-audioLength].
+* Maximum size of transmitted audio data: [!KEYREF stt-streaming-fileSize].
 
 If messages have not been sent to the service within 5 seconds or the limit on the duration or size of data has been reached, the session is terminated. To continue speech recognition, reconnect and send a new message with the speech recognition settings.
 
@@ -68,25 +76,27 @@ The service is located at: `stt.api.cloud.yandex.net:443`
 
 | Parameter | Description |
 | ----- | ----- |
-| `specification.language_code` | The language for speech recognition.<br/>Acceptable values:<ul><li>`ru-RU` (default) — Russian.</li><li>`en-US` — English.</li><li>`tr-TR` — Turkish.</li></ul> |
-| `specification.model` | The language model to be used for recognition.<br/>The closer the model is matched, the better the recognition result. You can only specify one model per request.<br/>[Acceptable values](../stt/index.md#model) depend on the selected language. Default parameter value: `general`. |
-| `specification.profanity_filter` | The profanity filter.<br/>Acceptable values:<ul><li>`true` — Exclude profanity from recognition results.</li><li>`false` (default) — Do not exclude profanity from recognition results.</li></ul> |
-| `specification.partial_results` | The intermediate results filter.<br/>Acceptable values:<ul><li>`true` — Return intermediate results (part of the recognized utterance). For intermediate results, `final` is set to `false`.</li><li>`false` (default) — Return only the final results (the entire recognized utterance). |
-| `specification.format` | The format of the submitted audio.<br/>Acceptable values:<ul><li>`LINEAR16_PCM` — Audio file in the [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with no WAV header. Audio characteristics:<ul><li>Sampling — 8, 16, or 48 kHz, depending on the `sampleRateHertz` parameter value.</li><li>Bit depth — 16-bit.</li><li>Byte order — Reversed (little-endian).</li><li>Audio data is stored as signed integers.</li></ul></li><li>`OGG_OPUS` (default) — Data is encoded using the OPUS audio codec and compressed using the OGG container format ([OggOpus](https://wiki.xiph.org/OggOpus)).</li></ul> |
-| `specification.sampleRateHertz` | The sampling frequency of the submitted audio.<br/>Required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default) — Sampling rate of 48 kHz.</li><li>`16000` — Sampling rate of 16 kHz.</li><li>`8000` — Sampling rate of 8 kHz.</li></ul> |
-| `folder_id` | Required parameter. ID of the folder your account is allowed to access. |
+| config | **object**<br>Field with the recognition settings and folder ID. |
+| config<br>.specification | **object**<br>Recognition settings. |
+| config<br>.specification<br>.languageCode | **string**<br>The language to use for recognition.<br/>Acceptable values:<ul><li>`ru-RU` (by default) — Russian.</li><li>`en-US` — English.</li><li>`tr-TR` — Turkish.</li></ul> |
+| config<br>.specification<br>.model | **string**<br>The language model to be used for recognition.<br/>The closer the model is matched, the better the recognition result. You can only specify one model per request.<br/>[Acceptable values](models.md) depend on the selected language. Default parameter value: `general`. |
+| config<br>.specification<br>.profanityFilter | **boolean**<br>The profanity filter.<br/>Acceptable values:<ul><li>`true` — Exclude profanity from recognition results.</li><li>`false` (by default) — Do not exclude profanity from recognition results.</li></ul> |
+| config<br>.specification<br>.partialResults | **boolean**<br>The intermediate results filter.<br/>Acceptable values:<ul><li>`true` — Return intermediate results (part of the recognized utterance). For intermediate results, `final` is set to `false`.</li><li>`false` (default) — Return only the final results (the entire recognized utterance). |
+| config<br>.specification<br>.audioEncoding | **string**<br>[The format](formats.md) of the submitted audio.<br/>Acceptable values:<ul><li>`LINEAR16_PCM` — [LPCM with no WAV header](formats.md#lpcm).</li><li>`OGG_OPUS` (by default) — [OggOpus](formats.md#oggopus) format.</li></ul> |
+| config<br>.specification<br>.sampleRateHertz | **integer** (int64)<br>The sampling frequency of the submitted audio.<br/>Required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default) — Sampling rate of 48 kHz.</li><li>`16000` — Sampling rate of 16 kHz.</li><li>`8000` — Sampling rate of 8 kHz.</li></ul> |
+| folderId | **string**<br><p>ID of the folder that you have access to. Required for authorization with a user account (see the <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
 
 ### Audio message  {#audio-msg}
 
 | Parameter | Description |
 | ----- | ----- |
-| `audio_content` | An audio fragment represented as an array of bytes. Audio should be in the [OggOpus](https://wiki.xiph.org/OggOpus) or [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format. |
+| `audio_content` | An audio fragment represented as an array of bytes. The audio must have the format specified in the [message with recognition settings](#specification-msg). |
 
 ### Response structure {#response}
 
 If speech fragment recognition is successful, you will receive a message containing a list of recognition results (`chunks[]`). Each result contains the following fields:
 
-* `alternatives[]` —  List of recognized text alternatives. Each alternative contains the following fields:
+* `alternatives[]` — List of alternative recognition results. Each alternative contains the following fields:
     * `text` — Recognized text.
     * `confidence` — Recognition accuracy. Currently the service always returns `1`, which is equivalent to 100%.
 * `final` — Set to `true` if the result is final and to `false` if it is intermediate.
@@ -130,13 +140,14 @@ Then proceed to creating a client app.
     pip install grpcio-tools
     ```
 
-1. Go to the folder with the [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) file and run:
+1. Go to the directory with the [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) repository and generate the client interface code:
 
-    ```
-    python -m grpc_tools.protoc -I . --python_out=. --grpc_python_out=. ./stt_service.proto
+    ```bash
+    cd cloudapi
+    python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=. --grpc_python_out=. yandex/cloud/ai/stt/v2/stt_service.proto
     ```
 
-    As a result, the `stt_service_pb2.py` and `stt_service_pb2_grpc.py` files with the client interface will be created in this folder.
+    As a result, the `stt_service_pb2.py` and `stt_service_pb2_grpc.py` files with the client interface will be created in this directory.
 
 1. Create a file (for example, `test.py`), and add the following code to it:
 

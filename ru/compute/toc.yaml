@@ -156,7 +156,7 @@ items:
           - name: Снимки дисков
             href: concepts/snapshot.md
       - name: Образы
-        href: concepts/images.md
+        href: concepts/image.md
       - name: Instance Groups
         items:
           - name: Обзор
