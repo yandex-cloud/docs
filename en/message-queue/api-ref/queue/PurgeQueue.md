@@ -7,8 +7,8 @@ Messages that were sent to the queue before calling `PurgeQueue` can be picked b
 Messages sent to the queue after calling `PurgeQueue` won't be deleted.
 
 > [!WARNING]
-
-You cannot retrieve any messages deleted from a queue.
+>
+> You cannot retrieve any messages deleted from a queue.
 
 ## Request {#request}
 

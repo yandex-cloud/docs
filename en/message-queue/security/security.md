@@ -5,8 +5,8 @@ Yandex.Cloud users can only perform operations on resources that are allowed by 
 To allow access to resources in the [!KEYREF message-queue-full-name] service, assign the required roles to the user from the list below. For now, a role can only be assigned to a parent resource (folder or cloud), whose roles are inherited by nested resources.
 
 > [!NOTE]
-
-For more information about role inheritance, see the section [Inheritance of access rights](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the [!KEYREF resmgr-name] documentation.
+>
+> For more information about role inheritance, see the section [Inheritance of access rights](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the [!KEYREF resmgr-name] documentation.
 
 ## Assigning roles
 

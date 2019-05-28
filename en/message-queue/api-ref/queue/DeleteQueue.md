@@ -5,8 +5,8 @@ Method for deleting a queue. If the specified queue does not exist, Message Queu
 The deletion process takes up to 60 seconds. During this time, some requests might succeed (such as sending messages to that queue), but after 60 seconds the queue and the messages will no longer exist.
 
 > [!WARNING]
-
-After the queue is deleted, all messages in it become unavailable.
+>
+> After the queue is deleted, all messages in it become unavailable.
 
 When you delete a queue, you must wait at least 60 seconds before creating another queue with the same name.
 
