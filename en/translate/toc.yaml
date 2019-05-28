@@ -32,6 +32,10 @@ items:
         href: api-ref/v1/languages.md
       - name: Response format
         href: api-ref/v1/response.md
+  - name: Quotas and limits
+    href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
   - name: Pricing policy
     items:
       - name: Current policy

@@ -27,6 +27,8 @@ items:
             href: operations/sa/set-access-bindings.md
           - name: Create static access keys
             href: operations/sa/create-access-key.md
+          - name: Get the service account's ID
+            href: operations/sa/get-id.md
           - name: Delete a service account
             href: operations/sa/delete.md
       - name: Roles
@@ -41,6 +43,12 @@ items:
             href: operations/iam-token/create.md
           - name: Get an IAM token for a service account
             href: operations/iam-token/create-for-sa.md
+      - name: API keys
+        items:
+          - name: Get an API key
+            href: operations/api-key/create.md
+          - name: Delete an API key
+            href: operations/api-key/delete.md
   - name: Concepts
     items:
       - name: Overview
@@ -61,6 +69,8 @@ items:
             href: concepts/authorization/iam-token.md
           - name: OAuth token
             href: concepts/authorization/oauth-token.md
+          - name: API key
+            href: concepts/authorization/api-key.md
           - name: Authorized keys
             href: concepts/authorization/key.md
           - name: AWS-compatible access keys

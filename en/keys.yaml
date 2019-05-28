@@ -135,5 +135,13 @@ s2.3xlarge: s2.3xlarge (32 vCPU, 128 GB)
 s2.4xlarge: s2.4xlarge (40 vCPU, 160 GB)
 s2.5xlarge: s2.5xlarge (48 vCPU, 192 GB)
 
+stt-short—fileSize: 1 MB
+stt-short-audioLength: 1 minute
+stt-short-channelsCount: 1
+stt-long-fileSize: 1 GB
+stt-long-resultsStorageTime: 3 days
+stt-streaming-fileSize: 10 MB
+stt-streaming-audioLength: 5 minutes
+
 # K8s specific
 k8s: Kubernetes

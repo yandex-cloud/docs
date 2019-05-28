@@ -18,7 +18,7 @@ All parameters must be URL-encoded. The maximum size of the POST request body is
 | ----- | ----- |
 | `text` | Required parameter.<br/>UTF-8 encoded text to detect the language of. |
 | `hint` | List of most probable languages (they will be given priority when detecting the language). The list items are comma-separated. |
-| `folderId` | Required parameter.<br/>ID of your folder.<br/>For more information about how to find out the folder ID, see the section [Authorization in the API](../../concepts/auth.md). |
+| `folderId` | Required parameter.<br/>ID of your folder.<br/>Learn more about how to find out the folder ID. |
 
 ## Response {#response}
 
@@ -40,7 +40,7 @@ export TOKEN=<IAM-token>
 curl -X POST \
      -H "Authorization: Bearer ${TOKEN}" \
      -d "folderId=${FOLDER_ID}" \
-     --data-urlencode "text=привет мир" \
+     --data-urlencode "text=Hello world" \
      "https://translate.api.cloud.yandex.net/translate/v1/detect"
 ```
 
@@ -50,7 +50,7 @@ The response is returned in JSON format.
 
 ```json
 {
-    "language": "ru"
+    "language": "en"
 }
 ```
 

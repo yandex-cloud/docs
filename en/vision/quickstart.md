@@ -8,11 +8,7 @@ This section describes how to get started with the [!KEYREF vision-short-name] A
 
 1. [Get the ID of the folder](../resource-manager/operations/folder/get-id.md) for which you are granted the `editor` role or a higher role. For more information about the required roles, see [Access management](security/index.md).
 
-    If there is no folder yet, create one:
-
-    [!INCLUDE [create-folder](../_includes/create-folder.md)]
-
-1. Get the IAM token required for authentication (to get the IAM token for a service account, follow these [instructions](../iam/operations/iam-token/create-for-sa.md)):
+1. Get the IAM token required for authentication in the API ([other authentication methods](api-ref/authentication.md)):
 
     ---
 

@@ -16,5 +16,5 @@ _A resource_ is a Yandex.Cloud entity that you can perform operations with, such
 
 #### What is access binding?
 
-Access rights are set as a list of _role-subject_ bindings. They are called access bindings. You can add or remove these bindings to control access rights to a resource. For more information, see the section [[!TITLE]](../concepts/access-control/index.md#access-bindings).
+Access rights are set as a list of _role-subject_ bindings. They are called access bindings. You can add or remove these bindings to control access rights to a resource. For more information, see [[!TITLE]](../concepts/access-control/index.md#access-bindings).
 

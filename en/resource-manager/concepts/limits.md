@@ -1,7 +1,6 @@
 ---
 editable: false
 ---
-
 # Quotas and limits
 
 In the [!KEYREF resmgr-full-name] service, the following limitations apply:

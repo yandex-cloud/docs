@@ -25,3 +25,8 @@
 - [[!TITLE]](iam-token/create.md)
 - [[!TITLE]](iam-token/create-for-sa.md)
 
+## API keys
+
+- [[!TITLE]](api-key/create.md)
+- [[!TITLE]](api-key/delete.md)
+

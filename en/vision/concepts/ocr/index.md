@@ -76,7 +76,7 @@ An image in a request must meet the following requirements:
 
 ## Recognition confidence {#confidence}
 
-The confidence of recognition shows the service's confidence in the result. For example, the value `"confidence": 0.9412244558` for the line <q>we like you</q> means that the text is recognized correctly with a probability of 94%.
+The recognition confidence shows the service's confidence in the result. For example, the value `"confidence": 0.9412244558` for the line <q>we like you</q> means that the text is recognized correctly with a probability of 94%.
 
 Currently, the recognition confidence value is only calculated for lines. The `confidence` value for words and language is substituted with the line's `confidence` value.
 
@@ -84,5 +84,5 @@ Currently, the recognition confidence value is only calculated for lines. The `c
 
 * [View the list of supported languages and models](supported-languages.md)
 * [View known restrictions for the current version](known-issues.md)
-* [Try out text recognition with an image](../../operations/ocr/text-detection.md)
+* [Try recognizing text in an image](../../operations/ocr/text-detection.md)
 

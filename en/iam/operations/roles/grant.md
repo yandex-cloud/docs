@@ -12,10 +12,7 @@ This section describes how to assign a role for a user's account on Yandex. The 
 
 In the management console, you can only assign a role for a cloud or folder:
 
-1. [!INCLUDE [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md)]
-1. In the line with the appropriate user name, click **Configure roles**.
-1. To assign a role, click ![image](../../../_assets/plus-sign.svg) in the **Roles for the cloud** or **Roles in folders** section next to the appropriate folder.
-1. Choose a [role](../../concepts/access-control/roles.md) from the list.
+[!INCLUDE [grant-role-console](../../../_includes/grant-role-console.md)]
 
 **[!TAB CLI]**
 
@@ -34,7 +31,7 @@ In the management console, you can only assign a role for a cloud or folder:
     where:
     * `<SERVICE-NAME>` is the name of the service that the resource belongs to (for example, `resource-manager`).
     * `<RESOURCE>` is the resource category, for example `cloud`.
-    * `<RESOURCE-NAME>` is the resource name. You can specify a resource by its name or identifier.
+    * `<RESOURCE-NAME>` is the name of the resource. You can specify a resource by its name or identifier.
     * `<RESOURCE-ID>` is the resource identifier.
     * `<ROLE-ID>` is the identifier of the role (for example, `[!KEYREF roles-cloud-owner]`).
     * `<USER-ACCOUNT-ID>` is the identifier of the user account assigned the role.

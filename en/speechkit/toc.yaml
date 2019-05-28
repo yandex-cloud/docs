@@ -8,10 +8,17 @@ items:
     items:
       - name: About the technology
         href: stt/index.md
-      - name: API method description
+      - name: Recognition of short audio files
         href: stt/request.md
-      - name: Data streaming recognition
+      - name: Recognition of long audio files
+        stage: preview
+        href: stt/transcribation.md
+      - name: Streaming speech recognition
         href: stt/streaming.md
+      - name: Autio formats
+        href: stt/formats.md
+      - name: Language models
+        href: stt/models.md
   - name: Speech synthesis
     items:
       - name: About the technology
@@ -22,6 +29,10 @@ items:
     href: concepts/response.md
   - name: IVR integration
     href: concepts/ivr-integration.md
+  - name: Quotas and limits
+    href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
   - name: Pricing policy
     items:
       - name: Current rules

@@ -61,7 +61,7 @@ The service returns the results in the same order as they were specified in the 
 
 The service also returns the results for each of the requested features.
 
-If an error occurs during any of the analyses, the service returns the error as a result. [More about handling errors](../api-ref/errors-handling.md).
+If an error occurs during analysis, the service returns the error as a result. [More about handling errors](../api-ref/errors-handling.md).
 
 #### What's next
 

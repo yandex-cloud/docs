@@ -4,9 +4,13 @@ You can get the following information about any registered Yandex.Cloud user:
 
 * ID
 * Login
-* Email
+* Email (only via the CLI and API)
 
 ---
+
+**[!TAB Management console]**
+
+[!INCLUDE [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md)]
 
 **[!TAB CLI]**
 

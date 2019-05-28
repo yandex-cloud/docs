@@ -30,7 +30,7 @@ _A Yandex.Passport account_ is your Yandex or [Yandex.Connect](https://connect.y
 
 [!INCLUDE [sa-def](../_includes_service/sa-def.md)]
 
-By using service accounts you can flexibly configure access rights to resources for programs you have written. For more information, see the section [[!TITLE]](users/service-accounts.md).
+By using service accounts you can flexibly configure access rights to resources for programs you have written. For more information, see [[!TITLE]](users/service-accounts.md).
 
 ## Authorization {#auth}
 

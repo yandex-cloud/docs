@@ -9,13 +9,18 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
 **[!TAB Management console]**
 
 1. Select a folder.
+
 2. Select the **Service accounts** tab.
+
 3. Click **Create service account**.
+
 4. Enter the name of the service account.
+
 5. You can immediately assign the service account a [role](../../concepts/access-control/roles.md) for the folder where it is created.
-    To do this, click **Add role** and select a role.
+To do this, click **Add role** and select a role.
 
     To assign a role for another resource, use the CLI or API following the instructions [[!TITLE]](assign-role-for-sa.md).
+
 6. Click **Add**.
 
 **[!TAB CLI]**
@@ -44,7 +49,7 @@ To create a service account, use the [create](../../api-ref/ServiceAccount/creat
 
 ## Examples
 
-### Add a description when creating
+### Create with a description
 
 Create a service account with the following name and description:
 

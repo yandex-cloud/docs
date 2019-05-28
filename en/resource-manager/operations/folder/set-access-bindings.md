@@ -9,8 +9,8 @@ To grant a user access to all the folder resources, assign them a [role](../../.
 **[!TAB Management console]**
 
 1. [!INCLUDE [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md)]
-1. In the line with the appropriate user name, click **Configure roles**.
-1. Select a folder in the **Roles in folders** section and click **Assign role** .
+1. [!INCLUDE [configure-roles-console](../../../_includes/iam/configure-roles-console.md)]
+1. Select a folder in the **Roles in folders** section and click ![image](../../../_assets/plus-sign.svg).
 1. Select a role from the list.
 
 **[!TAB CLI]**

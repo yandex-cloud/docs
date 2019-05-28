@@ -1,6 +1,6 @@
 # Detecting faces in an image
 
-_Face detection is currently in the [Preview stage](/docs/overview/concepts/launch-stages)._
+_Face detection is currently at the [Preview stage](/docs/overview/concepts/launch-stages)._
 
 To detect faces in a photo, use the [Face Detection](../../concepts/face-detection/index.md) feature.
 

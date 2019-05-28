@@ -1,6 +1,6 @@
 # Moderate images
 
-_Image classification is currently in the [Preview stage](/docs/overview/concepts/launch-stages)._
+_Image classification is currently at the [Preview stage](/docs/overview/concepts/launch-stages)._
 
 To determine whether an image matches properties such as <q>adult content</q>, <q>shocking content</q>, or <q>watermarks</q>, use the [Image Classification](../../concepts/classification/index.md) feature.
 

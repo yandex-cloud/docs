@@ -22,9 +22,9 @@ If you don't have a folder yet, create one:
 To grant another user access to your resources, add the user to your cloud:
 
 1. [!INCLUDE [grant-role-console-first-steps](../_includes/iam/grant-role-console-first-steps.md)]
-2. On the **Users and roles** page, click **Add user** in the upper-right corner.
-3. Enter the user's Yandex email address.
-4. Click **Add**.
+1. On the **Users and roles** page, click **Add user** in the upper-right corner.
+1. Enter the user's Yandex email address.
+1. Click **Add**.
 
 [!INCLUDE [roles-cloud-member](../_includes/roles-cloud-member.md)]
 
@@ -32,27 +32,22 @@ To grant another user access to your resources, add the user to your cloud:
 
 To grant a user access to view resources in your cloud, assign the user the role of `[!KEYREF roles-viewer]`:
 
-1. Open the **Users and roles** page.
-2. Select the user to assign the role to and click **Configure roles**.
-3. Click **Assign role** in the **Roles for the cloud for <cloud name>** section.
-4. Choose the role of `[!KEYREF roles-viewer]`.
+1. [!INCLUDE [configure-roles-console](../_includes/iam/configure-roles-console.md)]
+1. In the **Roles for the cloud <cloud name>** click ![image](../_assets/plus-sign.svg).
+1. Choose the role of `[!KEYREF roles-viewer]`.
 
 ## Assign a user a role for a folder {#folder-role}
 
 To allow a user to create resources in a folder, assign the user the role of `[!KEYREF roles-editor]` for this folder:
 
-1. Open the **Users and roles** page.
-2. Select the user to assign the role to and click **Configure roles**.
-3. Select a folder in the **Roles in folders** section and click **Assign role** .
-4. Choose the role of `[!KEYREF roles-editor]`.
-5. Click the  **Close**  button.
+1. If you have closed the window with the role settings, open it again.
+1. Select a folder in the **Roles in folders** section and click ![image](../_assets/plus-sign.svg).
+1. Choose the role of `[!KEYREF roles-editor]`.
 
 ## Revoke assigned roles {#revoke-roles}
 
-1. Open the **Users and roles** page.
-2. Select the user you want to revoke roles from and click **Configure roles**.
-3. Click x next to each role you would like to revoke.
-4. Click the  **Close**  button.
+1. If you have closed the window with the role settings, open it again.
+1. Click x next to each role you would like to revoke.
 
 > [!NOTE]
 >

@@ -21,5 +21,5 @@ See [[!TITLE]](../quickstart.md) to find out how to add a new user to your cloud
 
 #### How much does it cost to use [!KEYREF iam-short-name]?
 
-[!KEYREF iam-short-name] is free for all Yandex.Cloud users.
+The [!KEYREF iam-short-name] service can be used free of charge.
 

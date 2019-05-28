@@ -24,7 +24,7 @@ where:
 
 * `<SERVICE-NAME>` is the name of the service that the resource belongs to (for example, `resource-manager`).
 * `<RESOURCE>` is the resource category, for example `cloud`.
-* `<RESOURCE-NAME>` is the resource name. You can specify a resource by its name or identifier.
+* `<RESOURCE-NAME>` is the name of the resource. You can specify a resource by its name or identifier.
 * `<RESOURCE-ID>` is the resource identifier.
 * `<ROLE-ID>` is the identifier of the role (for example, `[!KEYREF roles-cloud-owner]`).
 * `<SERVICE-ACCOUNT-ID>` is the identifier of the service account assigned the role.

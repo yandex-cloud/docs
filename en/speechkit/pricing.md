@@ -1,7 +1,7 @@
 ---
 editable: false
 ---
-# Pricing policy for [!KEYREF speechkit-name]
+# Pricing for [!KEYREF speechkit-name]
 
 [!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
 
@@ -22,7 +22,7 @@ The cost of using the SpeechKit API for speech recognition is calculated from th
 - You send a 37-second fragment for speech recognition. Your request is split into three segments: two that are 15 seconds long, and one that is 7 seconds long. The length of the last segment is rounded up to 15 seconds. The final cost of the request is calculated for 45 seconds.
 - You made two requests, for 5 and 8 seconds, respectively. The length of each request is rounded up to 15 seconds. The final cost of the request is calculated for 30 seconds.
 
-## Prices {#prices}
+## Pricing {#prices}
 
 ### Speech synthesis {#prices-tts}
 
@@ -43,6 +43,10 @@ The cost of using the SpeechKit API for speech recognition is calculated from th
 ---
 
 ### Speech recognition {#prices-stt}
+
+You are only charged for [recognition of short audio recordings](stt/request.md) and [data streaming recognition](stt/streaming.md).
+
+[Recognition of long audio recordings](stt/transcribation.md) is free of charge during the [Preview stage](../overview/concepts/launch-stages).
 
 ---
 

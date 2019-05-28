@@ -1,6 +1,6 @@
 # Translate text
 
-To translate the text, use the [translate](../api-ref/Translation/translate) method.
+To translate a text, use the [translate](../api-ref/Translation/translate) method.
 
 ## Examples
 
@@ -27,7 +27,8 @@ In this example, we will translate two text strings into Russian: <q>Hello</q> a
 1. Use the [listLanguages](../api-ref/Translation/listLanguages) method to get the code of the target language:
 
     ```bash
-    curl -X POST \
+    $ export IAM_TOKEN=CggaATEVAgA...
+    $ curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d "{\"folder_id\": \"${FOLDER_ID}\"}" \

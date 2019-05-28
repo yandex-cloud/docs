@@ -1,4 +1,4 @@
-# Detect the language of the text
+# Detect the language of a text
 
 To detect the language of a text, use the [detectLanguage](../api-ref/Translation/detectLanguage) method.
 
