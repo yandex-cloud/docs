@@ -4,7 +4,7 @@
 
 ## Create a fixed-size instance group
 
-You can create a group with a set number of virtual machine instances. You control the group size manually. For more information, see [[!TITLE]](../concepts/scale.md#fixed-scale).
+You can create a group with a set number of virtual machine instances. You control the group size manually. For more information, see [[!TITLE]](../concepts/instance-groups/scale.md#fixed-scale).
 
 [!INCLUDE [warning.md](../../_includes/instance-groups/warning.md)]
 

@@ -9,6 +9,8 @@ items:
         href: quickstart/quick-create-linux.md
       - name: Creating a Windows VM
         href: quickstart/quick-create-windows.md
+      - name: Getting started with Instance Groups
+        href: quickstart/ig.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -95,6 +97,28 @@ items:
             href: operations/serial-console/index.md
           - name: Connecting to a VM's serial console via SSH
             href: operations/serial-console/connect.md
+      - name: Creating an instance group
+        items:
+          - name: Create a fixed-size instance group
+            href: operations/instance-groups/create-fixed-group.md
+          - name: Create a fixed-size instance group with a load balancer
+            href: operations/instance-groups/create-with-balancer.md
+      - name: Getting information about an instance group
+        items:
+          - name: Getting a list of groups
+            href: operations/instance-groups/get-list.md
+          - name: Getting basic information and metadata
+            href: operations/instance-groups/get-info.md
+          - name: Getting a list of instances in a group
+            href: operations/instance-groups/get-list-instances.md
+      - name: Managing an instance group
+        items:
+          - name: Update a group
+            href: operations/instance-groups/update.md
+          - name: Delete a group
+            href: operations/instance-groups/delete.md
+          - name: Recover a group
+            href: operations/instance-groups/recover.md
   - name: Concepts
     items:
       - name: Relationship between resources
@@ -123,6 +147,19 @@ items:
             href: concepts/snapshot.md
       - name: Images
         href: concepts/image.md
+      - name: Instance Groups
+        items:
+          - name: Overview
+            href: concepts/instance-groups/index.md
+          - name: Group types
+            href: concepts/instance-groups/scale.md
+          - name: Instance template
+            href: concepts/instance-groups/instance-template.md
+          - name: VM statuses
+            href: concepts/instance-groups/vm-statuses.md
+          - name:	Policies
+            href : concepts/instance-groups/policies.md
+        href: concepts/image.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
@@ -137,13 +174,17 @@ items:
           href: pricing-archive/pricing-01012019.md
         - name: Prices from March 1 till May 1 2019
           href: pricing-archive/pricing-30042019.md
-  - name: API reference
+  - name: Compute API reference
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
     include:
       repo: docs-api
       path: en/compute/toc.yaml
+  - name: Instance Groups API reference
+    include:
+      repo: docs-api
+      path: en/compute/instancegroup/toc.yaml
   - name: Questions and answers
     items:
       - name: General questions

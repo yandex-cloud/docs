@@ -24,9 +24,9 @@ To change the name and description of an instance group:
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install.md](../../_includes/cli-install.md)]
+[!INCLUDE [cli-install.md](../../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue.md](../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue.md](../../../_includes/default-catalogue.md)]
 
 1. See the description of the CLI's update group command:
 
@@ -36,7 +36,7 @@ To change the name and description of an instance group:
 
 1. Get a list of instance groups in the default folder:
 
-    [!INCLUDE [instance-group-list.md](../../_includes/instance-groups/instance-group-list.md)]
+    [!INCLUDE [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md)]
 
 1. Select the `ID` or `NAME` of the necessary group (for example, `first-instance-group`).
 
@@ -52,9 +52,9 @@ To change the name and description of an instance group:
 
 **[!TAB API]**
 
-You can change the group name and description using the [update](../../instance-groups/api-ref/InstanceGroup/update.md) API method.
+You can change the group name and description using the [update](../../instancegroup/api-ref/InstanceGroup/update.md) API method.
 
-To request a list of available groups, use the [listInstances](../../instance-groups/api-ref/InstanceGroup/listInstances.md) method.
+To request a list of available groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) method.
 
 ---
 
@@ -81,9 +81,9 @@ To change the computing resources of an instance group:
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install.md](../../_includes/cli-install.md)]
+[!INCLUDE [cli-install.md](../../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue.md](../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue.md](../../../_includes/default-catalogue.md)]
 
 1. See the description of the CLI's update group command:
 
@@ -93,7 +93,7 @@ To change the computing resources of an instance group:
 
 1. Get a list of instance groups in the default folder:
 
-    [!INCLUDE [instance-group-list.md](../../_includes/instance-groups/instance-group-list.md)]
+    [!INCLUDE [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md)]
 
 1. Select the `ID` or `NAME` of the necessary group (for example, `first-instance-group`).
 
@@ -109,9 +109,9 @@ To change the computing resources of an instance group:
 
 **[!TAB API]**
 
-You can change the computing resources using the [update](../../instance-groups/api-ref/InstanceGroup/update.md) API method.
+You can change the computing resources using the [update](../../instancegroup/api-ref/InstanceGroup/update.md) API method.
 
-To request a list of available groups, use the [listInstances](../../instance-groups/api-ref/InstanceGroup/listInstances.md) method.
+To request a list of available groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) method.
 
 ---
 
@@ -133,9 +133,9 @@ To increase the disk size of an instance group:
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install.md](../../_includes/cli-install.md)]
+[!INCLUDE [cli-install.md](../../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue.md](../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue.md](../../../_includes/default-catalogue.md)]
 
 1. See the description of the CLI's update group command:
 
@@ -145,7 +145,7 @@ To increase the disk size of an instance group:
 
 1. Get a list of instance groups in the default folder:
 
-    [!INCLUDE [instance-group-list.md](../../_includes/instance-groups/instance-group-list.md)]
+    [!INCLUDE [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md)]
 
 1. Select the `ID` or `NAME` of the necessary group (for example, `first-instance-group`).
 
@@ -161,9 +161,9 @@ To increase the disk size of an instance group:
 
 **[!TAB API]**
 
-You can change the disk size using the [update](../../instance-groups/api-ref/InstanceGroup/update.md) API method.
+You can change the disk size using the [update](../../instancegroup/api-ref/InstanceGroup/update.md) API method.
 
-To request a list of available groups, use the [listInstances](../../instance-groups/api-ref/InstanceGroup/listInstances.md) method.
+To request a list of available groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) method.
 
 ---
 

@@ -15,7 +15,7 @@ An instance in a group of instances can have one of the following statuses:
 | `STOPPING` | The instance is being stopped. |
 | `DELETING` | The instance is being removed from the [!KEYREF compute-full-name] system. |
 | `UPDATING` | The basic parameters or metadata are being updated without re-creating the instance. |
-| `FAILED` | The operation has failed. You should recover the instance from this state yourself. Make sure the [limits](limits.md) are not exceeded and re-create the group. |
+| `FAILED` | The operation has failed. You should recover the instance from this state yourself. Make sure the [limits](../limits.md) are not exceeded and re-create the group. |
 
 ## Operations on an instance group
 
@@ -27,7 +27,7 @@ The following operations can be performed on an instance group:
 
 ### Create {#create}
 
-When [a group is created](../operations/create-fixed-group.md), each instance goes through the following stages depending on the [deployment policy](policies.md#deploy-policy):
+When [a group is created](../../operations/instance-groups/create-fixed-group.md), each instance goes through the following stages depending on the [deployment policy](policies.md#deploy-policy):
 
 1. `CREATING`: the instance is allocated computing resources, i.e., the number and performance of processor cores (vCPUs) and the amount of RAM. It is assigned an IP address and its disks are created.
 1. `STARTING`: the instance is launched.
@@ -37,7 +37,7 @@ When [a group is created](../operations/create-fixed-group.md), each instance go
 
 ### Delete {#delete}
 
-When [a group is deleted](../operations/delete.md), each instance goes through the following stages depending on the [deployment policy](policies.md#deploy-policy):
+When [a group is deleted](../../operations/instance-groups/delete.md), each instance goes through the following stages depending on the [deployment policy](policies.md#deploy-policy):
 
 1. `CLOSING`: all current operations are being aborted and traffic stops being delivered to the instance.
 1. `STOPPING`: the instance is terminated.
@@ -45,7 +45,7 @@ When [a group is deleted](../operations/delete.md), each instance goes through t
 
 ### Update {#update}
 
-When [a group is updated](../operations/update.md), each instance goes through the following stages depending on the [deployment policy](policies.md#deploy-policy):
+When [a group is updated](../../operations/instance-groups/update.md), each instance goes through the following stages depending on the [deployment policy](policies.md#deploy-policy):
 
 1. `CLOSING`: all current operations are being aborted and traffic stops being delivered to the instance.
 1. `STOPPING`: the instance is terminated.

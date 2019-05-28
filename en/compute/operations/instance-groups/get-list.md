@@ -12,9 +12,9 @@ To get a list of instance groups:
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install](../../_includes/cli-install.md)]
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
 
 1. See the description of the CLI's use instance group command:
 
@@ -24,13 +24,13 @@ To get a list of instance groups:
 
 1. Get a list of instance groups in the default folder:
 
-    [!INCLUDE [instance-group-list](../../_includes/instance-groups/instance-group-list.md)]
+    [!INCLUDE [instance-group-list](../../../_includes/instance-groups/instance-group-list.md)]
 
 **[!TAB API]**
 
-Use the [list](../../instance-groups/api-ref/InstanceGroup/list.md) API method.
+Use the [list](../../instancegroup/api-ref/InstanceGroup/list.md) API method.
 
-To request a list of available groups, use the [listInstances](../../instance-groups/api-ref/InstanceGroup/listInstances.md) method.
+To request a list of available groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) method.
 
 ---
 

@@ -16,9 +16,9 @@ To get a list of instances:
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install.md](../../_includes/cli-install.md)]
+[!INCLUDE [cli-install.md](../../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue.md](../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue.md](../../../_includes/default-catalogue.md)]
 
 1. See the description of the CLI's get instance list command:
 
@@ -28,7 +28,7 @@ To get a list of instances:
 
 1. Get a list of instance groups in the default folder:
 
-    [!INCLUDE [instance-group-list.md](../../_includes/instance-groups/instance-group-list.md)]
+    [!INCLUDE [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md)]
 
 1. Select the `ID` or `NAME` of the necessary group (for example, `first-instance-group`).
 
@@ -40,7 +40,7 @@ To get a list of instances:
 
 **[!TAB API]**
 
-Use the [listInstances](../../instance-groups/api-ref/InstanceGroup/listInstances.md) method.
+Use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) method.
 
 ---
 

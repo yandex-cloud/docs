@@ -10,6 +10,7 @@
 | Total number of disk snapshots per cloud | 32 |
 | Total storage capacity of all disk snapshots per cloud | 400 GB |
 | Number of images per cloud | 8 |
+| Number of groups per cloud | 10 |
 
 #### Limits
 
@@ -20,4 +21,3 @@
 | Maximum number of disks connected to a single VM | 6 |
 | Maximum disk size | 4 TB |
 | Maximum disk snapshot size | 4 TB |
-

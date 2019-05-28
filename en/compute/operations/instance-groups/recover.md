@@ -1,6 +1,6 @@
 # Recover an instance group
 
-You can recover a group if one of its instances becomes unhealthy and the status changes to `FAILED`. For more information about statuses, see the section [[!TITLE]](../concepts/vm-statuses.md).
+You can recover a group if one of its instances becomes unhealthy and the status changes to `FAILED`. For more information about statuses, see the section [[!TITLE]](../../concepts/vm-statuses.md).
 
 To recover an instance group:
 
@@ -16,9 +16,9 @@ To recover an instance group:
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install.md](../../_includes/cli-install.md)]
+[!INCLUDE [cli-install.md](../../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue.md](../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue.md](../../../_includes/default-catalogue.md)]
 
 1. See the description of the CLI's recover group command:
 
@@ -28,7 +28,7 @@ To recover an instance group:
 
 1. Get a list of instance groups in the default folder:
 
-    [!INCLUDE [instance-group-list.md](../../_includes/instance-groups/instance-group-list.md)]
+    [!INCLUDE [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md)]
 
 1. Select the `ID` or `NAME` of the necessary group (for example, `first-instance-group`).
 
@@ -40,11 +40,6 @@ To recover an instance group:
 
    [!KEYREF ig-name] starts the operation to recover the instance group.
 
-**[!TAB API]**
-
-Use the [recover](../../instance-groups/api-ref/InstanceGroup/recover.md) API method.
-
-To request a list of available groups, use the [listInstances](../../instance-groups/api-ref/InstanceGroup/listInstances.md) method.
 
 ---
 

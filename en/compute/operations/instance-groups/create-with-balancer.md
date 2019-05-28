@@ -1,8 +1,8 @@
 # Create a fixed-size group with a load balancer
 
-You can create a fixed-size group along with a network load balancer that will evenly distribute the load across cloud resources. For more information, see [[!TITLE]](../../load-balancer/concepts/index.md) in the [!KEYREF load-balancer-full-name] documentation.
+You can create a fixed-size group along with a network load balancer that will evenly distribute the load across cloud resources. For more information, see [[!TITLE]](../../../load-balancer/concepts/index.md) in the [!KEYREF load-balancer-full-name] documentation.
 
-[!INCLUDE [warning.md](../../_includes/instance-groups/warning.md)]
+[!INCLUDE [warning.md](../../../_includes/instance-groups/warning.md)]
 
 To create an instance group with a load balancer:
 
@@ -17,14 +17,14 @@ To create an instance group with a load balancer:
 1. In the **Basic parameters** section, enter:
     - A group name in the **Name** field. The group name must be unique within the cloud.
 
-        [!INCLUDE [name-format](../../_includes/name-format.md)]
+        [!INCLUDE [name-format](../../../_includes/name-format.md)]
 
     - A group description in the **Description** field.
-1. In the **Allocation** section, select availability zones. Cluster VMs may reside in different availability zones and regions. [Learn more about the Cloud geography](../../overview/concepts/geo-scope.md).
+1. In the **Allocation** section, select availability zones. Cluster VMs may reside in different availability zones and regions. [Learn more about the Cloud geography](../../../overview/concepts/geo-scope.md).
 1. In the **Instance template** section, click **Add**:
-    - Select the required public [image](../../compute/operations/images-with-pre-installed-software/get-list.md).
+    - Select the required public [image](../images-with-pre-installed-software/get-list.md).
     - In the **Disks** section:
-        - Select the [disk type](../../compute/concepts/disk.md#disks_types) (HDD or NVME).
+        - Select the [disk type](../../concepts/disk.md#disks_types) (HDD or NVME).
 
         - Specify the disk size.
 
@@ -33,7 +33,7 @@ To create an instance group with a load balancer:
         - Select the platform.
         - Specify the necessary number of vCPUs and amount of RAM.
     - In the **Network settings** section:
-        - Select the [cloud network](../../compute/concepts/vm.md#network).
+        - Select the [cloud network](../../concepts/vm.md#network).
         - Specify if a public IP address is required.
     - In the **Access** section, specify data required for accessing the VM:
         - Enter the username in the **Login** field.
@@ -51,18 +51,18 @@ To create an instance group with a load balancer:
 
     - Maximum number of instances when deleting a group.
 
-        For more information, see [[!TITLE]](../../instance-groups/concepts/policies.md#deploy-policy).
+        For more information, see [[!TITLE]](../../concepts/instance-groups/policies.md#deploy-policy).
 1. In the **Scalability** section:
-    - Select the [scale type](../../instance-groups/concepts/scale.md).
+    - Select the [scale type](../../concepts/instance-groups/scale.md).
     - Specify the required number of instances.
 1. In the **Integration with [!KEYREF load-balancer-name]** section, switch the **Create target group** option to the right.
 1. Click **Create**.
 
 **[!TAB CLI]**
 
-[!INCLUDE [cli-install.md](../../_includes/cli-install.md)]
+[!INCLUDE [cli-install.md](../../../_includes/cli-install.md)]
 
-[!INCLUDE [default-catalogue.md](../../_includes/default-catalogue.md)]
+[!INCLUDE [default-catalogue.md](../../../_includes/default-catalogue.md)]
 
 1. See the description of the CLI's create instance group command:
 
@@ -76,11 +76,11 @@ To create an instance group with a load balancer:
     $ yc vpc network list
     ```
 
-    If there aren't any, [create the necessary networks](../../vpc/operations/subnet-create.md) in the [!KEYREF vpc-short-name] service.
+    If there aren't any, [create the necessary networks](../../../vpc/operations/subnet-create.md) in the [!KEYREF vpc-short-name] service.
 
-1. Select one of the [public images](../../compute/operations/images-with-pre-installed-software/get-list.md) (for example, CentOS 7).
+1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) (for example, CentOS 7).
 
-    [!INCLUDE [standard-images.md](../../_includes/standard-images.md)]
+    [!INCLUDE [standard-images.md](../../../_includes/standard-images.md)]
 
 1. Create a YAML file with any name (for example, `template.yaml`).
 
@@ -100,7 +100,7 @@ To create an instance group with a load balancer:
         | `name` | A name for the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters. |
         | `description` | A description of the instance group. |
 
-    - [The instance template](../concepts/instance-template.md):
+    - [The instance template](../../concepts/instance-groups/instance-template.md):
 
         ```
         instance_template:
@@ -131,9 +131,9 @@ To create an instance group with a load balancer:
         | `type_id` | Disk type. |
         | `size` | Disk size. |
         | `network_id` | The `default-net` ID. |
-        | `primary_v4_address_spec` | IPv4 specification. Only IPv4 is currently available. You can allow public access to group instances by specifying the IP version for the public IP address. For more information, see [[!TITLE]](../concepts/instance-template.md#instance-template). |
+        | `primary_v4_address_spec` | IPv4 specification. Only IPv4 is currently available. You can allow public access to group instances by specifying the IP version for the public IP address. For more information, see [[!TITLE]](../../concepts/instance-groups/instance-template.md#instance-template). |
 
-    - [Policies](../concepts/policies.md):
+    - [Policies](../../concepts/instance-groups/policies.md):
 
         ```
         deploy_policy:
@@ -218,11 +218,11 @@ To create an instance group with a load balancer:
     - With a 32 GB network HDD.
     - With a target group named `first-target-group`.
 
-1. Create a [load balancer](../../load-balancer/operations/load-balancer-create.md) and add the `first-target-group` target group to it .
+1. Create a [load balancer](../../../load-balancer/operations/load-balancer-create.md) and add the `first-target-group` target group to it .
 
 **[!TAB API]**
 
-Use the [create](../../instance-groups/api-ref/InstanceGroup/create.md) API method.
+Use the [create](../../instancegroup/api-ref/InstanceGroup/create.md) API method.
 
 ---
 
