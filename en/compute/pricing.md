@@ -86,7 +86,7 @@ If you created an image or snapshot, you pay for the storage of this object sepa
 
 The cost is specified for one month of use. Charging per second.
 
-# Use of [!KEYREF ig-name]
+### Use of [!KEYREF ig-name]
 
 [!KEYREF ig-name] can be used free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
 
