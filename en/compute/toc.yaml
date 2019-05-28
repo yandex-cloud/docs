@@ -122,7 +122,7 @@ items:
           - name: Disk snapshots
             href: concepts/snapshot.md
       - name: Images
-        href: concepts/images.md
+        href: concepts/image.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

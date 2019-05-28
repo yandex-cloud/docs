@@ -3,7 +3,7 @@
 All resources in [!KEYREF compute-short-name] can be divided into three types:
 
 * _Basic_ resources including [virtual machines](vm.md) and [disks](disk.md).
-* _Auxiliary_ resources including [snapshots](snapshot.md) and [images](images.md). These resources are only used for creating other resources.
+* _Auxiliary_ resources including [snapshots](snapshot.md) and [images](image.md). These resources are only used for creating other resources.
 * _Information_ resources such as disk type and availability zone. These resources are read-only.
 
 In addition, when creating VMs, resources of other services are used, such as subnets and folders.

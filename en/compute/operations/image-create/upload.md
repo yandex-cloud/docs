@@ -1,6 +1,6 @@
 # Uploading your disk image to Yandex.Cloud
 
-These guidelines describe how to upload a disk image file to Yandex.Cloud and create an [image](../../concepts/images.md) in the [!KEYREF compute-name] service. Supported image formats: Qcow2, VMDK, and VHD. Currently, you cannot upload your own image with the Windows OS.
+These guidelines describe how to upload a disk image file to Yandex.Cloud and create an [image](../../concepts/image.md) in the [!KEYREF compute-name] service. Supported image formats: Qcow2, VMDK, and VHD. Currently, you cannot upload your own image with the Windows OS.
 
 ## 1. Upload an image file to Yandex.Cloud
 
@@ -43,7 +43,7 @@ where:
 - `<IMAGE-NAME>` is the name to be assigned to the image.
 - `<IMAGE-URL>` is the link to the image received in [!KEYREF objstorage-name].
 
-If necessary, add a description and specify the [family](../../concepts/images.md#family) to which the image refers:
+If necessary, add a description and specify the [family](../../concepts/image.md#family) to which the image refers:
 
 ```
 $ yc compute image create  \

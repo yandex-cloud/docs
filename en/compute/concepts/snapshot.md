@@ -10,7 +10,7 @@ You can use disk snapshots for various purposes, such as:
 
 > [!NOTE]
 >
-> If you need to create multiple disks with identical content, use [images](images.md). Disk creation from an image is faster than from a snapshot.
+> If you need to create multiple disks with identical content, use [images](image.md). Disk creation from an image is faster than from a snapshot.
 
 ## A disk snapshot as a Yandex.Cloud resource  {#concept_pdw_xtc_v2b}
 
