@@ -148,6 +148,8 @@
                   primary_v4_address_spec: {}
         ```
 
+        [!INCLUDE [default-unit-size](../../../_includes/instance-groups/default-unit-size.md)]
+
         Ключи (в таблице приведены ключи, которые непосредственно определяют параметры ВМ):
 
         Ключ | Значение

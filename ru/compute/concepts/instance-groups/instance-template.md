@@ -63,6 +63,8 @@ instance_template:
 ...
 ```
 
+[!INCLUDE [default-unit-size](../../../_includes/instance-groups/default-unit-size.md)]
+
 Ключи (в таблице приведены ключи, которые непосредственно определяют конфигурацию базовой виртуальной машины):
 
 Ключ | Значение
