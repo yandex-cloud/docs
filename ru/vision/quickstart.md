@@ -4,24 +4,7 @@
 
 ## Перед началом
 
-1. Убедитесь, что у вас установлена утилита [cURL](https://curl.haxx.se), используемая в примерах.
-1. [Получите идентификатор каталога](../resource-manager/operations/folder/get-id.md), на который у вас есть роль `editor` или выше. Идентификатор каталога используется для авторизации. Подробнее в разделе [Управление доступом](security/index.md).
-1. Получите IAM-токен, необходимый для аутентификации в API ([о других способах аутентификации](api-ref/authentication.md)):
-
-    ---
-
-    **[!TAB CLI]**
-
-    ```
-    $ yc iam create-token
-    ```
-
-    **[!TAB API]**
-
-    [!INCLUDE [create-iam-token-api-steps](../_includes/iam/create-iam-token-api-steps.md)]
-
-    ---
-
+[!INCLUDE [ai-before-beginning](../_includes/ai-before-beginning.md)]
 
 ## Проанализируйте изображение
 
@@ -32,6 +15,7 @@
 #### Что дальше
 
 * [Узнайте обо всех возможностях сервиса](concepts/index.md)
+* [Узнайте про способы аутентификации в API](api-ref/authentication.md)
 * [Найдите лица на фото](operations/face-detection/index.md)
 * [Оцените качество изображения](operations/classification/quality.md)
 * [Модерируйте изображения](operations/classification/moderation.md)

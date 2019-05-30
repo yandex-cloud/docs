@@ -14,8 +14,8 @@
 - [[!TITLE]](sa/assign-role-for-sa.md)
 - [[!TITLE]](sa/set-access-bindings.md)
 - [[!TITLE]](sa/create-access-key.md)
+- [[!TITLE]](sa/get-id.md)
 - [[!TITLE]](sa/delete.md)
-
 
 ## Роли
 

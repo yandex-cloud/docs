@@ -159,7 +159,6 @@ items:
             href: concepts/instance-groups/vm-statuses.md
           - name:	Policies
             href : concepts/instance-groups/policies.md
-        href: concepts/image.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

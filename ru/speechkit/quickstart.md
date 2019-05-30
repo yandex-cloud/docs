@@ -4,23 +4,7 @@
 
 ## Перед началом {#before-begin}
 
-1. Убедитесь, что у вас установлена утилита [cURL](https://curl.haxx.se), используемая в примерах.
-1. [Получите идентификатор каталога](../resource-manager/operations/folder/get-id.md), на который у вас есть роль `editor` или выше. Идентификатор каталога используется для авторизации. Подробнее в разделе [Управление доступом](security/index.md).
-1. Получите IAM-токен, необходимый для аутентификации в API ([о других способах аутентификации](concepts/auth.md)):
-
-    ---
-
-    **[!TAB CLI]**
-
-    ```
-    $ yc iam create-token
-    ```
-
-    **[!TAB API]**
-
-    [!INCLUDE [create-iam-token-api-steps](../_includes/iam/create-iam-token-api-steps.md)]
-
-    ---
+[!INCLUDE [ai-before-beginning](../_includes/ai-before-beginning.md)]
 
 ## Преобразование текста в речь
 
@@ -69,5 +53,5 @@ $ curl -X POST \
 
 * [Подробнее про синтез речи](tts/index.md)
 * [Подробнее про распознавание речи](stt/index.md)
-* [Узнайте про другие способы аутентификации в API](concepts/auth.md)
+* [Узнайте про способы аутентификации в API](concepts/auth.md)
 * [Узнайте, как интегрировать телефонию](concepts/ivr-integration)

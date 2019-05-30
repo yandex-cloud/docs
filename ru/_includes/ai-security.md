@@ -1,20 +1,20 @@
 # Управление доступом
 
-В сервисе не создаются какие-либо ресурсы, поэтому для управления доступом используются [каталоги](../resource-manager/concepts/resources-hierarchy.md#folder). Вы указываете идентификатор каталога при каждом запросе к сервису. Если у вас нет необходимых разрешений на этот каталог, то сервис вернет ошибку.
+При выполнении запросов от имени [аккаунта на Яндексе](../iam/concepts/index.md#passport) указывайте [идентификатор каталога](../resource-manager/operations/folder/get-id.md), на который у вас есть разрешения роли `editor`. Если необходимых разрешений нет, то сервис вернет ошибку.
 
-Чтобы пользоваться сервисом, необходима одна из комбинаций [ролей](../iam/concepts/access-control/roles.md):
+Для [сервисного аккаунта](../iam/concepts/users/service-accounts.md) каталог не указывайте — используется каталог, в котором был создан этот аккаунт.
 
-* `resource-manager.cloud.member` + `editor`;
-* `resource-manager.cloud.member` + `admin`;
-* `resource-manager.cloud.owner`.
+Разрешения выдаются при [назначении роли](../iam/operations/roles/grant.md). Роль можно назначить на каталог или облако — все разрешения от облака [наследуются](../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 
-Для [сервисного аккаунта](../iam/concepts/users/service-accounts.md) и [системной группы](../iam/concepts/access-control/system-group.md) необязательно назначать роль `resource-manager.cloud.member`.
+Чтобы пользоваться сервисом, необходима одна из [ролей](../iam/concepts/access-control/roles.md):
 
-Для пользователя с аккаунтом на Яндексе роль `resource-manager.cloud.member` назначается автоматически при [добавлении в облако](../iam/operations/users/create.md).
+* `editor`;
+* `admin`;
+* `resource-manager.cloud.owner` (назначается только на облако).
 
 > [!NOTE]
 >
-> Роли `editor` и `admin` можно назначить на каталог или облако — все разрешения от облака [наследуются](../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+> Для пользователя с аккаунтом на Яндексе вместе с ролями `editor` или `admin` нужна роль `resource-manager.cloud.member` на облако. Эта роль назначается автоматически при [добавлении в облако](../iam/operations/users/create.md).
 
 #### Что дальше
 
