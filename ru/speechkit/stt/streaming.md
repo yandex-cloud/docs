@@ -10,37 +10,21 @@
 
 ## Использование сервиса
 
-### Перед началом
-
-1. Получите идентификатор каталога, к которому у вас есть доступ, например из URL страницы каталога в консоли управления:
-    ```
-    https://console.cloud.yandex.ru/folders/b5gfc3ntettogerelqed7p
-    ```
-    `b5gfc3ntettogerelqed7p` — это идентификатор каталога.
-1. Склонируйте репозиторий [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi):
-    ```
-    git clone https://github.com/yandex-cloud/cloudapi
-    ```
-    Файл [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) из этого репозитория будет использоваться для создания кода интерфейса клиента.
-
 ### Создание клиентского приложения
 
 Для распознавания речи приложение сначала должно отправить [сообщение с настройками распознавания](#specification-msg), а потом отправлять [сообщения с аудиофрагментами](#audio-msg).
 
 Параллельно с тем как отправляются аудиофрагменты, в ответ сервис будет возвращать [фрагменты распознанного текста](#response), которые необходимо обрабатывать, например выводить их в консоль.
 
-Чтобы приложение смогло обращаться к сервису, необходимо сгенерировать код интерфейса клиента для используемого языка программирования. Сгенерируйте этот код из скачанного файла [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto).
+Чтобы приложение смогло обращаться к сервису, необходимо сгенерировать код интерфейса клиента для используемого языка программирования. Сгенерируйте этот код из файла [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) из репозитория [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi).
 
 Ниже представлены [примеры](#examples) клиентских приложений. Помимо этого, в [документации gRPC](https://grpc.io/docs/tutorials/) вы можете найти подробные инструкции по генерации интерфейсов и реализации клиентских приложений для различных языков программирования.
 
 ### Авторизация в сервисе
 
-Для авторизации приложение должно отправлять в каждом сообщении [IAM-токен](../../iam/concepts/authorization/iam-token.md). Учтите, что срок действия IAM-токена ограничен.
+В каждом запросе приложение должно передавать [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вас есть роль `editor` или выше. Подробнее в разделе [Управление доступом](../security/index.md).
 
-Узнайте, как получить IAM-токен для вашего аккаунта в соответствующей инструкции:
-
-* [Инструкция](../../iam/operations/iam-token/create.md) для аккаунта на Яндексе.
-* [Инструкция](../../iam/operations/iam-token/create-for-sa.md) для [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
+Также приложение должно аутентифицироваться при каждом запросе, например при помощи IAM-токена[Подробнее об аутентификации в сервисе](../concepts/auth.md).
 
 ### Результат распознавания
 
@@ -115,9 +99,12 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
 
 Для того чтобы попробовать примеры в этом разделе:
 
-1. Скачайте protobuf-файл с описанием сервиса [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) в ту же директорию.
-1. Узнайте идентификатор каталога, к которому у вашего аккаунта есть доступ.
-1. Получите IAM-токен:
+1. Склонируйте репозиторий [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi):
+    ```
+    git clone https://github.com/yandex-cloud/cloudapi
+    ```
+1. [Узнайте идентификатор каталога](../../resource-manager/operations/folder/get-id.md), к которому у вашего аккаунта есть доступ.
+1. Для аутентификации в примерах используется [IAM-токен](../iam/concepts/authorization/iam-token) ([о других способах аутентификации](../concepts/auth.md)). Получите IAM-токен:
     * [Инструкция](../../iam/operations/iam-token/create.md) для аккаунта на Яндексе.
     * [Инструкция](../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
 1. Выберите аудиофайл для распознавания. В примерах используется файл `speech.pcm` в формате [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) с частотой дискретизации 8000.
@@ -129,38 +116,40 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
 
 ---
 
-**[!TAB Python]**
+**[!TAB Python 3]**
 
 1. Установите пакет grpcio-tools с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
 
     ```bash
-    pip install grpcio-tools
+    $ pip install grpcio-tools
     ```
 
-1. Перейдите в директорию с репозиторием [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) и сгенерируйте код интерфейса клиента:
+1. Перейдите в директорию с репозиторием [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi), создайте директорию `output` и сгенерируйте в ней код интерфейса клиента:
 
     ```bash
-    cd cloudapi
-    python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=. --grpc_python_out=. yandex/cloud/ai/stt/v2/stt_service.proto
+    $ cd cloudapi
+    $ mkdir output
+    $ python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=output --grpc_python_out=output google/api/http.proto google/api/annotations.proto yandex/api/operation.proto google/rpc/status.proto yandex/cloud/operation/operation.proto yandex/cloud/ai/stt/v2/stt_service.proto
     ```
 
-    В результате в этой директории будут созданы файлы с интерфейсом клиента: `stt_service_pb2.py` и `stt_service_pb2_grpc.py`.
+    В результате в директории `output` будут созданы файлы с интерфейсом клиента: `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
 
-1. Создайте файл, например `test.py`, и добавьте в него следующий код:
+1. Создайте файл в корне директории `output`, например `test.py`, и добавьте в него следующий код:
 
-    ```Python
+    ```python
+    #coding=utf8
     import argparse
 
     import grpc
 
-    import stt_service_pb2
-    import stt_service_pb2_grpc
+    import yandex.cloud.ai.stt.v2.stt_service_pb2 as stt_service_pb2
+    import yandex.cloud.ai.stt.v2.stt_service_pb2_grpc as stt_service_pb2_grpc
 
 
     CHUNK_SIZE = 16000
 
     def gen(folder_id, audio_file_name):
-        # Задаем настройки распознавания.
+        # Задать настройки распознавания.
         specification = stt_service_pb2.RecognitionSpec(
             language_code='ru-RU',
             profanity_filter=True,
@@ -171,10 +160,10 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
         )
         streaming_config = stt_service_pb2.RecognitionConfig(specification=specification, folder_id=folder_id)
 
-        # Отправляем сообщение с настройками распознавания.
+        # Отправить сообщение с настройками распознавания.
         yield stt_service_pb2.StreamingRecognitionRequest(config=streaming_config)
 
-        # Читаем аудиофайл и отправляем его содержимое порциями.
+        # Прочитать аудиофайл и отправить его содержимое порциями.
         with open(audio_file_name, 'rb') as f:
             data = f.read(CHUNK_SIZE)
             while data != b'':
@@ -183,15 +172,15 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
 
 
     def run(folder_id, iam_token, audio_file_name):
-        # Устанавливаем соединение с сервером.
+        # Установить соединение с сервером.
         cred = grpc.ssl_channel_credentials()
         channel = grpc.secure_channel('stt.api.cloud.yandex.net:443', cred)
         stub = stt_service_pb2_grpc.SttServiceStub(channel)
 
-        # Отправляем данные для распознавания.
+        # Отправить данные для распознавания.
         it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(('authorization', 'Bearer %s' % iam_token),))
 
-        # Обрабатываем ответы сервера и выводим результат в консоль.
+        # Обработать ответы сервера и вывести результат в консоль.
         try:
             for r in it:
                 try:
@@ -223,11 +212,11 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
     $ python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --path speech.pcm
     Start chunk:
     alternative: привет
-    ('Is final: ', False)
+    Is final: False
 
     Start chunk:
     alternative: привет мир
-    ('Is final: ', True)
+    Is final: True
     ```
 
 ---
