@@ -49,7 +49,7 @@ curl -H "Authorization: Bearer <IAM_TOKEN>" \
 
 ## 2. Создайте авторизованные ключи {#keys-create}
 
-Чтобы создать JWT необходимы [авторизованные ключи](../../concepts/users/service-accounts.md#keys).
+[Авторизованные ключи](../../concepts/users/service-accounts.md#keys) необходимы для создания JWT. Чтобы создать ключи:
 
 ---
 
