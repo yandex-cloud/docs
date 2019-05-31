@@ -5,12 +5,12 @@ The diagram shows the cycle of issuing and paying invoices for businesses, as we
 ![image](../_assets/billing-cycle-business-credit.svg)
 
 1. You [activate the paid version](../operations/activate-commercial.md) before the end of the trial period.
-  
-   [!INCLUDE [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md)] 
+
+   [!INCLUDE [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md)]
 
 1. If you are awarded a grant, you use it. The grant amount is reduced as the resources of Yandex.Cloud services are consumed.
 
-1. The grant amount and its validity period is verified during the entire reporting period. <br/>They are described in the table below.
+1. The grant amount and its validity period is verified during the entire reporting period. <br/>They are described in the following table.
 
    | Grant amount | Description |
    | ----- | ----- |
@@ -23,7 +23,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses, as we
 
 1. You use the Yandex.Cloud resources. [The personal account balance](../concepts/personal-account.md#balance) decreases as resource usage increases. Go to step 6.
 
-1. Your personal account balance is checked throughout the reporting period. <br/>Columns are described in the table below.
+1. Your personal account balance is checked throughout the reporting period. <br/>They are described in the following table.
 
     | Balance | Description |
     | ----- | ----- |
@@ -52,7 +52,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses, as we
 
     During the suspension period, a fee is charged for data storage services, in addition to a late payment fee. Go to step 11.
 
-1. Payment of the entire outstanding amount is verified within 30 days of suspension:
+1. Payment of the entire outstanding amount is checked throughout the 30-day suspension period:
 
     11.1. If you pay the total amount due during this period, access to resources is restored within 24 hours. The billing account status will be changed to [ACTIVE](../concepts/billing-account-statuses.md). Go back to step 4.
 <br/>11.2. Otherwise, access to the use of Yandex.Cloud services may be permanently blocked. All your data, including your [billing account](../concepts/billing-account.md), will be permanently deleted.

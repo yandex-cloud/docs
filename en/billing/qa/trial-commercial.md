@@ -16,3 +16,17 @@ Yes, you can. For more information, see [Activate the paid version](../operation
 
 All your resources will be blocked. For more information, see the document [Trial period](../../free-trial/).
 
+#### Is there a free non-commercial version? {#commercial-nonpaid}
+
+No. However, you can use the trial period.
+
+[!INCLUDE [trial-activation](../_includes/trial-activation.md)]
+
+#### I upgraded to the paid version. Can I go back to the trial period? {#return-trial-period}
+
+No.
+
+[!INCLUDE [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md)]
+
+For more information, see [Billing cycle](../payment/billing-cycle.md).
+

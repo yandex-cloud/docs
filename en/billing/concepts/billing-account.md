@@ -39,7 +39,7 @@ The type of a billing account determines the Yandex.Cloud resource [payment meth
 
 The billing account has no validity period.
 
-However, if the use of Yandex.Cloud services is suspended due to outstanding charges and you fail to pay it within 30 days of suspension, all your data, including the billing account, will be permanently blocked and deleted.
+However, if the use of Yandex.Cloud services is suspended due to arrears and you fail to pay the outstanding amount within 30 days of suspension, all your data, including the billing account, will be permanently blocked and deleted.
 
 ## Number of billing accounts {#restrictions}
 
