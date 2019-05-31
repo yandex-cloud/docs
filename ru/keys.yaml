@@ -135,6 +135,7 @@ s2.3xlarge: s2.3xlarge (32 vCPU, 128 ГБ)
 s2.4xlarge: s2.4xlarge (40 vCPU, 160 ГБ)
 s2.5xlarge: s2.5xlarge (48 vCPU, 192 ГБ)
 
+# SpeechKit specific
 stt-short—fileSize: 1 МБ
 stt-short-audioLength: 1 минута
 stt-short-channelsCount: 1
