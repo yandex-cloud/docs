@@ -45,7 +45,7 @@ items:
             href: operations/iam-token/create-for-sa.md
       - name: API-ключи
         items:
-          - name: Получить API-ключ
+          - name: Создать API-ключ
             href: operations/api-key/create.md
           - name: Удалить API-ключ
             href: operations/api-key/delete.md

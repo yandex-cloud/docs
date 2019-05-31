@@ -10,6 +10,8 @@
 
 **[!TAB CLI]**
 
+[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+
 Получите IAM-токен:
 
 ```
