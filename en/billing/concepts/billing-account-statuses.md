@@ -28,7 +28,7 @@ Statuses are described in the table below.
 | `FIRST_PAYMENT_REQUIRED` | None | The use of Yandex.Cloud services is not allowed. <br/>Most likely, you previously created a billing account that had the trial period activated. <br/>The status persists until you top up your personal account. |
 | `ACTIVE` | Positive | All Yandex.Cloud services are available for use. <br/> The status persists until arrears for usage have accumulated. |
 | `PAYMENT_REQUIRED` | Negative | The account has arrears for service usage. <br/><br/>The use of the Yandex.Cloud services may be suspended if you don't pay the amount owed in time. During the suspension period, a fee is charged for data storage services, in addition to a late payment fee. |
-| `SUSPENDED` | Negative | Access to the use of Yandex.Cloud services is suspended.<br/><br/>The maximum data storage period after the suspension is 30 calendar days.<br/><br/>Within 30 calendar days of suspending access, the system checks whether a payment is made: <br/> - If you pay the entire outstanding amount, your access to resources will be restored within 24 hours. <br/> - If you do not pay the entire outstanding amount, all your data, including your billing account, will be permanently blocked and deleted. |
+| `SUSPENDED` | Negative | Access to Yandex.Cloud services is suspended.<br/><br/>The maximum data storage period after suspension is 30 calendar days.<br/><br/>For 30 days after the suspension, the system checks whether a payment is made: <br/> - If you pay the entire outstanding amount, access to resources is restored within 24 hours. <br/> - If you do not pay the entire outstanding amount, all data, including your billing account, is permanently blocked and deleted. |
 
-For more information, see the section [Billing cycle](../payment/billing-cycle.md).
+For more information, see [Billing cycle](../payment/billing-cycle.md).
 

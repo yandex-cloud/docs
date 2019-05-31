@@ -8,14 +8,14 @@
 
 Access to [billing accounts](../concepts/billing-account.md) of the Billing system is provided by the service[Yandex.Cloud IAM](../../iam/).
 
-Once you create a billing account, you are automatically assigned the _Owner_ role. The _Owner_ role allows you to perform any actions with your billing account:
- 
+Once you create a billing account, you are automatically assigned the _Owner_ role. The _Owner_ role lets you perform any action from your billing account:
+
 * Activate the [trial period](../trial/activation.md).
 * Activate the [paid version](../operations/activate-commercial.md).
-* [Check your costs](../operations/check-diagram.md) and [view usage details](../operations/check-charges.md).
+* [Monitor spending](../operations/check-diagram.md) and [view service usage details](../operations/check-charges.md).
 * [Enable the credit limit](../concepts/credit-limit.md).
-* [Change data](../operations/change-data.md) in your billing account.
-* [Add a new bank card](../operations/pin-card.md).
+* [Change your billing account data](../operations/change-data.md).
+* [Change a bank card](../operations/pin-card.md).
 
 > [!NOTE]
 >

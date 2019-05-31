@@ -2,11 +2,7 @@
 
 The payment method can only be changed for the billing account of the **Business account** type:  you can only use a transfer from your bank account instead of a transfer from your bank card. To do this, send a request to: [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru).
 
-In the request, specify the full name of your company and cloud id and attach the following documents:
-
-  - A copy of the certificate of incorporation or business registration.
-  - A copy of the decision or minutes on the appointment of the General Director (if you are the General Director).
-  - A copy of the power of attorney of the business representative (if you are a representative).
+[!INCLUDE [change-payment-docs](../_includes/change-payment-docs.md)]
 
 Your request will be reviewed within three business days. As soon as the decision is made, a Yandex.Cloud manager will contact you.
 

@@ -34,7 +34,18 @@ Yes.
 
 If you pay for resources with a bank card in a foreign currency, the equivalent amount in rubles, including VAT, is debited from the bank card. Additional bank fees for the currency conversion might be debited or credited a day or two later.
 
-#### Will you provide a contract for service rendering and payment? {#oferta}
+#### I linked a bank card to my billing account. When will money be debited from it? {#unlink-card}
+
+If this is your trial period, funds will not be debited from the bank card you linked.
+Since you do not automatically upgrade to the paid version at the end of the trial period, funds are only debited after activating the paid version and using Yandex.Cloud services.
+
+If you upgraded to the paid version and used Yandex.Cloud services, do the following to stop incurring charges:
+
+1. Settle your arrears (if any).
+1. Delete all billable service resources.
+1. Contact [technical support](https://cloud.yandex.ru/support) to deactivate your account.
+
+#### Will you provide an agreement for the provision and payment of services? {#oferta}
 
 In Yandex.Cloud, all services are rendered under an agreement that you accept when you create a [billing account](../concepts/billing-account.md). The agreement does not need to be signed by both parties.
 

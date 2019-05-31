@@ -46,7 +46,7 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
 
    During the suspension period, a fee is charged for data storage services, in addition to a late payment fee. Go to step 11.
 
-1. Payment of the entire outstanding amount is verified within 30 days of suspension:
+1. Payment of the entire outstanding amount is checked throughout the 30-day suspension period:
 
     11.1. If you pay the total amount due during this period, access to resources is restored within 24 hours. The billing account status will be changed to [ACTIVE](../concepts/billing-account-statuses.md). Go back to step 2.
 <br/>11.2. Otherwise, access to the use of Yandex.Cloud services may be permanently blocked. All your data, including your [billing account](../concepts/billing-account.md), will be permanently deleted.

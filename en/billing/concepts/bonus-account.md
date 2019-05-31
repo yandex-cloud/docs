@@ -8,12 +8,12 @@ When [creating your first billing account](../quickstart/index.md), you are prov
 
 > [!NOTE]
 >
-> Only one initial grant can given to an individual or business.
+> Only one initial grant can be given to an individual or business.
 >
 
 ## Additional grants {#additional}
 
-Additional grants can be provided by the decision of a Yandex.Cloud manager or upon your request to the support service. The amount of additional grants and their validity period are displayed in the management console.
+Additional grants can be provided by the decision of a Yandex.Cloud manager or upon your request to the support service. You can view the amount of additional grants and their validity period in the management console.
 
 ## How to use grants {#how-to-use}
 
