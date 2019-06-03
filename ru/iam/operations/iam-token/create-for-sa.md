@@ -308,7 +308,7 @@ public class JwtTest {
                 .setAudience("https://iam.api.cloud.yandex.net/iam/v1/tokens")
                 .setIssuedAt(Date.from(now))
                 .setExpiration(Date.from(now.plusSeconds(360)))
-                .signWith(privateKey, SignatureAlgorithm.PS256)
+                .signWith(SignatureAlgorithm.PS256, privateKey)
                 .compact();
     }
 }
