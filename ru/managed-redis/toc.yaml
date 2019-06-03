@@ -16,6 +16,8 @@ items:
         href: operations/connect.md
       - name: Сменить мастер
         href: operations/failover.md
+      - name: Удаление кластера
+        href: operations/cluster-delete.md
   - name: Концепции
     items:
     - name: Обзор
