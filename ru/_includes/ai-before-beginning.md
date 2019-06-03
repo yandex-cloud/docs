@@ -1,5 +1,6 @@
 Чтобы воспользоваться примерами в этом разделе:
 
+1. [На странице биллинга](https://console.cloud.yandex.ru/billing) убедитесь, что [платежный аккаунт](../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Убедитесь, что у вас установлена утилита [cURL](https://curl.haxx.se), используемая в примерах.
 1. [Получите идентификатор любого каталога](../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `editor` или выше.
 1. [Получите IAM-токен](../iam/operations/iam-token/create.md) для своего аккаунта на Яндексе.
