@@ -122,7 +122,7 @@ zone_names       = ["ru-central1-a", "ru-central1-b"]
 zone_short_names = ["rc1a", "rc1b"]
 ```
 
-## 4. Разверните инфраструктуру {#terraform-plan}
+## 5. Разверните инфраструктуру {#terraform-plan}
 
 Выполните команду:
 
