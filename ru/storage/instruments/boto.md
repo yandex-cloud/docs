@@ -45,7 +45,7 @@ s3.put_object(Bucket='bucket-name', Key='object_name', Body='TEST', StorageClass
 s3.upload_file('this_script.py', 'bucket-name', 'py_script.py')
 s3.upload_file('this_script.py', 'bucket-name', 'script/py_script.py')
 
-# Получить перечень объектов в бакет
+# Получить список объектов в бакете
 for key in s3.list_objects(Bucket='bucket-name')['Contents']:
     print(key['Key'])
 

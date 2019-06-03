@@ -41,3 +41,5 @@ items:
         href: infrastructure-management/terraform-quickstart.md
       - name: Начало работы с Packer
         href: infrastructure-management/packer-quickstart.md
+      - name: Развертывание Active Directory
+        href: infrastructure-management/active-directory.md

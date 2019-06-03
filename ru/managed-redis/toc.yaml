@@ -14,8 +14,12 @@ items:
         href: operations/cluster-create.md
       - name: Подключение к базе данных
         href: operations/connect.md
+      - name: Управление хостами кластера
+        href: operations/hosts.md
       - name: Сменить мастер
         href: operations/failover.md
+      - name: Удаление кластера
+        href: operations/cluster-delete.md
   - name: Концепции
     items:
     - name: Обзор
