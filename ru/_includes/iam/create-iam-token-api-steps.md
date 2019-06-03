@@ -9,5 +9,7 @@
     * с помощью встроенной функции в PowerShell:
 
         ```
-        (Invoke-RestMethod -Uri 'https://iam.api.cloud.yandex.net/iam/v1/tokens' -Method 'POST' -Body (@{yandexPassportOauthToken="<OAuth-Token>";}|ConvertTo-Json) -ContentType "application/json").iamToken
+        $yandexPassportOauthToken = "<OAuth-Token>"
+        $Body = @{ yandexPassportOauthToken = "$yandexPassportOauthToken" } | ConvertTo-Json -Compress
+        Invoke-RestMethod -Method 'POST' -Uri 'https://iam.api.cloud.yandex.net/iam/v1/tokens' -Body $Body -ContentType 'Application/json' | Select-Object -ExpandProperty iamToken
         ```
