@@ -5,3 +5,4 @@
 - [[!TITLE]](connect.md)
 - [[!TITLE]](failover.md)
 - [[!TITLE]](cluster-delete.md)
+- [[!TITLE]](hosts.md)
