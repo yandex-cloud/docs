@@ -32,6 +32,8 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
 
 ## Примеры {#examples}
 
+[!INCLUDE [ai-before-beginning](../../_includes/ai-before-beginning.md)]
+
 ### Превратить текст в речь в формате Ogg {#ogg}
 
 В этом примере текст "Hello World" синтезируется и записывается в аудиофайл.

@@ -23,6 +23,12 @@ To assign a role, you [select a resource](#resource), [choose a role](#role), an
 
 You can also assign a role to a parent resource that [access rights are inherited](#inheritance) from, such as a folder or cloud.
 
+> [!IMPORTANT]
+>
+> Changing access rights usually takes 30 seconds or less, but it may take up to 5 minutes.
+>
+> For example, you were given the right to create folders in the cloud and you were able to create one folder, but couldn't create another one. This is because the access rights have not yet been updated on the server where the second create folder operation was performed. Try creating a folder again.
+
 ### Resources that roles can be assigned for {#resource}
 
 You can currently assign a role [for a cloud](../../../resource-manager/operations/cloud/set-access-bindings.md), [folder](../../../resource-manager/operations/folder/set-access-bindings.md), or [service account](../../operations/sa/set-access-bindings.md).
