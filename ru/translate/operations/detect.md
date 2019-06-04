@@ -4,19 +4,7 @@
 
 ## Примеры
 
-### Перед началом
-
-Чтобы воспользоваться примерами в этом разделе:
-
-1. Получите идентификатор каталога, к которому у вас есть доступ, например из URL страницы каталога в консоли управления:
-    ```
-    https://console.cloud.yandex.ru/folders/b5gfc3ntettogerelqed7p
-    ```
-    `b5gfc3ntettogerelqed7p` — это идентификатор каталога.
-1. Получите IAM-токен:
-    * [Инструкция](../../iam/operations/iam-token/create.md) для аккаунта на Яндексе.
-    * [Инструкция](../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
-1. Убедитесь, что у вас установлена утилита [cURL](https://curl.haxx.se), используемая в примерах.
+[!INCLUDE [ai-before-beginning](../../_includes/ai-before-beginning.md)]
 
 ### Hello, world
 
