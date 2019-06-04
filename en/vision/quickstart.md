@@ -6,7 +6,7 @@ This section describes how to get started with the [!KEYREF vision-short-name] A
 
 1. Make sure you have installed the [cURL](https://curl.haxx.se) utility that is used in the examples.
 
-1. [Get the ID of the folder](../resource-manager/operations/folder/get-id.md) for which you are granted the `editor` role or a higher role. For more information about the required roles, see [Access management](security/index.md).
+1. [Get the ID of the folder](../resource-manager/operations/folder/get-id.md) for which you are granted the `editor` role or a higher role. The folder ID is used for authorization. For more information, see [Access management](security/index.md).
 
 1. Get the IAM token required for authentication in the API ([other authentication methods](api-ref/authentication.md)):
 

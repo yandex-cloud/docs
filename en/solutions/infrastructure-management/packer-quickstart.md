@@ -1,6 +1,6 @@
 # Getting started with Packer
 
-Packer lets you create [virtual machine images](../../compute/concepts/images.md) from configuration files called templates. Below, we describe how to create a disk image using Packer.
+Packer lets you create [virtual machine images](../../compute/concepts/image.md) from configuration files called templates. Below, we describe how to create a disk image using Packer.
 
 In this scenario, Packer will create and launch a virtual machine with Debian 9 and nginx web server. Then, it will delete the VM and create an image of its boot disk. After that, the disk will also be deleted.
 
