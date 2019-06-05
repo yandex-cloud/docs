@@ -31,7 +31,7 @@
     - С именем `second-instance`.
     - С OC Windows Server 2016.
     - В зоне доступности `ru-central1-a`.
-    - С пользователем `administrator`.
+    - С пользователем `Administrator`.
     - С публичным IP.
 
     Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
@@ -44,6 +44,8 @@
 
         [!INCLUDE [name-fqdn](../../_includes/compute/name-fqdn.md)]
 
-    - Пароль администратора в файле `metadata.yaml`. Пароль необходим для доступа на виртуальную машину по RDP. Не используйте легко подбираемые пароли. Пароли должны соответствовать требованиям сложности [политики безопасности](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh994562%28v%3dws.11%29) Windows. Требования к сложности пароля применяются во время создания виртуальной машины и могут стать причиной отказа в доступе.
+    - Пароль администратора в файле `metadata.yaml`. Пароль необходим для доступа на виртуальную машину по RDP.
+
+        [!INCLUDE [password-requirements](../../_includes/compute/password-requirements.md)]
 
 
