@@ -1,7 +1,5 @@
 # Recognition of long audio files
 
-_Recognition of long audio files is at the [Preview stage](../../overview/concepts/launch-stages)._
-
 ## Audio file requirements
 
 The [!KEYREF speechkit-name] service can recognize multichannel audio files of up to [!KEYREF stt-long-fileSize].
