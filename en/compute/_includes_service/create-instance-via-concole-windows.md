@@ -13,7 +13,7 @@
 1. In the **Network settings** section, select the subnet to connect the VM to when creating it.
 1. When you create a VM, the `Administrator` user is automatically created in the operating system. In the **Password** field, set a password for this user to log in to the VM via RDP.
 
-    [!INCLUDE [password-requirements](../../_includes/password-requirements.md)]
+    [!INCLUDE [password-requirements](../../_includes/compute/password-requirements.md)]
 
 1. Click **Create VM**.
 

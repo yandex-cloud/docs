@@ -8,10 +8,9 @@ items:
     items:
       - name: О технологии
         href: stt/index.md
-      - name: Распознавание коротких аудиофайлов
+      - name: Распознавание коротких аудио
         href: stt/request.md
-      - name: Распознавание длинных аудиофайлов
-        stage: preview
+      - name: Распознавание длинных аудио
         href: stt/transcribation.md
       - name: Потоковое распознавание
         href: stt/streaming.md

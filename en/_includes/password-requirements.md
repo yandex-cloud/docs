@@ -1,2 +1,0 @@
-Do not use passwords that are easy to guess. If hackers manage to guess your password, they will get access to the VM on behalf of the `Administrator`. Passwords must meet the complexity requirements of the [security policy](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh994562%28v%3dws.11%29) defined by Windows. Password complexity requirements are applied when creating a VM and may result in access denial if not met.
-

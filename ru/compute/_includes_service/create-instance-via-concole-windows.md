@@ -20,6 +20,6 @@
     - **Без адреса** — чтобы не назначать публичный IP-адрес.
 1. При создании виртуальной машины в операционной системе будет автоматически создан пользователь `Administrator`. В поле **Пароль** задайте пароль для этого пользователя, с которым можно будет войти на виртуальную машину по RDP.
 
-    [!INCLUDE [password-requirements](../../_includes/password-requirements.md)]
+    [!INCLUDE [password-requirements](../../_includes/compute/password-requirements.md)]
 
 1. Нажмите кнопку **Создать ВМ**.
