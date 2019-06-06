@@ -36,7 +36,7 @@ Once you've created the VM, configure routing:
 
    ```
    $ sudo sysctl -p /etc/sysctl.conf
-   $ sudo systemctl restart network.service
+   $ sudo systemctl restart systemd-networkd
    ```
 
 1. Set up address translation rules.
