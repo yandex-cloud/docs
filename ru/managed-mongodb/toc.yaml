@@ -23,6 +23,8 @@ items:
       href: operations/cluster-backups.md
     - name: Удаление кластера
       href: operations/cluster-delete.md
+    - name: Миграция базы данных в Облако
+      href: operations/data-migration.md
   - name: Основные понятия
     items:
     - name: Взаимосвязь ресурсов сервиса
