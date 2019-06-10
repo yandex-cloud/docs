@@ -2,7 +2,7 @@
 
 [!INCLUDE [sa-def](../../_includes_service/sa-def.md)]
 
-## What are service accounts used for?
+## What are service accounts used for? {#sa-usage}
 
 By using service accounts you can flexibly configure access rights to resources for programs you have written.
 
@@ -14,7 +14,7 @@ A service account is a resource. You can assign and revoke users' roles for a se
 
 Service accounts should be used when performing operations as a normal user is either inconvenient or unsafe.
 
-## Service account keys
+## Service account keys {#sa-key}
 
 The following keys are used for service account authentication in Yandex.Cloud:
 
@@ -24,7 +24,7 @@ The following keys are used for service account authentication in Yandex.Cloud:
 
 Generated keys belong to the service account and permissions to manage them are inherited from the service account. For example, if you have the `viewer` role in the service account, you can view the list of keys that belong to this account, but you cannot delete them or create new keys.
 
-#### See also
+#### See also {#see-also}
 
 - [Authorization on behalf of a service account](../authorization/index.md#sa)
 

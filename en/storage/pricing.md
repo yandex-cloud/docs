@@ -59,7 +59,7 @@ Prices are specified for a 30-day month. For shorter months, the price is higher
 Here is an example of proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a month that is 30 days long. The total cost of storage can be calculated using the formula:
 
 ```
-Storage_cost = Cost_per_GB_per_month * 15 * 11.5 / 24 / 30
+Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
 ```
 
 ### Operations with data {#prices-operations}
