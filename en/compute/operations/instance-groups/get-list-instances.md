@@ -40,7 +40,7 @@ To get a list of instances:
 
 **[!TAB API]**
 
-Use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) method.
+Use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
 
 ---
 

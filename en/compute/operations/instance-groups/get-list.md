@@ -28,9 +28,9 @@ To get a list of instance groups:
 
 **[!TAB API]**
 
-Use the [list](../../instancegroup/api-ref/InstanceGroup/list.md) API method.
+Use the [list](../../api-ref/InstanceGroup/list.md) API method.
 
-To request a list of available groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) method.
+To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
 
 ---
 

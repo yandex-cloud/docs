@@ -45,8 +45,8 @@
 
 **[!TAB API]**
 
-Воспользуйтесь методом API [delete](../../instancegroup/api-ref/InstanceGroup/delete.md).
+Воспользуйтесь методом API [delete](../../api-ref/InstanceGroup/delete.md).
 
-Список доступных групп запрашивайте методом [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md).
+Список доступных групп запрашивайте методом [listInstances](../../api-ref/InstanceGroup/listInstances.md).
 
 ---

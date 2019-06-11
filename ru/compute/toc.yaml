@@ -198,10 +198,6 @@ items:
     include:
       repo: docs-api
       path: ru/compute/toc.yaml
-  - name: Справочник API Instance Groups
-    include:
-      repo: docs-api
-      path: ru/compute/instancegroup/toc.yaml
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

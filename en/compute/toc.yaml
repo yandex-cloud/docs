@@ -180,10 +180,6 @@ items:
     include:
       repo: docs-api
       path: en/compute/toc.yaml
-  - name: Instance Groups API reference
-    include:
-      repo: docs-api
-      path: en/compute/instancegroup/toc.yaml
   - name: Questions and answers
     items:
       - name: General questions
