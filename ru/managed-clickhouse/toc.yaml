@@ -13,6 +13,8 @@ items:
       href: operations/cluster-create.md
     - name: Подключение к базе данных
       href: operations/connect.md
+    - name: Добавление данных в БД
+      href: operations/insert.md
     - name: Миграция данных ClickHouse
       href: operations/data-migration.md
     - name: SQL-запросы в консоли управления
