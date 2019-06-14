@@ -12,9 +12,9 @@ The service can recognize speech in several languages:
 
 There are three recognition methods:
 
-1. [Recognition of short audio files](request.md).
-1. [Recognition of long audio files](transcribation.md). _Recognition of long audio files is at the [Preview stage](../../overview/concepts/launch-stages)._
-1. [Data streaming recognition](streaming.md).
+1. [Recognition of short audio fragments](request.md). This is suitable for recognizing small single-channel audio fragments.
+1. [Streaming mode](streaming.md) for short audio recognition. This allows you to send audio fragments and get results, including intermediate recognition results, over a single connection.
+1. [Recognition of long audio fragments](transcribation.md). This allows you to recognize long multi-channel audio recordings, but the response may be slower.
 
 ## Recognition process {#process}
 

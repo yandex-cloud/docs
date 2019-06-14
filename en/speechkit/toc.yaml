@@ -4,8 +4,6 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Authorization in the API
-    href: concepts/auth.md
   - name: Speech recognition
     items:
       - name: About the technology
@@ -27,10 +25,16 @@ items:
         href: tts/index.md
       - name: API method description
         href: tts/request.md
-  - name: Response format
-    href: concepts/response.md
   - name: IVR integration
     href: concepts/ivr-integration.md
+  - name: Using API
+    items:
+      - name: Authentication in the API
+        href: concepts/auth.md
+      - name: Response format
+        href: concepts/response.md
+      - name: Troubleshooting
+        href: concepts/support-headers.md
   - name: Quotas and limits
     href: concepts/limits.md
   - name: Access management

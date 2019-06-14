@@ -9,7 +9,7 @@ items:
         href: operations/translate.md
       - name: Detect the language of the text
         href: operations/detect.md
-  - name: Authorization in the API
+  - name: Authentication in the API
     href: concepts/auth.md
   - name: API reference
     items:
@@ -17,6 +17,8 @@ items:
       items:
       - name: Handling errors
         href: api-ref/errors-handling.md
+      - name: Troubleshooting
+        href: api-ref/support-headers.md
       include:
         repo: docs-api
         path: en/ai/translate/toc.yaml

@@ -1,20 +1,32 @@
-# Recognition of long audio files
+# Recognition of long audio fragments
 
-## Audio file requirements
+Long audio fragment recognition can be used for multi-channel audio files up to [!KEYREF stt-long-fileSize].
 
-The [!KEYREF speechkit-name] service can recognize multichannel audio files of up to [!KEYREF stt-long-fileSize].
-
-See the [supported formats](formats.md).
+Long audio fragment recognition is somewhat cheaper than other [recognition methods](index.md#stt-ways), but it is not suitable for online speech recognition as it has a longer response time. For more information about pricing, see [[!TITLE]](../pricing.md).
 
 ## Before getting started
 
-1. A recognition request should be sent on behalf of a [service account](../../iam/concepts/users/service-accounts.md)! If you don't have a service account yet, [create one](../../iam/operations/sa/create.md).
+1. A recognition request should be sent on behalf of a [service account](../../iam/concepts/users/service-accounts.md). If you don't have a service account yet, [create one](../../iam/operations/sa/create.md).
+
 1. Make sure the service account has access to the folder where it was created. If you want to use a different folder for authorization, you need to specify the folder ID in your request.
+
 1. [Get an IAM token](../../iam/operations/iam-token/create-for-sa.md) for your service account.
+
 1. Upload an audio file to [!KEYREF objstorage-full-name] and get a link to the uploaded file:
-   1. If you don't have a bucket in [!KEYREF objstorage-name], [create](../../storage/operations/buckets/create.md) one.
-   1. [Upload an audio file](../../storage/operations/objects/upload.md) to your bucket. In [!KEYREF objstorage-name] terms, uploaded files are called _objects_.
-   1. [Get a link](../../storage/operations/objects/link-for-download.md) to the uploaded file. Use this link in your audio recognition request.
+
+    1. If you don't have a bucket in [!KEYREF objstorage-name], [create](../../storage/operations/buckets/create.md) one.
+
+    1. [Upload an audio file](../../storage/operations/objects/upload.md) to your bucket. In [!KEYREF objstorage-name] terms, uploaded files are called _objects_.
+
+    1. [Get a link](../../storage/operations/objects/link-for-download.md) to the uploaded file. Use this link in your audio recognition request.
+
+        The link to the downloaded file has the following format:
+
+        ```
+        https://[!KEYREF s3-storage-host]/<bucket-name>/<path-to-file>
+        ```
+
+        The link will contain additional query parameters (after `?`) for buckets with restricted access. You do not need to pass these parameters in [!KEYREF speechkit-name] as they are ignored.
 
 ## Send a file for recognition
 

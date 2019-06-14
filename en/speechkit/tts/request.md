@@ -29,6 +29,8 @@ If speech synthesis is successful, the response contains the binary content of t
 
 ## Examples {#examples}
 
+[!INCLUDE [ai-before-beginning](../../_includes/ai-before-beginning.md)]
+
 ### Convert text to speech in Ogg format {#ogg}
 
 In this example, the text "Hello world" is synthesized and recorded as an audio file.
