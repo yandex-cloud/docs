@@ -51,6 +51,10 @@ In Yandex.Cloud, all services are rendered under an agreement that you accept wh
 
 For more information, see [Agreement](../concepts/contract.md).
 
+#### Where can I find the terms of an agreement? {#oferta-terms}
+
+You can find it on [Yandex.Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en) page.
+
 #### Can a signed contract be finalized? {#contract}
 
 Businesses may conclude a contract that is signed by both parties. To do this, submit a request using the **Ask a question** form on the [Contact us](https://cloud.yandex.com/support) page. A Yandex.Cloud manager will contact you to discuss the contract signing terms and conditions.
