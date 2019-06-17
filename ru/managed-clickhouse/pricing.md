@@ -82,6 +82,14 @@ editable: false
 [!KEYREF b1.nano] | 508 ₽
 [!KEYREF b1.micro] | 858 ₽
 [!KEYREF b1.medium]  | 1 581 ₽
+[!KEYREF m1.micro] | 5 540 ₽
+[!KEYREF m1.small] | 11 080 ₽
+[!KEYREF m1.medium]| 16 620 ₽
+[!KEYREF m1.large] | 22 160 ₽
+[!KEYREF m1.xlarge] | 33 240 ₽
+[!KEYREF m1.2xlarge] | 44 320 ₽
+[!KEYREF m1.3xlarge] | 66 479 ₽
+[!KEYREF m1.4xlarge] | 88 639 ₽
 [!KEYREF s1.nano] | 1 984 ₽
 [!KEYREF s1.micro] | 3 969 ₽
 [!KEYREF s1.small] | 7 930 ₽
@@ -92,6 +100,16 @@ editable: false
 [!KEYREF b2.nano]| 508 ₽
 [!KEYREF b2.micro] | 858 ₽
 [!KEYREF b2.medium] | 1 581 ₽
+[!KEYREF m2.micro] | 5 540 ₽
+[!KEYREF m2.small] | 11 080 ₽
+[!KEYREF m2.medium]| 16 620 ₽
+[!KEYREF m2.large] | 22 160 ₽
+[!KEYREF m2.xlarge] | 33 240 ₽
+[!KEYREF m2.2xlarge] | 44 320 ₽
+[!KEYREF m2.3xlarge] | 66 479 ₽
+[!KEYREF m2.4xlarge] | 88 639 ₽
+[!KEYREF m2.5xlarge] | 110 798 ₽
+[!KEYREF m2.6xlarge] | 132 958 ₽
 [!KEYREF s2.micro] | 3 658 ₽
 [!KEYREF s2.small] | 7 316 ₽
 [!KEYREF s2.medium] | 14 633 ₽
@@ -110,6 +128,14 @@ editable: false
 [!KEYREF b1.nano]| 0,7056 ₽
 [!KEYREF b1.micro] | 1,1916 ₽
 [!KEYREF b1.medium] | 2,1960 ₽
+[!KEYREF m1.micro] | 7,6944 ₽
+[!KEYREF m1.small] | 15,3888 ₽
+[!KEYREF m1.medium]| 23,0832 ₽
+[!KEYREF m1.large] | 30,7776 ₽
+[!KEYREF m1.xlarge] | 46,1664 ₽
+[!KEYREF m1.2xlarge] | 61,5552 ₽
+[!KEYREF m1.3xlarge] | 92,3316 ₽
+[!KEYREF m1.4xlarge] | 123,1092 ₽
 [!KEYREF s1.nano] | 2,7559 ₽ 
 [!KEYREF s1.micro] | 5,5119 ₽ 
 [!KEYREF s1.small] | 11,0136 ₽  
@@ -120,6 +146,16 @@ editable: false
 [!KEYREF b2.nano]| 0,7056 ₽
 [!KEYREF b2.micro] | 1,1916 ₽
 [!KEYREF b2.medium] | 2,1960 ₽
+[!KEYREF m2.micro] | 7,6944 ₽
+[!KEYREF m2.small] | 15,3888 ₽
+[!KEYREF m2.medium]| 23,0832 ₽
+[!KEYREF m2.large] | 30,7776 ₽
+[!KEYREF m2.xlarge] | 46,1664 ₽
+[!KEYREF m2.2xlarge] | 61,5552 ₽
+[!KEYREF m2.3xlarge] | 92,3316 ₽
+[!KEYREF m2.4xlarge] | 123,1092 ₽
+[!KEYREF m2.5xlarge] | 153,8856 ₽
+[!KEYREF m2.6xlarge] | 184,6632 ₽
 [!KEYREF s2.micro] | 5,0808 ₽
 [!KEYREF s2.small] | 10,1616 ₽
 [!KEYREF s2.medium] | 20,3232 ₽
@@ -145,6 +181,14 @@ editable: false
 [!KEYREF b1.nano] | 505 ₽
 [!KEYREF b1.micro]  | 798 ₽
 [!KEYREF b1.medium]  | 1 289 ₽
+[!KEYREF m1.micro] | 3 593 ₽
+[!KEYREF m1.small] | 7 185 ₽
+[!KEYREF m1.medium]| 10 778 ₽
+[!KEYREF m1.large] | 14 370 ₽
+[!KEYREF m1.xlarge] | 21 555 ₽
+[!KEYREF m1.2xlarge] | 28 740 ₽
+[!KEYREF m1.3xlarge] | 43 110 ₽
+[!KEYREF m1.4xlarge] | 57 479 ₽
 [!KEYREF s1.nano] | 1 259 ₽
 [!KEYREF s1.micro]  | 2 460 ₽
 [!KEYREF s1.small]  | 4 862 ₽
@@ -155,6 +199,16 @@ editable: false
 [!KEYREF b2.nano] | 505 ₽
 [!KEYREF b2.micro]  | 798 ₽
 [!KEYREF b2.medium]  | 1 289 ₽
+[!KEYREF m2.micro] | 3 593 ₽
+[!KEYREF m2.small] | 7 185 ₽
+[!KEYREF m2.medium]| 10 778 ₽
+[!KEYREF m2.large] | 14 370 ₽
+[!KEYREF m2.xlarge] | 21 555 ₽
+[!KEYREF m2.2xlarge] | 28 740 ₽
+[!KEYREF m2.3xlarge] | 43 110 ₽
+[!KEYREF m2.4xlarge] | 57 479 ₽
+[!KEYREF m2.5xlarge] | 71 849 ₽
+[!KEYREF m2.6xlarge] | 86 219 ₽
 [!KEYREF s2.micro]  | 2 290 ₽
 [!KEYREF s2.small]  | 4 507 ₽
 [!KEYREF s2.medium]  | 8 942 ₽
@@ -173,6 +227,14 @@ editable: false
 [!KEYREF b1.nano] | 0,7008 ₽
 [!KEYREF b1.micro]  | 1,1088 ₽
 [!KEYREF b1.medium]  | 1,7904 ₽
+[!KEYREF m1.micro] | 4,9896 ₽
+[!KEYREF m1.small] | 9,9792 ₽
+[!KEYREF m1.medium]| 14,9688 ₽
+[!KEYREF m1.large] | 19,9584 ₽
+[!KEYREF m1.xlarge] | 29,9376 ₽
+[!KEYREF m1.2xlarge] | 39,9168 ₽
+[!KEYREF m1.3xlarge] | 59,8752 ₽
+[!KEYREF m1.4xlarge] | 79,8324 ₽
 [!KEYREF s1.nano]  | 1,7492 ₽ | 
 [!KEYREF s1.micro]  | 3,4169 ₽ | 
 [!KEYREF s1.small]  | 6,7525 ₽ | 
@@ -183,6 +245,16 @@ editable: false
 [!KEYREF b2.nano] | 0,7008 ₽
 [!KEYREF b2.micro]  | 1,1088 ₽
 [!KEYREF b2.medium]  | 1,7904 ₽
+[!KEYREF m2.micro] | 4,9896 ₽
+[!KEYREF m2.small] | 9,9792 ₽
+[!KEYREF m2.medium]| 14,9688 ₽
+[!KEYREF m2.large] | 19,9584 ₽
+[!KEYREF m2.xlarge] | 29,9376 ₽
+[!KEYREF m2.2xlarge] | 39,9168 ₽
+[!KEYREF m2.3xlarge] | 59,8752 ₽
+[!KEYREF m2.4xlarge] | 79,8324 ₽
+[!KEYREF m2.5xlarge] | 99,7908 ₽
+[!KEYREF m2.6xlarge] | 119,7492 ₽
 [!KEYREF s2.micro]  | 3,1812 ₽
 [!KEYREF s2.small]  | 6,2604 ₽
 [!KEYREF s2.medium]  | 12,4188 ₽

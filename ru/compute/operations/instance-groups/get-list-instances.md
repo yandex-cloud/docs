@@ -39,6 +39,6 @@
 
 **[!TAB API]**
 
-Воспользуйтесь методом API [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md).
+Воспользуйтесь методом API [listInstances](../../api-ref/InstanceGroup/listInstances.md).
 
 ---

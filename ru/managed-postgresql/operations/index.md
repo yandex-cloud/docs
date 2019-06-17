@@ -10,3 +10,4 @@
 - [[!TITLE]](cluster-users.md)
 - [[!TITLE]](connect.md)
 - [[!TITLE]](update.md)
+- [[!TITLE]](data-migration.md)

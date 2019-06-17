@@ -50,9 +50,9 @@
 
 **[!TAB API]**
 
-Изменить имя и описание группы можно с помощью метода API [update](../../instancegroup/api-ref/InstanceGroup/update.md).
+Изменить имя и описание группы можно с помощью метода API [update](../../api-ref/InstanceGroup/update.md).
 
-Список доступных групп запрашивайте методом [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md).
+Список доступных групп запрашивайте методом [listInstances](../../api-ref/InstanceGroup/listInstances.md).
 
 ---
 
@@ -105,9 +105,9 @@
 
 **[!TAB API]**
 
-Изменить вычислительные ресурсы можно с помощью метода API [update](../../instancegroup/api-ref/InstanceGroup/update.md).
+Изменить вычислительные ресурсы можно с помощью метода API [update](../../api-ref/InstanceGroup/update.md).
 
-Список доступных групп запрашивайте методом [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md).
+Список доступных групп запрашивайте методом [listInstances](../../api-ref/InstanceGroup/listInstances.md).
 
 ---
 
@@ -155,9 +155,9 @@
 
 **[!TAB API]**
 
-Изменить размер диска можно с помощью метода API [update](../../instancegroup/api-ref/InstanceGroup/update.md).
+Изменить размер диска можно с помощью метода API [update](../../api-ref/InstanceGroup/update.md).
 
-Список доступных групп запрашивайте методом [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md).
+Список доступных групп запрашивайте методом [listInstances](../../api-ref/InstanceGroup/listInstances.md).
 
 ---
 

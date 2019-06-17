@@ -163,6 +163,6 @@
 
 **[!TAB API]**
 
-Воспользуйтесь методом API [create](../../instancegroup/api-ref/InstanceGroup/create.md).
+Воспользуйтесь методом API [create](../../api-ref/InstanceGroup/create.md).
 
 ---

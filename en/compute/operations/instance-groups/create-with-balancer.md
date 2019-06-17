@@ -222,7 +222,7 @@ To create an instance group with a load balancer:
 
 **[!TAB API]**
 
-Use the [create](../../instancegroup/api-ref/InstanceGroup/create.md) API method.
+Use the [create](../../api-ref/InstanceGroup/create.md) API method.
 
 ---
 

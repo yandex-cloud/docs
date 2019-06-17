@@ -43,9 +43,9 @@ To delete an instance group:
 
 **[!TAB API]**
 
-Use the [delete](../../instancegroup/api-ref/InstanceGroup/delete.md) API method.
+Use the [delete](../../api-ref/InstanceGroup/delete.md) API method.
 
-To request a list of available groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) method.
+To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
 
 ---
 

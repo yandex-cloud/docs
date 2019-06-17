@@ -4,25 +4,7 @@ In this section, you will learn how to use the [!KEYREF speechkit-short-name] AP
 
 ## Before you start {#before-begin}
 
-1. Make sure you have installed the [cURL](https://curl.haxx.se) utility that is used in the examples.
-
-1. [Get the ID of the folder](../resource-manager/operations/folder/get-id.md) for which you are granted the `editor` role or a higher role. The folder ID is used for authorization. For more information, see [Access management](security/index.md).
-
-1. Get the IAM token required for authentication in the API ([other authentication methods](concepts/auth.md)):
-
-    ---
-
-    **[!TAB CLI]**
-
-    ```
-    $ yc iam create-token
-    ```
-
-    **[!TAB API]**
-
-    [!INCLUDE [create-iam-token-api-steps](../_includes/iam/create-iam-token-api-steps.md)]
-
-    ---
+[!INCLUDE [ai-before-beginning](../_includes/ai-before-beginning.md)]
 
 ## Text-to-speech
 
@@ -72,6 +54,6 @@ $ curl -X POST \
 
 * [Read more about speech synthesis](tts/index.md)
 * [Read more about speech recognition](stt/index.md)
-* [Learn about other authentication methods in the API](concepts/auth.md)
+* [Learn about API authentication methods](concepts/auth.md)
 * [Learn about IVR integration](concepts/ivr-integration)
 

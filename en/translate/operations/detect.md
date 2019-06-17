@@ -4,21 +4,7 @@ To detect the language of a text, use the [detectLanguage](../api-ref/Translatio
 
 ## Examples
 
-### Before getting started
-
-To try the examples in this section:
-
-1. Get the ID of a folder you are allowed to access (for example, from the URL of the folder page in the management console):
-
-    ```
-    https://console.cloud.yandex.ru/folders/b5gfc3ntettogerelqed7p
-    ```
-
-    `b5gfc3ntettogerelqed7p` is the folder ID.
-1. Get an IAM token:
-    * [Instructions](../../iam/operations/iam-token/create.md) for a Yandex account.
-    * [Instructions](../../iam/operations/iam-token/create-for-sa.md) for a service account.
-1. Make sure you have installed the [cURL](https://curl.haxx.se) utility that is used in the examples.
+[!INCLUDE [ai-before-beginning](../../_includes/ai-before-beginning.md)]
 
 ### Hello, world
 

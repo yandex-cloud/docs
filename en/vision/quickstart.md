@@ -4,25 +4,7 @@ This section describes how to get started with the [!KEYREF vision-short-name] A
 
 ## Before getting started
 
-1. Make sure you have installed the [cURL](https://curl.haxx.se) utility that is used in the examples.
-
-1. [Get the ID of the folder](../resource-manager/operations/folder/get-id.md) for which you are granted the `editor` role or a higher role. The folder ID is used for authorization. For more information, see [Access management](security/index.md).
-
-1. Get the IAM token required for authentication in the API ([other authentication methods](api-ref/authentication.md)):
-
-    ---
-
-    **[!TAB CLI]**
-
-    ```
-    $ yc iam create-token
-    ```
-
-    **[!TAB API]**
-
-    [!INCLUDE [create-iam-token-api-steps](../_includes/iam/create-iam-token-api-steps.md)]
-
-    ---
+[!INCLUDE [ai-before-beginning](../_includes/ai-before-beginning.md)]
 
 ## Analyze the image
 
@@ -33,6 +15,7 @@ You can use any of the analysis features from the [list](concepts/index.md#featu
 #### What's next
 
 * [Find out about all the service features](concepts/index.md)
+* [Learn about API authentication methods](api-ref/authentication.md)
 * [Detect faces in a photo](operations/face-detection/index.md)
 * [Assess the quality of an image](operations/classification/quality.md)
 * [Moderate images](operations/classification/moderation.md)

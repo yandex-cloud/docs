@@ -1,16 +1,18 @@
-# Recognition of short audio files
+# Short audio recognition
 
-This section describes how recognition of short audio files works.
+Short audio recognition ensures fast response times and is suitable for small single-channel audio fragments.
 
-## Audio file requirements
+If you want to recognize speech over the same connection, use [streaming mode](streaming.md). In streaming mode, you can get intermediate recognition results.
 
-An audio file to be transmitted must meet the following requirements:
+## Audio requirements
+
+The audio you send must meet the following requirements:
 
 1. Maximum file size — [!KEYREF stt-short—fileSize].
-1. Maximum audio duration — [!KEYREF stt-short-audioLength].
+1. Maximum length — [!KEYREF stt-short-audioLength].
 1. Maximum number of audio channels — [!KEYREF stt-short-channelsCount].
 
-If your file is larger, longer, or has more audio channels, you should use [recognition of long audio files](transcribation.md).
+If your file is larger, longer, or has more audio channels, use [long audio recognition](transcribation.md).
 
 ## HTTP request {#http_request}
 

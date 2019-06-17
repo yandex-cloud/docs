@@ -1,20 +1,20 @@
 # Access management
 
-The service does not create any resources, so access management is implemented through [folders](../resource-manager/concepts/resources-hierarchy.md#folder). You specify the folder ID in each request to the service. If you don't have the required permissions for this folder, the service returns an error.
+When making requests on behalf of [a Yandex account](../iam/concepts/index.md#passport), please specify [the identifier of the folder](../resource-manager/operations/folder/get-id.md) that you have `editor` role permissions for. If the required permissions are missing, the service returns an error.
 
-To be able to use the service, you must have one of the following combinations of [roles](../iam/concepts/access-control/roles.md):
+Do not specify a folder for [service accounts](../iam/concepts/users/service-accounts.md): instead, use the folder where the account was created.
 
-* `resource-manager.cloud.member` + `editor`
-* `resource-manager.cloud.member` + `admin`
-* `resource-manager.cloud.owner`
+Permissions are granted when [roles are assigned](../iam/operations/roles/grant.md). A role can be assigned for a folder or cloud: all cloud access rights are [inherited](../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 
-The [service account](../iam/concepts/users/service-accounts.md) and [system group](../iam/concepts/access-control/system-group.md) do not require the `resource-manager.cloud.member` role.
+To use the service, you must have one of the following [roles](../iam/concepts/access-control/roles.md):
 
-A user with a Yandex account is assigned the `resource-manager.cloud.member` role automatically when [being added to the cloud](../iam/operations/users/create.md).
+* `editor`
+* `admin`
+* `resource-manager.cloud.owner` (only assigned for the cloud)
 
 > [!NOTE]
 >
-> The `editor` and `admin` roles can be assigned for a folder or cloud: all cloud access rights are [inherited](../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+> Users with a Yandex account need the`resource-manager.cloud.member` role for the cloud along with the `editor` or `admin` role. This role is assigned to the user automatically when they are [added to the cloud](../iam/operations/users/create.md).
 
 #### What's next
 

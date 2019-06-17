@@ -1,8 +1,8 @@
-# Streaming speech recognition
+# Streaming mode for short audio recognition
 
-Data streaming mode allows you to simultaneously send audio for recognition and get recognition results while the speech continues.
+Data streaming mode allows you to simultaneously send audio for recognition and get recognition results over the same connection.
 
-In contrast to other [recognition methods](index.md#stt-ways), you can get intermediate results of speech recognition while the person continues speaking. After a pause, the service returns final results and starts recognizing the next utterance.
+Unlike other [recognition methods](index.md#stt-ways), you can get intermediate results while speech is in progress. After a pause, the service returns final results and starts recognizing the next utterance.
 
 > For example, as soon as the user starts talking to [Yandex.Station](https://station.yandex.ru/), the speaker begins transmitting the speech to the server for recognition. The server processes the data and returns the intermediate and final results of each utterance recognition. The intermediate results are used for showing the user the progress of speech recognition. Once the final results are available, Yandex.Station performs the requested action, such as playing a movie.
 
@@ -10,41 +10,21 @@ To use the service, create an app that will perform speech recognition in data s
 
 ## Using the service
 
-### Before getting started
-
-1. Get the ID of a folder you are allowed to access (for example, from the URL of the folder page in the management console):
-
-    ```
-    https://console.cloud.yandex.ru/folders/b5gfc3ntettogerelqed7p
-    ```
-
-    `b5gfc3ntettogerelqed7p` is the folder ID.
-1. Clone the [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) repository:
-
-    ```
-    git clone https://github.com/yandex-cloud/cloudapi
-    ```
-
-    The [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) file from this repository will be used for creating the client interface code.
-
 ### Creating a client app
 
 For speech recognition, the app should first send a [message with recognition settings](#specification-msg) and then send [messages with audio fragments](#audio-msg).
 
 As the audio fragments are being sent, the service returns [recognized text fragments](#response) to be processed (for example, to output them to the console).
 
-To enable the app to access the service, you need to generate the client interface code for the programming language you use. Generate this code from the downloaded [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) file.
+To enable the app to access the service, you need to generate the client interface code for the programming language you use. Generate this code from the [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) file hosted in the [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) repository.
 
 See [examples](#examples) of client apps below. In addition, see the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and deploy client apps for various programming languages.
 
 ### Authorization in the service
 
-For authorization, the app must send an [IAM token](../../iam/concepts/authorization/iam-token.md). Please note that the IAM token validity is limited.
+In each request, the application must transmit [the ID of folder](../../resource-manager/operations/folder/get-id.md) that you have been granted the `editor` role or higher for. For more information, see [Access management](../security/index.md).
 
-Find out how to get an IAM token for your account in the corresponding instructions:
-
-* [Instructions](../../iam/operations/iam-token/create.md) for a Yandex account.
-* [Instructions](../../iam/operations/iam-token/create-for-sa.md) for a [service account](../../iam/concepts/users/service-accounts.md).
+The application must also be authenticated for each request, such as with an IAM token[Read more about service authentication](../concepts/auth.md).
 
 ### Recognition result
 
@@ -96,7 +76,7 @@ The service is located at: `stt.api.cloud.yandex.net:443`
 
 If speech fragment recognition is successful, you will receive a message containing a list of recognition results (`chunks[]`). Each result contains the following fields:
 
-* `alternatives[]` — List of alternative recognition results. Each alternative contains the following fields:
+* `alternatives[]` —  List of recognized text alternatives. Each alternative contains the following fields:
     * `text` — Recognized text.
     * `confidence` — Recognition accuracy. Currently the service always returns `1`, which is equivalent to 100%.
 * `final` — Set to `true` if the result is final and to `false` if it is intermediate.
@@ -117,53 +97,59 @@ List of possible gRPC errors returned by the service:
 
 To try the examples in this section:
 
-1. Download the protobuf file with the description of the service ([stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto)) and save it in the same folder.
-1. Find out the ID of the folder that your account has access to.
-1. Get an IAM token:
+1. Clone the [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) repository:
+
+    ```
+    git clone https://github.com/yandex-cloud/cloudapi
+    ```
+1. [Get the ID of the folder](../../resource-manager/operations/folder/get-id.md) your account has been granted access to.
+1. In the examples, an [IAM token](../iam/concepts/authorization/iam-token) is used for authentication ([other authentication methods](../concepts/auth.md)). Get an IAM token:
     * [Instructions](../../iam/operations/iam-token/create.md) for a Yandex account.
     * [Instructions](../../iam/operations/iam-token/create-for-sa.md) for a service account.
 1. Select an audio file for recognition. The examples use the `speech.pcm` audio file in the [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with a sampling rate of 8000.
 
     > [!NOTE]
-    >
-    > Don't have an audio file for speech recognition? Download a prepared [sample](https://storage.yandexcloud.net/speechkit/speech.pcm).
+
+Don't have an audio file for speech recognition? Download a prepared [sample](https://storage.yandexcloud.net/speechkit/speech.pcm).
 
 Then proceed to creating a client app.
 
 ---
 
-**[!TAB Python]**
+**[!TAB Python 3]**
 
 1. Install the grpcio-tools package using the [pip](https://pip.pypa.io/en/stable/) package manager:
 
     ```bash
-    pip install grpcio-tools
+    $ pip install grpcio-tools
     ```
 
-1. Go to the directory with the [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) repository and generate the client interface code:
+1. Go to the directory hosting the [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) repository, create an `output` directory, and generate the client interface code there:
 
     ```bash
-    cd cloudapi
-    python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=. --grpc_python_out=. yandex/cloud/ai/stt/v2/stt_service.proto
+    $ cd cloudapi
+    $ mkdir output
+    $ python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=output --grpc_python_out=output google/api/http.proto google/api/annotations.proto yandex/api/operation.proto google/rpc/status.proto yandex/cloud/operation/operation.proto yandex/cloud/ai/stt/v2/stt_service.proto
     ```
 
-    As a result, the `stt_service_pb2.py` and `stt_service_pb2_grpc.py` files with the client interface will be created in this directory.
+    As a result, the `stt_service_pb2.py` and `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
 
-1. Create a file (for example, `test.py`), and add the following code to it:
+1. Create a file (for example, `test.py`) in the root of the `output` directory and add the following code to it:
 
-    ```Python
+    ```python
+    #coding=utf8
     import argparse
 
     import grpc
 
-    import stt_service_pb2
-    import stt_service_pb2_grpc
+    import yandex.cloud.ai.stt.v2.stt_service_pb2 as stt_service_pb2
+    import yandex.cloud.ai.stt.v2.stt_service_pb2_grpc as stt_service_pb2_grpc
 
 
     CHUNK_SIZE = 16000
 
     def gen(folder_id, audio_file_name):
-        # Specifying the recognition settings.
+        # Specify the recognition settings.
         specification = stt_service_pb2.RecognitionSpec(
             language_code='ru-RU',
             profanity_filter=True,
@@ -174,10 +160,10 @@ Then proceed to creating a client app.
         )
         streaming_config = stt_service_pb2.RecognitionConfig(specification=specification, folder_id=folder_id)
 
-        # Sending a message with the recognition settings.
+        # Send a message with the recognition settings.
         yield stt_service_pb2.StreamingRecognitionRequest(config=streaming_config)
 
-        # Reading the audio file and sending its content in chunks.
+        # Read the audio file and send its contents in chunks.
         with open(audio_file_name, 'rb') as f:
             data = f.read(CHUNK_SIZE)
             while data != b'':
@@ -186,15 +172,15 @@ Then proceed to creating a client app.
 
 
     def run(folder_id, iam_token, audio_file_name):
-        # Establishing a connection with the server.
+        # Establish a connection with the server.
         cred = grpc.ssl_channel_credentials()
         channel = grpc.secure_channel('stt.api.cloud.yandex.net:443', cred)
         stub = stt_service_pb2_grpc.SttServiceStub(channel)
 
-        # Sending data for recognition.
+        # Send data for recognition.
         it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(('authorization', 'Bearer %s' % iam_token),))
 
-        # Processing the server responses and outputting the result to the console.
+        # Process server responses and output the result to the console.
         try:
             for r in it:
                 try:
@@ -227,11 +213,11 @@ Then proceed to creating a client app.
     $ python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --path speech.pcm
     Start chunk:
     alternative: Hello
-    ('Is final: ', False)
+    Is final: False
 
     Start chunk:
     alternative: Hello world
-    ('Is final: ', True)
+    Is final: True
     ```
 
 ---

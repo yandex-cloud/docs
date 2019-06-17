@@ -52,9 +52,9 @@ To change the name and description of an instance group:
 
 **[!TAB API]**
 
-You can change the group name and description using the [update](../../instancegroup/api-ref/InstanceGroup/update.md) API method.
+You can change the group name and description using the [update](../../api-ref/InstanceGroup/update.md) API method.
 
-To request a list of available groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) method.
+To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
 
 ---
 
@@ -109,9 +109,9 @@ To change the computing resources of an instance group:
 
 **[!TAB API]**
 
-You can change the computing resources using the [update](../../instancegroup/api-ref/InstanceGroup/update.md) API method.
+You can change the computing resources using the [update](../../api-ref/InstanceGroup/update.md) API method.
 
-To request a list of available groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) method.
+To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
 
 ---
 
@@ -161,9 +161,9 @@ To increase the disk size of an instance group:
 
 **[!TAB API]**
 
-You can change the disk size using the [update](../../instancegroup/api-ref/InstanceGroup/update.md) API method.
+You can change the disk size using the [update](../../api-ref/InstanceGroup/update.md) API method.
 
-To request a list of available groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) method.
+To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
 
 ---
 
