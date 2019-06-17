@@ -6,7 +6,7 @@
 
 * [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища, `network-hdd` и `network-nvme`).
 
-* [Настраивать серверы](#change-postgresql-config) [!KEYREF MY] согласно [документации [!KEYREF MY]](https://www.postgresql.org/docs/10/runtime-config.html).
+* [Настраивать серверы](#change-mysql-config) [!KEYREF MY].
 
 
 ## Изменить класс хостов {#change-resource-preset}
@@ -118,7 +118,7 @@
 ---
 
 
-## Изменить настройки [!KEYREF MY] {#change-postgresql-config}
+## Изменить настройки [!KEYREF MY] {#change-mysql-config}
 
 Вы можете изменить настройки СУБД для хостов вашего кластера. Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md).
 
@@ -152,6 +152,6 @@
 
 **[!TAB API]**
 
-Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.postgresqlConfig_10.config`.
+Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mysql_config_5_7`.
 
 ---
