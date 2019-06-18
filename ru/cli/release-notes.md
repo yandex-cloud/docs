@@ -1,24 +1,10 @@
 # Релизы YC CLI
 
-## Версия 0.30.0 (17.06.19) {#latest-release}
-
-### Изменения в сервисах Облака {#services}
-
-#### [!KEYREF managed-k8s-name] {#k8s}
-
-- Добавлен флаг `--default-gateway-v4-address`, позволяющий обновить адрес шлюза для существующего [!KEYREF k8s] кластера. 
-
-    Подробнее о команде: `$ yc managed-kubernetes cluster update --help`.
-
-### В следующих релизах {#coming-soon}
-
-- [!KEYREF dataproc-full-name].
-
-## Предыдущие релизы {#previous-releases}
-
-### Версия 0.29.0 (11.06.19) {#version0.29.0}
+## Версия 0.29.0 (11.06.19) {#latest-release}
 
 - Небольшие исправления и обновления.
+
+## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.28.0 (05.06.19) {#version0.28.0}
 
