@@ -1,4 +1,5 @@
-  ---  
+
+---
 
 **[!TAB Example 1]**
 
@@ -27,5 +28,5 @@
 <br/>The grant amount at the end of the reporting period is 0 rubles. The personal account balance is positive and amounts to 400 rubles.
 <br/>At the beginning of the next reporting month, a report and invoice will be generated for the amount that has actually been used (1,000 rubles).
 
-  ---    
+---
 

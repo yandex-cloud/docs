@@ -1,4 +1,5 @@
-  ---  
+
+---
 
 **[!TAB Example 1]**
 
@@ -30,5 +31,5 @@
 <br/>Total amount: 2000 - (0 + 0 + 1000) = 1000 (rubles).
 <br/>In the middle of the reporting period, you will be issued a payment invoice for the amount actually spent (in this case, it is 1,000 rubles).
 
-  ---    
+---
 

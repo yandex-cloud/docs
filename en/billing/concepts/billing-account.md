@@ -17,7 +17,7 @@ The relationship between the cloud, billing account, personal account, and payme
 
 The type of a billing account determines the Yandex.Cloud resource [payment method](../payment/payment-methods.md).
 
-  ---  
+---
 
 **[!TAB Individual account]**
 
@@ -33,7 +33,7 @@ The type of a billing account determines the Yandex.Cloud resource [payment meth
 - Payments for the resources consumed are made based on the [agreement](../concepts/contract.md) and [payment invoice](bill.md), or the amount is debited automatically from the linked bank card. For more information, see the section [Billing cycle for businesses](../payment/billing-cycle-business.md).
 - A report for services rendered and an invoice are sent to your email address at the beginning of the next reporting period. For more information, see the section [Financial documents](../payment/documents.md).
 
-  ---  
+---
 
 ## Validity period {#dates}
 

@@ -1,4 +1,5 @@
-  ---  
+
+---
 
 **[!TAB I used the credit limit]**
 
@@ -13,5 +14,5 @@ A payment invoice is issued at the beginning of the next reporting period if the
 
 You monitor expenses yourself and [top up](../operations/pay-the-bill.md) your personal account as necessary. You can only use the resources of Yandex.Cloud services if your personal account balance is positive.
 
-  ---   
+---
 
