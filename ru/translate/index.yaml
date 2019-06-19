@@ -1,7 +1,7 @@
 # Заголовок и описание на странице
 title: "Yandex Translate"
 description:
-  - "Сервис для интеграции алгоритмов <a href=\"https://translate.yandex.ru/\">Яндекс.Переводчикa</a> в приложения или веб-проекты для конечных пользователей. Yandex Translate поддерживает более 90 языков и умеет переводить отдельные слова и целые тексты."
+  - "Сервис для интеграции алгоритмов <a href=\"https://translate.yandex.ru/\">Яндекс.Переводчика</a> в приложения или веб-проекты для конечных пользователей. Yandex Translate поддерживает более 90 языков и умеет переводить отдельные слова и целые тексты."
   - "Для доступа к Translate используйте HTTP API."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
@@ -11,12 +11,12 @@ links:
 - title: "Пошаговые инструкции"
   description: "Инструкции по выполнению рутинных операций"
   href: "operations/index"
+- title: "Концепции"
+  description: "Узнайте про концепции сервиса"
+  href: "concepts/"
 - title: "Справочник API"
   description: "Описание методов HTTP API"
   href: "api-ref/Translation/"
-- title: "Аутентификация в API"
-  description: "Получите токен авторизации и используйте его в запросах"
-  href: "concepts/auth"
 - title: "Квоты и лимиты"
   description: "Технические и организационные ограничения сервиса"
   href: "concepts/limits"

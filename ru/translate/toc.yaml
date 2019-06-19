@@ -7,12 +7,24 @@ items:
         href: operations/index.md
       - name: Перевести текст
         href: operations/translate.md
+      - name: Повысить точность перевода
+        href: operations/better-quality.md
       - name: Определить язык текста
         href: operations/detect.md
-  - name: Аутентификация в API
-    href: concepts/auth.md
+      - name: Получить список поддерживаемых языков
+        href: operations/list.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Глоссарии
+        href: concepts/glossary.md
+      - name: Поддержка глоссариев
+        href: concepts/glossary-supported-pairs.md
   - name: Справочник API
     items:
+    - name: Аутентификация в API
+      href: api-ref/authentication.md
     - name: v2
       items:
       - name: Обработка ошибок

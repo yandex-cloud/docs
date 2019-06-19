@@ -69,7 +69,7 @@ In this example, we will detect the language that the phrase <q>Hello, world</q>
 
 ### Specify the most likely languages
 
-In some languages, one and the same word has the same spelling. For example, the English word <q>hand</q> is also written as <q>hand</q> in German, Swedish, and Dutch. If the text you transmit contains words like this, SpeechKit may detect the source language incorrectly.
+In some languages, one and the same word has the same spelling. For example, the English word <q>hand</q> is also written as <q>hand</q> in German, Swedish, and Dutch. If the text you transmit contains words like this, [!KEYREF translate-short-name] may detect the source language incorrectly.
 
 To avoid mistakes, you can use the `languageCodeHints` field to specify which languages should be given priority when determining the language of the text:
 
