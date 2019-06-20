@@ -1,13 +1,13 @@
 # CORS
 
-[!KEYREF objstorage-full-name] поддерживает кросс-доменные запросы к объектам в бакете.
+{{ objstorage-full-name }} поддерживает кросс-доменные запросы к объектам в бакете.
 
 Настройка [конфигурации CORS](configuration.md) для каждого бакета доступна через:
 
 - [Консоль управления](setup.md) Яндекс.Облака.
 - [HTTP API, совместимый с Amazon S3](../s3/index.md).
-    
-    Таким образом, можно управлять конфигурацией CORS с помощью [инструментов](../instruments/index.md), которые взаимодействуют с [!KEYREF objstorage-name] через HTTP API, совместимый с Amazon S3.
+
+    Таким образом, можно управлять конфигурацией CORS с помощью [инструментов](../instruments/index.md), которые взаимодействуют с {{ objstorage-name }} через HTTP API, совместимый с Amazon S3.
 
 ## Пример загрузки конфигурации CORS с помощью утилиты AWS CLI
 
@@ -30,5 +30,5 @@
 
 ```
 aws s3api put-bucket-cors --bucket shared-bucket --cors-configuration file://cors.json \
-    --endpoint-url=https://[!KEYREF s3-storage-host]
+    --endpoint-url=https://{{ s3-storage-host }}
 ```

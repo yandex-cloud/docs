@@ -54,14 +54,14 @@
 
 #### См. также
 
-- [[!TITLE]](../../compute/operations/vm-connect/ssh.md)
+- [#T](../../compute/operations/vm-connect/ssh.md)
 
 
 ## 2. Загрузите файлы веб-сайта {#upload-files}
 
 Для виртуальных машин `dns-lb-tutorial-web-ru-central1-a` и `dns-lb-tutorial-web-ru-central1-b` выполните:
 
-[!INCLUDE [upload-files](../_solutions_includes/upload-web-site-files.md)]
+{% include [upload-files](../_solutions_includes/upload-web-site-files.md) %}
 
 
 ## 3. Создайте виртуальные машины для DNS-балансировщиков {#create-dns-balancer-vm}
@@ -99,7 +99,7 @@
 
 #### См. также
 
-- [[!TITLE]](../../compute/operations/vm-connect/ssh.md)
+- [#T](../../compute/operations/vm-connect/ssh.md)
 
 
 ## 4. Установите и настройте ПО DNS-балансировщика {#install-configure-dns-balancer}
@@ -112,27 +112,27 @@
    Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей.  Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на виртуальную машину.
 1. Установите необходимые зависимости:
 
-   ---
+   {% list tabs %}
 
-   **[!TAB Ubuntu 16/18]**
-
-   ```bash
-   $ sudo apt-get update
-   $ sudo apt-get install pdns-server pdns-backend-remote memcached python3-yaml python3-memcache python3-pip
-   ```
-
-   **[!TAB CentOS 6/7]**
-
-   ```bash
-   $ sudo yum check-update
-   $ sudo yum -y install epel-release
-   $ sudo yum -y install pdns pdns-backend-remote memcached python34-yaml python34-setuptools git nano
-   $ sudo service memcached start
-   $ sudo chkconfig pdns on
-   $ sudo chkconfig memcached on
-   ```
-
-   ---
+   - Ubuntu 16/18
+  
+     ```bash
+     $ sudo apt-get update
+     $ sudo apt-get install pdns-server pdns-backend-remote memcached python3-yaml python3-memcache python3-pip
+     ```
+  
+   - CentOS 6/7
+  
+     ```bash
+     $ sudo yum check-update
+     $ sudo yum -y install epel-release
+     $ sudo yum -y install pdns pdns-backend-remote memcached python34-yaml python34-setuptools git nano
+     $ sudo service memcached start
+     $ sudo chkconfig pdns on
+     $ sudo chkconfig memcached on
+     ```
+  
+   {% endlist %}
 
 1. Установите `polaris-gslb`:
    ```bash
@@ -142,44 +142,44 @@
    ```
 1. Скопируйте файлы конфигурации для polaris-gslb
 
-   ---
+   {% list tabs %}
 
-   **[!TAB Ubuntu 16/18]**
-
-   ```bash
-   $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/powerdns/pdns.conf
-   $ cd /opt/polaris/etc
-   $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
-   $ sudo cp polaris-health.yaml.dist polaris-health.yaml
-   $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
-   $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
-   ```
-
-   **[!TAB CentOS 6]**
-
-   ```bash
-   $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
-   $ cd /opt/polaris/etc
-   $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
-   $ sudo cp polaris-health.yaml.dist polaris-health.yaml
-   $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
-   $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
-   $ sudo cp -a /opt/polaris/bin/polaris-health /etc/init.d/polaris-health
-   $ sudo chkconfig polaris-health on
-   ```
-
-   **[!TAB CentOS 7]**
-
-   ```bash
-   $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
-   $ cd /opt/polaris/etc
-   $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
-   $ sudo cp polaris-health.yaml.dist polaris-health.yaml
-   $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
-   $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
-   ```
-
-   ---
+   - Ubuntu 16/18
+  
+     ```bash
+     $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/powerdns/pdns.conf
+     $ cd /opt/polaris/etc
+     $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
+     $ sudo cp polaris-health.yaml.dist polaris-health.yaml
+     $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
+     $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
+     ```
+  
+   - CentOS 6
+  
+     ```bash
+     $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
+     $ cd /opt/polaris/etc
+     $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
+     $ sudo cp polaris-health.yaml.dist polaris-health.yaml
+     $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
+     $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
+     $ sudo cp -a /opt/polaris/bin/polaris-health /etc/init.d/polaris-health
+     $ sudo chkconfig polaris-health on
+     ```
+  
+   - CentOS 7
+  
+     ```bash
+     $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
+     $ cd /opt/polaris/etc
+     $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
+     $ sudo cp polaris-health.yaml.dist polaris-health.yaml
+     $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
+     $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
+     ```
+  
+   {% endlist %}
 
 1. Узнайте внутренний адрес виртуальной машины:
    ```bash
@@ -187,21 +187,21 @@
    ```
 1. В конфигурационном файле `pdns.conf` укажите внутренний IP-адрес виртуальной машины. Вы можете отредактировать конфигурационный файл с помощью утилиты `nano`:
 
-     ---
+     {% list tabs %}
 
-     **[!TAB Ubuntu 16/18]**
-
-     ```bash
-     $ sudo nano /etc/powerdns/pdns.conf
-     ```
-
-     **[!TAB CentOS 6/7]**
-
-     ```bash
-     $ sudo nano /etc/pdns/pdns.conf
-     ```
-
-     ---
+     - Ubuntu 16/18
+  
+       ```bash
+       $ sudo nano /etc/powerdns/pdns.conf
+       ```
+  
+     - CentOS 6/7
+  
+       ```bash
+       $ sudo nano /etc/pdns/pdns.conf
+       ```
+  
+     {% endlist %}
 
    Файл `pdns.conf` имеет вид:
    ```
@@ -441,37 +441,37 @@
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH.
 1. Остановите веб-сервис, чтобы сымитировать сбой в работе веб-сервера:
 
-   ---
+   {% list tabs %}
 
-   **[!TAB LAMP]**
-
-   ```bash
-   $ sudo service apache2 stop
-   ```
-
-   **[!TAB LEMP]**
-
-   ```bash
-   $ sudo service nginx stop
-   ```
-
-   ---
+   - LAMP
+  
+     ```bash
+     $ sudo service apache2 stop
+     ```
+  
+   - LEMP
+  
+     ```bash
+     $ sudo service nginx stop
+     ```
+  
+   {% endlist %}
 1. Подключитесь к вашему веб-сайту через браузер. Несмотря на сбой в работе одного из веб-серверов, подключение должно пройти успешно.
 1. После завершения проверки запустите веб-сервис:
 
-   ---
+   {% list tabs %}
 
-   **[!TAB LAMP]**
-
-   ```bash
-   $ sudo service apache2 start
-   ```
-
-   **[!TAB LEMP]**
-
-   ```bash
-   $ sudo service nginx start
-   ```
-
-   ---
+   - LAMP
+  
+     ```bash
+     $ sudo service apache2 start
+     ```
+  
+   - LEMP
+  
+     ```bash
+     $ sudo service nginx start
+     ```
+  
+   {% endlist %}
 

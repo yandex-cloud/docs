@@ -4,7 +4,7 @@ editable: false
 
 # Справочник метрик
 
-Сервис [!KEYREF monitoring-full-name] собирает указанные метрики раз в минуту.
+Сервис {{ monitoring-full-name }} собирает указанные метрики раз в минуту.
 
 Имя метрики пишется в метку `name`.
 
@@ -27,7 +27,7 @@ editable: false
 
 > Значение обязательной метки `service="vm"`.
 
-Подробнее о сервисе в документации [[!KEYREF compute-full-name]](../../compute/).
+Подробнее о сервисе в документации [{{ compute-full-name }}](../../compute/).
 
 
 ## Сервис Managed Service for PostgreSQL
@@ -52,7 +52,7 @@ editable: false
 
 > Значение обязательной метки `service="mdb_postgresql_cluster"`.
 
-Подробнее о сервисе в документации [[!KEYREF managed-postgresql-full-name]](../../managed-postgresql/).
+Подробнее о сервисе в документации [{{ managed-postgresql-full-name }}](../../managed-postgresql/).
 
 ## Сервис Managed Service for MongoDB
 Имя<br/>Тип<br/>Дополнительные метки | Описание
@@ -66,7 +66,7 @@ editable: false
 `server_status_admin_opcounters.getmore_rate`<br/>`RATE` | Количество выполняющихся операций `getmore` на мастере БД
 `server_status_admin_opcounters.insert_rate`<br/>`RATE` | Количество выполняющихся операций `insert` на мастере БД
 `server_status_admin_opcounters.query_rate`<br/>`RATE` | Количество выполняющихся операций `query` на мастере БД
-`server_status_admin_opcounters.update_rate`<br/>`RATE` | Количество выполняющихся операций `update` на мастере БД 
+`server_status_admin_opcounters.update_rate`<br/>`RATE` | Количество выполняющихся операций `update` на мастере БД
 `server_status_admin_opcountersRepl.command_rate`<br/>`RATE` | Количество выполняющихся операций `command` на репликах БД
 `server_status_admin_opcountersRepl.delete_rate`<br/>`RATE` | Количество выполняющихся операций `delete` на репликах БД
 `server_status_admin_opcountersRepl.getmore_rate`<br/>`RATE` | Количество выполняющихся операций `getmore` на репликах БД
@@ -82,7 +82,7 @@ editable: false
 
 > Значение обязательной метки `service="mdb_mongodb_cluster"`.
 
-Подробнее о сервисе в документации [[!KEYREF managed-mongodb-full-name]](../../managed-mongodb/).
+Подробнее о сервисе в документации [{{ managed-mongodb-full-name }}](../../managed-mongodb/).
 
 ## Сервис Managed Service for ClickHouse
 Имя<br/>Тип<br/>Дополнительные метки | Описание
@@ -120,7 +120,7 @@ editable: false
 
 > Значение обязательной метки `service="mdb_clickhouse_cluster"`.
 
-Подробнее о сервисе в документации [[!KEYREF managed-clickhouse-full-name]](../../managed-clickhouse/).
+Подробнее о сервисе в документации [{{ managed-clickhouse-full-name }}](../../managed-clickhouse/).
 
 ## Сервис Managed Service for MySQL<sup>®</sup>
 Имя<br/>Тип| Описание
@@ -136,7 +136,7 @@ editable: false
 
 > Значение обязательной метки `service="mdb_mysql_cluster"`.
 
-Подробнее о сервисе в документации [[!KEYREF managed-mysql-full-name]](../../managed-mysql/).
+Подробнее о сервисе в документации [{{ managed-mysql-full-name }}](../../managed-mysql/).
 
 ## Сервис Managed Service for Redis
 Имя<br/>Тип| Описание
@@ -147,8 +147,8 @@ editable: false
 `redis_instantaneous_ops_per_sec`<br/>`RATE` | Количество запросов в секунду.<br/><br/>Дополнительные метки: `host`
 `redis_mem_fragmentation_ratio`<br/>`GAUGE` | Отношение используемой памяти к запрошенной.<br/>Принимает значение меньше `1`, если памяти не хватает.<br/><br/>Дополнительные метки: `host`
 `redis_is_master`<br/>`GAUGE` | Показатель типа хоста.<br/>Принимает значение `1`, если хост является мастер-сервером БД, `0`, если нет.<br/><br/>Дополнительные метки: `host`
-`redis_hit_rate`<br/>`GAUGE` | Доля запросов, данные для которых [!KEYREF managed-redis-full-name] находит в кэше.<br/><br/>Дополнительные метки: `host`
+`redis_hit_rate`<br/>`GAUGE` | Доля запросов, данные для которых {{ managed-redis-full-name }} находит в кэше.<br/><br/>Дополнительные метки: `host`
 
 > Значение обязательной метки `service="mdb_redis_cluster"`.
 
-Подробнее о сервисе в документации [[!KEYREF managed-redis-full-name]](../../managed-redis/).
+Подробнее о сервисе в документации [{{ managed-redis-full-name }}](../../managed-redis/).

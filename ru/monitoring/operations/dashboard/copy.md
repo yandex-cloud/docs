@@ -1,8 +1,10 @@
 # Копирование дашборда
 
-> [!NOTE]
->
-> На [стадии Preview](../../../overview/concepts/launch-stages) сервиса [!KEYREF monitoring-full-name] вы можете копировать только созданные вами дашборды, но не сервисные.
+{% note info %}
+
+На [стадии Preview](../../../overview/concepts/launch-stages) сервиса {{ monitoring-full-name }} вы можете копировать только созданные вами дашборды, но не сервисные.
+
+{% endnote %}
 
 Для копирования существующего дашборда выполните следующее:
 

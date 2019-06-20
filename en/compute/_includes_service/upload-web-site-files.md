@@ -11,19 +11,19 @@
 
 1. Upload the website files to the VM over SCP.
 
-   ---
+   {% list tabs %}
 
-   **[!TAB Linux/macOS]**
-
-   Use the `scp` command-line utility:
-
-   ```
-   scp -r <path to the file directory> <your user's name>@<VM's IP address>:/var/www/html
-   ```
-
-   **[!TAB Windows]**
-
-   Use the [WinSCP](https://winscp.net/eng/download.php) program to copy the local file directory to the `/var/www/html` directory on the VM.
-
-   ---
+   - Linux/macOS
+  
+     Use the `scp` command-line utility:
+  
+     ```
+     scp -r <path to the file directory> <your user's name>@<VM's IP address>:/var/www/html
+     ```
+  
+   - Windows
+  
+     Use the [WinSCP](https://winscp.net/eng/download.php) program to copy the local file directory to the `/var/www/html` directory on the VM.
+  
+   {% endlist %}
 

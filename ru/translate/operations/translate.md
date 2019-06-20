@@ -1,42 +1,19 @@
-# Перевести текст
+# Перевод текста
 
 Чтобы перевести текст, воспользуйтесь методом [translate](../api-ref/Translation/translate).
 
 ## Примеры
 
-[!INCLUDE [ai-before-beginning](../../_includes/ai-before-beginning.md)]
+{% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
 
-### Hello, world
+### Переведите текст с любого языка {#any-language}
 
-В этом примере мы переведем на русский язык две строки с текстом: <q>Hello</q> и <q>World</q>.
+В этом примере показано, как перевести на русский язык две строки с текстом: <q>Hello</q> и <q>World</q>. Язык текста будет определен автоматически.
 
-1. Узнайте код языка, на который вы хотите перевести текст, с помощью метода [listLanguages](../api-ref/Translation/listLanguages):
+1. Создайте файл с телом запроса, например `body.json`.
+    В `folder_id` укажите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Строки текста для перевода перечислите в поле `texts`.
 
-    ```bash
-    $ export IAM_TOKEN=CggaATEVAgA...
-    $ curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "{\"folder_id\": \"${FOLDER_ID}\"}" \
-        "https://translate.api.cloud.yandex.net/translate/v2/languages"
-    ```
-
-    Ответ будет содержать список языков с названиями на соответствующем языке:
-
-    ```json
-    {
-        "languages": [
-            ...
-            {
-            "code": "ru",
-            "name": "русский"
-            },
-            ...
-        ]
-    }
-    ```
-2. Создайте файл с телом запроса, например `body.json`.
-    Строки текста для перевода перечислите в поле `texts`. В поле `targetLanguageCode` укажите язык, на который необходимо перевести текст.
+    В поле `targetLanguageCode` укажите язык перевода в формате [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1). Для русского языка это `ru`. Код языка можно получить вместе со [списком поддерживаемых языков](list.md).
 
     ```json
     {
@@ -45,15 +22,9 @@
         "targetLanguageCode": "ru"
     }
     ```
-3. Передайте файл на перевод с помощью метода [translate](../api-ref/Translation/translate):
-    ```bash
-    $ export IAM_TOKEN=CggaATEVAgA...
-    $ curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d @body.json \
-        "https://translate.api.cloud.yandex.net/translate/v2/translate"
-    ```
+1. Передайте файл на перевод с помощью метода [translate](../../translate/api-ref/Translation/translate):
+
+    {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
     В ответе сервис вернет переведенные строки текста:
     ```json
@@ -71,36 +42,6 @@
     }
     ```
 
-### Укажите язык исходного текста
+#### Что дальше
 
-Есть слова, которые пишутся одинаково в разных языках, но переводятся по-разному. Например, слово <q>angel</q> в английском языке означает духовное существо, а в немецком — удочку. Если переданный текст состоит из таких слов, то SpeechKit может ошибиться при определении языка текста.
-
-Чтобы избежать ошибки, укажите в поле `sourceLanguageCode` язык, с которого необходимо перевести текст:
-
-```json
-{
-    "folder_id": "b1gvmob95yysaplct532",
-    "texts": ["angel"],
-    "targetLanguageCode": "ru",
-    "sourceLanguageCode": "de"
-}
-```
-
-Сохраните тело запроса в файле, например `body.json`, и передайте его с помощью метода [translate](../api-ref/Translation/translate):
-
-```bash
-$ export IAM_TOKEN=CggaATEVAgA...
-$ curl -X POST \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    -d @body.json \
-    "https://translate.api.cloud.yandex.net/translate/v2/translate"
-
-{
-    "translations": [
-        {
-            "text": "удочка"
-        }
-    ]
-}
-```
+* [Как повысить точность перевода](better-quality.md)

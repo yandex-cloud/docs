@@ -1,9 +1,10 @@
 # Glossary
 
-> [!NOTE]
->
-> All the terms are given in the Glossary for informational purposes. If there is a conflict between the term definitions in the Agreement and those in the Glossary, the terms of the former shall prevail.
->
+{% note info %}
+
+All the terms are given in the Glossary for informational purposes. If there is a conflict between the term definitions in the Agreement and those in the Glossary, the terms of the former shall prevail.
+
+{% endnote %}
 
 Report
 : A primary accounting document that confirms services rendered.

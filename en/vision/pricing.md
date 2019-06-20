@@ -1,13 +1,13 @@
 ---
 editable: false
 ---
-# Pricing policy for [!KEYREF vision-name]
+# Pricing policy for {{ vision-name }}
 
-[!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of using [!KEYREF vision-short-name] {#rules}
+## What goes into the cost of using {{ vision-short-name }} {#rules}
 
-The [!KEYREF vision-short-name] service provides [a set of features for image analysis](concepts/index.md#features).
+The {{ vision-short-name }} service provides [a set of features for image analysis](concepts/index.md#features).
 
 Each successful image analysis performed using any feature is charged as a single _unit_:
 
@@ -20,18 +20,18 @@ Each successful image analysis performed using any feature is charged as a singl
 ## Pricing {#prices}
 
 
----
+{% list tabs %}
 
-**[!TAB Prices in USD]**
-
-| Feature | Rate for 1000 units per month, without VAT |
-| ----- | ----- |
-| [Text recognition](concepts/ocr/index.md) | $1.538461 |
-
-**[!TAB Prices in roubles]**
-
-| Feature | Rate for 1000 units per month, with VAT |
-| ----- | ----- |
-| [Text recognition](concepts/ocr/index.md) | ₽120 |
-
----
+- Prices in USD
+  
+  | Feature | Rate for 1000 units per month, without VAT |
+  | ----- | ----- |
+  | [Text recognition](concepts/ocr/index.md) | $1.538461 |
+  
+- Prices in roubles
+  
+  | Feature | Rate for 1000 units per month, with VAT |
+  | ----- | ----- |
+  | [Text recognition](concepts/ocr/index.md) | ₽120 |
+  
+{% endlist %}

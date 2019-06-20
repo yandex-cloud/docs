@@ -1,4 +1,4 @@
-# Concepts [!KEYREF container-registry-full-name]
+# Concepts {{ container-registry-full-name }}
 
 Yandex Container Registry is a service for storing and distributing Docker images.
 

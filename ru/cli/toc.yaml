@@ -13,6 +13,8 @@ items:
         href: concepts/profile.md
       - name: Синхронный и асинхронный режимы выполнения команд
         href: concepts/mode.md
+  - name: Релизы CLI
+    href: release-notes.md
   - name: Произошла ошибка?
     href: error.md
   - name: Справочник CLI

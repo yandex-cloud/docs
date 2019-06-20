@@ -2,9 +2,9 @@
 
 IAM-токен (токен) — уникальная последовательность символов, которая выдается пользователю после прохождения аутентификации. С помощью этого токена пользователь авторизуется в API Яндекс.Облака и выполняет операции с ресурсами.
 
-[!INCLUDE [iam-token-usage](../../../_includes/iam-token-usage.md)]
+{% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
-[!INCLUDE [iam-token-lifetime](../../../_includes/iam-token-lifetime.md)]
+{% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
 
 Если пользователь работает через консоль управления или интерфейса командной строки (CLI), то процесс получения и использования токена незаметен для пользователя.
 
@@ -14,6 +14,6 @@ IAM-токен (токен) — уникальная последователь
 
 #### См. также
 
-* [[!TITLE]](../../operations/iam-token/create.md)
-* [[!TITLE]](../../operations/iam-token/create-for-sa.md)
-* [[!TITLE]](index.md)
+* [#T](../../operations/iam-token/create.md)
+* [#T](../../operations/iam-token/create-for-sa.md)
+* [#T](index.md)

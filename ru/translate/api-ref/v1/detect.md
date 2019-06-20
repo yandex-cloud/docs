@@ -1,6 +1,6 @@
 # Определение языка текста
 
-[!INCLUDE [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md)]
+{% include [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md) %}
 
 Определение языка, на котором написан заданный текст. Ответ возвращается в виде кода языка.
 

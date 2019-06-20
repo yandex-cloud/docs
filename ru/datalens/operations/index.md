@@ -2,33 +2,33 @@
 
 ## Создание подключения
 
-- [[!TITLE]](connection/create-clickhouse.md)
-- [[!TITLE]](connection/create-csv.md)
-- [[!TITLE]](connection/create-mysql.md)
-- [[!TITLE]](connection/create-postgresql.md)
-- [[!TITLE]](connection/create-mssql-server.md)
-- [[!TITLE]](connection/create-metrika-api.md)
-- [[!TITLE]](connection/create-metrika-logs-api.md)
-- [[!TITLE]](connection/manage-access.md)
+- [#T](connection/create-clickhouse.md)
+- [#T](connection/create-csv.md)
+- [#T](connection/create-mysql.md)
+- [#T](connection/create-postgresql.md)
+- [#T](connection/create-mssql-server.md)
+- [#T](connection/create-metrika-api.md)
+- [#T](connection/create-metrika-logs-api.md)
+- [#T](connection/manage-access.md)
 
 ## Работа с датасетом
 
-- [[!TITLE]](dataset/create.md)
-- [[!TITLE]](dataset/create-field.md)
-- [[!TITLE]](dataset/manage-access.md)
+- [#T](dataset/create.md)
+- [#T](dataset/create-field.md)
+- [#T](dataset/manage-access.md)
 
 ## Создание и настройка чартов
 
-- [[!TITLE]](chart/create-line-chart.md)
-- [[!TITLE]](chart/create-bar-chart.md)
-- [[!TITLE]](chart/create-area-chart.md)
-- [[!TITLE]](chart/create-pie-chart.md)
-- [[!TITLE]](chart/create-table.md)
-- [[!TITLE]](chart/create-pivot-table.md)
-- [[!TITLE]](chart/manage-access.md)
+- [#T](chart/create-line-chart.md)
+- [#T](chart/create-bar-chart.md)
+- [#T](chart/create-area-chart.md)
+- [#T](chart/create-pie-chart.md)
+- [#T](chart/create-table.md)
+- [#T](chart/create-pivot-table.md)
+- [#T](chart/manage-access.md)
 
 ## Работа с дашбордами
 
-- [[!TITLE]](dashboard/create.md)
-- [[!TITLE]](dashboard/add-chart.md)
-- [[!TITLE]](dashboard/manage-access.md)
+- [#T](dashboard/create.md)
+- [#T](dashboard/add-chart.md)
+- [#T](dashboard/manage-access.md)

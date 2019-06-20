@@ -4,17 +4,19 @@ To recognize text in an image, use the [Text recognition](../../concepts/ocr/ind
 
 In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `TEXT_DETECTION`, and specify the recognition settings in the `textDetectionConfig` property.
 
-> [!NOTE]
->
-> The service recognizes text written horizontally. If an image or text is rotated, recognition may fail. If you scanned a document and don't know how the image was rotated, send several versions of the image with different rotation angles.
+{% note info %}
+
+The service recognizes text written horizontally. If an image or text is rotated, recognition may fail. If you scanned a document and don't know how the image was rotated, send several versions of the image with different rotation angles.
+
+{% endnote %}
 
 ## Examples {#examples}
 
-[!INCLUDE [ai-before-beginning](../../../_includes/ai-before-beginning.md)]
+{% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 
 ### Recognize text {#basic}
 
-[!INCLUDE [text-detection-steps](../../../_includes/vision/text-detection-steps.md)]
+{% include [text-detection-steps](../../../_includes/vision/text-detection-steps.md) %}
 
 ### Recognize text in multiple languages {#multiple-languages}
 

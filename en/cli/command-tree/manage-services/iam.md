@@ -1,6 +1,6 @@
 # yc iam
 
-Manage [!KEYREF iam-full-name] resources.
+Manage {{ iam-full-name }} resources.
 
 #### Usage
 
@@ -46,10 +46,10 @@ Syntax:
 
 
 
-              
-   
-              
-        
-      
+
+
+
+
+
 
 

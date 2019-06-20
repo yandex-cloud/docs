@@ -1,11 +1,11 @@
-# Вопросы и ответы про [!KEYREF mch-short-name]
+# Вопросы и ответы про {{ mch-short-name }}
 
 
 ## Общие вопросы {#general}
 
-[!INCLUDE-NOTITLE [general](general.md)]
+{% include notitle [general](general.md) %}
 
 
-## Вопросы о [!KEYREF CH] {#clickhouse}
+## Вопросы о {{ CH }} {#clickhouse}
 
-[!INCLUDE-NOTITLE [clickhouse](clickhouse.md)]
+{% include notitle [clickhouse](clickhouse.md) %}

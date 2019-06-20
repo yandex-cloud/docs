@@ -13,7 +13,8 @@ One promo code can only be linked to one billing account.
 
 The terms of use and the validity period are specified in the message containing the promo code. Activate your promo code before the deadline specified in the message; otherwise, the promo code becomes invalid. You cannot replace or extend the promo code.
 
-> [!NOTE]
->
-> All previously issued and unused promo codes that were provided to access the Yandex.Cloud management console are no longer valid starting November 27, 2018.
->
+{% note info %}
+
+All previously issued and unused promo codes that were provided to access the Yandex.Cloud management console are no longer valid starting November 27, 2018.
+
+{% endnote %}

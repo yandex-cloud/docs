@@ -6,7 +6,7 @@ Each customer is allowed to create only one billing account.
 
 #### How do I change my billing account type? {#account-type}
 
-After creating a billing account, you cannot change its type. 
+After creating a billing account, you cannot change its type.
 
 #### I created a new billing account, but it's blocked. Why? {#blocked-account}
 
@@ -17,18 +17,18 @@ To unblock your new billing account, [activate the paid version](../operations/a
 
 [The credit limit](../concepts/credit-limit.md) is enabled automatically after the [paid version is activated](../operations/activate-commercial.md) and the first reporting period ends.
 
-[!INCLUDE [change-payment-method](../_includes/change-payment-method.md)]
+{% include [change-payment-method](../_includes/change-payment-method.md) %}
 
 #### How can I change my payment details or the delivery address?  {#change-email}
 
-[!INCLUDE [change-address](../_includes/change-address.md)]
+{% include [change-address](../_includes/change-address.md) %}
 
 #### I didn't receive an email with instructions on what to do after creating a billing account with the Bank transfer payment method. Why?  {#account-notification}
 
 It may take up to three business days to activate your billing account.
 If you haven't received an email within that period, send a request to: [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru).
 
-[!INCLUDE [change-payment-docs](../_includes/change-payment-docs.md)]
+{% include [change-payment-docs](../_includes/change-payment-docs.md) %}
 
 #### I unlinked a bank card from my Yandex.Passport account and now my billing account is blocked. What should I do?  {#account-card}
 

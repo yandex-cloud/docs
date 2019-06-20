@@ -19,17 +19,18 @@ To create an image:
 
 ## 1. Install Packer {#install-packer}
 
-> [!NOTE]
->
-> Yandex.Cloud requires Packer 1.4.1 or higher.
->
+{% note info %}
+
+Yandex.Cloud requires Packer 1.4.1 or higher.
+
+{% endnote %}
 
 Download and install Packer by following the [instructions on the official website](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
 
 ## 2. Prepare the template {#prepare-image-config}
 
 1. Get the folder ID by running the `yc config list` command.
-1. Get the subnet ID by running the `vpc subnet list` command.
+1. Get the subnet ID by running the `yc vpc subnet list` command.
 1. Create a JSON file with any name, like `image.json`. This will be your template. Enter the following parameters:
 
 ```json

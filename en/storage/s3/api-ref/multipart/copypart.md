@@ -2,7 +2,7 @@
 
 Copies part of an object.
 
-It has the same functionality as [[!TITLE]](uploadpart.md), but data is not passed in the request body, it is copied from an existing object.
+It has the same functionality as [#T](uploadpart.md), but data is not passed in the request body, it is copied from an existing object.
 
 ## Request {#request}
 
@@ -15,14 +15,14 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 | Parameter | Description |
 | ----- | ----- |
 | `bucket` | Name of the resulting bucket. |
-| `key` | Key of the resulting object. ID under which the object is saved in [!KEYREF objstorage-name]. |
+| `key` | Key of the resulting object. ID under which the object is saved in {{ objstorage-name }}. |
 
 ### Query parameters {#request-parameters}
 
 | Parameter | Description |
 | ----- | ----- |
 | `partNubmer` | ID that you assigned to the uploaded part. |
-| `uploadId` | ID of the multipart upload returned by [!KEYREF objstorage-name] at the [start](startupload.md). |
+| `uploadId` | ID of the multipart upload returned by {{ objstorage-name }} at the [start](startupload.md). |
 
 ### Headers {#request-headers}
 
@@ -33,7 +33,7 @@ The `Content-Length` header is required. The headers listed in the table below a
 | Header name | Description |
 | ----- | ----- |
 | `x-amz-copy-source` | The name of the bucket and the key of the object whose data will be copied, separated by the `/` character.<br/><br/>For example, `x-amz-copy-source: /source_bucket/sourceObject`. |
-| `x-amz-copy-source-range` | Byte range to copy from the source object. For example, if you specify `x-amz-copy-source-range:bytes=10-36`, then [!KEYREF objstorage-name] will copy the range from the 10th to the 36th bytes of the source object. |
+| `x-amz-copy-source-range` | Byte range to copy from the source object. For example, if you specify `x-amz-copy-source-range:bytes=10-36`, then {{ objstorage-name }} will copy the range from the 10th to the 36th bytes of the source object. |
 
 If you want to add copy conditions, use the headers listed in the table below.
 
@@ -41,10 +41,10 @@ Use the headers from the table below if you need to change the default behavior 
 
 | Header name | Description |
 | ----- | ----- |
-| `x-amz-copy-source-if-match` | Condition for copying an object.<br/><br/>If the object's `ETag` matches the one specified in the header, the object is copied.<br/><br/>If the condition is not met, [!KEYREF objstorage-name] returns error 412.<br/><br/>Can be used with the `x-amz-copy-source-if-unmodified-since` header. |
-| `x-amz-copy-source-if-none-match` | Condition for copying an object.<br/><br/>If the object's `ETag` does not match the one specified in the header, the object is copied.<br/><br/>If the condition is not met, [!KEYREF objstorage-name] returns error 412.<br/><br/>Can be used with the  `x-amz-copy-source-if-modified-since` header. |
-| `x-amz-copy-source-if-unmodified-since` | Condition for copying an object.<br/><br/>The object is copied if it has not been modified since the specified time.<br/><br/>If the condition is not met, [!KEYREF objstorage-name] returns error 412.<br/><br/>Can be used with the `x-amz-copy-source-if-match` header. |
-| `x-amz-copy-source-if-modified-since` | Condition for copying an object.<br/><br/>The object is copied if it has been modified since the specified time.<br/><br/>If the condition is not met, [!KEYREF objstorage-name] returns error 412.<br/><br/>Can be used with the `x-amz-copy-source-if-none-match` header. |
+| `x-amz-copy-source-if-match` | Condition for copying an object.<br/><br/>If the object's `ETag` matches the one specified in the header, the object is copied.<br/><br/>If the condition is not met, {{ objstorage-name }} returns error 412.<br/><br/>Can be used with the `x-amz-copy-source-if-unmodified-since` header. |
+| `x-amz-copy-source-if-none-match` | Condition for copying an object.<br/><br/>If the object's `ETag` does not match the one specified in the header, the object is copied.<br/><br/>If the condition is not met, {{ objstorage-name }} returns error 412.<br/><br/>Can be used with the  `x-amz-copy-source-if-modified-since` header. |
+| `x-amz-copy-source-if-unmodified-since` | Condition for copying an object.<br/><br/>The object is copied if it has not been modified since the specified time.<br/><br/>If the condition is not met, {{ objstorage-name }} returns error 412.<br/><br/>Can be used with the `x-amz-copy-source-if-match` header. |
+| `x-amz-copy-source-if-modified-since` | Condition for copying an object.<br/><br/>The object is copied if it has been modified since the specified time.<br/><br/>If the condition is not met, {{ objstorage-name }} returns error 412.<br/><br/>Can be used with the `x-amz-copy-source-if-none-match` header. |
 
 ## Response {#response}
 
@@ -54,9 +54,9 @@ A response can only contain [common response headers](../common-response-headers
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [[!TITLE]](../response-codes.md).
+For a list of possible responses, see [#T](../response-codes.md).
 
-Additionally, [!KEYREF objstorage-name] may return errors described in the table below.
+Additionally, {{ objstorage-name }} may return errors described in the table below.
 
 | Error | Description | HTTP code |
 | ----- | ----- | ----- |

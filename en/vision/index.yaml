@@ -15,7 +15,7 @@ links:
   href: "operations/index"
 - title: "Concepts"
   description: "Learn more about the concepts of the service"
-  href: "concepts/index"
+  href: "concepts/"
 - title: "API reference"
   description: "HTTP API method descriptions"
   href: "api-ref/"

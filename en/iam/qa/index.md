@@ -1,10 +1,10 @@
-# Questions and answers about [!KEYREF iam-name]
+# Questions and answers about {{ iam-name }}
 
 ## General questions
 
-[!INCLUDE-NOTITLE [general](general.md)]
+{% include notitle [general](general.md) %}
 
 ## Logging in and accessing resources
 
-[!INCLUDE-NOTITLE [access](access.md)]
+{% include notitle [access](access.md) %}
 

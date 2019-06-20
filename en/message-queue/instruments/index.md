@@ -4,7 +4,7 @@ To work with the API, you can use any tools that are compatible with Amazon SQS:
 
 ## Before you start {#preparations}
 
-[!INCLUDE [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md)]
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 When configuring tools, use the following parameters:
 

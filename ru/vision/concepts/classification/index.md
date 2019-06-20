@@ -66,7 +66,7 @@ _Классификация изображений сейчас находитс
 
 **Пример ответа:**
 
-[!INCLUDE [classification-quality-response](../../../_includes/vision/classification-quality-response.md)]
+{% include [classification-quality-response](../../../_includes/vision/classification-quality-response.md) %}
 
 #### Что дальше
 

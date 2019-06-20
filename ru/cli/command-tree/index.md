@@ -1,14 +1,16 @@
-# yc 
+# yc
 
 Интерфейс командной строки поможет вам взаимодействовать с сервисами Яндекс.Облака.
 
-> [!IMPORTANT]
-> 
-> Список команд может отличаться в зависимости от версии YC CLI.
+{% note important %}
+
+Список команд может отличаться в зависимости от версии YC CLI.
+
+{% endnote %}
 
 #### Использование команды
 
-Синтаксис: 
+Синтаксис:
 
 `yc <group|command>`
 
@@ -16,7 +18,7 @@
 
 - `yc init` — инициализация CLI.
 - `yc version` — вывод версии YC CLI.
-- `yc help` — вывод справки о YC CLI. 
+- `yc help` — вывод справки о YC CLI.
 
 #### Управление YC CLI
 
@@ -26,10 +28,10 @@
 
 #### Управление сервисами
 
-- `yc iam` — [управление ресурсами [!KEYREF iam-full-name]](manage-services/iam.md).
-- `yc resource-manager` — [управление ресурсами [!KEYREF resmgr-full-name]](manage-services/resource-manager.md).
-- `yc compute` — [управление ресурсами [!KEYREF compute-full-name]](manage-services/compute.md).
-- `yc vpc` — [управление ресурсами [!KEYREF vpc-full-name]](manage-services/vpc.md).
-- `yc managed-clickhouse` — [управление [!KEYREF CH]](manage-services/managed-clickhouse.md).
-- `yc managed-mongodb` — [управление [!KEYREF MG]](manage-services/managed-mongodb.md).
-- `yc managed-postgresql` — [управление [!KEYREF PG]](manage-services/managed-postgresql.md).
+- `yc iam` — [управление ресурсами {{ iam-full-name }}](manage-services/iam.md).
+- `yc resource-manager` — [управление ресурсами {{ resmgr-full-name }}](manage-services/resource-manager.md).
+- `yc compute` — [управление ресурсами {{ compute-full-name }}](manage-services/compute.md).
+- `yc vpc` — [управление ресурсами {{ vpc-full-name }}](manage-services/vpc.md).
+- `yc managed-clickhouse` — [управление {{ CH }}](manage-services/managed-clickhouse.md).
+- `yc managed-mongodb` — [управление {{ MG }}](manage-services/managed-mongodb.md).
+- `yc managed-postgresql` — [управление {{ PG }}](manage-services/managed-postgresql.md).

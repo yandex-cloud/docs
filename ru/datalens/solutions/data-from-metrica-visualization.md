@@ -1,6 +1,6 @@
 # Визуализация данных из Metriсa
 
-В качестве исходных данных будет использована статистика из Яндекс.Метрики. [!KEYREF datalens-short-name] автоматически создаст дашборд на основе счетчика Метрики с подборкой графиков, а вы сможете отредактировать его по своему усмотрению.
+В качестве исходных данных будет использована статистика из Яндекс.Метрики. {{ datalens-short-name }} автоматически создаст дашборд на основе счетчика Метрики с подборкой графиков, а вы сможете отредактировать его по своему усмотрению.
 
 В виде шагов это будет выглядеть следующим образом:
 
@@ -10,54 +10,58 @@
 
 ## Шаг 1. Создайте подключение и стандартный дашборд {#step1}
 
-> [!IMPORTANT]
->
-> Данный шаг доступен для пользователей, у которых есть права на какой-либо счетчик Метрики. Если у вас нет прав на счетчик, то откройте готовый дашборд **Metriсa** и перейдите к шагу 2.
+{% note important %}
 
-1. Перейдите в [[!KEYREF datalens-short-name]](https://datalens.yandex.ru).
+Данный шаг доступен для пользователей, у которых есть права на какой-либо счетчик Метрики. Если у вас нет прав на счетчик, то откройте готовый дашборд **Metriсa** и перейдите к шагу 2.
+
+{% endnote %}
+
+1. Перейдите в [{{ datalens-short-name }}](https://datalens.yandex.ru).
 1. Нажмите кнопку **Создать подключение**.
 
     ![image](../../_assets/datalens/solution3/connection-create.png)
 
 1. Выберите **Metriсa**.
 
-    ![image](../../_assets/datalens/solution3/create-connection.png) 
+    ![image](../../_assets/datalens/solution3/create-connection.png)
 
 1. Введите имя подключения **Metriсa connect**.
 1. Нажмите кнопку **Получить токен**.
 1. В открывшемся окне предоставьте сервису необходимые разрешения.
-1. Из выпадающего списка под надписью **Счетчик** выберите необходимый счетчик. 
+1. Из выпадающего списка под надписью **Счетчик** выберите необходимый счетчик.
 1. Включите опцию **Автоматически создать дашборд на данном подключении**.
 1. Нажмите кнопку **Создать подключение**.
 
-    ![image](../../_assets/datalens/solution3/connection-settings.png) 
+    ![image](../../_assets/datalens/solution3/connection-settings.png)
 
 
 ## Шаг 2. Измените стандартный дашборд {#step2}
 
-> [!IMPORTANT]
->
-> Если у вас нет счетчика Метрики и вы пропустили шаг 1, используйте дашборд **Metriсa Live Demo Dashboard**.
+{% note important %}
 
-Вы можете изменять [дашборд](../concepts/dashboard.md), так как вам удобно, например, удалив ненужный график. 
+Если у вас нет счетчика Метрики и вы пропустили шаг 1, используйте дашборд **Metriсa Live Demo Dashboard**.
 
-1. Выберите из списка стандартный дашборд с названием **Metrica Dashboard**.  
+{% endnote %}
 
-    ![image](../../_assets/datalens/solution3/dashboard-standart.png)    
-  
+Вы можете изменять [дашборд](../concepts/dashboard.md), так как вам удобно, например, удалив ненужный график.
+
+1. Выберите из списка стандартный дашборд с названием **Metrica Dashboard**.
+
+    ![image](../../_assets/datalens/solution3/dashboard-standart.png)
+
 1. В открывшемся дашборде нажмите кнопку **Редактировать** в правом верхнем углу.
 
-    ![image](../../_assets/datalens/solution3/dashboard-edit.png)  
+    ![image](../../_assets/datalens/solution3/dashboard-edit.png)
 
 1. Удалите график.
     1. Пролистайте вниз страницы до раздела **Technology**.
     1. Удалите график **Visits browsers share**. Для этого нажмите значок ![image](../../_assets/datalens/cross.svg)  в верхнем правом углу графика.
-    
-        ![image](../../_assets/datalens/solution3/graf-delete.png)  
-    
+
+        ![image](../../_assets/datalens/solution3/graf-delete.png)
+
 1. Нажмите кнопку **Сохранить** в верхнем правом углу и сохраните дашборд.
 
-     ![image](../../_assets/datalens/solution3/dashboard-save.png)  
+     ![image](../../_assets/datalens/solution3/dashboard-save.png)
 
 ## Шаг 3. Измените чарт {step3}
 
@@ -66,18 +70,18 @@
 1. Нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) в верхнем правом углу графика **Visits OS**.
 1. Выберите **Редактировать**.
 
-    ![image](../../_assets/datalens/solution3/graf-edit.png)    
+    ![image](../../_assets/datalens/solution3/graf-edit.png)
 
 1. В открывшемся окне во втором столбце нажмите на **Древовидная диаграмма** и выберите другой тип чарта: **Круговая диаграмма**.
 
-    ![image](../../_assets/datalens/solution3/chage-type.png)   
+    ![image](../../_assets/datalens/solution3/chage-type.png)
 
 1. Нажмите кнопку **Сохранить** в верхнем правом углу и сохраните чарт.
 
-    ![image](../../_assets/datalens/solution3/graf-save.png)   
+    ![image](../../_assets/datalens/solution3/graf-save.png)
 
-1. Закройте вкладку с редактированием чарта. 
+1. Закройте вкладку с редактированием чарта.
 1. Вернитесь в окно с дашбордом.
 1. Обновите дашборд.
 
-    ![image](../../_assets/datalens/solution3/dashboard-end.png)   
+    ![image](../../_assets/datalens/solution3/dashboard-end.png)

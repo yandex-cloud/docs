@@ -2,17 +2,17 @@
 editable: false
 ---
 
-# Правила тарификации для [!KEYREF speechkit-name]
+# Правила тарификации для {{ speechkit-name }}
 
-[!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## Из чего складывается стоимость использования [!KEYREF speechkit-short-name] {#rules}
+## Из чего складывается стоимость использования {{ speechkit-short-name }} {#rules}
 
 ### Использование синтеза речи {#rules-tts}
 
 Стоимость использования SpeechKit API для синтеза речи рассчитывается исходя из суммарного количества символов, которые были отправлены для генерации речи из текста за календарный месяц ([Отчетный период](https://cloud.yandex.ru/docs/billing/concepts/glossary)).
 
-[!INCLUDE [pricing-symbol-count](../_includes/pricing-symbol-count.md)]
+{% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
 ### Использование распознавания речи {#rules-stt}
 

@@ -1,6 +1,6 @@
-1. [!INCLUDE [grant-role-console-first-steps](iam/grant-role-console-first-steps.md)]
+1. {% include [grant-role-console-first-steps](iam/grant-role-console-first-steps.md) %}
 
-1. [!INCLUDE [configure-roles-console](iam/configure-roles-console.md)]
+1. {% include [configure-roles-console](iam/configure-roles-console.md) %}
 
 1. To add a cloud role, click ![image](../_assets/plus-sign.svg) in the **Roles for cloud <cloud name>** section.
 

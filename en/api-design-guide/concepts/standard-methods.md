@@ -27,7 +27,7 @@ Sample gRPC description of the [Get](https://github.com/yandex-cloud/cloudapi/bl
      get: "/compute/v1/disks/{disk_id}"
    };
  }
- 
+
  message GetDiskRequest {
    // ID of the requested disk.
    string disk_id = 1;
@@ -76,10 +76,10 @@ Sample gRPC description of the [List](https://github.com/yandex-cloud/cloudapi/b
    // To get the next page,
    // insert in this field the value from
    // [ListDisksResponse.next_page_token]
-   // returned by the previous List request. 
+   // returned by the previous List request.
    string page_token = 3;
  }
- 
+
  message ListDisksResponse {
    // List of disks.
    repeated Disk disks = 1;
@@ -112,17 +112,17 @@ Sample gRPC description of the [Create](https://github.com/yandex-cloud/cloudapi
    option (google.api.http) = {
      post: "/compute/v1/disks" body: "*"
    };
-   // In the `metadata` field of the Operation object 
+   // In the `metadata` field of the Operation object
    // there is a `CreateDiskMetadata` view.
-   // If the operation is successful, 
-   // the `response` field of the Operation object 
+   // If the operation is successful,
+   // the `response` field of the Operation object
    // contains a disk resource view.
    option (yandex.api.operation) = {
      metadata: "CreateDiskMetadata"
      response: "Disk"
    };
  }
-   
+
  message CreateDiskRequest {
    // ID of the folder where the disk should be created.
    // Required field.
@@ -130,19 +130,19 @@ Sample gRPC description of the [Create](https://github.com/yandex-cloud/cloudapi
 
    // Disk name.
    string name = 2;
- 
+
    // Disk description.
    string description = 3;
- 
+
    // Disk labels in 'key: value' format.
    map<string, string> labels = 4;
- 
+
    // Disk type.
    string type_id = 5;
 
    // ID of the zone to create the disk in.
    string zone_id = 6;
- 
+
    // Disk size in bytes.
    int64 size = 7;
 
@@ -154,7 +154,7 @@ Sample gRPC description of the [Create](https://github.com/yandex-cloud/cloudapi
      string snapshot_id = 9;
    }
  }
- 
+
  message CreateDiskMetadata {
    // ID of the new disk.
    string disk_id = 1;
@@ -165,18 +165,18 @@ Sample REST request used to create a disk:
 
 ```
  POST https://compute.api.cloud.yandex.net/compute/v1/disks
- 
+
  {
    "folderId": "a3s17h9sbq5asdgss12",
    "name": "disk-1",
    "description": "Test disk",
    "zoneId" : "ru-central1-a",
    "typeId" : "network-nvme",
-   "size" : 10737418240   
+   "size" : 10737418240
  }
 ```
 
-[!INCLUDE [create-operation-response](../_includes/create-operation-response.md)]
+{% include [create-operation-response](../_includes/create-operation-response.md) %}
 
 ## Update {#method-update}
 
@@ -197,10 +197,10 @@ Sample gRPC description of the [Update](https://github.com/yandex-cloud/cloudapi
    option (google.api.http) = {
      patch: "/compute/v1/disks/{disk_id}" body: "*"
    };
-   // In the `metadata` field of the Operation object 
+   // In the `metadata` field of the Operation object
    // there is an `UpdateDiskMetadata` view.
-   // If the operation is successful, 
-   // the `response` field of the Operation object 
+   // If the operation is successful,
+   // the `response` field of the Operation object
    // contains a view of the updated disk resource.
    option (yandex.api.operation) = {
      metadata: "UpdateDiskMetadata"
@@ -225,9 +225,9 @@ Sample gRPC description of the [Update](https://github.com/yandex-cloud/cloudapi
    map<string, string> labels = 5;
 
    // Disk size in bytes.
-   int64 size = 6;   
+   int64 size = 6;
  }
- 
+
  message UpdateDiskMetadata {
    // ID of the disk being updated.
    string disk_id = 1;
@@ -238,7 +238,7 @@ Sample REST request used to update a disk resource:
 
 ```
 PATCH https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
- 
+
  {
    "name": "New name",
    "description": "New description",
@@ -265,10 +265,10 @@ Sample gRPC description of the [Delete](https://github.com/yandex-cloud/cloudapi
    option (google.api.http) = {
      delete: "/compute/v1/disks/{disk_id}"
    };
-   // In the `metadata` field of the Operation object 
+   // In the `metadata` field of the Operation object
    // there is a `DeleteDiskMetadata` view.
-   // If the operation is successful, 
-   // the `response` field of the Operation object 
+   // If the operation is successful,
+   // the `response` field of the Operation object
    // contains a view of the `google.protobuf.Empty` resource.
    option (yandex.api.operation) = {
      metadata: "DeleteDiskMetadata"
@@ -280,7 +280,7 @@ Sample gRPC description of the [Delete](https://github.com/yandex-cloud/cloudapi
    // Required field.
    string disk_id = 1;
  }
- 
+
  message DeleteDiskMetadata {
    // ID of the disk to delete.
    string disk_id = 1;
@@ -293,5 +293,5 @@ Sample REST request used to delete a disk:
  DELETE https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
 ```
 
-[!INCLUDE [grpc-api-ref-note](../_includes/grpc-api-ref-note.md)]
+{% include [grpc-api-ref-note](../_includes/grpc-api-ref-note.md) %}
 

@@ -1,8 +1,8 @@
 The recommended method for connecting to a virtual machine over SSH is based on using a key pair: the open key is placed on the virtual machine, and the private key is stored on the user's device. Connecting with a key pair is more secure than connecting with a username and password.
 
-[!INCLUDE [vm-connect-ssh-linux-note](vm-connect-ssh-linux-note.md)]
+{% include [vm-connect-ssh-linux-note](vm-connect-ssh-linux-note.md) %}
 
-[!INCLUDE [vm-ssh-prepare-key](vm-ssh-prepare-key.md)]
+{% include [vm-ssh-prepare-key](vm-ssh-prepare-key.md) %}
 
 ## Connecting to a VM {#vm-connect}
 

@@ -1,10 +1,10 @@
 # Troubleshooting
 
-[!INCLUDE [ask-for-support](../../_includes/ai-common/ask-for-support.md)]
+{% include [ask-for-support](../../_includes/ai-common/ask-for-support.md) %}
 
 To help the technical support team resolve your issue, use the following headers when sending HTTP requests:
 
-* [!INCLUDE [x-client-request-id](../../_includes/ai-common/x-client-request-id.md)]
+* {% include [x-client-request-id](../../_includes/ai-common/x-client-request-id.md) %}
 
 * `X-Data-Logging-Enabled` — the flag that allows data passed by the user in the request to be saved.
 

@@ -1,16 +1,16 @@
-# Как начать работать c [!KEYREF vision-short-name]
+# Как начать работать c {{ vision-short-name }}
 
-Этот раздел описывает, как начать использовать [!KEYREF vision-short-name] API для анализа изображений.
+Этот раздел описывает, как начать использовать {{ vision-short-name }} API для анализа изображений.
 
 ## Перед началом
 
-[!INCLUDE [ai-before-beginning](../_includes/ai-before-beginning.md)]
+{% include [ai-before-beginning](../_includes/ai-before-beginning.md) %}
 
 ## Проанализируйте изображение
 
 Вы можете использовать любые возможности для анализа из [списка](concepts/index.md#features). Для примера, воспользуемся возможностью [Распознавание текста](concepts/ocr/index.md):
 
-[!INCLUDE [text-detection-steps](../_includes/vision/text-detection-steps.md)]
+{% include [text-detection-steps](../_includes/vision/text-detection-steps.md) %}
 
 #### Что дальше
 

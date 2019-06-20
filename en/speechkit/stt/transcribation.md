@@ -1,8 +1,8 @@
 # Recognition of long audio fragments
 
-Long audio fragment recognition can be used for multi-channel audio files up to [!KEYREF stt-long-fileSize].
+Long audio fragment recognition can be used for multi-channel audio files up to {{ stt-long-fileSize }}.
 
-Long audio fragment recognition is somewhat cheaper than other [recognition methods](index.md#stt-ways), but it is not suitable for online speech recognition as it has a longer response time. For more information about pricing, see [[!TITLE]](../pricing.md).
+Long audio fragment recognition is somewhat cheaper than other [recognition methods](index.md#stt-ways), but it is not suitable for online speech recognition as it has a longer response time. For more information about pricing, see [#T](../pricing.md).
 
 ## Before getting started
 
@@ -12,21 +12,21 @@ Long audio fragment recognition is somewhat cheaper than other [recognition meth
 
 1. [Get an IAM token](../../iam/operations/iam-token/create-for-sa.md) for your service account.
 
-1. Upload an audio file to [!KEYREF objstorage-full-name] and get a link to the uploaded file:
+1. Upload an audio file to {{ objstorage-full-name }} and get a link to the uploaded file:
 
-    1. If you don't have a bucket in [!KEYREF objstorage-name], [create](../../storage/operations/buckets/create.md) one.
+    1. If you don't have a bucket in {{ objstorage-name }}, [create](../../storage/operations/buckets/create.md) one.
 
-    1. [Upload an audio file](../../storage/operations/objects/upload.md) to your bucket. In [!KEYREF objstorage-name] terms, uploaded files are called _objects_.
+    1. [Upload an audio file](../../storage/operations/objects/upload.md) to your bucket. In {{ objstorage-name }} terms, uploaded files are called _objects_.
 
     1. [Get a link](../../storage/operations/objects/link-for-download.md) to the uploaded file. Use this link in your audio recognition request.
 
         The link to the downloaded file has the following format:
 
         ```
-        https://[!KEYREF s3-storage-host]/<bucket-name>/<path-to-file>
+        https://{{ s3-storage-host }}/<bucket-name>/<path-to-file>
         ```
 
-        The link will contain additional query parameters (after `?`) for buckets with restricted access. You do not need to pass these parameters in [!KEYREF speechkit-name] as they are ignored.
+        The link will contain additional query parameters (after `?`) for buckets with restricted access. You do not need to pass these parameters in {{ speechkit-name }} as they are ignored.
 
 ## Send a file for recognition
 
@@ -88,9 +88,11 @@ Use this ID at the next step.
 
 [Monitor the recognition results](../../api-design-guide/concepts/operation.md#monitoring) using the received ID. The number of result monitoring requests is [limited](../concepts/limits.md#stt-long), so consider the recognition speed: it takes about 10 seconds to recognize 1 minute of single-channel audio.
 
-> [!IMPORTANT]
->
-> Recognition results are stored on the [!KEYREF stt-long-resultsStorageTime] server. You can then request the recognition results using the received ID.
+{% note important %}
+
+Recognition results are stored on the {{ stt-long-resultsStorageTime }} server. You can then request the recognition results using the received ID.
+
+{% endnote %}
 
 ### HTTP request
 
@@ -162,8 +164,8 @@ Each result in the `chunks[]` list contains the following fields:
 
 ## Examples {#examples}
 
-* [[!TITLE]](#examples_ogg)
-* [[!TITLE]](#examples_lpcm)
+* [#T](#examples_ogg)
+* [#T](#examples_lpcm)
 
 ### Recognize Russian speech in OggOpus format {#examples_ogg}
 

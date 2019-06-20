@@ -1,10 +1,10 @@
-# Как начать работать cо [!KEYREF speechkit-short-name]
+# Как начать работать cо {{ speechkit-short-name }}
 
-В этом разделе вы научитесь использовать [!KEYREF speechkit-short-name] API. Сначала вы создадите аудиофайл из текста, а потом попробуете его распознать.
+В этом разделе вы научитесь использовать {{ speechkit-short-name }} API. Сначала вы создадите аудиофайл из текста, а потом попробуете его распознать.
 
 ## Перед началом {#before-begin}
 
-[!INCLUDE [ai-before-beginning](../_includes/ai-before-beginning.md)]
+{% include [ai-before-beginning](../_includes/ai-before-beginning.md) %}
 
 ## Преобразование текста в речь
 

@@ -30,7 +30,7 @@ The `Content-MD5` header is required.
 
 ### Data schema {#request-scheme}
 
-A CORS configuration is passed as an XML document. For the schema description, see [[!TITLE]](../../../cors/configuration.md)
+A CORS configuration is passed as an XML document. For the schema description, see [#T](../../../cors/configuration.md)
 
 ## Response {#response}
 
@@ -40,5 +40,5 @@ A response can only contain [common response headers](../common-response-headers
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [[!TITLE]](../response-codes.md).
+For a list of possible responses, see [#T](../response-codes.md).
 

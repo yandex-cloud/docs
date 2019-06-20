@@ -13,11 +13,13 @@ As a result of recognition, the service returns a JSON object with the recognize
 
 ### Detecting the language model {#detect-model}
 
-In your request, specify the languages for recognition. The list of languages and their order affect model selection and recognition quality. If the service tries to recognize Chinese in text written in Arabic, the result will be meaningless. For more information, see [[!TITLE]](supported-languages.md).
+In your request, specify the languages for recognition. The list of languages and their order affect model selection and recognition quality. If the service tries to recognize Chinese in text written in Arabic, the result will be meaningless. For more information, see [#T](supported-languages.md).
 
-> [!NOTE]
->
-> If your text is in Russian and English, do not specify any other languages in the configuration because the [English-Russian model](supported-languages.md#engrus) works best.
+{% note info %}
+
+If your text is in Russian and English, do not specify any other languages in the configuration because the [English-Russian model](supported-languages.md#engrus) works best.
+
+{% endnote %}
 
 ### Detecting text in an image {#detect-text}
 
@@ -34,7 +36,7 @@ As a result, the service returns a JSON object, where additional information is 
 
 To show the position of the text, the service returns the coordinates of the rectangle that frames the text. Coordinates are the number of pixels from the upper-left corner of the image.
 
-[!INCLUDE [coordinates](../../../_includes/vision/coordinates.md)]
+{% include [coordinates](../../../_includes/vision/coordinates.md) %}
 
 Example of a recognized word with coordinates:
 
@@ -72,7 +74,7 @@ Example of a recognized word with coordinates:
 
 An image in a request must meet the following requirements:
 
-[!INCLUDE [file-restrictions](../../../_includes/vision/file-restrictions.md)]
+{% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
 
 ## Recognition confidence {#confidence}
 

@@ -1,10 +1,10 @@
 Рекомендуемый способ подключения к виртуальной машине по SSH основан на использовании пары ключей: открытый ключ размещается на виртуальной машине, а закрытый ключ хранится у пользователя. Подключение с помощью пары ключей более безопасно, чем подключение по логину и паролю.
 
-[!INCLUDE [vm-connect-ssh-linux-note](vm-connect-ssh-linux-note.md)]
+{% include [vm-connect-ssh-linux-note](vm-connect-ssh-linux-note.md) %}
 
 ## Создание пары ключей SSH {#creating-ssh-keys}
 
-[!INCLUDE [vm-ssh-prepare-key](vm-ssh-prepare-key.md)]
+{% include [vm-ssh-prepare-key](vm-ssh-prepare-key.md) %}
 
 ## Подключение к виртуальной машине {#vm-connect}
 

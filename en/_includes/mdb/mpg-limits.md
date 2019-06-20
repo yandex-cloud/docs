@@ -13,6 +13,6 @@
 | ----- | ----- |
 | Lowest host class | s1.nano (1 vCPU, 4 GB RAM) |
 | Highest host class | s1.xlarge (32 vCPUs, 128 GB RAM) |
-| Maximum number of hosts per cluster [!KEYREF PG] | 10 |
-| Maximum storage capacity for a cluster [!KEYREF PG] | 2048 GB |
+| Maximum number of hosts per cluster {{ PG }} | 10 |
+| Maximum storage capacity for a cluster {{ PG }} | 2048 GB |
 

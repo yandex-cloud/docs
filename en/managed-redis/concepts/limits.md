@@ -1,8 +1,8 @@
 # Quotas and limits
 
-In the [!KEYREF mrd-name] service, the following limitations apply:
+In the {{ mrd-name }} service, the following limitations apply:
 
-[!INCLUDE [quotes-limits-def.md](../../_includes/quotes-limits-def.md)]
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-[!INCLUDE [mrd-limits.md](../../_includes/mdb/mrd-limits.md)]
+{% include [mrd-limits.md](../../_includes/mdb/mrd-limits.md) %}
 

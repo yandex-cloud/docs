@@ -1,4 +1,6 @@
 # Пошаговые инструкции
 
-- [[!TITLE]](translate.md)
-- [[!TITLE]](detect.md)
+- [#T](translate.md)
+- [#T](better-quality.md)
+- [#T](detect.md)
+- [#T](list.md)

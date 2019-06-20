@@ -4,13 +4,13 @@
 
 Чтобы отключить доступ к серийной консоли, установите в метаданных виртуальной машины параметр `serial-port-enable` в значение `0`.
 
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+{% include [cli-install](../../../_includes/cli-install.md) %}
 
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
+{% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. Получите список виртуальных машин в каталоге по умолчанию:
 
-    [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
+    {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
 1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
 

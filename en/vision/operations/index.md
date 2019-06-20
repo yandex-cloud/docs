@@ -1,8 +1,8 @@
 # Step-by-step instructions
 
-- [[!TITLE]](ocr/text-detection.md)
-- [[!TITLE]](classification/moderation.md)
-- [[!TITLE]](classification/quality.md)
-- [[!TITLE]](face-detection/index.md)
-- [[!TITLE]](base64-encode.md)
+- [#T](ocr/text-detection.md)
+- [#T](classification/moderation.md)
+- [#T](classification/quality.md)
+- [#T](face-detection/index.md)
+- [#T](base64-encode.md)
 

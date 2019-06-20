@@ -6,42 +6,42 @@
 
 Чтобы получить информацию о группе виртуальных машин:
 
----
+{% list tabs %}
 
-**[!TAB Консоль управления]**
-
-1. Откройте страницу каталога в консоли управления.
-1. Выберите сервис **[!KEYREF compute-full-name]**.
-1. На странице **Виртуальные машины** перейдите на вкладку **Группы виртуальных машин**.
-1. Нажмите на имя нужной группы.
-
-**[!TAB CLI]**
-
-[!INCLUDE [cli-install.md](../../../_includes/cli-install.md)]
-
-[!INCLUDE [default-catalogue.md](../../../_includes/default-catalogue.md)]
-
-1. Посмотрите описание команды CLI для получения информации о группе виртуальных машин:
-
-    ```
-    $ [!KEYREF yc-compute-ig] get --help
-    ```
-
-1. Получите список групп виртуальных машин в каталоге по умолчанию:
-
-    [!INCLUDE [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md)]
-
-1. Выберите `ID` или `NAME` нужной группы, например `first-group`.
-1. Получите информацию о группе виртуальных машин:
-
-    ```
-    $ [!KEYREF yc-compute-ig] get --name first-group
-    ```
-
-**[!TAB API]**
-
-Воспользуйтесь методом API [get](../../api-ref/InstanceGroup/get.md).
-
-Список доступных групп запрашивайте методом [listInstances](../../api-ref/InstanceGroup/listInstances.md).
-
----
+- Консоль управления
+  
+  1. Откройте страницу каталога в консоли управления.
+  1. Выберите сервис **{{ compute-full-name }}**.
+  1. На странице **Виртуальные машины** перейдите на вкладку **Группы виртуальных машин**.
+  1. Нажмите на имя нужной группы.
+  
+- CLI
+  
+  {% include [cli-install.md](../../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
+  
+  1. Посмотрите описание команды CLI для получения информации о группе виртуальных машин:
+  
+      ```
+      $ {{ yc-compute-ig }} get --help
+      ```
+  
+  1. Получите список групп виртуальных машин в каталоге по умолчанию:
+  
+      {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
+  
+  1. Выберите `ID` или `NAME` нужной группы, например `first-group`.
+  1. Получите информацию о группе виртуальных машин:
+  
+      ```
+      $ {{ yc-compute-ig }} get --name first-group
+      ```
+  
+- API
+  
+  Воспользуйтесь методом API [get](../../api-ref/InstanceGroup/get.md).
+  
+  Список доступных групп запрашивайте методом [listInstances](../../api-ref/InstanceGroup/listInstances.md).
+  
+{% endlist %}

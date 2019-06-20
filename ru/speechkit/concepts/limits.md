@@ -4,9 +4,9 @@ editable: false
 
 # Квоты и лимиты
 
-В сервисе [!KEYREF speechkit-full-name] действуют следующие ограничения:
+В сервисе {{ speechkit-full-name }} действуют следующие ограничения:
 
-[!INCLUDE [quotes-limits-def.md](../../_includes/quotes-limits-def.md)]
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
 ## Распознавание речи {#stt}
 
@@ -24,9 +24,9 @@ editable: false
 
 Вид ограничения | Значение
 ----- | -----
-Максимальный размер файла | [!KEYREF stt-short—fileSize]
-Максимальная длительность аудио | [!KEYREF stt-short-audioLength]
-Максимальное количество аудиоканалов | [!KEYREF stt-short-channelsCount]
+Максимальный размер файла | {{ stt-short-fileSize }}
+Максимальная длительность аудио | {{ stt-short-audioLength }}
+Максимальное количество аудиоканалов | {{ stt-short-channelsCount }}
 
 ### Потоковый режим распознавания коротких аудио {#stt-streaming}
 
@@ -42,9 +42,9 @@ editable: false
 
 Вид ограничения | Значение
 ----- | -----
-Максимальная длительность переданного аудио за всю сессию | [!KEYREF stt-streaming-fileSize]
-Максимальный размер переданных аудиоданных | [!KEYREF stt-streaming-audioLength]
-Максимальное количество аудиоканалов | [!KEYREF stt-short-channelsCount]
+Максимальная длительность переданного аудио за всю сессию | {{ stt-streaming-fileSize }}
+Максимальный размер переданных аудиоданных | {{ stt-streaming-audioLength }}
+Максимальное количество аудиоканалов | {{ stt-short-channelsCount }}
 
 ### Распознавание длинных аудио {#stt-long}
 
@@ -62,8 +62,8 @@ editable: false
 
 Вид ограничения | Значение
 ----- | -----
-Максимальный размер файла | [!KEYREF stt-long-fileSize]
-Срок хранения результатов распознавания на сервере | [!KEYREF stt-long-resultsStorageTime]
+Максимальный размер файла | {{ stt-long-fileSize }}
+Срок хранения результатов распознавания на сервере | {{ stt-long-resultsStorageTime }}
 
 ## Синтез речи {#tts}
 

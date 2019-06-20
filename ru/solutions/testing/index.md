@@ -1,3 +1,3 @@
 # Сценарии работы с тестовыми средами
 
-* [[!TITLE]](ci-for-snapshots.md)
+* [#T](ci-for-snapshots.md)

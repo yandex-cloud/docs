@@ -1,20 +1,20 @@
-# Пошаговые инструкции для компонента [!KEYREF ig-name]
+# Пошаговые инструкции для компонента {{ ig-name }}
 
-[!INCLUDE [sa.md](../../../_includes/instance-groups/sa.md)]
+{% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 
 ## Создание группы виртуальных машин
 
-- [[!TITLE]](create-fixed-group.md)
-- [[!TITLE]](create-with-balancer.md)
+- [#T](create-fixed-group.md)
+- [#T](create-with-balancer.md)
 
 ## Получение информации о группе виртуальных машин
 
-- [[!TITLE]](get-list.md)
-- [[!TITLE]](get-info.md)
-- [[!TITLE]](get-list-instances.md)
+- [#T](get-list.md)
+- [#T](get-info.md)
+- [#T](get-list-instances.md)
 
 ## Управление группой виртуальных машин
 
-- [[!TITLE]](update.md)
-- [[!TITLE]](delete.md)
-- [[!TITLE]](enable-autohealing.md)
+- [#T](update.md)
+- [#T](delete.md)
+- [#T](enable-autohealing.md)

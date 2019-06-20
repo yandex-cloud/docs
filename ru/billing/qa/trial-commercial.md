@@ -20,12 +20,12 @@
 
 Нет. Однако вы можете воспользоваться пробным периодом.
 
-[!INCLUDE [trial-activation](../_includes/trial-activation.md)]
+{% include [trial-activation](../_includes/trial-activation.md) %}
 
 #### Я перешел на платную версию. Могу ли я вернуться к использованию пробного периода? {#return-trial-period}
 
-Нет. 
+Нет.
 
-[!INCLUDE [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md)]   
+{% include [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md) %}
 
 Дополнительную информацию см. в разделе [Цикл оплаты](../payment/billing-cycle.md).

@@ -1,8 +1,8 @@
-# Getting started with [!KEYREF vpc-short-name]
+# Getting started with {{ vpc-short-name }}
 
 If you already have a folder in Yandex.Cloud, open the page of that folder in the management console. If you don't have any folders yet, create a new folder before creating a cloud network:
 
-[!INCLUDE [create-folder](../_includes/create-folder.md)]
+{% include [create-folder](../_includes/create-folder.md) %}
 
 Create a [cloud network](concepts/network.md):
 

@@ -10,7 +10,7 @@ To create a VM:
 
 1. In the **Name** field, enter the VM name.
 
-    [!INCLUDE [name-format](../../../_includes/name-format.md)]
+    {% include [name-format](../../../_includes/name-format.md) %}
 
 1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to locate the VM in.
 
@@ -20,9 +20,11 @@ To create a VM:
     - Choose the [platform](../../concepts/vm-platforms.md).
     - Specify the necessary number of vCPUs and amount of RAM.
 
-    > [!NOTE]
-    >
-    > To create a VM from a **GitLab** image, at least 4 virtual cores (100% vCPU) and 4 GB of RAM are required.
+    {% note info %}
+
+    To create a VM from a **GitLab** image, at least 4 virtual cores (100% vCPU) and 4 GB of RAM are required.
+
+    {% endnote %}
 
 1. In the **Network settings** section, click **Add network**.
 
@@ -30,7 +32,7 @@ To create a VM:
 
 1. In **Public address**, choose:
     - **Automatically** — to set a public IP address automatically. The address is allocated from the pool of Yandex.Cloud addresses.
-    - **List** — to select a public IP address from the list of static addresses. For more information, see the section [[!TITLE]](../../../vpc/operations/set-static-ip.md) in the [!KEYREF vpc-name] service documentation.
+    - **List** — to select a public IP address from the list of static addresses. For more information, see the section [#T](../../../vpc/operations/set-static-ip.md) in the {{ vpc-name }} service documentation.
     - **No address** — to not assign a public IP address.
 
 1. Specify data required for accessing the VM.

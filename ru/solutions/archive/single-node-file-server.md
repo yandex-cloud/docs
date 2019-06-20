@@ -58,22 +58,22 @@
       Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей.  Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на виртуальную машину.
 1. Скачайте и установите Samba:
 
-   ---
+   {% list tabs %}
 
-   **[!TAB Ubuntu]**
-   ```bash
-   $ sudo apt-get update
-   $ sudo apt-get install nfs-kernel-server samba
-   ```
-
-   **[!TAB CentOS]**
-   ```bash
-   $ sudo yum check-update
-   $ sudo yum -y install nfs-utils nfs-utils-lib samba nano
-   $ sudo chkconfig smb on
-   $ sudo chkconfig nfs on
-   ```
-   ---
+   - Ubuntu
+     ```bash
+     $ sudo apt-get update
+     $ sudo apt-get install nfs-kernel-server samba
+     ```
+  
+   - CentOS
+     ```bash
+     $ sudo yum check-update
+     $ sudo yum -y install nfs-utils nfs-utils-lib samba nano
+     $ sudo chkconfig smb on
+     $ sudo chkconfig nfs on
+     ```
+   {% endlist %}
 
 1. Подготовьте и смонтируйте файловую систему на диске для хранения данных:
 
@@ -101,157 +101,157 @@
    ```
    Приведите файл к виду:
 
-   ---
-   **[!TAB Ubuntu]**
-
-   ```
-   [global]
-      workgroup = WORKGROUP
-      server string = %h server (Samba)
-      dns proxy = no
-      log file = /var/log/samba/log.%m
-      max log size = 1000
-      syslog = 0
-      panic action = /usr/share/samba/panic-action %d
-      server role = standalone server
-      passdb backend = tdbsam
-      obey pam restrictions = yes
-      unix password sync = yes
-      passwd program = /usr/bin/passwd %u
-      passwd chat = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
-      pam password change = yes
-      map to guest = bad user
-      usershare allow guests = yes
-   [printers]
-      comment = All Printers
-      browseable = no
-      path = /var/spool/samba
-      printable = yes
-      guest ok = no
-      read only = yes
-      create mask = 0700
-   [print$]
-      comment = Printer Drivers
-      path = /var/lib/samba/printers
-      browseable = yes
-      read only = yes
-      guest ok = no
-   [data]
-      comment = /data
-      path = /data
-      browseable = yes
-      read only = no
-      writable = yes
-      guest ok = yes
-      hosts allow = <IP-адрес> 127.0.0.1
-      hosts deny = 0.0.0.0/0
-   ```
-
-   **[!TAB CentOS 6]**
-
-   ```
-   [global]
-      workgroup = MYGROUP
-      server string = Samba Server Version %v
-      log file = /var/log/samba/log.%m
-      max log size = 50
-      security = user
-      passdb backend = tdbsam
-      load printers = yes
-      cups options = raw
-      map to guest = bad user
-   [homes]
-      comment = Home Directories
-      browseable = no
-      writable = yes
-   [printers]
-      comment = All Printers
-      path = /var/spool/samba
-      browseable = no
-      guest ok = no
-      writable = no
-      printable = yes
-   [data]
-      comment = /data
-      path = /data
-      browseable = yes
-      read only = no
-      writable = yes
-      guest ok = yes
-      hosts allow = <IP-адрес> 127.0.0.1
-      hosts deny = 0.0.0.0/0
-   ```
-
-   **[!TAB CentOS 7]**
-
-   ```
-   [global]
-           workgroup = SAMBA
-           security = user
-
-           passdb backend = tdbsam
-
-           printing = cups
-           printcap name = cups
-           load printers = yes
-           cups options = raw
-
-   [homes]
-           comment = Home Directories
-           valid users = %S, %D%w%S
-           browseable = No
-           read only = No
-           inherit acls = Yes
-
-   [printers]
-           comment = All Printers
-           path = /var/tmp
-           printable = Yes
-           create mask = 0600
-           browseable = No
-
-   [print$]
-           comment = Printer Drivers
-           path = /var/lib/samba/drivers
-           write list = @printadmin root
-           force group = @printadmin
-           create mask = 0664
-           directory mask = 0775
-   [data]
-      comment = /data
-      path = /data
-      browseable = yes
-      read only = no
-      writable = yes
-      guest ok = yes
-      hosts allow = <IP-адрес> 127.0.0.1
-      hosts deny = 0.0.0.0/0
-   ```
-
-   ---
+   {% list tabs %}
+   - Ubuntu
+  
+     ```
+     [global]
+        workgroup = WORKGROUP
+        server string = %h server (Samba)
+        dns proxy = no
+        log file = /var/log/samba/log.%m
+        max log size = 1000
+        syslog = 0
+        panic action = /usr/share/samba/panic-action %d
+        server role = standalone server
+        passdb backend = tdbsam
+        obey pam restrictions = yes
+        unix password sync = yes
+        passwd program = /usr/bin/passwd %u
+        passwd chat = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
+        pam password change = yes
+        map to guest = bad user
+        usershare allow guests = yes
+     [printers]
+        comment = All Printers
+        browseable = no
+        path = /var/spool/samba
+        printable = yes
+        guest ok = no
+        read only = yes
+        create mask = 0700
+     [print$]
+        comment = Printer Drivers
+        path = /var/lib/samba/printers
+        browseable = yes
+        read only = yes
+        guest ok = no
+     [data]
+        comment = /data
+        path = /data
+        browseable = yes
+        read only = no
+        writable = yes
+        guest ok = yes
+        hosts allow = <IP-адрес> 127.0.0.1
+        hosts deny = 0.0.0.0/0
+     ```
+  
+   - CentOS 6
+  
+     ```
+     [global]
+        workgroup = MYGROUP
+        server string = Samba Server Version %v
+        log file = /var/log/samba/log.%m
+        max log size = 50
+        security = user
+        passdb backend = tdbsam
+        load printers = yes
+        cups options = raw
+        map to guest = bad user
+     [homes]
+        comment = Home Directories
+        browseable = no
+        writable = yes
+     [printers]
+        comment = All Printers
+        path = /var/spool/samba
+        browseable = no
+        guest ok = no
+        writable = no
+        printable = yes
+     [data]
+        comment = /data
+        path = /data
+        browseable = yes
+        read only = no
+        writable = yes
+        guest ok = yes
+        hosts allow = <IP-адрес> 127.0.0.1
+        hosts deny = 0.0.0.0/0
+     ```
+  
+   - CentOS 7
+  
+     ```
+     [global]
+             workgroup = SAMBA
+             security = user
+  
+             passdb backend = tdbsam
+  
+             printing = cups
+             printcap name = cups
+             load printers = yes
+             cups options = raw
+  
+     [homes]
+             comment = Home Directories
+             valid users = %S, %D%w%S
+             browseable = No
+             read only = No
+             inherit acls = Yes
+  
+     [printers]
+             comment = All Printers
+             path = /var/tmp
+             printable = Yes
+             create mask = 0600
+             browseable = No
+  
+     [print$]
+             comment = Printer Drivers
+             path = /var/lib/samba/drivers
+             write list = @printadmin root
+             force group = @printadmin
+             create mask = 0664
+             directory mask = 0775
+     [data]
+        comment = /data
+        path = /data
+        browseable = yes
+        read only = no
+        writable = yes
+        guest ok = yes
+        hosts allow = <IP-адрес> 127.0.0.1
+        hosts deny = 0.0.0.0/0
+     ```
+  
+   {% endlist %}
 
    В блоке `[data]` вместо `<IP-адрес>` укажите IP-адрес компьютера, к которому вы будете подключать по NFS сетевой диск с данными.
 1. Перезапустите NFS и Samba, для CentOS 6 и 7 предварительно разрешите чтение файлов в директории `/data`:
 
-   ---
+   {% list tabs %}
 
-   **[!TAB Ubuntu]**
-   ```bash
-   $ sudo service nfs-kernel-server restart
-   $ sudo service smbd restart
-   ```
-
-   **[!TAB CentOS]**
-   ```bash
-   $ sudo chcon -t samba_share_t /data
-   $ sudo semanage fcontext -a -t samba_share_t "/data(/.*)?"
-   $ sudo restorecon -R -v /data
-   $ sudo service rpcbind restart
-   $ sudo service nfs restart
-   $ sudo service smb restart
-   ```
-
-   ---
+   - Ubuntu
+     ```bash
+     $ sudo service nfs-kernel-server restart
+     $ sudo service smbd restart
+     ```
+  
+   - CentOS
+     ```bash
+     $ sudo chcon -t samba_share_t /data
+     $ sudo semanage fcontext -a -t samba_share_t "/data(/.*)?"
+     $ sudo restorecon -R -v /data
+     $ sudo service rpcbind restart
+     $ sudo service nfs restart
+     $ sudo service smb restart
+     ```
+  
+   {% endlist %}
 
 1. Этот шаг нужно выполнять только на виртуальной машине с ОС CentOS 6.
 
@@ -273,22 +273,22 @@
    ```
 1. Подключите по NFS сетевой диск к вашему компьютеру и проверьте доступность тестового файла:
 
-   ---
+   {% list tabs %}
 
-   **[!TAB Linux/macOS]**
-
-   Выполните команду `mount -t nfs <внешний IP>:/data /<точка монтирования>`.
-
-   Тестовая директория и файл должны быть доступны в указанной точке монтирования.
-
-   **[!TAB Windows]**
-
-   1. Запустите утилиту **cmd.exe**. Для этого нажмите комбинацию клавиш **Windows**+**R** и выполните команду `cmd`.
-   1. В командной строке выполните команду:
-       ```
-       net use x: \\<публичный IP-адрес виртуальной машины>\data
-       ```
-
-   Тестовая директория и файл должны быть доступны на диске X.
-
-   ---
+   - Linux/macOS
+  
+     Выполните команду `mount -t nfs <внешний IP>:/data /<точка монтирования>`.
+  
+     Тестовая директория и файл должны быть доступны в указанной точке монтирования.
+  
+   - Windows
+  
+     1. Запустите утилиту **cmd.exe**. Для этого нажмите комбинацию клавиш **Windows**+**R** и выполните команду `cmd`.
+     1. В командной строке выполните команду:
+         ```
+         net use x: \\<публичный IP-адрес виртуальной машины>\data
+         ```
+  
+     Тестовая директория и файл должны быть доступны на диске X.
+  
+   {% endlist %}

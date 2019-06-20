@@ -19,41 +19,41 @@ editable: false
 
 ## Квоты и лимиты сервисов {#quotes-and-limits}
 
-[!INCLUDE [quotes-limits-def.md](../../_includes/quotes-limits-def.md)]
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
 Квоты и лимиты для сервисов Яндекс.Облака, которые действуют во время пробного периода, приведены ниже.
 
 
-### [!KEYREF resmgr-full-name] {#resource-manager}
+### {{ resmgr-full-name }} {#resource-manager}
 
-[!INCLUDE [resource-manager-limits.md](../../_includes/resource-manager-limits.md)]
-
-
-### [!KEYREF compute-full-name] {#compute}
-
-[!INCLUDE [compute-limits.md](../../_includes/compute-limits.md)]
+{% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
 
 
-### [!KEYREF objstorage-full-name] {#storage}
+### {{ compute-full-name }} {#compute}
 
-[!INCLUDE [storage-limits.md](../../_includes/storage-limits.md)]
-
-
-### [!KEYREF vpc-full-name] {#vpc}
-
-[!INCLUDE [vpc-limits.md](../../_includes/vpc-limits.md)]
+{% include [compute-limits.md](../../_includes/compute-limits.md) %}
 
 
-### [!KEYREF mch-full-name] {#mdb}
+### {{ objstorage-full-name }} {#storage}
 
-[!INCLUDE [mch-limits.md](../../_includes/mdb/mch-limits.md)]
-
-
-### [!KEYREF mmg-full-name] {#mdb}
-
-[!INCLUDE [mmg-limits.md](../../_includes/mdb/mmg-limits.md)]
+{% include [storage-limits.md](../../_includes/storage-limits.md) %}
 
 
-### [!KEYREF mpg-full-name] {#mdb}
+### {{ vpc-full-name }} {#vpc}
 
-[!INCLUDE [mpg-limits.md](../../_includes/mdb/mpg-limits.md)]
+{% include [vpc-limits.md](../../_includes/vpc-limits.md) %}
+
+
+### {{ mch-full-name }} {#mdb}
+
+{% include [mch-limits.md](../../_includes/mdb/mch-limits.md) %}
+
+
+### {{ mmg-full-name }} {#mdb}
+
+{% include [mmg-limits.md](../../_includes/mdb/mmg-limits.md) %}
+
+
+### {{ mpg-full-name }} {#mdb}
+
+{% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}

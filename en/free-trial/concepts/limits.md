@@ -16,35 +16,35 @@ Technical support is provided in full during the trial period. For more informat
 
 ## Service quotas and limits {#quotes-and-limits}
 
-[!INCLUDE [quotes-limits-def.md](../../_includes/quotes-limits-def.md)]
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
 Quotas and limits for Yandex.Cloud services during the trial period are listed below.
 
-### [!KEYREF resmgr-full-name] {#resource-manager}
+### {{ resmgr-full-name }} {#resource-manager}
 
-[!INCLUDE [resource-manager-limits.md](../../_includes/resource-manager-limits.md)]
+{% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
 
-### [!KEYREF compute-full-name] {#compute}
+### {{ compute-full-name }} {#compute}
 
-[!INCLUDE [compute-limits.md](../../_includes/compute-limits.md)]
+{% include [compute-limits.md](../../_includes/compute-limits.md) %}
 
-### [!KEYREF objstorage-full-name] {#storage}
+### {{ objstorage-full-name }} {#storage}
 
-[!INCLUDE [storage-limits.md](../../_includes/storage-limits.md)]
+{% include [storage-limits.md](../../_includes/storage-limits.md) %}
 
-### [!KEYREF vpc-full-name] {#vpc}
+### {{ vpc-full-name }} {#vpc}
 
-[!INCLUDE [vpc-limits.md](../../_includes/vpc-limits.md)]
+{% include [vpc-limits.md](../../_includes/vpc-limits.md) %}
 
-### [!KEYREF mch-full-name] {#mdb}
+### {{ mch-full-name }} {#mdb}
 
-[!INCLUDE [mch-limits.md](../../_includes/mdb/mch-limits.md)]
+{% include [mch-limits.md](../../_includes/mdb/mch-limits.md) %}
 
-### [!KEYREF mmg-full-name] {#mdb}
+### {{ mmg-full-name }} {#mdb}
 
-[!INCLUDE [mmg-limits.md](../../_includes/mdb/mmg-limits.md)]
+{% include [mmg-limits.md](../../_includes/mdb/mmg-limits.md) %}
 
-### [!KEYREF mpg-full-name] {#mdb}
+### {{ mpg-full-name }} {#mdb}
 
-[!INCLUDE [mpg-limits.md](../../_includes/mdb/mpg-limits.md)]
+{% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
 

@@ -1,8 +1,8 @@
 # Platforms
 
-Choosing a platform guarantees the type of physical processor in the data center and determines the set of valid vCPU and RAM configurations. The platform must be chosen when creating each virtual machine. For allowed vCPU and RAM configurations, see [[!TITLE]](performance-levels.md).
+Choosing a platform guarantees the type of physical processor in the data center and determines the set of valid vCPU and RAM configurations. The platform must be chosen when creating each virtual machine. For allowed vCPU and RAM configurations, see [#T](performance-levels.md).
 
-For more information about pricing for computing resources on different platforms, see [[!TITLE]](../pricing.md#prices).
+For more information about pricing for computing resources on different platforms, see [#T](../pricing.md#prices).
 
 Available platforms:
 

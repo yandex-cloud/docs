@@ -4,7 +4,7 @@
 
 You can contact technical support using any of these methods:
 
-[!INCLUDE [support-channels](../_includes/support-channels.md)]
+{% include [support-channels](../_includes/support-channels.md) %}
 
 #### How do I contact technical support if I can't log in to the management console? {#requesting-support-without-ui}
 
@@ -14,13 +14,13 @@ If you successfully logged in to Yandex but you can't connect to the Yandex.Clou
 
 #### What types of issues and cases can be solved by technical support? {#support-cases-types}
 
-[!INCLUDE [support-cases-types](../_includes/support-cases-types.md)]
+{% include [support-cases-types](../_includes/support-cases-types.md) %}
 
 #### How quickly will technical support respond to my request? {#reaction-time}
 
 Support request response time:
 
-  [!INCLUDE [support-reaction-time](../_includes/support-reaction-time.md)]
+  {% include [support-reaction-time](../_includes/support-reaction-time.md) %}
 
 Technical support responds to requests 24 hours a day, 7 days a week.
 
@@ -41,7 +41,7 @@ To get help with architecture-related tasks, use the feedback form on the manage
 Technical support includes troubleshooting of problems with third-party software that is used in conjunction with the cloud infrastructure, and assistance in solving identified problems to a limited extent. Technical support engineers can help you with installation, basic configuration, and diagnostics of the following software:
 
 - Operating systems running on Yandex.Cloud VM instances that were created using public images provided by Yandex.Cloud.
-- Databases created with [[!KEYREF mpg-full-name]](../managed-postgresql/), [[!KEYREF mch-full-name]](../managed-clickhouse/), [[!KEYREF mmg-full-name]](../managed-mongodb/).
+- Databases created with [{{ mpg-full-name }}](../managed-postgresql/), [{{ mch-full-name }}](../managed-clickhouse/), [{{ mmg-full-name }}](../managed-mongodb/).
 
 #### What happens if you can't solve my problem with third-party software? {#unresolved-third-party-issues}
 

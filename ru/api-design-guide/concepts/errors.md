@@ -1,4 +1,4 @@
-[!INCLUDE [errors-handling](../../_includes/errors-handling.md)]
+{% include [errors-handling](../../_includes/errors-handling.md) %}
 
 ## Обработка ошибок в асинхронных вызовах {#async-errors}
 

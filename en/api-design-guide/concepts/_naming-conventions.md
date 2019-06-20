@@ -48,9 +48,11 @@ service DiskService {
 }
 ```
 
-> [!NOTE]
-> 
-> The term "interfaces" is introduced to avoid confusion between a service in gRPC terms and a service in Yandex.Cloud terms.
+{% note info %}
+
+The term "interfaces" is introduced to avoid confusion between a service in gRPC terms and a service in Yandex.Cloud terms.
+
+{% endnote %}
 
 ## Method naming
 
@@ -86,7 +88,7 @@ rpc GetLatestByFamily (GetImageLatestByFamilyRequest) returns (Image) {
 
 ## gRPC message naming
 
-Messages that describe a request/response are named according to the 
+Messages that describe a request/response are named according to the
 <q>method name + Request/Response suffix</q> pattern.
 
 For example:
@@ -109,7 +111,7 @@ Compound names are allowed. Examples: <q>Disk</q>, <q>DiskType</q>.
 > ```
 message Disk {
 ...
-} 
+}
 ```
 
 ## Field naming {#naming-rules}

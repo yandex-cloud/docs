@@ -10,7 +10,7 @@ To create a VM:
 
 1. In the **Name** field, enter the VM name.
 
-    [!INCLUDE [name-format](../../../_includes/name-format.md)]
+    {% include [name-format](../../../_includes/name-format.md) %}
 
 1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to locate the VM in.
 
@@ -26,7 +26,7 @@ To create a VM:
 
 1. In **Public address**, choose:
     - **Automatically** — to set a public IP address automatically. The address is allocated from the pool of Yandex.Cloud addresses.
-    - **List** — to select a public IP address from the list of static addresses. For more information, see the section [[!TITLE]](../../../vpc/operations/set-static-ip.md) in the [!KEYREF vpc-name] service documentation.
+    - **List** — to select a public IP address from the list of static addresses. For more information, see the section [#T](../../../vpc/operations/set-static-ip.md) in the {{ vpc-name }} service documentation.
     - **No address** — to not assign a public IP address.
 
 1. Specify data required for accessing the VM:
@@ -36,11 +36,11 @@ You need to create a key pair for SSH connection yourself. To generate keys, use
 
 1. Click **Create VM**.
 
-[!INCLUDE [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md)]
+{% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
 ## Connecting to a DSVM via SSH {#first-login}
 
-[!INCLUDE [vm-connect-ssh](../../../_includes/vm-connect-ssh.md)]
+{% include [vm-connect-ssh](../../../_includes/vm-connect-ssh.md) %}
 
 In the welcome message, you will see the commands for activating an environment and running [Jupyter Notebook](http://jupyter.org/index.html) and [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/):
 

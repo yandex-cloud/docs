@@ -13,10 +13,11 @@ Copies of documents will be sent to the email address of the billing account own
 <br/>Soft and hard copies of a document are identical. To prepare your financial reports on time, you can use the number, amount, and date of the report from the email received.
 <br/>Paper source documents with all signatures and stamps are provided only upon [request](../qa/common.md) to Yandex.Cloud technical support. The request must specify the agreement number (specified in the report) and the period you need the documents for.
 
-> [!NOTE]
->
-> Documents are sent to the email address and mailing address specified in the billing account. Make sure the addresses are specified correctly.
->
+{% note info %}
+
+Documents are sent to the email address and mailing address specified in the billing account. Make sure the addresses are specified correctly.
+
+{% endnote %}
 
 ## Documents for individuals {#docs-for-individual}
 

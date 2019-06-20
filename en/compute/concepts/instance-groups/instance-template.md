@@ -2,21 +2,21 @@
 
 When creating a group, you need to describe an _instance template_, which is the basic instance configuration that will be used for deploying all the instances in the group.
 
-The template description and [policy](policies.md) description are passed to the CLI in a YAML file when creating or updating an instance group, via the `--file` flag. This is convenient for passing values consisting of multiple strings. For more information, see [[!TITLE]](../../operations/instance-groups/create-fixed-group.md).
+The template description and [policy](policies.md) description are passed to the CLI in a YAML file when creating or updating an instance group, via the `--file` flag. This is convenient for passing values consisting of multiple strings. For more information, see [#T](../../operations/instance-groups/create-fixed-group.md).
 
 ## Computing resources {#types}
 
-When describing a template, you specify the computing resources to allocate to each instance: the number and guaranteed performance of processor cores (vCPUs) and the amount of RAM. You can choose the amount of computing resources that is appropriate for the expected load. For more information, see [[!TITLE]](../performance-levels.md).
+When describing a template, you specify the computing resources to allocate to each instance: the number and guaranteed performance of processor cores (vCPUs) and the amount of RAM. You can choose the amount of computing resources that is appropriate for the expected load. For more information, see [#T](../performance-levels.md).
 
 ## Disks {#disks}
 
 At least one disk must be attached to each instance, that is, a boot disk. Each boot disk is created automatically and attached to only one instance when creating an instance group.
 
-You can also attach additional disks to each instance. You can create an additional disk along with an instance group. The new disk can be empty, or you can restore it from a snapshot or image. It is only possible to attach or detach additional disks when creating or updating a group. For more information, see [[!TITLE]](../disk.md).
+You can also attach additional disks to each instance. You can create an additional disk along with an instance group. The new disk can be empty, or you can restore it from a snapshot or image. It is only possible to attach or detach additional disks when creating or updating a group. For more information, see [#T](../disk.md).
 
 ## Network {#network}
 
-When creating a group, you should specify settings for the network interface connected to each instance: select the network that the instance will be connected to. You can also configure a public IP address. This allows the instance to interact with other services over the internet. For more information, see [[!TITLE]](../network.md).
+When creating a group, you should specify settings for the network interface connected to each instance: select the network that the instance will be connected to. You can also configure a public IP address. This allows the instance to interact with other services over the internet. For more information, see [#T](../network.md).
 
 ## Template description in a YAML file {#instance-template}
 
@@ -72,5 +72,5 @@ Keys (the table lists keys that directly define the base instance's configuratio
 | `subnet_ids` | IDs of cloud subnets. |
 | `ip_version` | IP version for the public IP address. |
 
-For information about technical restrictions of the [!KEYREF ig-name] component, see [[!TITLE]](../limits.md).
+For information about technical restrictions of the {{ ig-name }} component, see [#T](../limits.md).
 

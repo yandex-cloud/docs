@@ -18,7 +18,7 @@
       <Permission>WRITE</Permission>
     </Grant>
   </AccessControlList>
-</AccessControlPolicy> 
+</AccessControlPolicy>
 ```
 
 
@@ -27,7 +27,7 @@
 Элемент | Описание
 ----- | -----
 `AccessControlPolicy` | Корневой элемент.<br/><br/>Путь: `/AccessControlPolicy`.
-`Owner` | Информация о пользователе.<br/><br/>Пользователь может указать этот элемент для запросов методами `objectPutAcl` и `bucketPutAcl`. Если элемент указан, то при загрузке ACL [!KEYREF objstorage-name] проверяет соответствие переданного идентификатора фактическому и если они не совпадают, то ответчает с кодом 403.<br/><br/>Путь: `/AccessControlPolicy/Owner`.
+`Owner` | Информация о пользователе.<br/><br/>Пользователь может указать этот элемент для запросов методами `objectPutAcl` и `bucketPutAcl`. Если элемент указан, то при загрузке ACL {{ objstorage-name }} проверяет соответствие переданного идентификатора фактическому и если они не совпадают, то ответчает с кодом 403.<br/><br/>Путь: `/AccessControlPolicy/Owner`.
 `AccessControlList` | Список управления доступом. Не может содержать более 100 доступов.<br/><br/>Путь: `/AccessControlPolicy/AccessControlList`.
 `Grant` | Описание доступа.<br/><br/>Путь: `/AccessControlPolicy/AccessControlList/Grant`.
 `Grantee` | Пользователь или группа для которой выдается доступ.<br/><br/>Путь: `/AccessControlPolicy/AccessControlList/Grant/Grantee`.

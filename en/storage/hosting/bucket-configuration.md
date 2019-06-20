@@ -2,20 +2,20 @@
 
 You can configure a bucket:
 
----
+{% list tabs %}
 
-**[!TAB As a website]**
-
-- [Allow public access](../operations/buckets/bucket-availability.md). Otherwise, [!KEYREF objstorage-name] returns error code 403 to the user.
-- [Specify the website's home page](setup.md).
-- You can optionally specify the web page that will be returned if 4xx errors occur.
-
-**[!TAB To redirect all requests to an arbitrary host]**
-
-- [Set the host](setup.md) to redirect requests to.
-- If necessary, specify the protocol to be used to access the host. The initial request protocol is used by default.
-
----
+- As a website
+  
+  - [Allow public access](../operations/buckets/bucket-availability.md). Otherwise, {{ objstorage-name }} returns error code 403 to the user.
+  - [Specify the website's home page](setup.md).
+  - You can optionally specify the web page that will be returned if 4xx errors occur.
+  
+- To redirect all requests to an arbitrary host
+  
+  - [Set the host](setup.md) to redirect requests to.
+  - If necessary, specify the protocol to be used to access the host. The initial request protocol is used by default.
+  
+{% endlist %}
 
 If you are going to use your own domain to publish a website, the bucket name must match the domain name. For instance, `www.example.com`.
 
@@ -32,7 +32,7 @@ If you want to have multiple domain names supported for your website, for instan
 2. Set up an alias for the bucket through your provider.
 
     ```
-    www.example.com CNAME www.example.com.[!KEYREF s3-web-host]
+    www.example.com CNAME www.example.com.{{ s3-web-host }}
     ```
 3. Set up a redirect from the `example.com` domain to the `www.example.com` domain on the provider side.
 
@@ -41,5 +41,5 @@ If for some reason you can't or don't want to redirect the domain, you can do th
 1. Purchase a virtual machine with an external IP address.
 2. Configure the `example.com` domain to use the IP address of the virtual machine.
 3. Set up all necessary aliases on the provider side.
-4. Install a web server on the virtual machine and configure a redirect to the [!KEYREF objstorage-name] bucket.
+4. Install a web server on the virtual machine and configure a redirect to the {{ objstorage-name }} bucket.
 

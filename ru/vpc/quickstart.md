@@ -1,8 +1,8 @@
-# Как начать работать с [!KEYREF vpc-short-name]
+# Как начать работать с {{ vpc-short-name }}
 
 Если у вас уже есть каталог в Яндекс.Облаке, откройте страницу этого каталога в консоли управления. Если каталога еще нет, перед созданием облачной сети необходимо создать новый каталог:
 
-[!INCLUDE [create-folder](../_includes/create-folder.md)]
+{% include [create-folder](../_includes/create-folder.md) %}
 
 Cоздайте [облачную сеть](concepts/network.md):
 1. Откройте раздел **Virtual Private Cloud**.

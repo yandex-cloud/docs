@@ -1,6 +1,6 @@
-# Restrictions [!KEYREF mrd-name]
+# Restrictions {{ mrd-name }}
 
-[!KEYREF mrd-name] allows you to run [any Redis commands](https://redis.io/commands), except the following:
+{{ mrd-name }} allows you to run [any Redis commands](https://redis.io/commands), except the following:
 
 - `BGREWRITEAOF`
 - `BGSAVE`

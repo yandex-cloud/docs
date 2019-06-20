@@ -2,9 +2,11 @@
 
 Uploads an access control list for an object.
 
-> [!NOTE]
->
->ACLs can be uploaded as XML documents or using special `x-amx-grant*` headers. Do not use XML documents and `x-amx-grant*` headers in the same request.
+{% note info %}
+
+ACLs can be uploaded as XML documents or using special `x-amx-grant*` headers. Do not use XML documents and `x-amx-grant*` headers in the same request.
+
+{% endnote %}
 
 ## Request {#request}
 
@@ -17,7 +19,7 @@ PUT /{bucket}/{key}?acl HTTP/1.1
 | Parameter | Description |
 | ----- | ----- |
 | `bucket` | Name of the bucket. |
-| `key` | Object key. ID to use for saving the object in [!KEYREF objstorage-name]. |
+| `key` | Object key. ID to use for saving the object in {{ objstorage-name }}. |
 
 ### Query parameters {#request-params}
 
@@ -31,7 +33,7 @@ Use the necessary [common request headers](../common-request-headers.md) in requ
 
 You can also use the headers listed below.
 
-[!INCLUDE [storage-acl-headers](../../../_includes_service/storage-acl-object-headers.md)]
+{% include [storage-acl-headers](../../../_includes_service/storage-acl-object-headers.md) %}
 
 ### Data schema
 
@@ -45,5 +47,5 @@ Responses can only contain [common response headers](../common-response-headers.
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [[!TITLE]](../response-codes.md).
+For a list of possible responses, see [#T](../response-codes.md).
 

@@ -1,24 +1,24 @@
 # Пошаговые инструкции
 
-Чтобы работать с Docker-образами, [аутентифицируйтесь в [!KEYREF container-registry-short-name]](authentication.md).
+Чтобы работать с Docker-образами, [аутентифицируйтесь в {{ container-registry-short-name }}](authentication.md).
 
 ## Docker-образ
 
-- [[!TITLE]](docker-image/docker-image-list.md)
-- [[!TITLE]](docker-image/docker-image-create.md)
-- [[!TITLE]](docker-image/docker-image-push.md)
-- [[!TITLE]](docker-image/docker-image-pull.md)
-- [[!TITLE]](docker-image/docker-image-delete.md)
+- [#T](docker-image/docker-image-list.md)
+- [#T](docker-image/docker-image-create.md)
+- [#T](docker-image/docker-image-push.md)
+- [#T](docker-image/docker-image-pull.md)
+- [#T](docker-image/docker-image-delete.md)
 
 ## Реестр
 
-- [[!TITLE]](registry/registry-list.md)
-- [[!TITLE]](registry/registry-create.md)
-- [[!TITLE]](registry/registry-update.md)
-- [[!TITLE]](registry/registry-delete.md)
+- [#T](registry/registry-list.md)
+- [#T](registry/registry-create.md)
+- [#T](registry/registry-update.md)
+- [#T](registry/registry-delete.md)
 
 ## Репозиторий
 
-- [[!TITLE]](repository/repository-list.md)
+- [#T](repository/repository-list.md)
 
 

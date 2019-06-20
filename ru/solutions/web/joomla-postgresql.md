@@ -83,136 +83,136 @@
     ```
 1. Установите дополнительные компоненты:
 
-    ---
+    {% list tabs %}
 
-    **[!TAB Ubuntu 14]**
-
-    ```bash
-    $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-    $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-    $ sudo apt-get update
-    $ sudo apt-get -q -y install php5-pgsql php5-curl php5-json php5-cgi php5 libapache2-mod-php5 php5-mcrypt apache2 php5-common cron debconf-utils sendmail unzip iptables postgresql-client-10
-    $ sudo mkdir ~www-data/.postgresql
-    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
-    $ sudo chmod 0600 ~www-data/.postgresql/root.crt
-    $ sudo chown -R www-data:www-data ~www-data/.postgresql
-    ```
-
-    **[!TAB Ubuntu 16]**
-
-    ```bash
-    $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-    $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-    $ sudo apt-get update
-    $ sudo apt-get -q -y install php7.0-pgsql php7.0-curl php7.0-json php7.0-cgi php7.0 libapache2-mod-php7.0 php7.0-mcrypt apache2 php-mail php7.0-common cron debconf-utils sendmail unzip iptables composer postgresql-client-10
-    $ sudo mkdir ~www-data/.postgresql
-    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
-    $ sudo chmod 0600 ~www-data/.postgresql/root.crt
-    $ sudo chown -R www-data:www-data ~www-data/.postgresql
-    ```
-
-    **[!TAB Ubuntu 18]**
-
-    ```bash
-    $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-    $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-    $ sudo apt-get update
-    $ sudo apt-get -q -y install php7.2-pgsql php7.2-curl php7.2-json php7.2-cgi php7.2 libapache2-mod-php7.2 apache2 php-mail php7.2-common cron debconf-utils sendmail unzip iptables composer postgresql-client-10
-    $ sudo mkdir ~www-data/.postgresql
-    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
-    $ sudo chmod 0600 ~www-data/.postgresql/root.crt
-    $ sudo chown -R www-data:www-data ~www-data/.postgresql
-    ```
-
-    **[!TAB CentOS 6]**
-
-    ```bash
-    $ sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-6-x86_64/pgdg-centos10-10-2.noarch.rpm
-    $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-    $ sudo yum check-update
-    $ sudo yum -y install --enablerepo remi-php72 httpd php php-pgsql php php-common php-mbstring php-zip php-xml nano wget postgresql10
-    $ sudo mkdir ~apache/.postgresql
-    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
-    $ sudo chmod 0600 ~apache/.postgresql/root.crt
-    $ sudo chown -R apache:apache ~apache/.postgresql
-    ```
-
-    **[!TAB CentOS 7]**
-
-    ```bash
-    $ sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
-    $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-    $ sudo yum check-update
-    $ sudo yum -y install --enablerepo remi-php72 httpd php php-pgsql php php-common php-mbstring php-zip php-xml nano wget postgresql10
-    $ sudo mkdir ~apache/.postgresql
-    $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
-    $ sudo chmod 0600 ~apache/.postgresql/root.crt
-    $ sudo chown -R apache:apache ~apache/.postgresql
-    ```
-
-    ---
+    - Ubuntu 14
+  
+      ```bash
+      $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+      $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+      $ sudo apt-get update
+      $ sudo apt-get -q -y install php5-pgsql php5-curl php5-json php5-cgi php5 libapache2-mod-php5 php5-mcrypt apache2 php5-common cron debconf-utils sendmail unzip iptables postgresql-client-10
+      $ sudo mkdir ~www-data/.postgresql
+      $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
+      $ sudo chmod 0600 ~www-data/.postgresql/root.crt
+      $ sudo chown -R www-data:www-data ~www-data/.postgresql
+      ```
+  
+    - Ubuntu 16
+  
+      ```bash
+      $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+      $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+      $ sudo apt-get update
+      $ sudo apt-get -q -y install php7.0-pgsql php7.0-curl php7.0-json php7.0-cgi php7.0 libapache2-mod-php7.0 php7.0-mcrypt apache2 php-mail php7.0-common cron debconf-utils sendmail unzip iptables composer postgresql-client-10
+      $ sudo mkdir ~www-data/.postgresql
+      $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
+      $ sudo chmod 0600 ~www-data/.postgresql/root.crt
+      $ sudo chown -R www-data:www-data ~www-data/.postgresql
+      ```
+  
+    - Ubuntu 18
+  
+      ```bash
+      $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+      $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+      $ sudo apt-get update
+      $ sudo apt-get -q -y install php7.2-pgsql php7.2-curl php7.2-json php7.2-cgi php7.2 libapache2-mod-php7.2 apache2 php-mail php7.2-common cron debconf-utils sendmail unzip iptables composer postgresql-client-10
+      $ sudo mkdir ~www-data/.postgresql
+      $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
+      $ sudo chmod 0600 ~www-data/.postgresql/root.crt
+      $ sudo chown -R www-data:www-data ~www-data/.postgresql
+      ```
+  
+    - CentOS 6
+  
+      ```bash
+      $ sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-6-x86_64/pgdg-centos10-10-2.noarch.rpm
+      $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+      $ sudo yum check-update
+      $ sudo yum -y install --enablerepo remi-php72 httpd php php-pgsql php php-common php-mbstring php-zip php-xml nano wget postgresql10
+      $ sudo mkdir ~apache/.postgresql
+      $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
+      $ sudo chmod 0600 ~apache/.postgresql/root.crt
+      $ sudo chown -R apache:apache ~apache/.postgresql
+      ```
+  
+    - CentOS 7
+  
+      ```bash
+      $ sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
+      $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+      $ sudo yum check-update
+      $ sudo yum -y install --enablerepo remi-php72 httpd php php-pgsql php php-common php-mbstring php-zip php-xml nano wget postgresql10
+      $ sudo mkdir ~apache/.postgresql
+      $ sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
+      $ sudo chmod 0600 ~apache/.postgresql/root.crt
+      $ sudo chown -R apache:apache ~apache/.postgresql
+      ```
+  
+    {% endlist %}
 
 ## 4. Настройте веб-сервер Apache2 {#configure-apache2}
 
 1. Выполните базовую настройку Apache2:
 
-   ---
+   {% list tabs %}
 
-   **[!TAB Ubuntu 14]**
-
-   ```bash
-   $ sudo a2enmod php5
-   $ sudo a2dismod mpm_event
-   $ sudo a2enmod mpm_prefork
-   $ sudo a2enmod rewrite
-   $ sudo chown -R www-data /var/www/html/
-   ```
-
-   **[!TAB Ubuntu 16]**
-
-   ```bash
-   $ sudo a2enmod php7.0
-   $ sudo a2dismod mpm_event
-   $ sudo a2enmod mpm_prefork
-   $ sudo a2enmod rewrite
-   $ sudo chown -R www-data /var/www/html/
-   ```
-
-   **[!TAB Ubuntu 18]**
-
-   ```bash
-   $ sudo a2enmod php7.2
-   $ sudo a2dismod mpm_event
-   $ sudo a2enmod mpm_prefork
-   $ sudo a2enmod rewrite
-   $ sudo chown -R www-data /var/www/html/
-   ```
-
-   **[!TAB CentOS]**
-
-   ```bash
-   $ sudo chown -R apache /var/www/html/
-   ```
-
-   ---
+   - Ubuntu 14
+  
+     ```bash
+     $ sudo a2enmod php5
+     $ sudo a2dismod mpm_event
+     $ sudo a2enmod mpm_prefork
+     $ sudo a2enmod rewrite
+     $ sudo chown -R www-data /var/www/html/
+     ```
+  
+   - Ubuntu 16
+  
+     ```bash
+     $ sudo a2enmod php7.0
+     $ sudo a2dismod mpm_event
+     $ sudo a2enmod mpm_prefork
+     $ sudo a2enmod rewrite
+     $ sudo chown -R www-data /var/www/html/
+     ```
+  
+   - Ubuntu 18
+  
+     ```bash
+     $ sudo a2enmod php7.2
+     $ sudo a2dismod mpm_event
+     $ sudo a2enmod mpm_prefork
+     $ sudo a2enmod rewrite
+     $ sudo chown -R www-data /var/www/html/
+     ```
+  
+   - CentOS
+  
+     ```bash
+     $ sudo chown -R apache /var/www/html/
+     ```
+  
+   {% endlist %}
 
 1. Задайте настройки виртуального хоста в конфигурационном файле Apache2. Вы можете отредактировать файл с помощью редактора `nano`:
 
-   ---
+   {% list tabs %}
 
-   **[!TAB Ubuntu]**
-
-   ```bash
-   $ sudo nano /etc/apache2/sites-enabled/000-default.conf
-   ```
-
-   **[!TAB CentOS]**
-
-   ```bash
-   $ sudo nano /etc/httpd/conf.d/joomla.conf
-   ```
-
-   ---
+   - Ubuntu
+  
+     ```bash
+     $ sudo nano /etc/apache2/sites-enabled/000-default.conf
+     ```
+  
+   - CentOS
+  
+     ```bash
+     $ sudo nano /etc/httpd/conf.d/joomla.conf
+     ```
+  
+   {% endlist %}
 
    Приведите файл к виду:
 
@@ -233,21 +233,21 @@
 
 1. Перезапустите веб-сервер:
 
-   ---
+   {% list tabs %}
 
-   **[!TAB Ubuntu]**
-
-   ```bash
-   $ sudo service apache2 restart
-   ```
-
-   **[!TAB CentOS]**
-
-   ```bash
-   $ sudo service httpd restart
-   ```
-
-   ---
+   - Ubuntu
+  
+     ```bash
+     $ sudo service apache2 restart
+     ```
+  
+   - CentOS
+  
+     ```bash
+     $ sudo service httpd restart
+     ```
+  
+   {% endlist %}
 
 1. Этот шаг нужно выполнять только на виртуальной машине с CentOS.
 
@@ -277,7 +277,7 @@
  1. Получите адреса хостов кластера БД в консоли управления:
 
     1. Откройте каталог, в котором создан кластер БД.
-    1. Нажмите плитку **[!KEYREF mpg-name]**.
+    1. Нажмите плитку **{{ mpg-name }}**.
     1. Выберите кластер `joomla-pg-tutorial-db-cluster`.
     1. Откройте вкладку **Хосты**.
     1. В колонке **Адрес (доменное имя)** найдите адреса хостов.
@@ -295,10 +295,10 @@
 
 ## 6. Загрузите файлы веб-сайта {#upload-files}
 
-[!INCLUDE [upload-files](../_solutions_includes/upload-web-site-files.md)]
+{% include [upload-files](../_solutions_includes/upload-web-site-files.md) %}
 
 ## 7. Настройте DNS {#configure-dns}
 
 Доменное имя, которое вы хотите использовать для веб-сайта, нужно связать с созданной виртуальной машиной `joomla-pg-tutorial-web`.
 
-[!INCLUDE [configure-a-record-and-cname](../_solutions_includes/configure-a-record-and-cname.md)]
+{% include [configure-a-record-and-cname](../_solutions_includes/configure-a-record-and-cname.md) %}

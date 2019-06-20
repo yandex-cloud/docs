@@ -21,7 +21,7 @@ Returns the URL of the specified queue. Specify the queue name to get its URL.
 
 ### GetQueueUrl errors {#errors}
 
-For a list of errors that are common to all methods, see the section [[!TITLE]](../common-errors.md).
+For a list of errors that are common to all methods, see the section [#T](../common-errors.md).
 
 | HTTP code | Error ID | Description |
 | ----- | ----- | ----- |

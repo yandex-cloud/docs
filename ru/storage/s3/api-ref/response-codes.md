@@ -2,19 +2,19 @@
 
 ## Успешный ответ {#success}
 
-При отсутствии ошибок [!KEYREF objstorage-name] отвечает HTTP-кодами 2xx. Код и тело ответа зависят от запроса и рассматриваются в описаниях запросов.
+При отсутствии ошибок {{ objstorage-name }} отвечает HTTP-кодами 2xx. Код и тело ответа зависят от запроса и рассматриваются в описаниях запросов.
 
 
 ## Ответ с ошибкой {#error}
 
-При возникновении ошибки [!KEYREF objstorage-name] отвечает сообщением с соответствующим HTTP-кодом и дополнительным описанием в формате XML.
+При возникновении ошибки {{ objstorage-name }} отвечает сообщением с соответствующим HTTP-кодом и дополнительным описанием в формате XML.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Error>
   <Code>NoSuchKey</Code>
   <Message>The resource you requested does not exist</Message>
-  <Resource>/mybucket/myfoto.jpg</Resource> 
+  <Resource>/mybucket/myfoto.jpg</Resource>
   <RequestId>4442587FB7D0A2F9</RequestId>
 </Error>
 ```
@@ -34,7 +34,7 @@ HTTP | Код ошибки| Описание
 301 | `PermanentRedirect` | К указанному бакету всегда следует обращаться по указанному в ответе адресу.
 307 | `Redirect` | К указанному бакету временно следует обращаться по указанному в ответе адресу.
 307 | `TemporaryRedirect` | Редирект на время обновления DNS.
-400 | `BadDigest` | Хэш переданных в заголовке `Content-MD5` не совпадает с вычисленным на стороне [!KEYREF objstorage-name]. 
+400 | `BadDigest` | Хэш переданных в заголовке `Content-MD5` не совпадает с вычисленным на стороне {{ objstorage-name }}.
 400 | `CredentialsNotSupported` | Учетные данные не поддерживаются.
 400 | `EntityTooSmall` | Загружаемый объект меньше минимально допустимого размера.
 400 | `EntityTooLarge` | Загружаемый объект больше максимально допустимого.
@@ -76,9 +76,9 @@ HTTP | Код ошибки| Описание
 403 | `InvalidObjectState` | Запрос не может быть выполнен для текущего состояния объекта.
 403 | `InvalidPayer` | Доступ к объекту заблокирован.
 403 | `InvalidSecurity` | Предоставленные секретные ключи не валидны.
-403 | `NotSignedUp` | Для аккаунта не разрешено использование [!KEYREF objstorage-name].
+403 | `NotSignedUp` | Для аккаунта не разрешено использование {{ objstorage-name }}.
 403 | `RequestTimeTooSkewed` | Слишком большая разница между временем отправки запроса и временем на сервере.
-403 | `SignatureDoesNotMatch` | Предоставленная подпись запроса не соответствует вычисленной [!KEYREF objstorage-name].
+403 | `SignatureDoesNotMatch` | Предоставленная подпись запроса не соответствует вычисленной {{ objstorage-name }}.
 404 | `NoSuchBucket` | Указанного бакета не существует.
 404 | `NoSuchKey` | Указанный ключ не существует.
 404 | `NoSuchUpload` | Указанной составной загрузки не существует.<br/><br/>Ошибка возникает в следующих случаях:<br/>- Указан неправильный идентификатор загрузки.<br/>- Загрузка прервана.<br/>- Загрузка завершена.
@@ -90,7 +90,7 @@ HTTP | Код ошибки| Описание
 411 | `MissingContentLength` | Добавьте `Content-Length` в заголовки.
 412 | `Precondition Failed` | Не выполнено одно из указанных в запросе условий.
 416 | `InvalidRange` | Неправильный диапазон в заголовке Range.
-500 | `InternalError` | Внутренняя ошибка [!KEYREF objstorage-name]. Повторите запрос.
-501 | `NotImplemented` | Переданный заголовок не обрабатывается [!KEYREF objstorage-name].
-503 | `ServiceUnavailable` | [!KEYREF objstorage-name] недоступен.<br/>Уменьшите частоту ваших запросов.
+500 | `InternalError` | Внутренняя ошибка {{ objstorage-name }}. Повторите запрос.
+501 | `NotImplemented` | Переданный заголовок не обрабатывается {{ objstorage-name }}.
+503 | `ServiceUnavailable` | {{ objstorage-name }} недоступен.<br/>Уменьшите частоту ваших запросов.
 503 | `SlowDown` | Уменьшите частоту ваших запросов.

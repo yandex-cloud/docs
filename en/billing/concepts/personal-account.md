@@ -16,7 +16,7 @@ The number of your personal account is displayed in the management console on th
 
 After the paid version is activated, the personal account balance is zero by default.
 
-[!INCLUDE [personal-account-balance](../_includes/personal-account-balance.md)]
+{% include [personal-account-balance](../_includes/personal-account-balance.md) %}
 
 We recommend that you [monitor](../operations/pay-the-bill.md) and top up your personal account balance so that it is always positive.
 

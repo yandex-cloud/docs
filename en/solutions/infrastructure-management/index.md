@@ -1,4 +1,5 @@
 # Tutorials for working with infrastructure management software
 
-* [[!TITLE]](terraform-quickstart.md)
-* [[!TITLE]](packer-quickstart.md)
+* [#T](terraform-quickstart.md)
+* [#T](packer-quickstart.md)
+* [#T](active-directory.md)

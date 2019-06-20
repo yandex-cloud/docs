@@ -12,9 +12,10 @@
    [default]
                region=us-east-1
    ```
-   > [!NOTE]
-   >
-   > Для работы с Yandex Object Storage всегда указывайте регион — `us-east-1`. Другие значения региона могут привести к ошибке авторизации.
-   >
+   {% note info %}
 
-Для доступа к [!KEYREF objstorage-name] используйте адрес `[!KEYREF s3-storage-host]`.
+   Для работы с Yandex Object Storage всегда указывайте регион — `us-east-1`. Другие значения региона могут привести к ошибке авторизации.
+
+   {% endnote %}
+
+Для доступа к {{ objstorage-name }} используйте адрес `{{ s3-storage-host }}`.

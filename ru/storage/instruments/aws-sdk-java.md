@@ -4,28 +4,29 @@
 
 ## Подготовка к работе {#preparations}
 
-[!INCLUDE [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md)]
+{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
 
 ## Установка {#installation}
 
 Для установки AWS SDK для JAVA воспользуйтесь [инструкцией](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-install.html) на сайте производителя.
 
-> [!NOTE]
->
-> Установите SDK версии не ниже 1.11.336.
->
+{% note info %}
+
+Установите SDK версии не ниже 1.11.336.
+
+{% endnote %}
 
 
 ## Настройка {#setup}
 
-[!INCLUDE [storage-sdk-setup](../_includes_service/storage-sdk-setup.md)]
+{% include [storage-sdk-setup](../_includes_service/storage-sdk-setup.md) %}
 
 
 ## Примеры кода {#java-sdk-examples}
 
 Пример кода находится в каталоге `aws-java-sdk/samples/AmazonS3` в архиве с дистрибутивом SDK.
 
-Чтобы подключиться к [!KEYREF objstorage-name] замените в примере код
+Чтобы подключиться к {{ objstorage-name }} замените в примере код
 
 ```cpp
 AmazonS3 s3 = AmazonS3ClientBuilder.standard()
@@ -41,7 +42,7 @@ AmazonS3 s3 = AmazonS3ClientBuilder.standard()
     .withCredentials(new AWSStaticCredentialsProvider(credentials))
     .withEndpointConfiguration(
         new AmazonS3ClientBuilder.EndpointConfiguration(
-            "[!KEYREF s3-storage-host]","us-east-1"
+            "{{ s3-storage-host }}","us-east-1"
         )
     )
     .build();

@@ -1,14 +1,16 @@
-# yc 
+# yc
 
 Command line interface helps you interact with Yandex.Cloud services.
 
-> [!IMPORTANT]
-> 
-> List of commands may vary depending on the version of YC CLI.
+{% note important %}
+
+List of commands may vary depending on the version of YC CLI.
+
+{% endnote %}
 
 #### Usage
 
-Syntax: 
+Syntax:
 
 `yc <group|command>`
 
@@ -26,10 +28,10 @@ Syntax:
 
 #### Manage services
 
-- `iam`  — [manage [!KEYREF iam-full-name] resources](manage-services/iam.md).
-- `resource-manager`  — [manage [!KEYREF resmgr-full-name] resources](manage-services/resource-manager.md).
-- `compute`  — [manage [!KEYREF compute-full-name] resources](manage-services/compute.md).
-- `vpc`  — [manage [!KEYREF vpc-full-name] resources](manage-services/vpc.md).
-- `managed-clickhouse`  — [manage [!KEYREF CH]](manage-services/managed-clickhouse.md).
-- `managed-mongodb`  — [manage [!KEYREF MG]](manage-services/managed-mongodb.md).
-- `managed-postgresql`  — [manage [!KEYREF PG]](manage-services/managed-postgresql.md).
+- `iam`  — [manage {{ iam-full-name }} resources](manage-services/iam.md).
+- `resource-manager`  — [manage {{ resmgr-full-name }} resources](manage-services/resource-manager.md).
+- `compute`  — [manage {{ compute-full-name }} resources](manage-services/compute.md).
+- `vpc`  — [manage {{ vpc-full-name }} resources](manage-services/vpc.md).
+- `managed-clickhouse`  — [manage {{ CH }}](manage-services/managed-clickhouse.md).
+- `managed-mongodb`  — [manage {{ MG }}](manage-services/managed-mongodb.md).
+- `managed-postgresql`  — [manage {{ PG }}](manage-services/managed-postgresql.md).

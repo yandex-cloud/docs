@@ -1,61 +1,63 @@
-# Managing [!KEYREF PG] extensions
+# Managing {{ PG }} extensions
 
-[!KEYREF mpg-short-name] supports a large number of standard [!KEYREF PG] extensions and some non-standard ones. A full list of available extensions is [ given below](#postgresql).
+{{ mpg-short-name }} supports a large number of standard {{ PG }} extensions and some non-standard ones. A full list of available extensions is [ given below](#postgresql).
 
 ## Getting a list of extensions {#list-extensions}
 
----
+{% list tabs %}
 
-**[!TAB CLI]**
-
-[!INCLUDE [cli-install](../../_includes/cli-install.md)]
-
-[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
-
-To get a list of extensions for a specific database, run the command:
-
-```
-$ [!KEYREF yc-mdb-pg] database get <DB name> \
-     --cluster-name <cluster name>
-```
-
-The enabled extensions will be listed in the `extensions` list.
-
-**[!TAB API]**
-
-To get a list of extensions for the cluster database, use the [get](../api-ref/Database/get.md) method.
-
----
+- CLI
+  
+  {% include [cli-install](../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  
+  To get a list of extensions for a specific database, run the command:
+  
+  ```
+  $ {{ yc-mdb-pg }} database get <DB name> \
+       --cluster-name <cluster name>
+  ```
+  
+  The enabled extensions will be listed in the `extensions` list.
+  
+- API
+  
+  To get a list of extensions for the cluster database, use the [get](../api-ref/Database/get.md) method.
+  
+{% endlist %}
 
 ## Updating a set of extensions {#update-extensions}
 
----
+{% list tabs %}
 
-**[!TAB CLI]**
+- CLI
+  
+  {% include [cli-install](../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  
+  To enable or disable {{ PG }} DB extensions, pass the full list of the required extensions in a CLI command. The enabled extensions that aren't in that list will be disabled.
+  
+  ```
+  $ {{ yc-mdb-pg }} database update <DB name> \
+       --cluster-name <cluster name>
+       --extensions <extension name>=<version>,<extension name>=<version>...
+  ```
+  
+  {% note info %}
+  
+  The extension version is not considered when handling the command: you can pass any non-empty string as a version.
+  
+  {% endnote %}
+  
+- API
+  
+  To pass a new list of DB extensions, use the [update](../api-ref/Database/update.md) method.
+  
+{% endlist %}
 
-[!INCLUDE [cli-install](../../_includes/cli-install.md)]
-
-[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
-
-To enable or disable [!KEYREF PG] DB extensions, pass the full list of the required extensions in a CLI command. The enabled extensions that aren't in that list will be disabled.
-
-```
-$ [!KEYREF yc-mdb-pg] database update <DB name> \
-     --cluster-name <cluster name>
-     --extensions <extension name>=<version>,<extension name>=<version>...
-```
-
-> [!NOTE]
->
-> The extension version is not considered when handling the command: you can pass any non-empty string as a version.
-
-**[!TAB API]**
-
-To pass a new list of DB extensions, use the [update](../api-ref/Database/update.md) method.
-
----
-
-## Supported [!KEYREF PG] extensions {#postgresql}
+## Supported {{ PG }} extensions {#postgresql}
 
 All supported extensions are listed here:
 

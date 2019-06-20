@@ -6,10 +6,11 @@ A grant is a discount given to a business or individual to use with any of the Y
 
 When [creating your first billing account](../quickstart/index.md), you are provided with an initial grant. For more information about the size of the initial grant and conditions for its use, see the document [Trial period](../../free-trial/).
 
-> [!NOTE]
->
-> Only one initial grant can be given to an individual or business.
->
+{% note info %}
+
+Only one initial grant can be given to an individual or business.
+
+{% endnote %}
 
 ## Additional grants {#additional}
 

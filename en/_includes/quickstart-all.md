@@ -4,5 +4,5 @@ To start working with Yandex.Cloud:
 
 - Start using services:
 
-  [!INCLUDE [quickstart-all-no-billing](quickstart-all-no-billing.md)]
+  {% include [quickstart-all-no-billing](quickstart-all-no-billing.md) %}
 

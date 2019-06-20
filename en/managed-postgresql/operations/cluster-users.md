@@ -4,64 +4,64 @@ You can add and remove users, as well as manage their individual settings.
 
 ## Getting a list of users {#list-users}
 
----
+{% list tabs %}
 
-**[!TAB Management console]**
-
-1. Go to the folder page and click **[!KEYREF mpg-name]**.
-1. Click on the name of the cluster you need and then select the **Users** tab.
-
-**[!TAB CLI]**
-
-[!INCLUDE [cli-install](../../_includes/cli-install.md)]
-
-[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
-
-To get a list of cluster users, run the command:
-
-```
-$ [!KEYREF yc-mdb-pg] user list
-     --cluster-name=<cluster name>
-```
-
-The cluster name can be requested with a [list of folder clusters](#list-clusters).
-
----
+- Management console
+  
+  1. Go to the folder page and click **{{ mpg-name }}**.
+  1. Click on the name of the cluster you need and then select the **Users** tab.
+  
+- CLI
+  
+  {% include [cli-install](../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  
+  To get a list of cluster users, run the command:
+  
+  ```
+  $ {{ yc-mdb-pg }} user list
+       --cluster-name=<cluster name>
+  ```
+  
+  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  
+{% endlist %}
 
 ## Adding users {#adduser}
 
-When adding a user, [!KEYREF mpg-short-name] reserves 50 connections to a [!KEYREF PG] cluster (the `connlimit` parameter) by default. The minimum number of connections per user is 10.
+When adding a user, {{ mpg-short-name }} reserves 50 connections to a {{ PG }} cluster (the `connlimit` parameter) by default. The minimum number of connections per user is 10.
 
-[!INCLUDE [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md)]
+{% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
 
----
+{% list tabs %}
 
-**[!TAB Management console]**
-
-1. Go to the folder page and click **[!KEYREF mpg-name]**.
-1. Click on the name of the cluster you need and select the tab **Users**.
-1. Click **Add**.
-1. Enter the database user name and password (from 8 to 128 characters).
-
-**[!TAB CLI]**
-
-[!INCLUDE [cli-install](../../_includes/cli-install.md)]
-
-[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
-
-To create a user in a cluster, run the command:
-
-```
-$ [!KEYREF yc-mdb-pg] user create <user name>
-     --cluster-name=<cluster name>
-     --password=<DB user password>
-     --permissions=<list of DBs the user can access>
-     --conn-limit=<number of connections available to the user>
-```
-
-The cluster name can be requested with a [list of folder clusters](#list-clusters).
-
----
+- Management console
+  
+  1. Go to the folder page and click **{{ mpg-name }}**.
+  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click **Add**.
+  1. Enter the database user name and password (from 8 to 128 characters).
+  
+- CLI
+  
+  {% include [cli-install](../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  
+  To create a user in a cluster, run the command:
+  
+  ```
+  $ {{ yc-mdb-pg }} user create <user name>
+       --cluster-name=<cluster name>
+       --password=<DB user password>
+       --permissions=<list of DBs the user can access>
+       --conn-limit=<number of connections available to the user>
+  ```
+  
+  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  
+{% endlist %}
 
 ## Updating users {#updateuser}
 
@@ -71,60 +71,60 @@ For the user, you can change:
 - List of databases the user can access.
 - Limitation on the number of DB connections.
 
----
+{% list tabs %}
 
-**[!TAB Management console]**
-
-In the management console, you can only change the password of a database user:
-
-1. Go to the folder page and click **[!KEYREF mpg-name]**.
-1. Click on the name of the cluster you need and select the tab **Users**.
-1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Change password**.
-
-**[!TAB CLI]**
-
-[!INCLUDE [cli-install](../../_includes/cli-install.md)]
-
-[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
-
-To change the user's password or the list of databases available to the user, run:
-
-```
-$ [!KEYREF yc-mdb-pg] user update <user name>
-     --cluster-name=<cluster name>
-     --password=<DB user password>
-     --permissions=<list of DBs the user can access>
-     --conn-limit=<number of connections available to the user>
-```
-
-The cluster name can be requested with a [list of folder clusters](#list-clusters).
-
----
+- Management console
+  
+  In the management console, you can only change the password of a database user:
+  
+  1. Go to the folder page and click **{{ mpg-name }}**.
+  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Change password**.
+  
+- CLI
+  
+  {% include [cli-install](../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  
+  To change the user's password or the list of databases available to the user, run:
+  
+  ```
+  $ {{ yc-mdb-pg }} user update <user name>
+       --cluster-name=<cluster name>
+       --password=<DB user password>
+       --permissions=<list of DBs the user can access>
+       --conn-limit=<number of connections available to the user>
+  ```
+  
+  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  
+{% endlist %}
 
 ## Removing a user {#removeuser}
 
----
+{% list tabs %}
 
-**[!TAB Management console]**
-
-1. Go to the folder page and click **[!KEYREF mpg-name]**.
-1. Click on the name of the cluster you need and select the tab **Users**.
-1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Delete**.
-
-**[!TAB CLI]**
-
-[!INCLUDE [cli-install](../../_includes/cli-install.md)]
-
-[!INCLUDE [default-catalogue](../../_includes/default-catalogue.md)]
-
-To remove a user, run:
-
-```
-$ [!KEYREF yc-mdb-pg] user delete <user name>
-     --cluster-name=<cluster name>
-```
-
-The cluster name can be requested with a [list of folder clusters](#list-clusters).
-
----
+- Management console
+  
+  1. Go to the folder page and click **{{ mpg-name }}**.
+  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Delete**.
+  
+- CLI
+  
+  {% include [cli-install](../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  
+  To remove a user, run:
+  
+  ```
+  $ {{ yc-mdb-pg }} user delete <user name>
+       --cluster-name=<cluster name>
+  ```
+  
+  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  
+{% endlist %}
 

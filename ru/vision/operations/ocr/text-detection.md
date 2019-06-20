@@ -4,17 +4,19 @@
 
 Для этого в методе [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) в свойстве `type` укажите `TEXT_DETECTION`, а в свойстве `textDetectionConfig` задайте настройки распознавания.
 
-> [!NOTE]
->
-> Распознается текст, расположенный горизонтально. Если изображение или текст перевернуты, текст может не распознаться. Если вы отсканировали документ и не знаете, как повернуто изображение, отправьте несколько вариантов изображения с разными углами поворота.
+{% note info %}
+
+Распознается текст, расположенный горизонтально. Если изображение или текст перевернуты, текст может не распознаться. Если вы отсканировали документ и не знаете, как повернуто изображение, отправьте несколько вариантов изображения с разными углами поворота.
+
+{% endnote %}
 
 ## Примеры {#examples}
 
-[!INCLUDE [ai-before-beginning](../../../_includes/ai-before-beginning.md)]
+{% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 
 ### Распознать текст {#basic}
 
-[!INCLUDE [text-detection-steps](../../../_includes/vision/text-detection-steps.md)]
+{% include [text-detection-steps](../../../_includes/vision/text-detection-steps.md) %}
 
 ### Распознать текст на нескольких языках {#multiple-languages}
 

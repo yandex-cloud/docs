@@ -15,7 +15,7 @@
 
 После активации платной версии баланс лицевого счета по умолчанию равен нулю.
 
-[!INCLUDE [personal-account-balance](../_includes/personal-account-balance.md)]
+{% include [personal-account-balance](../_includes/personal-account-balance.md) %}
 
 Мы рекомендуем [следить за балансом](../operations/pay-the-bill.md) и пополнять счет до положительного значения.
 

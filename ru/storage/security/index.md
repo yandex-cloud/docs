@@ -1,14 +1,15 @@
 # Управление доступом
 
-В этом разделе перечислены необходимые роли, которыми должен обладать аккаунт для выполнения операций с ресурсами [!KEYREF objstorage-name]. Доступ к [!KEYREF objstorage-name] могут получить следующие категории пользователей:
- 
-- пользователи с зарегистрированным аккаунтом в Яндекс.Паспорте;
-- [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) [!KEYREF iam-full-name].
+В этом разделе перечислены необходимые роли, которыми должен обладать аккаунт для выполнения операций с ресурсами {{ objstorage-name }}. Доступ к {{ objstorage-name }} могут получить следующие категории пользователей:
 
-> [!NOTE]
->
-> Права доступа к ресурсам наследуются от облака и каталога.
->
+- пользователи с зарегистрированным аккаунтом в Яндекс.Паспорте;
+- [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) {{ iam-full-name }}.
+
+{% note info %}
+
+Права доступа к ресурсам наследуются от облака и каталога.
+
+{% endnote %}
 
 
 ## Назначение ролей
@@ -17,11 +18,11 @@
 
 Чтобы назначить нужные роли пользователю:
 
-[!INCLUDE [grant-role-console](../../_includes/grant-role-console.md)]
+{% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Разрешения в [!KEYREF objstorage-short-name]
+## Разрешения в {{ objstorage-short-name }}
 
-[!INCLUDE [cloud-roles](../../_includes/cloud-roles.md)]
+{% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
 #### admin
 Пользователь с ролью `admin` может:

@@ -2,13 +2,13 @@
 editable: false
 ---
 
-# Правила тарификации для [!KEYREF RD]
+# Правила тарификации для {{ RD }}
 
-[!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## Из чего складывается стоимость использования [!KEYREF mrd-short-name] {#rules}
+## Из чего складывается стоимость использования {{ mrd-short-name }} {#rules}
 
-Расчет стоимости использования [!KEYREF mrd-name] учитывает:
+Расчет стоимости использования {{ mrd-name }} учитывает:
 
 * тип и размер диска, выбранного для хостов кластера;
 
@@ -20,14 +20,14 @@ editable: false
 
 * объем исходящего трафика.
 
-[!INCLUDE [pricing-gb-size](../_includes/pricing-gb-size.md)]
+{% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 
 ### Использование хостов БД {#rules-hosts-uptime}
 
-Стоимость начисляется за каждый час работы хоста в соответствии с его классом. Характеристики классов приведены в разделе [[!TITLE]](concepts/instance-types.md).
+Стоимость начисляется за каждый час работы хоста в соответствии с его классом. Характеристики классов приведены в разделе [#T](concepts/instance-types.md).
 
-Минимальная единица тарификации — час (например, стоимость 1,5 часов работы хоста равна стоимости 2 часов). Время, когда хост [!KEYREF RD] не может выполнять свои основные функции, не тарифицируется.
+Минимальная единица тарификации — час (например, стоимость 1,5 часов работы хоста равна стоимости 2 часов). Время, когда хост {{ RD }} не может выполнять свои основные функции, не тарифицируется.
 
 
 ### Использование дискового пространства {#rules-storage}
@@ -50,76 +50,76 @@ editable: false
 
 ### Хосты {#prices-hosts}
 
-На первых двух вкладках приведена стоимость работы одного хоста [!KEYREF mrd-name] в пересчете на месяц и на час.
+На первых двух вкладках приведена стоимость работы одного хоста {{ mrd-name }} в пересчете на месяц и на час.
 
 Данные на вкладке **За 1 ГБ RAM** приведены в справочных целях: таблица показывает, как меняется стоимость 1 ГБ оперативной памяти с повышением класса хостов.
 
----
+{% list tabs %}
 
-**[!TAB За месяц работы хоста]**
-
-Класс хостов | Цена за месяц, вкл. НДС
------ | -----
-[!KEYREF b1.nano] | 508 ₽
-[!KEYREF b1.small]  | 1 313 ₽
-[!KEYREF hm1.nano] | 3 768 ₽
-[!KEYREF hm1.micro]  | 5 216 ₽
-[!KEYREF hm1.small]  | 6 375 ₽
-[!KEYREF hm1.medium]  | 9 060 ₽
-[!KEYREF hm1.large]  | 11 407 ₽
-[!KEYREF hm1.xlarge]  | 16 158 ₽
-[!KEYREF hm1.2xlarge]  | 20 282 ₽
-[!KEYREF hm1.3xlarge]  | 24 379 ₽
-[!KEYREF hm1.4xlarge] | 28 549 ₽
-[!KEYREF hm1.5xlarge] | 37 181 ₽
-[!KEYREF hm1.6xlarge] | 45 370 ₽
-[!KEYREF hm1.7xlarge] | 53 101 ₽
-[!KEYREF hm1.8xlarge] | 60 402 ₽
-[!KEYREF hm1.9xlarge] | 67 262 ₽
-
-**[!TAB За 1 час работы хоста]**
-
-Класс хостов | Цена за час, вкл. НДС
------ | -----
-[!KEYREF b1.nano]  | 0,7056 ₽
-[!KEYREF b1.small]  | 1,8240 ₽
-[!KEYREF hm1.nano]  | 5,2332 ₽
-[!KEYREF hm1.micro]  | 7,2444 ₽
-[!KEYREF hm1.small]  | 8,8548 ₽
-[!KEYREF hm1.medium]  | 12,5832 ₽
-[!KEYREF hm1.large]  | 15,8436 ₽
-[!KEYREF hm1.xlarge]  | 22,4412 ₽
-[!KEYREF hm1.2xlarge]  | 28,1700 ₽
-[!KEYREF hm1.3xlarge]  | 33,8592 ₽
-[!KEYREF hm1.4xlarge]  | 39,6516 ₽
-[!KEYREF hm1.5xlarge]  | 51,6408 ₽
-[!KEYREF hm1.6xlarge]  | 63,0144 ₽
-[!KEYREF hm1.7xlarge]  | 73,7508 ₽
-[!KEYREF hm1.8xlarge]  | 83,8920 ₽
-[!KEYREF hm1.9xlarge]  | 93,4200 ₽
-
-**[!TAB За 1 ГБ RAM]**
-
-Класс хостов | 1 ГБ в час, вкл. НДС
------ | -----
-[!KEYREF b1.nano]  | 0,3528 ₽
-[!KEYREF b1.small]  | 0,4560 ₽
-[!KEYREF hm1.nano]  | 0,6541 ₽
-[!KEYREF hm1.micro]  | 0,6037 ₽
-[!KEYREF hm1.small]  | 0,5534 ₽
-[!KEYREF hm1.medium]  | 0,5243 ₽
-[!KEYREF hm1.large]  | 0,4951 ₽
-[!KEYREF hm1.xlarge]  | 0,4675 ₽
-[!KEYREF hm1.2xlarge]  | 0,4402 ₽
-[!KEYREF hm1.3xlarge]  | 0,4232 ₽
-[!KEYREF hm1.4xlarge]  | 0,4130 ₽
-[!KEYREF hm1.5xlarge]  | 0,4034 ₽
-[!KEYREF hm1.6xlarge]  | 0,3938 ₽
-[!KEYREF hm1.7xlarge]  | 0,3841 ₽
-[!KEYREF hm1.8xlarge]  | 0,3745 ₽
-[!KEYREF hm1.9xlarge]  | 0,3649 ₽
-
----
+- За месяц работы хоста
+  
+  Класс хостов | Цена за месяц, вкл. НДС
+  ----- | -----
+  {{ b1-nano }} | 508 ₽
+  {{ b1-small }}  | 1 313 ₽
+  {{ hm1-nano }} | 3 768 ₽
+  {{ hm1-micro }}  | 5 216 ₽
+  {{ hm1-small }}  | 6 375 ₽
+  {{ hm1-medium }}  | 9 060 ₽
+  {{ hm1-large }}  | 11 407 ₽
+  {{ hm1-xlarge }}  | 16 158 ₽
+  {{ hm1-2xlarge }}  | 20 282 ₽
+  {{ hm1-3xlarge }}  | 24 379 ₽
+  {{ hm1-4xlarge }} | 28 549 ₽
+  {{ hm1-5xlarge }} | 37 181 ₽
+  {{ hm1-6xlarge }} | 45 370 ₽
+  {{ hm1-7xlarge }} | 53 101 ₽
+  {{ hm1-8xlarge }} | 60 402 ₽
+  {{ hm1-9xlarge }} | 67 262 ₽
+  
+- За 1 час работы хоста
+  
+  Класс хостов | Цена за час, вкл. НДС
+  ----- | -----
+  {{ b1-nano }}  | 0,7056 ₽
+  {{ b1-small }}  | 1,8240 ₽
+  {{ hm1-nano }}  | 5,2332 ₽
+  {{ hm1-micro }}  | 7,2444 ₽
+  {{ hm1-small }}  | 8,8548 ₽
+  {{ hm1-medium }}  | 12,5832 ₽
+  {{ hm1-large }}  | 15,8436 ₽
+  {{ hm1-xlarge }}  | 22,4412 ₽
+  {{ hm1-2xlarge }}  | 28,1700 ₽
+  {{ hm1-3xlarge }}  | 33,8592 ₽
+  {{ hm1-4xlarge }}  | 39,6516 ₽
+  {{ hm1-5xlarge }}  | 51,6408 ₽
+  {{ hm1-6xlarge }}  | 63,0144 ₽
+  {{ hm1-7xlarge }}  | 73,7508 ₽
+  {{ hm1-8xlarge }}  | 83,8920 ₽
+  {{ hm1-9xlarge }}  | 93,4200 ₽
+  
+- За 1 ГБ RAM
+  
+  Класс хостов | 1 ГБ в час, вкл. НДС
+  ----- | -----
+  {{ b1-nano }}  | 0,3528 ₽
+  {{ b1-small }}  | 0,4560 ₽
+  {{ hm1-nano }}  | 0,6541 ₽
+  {{ hm1-micro }}  | 0,6037 ₽
+  {{ hm1-small }}  | 0,5534 ₽
+  {{ hm1-medium }}  | 0,5243 ₽
+  {{ hm1-large }}  | 0,4951 ₽
+  {{ hm1-xlarge }}  | 0,4675 ₽
+  {{ hm1-2xlarge }}  | 0,4402 ₽
+  {{ hm1-3xlarge }}  | 0,4232 ₽
+  {{ hm1-4xlarge }}  | 0,4130 ₽
+  {{ hm1-5xlarge }}  | 0,4034 ₽
+  {{ hm1-6xlarge }}  | 0,3938 ₽
+  {{ hm1-7xlarge }}  | 0,3841 ₽
+  {{ hm1-8xlarge }}  | 0,3745 ₽
+  {{ hm1-9xlarge }}  | 0,3649 ₽
+  
+{% endlist %}
 
 
 ### Хранилище и резервные копии {#prices-storage}
@@ -131,4 +131,4 @@ editable: false
 
 ### Исходящий трафик {#prices-traffic}
 
-[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md)]
+{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}

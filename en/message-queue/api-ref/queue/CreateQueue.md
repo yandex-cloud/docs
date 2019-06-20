@@ -4,9 +4,11 @@ Method for creating a new standard or FIFO queue.
 
 By default, a standard queue is created. To create a [FIFO queue](../../concepts/queue.md#fifo-queues), use the `FifoQueue` parameter.
 
-> [!NOTE]
->
-> You cannot change the type of a created queue from standard to FIFO. To change the type, either create a new queue, or delete the old one and re-create it as a FIFO queue.
+{% note info %}
+
+You cannot change the type of a created queue from standard to FIFO. To change the type, either create a new queue, or delete the old one and re-create it as a FIFO queue.
+
+{% endnote %}
 
 If a queue is re-created with the same name, it will be assigned a new `QueueUrl` different from the old one.
 
@@ -14,9 +16,11 @@ If you deleted a queue, you can create another queue with the same name after 60
 
 The queue name must be unique within the folder and cannot exceed 80 characters. You can use numbers, letters, underscores, and hyphens in the name. The name of a FIFO queue must end with the `.fifo` suffix.
 
-> [!NOTE]
->
-> Always store the queue URL in the system in exactly the same form in which it is returned by Message Queue when the queue is created. Don't form a URL out of individual parts, because they may change.
+{% note info %}
+
+Always store the queue URL in the system in exactly the same form in which it is returned by Message Queue when the queue is created. Don't form a URL out of individual parts, because they may change.
+
+{% endnote %}
 
 ## Request {#request}
 
@@ -69,7 +73,7 @@ Attribute.N.Value (attribute value)
 
 ### CreateQueue errors {#errors}
 
-For a list of errors that are common to all methods, see the section [[!TITLE]](../common-errors.md).
+For a list of errors that are common to all methods, see the section [#T](../common-errors.md).
 
 | HTTP | Error code | Description |
 | ----- | ----- | ----- |

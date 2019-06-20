@@ -1,14 +1,14 @@
 # Подключение
 
-_Подключение_ содержит информацию о параметрах доступа к источнику данных. Например, IP-адрес хоста БД, порт подключения. 
+_Подключение_ содержит информацию о параметрах доступа к источнику данных. Например, IP-адрес хоста БД, порт подключения.
 Подключение создается с помощью коннектора. Коннекторы содержат настройки подключения к популярным источникам данных.
 
 ## Коннектор
 
-_Коннектор_ — это компонент сервиса [!KEYREF datalens-short-name], с помощью которого вы создаете соединение с
- определенным типом БД, API или файлом. С помощью подключения [!KEYREF datalens-short-name] выполняет запрос данных у источника.
- 
-В [!KEYREF datalens-short-name] доступны следующие типы коннекторов:
+_Коннектор_ — это компонент сервиса {{ datalens-short-name }}, с помощью которого вы создаете соединение с
+ определенным типом БД, API или файлом. С помощью подключения {{ datalens-short-name }} выполняет запрос данных у источника.
+
+В {{ datalens-short-name }} доступны следующие типы коннекторов:
 
 - **ClickHouse**
 - **PostgreSQL**
@@ -18,18 +18,18 @@ _Коннектор_ — это компонент сервиса [!KEYREF datal
 - **Metrica**
 - **Metrica Logs API**
 
-[!INCLUDE [connection-note](../../_includes/datalens/datalens-connection-note.md)]
+{% include [connection-note](../../_includes/datalens/datalens-connection-note.md) %}
 
 ## Управление доступом
 
-Вы можете настроить права доступа к подключению. Подробнее в разделе [[!TITLE]](../security/index.md).
+Вы можете настроить права доступа к подключению. Подробнее в разделе [#T](../security/index.md).
 
 #### См. также
-- [[!TITLE]](../operations/connection/create-clickhouse.md)
-- [[!TITLE]](../operations/connection/create-csv.md)
-- [[!TITLE]](../operations/connection/create-mysql.md)
-- [[!TITLE]](../operations/connection/create-postgresql.md)
-- [[!TITLE]](../operations/connection/create-mssql-server.md)
-- [[!TITLE]](../operations/connection/create-metrika-api.md)
-- [[!TITLE]](../operations/connection/create-metrika-logs-api.md)
+- [#T](../operations/connection/create-clickhouse.md)
+- [#T](../operations/connection/create-csv.md)
+- [#T](../operations/connection/create-mysql.md)
+- [#T](../operations/connection/create-postgresql.md)
+- [#T](../operations/connection/create-mssql-server.md)
+- [#T](../operations/connection/create-metrika-api.md)
+- [#T](../operations/connection/create-metrika-logs-api.md)
 

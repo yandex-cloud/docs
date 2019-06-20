@@ -2,18 +2,18 @@
 
 ## Общие вопросы про Биллинг
 
-[!INCLUDE-NOTITLE [common](common.md)]
+{% include notitle [common](common.md) %}
 
 ## Вопросы по оплате
 
-[!INCLUDE-NOTITLE [payment](payment.md)]
+{% include notitle [payment](payment.md) %}
 
 ## Вопросы о платежном аккаунте
 
-[!INCLUDE-NOTITLE [billing-account](billing-account.md)]
+{% include notitle [billing-account](billing-account.md) %}
 
 ## Вопросы о пробном периоде и платной версии
 
-[!INCLUDE-NOTITLE [trial-commercial](trial-commercial.md)]
+{% include notitle [trial-commercial](trial-commercial.md) %}
 
 

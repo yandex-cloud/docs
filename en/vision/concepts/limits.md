@@ -3,9 +3,9 @@ editable: false
 ---
 # Quotas and limits
 
-In the [!KEYREF vision-full-name] service, the following limitations apply:
+In the {{ vision-full-name }} service, the following limitations apply:
 
-[!INCLUDE [quotes-limits-def.md](../../_includes/quotes-limits-def.md)]
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
 #### Quotas {#quotas}
 

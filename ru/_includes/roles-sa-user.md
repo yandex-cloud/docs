@@ -12,4 +12,4 @@
 - получение информации о сервисном аккаунте;
 - использование сервисного аккаунта при выполнении операций от его имени.
 
-[!INCLUDE [roles-editor-includes-permissions](iam/roles-editor-includes-permissions.md)]
+{% include [roles-editor-includes-permissions](iam/roles-editor-includes-permissions.md) %}

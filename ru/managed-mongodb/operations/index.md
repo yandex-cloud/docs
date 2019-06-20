@@ -1,9 +1,9 @@
-# Пошаговые инструкции для [!KEYREF mmg-name]
+# Пошаговые инструкции для {{ mmg-name }}
 
-- [[!TITLE]](cluster-list.md)
-- [[!TITLE]](cluster-create.md)
-- [[!TITLE]](connect.md)
-- [[!TITLE]](cluster-backups.md)
-- [[!TITLE]](cluster-delete.md)
-- [[!TITLE]](cluster-users.md)
-- [[!TITLE]](update.md)
+- [#T](cluster-list.md)
+- [#T](cluster-create.md)
+- [#T](connect.md)
+- [#T](cluster-backups.md)
+- [#T](cluster-delete.md)
+- [#T](cluster-users.md)
+- [#T](update.md)

@@ -1,14 +1,14 @@
-# Connecting to a database in a cluster [!KEYREF MY]
+# Connecting to a database in a cluster {{ MY }}
 
 You can connect to a DB cluster from a Yandex.Cloud VM only if this VM belongs to the same cloud network.
 
 ## Authentication
 
-[!KEYREF MY]-clusters in [!KEYREF mmy-short-name] support only encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
+{{ MY }}-clusters in {{ mmy-short-name }} support only encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
 
 ```bash
 $ mkdir ~/.mysql
-$ wget "https://[!KEYREF s3-storage-host][!KEYREF pem-path]" -O ~/.mysql/root.crt
+$ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
 $ chmod 0600 ~/.mysql/root.crt
 ```
 

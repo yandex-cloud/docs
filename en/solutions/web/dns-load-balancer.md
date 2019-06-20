@@ -62,13 +62,13 @@ When a VM is created, it is assigned an IP address and hostname (FQDN). This dat
 
 #### See also
 
-- [[!TITLE]](../../compute/operations/vm-connect/ssh.md)
+- [#T](../../compute/operations/vm-connect/ssh.md)
 
 ## 2. Upload the website files {#upload-files}
 
 For the `dns-lb-tutorial-web-ru-central1-a` and `dns-lb-tutorial-web-ru-central1-b`VMs, do the following:
 
-[!INCLUDE [upload-files](../_solutions_includes/upload-web-site-files.md)]
+{% include [upload-files](../_solutions_includes/upload-web-site-files.md) %}
 
 ## 3. Create VMs for DNS load balancers {#create-dns-balancer-vm}
 
@@ -112,7 +112,7 @@ When a VM is created, it is assigned an IP address and hostname (FQDN). This dat
 
 #### See also
 
-- [[!TITLE]](../../compute/operations/vm-connect/ssh.md)
+- [#T](../../compute/operations/vm-connect/ssh.md)
 
 ## 4. Install and configure the DNS load balancer software {#install-configure-dns-balancer}
 
@@ -126,27 +126,27 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
 
 1. Set the required dependencies:
 
-   ---
+   {% list tabs %}
 
-   **[!TAB Ubuntu 16/18]**
-
-   ```bash
-   $ sudo apt-get update
-   $ sudo apt-get install pdns-server pdns-backend-remote memcached python3-yaml python3-memcache python3-pip
-   ```
-
-   **[!TAB CentOS 6/7]**
-
-   ```bash
-   $ sudo yum check-update
-   $ sudo yum -y install epel-release
-   $ sudo yum -y install pdns pdns-backend-remote memcached python34-yaml python34-setuptools git nano
-   $ sudo service memcached start
-   $ sudo chkconfig pdns on
-   $ sudo chkconfig memcached on
-   ```
-
-   ---
+   - Ubuntu 16/18
+  
+     ```bash
+     $ sudo apt-get update
+     $ sudo apt-get install pdns-server pdns-backend-remote memcached python3-yaml python3-memcache python3-pip
+     ```
+  
+   - CentOS 6/7
+  
+     ```bash
+     $ sudo yum check-update
+     $ sudo yum -y install epel-release
+     $ sudo yum -y install pdns pdns-backend-remote memcached python34-yaml python34-setuptools git nano
+     $ sudo service memcached start
+     $ sudo chkconfig pdns on
+     $ sudo chkconfig memcached on
+     ```
+  
+   {% endlist %}
 
 1. Install `polaris-gslb`:
 
@@ -158,44 +158,44 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
 
 1. Copy the configuration files for polaris-gslb
 
-   ---
+   {% list tabs %}
 
-   **[!TAB Ubuntu 16/18]**
-
-   ```bash
-   $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/powerdns/pdns.conf
-   $ cd /opt/polaris/etc
-   $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
-   $ sudo cp polaris-health.yaml.dist polaris-health.yaml
-   $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
-   $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
-   ```
-
-   **[!TAB CentOS 6]**
-
-   ```bash
-   $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
-   $ cd /opt/polaris/etc
-   $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
-   $ sudo cp polaris-health.yaml.dist polaris-health.yaml
-   $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
-   $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
-   $ sudo cp -a /opt/polaris/bin/polaris-health /etc/init.d/polaris-health
-   $ sudo chkconfig polaris-health on
-   ```
-
-   **[!TAB CentOS 7]**
-
-   ```bash
-   $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
-   $ cd /opt/polaris/etc
-   $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
-   $ sudo cp polaris-health.yaml.dist polaris-health.yaml
-   $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
-   $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
-   ```
-
-   ---
+   - Ubuntu 16/18
+  
+     ```bash
+     $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/powerdns/pdns.conf
+     $ cd /opt/polaris/etc
+     $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
+     $ sudo cp polaris-health.yaml.dist polaris-health.yaml
+     $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
+     $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
+     ```
+  
+   - CentOS 6
+  
+     ```bash
+     $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
+     $ cd /opt/polaris/etc
+     $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
+     $ sudo cp polaris-health.yaml.dist polaris-health.yaml
+     $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
+     $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
+     $ sudo cp -a /opt/polaris/bin/polaris-health /etc/init.d/polaris-health
+     $ sudo chkconfig polaris-health on
+     ```
+  
+   - CentOS 7
+  
+     ```bash
+     $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
+     $ cd /opt/polaris/etc
+     $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
+     $ sudo cp polaris-health.yaml.dist polaris-health.yaml
+     $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
+     $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
+     ```
+  
+   {% endlist %}
 
 1. Find out the internal address of the VM:
 
@@ -205,21 +205,21 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
 
 1. In the `pdns.conf` configuration file, specify the VM's internal IP address. You can edit the configuration file using the `nano` utility:
 
-     ---
+     {% list tabs %}
 
-     **[!TAB Ubuntu 16/18]**
-
-     ```bash
-     $ sudo nano /etc/powerdns/pdns.conf
-     ```
-
-     **[!TAB CentOS 6/7]**
-
-     ```bash
-     $ sudo nano /etc/pdns/pdns.conf
-     ```
-
-     ---
+     - Ubuntu 16/18
+  
+       ```bash
+       $ sudo nano /etc/powerdns/pdns.conf
+       ```
+  
+     - CentOS 6/7
+  
+       ```bash
+       $ sudo nano /etc/pdns/pdns.conf
+       ```
+  
+     {% endlist %}
 
    The `pdns.conf` file has the format:
 
@@ -480,39 +480,39 @@ To configure an external DNS server, do the following:
 
 1. Stop the web service to simulate a failure on the web server:
 
-   ---
+   {% list tabs %}
 
-   **[!TAB LAMP]**
-
-   ```bash
-   $ sudo service apache2 stop
-   ```
-
-   **[!TAB LEMP]**
-
-   ```bash
-   $ sudo service nginx stop
-   ```
-
-   ---
+   - LAMP
+  
+     ```bash
+     $ sudo service apache2 stop
+     ```
+  
+   - LEMP
+  
+     ```bash
+     $ sudo service nginx stop
+     ```
+  
+   {% endlist %}
 
 1. Connect to your website through a browser. The connection should be successful, even though one of the web servers has failed.
 
 1. After the check is complete, restart the web service:
 
-   ---
+   {% list tabs %}
 
-   **[!TAB LAMP]**
-
-   ```bash
-   $ sudo service apache2 start
-   ```
-
-   **[!TAB LEMP]**
-
-   ```bash
-   $ sudo service nginx start
-   ```
-
-   ---
+   - LAMP
+  
+     ```bash
+     $ sudo service apache2 start
+     ```
+  
+   - LEMP
+  
+     ```bash
+     $ sudo service nginx start
+     ```
+  
+   {% endlist %}
 

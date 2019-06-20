@@ -1,4 +1,4 @@
-# Getting started with [!KEYREF container-registry-short-name]
+# Getting started with {{ container-registry-short-name }}
 
 Using these instructions, you will create your first [registry](../concepts/registry.md) and try managing [Docker images](../concepts/docker-image.md).
 
@@ -6,13 +6,13 @@ Using these instructions, you will create your first [registry](../concepts/regi
 
 To create a registry, you will need a folder in Yandex.Cloud. If you don't have any folders yet, create a new folder before creating a registry:
 
-[!INCLUDE [create-folder](../../_includes/create-folder.md)]
+{% include [create-folder](../../_includes/create-folder.md) %}
 
 You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https://docs.docker.com/install/).
 
 ## Creating a registry and performing basic operations on Docker images
 
-1. Create a registry in [!KEYREF container-registry-short-name]:
+1. Create a registry in {{ container-registry-short-name }}:
 
     ```
     $ yc container registry create --name my-first-registry
@@ -26,10 +26,10 @@ You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https:
 
     You will need the received `id` to access the created registry.
 
-1. Log in to [!KEYREF container-registry-short-name] by running the `docker login` command with an OAuth token. You can get a token at this [link](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
+1. Log in to {{ container-registry-short-name }} by running the `docker login` command with an OAuth token. You can get a token at this [link](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
 
     ```
-    $ docker login \ 
+    $ docker login \
     --username oauth \ # type of token used
     --password <OAuth token> \
     cr.yandex
@@ -65,7 +65,7 @@ You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https:
 #### See also
 
 * [Creating a registry](../operations/registry/registry-create.md)
-* [Authentication in [!KEYREF container-registry-short-name]](../operations/authentication.md)
+* [Authentication in {{ container-registry-short-name }}](../operations/authentication.md)
 * [Creating a Docker image](../operations/docker-image/docker-image-create.md)
 * [Pushing a Docker image](../operations/docker-image/docker-image-push.md)
 * [Pulling a Docker image](../operations/docker-image/docker-image-pull.md)

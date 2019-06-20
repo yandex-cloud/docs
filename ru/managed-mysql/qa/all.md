@@ -1,9 +1,9 @@
-# Вопросы и ответы про [!KEYREF mmy-short-name]<sup>®</sup>
+# Вопросы и ответы про {{ mmy-short-name }}<sup>®</sup>
 
 ## Общие вопросы {#general}
 
-[!INCLUDE-NOTITLE [general](general.md)]
+{% include notitle [general](general.md) %}
 
-## Вопросы о [!KEYREF MY] {#mysql}
+## Вопросы о {{ MY }} {#mysql}
 
-[!INCLUDE-NOTITLE [mysql](mysql.md)]
+{% include notitle [mysql](mysql.md) %}

@@ -4,12 +4,12 @@ editable: false
 
 # Квоты и лимиты
 
-[!INCLUDE [quotes-limits-def.md](../../_includes/quotes-limits-def.md)]
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
 #### Квоты {#quotas}
 
-Виртуальные машины, из которых состоят кластеры сервиса [!KEYREF dataproc-name],
-расходуют квоты вашего облака для сервиса [!KEYREF compute-full-name].
+Виртуальные машины, из которых состоят кластеры сервиса {{ dataproc-name }},
+расходуют квоты вашего облака для сервиса {{ compute-full-name }}.
 
 #### Лимиты {#limits}
 

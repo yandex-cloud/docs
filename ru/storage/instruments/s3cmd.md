@@ -4,7 +4,7 @@
 
 ## Подготовка к работе {#preparations}
 
-[!INCLUDE [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md)]
+{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
 
 ## Установка {#installation}
 
@@ -17,16 +17,17 @@
 1. `Access Key` — введите идентификатор ключа, который вы получили при генерации статического ключа.
 1. `Secret Key` — введите секретный ключ, который вы получили при генерации статического ключа.
 1. `Default Region` — введите `us-east-1`.
-   
-   > [!NOTE]
-   >
-   > Для работы с [!KEYREF objstorage-name] всегда указывайте регион `us-east-1`. Другие значения региона могут привести к ошибке авторизации.
-   >
-1. `S3 Endpoint` - введите `[!KEYREF s3-storage-host]`.
-1. `DNS-style bucket+hostname:port template for accessing a bucket` — введите  `%(bucket)s.[!KEYREF s3-storage-host]`.
+
+   {% note info %}
+
+   Для работы с {{ objstorage-name }} всегда указывайте регион `us-east-1`. Другие значения региона могут привести к ошибке авторизации.
+
+   {% endnote %}
+1. `S3 Endpoint` - введите `{{ s3-storage-host }}`.
+1. `DNS-style bucket+hostname:port template for accessing a bucket` — введите  `%(bucket)s.{{ s3-storage-host }}`.
 1. Значения остальных параметров оставьте без изменений.
 
-Программа попытается установить соединение с [!KEYREF objstorage-name] и получить список бакетов. В случае успеха, программа выведет `Success. Your access key and secret key worked fine :-)`.
+Программа попытается установить соединение с {{ objstorage-name }} и получить список бакетов. В случае успеха, программа выведет `Success. Your access key and secret key worked fine :-)`.
 
 Команда `s3cmd --configure` сохранит настройки в файле `~/.s3cfg` в формате:
 
@@ -35,8 +36,8 @@
 access_key = id
 secret_key = secretKey
 bucket_location = us-east-1
-host_base = [!KEYREF s3-storage-host]
-host_bucket = %(bucket)s.[!KEYREF s3-storage-host]
+host_base = {{ s3-storage-host }}
+host_bucket = %(bucket)s.{{ s3-storage-host }}
 ```
 
 При необходимости эти настройки можно изменить напрямую в файле. Также можно указать настройки при запуске программы с помощью соответствующих параметров.
@@ -44,12 +45,12 @@ host_bucket = %(bucket)s.[!KEYREF s3-storage-host]
 Для корректной работы команд, управляющих хостингом статических сайтов, в конфигурационный файл необходимо вручную добавить параметр
 
 ```
-website_endpoint = http://%(bucket)s.[!KEYREF s3-web-host]
+website_endpoint = http://%(bucket)s.{{ s3-web-host }}
 ```
 
 ## Особенности {#specifics}
 
-Помните, что S3cmd работает с [!KEYREF objstorage-name] как с иерархической файловой системой и ключи объектов имеют вид пути к файлу.
+Помните, что S3cmd работает с {{ objstorage-name }} как с иерархической файловой системой и ключи объектов имеют вид пути к файлу.
 
 ## Примеры операций {#s3cmd-examples}
 
@@ -58,10 +59,12 @@ website_endpoint = http://%(bucket)s.[!KEYREF s3-web-host]
    ```bash
    s3cmd  mb s3://bucket
    ```
-   
-> [!NOTE]
->
-> При создании бакета помните об [ограничениях на имя](../concepts/bucket.md#naming).
+
+{% note info %}
+
+При создании бакета помните об [ограничениях на имя](../concepts/bucket.md#naming).
+
+{% endnote %}
 
 ### Загрузить объект
 

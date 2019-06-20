@@ -4,7 +4,7 @@ Additional API methods allow you to perform operations that cannot be performed 
 
 Each service has its own set of additional methods available. The methods are listed in the corresponding API references.
 
-[!INCLUDE [grpc-api-ref-note](../_includes/grpc-api-ref-note.md)]
+{% include [grpc-api-ref-note](../_includes/grpc-api-ref-note.md) %}
 
 The `POST` HTTP method is mapped to additional methods. The signature of additional methods differs from the standard signature of HTTP methods. The name of an additional method is specified in the resource URL after a colon (<q>:</q>).
 
@@ -15,10 +15,10 @@ Sample gRPC description of the [AttachDisk](https://github.com/yandex-cloud/clou
    option (google.api.http) = {
      post: "/compute/v1/instances/{instance_id}:attachDisk" body: "*"
    };
-   // In the `metadata` field of the Operation object 
+   // In the `metadata` field of the Operation object
    // there is an `AttachInstanceDiskMetadata` view.
-   // If the operation is successful, 
-   // the `response` field of the Operation object 
+   // If the operation is successful,
+   // the `response` field of the Operation object
    // contains a view of the updated VM.
    option (yandex.api.operation) = {
      metadata: "AttachInstanceDiskMetadata"
@@ -29,13 +29,13 @@ Sample gRPC description of the [AttachDisk](https://github.com/yandex-cloud/clou
    // ID of the VM to which
    // the disk should be attached.
    string instance_id = 1;
- 
+
    // Attached disk.
    AttachedDiskSpec attached_disk_spec = 2;
  }
- 
+
  message AttachInstanceDiskMetadata {
-   // ID of the VM 
+   // ID of the VM
    // the disk is attached to.
    string instance_id = 1;
 

@@ -41,3 +41,5 @@ items:
       href: infrastructure-management/terraform-quickstart.md
     - name: Getting started with Packer
       href: infrastructure-management/packer-quickstart.md
+    - name: Active Directory deployment
+      href: infrastructure-management/active-directory.md

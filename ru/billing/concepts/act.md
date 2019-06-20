@@ -4,16 +4,16 @@
 
 ## Формирование акта {#create-act}
 
-Акты формируются по окончании отчетного периода на сумму, фактически израсходованную с [лицевого счета](../concepts/personal-account.md). 
+Акты формируются по окончании отчетного периода на сумму, фактически израсходованную с [лицевого счета](../concepts/personal-account.md).
 
 На основе актов формируются [счета-фактуры](../concepts/invoice.md).
 
-[!INCLUDE [act-invoice-note](../_includes/act-invoice-note.md)]  
+{% include [act-invoice-note](../_includes/act-invoice-note.md) %}
 
-[!INCLUDE [act-invoice-examples](../_includes/act-invoice-examples.md)]
- 
-        
-        
+{% include [act-invoice-examples](../_includes/act-invoice-examples.md) %}
+
+
+
 ## Учет НДС {#nds}
 
-[!INCLUDE [nds](../_includes/nds.md)]
+{% include [nds](../_includes/nds.md) %}

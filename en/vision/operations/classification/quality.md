@@ -8,21 +8,23 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
 
 ## Examples {#examples}
 
-[!INCLUDE [ai-before-beginning](../../../_includes/ai-before-beginning.md)]
+{% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 
 ### Applying a model for quality assessment {#basic}
 
 1. Prepare an image file that meets the requirements:
 
-    [!INCLUDE [file-restrictions](../../../_includes/vision/file-restrictions.md)]
+    {% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
 
-    > [!NOTE]
-    >
-    > Need an image? [Download a sample](https://storage.yandexcloud.net/vision/face-detection-sample.jpg).
+    {% note info %}
+
+    Need an image? [Download a sample](https://storage.yandexcloud.net/vision/face-detection-sample.jpg).
+
+    {% endnote %}
 
 1. Encode the file as Base64:
 
-    [!INCLUDE [base64-encode-command](../../../_includes/vision/base64-encode-command.md)]
+    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
 
 1. Create a file with the request body (for example, `body.json`). In the `content` property, specify a [Base64-encoded](../base64-encode.md) image:
 
@@ -43,15 +45,15 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
     }
     ```
 
-1. [!INCLUDE [send-request](../../../_includes/vision/send-request.md)]
+1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 
     The response will contain the properties and the probability of matching them. You can use these properties to moderate the image:
 
-    [!INCLUDE [classification-quality-response](../../../_includes/vision/classification-quality-response.md)]
+    {% include [classification-quality-response](../../../_includes/vision/classification-quality-response.md) %}
 
 ### Ready-to-use function for sending requests in bash {#oneliner}
 
-1. [!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
 1. Copy the function to the terminal:
 
@@ -77,7 +79,7 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
     }
     ```
 
-    [!INCLUDE [oneline-function-hints](../../../_includes/vision/oneline-function-hints.md)]
+    {% include [oneline-function-hints](../../../_includes/vision/oneline-function-hints.md) %}
 
 1. Now you can call this function by passing the image path in the arguments:
 

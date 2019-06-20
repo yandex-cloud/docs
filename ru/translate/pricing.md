@@ -2,18 +2,18 @@
 editable: false
 ---
 
-# Правила тарификации для [!KEYREF translate-name]
+# Правила тарификации для {{ translate-name }}
 
-[!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## Из чего складывается стоимость использования [!KEYREF translate-short-name] {#rules}
+## Из чего складывается стоимость использования {{ translate-short-name }} {#rules}
 
 
 ### Использование перевода и определения языка текста {#rules-translate-detect}
 
 Стоимость использования Yandex Translate рассчитывается, исходя из суммарного количества символов, которые были отправлены в запросах на перевод и определение языка текста за календарный месяц (Отчетный период).
 
-[!INCLUDE [pricing-symbol-count](../_includes/pricing-symbol-count.md)]
+{% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
 
 ## Цены {#prices}

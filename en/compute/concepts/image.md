@@ -4,9 +4,11 @@ _An image_ is a complete copy of the file system structure and data on a disk.
 
 It is designed to quickly create a data disk, primarily a VM's boot disk. Images can be used for distributing software, such as OS distributions or disks with pre-installed software.
 
-> [!NOTE]
->
-> To regularly back up your data on disks, use [snapshots](snapshot.md).
+{% note info %}
+
+To regularly back up your data on disks, use [snapshots](snapshot.md).
+
+{% endnote %}
 
 If you already have an image file, you can [import](../operations/image-create/upload.md) it to Yandex.Cloud. Currently, you cannot upload your own image with the Windows OS.
 
@@ -18,7 +20,7 @@ If you regularly update your images, you can group them into families. A search 
 
 ## Public images {#public}
 
-You can allow public access to your image by assigning the role `[!KEYREF roles-image-user]` to the system group `[!KEYREF subjects-allAuthenticatedUsers]`. Then other Yandex.Cloud users will be able to use your image to create their own disks and VMs. In this case, the role `[!KEYREF roles-image-user]` does not give the right to delete or change your image.
+You can allow public access to your image by assigning the role `{{ roles-image-user }}` to the system group `{{ subjects-allAuthenticatedUsers }}`. Then other Yandex.Cloud users will be able to use your image to create their own disks and VMs. In this case, the role `{{ roles-image-user }}` does not give the right to delete or change your image.
 
 An example of public images are OS distributions provided by Yandex.Cloud.
 

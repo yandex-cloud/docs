@@ -6,8 +6,10 @@ The `compute.disks.user` role includes the following permissions:
 - Get information about a disk.
 - Use a disk to create new resources (images, snapshots, new disks, and virtual machines).
 
-> [!NOTE]
->
-> This role is not sufficient to mark the disk as automatically deletable when creating a virtual machine. To do this, use the `editor` role.
+{% note info %}
 
-[!INCLUDE [roles-restriction-only-parents](iam/roles-restriction-only-parents.md)]
+This role is not sufficient to mark the disk as automatically deletable when creating a virtual machine. To do this, use the `editor` role.
+
+{% endnote %}
+
+{% include [roles-restriction-only-parents](iam/roles-restriction-only-parents.md) %}

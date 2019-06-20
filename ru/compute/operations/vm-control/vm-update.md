@@ -2,39 +2,39 @@
 
 После создания виртуальной машины вы можете изменить ее имя, описание, метки, платформу или метаданные.
 
-Как изменить конфигурацию виртуальной машины читайте в разделе [[!TITLE]](vm-update-resources.md).
+Как изменить конфигурацию виртуальной машины читайте в разделе [#T](vm-update-resources.md).
 
----
+{% list tabs %}
 
-**[!TAB CLI]**
-
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
-
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
-
-1. Посмотрите описание команды CLI для обновления параметров виртуальных машин:
-
-    ```
-    $ yc compute instance update --help
-    ```
-
-1. Получите список виртуальных машин в каталоге по умолчанию:
-
-    [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
-
-1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
-1. Измените параметры виртуальной машины, например, переименуйте машину:
-
-    ```
-    $ yc compute instance update first-instance \
-        --new-name windows-vm
-    ```
-
-**[!TAB API]**
-
-Чтобы изменить виртуальную машину, воспользуйтесь методом [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/).
-
----
+- CLI
+  
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  
+  1. Посмотрите описание команды CLI для обновления параметров виртуальных машин:
+  
+      ```
+      $ yc compute instance update --help
+      ```
+  
+  1. Получите список виртуальных машин в каталоге по умолчанию:
+  
+      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+  
+  1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
+  1. Измените параметры виртуальной машины, например, переименуйте машину:
+  
+      ```
+      $ yc compute instance update first-instance \
+          --new-name windows-vm
+      ```
+  
+- API
+  
+  Чтобы изменить виртуальную машину, воспользуйтесь методом [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/).
+  
+{% endlist %}
 
 ## Примеры
 
@@ -42,45 +42,47 @@
 
 Чтобы просмотреть список изменяемых параметров, выполните команду:
 
----
+{% list tabs %}
 
-**[!TAB CLI]**
-
-```
-$ yc compute instance update --help
-```
----
+- CLI
+  
+  ```
+  $ yc compute instance update --help
+  ```
+{% endlist %}
 
 ### Изменить имя и описание {#change-name}
 
 Чтобы изменить имя и описание виртуальной машины, выполните следующие шаги:
 
----
+{% list tabs %}
 
-**[!TAB CLI]**
-
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
-
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
-
-1. Получите список виртуальных машин в каталоге по умолчанию:
-
-    [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
-
-1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
-1. Измените имя и описание виртуальной машины:
-
-    ```
-    $ yc compute instance update first-instance \
-        --new-name first-vm \
-        --description "changed description vm via CLI"
-    ```
-
-    > [!NOTE]
-    >
-    > При изменении имени виртуальной машины, имя хоста и, соответственно, FQDN не изменяются. Подробнее про генерацию имени FQDN читайте в разделе [[!TITLE]](../../concepts/network.md#hostname).
-
----
+- CLI
+  
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  
+  1. Получите список виртуальных машин в каталоге по умолчанию:
+  
+      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+  
+  1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
+  1. Измените имя и описание виртуальной машины:
+  
+      ```
+      $ yc compute instance update first-instance \
+          --new-name first-vm \
+          --description "changed description vm via CLI"
+      ```
+  
+      {% note info %}
+  
+      При изменении имени виртуальной машины, имя хоста и, соответственно, FQDN не изменяются. Подробнее про генерацию имени FQDN читайте в разделе [#T](../../concepts/network.md#hostname).
+  
+      {% endnote %}
+  
+{% endlist %}
 
 ### Изменить метаданные {#change-metadata}
 
@@ -88,46 +90,46 @@ $ yc compute instance update --help
 
 Чтобы изменить метаданные виртуальной машины, выполните следующие шаги:
 
----
+{% list tabs %}
 
-**[!TAB CLI]**
-
-[!INCLUDE [cli-install](../../../_includes/cli-install.md)]
-
-[!INCLUDE [default-catalogue](../../../_includes/default-catalogue.md)]
-
-1. Получите список виртуальных машин в каталоге по умолчанию:
-
-    [!INCLUDE [compute-instance-list](../../_includes_service/compute-instance-list.md)]
-
-1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
-1. Получите информацию о виртуальной машине вместе с метаданными. Все пользовательские метаданные определены в ключе `user-data`.
-
-    ```
-    $ yc compute instance get --full first-instance
-    ```
-
-1. Измените метаданные виртуальной машины. Изменить метаданные можно с помощью флагов:
-
-    - `--metadata` — для изменения значения из одной строки;
-    - `--metadata-from-file` — для изменения значения из нескольких строк.
-
-    Пример изменения пароля администратора на виртуальной машине, на базе ОС Windows:
-
-    1. Создайте YAML-файл (например, `metadata.yaml`) и укажите следующие данные:
-
-        ```yaml
-        #ps1
-        net user administrator "<пароль>"
-        ```
-
-    1. Выполните команду:
-
-        ```
-        $ yc compute instance update first-instance \
-            --metadata-from-file user-data=metadata.yaml
-        ```
-
-        Имеющийся набор метаданных будет полностью перезаписан.
-
----
+- CLI
+  
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  
+  1. Получите список виртуальных машин в каталоге по умолчанию:
+  
+      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+  
+  1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
+  1. Получите информацию о виртуальной машине вместе с метаданными. Все пользовательские метаданные определены в ключе `user-data`.
+  
+      ```
+      $ yc compute instance get --full first-instance
+      ```
+  
+  1. Измените метаданные виртуальной машины. Изменить метаданные можно с помощью флагов:
+  
+      - `--metadata` — для изменения значения из одной строки;
+      - `--metadata-from-file` — для изменения значения из нескольких строк.
+  
+      Пример изменения пароля администратора на виртуальной машине, на базе ОС Windows:
+  
+      1. Создайте YAML-файл (например, `metadata.yaml`) и укажите следующие данные:
+  
+          ```yaml
+          #ps1
+          net user administrator "<пароль>"
+          ```
+  
+      1. Выполните команду:
+  
+          ```
+          $ yc compute instance update first-instance \
+              --metadata-from-file user-data=metadata.yaml
+          ```
+  
+          Имеющийся набор метаданных будет полностью перезаписан.
+  
+{% endlist %}

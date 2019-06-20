@@ -1,6 +1,6 @@
 # Getting started
 
-Create a [[!KEYREF k8s] cluster](concepts/index.md#kubernetes-cluster) and a [node group](concepts/index.md#node-group) and configure kubectl to work with them.
+Create a [{{ k8s }} cluster](concepts/index.md#kubernetes-cluster) and a [node group](concepts/index.md#node-group) and configure kubectl to work with them.
 
 ## Before you start {#before-begin}
 
@@ -8,39 +8,39 @@ To get started, you will need:
 
 1. A folder in Yandex.Cloud. If you don't have a folder yet, create one:
 
-    [!INCLUDE [create-folder](../_includes/create-folder.md)]
+    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. CLI: [Yandex CLI](../cli/quickstart.md) and [Kubernetes CLI (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
 1. [A network](../vpc/operations/network-create.md).
 
-1. [Subnets](../vpc/operations/subnet-create.md) in the availability zones where a [!KEYREF k8s] cluster and node group will be created.
+1. [Subnets](../vpc/operations/subnet-create.md) in the availability zones where a {{ k8s }} cluster and node group will be created.
 
 1. [A service account](../iam/operations/sa/create.md)  with `editor` permissions on the folder.
 
 1. Available resources in the cloud within the [quotas](concepts/limits.md).
 
-## Creating a [!KEYREF k8s] cluster {#create-kubernetes-cluster}
+## Creating a {{ k8s }} cluster {#create-kubernetes-cluster}
 
-1. See the description of the CLI's create [!KEYREF k8s] cluster command:
+1. See the description of the CLI's create {{ k8s }} cluster command:
 
     ```
     $ yc managed-kubernetes cluster create --help
     ```
 
-1. Create a [!KEYREF k8s] cluster:
+1. Create a {{ k8s }} cluster:
 
     ```
     $ yc managed-kubernetes cluster create \
     --name test-k8s-cluster \ # Kubernetes cluster name
     --network-name default \ # Network name
-    --zone ru-central1-c \ # Availability zone 
-    --subnet-name subnet-c \ # Subnet name 
+    --zone ru-central1-c \ # Availability zone
+    --subnet-name subnet-c \ # Subnet name
     --public-ip \ # Specify if external access is required
     --cluster-ipv4-range 10.13.0.0/16 \ # Range for creating a subnet for pods
     --service-ipv4-range 10.14.0.0/16 \ # Range for creating a subnet for services
     --service-account-id bfbqqeo6jk****** \ # ID of the service account that resources are allocated for
-    --node-service-account-id bfbqqeo6jk******  # ID of the service account to access the container registry 
+    --node-service-account-id bfbqqeo6jk******  # ID of the service account to access the container registry
     .........................................................done
     id: catcafja9ktuc7ven4le
     folder_id: b1g88tflru0ek1omtsu0
@@ -51,9 +51,11 @@ To get started, you will need:
     ...
     ```
 
-    > [!NOTE]
-    > 
-    > The `--node-service-account-id` are currently not used. You can specify any existing service account in it.
+    {% note info %}
+
+    The `--node-service-account-id` are currently not used. You can specify any existing service account in it.
+
+    {% endnote %}
 
 1. Add the credentials to the kubectl configuration file:
 
@@ -76,7 +78,7 @@ To get started, you will need:
 
 ## Creating a node group {#create-node-group}
 
-1. See the description of the CLI's create [!KEYREF k8s] node group command:
+1. See the description of the CLI's create {{ k8s }} node group command:
 
     ```
     $ yc managed-kubernetes node-group create --help

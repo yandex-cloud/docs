@@ -4,9 +4,9 @@ editable: false
 
 # Квоты и лимиты
 
-В сервисе [!KEYREF mmg-name] действуют следующие ограничения:
+В сервисе {{ mmg-name }} действуют следующие ограничения:
 
-[!INCLUDE [quotes-limits-def.md](../../_includes/quotes-limits-def.md)]
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-[!INCLUDE [mmg-limits.md](../../_includes/mdb/mmg-limits.md)]
+{% include [mmg-limits.md](../../_includes/mdb/mmg-limits.md) %}
 

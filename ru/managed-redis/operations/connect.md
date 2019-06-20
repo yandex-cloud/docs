@@ -1,4 +1,4 @@
-# Подключение к базе данных в кластере [!KEYREF RD]
+# Подключение к базе данных в кластере {{ RD }}
 
 Хостам кластера Redis нельзя назначать публичные IP-адреса. Подключиться к хосту Redis можно только с виртуальной машины, находящейся в той же подсети, что и хост.
 
@@ -12,23 +12,23 @@
 
 1. Установите инструменты Redis на ВМ с помощью пакетного менеджера:
 
-   ---
+   {% list tabs %}
 
-   **[!TAB Ubuntu]**
-
-   ```
-   $ sudo apt update
-   $ sudo apt-get install redis
-   ```
-
-   **[!TAB CentOS]**
-
-   ```
-   $ sudo yum update
-   $ sudo yum install redis
-   ```
-
-   ---
+   - Ubuntu
+  
+     ```
+     $ sudo apt update
+     $ sudo apt-get install redis
+     ```
+  
+   - CentOS
+  
+     ```
+     $ sudo yum update
+     $ sudo yum install redis
+     ```
+  
+   {% endlist %}
 
 1. Установите сертификат для доступа к базе данных:
 

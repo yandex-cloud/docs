@@ -2,13 +2,13 @@
 
 ## Подключение по SSH {#connect}
 
-[!INCLUDE [vm-connect-ssh](../../../_includes/vm-connect-ssh.md)]
+{% include [vm-connect-ssh](../../../_includes/vm-connect-ssh.md) %}
 
 ## Подключение по логину и паролю {#logins-passwords}
 
 Вы можете подключиться к виртуальной машине по логину и паролю, когда она будет запущена.
 
-[!INCLUDE [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md)]
+{% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
 
 Получить логины и пароли для виртуальных машин на базе публичного образа можно с помощью команды:
 

@@ -1,3 +1,3 @@
 # Начало работы
 
-[!INCLUDE [quickstart-all](../_includes/quickstart-all.md)]
+{% include [quickstart-all](../_includes/quickstart-all.md) %}

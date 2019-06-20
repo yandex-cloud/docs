@@ -2,7 +2,7 @@
 
 Чтобы получить список метрик, принадлежащих определенному облаку и каталогу, воспользуйтесь методом [listMetrics](../../api-ref/MetricsMeta/listMetrics.md).
 
-[!INCLUDE [before-beginning](../../../_includes/monitoring/before-beginning.md)]
+{% include [before-beginning](../../../_includes/monitoring/before-beginning.md) %}
 
 ### Пример запроса
 

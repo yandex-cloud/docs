@@ -1,9 +1,9 @@
-# Вопросы и ответы про [!KEYREF mmg-short-name]
+# Вопросы и ответы про {{ mmg-short-name }}
 
 ## Общие вопросы {#general}
 
-[!INCLUDE-NOTITLE [general](general.md)]
+{% include notitle [general](general.md) %}
 
-## Вопросы о [!KEYREF MG] {#mongodb}
+## Вопросы о {{ MG }} {#mongodb}
 
-[!INCLUDE-NOTITLE [mongodb](mongodb.md)]
+{% include notitle [mongodb](mongodb.md) %}

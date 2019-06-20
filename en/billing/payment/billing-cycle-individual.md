@@ -5,8 +5,8 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
 ![image](../_assets/billing-cycle-individual.svg)
 
 1. You [activate the paid version](../operations/activate-commercial.md) before the end of the trial period.
-   
-   [!INCLUDE [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md)] 
+
+   {% include [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md) %}
 
 1. If you are awarded a grant, you use it. The grant amount is reduced as the resources of Yandex.Cloud services are consumed.
 
@@ -34,7 +34,7 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
    8.1. If the credit limit has not been reached and the reporting period has not ended, go back to step 7 or [top up](../operations/pay-the-bill.md) your personal account (step 4).
 <br/>8.2. If the reporting period has ended, the system [calculates](payment-methods-individual.md#payment-amount) the total amount due and submits a charge to the linked bank card. Go to step 9.
 
-   [!INCLUDE [pay-by-card-note](../_includes/pay-by-card-note.md)]
+   {% include [pay-by-card-note](../_includes/pay-by-card-note.md) %}
 
 1. Payment for used resources is verified:
    - If the funds are debited from the bank card within one day, go back to step 4.
@@ -51,7 +51,7 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
     11.1. If you pay the total amount due during this period, access to resources is restored within 24 hours. The billing account status will be changed to [ACTIVE](../concepts/billing-account-statuses.md). Go back to step 2.
 <br/>11.2. Otherwise, access to the use of Yandex.Cloud services may be permanently blocked. All your data, including your [billing account](../concepts/billing-account.md), will be permanently deleted.
 
-   [!INCLUDE [blocked-note](../_includes/blocked-note.md)]
+   {% include [blocked-note](../_includes/blocked-note.md) %}
 
 #### See also
 
