@@ -1,12 +1,12 @@
-# Пошаговые инструкции для [!KEYREF mch-name]
+# Пошаговые инструкции для {{ mch-name }}
 
-- [[!TITLE]](cluster-list.md)
-- [[!TITLE]](cluster-create.md)
-- [[!TITLE]](connect.md)
-- [[!TITLE]](web-sql-query.md)
-- [[!TITLE]](insert.md)
-- [[!TITLE]](cluster-backups.md)
-- [[!TITLE]](cluster-delete.md)
-- [[!TITLE]](cluster-users.md)
-- [[!TITLE]](update.md)
-- [[!TITLE]](cluster-version-update.md)
+- [#T](cluster-list.md)
+- [#T](cluster-create.md)
+- [#T](connect.md)
+- [#T](web-sql-query.md)
+- [#T](insert.md)
+- [#T](cluster-backups.md)
+- [#T](cluster-delete.md)
+- [#T](cluster-users.md)
+- [#T](update.md)
+- [#T](cluster-version-update.md)

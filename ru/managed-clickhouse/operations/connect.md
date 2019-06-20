@@ -1,19 +1,19 @@
-# Подключение к базе данных в кластере [!KEYREF CH]
+# Подключение к базе данных в кластере {{ CH }}
 
 Внутри Яндекс.Облака подключиться к кластеру БД можно только с виртуальной машины с адресом в той же подсети Облака.
 
-К кластеру [!KEYREF CH] можно подключиться как с помощью [клиента командной строки](https://clickhouse.yandex/docs/ru/interfaces/cli/) (порт 9440), так и по [HTTP-интерфейсу](https://clickhouse.yandex/docs/ru/interfaces/http_interface/) (порт 8443). Все соединения с кластерами БД шифруются.
+К кластеру {{ CH }} можно подключиться как с помощью [клиента командной строки](https://clickhouse.yandex/docs/ru/interfaces/cli/) (порт 9440), так и по [HTTP-интерфейсу](https://clickhouse.yandex/docs/ru/interfaces/http_interface/) (порт 8443). Все соединения с кластерами БД шифруются.
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
 Чтобы использовать шифрованное соединение, необходимо получить SSL-сертификат:
 
 ```bash
-wget "https://[!KEYREF s3-storage-host][!KEYREF pem-path]"
+wget "https://{{ s3-storage-host }}{{ pem-path }}"
 ```
 
 
-## Подключение с помощью [!KEYREF CH] CLI {#cli}
+## Подключение с помощью {{ CH }} CLI {#cli}
 
 Чтобы подключиться к кластеру с помощью клиента командной строки, укажите путь к SSL-сертификату в [конфигурационном файле](https://clickhouse.yandex/docs/ru/interfaces/cli/#interfaces_cli_configuration), в элементе `<caConfig>`:
 

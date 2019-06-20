@@ -1,6 +1,6 @@
 # Пошаговые инструкции
 
-- [[!TITLE]](translate.md)
-- [[!TITLE]](better-quality.md)
-- [[!TITLE]](detect.md)
-- [[!TITLE]](list.md)
+- [#T](translate.md)
+- [#T](better-quality.md)
+- [#T](detect.md)
+- [#T](list.md)

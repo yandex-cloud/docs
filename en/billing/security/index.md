@@ -2,7 +2,7 @@
 
 ### Access to Billing {#billing}
 
-[!INCLUDE [yandex-account](../_includes/yandex-account.md)]
+{% include [yandex-account](../_includes/yandex-account.md) %}
 
 ### Access to billing account {#billing-account}
 
@@ -17,7 +17,8 @@ Once you create a billing account, you are automatically assigned the _Owner_ ro
 * [Change your billing account data](../operations/change-data.md).
 * [Change a bank card](../operations/pin-card.md).
 
-> [!NOTE]
->
-> You cannot change the owner or grant another user access to your billing account.
->
+{% note info %}
+
+You cannot change the owner or grant another user access to your billing account.
+
+{% endnote %}

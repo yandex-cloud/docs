@@ -1,6 +1,6 @@
 # How to use the free trial
 
-[!INCLUDE [free-trial-conditions](../../_includes/free-trial-conditions.md)]
+{% include [free-trial-conditions](../../_includes/free-trial-conditions.md) %}
 
 ## Registration
 
@@ -12,14 +12,14 @@ To use the free trial, sign up for Yandex.Cloud and create your first billing ac
 
 To start working with Yandex.Cloud:
 
-[!INCLUDE [quickstart-all](../../_includes/quickstart-all-no-billing.md)]
+{% include [quickstart-all](../../_includes/quickstart-all-no-billing.md) %}
 
 You might also find these links useful:
 
-* [[!TITLE]](limits.md)
-* [[!TITLE]](usage-monitor.md)
-* [[!TITLE]](trial-ending.md)
-* [[!TITLE]](upgrade-to-paid.md)
+* [#T](limits.md)
+* [#T](usage-monitor.md)
+* [#T](trial-ending.md)
+* [#T](upgrade-to-paid.md)
 * [Overview of the Yandex.Cloud platform](../../overview/)
 * [Yandex.Cloud documentation](/docs)
 

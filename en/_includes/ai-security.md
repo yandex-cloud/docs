@@ -12,9 +12,11 @@ To use the service, you must have one of the following [roles](../iam/concepts/a
 * `admin`
 * `resource-manager.cloud.owner` (only assigned for the cloud)
 
-> [!NOTE]
->
-> Users with a Yandex account need the`resource-manager.cloud.member` role for the cloud along with the `editor` or `admin` role. This role is assigned to the user automatically when they are [added to the cloud](../iam/operations/users/create.md).
+{% note info %}
+
+Users with a Yandex account need the`resource-manager.cloud.member` role for the cloud along with the `editor` or `admin` role. This role is assigned to the user automatically when they are [added to the cloud](../iam/operations/users/create.md).
+
+{% endnote %}
 
 #### What's next
 

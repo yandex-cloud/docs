@@ -23,7 +23,7 @@ The response does not contain any fields.
 
 ### DeleteMessage errors {#errors}
 
-For a list of possible responses, see [[!TITLE]](../common-errors.md).
+For a list of possible responses, see [#T](../common-errors.md).
 
 | HTTP code | Error ID | Description |
 | ----- | ----- | ----- |

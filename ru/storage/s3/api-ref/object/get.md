@@ -1,6 +1,6 @@
 # Метод get
 
-Возвращает объект из [!KEYREF objstorage-name].
+Возвращает объект из {{ objstorage-name }}.
 
 
 ## Запрос {#request}
@@ -38,10 +38,10 @@ GET /{bucket}/{key} HTTP/1.1
 Заголовок | Описание
 ----- | -----
 `Range` | Определяет диапазон байт для загрузки из объекта.<br/><br/>Подробнее про заголовок Range читайте в спецификации HTTP [http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35).
-`If-Modified-Since` | Если указан, то [!KEYREF objstorage-name] возвращает:<br/>- Объект. Если он изменялся после указанного времени.<br/>- Код 304. Если объект не изменялся после указанного времени.<br/><br/>Если в запросе одновременно присутствуют заголовки `If-Modified-Since` и `If-None-Match` и проверки по ним разрешаются как `If-Modified-Since -> true` и `If-None-Match -> false`, то [!KEYREF objstorage-name] возвращает код 304. Подробности смотрите в [RFC 7232](https://tools.ietf.org/html/rfc7232).
-`If-Unmodified-Since` | Если указан, то [!KEYREF objstorage-name] возвращает:<br/>- Объект. Если он не изменялся с указанного времени.<br/>- Код 412. Если объект не изменялся с указанного времени.<br/><br/>Если в запросе одновременно присутствуют заголовки `If-Unmodified-Since` и `If-Match` и проверки по ним разрешаются как `If-Unmodified-Since -> false` и `If-Match -> true`, то [!KEYREF objstorage-name] возвращает код 200 и запрошенные данные. Подробности смотрите в [RFC 7232](https://tools.ietf.org/html/rfc7232).
-`If-Match` | Если указан, то [!KEYREF objstorage-name] возвращает:<br/>- Объект. Если его `ETag` совпадает с переданным.<br/>- Код 412. Если его `ETag` не совпадает с переданным.<br/><br/><br/>Если в запросе одновременно присутствуют заголовки `If-Unmodified-Since` и `If-Match` и проверки по ним разрешаются как `If-Unmodified-Since -> false` и `If-Match -> true`, то [!KEYREF objstorage-name] возвращает код 200 и запрошенные данные. Подробности смотрите в [RFC 7232](https://tools.ietf.org/html/rfc7232).
-`If-None-Match` | Если указан, то [!KEYREF objstorage-name] возвращает:<br/>- Объект. Если его `ETag` не совпадает с переданным.<br/>- Код 304. Если его `ETag` совпадает с переданным.<br/><br/><br/>Если в запросе одновременно присутствуют заголовки `If-Modified-Since` и `If-None-Match` и проверки по ним разрешаются как `If-Modified-Since -> true` и `If-None-Match -> false`, то [!KEYREF objstorage-name] возвращает код 304. Подробности смотрите в [RFC 7232](https://tools.ietf.org/html/rfc7232).
+`If-Modified-Since` | Если указан, то {{ objstorage-name }} возвращает:<br/>- Объект. Если он изменялся после указанного времени.<br/>- Код 304. Если объект не изменялся после указанного времени.<br/><br/>Если в запросе одновременно присутствуют заголовки `If-Modified-Since` и `If-None-Match` и проверки по ним разрешаются как `If-Modified-Since -> true` и `If-None-Match -> false`, то {{ objstorage-name }} возвращает код 304. Подробности смотрите в [RFC 7232](https://tools.ietf.org/html/rfc7232).
+`If-Unmodified-Since` | Если указан, то {{ objstorage-name }} возвращает:<br/>- Объект. Если он не изменялся с указанного времени.<br/>- Код 412. Если объект не изменялся с указанного времени.<br/><br/>Если в запросе одновременно присутствуют заголовки `If-Unmodified-Since` и `If-Match` и проверки по ним разрешаются как `If-Unmodified-Since -> false` и `If-Match -> true`, то {{ objstorage-name }} возвращает код 200 и запрошенные данные. Подробности смотрите в [RFC 7232](https://tools.ietf.org/html/rfc7232).
+`If-Match` | Если указан, то {{ objstorage-name }} возвращает:<br/>- Объект. Если его `ETag` совпадает с переданным.<br/>- Код 412. Если его `ETag` не совпадает с переданным.<br/><br/><br/>Если в запросе одновременно присутствуют заголовки `If-Unmodified-Since` и `If-Match` и проверки по ним разрешаются как `If-Unmodified-Since -> false` и `If-Match -> true`, то {{ objstorage-name }} возвращает код 200 и запрошенные данные. Подробности смотрите в [RFC 7232](https://tools.ietf.org/html/rfc7232).
+`If-None-Match` | Если указан, то {{ objstorage-name }} возвращает:<br/>- Объект. Если его `ETag` не совпадает с переданным.<br/>- Код 304. Если его `ETag` совпадает с переданным.<br/><br/><br/>Если в запросе одновременно присутствуют заголовки `If-Modified-Since` и `If-None-Match` и проверки по ним разрешаются как `If-Modified-Since -> true` и `If-None-Match -> false`, то {{ objstorage-name }} возвращает код 304. Подробности смотрите в [RFC 7232](https://tools.ietf.org/html/rfc7232).
 
 ## Ответ {#response}
 
@@ -56,5 +56,5 @@ GET /{bucket}/{key} HTTP/1.1
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [[!TITLE]](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [#T](../response-codes.md).
 

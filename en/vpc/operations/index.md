@@ -2,16 +2,16 @@
 
 ## Cloud network
 
-- [[!TITLE]](network-create.md)
-- [[!TITLE]](network-delete.md)
+- [#T](network-create.md)
+- [#T](network-delete.md)
 
 ## Subnet
 
-- [[!TITLE]](subnet-create.md)
-- [[!TITLE]](subnet-delete.md)
+- [#T](subnet-create.md)
+- [#T](subnet-delete.md)
 
 ## Addresses
 
-- [[!TITLE]](set-static-ip.md)
-- [[!TITLE]](address-delete.md)
+- [#T](set-static-ip.md)
+- [#T](address-delete.md)
 

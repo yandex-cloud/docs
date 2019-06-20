@@ -19,10 +19,11 @@ To create an image:
 
 ## 1. Install Packer {#install-packer}
 
-> [!NOTE]
->
-> Yandex.Cloud requires Packer 1.4.1 or higher.
->
+{% note info %}
+
+Yandex.Cloud requires Packer 1.4.1 or higher.
+
+{% endnote %}
 
 Download and install Packer by following the [instructions on the official website](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
 

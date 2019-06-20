@@ -32,7 +32,7 @@ A response can only contain [common response headers](../common-response-headers
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [[!TITLE]](../response-codes.md).
+For a list of possible responses, see [#T](../response-codes.md).
 
 ### Data schema {#response-scheme}
 

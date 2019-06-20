@@ -1,1 +1,1 @@
-[!INCLUDE [response](../../_includes/response-translate-speechkit.md)]
+{% include [response](../../_includes/response-translate-speechkit.md) %}

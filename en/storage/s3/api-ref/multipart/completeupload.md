@@ -2,12 +2,12 @@
 
 The request completes multipart upload.
 
-When receiving the request, [!KEYREF objstorage-name]:
+When receiving the request, {{ objstorage-name }}:
 
 - Combines the parts obtained during the upload in the order of their numbering to form a target object.
 - Deletes the upload ID, which means that any subsequent requests with that ID will return the `NoSuchUpload` error.
 
-When completing the upload, the client must provide the list of the parts it sent. Each part's description must contain the `ETag` which the client receives in response to each uploaded part. See the section [[!TITLE]](uploadpart.md).
+When completing the upload, the client must provide the list of the parts it sent. Each part's description must contain the `ETag` which the client receives in response to each uploaded part. See the section [#T](uploadpart.md).
 
 The operation may take several minutes, depending on the object size and the number of parts.
 
@@ -30,7 +30,7 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `uploadId` | ID of the multipart upload returned by [!KEYREF objstorage-name] at the [start](startupload.md). |
+| `uploadId` | ID of the multipart upload returned by {{ objstorage-name }} at the [start](startupload.md). |
 
 ### Headers {#request-headers}
 
@@ -55,7 +55,7 @@ The list of parts of a multipart upload is passed as an XML file in the followin
 | `CompleteMultipartUpload` | Data in the request.<br/><br/>Path: `/CompleteMultipartUpload`. |
 | `Part` | Data about the object's uploaded part.<br/><br/>Path: `/CompleteMultipartUpload/Part`. |
 | `PartNumber` | Part number.<br/><br/>A unique identifier that determines the part's position among the other parts in the upload.<br/><br/>Path: `/CompleteMultipartUpload/Part/PartNumber`. |
-| `ETag` | ID that the client received from [!KEYREF objstorage-name] in response to a part's upload.<br/><br/>Path: `/CompleteMultipartUpload/Part/ETag`. |
+| `ETag` | ID that the client received from {{ objstorage-name }} in response to a part's upload.<br/><br/>Path: `/CompleteMultipartUpload/Part/ETag`. |
 
 ## Response {#response}
 
@@ -65,9 +65,9 @@ A response can only contain [common response headers](../common-response-headers
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [[!TITLE]](../response-codes.md).
+For a list of possible responses, see [#T](../response-codes.md).
 
-Additionally, [!KEYREF objstorage-name] may return errors described in the table below.
+Additionally, {{ objstorage-name }} may return errors described in the table below.
 
 | Error | Description | HTTP code |
 | ----- | ----- | ----- |
@@ -81,7 +81,7 @@ A successful response contains additional data in XML format with the schema des
 
 ```
 <CompleteMultipartUploadResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-  <Location>http://Example-Bucket.[!KEYREF s3-storage-host]/Example-Object</Location>
+  <Location>http://Example-Bucket.{{ s3-storage-host }}/Example-Object</Location>
   <Bucket>Example-Bucket</Bucket>
   <Key>Example-Object</Key>
   <ETag>"3858f62230ac3c915f300c664312c11f-9"</ETag>

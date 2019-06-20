@@ -17,21 +17,21 @@ To install and configure Terraform and create your first configuration:
 
 Install Terraform:
 
----
+{% list tabs %}
 
-**[!TAB macOS]**
-
-Install Terraform via [Homebrew](https://brew.sh):
-
-```
-$ brew install terraform
-```
-
-**[!TAB Windows/Linux]**
-
-Download Terraform installer and follow the [instructions](https://www.terraform.io/intro/getting-started/install.html).
-
----
+- macOS
+  
+  Install Terraform via [Homebrew](https://brew.sh):
+  
+  ```
+  $ brew install terraform
+  ```
+  
+- Windows/Linux
+  
+  Download Terraform installer and follow the [instructions](https://www.terraform.io/intro/getting-started/install.html).
+  
+{% endlist %}
 
 ## 2. Configure Terraform {#configure-terraform}
 
@@ -161,10 +161,11 @@ output "external_ip_address_vm_2" {
 
 After the configuration is completed, run the `terraform plan` command. If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If there are errors in the configuration, Terraform will point them out. This is a verification stage, so no resources will be created.
 
-> [!WARNING]
->
->All resources created via Terraform are charged, therefore check the plan carefully.
->
+{% note alert %}
+
+All resources created via Terraform are charged, therefore check the plan carefully.
+
+{% endnote %}
 
 If there are no errors in the configuration, run the `terraform apply` command. Terraform will ask you to confirm the resource creation: type `yes` in the terminal and press Enter. After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check the availability of the resources and their settings in the [management console](https://console.cloud.yandex.ru).
 

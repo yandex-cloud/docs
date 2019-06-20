@@ -19,7 +19,7 @@
 1. На странице каталога в [консоли управления](https://console.cloud.yandex.ru) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
 1. В поле **Имя** введите имя виртуальной машины.
 
-    [!INCLUDE [name-format](../../_includes/name-format.md)]
+    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 1. Выберите публичный образ:
@@ -50,15 +50,15 @@
 
 #### См. также
 
-- [[!TITLE]](../../compute/operations/vm-connect/ssh.md)
+- [#T](../../compute/operations/vm-connect/ssh.md)
 
 
 ## 2. Загрузите файлы веб-сайта {#upload-files}
 
-[!INCLUDE [upload-files](../_solutions_includes/upload-web-site-files.md)]
+{% include [upload-files](../_solutions_includes/upload-web-site-files.md) %}
 
 ## 3. Настройте DNS {#configure-dns}
 
 Доменное имя, которое вы хотите использовать для веб-сайта, нужно связать с созданной виртуальной машиной.
 
-[!INCLUDE [configure-a-record-and-cname](../_solutions_includes/configure-a-record-and-cname.md)]
+{% include [configure-a-record-and-cname](../_solutions_includes/configure-a-record-and-cname.md) %}

@@ -43,8 +43,8 @@ _Промежуточные результаты_ распознавания ф�
 После получения сообщения с настройками распознавания сервис начнет сессию распознавания. Для каждой сессии действуют следующие ограничения:
 
 * Время между отправкой сообщений в сервис не должно превышать 5 секунд.
-* Максимальная длительность переданного аудио за всю сессию — [!KEYREF stt-streaming-audioLength].
-* Максимальный размер переданных аудиоданных — [!KEYREF stt-streaming-fileSize].
+* Максимальная длительность переданного аудио за всю сессию — {{ stt-streaming-audioLength }}.
+* Максимальный размер переданных аудиоданных — {{ stt-streaming-fileSize }}.
 
 
 Если в течение 5 секунд в сервис не отправлялись сообщения или достигнут лимит по длительности или размеру данных, сессия обрывается. Чтобы продолжить распознавание речи, надо заново установить соединение и отправить новое сообщение с настройками распознавания.
@@ -108,115 +108,117 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
     * [Инструкция](../../iam/operations/iam-token/create.md) для аккаунта на Яндексе.
     * [Инструкция](../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
 1. Выберите аудиофайл для распознавания. В примерах используется файл `speech.pcm` в формате [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) с частотой дискретизации 8000.
-    > [!NOTE]
-    >
-    > Нет аудиофайла для распознавания? Скачайте готовый [пример](https://storage.yandexcloud.net/speechkit/speech.pcm).
+    {% note info %}
+
+    Нет аудиофайла для распознавания? Скачайте готовый [пример](https://storage.yandexcloud.net/speechkit/speech.pcm).
+
+    {% endnote %}
 
 После этого приступите к созданию клиентского приложения.
 
----
+{% list tabs %}
 
-**[!TAB Python 3]**
-
-1. Установите пакет grpcio-tools с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
-
-    ```bash
-    $ pip install grpcio-tools
-    ```
-
-1. Перейдите в директорию с репозиторием [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi), создайте директорию `output` и сгенерируйте в ней код интерфейса клиента:
-
-    ```bash
-    $ cd cloudapi
-    $ mkdir output
-    $ python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=output --grpc_python_out=output google/api/http.proto google/api/annotations.proto yandex/api/operation.proto google/rpc/status.proto yandex/cloud/operation/operation.proto yandex/cloud/ai/stt/v2/stt_service.proto
-    ```
-
-    В результате в директории `output` будут созданы файлы с интерфейсом клиента: `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
-
-1. Создайте файл в корне директории `output`, например `test.py`, и добавьте в него следующий код:
-
-    ```python
-    #coding=utf8
-    import argparse
-
-    import grpc
-
-    import yandex.cloud.ai.stt.v2.stt_service_pb2 as stt_service_pb2
-    import yandex.cloud.ai.stt.v2.stt_service_pb2_grpc as stt_service_pb2_grpc
-
-
-    CHUNK_SIZE = 16000
-
-    def gen(folder_id, audio_file_name):
-        # Задать настройки распознавания.
-        specification = stt_service_pb2.RecognitionSpec(
-            language_code='ru-RU',
-            profanity_filter=True,
-            model='general',
-            partial_results=True,
-            audio_encoding='LINEAR16_PCM',
-            sample_rate_hertz=8000
-        )
-        streaming_config = stt_service_pb2.RecognitionConfig(specification=specification, folder_id=folder_id)
-
-        # Отправить сообщение с настройками распознавания.
-        yield stt_service_pb2.StreamingRecognitionRequest(config=streaming_config)
-
-        # Прочитать аудиофайл и отправить его содержимое порциями.
-        with open(audio_file_name, 'rb') as f:
-            data = f.read(CHUNK_SIZE)
-            while data != b'':
-                yield stt_service_pb2.StreamingRecognitionRequest(audio_content=data)
-                data = f.read(CHUNK_SIZE)
-
-
-    def run(folder_id, iam_token, audio_file_name):
-        # Установить соединение с сервером.
-        cred = grpc.ssl_channel_credentials()
-        channel = grpc.secure_channel('stt.api.cloud.yandex.net:443', cred)
-        stub = stt_service_pb2_grpc.SttServiceStub(channel)
-
-        # Отправить данные для распознавания.
-        it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(('authorization', 'Bearer %s' % iam_token),))
-
-        # Обработать ответы сервера и вывести результат в консоль.
-        try:
-            for r in it:
-                try:
-                    print('Start chunk: ')
-                    for alternative in r.chunks[0].alternatives:
-                        print('alternative: ', alternative.text)
-                    print('Is final: ', r.chunks[0].final)
-                    print('')
-                except LookupError:
-                    print('Not available chunks')
-        except grpc._channel._Rendezvous as err:
-            print('Error code %s, message: %s' % (err._state.code, err._state.details))
-
-
-    if __name__ == '__main__':
-        parser = argparse.ArgumentParser()
-        parser.add_argument('--token', required=True, help='IAM token')
-        parser.add_argument('--folder_id', required=True, help='folder ID')
-        parser.add_argument('--path', required=True, help='audio file path')
-        args = parser.parse_args()
-
-        run(args.folder_id, args.token, args.path)
-    ```
-1. Выполните созданный файл, передав в аргументах IAM-токен, идентификатор каталога и путь к аудиофайлу, который необходимо распознать:
-
-    ```bash
-    $ export FOLDER_ID=b1gvmob95yysaplct532
-    $ export IAM_TOKEN=CggaATEVAgA...
-    $ python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --path speech.pcm
-    Start chunk:
-    alternative: привет
-    Is final: False
-
-    Start chunk:
-    alternative: привет мир
-    Is final: True
-    ```
-
----
+- Python 3
+  
+  1. Установите пакет grpcio-tools с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
+  
+      ```bash
+      $ pip install grpcio-tools
+      ```
+  
+  1. Перейдите в директорию с репозиторием [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi), создайте директорию `output` и сгенерируйте в ней код интерфейса клиента:
+  
+      ```bash
+      $ cd cloudapi
+      $ mkdir output
+      $ python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=output --grpc_python_out=output google/api/http.proto google/api/annotations.proto yandex/api/operation.proto google/rpc/status.proto yandex/cloud/operation/operation.proto yandex/cloud/ai/stt/v2/stt_service.proto
+      ```
+  
+      В результате в директории `output` будут созданы файлы с интерфейсом клиента: `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
+  
+  1. Создайте файл в корне директории `output`, например `test.py`, и добавьте в него следующий код:
+  
+      ```python
+      #coding=utf8
+      import argparse
+  
+      import grpc
+  
+      import yandex.cloud.ai.stt.v2.stt_service_pb2 as stt_service_pb2
+      import yandex.cloud.ai.stt.v2.stt_service_pb2_grpc as stt_service_pb2_grpc
+  
+  
+      CHUNK_SIZE = 16000
+  
+      def gen(folder_id, audio_file_name):
+          # Задать настройки распознавания.
+          specification = stt_service_pb2.RecognitionSpec(
+              language_code='ru-RU',
+              profanity_filter=True,
+              model='general',
+              partial_results=True,
+              audio_encoding='LINEAR16_PCM',
+              sample_rate_hertz=8000
+          )
+          streaming_config = stt_service_pb2.RecognitionConfig(specification=specification, folder_id=folder_id)
+  
+          # Отправить сообщение с настройками распознавания.
+          yield stt_service_pb2.StreamingRecognitionRequest(config=streaming_config)
+  
+          # Прочитать аудиофайл и отправить его содержимое порциями.
+          with open(audio_file_name, 'rb') as f:
+              data = f.read(CHUNK_SIZE)
+              while data != b'':
+                  yield stt_service_pb2.StreamingRecognitionRequest(audio_content=data)
+                  data = f.read(CHUNK_SIZE)
+  
+  
+      def run(folder_id, iam_token, audio_file_name):
+          # Установить соединение с сервером.
+          cred = grpc.ssl_channel_credentials()
+          channel = grpc.secure_channel('stt.api.cloud.yandex.net:443', cred)
+          stub = stt_service_pb2_grpc.SttServiceStub(channel)
+  
+          # Отправить данные для распознавания.
+          it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(('authorization', 'Bearer %s' % iam_token),))
+  
+          # Обработать ответы сервера и вывести результат в консоль.
+          try:
+              for r in it:
+                  try:
+                      print('Start chunk: ')
+                      for alternative in r.chunks[0].alternatives:
+                          print('alternative: ', alternative.text)
+                      print('Is final: ', r.chunks[0].final)
+                      print('')
+                  except LookupError:
+                      print('Not available chunks')
+          except grpc._channel._Rendezvous as err:
+              print('Error code %s, message: %s' % (err._state.code, err._state.details))
+  
+  
+      if __name__ == '__main__':
+          parser = argparse.ArgumentParser()
+          parser.add_argument('--token', required=True, help='IAM token')
+          parser.add_argument('--folder_id', required=True, help='folder ID')
+          parser.add_argument('--path', required=True, help='audio file path')
+          args = parser.parse_args()
+  
+          run(args.folder_id, args.token, args.path)
+      ```
+  1. Выполните созданный файл, передав в аргументах IAM-токен, идентификатор каталога и путь к аудиофайлу, который необходимо распознать:
+  
+      ```bash
+      $ export FOLDER_ID=b1gvmob95yysaplct532
+      $ export IAM_TOKEN=CggaATEVAgA...
+      $ python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --path speech.pcm
+      Start chunk:
+      alternative: привет
+      Is final: False
+  
+      Start chunk:
+      alternative: привет мир
+      Is final: True
+      ```
+  
+{% endlist %}

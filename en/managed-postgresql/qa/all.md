@@ -1,10 +1,10 @@
-# Questions and answers about [!KEYREF mpg-short-name]
+# Questions and answers about {{ mpg-short-name }}
 
 ## General questions {#general}
 
-[!INCLUDE-NOTITLE [general](general.md)]
+{% include notitle [general](general.md) %}
 
-## Questions about [!KEYREF PG] {#postgresql}
+## Questions about {{ PG }} {#postgresql}
 
-[!INCLUDE-NOTITLE [postgresql](postgresql.md)]
+{% include notitle [postgresql](postgresql.md) %}
 

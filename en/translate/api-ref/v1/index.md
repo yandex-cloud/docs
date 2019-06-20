@@ -1,6 +1,6 @@
 # Yandex Translate API v1
 
-[!INCLUDE [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md)]
+{% include [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md) %}
 
 A set of methods for the Yandex Translate service.
 

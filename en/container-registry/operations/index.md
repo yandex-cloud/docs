@@ -1,23 +1,23 @@
 # Step-by-step instructions
 
-- [[!TITLE]](authentication.md)
+- [#T](authentication.md)
 
 ## Docker image
 
-- [[!TITLE]](docker-image/docker-image-list.md)
-- [[!TITLE]](docker-image/docker-image-create.md)
-- [[!TITLE]](docker-image/docker-image-push.md)
-- [[!TITLE]](docker-image/docker-image-pull.md)
-- [[!TITLE]](docker-image/docker-image-delete.md)
+- [#T](docker-image/docker-image-list.md)
+- [#T](docker-image/docker-image-create.md)
+- [#T](docker-image/docker-image-push.md)
+- [#T](docker-image/docker-image-pull.md)
+- [#T](docker-image/docker-image-delete.md)
 
 ## Registry
 
-- [[!TITLE]](registry/registry-list.md)
-- [[!TITLE]](registry/registry-create.md)
-- [[!TITLE]](registry/registry-update.md)
-- [[!TITLE]](registry/registry-delete.md)
+- [#T](registry/registry-list.md)
+- [#T](registry/registry-create.md)
+- [#T](registry/registry-update.md)
+- [#T](registry/registry-delete.md)
 
 ## Repository
 
-- [[!TITLE]](repository/repository-list.md)
+- [#T](repository/repository-list.md)
 

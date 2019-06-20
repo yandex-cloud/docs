@@ -1,4 +1,4 @@
-# Connecting to a database in a cluster [!KEYREF RD]
+# Connecting to a database in a cluster {{ RD }}
 
 Redis cluster hosts cannot be assigned public IPs. You can only connect to a Redis host from a VM located in the same subnet as the host.
 
@@ -12,23 +12,23 @@ Redis cluster hosts cannot be assigned public IPs. You can only connect to a Red
 
 1. Install Redis tools on the VM using a package manager:
 
-   ---
+   {% list tabs %}
 
-   **[!TAB Ubuntu]**
-
-   ```
-   $ sudo apt update
-   $ sudo apt-get install redis
-   ```
-
-   **[!TAB CentOS]**
-
-   ```
-   $ sudo yum update
-   $ sudo yum install redis
-   ```
-
-   ---
+   - Ubuntu
+  
+     ```
+     $ sudo apt update
+     $ sudo apt-get install redis
+     ```
+  
+   - CentOS
+  
+     ```
+     $ sudo yum update
+     $ sudo yum install redis
+     ```
+  
+   {% endlist %}
 
 1. Install a certificate for accessing the database:
 

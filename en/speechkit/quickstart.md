@@ -1,10 +1,10 @@
-# Getting started with [!KEYREF speechkit-short-name]
+# Getting started with {{ speechkit-short-name }}
 
-In this section, you will learn how to use the [!KEYREF speechkit-short-name] API. First you will create an audio file from text and then try to recognize the audio.
+In this section, you will learn how to use the {{ speechkit-short-name }} API. First you will create an audio file from text and then try to recognize the audio.
 
 ## Before you start {#before-begin}
 
-[!INCLUDE [ai-before-beginning](../_includes/ai-before-beginning.md)]
+{% include [ai-before-beginning](../_includes/ai-before-beginning.md) %}
 
 ## Text-to-speech
 

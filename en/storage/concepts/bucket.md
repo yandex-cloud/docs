@@ -4,15 +4,15 @@ A logical entity that helps organize the storage of objects.
 
 ## Bucket naming {#naming}
 
-A bucket's name is used as part of the data access URL and will be visible to your data users. For example, `http://[!KEYREF s3-storage-host]/bucket-name`.
+A bucket's name is used as part of the data access URL and will be visible to your data users. For example, `http://{{ s3-storage-host }}/bucket-name`.
 
 Naming rules:
 
-- Bucket names are unique in the entire [!KEYREF objstorage-name], that is, you can't create two buckets with the same name even in different folders of different clouds. Keep this in mind if you plan to create buckets automatically via the API.
+- Bucket names are unique in the entire {{ objstorage-name }}, that is, you can't create two buckets with the same name even in different folders of different clouds. Keep this in mind if you plan to create buckets automatically via the API.
 
 - The bucket name restrictions are as follows:
 
-   [!INCLUDE [bucket-name-reqs](../../_includes/bucket-name-reqs.md)]
+   {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
 
 Names containing dots should only be used for [static website hosting](../hosting/index.md).
 
@@ -20,7 +20,7 @@ Names containing dots should only be used for [static website hosting](../hostin
 
 You can:
 
-- [Limit the maximum size of a bucket](../operations/buckets/limit-max-volume.md). [!KEYREF objstorage-name] will not allow uploading an object if, when adding it, the bucket size exceeds the maximum value.
+- [Limit the maximum size of a bucket](../operations/buckets/limit-max-volume.md). {{ objstorage-name }} will not allow uploading an object if, when adding it, the bucket size exceeds the maximum value.
 - Set the default [storage class](storage-class.md). Objects uploaded to a bucket are by default saved with the storage class specified for that bucket.
 - Configure a bucket for [static website hosting](../hosting/index.md).
 - Download a [CORS configuration](../cors/index.md) for a bucket.
@@ -30,7 +30,7 @@ You can:
 
 - A bucket cannot be renamed.
 
-- [!KEYREF objstorage-name] performance does not depend on the number of buckets. You can store all your data in one or several buckets.
+- {{ objstorage-name }} performance does not depend on the number of buckets. You can store all your data in one or several buckets.
 
 - Buckets can't be nested.
 
@@ -42,7 +42,9 @@ You can:
 
 - After deleting objects from a bucket, their storage capacity is considered occupied for some time.
 
-  > [!NOTE]
-  >
-  >If you have limited the maximum size of a bucket, it may remain unavailable for writes for some time, even if you free up enough space for new objects.
+  {% note info %}
+
+  If you have limited the maximum size of a bucket, it may remain unavailable for writes for some time, even if you free up enough space for new objects.
+
+  {% endnote %}
 

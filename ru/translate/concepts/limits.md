@@ -4,9 +4,9 @@ editable: false
 
 # Квоты и лимиты
 
-В API v2 сервиса [!KEYREF translate-full-name] действуют следующие ограничения:
+В API v2 сервиса {{ translate-full-name }} действуют следующие ограничения:
 
-[!INCLUDE [quotes-limits-def.md](../../_includes/quotes-limits-def.md)]
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
 #### Квоты {#quotas}
 Вид ограничения | Значение

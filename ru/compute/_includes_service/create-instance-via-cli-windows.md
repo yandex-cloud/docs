@@ -6,7 +6,7 @@
 
 1. Выберите один из публичных [образов](../operations/images-with-pre-installed-software/get-list.md) на базе операционной системы Windows.
 
-    [!INCLUDE [standard-images](../../_includes/standard-images.md)]
+    {% include [standard-images](../../_includes/standard-images.md) %}
 
 1. Создайте YAML-файл (например, `metadata.yaml`) и укажите следующие данные:
 
@@ -42,10 +42,10 @@
 
         Имя должно быть уникальным в рамках каталога. Может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
 
-        [!INCLUDE [name-fqdn](../../_includes/compute/name-fqdn.md)]
+        {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
     - Пароль администратора в файле `metadata.yaml`. Пароль необходим для доступа на виртуальную машину по RDP.
 
-        [!INCLUDE [password-requirements](../../_includes/compute/password-requirements.md)]
+        {% include [password-requirements](../../_includes/compute/password-requirements.md) %}
 
 

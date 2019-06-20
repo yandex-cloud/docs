@@ -4,7 +4,7 @@
 
 ## Подготовка к работе {#preparations}
 
-[!INCLUDE [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md)]
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 При настройке инструментов используйте следующие параметры:
 

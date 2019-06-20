@@ -4,93 +4,95 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
 
 ## Installation {#install}
 
----
+{% list tabs %}
 
-**[!TAB Linux]**
-
-1. Run at a command prompt:
-
-   ```
-   $ curl https://[!KEYREF s3-storage-host][!KEYREF yc-install-path] | bash
-   ```
-
-   The script will install the CLI and add the executable file path to the environment variable `PATH`.
-
-   > [!NOTE]
-   >
-   > The script will update `PATH` only if you run it in `bash` or `zsh` shell.
-   >
-   > If you run the script in a different shell, add the path to the CLI to the variable `PATH` yourself.
-
-1. After installation is complete, restart your terminal.
-
-**[!TAB macOS]**
-
-1. Run at a command prompt:
-
-    ```
-    $ curl https://[!KEYREF s3-storage-host][!KEYREF yc-install-path] | bash
-    ```
-
-    The script will install the CLI and add the executable file path to the environment variable `PATH`.
-1. Restart your terminal for the changes to take effect.
-
-The CLI supports command completion for the  `bash` shell. For command completion to work:
-
-1. Install the [Homebrew](https://brew.sh) package manager.
-1. Install the `bash-completion` package:
-
-   ```
-   $ brew install bash-completion
-   ```
-1. After installation is complete, add the following lines to the ` ~/.bash_profile` file:
-
-   ```
-   if [ -f $(brew --prefix)/etc/bash_completion ]; then
-   . $(brew --prefix)/etc/bash_completion
-   fi
-   ```
-1. Restart your terminal.
-
-**[!TAB Windows]**
-
-For Windows, the CLI can be installed using PowerShell and `cmd`:
-
-- To install using PowerShell:
-
-    1. Run the command:
-
-        ```
-        iex (New-Object System.Net.WebClient).DownloadString('https://[!KEYREF s3-storage-host][!KEYREF yc-windows-path]')
-        ```
-
-    1. The installation script will ask whether to add the path to `yc` to the PATH variable:
-
-        ```
-        Add yc installation dir to your PATH? [Y/n]
-        ```
-
-    1. Enter `Y`. After this, you can use the Yandex.Cloud CLI without restarting the command shell.
-
-- To install using `cmd`:
-
-    1. Run the command:
-
-        ```
-        @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://[!KEYREF s3-storage-host]/[!KEYREF yc-windows-path]'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
-        ```
-
-    1. The installation script will ask whether to add the path to `yc` to the PATH variable:
-
-        ```
-        Add yc installation dir to your PATH? [Y/n]
-        ```
-
-    1. Enter `Y`.
-
-    1. Restart your terminal for the changes to take effect.
-
----
+- Linux
+  
+  1. Run at a command prompt:
+  
+     ```
+     $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+     ```
+  
+     The script will install the CLI and add the executable file path to the environment variable `PATH`.
+  
+     {% note info %}
+  
+     The script will update `PATH` only if you run it in `bash` or `zsh` shell.
+  
+     If you run the script in a different shell, add the path to the CLI to the variable `PATH` yourself.
+  
+     {% endnote %}
+  
+  1. After installation is complete, restart your terminal.
+  
+- macOS
+  
+  1. Run at a command prompt:
+  
+      ```
+      $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+      ```
+  
+      The script will install the CLI and add the executable file path to the environment variable `PATH`.
+  1. Restart your terminal for the changes to take effect.
+  
+  The CLI supports command completion for the  `bash` shell. For command completion to work:
+  
+  1. Install the [Homebrew](https://brew.sh) package manager.
+  1. Install the `bash-completion` package:
+  
+     ```
+     $ brew install bash-completion
+     ```
+  1. After installation is complete, add the following lines to the ` ~/.bash_profile` file:
+  
+     ```
+     if [ -f $(brew --prefix)/etc/bash_completion ]; then
+     . $(brew --prefix)/etc/bash_completion
+     fi
+     ```
+  1. Restart your terminal.
+  
+- Windows
+  
+  For Windows, the CLI can be installed using PowerShell and `cmd`:
+  
+  - To install using PowerShell:
+  
+      1. Run the command:
+  
+          ```
+          iex (New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}')
+          ```
+  
+      1. The installation script will ask whether to add the path to `yc` to the PATH variable:
+  
+          ```
+          Add yc installation dir to your PATH? [Y/n]
+          ```
+  
+      1. Enter `Y`. After this, you can use the Yandex.Cloud CLI without restarting the command shell.
+  
+  - To install using `cmd`:
+  
+      1. Run the command:
+  
+          ```
+          @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}/{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
+          ```
+  
+      1. The installation script will ask whether to add the path to `yc` to the PATH variable:
+  
+          ```
+          Add yc installation dir to your PATH? [Y/n]
+          ```
+  
+      1. Enter `Y`.
+  
+      1. Restart your terminal for the changes to take effect.
+  
+{% endlist %}
 
 ## Initialization {#initialize}
 
@@ -101,7 +103,7 @@ For Windows, the CLI can be installed using PowerShell and `cmd`:
      ```
      Please go to https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
       in order to obtain OAuth token.
-     
+
      Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
      ```
   1. At the command prompt, select one of the clouds from the list of those you have access to:
@@ -121,10 +123,10 @@ For Windows, the CLI can be installed using PowerShell and `cmd`:
       [3] Create a new folder
      Please enter your numeric choice: 1
      ```
-  1. Select the default availability zone for the [!KEYREF compute-full-name] service:
+  1. Select the default availability zone for the {{ compute-full-name }} service:
 
      ```
-     Do you want to configure a default [!KEYREF compute-full-name] availability zone? [Y/n] Y
+     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
      Which zone do you want to use as a profile default?
       [1] ru-central1-a
       [2] ru-central1-b
@@ -169,7 +171,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 
    ```
    $ yc vpc network list
-   
+
    +----------------------+------------------+-------------------------+
    |          ID          |       NAME       |       DESCRIPTION       |
    +----------------------+------------------+-------------------------+
@@ -182,7 +184,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 
    ```
    $ yc vpc network list --format yaml
-   
+
    - id: skesdqhkc6449hbqqar1
      folder_id: ijkl9012
      created_at: "2018-09-05T09:51:16Z"

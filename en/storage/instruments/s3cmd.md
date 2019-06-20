@@ -4,7 +4,7 @@
 
 ## Before you start {#preparations}
 
-[!INCLUDE [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md)]
+{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
 
 ## Installation {#installation}
 
@@ -20,17 +20,19 @@ To configure S3cmd, use the `s3cmd --configure` command. The command will reques
 
 1. `Default Region`: enter `us-east-1`.
 
-   > [!NOTE]
-   >
-   > To work with [!KEYREF objstorage-name], always specify the `us-east-1` region. A different value of the region may lead to an authorization error.
+   {% note info %}
 
-1. `S3 Endpoint`: enter `[!KEYREF s3-storage-host]`.
+   To work with {{ objstorage-name }}, always specify the `us-east-1` region. A different value of the region may lead to an authorization error.
 
-1. `DNS-style bucket+hostname:port template for accessing a bucket`: enter `.[!KEYREF s3-storage-host]`.
+   {% endnote %}
+
+1. `S3 Endpoint`: enter `{{ s3-storage-host }}`.
+
+1. `DNS-style bucket+hostname:port template for accessing a bucket`: enter `.{{ s3-storage-host }}`.
 
 1. Leave the other parameter values of the other parameters unchanged.
 
-The client will try to establish a connection with [!KEYREF objstorage-name] and get a list of buckets. If successful, it will return `Success. Your access key and secret key worked fine :-)`.
+The client will try to establish a connection with {{ objstorage-name }} and get a list of buckets. If successful, it will return `Success. Your access key and secret key worked fine :-)`.
 
 The `s3cmd --configure` command saves the settings to a `~/.s3cfg` file in the format:
 
@@ -39,8 +41,8 @@ The `s3cmd --configure` command saves the settings to a `~/.s3cfg` file in the f
 access_key = id
 secret_key = secretKey
 bucket_location = us-east-1
-host_base = [!KEYREF s3-storage-host]
-host_bucket = %(bucket)s.[!KEYREF s3-storage-host]
+host_base = {{ s3-storage-host }}
+host_bucket = %(bucket)s.{{ s3-storage-host }}
 ```
 
 If necessary, you can change these settings directly in the file. You can also specify settings when launching the client by using the appropriate parameters.
@@ -48,12 +50,12 @@ If necessary, you can change these settings directly in the file. You can also s
 For the static website hosting control commands to work correctly, manually add the following parameter to the configuration file:
 
 ```
-website_endpoint = http://%(bucket)s.[!KEYREF s3-web-host]
+website_endpoint = http://%(bucket)s.{{ s3-web-host }}
 ```
 
 ## Specifics {#specifics}
 
-Remember that S3cmd works with [!KEYREF objstorage-name] like a hierarchical file system and object keys look like a file path.
+Remember that S3cmd works with {{ objstorage-name }} like a hierarchical file system and object keys look like a file path.
 
 ## Operation examples {#s3cmd-examples}
 
@@ -63,9 +65,11 @@ Remember that S3cmd works with [!KEYREF objstorage-name] like a hierarchical fil
    s3cmd  mb s3://bucket
    ```
 
-> [!NOTE]
->
-> When creating a bucket, follow the [naming guidelines](../concepts/bucket.md#naming).
+{% note info %}
+
+When creating a bucket, follow the [naming guidelines](../concepts/bucket.md#naming).
+
+{% endnote %}
 
 ### Uploading an object
 

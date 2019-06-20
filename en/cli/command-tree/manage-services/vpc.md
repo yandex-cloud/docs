@@ -1,11 +1,11 @@
 # yc vpc
 
-Manage [!KEYREF vpc-full-name] resources.
+Manage {{ vpc-full-name }} resources.
 
 #### Usage
 
 Syntax:
-  
+
 `yc vpc <group>`
 
 #### Groups

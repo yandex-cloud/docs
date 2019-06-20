@@ -20,7 +20,7 @@ To create a VM:
 1. On the folder page of the [management console](https://console.cloud.yandex.ru), click **Create resource** and select **Virtual machine**.
 1. In the **Name** field, enter the VM name: `wordpress`.
 
-   [!INCLUDE [name-format](../../_includes/name-format.md)]
+   {% include [name-format](../../_includes/name-format.md) %}
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to locate the VM in.
 1. In the **Public images** section, click **Select**. Select the **WordPress** public image.
@@ -40,7 +40,7 @@ To create a VM:
 1. Specify data required for accessing the VM:
     - Enter the username in the **Login** field.
     - In the **SSH key** field, paste the contents of the public key file.
-You need to create a key pair for SSH connection yourself. For more information, see [[!TITLE]](../../compute/operations/vm-connect/ssh.md).
+You need to create a key pair for SSH connection yourself. For more information, see [#T](../../compute/operations/vm-connect/ssh.md).
 1. Click **Create VM**.
 
 Creating the VM may take several minutes. When the VM's status changes to `RUNNING`, you can begin configuring the website.

@@ -1,4 +1,4 @@
-[!INCLUDE [support-headers](../../_includes/ai-common/support-headers.md)]
+{% include [support-headers](../../_includes/ai-common/support-headers.md) %}
 
 ## Примеры
 

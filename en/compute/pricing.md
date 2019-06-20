@@ -1,13 +1,13 @@
 ---
 editable: false
 ---
-# Pricing policy for [!KEYREF compute-name]
+# Pricing policy for {{ compute-name }}
 
-[!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of using [!KEYREF compute-short-name] {#rules}
+## What goes into the cost of using {{ compute-short-name }} {#rules}
 
-The cost of [!KEYREF compute-short-name] usage is based on:
+The cost of {{ compute-short-name }} usage is based on:
 
 * Computing resources
     * Type and number of cores (vCPU)
@@ -20,7 +20,7 @@ The cost of [!KEYREF compute-short-name] usage is based on:
 * The amount of outgoing traffic.
 * Public IP address.
 
-[!INCLUDE [pricing-gb-size](../_includes/pricing-gb-size.md)]
+{% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 ### Use of VM instances {#instance}
 
@@ -31,21 +31,21 @@ The cost is calculated for the time of using the VM, from the moment it is start
 The VM starts automatically once it is created.
 
 When creating a VM, you can specify a public IP address for it.
-For information about charges for using an external IP address, see the section [[!TITLE]](../vpc/pricing.md) in the Yandex Virtual Private Cloud documentation.
+For information about charges for using an external IP address, see the section [#T](../vpc/pricing.md) in the Yandex Virtual Private Cloud documentation.
 
 #### Computing resources {#instance-resources}
 
-When creating a VM, you specify the number of vCPUs, the basic level of core performance, and the amount of RAM in GB. For more information, see the section [[!TITLE]](concepts/vm-platforms.md).
+When creating a VM, you specify the number of vCPUs, the basic level of core performance, and the amount of RAM in GB. For more information, see the section [#T](concepts/vm-platforms.md).
 
 The baseline core performance level depends on the type of [platform](concepts/vm-platforms.md).
 
-[!KEYREF price-per-hour-count-per-second]
+{{ price-per-hour-count-per-second }}
 
 #### Operating systems {#burstable-instance-os}
 
 OS usage on a VM is charged, as well. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
 
-[!KEYREF price-per-hour-count-per-second]
+{{ price-per-hour-count-per-second }}
 
 #### Example of cost calculation
 
@@ -86,9 +86,9 @@ If you created an image or snapshot, you pay for the storage of this object sepa
 
 The cost is specified for one month of use. Charging per second.
 
-### Use of [!KEYREF ig-name]
+### Use of {{ ig-name }}
 
-[!KEYREF ig-name] can be used free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
+{{ ig-name }} can be used free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
 
 All other Yandex.Cloud services, such as creation of VMs or allocation of external IP addresses, are [charged as usual](../billing/pricing.md). Outgoing traffic is [charged](#prices-traffic) similarly to other services.
 
@@ -96,128 +96,128 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 
 ### Computing resources  {#prices-instance-resources}
 
----
+{% list tabs %}
 
-**[!TAB Prices in USD]**
-
-Computing resources | Rate for 1 hour, without VAT |
------ | -----
-**Intel Broadwell** |
-5% vCPU | $0.002476
-20% vCPU | $0.007051 |
-100% vCPU | $0.008996 |
-RAM (за 1 ГБ) | $0.003129
-**Intel Cascade Lake** |
-5% vCPU | $0.001307
-20%+ vCPU | $0.003923
-50%+ vCPU | $0.005753
-100% vCPU | $0.009584
-RAM (за 1 ГБ) | $0.002538
-
-**[!TAB Prices in roubles]**
-
-Computing resources | Rate for 1 hour, with VAT |
------ | -----
-**Intel Broadwell** |
-5% vCPU | ₽0.1932
-20% vCPU | ₽0.5500 |
-100% vCPU | ₽0.7017 |
-RAM (за 1 ГБ) | ₽0.2441
-**Intel Cascade Lake** |
-5% vCPU | ₽0.1020
-20%+ vCPU | ₽0.3060
-50%+ vCPU | ₽0.4488
-100% vCPU | ₽0.7476
-RAM (за 1 ГБ) | ₽0.1980
-
----
+- Prices in USD
+  
+  Computing resources | Rate for 1 hour, without VAT |
+  ----- | -----
+  **Intel Broadwell** |
+  5% vCPU | $0.002476
+  20% vCPU | $0.007051 |
+  100% vCPU | $0.008996 |
+  RAM (за 1 ГБ) | $0.003129
+  **Intel Cascade Lake** |
+  5% vCPU | $0.001307
+  20%+ vCPU | $0.003923
+  50%+ vCPU | $0.005753
+  100% vCPU | $0.009584
+  RAM (за 1 ГБ) | $0.002538
+  
+- Prices in roubles
+  
+  Computing resources | Rate for 1 hour, with VAT |
+  ----- | -----
+  **Intel Broadwell** |
+  5% vCPU | ₽0.1932
+  20% vCPU | ₽0.5500 |
+  100% vCPU | ₽0.7017 |
+  RAM (за 1 ГБ) | ₽0.2441
+  **Intel Cascade Lake** |
+  5% vCPU | ₽0.1020
+  20%+ vCPU | ₽0.3060
+  50%+ vCPU | ₽0.4488
+  100% vCPU | ₽0.7476
+  RAM (за 1 ГБ) | ₽0.1980
+  
+{% endlist %}
 
 
 ### Computing resources of preemptible VMs {#prices-preemptible-instance-resources}
 
----
+{% list tabs %}
 
-**[!TAB Prices in USD]**
-
-Computing resources | Rate for 1 hour, without VAT |
------ | -----
-**Intel Broadwell** |
-5% vCPU | $0.001535
-20% vCPU | $0.002187 |
-100% vCPU | $0.002769 |
-RAM (за 1 ГБ) | $0.000961
-**Intel Cascade Lake** |
-5% vCPU | $0.000815
-20%+ vCPU | $0.001282
-50%+ vCPU | $0.001794
-100% vCPU | $0.002615
-RAM (за 1 ГБ) | $0.000630
-
-**[!TAB Prices in roubles]**
-
-Computing resources | Rate for 1 hour, with VAT |
------ | -----
-**Intel Broadwell** |
-| 5%+ of vCPU| ₽0.1198 |
-| 20%+ vCPU| ₽0.1706 |
-| 100% of vCPU| ₽0.2160 |
-| RAM (for 1 GB)| ₽0.0750 |
-**Intel Cascade Lake** |
-| 5%+ of vCPU| ₽0.0636 |
-| 20%+ vCPU| ₽0.1000 |
-| 50%+ vCPU| ₽0.1400 |
-| 100% of vCPU| ₽0.2040 |
-| RAM (for 1 GB)| ₽0.0492 |
-
----
+- Prices in USD
+  
+  Computing resources | Rate for 1 hour, without VAT |
+  ----- | -----
+  **Intel Broadwell** |
+  5% vCPU | $0.001535
+  20% vCPU | $0.002187 |
+  100% vCPU | $0.002769 |
+  RAM (за 1 ГБ) | $0.000961
+  **Intel Cascade Lake** |
+  5% vCPU | $0.000815
+  20%+ vCPU | $0.001282
+  50%+ vCPU | $0.001794
+  100% vCPU | $0.002615
+  RAM (за 1 ГБ) | $0.000630
+  
+- Prices in roubles
+  
+  Computing resources | Rate for 1 hour, with VAT |
+  ----- | -----
+  **Intel Broadwell** |
+  | 5%+ of vCPU| ₽0.1198 |
+  | 20%+ vCPU| ₽0.1706 |
+  | 100% of vCPU| ₽0.2160 |
+  | RAM (for 1 GB)| ₽0.0750 |
+  **Intel Cascade Lake** |
+  | 5%+ of vCPU| ₽0.0636 |
+  | 20%+ vCPU| ₽0.1000 |
+  | 50%+ vCPU| ₽0.1400 |
+  | 100% of vCPU| ₽0.2040 |
+  | RAM (for 1 GB)| ₽0.0492 |
+  
+{% endlist %}
 
 ### Operating systems {#burstable-instance-os}
 
----
+{% list tabs %}
 
-**[!TAB Prices in USD]**
-
-| OS | Cost per vCPU per hour, without VAT
------ | -----
-| Linux for all core types  | $0 |
-| Windows Server for 5%+ of vCPU | $0.008135 |
-| Windows Server for 20%+, 50%+, 100% vCPU | $0.016270 |
-
-**[!TAB Prices in roubles]**
-
-| OS | Cost per vCPU per hour, with VAT |
------ | -----
-| Linux for all core types  | ₽0 |
-| Windows Server for 5%+ of vCPU | ₽0.6346 |
-| Windows Server for 20%+, 50%+, 100% vCPU | ₽1.2691 |
-
----
+- Prices in USD
+  
+  | OS | Cost per vCPU per hour, without VAT
+  ----- | -----
+  | Linux for all core types  | $0 |
+  | Windows Server for 5%+ of vCPU | $0.008135 |
+  | Windows Server for 20%+, 50%+, 100% vCPU | $0.016270 |
+  
+- Prices in roubles
+  
+  | OS | Cost per vCPU per hour, with VAT |
+  ----- | -----
+  | Linux for all core types  | ₽0 |
+  | Windows Server for 5%+ of vCPU | ₽0.6346 |
+  | Windows Server for 20%+, 50%+, 100% vCPU | ₽1.2691 |
+  
+{% endlist %}
 
 ### Disks, snapshots, and images {#prices-storage}
 
----
+{% list tabs %}
 
-**[!TAB Prices in USD]**
-
-| Type | Rate for 1 GB per month, without VAT
------ | -----
-| Fast network drive (NVMe) | $0.095437 |
-| Standard disk drive (HDD) | $0.026726 |
-| Snapshot | $0.028552 |
-| Image | $0.028552 |
-
-**[!TAB Prices in roubles]**
-
-| Type | Rate for 1 GB per month, with VAT |
------ | -----
-| Fast network drive (NVMe) | ₽7.4441 |
-| Standard disk drive (HDD) | ₽2.0847 |
-| Snapshot | ₽2.2271 |
-| Image | ₽2.2271 |
-
----
+- Prices in USD
+  
+  | Type | Rate for 1 GB per month, without VAT
+  ----- | -----
+  | Fast network drive (NVMe) | $0.095437 |
+  | Standard disk drive (HDD) | $0.026726 |
+  | Snapshot | $0.028552 |
+  | Image | $0.028552 |
+  
+- Prices in roubles
+  
+  | Type | Rate for 1 GB per month, with VAT |
+  ----- | -----
+  | Fast network drive (NVMe) | ₽7.4441 |
+  | Standard disk drive (HDD) | ₽2.0847 |
+  | Snapshot | ₽2.2271 |
+  | Image | ₽2.2271 |
+  
+{% endlist %}
 
 
 ### Outgoing traffic {#prices-traffic}
 
-[!INCLUDE-NOTITLE [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md)]
+{% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}

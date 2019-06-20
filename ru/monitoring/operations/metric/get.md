@@ -2,7 +2,7 @@
 
 Чтобы выгрузить данные метрики, воспользуйтесь методом [read](../../api-ref/MetricsData/read.md).
 
-[!INCLUDE [before-beginning](../../../_includes/monitoring/before-beginning.md)]
+{% include [before-beginning](../../../_includes/monitoring/before-beginning.md) %}
 
 ### Пример запроса
 

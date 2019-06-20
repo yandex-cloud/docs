@@ -2,13 +2,13 @@
 editable: false
 ---
 
-# Правила тарификации для [!KEYREF vision-name]
+# Правила тарификации для {{ vision-name }}
 
-[!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## Из чего складывается стоимость использования [!KEYREF vision-short-name] {#rules}
+## Из чего складывается стоимость использования {{ vision-short-name }} {#rules}
 
-Сервис [!KEYREF vision-short-name] предоставляет [возможности для анализа](concepts/index.md#features) изображений.
+Сервис {{ vision-short-name }} предоставляет [возможности для анализа](concepts/index.md#features) изображений.
 
 Каждый выполненный анализ изображения для любой из возможностей — одна _единица_ тарификации:
 

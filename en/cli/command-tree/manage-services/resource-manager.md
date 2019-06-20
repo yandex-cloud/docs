@@ -1,6 +1,6 @@
 # yc resource-manager
 
-Manage [!KEYREF resmgr-full-name] resources.
+Manage {{ resmgr-full-name }} resources.
 
 #### Usage
 

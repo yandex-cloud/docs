@@ -1,14 +1,14 @@
-# Connecting to a database in a cluster [!KEYREF MG]
+# Connecting to a database in a cluster {{ MG }}
 
 Inside Yandex.Cloud, you can connect to a DB cluster only from a VM whose address is in the same Cloud subnet.
 
 ## Authentication
 
-[!KEYREF MG]-clusters in [!KEYREF mmg-short-name] support only encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
+{{ MG }}-clusters in {{ mmg-short-name }} support only encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
 
 ```bash
 $ mkdir ~/.mongodb
-$ wget "https://[!KEYREF s3-storage-host][!KEYREF pem-path]" -O ~/.mongodb/CA.pem
+$ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/CA.pem
 $ chmod 0600 ~/.mongodb/CA.pem
 ```
 

@@ -1,6 +1,6 @@
 # Сервисные аккаунты
 
-[!INCLUDE [sa-def](../../_includes_service/sa-def.md)]
+{% include [sa-def](../../_includes_service/sa-def.md) %}
 
 ## Зачем нужны сервисные аккаунты {#sa-usage}
 

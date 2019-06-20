@@ -1,6 +1,6 @@
 # yc compute
 
-Manage [!KEYREF compute-full-name] resources.
+Manage {{ compute-full-name }} resources.
 
 #### Usage
 

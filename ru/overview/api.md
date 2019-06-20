@@ -6,14 +6,14 @@
 
 
 ## Справочники API сервисов Яндекс.Облака
-- [[!KEYREF compute-full-name]](../compute/api-ref/)
-- [[!KEYREF objstorage-full-name]](../storage/s3/)
-- [[!KEYREF iam-full-name]](../iam/api-ref/)
-- [[!KEYREF resmgr-full-name]](../resource-manager/api-ref/)
-- [[!KEYREF vpc-full-name]](../vpc/api-ref/)
+- [{{ compute-full-name }}](../compute/api-ref/)
+- [{{ objstorage-full-name }}](../storage/s3/)
+- [{{ iam-full-name }}](../iam/api-ref/)
+- [{{ resmgr-full-name }}](../resource-manager/api-ref/)
+- [{{ vpc-full-name }}](../vpc/api-ref/)
 - Сервисы баз данных:
    * [ClickHouse](../managed-clickhouse/api-ref/)
    * [MongoDB](../managed-mongodb/api-ref/)
    * [PostgreSQL](../managed-postgresql/api-ref/)
-- [[!KEYREF speechkit-full-name]](../speechkit/)
-- [[!KEYREF translate-full-name]](../translate/)
+- [{{ speechkit-full-name }}](../speechkit/)
+- [{{ translate-full-name }}](../translate/)

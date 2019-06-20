@@ -6,7 +6,7 @@
 
    The name must meet the following requirements:
 
-   [!INCLUDE [bucket-name-reqs](../../_includes/bucket-name-reqs.md)]
+   {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
 
 1. Specify the maximum bucket size in GB.
 

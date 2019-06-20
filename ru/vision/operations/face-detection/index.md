@@ -8,20 +8,22 @@ _Обнаружение лиц сейчас находится на [стади�
 
 ## Примеры {#examples}
 
-[!INCLUDE [ai-before-beginning](../../../_includes/ai-before-beginning.md)]
+{% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 
 ### Обнаружить лица {#basic}
 
 1. Подготовьте файл изображения, соответствующий требованиям:
 
-    [!INCLUDE [file-restrictions](../../../_includes/vision/file-restrictions.md)]
+    {% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
 
-    > [!NOTE]
-    >
-    > Нужно изображение? [Скачайте пример](https://storage.yandexcloud.net/vision/face-detection-sample.jpg).
+    {% note info %}
+
+    Нужно изображение? [Скачайте пример](https://storage.yandexcloud.net/vision/face-detection-sample.jpg).
+
+    {% endnote %}
 1. Кодируйте файл в формат Base64:
 
-    [!INCLUDE [base64-encode-command](../../../_includes/vision/base64-encode-command.md)]
+    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
 1. Создайте файл с телом запроса, например `body.json`. В свойстве `content` укажите изображение, [кодированное в Base64](../base64-encode.md):
 
     **body.json:**
@@ -37,11 +39,11 @@ _Обнаружение лиц сейчас находится на [стади�
     }
     ```
 
-1. [!INCLUDE [send-request](../../../_includes/vision/send-request.md)]
+1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 
 ### Готовая функция для отправки запросов в bash {#oneliner}
 
-1. [!INCLUDE [cli-install](../../../_includes/cli-install.md)]
+1. {% include [cli-install](../../../_includes/cli-install.md) %}
 1. Скопируйте в терминал функцию:
 
     ```bash
@@ -63,7 +65,7 @@ _Обнаружение лиц сейчас находится на [стади�
     }
     ```
 
-    [!INCLUDE [oneline-function-hints](../../../_includes/vision/oneline-function-hints.md)]
+    {% include [oneline-function-hints](../../../_includes/vision/oneline-function-hints.md) %}
 
 1. Теперь вы можете вызывать эту функцию, передав путь к изображению в аргументах:
 

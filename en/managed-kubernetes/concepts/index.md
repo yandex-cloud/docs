@@ -1,39 +1,41 @@
 # Relationship between service resources
 
-[[!KEYREF k8s]](https://[!KEYREF k8s].io) is an environment for managing containerized applications. [!KEYREF k8s] offers ways to run clusters that can automate tasks like deploying, scaling, and managing applications in containers.
+[{{ k8s }}](https://{{ k8s }}.io) is an environment for managing containerized applications. {{ k8s }} offers ways to run clusters that can automate tasks like deploying, scaling, and managing applications in containers.
 
-The main entity used in the service is a _cluster [!KEYREF k8s]_.
+The main entity used in the service is a _cluster {{ k8s }}_.
 
-## [!KEYREF k8s] cluster {#kubernetes-cluster}
+## {{ k8s }} cluster {#kubernetes-cluster}
 
-A [!KEYREF k8s] cluster consists of a master and one or more node groups. The master is responsible for managing a [!KEYREF k8s] cluster. Containerized user applications are run on nodes.
+A {{ k8s }} cluster consists of a master and one or more node groups. The master is responsible for managing a {{ k8s }} cluster. Containerized user applications are run on nodes.
 
-The service fully controls the master and monitors the status and health of a node group. The user can manage nodes directly and configure a [!KEYREF k8s] cluster through the Yandex.Cloud management console and the Managed Service for Kubernetes CLI and API.
+The service fully controls the master and monitors the status and health of a node group. The user can manage nodes directly and configure a {{ k8s }} cluster through the Yandex.Cloud management console and the Managed Service for Kubernetes CLI and API.
 
-> [!IMPORTANT]
-> 
-> [!KEYREF k8s] node groups require internet access to download images and components.
-> Internet access can be provided in the following ways:
-> - By assigning each node in the group a [public IP address](../../vpc/concepts/address.md#public-addresses).
-> - [By configuring a VM as a NAT gateway](../operations/nat-instance.md). In this case, only one public IP address will be used: the one that is assigned to the gateway.
+{% note important %}
 
-When working with a [!KEYREF k8s] cluster in the Yandex.Cloud infrastructure, the following resources are used:
+{{ k8s }} node groups require internet access to download images and components.
+Internet access can be provided in the following ways:
+- By assigning each node in the group a [public IP address](../../vpc/concepts/address.md#public-addresses).
+- [By configuring a VM as a NAT gateway](../operations/nat-instance.md). In this case, only one public IP address will be used: the one that is assigned to the gateway.
+
+{% endnote %}
+
+When working with a {{ k8s }} cluster in the Yandex.Cloud infrastructure, the following resources are used:
 
 | Resource | Amount | Comment |
 | ---- | :---: | ---- |
-| Subnet | 2 | [!KEYREF k8s] reserves IP address ranges to be used for pods and services. |
+| Subnet | 2 | {{ k8s }} reserves IP address ranges to be used for pods and services. |
 | Route table | 1 | Used for routing traffic between pods inside a Kubernetes cluster. |
 | Public IP | N | N includes:</br> - **A single** public IP address for the NAT gateway.</br> - A public IP address assigned to **each** node in the group if you use the one-to-one NAT technology.</br> |
 
 ### Master {#master}
 
-_A master_ is a node that manages a [!KEYREF k8s] cluster.
+_A master_ is a node that manages a {{ k8s }} cluster.
 
-The master runs [!KEYREF k8s] control processes that include the [!KEYREF k8s] API server, scheduler, and main resource controllers. The master's lifecycle is managed by the service when creating or deleting a [!KEYREF k8s] cluster. The master is responsible for global solutions that are run on all [!KEYREF k8s] cluster nodes. These include scheduling workloads (such as containerized applications), managing the lifecycle of workloads, and scaling.
+The master runs {{ k8s }} control processes that include the {{ k8s }} API server, scheduler, and main resource controllers. The master's lifecycle is managed by the service when creating or deleting a {{ k8s }} cluster. The master is responsible for global solutions that are run on all {{ k8s }} cluster nodes. These include scheduling workloads (such as containerized applications), managing the lifecycle of workloads, and scaling.
 
 ### Node group {#node-group}
 
-_A node group_ is a group of VMs with the same configuration in a [!KEYREF k8s] cluster that is running the user's containers.
+_A node group_ is a group of VMs with the same configuration in a {{ k8s }} cluster that is running the user's containers.
 
 #### Configuration {#config}
 

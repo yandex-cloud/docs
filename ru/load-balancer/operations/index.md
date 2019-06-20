@@ -2,17 +2,17 @@
 
 ## Балансировщик {#load-balancer}
 
-- [[!TITLE]](load-balancer-create.md)
-- [[!TITLE]](load-balancer-start.md)
-- [[!TITLE]](load-balancer-stop.md)
-- [[!TITLE]](load-balancer-delete.md)
-- [[!TITLE]](check-resource-health.md)
-- [[!TITLE]](listener-add.md)
-- [[!TITLE]](listener-remove.md)
+- [#T](load-balancer-create.md)
+- [#T](load-balancer-start.md)
+- [#T](load-balancer-stop.md)
+- [#T](load-balancer-delete.md)
+- [#T](check-resource-health.md)
+- [#T](listener-add.md)
+- [#T](listener-remove.md)
 
 ## Целевая группа {#target-group}
 
-- [[!TITLE]](target-group-create.md)
-- [[!TITLE]](target-group-attach.md)
-- [[!TITLE]](target-group-detach.md)
-- [[!TITLE]](target-group-delete.md)
+- [#T](target-group-create.md)
+- [#T](target-group-attach.md)
+- [#T](target-group-detach.md)
+- [#T](target-group-delete.md)

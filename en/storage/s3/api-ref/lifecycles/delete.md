@@ -1,6 +1,6 @@
 # delete method
 
-Deletes a bucket's object lifecycle configuration from [!KEYREF objstorage-name].
+Deletes a bucket's object lifecycle configuration from {{ objstorage-name }}.
 
 ## Request {#request}
 
@@ -32,7 +32,7 @@ A response can only contain [common response headers](../common-response-headers
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [[!TITLE]](../response-codes.md).
+For a list of possible responses, see [#T](../response-codes.md).
 
-If there is no bucket object lifecycle configuration, [!KEYREF objstorage-name] returns 200.
+If there is no bucket object lifecycle configuration, {{ objstorage-name }} returns 200.
 

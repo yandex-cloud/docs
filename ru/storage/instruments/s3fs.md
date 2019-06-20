@@ -1,14 +1,16 @@
 # s3fs
 
-[s3fs](https://github.com/s3fs-fuse/s3fs-fuse) — программа для Linux и macOS, позволяющая монтировать бакеты [!KEYREF objstorage-name] через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).
+[s3fs](https://github.com/s3fs-fuse/s3fs-fuse) — программа для Linux и macOS, позволяющая монтировать бакеты {{ objstorage-name }} через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).
 
-> [!NOTE]
->
-> Рекомендуется использовать s3fs с версией не ниже 1.84.
+{% note info %}
+
+Рекомендуется использовать s3fs с версией не ниже 1.84.
+
+{% endnote %}
 
 ## Подготовка к работе {#preparations}
 
-[!INCLUDE [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md)]
+{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
 
 ## Установка {#installation}
 

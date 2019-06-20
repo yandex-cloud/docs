@@ -4,7 +4,7 @@
 
 ## Примеры
 
-[!INCLUDE [ai-before-beginning](../../_includes/ai-before-beginning.md)]
+{% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
 
 ### Переведите текст с любого языка {#any-language}
 
@@ -24,7 +24,7 @@
     ```
 1. Передайте файл на перевод с помощью метода [translate](../../translate/api-ref/Translation/translate):
 
-    [!INCLUDE [translate-file](../../_includes/translate/translate-file.md)]
+    {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
     В ответе сервис вернет переведенные строки текста:
     ```json

@@ -7,7 +7,7 @@
 1. Выберите **Виртуальная машина**.
 1. В поле **Имя** введите имя виртуальной машины.
 
-    [!INCLUDE [name-format](../../../_includes/name-format.md)]
+    {% include [name-format](../../../_includes/name-format.md) %}
 
 1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 1. Выберите публичный [образ](../images-with-pre-installed-software/get-list.md) DSVM.
@@ -18,7 +18,7 @@
 1. В открывшемся окне выберите, к какой подсети необходимо подключить виртуальную машину при создании.
 1. В поле **Публичный адрес** выберите:
     - **Автоматически** — чтобы назначить публичный IP-адрес автоматически. Адрес выделяется из пула адресов Яндекс.Облака.
-    - **Список** — чтобы выбрать публичный IP-адрес из списка статических адресов. Подробнее читайте в разделе [[!TITLE]](../../../vpc/operations/set-static-ip.md) документации сервиса [!KEYREF vpc-name].
+    - **Список** — чтобы выбрать публичный IP-адрес из списка статических адресов. Подробнее читайте в разделе [#T](../../../vpc/operations/set-static-ip.md) документации сервиса {{ vpc-name }}.
     - **Без адреса** — чтобы не назначать публичный IP-адрес.
 1. Укажите данные для доступа на виртуальную машину:
     - В поле **Логин** введите имя пользователя.
@@ -26,11 +26,11 @@
         Пару ключей для подключения по SSH необходимо создать самостоятельно. Для создания ключей используйте сторонние инструменты, например утилиты `ssh-keygen` в Linux и macOS или [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) в Windows.
 1. Нажмите кнопку **Создать ВМ**.
 
-[!INCLUDE [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md)]
+{% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
 ## Подключиться к виртуальной машине DSVM по протоколу SSH {#first-login}
 
-[!INCLUDE [vm-connect-ssh](../../../_includes/vm-connect-ssh.md)]
+{% include [vm-connect-ssh](../../../_includes/vm-connect-ssh.md) %}
 
 В приветственном сообщении вы увидите команды для активации окружения и запуска [Jupyter Notebook](http://jupyter.org/index.html) и [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/):
 

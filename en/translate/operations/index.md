@@ -1,5 +1,5 @@
 # Step-by-step instructions
 
-- [[!TITLE]](translate.md)
-- [[!TITLE]](detect.md)
+- [#T](translate.md)
+- [#T](detect.md)
 

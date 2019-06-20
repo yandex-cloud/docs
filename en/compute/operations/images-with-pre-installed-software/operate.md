@@ -2,13 +2,13 @@
 
 ## Connecting via SSH {#connect}
 
-[!INCLUDE [vm-connect-ssh](../../../_includes/vm-connect-ssh.md)]
+{% include [vm-connect-ssh](../../../_includes/vm-connect-ssh.md) %}
 
 ## Connecting using your login and password {#logins-passwords}
 
 You can connect to a VM with your login and password when it is started.
 
-[!INCLUDE [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md)]
+{% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
 
 To get logins and passwords for VMs based on public images, use the following command:
 

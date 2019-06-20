@@ -37,11 +37,11 @@ The accuracy of speech recognition is also affected by:
 
 #### See also
 
-* [[!TITLE]](formats.md)
-* [[!TITLE]](models.md)
-* [[!TITLE]](request.md)
-* [[!TITLE]](streaming.md)
-* [[!TITLE]](transcribation.md)
+* [#T](formats.md)
+* [#T](models.md)
+* [#T](request.md)
+* [#T](streaming.md)
+* [#T](transcribation.md)
 * [Yandex speech technologies (a post on Habrahabr, in Russian)](https://habrahabr.ru/company/yandex/blog/243813/)
 * [Under the hood of Yandex.SpeechKit (a post on Habrahabr, in Russian)](https://habrahabr.ru/company/yandex/blog/198556/)
 

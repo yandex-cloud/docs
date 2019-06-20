@@ -1,19 +1,19 @@
-# Step-by-step instructions for the component [!KEYREF ig-name]
+# Step-by-step instructions for the component {{ ig-name }}
 
 ## Creating an instance group
 
-- [[!TITLE]](create-fixed-group.md)
-- [[!TITLE]](create-with-balancer.md)
+- [#T](create-fixed-group.md)
+- [#T](create-with-balancer.md)
 
 ## Getting information about an instance group
 
-- [[!TITLE]](get-list.md)
-- [[!TITLE]](get-info.md)
-- [[!TITLE]](get-list-instances.md)
+- [#T](get-list.md)
+- [#T](get-info.md)
+- [#T](get-list-instances.md)
 
 ## Managing an instance group
 
-- [[!TITLE]](update.md)
-- [[!TITLE]](delete.md)
-- [[!TITLE]](recover.md)
+- [#T](update.md)
+- [#T](delete.md)
+- [#T](recover.md)
 

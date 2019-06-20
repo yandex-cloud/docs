@@ -7,6 +7,6 @@
     - [Создание виртуальной машины Linux](quick-create-linux.md)
     - [Создание виртуальной машины Windows](quick-create-windows.md)
 
-- [!KEYREF ig-name]
+- {{ ig-name }}
 
     - [Создание группы виртуальных машин фиксированного размера](ig.md)

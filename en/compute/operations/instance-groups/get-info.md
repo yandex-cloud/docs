@@ -6,44 +6,44 @@ User-defined [metadata](../../concepts/vm-metadata.md) that was passed during gr
 
 To get information about an instance group:
 
----
+{% list tabs %}
 
-**[!TAB Management console]**
-
-1. Open the folder page in the management console.
-1. Select **[!KEYREF compute-full-name]**.
-1. On the **Virtual machines** page, go to the **Instance groups** tab.
-1. Click on the name of the group you need.
-
-**[!TAB CLI]**
-
-[!INCLUDE [cli-install.md](../../../_includes/cli-install.md)]
-
-[!INCLUDE [default-catalogue.md](../../../_includes/default-catalogue.md)]
-
-1. See the description of the CLI's get instance group info command:
-
-    ```
-    $ [!KEYREF yc-compute-ig] get --help
-    ```
-
-1. Get a list of instance groups in the default folder:
-
-    [!INCLUDE [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md)]
-
-1. Select the `ID` or `NAME` of the necessary group (for example, `first-instance-group`).
-
-1. Get information about the instance group:
-
-    ```
-    $ [!KEYREF yc-compute-ig] get --name first-instance-group
-    ```
-
-**[!TAB API]**
-
-Use the [get](../../api-ref/InstanceGroup/get.md) API method.
-
-To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
-
----
+- Management console
+  
+  1. Open the folder page in the management console.
+  1. Select **{{ compute-full-name }}**.
+  1. On the **Virtual machines** page, go to the **Instance groups** tab.
+  1. Click on the name of the group you need.
+  
+- CLI
+  
+  {% include [cli-install.md](../../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
+  
+  1. See the description of the CLI's get instance group info command:
+  
+      ```
+      $ {{ yc-compute-ig }} get --help
+      ```
+  
+  1. Get a list of instance groups in the default folder:
+  
+      {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
+  
+  1. Select the `ID` or `NAME` of the necessary group (for example, `first-instance-group`).
+  
+  1. Get information about the instance group:
+  
+      ```
+      $ {{ yc-compute-ig }} get --name first-instance-group
+      ```
+  
+- API
+  
+  Use the [get](../../api-ref/InstanceGroup/get.md) API method.
+  
+  To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
+  
+{% endlist %}
 

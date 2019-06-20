@@ -6,7 +6,8 @@ Once the offer has been accepted, both parties start acting under the agreement 
 
 The agreement number is displayed in the management console on the **Account data** page. You can read the agreement on [Yandex.Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en) page.
 
-> [!NOTE]
->
-> Businesses may conclude a contract that is signed by both parties. To do this, submit a request using the **Ask a question** form on the [Contact us](https://cloud.yandex.com/support) page. A Yandex.Cloud manager will contact you to discuss the contract signing terms and conditions.
->
+{% note info %}
+
+Businesses may conclude a contract that is signed by both parties. To do this, submit a request using the **Ask a question** form on the [Contact us](https://cloud.yandex.com/support) page. A Yandex.Cloud manager will contact you to discuss the contract signing terms and conditions.
+
+{% endnote %}

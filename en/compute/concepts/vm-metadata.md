@@ -4,19 +4,21 @@ Information about VM instances is stored on the metadata server. You can request
 
 Metadata is used by programs that are run when the VM starts. For example, to make a list of users or specify a public SSH key to connect to the VM.
 
-[!INCLUDE [vm-metadata](../../_includes/vm-metadata.md)]
+{% include [vm-metadata](../../_includes/vm-metadata.md) %}
 
 ## Metadata format when creating a VM
 
 Metadata is set in the `metadata` field as `key:value` pairs. Only a string can be used as a value. If you need to pass multiple strings, separate them with the line break character `\n`.
 
-[!INCLUDE [metadata-from-file](../_includes_service/metadata-from-file.md)]
+{% include [metadata-from-file](../_includes_service/metadata-from-file.md) %}
 
 You can specify any keys. The keys you need to specify depend on the program that will handle them on your VM. For example, in Linux images provided by Yandex.Cloud, the [cloud-init](https://cloud-init.io) program is used.
 
-> [!IMPORTANT]
->
-> Metadata, including user-defined, is stored unencrypted. Anyone who can connect to a VM can get this metadata. If you place confidential information in the metadata, take measures to protect it, for example, by encrypting it.
+{% note important %}
+
+Metadata, including user-defined, is stored unencrypted. Anyone who can connect to a VM can get this metadata. If you place confidential information in the metadata, take measures to protect it, for example, by encrypting it.
+
+{% endnote %}
 
 ## Programs handling metadata in Yandex.Cloud images {#public-images-metadata}
 

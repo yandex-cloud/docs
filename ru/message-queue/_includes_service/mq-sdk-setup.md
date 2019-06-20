@@ -12,7 +12,8 @@
    [default]
                region=RU-CENTRAL
    ```
-   > [!NOTE]
-   >
-   > Для работы с Yandex Object Storage всегда указывайте регион — `RU-CENTRAL`. Другие значения региона могут привести к ошибке авторизации.
-   >
+   {% note info %}
+
+   Для работы с Yandex Object Storage всегда указывайте регион — `RU-CENTRAL`. Другие значения региона могут привести к ошибке авторизации.
+
+   {% endnote %}

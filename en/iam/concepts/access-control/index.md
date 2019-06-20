@@ -1,16 +1,16 @@
 # How access management in Yandex.Cloud works
 
-On this page, you can find out how to manage access to resources and how [!KEYREF iam-short-name] checks access rights to them.
+On this page, you can find out how to manage access to resources and how {{ iam-short-name }} checks access rights to them.
 
 ## How are access rights verified?
 
-All operations with resources in Yandex.Cloud are first sent for verification to [!KEYREF iam-short-name]. For example:
+All operations with resources in Yandex.Cloud are first sent for verification to {{ iam-short-name }}. For example:
 
 1. A user wants the Yandex Compute Cloud service to create a new disk in the <q>default</q> folder.
-1. The service sends a request to [!KEYREF iam-short-name] to check whether this user is allowed to create disks in this folder.
-1. [!KEYREF iam-short-name] checks if the user is a member of the cloud with the <q>default</q> folder and has the necessary permissions to create a disk in this folder.
+1. The service sends a request to {{ iam-short-name }} to check whether this user is allowed to create disks in this folder.
+1. {{ iam-short-name }} checks if the user is a member of the cloud with the <q>default</q> folder and has the necessary permissions to create a disk in this folder.
 1. If the user does not have any of the permissions, the operation is not performed and Yandex.Cloud returns an error.
-If all the required permissions are granted, [!KEYREF iam-short-name] reports this to the service.
+If all the required permissions are granted, {{ iam-short-name }} reports this to the service.
 1. The service creates a new disk.
 
 ![checkPermissions.png](../../../_assets/checkPermissions.png)
@@ -23,11 +23,13 @@ To assign a role, you [select a resource](#resource), [choose a role](#role), an
 
 You can also assign a role to a parent resource that [access rights are inherited](#inheritance) from, such as a folder or cloud.
 
-> [!IMPORTANT]
->
-> Changing access rights usually takes 30 seconds or less, but it may take up to 5 minutes.
->
-> For example, you were given the right to create folders in the cloud and you were able to create one folder, but couldn't create another one. This is because the access rights have not yet been updated on the server where the second create folder operation was performed. Try creating a folder again.
+{% note important %}
+
+Changing access rights usually takes 30 seconds or less, but it may take up to 5 minutes.
+
+For example, you were given the right to create folders in the cloud and you were able to create one folder, but couldn't create another one. This is because the access rights have not yet been updated on the server where the second create folder operation was performed. Try creating a folder again.
+
+{% endnote %}
 
 ### Resources that roles can be assigned for {#resource}
 
@@ -41,7 +43,7 @@ Resource roles can be assigned by users with the [administrator](roles.md#admin)
 
 Each role consists of a set of permissions that describe operations that can be performed with the resource. A user can assign a role with only those permissions which are available to themselves. For example, to assign somebody the role of [cloud owner](roles.md#owner), the user must be granted this role, while the admin role is not sufficient for this.
 
-For information about what roles exist and what permissions they include, see [[!TITLE]](roles.md).
+For information about what roles exist and what permissions they include, see [#T](roles.md).
 
 ### Subject that a role is assigned to {#subject}
 
@@ -51,7 +53,7 @@ There are three types of subjects:
 
 * `userAccount`: a user's account on Yandex.
 * `serviceAccount`: a service account created in Yandex.Cloud.
-* `system` : a [system group](system-group.md). At the moment, there is just one system group, `[!KEYREF subjects-allAuthenticatedUsers]`, that incudes all users registered with and [authenticated](../authorization/) in Yandex.Cloud.
+* `system` : a [system group](system-group.md). At the moment, there is just one system group, `{{ subjects-allAuthenticatedUsers }}`, that incudes all users registered with and [authenticated](../authorization/) in Yandex.Cloud.
 
 ### Binding access rights {#access-bindings}
 
@@ -73,10 +75,10 @@ For more information about managing access to a specific Yandex.Cloud service, s
 
 Step-by-step instructions and examples:
 
-* [[!TITLE]](../../operations/roles/grant.md)
-* [[!TITLE]](../../operations/roles/revoke.md)
-* [[!TITLE]](../../operations/sa/assign-role-for-sa.md)
-* [[!TITLE]](../../operations/sa/set-access-bindings.md)
-* [[!TITLE]](../../../resource-manager/operations/cloud/set-access-bindings.md)
-* [[!TITLE]](../../../resource-manager/operations/folder/set-access-bindings.md)
+* [#T](../../operations/roles/grant.md)
+* [#T](../../operations/roles/revoke.md)
+* [#T](../../operations/sa/assign-role-for-sa.md)
+* [#T](../../operations/sa/set-access-bindings.md)
+* [#T](../../../resource-manager/operations/cloud/set-access-bindings.md)
+* [#T](../../../resource-manager/operations/folder/set-access-bindings.md)
 

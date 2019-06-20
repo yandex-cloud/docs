@@ -36,72 +36,72 @@ _Классификация изображений сейчас находитс
 
 **Примеры результатов классификации:**
 
----
+{% list tabs %}
 
-**[!TAB high]**
-
-![image](../../../_assets/vision/high.jpg)
-
-```json
-"properties": [
-    {
-        "name": "low",
-        "probability": 0.00039277845644392073
-    },
-    {
-        "name": "high",
-        "probability": 0.93234682083129883
-    },
-    {
-        "name": "medium",
-        "probability": 0.06726035475730896
-    }
-]
-```
-
-**[!TAB medium]**
-
-![image](../../../_assets/vision/medium.jpg)
-
-```json
-"properties": [
-    {
-        "name": "low",
-        "probability": 0.072797946631908417
-    },
-    {
-        "name": "high",
-        "probability": 0.19245840609073639
-    },
-    {
-        "name": "medium",
-        "probability": 0.73474365472793579
-    }
-]
-```
-
-**[!TAB low]**
-
-![image](../../../_assets/vision/low.jpg)
-
-```json
-"properties": [
-    {
-        "name": "low",
-        "probability": 0.7901121973991394
-    },
-    {
-        "name": "high",
-        "probability": 0.004683326929807663
-    },
-    {
-        "name": "medium",
-        "probability": 0.20520441234111786
-    }
-]
-```
-
----
+- high
+  
+  ![image](../../../_assets/vision/high.jpg)
+  
+  ```json
+  "properties": [
+      {
+          "name": "low",
+          "probability": 0.00039277845644392073
+      },
+      {
+          "name": "high",
+          "probability": 0.93234682083129883
+      },
+      {
+          "name": "medium",
+          "probability": 0.06726035475730896
+      }
+  ]
+  ```
+  
+- medium
+  
+  ![image](../../../_assets/vision/medium.jpg)
+  
+  ```json
+  "properties": [
+      {
+          "name": "low",
+          "probability": 0.072797946631908417
+      },
+      {
+          "name": "high",
+          "probability": 0.19245840609073639
+      },
+      {
+          "name": "medium",
+          "probability": 0.73474365472793579
+      }
+  ]
+  ```
+  
+- low
+  
+  ![image](../../../_assets/vision/low.jpg)
+  
+  ```json
+  "properties": [
+      {
+          "name": "low",
+          "probability": 0.7901121973991394
+      },
+      {
+          "name": "high",
+          "probability": 0.004683326929807663
+      },
+      {
+          "name": "medium",
+          "probability": 0.20520441234111786
+      }
+  ]
+  ```
+  
+{% endlist %}
 
 ## moderation
 

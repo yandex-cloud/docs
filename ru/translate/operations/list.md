@@ -2,7 +2,7 @@
 
 ## Перед началом
 
-[!INCLUDE [ai-before-beginning](../../_includes/ai-before-beginning.md)]
+{% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
 
 ## Получите список поддерживаемых языков
 

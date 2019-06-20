@@ -1,1 +1,1 @@
-[!INCLUDE [ai-security](../../_includes/ai-security.md)]
+{% include [ai-security](../../_includes/ai-security.md) %}

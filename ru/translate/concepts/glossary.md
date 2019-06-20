@@ -29,6 +29,6 @@
 
 #### См. также
 
-* [[!TITLE]](glossary-supported-pairs.md)
-* [[!TITLE]](../operations/better-quality.md#with-glossary)
+* [#T](glossary-supported-pairs.md)
+* [#T](../operations/better-quality.md#with-glossary)
 * [Аутентификауция в API](../api-ref/authentication.md)

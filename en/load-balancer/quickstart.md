@@ -1,8 +1,8 @@
-# Getting started with [!KEYREF load-balancer-short-name]
+# Getting started with {{ load-balancer-short-name }}
 
 If you already have a folder in Yandex.Cloud, open the page of that folder in the management console. If not, create a new folder before creating load balancers and target groups:
 
-[!INCLUDE [create-folder](../_includes/create-folder.md)]
+{% include [create-folder](../_includes/create-folder.md) %}
 
 Create a [target group](concepts/target-resources.md):
 
@@ -14,7 +14,7 @@ Create a [target group](concepts/target-resources.md):
 
 1. Enter the name of the target group.
 
-    [!INCLUDE [name-format](../_includes/name-format.md)]
+    {% include [name-format](../_includes/name-format.md) %}
 
 1. Select the VMs to add to the target group.
 
@@ -28,7 +28,7 @@ Create a [network load balancer](concepts/index.md):
 
 1. Enter a name.
 
-    [!INCLUDE [name-format](../_includes/name-format.md)]
+    {% include [name-format](../_includes/name-format.md) %}
 
 1. Turn on **Target groups**
 
@@ -36,7 +36,7 @@ Create a [network load balancer](concepts/index.md):
 
 1. In the **Health check** section, enter the health check name.
 
-    [!INCLUDE [name-format](../_includes/name-format.md)]
+    {% include [name-format](../_includes/name-format.md) %}
 
 1. Select the check type: **TCP** or **HTTP**.
 

@@ -8,9 +8,9 @@ If you want to recognize speech over the same connection, use [streaming mode](s
 
 The audio you send must meet the following requirements:
 
-1. Maximum file size — [!KEYREF stt-short—fileSize].
-1. Maximum length — [!KEYREF stt-short-audioLength].
-1. Maximum number of audio channels — [!KEYREF stt-short-channelsCount].
+1. Maximum file size — {{ stt-short-fileSize }}.
+1. Maximum length — {{ stt-short-audioLength }}.
+1. Maximum number of audio channels — {{ stt-short-channelsCount }}.
 
 If your file is larger, longer, or has more audio channels, use [long audio recognition](transcribation.md).
 
@@ -53,94 +53,94 @@ To recognize speech in Russian, send an audio fragment (for example, [speech.ogg
 
 ### Sample request {#request_examples}
 
----
+{% list tabs %}
 
-**[!TAB POST request]**
+- POST request
 
-```httpget
-POST /speech/v1/stt:recognize?topic=general&lang=ru-RU&folderId={folder ID} HTTP/1.1
-Host: stt.api.cloud.yandex.net
-Authorization: Bearer <IAM-TOKEN>
+  ```httpget
+  POST /speech/v1/stt:recognize?topic=general&lang=ru-RU&folderId={folder ID} HTTP/1.1
+  Host: stt.api.cloud.yandex.net
+  Authorization: Bearer <IAM-TOKEN>
 
-... (binary content of an audio file)
-```
+  ... (binary content of an audio file)
+  ```
 
-**[!TAB cURL]**
+- cURL
 
-```httpget
-$ export FOLDER_ID=b1gvmob95yysaplct532
-$ export IAM_TOKEN=CggaATEVAgA...
-$ curl -X POST \
-     -H "Authorization: Bearer ${IAM_TOKEN}" \
-     -H "Transfer-Encoding: chunked" \
-     --data-binary "@speech.ogg" \
-     "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?topic=general&folderId=${FOLDER_ID}"
-```
+  ```httpget
+  $ export FOLDER_ID=b1gvmob95yysaplct532
+  $ export IAM_TOKEN=CggaATEVAgA...
+  $ curl -X POST \
+       -H "Authorization: Bearer ${IAM_TOKEN}" \
+       -H "Transfer-Encoding: chunked" \
+       --data-binary "@speech.ogg" \
+       "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?topic=general&folderId=${FOLDER_ID}"
+  ```
 
-**[!TAB Python]**
+- Python
 
-```python
-import urllib.request
-import json
+  ```python
+  import urllib.request
+  import json
 
-FOLDER_ID = "b1gvmob95yysaplct532" # ID of the folder
-IAM_TOKEN = "CggaATEVAgA..." # IAM token
+  FOLDER_ID = "b1gvmob95yysaplct532" # ID of the folder
+  IAM_TOKEN = "CggaATEVAgA..." # IAM token
 
-with open("speech.ogg", "rb") as f:
-    data = f.read()
+  with open("speech.ogg", "rb") as f:
+      data = f.read()
 
-params = "&".join([
-    "topic=general",
-    "folderId=%s" % FOLDER_ID,
-    "lang=ru-RU"
-])
+  params = "&".join([
+      "topic=general",
+      "folderId=%s" % FOLDER_ID,
+      "lang=ru-RU"
+  ])
 
-url = urllib.request.Request("https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?%s" % params, data=data)
-url.add_header("Authorization", "Bearer %s" % IAM_TOKEN)
+  url = urllib.request.Request("https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?%s" % params, data=data)
+  url.add_header("Authorization", "Bearer %s" % IAM_TOKEN)
 
-responseData = urllib.request.urlopen(url).read().decode('UTF-8')
-decodedData = json.loads(responseData)
+  responseData = urllib.request.urlopen(url).read().decode('UTF-8')
+  decodedData = json.loads(responseData)
 
-if decodedData.get("error_code") is None:
-    print(decodedData.get("result"))
-```
+  if decodedData.get("error_code") is None:
+      print(decodedData.get("result"))
+  ```
 
-**[!TAB PHP]**
+- PHP
 
-```php
-<?php
+  ```php
+  <?php
 
-$token = 'CggaATEVAgA...'; # IAM token
-$folderId = "b1gvmob95yysaplct532"; # ID of the folder
-$audioFileName = "speech.ogg";
+  $token = 'CggaATEVAgA...'; # IAM token
+  $folderId = "b1gvmob95yysaplct532"; # ID of the folder
+  $audioFileName = "speech.ogg";
 
-$file = fopen($audioFileName, 'rb');
+  $file = fopen($audioFileName, 'rb');
 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?lang=ru-RU&folderId=${folderId}&format=oggopus");
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $token, 'Transfer-Encoding: chunked'));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?lang=ru-RU&folderId=${folderId}&format=oggopus");
+  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $token, 'Transfer-Encoding: chunked'));
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+  curl_setopt($ch, CURLOPT_POST, true);
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+  curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
 
-curl_setopt($ch, CURLOPT_INFILE, $file);
-curl_setopt($ch, CURLOPT_INFILESIZE, filesize($audioFileName));
-$res = curl_exec($ch);
-curl_close($ch);
-$decodedResponse = json_decode($res, true);
-if (isset($decodedResponse["result"])) {
-    echo $decodedResponse["result"];
-} else {
-    echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
-    echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
-}
+  curl_setopt($ch, CURLOPT_INFILE, $file);
+  curl_setopt($ch, CURLOPT_INFILESIZE, filesize($audioFileName));
+  $res = curl_exec($ch);
+  curl_close($ch);
+  $decodedResponse = json_decode($res, true);
+  if (isset($decodedResponse["result"])) {
+      echo $decodedResponse["result"];
+  } else {
+      echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
+      echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
+  }
 
-fclose($file);
-```
+  fclose($file);
+  ```
 
----
+{% endlist %}
 
 ### Sample response {#response_examples}
 

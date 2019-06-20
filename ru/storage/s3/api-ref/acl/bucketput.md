@@ -2,9 +2,11 @@
 
 Загружает список управления доступом для бакета.
 
-> [!NOTE]
->
->ACL можно загрузить в виде XML-документа или с помощью специальных заголовков `x-amx-grant*`. Не используйте XML-документ и заголовки `x-amx-grant*` в одном запросе.
+{% note info %}
+
+ACL можно загрузить в виде XML-документа или с помощью специальных заголовков `x-amx-grant*`. Не используйте XML-документ и заголовки `x-amx-grant*` в одном запросе.
+
+{% endnote %}
 
 ## Запрос {#request}
 
@@ -30,7 +32,7 @@ PUT /{bucket}?acl HTTP/1.1
 
 Также можно использовать заголовки, перечисленные ниже.
 
-[!INCLUDE [storage-acl-headers](../../../_includes_service/storage-acl-bucket-headers.md)]
+{% include [storage-acl-headers](../../../_includes_service/storage-acl-bucket-headers.md) %}
 
 ### Схема данных
 
@@ -44,4 +46,4 @@ ACL передается в виде XML-документа. Описание с
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [[!TITLE]](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [#T](../response-codes.md).

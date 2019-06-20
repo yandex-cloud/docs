@@ -1,6 +1,6 @@
 # Все сервисы и методы
 
-[!KEYREF objstorage-name] HTTP API предоставляет следующие сервисы:
+{{ objstorage-name }} HTTP API предоставляет следующие сервисы:
 
 Сервис | Описание
 -------|---------
@@ -14,7 +14,7 @@
 
 ## Поддерживаемые методы {#operations-list}
 
-### Сервис Bucket 
+### Сервис Bucket
 
 Метод | Описание
 ----- | -----
@@ -28,9 +28,9 @@
 
 Метод | Описание
 ----- | -----
-[upload](object/upload.md) | Загружает объект в [!KEYREF objstorage-name].
-[get](object/get.md) | Выгружает объект из [!KEYREF objstorage-name].
-[copy](object/copy.md) | Копирует объект, хранящийся в [!KEYREF objstorage-name].
+[upload](object/upload.md) | Загружает объект в {{ objstorage-name }}.
+[get](object/get.md) | Выгружает объект из {{ objstorage-name }}.
+[copy](object/copy.md) | Копирует объект, хранящийся в {{ objstorage-name }}.
 [getObjectMeta](object/getobjectmeta.md) | Выгружает метаданные объекта.
 [delete](object/delete.md) | Удаляет объект.
 [deleteMultipleObjecs](object/deletemultipleobjects.md) | Удаляет объекты по списку.
@@ -52,8 +52,8 @@
 
 Метод | Описание
 ----- | -----
-[upload](hosting/upload.md) | Загружает конфигурацию бакета для хостинга статических сайтов в [!KEYREF objstorage-name].
-[get](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из [!KEYREF objstorage-name].
+[upload](hosting/upload.md) | Загружает конфигурацию бакета для хостинга статических сайтов в {{ objstorage-name }}.
+[get](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из {{ objstorage-name }}.
 [delete](hosting/delete.md) | Удаляет конфигурацию бакета для хостинга статических сайтов.
 
 ### Сервис CORS
@@ -68,9 +68,9 @@
 
 Метод | Описание
 ----- | -----
-[upload](lifecycles/upload.md) | Загружает конфигурацию жизненного цикла объектов в [!KEYREF objstorage-name].
-[get](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из [!KEYREF objstorage-name].
-[delete](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из [!KEYREF objstorage-name].
+[upload](lifecycles/upload.md) | Загружает конфигурацию жизненного цикла объектов в {{ objstorage-name }}.
+[get](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
+[delete](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
 
 ### Сервис ACL
 
@@ -83,5 +83,5 @@
 
 
 ## См. также
-- [[!TITLE]](../../s3/index.md)
-- [[!TITLE]](../../instruments/index.md)
+- [#T](../../s3/index.md)
+- [#T](../../instruments/index.md)

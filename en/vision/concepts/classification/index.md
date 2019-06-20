@@ -65,7 +65,7 @@ The service returns all properties for the selected model, even if the probabili
 
 **Sample response:**
 
-[!INCLUDE [classification-quality-response](../../../_includes/vision/classification-quality-response.md)]
+{% include [classification-quality-response](../../../_includes/vision/classification-quality-response.md) %}
 
 #### What's next
 

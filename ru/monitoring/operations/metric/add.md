@@ -2,7 +2,7 @@
 
 Чтобы записать метрику, воспользуйтесь методом [write](../../api-ref/MetricsData/write.md).
 
-[!INCLUDE [before-beginning](../../../_includes/monitoring/before-beginning.md)]
+{% include [before-beginning](../../../_includes/monitoring/before-beginning.md) %}
 
 ### Пример запроса
 

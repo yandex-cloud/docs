@@ -2,11 +2,11 @@
 
 ## Работа с графиками
 
-- [[!TITLE]](chart/create.md)
-- [[!TITLE]](chart/create-query.md)
+- [#T](chart/create.md)
+- [#T](chart/create-query.md)
 
 ## Работа с дашбордами
 
-- [[!TITLE]](dashboard/create.md)
-- [[!TITLE]](dashboard/copy.md)
-- [[!TITLE]](dashboard/add-widget.md)
+- [#T](dashboard/create.md)
+- [#T](dashboard/copy.md)
+- [#T](dashboard/add-widget.md)

@@ -61,7 +61,7 @@ Attribute.N.Value (attribute value)
 
 ### GetQueueAttributes errors {#errors}
 
-For a list of errors that are common to all methods, see the section [[!TITLE]](../common-errors.md).
+For a list of errors that are common to all methods, see the section [#T](../common-errors.md).
 
 | HTTP code | Error ID | Description |
 | ----- | ----- | ----- |

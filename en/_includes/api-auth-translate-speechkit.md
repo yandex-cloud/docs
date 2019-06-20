@@ -21,13 +21,15 @@ API requests can be made by users on behalf of a Yandex account or a service acc
 
 1. If you already have a folder in Yandex.Cloud, open the page of that folder in the management console.
 
-    > [!NOTE]
-    >
-    > If you assigned the `admin` or `editor` role to a user for a specific folder, select this folder at this step.
+    {% note info %}
+
+    If you assigned the `admin` or `editor` role to a user for a specific folder, select this folder at this step.
+
+    {% endnote %}
 
     If there is no folder, create one:
 
-    [!INCLUDE [create-folder](create-folder.md)]
+    {% include [create-folder](create-folder.md) %}
 
 1. To get the folder ID, you can take it from the URL of the folder page in the management console:
 

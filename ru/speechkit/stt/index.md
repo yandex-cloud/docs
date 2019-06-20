@@ -36,10 +36,10 @@ _Распознавание речи (speech-to-text — stt)_ — это пр�
 
 #### См. также
 
-* [[!TITLE]](formats.md)
-* [[!TITLE]](models.md)
-* [[!TITLE]](request.md)
-* [[!TITLE]](streaming.md)
-* [[!TITLE]](transcribation.md)
+* [#T](formats.md)
+* [#T](models.md)
+* [#T](request.md)
+* [#T](streaming.md)
+* [#T](transcribation.md)
 * [Речевые технологии Яндекса (пост на Хабрахабре)](https://habrahabr.ru/company/yandex/blog/243813/)
 * [Под капотом у Yandex.SpeechKit (пост на Хабрахабре)](https://habrahabr.ru/company/yandex/blog/198556/)

@@ -29,7 +29,7 @@ If speech synthesis is successful, the response contains the binary content of t
 
 ## Examples {#examples}
 
-[!INCLUDE [ai-before-beginning](../../_includes/ai-before-beginning.md)]
+{% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
 
 ### Convert text to speech in Ogg format {#ogg}
 
@@ -37,152 +37,152 @@ In this example, the text "Hello world" is synthesized and recorded as an audio 
 
 By default, data in the audio file is encoded using the OPUS audio codec and compressed using the OGG container format ([OggOpus](https://wiki.xiph.org/OggOpus)).
 
----
+{% list tabs %}
 
-**[!TAB cURL]**
-
-```bash
-$ export FOLDER_ID=b1gvmob95yysaplct532
-$ export IAM_TOKEN=CggaATEVAgA...
-$ curl -X POST \
-     -H "Authorization: Bearer ${IAM_TOKEN}" \
-     --data-urlencode "text=Hello World" \
-     -d "lang=en-US&folderId=${FOLDER_ID}" \
-     "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
-```
-
-**[!TAB C#]**
-
-```c#
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.IO;
-
-namespace TTS
-{
-  class Program
+- cURL
+  
+  ```bash
+  $ export FOLDER_ID=b1gvmob95yysaplct532
+  $ export IAM_TOKEN=CggaATEVAgA...
+  $ curl -X POST \
+       -H "Authorization: Bearer ${IAM_TOKEN}" \
+       --data-urlencode "text=Hello World" \
+       -d "lang=en-US&folderId=${FOLDER_ID}" \
+       "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
+  ```
+  
+- C#
+  
+  ```c#
+  using System;
+  using System.Collections.Generic;
+  using System.Net.Http;
+  using System.Threading.Tasks;
+  using System.IO;
+  
+  namespace TTS
   {
-    static void Main()
+    class Program
     {
-      Tts().GetAwaiter().GetResult();
-    }
-
-    static async Task Tts()
-    {
-      const string iamToken = "CggaATEVAgA..."; // Specify the IAM token.
-      const string folderId = "b1gvmob95yysaplct532"; // Specify the folder ID.
-
-      HttpClient client = new HttpClient();
-      client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
-      var values = new Dictionary<string, string>
+      static void Main()
       {
-        { "text", "Hello World" },
-        { "lang", "en-US" },
-        { "folderId", folderId }
-      };
-      var content = new FormUrlEncodedContent(values);
-      var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
-      var responseBytes = await response.Content.ReadAsByteArrayAsync();
-      File.WriteAllBytes("speech.ogg", responseBytes);
+        Tts().GetAwaiter().GetResult();
+      }
+  
+      static async Task Tts()
+      {
+        const string iamToken = "CggaATEVAgA..."; // Specify the IAM token.
+        const string folderId = "b1gvmob95yysaplct532"; // Specify the folder ID.
+  
+        HttpClient client = new HttpClient();
+        client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
+        var values = new Dictionary<string, string>
+        {
+          { "text", "Hello World" },
+          { "lang", "en-US" },
+          { "folderId", folderId }
+        };
+        var content = new FormUrlEncodedContent(values);
+        var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
+        var responseBytes = await response.Content.ReadAsByteArrayAsync();
+        File.WriteAllBytes("speech.ogg", responseBytes);
+      }
     }
   }
-}
-```
-
-**[!TAB Python]**
-
-1. Create a file (for example, `test.py`), and add the following code to it:
-
-    ```python
-    import argparse
-    import requests
-
-
-    def synthesize(folder_id, iam_token, text):
-        url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
-        headers = {
-            'Authorization': 'Bearer ' + iam_token,
-        }
-
-        data = {
-            'text': text,
-            'lang': 'en-US',
-            'folderId': folder_id
-        }
-
-        with requests.post(url, headers=headers, data=data, stream=True) as resp:
-            if resp.status_code != 200:
-                raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
-
-            for chunk in resp.iter_content(chunk_size=None):
-                yield chunk
-
-
-    if __name__ == "__main__":
-        parser = argparse.ArgumentParser()
-        parser.add_argument("--token", required=True, help="IAM token")
-        parser.add_argument("--folder_id", required=True, help="Folder id")
-        parser.add_argument("--text", required=True, help="Text for synthesize")
-        parser.add_argument("--output", required=True, help="Output file name")
-        args = parser.parse_args()
-
-        with open(args.output, "wb") as f:
-            for audio_content in synthesize(args.folder_id, args.token, args.text):
-                f.write(audio_content)
-    ```
-
-1. Execute the created file by passing arguments with the IAM token, folder ID, text, and name of the file for audio recording:
-
-    ```bash
-    $ export FOLDER_ID=b1gvmob95yysaplct532
-    $ export IAM_TOKEN=CggaATEVAgA...
-    $ python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.ogg --text "Hello World"
-    ```
-
-**[!TAB PHP]**
-
-```php
-<?
-
-$token = 'CggaATEVAgA...'; # IAM token
-$folderId = "b1gvmob95yysaplct532"; # ID of the folder
-$url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
-
-$post = "text=" . urlencode("Hello World") . "&lang=en-US&folderId=${folderId}";
-$headers = ['Authorization: Bearer ' . $token];
-$ch = curl_init();
-
-curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-curl_setopt($ch, CURLOPT_HEADER, false);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-if ($post !== false) {
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-}
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-
-$response = curl_exec($ch);
-if (curl_errno($ch)) {
-    print "Error: " . curl_error($ch);
-}
-if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200) {
-    $decodedResponse = json_decode($response, true);
-    echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
-    echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
-} else {
-    file_put_contents("speech.ogg", $response);
-}
-curl_close($ch);
-```
-
----
+  ```
+  
+- Python
+  
+  1. Create a file (for example, `test.py`), and add the following code to it:
+  
+      ```python
+      import argparse
+      import requests
+  
+  
+      def synthesize(folder_id, iam_token, text):
+          url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
+          headers = {
+              'Authorization': 'Bearer ' + iam_token,
+          }
+  
+          data = {
+              'text': text,
+              'lang': 'en-US',
+              'folderId': folder_id
+          }
+  
+          with requests.post(url, headers=headers, data=data, stream=True) as resp:
+              if resp.status_code != 200:
+                  raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
+  
+              for chunk in resp.iter_content(chunk_size=None):
+                  yield chunk
+  
+  
+      if __name__ == "__main__":
+          parser = argparse.ArgumentParser()
+          parser.add_argument("--token", required=True, help="IAM token")
+          parser.add_argument("--folder_id", required=True, help="Folder id")
+          parser.add_argument("--text", required=True, help="Text for synthesize")
+          parser.add_argument("--output", required=True, help="Output file name")
+          args = parser.parse_args()
+  
+          with open(args.output, "wb") as f:
+              for audio_content in synthesize(args.folder_id, args.token, args.text):
+                  f.write(audio_content)
+      ```
+  
+  1. Execute the created file by passing arguments with the IAM token, folder ID, text, and name of the file for audio recording:
+  
+      ```bash
+      $ export FOLDER_ID=b1gvmob95yysaplct532
+      $ export IAM_TOKEN=CggaATEVAgA...
+      $ python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.ogg --text "Hello World"
+      ```
+  
+- PHP
+  
+  ```php
+  <?
+  
+  $token = 'CggaATEVAgA...'; # IAM token
+  $folderId = "b1gvmob95yysaplct532"; # ID of the folder
+  $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
+  
+  $post = "text=" . urlencode("Hello World") . "&lang=en-US&folderId=${folderId}";
+  $headers = ['Authorization: Bearer ' . $token];
+  $ch = curl_init();
+  
+  curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+  curl_setopt($ch, CURLOPT_HEADER, false);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  if ($post !== false) {
+      curl_setopt($ch, CURLOPT_POST, 1);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+  }
+  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+  
+  
+  $response = curl_exec($ch);
+  if (curl_errno($ch)) {
+      print "Error: " . curl_error($ch);
+  }
+  if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200) {
+      $decodedResponse = json_decode($response, true);
+      echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
+      echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
+  } else {
+      file_put_contents("speech.ogg", $response);
+  }
+  curl_close($ch);
+  ```
+  
+{% endlist %}
 
 ### Convert text to speech in WAV format {#wav}
 
@@ -190,159 +190,159 @@ In this example, the submitted text is synthesized in the LPCM format with a sam
 
 1. Synthesize a file in LCPM format:
 
-    ---
+    {% list tabs %}
 
-    **[!TAB cURL]**
-
-    ```bash
-    $ export FOLDER_ID=b1gvmob95yysaplct532
-    $ export IAM_TOKEN=CggaATEVAgA...
-    $ curl -X POST \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -o speech.raw \
-        --data-urlencode "text=Hello World" \
-        -d "lang=en-US&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
-        https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
-    ```
-
-    **[!TAB C#]**
-
-    ```c#
-    using System;
-    using System.Collections.Generic;
-    using System.Net.Http;
-    using System.Threading.Tasks;
-    using System.IO;
-
-    namespace TTS
-    {
-      class Program
+    - cURL
+  
+      ```bash
+      $ export FOLDER_ID=b1gvmob95yysaplct532
+      $ export IAM_TOKEN=CggaATEVAgA...
+      $ curl -X POST \
+          -H "Authorization: Bearer ${IAM_TOKEN}" \
+          -o speech.raw \
+          --data-urlencode "text=Hello World" \
+          -d "lang=en-US&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
+          https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
+      ```
+  
+    - C#
+  
+      ```c#
+      using System;
+      using System.Collections.Generic;
+      using System.Net.Http;
+      using System.Threading.Tasks;
+      using System.IO;
+  
+      namespace TTS
       {
-        static void Main()
+        class Program
         {
-          Tts().GetAwaiter().GetResult();
-        }
-
-        static async Task Tts()
-        {
-          const string iamToken = "CggaATEVAgA..."; // Specify the IAM token.
-          const string folderId = "b1gvmob95yysaplct532"; // Specify the folder ID.
-
-          HttpClient client = new HttpClient();
-          client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
-          var values = new Dictionary<string, string>
+          static void Main()
           {
-            { "text", "Hello World" },
-            { "lang", "en-US" },
-            { "folderId", folderId },
-            { 'format': 'lpcm' },
-            { 'sampleRateHertz': 48000 }
-          };
-          var content = new FormUrlEncodedContent(values);
-          var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
-          var responseBytes = await response.Content.ReadAsByteArrayAsync();
-          File.WriteAllBytes("speech.raw", responseBytes);
+            Tts().GetAwaiter().GetResult();
+          }
+  
+          static async Task Tts()
+          {
+            const string iamToken = "CggaATEVAgA..."; // Specify the IAM token.
+            const string folderId = "b1gvmob95yysaplct532"; // Specify the folder ID.
+  
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
+            var values = new Dictionary<string, string>
+            {
+              { "text", "Hello World" },
+              { "lang", "en-US" },
+              { "folderId", folderId },
+              { 'format': 'lpcm' },
+              { 'sampleRateHertz': 48000 }
+            };
+            var content = new FormUrlEncodedContent(values);
+            var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
+            var responseBytes = await response.Content.ReadAsByteArrayAsync();
+            File.WriteAllBytes("speech.raw", responseBytes);
+          }
         }
       }
-    }
-    ```
-
-    **[!TAB Python]**
-
-    1. Create a file (for example, `test.py`), and add the following code to it:
-
-        ```python
-        import argparse
-        import requests
-
-
-        def synthesize(folder_id, iam_token, text):
-            url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
-            headers = {
-                'Authorization': 'Bearer ' + iam_token,
-            }
-
-            data = {
-                'text': text,
-                'lang': 'en-US',
-                'folderId': folder_id,
-                'format': 'lpcm',
-                'sampleRateHertz': 48000,
-            }
-
-            with requests.post(url, headers=headers, data=data, stream=True) as resp:
-                if resp.status_code != 200:
-                    raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
-
-                for chunk in resp.iter_content(chunk_size=None):
-                    yield chunk
-
-
-        if __name__ == "__main__":
-            parser = argparse.ArgumentParser()
-            parser.add_argument("--token", required=True, help="IAM token")
-            parser.add_argument("--folder_id", required=True, help="Folder id")
-            parser.add_argument("--text", required=True, help="Text for synthesize")
-            parser.add_argument("--output", required=True, help="Output file name")
-            args = parser.parse_args()
-
-            with open(args.output, "wb") as f:
-                for audio_content in synthesize(args.folder_id, args.token, args.text):
-                    f.write(audio_content)
-        ```
-
-    1. Execute the created file by passing arguments with the IAM token, folder ID, text, and name of the file for audio recording:
-
-        ```bash
-        $ export FOLDER_ID=b1gvmob95yysaplct532
-        $ export IAM_TOKEN=CggaATEVAgA...
-        $ python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.raw --text "Hello World"
-        ```
-
-    **[!TAB PHP]**
-
-    ```php
-    <?
-
-    const FORMAT_PCM = "lpcm";
-    const FORMAT_OPUS = "oggopus";
-
-    $token = 'CggaATEVAgA...'; # IAM token
-    $folderId = "b1gvmob95yysaplct532"; # ID of the folder
-    $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
-    $post = "text=" . urlencode("Hello World") . "&lang=en-US&folderId=${folderId}&sampleRateHertz=48000&format=" . FORMAT_PCM;
-    $headers = ['Authorization: Bearer ' . $token];
-    $ch = curl_init();
-
-    curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    if ($post !== false) {
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-    }
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-
-    $response = curl_exec($ch);
-    if (curl_errno($ch)) {
-        print "Error: " . curl_error($ch);
-    }
-    if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200) {
-        $decodedResponse = json_decode($response, true);
-        echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
-        echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
-    } else {
-        file_put_contents("speech.raw", $response);
-    }
-    curl_close($ch);
-    ```
-
-    ---
+      ```
+  
+    - Python
+  
+      1. Create a file (for example, `test.py`), and add the following code to it:
+  
+          ```python
+          import argparse
+          import requests
+  
+  
+          def synthesize(folder_id, iam_token, text):
+              url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
+              headers = {
+                  'Authorization': 'Bearer ' + iam_token,
+              }
+  
+              data = {
+                  'text': text,
+                  'lang': 'en-US',
+                  'folderId': folder_id,
+                  'format': 'lpcm',
+                  'sampleRateHertz': 48000,
+              }
+  
+              with requests.post(url, headers=headers, data=data, stream=True) as resp:
+                  if resp.status_code != 200:
+                      raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
+  
+                  for chunk in resp.iter_content(chunk_size=None):
+                      yield chunk
+  
+  
+          if __name__ == "__main__":
+              parser = argparse.ArgumentParser()
+              parser.add_argument("--token", required=True, help="IAM token")
+              parser.add_argument("--folder_id", required=True, help="Folder id")
+              parser.add_argument("--text", required=True, help="Text for synthesize")
+              parser.add_argument("--output", required=True, help="Output file name")
+              args = parser.parse_args()
+  
+              with open(args.output, "wb") as f:
+                  for audio_content in synthesize(args.folder_id, args.token, args.text):
+                      f.write(audio_content)
+          ```
+  
+      1. Execute the created file by passing arguments with the IAM token, folder ID, text, and name of the file for audio recording:
+  
+          ```bash
+          $ export FOLDER_ID=b1gvmob95yysaplct532
+          $ export IAM_TOKEN=CggaATEVAgA...
+          $ python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.raw --text "Hello World"
+          ```
+  
+    - PHP
+  
+      ```php
+      <?
+  
+      const FORMAT_PCM = "lpcm";
+      const FORMAT_OPUS = "oggopus";
+  
+      $token = 'CggaATEVAgA...'; # IAM token
+      $folderId = "b1gvmob95yysaplct532"; # ID of the folder
+      $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
+      $post = "text=" . urlencode("Hello World") . "&lang=en-US&folderId=${folderId}&sampleRateHertz=48000&format=" . FORMAT_PCM;
+      $headers = ['Authorization: Bearer ' . $token];
+      $ch = curl_init();
+  
+      curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+      curl_setopt($ch, CURLOPT_HEADER, false);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      if ($post !== false) {
+          curl_setopt($ch, CURLOPT_POST, 1);
+          curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+      }
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+  
+  
+      $response = curl_exec($ch);
+      if (curl_errno($ch)) {
+          print "Error: " . curl_error($ch);
+      }
+      if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200) {
+          $decodedResponse = json_decode($response, true);
+          echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
+          echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
+      } else {
+          file_put_contents("speech.raw", $response);
+      }
+      curl_close($ch);
+      ```
+  
+    {% endlist %}
 
 2. Convert the file to WAV format using the [SoX](http://sox.sourceforge.net/) utility.
 

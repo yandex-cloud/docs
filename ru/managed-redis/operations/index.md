@@ -1,8 +1,8 @@
-# Пошаговые инструкции для [!KEYREF mrd-name]<sup>®</sup>
+# Пошаговые инструкции для {{ mrd-name }}<sup>®</sup>
 
-- [[!TITLE]](cluster-list.md)
-- [[!TITLE]](cluster-create.md)
-- [[!TITLE]](connect.md)
-- [[!TITLE]](failover.md)
-- [[!TITLE]](cluster-delete.md)
-- [[!TITLE]](hosts.md)
+- [#T](cluster-list.md)
+- [#T](cluster-create.md)
+- [#T](connect.md)
+- [#T](failover.md)
+- [#T](cluster-delete.md)
+- [#T](hosts.md)

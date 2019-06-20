@@ -2,16 +2,18 @@
 
 Host class needs to be defined to create each cluster. The class defines computing power, that should be allocated for each DB host. When a cluster's host class is changed, it is changed for all hosts of the cluster.
 
-For  [!KEYREF mrd-name] host classes are defined by the type of CPU usage and RAM volume:
+For  {{ mrd-name }} host classes are defined by the type of CPU usage and RAM volume:
 
-* For small datasets and loads you can create clusters with low performance guarantee (`burstable`). For more information, see the section [[!TITLE]](../../compute/concepts/performance-levels.md).
+* For small datasets and loads you can create clusters with low performance guarantee (`burstable`). For more information, see the section [#T](../../compute/concepts/performance-levels.md).
 * For big loads, or high performance requirements use standard hosts (`high-memory`).
 
-> [!NOTE]
->
-> Memory set for a host also defines the `maxmemory` configuration parameter: maximum data volume equals 75% of available RAM. For example, host with 8 GB of RAM would have `maxmemroy` set to 6 GB.
+{% note info %}
 
-Disk volume available to a host must be at least twice as large as available RAM volume. Technical and organizational restrictions of [!KEYREF mrd-name] are described in the [[!TITLE]](limits.md) section.
+Memory set for a host also defines the `maxmemory` configuration parameter: maximum data volume equals 75% of available RAM. For example, host with 8 GB of RAM would have `maxmemroy` set to 6 GB.
+
+{% endnote %}
+
+Disk volume available to a host must be at least twice as large as available RAM volume. Technical and organizational restrictions of {{ mrd-name }} are described in the [#T](limits.md) section.
 
 ## Available host classes {#available-flavors}
 

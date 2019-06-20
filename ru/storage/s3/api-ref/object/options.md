@@ -13,7 +13,7 @@ OPTIONS /{bucket}/{key} HTTP/1.1
 Параметр | Описание
 ----- | -----
 `bucket` | Имя бакета.
-`key` | Ключ объекта. Идентификатор, под которым объект будет сохранен в [!KEYREF objstorage-name].
+`key` | Ключ объекта. Идентификатор, под которым объект будет сохранен в {{ objstorage-name }}.
 
 ### Заголовки {#request-headers}
 
@@ -23,7 +23,7 @@ OPTIONS /{bucket}/{key} HTTP/1.1
 `Access-Control-Request-Method` | HTTP метод, которым будет отправлен запрос к ресурсу.<br/><br/>Обязательный.
 `Access-Control-Request-Headers` | Список заголовков, которые будут отправлены в последующем запросе к объекту. Заголовки отделяются запятыми.<br/><br/>Необязательный.
 
-Также, используйте необходимые [общие заголовки](../common-request-headers.md) 
+Также, используйте необходимые [общие заголовки](../common-request-headers.md)
 
 ## Ответ {#response}
 
@@ -33,9 +33,9 @@ OPTIONS /{bucket}/{key} HTTP/1.1
 
 Заголовок | Описание
 --------- | --------
-`Access-Control-Allow-Origin` | Домен, который был передан в заголовке `Origin` запроса.<br/><br/>Если в [конфигурации CORS](../cors/upload.md#request-scheme) в элементе `AllowedOrigin` задано `*`, то значение заголовка `Access-Control-Allow-Origin` также будет `*`.<br/><br/>Если доступ с домена запрещен, то [!KEYREF objstorage-name] возвращает ошибку 403 и отсутствуют все заголовки `Access-Control-*`.
+`Access-Control-Allow-Origin` | Домен, который был передан в заголовке `Origin` запроса.<br/><br/>Если в [конфигурации CORS](../cors/upload.md#request-scheme) в элементе `AllowedOrigin` задано `*`, то значение заголовка `Access-Control-Allow-Origin` также будет `*`.<br/><br/>Если доступ с домена запрещен, то {{ objstorage-name }} возвращает ошибку 403 и отсутствуют все заголовки `Access-Control-*`.
 `Access-Control-Max-Age` | Допустимый период (в секундах) кэширования ответа.
-`Access-Control-Allow-Methods` | Допустимые для использования в запросе методы. Если допустимых методов нет, то [!KEYREF objstorage-name] возвращает ошибку 403 и отсутствуют все заголовки `Access-Control-*`.
+`Access-Control-Allow-Methods` | Допустимые для использования в запросе методы. Если допустимых методов нет, то {{ objstorage-name }} возвращает ошибку 403 и отсутствуют все заголовки `Access-Control-*`.
 `Access-Control-Allow-Headers` | Список HTTP-заголовков, которые можно использовать в последующем запросе к объекту. Если все заголовки запрещены, то этот заголовок не входит в ответ.
 `Access-Control-Expose-Headers` | Список HTTP-заголовков, которые получит JavaScript-клиент.
 
@@ -46,5 +46,5 @@ OPTIONS /{bucket}/{key} HTTP/1.1
 - 200 — если запросы к объекту разрешены.
 - 403 — если запросы к объекту запрещены.
 
-Подробные описания кодов ответов смотрите в разделе [[!TITLE]](../response-codes.md).
+Подробные описания кодов ответов смотрите в разделе [#T](../response-codes.md).
 

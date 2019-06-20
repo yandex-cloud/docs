@@ -2,16 +2,16 @@
 
 ## Buckets
 
-- [[!TITLE]](buckets/create.md)
-- [[!TITLE]](buckets/delete.md)
-- [[!TITLE]](buckets/limit-max-volume.md)
-- [[!TITLE]](buckets/bucket-availability.md)
+- [#T](buckets/create.md)
+- [#T](buckets/delete.md)
+- [#T](buckets/limit-max-volume.md)
+- [#T](buckets/bucket-availability.md)
 
 ## Objects
 
-- [[!TITLE]](objects/upload.md)
-- [[!TITLE]](objects/info.md)
-- [[!TITLE]](objects/download.md)
-- [[!TITLE]](objects/link-for-download.md)
-- [[!TITLE]](objects/delete.md)
+- [#T](objects/upload.md)
+- [#T](objects/info.md)
+- [#T](objects/download.md)
+- [#T](objects/link-for-download.md)
+- [#T](objects/delete.md)
 

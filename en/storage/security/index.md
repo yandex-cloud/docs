@@ -1,13 +1,15 @@
 # Access management
 
-This section lists the roles required for an account to perform operations with [!KEYREF objstorage-name] resources. The following user categories can be granted access to [!KEYREF objstorage-name]:
+This section lists the roles required for an account to perform operations with {{ objstorage-name }} resources. The following user categories can be granted access to {{ objstorage-name }}:
 
 - Users with a registered account in Yandex.Passport.
-- [Service accounts](../../iam/concepts/users/service-accounts.md) [!KEYREF iam-full-name].
+- [Service accounts](../../iam/concepts/users/service-accounts.md) {{ iam-full-name }}.
 
-> [!NOTE]
->
-> Resource access rights are inherited from the cloud and folder.
+{% note info %}
+
+Resource access rights are inherited from the cloud and folder.
+
+{% endnote %}
 
 ## Assigning roles
 
@@ -15,11 +17,11 @@ To manage buckets and objects, the user must have the appropriate permissions in
 
 To assign the required roles to the user:
 
-[!INCLUDE [grant-role-console](../../_includes/grant-role-console.md)]
+{% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Permissions in [!KEYREF objstorage-short-name]
+## Permissions in {{ objstorage-short-name }}
 
-[!INCLUDE [cloud-roles](../../_includes/cloud-roles.md)]
+{% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
 #### admin
 

@@ -11,5 +11,5 @@ If the free trial ends and you haven't upgraded to the paid version, access to y
 
 You can restore access to your resources if you upgrade to the paid version within 30 days after the end of the trial period. Otherwise, all resources in your cloud will be permanently deleted.
 
-[!INCLUDE [restore-after-blocking](../../_includes/restore-after-blocking.md)]
+{% include [restore-after-blocking](../../_includes/restore-after-blocking.md) %}
 

@@ -2,9 +2,11 @@
 
 CLI commands are divided into groups, each of which corresponds to a Yandex.Cloud service or component.
 
-> [!NOTE]
-> 
-> To open Help for a certain command, specify the `--help` global flag.
+{% note info %}
+
+To open Help for a certain command, specify the `--help` global flag.
+
+{% endnote %}
 
 ## Managing the CLI configuration
 

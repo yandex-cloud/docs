@@ -1,10 +1,10 @@
-# Questions and answers about [!KEYREF mmy-short-name]<sup>®</sup>
+# Questions and answers about {{ mmy-short-name }}<sup>®</sup>
 
 ## General questions {#general}
 
-[!INCLUDE-NOTITLE [general](general.md)]
+{% include notitle [general](general.md) %}
 
-## Questions about [!KEYREF MY] {#mysql}
+## Questions about {{ MY }} {#mysql}
 
-[!INCLUDE-NOTITLE [mysql](mysql.md)]
+{% include notitle [mysql](mysql.md) %}
 

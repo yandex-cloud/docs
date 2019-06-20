@@ -1,6 +1,6 @@
 # Service accounts
 
-[!INCLUDE [sa-def](../../_includes_service/sa-def.md)]
+{% include [sa-def](../../_includes_service/sa-def.md) %}
 
 ## What are service accounts used for? {#sa-usage}
 

@@ -6,7 +6,7 @@
 
 1. Select one of the public [images](../operations/images-with-pre-installed-software/get-list.md) on Windows.
 
-    [!INCLUDE [standard-images](../../_includes/standard-images.md)]
+    {% include [standard-images](../../_includes/standard-images.md) %}
 
 1. Create a YAML file (for example, `metadata.yaml`) and provide the following information::
 
@@ -41,11 +41,13 @@
 
         The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters.
 
-        > [!NOTE]
-        >
-        > The virtual machine name is used for generating the FQDN, which cannot be changed later. If the FQDN is important to you, choose an appropriate name for the virtual machine at the creation stage. For more information about generating FQDN names, see the section [[!TITLE]](../concepts/network.md#hostname).
+        {% note info %}
+
+        The virtual machine name is used for generating the FQDN, which cannot be changed later. If the FQDN is important to you, choose an appropriate name for the virtual machine at the creation stage. For more information about generating FQDN names, see the section [#T](../concepts/network.md#hostname).
+
+        {% endnote %}
 
     - The administrator password in the `metadata.yaml` file. A password is required for accessing the VM via RDP.
 
-        [!INCLUDE [password-requirements](../../_includes/compute/password-requirements.md)]
+        {% include [password-requirements](../../_includes/compute/password-requirements.md) %}
 

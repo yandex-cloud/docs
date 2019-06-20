@@ -7,7 +7,7 @@
     $ export IAM_TOKEN=CggaATEVAgA...
     $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
         "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
-    
+
     {
      "serviceAccounts": [
       {
@@ -41,5 +41,5 @@
     }
     ```
 
-1. [!INCLUDE [grant-role-folder-via-curl-step](grant-role-folder-via-curl-step.md)]
+1. {% include [grant-role-folder-via-curl-step](grant-role-folder-via-curl-step.md) %}
 

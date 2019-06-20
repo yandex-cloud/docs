@@ -1,12 +1,12 @@
-# Questions and answers about [!KEYREF vpc-name]
+# Questions and answers about {{ vpc-name }}
 
-#### What is [!KEYREF vpc-short-name]?
+#### What is {{ vpc-short-name }}?
 
-[!KEYREF vpc-short-name] ([!KEYREF vpc-full-name]) is a way to connect and organize cloud resources using virtual networks.
+{{ vpc-short-name }} ({{ vpc-full-name }}) is a way to connect and organize cloud resources using virtual networks.
 
 #### Which network technologies are available to Yandex.Cloud users?
 
-[!KEYREF vpc-short-name] allows you to assign internal and external IP addresses to VMs and create cloud networks and subnets.
+{{ vpc-short-name }} allows you to assign internal and external IP addresses to VMs and create cloud networks and subnets.
 
 #### How do I create a cloud network?
 

@@ -21,7 +21,7 @@ To create a VM:
 
 1. In the **Name** field, enter the VM name.
 
-    [!INCLUDE [name-format](../../_includes/name-format.md)]
+    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to locate the VM in.
 
@@ -55,15 +55,15 @@ When a VM is created, it is assigned an IP address and hostname (FQDN). This dat
 
 #### See also
 
-- [[!TITLE]](../../compute/operations/vm-connect/ssh.md)
+- [#T](../../compute/operations/vm-connect/ssh.md)
 
 ## 2. Upload the website files {#upload-files}
 
-[!INCLUDE [upload-files](../_solutions_includes/upload-web-site-files.md)]
+{% include [upload-files](../_solutions_includes/upload-web-site-files.md) %}
 
 ## 3. Configure DNS {#configure-dns}
 
 The domain name that you want to use for your website must be associated with the created VM.
 
-[!INCLUDE [configure-a-record-and-cname](../_solutions_includes/configure-a-record-and-cname.md)]
+{% include [configure-a-record-and-cname](../_solutions_includes/configure-a-record-and-cname.md) %}
 

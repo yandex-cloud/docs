@@ -8,11 +8,11 @@ Reports are generated at the end of the reporting period for the amount actually
 
 Reports are then used as a basis for generating [invoices](../concepts/invoice.md).
 
-[!INCLUDE [act-invoice-note](../_includes/act-invoice-note.md)]
+{% include [act-invoice-note](../_includes/act-invoice-note.md) %}
 
-[!INCLUDE [act-invoice-examples](../_includes/act-invoice-examples.md)]
+{% include [act-invoice-examples](../_includes/act-invoice-examples.md) %}
 
 ## VAT accounting {#nds}
 
-[!INCLUDE [nds](../_includes/nds.md)]
+{% include [nds](../_includes/nds.md) %}
 

@@ -2,9 +2,11 @@
 
 You can set configuration parameters in a [profile](profile.md) to quickly switch the command execution context. Use global flags for a single run of a command with a specific parameter value.
 
-> [!IMPORTANT]
-> 
-> Note that some parameters cannot be used simultaneously. The value of one of the parameters is reset to zero after the other is set.
+{% note important %}
+
+Note that some parameters cannot be used simultaneously. The value of one of the parameters is reset to zero after the other is set.
+
+{% endnote %}
 
 | Global flag | Profile parameter | Description |
 | ---- | ---- | ---- |

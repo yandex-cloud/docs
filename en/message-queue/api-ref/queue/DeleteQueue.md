@@ -4,9 +4,11 @@ Method for deleting a queue. If the specified queue does not exist, Message Queu
 
 The deletion process takes up to 60 seconds. During this time, some requests might succeed (such as sending messages to that queue), but after 60 seconds the queue and the messages will no longer exist.
 
-> [!WARNING]
->
-> After the queue is deleted, all messages in it become unavailable.
+{% note alert %}
+
+After the queue is deleted, all messages in it become unavailable.
+
+{% endnote %}
 
 When you delete a queue, you must wait at least 60 seconds before creating another queue with the same name.
 
@@ -26,7 +28,7 @@ The response does not contain any fields.
 
 ### DeleteQueue errors {#errors}
 
-The method does not return any specific errors. For a list of errors that are common to all methods, see the section [[!TITLE]](../common-errors.md).
+The method does not return any specific errors. For a list of errors that are common to all methods, see the section [#T](../common-errors.md).
 
 ## Sample request {#request-example}
 

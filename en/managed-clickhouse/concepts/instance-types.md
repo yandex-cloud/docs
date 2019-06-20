@@ -2,11 +2,11 @@
 
 The host class defines the computing power and storage space that is allocated for each host in the cluster. When you change the host class for a cluster, characteristics of all existing hosts change, too.
 
-The available storage does not depend on the host class.  For storage limitations, see the section [[!TITLE]](limits.md).
+The available storage does not depend on the host class.  For storage limitations, see the section [#T](limits.md).
 
 ## Available host classes {#available-flavors}
 
-Hosts in the cluster [!KEYREF mch-name] are deployed on virtual machines in [!KEYREF compute-full-name]. These virtual machines can be created on any of the platforms that are supported by [!KEYREF compute-name]. Platforms are described in detail in the section [[!TITLE]](../../compute/concepts/vm-platforms.md).
+Hosts in the cluster {{ mch-name }} are deployed on virtual machines in {{ compute-full-name }}. These virtual machines can be created on any of the platforms that are supported by {{ compute-name }}. Platforms are described in detail in the section [#T](../../compute/concepts/vm-platforms.md).
 
 The full list of possible host configurations on each of the platforms is provided below.
 

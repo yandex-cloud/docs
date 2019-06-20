@@ -1,11 +1,11 @@
-# Как начать работать с [!KEYREF objstorage-full-name]
+# Как начать работать с {{ objstorage-full-name }}
 
 ## Подготовка к работе {#preparations}
 
 1. Зарегистрируйтесь в Яндекс.Облаке.
 
    Подробнее читайте в разделе [Начало работы](../billing/quickstart/index.md) документации про Биллинг.
-1. Получите необходимые роли для работы с [!KEYREF objstorage-name]. Выберите один из вариантов:
+1. Получите необходимые роли для работы с {{ objstorage-name }}. Выберите один из вариантов:
 
     * роль `resource-manager.cloud.owner` на облако;
     * пара ролей `resource-manager.cloud.member` на облако и `admin` на облако или каталог;
@@ -13,25 +13,25 @@
 
 1. Чтобы назначить роли, выполните:
 
-    [!INCLUDE [grant-role-console](../_includes/grant-role-console.md)]
+    {% include [grant-role-console](../_includes/grant-role-console.md) %}
 
 1. Выберите каталог, в котором вы будете выполнять операции. Если такого каталога нет, создайте его:
 
-    [!INCLUDE [create-folder](../_includes/create-folder.md)]
+    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. Нажмите плитку **Yandex Object Storage**, чтобы попасть на страницу управления бакетами.
 
 
 ## Создание первого бакета {#the-first-bucket}
 
-Чтобы создать первый бакет в [!KEYREF objstorage-name]:
+Чтобы создать первый бакет в {{ objstorage-name }}:
 
 1. Нажмите кнопку **Создать бакет**.
 1. Введите имя бакета.
 
    Имя должно удовлетворять требованиям:
 
-   [!INCLUDE [bucket-name-reqs](../_includes/bucket-name-reqs.md)]
+   {% include [bucket-name-reqs](../_includes/bucket-name-reqs.md) %}
 
 1. Нажмите кнопку **Создать бакет**.
 1. В бакете нажмите кнопку **Загрузить объекты**.

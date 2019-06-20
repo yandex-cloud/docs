@@ -2,9 +2,11 @@
 
 Uploads an access control list for a bucket.
 
-> [!NOTE]
->
->ACLs can be uploaded as XML documents or using special `x-amx-grant*` headers. Do not use XML documents and `x-amx-grant*` headers in the same request.
+{% note info %}
+
+ACLs can be uploaded as XML documents or using special `x-amx-grant*` headers. Do not use XML documents and `x-amx-grant*` headers in the same request.
+
+{% endnote %}
 
 ## Request {#request}
 
@@ -30,7 +32,7 @@ Use the necessary [common request headers](../common-request-headers.md) in requ
 
 You can also use the headers listed below.
 
-[!INCLUDE [storage-acl-headers](../../../_includes_service/storage-acl-bucket-headers.md)]
+{% include [storage-acl-headers](../../../_includes_service/storage-acl-bucket-headers.md) %}
 
 ### Data schema
 
@@ -44,5 +46,5 @@ Responses can only contain [common response headers](../common-response-headers.
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [[!TITLE]](../response-codes.md).
+For a list of possible responses, see [#T](../response-codes.md).
 

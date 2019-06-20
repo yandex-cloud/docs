@@ -12,9 +12,11 @@
 * `admin`;
 * `resource-manager.cloud.owner` (назначается только на облако).
 
-> [!NOTE]
->
-> Для пользователя с аккаунтом на Яндексе вместе с ролями `editor` или `admin` нужна роль `resource-manager.cloud.member` на облако. Эта роль назначается автоматически при [добавлении в облако](../iam/operations/users/create.md).
+{% note info %}
+
+Для пользователя с аккаунтом на Яндексе вместе с ролями `editor` или `admin` нужна роль `resource-manager.cloud.member` на облако. Эта роль назначается автоматически при [добавлении в облако](../iam/operations/users/create.md).
+
+{% endnote %}
 
 #### Что дальше
 

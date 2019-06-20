@@ -1,4 +1,4 @@
-[!INCLUDE [errors-handling](../../_includes/errors-handling.md)]
+{% include [errors-handling](../../_includes/errors-handling.md) %}
 
 ## Handling asynchronous errors {#async-errors}
 

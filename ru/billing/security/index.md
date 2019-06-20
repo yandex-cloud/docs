@@ -1,12 +1,12 @@
 # Управление доступом
 
 
-### Доступ к Биллингу {#billing} 
+### Доступ к Биллингу {#billing}
 
-[!INCLUDE [yandex-account](../_includes/yandex-account.md)]
+{% include [yandex-account](../_includes/yandex-account.md) %}
 
 
-### Доступ к платежному аккаунту {#billing-account}                                                        
+### Доступ к платежному аккаунту {#billing-account}
 
 Доступ к [платежному аккаунту](../concepts/billing-account.md) Биллинга обеспечивается сервисом [IAM Яндекс.Облака](../../iam/).
 
@@ -17,8 +17,10 @@
 * [проверять расходы](../operations/check-diagram.md) и [просматривать детализацию](../operations/check-charges.md);
 * [подключать кредитный лимит](../concepts/credit-limit.md);
 * [изменять данные](../operations/change-data.md) платежного аккаунта;
-* [менять банковскую карту](../operations/pin-card.md). 
+* [менять банковскую карту](../operations/pin-card.md).
 
-> [!NOTE]
->
-> Изменить владельца или предоставить доступ к платежному аккаунту другому пользователю невозможно. 
+{% note info %}
+
+Изменить владельца или предоставить доступ к платежному аккаунту другому пользователю невозможно.
+
+{% endnote %}

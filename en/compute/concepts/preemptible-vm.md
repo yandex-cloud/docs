@@ -2,11 +2,13 @@
 
 Preemptible virtual machine is an additional option when creating a machine, which allows you to use Yandex.Cloud computing resources at a lower price. Virtual machines with this option will be forcibly stopped within 24 hours of their creation. Stopped machines can be restarted without any data loss.
 
-> [!NOTE]
->
-> Preemptible VMs can be forcibly stopped at any time.
+{% note info %}
 
-Preemptible VMs are cheaper than regular ones, but they do not provide full failover. For more information about pricing, see the section [[!TITLE]](../pricing.md#prices-preemptible-instance-resources).
+Preemptible VMs can be forcibly stopped at any time.
+
+{% endnote %}
+
+Preemptible VMs are cheaper than regular ones, but they do not provide full failover. For more information about pricing, see the section [#T](../pricing.md#prices-preemptible-instance-resources).
 
 To create a preemptible VM, [follow the instructions](../operations/vm-create/create-preemptible-vm.md).
 

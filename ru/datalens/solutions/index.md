@@ -1,7 +1,7 @@
 # Сценарии использования
 
-Ниже описаны сценарии использования сервиса [!KEYREF datalens-full-name]:
+Ниже описаны сценарии использования сервиса {{ datalens-full-name }}:
 
-- [[!TITLE]](data-from-csv-visualization.md)
-- [[!TITLE]](data-from-db-visualization.md)
-- [[!TITLE]](data-from-metrica-visualization.md)
+- [#T](data-from-csv-visualization.md)
+- [#T](data-from-db-visualization.md)
+- [#T](data-from-metrica-visualization.md)

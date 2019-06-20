@@ -1,10 +1,10 @@
 # yc compute
 
-Управление ресурсами [!KEYREF compute-full-name].
+Управление ресурсами {{ compute-full-name }}.
 
 #### Использование команды
 
-Синтаксис: 
+Синтаксис:
 
 `yc compute <group>`
 
@@ -30,10 +30,10 @@
     - `create` — [создать диск](../../../compute/operations/disk-create/empty.md).
     - `update` — изменить диск.
     - `resize` — изменить размер указанного диска.
-    - `delete` — [удалить указанный диск](../../../compute/operations/disk-control/delete.md). 
-    - `list-operations` — получить список операций для указанного диска. 
+    - `delete` — [удалить указанный диск](../../../compute/operations/disk-control/delete.md).
+    - `list-operations` — получить список операций для указанного диска.
 - `yc compute disk-type` — получение информации о доступных типах диска.
-    - `get` —  получить информацию об указанном типе диска. 
+    - `get` —  получить информацию об указанном типе диска.
     - `list` — получить список типов диска.
 - `yc compute image` — управление [образами](../../../compute/concepts/image.md).
     - `get` — получить информацию об указанном образе.
@@ -45,12 +45,12 @@
     - `list-operations` — получить список операций для указанного образа.
 - `yc compute snapshot` — управление [снимками дисков](../../../compute/concepts/snapshot.md).
     - `get` — получить информацию об указанном снимке диска.
-    - `list` — получить список снимков диска. 
+    - `list` — получить список снимков диска.
     - `create` — [создать снимок указанного диска](../../../compute/operations/disk-control/create-snapshot.md).
     - `update` — изменить указанный снимок диска.
     - `delete` — [удалить указанный снимок диска](../../../compute/operations/snapshot-control/delete.md).
-    - `list-operations` — получить список операций для указанного снимка диска. 
+    - `list-operations` — получить список операций для указанного снимка диска.
 - `yc compute zone` — получение [зон доступности](../../../overview/concepts/geo-scope.md).
     - `get` — получить информацию об указанной зоне доступности.
     - `list` — получить список зон доступности.
- 
+

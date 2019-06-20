@@ -4,8 +4,8 @@ editable: false
 
 # Квоты и лимиты
 
-В сервисе [!KEYREF vpc-full-name] действуют следующие ограничения:
+В сервисе {{ vpc-full-name }} действуют следующие ограничения:
 
-[!INCLUDE [quotes-limits-def.md](../../_includes/quotes-limits-def.md)]
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-[!INCLUDE [vpc-limits.md](../../_includes/vpc-limits.md)]
+{% include [vpc-limits.md](../../_includes/vpc-limits.md) %}

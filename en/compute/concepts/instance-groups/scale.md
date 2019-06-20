@@ -6,7 +6,7 @@ To set the type, select the appropriate [scaling policy](policies.md#scale-polic
 
 ## A fixed-size group {#fixed-scale}
 
-[!KEYREF compute-full-name] allows you to create groups of similar instances of a fixed size. To do this, select a fixed [scaling policy](policies.md#scale-policy) for instances. The group size will be set manually.
+{{ compute-full-name }} allows you to create groups of similar instances of a fixed size. To do this, select a fixed [scaling policy](policies.md#scale-policy) for instances. The group size will be set manually.
 
 With manual control, you can:
 

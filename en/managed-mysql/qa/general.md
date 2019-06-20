@@ -1,38 +1,38 @@
 # General questions
 
-#### What is [!KEYREF mmy-short-name]? {#what-is}
+#### What is {{ mmy-short-name }}? {#what-is}
 
-[!KEYREF mmy-short-name] is a service that helps you create, operate, and scale [!KEYREF MY] databases in the cloud infrastructure.
+{{ mmy-short-name }} is a service that helps you create, operate, and scale {{ MY }} databases in the cloud infrastructure.
 
-With [!KEYREF mmy-short-name], you can:
+With {{ mmy-short-name }}, you can:
 
 - Create a database with the required performance characteristics.
 - Scale processing power and storage dedicated for your databases as needed.
 - Get database logs.
 
-[!KEYREF mmy-short-name] takes on labor-intensive [!KEYREF mmy-short-name] infrastructure administration tasks:
+{{ mmy-short-name }} takes on labor-intensive {{ mmy-short-name }} infrastructure administration tasks:
 
 - Monitors resource usage.
 - Automatically creates DB backups.
 - Provides fault tolerance through automatic failover to backup replicas.
 - Keeps the database software updated.
 
-You interact with a database cluster in [!KEYREF mmy-short-name] in the same way as with a regular database in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
+You interact with a database cluster in {{ mmy-short-name }} in the same way as with a regular database in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
 
-#### What part of DB management and maintenance is [!KEYREF mmy-short-name] responsible for? {#services}
+#### What part of DB management and maintenance is {{ mmy-short-name }} responsible for? {#services}
 
-When creating clusters, [!KEYREF mmy-short-name] allocates resources, installs the DBMS, and creates databases.
+When creating clusters, {{ mmy-short-name }} allocates resources, installs the DBMS, and creates databases.
 
-For the created and running databases, [!KEYREF mmy-short-name] automatically creates backups and applies fixes and updates to the DBMS.
+For the created and running databases, {{ mmy-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
 
-[!KEYREF mmy-short-name] also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
+{{ mmy-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-#### For which tasks should I use [!KEYREF mmy-short-name] and for which VMs with databases? {#mdb-advantage}
+#### For which tasks should I use {{ mmy-short-name }} and for which VMs with databases? {#mdb-advantage}
 
 Yandex.Cloud offers two ways to work with databases:
 
-- [!KEYREF mmy-short-name] allows you to operate template databases with no need to worry about administration.
-- With [!KEYREF compute-full-name] VMs, you can create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
+- {{ mmy-short-name }} allows you to operate template databases with no need to worry about administration.
+- With {{ compute-full-name }} VMs, you can create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
 
 #### What is a database host and database cluster? {#what-is-cluster}
 
@@ -40,46 +40,46 @@ _A database host_ is an isolated database environment in the cloud infrastructur
 
 _A database cluster_ is one or more database hosts between which replication can be configured.
 
-#### How do I get started with [!KEYREF mmy-short-name]? {#quickstart}
+#### How do I get started with {{ mmy-short-name }}? {#quickstart}
 
-[!KEYREF mmy-short-name] is available to all registered Yandex.Cloud users.
+{{ mmy-short-name }} is available to all registered Yandex.Cloud users.
 
-To create a database cluster in [!KEYREF mmy-short-name], decide what the characteristics will be:
+To create a database cluster in {{ mmy-short-name }}, decide what the characteristics will be:
 
 - [Host class](../concepts/instance-types.md) (performance characteristics such as CPUs, memory, and so on).
 - Storage size (reserved in full when you create the cluster).
 - The network your cluster will be connected to.
 - The number of hosts for the cluster and the availability zone for each host.
 
-For detailed instructions, see the section [[!TITLE]](../quickstart.md).
+For detailed instructions, see the section [#T](../quickstart.md).
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
 For a network-based storage (NBS), the number of hosts in a cluster is limited only by the requested computing resources and the size of the storage for the cluster.
 
-For NVMe SSD storage, the number of hosts is limited during cluster creation: for [!KEYREF MY]-clusters, at least three hosts must be created.
+For NVMe SSD storage, the number of hosts is limited during cluster creation: for {{ MY }}-clusters, at least three hosts must be created.
 
 #### How can I access a running DB host? {#db-access}
 
-You can connect to [!KEYREF mmy-short-name] databases using standard DBMS methods.
+You can connect to {{ mmy-short-name }} databases using standard DBMS methods.
 
 [More about how to connect to clusters](../operations/connect.md).
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-For MDB technical and organizational limitations, see the section [[!TITLE]](../concepts/limits.md).
+For MDB technical and organizational limitations, see the section [#T](../concepts/limits.md).
 
 #### How do I maintain database clusters? {#service-window}
 
-Maintenance in [!KEYREF mmy-short-name] implies:
+Maintenance in {{ mmy-short-name }} implies:
 
 - Automatic installation of DBMS updates and fixes for your database hosts.
 - Changes to the host class and storage size.
-- Other [!KEYREF mmy-short-name] maintenance activities.
+- Other {{ mmy-short-name }} maintenance activities.
 
-#### Which [!KEYREF MY] version does [!KEYREF mmy-short-name] use? {#dbms-version}
+#### Which {{ MY }} version does {{ mmy-short-name }} use? {#dbms-version}
 
-[!KEYREF mmy-short-name] supports [!KEYREF MY] 5.7.
+{{ mmy-short-name }} supports {{ MY }} 5.7.
 
 #### What happens when a new DBMS version is released? {#new-version}
 
@@ -87,18 +87,18 @@ The database software is updated when new minor versions are released. The owner
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
-One month after the database version becomes deprecated, [!KEYREF mmy-short-name] automatically sends email notifications to the owners of DB clusters created with this version.
+One month after the database version becomes deprecated, {{ mmy-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
 
 New hosts can no longer be created using deprecated DBMS versions. Seven days within such notification for minor versions and one month for major versions, the database clusters are automatically upgraded to the next supported version. Deprecated major versions are upgraded even if you have disabled their automatic updates.
 
 #### How is the cost of usage calculated for a database host? {#db-cost}
 
-In [!KEYREF mmy-short-name], the usage cost is calculated based on the following parameters:
+In {{ mmy-short-name }}, the usage cost is calculated based on the following parameters:
 
 - Selected host class.
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Storage of backups in excess of this size is charged at special [rates](../pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in the section [[!TITLE]](../pricing.md).
+- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in the section [#T](../pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -108,7 +108,7 @@ The cluster characteristics change within 30 minutes. During this period, other 
 
 #### Is DB host backup enabled by default? {#default-backup}
 
-Yes, backup is enabled by default. For [!KEYREF MY], a full backup is performed once a day with all DB cluster transaction logs saved. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
+Yes, backup is enabled by default. For {{ MY }}, a full backup is performed once a day with all DB cluster transaction logs saved. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
 
 By default, backups are stored for seven days.
 
@@ -126,7 +126,7 @@ For all DBMS types, you can track:
 - Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster's host class.
 - The amount of data in the DB cluster and the remaining free space in the data storage.
 
-For any DB hosts, you can track metrics specific to the type of the corresponding DBMS. For example, for [!KEYREF MY], you can track:
+For any DB hosts, you can track metrics specific to the type of the corresponding DBMS. For example, for {{ MY }}, you can track:
 
 - Average query execution time
 - Number of queries per second

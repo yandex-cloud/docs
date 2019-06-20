@@ -8,13 +8,13 @@ For more information, see [How to pay for resources](../payment/index.md).
 
 #### What payment methods can I use?  {#payments}
 
-[!INCLUDE [payment-methods](../_includes/payment-methods.md)]
+{% include [payment-methods](../_includes/payment-methods.md) %}
 
-[!INCLUDE [change-payment-method](../_includes/change-payment-method.md)]
+{% include [change-payment-method](../_includes/change-payment-method.md) %}
 
 #### What cards are accepted for payment? {#card-types}
 
-[!INCLUDE [payment-card-types](../_includes/payment-card-types.md)]
+{% include [payment-card-types](../_includes/payment-card-types.md) %}
 
 #### Is there a minimum payment amount? {#minimum}
 
@@ -22,7 +22,7 @@ Yes. The minimum payment amount is shown at the time of payment in the **Top up 
 
 #### How can I change my payment details? {#change-requisites}
 
-[!INCLUDE [change-address](../_includes/change-address.md)]
+{% include [change-address](../_includes/change-address.md) %}
 
 #### In which currency can I pay for Yandex.Cloud? {#currency}
 

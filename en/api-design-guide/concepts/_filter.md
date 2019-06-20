@@ -3,9 +3,11 @@
 The `List` method allows filtering results by certain criteria. For example, you can get a list of only those resources which have the `name` field set to
 <q>test</q>.
 
-> [!NOTE]
->
-> Currently, you can only filter results by the `name` field.
+{% note info %}
+
+Currently, you can only filter results by the `name` field.
+
+{% endnote %}
 
 Filtering parameters are passed in the `filter` field in the following format:
 

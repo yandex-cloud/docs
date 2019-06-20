@@ -1,9 +1,9 @@
-# Вопросы и ответы про [!KEYREF mpg-short-name]
+# Вопросы и ответы про {{ mpg-short-name }}
 
 ## Общие вопросы {#general}
 
-[!INCLUDE-NOTITLE [general](general.md)]
+{% include notitle [general](general.md) %}
 
-## Вопросы о [!KEYREF PG] {#postgresql}
+## Вопросы о {{ PG }} {#postgresql}
 
-[!INCLUDE-NOTITLE [postgresql](postgresql.md)]
+{% include notitle [postgresql](postgresql.md) %}

@@ -7,11 +7,11 @@
 
 ## Примеры
 
-[!INCLUDE [ai-before-beginning](../../_includes/ai-before-beginning.md)]
+{% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
 
 ### Укажите язык исходного текста {#with-source-language}
 
-Есть слова, которые пишутся одинаково в разных языках, но переводятся по-разному. Например, слово <q>angel</q> в английском языке означает духовное существо, а в немецком — удочку. Если переданный текст состоит из таких слов, то [!KEYREF translate-short-name] может ошибиться при определении языка текста.
+Есть слова, которые пишутся одинаково в разных языках, но переводятся по-разному. Например, слово <q>angel</q> в английском языке означает духовное существо, а в немецком — удочку. Если переданный текст состоит из таких слов, то {{ translate-short-name }} может ошибиться при определении языка текста.
 
 Чтобы избежать ошибки, укажите в поле `sourceLanguageCode` язык, с которого необходимо перевести текст:
 
@@ -26,7 +26,7 @@
 
 Сохраните тело запроса в файле, например в `body.json`, и передайте файл с помощью метода [translate](../api-ref/Translation/translate):
 
-[!INCLUDE [translate-file](../../_includes/translate/translate-file.md)]
+{% include [translate-file](../../_includes/translate/translate-file.md) %}
 
 В ответе будет перевод с корректно распознанного языка:
 
@@ -71,7 +71,7 @@
 
 Сохраните тело запроса в файле, например в `body.json`, и передайте файл с помощью метода [translate](../api-ref/Translation/translate):
 
-[!INCLUDE [translate-file](../../_includes/translate/translate-file.md)]
+{% include [translate-file](../../_includes/translate/translate-file.md) %}
 
 В ответе будет перевод с использованием терминов из глоссария:
 

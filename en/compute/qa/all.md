@@ -1,14 +1,14 @@
-# Questions and answers about [!KEYREF compute-name]
+# Questions and answers about {{ compute-name }}
 
 ## General questions {#general}
 
-[!INCLUDE-NOTITLE [general](general.md)]
+{% include notitle [general](general.md) %}
 
 ## Virtual machines {#vm}
 
-[!INCLUDE-NOTITLE [vm](vm.md)]
+{% include notitle [vm](vm.md) %}
 
 ## Disks snapshots {#disks}
 
-[!INCLUDE-NOTITLE [disks](disks.md)]
+{% include notitle [disks](disks.md) %}
 

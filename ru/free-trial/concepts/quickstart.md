@@ -1,24 +1,24 @@
 # Как воспользоваться пробным периодом
 
-[!INCLUDE [free-trial-conditions](../../_includes/free-trial-conditions.md)]
+{% include [free-trial-conditions](../../_includes/free-trial-conditions.md) %}
 
 ## Регистрация
 
 Чтобы воспользоваться пробным периодом зарегистрируйтесь в Яндекс.Облаке и создайте первый платежный аккаунт. После создания платежного аккаунта пробный период активируется автоматически.
 
-[Подробнее о регистрации и создании платежного аккаунта](../../billing/quickstart/index.md). 
+[Подробнее о регистрации и создании платежного аккаунта](../../billing/quickstart/index.md).
 
 ## Начало работы
 
 Чтобы начать знакомство с Яндекс.Облаком, воспользуйтесь инструкциями:
 
-[!INCLUDE [quickstart-all](../../_includes/quickstart-all-no-billing.md)]
+{% include [quickstart-all](../../_includes/quickstart-all-no-billing.md) %}
 
 Вам также могут быть полезны ссылки:
-* [[!TITLE]](limits.md)
-* [[!TITLE]](usage-monitor.md)
-* [[!TITLE]](trial-ending.md)
-* [[!TITLE]](upgrade-to-paid.md)
+* [#T](limits.md)
+* [#T](usage-monitor.md)
+* [#T](trial-ending.md)
+* [#T](upgrade-to-paid.md)
 * [Обзор платформы Яндекс.Облака](../../overview/)
 * [Документация Яндекс.Облака](/docs)
 

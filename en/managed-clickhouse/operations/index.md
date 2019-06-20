@@ -1,11 +1,11 @@
-# Step-by-step instructions for [!KEYREF mch-name]
+# Step-by-step instructions for {{ mch-name }}
 
-- [[!TITLE]](cluster-list.md)
-- [[!TITLE]](cluster-create.md)
-- [[!TITLE]](connect.md)
-- [[!TITLE]](insert.md)
-- [[!TITLE]](cluster-backups.md)
-- [[!TITLE]](cluster-delete.md)
-- [[!TITLE]](cluster-users.md)
-- [[!TITLE]](update.md)
+- [#T](cluster-list.md)
+- [#T](cluster-create.md)
+- [#T](connect.md)
+- [#T](insert.md)
+- [#T](cluster-backups.md)
+- [#T](cluster-delete.md)
+- [#T](cluster-users.md)
+- [#T](update.md)
 

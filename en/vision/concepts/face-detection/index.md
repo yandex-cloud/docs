@@ -6,9 +6,11 @@ This section describes how the _face detection_ feature works in the service.
 
 This feature lets you find human faces in an image. For example, you can use it to mark people in a photo or find all photos with portraits.
 
-> [!NOTE]
->
-> This feature doesn't recognize faces. You will not be able to use it to find similar faces or identify a person.
+{% note info %}
+
+This feature doesn't recognize faces. You will not be able to use it to find similar faces or identify a person.
+
+{% endnote %}
 
 ## Request format
 
@@ -34,7 +36,7 @@ The service searches for human faces in the image and marks them with rectangles
 
 If two faces are adjacent, the rectangles may intersect.
 
-[!INCLUDE [coordinates](../../../_includes/vision/coordinates.md)]
+{% include [coordinates](../../../_includes/vision/coordinates.md) %}
 
 Sample response with the coordinates of the detected face:
 
@@ -74,7 +76,7 @@ Sample response with the coordinates of the detected face:
 
 An image in a request must meet the following requirements:
 
-[!INCLUDE [file-restrictions](../../../_includes/vision/file-restrictions.md)]
+{% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
 
 #### What's next
 

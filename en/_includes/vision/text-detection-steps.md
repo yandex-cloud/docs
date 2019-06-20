@@ -1,14 +1,16 @@
 1. Prepare an image file that meets the requirements:
 
-    [!INCLUDE [file-restrictions](../../_includes/vision/file-restrictions.md)]
+    {% include [file-restrictions](../../_includes/vision/file-restrictions.md) %}
 
-    > [!NOTE]
-    >
-    > Need a sample image? Download an image of the [penguin crossing](https://storage.yandexcloud.net/vision/penguins_sample.jpg) road sign.
+    {% note info %}
+
+    Need a sample image? Download an image of the [penguin crossing](https://storage.yandexcloud.net/vision/penguins_sample.jpg) road sign.
+
+    {% endnote %}
 
 1. Encode the file as Base64:
 
-    [!INCLUDE [base64-encode-command](base64-encode-command.md)]
+    {% include [base64-encode-command](base64-encode-command.md) %}
 
 1. Create a file with the request body (for example, `body.json`). In the `content` property, specify the [Base64-encoded](../../vision/operations/base64-encode.md) image.
 In the recognition settings, list the languages that image text might be written in, such as English (`en`). You can specify from 1 to 8 languages:
@@ -30,7 +32,7 @@ In the recognition settings, list the languages that image text might be written
     }
     ```
 
-1. [!INCLUDE [send-request](send-request.md)]
+1. {% include [send-request](send-request.md) %}
 
     The response will consist of recognized blocks of text, lines, and words with their position on the image indicated:
 

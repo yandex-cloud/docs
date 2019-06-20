@@ -20,7 +20,7 @@ PUT /{bucket} HTTP/1.1
 
 С помощью заголовков, перечисленных ниже, можно установить [ACL](../../../concepts/acl.md) создаваемого бакета.
 
-[!INCLUDE [storage-acl-headers](../../../_includes_service/storage-acl-bucket-headers.md)]
+{% include [storage-acl-headers](../../../_includes_service/storage-acl-bucket-headers.md) %}
 
 ## Ответ {#response}
 
@@ -30,7 +30,7 @@ PUT /{bucket} HTTP/1.1
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [[!TITLE]](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [#T](../response-codes.md).
 
 Успешный ответ не содержит дополнительных данных.
 

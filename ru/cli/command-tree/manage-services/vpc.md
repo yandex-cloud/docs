@@ -1,17 +1,17 @@
 # yc vpc
 
-Управление ресурсами [!KEYREF vpc-full-name].
+Управление ресурсами {{ vpc-full-name }}.
 
 #### Использование команды
 
-Синтаксис: 
+Синтаксис:
 
 `yc vpc <group>`
 
 #### Группы
 
-- `yc vpc network` — управление [облачными сетями](../../../vpc/concepts/network.md#network). 
-    - `get` — получить информацию об указанной облачной сети. 
+- `yc vpc network` — управление [облачными сетями](../../../vpc/concepts/network.md#network).
+    - `get` — получить информацию об указанной облачной сети.
     - `list` — получить список облачных сетей.
     - `create` — [создать облачную сеть](../../../vpc/operations/network-create.md).
     - `update` — [изменить указанную облачную сеть](../../../vpc/operations/network-update.md).

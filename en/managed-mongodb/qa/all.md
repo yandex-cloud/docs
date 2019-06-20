@@ -1,10 +1,10 @@
-# Questions and answers about [!KEYREF mmg-short-name]
+# Questions and answers about {{ mmg-short-name }}
 
 ## General questions {#general}
 
-[!INCLUDE-NOTITLE [general](general.md)]
+{% include notitle [general](general.md) %}
 
-## Questions about [!KEYREF MG] {#mongodb}
+## Questions about {{ MG }} {#mongodb}
 
-[!INCLUDE-NOTITLE [mongodb](mongodb.md)]
+{% include notitle [mongodb](mongodb.md) %}
 

@@ -1,10 +1,10 @@
-# Questions and answers about [!KEYREF mch-short-name]
+# Questions and answers about {{ mch-short-name }}
 
 ## General questions {#general}
 
-[!INCLUDE-NOTITLE [general](general.md)]
+{% include notitle [general](general.md) %}
 
-## Questions about [!KEYREF CH] {#clickhouse}
+## Questions about {{ CH }} {#clickhouse}
 
-[!INCLUDE-NOTITLE [clickhouse](clickhouse.md)]
+{% include notitle [clickhouse](clickhouse.md) %}
 

@@ -1,10 +1,10 @@
 # Диагностика ошибок
 
-[!INCLUDE [ask-for-support](../../_includes/ai-common/ask-for-support.md)]
+{% include [ask-for-support](../../_includes/ai-common/ask-for-support.md) %}
 
 Чтобы помочь технической поддержке решить вашу проблему, вы можете использовать следующие заголовки при отправке HTTP-запросов:
 
-* [!INCLUDE [x-client-request-id](../../_includes/ai-common/x-client-request-id.md)]
+* {% include [x-client-request-id](../../_includes/ai-common/x-client-request-id.md) %}
 * `X-Data-Logging-Enabled` — флаг, разрешающий сохранять данные, переданные пользователем в запросе.
 
     По умолчанию мы не сохраняем переданные вами аудио или текст. Если вы передадите значение `true` в этом заголовке, то ваши данные сохранятся. Вместе с идентификатором запроса это поможет технической поддержке решить вашу проблему.

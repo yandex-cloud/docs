@@ -1,4 +1,4 @@
 # Tutorials for working with test environments
 
-* [[!TITLE]](ci-for-snapshots.md)
+* [#T](ci-for-snapshots.md)
 

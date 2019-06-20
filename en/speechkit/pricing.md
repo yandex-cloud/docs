@@ -1,17 +1,17 @@
 ---
 editable: false
 ---
-# Pricing for [!KEYREF speechkit-name]
+# Pricing for {{ speechkit-name }}
 
-[!INCLUDE [currency-choice](../_includes/pricing/currency-choice.md)]
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of use for [!KEYREF speechkit-short-name] {#rules}
+## What goes into the cost of use for {{ speechkit-short-name }} {#rules}
 
 ### Speech synthesis use {#rules-tts}
 
 The cost of using the SpeechKit API for speech synthesis is calculated based on the total number of characters sent to generate speech from text in a calendar month ([Reporting period](https://cloud.yandex.com/docs/billing/concepts/glossary)).
 
-[!INCLUDE [pricing-symbol-count](../_includes/pricing-symbol-count.md)]
+{% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
 ### Speech recognition use {#rules-stt}
 
@@ -55,38 +55,38 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio that
 
 ### Speech synthesis {#prices-tts}
 
----
+{% list tabs %}
 
-**[!TAB Prices in USD]**
-
-| Service | Rate for 1 million characters, without VAT |
-| ----- | ----- |
-| Speech synthesis | $2.346805 |
-
-**[!TAB Prices in roubles]**
-
-| Service | Rate per 1 million characters,<br/>with VAT |
-| ----- | ----- |
-| Speech synthesis | ₽183.0508 |
-
----
+- Prices in USD
+  
+  | Service | Rate for 1 million characters, without VAT |
+  | ----- | ----- |
+  | Speech synthesis | $2.346805 |
+  
+- Prices in roubles
+  
+  | Service | Rate per 1 million characters,<br/>with VAT |
+  | ----- | ----- |
+  | Speech synthesis | ₽183.0508 |
+  
+{% endlist %}
 
 ### Speech recognition {#prices-stt}
 
----
+{% list tabs %}
 
-**[!TAB Prices in USD]**
-
-| Service | Rate for 15 sec segment, without VAT |
-| ----- | ----- |
-| [Short audio recognition](#rules-stt-short) | $0.001953 |
-| [Long audio recognition](#rules-stt-long) | $0.000128 |
-
-**[!TAB Prices in roubles]**
-
-| Service | Rate for 15 sec segment, with VAT |
-| ----- | ----- |
-| [Short audio recognition](#rules-stt-short) | ₽0.1524 |
-| [Long audio recognition](#rules-stt-long) | ₽0.01 |
-
----
+- Prices in USD
+  
+  | Service | Rate for 15 sec segment, without VAT |
+  | ----- | ----- |
+  | [Short audio recognition](#rules-stt-short) | $0.001953 |
+  | [Long audio recognition](#rules-stt-long) | $0.000128 |
+  
+- Prices in roubles
+  
+  | Service | Rate for 15 sec segment, with VAT |
+  | ----- | ----- |
+  | [Short audio recognition](#rules-stt-short) | ₽0.1524 |
+  | [Long audio recognition](#rules-stt-long) | ₽0.01 |
+  
+{% endlist %}

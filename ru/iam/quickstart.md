@@ -1,4 +1,4 @@
-# Как начать работать c [!KEYREF iam-short-name]
+# Как начать работать c {{ iam-short-name }}
 
 В этой инструкции вы научитесь:
 
@@ -10,42 +10,42 @@
 
 ## Перед началом
 
-Вы должны обладать [ролью](concepts/access-control/roles.md) `[!KEYREF roles-cloud-owner]` или `[!KEYREF roles-admin]` на облако.
+Вы должны обладать [ролью](concepts/access-control/roles.md) `{{ roles-cloud-owner }}` или `{{ roles-admin }}` на облако.
 
 Если вам некого добавить в облако, вы можете [создать новый аккаунт](https://passport.yandex.ru/registration) на Яндексе и предоставить доступ в облако для этого аккаунта.
 
 Если у вас еще нет каталога, создайте его:
 
-[!INCLUDE [create-folder](../_includes/create-folder.md)]
+{% include [create-folder](../_includes/create-folder.md) %}
 
 
 ## Добавьте нового пользователя в облако {#add-user}
 
 Чтобы предоставить другому пользователю доступ к своим ресурсам, добавьте его в свое облако:
 
-1. [!INCLUDE [grant-role-console-first-steps](../_includes/iam/grant-role-console-first-steps.md)]
+1. {% include [grant-role-console-first-steps](../_includes/iam/grant-role-console-first-steps.md) %}
 1. На странице **Пользователи и роли** в правом верхнем углу нажмите **Добавить пользователя**.
 1. Введите электронную почту пользователя в Яндексе.
 1. Нажмите кнопку **Добавить**.
 
-[!INCLUDE [roles-cloud-member](../_includes/roles-cloud-member.md)]
+{% include [roles-cloud-member](../_includes/roles-cloud-member.md) %}
 
 ## Назначьте пользователю роль на облако {#cloud-role}
 
-Чтобы предоставить пользователю доступ на просмотр ресурсов в вашем облаке, назначьте ему роль `[!KEYREF roles-viewer]`:
+Чтобы предоставить пользователю доступ на просмотр ресурсов в вашем облаке, назначьте ему роль `{{ roles-viewer }}`:
 
-1. [!INCLUDE [configure-roles-console](../_includes/iam/configure-roles-console.md)]
+1. {% include [configure-roles-console](../_includes/iam/configure-roles-console.md) %}
 1. В блоке **Роли на облако <имя облака>** нажмите ![image](../_assets/plus-sign.svg).
-1. Выберите роль `[!KEYREF roles-viewer]`.
+1. Выберите роль `{{ roles-viewer }}`.
 
 
 ## Назначьте пользователю роль на каталог {#folder-role}
 
-Чтобы разрешить пользователю создавать ресурсы в каталоге, назначьте ему роль `[!KEYREF roles-editor]` на этот каталог:
+Чтобы разрешить пользователю создавать ресурсы в каталоге, назначьте ему роль `{{ roles-editor }}` на этот каталог:
 
 1. Если вы закрыли окно настройки ролей, откройте его снова.
 1. Выберите каталог в блоке **Роли в каталогах** и нажмите ![image](../_assets/plus-sign.svg).
-1. Выберите роль `[!KEYREF roles-editor]`.
+1. Выберите роль `{{ roles-editor }}`.
 
 
 ## Отнимите назначенные роли {#revoke-roles}
@@ -53,11 +53,13 @@
 1. Если вы закрыли окно настройки ролей, откройте его снова.
 1. Нажмите на крестик возле каждой роли, которую хотите отнять.
 
->[!NOTE]
->
->Если у пользователя не осталось ролей в вашем облаке, он исчезнет из списка.
->
->Если вы хотите отнять все роли сразу, [удалите пользователя](operations/users/delete.md) из вашего облака.
+{% note info %}
+
+Если у пользователя не осталось ролей в вашем облаке, он исчезнет из списка.
+
+Если вы хотите отнять все роли сразу, [удалите пользователя](operations/users/delete.md) из вашего облака.
+
+{% endnote %}
 
 #### См. также
 

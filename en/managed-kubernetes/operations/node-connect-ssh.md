@@ -2,9 +2,11 @@
 
 To connect to a node over SSH, you must add the public key to the metainformation when creating the node group.
 
-> [!NOTE]
->
-> SSH connection using a login and password is disabled by default on Linux images that are used on nodes.
+{% note info %}
+
+SSH connection using a login and password is disabled by default on Linux images that are used on nodes.
+
+{% endnote %}
 
 For more information about connecting over SSH, see [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
 
@@ -12,61 +14,61 @@ For more information about connecting over SSH, see [Connecting to a VM via SSH]
 
 Prepare the keys for use with your node. To do this:
 
----
+{% list tabs %}
 
-**[!TAB Linux/MacOS]**
-
-1. Open the terminal.
-
-1. Use the `ssh-keygen` command to create a new key:
-
-   ```
-   $ ssh-keygen -t rsa -b 2048
-   ```
-
-   After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `~./ssh` directory.
-
-   The public part of the key will be saved in a file with the name `<key name>.pub`.
-
-**[!TAB Windows 10]**
-
-1. Run `cmd.exe` or `powershell.exe`.
-
-1. Use the `ssh-keygen` command to create a new key. Run the command:
-
-   ```
-   $ ssh-keygen -t rsa -b 2048
-   ```
-
-   After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\\.ssh\` directory.
-
-   The public part of the key will be saved in a file with the name `<key name>.pub`.
-
-**[!TAB Windows 7/8]**
-
-To create keys for Windows, use the PuTTY application.
-
-1. [Download](https://www.putty.org) and install PuTTY.
-
-1. Make sure that the directory where you installed PuTTY is included in `PATH`:
-   1. Right-click on **My computer**. Click **Properties**.
-   1. In the window that opens, select **Additional system parameters**, then **Environment variables** (located in the lower part of the window).
-   1. Under **System variables**, find `PATH` and click **Edit**.
-   1. In the **Variable value** field, append the path to the directory where you installed PuTTY.
-
-1. Launch the PuTTYgen app.
-
-1. Select **RSA** for the type of pair to generate and set the length to `2048`. Click **Generate** and move the cursor in the field above it until key creation is complete.
-
-   ![ssh_generate_key](../../compute/_assets/ssh-putty/ssh_generate_key.png)
-
-1. In **Key passphrase**, enter a strong password. Enter it again in the field below.
-
-1. Click **Save private key** and save the private key. Never share it with anyone and do not tell anyone the passphrase for it.
-
-1. Save the key in a text file in a single line. To do this, copy the public key from the text field to a text file with the name `id_rsa.pub`.
-
----
+- Linux/MacOS
+  
+  1. Open the terminal.
+  
+  1. Use the `ssh-keygen` command to create a new key:
+  
+     ```
+     $ ssh-keygen -t rsa -b 2048
+     ```
+  
+     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `~./ssh` directory.
+  
+     The public part of the key will be saved in a file with the name `<key name>.pub`.
+  
+- Windows 10
+  
+  1. Run `cmd.exe` or `powershell.exe`.
+  
+  1. Use the `ssh-keygen` command to create a new key. Run the command:
+  
+     ```
+     $ ssh-keygen -t rsa -b 2048
+     ```
+  
+     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\\.ssh\` directory.
+  
+     The public part of the key will be saved in a file with the name `<key name>.pub`.
+  
+- Windows 7/8
+  
+  To create keys for Windows, use the PuTTY application.
+  
+  1. [Download](https://www.putty.org) and install PuTTY.
+  
+  1. Make sure that the directory where you installed PuTTY is included in `PATH`:
+     1. Right-click on **My computer**. Click **Properties**.
+     1. In the window that opens, select **Additional system parameters**, then **Environment variables** (located in the lower part of the window).
+     1. Under **System variables**, find `PATH` and click **Edit**.
+     1. In the **Variable value** field, append the path to the directory where you installed PuTTY.
+  
+  1. Launch the PuTTYgen app.
+  
+  1. Select **RSA** for the type of pair to generate and set the length to `2048`. Click **Generate** and move the cursor in the field above it until key creation is complete.
+  
+     ![ssh_generate_key](../../compute/_assets/ssh-putty/ssh_generate_key.png)
+  
+  1. In **Key passphrase**, enter a strong password. Enter it again in the field below.
+  
+  1. Click **Save private key** and save the private key. Never share it with anyone and do not tell anyone the passphrase for it.
+  
+  1. Save the key in a text file in a single line. To do this, copy the public key from the text field to a text file with the name `id_rsa.pub`.
+  
+{% endlist %}
 
 ## Change the public key to the appropriate format {#key-format}
 
@@ -109,121 +111,121 @@ $ yc managed-kubernetes node-group create \
 
 To connect, specify the [public IP address](../../vpc/concepts/address.md#public-addresses) of the node. You can find it using one of the following methods.
 
----
+{% list tabs %}
 
-**[!TAB kubectl CLI]**
-
-Use the following command for kubectl. The public IP address is listed in the `EXTERNAL-IP` column.
-
-```
-$ kubectl get nodes -o wide
-NAME                        STATUS   ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP      OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-cl17i6943n92sb98jifg-itif   Ready    <none>   31m   v1.13.3   10.0.0.27     84.201.145.251   Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.2
-cl17i6943n92sb98jifg-ovah   Ready    <none>   31m   v1.13.3   10.0.0.22     84.201.149.184   Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.2
-```
-
-**[!TAB Management console]**
-
-1. Open the **Compute Cloud** section in the folder where you created your Kubernetes cluster.
-1. On the **Virtual machines** page, go to the **Instance groups** tab.
-1. Click on the instance group with the name that matches the node group ID.
-1. In the window that opens, go to the **List of VMs** tab.
-1. Click the virtual machine that you want to find out the public address for.
-1. The public IP address is shown in the **Network** section in **Public IPv4**.
-
-**[!TAB YC CLI]**
-
-1. Find out the ID of the instance group that corresponds to the node group.
-
-    This parameter is shown in the `INSTANCE GROUP ID` column.
-
-    ```
-    $ yc managed-kubernetes node-group list
-    +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
-    |          ID          |      CLUSTER ID      |      NAME      |  INSTANCE GROUP ID   |     CREATED AT      | STATUS  | SIZE |
-    +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
-    | cat684ojo3irchtpeg84 | cata9ertn6tcr09bh9rm | test-nodegroup | cl17i6943n92sb98jifg | 2019-04-12 12:38:35 | RUNNING |    2 |
-    +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
-    ```
-
-1. View the list of nodes that belong to this group.
-
-    The public IP address of the node is shown in the `IP` column after the `~` character.
-
-    ```
-    $ yc compute instance-group list-instances cl17i6943n92sb98jifg
-    +----------------------+---------------------------+--------------------------+---------------+----------------+
-    |     INSTANCE ID      |           NAME            |            IP            |    STATUS     | STATUS MESSAGE |
-    +----------------------+---------------------------+--------------------------+---------------+----------------+
-    | ef31h24k03pg0mhunfm1 | cl17i6943n92sb98jifg-itif | 10.0.0.27~84.201.145.251 | RUNNING [53m] |                |
-    | ef37ddhg9i7jhs7tc3pe | cl17i6943n92sb98jifg-ovah | 10.0.0.22~84.201.149.184 | RUNNING [53m] |                |
-    +----------------------+---------------------------+--------------------------+---------------+----------------+
-    ```
-
----
+- kubectl CLI
+  
+  Use the following command for kubectl. The public IP address is listed in the `EXTERNAL-IP` column.
+  
+  ```
+  $ kubectl get nodes -o wide
+  NAME                        STATUS   ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP      OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
+  cl17i6943n92sb98jifg-itif   Ready    <none>   31m   v1.13.3   10.0.0.27     84.201.145.251   Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.2
+  cl17i6943n92sb98jifg-ovah   Ready    <none>   31m   v1.13.3   10.0.0.22     84.201.149.184   Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.2
+  ```
+  
+- Management console
+  
+  1. Open the **Compute Cloud** section in the folder where you created your Kubernetes cluster.
+  1. On the **Virtual machines** page, go to the **Instance groups** tab.
+  1. Click on the instance group with the name that matches the node group ID.
+  1. In the window that opens, go to the **List of VMs** tab.
+  1. Click the virtual machine that you want to find out the public address for.
+  1. The public IP address is shown in the **Network** section in **Public IPv4**.
+  
+- YC CLI
+  
+  1. Find out the ID of the instance group that corresponds to the node group.
+  
+      This parameter is shown in the `INSTANCE GROUP ID` column.
+  
+      ```
+      $ yc managed-kubernetes node-group list
+      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
+      |          ID          |      CLUSTER ID      |      NAME      |  INSTANCE GROUP ID   |     CREATED AT      | STATUS  | SIZE |
+      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
+      | cat684ojo3irchtpeg84 | cata9ertn6tcr09bh9rm | test-nodegroup | cl17i6943n92sb98jifg | 2019-04-12 12:38:35 | RUNNING |    2 |
+      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
+      ```
+  
+  1. View the list of nodes that belong to this group.
+  
+      The public IP address of the node is shown in the `IP` column after the `~` character.
+  
+      ```
+      $ yc compute instance-group list-instances cl17i6943n92sb98jifg
+      +----------------------+---------------------------+--------------------------+---------------+----------------+
+      |     INSTANCE ID      |           NAME            |            IP            |    STATUS     | STATUS MESSAGE |
+      +----------------------+---------------------------+--------------------------+---------------+----------------+
+      | ef31h24k03pg0mhunfm1 | cl17i6943n92sb98jifg-itif | 10.0.0.27~84.201.145.251 | RUNNING [53m] |                |
+      | ef37ddhg9i7jhs7tc3pe | cl17i6943n92sb98jifg-ovah | 10.0.0.22~84.201.149.184 | RUNNING [53m] |                |
+      +----------------------+---------------------------+--------------------------+---------------+----------------+
+      ```
+  
+{% endlist %}
 
 ## Connect to the node {#node-connect}
 
 You can connect to a node over SSH once it is started (with the `RUNNING` status). You can use the `ssh` tool on Linux and macOS or [PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
----
+{% list tabs %}
 
-**[!TAB Linux/macOS/Windows 10]**
-
-In the terminal, run the following command:
-
-```
-$ ssh <user name>@<public IP address of node>
-```
-
-If this is the first time you connect to the node, you might see a warning about an unknown host:
-
-```
-The authenticity of host '130.193.40.101 (130.193.40.101)' can't be established.
-ECDSA key fingerprint is SHA256:PoaSwqxRc8g6iOXtiH7ayGHpSN0MXwUfWHkGgpLELJ8.
-Are you sure you want to continue connecting (yes/no)?
-```
-
-Type `yes` in the terminal and press `Enter`.
-
-**[!TAB Windows 7/8]**
-
-In Windows, a connection is established using the PuTTY application.
-
-1. Run the Pageant application.
-   1. Right-click on the Pageant icon in the task bar.
-   1. In the context menu, select **Add key**.
-   1. Select a PuTTY-generated private key in the `.ppk` format. If a password is set for the key, enter it.
-1. Run PuTTY.
-   1. In the **Host Name (or IP address)** field, enter the public IP address of the VM you want to connect to. Specify port `22` and **SSH** as the connection type.
-
-      ![ssh_add_ip](../../compute/_assets/ssh-putty/ssh_add_ip.png)
-
-   1. In the tree on the left, select **Connection** - **SSH** - **Auth**.
-
-   1. Set the **Allow agent forwarding** option.
-
-   1. In the **Private key file for authentication** field, select the file with the private key.
-
-      ![ssh_choose_private_key](../../compute/_assets/ssh-putty/ssh_choose_private_key.png)
-
-   1. Go back to the **Sessions** menu. In the **Saved sessions** field, enter any session name and click **Save**. The session settings are saved under the specified name. You can use this session profile to connect using Pageant.
-
-      ![ssh_save_session](../../compute/_assets/ssh-putty/ssh_save_session.png)
-
-   1. Click **Open**. If this is the first time you connect to the node, you might see a warning about an unknown host:
-
-      ![ssh_unknown_host_warning](../../compute/_assets/ssh-putty/ssh_unknown_host_warning.png)
-
-      Click **Yes**. A terminal window opens suggesting that you enter the login of the user on whose behalf the connection is being established. Type the user name you specified in the file with the public key and click `Enter`. If everything is configured correctly, the connection with the server will be established.
-
-      ![ssh_login](../../compute/_assets/ssh-putty/ssh_login.png)
-
-If you saved the session profile in PuTTY, you can use Pageant to establish a connection in the future:
-
-1. Right-click on the Pageant icon in the task bar.
-1. Select the **Saved sessions** menu item.
-1. In the saved sessions list, select the necessary session.
-
----
+- Linux/macOS/Windows 10
+  
+  In the terminal, run the following command:
+  
+  ```
+  $ ssh <user name>@<public IP address of node>
+  ```
+  
+  If this is the first time you connect to the node, you might see a warning about an unknown host:
+  
+  ```
+  The authenticity of host '130.193.40.101 (130.193.40.101)' can't be established.
+  ECDSA key fingerprint is SHA256:PoaSwqxRc8g6iOXtiH7ayGHpSN0MXwUfWHkGgpLELJ8.
+  Are you sure you want to continue connecting (yes/no)?
+  ```
+  
+  Type `yes` in the terminal and press `Enter`.
+  
+- Windows 7/8
+  
+  In Windows, a connection is established using the PuTTY application.
+  
+  1. Run the Pageant application.
+     1. Right-click on the Pageant icon in the task bar.
+     1. In the context menu, select **Add key**.
+     1. Select a PuTTY-generated private key in the `.ppk` format. If a password is set for the key, enter it.
+  1. Run PuTTY.
+     1. In the **Host Name (or IP address)** field, enter the public IP address of the VM you want to connect to. Specify port `22` and **SSH** as the connection type.
+  
+        ![ssh_add_ip](../../compute/_assets/ssh-putty/ssh_add_ip.png)
+  
+     1. In the tree on the left, select **Connection** - **SSH** - **Auth**.
+  
+     1. Set the **Allow agent forwarding** option.
+  
+     1. In the **Private key file for authentication** field, select the file with the private key.
+  
+        ![ssh_choose_private_key](../../compute/_assets/ssh-putty/ssh_choose_private_key.png)
+  
+     1. Go back to the **Sessions** menu. In the **Saved sessions** field, enter any session name and click **Save**. The session settings are saved under the specified name. You can use this session profile to connect using Pageant.
+  
+        ![ssh_save_session](../../compute/_assets/ssh-putty/ssh_save_session.png)
+  
+     1. Click **Open**. If this is the first time you connect to the node, you might see a warning about an unknown host:
+  
+        ![ssh_unknown_host_warning](../../compute/_assets/ssh-putty/ssh_unknown_host_warning.png)
+  
+        Click **Yes**. A terminal window opens suggesting that you enter the login of the user on whose behalf the connection is being established. Type the user name you specified in the file with the public key and click `Enter`. If everything is configured correctly, the connection with the server will be established.
+  
+        ![ssh_login](../../compute/_assets/ssh-putty/ssh_login.png)
+  
+  If you saved the session profile in PuTTY, you can use Pageant to establish a connection in the future:
+  
+  1. Right-click on the Pageant icon in the task bar.
+  1. Select the **Saved sessions** menu item.
+  1. In the saved sessions list, select the necessary session.
+  
+{% endlist %}
 

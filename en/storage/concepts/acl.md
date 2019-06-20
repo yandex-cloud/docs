@@ -2,12 +2,12 @@
 
 Access control lists allow you to control access to buckets and objects.
 
-Yandex.Cloud uses two independent mechanisms for managing access to [!KEYREF objstorage-name] resources:
+Yandex.Cloud uses two independent mechanisms for managing access to {{ objstorage-name }} resources:
 
-- [!KEYREF iam-name] ([IAM documentation](../../iam/concepts/index.md))
-- ACL [!KEYREF objstorage-name]
+- {{ iam-name }} ([IAM documentation](../../iam/concepts/index.md))
+- ACL {{ objstorage-name }}
 
-[!KEYREF objstorage-name] creates ACLs for all objects and buckets. ACLs are empty by default. Users with the appropriate IAM rights can upload ACLs for [!KEYREF objstorage-name] resources. Each ACL contains a list of users who are allowed to access objects and buckets and specifies user permissions. Permissions and users in the IAM and ACL may differ. To learn how [!KEYREF objstorage-name] verifies access to resources, see  [Checking permissions](#permissions-check).
+{{ objstorage-name }} creates ACLs for all objects and buckets. ACLs are empty by default. Users with the appropriate IAM rights can upload ACLs for {{ objstorage-name }} resources. Each ACL contains a list of users who are allowed to access objects and buckets and specifies user permissions. Permissions and users in the IAM and ACL may differ. To learn how {{ objstorage-name }} verifies access to resources, see  [Checking permissions](#permissions-check).
 
 You can grant permission to Yandex.Cloud users, service accounts, and system groups.
 
@@ -20,30 +20,32 @@ To grant permission to a [service account](../../iam/concepts/users/service-acco
 
 To grant permission to a system group, you need to know its URI. For more information, see [System groups](#system_groups).
 
-[!KEYREF objstorage-name] supports [predefined ACLs](#predefined_acls), which contain common permission sets.
+{{ objstorage-name }} supports [predefined ACLs](#predefined_acls), which contain common permission sets.
 
 The ACL structure can be viewed in the [ACL XML schema](../s3/api-ref/acl/xmlscheme.md).
 
-[!KEYREF objstorage-name] supports operations for uploading and downloading ACLs. No operation is available to delete ACLs. To remove all access permissions, upload an empty ACL. [!KEYREF objstorage-name] creates an empty ACL for each new object or bucket by default.
+{{ objstorage-name }} supports operations for uploading and downloading ACLs. No operation is available to delete ACLs. To remove all access permissions, upload an empty ACL. {{ objstorage-name }} creates an empty ACL for each new object or bucket by default.
 
-> [!NOTE]
->
->ACLs uploaded for objects are applied immediately. ACLs uploaded for buckets and access permissions updated in the IAM service apply after a delay. For more information about delays, see [IAM documentation](../../iam/concepts/access-control/index.md).
+{% note info %}
+
+ACLs uploaded for objects are applied immediately. ACLs uploaded for buckets and access permissions updated in the IAM service apply after a delay. For more information about delays, see [IAM documentation](../../iam/concepts/access-control/index.md).
+
+{% endnote %}
 
 ## Checking permissions {#permissions-check}
 
-Yandex.Cloud uses two mechanisms for managing access to [!KEYREF objstorage-name] resources:
+Yandex.Cloud uses two mechanisms for managing access to {{ objstorage-name }} resources:
 
-- [!KEYREF iam-name]
+- {{ iam-name }}
 - ACL
 
-When receiving a request to a bucket or object, [!KEYREF objstorage-name] checks access permissions with both mechanisms. If the required access is granted from either method, [!KEYREF objstorage-name] executes the request.
+When receiving a request to a bucket or object, {{ objstorage-name }} checks access permissions with both mechanisms. If the required access is granted from either method, {{ objstorage-name }} executes the request.
 
 Permissions granted to a bucket apply to all of the objects it contains.  You can extend user permissions to individual objects by adding them to the relevant objects' ACL.
 
 ## Permission types
 
-Permissions correspond to user roles in [!KEYREF iam-name].
+Permissions correspond to user roles in {{ iam-name }}.
 
 | Permission | IAM role | Description |
 | -------------------- | ------------ | -------- |
@@ -53,9 +55,11 @@ Permissions correspond to user roles in [!KEYREF iam-name].
 | `READ_ACP` | `viewer` | ACL read permission. For objects only. |
 | `WRITE_ACP` | `editor` | ACL write permission. For objects only. |
 
-> [!NOTE]
->
->If you specify `WRITE` permission but not `READ` when making an ACL, [!KEYREF objstorage-name] will return code `501 Not Implemented`.
+{% note info %}
+
+If you specify `WRITE` permission but not `READ` when making an ACL, {{ objstorage-name }} will return code `501 Not Implemented`.
+
+{% endnote %}
 
 ## Predefined ACLs {#predefined_acls}
 

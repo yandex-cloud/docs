@@ -8,5 +8,5 @@ To authenticate successfully in the API:
     * [Instructions](../iam/operations/iam-token/create.md) for a Yandex account.
     * [Instructions](../iam/operations/iam-token/create-for-sa.md) for a service account.
 
-2. [!INCLUDE [iam-token-usage](iam-token-usage.md)]
+2. {% include [iam-token-usage](iam-token-usage.md) %}
 

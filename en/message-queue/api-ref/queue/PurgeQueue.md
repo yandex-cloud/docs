@@ -6,9 +6,11 @@ Messages that were sent to the queue before calling `PurgeQueue` can be picked b
 
 Messages sent to the queue after calling `PurgeQueue` won't be deleted.
 
-> [!WARNING]
->
-> You cannot retrieve any messages deleted from a queue.
+{% note alert %}
+
+You cannot retrieve any messages deleted from a queue.
+
+{% endnote %}
 
 ## Request {#request}
 
@@ -26,7 +28,7 @@ The response does not contain any fields.
 
 ### PurgeQueue errors {#errors}
 
-For a list of errors that are common to all methods, see the section [[!TITLE]](../common-errors.md).
+For a list of errors that are common to all methods, see the section [#T](../common-errors.md).
 
 | HTTP code | Error ID | Description |
 | ----- | ----- | ----- |

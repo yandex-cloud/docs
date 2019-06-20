@@ -1,6 +1,6 @@
-# Backup to [!KEYREF objstorage-full-name] via Acronis Backup Gateway
+# Backup to {{ objstorage-full-name }} via Acronis Backup Gateway
 
-To set up backups in [!KEYREF objstorage-name] via Acronis Backup Gateway:
+To set up backups in {{ objstorage-name }} via Acronis Backup Gateway:
 
 1. [Create a bucket](#create-bucket)
 1. [Configure Acronis Backup Gateway](#configure-acronis)
@@ -10,11 +10,11 @@ To set up backups in [!KEYREF objstorage-name] via Acronis Backup Gateway:
 
 To create a bucket for backups:
 
-[!INCLUDE [create-bucket](../_solutions_includes/create-public-bucket.md)]
+{% include [create-bucket](../_solutions_includes/create-public-bucket.md) %}
 
 ## 2. Configure Acronis Backup Gateway {#configure-acronis}
 
-To configure Acronis Backup Gateway to work with [!KEYREF objstorage-name]:
+To configure Acronis Backup Gateway to work with {{ objstorage-name }}:
 
 1. In Acronis Storage, open the **Services** menu and select **Acronis Backup Gateway**.
 1. Click **Create Gateway**.
@@ -22,7 +22,7 @@ To configure Acronis Backup Gateway to work with [!KEYREF objstorage-name]:
 1. In the **ABGW private** list, select the network interface with the **ABGW private** role.
 1. In the **Public cloud parameters** section, specify the following settings:
     1. Select the **AuthV2 compatible** provider type.
-    1. In the **Endpoint URL** field, specify `[!KEYREF s3-storage-host]`.
+    1. In the **Endpoint URL** field, specify `{{ s3-storage-host }}`.
     1. Get a static key and enter it for authentication.
     1. Specify the `backup` bucket for storing backups.
 1. In the **Registration** section, enter your Acronis account details.

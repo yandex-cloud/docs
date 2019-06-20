@@ -13,13 +13,14 @@ To have funds transferred, you should first receive a [payment invoice](../conce
    - [Personal account number](../concepts/personal-account.md#id) in the Details of Payment field
    - [Contract number](../concepts/contract.md) in the Details of Payment field
 
-[!INCLUDE [payment-bill-note](../_includes/payment-bill-note.md)]
+{% include [payment-bill-note](../_includes/payment-bill-note.md) %}
 
 ## Payment terms  {#limits}
 
 Invoices must be paid before the deadline stipulated in the [agreement](../concepts/contract.md). How fast the funds will be credited to your personal account depends on the bank performing the transaction.
 
-> [!NOTE]
->
->We recommend that you track spending on your personal account and [top up the balance so that it is always positive](../operations/pay-the-bill.md). If the personal account balance drops to zero or exceeds the maximum amount of the credit limit, Yandex.Cloud reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md#conditions). For more information, see [Billing cycle](../payment/billing-cycle-business.md).
->
+{% note info %}
+
+We recommend that you track spending on your personal account and [top up the balance so that it is always positive](../operations/pay-the-bill.md). If the personal account balance drops to zero or exceeds the maximum amount of the credit limit, Yandex.Cloud reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md#conditions). For more information, see [Billing cycle](../payment/billing-cycle-business.md).
+
+{% endnote %}

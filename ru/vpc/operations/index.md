@@ -2,17 +2,17 @@
 
 ## Облачная сеть
 
-- [[!TITLE]](network-create.md)
-- [[!TITLE]](network-delete.md)
+- [#T](network-create.md)
+- [#T](network-delete.md)
 
 ## Подсеть
 
-- [[!TITLE]](subnet-create.md)
-- [[!TITLE]](subnet-delete.md)
+- [#T](subnet-create.md)
+- [#T](subnet-delete.md)
 
 ## Адреса
 
-- [[!TITLE]](get-static-ip.md)
-- [[!TITLE]](set-static-ip.md)
-- [[!TITLE]](address-delete.md)
-- [[!TITLE]](set-dynamic-ip.md)
+- [#T](get-static-ip.md)
+- [#T](set-static-ip.md)
+- [#T](address-delete.md)
+- [#T](set-dynamic-ip.md)

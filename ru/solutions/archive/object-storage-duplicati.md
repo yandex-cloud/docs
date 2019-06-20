@@ -1,6 +1,6 @@
-# Резервное копирование в [!KEYREF objstorage-full-name] через Duplicati
+# Резервное копирование в {{ objstorage-full-name }} через Duplicati
 
-Чтобы настроить резервное копирование в [!KEYREF objstorage-name] через Duplicati:
+Чтобы настроить резервное копирование в {{ objstorage-name }} через Duplicati:
 1. [Создайте бакет](#create-bucket)
 1. [Создайте сервисный аккаунт](#create-service-account)
 1. [Создайте статический ключ доступа](#create-access-key)
@@ -12,35 +12,35 @@
 
 Чтобы создать бакет для резервного копирования:
 
-[!INCLUDE [create-bucket](../_solutions_includes/create-public-bucket.md)]
+{% include [create-bucket](../_solutions_includes/create-public-bucket.md) %}
 
 ## 2. Создайте сервисный аккаунт {#create-service-account}
 
 Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `editor`.
- 
+
 ## 3. Создайте статический ключ доступа {#create-access-key}
 
-Создайте [статические ключи доступа](../../iam/operations/sa/create-access-key.md). Сразу сохраните идентификатор и секретный ключ. После того, как вы закроете окно, параметры закрытого ключа будут недоступны. 
+Создайте [статические ключи доступа](../../iam/operations/sa/create-access-key.md). Сразу сохраните идентификатор и секретный ключ. После того, как вы закроете окно, параметры закрытого ключа будут недоступны.
 
 ## 4. Установите Duplicati {#install-duplicati}
 
----
+{% list tabs %}
 
-**[!TAB Windows/Linux]**
-
-[Скачайте](https://www.duplicati.com/download) и установите Duplicati. 
-
-**[!TAB macOS]**
-
-Для работы Duplicati на macOS требуется [фреймворк Mono](https://www.mono-project.com/download/stable/#download-mac).
-
-После установки Mono [скачайте](https://www.duplicati.com/download) и установите Duplicati. 
-
----
+- Windows/Linux
+  
+  [Скачайте](https://www.duplicati.com/download) и установите Duplicati.
+  
+- macOS
+  
+  Для работы Duplicati на macOS требуется [фреймворк Mono](https://www.mono-project.com/download/stable/#download-mac).
+  
+  После установки Mono [скачайте](https://www.duplicati.com/download) и установите Duplicati.
+  
+{% endlist %}
 
 ## 5. Настройте Duplicati {#configure-duplicati}
 
-Чтобы настроить Duplicati для работы с [!KEYREF objstorage-name]:
+Чтобы настроить Duplicati для работы с {{ objstorage-name }}:
 
 1. Запустите Duplicati. Если требуется, установите пароль на свой аккаунт.
 1. Выберите пункт меню **Add backup**.
@@ -51,7 +51,7 @@
 1. В поле **Bucket name** укажите имя вашего бакета — `backup`.
 1. В поле **AWS Access ID** укажите идентификатор статического ключа доступа.
 1. В поле **AWS Access Key** укажите секретный ключ.
-1. Нажмите кнопку **Test connection**, чтобы убедиться, что настройки заданы верно. Появится окно с предложением добавить имя пользователя к имени бакета, нажмите кнопку **No**. 
+1. Нажмите кнопку **Test connection**, чтобы убедиться, что настройки заданы верно. Появится окно с предложением добавить имя пользователя к имени бакета, нажмите кнопку **No**.
 1. После проверки нажмите кнопку **Next**.
 1. Выберите файлы, которые требуется скопировать.
 1. Нажмите кнопку **Next**.

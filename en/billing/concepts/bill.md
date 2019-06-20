@@ -14,56 +14,57 @@ A payment invoice is issued at the beginning of the next reporting period if the
 - The [credit limit](../concepts/credit-limit.md) is used.
 - [The total invoice amount](#payment-amount) is greater than zero.
 
- > [!NOTE]
- >
- > Yandex.Cloud reserves the right to issue a payment invoice during the current reporting period if you exceed the established credit limit.
- >
+ {% note info %}
+
+ Yandex.Cloud reserves the right to issue a payment invoice during the current reporting period if you exceed the established credit limit.
+
+ {% endnote %}
 
 ## Payment invoice amount {#payment-amount}
 
-[!INCLUDE [bill-amount](../_includes/bill-amount.md)]
+{% include [bill-amount](../_includes/bill-amount.md) %}
 
 <br/>![image](../_assets/formula.png)
 
----
+{% list tabs %}
 
-**[!TAB Example 1]**
-
-<br/>The personal account balance at the beginning of the reporting period is 0 rubles.
-<br/>The balance has not been topped up during the entire reporting period (0 rubles).
-<br/>The grant amount is 1,000 rubles.
-<br/>The credit limit is 1,000 rubles.
-<br/>At the end of the reporting period, the credit limit has not been reached and the amount for resources consumed is 1,400 rubles.
-<br/>Total amount: 1400 - (0 + 0 + 1000) = 400 (rubles).
-<br/>At the beginning of the next reporting period, you will be issued a payment invoice for the amount you have actually used (in this case, 400 rubles).
-
-**[!TAB Example 2]**
-
-<br/>The personal account balance at the beginning of the reporting period is 0 rubles.
-<br/>The balance has not been topped up during the entire reporting period (0 rubles).
-<br/>The grant amount is 1,000 rubles.
-<br/>The credit limit is not enabled.
-<br/>By the end of the reporting period, the amount for resources consumed is 800 rubles.
-<br/>The grant amount at the end of the reporting period is 200 rubles. The personal account balance has not changed.
-<br/>At the beginning of the next reporting month, no payment invoice will be generated.
-
-**[!TAB Example 3]**
-
-<br/>The personal account balance at the beginning of the reporting period is 0 rubles.
-<br/>The balance has not been topped up during the entire reporting period (0 rubles).
-<br/>The grant amount is 1,000 rubles.
-<br/>The credit limit is 1,000 rubles.
-<br/>In the middle of the reporting period, the established credit limit has been reached and the amount for resources consumed is 2,000 rubles.
-<br/>Total amount: 2000 - (0 + 0 + 1000) = 1000 (rubles).
-<br/>In the middle of the reporting period, you will be issued a payment invoice for the amount actually used (in this case, 1,000 rubles).
-
----
+- Example 1
+  
+  <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
+  <br/>The balance has not been topped up during the entire reporting period (0 rubles).
+  <br/>The grant amount is 1,000 rubles.
+  <br/>The credit limit is 1,000 rubles.
+  <br/>At the end of the reporting period, the credit limit has not been reached and the amount for resources consumed is 1,400 rubles.
+  <br/>Total amount: 1400 - (0 + 0 + 1000) = 400 (rubles).
+  <br/>At the beginning of the next reporting period, you will be issued a payment invoice for the amount you have actually used (in this case, 400 rubles).
+  
+- Example 2
+  
+  <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
+  <br/>The balance has not been topped up during the entire reporting period (0 rubles).
+  <br/>The grant amount is 1,000 rubles.
+  <br/>The credit limit is not enabled.
+  <br/>By the end of the reporting period, the amount for resources consumed is 800 rubles.
+  <br/>The grant amount at the end of the reporting period is 200 rubles. The personal account balance has not changed.
+  <br/>At the beginning of the next reporting month, no payment invoice will be generated.
+  
+- Example 3
+  
+  <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
+  <br/>The balance has not been topped up during the entire reporting period (0 rubles).
+  <br/>The grant amount is 1,000 rubles.
+  <br/>The credit limit is 1,000 rubles.
+  <br/>In the middle of the reporting period, the established credit limit has been reached and the amount for resources consumed is 2,000 rubles.
+  <br/>Total amount: 2000 - (0 + 0 + 1000) = 1000 (rubles).
+  <br/>In the middle of the reporting period, you will be issued a payment invoice for the amount actually used (in this case, 1,000 rubles).
+  
+{% endlist %}
 
 ## Payment {#payment}
 
 Invoices must be paid before the deadline stipulated in the [agreement](../concepts/contract.md). Payment is made by bank transfer. For more information, see [Payment methods for businesses](../payment/payment-methods-business.md).
 
-[!INCLUDE [payment-bill-note](../_includes/payment-bill-note.md)]
+{% include [payment-bill-note](../_includes/payment-bill-note.md) %}
 
 ## Payment invoice details {#parameters}
 
@@ -81,5 +82,5 @@ Invoices must be paid before the deadline stipulated in the [agreement](../conce
 
 ## VAT accounting {#nds}
 
-[!INCLUDE [nds](../_includes/nds.md)]
+{% include [nds](../_includes/nds.md) %}
 

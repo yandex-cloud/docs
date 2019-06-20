@@ -1,14 +1,16 @@
 # s3fs
 
-[s3fs](https://github.com/s3fs-fuse/s3fs-fuse) is a utility that allows Linux and macOS to mount an [!KEYREF objstorage-name] bucket via [FUSE](https://en.wikipedia.org/wiki/Fuse_ESB).
+[s3fs](https://github.com/s3fs-fuse/s3fs-fuse) is a utility that allows Linux and macOS to mount an {{ objstorage-name }} bucket via [FUSE](https://en.wikipedia.org/wiki/Fuse_ESB).
 
-> [!NOTE]
->
->We recommend using s3fs version 1.84 or higher.
+{% note info %}
+
+We recommend using s3fs version 1.84 or higher.
+
+{% endnote %}
 
 ## Before you start {#preparations}
 
-[!INCLUDE [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md)]
+{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
 
 ## Installation {#installation}
 
