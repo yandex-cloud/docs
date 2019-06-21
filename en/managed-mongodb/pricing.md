@@ -53,8 +53,8 @@ The cost is specified for one month of use.  The minimum billing unit is 1 GB pe
 - Prices in USD
   
   | Host class | Rate for 1 hour, without VAT
-  | ----- | -----
-  | **Intel Broadwell** |
+  | ----- | ----- 
+  | **Intel Broadwell** | 
   {{ b1-nano }}| $0.013807
   {{ b1-micro }} | $0.020256
   {{ b1-medium }} | $0.037820
@@ -64,7 +64,7 @@ The cost is specified for one month of use.  The minimum billing unit is 1 GB pe
   {{ s1-medium }} | $0.308083
   {{ s1-large }} | $0.616035
   {{ s1-xlarge }} | $1.232203
-  **Intel Cascade Lake** |
+  **Intel Cascade Lake** | 
   {{ b2-nano }}| $0.013807
   {{ b2-micro }} | $0.020256
   {{ b2-medium }} | $0.037820
@@ -86,13 +86,13 @@ The cost is specified for one month of use.  The minimum billing unit is 1 GB pe
   {{ b1-nano }}| ₽1.0770
   {{ b1-micro }} | ₽1.5800
   {{ b1-medium }} | ₽2.9500
-  {{ s1-nano }} | ₽3.0000 |
-  {{ s1-micro }} | ₽6.0102 |
-  {{ s1-small }} | ₽12.0102 |
-  {{ s1-medium }} | ₽24.0305 |
-  {{ s1-large }} | ₽48.0508 |
-  {{ s1-xlarge }} | ₽96.1119
-  **Intel Cascade Lake** | |
+  {{ s1-nano }} | ₽3.0000 | 
+  {{ s1-micro }} | ₽6.0102 | 
+  {{ s1-small }} | ₽12.0102 | 
+  {{ s1-medium }} | ₽24.0305 | 
+  {{ s1-large }} | ₽48.0508 | 
+  {{ s1-xlarge }} | ₽96.1119 
+  **Intel Cascade Lake** | | 
   {{ b2-nano }}| ₽1.0770
   {{ b2-small }} | ₽1.5800
   {{ b2-medium }} | ₽2.9500
@@ -114,7 +114,7 @@ The cost is specified for one month of use.  The minimum billing unit is 1 GB pe
 
 - Prices in USD
   | Service | Rate for 1 GB per month, without VAT |
-  | ----- | -----
+  | ----- | ----- 
   | Standard network storage| $0.029334 |
   | Fast network storage| $0.104302 |
   | NVMe| $0.104302 |
@@ -122,7 +122,7 @@ The cost is specified for one month of use.  The minimum billing unit is 1 GB pe
   
 - Prices in roubles
   | Service | Rate for 1 GB per month, with VAT |
-  | ----- | -----
+  | ----- | ----- 
   | Standard network storage| ₽2.2881 |
   | Fast network storage| ₽8.1356 |
   | NVMe| ₽8.1356 |

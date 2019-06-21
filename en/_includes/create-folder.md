@@ -1,4 +1,4 @@
-1. In the management console, click **Create folder**.
+1. On the management console [home page](https://console.cloud.yandex.com), click **Create folder**.
 
 2. Enter the folder name.
 

@@ -26,7 +26,7 @@ To access the [registry](../../concepts/registry.md), use its ID or name. For in
   1. Delete the registry:
   
       ```
-      $ yc container registry delete new-reg
+      $ yc container registry delete new-reg 
       ..done
       ```
   

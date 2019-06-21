@@ -1,4 +1,4 @@
-#### Quotas
+#### Quotas {#quotas}
 
 | Type of limit | Value |
 | ----- | ----- |
@@ -6,7 +6,7 @@
 | Number of subnets per cloud | 6 |
 | Number of static public IP addresses per cloud | 2 |
 
-#### Limits
+#### Limits {#limits}
 
 | Type of limit | Value |
 | ----- | ----- |

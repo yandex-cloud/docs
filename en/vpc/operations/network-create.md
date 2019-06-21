@@ -20,7 +20,7 @@ In addition to the cloud network in the default folder, you can create cloud net
   
 - CLI
   
-  If you don't have the Yandex.Cloud command line interface yet, [install it](https://cloud.yandex.ru/docs/cli/quickstart#install).
+  If you don't have the Yandex.Cloud command line interface yet, [install it](https://cloud.yandex.com/docs/cli/quickstart#install).
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
@@ -82,9 +82,9 @@ Create a cloud network with a name and description in the selected folder:
 - CLI
   
   ```
-  $ yc vpc network create --name test-network-1 \
+  $ yc vpc network create --name test-network-1 \ 
     --description "My test network" \
-    --folder-id b1gnbfd11bq5g5vnjgr4
+    --folder-id b1gnbfd11bq5g5vnjgr4 
   ```
   
 {% endlist %}

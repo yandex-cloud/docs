@@ -26,9 +26,9 @@ Public IP addresses are assigned to cloud resources automatically. You can assig
 
 #### How do I make a public IP address static?
 
-You can[make a public IP address static](../operations/set-static-ip.md) using the **IP addresses** tab of the VPC service in the [management console](https://console.cloud.yandex.ru).
+You can [make a public IP address static](../operations/set-static-ip.md) using the **IP addresses** tab of the VPC service in the [management console](https://console.cloud.yandex.com).
 
 #### What limitations apply when creating subnets?
 
-Subnets can only use private addresses from IPv4 ranges defined by [RFC 1918](https://tools.ietf.org/html/rfc1918):
+Subnets can only use private addresses from IPv4 ranges defined by [RFC 1918](https://tools.ietf.org/html/rfc1918).
 

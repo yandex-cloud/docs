@@ -42,13 +42,13 @@ The price of an inactive public static address is calculated by adding the price
 
 - Prices in USD
   
-  | Service | Rate for 1 GB of traffic after filtering, without VAT |
+  | Service | Rate for 1 GB of traffic after filtering, without VAT | 
   | ----- | ----- |
   | Filtering incoming traffic to a public IP address with DDoS protection | $0.031153 |
   
 - Prices in roubles
   
-  | Service | Rate for 1 GB of traffic after filtering, with VAT |
+  | Service | Rate for 1 GB of traffic after filtering, with VAT | 
   | ----- | ----- |
   | Filtering incoming traffic to a public IP address with DDoS protection | ₽2.4300 |
   

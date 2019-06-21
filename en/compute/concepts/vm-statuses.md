@@ -55,11 +55,11 @@ You can update the parameters of a VM, such as change its name, regardless of th
 
 If you update the [metadata](vm-metadata.md), it will be available from inside the VM immediately after the update. You do not need to stop or restart the VM.
 
-### Deletion {#delete}
+### Delete {#delete}
 
 When you [delete](../operations/vm-control/vm-delete.md) a VM, all the ongoing operations are first aborted and then the VM switches to the `DELETING` status.
 
-When the deletion is complete, the VM disappears from the list of available resources.
+When the deletion is complete, the instance disappears from the list of available resources.
 
 ## Errors {#error}
 

@@ -43,14 +43,14 @@ Prices are specified for a 30-day month. For shorter months, the price is higher
 - Prices in USD
   
   | Service | Rate for 1 GB per month, without VAT
-  | ----- | -----
+  | ----- | ----- 
   | Standard storage | $0.016166 |
   | Cold storage |  $0.008605 |
   
 - Prices in roubles
   
   | Service | Rate for 1 GB per month, with VAT |
-  | ----- | -----
+  | ----- | ----- 
   | Standard storage | ₽1.2610 |
   | Cold storage |  ₽0.6712 |
   
@@ -70,22 +70,22 @@ Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
 - Prices in USD
   
   | Service | Cost, without VAT
-  | ----- | ----- |
-  | **Standard storage** |
+  | ----- | ----- | 
+  | **Standard storage** | 
   | 1,000 PUT or POST operations | $0.003911 |
   | 10,000 GET or HEAD operations | $0.003129 |
-  | **Cold storage** |
+  | **Cold storage** | 
   | 1,000 PUT or POST operations | $0.009517 |
   | 10,000 GET or HEAD operations | $0.007823 |
   
 - Prices in roubles
   
   | Service | Cost, with VAT |
-  | ----- | -----
-  | **Standard storage** |
+  | ----- | ----- 
+  | **Standard storage** | 
   | 1,000 PUT or POST operations | ₽0.3051 |
   | 10,000 GET or HEAD operations | ₽0.2441 |
-  | **Cold storage** |
+  | **Cold storage** | 
   | 1,000 PUT or POST operations | ₽0.7424 |
   | 10,000 GET or HEAD operations | ₽0.6102 |
   

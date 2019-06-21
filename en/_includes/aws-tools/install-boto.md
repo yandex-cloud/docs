@@ -1,0 +1,1 @@
+To install boto, use the instructions in the developer's repository: [boto3](https://github.com/boto/boto3/blob/develop/README.rst#quick-start), [boto](https://github.com/boto/boto#installation).

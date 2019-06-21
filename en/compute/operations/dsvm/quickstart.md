@@ -67,7 +67,7 @@ To run public Jupyter notebook execute:
     jupyter notebook --no-browser
 
 Description and help:
-    https://cloud.yandex.ru/docs/compute/operations/dsvm/
+    https://cloud.yandex.com/docs/compute/operations/dsvm/
 
 #####################################################################
 ```

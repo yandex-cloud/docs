@@ -17,7 +17,7 @@ Limits applying to [recognition of short audio files](../stt/request.md).
 
 | Type of limit | Value |
 | ----- | ----- |
-| Maximum file size | {{ stt-short-fileSize }} |
+| Maximum file size | {{ stt-short—fileSize }} |
 | Maximum duration of audio | {{ stt-short-audioLength }} |
 | Maximum number of audio channels | {{ stt-short-channelsCount }} |
 

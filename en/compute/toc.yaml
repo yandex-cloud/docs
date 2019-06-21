@@ -83,6 +83,8 @@ items:
         items:
           - name: Creating a disk snapshot
             href: operations/disk-control/create-snapshot.md
+          - name: Changing a disk
+            href: operations/disk-control/update.md
           - name: Deleting a disk
             href: operations/disk-control/delete.md
           - name: Deleting a disk snapshot
@@ -91,12 +93,20 @@ items:
         items:
           - name: Uploading your image
             href: operations/image-create/upload.md
-      - name: Performing a serial console management
+      - name: Image management
+        items:
+          - name: Deleting an image
+            href: operations/image-control/delete.md
+      - name: Serial console management
         items:
           - name: Getting started
             href: operations/serial-console/index.md
           - name: Connecting to a VM's serial console via SSH
-            href: operations/serial-console/connect.md
+            href: operations/serial-console/connect-ssh.md
+          - name: Connecting to a VM's serial console via CLI
+            href: operations/serial-console/connect-cli.md
+          - name: Disable access to serial console
+            href: operations/serial-console/disable.md
       - name: Creating an instance group
         items:
           - name: Create a fixed-size instance group
@@ -117,8 +127,8 @@ items:
             href: operations/instance-groups/update.md
           - name: Delete a group
             href: operations/instance-groups/delete.md
-          - name: Recover a group
-            href: operations/instance-groups/recover.md
+          - name: Set up autohealing for virtual machines
+            href: operations/instance-groups/enable-autohealing.md
   - name: Concepts
     items:
       - name: Relationship between resources
@@ -151,14 +161,20 @@ items:
         items:
           - name: Overview
             href: concepts/instance-groups/index.md
-          - name: Group types
-            href: concepts/instance-groups/scale.md
+          - name: Access
+            href: concepts/instance-groups/access.md
           - name: Instance template
             href: concepts/instance-groups/instance-template.md
+          - name: Policies
+            href: concepts/instance-groups/policies.md
+          - name: Scaling types
+            href: concepts/instance-groups/scale.md
+          - name: Autohealing
+            href: concepts/instance-groups/autohealing.md
+          - name: Configuration update
+            href: concepts/instance-groups/configuration-update.md
           - name: VM statuses
             href: concepts/instance-groups/vm-statuses.md
-          - name:	Policies
-            href : concepts/instance-groups/policies.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
@@ -171,7 +187,9 @@ items:
         items:
         - name: Prices before January 1, 2019
           href: pricing-archive/pricing-01012019.md
-        - name: Prices from March 1 till May 1 2019
+        - name: Prices from January 1 through March 1, 2019
+          href: pricing-archive/pricing-01032019.md
+        - name: Prices from March 1 through May 1, 2019
           href: pricing-archive/pricing-30042019.md
   - name: Compute API reference
     items:
@@ -188,5 +206,7 @@ items:
         href: qa/vm.md
       - name: Disks and snapshots
         href: qa/disks.md
-      - name: All questions on the same page
+      - name: Licensing
+        href: qa/licensing.md
+      - name: All questions on a single page
         href: qa/all.md

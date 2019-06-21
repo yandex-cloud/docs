@@ -17,16 +17,16 @@ A payment invoice is issued at the beginning of the next reporting period if the
  {% note info %}
 
  Yandex.Cloud reserves the right to issue a payment invoice during the current reporting period if you exceed the established credit limit.
-
+ 
  {% endnote %}
-
+ 
 ## Payment invoice amount {#payment-amount}
 
 {% include [bill-amount](../_includes/bill-amount.md) %}
 
 <br/>![image](../_assets/formula.png)
 
-{% list tabs %}
+  {% list tabs %}
 
 - Example 1
   
@@ -58,7 +58,7 @@ A payment invoice is issued at the beginning of the next reporting period if the
   <br/>Total amount: 2000 - (0 + 0 + 1000) = 1000 (rubles).
   <br/>In the middle of the reporting period, you will be issued a payment invoice for the amount actually used (in this case, 1,000 rubles).
   
-{% endlist %}
+  {% endlist %}
 
 ## Payment {#payment}
 

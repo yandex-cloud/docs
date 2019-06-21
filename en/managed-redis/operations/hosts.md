@@ -23,7 +23,7 @@ You can add and remove cluster hosts and request a list of hosts in the selected
   ```
   $ {{ yc-mdb-rd }} host list
        --cluster-name=<cluster name>
-  
+       
   +---------------------------------+----------------------+--------+---------------+
   |               NAME              |      CLUSTER ID      | HEALTH |    ZONE ID    |
   +---------------------------------+----------------------+--------+---------------+
@@ -72,7 +72,7 @@ The number of hosts in {{ mrd-short-name }} clusters is limited by the quotas on
   
       ```
       $ yc vpc subnet list
-  
+      
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+

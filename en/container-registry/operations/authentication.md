@@ -37,10 +37,10 @@ The required folder role is `viewer`. For more information about roles, see the 
 - CLI
   
   {% note important %}
-  
+
   After specifying all the parameters, don't forget to set as the address for authentication `cr.yandex`, otherwise
   the request will be sent to the default service, [Docker Hub](https://hub.docker.com).
-  
+
   {% endnote %}
   
   From the command line, run:

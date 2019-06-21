@@ -34,7 +34,7 @@ API requests can be made by users on behalf of a Yandex account or a service acc
 1. To get the folder ID, you can take it from the URL of the folder page in the management console:
 
     ```
-    https://console.cloud.yandex.ru/folders/b5gfc3ntettogerelqed7p
+    https://console.cloud.yandex.com/folders/b5gfc3ntettogerelqed7p
     ```
 
     `b5gfc3ntettogerelqed7p` is the folder ID.

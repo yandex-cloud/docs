@@ -29,7 +29,7 @@ It is not currently possible to add hosts to a single-host cluster or reduce the
   ```
   $ {{ yc-mdb-ch }} host list
        --cluster-name=<cluster name>
-  
+       
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
@@ -48,7 +48,7 @@ It is not currently possible to add hosts to a single-host cluster or reduce the
 
 ## Adding a host {#add-host}
 
-The number of hosts in {{ mch-short-name }} clusters is limited by the quotas on CPUs and RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas](https://console.cloud.yandex.ru/?section=quotas
+The number of hosts in {{ mch-short-name }} clusters is limited by the quotas on CPUs and RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas](https://console.cloud.yandex.com/?section=quotas
 ) and find the **{{ mch-full-name }}** section.
 
 {% list tabs %}
@@ -81,7 +81,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the quotas on
   
       ```
       $ yc vpc subnet list
-  
+      
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+

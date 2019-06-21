@@ -66,8 +66,8 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
 
 - Prices in USD
   
-  | Host class | Rate for 1 hour, without VAT
-  | ----- | -----
+  | Host class | Rate for 1 hour, without VAT 
+  | ----- | ----- 
   | **Intel Broadwell** |  |
   | {{ b1-nano }} | $0.009046 |
   | {{ b1-micro }} | $0.015276 |
@@ -96,7 +96,7 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   
   | Host class | Rate for 1 hour, with VAT |
   | ----- | -----
-  | **Intel Broadwell** |
+  | **Intel Broadwell** | 
   | {{ b1-nano }} | ₽0.7056 |
   | {{ b1-micro }} | ₽1.1916 |
   | {{ b1-medium }} | ₽2.1960 |
@@ -106,7 +106,7 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | {{ s1-medium }} | ₽22.0271 |
   | {{ s1-large }} | ₽44.0542 |
   | {{ s1-xlarge }} | ₽88.0983 |
-  | **Intel Cascade Lake** |
+  | **Intel Cascade Lake** | 
   | {{ b2-nano }} | ₽0.7056 |
   | {{ b2-micro }} | ₽1.1916 |
   | {{ b2-medium }} | ₽2.1960 |
@@ -128,9 +128,9 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
 
 - Prices in USD
   
-  | Host class | Rate for 1 hour, without VAT
-  | ----- | -----
-  | **Intel Broadwell** |
+  | Host class | Rate for 1 hour, without VAT 
+  | ----- | ----- 
+  | **Intel Broadwell** | 
   | {{ b1-nano }} | $0.008984 |
   | {{ b1-micro }} | $0.014215 |
   | {{ b1-medium }} | $0.022953 |
@@ -140,7 +140,7 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | {{ s1-medium }} | $0.172098 |
   | {{ s1-large }} | $0.343415 |
   | {{ s1-xlarge }} | $0.685658 |
-  | **Intel Cascade Lake** |
+  | **Intel Cascade Lake** | 
   | {{ b2-nano }} |  $0.008984 |
   | {{ b2-micro }} | $0.014215 |
   | {{ b2-medium }} | $0.022953 |
@@ -157,18 +157,18 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
 - Prices in roubles
   
   | Host class | Rate for 1 hour, with VAT |
-  | ----- | -----
-  | **Intel Broadwell** |
+  | ----- | ----- 
+  | **Intel Broadwell** | 
   {{ b1-nano }}| ₽0.7008
   {{ b1-micro }}| ₽1.1088
   {{ b1-medium }}| ₽1.7904
-  {{ s1-nano }}| ₽1.7492 |
-  {{ s1-micro }}| ₽3.4169 |
-  {{ s1-small }}| ₽6.7525 |
-  {{ s1-medium }}| ₽13.4237 |
-  {{ s1-large }}| ₽26.7864 |
-  {{ s1-xlarge }}| ₽53.4814 |
-  **Intel Cascade Lake** |
+  {{ s1-nano }}| ₽1.7492 | 
+  {{ s1-micro }}| ₽3.4169 | 
+  {{ s1-small }}| ₽6.7525 | 
+  {{ s1-medium }}| ₽13.4237 | 
+  {{ s1-large }}| ₽26.7864 | 
+  {{ s1-xlarge }}| ₽53.4814 | 
+  **Intel Cascade Lake** | 
   {{ b2-nano }}| ₽0.7008
   {{ b2-micro }}| ₽1.1088
   {{ b2-medium }}| ₽1.7904
@@ -190,7 +190,7 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
 
 - Prices in USD
   | Service | Rate for 1 GB per month, without VAT |
-  | ----- | -----
+  | ----- | ----- 
   | Standard network storage| $0.029334 |
   | Fast network storage| $0.104302 |
   | NVMe| $0.104302 |
@@ -198,7 +198,7 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   
 - Prices in roubles
   | Service | Rate for 1 GB per month, with VAT |
-  | ----- | -----
+  | ----- | ----- 
   | Standard network storage| ₽2.2881 |
   | Fast network storage| ₽8.1356 |
   | NVMe| ₽8.1356 |

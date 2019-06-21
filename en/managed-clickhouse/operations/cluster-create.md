@@ -4,7 +4,7 @@
 
 {% note important %}
 
-When creating a {{ CH }} cluster with two or more hosts, {{ mch-short-name }} automatically creates a cluster of three ZooKeeper hosts for managing replication and fault tolerance. These hosts are included when calculating the [resource quotas](https://console.cloud.yandex.ru/?section=quotas) used in the cloud and when calculating the cost of the cluster. For more information, see the section on replication for [{{ CH }}](../concepts/replication.md#clickhouse).
+When creating a {{ CH }} cluster with two or more hosts, {{ mch-short-name }} automatically creates a cluster of three ZooKeeper hosts for managing replication and fault tolerance. These hosts are included when calculating the [resource quotas](https://console.cloud.yandex.com/?section=quotas) used in the cloud and when calculating the cost of the cluster. For more information, see the section on replication for [{{ CH }}](../concepts/replication.md#clickhouse).
 
 {% endnote %}
 

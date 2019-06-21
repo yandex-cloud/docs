@@ -103,9 +103,9 @@ This section describes how to assign a role for a user's account on Yandex. The 
   The `add-access-binding` command allows you to add only one role. You can assign multiple roles using the `set-access-binding` command.
   
   {% note alert %}
-  
+
   The `set-access-binding` command completely rewrites the access rights to the resource. All current resource roles will be deleted.
-  
+
   {% endnote %}
   
   For example, to assign multiple roles for a folder:
@@ -160,9 +160,9 @@ This section describes how to assign a role for a user's account on Yandex. The 
   You can also assign roles using the `setAccessBindings` method.
   
   {% note alert %}
-  
+
   The `setAccessBindings` method completely rewrites the access rights to the resource. All current resource roles will be deleted.
-  
+
   {% endnote %}
   
   1. List new access bindings in the request body.

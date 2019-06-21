@@ -46,9 +46,9 @@
   ```
   
   {% note info %}
-  
+
   The extension version is not considered when handling the command: you can pass any non-empty string as a version.
-  
+
   {% endnote %}
   
 - API

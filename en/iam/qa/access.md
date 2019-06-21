@@ -2,7 +2,7 @@
 
 #### How do I log in to the management console?
 
-Go to the [management console page](https://console.cloud.yandex.ru/).
+Go to the [management console page](https://console.cloud.yandex.com/).
 
 If you are not logged in to your Yandex or Yandex.Connect account, click **Log in**. If you don't have an account yet, click **Register**. For more information, see the [Yandex.Passport documentation](https://yandex.com/support/passport/auth.html).
 

@@ -38,7 +38,7 @@ Instructions for how to create [static access keys](../../concepts/users/service
   
       ```
       $ yc iam access-key create --service-account-name my-robot
-  
+      
       access_key:
         id: aje6t3vsbj8lp9r4vk2u
         service_account_id: ajepg0mjt06siuj65usm

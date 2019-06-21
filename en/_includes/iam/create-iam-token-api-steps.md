@@ -4,10 +4,15 @@
 
 3. Exchange the OAuth token for an IAM token:
 
-    ```
-    $ curl -X POST \
-        -H 'Content-Type: application/json' \
-        -d '{"yandexPassportOauthToken": "<OAuth-token>"}' \
-        https://iam.api.cloud.yandex.net/iam/v1/tokens
-    ```
+    * Using [cURL](https://curl.haxx.se) in Bash or CMD:
+
+        ```
+        curl -d "{\"yandexPassportOauthToken\":\"<OAuth-token>\"}" "https://iam.api.cloud.yandex.net/iam/v1/tokens"
+        ```
+
+    * Using the built-in PowerShell function:
+
+        ```
+        (Invoke-RestMethod -Uri 'https://iam.api.cloud.yandex.net/iam/v1/tokens' -Method 'POST' -Body (@{yandexPassportOauthToken="<OAuth-Token>";}|ConvertTo-Json) -ContentType "application/json").iamToken
+        ```
 

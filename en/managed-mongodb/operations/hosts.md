@@ -23,7 +23,7 @@ You can add and remove cluster hosts and manage {{ MG }} settings for individual
   ```
   $ {{ yc-mdb-mg }} host list
        --cluster-name=<cluster name>
-  
+       
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
@@ -42,7 +42,7 @@ You can add and remove cluster hosts and manage {{ MG }} settings for individual
 
 ## Adding a host {#add-host}
 
-The number of hosts in {{ mmg-short-name }} clusters is limited by the quotas on CPUs and RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas](https://console.cloud.yandex.ru/?section=quotas
+The number of hosts in {{ mmg-short-name }} clusters is limited by the quotas on CPUs and RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas](https://console.cloud.yandex.com/?section=quotas
 ) and find the **{{ mmg-full-name }}**.
 
 {% list tabs %}
@@ -75,7 +75,7 @@ The number of hosts in {{ mmg-short-name }} clusters is limited by the quotas on
   
       ```
       $ yc vpc subnet list
-  
+      
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+

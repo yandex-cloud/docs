@@ -67,7 +67,7 @@ To test a backup:
 
 1. Open the **Home** menu item.
 1. In the list of backup plans next to the `Yandex Cloud` plan, click **Run now**.
-1. Open the [management console](https://console.cloud.yandex.ru).
+1. Open the [management console](https://console.cloud.yandex.com).
 1. Go to the folder containing the bucket where your backups are stored.
 1. Open the **Object Storage** service.
 1. Open the `backup` bucket and check whether all the necessary files have been copied.

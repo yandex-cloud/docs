@@ -6,7 +6,7 @@ After creating a cluster, you can:
 
 * [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-nvme`).
 
-* [Configure the servers](#change-clickhouse-config) {{ CH }} as described in the [documentation {{ CH }}](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+* [Configure the servers](#change-clickhouse-config) {{ CH }} as described in the [documentation {{ CH }}](https://clickhouse.yandex/docs/en/operations/server_settings/settings/).
 
 ## Change the host class {#change-resource-preset}
 
@@ -18,7 +18,7 @@ After creating a cluster, you can:
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To change the [host class](../concepts / instance-types.md) for the cluster:
+  To change the [host class](../concepts/instance-types.md) for the cluster:
   
   1. View the description of the CLI's update cluster command:
   
@@ -30,7 +30,7 @@ After creating a cluster, you can:
   
       ```bash
       $ {{ yc-mdb-ch }} resource-preset list
-  
+      
       +-----------+--------------------------------+-------+----------+
       |    ID     |            ZONE IDS            | CORES |  MEMORY  |
       +-----------+--------------------------------+-------+----------+
@@ -79,14 +79,14 @@ After creating a cluster, you can:
       $ {{ yc-mdb-ch }} cluster update --help
       ```
   
-  2. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.ru/?section=quotas
+  2. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.com/?section=quotas
   ) page for your cloud and check that the {{ mch-full-name }} section still has space remaining in the **space** line.
   
   3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-nvme`:
   
       ```
       $ {{ yc-mdb-ch }} cluster get <cluster name>
-  
+      
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
       ...
@@ -114,7 +114,7 @@ After creating a cluster, you can:
   
   You can change the cluster's storage size using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.clickhouse.resources.diskSize` (for ZooKeeper, the parameter is `configSpec.zookeeper.resources.diskSize`).
   
-  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.ru/?section=quotas
+  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.com/?section=quotas
   ) page for your cloud and check that the {{ mch-full-name }} section still has space remaining in the **space** line.
   
 {% endlist %}

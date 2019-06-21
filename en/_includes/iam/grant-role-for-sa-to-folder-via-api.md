@@ -1,4 +1,4 @@
-1. Get the ID of the folder with the service accounts.
+1. Get the ID of the folder with service accounts.
 
 1. Get a list of folder service accounts to find out their IDs:
 

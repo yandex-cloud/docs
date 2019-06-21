@@ -10,14 +10,14 @@ To create a single-node file server:
 
 Before creating a VM:
 
-1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.ru) and select the folder where you want to perform the operations.
+1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.com) and select the folder where you want to perform the operations.
 1. Make sure the selected folder has a network with a subnet that the VM can be connected to. To do this, click the **Virtual Private Cloud** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If there aren't any networks or subnets, [create them](../../vpc/quickstart.md).
 
 ## 1. Create a VM for the file server {#create-vm}
 
 To create a VM:
 
-1. On the folder page of the [management console](https://console.cloud.yandex.ru), click **Create resource** and select **Virtual machine**.
+1. On the folder page of the [management console](https://console.cloud.yandex.com), click **Create resource** and select **Virtual machine**.
 
 1. In the **Name** field, enter the VM name: `fileserver-tutorial`.
 
@@ -59,7 +59,7 @@ When a VM is created, it is assigned an IP address and hostname (FQDN). This dat
 
 After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the following:
 
-1. Go to the VM page of the [management console](https://console.cloud.yandex.ru). In the **Network** section, find the VM's public IP address.
+1. Go to the VM page of the [management console](https://console.cloud.yandex.com). In the **Network** section, find the VM's public IP address.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 

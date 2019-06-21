@@ -50,9 +50,9 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 - Per host per month
   
-  | Host class | Rate for 1 hour, without VAT
-  | ----- | -----
-  | **Intel Broadwell** |
+  | Host class | Rate for 1 hour, without VAT 
+  | ----- | ----- 
+  | **Intel Broadwell** | 
   | {{ b1-nano }} | $0.009046 |
   | {{ b1-micro }} | $0.015276 |
   | {{ b1-medium }} | $0.028153
@@ -62,7 +62,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
   | {{ s1-medium }} | $0.252646
   | {{ s1-large }} | $0.505292
   | {{ s1-xlarge }} | $1.010600
-  | **Intel Cascade Lake** |
+  | **Intel Cascade Lake** | 
   | {{ b2-nano }} | $0.009046
   | {{ b2-micro }} | $0.015276
   | {{ b2-medium }} | $0.028153
@@ -80,7 +80,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
   
   | Host class | Rate for 1 hour, with VAT |
   | ----- | -----
-  | **Intel Broadwell** |
+  | **Intel Broadwell** | 
   | {{ b1-nano }} | ₽0.7056 |
   | {{ b1-micro }} | ₽1.1916 |
   | {{ b1-medium }} | ₽2.1960 |
@@ -90,7 +90,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
   | {{ s1-medium }} | ₽19.7064 |
   | {{ s1-large }} | ₽39.4128 |
   | {{ s1-xlarge }} | ₽78.8268 |
-  | **Intel Cascade Lake** |
+  | **Intel Cascade Lake** | 
   | {{ b2-nano }} | ₽0.7056 |
   | {{ b2-micro }} | ₽1.1916 |
   | {{ b2-medium }} | ₽2.1960 |
@@ -112,7 +112,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 - Prices in USD
   | Service | Rate for 1 GB per month, without VAT |
-  | ----- | -----
+  | ----- | ----- 
   | Standard network storage| $0.029334 |
   | Fast network storage| $0.104302 |
   | NVMe| $0.104302 |
@@ -120,7 +120,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
   
 - Prices in roubles
   | Service | Rate for 1 GB per month, with VAT |
-  | ----- | -----
+  | ----- | ----- 
   | Standard network storage| ₽2.2881 |
   | Fast network storage| ₽8.1356 |
   | NVMe| ₽8.1356 |

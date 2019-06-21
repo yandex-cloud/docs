@@ -13,16 +13,16 @@ To delete a snapshot:
 - Management console
   
   1. In the management console, select the folder the snapshot belongs to.
-  1. Click on the **Compute Cloud** tile.
+  1. Select **{{ compute-name }}**.
   1. On the **Virtual machines** page, go to the **Disk snapshots** tab.
   1. In the line with the appropriate snapshot, click ![image](../../../_assets/dots.svg) and select the **Delete** command.
-  1. Confirm the deletion.
+  1. Confirm deletion.
   
 - CLI
   
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
   
-  1. See the description of the CLI's delete snapshot commands:
+  1. View a description of the CLI's delete snapshot commands:
   
       ```
       $ yc compute snapshot delete --help
@@ -32,7 +32,8 @@ To delete a snapshot:
   
       {% include [compute-snapshot-list](../../_includes_service/compute-snapshot-list.md) %}
   
-  1. Select the `ID` or `NAME` of the snapshot you need.
+  1. Select the `ID` or `NAME` of the snapshot.
+  
   1. Delete the snapshot:
   
       ```

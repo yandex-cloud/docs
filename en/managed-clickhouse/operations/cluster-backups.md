@@ -72,7 +72,7 @@ For a new cluster, you should set all the parameters that are required at creati
   
       ```
       $ {{ yc-mdb-ch }} backup list
-  
+      
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+

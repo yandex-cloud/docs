@@ -8,7 +8,7 @@ After creating a cluster, you can:
 
 * [Configure the servers](#change-postgresql-config) {{ PG }} as described in the [documentation {{ PG }}](https://www.postgresql.org/docs/current/runtime-config.html).
 
-* [Set the operation mode for the connection pooler ](#change-pgbouncer-config).
+* [Set the operation mode for the connection pooler](#change-pgbouncer-config).
 
 ## Change the host class {#change-resource-preset}
 
@@ -20,7 +20,7 @@ After creating a cluster, you can:
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To change the [host class](../concepts / instance-types.md) for the cluster:
+  To change the [host class](../concepts/instance-types.md) for the cluster:
   
   1. View the description of the CLI's update cluster command:
   
@@ -32,7 +32,7 @@ After creating a cluster, you can:
   
       ```
       $ {{ yc-mdb-pg }} resource-preset list
-  
+      
       +-----------+--------------------------------+-------+----------+
       |    ID     |            ZONE IDS            | CORES |  MEMORY  |
       +-----------+--------------------------------+-------+----------+
@@ -79,14 +79,14 @@ After creating a cluster, you can:
       $ {{ yc-mdb-pg }} cluster update --help
       ```
   
-  2. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.ru/?section=quotas
+  2. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.com/?section=quotas
   ) page for your cloud and check that the {{ mpg-full-name }} section still has space remaining in the **space** line.
   
   3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-nvme`:
   
       ```
       $ {{ yc-mdb-pg }} cluster get <cluster name>
-  
+      
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
       ...
@@ -112,7 +112,7 @@ After creating a cluster, you can:
   
   You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.postgresqlConfig_<version>.resources.diskSize`.
   
-  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.ru/?section=quotas
+  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.com/?section=quotas
   ) page for your cloud and check that the {{ mpg-full-name }} section still has space remaining in the **space** line.
   
 {% endlist %}

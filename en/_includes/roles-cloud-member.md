@@ -1,4 +1,4 @@
-When a new user is added to the cloud, they are automatically assigned the role of a cloud member: `{{ roles-cloud-member }}`.
+When a new user is added to the cloud, they are automatically assigned the role of cloud member: `{{ roles-cloud-member }}`.
 
 This role must be assigned to everyone who needs to access cloud resources, except the [owners of the cloud](../resource-manager/concepts/resources-hierarchy.md#owner), [service accounts](../iam/concepts/users/service-accounts.md), and [system group](../iam/concepts/access-control/system-group.md) `allAuthenticatedUsers`.
 

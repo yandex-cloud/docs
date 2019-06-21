@@ -15,6 +15,8 @@ items:
       href: operations/connect.md
     - name: How to change cluster and database settings
       href: operations/update.md
+    - name: How to manage database hosts
+      href: operations/hosts.md
     - name: How to manage database users
       href: operations/cluster-users.md
     - name: How to manage backups

@@ -111,7 +111,7 @@ The first two tabs contain prices for a single {{ mrd-name }} host working for a
 - Prices in USD
   
   Service | Rate for 1 GB per month, without VAT
-  ----- | ----- | -----
+  ----- | ----- | ----- 
   Fast network storage | $0.104302 |
   Backup over storage size | $0.032594 ₽
   

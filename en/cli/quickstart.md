@@ -17,11 +17,11 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
      The script will install the CLI and add the executable file path to the environment variable `PATH`.
   
      {% note info %}
-  
+
      The script will update `PATH` only if you run it in `bash` or `zsh` shell.
-  
+     
      If you run the script in a different shell, add the path to the CLI to the variable `PATH` yourself.
-  
+
      {% endnote %}
   
   1. After installation is complete, restart your terminal.
@@ -103,7 +103,7 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
      ```
      Please go to https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
       in order to obtain OAuth token.
-
+     
      Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
      ```
   1. At the command prompt, select one of the clouds from the list of those you have access to:
@@ -171,7 +171,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 
    ```
    $ yc vpc network list
-
+   
    +----------------------+------------------+-------------------------+
    |          ID          |       NAME       |       DESCRIPTION       |
    +----------------------+------------------+-------------------------+
@@ -184,7 +184,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 
    ```
    $ yc vpc network list --format yaml
-
+   
    - id: skesdqhkc6449hbqqar1
      folder_id: ijkl9012
      created_at: "2018-09-05T09:51:16Z"

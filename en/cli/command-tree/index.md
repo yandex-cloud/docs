@@ -1,4 +1,4 @@
-# yc
+# yc 
 
 Command line interface helps you interact with Yandex.Cloud services.
 
@@ -10,7 +10,7 @@ List of commands may vary depending on the version of YC CLI.
 
 #### Usage
 
-Syntax:
+Syntax: 
 
 `yc <group|command>`
 

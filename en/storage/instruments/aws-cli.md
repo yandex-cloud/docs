@@ -117,7 +117,7 @@ You can delete objects using one of the following methods:
 
    ```bash
    aws --endpoint-url=https://{{ s3-storage-host }} \
-       s3 rm s3://bucket-name/path_style_prefix/ --recursive
+       s3 rm s3://bucket-name/path_style_prefix/ --recursive 
    ```
 - Delete objects specified in the `--include` filter and skip objects specified in the `--exclude` filter:
 

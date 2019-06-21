@@ -89,9 +89,9 @@
   
       ```
       $ yc vpc subnet list --format yaml
-  
+      
       ...
-  
+      
       - id: e2l0psbfoloefpjb1rau
         folder_id: b1g6ci08ma55klukmdjs
         created_at: "2018-10-24T12:25:58Z"
@@ -101,7 +101,7 @@
         zone_id: ru-central1-b
         v4_cidr_blocks:
         - 192.168.0.0/24
-  
+      
       ...
       ```
   

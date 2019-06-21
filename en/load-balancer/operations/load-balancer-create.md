@@ -52,7 +52,7 @@ Before creating a load balancer, [create](target-group-create.md) a target group
   
 - CLI
   
-  If you don't have the Yandex.Cloud command line interface yet, [install it](https://cloud.yandex.ru/docs/cli/quickstart#install).
+  If you don't have the Yandex.Cloud command line interface yet, [install it](https://cloud.yandex.com/docs/cli/quickstart#install).
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   

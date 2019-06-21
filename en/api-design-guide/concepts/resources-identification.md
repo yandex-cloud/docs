@@ -12,7 +12,7 @@ Sample gRPC description of the [Get](https://github.com/yandex-cloud/cloudapi/bl
      get: "/compute/v1/disks/{disk_id}"
    };
  }
-
+ 
  message GetDiskRequest {
    // ID of the requested disk.
    string disk_id = 1;
@@ -62,7 +62,7 @@ Sample gRPC description of the [Get](https://github.com/yandex-cloud/cloudapi/bl
    // ID of the cluster the DB belongs to.
    // Required field.
    string cluster_id = 1;
-
+ 
    // DB name.
    // Required field.
    string database_name = 2;

@@ -1,4 +1,4 @@
-1. Go to the VM page of the [management console](https://console.cloud.yandex.ru). In the **Network** section, find the VM's public IP address.
+1. Go to the VM page of the [management console](https://console.cloud.yandex.com). In the **Network** section, find the VM's public IP address.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 

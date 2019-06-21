@@ -7,9 +7,9 @@
   The management console allows you to work with {{ objstorage-name }} buckets like a hierarchical file system. You can create folders inside buckets and upload objects there. Keep in mind that in the SDK and HTTP API, an object's key will be the entire path to the object from the bucket root. For more information, see the section [#T](../../concepts/object.md).
   
   {% note info %}
-  
+
   You can upload objects of up to 5 GB in size via the management console (see [#T](../../concepts/limits.md)). To upload larger objects, use other [tools](../../instruments/index.md).
-  
+
   {% endnote %}
   
   To upload an object:

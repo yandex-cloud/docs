@@ -49,7 +49,7 @@ You cannot restore a subnet after it is deleted.
   1. Delete the subnet from the default folder:
   
       ```
-      $ yc vpc subnet delete test-subnet-1
+      $ yc vpc subnet delete test-subnet-1 
       ```
   
 {% endlist %}

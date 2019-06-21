@@ -6,7 +6,7 @@ If you didn't spend the entire amount of the [initial grant](../concepts/bonus-a
 
 To upgrade to the paid version:
 
-1. In the [management console](https://console.cloud.yandex.ru/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. In the [management console](https://console.cloud.yandex.com/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
 2. Select an account on the **List of accounts** page.
 3. On the **Overview** page, click **Upgrade to the paid version**.
 4. Confirm the action by clicking **Upgrade to the paid version** once again.

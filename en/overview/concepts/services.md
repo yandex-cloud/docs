@@ -2,7 +2,7 @@
 
 _Services_ in Yandex.Cloud allow you to manage specific categories of cloud resources and access to them.
 Currently, the following services are available as part of the Yandex.Cloud platform:
-
+  
   - [{{ compute-full-name }}](../../compute/) — cloud computing service.
   - [{{ objstorage-full-name }}](../../storage/) — object storage service.
   - [{{ vpc-full-name }}](../../vpc/) — network management service.

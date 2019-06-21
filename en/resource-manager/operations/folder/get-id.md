@@ -4,11 +4,11 @@
 
 - Management console
   
-  1. Open the folder page. You can select a folder on the [Home page](https://console.cloud.yandex.ru) of the management console. This page displays folders for the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
+  1. Open the folder page. You can select a folder on the [Home page](https://console.cloud.yandex.com) of the management console. This page displays folders for the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
   1. Get the folder ID from the URL of the folder page in the management console:
   
       ```
-      https://console.cloud.yandex.ru/folders/b1gd129pp9ha0vnvf5g7
+      https://console.cloud.yandex.com/folders/b1gd129pp9ha0vnvf5g7
       ```
   
       `b1gd129pp9ha0vnvf5g7` is the folder ID.
