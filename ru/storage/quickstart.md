@@ -19,7 +19,7 @@
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-1. Нажмите плитку **Yandex Object Storage**, чтобы попасть на страницу управления бакетами.
+1. Выберите сервис **Yandex Object Storage**, чтобы попасть на страницу управления бакетами.
 
 
 ## Создание первого бакета {#the-first-bucket}

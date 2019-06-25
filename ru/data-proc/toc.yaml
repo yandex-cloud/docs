@@ -4,9 +4,23 @@ href: index.yaml
 items:
 #  - name: Начало работы
 #    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Создание кластера
+        href: operations/cluster-create.md
+      - name: Подключение к кластеру
+        href: operations/connect.md
+      - name: Изменение подкластера
+        href: operations/subcluster-update.md
+      - name: Управление подкластерами
+        href: operations/subclusters.md
+      - name: Удаление кластера
+        href: operations/cluster-delete.md
   - name: Концепции
     items:
-    - name: Взаимосвязь ресурсов сервиса
+    - name: Обзор Data Proc
       href: concepts/index.md
     - name: Классы хостов
       href: concepts/instance-types.md
@@ -15,7 +29,7 @@ items:
     - name: Квоты и лимиты
       href: concepts/limits.md
     - name: Версии Hadoop и компонентов
-      href: concepts/image-versions.md
+      href: concepts/environment.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
