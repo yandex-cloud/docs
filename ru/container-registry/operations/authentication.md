@@ -26,9 +26,9 @@
 
 ```
 $ docker login \
---username <тип токена> \
---password <токен> \
-cr.yandex
+         --username <тип токена> \
+         --password <токен> \
+         cr.yandex
 ```
 
 - В параметр `username` передается тип токена `<тип токена>`. Допустимые значения: `oauth`, `iam` или `json_key`.
@@ -51,9 +51,9 @@ cr.yandex
 
     ```
     $ docker login \
-    --username oauth \
-    --password <OAuth-токен> \
-    cr.yandex
+             --username oauth \
+             --password <OAuth-токен> \
+             cr.yandex
     ```
 
 ### Аутентификация с помощью IAM-токена {#iam}
@@ -74,9 +74,9 @@ cr.yandex
 
     ```
     $ docker login \
-    --username iam \
-    --password <IAM-токен> \
-    cr.yandex
+             --username iam \
+             --password <IAM-токен> \
+             cr.yandex
     ```
 
 ## Аутентифицироваться как сервисный аккаунт {#sa}
@@ -152,9 +152,9 @@ cr.yandex
 
     ```
     $ docker login \
-    --username iam \
-    --password <IAM-токен> \
-    cr.yandex
+             --username iam \
+             --password <IAM-токен> \
+             cr.yandex
     ```
 
 ## Аутентифицироваться с помощью Docker Credential helper {#cred-helper}
