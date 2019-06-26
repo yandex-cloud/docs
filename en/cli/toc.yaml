@@ -13,6 +13,8 @@ items:
         href: concepts/profile.md
       - name: Synchronous and asynchronous modes of command execution
         href: concepts/mode.md
+  - name: CLI releases
+    href: release-notes.md
   - name: Did an error occur?
     href: error.md
   - name: CLI reference
