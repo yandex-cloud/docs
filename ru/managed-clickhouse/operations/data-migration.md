@@ -1,7 +1,10 @@
+# Миграция данных в {{ mch-name }}
 
-Чтобы перенести существующий кластер {{ CH }} в сервис {{ mch-name }}, можно использовать [Apache ZooKeeper](http://zookeeper.apache.org) и стандартную утилиту [clickhouse-copier](https://clickhouse.yandex/docs/ru/operations/utils/clickhouse-copier/).
+Чтобы перенести вашу базу данных в сервис {{ mch-name }}, нужно непосредственно перенести данные, закрыть старую базу данных на запись и перенести нагрузку на кластер БД в Яндекс.Облаке.
 
-Вы можете произвести миграцию с помощью [виртуальной машины в Облаке](../../compute/operations/vm-create/create-linux-vm.md), если:
+Перенести данные в кластер {{ mch-name }} можно с помощью [Apache ZooKeeper](http://zookeeper.apache.org) и стандартной утилиты [clickhouse-copier](https://clickhouse.yandex/docs/ru/operations/utils/clickhouse-copier/).
+
+Переносить данные на промежуточную виртуальную машину в Compute Cloud нужно, если:
 
 * К кластеру {{ mch-name }} нет доступа из интернета.
 * Сетевое оборудование или соединение с {{ CH }}-кластером в Облаке не
@@ -16,21 +19,22 @@
 1. [Добавьте задачу](#zookeeper-task) для `clickhouse-copier` в Zookeeper.
 1. [Запустите](#copier-run) `clickhouse-copier`.
 
-## 1. Подготовка {#prepare}
 
-1. Необходимые условия:
+## Подготовьтесь к миграции {#prepare}
 
-    1. Версии {{ CH }} в обоих кластерах должны совпадать.
-    1. Версия `clickhouse-copier` должна быть не ниже версии {{ CH }} в кластере
+1. Версии ПО удовлетворяют условиям:
+
+    * Версии {{ CH }} в обоих кластерах должны совпадать.
+    * Версия `clickhouse-copier` должна быть не ниже версии {{ CH }} в кластере
     {{ mch-name }}.
-    1. Версия ZooKeeper — не ниже 3.4.10.
+    * Версия ZooKeeper — не ниже 3.4.10.
 
 2. Проверьте, что кластер-источник готов к миграции:
 
-    * включен SSL для шифрования трафика;
-    * нагрузка на базу или шард, с которого будут копироваться данные, не создаст
-    проблем;
-    * у `clickhouse-copier` есть доступ к базе данных, и используемый аккаунт имеет
+    * Включен SSL для шифрования трафика.
+    * Нагрузка на базу или шард, с которого будут копироваться данные, не создаст
+    проблем.
+    * У `clickhouse-copier` есть доступ к базе данных, и используемый аккаунт имеет
     доступ только на чтение.
 
 3. Если вы используете для миграции виртуальную машину в Облаке:
@@ -38,10 +42,9 @@
     * Вычислительную мощность ВМ стоит выбирать исходя из объема переносимых данных.
 
 
-## 2. Установка Zookeeper {#zookeeper-install}
+## Установите Zookeeper {#zookeeper-install}
 
-Чтобы выполнить задачу копирования данных достаточно запустить ZooKeeper в конфигурации с
-одним узлом.
+Чтобы скопировать данные, достаточно запустить один узел ZooKeeper.
 
 1. Установите Java Runtime Environment:
 
@@ -101,22 +104,23 @@
     ```
 
 
-## 3. Создание кластера {{ mch-name }} {#create-cluster}
+## Создайте кластер {{ mch-name }} {#create-cluster}
 
 Убедитесь, что вычислительная мощность и размер хранилища кластера соответствуют среде,
- в которой развернуты уже имеющиеся базы данных. Подробно о создании кластера {{ mch-name }} — на странице [#T](cluster-create.md).
+ в которой развернуты уже имеющиеся базы данных, и [создайте кластер](cluster-create.md).
 
-## 4. Создание задачи для clickhouse-copier {#copier-task}
+
+## Создайте задачу для clickhouse-copier {#copier-task}
 
 Чтобы запустить `clickhouse-copier` с помощью ZooKeeper, нужно подготовить:
 
-* конфигурационный файл для Zookeeper;
-* файл описания задачи.
+* конфигурационный файл для Zookeeper (`config.xml`);
+* файл описания задачи (`cp-task.xml`).
 
-Официальная инструкция по использованию `clickhouse-copier` приведена в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/utils/clickhouse-copier/).
+Инструкция по использованию `clickhouse-copier` приведена в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/utils/clickhouse-copier/).
 
 
-### 4.1. Подготовка конфигурационного файла ZooKeper {#zookeeper-config}
+### Подготовьте конфигурационный файл ZooKeeper {#zookeeper-config}
 
 В конфигурационном файле (`config.xml`) нужно указать:
 
@@ -158,7 +162,8 @@
 </yandex>
 ```
 
-### 4.2. Составление описания задачи {#task-description}
+
+### Опишите задачу {#task-description}
 
 Пример описания задачи переноса данных (`cp-task.xml`):
 
@@ -236,7 +241,7 @@
 ```
 
 
-## 5. Добавление задачи копирования в ZooKeeper {#zookeeper-task}
+## Добавьте задачу для clickhouse-copier в Zookeeper {#zookeeper-task}
 
 Чтобы добавить задачу в ZooKeeper, выполните следующие команды:
 
@@ -250,7 +255,8 @@ fc=$(cat ./cp-task.xml)
 /opt/zookeeper-3.4.13/bin/zkCli.sh -server localhost:2181 create /cp-task.xml/description "$fc"
 ```
 
-## 6. Запуск clickhouse-copier {#copier-run}
+
+## Запустите clickhouse-copier {#copier-run}
 
 {% note important %}
 
