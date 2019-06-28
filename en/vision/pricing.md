@@ -23,15 +23,15 @@ Each successful image analysis performed using any feature is charged as a singl
 {% list tabs %}
 
 - Prices in USD
-  
-  | Feature | Rate for 1000 units per month, without VAT |
+
+  | Feature | Rate for the billable unit, without VAT |
   | ----- | ----- |
-  | [Text recognition](concepts/ocr/index.md) | $1.538461 |
-  
+  | [Text recognition](concepts/ocr/index.md) | $0.01538461 |
+
 - Prices in roubles
-  
-  | Feature | Rate for 1000 units per month, with VAT |
+
+  | Feature | Rate for the billable unit, with VAT |
   | ----- | ----- |
-  | [Text recognition](concepts/ocr/index.md) | ₽120 |
-  
+  | [Text recognition](concepts/ocr/index.md) | ₽0.1200 |
+
 {% endlist %}
