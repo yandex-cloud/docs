@@ -1,4 +1,4 @@
-# Распознать текст на картинке
+# Распознавание текста на картинке
 
 Чтобы распознать текст на картинке, воспользуйтесь возможностью [Распознавание текста](../../concepts/ocr/index.md).
 
@@ -14,11 +14,11 @@
 
 {% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 
-### Распознать текст {#basic}
+### Распознайте текст {#basic}
 
 {% include [text-detection-steps](../../../_includes/vision/text-detection-steps.md) %}
 
-### Распознать текст на нескольких языках {#multiple-languages}
+### Распознайте текст на нескольких языках {#multiple-languages}
 
 1. Создайте файл с телом запроса, например `body.json`. В свойстве `content` укажите изображение, [кодированное в Base64](../base64-encode.md).
 

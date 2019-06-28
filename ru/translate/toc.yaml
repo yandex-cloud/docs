@@ -5,13 +5,13 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Перевести текст
+      - name: Перевод текста
         href: operations/translate.md
-      - name: Повысить точность перевода
+      - name: Повышение точности перевода
         href: operations/better-quality.md
-      - name: Определить язык текста
+      - name: Определение языка текста
         href: operations/detect.md
-      - name: Получить список поддерживаемых языков
+      - name: Получение списка поддерживаемых языков
         href: operations/list.md
   - name: Концепции
     items:
