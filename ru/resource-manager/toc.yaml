@@ -9,6 +9,8 @@ items:
         href: operations/index.md
       - name: Облако
         items:
+          - name: Создать облако
+            href: operations/cloud/create.md
           - name: Установить права доступа
             href: operations/cloud/set-access-bindings.md
           - name: Переключиться на другое облако
