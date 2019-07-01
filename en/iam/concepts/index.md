@@ -26,7 +26,7 @@ Billing accounts are not used for resource management in Yandex.Cloud and do not
 
 ### Yandex.Passport account {#passport}
 
-_A Yandex.Passport account_ is your Yandex or [Yandex.Connect](https://connect.yandex.com) account. You need a Yandex.Passport account for managing resources via the [management console](console.cloud.yandex.com).
+_A Yandex.Passport account_ is your Yandex or [Yandex.Connect]({{ link-yandex-connect }}) account. You need a Yandex.Passport account for managing resources via the [management console]({{ link-console-main }}).
 
 ### Service account {#sa}
 

@@ -5,7 +5,7 @@ The instructions below describe how to configure an external DNS service using [
 
 To configure the external DNS service, do the following:
 
-1. Go to the VM page of the [management console](https://console.cloud.yandex.com). In the **Network** section, find the VM's public IP address.
+1. Go to the VM page of the [management console]({{ link-console-main }}). In the **Network** section, find the VM's public IP address.
 1. Log in to the control panel of the external DNS service. Go to the [list of your domains](https://www.reg.ru/user/domain_list) and click on the required domain name.
 1. Follow the **Zone management** link in the **Domain management** section.
 1. Create or edit an A record:

@@ -29,5 +29,5 @@ In the given example, it is:
     ```
     C:\Users\username\yandex-cloud\logs\yc_compute_instance_create-2019-02-18T12-26-39.897.txt
     ```
-1. Provide this information to the [technical support](https://console.cloud.yandex.com/support) team.
+1. Provide this information to the [technical support]({{ link-console-support }}) team.
 

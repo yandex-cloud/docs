@@ -44,7 +44,7 @@ CREATE TABLE db_01.table_01 ON CLUSTER '{cluster}' (log_date Date, user_name Str
 
 ### Хосты ZooKeeper {#zookeeper-hosts}
 
-Для каждого кластера {{ CH }} из 2 и более хостов {{ mch-short-name }} создает кластер из 3 хостов ZooKeeper. Хосты ZooKeeper учитываются при расчете [потребления ресурсов](https://console.cloud.yandex.ru/?section=quotas) и стоимости кластера.
+Для каждого кластера {{ CH }} из 2 и более хостов {{ mch-short-name }} создает кластер из 3 хостов ZooKeeper. Хосты ZooKeeper учитываются при расчете [потребления ресурсов]({{ link-console-quotas }}) и стоимости кластера.
 
 Как управляются хосты ZooKeeper:
 

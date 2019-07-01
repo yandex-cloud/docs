@@ -27,15 +27,15 @@
 {% list tabs %}
 
 - Windows/Linux
-  
+
   [Скачайте](https://www.duplicati.com/download) и установите Duplicati.
-  
+
 - macOS
-  
+
   Для работы Duplicati на macOS требуется [фреймворк Mono](https://www.mono-project.com/download/stable/#download-mac).
-  
+
   После установки Mono [скачайте](https://www.duplicati.com/download) и установите Duplicati.
-  
+
 {% endlist %}
 
 ## 5. Настройте Duplicati {#configure-duplicati}
@@ -64,7 +64,7 @@
 
 1. Откройте пункт меню **Home**.
 1. В списке планов резервного копирования рядом с планом `Yandex Cloud` нажмите ссылку **Run now**.
-1. Откройте [консоль управления](https://console.cloud.yandex.ru).
+1. Откройте [консоль управления]({{ link-console-main }}).
 1. Перейдите в каталог, где находится бакет, в который помещаются резервные копии.
 1. Откройте сервис **Object Storage**.
 1. Откройте бакет `backup` и убедитесь, что все нужные файлы были скопированы.

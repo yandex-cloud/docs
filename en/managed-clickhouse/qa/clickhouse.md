@@ -60,7 +60,7 @@ Access to ZooKeeper and its setup are not available to Cloud users.
 
 #### Why does a {{ CH }} cluster take up 3 hosts more than it should?
 
-When creating a {{ CH }} cluster with two or more hosts, {{ mch-short-name }} automatically creates a cluster of three ZooKeeper hosts for managing replication and fault tolerance. These hosts are included when calculating the [resource quotas](https://console.cloud.yandex.com/?section=quotas) used in the cloud and when calculating the cost of the cluster. By default, ZooKeeper hosts are created with a minimal [host class](../concepts/instance-types.md).
+When creating a {{ CH }} cluster with two or more hosts, {{ mch-short-name }} automatically creates a cluster of three ZooKeeper hosts for managing replication and fault tolerance. These hosts are included when calculating the [resource quotas]({{ link-console-quotas }}) used in the cloud and when calculating the cost of the cluster. By default, ZooKeeper hosts are created with a minimal [host class](../concepts/instance-types.md).
 
 For more information about using ZooKeeper, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/table_engines/replication/).
 

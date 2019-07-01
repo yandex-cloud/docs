@@ -1,6 +1,6 @@
 # Getting information about a VM
 
-To get information about a virtual machine you created, go to the [management console](https://console.cloud.yandex.com) and open the virtual machine page. To get detailed information with user-defined [metadata](../../concepts/vm-metadata.md), use the CLI or API.
+To get information about a virtual machine you created, go to the [management console]({{ link-console-main }}) and open the virtual machine page. To get detailed information with user-defined [metadata](../../concepts/vm-metadata.md), use the CLI or API.
 
 You can also get basic information and metadata [from inside a VM](#inside-instance).
 
@@ -9,51 +9,51 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
 {% list tabs %}
 
 - Management console
-  
+
   On the **Virtual machines** page in the **Compute Cloud** section, you can find a list of VMs in the folder and brief information for each of them.
-  
+
   For more information about a certain VM, click its name.
-  
+
   Tabs:
-  
+
   - **Overview** shows general information about the VM, including the IP addresses assigned to it.
   - **Disks** provides information about the disks attached to the VM.
   - **Operations** lists operations on the VM and resources attached to it, such as disks.
   - **Monitoring** shows information about resource consumption on the VM. You can only get this information from the management console or from inside the VM.
   - **Serial port** provides information that is output by the VM to the serial port. To obtain this information via the API or CLI, follow the instructions [#T](get-serial-port-output.md).
-  
+
 - CLI
-  
+
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. View the description of the command to get serial port output:
-  
+
       ```
       $ yc compute instance get --help
       ```
-  
+
   1. Select a VM, for example, `first-instance`:
-  
+
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-  
+
   1. Get basic information about a VM:
-  
+
       ```
       $ yc compute instance get first-instance
       ```
-  
+
       To get information about a VM with [metadata](../../concepts/vm-metadata.md), use the `--full` flag:
-  
+
       ```
       $ yc compute instance get --full first-instance
       ```
-  
+
 - API
-  
+
   To get basic information about a VM, use the [get](../../api-ref/Instance/get.md) method for the [Instance](../../api-ref/Instance/index.md) resource.
-  
+
   The basic information does not include the user-defined metadata that was passed when creating or updating the VM. To get the information along with the metadata, specify `view=FULL` in the parameters.
-  
+
 {% endlist %}
 
 ## Getting information from inside a VM {#inside-instance}

@@ -29,7 +29,7 @@
     Полученный `id` далее будет использоваться для обращения к созданному реестру.
 
 1. Пройдите аутентификацию в {{ container-registry-short-name }} командой `docker login` с помощью OAuth-токена,
-получить его можно по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
+получить его можно по [ссылке]({{ link-cloud-oauth }}).
 
     ```
     $ docker login \

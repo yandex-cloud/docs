@@ -10,14 +10,14 @@
 
 Перед тем, как создавать виртуальную машину:
 
-1. Перейдите в [консоль управления](https://console.cloud.yandex.ru) Яндекс.Облака и выберите каталог, в котором будете выполнять операции.
+1. Перейдите в [консоль управления]({{ link-console-main }}) Яндекс.Облака и выберите каталог, в котором будете выполнять операции.
 1. Убедитесь, что в выбранном каталоге есть сеть с подсетью, к которой можно подключить виртуальную машину. Для этого на странице каталога выберите сервис **Virtual Private Cloud**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если ни одной подсети или сети нет, [создайте их](../../vpc/quickstart.md).
 
 ## 1. Создайте виртуальную машину для файлового сервера {#create-vm}
 
 Чтобы создать виртуальную машину:
 
-1. На странице каталога в [консоли управления](https://console.cloud.yandex.ru) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
 1. В поле **Имя** введите имя виртуальной машины — `fileserver-tutorial`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 1. Выберите публичный образ **Ubuntu** или **CentOS**.
@@ -52,7 +52,7 @@
 ## 2. Настройте Samba и NFS {#setup-samba-nfs}
 
 После того как виртуальная машина `fileserver-tutorial` перейдет в статус `RUNNING`, выполните:
-1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru) найдите публичный IP-адрес виртуальной машины.
+1. В блоке **Сеть** на странице виртуальной машины в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес виртуальной машины.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows.
 
       Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей.  Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на виртуальную машину.
@@ -65,7 +65,7 @@
      $ sudo apt-get update
      $ sudo apt-get install nfs-kernel-server samba
      ```
-  
+
    - CentOS
      ```bash
      $ sudo yum check-update
@@ -103,7 +103,7 @@
 
    {% list tabs %}
    - Ubuntu
-  
+
      ```
      [global]
         workgroup = WORKGROUP
@@ -146,9 +146,9 @@
         hosts allow = <IP-адрес> 127.0.0.1
         hosts deny = 0.0.0.0/0
      ```
-  
+
    - CentOS 6
-  
+
      ```
      [global]
         workgroup = MYGROUP
@@ -181,35 +181,35 @@
         hosts allow = <IP-адрес> 127.0.0.1
         hosts deny = 0.0.0.0/0
      ```
-  
+
    - CentOS 7
-  
+
      ```
      [global]
              workgroup = SAMBA
              security = user
-  
+
              passdb backend = tdbsam
-  
+
              printing = cups
              printcap name = cups
              load printers = yes
              cups options = raw
-  
+
      [homes]
              comment = Home Directories
              valid users = %S, %D%w%S
              browseable = No
              read only = No
              inherit acls = Yes
-  
+
      [printers]
              comment = All Printers
              path = /var/tmp
              printable = Yes
              create mask = 0600
              browseable = No
-  
+
      [print$]
              comment = Printer Drivers
              path = /var/lib/samba/drivers
@@ -227,7 +227,7 @@
         hosts allow = <IP-адрес> 127.0.0.1
         hosts deny = 0.0.0.0/0
      ```
-  
+
    {% endlist %}
 
    В блоке `[data]` вместо `<IP-адрес>` укажите IP-адрес компьютера, к которому вы будете подключать по NFS сетевой диск с данными.
@@ -240,7 +240,7 @@
      $ sudo service nfs-kernel-server restart
      $ sudo service smbd restart
      ```
-  
+
    - CentOS
      ```bash
      $ sudo chcon -t samba_share_t /data
@@ -250,7 +250,7 @@
      $ sudo service nfs restart
      $ sudo service smb restart
      ```
-  
+
    {% endlist %}
 
 1. Этот шаг нужно выполнять только на виртуальной машине с ОС CentOS 6.
@@ -276,19 +276,19 @@
    {% list tabs %}
 
    - Linux/macOS
-  
+
      Выполните команду `mount -t nfs <внешний IP>:/data /<точка монтирования>`.
-  
+
      Тестовая директория и файл должны быть доступны в указанной точке монтирования.
-  
+
    - Windows
-  
+
      1. Запустите утилиту **cmd.exe**. Для этого нажмите комбинацию клавиш **Windows**+**R** и выполните команду `cmd`.
      1. В командной строке выполните команду:
          ```
          net use x: \\<публичный IP-адрес виртуальной машины>\data
          ```
-  
+
      Тестовая директория и файл должны быть доступны на диске X.
-  
+
    {% endlist %}

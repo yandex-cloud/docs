@@ -16,24 +16,24 @@
 {% list tabs %}
 
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы изменить [класс хостов](../concepts/instance-types.md) для кластера:
-  
+
   1. Посмотрите описание команды CLI для изменения кластера:
-  
+
       ```
       $ {{ yc-mdb-pg }} cluster update --help
       ```
-  
+
   2. Запросите список доступных классов хостов (в колонке `ZONES` указаны зоны доступности, в которых можно выбрать соответствующий класс):
-  
+
      ```
      $ {{ yc-mdb-pg }} resource-preset list
-  
+
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
@@ -44,23 +44,23 @@
      | ...                                                           |
      +-----------+--------------------------------+-------+----------+
      ```
-  
+
   3. Укажите нужный класс в команде изменения кластера:
-  
+
       ```
       $ {{ yc-mdb-pg }} cluster update <имя кластера>
            --resource-preset <ID класса>
       ```
-  
+
       {{ mpg-short-name }} запустит операцию изменения класса хостов для кластера.
-  
-  
+
+
 - API
-  
+
   Изменить [класс хостов](../concepts/instance-types.md) кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.clickhouse.resources.resourcePresetId`.
-  
+
   Список поддерживаемых значений запрашивайте методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
-  
+
 {% endlist %}
 
 
@@ -69,18 +69,18 @@
 {% list tabs %}
 
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы увеличить размер хранилища для кластера:
-  
+
   3. Проверьте, что нужный кластер использует именно сетевое хранилище (увеличить размер локального хранилища пока невозможно). Для этого запросите информацию о кластере и найдите поле `disk_type_id` — его значение должно быть `network-hdd` или `network-nvme`:
-  
+
       ```
       $ {{ yc-mdb-pg }} cluster get <имя кластера>
-  
+
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
       ...
@@ -92,31 +92,31 @@
           disk_type_id: network-nvme
       ...
       ```
-  
+
   1. Посмотрите описание команды CLI для изменения кластера:
-  
+
      ```
      $ {{ yc-mdb-pg }} cluster update --help
      ```
-  
-  1. Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции {{ mpg-full-name }} не исчерпано место в строке **space**.
-  
+
+  1. Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты]({{ link-console-quotas }}) для вашего облака и проверьте, что в секции {{ mpg-full-name }} не исчерпано место в строке **space**.
+
   1. Укажите нужный объем хранилища в команде изменения кластера (должен быть не меньше, чем значение `disk_size` в свойствах кластера):
-  
+
       ```
       $ {{ yc-mdb-pg }} cluster update <имя кластера>
            --disk-size <размер хранилища в ГБ>
       ```
-  
+
       Если все условия выполнены, {{ mpg-short-name }} запустит операцию по увеличению объема хранилища.
-  
-  
+
+
 - API
-  
+
   Изменить размер хранилища для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.postgresqlConfig_<версия>.resources.diskSize`.
-  
-  Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты](https://console.cloud.yandex.ru/?section=quotas) для вашего облака и проверьте, что в секции {{ mpg-full-name }} не исчерпано место в строке **space**.
-  
+
+  Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты]({{ link-console-quotas }}) для вашего облака и проверьте, что в секции {{ mpg-full-name }} не исчерпано место в строке **space**.
+
 {% endlist %}
 
 
@@ -139,41 +139,41 @@
 {% list tabs %}
 
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы изменить настройки сервера {{ PG }}:
-  
+
   1. Посмотрите полный список настроек, установленных для кластера:
-  
+
      ```
      $ {{ yc-mdb-pg }} cluster get <имя кластера> --full
      ```
-  
+
   1. Посмотрите описание команды CLI для изменения конфигурации кластера:
-  
+
       ```
       $ {{ yc-mdb-pg }} cluster update-config --help
       ```
-  
+
   2. Установите нужные значения параметров.
-  
+
       Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `postgresqlConfig_<версия>`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `logMinDurationStatement` из запроса к API преобразуется в `log_min_duration_statement` для команды CLI:
-  
+
       ```
       $ {{ yc-mdb-pg }} cluster update-config <имя кластера>
            --set log_min_duration_statement=100,<имя параметра>=<значение>,...
       ```
-  
+
       {{ mpg-short-name }} запустит операцию по изменению настроек кластера.
-  
-  
+
+
 - API
-  
+
   Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.postgresqlConfig_<версия>.config`.
-  
+
 {% endlist %}
 
 
@@ -184,31 +184,31 @@
 {% list tabs %}
 
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы изменить режим работы PgBouncer:
-  
+
   1. Посмотрите описание команды CLI для изменения кластера:
-  
+
       ```
       $ {{ yc-mdb-pg }} cluster update --help
       ```
-  
+
   2. Укажите нужный режим работы с помощью флага `--connection-pooling-mode`:
-  
+
       ```
       $ {{ yc-mdb-pg }} cluster update <имя кластера>
            --connection-pooling-mode <SESSION, TRANSACTION или STATEMENT>
       ```
-  
+
       {{ mpg-short-name }} запустит операцию по изменению режима работы менеджера подключений.
-  
-  
+
+
 - API
-  
+
   Изменить режим работы менеджера подключений для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.poolerConfig.poolingMode`.
-  
+
 {% endlist %}

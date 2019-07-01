@@ -8,7 +8,7 @@ The procedure for changing account details depends on the type of changes.
 
 You can change the payer's contact information (for example, postal address or phone number) in [Yandex.Balance](https://balance.yandex.com/):
 
-1. In the [management console](https://console.cloud.yandex.com/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
 1. Select an account on the **List of accounts** page.
 1. Go to the **Account data** page.
 1. Click the link **Edit data in Yandex.Balance**. <br/>You will be redirected to the [Yandex.Balance](https://balance.yandex.com/) service.

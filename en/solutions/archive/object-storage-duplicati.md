@@ -30,15 +30,15 @@ Create static access keys. Save the ID and private key right away. You won't be 
 {% list tabs %}
 
 - Windows/Linux
-  
+
   [Download](https://www.duplicati.com/download) and install Duplicati.
-  
+
 - macOS
-  
+
   To use Duplicati on macOS, you need the [Mono framework](https://www.mono-project.com/download/stable/#download-mac).
-  
+
   Once you have installed the Mono framework, [download](https://www.duplicati.com/download) and install Duplicati.
-  
+
 {% endlist %}
 
 ## 5. Configure Duplicati {#configure-duplicati}
@@ -67,7 +67,7 @@ To test a backup:
 
 1. Open the **Home** menu item.
 1. In the list of backup plans next to the `Yandex Cloud` plan, click **Run now**.
-1. Open the [management console](https://console.cloud.yandex.com).
+1. Open the [management console]({{ link-console-main }}).
 1. Go to the folder containing the bucket where your backups are stored.
 1. Open the **Object Storage** service.
 1. Open the `backup` bucket and check whether all the necessary files have been copied.

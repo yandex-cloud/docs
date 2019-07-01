@@ -26,7 +26,7 @@ You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https:
 
     You will need the received `id` to access the created registry.
 
-1. Log in to {{ container-registry-short-name }} by running the `docker login` command with an OAuth token. You can get a token at this [link](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
+1. Log in to {{ container-registry-short-name }} by running the `docker login` command with an OAuth token. You can get a token at this [link]({{ link-cloud-oauth }}).
 
     ```
     $ docker login \

@@ -41,11 +41,11 @@ $ docker login \
 
 {% note info %}
 
-Срок жизни OAuth-токена 1 год. После этого необходимо [получить новый OAuth-токен](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) и повторить процедуру аутентификации.
+Срок жизни OAuth-токена 1 год. После этого необходимо [получить новый OAuth-токен]({{ link-cloud-oauth }}) и повторить процедуру аутентификации.
 
 {% endnote %}
 
-1. Если у вас еще нет OAuth-токена, получите его по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
+1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
 
 1. Выполните команду:
 

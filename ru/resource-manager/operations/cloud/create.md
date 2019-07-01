@@ -10,8 +10,8 @@
 
 Чтобы создать дополнительное облако:
 
-  1. [На странице биллинга](https://console.cloud.yandex.ru/billing) убедитесь, что [платежный аккаунт](../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-  1. Откройте главную страницу [консоли управления](https://console.cloud.yandex.ru/).
+  1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account).
+  1. Откройте главную страницу [консоли управления]({{ link-console-main }}).
   1. Нажмите значок ![image](../../../_assets/options.svg) напротив своего биллинг-аккаунта.
   1. Выберите **Создать облако**.
   1. Укажите имя облака и нажмите **Создать**. Вы будете перенаправлены на страницу каталога `default` в новом облаке.

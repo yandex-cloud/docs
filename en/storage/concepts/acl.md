@@ -13,7 +13,7 @@ You can grant permission to Yandex.Cloud users, service accounts, and system gro
 
 To grant permission to a Yandex.Cloud user, you need to know their account ID. You can find the account ID:
 
-- In the [IAM](https://console.cloud.yandex.com/iam) section of the management console.
+- In the [IAM]({{ link-console-access-management }}) section of the management console.
 - Using the [CLI or API](../../iam/operations/users/get.md).
 
 To grant permission to a [service account](../../iam/concepts/users/service-accounts) you need to retrieve its ID in the Service accounts section of the management console.

@@ -40,7 +40,7 @@ The `'{cluster}'` argument is automatically resolved to the {{ CH }} cluster ID.
 
 ### ZooKeeper hosts {#zookeeper-hosts}
 
-For each {{ CH }} cluster consisting of two or more hosts, {{ mch-short-name }} creates a cluster of three ZooKeeper hosts. ZooKeeper hosts are taken into account when calculating [resource consumption](https://console.cloud.yandex.com/?section=quotas) and the cost of the cluster.
+For each {{ CH }} cluster consisting of two or more hosts, {{ mch-short-name }} creates a cluster of three ZooKeeper hosts. ZooKeeper hosts are taken into account when calculating [resource consumption]({{ link-console-quotas }}) and the cost of the cluster.
 
 How ZooKeeper hosts are managed:
 

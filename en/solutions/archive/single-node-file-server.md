@@ -10,14 +10,14 @@ To create a single-node file server:
 
 Before creating a VM:
 
-1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.com) and select the folder where you want to perform the operations.
+1. Go to the Yandex.Cloud [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
 1. Make sure the selected folder has a network with a subnet that the VM can be connected to. To do this, click the **Virtual Private Cloud** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If there aren't any networks or subnets, [create them](../../vpc/quickstart.md).
 
 ## 1. Create a VM for the file server {#create-vm}
 
 To create a VM:
 
-1. On the folder page of the [management console](https://console.cloud.yandex.com), click **Create resource** and select **Virtual machine**.
+1. On the folder page of the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
 
 1. In the **Name** field, enter the VM name: `fileserver-tutorial`.
 
@@ -59,7 +59,7 @@ When a VM is created, it is assigned an IP address and hostname (FQDN). This dat
 
 After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the following:
 
-1. Go to the VM page of the [management console](https://console.cloud.yandex.com). In the **Network** section, find the VM's public IP address.
+1. Go to the VM page of the [management console]({{ link-console-main }}). In the **Network** section, find the VM's public IP address.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
@@ -70,21 +70,21 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
    {% list tabs %}
 
    - Ubuntu
-  
+
      ```bash
      $ sudo apt-get update
      $ sudo apt-get install nfs-kernel-server samba
      ```
-  
+
    - CentOS
-  
+
      ```bash
      $ sudo yum check-update
      $ sudo yum -y install nfs-utils nfs-utils-lib samba nano
      $ sudo chkconfig smb on
      $ sudo chkconfig nfs on
      ```
-  
+
    {% endlist %}
 
 1. Prepare and mount the file system on the data storage disk:
@@ -122,7 +122,7 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
    {% list tabs %}
 
    - Ubuntu
-  
+
      ```
      [global]
         workgroup = WORKGROUP
@@ -165,9 +165,9 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
         hosts allow = <IP address> 127.0.0.1
         hosts deny = 0.0.0.0/0
      ```
-  
+
    - CentOS 6
-  
+
      ```
      [global]
         workgroup = MYGROUP
@@ -200,35 +200,35 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
         hosts allow = <IP address> 127.0.0.1
         hosts deny = 0.0.0.0/0
      ```
-  
+
    - CentOS 7
-  
+
      ```
      [global]
              workgroup = SAMBA
              security = user
-  
+
              passdb backend = tdbsam
-  
+
              printing = cups
              printcap name = cups
              load printers = yes
              cups options = raw
-  
+
      [homes]
              comment = Home Directories
              valid users = %S, %D%w%S
              browseable = No
              read only = No
              inherit acls = Yes
-  
+
      [printers]
              comment = All Printers
              path = /var/tmp
              printable = Yes
              create mask = 0600
              browseable = No
-  
+
      [print$]
              comment = Printer Drivers
              path = /var/lib/samba/drivers
@@ -246,7 +246,7 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
         hosts allow = <IP address> 127.0.0.1
         hosts deny = 0.0.0.0/0
      ```
-  
+
    {% endlist %}
 
    In the `[data]` section, instead of `<IP address>`, specify the IP address of the computer to which you are going to connect the network data disk via NFS.
@@ -256,14 +256,14 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
    {% list tabs %}
 
    - Ubuntu
-  
+
      ```bash
      $ sudo service nfs-kernel-server restart
      $ sudo service smbd restart
      ```
-  
+
    - CentOS
-  
+
      ```bash
      $ sudo chcon -t samba_share_t /data
      $ sudo semanage fcontext -a -t samba_share_t "/data(/.*)?"
@@ -272,7 +272,7 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
      $ sudo service nfs restart
      $ sudo service smb restart
      ```
-  
+
    {% endlist %}
 
 1. This step should only be performed on a VM running CentOS 6.
@@ -302,20 +302,20 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
    {% list tabs %}
 
    - Linux/macOS
-  
+
      Run the command `mount -t nfs <external IP>:/data /<mount point>`.
-  
+
      The test directory and its file must be available at the specified mount point.
-  
+
    - Windows
      1. Run the **cmd.exe** utility. To do this, use the keyboard shortcut **Windows**+**R** and run the command `cmd`.
      1. From the command line, run:
-  
+
          ```
          net use x: \\<VM's public IP address>\data
          ```
-  
+
      The test directory and its file must be available on disk X.
-  
+
    {% endlist %}
 

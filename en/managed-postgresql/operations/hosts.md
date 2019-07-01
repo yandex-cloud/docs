@@ -7,23 +7,23 @@ You can add and remove cluster hosts and manage {{ PG }} settings for individual
 {% list tabs %}
 
 - Management console
-  
+
   1. Go to the folder page and click **{{ mpg-name }}**.
-  
+
   2. Click on the name of the cluster you need and select the **Hosts** tab.
-  
+
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   To get a list of cluster databases, run the command:
-  
+
   ```
   $ {{ yc-mdb-pg }} host list
        --cluster-name=<cluster name>
-       
+
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
@@ -31,55 +31,55 @@ You can add and remove cluster hosts and manage {{ PG }} settings for individual
   | rc1c...mdb.yandexcloud.net | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-c |
   +----------------------------+--------------+---------+--------+---------------+
   ```
-  
+
   The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
-  
+
 - API
-  
+
   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) method.
-  
+
 {% endlist %}
 
 ## Adding a host  {#add}
 
-The number of hosts in {{ mpg-short-name }} clusters is limited by the quotas on CPUs and RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas](https://console.cloud.yandex.com/?section=quotas
+The number of hosts in {{ mpg-short-name }} clusters is limited by the quotas on CPUs and RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}
 ) and find the **{{ mpg-full-name }}**.
 
 {% list tabs %}
 
 - Management console
-  
+
   1. Go to the folder page and click **{{ mpg-name }}**.
-  
+
   2. Click on the name of the cluster you need and go to the **Hosts** tab.
-  
+
   3. Click **Add host**.
-  
+
   1. Specify the host parameters:
-  
+
       * Availability zone.
-  
+
       * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
-  
+
       * Priority of the host as a {{ PG }} replica.
-  
+
       * Replication source (if you use cascading replication).
-  
+
       * Select the **Public access** option if the host must be accessible from outside the Cloud.
-  
+
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   To add a host to the cluster:
-  
+
   1. Request a list of cluster subnets to select one for the new host:
-  
+
       ```
       $ yc vpc subnet list
-      
+
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
@@ -89,29 +89,29 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the quotas on
       | e9b9v2... | default-a | enp6rq7... | ru-central1-a | [172.16.16.0/20] |
       +-----------+-----------+------------+---------------+------------------+
       ```
-  
+
   2. See the description of the CLI command for adding a host:
-  
+
       ```
       $ {{ yc-mdb-pg }} host add --help
       ```
-  
+
   3. Run the add host command:
-  
+
       ```
       $ {{ yc-mdb-pg }} host add
            --cluster-name <cluster name>
            --host zone-id=<availability zone>,subnet-id=<subnet ID>
       ```
-  
+
       {{ mpg-short-name }} will run the add host operation.
-  
+
       The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mpg-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
-  
+
 - API
-  
+
   To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
-  
+
 {% endlist %}
 
 ## Changing a host {#update}
@@ -125,26 +125,26 @@ For each host in a {{ PG }} cluster, you can change:
 {% list tabs %}
 
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   To change the parameters of the {{ PG }} host, run the command:
-  
+
   ```
   $ {{ yc-mdb-pg }} host update <host name>
        --cluster-name <cluster name>
        --replication-source <source host name>
        --priority <replica priority>
   ```
-  
+
   The host names can be requested with a [list of cluster hosts](#list-hosts) and the cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
-  
+
 - API
-  
+
   To remove a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method.
-  
+
 {% endlist %}
 
 ## Removing a host {#remove}
@@ -156,31 +156,31 @@ If the host is a master at the time of deletion, {{ mpg-short-name }} automatica
 {% list tabs %}
 
 - Management console
-  
+
   1. Go to the folder page and click **{{ mpg-name }}**.
-  
+
   2. Click on the name of the cluster you need and select the **Hosts** tab.
-  
+
   3. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
-  
+
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   To remove a host from the cluster, run:
-  
+
   ```
   $ {{ yc-mdb-pg }} host delete <host name>
        --cluster-name=<cluster name>
   ```
-  
+
   The name of the host can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
-  
+
 - API
-  
+
   To remove a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method.
-  
+
 {% endlist %}
 

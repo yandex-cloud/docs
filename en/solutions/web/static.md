@@ -11,7 +11,7 @@ To host a static website in Object Storage:
 
 To create a bucket for static website files:
 
-1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.com) and select the folder where you want to perform the operations.
+1. Go to the Yandex.Cloud [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
 
 1. On the folder page, click **Create resource** and select **Bucket**.
 
@@ -67,7 +67,7 @@ The website is accessible only over HTTP, for instance, `http://www.example.com`
 
 The instructions below describe how to configure an external DNS service using as an example [reg.ru](https://www.reg.ru/) for domain names `www.example.com.{{ s3-web-host }}` and `www.example.com`:
 
-1. Go to the bucket page and open the **Website** tab in the [management console](https://console.cloud.yandex.com) and find the website address.
+1. Go to the bucket page and open the **Website** tab in the [management console]({{ link-console-main }}) and find the website address.
 1. Log in to the control panel of the external DNS service. Go to the [list of your domains](https://www.reg.ru/user/domain_list) and click on the required domain name.
 1. Follow the **Zone management** link in the **Domain management** section.
 1. Create a CNAME record with the following field values:
@@ -77,5 +77,5 @@ The instructions below describe how to configure an external DNS service using a
 
 ## 4. Upload the website files to the bucket {#upload-files}
 
-After you configure and test the website's availability, upload the remaining files that are necessary for website operation. Do that via the [management console](https://console.cloud.yandex.com), [API](../../storage/s3/api-ref/object/upload.md), or one of the available [tools for working with {{ objstorage-name }}](../../storage/instruments/).
+After you configure and test the website's availability, upload the remaining files that are necessary for website operation. Do that via the [management console]({{ link-console-main }}), [API](../../storage/s3/api-ref/object/upload.md), or one of the available [tools for working with {{ objstorage-name }}](../../storage/instruments/).
 

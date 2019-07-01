@@ -14,7 +14,7 @@
 
 Перед тем, как создавать виртуальную машину и кластер БД:
 
-1. Перейдите в [консоль управления](https://console.cloud.yandex.ru) Яндекс.Облака и выберите каталог, в котором будете выполнять операции.
+1. Перейдите в [консоль управления]({{ link-console-main }}) Яндекс.Облака и выберите каталог, в котором будете выполнять операции.
 1. Убедитесь, что в выбранном каталоге есть сеть с подсетями в зонах доступности `ru-cental1-a`, `ru-central1-b` и `ru-central1-c`. Для этого на странице каталога выберите сервис **Virtual Private Cloud**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md).
 
 
@@ -22,7 +22,7 @@
 
 Чтобы создать виртуальную машину:
 
-1. На странице каталога в [консоли управления](https://console.cloud.yandex.ru) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
 1. В поле **Имя** введите имя виртуальной машины — `joomla-pg-tutorial-web`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 1. Выберите публичный образ **Ubuntu** или **Centos**.
@@ -67,7 +67,7 @@
 ## 3. Установите Joomla и дополнительные компоненты {#install}
 
 После того как виртуальная машина `joomla-pg-tutorial-web` перейдет в статус `RUNNING`, выполните:
-1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru) найдите публичный IP-адрес виртуальной машины.
+1. В блоке **Сеть** на странице виртуальной машины в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес виртуальной машины.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows.
 
       Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей.  Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на виртуальную машину.
@@ -86,7 +86,7 @@
     {% list tabs %}
 
     - Ubuntu 14
-  
+
       ```bash
       $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
       $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -97,9 +97,9 @@
       $ sudo chmod 0600 ~www-data/.postgresql/root.crt
       $ sudo chown -R www-data:www-data ~www-data/.postgresql
       ```
-  
+
     - Ubuntu 16
-  
+
       ```bash
       $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
       $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -110,9 +110,9 @@
       $ sudo chmod 0600 ~www-data/.postgresql/root.crt
       $ sudo chown -R www-data:www-data ~www-data/.postgresql
       ```
-  
+
     - Ubuntu 18
-  
+
       ```bash
       $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
       $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -123,9 +123,9 @@
       $ sudo chmod 0600 ~www-data/.postgresql/root.crt
       $ sudo chown -R www-data:www-data ~www-data/.postgresql
       ```
-  
+
     - CentOS 6
-  
+
       ```bash
       $ sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-6-x86_64/pgdg-centos10-10-2.noarch.rpm
       $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
@@ -136,9 +136,9 @@
       $ sudo chmod 0600 ~apache/.postgresql/root.crt
       $ sudo chown -R apache:apache ~apache/.postgresql
       ```
-  
+
     - CentOS 7
-  
+
       ```bash
       $ sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
       $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
@@ -149,7 +149,7 @@
       $ sudo chmod 0600 ~apache/.postgresql/root.crt
       $ sudo chown -R apache:apache ~apache/.postgresql
       ```
-  
+
     {% endlist %}
 
 ## 4. Настройте веб-сервер Apache2 {#configure-apache2}
@@ -159,7 +159,7 @@
    {% list tabs %}
 
    - Ubuntu 14
-  
+
      ```bash
      $ sudo a2enmod php5
      $ sudo a2dismod mpm_event
@@ -167,9 +167,9 @@
      $ sudo a2enmod rewrite
      $ sudo chown -R www-data /var/www/html/
      ```
-  
+
    - Ubuntu 16
-  
+
      ```bash
      $ sudo a2enmod php7.0
      $ sudo a2dismod mpm_event
@@ -177,9 +177,9 @@
      $ sudo a2enmod rewrite
      $ sudo chown -R www-data /var/www/html/
      ```
-  
+
    - Ubuntu 18
-  
+
      ```bash
      $ sudo a2enmod php7.2
      $ sudo a2dismod mpm_event
@@ -187,13 +187,13 @@
      $ sudo a2enmod rewrite
      $ sudo chown -R www-data /var/www/html/
      ```
-  
+
    - CentOS
-  
+
      ```bash
      $ sudo chown -R apache /var/www/html/
      ```
-  
+
    {% endlist %}
 
 1. Задайте настройки виртуального хоста в конфигурационном файле Apache2. Вы можете отредактировать файл с помощью редактора `nano`:
@@ -201,17 +201,17 @@
    {% list tabs %}
 
    - Ubuntu
-  
+
      ```bash
      $ sudo nano /etc/apache2/sites-enabled/000-default.conf
      ```
-  
+
    - CentOS
-  
+
      ```bash
      $ sudo nano /etc/httpd/conf.d/joomla.conf
      ```
-  
+
    {% endlist %}
 
    Приведите файл к виду:
@@ -236,17 +236,17 @@
    {% list tabs %}
 
    - Ubuntu
-  
+
      ```bash
      $ sudo service apache2 restart
      ```
-  
+
    - CentOS
-  
+
      ```bash
      $ sudo service httpd restart
      ```
-  
+
    {% endlist %}
 
 1. Этот шаг нужно выполнять только на виртуальной машине с CentOS.

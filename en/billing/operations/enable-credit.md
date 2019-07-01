@@ -7,7 +7,7 @@ After [the paid version is activated](../operations/activate-commercial.md) and 
 
 To submit a request:
 
-1. In the [management console](https://console.cloud.yandex.com/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
 1. Select an account on the **List of accounts** page.
 1. Click **Switch to post-payment** on the **Overview** page. The request form opens.
 1. Fill in all the request fields and attach the following documents:
@@ -16,5 +16,5 @@ To submit a request:
      - A copy of the power of attorney of the business representative (if you are a representative).
 1. Click **Send request**.
 
-Your request will be reviewed within three business days. As soon as the decision is made, a Yandex.Cloud manager will contact you. If the decision is positive, all information about the credit limit will be available in the [management console](https://console.cloud.yandex.com/billing).
+Your request will be reviewed within three business days. As soon as the decision is made, a Yandex.Cloud manager will contact you. If the decision is positive, all information about the credit limit will be available in the [management console]({{ link-console-billing }}).
 
