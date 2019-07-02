@@ -1,0 +1,2141 @@
+openapi: "3.0"
+info:
+  title: Yandex Instance Groups API
+  description: This API reference is organized by resource. All actions are performed
+    by sending HTTP requests to resource URLs. For more information about the Yandex.Cloud
+    API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://compute.api.cloud.yandex.net
+paths:
+  /compute/v1/instanceGroups/{instanceGroupId}:
+    get:
+      tags:
+      - InstanceGroup
+      summary: Returns the specified InstanceGroup resource.
+      description: To get the list of available InstanceGroup resources, make a [list](/docs/compute/api-ref/InstanceGroup/list)
+        request.
+      operationId: InstanceGroupGet
+      parameters:
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the InstanceGroup resource to return.
+          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Defines which information about the Instance template should
+          be returned in the server response.
+        schema:
+          $ref: '#/components/schemas/InstanceGroupView'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstanceGroup'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - InstanceGroup
+      summary: Deletes the specified instance group.
+      operationId: InstanceGroupDelete
+      parameters:
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the instance group to delete.
+          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteInstanceGroupMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - InstanceGroup
+      summary: |-
+        Updates the specified instance group.
+        This method starts an operation that can be cancelled by another operation.
+      operationId: InstanceGroupUpdate
+      parameters:
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the instance group to update.
+          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateInstanceGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateInstanceGroupMetadata'
+      x-y-operation-response: '[InstanceGroup](/docs/compute/api-ref/InstanceGroup#representation)'
+  /compute/v1/instanceGroups:
+    get:
+      tags:
+      - InstanceGroup
+      summary: Retrieves the list of InstanceGroup resources in the specified folder.
+      operationId: InstanceGroupList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list instance groups in.
+          To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/InstanceGroup/list#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/InstanceGroup/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results,
+          set [pageToken](/docs/compute/api-ref/InstanceGroup/list#query_params) to the [nextPageToken](/docs/compute/api-ref/InstanceGroup/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation) field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Defines which information about the Instance template should
+          be returned in the server response.
+        schema:
+          $ref: '#/components/schemas/InstanceGroupView'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListInstanceGroupsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - InstanceGroup
+      summary: |-
+        Creates an instance group in the specified folder.
+        This method starts an operation that can be cancelled by another operation.
+      operationId: InstanceGroupCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateInstanceGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateInstanceGroupMetadata'
+      x-y-operation-response: '[InstanceGroup](/docs/compute/api-ref/InstanceGroup#representation)'
+  /compute/v1/instanceGroups:yaml:
+    post:
+      tags:
+      - InstanceGroup
+      summary: |-
+        Creates an instance group in the specified folder from a YAML file.
+        This method starts an operation that can be cancelled by another operation.
+      operationId: InstanceGroupCreateFromYaml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateInstanceGroupFromYamlRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: createFromYaml
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateInstanceGroupMetadata'
+      x-y-operation-response: '[InstanceGroup](/docs/compute/api-ref/InstanceGroup#representation)'
+  /compute/v1/instanceGroups/{instanceGroupId}:yaml:
+    patch:
+      tags:
+      - InstanceGroup
+      summary: |-
+        Updates the specified instance group from a YAML file.
+        This method starts an operation that can be cancelled by another operation.
+      operationId: InstanceGroupUpdateFromYaml
+      parameters:
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the instance group to update.
+          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateInstanceGroupFromYamlRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateFromYaml
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateInstanceGroupMetadata'
+      x-y-operation-response: '[InstanceGroup](/docs/compute/api-ref/InstanceGroup#representation)'
+  /compute/v1/instanceGroups/{instanceGroupId}/instances:
+    get:
+      tags:
+      - InstanceGroup
+      summary: Lists instances for the specified instance group.
+      operationId: InstanceGroupListInstances
+      parameters:
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the InstanceGroup resource to list instances for.
+          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/InstanceGroup/listInstances#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results,
+          set [pageToken](/docs/compute/api-ref/InstanceGroup/listInstances#query_params) to the [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation) field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListInstanceGroupInstancesResponse'
+      x-y-navtitle: listInstances
+  /compute/v1/instanceGroups/{instanceGroupId}/operations:
+    get:
+      tags:
+      - InstanceGroup
+      summary: Lists operations for the specified instance group.
+      operationId: InstanceGroupListOperations
+      parameters:
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the InstanceGroup resource to list operations for.
+          To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is more than [pageSize](/docs/compute/api-ref/InstanceGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/InstanceGroup/listOperations#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation) field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListInstanceGroupOperationsResponse'
+      x-y-navtitle: listOperations
+  /compute/v1/instanceGroups/{instanceGroupId}:logs:
+    get:
+      tags:
+      - InstanceGroup
+      summary: Lists logs for the specified instance group.
+      operationId: InstanceGroupListLogRecords
+      parameters:
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the InstanceGroup resource to list logs for.
+          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results,
+          set [pageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params) to the [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation) field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListInstanceGroupLogRecordsResponse'
+      x-y-navtitle: listLogRecords
+components:
+  schemas:
+    AllocationPolicy:
+      type: object
+      properties:
+        zones:
+          description: |-
+            Required.
+            List of availability zones.
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/AllocationPolicyZone'
+    AllocationPolicyZone:
+      type: object
+      properties:
+        zoneId:
+          description: |-
+            Required.
+            ID of the availability zone where the instance resides.
+          type: string
+    AttachedDiskSpec:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/AttachedDiskSpecMode_in_AttachedDiskSpec_mode'
+        deviceName:
+          description: |-
+            Serial number that is reflected in the /dev/disk/by-id/ tree
+            of a Linux operating system running within the instance.
+
+            This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
+
+            Value must match the regular expression `` |[a-z][-_0-9a-z]{0,19} ``.
+          type: string
+        diskSpec:
+          $ref: '#/components/schemas/AttachedDiskSpecDiskSpec_in_AttachedDiskSpec_diskSpec'
+    AttachedDiskSpecDiskSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          description:
+            description: |-
+              Description of the disk.
+
+              The maximum string length in characters is 256.
+            type: string
+          typeId:
+            description: |-
+              Required.
+              ID of the disk type.
+
+              Value must match the regular expression `` network-nvme|network-hdd ``.
+            type: string
+          size:
+            description: |-
+              Size of the disk, specified in bytes.
+
+              Acceptable values are 4194304 to 4398046511104, inclusive.
+            type: string
+            format: int64
+      - title: source_oneof
+        type: object
+        maxProperties: 1
+        properties:
+          imageId:
+            description: |-
+              ID of the image that will be used for disk creation.
+
+              The maximum string length in characters is 50.
+            type: string
+          snapshotId:
+            description: |-
+              ID of the snapshot that will be used for disk creation.
+
+              The maximum string length in characters is 50.
+            type: string
+    AttachedDiskSpecMode:
+      description: |2-
+         - READ_ONLY: Read-only access.
+         - READ_WRITE: Read/Write access.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    CreateInstanceGroupFromYamlRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create an instance group in.
+            To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+          type: string
+        instanceGroupYaml:
+          description: |-
+            Required.
+            CreateInstanceGroupRequest in YAML format.
+
+            The maximum string length in characters is 1048576.
+          type: string
+    CreateInstanceGroupMetadata:
+      type: object
+      properties:
+        instanceGroupId:
+          description: |-
+            ID of the instance group that is being created.
+
+            The maximum string length in characters is 50.
+          type: string
+    CreateInstanceGroupRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create an instance group in.
+            To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+          type: string
+        name:
+          description: |-
+            Name of the instance group.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the instance group.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        instanceTemplate:
+          $ref: '#/components/schemas/InstanceTemplate_in_CreateInstanceGroupRequest_instanceTemplate'
+        scalePolicy:
+          $ref: '#/components/schemas/ScalePolicy_in_CreateInstanceGroupRequest_scalePolicy'
+        deployPolicy:
+          $ref: '#/components/schemas/DeployPolicy_in_CreateInstanceGroupRequest_deployPolicy'
+        allocationPolicy:
+          $ref: '#/components/schemas/AllocationPolicy_in_CreateInstanceGroupRequest_allocationPolicy'
+        loadBalancerSpec:
+          $ref: '#/components/schemas/LoadBalancerSpec_in_CreateInstanceGroupRequest_loadBalancerSpec'
+        healthChecksSpec:
+          $ref: '#/components/schemas/HealthChecksSpec_in_CreateInstanceGroupRequest_healthChecksSpec'
+        serviceAccountId:
+          description: |-
+            ID of the service account. The service account will be used for all API calls
+            made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
+            To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
+          type: string
+    DeleteInstanceGroupMetadata:
+      type: object
+      properties:
+        instanceGroupId:
+          description: |-
+            ID of the instance group that is being deleted.
+            To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+          type: string
+    DeployPolicy:
+      type: object
+      properties:
+        maxUnavailable:
+          description: |-
+            The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time
+            during the update process.
+            If maxExpansion is not specified or set to zero, maxUnavailable must be set to a non-zero value.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        maxDeleting:
+          description: |-
+            The maximum number of instances that can be deleted at the same time.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        maxCreating:
+          description: |-
+            The maximum number of instances that can be created at the same time.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        maxExpansion:
+          description: |-
+            The maximum number of instances that can be temporarily allocated above the group's target size
+            during the update process.
+            If maxUnavailable is not specified or set to zero, maxExpansion must be set to a non-zero value.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        startupDuration:
+          description: |-
+            Instance startup duration.
+            Instance will be considered up and running (and start receiving traffic) only after startup_duration
+            has elapsed and all health checks are passed.
+            See ManagedInstanceStatus for more information.
+
+            Acceptable values are 0 seconds to 3600 seconds, inclusive.
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    HealthCheckSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          interval:
+            description: |-
+              The interval between health checks. The default is 2 seconds.
+
+              Acceptable values are 1 seconds to 300 seconds, inclusive.
+            type: string
+          timeout:
+            description: |-
+              Timeout for the managed instance to return a response for the health check. The default is 1 second.
+
+              Acceptable values are 1 seconds to 60 seconds, inclusive.
+            type: string
+          unhealthyThreshold:
+            description: |-
+              The number of failed health checks for the managed instance to be considered unhealthy. The default (0) is 2.
+
+              Value must be one of 0, 2, 3, 4, 5, 6, 7, 8, 9 or 10.
+            type: string
+            format: int64
+          healthyThreshold:
+            description: |-
+              The number of successful health checks required in order for the managed instance to be considered healthy. The default (0) is 2.
+
+              Value must be one of 0, 2, 3, 4, 5, 6, 7, 8, 9 or 10.
+            type: string
+            format: int64
+      - title: health_check_options
+        type: object
+        maxProperties: 1
+        properties:
+          tcpOptions:
+            $ref: '#/components/schemas/HealthCheckSpecTcpOptions'
+            description: Configuration options for a TCP health check.
+          httpOptions:
+            $ref: '#/components/schemas/HealthCheckSpecHttpOptions'
+            description: Configuration options for an HTTP health check.
+    HealthCheckSpecHttpOptions:
+      type: object
+      properties:
+        port:
+          description: |-
+            Port to use for HTTP health checks.
+
+            Acceptable values are 1 to 32767, inclusive.
+          type: string
+          format: int64
+        path:
+          description: URL path to set for health checking requests.
+          type: string
+    HealthCheckSpecTcpOptions:
+      type: object
+      properties:
+        port:
+          description: |-
+            Port to use for TCP health checks.
+
+            Acceptable values are 1 to 32767, inclusive.
+          type: string
+          format: int64
+    HealthChecksSpec:
+      type: object
+      properties:
+        healthCheckSpecs:
+          description: |-
+            Required.
+            Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check).
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/HealthCheckSpec'
+    InstanceGroup:
+      type: object
+      properties:
+        id:
+          description: ID of the instance group.
+          type: string
+        folderId:
+          description: ID of the folder that the instance group belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: |-
+            Name of the instance group.
+            The name is unique within the folder.
+          type: string
+        description:
+          description: Description of the instance group.
+          type: string
+        labels:
+          description: Resource labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+        instanceTemplate:
+          $ref: '#/components/schemas/InstanceTemplate_in_InstanceGroup_instanceTemplate'
+        scalePolicy:
+          $ref: '#/components/schemas/ScalePolicy_in_InstanceGroup_scalePolicy'
+        deployPolicy:
+          $ref: '#/components/schemas/DeployPolicy_in_InstanceGroup_deployPolicy'
+        allocationPolicy:
+          $ref: '#/components/schemas/AllocationPolicy_in_InstanceGroup_allocationPolicy'
+        loadBalancerState:
+          $ref: '#/components/schemas/LoadBalancerState_in_InstanceGroup_loadBalancerState'
+        managedInstancesState:
+          $ref: '#/components/schemas/ManagedInstancesState_in_InstanceGroup_managedInstancesState'
+        loadBalancerSpec:
+          $ref: '#/components/schemas/LoadBalancerSpec_in_InstanceGroup_loadBalancerSpec'
+        healthChecksSpec:
+          $ref: '#/components/schemas/HealthChecksSpec_in_InstanceGroup_healthChecksSpec'
+        serviceAccountId:
+          description: |-
+            ID of the service account. The service account will be used for all API calls
+            made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
+            To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
+          type: string
+    InstanceGroupView:
+      description: |2-
+         - BASIC: Doesn't include the metadata of the instance template in the server response.
+         - FULL: Returns the metadata of the instance template in the server response.
+      type: string
+      enum:
+      - BASIC
+      - FULL
+      default: BASIC
+    InstanceTemplate:
+      type: object
+      properties:
+        description:
+          description: |-
+            Description of the instance template.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        platformId:
+          description: |-
+            ID of the hardware platform configuration for the instance.
+            Currently only several platforms is available - `standard-v1`, `standard-v2`. These platforms are suitable for most tasks.
+            These platforms allows you to create various types of instances: with a large amount of memory,
+            with a large number of cores, with a burstable performance.
+            For more information, see [Platforms](/docs/compute/concepts/vm-platforms).
+
+            Value must match the regular expression `` standard-v1|standard-v2 ``.
+          type: string
+        resourcesSpec:
+          $ref: '#/components/schemas/ResourcesSpec_in_InstanceTemplate_resourcesSpec'
+        metadata:
+          description: |-
+            The metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
+
+            For example, you may use the metadata in order to provide your public SSH key to the instance.
+            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+
+            No more than 128 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 262144.
+          type: object
+          additionalProperties:
+            type: string
+        bootDiskSpec:
+          $ref: '#/components/schemas/AttachedDiskSpec_in_InstanceTemplate_bootDiskSpec'
+        secondaryDiskSpecs:
+          description: |-
+            Array of secondary disks that will be attached to the instance.
+
+            The maximum number of elements is 3.
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedDiskSpec'
+        networkInterfaceSpecs:
+          description: |-
+            Required.
+            Array of network interfaces that will be attached to the instance.
+
+            Must contain exactly 1 element.
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkInterfaceSpec'
+        schedulingPolicy:
+          $ref: '#/components/schemas/SchedulingPolicy_in_InstanceTemplate_schedulingPolicy'
+        serviceAccountId:
+          description: Service account ID for the instance.
+          type: string
+    IpVersion:
+      description: |2-
+         - IPV4: IPv4 address, for example 192.168.0.0.
+         - IPV6: IPv6 address, not available yet.
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    ListInstanceGroupInstancesResponse:
+      type: object
+      properties:
+        instances:
+          description: Lists instances for the specified instance group.
+          type: array
+          items:
+            $ref: '#/components/schemas/ManagedInstance'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is more than [pageSize](/docs/compute/api-ref/InstanceGroup/listInstances#query_params), use
+            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/InstanceGroup/listInstances#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses) to continue paging through the results.
+          type: string
+    ListInstanceGroupLogRecordsResponse:
+      type: object
+      properties:
+        logRecords:
+          description: Lists logs for the specified instance group.
+          type: array
+          items:
+            $ref: '#/components/schemas/LogRecord'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params), use
+            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/InstanceGroup/listLogRecords#responses) to continue paging through the results.
+          type: string
+    ListInstanceGroupOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Lists operations for the specified instance group.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is more than [pageSize](/docs/compute/api-ref/InstanceGroup/listOperations#query_params), use the [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/InstanceGroup/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/compute/api-ref/InstanceGroup/listOperations#responses) to continue paging through the results.
+          type: string
+    ListInstanceGroupsResponse:
+      type: object
+      properties:
+        instanceGroups:
+          description: Lists instance groups for the specified folder.
+          type: array
+          items:
+            $ref: '#/components/schemas/InstanceGroup'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/InstanceGroup/list#query_params), use
+            [nextPageToken](/docs/compute/api-ref/InstanceGroup/list#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/InstanceGroup/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/InstanceGroup/list#responses) to continue paging through the results.
+          type: string
+    LoadBalancerSpec:
+      type: object
+      properties:
+        targetGroupSpec:
+          $ref: '#/components/schemas/TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec'
+    LoadBalancerState:
+      type: object
+      properties:
+        targetGroupId:
+          description: ID of the target group used for load balancing.
+          type: string
+        statusMessage:
+          description: Status message of the target group.
+          type: string
+    LogRecord:
+      type: object
+      properties:
+        timestamp:
+          description: |-
+            Log timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        message:
+          description: The log message.
+          type: string
+    ManagedInstance:
+      description: A ManagedInstance resource. For more information, see [Instance
+        Groups Concepts](/docs/instance-groups/concepts).
+      type: object
+      properties:
+        id:
+          description: ID of the managed instance.
+          type: string
+        status:
+          $ref: '#/components/schemas/ManagedInstanceStatus_in_ManagedInstance_status'
+        instanceId:
+          description: ID of the instance.
+          type: string
+        fqdn:
+          description: Fully Qualified Domain Name.
+          type: string
+        name:
+          description: The name of the managed instance.
+          type: string
+        statusMessage:
+          description: Status message for the managed instance.
+          type: string
+        zoneId:
+          description: ID of the availability zone where the instance resides.
+          type: string
+        networkInterfaces:
+          description: Array of network interfaces that are attached to the managed
+            instance.
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkInterface'
+        statusChangedAt:
+          description: |-
+            The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format when the status of the managed instance was last changed.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    ManagedInstanceStatus:
+      description: |2-
+         - CREATING_INSTANCE: Instance is being created.
+         - UPDATING_INSTANCE: Instance is being updated.
+         - DELETING_INSTANCE: Instance is being deleted.
+         - STARTING_INSTANCE: Instance is being started.
+         - STOPPING_INSTANCE: Instance is being stopped.
+         - AWAITING_STARTUP_DURATION: Instance has been created successfully, but startup duration has not elapsed yet.
+         - CHECKING_HEALTH: Instance has been created successfully and startup duration has elapsed, but health checks have not passed yet and the managed instance is not ready to receive traffic.
+         - OPENING_TRAFFIC: Instance Groups is initiating health checks and routing traffic to the instances.
+         - AWAITING_WARMUP_DURATION: Instance is now receiving traffic, but warmup duration has not elapsed yet.
+         - CLOSING_TRAFFIC: Instance Groups has initiated the process of stopping routing traffic to the instances.
+         - RUNNING_ACTUAL: Instance is running normally and its attributes match the current InstanceTemplate.
+         - RUNNING_OUTDATED: Instance is running normally, but its attributes do not match the current InstanceTemplate.
+        It will be updated, recreated or deleted shortly.
+         - STOPPED: Instance was stopped.
+         - DELETED: Instance was deleted.
+      type: string
+      enum:
+      - CREATING_INSTANCE
+      - UPDATING_INSTANCE
+      - DELETING_INSTANCE
+      - STARTING_INSTANCE
+      - STOPPING_INSTANCE
+      - AWAITING_STARTUP_DURATION
+      - CHECKING_HEALTH
+      - OPENING_TRAFFIC
+      - AWAITING_WARMUP_DURATION
+      - CLOSING_TRAFFIC
+      - RUNNING_ACTUAL
+      - RUNNING_OUTDATED
+      - STOPPED
+      - DELETED
+    ManagedInstancesState:
+      type: object
+      properties:
+        targetSize:
+          description: Target number of instances for this instance group.
+          type: string
+          format: int64
+        runningActualCount:
+          description: The number of running instances that match the current instance
+            template. For more information, see RUNNING_ACTUAL.
+          type: string
+          format: int64
+        runningOutdatedCount:
+          description: The number of running instances that does not match the current
+            instance template. For more information, see RUNNING_OUTDATED.
+          type: string
+          format: int64
+        processingCount:
+          description: The number of instances in flight (for example, updating, starting,
+            deleting). For more information, see ManagedInstanceStatus.
+          type: string
+          format: int64
+    NetworkInterface:
+      type: object
+      properties:
+        index:
+          description: |-
+            The index of the network interface, generated by the server, 0,1,2... etc.
+            Currently only one network interface is supported per instance.
+          type: string
+        macAddress:
+          description: MAC address that is assigned to the network interface.
+          type: string
+        subnetId:
+          description: ID of the subnet.
+          type: string
+        primaryV4Address:
+          $ref: '#/components/schemas/PrimaryAddress_in_NetworkInterface_primaryV4Address'
+        primaryV6Address:
+          $ref: '#/components/schemas/PrimaryAddress_in_NetworkInterface_primaryV6Address'
+    NetworkInterfaceSpec:
+      type: object
+      properties:
+        networkId:
+          description: ID of the network.
+          type: string
+        subnetIds:
+          description: IDs of the subnets.
+          type: array
+          items:
+            type: string
+        primaryV4AddressSpec:
+          $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec'
+        primaryV6AddressSpec:
+          $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec'
+    OneToOneNat:
+      type: object
+      properties:
+        address:
+          description: An IPv4 external network address that is assigned to the managed
+            instance for this network interface.
+          type: string
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_OneToOneNat_ipVersion'
+    OneToOneNatSpec:
+      type: object
+      properties:
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    PrimaryAddress:
+      type: object
+      properties:
+        address:
+          description: |-
+            An IPv4 internal network address that is assigned to the managed instance for this network interface.
+            If not specified by the user, an unused internal IP is assigned by the system.
+          type: string
+        oneToOneNat:
+          $ref: '#/components/schemas/OneToOneNat_in_PrimaryAddress_oneToOneNat'
+    PrimaryAddressSpec:
+      type: object
+      properties:
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
+    ResourcesSpec:
+      type: object
+      properties:
+        memory:
+          description: |-
+            The amount of memory available to the instance, specified in bytes.
+
+            The maximum value is 274877906944.
+          type: string
+          format: int64
+        cores:
+          description: |-
+            The number of cores available to the instance.
+
+            Value must be one of 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 or 32.
+          type: string
+          format: int64
+        coreFraction:
+          description: |-
+            Baseline level of CPU performance with the ability to burst performance above that baseline level.
+            This field sets baseline performance for each core.
+
+            Value must be one of 0, 5, 20, 50 or 100.
+          type: string
+          format: int64
+    ScalePolicy:
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: Fixed scaling policy of the instance group.
+    ScalePolicyFixedScale:
+      type: object
+      properties:
+        size:
+          description: |-
+            Number of instances in the instance group.
+
+            Acceptable values are 1 to 100, inclusive.
+          type: string
+          format: int64
+    SchedulingPolicy:
+      type: object
+      properties:
+        preemptible:
+          description: |-
+            Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
+            if their resources are needed by Compute.
+            For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
+          type: boolean
+          format: boolean
+    TargetGroupSpec:
+      type: object
+      properties:
+        name:
+          description: |-
+            Name of the target group.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the target group.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    UpdateInstanceGroupFromYamlRequest:
+      type: object
+      properties:
+        instanceGroupYaml:
+          description: |-
+            Required.
+            UpdateInstanceGroupRequest in YAML format.
+
+            The maximum string length in characters is 1048576.
+          type: string
+    UpdateInstanceGroupMetadata:
+      type: object
+      properties:
+        instanceGroupId:
+          description: |-
+            ID of the InstanceGroup resource that is being updated.
+            To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+          type: string
+    UpdateInstanceGroupRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateInstanceGroupRequest_updateMask'
+        name:
+          description: |-
+            Name of the instance group.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the instance group.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            The existing set of `labels` is completely replaced by the provided set.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        instanceTemplate:
+          $ref: '#/components/schemas/InstanceTemplate_in_UpdateInstanceGroupRequest_instanceTemplate'
+        scalePolicy:
+          $ref: '#/components/schemas/ScalePolicy_in_UpdateInstanceGroupRequest_scalePolicy'
+        deployPolicy:
+          $ref: '#/components/schemas/DeployPolicy_in_UpdateInstanceGroupRequest_deployPolicy'
+        allocationPolicy:
+          $ref: '#/components/schemas/AllocationPolicy_in_UpdateInstanceGroupRequest_allocationPolicy'
+        healthChecksSpec:
+          $ref: '#/components/schemas/HealthChecksSpec_in_UpdateInstanceGroupRequest_healthChecksSpec'
+        serviceAccountId:
+          description: |-
+            ID of the service account. The service account will be used for all API calls
+            made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
+            To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
+          type: string
+        loadBalancerSpec:
+          $ref: '#/components/schemas/LoadBalancerSpec_in_UpdateInstanceGroupRequest_loadBalancerSpec'
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    AttachedDiskSpecMode_in_AttachedDiskSpec_mode:
+      description: |-
+        Required.
+        Access mode to the Disk resource.
+
+         - READ_ONLY: Read-only access.
+         - READ_WRITE: Read/Write access.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    AttachedDiskSpecDiskSpec_in_AttachedDiskSpec_diskSpec:
+      description: |-
+        Required.
+        Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          description:
+            description: |-
+              Description of the disk.
+
+              The maximum string length in characters is 256.
+            type: string
+          typeId:
+            description: |-
+              Required.
+              ID of the disk type.
+
+              Value must match the regular expression `` network-nvme|network-hdd ``.
+            type: string
+          size:
+            description: |-
+              Size of the disk, specified in bytes.
+
+              Acceptable values are 4194304 to 4398046511104, inclusive.
+            type: string
+            format: int64
+      - title: source_oneof
+        type: object
+        maxProperties: 1
+        properties:
+          imageId:
+            description: |-
+              ID of the image that will be used for disk creation.
+
+              The maximum string length in characters is 50.
+            type: string
+          snapshotId:
+            description: |-
+              ID of the snapshot that will be used for disk creation.
+
+              The maximum string length in characters is 50.
+            type: string
+    InstanceTemplate_in_CreateInstanceGroupRequest_instanceTemplate:
+      description: |-
+        Required.
+        Instance template that the instance group belongs to.
+      type: object
+      properties:
+        description:
+          description: |-
+            Description of the instance template.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        platformId:
+          description: |-
+            ID of the hardware platform configuration for the instance.
+            Currently only several platforms is available - `standard-v1`, `standard-v2`. These platforms are suitable for most tasks.
+            These platforms allows you to create various types of instances: with a large amount of memory,
+            with a large number of cores, with a burstable performance.
+            For more information, see [Platforms](/docs/compute/concepts/vm-platforms).
+
+            Value must match the regular expression `` standard-v1|standard-v2 ``.
+          type: string
+        resourcesSpec:
+          $ref: '#/components/schemas/ResourcesSpec_in_InstanceTemplate_resourcesSpec'
+        metadata:
+          description: |-
+            The metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
+
+            For example, you may use the metadata in order to provide your public SSH key to the instance.
+            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+
+            No more than 128 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 262144.
+          type: object
+          additionalProperties:
+            type: string
+        bootDiskSpec:
+          $ref: '#/components/schemas/AttachedDiskSpec_in_InstanceTemplate_bootDiskSpec'
+        secondaryDiskSpecs:
+          description: |-
+            Array of secondary disks that will be attached to the instance.
+
+            The maximum number of elements is 3.
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedDiskSpec'
+        networkInterfaceSpecs:
+          description: |-
+            Required.
+            Array of network interfaces that will be attached to the instance.
+
+            Must contain exactly 1 element.
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkInterfaceSpec'
+        schedulingPolicy:
+          $ref: '#/components/schemas/SchedulingPolicy_in_InstanceTemplate_schedulingPolicy'
+        serviceAccountId:
+          description: Service account ID for the instance.
+          type: string
+    ScalePolicy_in_CreateInstanceGroupRequest_scalePolicy:
+      description: |-
+        Required.
+        Scaling policy of the instance group.
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: Fixed scaling policy of the instance group.
+    DeployPolicy_in_CreateInstanceGroupRequest_deployPolicy:
+      description: |-
+        Required.
+        Deployment policy of the instance group.
+      type: object
+      properties:
+        maxUnavailable:
+          description: |-
+            The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time
+            during the update process.
+            If maxExpansion is not specified or set to zero, maxUnavailable must be set to a non-zero value.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        maxDeleting:
+          description: |-
+            The maximum number of instances that can be deleted at the same time.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        maxCreating:
+          description: |-
+            The maximum number of instances that can be created at the same time.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        maxExpansion:
+          description: |-
+            The maximum number of instances that can be temporarily allocated above the group's target size
+            during the update process.
+            If maxUnavailable is not specified or set to zero, maxExpansion must be set to a non-zero value.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        startupDuration:
+          description: |-
+            Instance startup duration.
+            Instance will be considered up and running (and start receiving traffic) only after startup_duration
+            has elapsed and all health checks are passed.
+            See ManagedInstanceStatus for more information.
+
+            Acceptable values are 0 seconds to 3600 seconds, inclusive.
+          type: string
+    AllocationPolicy_in_CreateInstanceGroupRequest_allocationPolicy:
+      description: |-
+        Required.
+        Allocation policy of the instance group by zones and regions.
+      type: object
+      properties:
+        zones:
+          description: |-
+            Required.
+            List of availability zones.
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/AllocationPolicyZone'
+    LoadBalancerSpec_in_CreateInstanceGroupRequest_loadBalancerSpec:
+      description: Load balancing specification.
+      type: object
+      properties:
+        targetGroupSpec:
+          $ref: '#/components/schemas/TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec'
+    HealthChecksSpec_in_CreateInstanceGroupRequest_healthChecksSpec:
+      description: Health checking specification. For more information, see [Health
+        check](/docs/load-balancer/concepts/health-check).
+      type: object
+      properties:
+        healthCheckSpecs:
+          description: |-
+            Required.
+            Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check).
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/HealthCheckSpec'
+    InstanceTemplate_in_InstanceGroup_instanceTemplate:
+      description: |-
+        Instance template for creating the instance group.
+        For more information, see [Instance Templates](/docs/compute/concepts/ig-instance-templates).
+      type: object
+      properties:
+        description:
+          description: |-
+            Description of the instance template.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        platformId:
+          description: |-
+            ID of the hardware platform configuration for the instance.
+            Currently only several platforms is available - `standard-v1`, `standard-v2`. These platforms are suitable for most tasks.
+            These platforms allows you to create various types of instances: with a large amount of memory,
+            with a large number of cores, with a burstable performance.
+            For more information, see [Platforms](/docs/compute/concepts/vm-platforms).
+
+            Value must match the regular expression `` standard-v1|standard-v2 ``.
+          type: string
+        resourcesSpec:
+          $ref: '#/components/schemas/ResourcesSpec_in_InstanceTemplate_resourcesSpec'
+        metadata:
+          description: |-
+            The metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
+
+            For example, you may use the metadata in order to provide your public SSH key to the instance.
+            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+
+            No more than 128 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 262144.
+          type: object
+          additionalProperties:
+            type: string
+        bootDiskSpec:
+          $ref: '#/components/schemas/AttachedDiskSpec_in_InstanceTemplate_bootDiskSpec'
+        secondaryDiskSpecs:
+          description: |-
+            Array of secondary disks that will be attached to the instance.
+
+            The maximum number of elements is 3.
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedDiskSpec'
+        networkInterfaceSpecs:
+          description: |-
+            Required.
+            Array of network interfaces that will be attached to the instance.
+
+            Must contain exactly 1 element.
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkInterfaceSpec'
+        schedulingPolicy:
+          $ref: '#/components/schemas/SchedulingPolicy_in_InstanceTemplate_schedulingPolicy'
+        serviceAccountId:
+          description: Service account ID for the instance.
+          type: string
+    ScalePolicy_in_InstanceGroup_scalePolicy:
+      description: Scaling policy of the instance group.
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: Fixed scaling policy of the instance group.
+    DeployPolicy_in_InstanceGroup_deployPolicy:
+      description: Deployment policy of the instance group.
+      type: object
+      properties:
+        maxUnavailable:
+          description: |-
+            The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time
+            during the update process.
+            If maxExpansion is not specified or set to zero, maxUnavailable must be set to a non-zero value.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        maxDeleting:
+          description: |-
+            The maximum number of instances that can be deleted at the same time.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        maxCreating:
+          description: |-
+            The maximum number of instances that can be created at the same time.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        maxExpansion:
+          description: |-
+            The maximum number of instances that can be temporarily allocated above the group's target size
+            during the update process.
+            If maxUnavailable is not specified or set to zero, maxExpansion must be set to a non-zero value.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        startupDuration:
+          description: |-
+            Instance startup duration.
+            Instance will be considered up and running (and start receiving traffic) only after startup_duration
+            has elapsed and all health checks are passed.
+            See ManagedInstanceStatus for more information.
+
+            Acceptable values are 0 seconds to 3600 seconds, inclusive.
+          type: string
+    AllocationPolicy_in_InstanceGroup_allocationPolicy:
+      description: Allocation policy of the instance group by zones and regions.
+      type: object
+      properties:
+        zones:
+          description: |-
+            Required.
+            List of availability zones.
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/AllocationPolicyZone'
+    LoadBalancerState_in_InstanceGroup_loadBalancerState:
+      description: Information that indicates which entities can be related to this
+        load balancer.
+      type: object
+      properties:
+        targetGroupId:
+          description: ID of the target group used for load balancing.
+          type: string
+        statusMessage:
+          description: Status message of the target group.
+          type: string
+    ManagedInstancesState_in_InstanceGroup_managedInstancesState:
+      description: States of instances for this instance group.
+      type: object
+      properties:
+        targetSize:
+          description: Target number of instances for this instance group.
+          type: string
+          format: int64
+        runningActualCount:
+          description: The number of running instances that match the current instance
+            template. For more information, see RUNNING_ACTUAL.
+          type: string
+          format: int64
+        runningOutdatedCount:
+          description: The number of running instances that does not match the current
+            instance template. For more information, see RUNNING_OUTDATED.
+          type: string
+          format: int64
+        processingCount:
+          description: The number of instances in flight (for example, updating, starting,
+            deleting). For more information, see ManagedInstanceStatus.
+          type: string
+          format: int64
+    LoadBalancerSpec_in_InstanceGroup_loadBalancerSpec:
+      description: Load balancing specification.
+      type: object
+      properties:
+        targetGroupSpec:
+          $ref: '#/components/schemas/TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec'
+    HealthChecksSpec_in_InstanceGroup_healthChecksSpec:
+      description: Health checking specification. For more information, see [Health
+        check](/docs/load-balancer/concepts/health-check).
+      type: object
+      properties:
+        healthCheckSpecs:
+          description: |-
+            Required.
+            Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check).
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/HealthCheckSpec'
+    ResourcesSpec_in_InstanceTemplate_resourcesSpec:
+      description: |-
+        Required.
+        Computing resources of the instance such as the amount of memory and number of cores.
+      type: object
+      properties:
+        memory:
+          description: |-
+            The amount of memory available to the instance, specified in bytes.
+
+            The maximum value is 274877906944.
+          type: string
+          format: int64
+        cores:
+          description: |-
+            The number of cores available to the instance.
+
+            Value must be one of 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 or 32.
+          type: string
+          format: int64
+        coreFraction:
+          description: |-
+            Baseline level of CPU performance with the ability to burst performance above that baseline level.
+            This field sets baseline performance for each core.
+
+            Value must be one of 0, 5, 20, 50 or 100.
+          type: string
+          format: int64
+    AttachedDiskSpec_in_InstanceTemplate_bootDiskSpec:
+      description: |-
+        Required.
+        Boot disk specification that will be attached to the instance.
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/AttachedDiskSpecMode_in_AttachedDiskSpec_mode'
+        deviceName:
+          description: |-
+            Serial number that is reflected in the /dev/disk/by-id/ tree
+            of a Linux operating system running within the instance.
+
+            This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
+
+            Value must match the regular expression `` |[a-z][-_0-9a-z]{0,19} ``.
+          type: string
+        diskSpec:
+          $ref: '#/components/schemas/AttachedDiskSpecDiskSpec_in_AttachedDiskSpec_diskSpec'
+    SchedulingPolicy_in_InstanceTemplate_schedulingPolicy:
+      description: Scheduling policy for the instance.
+      type: object
+      properties:
+        preemptible:
+          description: |-
+            Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
+            if their resources are needed by Compute.
+            For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
+          type: boolean
+          format: boolean
+    TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec:
+      description: Specification of the target group that the instance group will
+        be added to. For more information, see [Target groups and resources](/docs/load-balancer/target-resources).
+      type: object
+      properties:
+        name:
+          description: |-
+            Name of the target group.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the target group.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    ManagedInstanceStatus_in_ManagedInstance_status:
+      description: |-
+        Status of the managed instance.
+
+         - CREATING_INSTANCE: Instance is being created.
+         - UPDATING_INSTANCE: Instance is being updated.
+         - DELETING_INSTANCE: Instance is being deleted.
+         - STARTING_INSTANCE: Instance is being started.
+         - STOPPING_INSTANCE: Instance is being stopped.
+         - AWAITING_STARTUP_DURATION: Instance has been created successfully, but startup duration has not elapsed yet.
+         - CHECKING_HEALTH: Instance has been created successfully and startup duration has elapsed, but health checks have not passed yet and the managed instance is not ready to receive traffic.
+         - OPENING_TRAFFIC: Instance Groups is initiating health checks and routing traffic to the instances.
+         - AWAITING_WARMUP_DURATION: Instance is now receiving traffic, but warmup duration has not elapsed yet.
+         - CLOSING_TRAFFIC: Instance Groups has initiated the process of stopping routing traffic to the instances.
+         - RUNNING_ACTUAL: Instance is running normally and its attributes match the current InstanceTemplate.
+         - RUNNING_OUTDATED: Instance is running normally, but its attributes do not match the current InstanceTemplate.
+        It will be updated, recreated or deleted shortly.
+         - STOPPED: Instance was stopped.
+         - DELETED: Instance was deleted.
+      type: string
+      enum:
+      - CREATING_INSTANCE
+      - UPDATING_INSTANCE
+      - DELETING_INSTANCE
+      - STARTING_INSTANCE
+      - STOPPING_INSTANCE
+      - AWAITING_STARTUP_DURATION
+      - CHECKING_HEALTH
+      - OPENING_TRAFFIC
+      - AWAITING_WARMUP_DURATION
+      - CLOSING_TRAFFIC
+      - RUNNING_ACTUAL
+      - RUNNING_OUTDATED
+      - STOPPED
+      - DELETED
+    PrimaryAddress_in_NetworkInterface_primaryV4Address:
+      description: Primary IPv4 address that is assigned to the instance for this
+        network interface.
+      type: object
+      properties:
+        address:
+          description: |-
+            An IPv4 internal network address that is assigned to the managed instance for this network interface.
+            If not specified by the user, an unused internal IP is assigned by the system.
+          type: string
+        oneToOneNat:
+          $ref: '#/components/schemas/OneToOneNat_in_PrimaryAddress_oneToOneNat'
+    PrimaryAddress_in_NetworkInterface_primaryV6Address:
+      description: Primary IPv6 address that is assigned to the instance for this
+        network interface. IPv6 is not available yet.
+      type: object
+      properties:
+        address:
+          description: |-
+            An IPv4 internal network address that is assigned to the managed instance for this network interface.
+            If not specified by the user, an unused internal IP is assigned by the system.
+          type: string
+        oneToOneNat:
+          $ref: '#/components/schemas/OneToOneNat_in_PrimaryAddress_oneToOneNat'
+    PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec:
+      description: Primary IPv4 address that is assigned to the instance for this
+        network interface.
+      type: object
+      properties:
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
+    PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec:
+      description: Primary IPv6 address that is assigned to the instance for this
+        network interface. IPv6 not available yet.
+      type: object
+      properties:
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
+    IpVersion_in_OneToOneNat_ipVersion:
+      description: |-
+        External IP address version.
+
+         - IPV4: IPv4 address, for example 192.168.0.0.
+         - IPV6: IPv6 address, not available yet.
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    IpVersion_in_OneToOneNatSpec_ipVersion:
+      description: |-
+        IP version for the public IP address.
+
+         - IPV4: IPv4 address, for example 192.168.0.0.
+         - IPV6: IPv6 address, not available yet.
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    OneToOneNat_in_PrimaryAddress_oneToOneNat:
+      description: One-to-one NAT configuration. If missing, NAT has not been set
+        up.
+      type: object
+      properties:
+        address:
+          description: An IPv4 external network address that is assigned to the managed
+            instance for this network interface.
+          type: string
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_OneToOneNat_ipVersion'
+    OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec:
+      description: |-
+        An external IP address configuration.
+        If not specified, then this managed instance will have no external internet access.
+      type: object
+      properties:
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
+    FieldMask_in_UpdateInstanceGroupRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the InstanceGroup resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    InstanceTemplate_in_UpdateInstanceGroupRequest_instanceTemplate:
+      description: |-
+        Required.
+        Instance template that the instance group belongs to.
+      type: object
+      properties:
+        description:
+          description: |-
+            Description of the instance template.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        platformId:
+          description: |-
+            ID of the hardware platform configuration for the instance.
+            Currently only several platforms is available - `standard-v1`, `standard-v2`. These platforms are suitable for most tasks.
+            These platforms allows you to create various types of instances: with a large amount of memory,
+            with a large number of cores, with a burstable performance.
+            For more information, see [Platforms](/docs/compute/concepts/vm-platforms).
+
+            Value must match the regular expression `` standard-v1|standard-v2 ``.
+          type: string
+        resourcesSpec:
+          $ref: '#/components/schemas/ResourcesSpec_in_InstanceTemplate_resourcesSpec'
+        metadata:
+          description: |-
+            The metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
+
+            For example, you may use the metadata in order to provide your public SSH key to the instance.
+            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+
+            No more than 128 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 262144.
+          type: object
+          additionalProperties:
+            type: string
+        bootDiskSpec:
+          $ref: '#/components/schemas/AttachedDiskSpec_in_InstanceTemplate_bootDiskSpec'
+        secondaryDiskSpecs:
+          description: |-
+            Array of secondary disks that will be attached to the instance.
+
+            The maximum number of elements is 3.
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedDiskSpec'
+        networkInterfaceSpecs:
+          description: |-
+            Required.
+            Array of network interfaces that will be attached to the instance.
+
+            Must contain exactly 1 element.
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkInterfaceSpec'
+        schedulingPolicy:
+          $ref: '#/components/schemas/SchedulingPolicy_in_InstanceTemplate_schedulingPolicy'
+        serviceAccountId:
+          description: Service account ID for the instance.
+          type: string
+    ScalePolicy_in_UpdateInstanceGroupRequest_scalePolicy:
+      description: |-
+        Required.
+        Scaling policy of the instance group.
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: Fixed scaling policy of the instance group.
+    DeployPolicy_in_UpdateInstanceGroupRequest_deployPolicy:
+      description: |-
+        Required.
+        Deployment policy of the instance group.
+      type: object
+      properties:
+        maxUnavailable:
+          description: |-
+            The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time
+            during the update process.
+            If maxExpansion is not specified or set to zero, maxUnavailable must be set to a non-zero value.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        maxDeleting:
+          description: |-
+            The maximum number of instances that can be deleted at the same time.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        maxCreating:
+          description: |-
+            The maximum number of instances that can be created at the same time.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        maxExpansion:
+          description: |-
+            The maximum number of instances that can be temporarily allocated above the group's target size
+            during the update process.
+            If maxUnavailable is not specified or set to zero, maxExpansion must be set to a non-zero value.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        startupDuration:
+          description: |-
+            Instance startup duration.
+            Instance will be considered up and running (and start receiving traffic) only after startup_duration
+            has elapsed and all health checks are passed.
+            See ManagedInstanceStatus for more information.
+
+            Acceptable values are 0 seconds to 3600 seconds, inclusive.
+          type: string
+    AllocationPolicy_in_UpdateInstanceGroupRequest_allocationPolicy:
+      description: |-
+        Required.
+        Allocation policy of the instance group by zones and regions.
+      type: object
+      properties:
+        zones:
+          description: |-
+            Required.
+            List of availability zones.
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/AllocationPolicyZone'
+    HealthChecksSpec_in_UpdateInstanceGroupRequest_healthChecksSpec:
+      description: Health checking specification. For more information, see [Health
+        check](/docs/load-balancer/concepts/health-check).
+      type: object
+      properties:
+        healthCheckSpecs:
+          description: |-
+            Required.
+            Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check).
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/HealthCheckSpec'
+    LoadBalancerSpec_in_UpdateInstanceGroupRequest_loadBalancerSpec:
+      description: Load Balancer specification for load balancing support.
+      type: object
+      properties:
+        targetGroupSpec:
+          $ref: '#/components/schemas/TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec'
+tags:
+- name: InstanceGroup
+  description: A set of methods for managing InstanceGroup resources.

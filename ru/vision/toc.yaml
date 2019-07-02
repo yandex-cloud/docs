@@ -60,5 +60,5 @@ items:
       - name: Диагностика ошибок
         href: api-ref/support-headers.md
     include:
-      repo: docs-api
-      path: ru/ai/vision/toc.yaml
+      repo: docs
+      path: ru/_api-ref/ai/vision/toc.yaml

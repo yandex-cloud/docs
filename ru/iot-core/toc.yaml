@@ -1,0 +1,63 @@
+title: "Yandex IoT Core"
+href: index.yaml
+stage: preview
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Отправить сообщение
+        href: operations/publish.md
+      - name: Подписать устройство или реестр на получение сообщений
+        href: operations/subscribe.md
+      - name: Реестр
+        items:
+        - name: Получить информацию о реестре
+          href: operations/registry/registry-list.md
+        - name: Создать реестр
+          href: operations/registry/registry-create.md
+        - name: Изменить реестр
+          href: operations/registry/registry-update.md
+        - name: Удалить реестр
+          href: operations/registry/registry-delete.md
+      - name: Устройство
+        items:
+          - name: Получить информацию об устройстве
+            href: operations/device/device-list.md
+          - name: Создать устройство
+            href: operations/device/device-create.md
+          - name: Изменить устройство
+            href: operations/device/device-update.md
+          - name: Удалить устройство
+            href: operations/device/device-delete.md
+      - name: Сертификат
+        items:
+          - name: Управление сертификатами реестра
+            href: operations/certificates/registry-certificates.md
+          - name: Управление сертификатами устройств
+            href: operations/certificates/device-certificates.md
+  - name: Концепции
+    items:
+        - name: Взаимосвязь ресурсов сервиса
+          href: concepts/index.md
+        - name: Квоты и лимиты
+          href: concepts/limits.md
+#  - name: Сценарии использования
+#    items:
+#      - name: Запуск Docker-образа на виртуальной машине
+#        href: scenario/index.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+#  - name: Справочник API
+#    items:
+#      - name: Аутентификация в API
+#        href: api-ref/authentication.md
+#    include:
+#      repo: docs-api
+#      path: ru/containerregistry/toc.yaml
+  # - name: Вопросы и ответы
+  #   href: qa/index.md

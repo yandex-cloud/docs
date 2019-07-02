@@ -60,8 +60,8 @@ items:
     - name: Аутентификация в API
       href: api-ref/authentication.md
     include:
-      repo: docs-api
-      path: ru/mdb/mongodb/toc.yaml
+      repo: docs
+      path: ru/_api-ref/mdb/mongodb/toc.yaml
   - name: Вопросы и ответы
     items:
     - name: Общие вопросы

@@ -46,7 +46,7 @@
   
 - API
   
-  You can detach a target group from a load balancer using the [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md) API method.
+  You can detach a target group from a load balancer using the [detachTargetGroup](../../_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/detachTargetGroup.md) API method.
   
 {% endlist %}
 

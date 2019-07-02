@@ -1,0 +1,3420 @@
+openapi: "3.0"
+info:
+  title: Yandex Compute Cloud API
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
+    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://compute.api.cloud.yandex.net
+paths:
+  /compute/v1/disks/{diskId}:
+    get:
+      tags:
+      - Disk
+      summary: Возвращает указанный ресурс Disk.
+      description: |-
+        Чтобы получить список доступных ресурсов Disk, используйте
+        запрос [list](/docs/compute/api-ref/Disk/list).
+      operationId: DiskGet
+      parameters:
+      - name: diskId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого ресурса Disk. Чтобы получить
+          идентификатор диска, используйте запрос [list](/docs/compute/api-ref/Disk/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Disk'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Disk
+      summary: Удаляет указанный диск.
+      description: |-
+        Удаление снимка — необратимая операция, восстановить
+        удаленный снимок невозможно. Однако при удалении диска не
+        удаляются снимки или образы, ранее созданные из этого диска.
+        Снимки и образы необходимо удалять отдельно.
+
+        Невозможно удалить диск, подключенный к виртуальной машине.
+      operationId: DiskDelete
+      parameters:
+      - name: diskId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемого диска. Чтобы получить идентификатор
+          диска, используйте запрос [list](/docs/compute/api-ref/Disk/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteDiskMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Disk
+      summary: Изменяет указанный диск.
+      operationId: DiskUpdate
+      parameters:
+      - name: diskId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор изменяемого ресурса Disk. Чтобы получить
+          идентификатор диска, используйте запрос [list](/docs/compute/api-ref/Disk/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDiskRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateDiskMetadata'
+      x-y-operation-response: '[Disk](/docs/compute/api-ref/Disk#representation)'
+  /compute/v1/disks:
+    get:
+      tags:
+      - Disk
+      summary: Возвращает список доступных ресурсов Disk в указанном каталоге.
+      operationId: DiskList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка дисков. Чтобы
+          получить идентификатор каталога, используйте запрос
+          [list](/docs/resource-manager/api-ref/Folder/list) .
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на
+          запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Disk/list#query_params), сервис
+          вернет значение [nextPageToken](/docs/compute/api-ref/Disk/list#responses), которое можно
+          использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/Disk/list#query_params) равным значению
+          поля [nextPageToken](/docs/compute/api-ref/Disk/list#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах
+          фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Disk.name](/docs/compute/api-ref/Disk#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Должен содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDisksResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Disk
+      summary: Создает диск в указанном каталоге.
+      description: |-
+        Вы можете создать пустой диск или восстановить его из снимка
+        или образа. Метод запускает асинхронную операцию, которую
+        можно отменить перед тем, как она завершится.
+      operationId: DiskCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDiskRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateDiskMetadata'
+      x-y-operation-response: '[Disk](/docs/compute/api-ref/Disk#representation)'
+  /compute/v1/disks/{diskId}/operations:
+    get:
+      tags:
+      - Disk
+      summary: Возвращает список операций для указанного диска.
+      operationId: DiskListOperations
+      parameters:
+      - name: diskId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса Disk, для которого запрашивается список
+          операций.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на
+          запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Disk/listOperations#query_params), сервис
+          вернет значение [nextPageToken](/docs/compute/api-ref/Disk/listOperations#responses), которое можно
+          использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/Disk/listOperations#query_params) равным значению
+          поля [nextPageToken](/docs/compute/api-ref/Disk/listOperations#responses) предыдущего запроса, чтобы
+          получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDiskOperationsResponse'
+      x-y-navtitle: listOperations
+  /compute/v1/diskTypes/{diskTypeId}:
+    get:
+      tags:
+      - DiskType
+      summary: Возвращает сведения об указанном типе диска.
+      description: |-
+        Чтобы получить список доступных типов дисков, выполните
+        запрос [list](/docs/compute/api-ref/DiskType/list).
+      operationId: DiskTypeGet
+      parameters:
+      - name: diskTypeId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор типа диска для возврата сведений о диске. Чтобы
+          получить идентификатор типа диска, используйте запрос
+          [list](/docs/compute/api-ref/DiskType/list).
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiskType'
+      x-y-navtitle: get
+  /compute/v1/diskTypes:
+    get:
+      tags:
+      - DiskType
+      summary: Получает список типов дисков для указанного каталога.
+      operationId: DiskTypeList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на
+          запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/DiskType/list#query_params), сервис
+          вернет значение [nextPageToken](/docs/compute/api-ref/DiskType/list#responses), которое можно
+          использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/DiskType/list#query_params) равным значению
+          поля [nextPageToken](/docs/compute/api-ref/DiskType/list#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDiskTypesResponse'
+      x-y-navtitle: list
+  /compute/v1/images/{imageId}:
+    get:
+      tags:
+      - Image
+      summary: Возвращает указанный ресурс Image.
+      description: |-
+        Чтобы получить список доступных ресурсов Image, используйте
+        запрос [list](/docs/compute/api-ref/Image/list).
+      operationId: ImageGet
+      parameters:
+      - name: imageId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого ресурса Image. Чтобы получить
+          идентификатор образа, используйте [list](/docs/compute/api-ref/Image/list) запрос.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Image'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Image
+      summary: Удаляет указанный образ.
+      description: |-
+        Удаление образа — необратимая операция, восстановить
+        удаленный образ невозможно.
+      operationId: ImageDelete
+      parameters:
+      - name: imageId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемого образа. Чтобы получить
+          идентификатор образа, используйте [list](/docs/compute/api-ref/Image/list) запрос.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteImageMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Image
+      summary: Изменяет указанный образ.
+      operationId: ImageUpdate
+      parameters:
+      - name: imageId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор изменяемого ресурса Image. Чтобы получить
+          идентификатор образа, используйте [list](/docs/compute/api-ref/Image/list) запрос.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateImageRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateImageMetadata'
+      x-y-operation-response: '[Image](/docs/compute/api-ref/Image#representation)'
+  /compute/v1/images:latestByFamily:
+    get:
+      tags:
+      - Image
+      summary: Возвращает последний образ из указанного семейства образов.
+      operationId: ImageGetLatestByFamily
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения образа. Чтобы получить
+          идентификатор каталога, используйте запрос
+          [list](/docs/resource-manager/api-ref/Folder/list).
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: family
+        in: query
+        description: |-
+          Имя семейства образов для поиска.
+
+          Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Image'
+      x-y-navtitle: getLatestByFamily
+  /compute/v1/images:
+    get:
+      tags:
+      - Image
+      summary: Возвращает список доступных ресурсов Image в указанном каталоге.
+      operationId: ImageList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка образов. Чтобы
+          получить идентификатор каталога, используйте запрос
+          [list](/docs/resource-manager/api-ref/Folder/list).
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на
+          запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Image/list#query_params), сервис
+          вернет значение [nextPageToken](/docs/compute/api-ref/Image/list#responses), которое можно
+          использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/Image/list#query_params) равным значению
+          поля [nextPageToken](/docs/compute/api-ref/Image/list#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах
+          фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Image.name](/docs/compute/api-ref/Image#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Должен содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListImagesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Image
+      summary: Создает образ в указанном каталоге.
+      description: |-
+        Вы можете создать образ из диска, снимка, другого образа или URI.
+        Метод запускает асинхронную операцию, которую можно отменить
+        перед тем, как она завершится.
+      operationId: ImageCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateImageRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateImageMetadata'
+      x-y-operation-response: '[Image](/docs/compute/api-ref/Image#representation)'
+  /compute/v1/images/{imageId}/operations:
+    get:
+      tags:
+      - Image
+      summary: Список операций для указанного образа.
+      operationId: ImageListOperations
+      parameters:
+      - name: imageId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса Image, для которого запрашивается список
+          операций.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на
+          запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Image/listOperations#query_params), сервис
+          вернет значение [nextPageToken](/docs/compute/api-ref/Image/listOperations#responses), которое можно
+          использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/Image/listOperations#query_params) равным значению
+          поля [nextPageToken](/docs/compute/api-ref/Image/listOperations#responses) предыдущего запроса, чтобы
+          получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListImageOperationsResponse'
+      x-y-navtitle: listOperations
+  /compute/v1/instances/{instanceId}:
+    get:
+      tags:
+      - Instance
+      summary: Возвращает указанный ресурс Instance.
+      description: |-
+        Чтобы получить список доступных ресурсов Instance, используйте
+        запрос [list](/docs/compute/api-ref/Instance/list).
+      operationId: InstanceGet
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого ресурса Instance. Чтобы получить
+          идентификатор виртуальной машины, используйте запрос
+          [list](/docs/compute/api-ref/Instance/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: |-
+          Определяет, какая информация о ресурсе Instance должна быть
+          возвращена в ответе сервера.
+        schema:
+          $ref: '#/components/schemas/InstanceView'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Instance'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Instance
+      summary: Удаляет указанную виртуальную машину.
+      operationId: InstanceDelete
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемой виртуальной машины. Чтобы получить
+          идентификатор виртуальной машины, используйте запрос
+          [list](/docs/compute/api-ref/Instance/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteInstanceMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Instance
+      summary: Изменяет указанную виртуальную машину.
+      operationId: InstanceUpdate
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор изменяемого ресурса Instance. Чтобы получить
+          идентификатор виртуальной машины, используйте запрос
+          [list](/docs/compute/api-ref/Instance/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateInstanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateInstanceMetadata'
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
+  /compute/v1/instances:
+    get:
+      tags:
+      - Instance
+      summary: |-
+        Возвращает список доступных ресурсов Instance в указанном
+        каталоге.
+      operationId: InstanceList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка виртуальных
+          машин. Чтобы получить идентификатор каталога, используйте
+          запрос [list](/docs/resource-manager/api-ref/Folder/list).
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на
+          запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Instance/list#query_params), сервис
+          вернет значение [nextPageToken](/docs/compute/api-ref/Instance/list#responses), которое можно
+          использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/Instance/list#query_params) равным значению
+          поля [nextPageToken](/docs/compute/api-ref/Instance/list#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах
+          фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Instance.name](/docs/compute/api-ref/Instance#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Должен содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListInstancesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Instance
+      summary: |-
+        Создает виртуальную машину в указанном каталоге. Метод
+        запускает асинхронную операцию, которую можно отменить перед
+        тем, как она завершится.
+      operationId: InstanceCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateInstanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateInstanceMetadata'
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
+  /compute/v1/instances/{instanceId}/updateMetadata:
+    post:
+      tags:
+      - Instance
+      summary: Обновляет метаданные указанной виртуальной машины.
+      operationId: InstanceUpdateMetadata
+      parameters:
+      - name: instanceId
+        in: path
+        description: Идентификатор изменяемой виртуальной машины.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateInstanceMetadataRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateMetadata
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateInstanceMetadataMetadata'
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
+  /compute/v1/instances/{instanceId}:serialPortOutput:
+    get:
+      tags:
+      - Instance
+      summary: |-
+        Возвращает вывод последовательного порта указанного ресурса
+        Instance.
+      operationId: InstanceGetSerialPortOutput
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор виртуальной машины для получения вывода
+          последовательного порта.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetInstanceSerialPortOutputResponse'
+      x-y-navtitle: getSerialPortOutput
+  /compute/v1/instances/{instanceId}:stop:
+    post:
+      tags:
+      - Instance
+      summary: Останавливает запущенную виртуальную машину.
+      description: |-
+        Вы можете запустить виртуальную машину позже, используя метод
+        [start](/docs/compute/api-ref/Instance/start).
+      operationId: InstanceStop
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор останавливаемой виртуальной машины. Чтобы
+          получить идентификатор виртуальной машины, используйте
+          запрос [list](/docs/compute/api-ref/Instance/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: stop
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StopInstanceMetadata'
+      x-y-operation-response: Empty
+  /compute/v1/instances/{instanceId}:start:
+    post:
+      tags:
+      - Instance
+      summary: Запускает остановленную виртуальную машину.
+      operationId: InstanceStart
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор запускаемой виртуальной машины. Чтобы получить
+          идентификатор виртуальной машины, используйте запрос
+          [list](/docs/compute/api-ref/Instance/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: start
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StartInstanceMetadata'
+      x-y-operation-response: Empty
+  /compute/v1/instances/{instanceId}:restart:
+    post:
+      tags:
+      - Instance
+      summary: Перезапускает работающую виртуальную машину.
+      operationId: InstanceRestart
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор виртуальной машины, которую необходимо
+          перезапустить. Чтобы получить идентификатор виртуальной
+          машины, используйте запрос [list](/docs/compute/api-ref/Instance/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: restart
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RestartInstanceMetadata'
+      x-y-operation-response: Empty
+  /compute/v1/instances/{instanceId}:attachDisk:
+    post:
+      tags:
+      - Instance
+      summary: Присоединяет диск к виртуальной машине.
+      operationId: InstanceAttachDisk
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор виртуальной машины для подключения диска. Чтобы
+          получить идентификатор виртуальной машины, используйте
+          запрос [list](/docs/compute/api-ref/Instance/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AttachInstanceDiskRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: attachDisk
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AttachInstanceDiskMetadata'
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
+  /compute/v1/instances/{instanceId}:detachDisk:
+    post:
+      tags:
+      - Instance
+      summary: Отсоединяет диск от виртуальной машины.
+      operationId: InstanceDetachDisk
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор виртуальной машины, от которой надо отсоединить
+          диск. Чтобы получить идентификатор виртуальной машины,
+          используйте запрос [list](/docs/compute/api-ref/Instance/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetachInstanceDiskRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: detachDisk
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DetachInstanceDiskMetadata'
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
+  /compute/v1/instances/{instanceId}/operations:
+    get:
+      tags:
+      - Instance
+      summary: Возвращает список операций для указанной виртуальной машины.
+      operationId: InstanceListOperations
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса Instance, для которого запрашивается список
+          операций.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на
+          запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Instance/listOperations#query_params), сервис
+          вернет значение [nextPageToken](/docs/compute/api-ref/Instance/listOperations#responses), которое можно
+          использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/Instance/listOperations#query_params) равным значению
+          поля [nextPageToken](/docs/compute/api-ref/Instance/listOperations#responses) предыдущего запроса, чтобы
+          получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListInstanceOperationsResponse'
+      x-y-navtitle: listOperations
+  /compute/v1/snapshots/{snapshotId}:
+    get:
+      tags:
+      - Snapshot
+      summary: Возвращает указанный ресурс Snapshot.
+      description: |-
+        Чтобы получить список доступных ресурсов Snapshot, используйте
+        запрос [list](/docs/compute/api-ref/Snapshot/list).
+      operationId: SnapshotGet
+      parameters:
+      - name: snapshotId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого ресурса Snapshot. Чтобы получить
+          идентификатор снимка, используйте запрос [list](/docs/compute/api-ref/Snapshot/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Snapshot'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Snapshot
+      summary: Удаляет указанный снимок.
+      description: |-
+        Удаление снимка — необратимая операция, восстановить
+        удаленный снимок невозможно.
+      operationId: SnapshotDelete
+      parameters:
+      - name: snapshotId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемого снимка. Чтобы получить
+          идентификатор снимка, используйте запрос [list](/docs/compute/api-ref/Snapshot/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteSnapshotMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Snapshot
+      summary: Изменяет указанный снимок.
+      description: Значения опущенных параметров не изменяются.
+      operationId: SnapshotUpdate
+      parameters:
+      - name: snapshotId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор снимка для обновления. Чтобы получить
+          идентификатор снимка, используйте запрос [list](/docs/compute/api-ref/Snapshot/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSnapshotRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateSnapshotMetadata'
+      x-y-operation-response: '[Snapshot](/docs/compute/api-ref/Snapshot#representation)'
+  /compute/v1/snapshots:
+    get:
+      tags:
+      - Snapshot
+      summary: |-
+        Возвращает список доступных ресурсов Snapshot в указанном
+        каталоге.
+      operationId: SnapshotList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка снимков. Чтобы
+          получить идентификатор каталога, используйте запрос
+          [list](/docs/resource-manager/api-ref/Folder/list).
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на
+          запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Snapshot/list#query_params), сервис
+          вернет значение [nextPageToken](/docs/compute/api-ref/Snapshot/list#responses), которое можно
+          использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/Snapshot/list#query_params) равным значению
+          поля [nextPageToken](/docs/compute/api-ref/Snapshot/list#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах
+          фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Snapshot.name](/docs/compute/api-ref/Snapshot#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Должен содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSnapshotsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Snapshot
+      summary: Создает снимок указанного диска.
+      operationId: SnapshotCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSnapshotRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateSnapshotMetadata'
+      x-y-operation-response: '[Snapshot](/docs/compute/api-ref/Snapshot#representation)'
+  /compute/v1/snapshots/{snapshotId}/operations:
+    get:
+      tags:
+      - Snapshot
+      summary: Возвращает список операций для указанного снимка.
+      operationId: SnapshotListOperations
+      parameters:
+      - name: snapshotId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса Snapshot, для которого запрашивается список
+          операций.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на
+          запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Snapshot/listOperations#query_params), сервис
+          вернет значение [nextPageToken](/docs/compute/api-ref/Snapshot/listOperations#responses), которое можно
+          использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/Snapshot/listOperations#query_params) равным значению
+          поля [nextPageToken](/docs/compute/api-ref/Snapshot/listOperations#responses) предыдущего запроса, чтобы
+          получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSnapshotOperationsResponse'
+      x-y-navtitle: listOperations
+  /compute/v1/zones/{zoneId}:
+    get:
+      tags:
+      - Zone
+      summary: Возвращает сведения об указанной зоне доступности.
+      description: Чтобы получить список зон доступности, выполните запрос [list](/docs/compute/api-ref/Zone/list).
+      operationId: ZoneGet
+      parameters:
+      - name: zoneId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор зоны доступности для получения сведений.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Zone'
+      x-y-navtitle: get
+  /compute/v1/zones:
+    get:
+      tags:
+      - Zone
+      summary: Возвращает список зон доступности.
+      operationId: ZoneList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на
+          запрос. Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Zone/list#query_params), сервис
+          вернет значение [nextPageToken](/docs/compute/api-ref/Zone/list#responses), которое можно
+          использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/Zone/list#query_params) равным значению
+          поля [nextPageToken](/docs/compute/api-ref/Zone/list#responses) предыдущего запроса, чтобы получить
+          следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListZonesResponse'
+      x-y-navtitle: list
+components:
+  schemas:
+    AttachInstanceDiskMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: Идентификатор виртуальной машины.
+          type: string
+        diskId:
+          description: Идентификатор типа диска.
+          type: string
+    AttachInstanceDiskRequest:
+      type: object
+      properties:
+        attachedDiskSpec:
+          $ref: '#/components/schemas/AttachedDiskSpec_in_AttachInstanceDiskRequest_attachedDiskSpec'
+    AttachedDisk:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/AttachedDiskMode_in_AttachedDisk_mode'
+        deviceName:
+          description: |-
+            Cерийный номер, который на виртуальной машине с операционной
+            системой Linux отображается в директории /dev/disk/by-id/.
+
+            Это значение может использоваться для ссылки на устройство
+            внутри виртуальной машины при монтировании, изменении размера
+            и т. д.
+          type: string
+        autoDelete:
+          description: |-
+            Указывает, должен ли диск автоматически удалиться при
+            удалении виртуальной машины.
+          type: boolean
+          format: boolean
+        diskId:
+          description: Идентификатор диска, подключенного к виртуальной машине.
+          type: string
+    AttachedDiskMode:
+      description: |2-
+         - READ_ONLY: Доступ на чтение.
+         - READ_WRITE: Доступ на чтение и запись.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    AttachedDiskSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          mode:
+            $ref: '#/components/schemas/AttachedDiskSpecMode'
+            description: Режим, в котором необходимо подключить этот диск.
+          deviceName:
+            description: |-
+              Задает уникальный серийный номер, который на виртуальной
+              машине с операционной системой Linux отображается в директории
+              /dev/disk/by-id/.
+
+              Это значение может использоваться для ссылки на устройство
+              внутри виртуальной машины при монтировании, изменении размера
+              и т. д. Если не указано, будет сгенерировано случайное значение.
+
+              Значение должно соответствовать регулярному выражению `` [a-z][a-z0-9-_]{,19} ``.
+            type: string
+          autoDelete:
+            description: |-
+              Указывает, должен ли диск автоматически удалиться при
+              удалении виртуальной машины.
+            type: boolean
+            format: boolean
+      - title: disk
+        type: object
+        maxProperties: 1
+        properties:
+          diskSpec:
+            $ref: '#/components/schemas/AttachedDiskSpecDiskSpec'
+            description: Спецификация диска.
+          diskId:
+            description: |-
+              Идентификатор диска, который должен быть подключен.
+
+              Максимальная длина строки в символах — 50.
+            type: string
+    AttachedDiskSpecDiskSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          name:
+            description: |-
+              Имя диска.
+
+              Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+          description:
+            description: |-
+              Описание диска.
+
+              Максимальная длина строки в символах — 256.
+            type: string
+          typeId:
+            description: |-
+              Идентификатор типа диска. Чтобы получить список доступных
+              типов дисков, используйте запрос [list](/docs/compute/api-ref/DiskType/list).
+
+              Максимальная длина строки в символах — 50.
+            type: string
+          size:
+            description: |-
+              Обязательное поле.
+              Размер диска в байтах.
+
+              Допустимые значения — от 4194304 до 4398046511104 включительно.
+            type: string
+            format: int64
+      - title: source
+        type: object
+        maxProperties: 1
+        properties:
+          imageId:
+            description: |-
+              Идентификатор образа для создания диска.
+
+              Максимальная длина строки в символах — 50.
+            type: string
+          snapshotId:
+            description: |-
+              Идентификатор снимка для восстановления диска.
+
+              Максимальная длина строки в символах — 50.
+            type: string
+    AttachedDiskSpecMode:
+      description: |2-
+         - READ_ONLY: Доступ на чтение.
+         - READ_WRITE: Доступ на чтение и запись. Значение по умолчанию.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    CreateDiskMetadata:
+      type: object
+      properties:
+        diskId:
+          description: Идентификатор создаваемого диска.
+          type: string
+    CreateDiskRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Обязательное поле.
+              Идентификатор каталога, в котором создается диск. Чтобы
+              получить идентификатор каталога, используйте запрос
+              [list](/docs/resource-manager/api-ref/Folder/list) .
+
+              Максимальная длина строки в символах — 50.
+            type: string
+          name:
+            description: |-
+              Имя диска.
+
+              Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+          description:
+            description: |-
+              Описание диска.
+
+              Максимальная длина строки в символах — 256.
+            type: string
+          labels:
+            description: |-
+              Метки ресурса в формате `key:value`.
+
+              Не более 64 на ресурс.
+              Длина строки в символах для каждого ключа должна быть от 1 до 63.
+              Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+              Максимальная длина строки в символах для каждого значения — 63.
+              Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+          typeId:
+            description: |-
+              Идентификатор типа диска. Чтобы получить список доступных
+              типов дисков, используйте запрос [list](/docs/compute/api-ref/DiskType/list).
+
+              Максимальная длина строки в символах — 50.
+            type: string
+          zoneId:
+            description: |-
+              Обязательное поле.
+              Идентификатор зоны доступности, в которой находится хост.
+              Чтобы получить список доступных зон, используйте запрос
+              [list](/docs/compute/api-ref/Zone/list).
+
+              Максимальная длина строки в символах — 50.
+            type: string
+          size:
+            description: |-
+              Обязательное поле.
+              Размер диска в байтах. Если диск был создан из образа, это
+              значение должно быть больше, чем значение
+              [Image.minDiskSize](/docs/compute/api-ref/Image#representation).
+
+              Допустимые значения — от 4194304 до 4398046511104 включительно.
+            type: string
+            format: int64
+      - title: source
+        type: object
+        maxProperties: 1
+        properties:
+          imageId:
+            description: |-
+              Идентификатор образа для создания диска.
+
+              Максимальная длина строки в символах — 50.
+            type: string
+          snapshotId:
+            description: |-
+              Идентификатор снимка для восстановления диска.
+
+              Максимальная длина строки в символах — 50.
+            type: string
+    CreateImageMetadata:
+      type: object
+      properties:
+        imageId:
+          description: Идентификатор создаваемого образа.
+          type: string
+    CreateImageRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Обязательное поле.
+              Идентификатор каталога для создания образа. Чтобы получить
+              идентификатор каталога, используйте запрос
+              [list](/docs/resource-manager/api-ref/Folder/list).
+
+              Максимальная длина строки в символах — 50.
+            type: string
+          name:
+            description: |-
+              Имя образа.
+
+              Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+          description:
+            description: |-
+              Описание образа.
+
+              Максимальная длина строки в символах — 256.
+            type: string
+          labels:
+            description: |-
+              Метки ресурса в формате `key:value`.
+
+              Не более 64 на ресурс.
+              Длина строки в символах для каждого ключа должна быть от 1 до 63.
+              Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+              Максимальная длина строки в символах для каждого значения — 63.
+              Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+          family:
+            description: |-
+              Имя семейства образов, к которому принадлежит этот образ.
+              Чтобы получить информацию о последнем образе в семействе,
+              используйте запрос [getLatestByFamily](/docs/compute/api-ref/Image/getLatestByFamily).
+
+              Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+          minDiskSize:
+            description: |-
+              Минимальный размер диска, который будет создан из этого
+              образа. Указывается в байтах. Значение должно быть больше
+              размера исходных данных.
+
+              Допустимые значения — от 4194304 до 4398046511104 включительно.
+            type: string
+            format: int64
+          productIds:
+            description: |-
+              Идентификаторы лицензий, указывающие, какие лицензии
+              подключены к этому ресурсу. Идентификаторы лицензий
+              используются для расчета дополнительной платы за
+              использование виртуальной машины.
+
+              Правильный идентификатор лицензии генерируется
+              Яндексом.Облаком. Идентификаторы наследуются новыми
+              ресурсами, созданными из этого ресурса.
+
+              Если вам известны идентификаторы лицензий, укажите их при
+              создании образа. Например, если создать образ диска с помощью
+              сторонней утилиты и загрузить его в Yandex Object Storage, то
+              идентификаторы лицензий будут потеряны. Вы можете указать их в
+              этом запросе.
+
+              Максимальная длина строки в символах для каждого значения — 50.
+            type: array
+            items:
+              type: string
+          os:
+            $ref: '#/components/schemas/Os'
+            description: Операционная система, содержащаяся в образе.
+      - title: source
+        type: object
+        maxProperties: 1
+        properties:
+          imageId:
+            description: |-
+              Идентификатор исходного образа для создания нового образа из
+              него.
+
+              Максимальная длина строки в символах — 50.
+            type: string
+          diskId:
+            description: |-
+              Идентификатор диска для создания образа из него.
+
+              Максимальная длина строки в символах — 50.
+            type: string
+          snapshotId:
+            description: |-
+              Идентификатор снимка для создания образа из него.
+
+              Максимальная длина строки в символах — 50.
+            type: string
+          uri:
+            description: |-
+              URI образа для создания нового образа из него. В настоящее
+              время поддерживаются только ссылки на образы, которые
+              хранятся в Yandex Object Storage. В настоящее время поддерживаются
+              только форматы Qcow2, VMDK и VHD.
+            type: string
+    CreateInstanceMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            Идентификатор создаваемой виртуальной машины.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+    CreateInstanceRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Обязательное поле.
+            Идентификатор каталога для создания виртуальной машины. Чтобы
+            получить идентификатор каталога, используйте запрос
+            [list](/docs/resource-manager/api-ref/Folder/list).
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        name:
+          description: |-
+            Имя виртуальной машины.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Описание виртуальной машины.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки ресурса в формате `key:value`.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        zoneId:
+          description: |-
+            Обязательное поле.
+            Идентификатор зоны доступности, где находится виртуальная
+            машина. Чтобы получить список доступных зон, используйте
+            запрос [list](/docs/compute/api-ref/Zone/list).
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        platformId:
+          description: |-
+            Обязательное поле.
+            Идентификатор аппаратной платформы виртуальной машины. Это
+            поле влияет на допустимые значения в поле [resourcesSpec](/docs/compute/api-ref/Instance/create#body_params).
+
+            В настоящее время доступна только одна платформа - `standard-v1`. Эта
+            платформа подходит для большинства задач. Эта платформа
+            позволяет создавать машины различных типов: с большим объемом
+            памяти, с большим количеством ядер, с высокой
+            производительностью.
+
+            Значение должно соответствовать регулярному выражению `` standard-v1 ``.
+          type: string
+        resourcesSpec:
+          $ref: '#/components/schemas/ResourcesSpec_in_CreateInstanceRequest_resourcesSpec'
+        metadata:
+          description: |-
+            Метаданные, назначаемые данной виртуальной машине, в формате
+            пар "`key:value`". Это включает произвольные пользовательские
+            метаданные и предзаданные ключи. Общий размер всех ключей и
+            значений не должен превышать 512 КБ.
+
+            Значениями являются строки и используются только программами,
+            которые настраивают виртуальную машину. Единственное
+            ограничение для значений — их размер не должен превышать 256 КБ.
+
+            Например, можно использовать метаданные для доставки
+            открытого ключа SSH на виртуальную машину. Дополнительные
+            сведения см. в разделе [Метаданные виртуальной машины](/docs/compute/concepts/vm-metadata).
+          type: object
+          additionalProperties:
+            type: string
+        bootDiskSpec:
+          $ref: '#/components/schemas/AttachedDiskSpec_in_CreateInstanceRequest_bootDiskSpec'
+        secondaryDiskSpecs:
+          description: |-
+            Массив дополнительных дисков для подключения к виртуальной
+            машине.
+
+            Максимальное количество элементов — 3.
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedDiskSpec'
+        networkInterfaceSpecs:
+          description: |-
+            Обязательное поле.
+            Конфигурация сети для виртуальной машины. Указывает, как
+            должен быть настроен сетевой интерфейс для взаимодействия с
+            другими сервисами во внутренней сети и в интернете. В
+            настоящее время для каждой виртуальной машины поддерживается
+            только один сетевой интерфейс.
+
+            Должен содержать ровно 1 элемент.
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkInterfaceSpec'
+        hostname:
+          description: |-
+            Имя хоста виртуальной машины. Это поле используется для
+            генерации значения [Instance.fqdn](/docs/compute/api-ref/Instance#representation). Имя хоста должно
+            быть уникальным в пределах сети и региона. Если не указано, то
+            имя хоста будет равно [Instance.id](/docs/compute/api-ref/Instance#representation) виртуальной машины
+            и FQDN будет `<id>.auto.internal`. В противном случае FQDN будет
+            `<hostname>.<region_id>.internal`.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        schedulingPolicy:
+          $ref: '#/components/schemas/SchedulingPolicy_in_CreateInstanceRequest_schedulingPolicy'
+    CreateSnapshotMetadata:
+      type: object
+      properties:
+        snapshotId:
+          description: Идентификатор создаваемого снимка.
+          type: string
+        diskId:
+          description: Идентификатор диска, используемого для создания снимка.
+          type: string
+    CreateSnapshotRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Обязательное поле.
+            Идентификатор каталога, в котором создается снимок. Чтобы
+            получить идентификатор каталога, используйте запрос
+            [list](/docs/resource-manager/api-ref/Folder/list) .
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        diskId:
+          description: |-
+            Обязательное поле.
+            Идентификатор диска для создания снимка. Чтобы получить
+            идентификатор диска, используйте запрос
+            [list](/docs/compute/api-ref/Disk/list).
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        name:
+          description: |-
+            Имя снимка.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Описание снимка.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки ресурса в формате `key:value`.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    DeleteDiskMetadata:
+      type: object
+      properties:
+        diskId:
+          description: Идентификатор удаляемого диска.
+          type: string
+    DeleteImageMetadata:
+      type: object
+      properties:
+        imageId:
+          description: Идентификатор удаляемого образа.
+          type: string
+    DeleteInstanceMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: Идентификатор удаляемой виртуальной машины.
+          type: string
+    DeleteSnapshotMetadata:
+      type: object
+      properties:
+        snapshotId:
+          description: Идентификатор снимка, который удаляется.
+          type: string
+    DetachInstanceDiskMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: Идентификатор виртуальной машины.
+          type: string
+        diskId:
+          description: Идентификатор типа диска.
+          type: string
+    DetachInstanceDiskRequest:
+      type: object
+      allOf:
+      - title: disk
+        type: object
+        maxProperties: 1
+        properties:
+          diskId:
+            description: |-
+              Идентификатор диска, который необходимо отсоединить.
+
+              Максимальная длина строки в символах — 50.
+            type: string
+          deviceName:
+            description: |-
+              Серийный номер диска, который необходимо отсоединить. На
+              виртуальной машине с операционной системой Linux поиск этого
+              значения будет осуществлен в директории /dev/disk/by-id/.
+
+              Значение должно соответствовать регулярному выражению `` [a-z][a-z0-9-_]{,19} ``.
+            type: string
+    Disk:
+      description: |-
+        Ресурс Disk. Дополнительные сведения см. в разделе
+        [Диски](/docs/compute/concepts/disk).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Идентификатор типа диска.
+            type: string
+          folderId:
+            description: Идентификатор каталога, которому принадлежит диск.
+            type: string
+          createdAt:
+            description: Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          name:
+            description: Имя диска. Длина 1-63 символов.
+            type: string
+          description:
+            description: Описание диска. Длина описания должна быть от 0 до 256 символов.
+            type: string
+          labels:
+            description: Метки ресурса в формате `key:value`. Максимум 64 на ресурс.
+            type: object
+            additionalProperties:
+              type: string
+          typeId:
+            description: Идентификатор типа диска.
+            type: string
+          zoneId:
+            description: Идентификатор зоны доступности, в которой находится хост.
+            type: string
+          size:
+            description: Размер диска в байтах.
+            type: string
+            format: int64
+          productIds:
+            description: |-
+              Идентификаторы лицензий, указывающие, какие лицензии
+              подключены к этому ресурсу. Идентификаторы лицензий
+              используются для расчета дополнительной платы за
+              использование виртуальной машины.
+
+              Правильный идентификатор лицензии генерируется
+              Яндексом.Облаком. Идентификаторы наследуются новыми
+              ресурсами, созданными из этого ресурса.
+
+              Если вам известны идентификаторы лицензий, укажите их при
+              создании образа. Например, если создать образ диска с помощью
+              сторонней утилиты и загрузить его в Yandex Object Storage, то
+              идентификаторы лицензий будут потеряны. Вы можете указать их в
+              запросе [create](/docs/compute/api-ref/Image/create).
+            type: array
+            items:
+              type: string
+          status:
+            $ref: '#/components/schemas/DiskStatus'
+            description: Текущий статус диска.
+          instanceIds:
+            description: Массив виртуальных машин, к которым подключен диск.
+            type: array
+            items:
+              type: string
+      - title: source
+        type: object
+        maxProperties: 1
+        properties:
+          sourceImageId:
+            description: Идентификатор образа, из которого был создан диск.
+            type: string
+          sourceSnapshotId:
+            description: Идентификатор снимка, из которого был создан диск.
+            type: string
+    DiskStatus:
+      description: |2-
+         - CREATING: Диск создается.
+         - READY: Диск готов к использованию.
+         - ERROR: С диском произошла ошибка, блокирующая работу.
+         - DELETING: Диск удаляется.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
+    DiskType:
+      type: object
+      properties:
+        id:
+          description: Идентификатор типа диска.
+          type: string
+        description:
+          description: Описание диска. Длина описания должна быть от 0 до 256 символов.
+          type: string
+        zoneIds:
+          description: Массив зон доступности, в которых доступен тип диска.
+          type: array
+          items:
+            type: string
+    Empty:
+      description: Пустой JSON объект `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    GetInstanceSerialPortOutputResponse:
+      type: object
+      properties:
+        contents:
+          description: |-
+            Содержимое вывода последовательного порта, начиная с момента
+            начала загрузки виртуальной машины.
+          type: string
+    Image:
+      description: Ресурс Image.
+      type: object
+      properties:
+        id:
+          description: Идентификатор образа.
+          type: string
+        folderId:
+          description: Идентификатор каталога, которому принадлежит образ диска.
+          type: string
+        createdAt:
+          description: Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        name:
+          description: Имя образа. Длина 1-63 символов.
+          type: string
+        description:
+          description: Описание образа. Длина описания должна быть от 0 до 256 символов.
+          type: string
+        labels:
+          description: Метки ресурса в формате `key:value`. Максимум 64 на ресурс.
+          type: object
+          additionalProperties:
+            type: string
+        family:
+          description: |-
+            Имя семейства образов, к которому принадлежит этот образ.
+
+            Вы можете получить самый последний образ из семейства образов,
+            используя запрос [getLatestByFamily](/docs/compute/api-ref/Image/getLatestByFamily) , чтобы
+            создать диск из этого образа.
+          type: string
+        storageSize:
+          description: Размер образа в байтах.
+          type: string
+          format: int64
+        minDiskSize:
+          description: |-
+            Минимальный размер диска, который будет создан из этого
+            образа.
+          type: string
+          format: int64
+        productIds:
+          description: |-
+            Идентификаторы лицензий, указывающие, какие лицензии
+            подключены к этому ресурсу. Идентификаторы лицензий
+            используются для расчета дополнительной платы за
+            использование виртуальной машины.
+
+            Правильный идентификатор лицензии генерируется
+            Яндексом.Облаком. Идентификаторы наследуются новыми
+            ресурсами, созданными из этого ресурса.
+
+            Если вам известны идентификаторы лицензий, укажите их при
+            создании образа. Например, если создать образ диска с помощью
+            сторонней утилиты и загрузить его в Yandex Object Storage, то
+            идентификаторы лицензий будут потеряны. Вы можете указать их в
+            запросе [create](/docs/compute/api-ref/Image/create).
+          type: array
+          items:
+            type: string
+        status:
+          $ref: '#/components/schemas/ImageStatus_in_Image_status'
+        os:
+          $ref: '#/components/schemas/Os_in_Image_os'
+    ImageStatus:
+      description: |2-
+         - CREATING: Образ диска создается.
+         - READY: Образ диска готов к использованию.
+         - ERROR: С образом произошла ошибка, блокирующая работу.
+         - DELETING: Образ диска удаляется.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
+    Instance:
+      description: |-
+        Ресурс Instance. Дополнительные сведения см. в разделе
+        [Виртуальные машины](/docs/compute/concepts/vm).
+      type: object
+      properties:
+        id:
+          description: Идентификатор виртуальной машины.
+          type: string
+        folderId:
+          description: |-
+            Идентификатор каталога, которому принадлежит виртуальная
+            машина.
+          type: string
+        createdAt:
+          description: Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        name:
+          description: Имя виртуальной машины. Длина 1-63 символов.
+          type: string
+        description:
+          description: |-
+            Описание виртуальной машины. Длина описания должна быть от 0 до
+            256 символов.
+          type: string
+        labels:
+          description: Метки ресурса в формате `key:value`. Максимум 64 на ресурс.
+          type: object
+          additionalProperties:
+            type: string
+        zoneId:
+          description: |-
+            Идентификатор зоны доступности, где находится виртуальная
+            машина.
+          type: string
+        platformId:
+          description: Идентификатор аппаратной платформы виртуальной машины.
+          type: string
+        resources:
+          $ref: '#/components/schemas/Resources_in_Instance_resources'
+        status:
+          $ref: '#/components/schemas/InstanceStatus_in_Instance_status'
+        metadata:
+          description: |-
+            Метаданные в формате пар `key:value`, назначаемые данной
+            виртуальной машине. Это включает произвольные
+            пользовательские метаданные и предзаданные ключи.
+
+            Например, можно использовать метаданные для доставки
+            открытого ключа SSH на виртуальную машину. Дополнительные
+            сведения см. в разделе [Метаданные виртуальной машины](/docs/compute/concepts/vm-metadata).
+          type: object
+          additionalProperties:
+            type: string
+        bootDisk:
+          $ref: '#/components/schemas/AttachedDisk_in_Instance_bootDisk'
+        secondaryDisks:
+          description: |-
+            Массив дополнительных дисков, подключенных к виртуальной
+            машине.
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedDisk'
+        networkInterfaces:
+          description: |-
+            Массив сетевых интерфейсов, присоединенных к виртуальной
+            машине.
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkInterface'
+        fqdn:
+          description: |-
+            Доменное имя виртуальной машины. FQDN определяется сервером в
+            формате `<hostname>.<region_id>.internal` при создании виртуальной машины.
+            Если имя хоста не было указано при создании виртуальной
+            машины, FQDN будет `<id>.auto.internal`.
+          type: string
+        schedulingPolicy:
+          $ref: '#/components/schemas/SchedulingPolicy_in_Instance_schedulingPolicy'
+    InstanceStatus:
+      description: |2-
+         - PROVISIONING: Виртуальная машина ожидает выделения ресурсов.
+         - RUNNING: Виртуальная машина работает нормально.
+         - STOPPING: Виртуальная машина останавливается.
+         - STOPPED: Виртуальная машина остановлена.
+         - STARTING: Виртуальная машина запускается.
+         - RESTARTING: Виртуальная машина перезапускается.
+         - UPDATING: Виртуальная машина обновляется.
+         - ERROR: С виртуальной машиной произошла ошибка, блокирующая работу.
+         - CRASHED: Виртуальная машина аварийно завершила работу и будет
+        перезапущена автоматически.
+         - DELETING: Виртуальная машина удаляется.
+      type: string
+      enum:
+      - PROVISIONING
+      - RUNNING
+      - STOPPING
+      - STOPPED
+      - STARTING
+      - RESTARTING
+      - UPDATING
+      - ERROR
+      - CRASHED
+      - DELETING
+    InstanceView:
+      description: |2-
+         - BASIC: Не включает поле метаданных в ответ сервера.
+         - FULL: Возвращает в ответе сервера всю информацию о виртуальной
+        машине, включая метаданные.
+      type: string
+      enum:
+      - BASIC
+      - FULL
+      default: BASIC
+    IpVersion:
+      description: |2-
+         - IPV4: IPv4-адрес, например 192.0.2.235.
+         - IPV6: Адрес IPv6. На данный момент не доступен.
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    ListDiskOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанного диска.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Disk/listOperations#query_params),
+            используйте [nextPageToken](/docs/compute/api-ref/Disk/listOperations#responses) в качестве значения параметра
+            [pageToken](/docs/compute/api-ref/Disk/listOperations#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/compute/api-ref/Disk/listOperations#responses)
+            для перебора страниц результатов.
+          type: string
+    ListDiskTypesResponse:
+      type: object
+      properties:
+        diskTypes:
+          description: Список типов дисков.
+          type: array
+          items:
+            $ref: '#/components/schemas/DiskType'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов больше чем [pageSize](/docs/compute/api-ref/DiskType/list#query_params),
+            используйте [nextPageToken](/docs/compute/api-ref/DiskType/list#responses) в качестве значения параметра
+            [pageToken](/docs/compute/api-ref/DiskType/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/compute/api-ref/DiskType/list#responses)
+            для перебора страниц результатов.
+          type: string
+    ListDisksResponse:
+      type: object
+      properties:
+        disks:
+          description: Список ресурсов Disk.
+          type: array
+          items:
+            $ref: '#/components/schemas/Disk'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Disk/list#query_params),
+            используйте [nextPageToken](/docs/compute/api-ref/Disk/list#responses) в качестве значения параметра
+            [pageToken](/docs/compute/api-ref/Disk/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/compute/api-ref/Disk/list#responses)
+            для перебора страниц результатов.
+          type: string
+    ListImageOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанного образа.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Image/listOperations#query_params),
+            используйте [nextPageToken](/docs/compute/api-ref/Image/listOperations#responses) в качестве значения параметра
+            [pageToken](/docs/compute/api-ref/Image/listOperations#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/compute/api-ref/Image/listOperations#responses)
+            для перебора страниц результатов.
+          type: string
+    ListImagesResponse:
+      type: object
+      properties:
+        images:
+          description: Список образов.
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Snapshot/list#query_params),
+            используйте [nextPageToken](/docs/compute/api-ref/Image/list#responses) в качестве значения параметра
+            [pageToken](/docs/compute/api-ref/Snapshot/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/compute/api-ref/Image/list#responses)
+            для перебора страниц результатов.
+          type: string
+    ListInstanceOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанной виртуальной машины.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Instance/listOperations#query_params),
+            используйте [nextPageToken](/docs/compute/api-ref/Instance/listOperations#responses) в качестве значения параметра
+            [pageToken](/docs/compute/api-ref/Instance/listOperations#query_params) в следующем запросе списка ресурсов.
+            Все последующие запросы будут получать свои значения
+            [nextPageToken](/docs/compute/api-ref/Instance/listOperations#responses) для перебора страниц результатов.
+          type: string
+    ListInstancesResponse:
+      type: object
+      properties:
+        instances:
+          description: Список ресурсов Instance.
+          type: array
+          items:
+            $ref: '#/components/schemas/Instance'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Instance/list#query_params),
+            используйте [nextPageToken](/docs/compute/api-ref/Instance/list#responses) в качестве значения параметра
+            [pageToken](/docs/compute/api-ref/Instance/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/compute/api-ref/Instance/list#responses)
+            для перебора страниц результатов.
+          type: string
+    ListSnapshotOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанного снимка.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Snapshot/listOperations#query_params),
+            используйте [nextPageToken](/docs/compute/api-ref/Snapshot/listOperations#responses) в качестве значения параметра
+            [pageToken](/docs/compute/api-ref/Snapshot/listOperations#query_params) в следующем запросе списка ресурсов.
+            Все последующие запросы будут получать свои значения
+            [nextPageToken](/docs/compute/api-ref/Snapshot/listOperations#responses) для перебора страниц результатов.
+          type: string
+    ListSnapshotsResponse:
+      type: object
+      properties:
+        snapshots:
+          description: Список снимков.
+          type: array
+          items:
+            $ref: '#/components/schemas/Snapshot'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Snapshot/list#query_params),
+            используйте [nextPageToken](/docs/compute/api-ref/Snapshot/list#responses) в качестве значения параметра
+            [pageToken](/docs/compute/api-ref/Snapshot/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/compute/api-ref/Snapshot/list#responses)
+            для перебора страниц результатов.
+          type: string
+    ListZonesResponse:
+      type: object
+      properties:
+        zones:
+          description: Список зон доступности.
+          type: array
+          items:
+            $ref: '#/components/schemas/Zone'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе.
+            Если количество результатов больше чем [pageSize](/docs/compute/api-ref/Zone/list#query_params),
+            используйте [pageToken](/docs/compute/api-ref/Zone/list#query_params) в качестве значения параметра
+            [pageToken](/docs/compute/api-ref/Zone/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения
+            [pageToken](/docs/compute/api-ref/Zone/list#query_params) , для перебора страниц результатов.
+          type: string
+    NetworkInterface:
+      type: object
+      properties:
+        index:
+          description: |-
+            Индекс сетевого интерфейса, генерируемого сервером, 0,1,2... В
+            настоящее время для каждой виртуальной машины поддерживается
+            только один сетевой интерфейс.
+          type: string
+        macAddress:
+          description: MAC-адрес, назначенный сетевому интерфейсу.
+          type: string
+        subnetId:
+          description: Идентификатор подсети.
+          type: string
+        primaryV4Address:
+          $ref: '#/components/schemas/PrimaryAddress_in_NetworkInterface_primaryV4Address'
+        primaryV6Address:
+          $ref: '#/components/schemas/PrimaryAddress_in_NetworkInterface_primaryV6Address'
+    NetworkInterfaceSpec:
+      type: object
+      properties:
+        subnetId:
+          description: |-
+            Обязательное поле.
+            Идентификатор подсети.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        primaryV4AddressSpec:
+          $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec'
+        primaryV6AddressSpec:
+          $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec'
+    OneToOneNat:
+      type: object
+      properties:
+        address:
+          description: Публичный IP-адрес, связанный с данной виртуальной машиной
+          type: string
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_OneToOneNat_ipVersion'
+    OneToOneNatSpec:
+      type: object
+      properties:
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
+    Operation:
+      description: |-
+        Ресурс Operation. Дополнительные сведения см. в разделе
+        [Объект Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Только для вывода. Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Только для вывода. Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Только для вывода. Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Только для вывода. Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Только для вывода. Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
+    Os:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/OsType_in_Os_type'
+    OsType:
+      description: |2-
+         - LINUX: Операционная система Linux.
+         - WINDOWS: Операционная система Windows.
+      type: string
+      enum:
+      - LINUX
+      - WINDOWS
+    PrimaryAddress:
+      type: object
+      properties:
+        address:
+          description: |-
+            Внутренний IPv4-адрес, назначенный виртуальной машине для этого
+            сетевого интерфейса.
+          type: string
+        oneToOneNat:
+          $ref: '#/components/schemas/OneToOneNat_in_PrimaryAddress_oneToOneNat'
+    PrimaryAddressSpec:
+      type: object
+      properties:
+        address:
+          description: |-
+            Внутренний IPv4-адрес, назначенный виртуальной машине для этого
+            сетевого интерфейса. Если не указано, системой будет назначен
+            неиспользуемый внутренний IP-адрес.
+          type: string
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
+    Resources:
+      type: object
+      properties:
+        memory:
+          description: Объем памяти в байтах, доступный виртуальной машине.
+          type: string
+          format: int64
+        cores:
+          description: Количество ядер, доступных виртуальной машине.
+          type: string
+          format: int64
+        coreFraction:
+          description: |-
+            Базовый уровень производительности CPU с возможностью
+            повышения производительности выше этого уровня. Это поле
+            устанавливает базовую производительность для каждого ядра.
+          type: string
+          format: int64
+    ResourcesSpec:
+      type: object
+      properties:
+        memory:
+          description: |-
+            Обязательное поле.
+            Объем памяти в байтах, доступный виртуальной машине.
+
+            Максимальное значение — 274877906944.
+          type: string
+          format: int64
+        cores:
+          description: |-
+            Обязательное поле.
+            Количество ядер, доступных виртуальной машине.
+
+            Значение должно быть равно 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 или 32.
+          type: string
+          format: int64
+        coreFraction:
+          description: |-
+            Базовый уровень производительности CPU с возможностью
+            повышения производительности выше этого уровня. Это поле
+            устанавливает базовую производительность для каждого ядра.
+
+            Например, если требуется только 5% производительности CPU, можно
+            задать core_fraction=5. Дополнительные сведения см. в разделе
+            [Легкие виртуальные машины](/docs/compute/concepts/vm-types#light-vms).
+
+            Значение должно быть равно 0, 5, 20, 50 или 100.
+          type: string
+          format: int64
+    RestartInstanceMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: Идентификатор виртуальной машины.
+          type: string
+    SchedulingPolicy:
+      type: object
+      properties:
+        preemptible:
+          description: |-
+            Если значение равно true — будет создана прерываемая
+            виртуальная машина. Дополнительные сведения см. в разделе
+            [Прерываемые виртуальные машины](/docs/compute/concepts/preemptible-vm).
+          type: boolean
+          format: boolean
+    Snapshot:
+      description: |-
+        Ресурс Snapshot. Дополнительные сведения см. в разделе
+        [Снимки](/docs/compute/concepts/snapshot).
+      type: object
+      properties:
+        id:
+          description: Идентификатор снимка.
+          type: string
+        folderId:
+          description: Идентификатор каталога, которому принадлежит снимок.
+          type: string
+        createdAt:
+          description: Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        name:
+          description: Имя снимка. Длина 1-63 символов.
+          type: string
+        description:
+          description: Описание снимка. Длина описания должна быть от 0 до 256 символов.
+          type: string
+        labels:
+          description: Метки ресурса в формате `key:value`. Максимум 64 на ресурс.
+          type: object
+          additionalProperties:
+            type: string
+        storageSize:
+          description: Размер снимка, указанный в байтах.
+          type: string
+          format: int64
+        diskSize:
+          description: Размер диска при создании снимка указывается в байтах.
+          type: string
+          format: int64
+        productIds:
+          description: |-
+            Идентификаторы лицензий, указывающие, какие лицензии
+            подключены к этому ресурсу. Идентификаторы лицензий
+            используются для расчета дополнительной платы за
+            использование виртуальной машины.
+
+            Правильный идентификатор лицензии генерируется
+            Яндексом.Облаком. Идентификаторы наследуются новыми
+            ресурсами, созданными из этого ресурса.
+
+            Если вам известны идентификаторы лицензий, укажите их при
+            создании образа. Например, если создать образ диска с помощью
+            сторонней утилиты и загрузить его в Yandex Object Storage, то
+            идентификаторы лицензий будут потеряны. Вы можете указать их в
+            запросе [create](/docs/compute/api-ref/Image/create).
+          type: array
+          items:
+            type: string
+        status:
+          $ref: '#/components/schemas/SnapshotStatus_in_Snapshot_status'
+        sourceDiskId:
+          description: Идентификатор диска, используемого для создания снимка.
+          type: string
+    SnapshotStatus:
+      description: |2-
+         - CREATING: Снимок создается.
+         - READY: Снимок готов к использованию.
+         - ERROR: Со снимком произошла ошибка, блокирующая работу.
+         - DELETING: Снимок удаляется.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
+    StartInstanceMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: Идентификатор виртуальной машины.
+          type: string
+    StopInstanceMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: Идентификатор удаляемой виртуальной машины.
+          type: string
+    UpdateDiskMetadata:
+      type: object
+      properties:
+        diskId:
+          description: Идентификатор изменяемого ресурса Disk.
+          type: string
+    UpdateDiskRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateDiskRequest_updateMask'
+        name:
+          description: |-
+            Имя диска.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Описание диска.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки ресурса в формате `key:value`.
+
+            Существующий набор `labels` полностью перезаписывается набором,
+            переданным в запросе.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        size:
+          description: |-
+            Размер диска в байтах.
+
+            Допустимые значения — от 4194304 до 4398046511104 включительно.
+          type: string
+          format: int64
+    UpdateImageMetadata:
+      type: object
+      properties:
+        imageId:
+          description: Идентификатор изменяемого ресурса Disk.
+          type: string
+    UpdateImageRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateImageRequest_updateMask'
+        name:
+          description: |-
+            Имя образа.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Описание образа.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        minDiskSize:
+          description: |-
+            Минимальный размер диска, который может быть создан из этого
+            образа. Указывается в байтах. Должно быть больше объема
+            исходных данных и больше размера виртуального диска.
+
+            Допустимые значения — от 4194304 до 4398046511104 включительно.
+          type: string
+          format: int64
+        labels:
+          description: |-
+            Метки ресурса в формате `key:value`.
+
+            Существующий набор `labels` полностью перезаписывается набором,
+            переданным в запросе.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    UpdateInstanceMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: Идентификатор изменяемого ресурса Instance.
+          type: string
+    UpdateInstanceMetadataMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: Идентификатор изменяемой виртуальной машины.
+          type: string
+    UpdateInstanceMetadataRequest:
+      type: object
+      properties:
+        delete:
+          description: Список ключей для удаления.
+          type: array
+          items:
+            type: string
+        upsert:
+          description: |-
+            Метаданные в формате пар `key:value` , которые будут добавлены или
+            обновлены для данной виртуальной машины.
+          type: object
+          additionalProperties:
+            type: string
+    UpdateInstanceRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateInstanceRequest_updateMask'
+        name:
+          description: |-
+            Имя виртуальной машины.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Описание виртуальной машины.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки ресурса в формате `key:value`.
+
+            Существующий набор `labels` полностью перезаписывается набором,
+            переданным в запросе.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        platformId:
+          description: |-
+            Идентификатор аппаратной платформы виртуальной машины. Это
+            поле влияет на допустимые значения в поле [resourcesSpec](/docs/compute/api-ref/Instance/update#body_params).
+
+            В настоящее время доступна только одна платформа - `standard-v1`. Эта
+            платформа подходит для большинства задач. Эта платформа
+            позволяет создавать машины различных типов: с большим объемом
+            памяти, с большим количеством ядер, с высокой
+            производительностью.
+
+            Значение должно соответствовать регулярному выражению `` standard-v1 ``.
+          type: string
+        resourcesSpec:
+          $ref: '#/components/schemas/ResourcesSpec_in_UpdateInstanceRequest_resourcesSpec'
+        metadata:
+          description: |-
+            Метаданные, назначаемые данной виртуальной машине, в формате
+            пар "`key:value`". Это включает произвольные пользовательские
+            метаданные и предзаданные ключи. Общий размер всех ключей и
+            значений не должен превышать 512 КБ.
+
+            Существующий набор `metadata` полностью перезаписывается набором,
+            переданным в запросе.
+
+            Значениями являются строки и используются только программами,
+            которые настраивают виртуальную машину. Единственное
+            ограничение для значений — их размер не должен превышать 256 КБ.
+
+            Например, можно использовать метаданные для доставки
+            открытого ключа SSH на виртуальную машину. Дополнительные
+            сведения см. в разделе [Метаданные виртуальной машины](/docs/compute/concepts/vm-metadata).
+          type: object
+          additionalProperties:
+            type: string
+    UpdateSnapshotMetadata:
+      type: object
+      properties:
+        snapshotId:
+          description: Идентификатор изменяемого ресурса Snapshot.
+          type: string
+    UpdateSnapshotRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateSnapshotRequest_updateMask'
+        name:
+          description: |-
+            Имя снимка.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Описание снимка.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки ресурса в формате `key:value`.
+
+            Существующий набор `labels` полностью перезаписывается набором,
+            переданным в запросе.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    Zone:
+      description: |-
+        Зона доступности. Дополнительные сведения см. в разделе [Зоны
+        доступности](/docs/overview/concepts/geo-scope).
+      type: object
+      properties:
+        id:
+          description: Идентификатор зоны.
+          type: string
+        regionId:
+          description: Идентификатор региона.
+          type: string
+        status:
+          $ref: '#/components/schemas/ZoneStatus_in_Zone_status'
+    ZoneStatus:
+      description: |2-
+         - UP: Зона доступна. Вы можете обращаться к ресурсам в этой зоне.
+         - DOWN: Зона недоступна.
+      type: string
+      enum:
+      - UP
+      - DOWN
+    rpcStatus:
+      description: Описание ошибки в случае сбоя или отмены операции.
+      type: object
+      properties:
+        code:
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: Текст ошибки.
+          type: string
+        details:
+          description: Список сообщений с подробными сведениями об ошибке.
+          type: array
+          items:
+            type: object
+    AttachedDiskSpec_in_AttachInstanceDiskRequest_attachedDiskSpec:
+      description: |-
+        Обязательное поле.
+        Диск для подключения.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          mode:
+            $ref: '#/components/schemas/AttachedDiskSpecMode'
+            description: Режим, в котором необходимо подключить этот диск.
+          deviceName:
+            description: |-
+              Задает уникальный серийный номер, который на виртуальной
+              машине с операционной системой Linux отображается в директории
+              /dev/disk/by-id/.
+
+              Это значение может использоваться для ссылки на устройство
+              внутри виртуальной машины при монтировании, изменении размера
+              и т. д. Если не указано, будет сгенерировано случайное значение.
+
+              Значение должно соответствовать регулярному выражению `` [a-z][a-z0-9-_]{,19} ``.
+            type: string
+          autoDelete:
+            description: |-
+              Указывает, должен ли диск автоматически удалиться при
+              удалении виртуальной машины.
+            type: boolean
+            format: boolean
+      - title: disk
+        type: object
+        maxProperties: 1
+        properties:
+          diskSpec:
+            $ref: '#/components/schemas/AttachedDiskSpecDiskSpec'
+            description: Спецификация диска.
+          diskId:
+            description: |-
+              Идентификатор диска, который должен быть подключен.
+
+              Максимальная длина строки в символах — 50.
+            type: string
+    AttachedDiskMode_in_AttachedDisk_mode:
+      description: |-
+        Режим доступа к ресурсу Disk.
+
+         - READ_ONLY: Доступ на чтение.
+         - READ_WRITE: Доступ на чтение и запись.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    ResourcesSpec_in_CreateInstanceRequest_resourcesSpec:
+      description: |-
+        Обязательное поле.
+        Вычислительные ресурсы виртуальной машины, такие как объем
+        памяти и количество ядер. Чтобы узнать список допустимых
+        значений, см. [Типы виртуальных машин](/docs/compute/concepts/vm-types).
+      type: object
+      properties:
+        memory:
+          description: |-
+            Обязательное поле.
+            Объем памяти в байтах, доступный виртуальной машине.
+
+            Максимальное значение — 274877906944.
+          type: string
+          format: int64
+        cores:
+          description: |-
+            Обязательное поле.
+            Количество ядер, доступных виртуальной машине.
+
+            Значение должно быть равно 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 или 32.
+          type: string
+          format: int64
+        coreFraction:
+          description: |-
+            Базовый уровень производительности CPU с возможностью
+            повышения производительности выше этого уровня. Это поле
+            устанавливает базовую производительность для каждого ядра.
+
+            Например, если требуется только 5% производительности CPU, можно
+            задать core_fraction=5. Дополнительные сведения см. в разделе
+            [Легкие виртуальные машины](/docs/compute/concepts/vm-types#light-vms).
+
+            Значение должно быть равно 0, 5, 20, 50 или 100.
+          type: string
+          format: int64
+    AttachedDiskSpec_in_CreateInstanceRequest_bootDiskSpec:
+      description: |-
+        Обязательное поле.
+        Загрузочный диск для подключения к виртуальной машине.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          mode:
+            $ref: '#/components/schemas/AttachedDiskSpecMode'
+            description: Режим, в котором необходимо подключить этот диск.
+          deviceName:
+            description: |-
+              Задает уникальный серийный номер, который на виртуальной
+              машине с операционной системой Linux отображается в директории
+              /dev/disk/by-id/.
+
+              Это значение может использоваться для ссылки на устройство
+              внутри виртуальной машины при монтировании, изменении размера
+              и т. д. Если не указано, будет сгенерировано случайное значение.
+
+              Значение должно соответствовать регулярному выражению `` [a-z][a-z0-9-_]{,19} ``.
+            type: string
+          autoDelete:
+            description: |-
+              Указывает, должен ли диск автоматически удалиться при
+              удалении виртуальной машины.
+            type: boolean
+            format: boolean
+      - title: disk
+        type: object
+        maxProperties: 1
+        properties:
+          diskSpec:
+            $ref: '#/components/schemas/AttachedDiskSpecDiskSpec'
+            description: Спецификация диска.
+          diskId:
+            description: |-
+              Идентификатор диска, который должен быть подключен.
+
+              Максимальная длина строки в символах — 50.
+            type: string
+    SchedulingPolicy_in_CreateInstanceRequest_schedulingPolicy:
+      description: Политика планирования.
+      type: object
+      properties:
+        preemptible:
+          description: |-
+            Если значение равно true — будет создана прерываемая
+            виртуальная машина. Дополнительные сведения см. в разделе
+            [Прерываемые виртуальные машины](/docs/compute/concepts/preemptible-vm).
+          type: boolean
+          format: boolean
+    ImageStatus_in_Image_status:
+      description: |-
+        Текущий статус образа диска.
+
+         - CREATING: Образ диска создается.
+         - READY: Образ диска готов к использованию.
+         - ERROR: С образом произошла ошибка, блокирующая работу.
+         - DELETING: Образ диска удаляется.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
+    Os_in_Image_os:
+      description: Операционная система, содержащаяся в образе.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/OsType_in_Os_type'
+    Resources_in_Instance_resources:
+      description: |-
+        Вычислительные ресурсы виртуальной машины, такие как объем
+        памяти и количество ядер.
+      type: object
+      properties:
+        memory:
+          description: Объем памяти в байтах, доступный виртуальной машине.
+          type: string
+          format: int64
+        cores:
+          description: Количество ядер, доступных виртуальной машине.
+          type: string
+          format: int64
+        coreFraction:
+          description: |-
+            Базовый уровень производительности CPU с возможностью
+            повышения производительности выше этого уровня. Это поле
+            устанавливает базовую производительность для каждого ядра.
+          type: string
+          format: int64
+    InstanceStatus_in_Instance_status:
+      description: |-
+        Статус виртуальной машины.
+
+         - PROVISIONING: Виртуальная машина ожидает выделения ресурсов.
+         - RUNNING: Виртуальная машина работает нормально.
+         - STOPPING: Виртуальная машина останавливается.
+         - STOPPED: Виртуальная машина остановлена.
+         - STARTING: Виртуальная машина запускается.
+         - RESTARTING: Виртуальная машина перезапускается.
+         - UPDATING: Виртуальная машина обновляется.
+         - ERROR: С виртуальной машиной произошла ошибка, блокирующая работу.
+         - CRASHED: Виртуальная машина аварийно завершила работу и будет
+        перезапущена автоматически.
+         - DELETING: Виртуальная машина удаляется.
+      type: string
+      enum:
+      - PROVISIONING
+      - RUNNING
+      - STOPPING
+      - STOPPED
+      - STARTING
+      - RESTARTING
+      - UPDATING
+      - ERROR
+      - CRASHED
+      - DELETING
+    AttachedDisk_in_Instance_bootDisk:
+      description: Загрузочный диск, подключенный к виртуальной машине.
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/AttachedDiskMode_in_AttachedDisk_mode'
+        deviceName:
+          description: |-
+            Cерийный номер, который на виртуальной машине с операционной
+            системой Linux отображается в директории /dev/disk/by-id/.
+
+            Это значение может использоваться для ссылки на устройство
+            внутри виртуальной машины при монтировании, изменении размера
+            и т. д.
+          type: string
+        autoDelete:
+          description: |-
+            Указывает, должен ли диск автоматически удалиться при
+            удалении виртуальной машины.
+          type: boolean
+          format: boolean
+        diskId:
+          description: Идентификатор диска, подключенного к виртуальной машине.
+          type: string
+    SchedulingPolicy_in_Instance_schedulingPolicy:
+      description: Политика планирования.
+      type: object
+      properties:
+        preemptible:
+          description: |-
+            Если значение равно true — будет создана прерываемая
+            виртуальная машина. Дополнительные сведения см. в разделе
+            [Прерываемые виртуальные машины](/docs/compute/concepts/preemptible-vm).
+          type: boolean
+          format: boolean
+    PrimaryAddress_in_NetworkInterface_primaryV4Address:
+      description: |-
+        Основной IPv4-адрес, который назначен виртуальной машине для
+        данного сетевого интерфейса.
+      type: object
+      properties:
+        address:
+          description: |-
+            Внутренний IPv4-адрес, назначенный виртуальной машине для этого
+            сетевого интерфейса.
+          type: string
+        oneToOneNat:
+          $ref: '#/components/schemas/OneToOneNat_in_PrimaryAddress_oneToOneNat'
+    PrimaryAddress_in_NetworkInterface_primaryV6Address:
+      description: |-
+        Основной IPv6-адрес, который назначен виртуальной машине для
+        данного сетевого интерфейса. IPv6 еще не доступен.
+      type: object
+      properties:
+        address:
+          description: |-
+            Внутренний IPv4-адрес, назначенный виртуальной машине для этого
+            сетевого интерфейса.
+          type: string
+        oneToOneNat:
+          $ref: '#/components/schemas/OneToOneNat_in_PrimaryAddress_oneToOneNat'
+    PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec:
+      description: |-
+        Основной IPv4-адрес, который будет назначен виртуальной машине
+        для данного сетевого интерфейса.
+      type: object
+      properties:
+        address:
+          description: |-
+            Внутренний IPv4-адрес, назначенный виртуальной машине для этого
+            сетевого интерфейса. Если не указано, системой будет назначен
+            неиспользуемый внутренний IP-адрес.
+          type: string
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
+    PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec:
+      description: |-
+        Основной IPv6-адрес, который будет назначен виртуальной машине
+        для данного сетевого интерфейса. IPv6 еще не доступен.
+      type: object
+      properties:
+        address:
+          description: |-
+            Внутренний IPv4-адрес, назначенный виртуальной машине для этого
+            сетевого интерфейса. Если не указано, системой будет назначен
+            неиспользуемый внутренний IP-адрес.
+          type: string
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
+    IpVersion_in_OneToOneNat_ipVersion:
+      description: |-
+        Версия IP для публичного IP-адреса.
+
+         - IPV4: IPv4-адрес, например 192.0.2.235.
+         - IPV6: Адрес IPv6. На данный момент не доступен.
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    IpVersion_in_OneToOneNatSpec_ipVersion:
+      description: |-
+        Обязательное поле.
+        Версия публичного IP-адреса.
+
+         - IPV4: IPv4-адрес, например 192.0.2.235.
+         - IPV6: Адрес IPv6. На данный момент не доступен.
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    OsType_in_Os_type:
+      description: |-
+        Тип операционной системы.
+
+         - LINUX: Операционная система Linux.
+         - WINDOWS: Операционная система Windows.
+      type: string
+      enum:
+      - LINUX
+      - WINDOWS
+    OneToOneNat_in_PrimaryAddress_oneToOneNat:
+      description: Конфигурация One-to-one NAT . Если отсутствует, NAT не был настроен.
+      type: object
+      properties:
+        address:
+          description: Публичный IP-адрес, связанный с данной виртуальной машиной
+          type: string
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_OneToOneNat_ipVersion'
+    OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec:
+      description: |-
+        Конфигурация внешнего IP-адреса. Если не указано, то к
+        виртуальной машине не будет доступа из интернета.
+      type: object
+      properties:
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
+    SnapshotStatus_in_Snapshot_status:
+      description: |-
+        Текущий статус снимка.
+
+         - CREATING: Снимок создается.
+         - READY: Снимок готов к использованию.
+         - ERROR: Со снимком произошла ошибка, блокирующая работу.
+         - DELETING: Снимок удаляется.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
+    FieldMask_in_UpdateDiskRequest_updateMask:
+      description: |-
+        Маска, определяющая, какие поля ресурса Disk будут обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    FieldMask_in_UpdateImageRequest_updateMask:
+      description: |-
+        Маска, определяющая, какие поля ресурса Image будут обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    FieldMask_in_UpdateInstanceRequest_updateMask:
+      description: |-
+        Маска, определяющая, какие поля ресурса Disk будут обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    ResourcesSpec_in_UpdateInstanceRequest_resourcesSpec:
+      description: |-
+        Вычислительные ресурсы виртуальной машины, такие как объем
+        памяти и количество ядер. Чтобы узнать список допустимых
+        значений, см. [Типы виртуальных машин](/docs/compute/concepts/vm-types).
+      type: object
+      properties:
+        memory:
+          description: |-
+            Обязательное поле.
+            Объем памяти в байтах, доступный виртуальной машине.
+
+            Максимальное значение — 274877906944.
+          type: string
+          format: int64
+        cores:
+          description: |-
+            Обязательное поле.
+            Количество ядер, доступных виртуальной машине.
+
+            Значение должно быть равно 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 или 32.
+          type: string
+          format: int64
+        coreFraction:
+          description: |-
+            Базовый уровень производительности CPU с возможностью
+            повышения производительности выше этого уровня. Это поле
+            устанавливает базовую производительность для каждого ядра.
+
+            Например, если требуется только 5% производительности CPU, можно
+            задать core_fraction=5. Дополнительные сведения см. в разделе
+            [Легкие виртуальные машины](/docs/compute/concepts/vm-types#light-vms).
+
+            Значение должно быть равно 0, 5, 20, 50 или 100.
+          type: string
+          format: int64
+    FieldMask_in_UpdateSnapshotRequest_updateMask:
+      description: |-
+        Маска, определяющая, какие поля ресурса Snapshot будут обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    ZoneStatus_in_Zone_status:
+      description: |-
+        Статус зоны доступности.
+
+         - UP: Зона доступна. Вы можете обращаться к ресурсам в этой зоне.
+         - DOWN: Зона недоступна.
+      type: string
+      enum:
+      - UP
+      - DOWN
+tags:
+- name: Disk
+  description: Набор методов для управления ресурсами Disk.
+- name: DiskType
+  description: Набор методов для получения информации о типах дисков.
+- name: Image
+  description: Набор методов для управления ресурсами Image.
+- name: Instance
+  description: Набор методов для управления ресурсами Instance.
+- name: Snapshot
+  description: Набор методов для управления ресурсами Snapshot.
+- name: Zone
+  description: Набор методов для получения информации о зонах доступности.

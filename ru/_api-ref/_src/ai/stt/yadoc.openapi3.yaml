@@ -1,0 +1,113 @@
+openapi: "3.0"
+info:
+  title: Yandex Speech To Text Service API
+  description: This API reference is organized by resource. All actions are performed
+    by sending HTTP requests to resource URLs. For more information about Yandex.Cloud
+    API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v2
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://stt.api.cloud.yandex.net
+paths: {}
+components:
+  schemas:
+    RecognitionConfig:
+      type: object
+      properties:
+        specification:
+          $ref: '#/components/schemas/RecognitionSpec_in_RecognitionConfig_specification'
+        folderId:
+          type: string
+    RecognitionSpec:
+      type: object
+      properties:
+        audioEncoding:
+          $ref: '#/components/schemas/RecognitionSpecAudioEncoding_in_RecognitionSpec_audioEncoding'
+        sampleRateHertz:
+          description: 8000, 16000, 48000 only for pcm
+          type: string
+          format: int64
+        languageCode:
+          description: code in BCP-47
+          type: string
+        profanityFilter:
+          type: boolean
+          format: boolean
+        model:
+          type: string
+        partialResults:
+          description: |-
+            If set true, tentative hypotheses may be returned as they become available (final=false flag)
+            If false or omitted, only final=true result(s) are returned.
+          type: boolean
+          format: boolean
+        singleUtterance:
+          type: boolean
+          format: boolean
+    RecognitionSpecAudioEncoding:
+      description: ' - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)'
+      type: string
+      enum:
+      - LINEAR16_PCM
+      - OGG_OPUS
+    SpeechRecognitionAlternative:
+      type: object
+      properties:
+        text:
+          type: string
+        confidence:
+          type: number
+          format: float
+    SpeechRecognitionChunk:
+      type: object
+      properties:
+        alternatives:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpeechRecognitionAlternative'
+        final:
+          type: boolean
+          format: boolean
+    StreamingRecognitionResponse:
+      type: object
+      properties:
+        chunks:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpeechRecognitionChunk'
+        endOfSingleUtterance:
+          type: boolean
+          format: boolean
+    RecognitionSpec_in_RecognitionConfig_specification:
+      type: object
+      properties:
+        audioEncoding:
+          $ref: '#/components/schemas/RecognitionSpecAudioEncoding_in_RecognitionSpec_audioEncoding'
+        sampleRateHertz:
+          description: 8000, 16000, 48000 only for pcm
+          type: string
+          format: int64
+        languageCode:
+          description: code in BCP-47
+          type: string
+        profanityFilter:
+          type: boolean
+          format: boolean
+        model:
+          type: string
+        partialResults:
+          description: |-
+            If set true, tentative hypotheses may be returned as they become available (final=false flag)
+            If false or omitted, only final=true result(s) are returned.
+          type: boolean
+          format: boolean
+        singleUtterance:
+          type: boolean
+          format: boolean
+    RecognitionSpecAudioEncoding_in_RecognitionSpec_audioEncoding:
+      description: ' - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)'
+      type: string
+      enum:
+      - LINEAR16_PCM
+      - OGG_OPUS
+tags:
+- name: Stt

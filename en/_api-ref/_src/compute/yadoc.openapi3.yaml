@@ -1,0 +1,3279 @@
+openapi: "3.0"
+info:
+  title: Yandex Compute Cloud API
+  description: This API reference is organized by resource. All actions are performed
+    by sending HTTP requests to resource URLs. For more information about Yandex.Cloud
+    API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://compute.api.cloud.yandex.net
+paths:
+  /compute/v1/disks/{diskId}:
+    get:
+      tags:
+      - Disk
+      summary: Returns the specified Disk resource.
+      description: To get the list of available Disk resources, make a [list](/docs/compute/api-ref/Disk/list)
+        request.
+      operationId: DiskGet
+      parameters:
+      - name: diskId
+        in: path
+        description: |-
+          Required.
+          ID of the Disk resource to return.
+          To get the disk ID use a [list](/docs/compute/api-ref/Disk/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Disk'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Disk
+      summary: Deletes the specified disk.
+      description: |-
+        Deleting a disk removes its data permanently and is irreversible. However, deleting a disk does not delete
+        any snapshots or images previously made from the disk. You must delete snapshots and images separately.
+
+        It is not possible to delete a disk that is attached to an instance.
+      operationId: DiskDelete
+      parameters:
+      - name: diskId
+        in: path
+        description: |-
+          Required.
+          ID of the disk to delete.
+          To get the disk ID use a [list](/docs/compute/api-ref/Disk/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteDiskMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Disk
+      summary: Updates the specified disk.
+      operationId: DiskUpdate
+      parameters:
+      - name: diskId
+        in: path
+        description: |-
+          Required.
+          ID of the Disk resource to update.
+          To get the disk ID use a [list](/docs/compute/api-ref/Disk/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDiskRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateDiskMetadata'
+      x-y-operation-response: '[Disk](/docs/compute/api-ref/Disk#representation)'
+  /compute/v1/disks:
+    get:
+      tags:
+      - Disk
+      summary: Retrieves the list of Disk resources in the specified folder.
+      operationId: DiskList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list disks in.
+          To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/Disk/list#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/Disk/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/Disk/list#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/Disk/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on the [Disk.name](/docs/compute/api-ref/Disk#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDisksResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Disk
+      summary: Creates a disk in the specified folder.
+      description: |-
+        You can create an empty disk or restore it from a snapshot or an image.
+        Method starts an asynchronous operation that can be cancelled while it is in progress.
+      operationId: DiskCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDiskRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateDiskMetadata'
+      x-y-operation-response: '[Disk](/docs/compute/api-ref/Disk#representation)'
+  /compute/v1/disks/{diskId}/operations:
+    get:
+      tags:
+      - Disk
+      summary: Lists operations for the specified disk.
+      operationId: DiskListOperations
+      parameters:
+      - name: diskId
+        in: path
+        description: |-
+          Required.
+          ID of the Disk resource to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/Disk/listOperations#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/Disk/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/Disk/listOperations#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/Disk/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDiskOperationsResponse'
+      x-y-navtitle: listOperations
+  /compute/v1/diskTypes/{diskTypeId}:
+    get:
+      tags:
+      - DiskType
+      summary: Returns the information about specified disk type.
+      description: To get the list of available disk types, make a [list](/docs/compute/api-ref/DiskType/list)
+        request.
+      operationId: DiskTypeGet
+      parameters:
+      - name: diskTypeId
+        in: path
+        description: |-
+          Required.
+          ID of the disk type to return information about.
+          To get the disk type ID use a [list](/docs/compute/api-ref/DiskType/list) request.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiskType'
+      x-y-navtitle: get
+  /compute/v1/diskTypes:
+    get:
+      tags:
+      - DiskType
+      summary: Retrieves the list of disk types for the specified folder.
+      operationId: DiskTypeList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/DiskType/list#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/DiskType/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/DiskType/list#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/DiskType/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDiskTypesResponse'
+      x-y-navtitle: list
+  /compute/v1/images/{imageId}:
+    get:
+      tags:
+      - Image
+      summary: Returns the specified Image resource.
+      description: To get the list of available Image resources, make a [list](/docs/compute/api-ref/Image/list)
+        request.
+      operationId: ImageGet
+      parameters:
+      - name: imageId
+        in: path
+        description: |-
+          Required.
+          ID of the Image resource to return.
+          To get the image ID, use a [list](/docs/compute/api-ref/Image/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Image'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Image
+      summary: Deletes the specified image.
+      description: Deleting an image removes its data permanently and is irreversible.
+      operationId: ImageDelete
+      parameters:
+      - name: imageId
+        in: path
+        description: |-
+          Required.
+          ID of the image to delete.
+          To get the image ID, use a [list](/docs/compute/api-ref/Image/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteImageMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Image
+      summary: Updates the specified image.
+      operationId: ImageUpdate
+      parameters:
+      - name: imageId
+        in: path
+        description: |-
+          Required.
+          ID of the Image resource to update.
+          To get the image ID, use a [list](/docs/compute/api-ref/Image/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateImageRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateImageMetadata'
+      x-y-operation-response: '[Image](/docs/compute/api-ref/Image#representation)'
+  /compute/v1/images:latestByFamily:
+    get:
+      tags:
+      - Image
+      summary: Returns the latest image that is part of an image family.
+      operationId: ImageGetLatestByFamily
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to get the image from.
+          To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: family
+        in: query
+        description: |-
+          Name of the image family to search for.
+
+          Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Image'
+      x-y-navtitle: getLatestByFamily
+  /compute/v1/images:
+    get:
+      tags:
+      - Image
+      summary: Retrieves the list of Image resources in the specified folder.
+      operationId: ImageList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list images in.
+          To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/Image/list#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/Image/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/Image/list#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/Image/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on the [Image.name](/docs/compute/api-ref/Image#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListImagesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Image
+      summary: Creates an image in the specified folder.
+      description: |-
+        You can create an image from a disk, snapshot, other image or URI.
+        Method starts an asynchronous operation that can be cancelled while it is in progress.
+      operationId: ImageCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateImageRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateImageMetadata'
+      x-y-operation-response: '[Image](/docs/compute/api-ref/Image#representation)'
+  /compute/v1/images/{imageId}/operations:
+    get:
+      tags:
+      - Image
+      summary: Lists operations for the specified image.
+      operationId: ImageListOperations
+      parameters:
+      - name: imageId
+        in: path
+        description: |-
+          Required.
+          ID of the Image resource to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/Image/listOperations#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/Image/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/Image/listOperations#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/Image/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListImageOperationsResponse'
+      x-y-navtitle: listOperations
+  /compute/v1/instances/{instanceId}:
+    get:
+      tags:
+      - Instance
+      summary: Returns the specified Instance resource.
+      description: To get the list of available Instance resources, make a [list](/docs/compute/api-ref/Instance/list)
+        request.
+      operationId: InstanceGet
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Required.
+          ID of the Instance resource to return.
+          To get the instance ID, use a [list](/docs/compute/api-ref/Instance/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Defines which information about the Instance resource should
+          be returned in the server response.
+        schema:
+          $ref: '#/components/schemas/InstanceView'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Instance'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Instance
+      summary: Deletes the specified instance.
+      operationId: InstanceDelete
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Required.
+          ID of the instance to delete.
+          To get the instance ID, use a [list](/docs/compute/api-ref/Instance/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteInstanceMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Instance
+      summary: Updates the specified instance.
+      operationId: InstanceUpdate
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Required.
+          ID of the Instance resource to update.
+          To get the instance ID, use a [list](/docs/compute/api-ref/Instance/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateInstanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateInstanceMetadata'
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
+  /compute/v1/instances:
+    get:
+      tags:
+      - Instance
+      summary: Retrieves the list of Instance resources in the specified folder.
+      operationId: InstanceList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the Folder to list instances in.
+          To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/Instance/list#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/Instance/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results,
+          set [pageToken](/docs/compute/api-ref/Instance/list#query_params) to the [nextPageToken](/docs/compute/api-ref/Instance/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on the [Instance.name](/docs/compute/api-ref/Instance#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListInstancesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Instance
+      summary: |-
+        Creates an instance in the specified folder.
+        Method starts an asynchronous operation that can be cancelled while it is in progress.
+      operationId: InstanceCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateInstanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateInstanceMetadata'
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
+  /compute/v1/instances/{instanceId}/updateMetadata:
+    post:
+      tags:
+      - Instance
+      summary: Updates the metadata of the specified instance.
+      operationId: InstanceUpdateMetadata
+      parameters:
+      - name: instanceId
+        in: path
+        description: ID of the instance that is being updated.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateInstanceMetadataRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateMetadata
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateInstanceMetadataMetadata'
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
+  /compute/v1/instances/{instanceId}:serialPortOutput:
+    get:
+      tags:
+      - Instance
+      summary: Returns the serial port output of the specified Instance resource.
+      operationId: InstanceGetSerialPortOutput
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Required.
+          ID of the instance to return the serial port output for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: port
+        in: query
+        description: |-
+          Specifies which serial port to retrieve data from. The default is 1.
+
+          Value must be one of 1, 2, 3 or 4.
+        schema:
+          type: string
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetInstanceSerialPortOutputResponse'
+      x-y-navtitle: getSerialPortOutput
+  /compute/v1/instances/{instanceId}:stop:
+    post:
+      tags:
+      - Instance
+      summary: Stops the running instance.
+      description: You can start the instance later using the [start](/docs/compute/api-ref/Instance/start)
+        method.
+      operationId: InstanceStop
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Required.
+          ID of the instance to stop.
+          To get the instance ID, use a [list](/docs/compute/api-ref/Instance/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: stop
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StopInstanceMetadata'
+      x-y-operation-response: Empty
+  /compute/v1/instances/{instanceId}:start:
+    post:
+      tags:
+      - Instance
+      summary: Starts the stopped instance.
+      operationId: InstanceStart
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Required.
+          ID of the instance to start.
+          To get the instance ID, use a [list](/docs/compute/api-ref/Instance/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: start
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StartInstanceMetadata'
+      x-y-operation-response: Empty
+  /compute/v1/instances/{instanceId}:restart:
+    post:
+      tags:
+      - Instance
+      summary: Restarts the running instance.
+      operationId: InstanceRestart
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Required.
+          ID of the instance to restart.
+          To get the instance ID, use a [list](/docs/compute/api-ref/Instance/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: restart
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RestartInstanceMetadata'
+      x-y-operation-response: Empty
+  /compute/v1/instances/{instanceId}:attachDisk:
+    post:
+      tags:
+      - Instance
+      summary: Attaches the disk to the instance.
+      operationId: InstanceAttachDisk
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Required.
+          ID of the instance to attach the disk to.
+          To get the instance ID, use a [list](/docs/compute/api-ref/Instance/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AttachInstanceDiskRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: attachDisk
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AttachInstanceDiskMetadata'
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
+  /compute/v1/instances/{instanceId}:detachDisk:
+    post:
+      tags:
+      - Instance
+      summary: Detaches the disk from the instance.
+      operationId: InstanceDetachDisk
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Required.
+          ID of the instance to detach the disk from.
+          To get the instance ID, use a [list](/docs/compute/api-ref/Instance/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetachInstanceDiskRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: detachDisk
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DetachInstanceDiskMetadata'
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
+  /compute/v1/instances/{instanceId}/operations:
+    get:
+      tags:
+      - Instance
+      summary: Lists operations for the specified instance.
+      operationId: InstanceListOperations
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Required.
+          ID of the Instance resource to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/Instance/listOperations#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/Instance/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/Instance/listOperations#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/Instance/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListInstanceOperationsResponse'
+      x-y-navtitle: listOperations
+  /compute/v1/snapshots/{snapshotId}:
+    get:
+      tags:
+      - Snapshot
+      summary: Returns the specified Snapshot resource.
+      description: To get the list of available Snapshot resources, make a [list](/docs/compute/api-ref/Snapshot/list)
+        request.
+      operationId: SnapshotGet
+      parameters:
+      - name: snapshotId
+        in: path
+        description: |-
+          Required.
+          ID of the Snapshot resource to return.
+          To get the snapshot ID, use a [list](/docs/compute/api-ref/Snapshot/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Snapshot'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Snapshot
+      summary: Deletes the specified snapshot.
+      description: Deleting a snapshot removes its data permanently and is irreversible.
+      operationId: SnapshotDelete
+      parameters:
+      - name: snapshotId
+        in: path
+        description: |-
+          Required.
+          ID of the snapshot to delete.
+          To get the snapshot ID, use a [list](/docs/compute/api-ref/Snapshot/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteSnapshotMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Snapshot
+      summary: Updates the specified snapshot.
+      description: Values of omitted parameters are not changed.
+      operationId: SnapshotUpdate
+      parameters:
+      - name: snapshotId
+        in: path
+        description: |-
+          Required.
+          ID of the Snapshot resource to update.
+          To get the snapshot ID use a [list](/docs/compute/api-ref/Snapshot/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSnapshotRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateSnapshotMetadata'
+      x-y-operation-response: '[Snapshot](/docs/compute/api-ref/Snapshot#representation)'
+  /compute/v1/snapshots:
+    get:
+      tags:
+      - Snapshot
+      summary: Retrieves the list of Snapshot resources in the specified folder.
+      operationId: SnapshotList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list snapshots in.
+          To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/Snapshot/list#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/Snapshot/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/Snapshot/list#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/Snapshot/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on the [Snapshot.name](/docs/compute/api-ref/Snapshot#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Мust be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSnapshotsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Snapshot
+      summary: Creates a snapshot of the specified disk.
+      operationId: SnapshotCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSnapshotRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateSnapshotMetadata'
+      x-y-operation-response: '[Snapshot](/docs/compute/api-ref/Snapshot#representation)'
+  /compute/v1/snapshots/{snapshotId}/operations:
+    get:
+      tags:
+      - Snapshot
+      summary: Lists operations for the specified snapshot.
+      operationId: SnapshotListOperations
+      parameters:
+      - name: snapshotId
+        in: path
+        description: |-
+          Required.
+          ID of the Snapshot resource to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/Snapshot/listOperations#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/Snapshot/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/Snapshot/listOperations#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/Snapshot/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSnapshotOperationsResponse'
+      x-y-navtitle: listOperations
+  /compute/v1/zones/{zoneId}:
+    get:
+      tags:
+      - Zone
+      summary: Returns the information about the specified availability zone.
+      description: To get the list of availability zones, make a [list](/docs/compute/api-ref/Zone/list)
+        request.
+      operationId: ZoneGet
+      parameters:
+      - name: zoneId
+        in: path
+        description: |-
+          Required.
+          ID of the availability zone to return information about.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Zone'
+      x-y-navtitle: get
+  /compute/v1/zones:
+    get:
+      tags:
+      - Zone
+      summary: Retrieves the list of availability zones.
+      operationId: ZoneList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/Zone/list#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/Zone/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/Zone/list#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/Zone/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListZonesResponse'
+      x-y-navtitle: list
+components:
+  schemas:
+    AttachInstanceDiskMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: ID of the instance.
+          type: string
+        diskId:
+          description: ID of the disk.
+          type: string
+    AttachInstanceDiskRequest:
+      type: object
+      properties:
+        attachedDiskSpec:
+          $ref: '#/components/schemas/AttachedDiskSpec_in_AttachInstanceDiskRequest_attachedDiskSpec'
+    AttachedDisk:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/AttachedDiskMode_in_AttachedDisk_mode'
+        deviceName:
+          description: |-
+            Serial number that is reflected into the /dev/disk/by-id/ tree
+            of a Linux operating system running within the instance.
+
+            This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
+          type: string
+        autoDelete:
+          description: Specifies whether the disk will be auto-deleted when the instance
+            is deleted.
+          type: boolean
+          format: boolean
+        diskId:
+          description: ID of the disk that is attached to the instance.
+          type: string
+    AttachedDiskMode:
+      description: |2-
+         - READ_ONLY: Read-only access.
+         - READ_WRITE: Read/Write access.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    AttachedDiskSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          mode:
+            $ref: '#/components/schemas/AttachedDiskSpecMode'
+            description: The mode in which to attach this disk.
+          deviceName:
+            description: |-
+              Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree
+              of a Linux operating system running within the instance.
+
+              This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
+              If not specified, a random value will be generated.
+
+              Value must match the regular expression `` [a-z][a-z0-9-_]{,19} ``.
+            type: string
+          autoDelete:
+            description: Specifies whether the disk will be auto-deleted when the
+              instance is deleted.
+            type: boolean
+            format: boolean
+      - title: disk
+        type: object
+        maxProperties: 1
+        properties:
+          diskSpec:
+            $ref: '#/components/schemas/AttachedDiskSpecDiskSpec'
+            description: Disk specification.
+          diskId:
+            description: |-
+              ID of the disk that should be attached.
+
+              The maximum string length in characters is 50.
+            type: string
+    AttachedDiskSpecDiskSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          name:
+            description: |-
+              Name of the disk.
+
+              Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+          description:
+            description: |-
+              Description of the disk.
+
+              The maximum string length in characters is 256.
+            type: string
+          typeId:
+            description: |-
+              ID of the disk type.
+              To get a list of available disk types, use the [list](/docs/compute/api-ref/DiskType/list) request.
+
+              The maximum string length in characters is 50.
+            type: string
+          size:
+            description: |-
+              Required.
+              Size of the disk, specified in bytes.
+
+              Acceptable values are 4194304 to 4398046511104, inclusive.
+            type: string
+            format: int64
+      - title: source
+        type: object
+        maxProperties: 1
+        properties:
+          imageId:
+            description: |-
+              ID of the image to create the disk from.
+
+              The maximum string length in characters is 50.
+            type: string
+          snapshotId:
+            description: |-
+              ID of the snapshot to restore the disk from.
+
+              The maximum string length in characters is 50.
+            type: string
+    AttachedDiskSpecMode:
+      description: |2-
+         - READ_ONLY: Read-only access.
+         - READ_WRITE: Read/Write access. Default value.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    CreateDiskMetadata:
+      type: object
+      properties:
+        diskId:
+          description: ID of the disk that is being created.
+          type: string
+    CreateDiskRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Required.
+              ID of the folder to create a disk in.
+              To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+              The maximum string length in characters is 50.
+            type: string
+          name:
+            description: |-
+              Name of the disk.
+
+              Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+          description:
+            description: |-
+              Description of the disk.
+
+              The maximum string length in characters is 256.
+            type: string
+          labels:
+            description: |-
+              Resource labels as `key:value` pairs.
+
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+          typeId:
+            description: |-
+              ID of the disk type.
+              To get a list of available disk types use the [list](/docs/compute/api-ref/DiskType/list) request.
+
+              The maximum string length in characters is 50.
+            type: string
+          zoneId:
+            description: |-
+              Required.
+              ID of the availability zone where the disk resides.
+              To get a list of available zones use the [list](/docs/compute/api-ref/Zone/list) request.
+
+              The maximum string length in characters is 50.
+            type: string
+          size:
+            description: |-
+              Required.
+              Size of the disk, specified in bytes.
+              If the disk was created from a image, this value should be more than the
+              [Image.minDiskSize](/docs/compute/api-ref/Image#representation) value.
+
+              Acceptable values are 4194304 to 4398046511104, inclusive.
+            type: string
+            format: int64
+      - title: source
+        type: object
+        maxProperties: 1
+        properties:
+          imageId:
+            description: |-
+              ID of the image to create the disk from.
+
+              The maximum string length in characters is 50.
+            type: string
+          snapshotId:
+            description: |-
+              ID of the snapshot to restore the disk from.
+
+              The maximum string length in characters is 50.
+            type: string
+    CreateImageMetadata:
+      type: object
+      properties:
+        imageId:
+          description: ID of the image that is being created.
+          type: string
+    CreateImageRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Required.
+              ID of the folder to create an image in.
+              To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+              The maximum string length in characters is 50.
+            type: string
+          name:
+            description: |-
+              Name of the image.
+
+              Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+          description:
+            description: |-
+              Description of the image.
+
+              The maximum string length in characters is 256.
+            type: string
+          labels:
+            description: |-
+              Resource labels as `key:value` pairs.
+
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+          family:
+            description: |-
+              The name of the image family to which this image belongs.
+              To get information about the most recent image from a family, use a [getLatestByFamily](/docs/compute/api-ref/Image/getLatestByFamily) request.
+
+              Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+          minDiskSize:
+            description: |-
+              Minimum size of the disk that will be created from this image.
+              Specified in bytes. Should be more than the volume of source data.
+
+              Acceptable values are 4194304 to 4398046511104, inclusive.
+            type: string
+            format: int64
+          productIds:
+            description: |-
+              License IDs that indicate which licenses are attached to this resource.
+              License IDs are used to calculate additional charges for the use of the virtual machine.
+
+              The correct license ID is generated by Yandex.Cloud. IDs are inherited by new resources created from this resource.
+
+              If you know the license IDs, specify them when you create the image.
+              For example, if you create a disk image using a third-party utility and load it into Yandex Object Storage, the license IDs will be lost.
+              You can specify them in this request.
+
+              The maximum string length in characters for each value is 50.
+            type: array
+            items:
+              type: string
+          os:
+            $ref: '#/components/schemas/Os'
+            description: Operating system that is contained in the image.
+      - title: source
+        type: object
+        maxProperties: 1
+        properties:
+          imageId:
+            description: |-
+              ID of the source image to create the new image from.
+
+              The maximum string length in characters is 50.
+            type: string
+          diskId:
+            description: |-
+              ID of the disk to create the image from.
+
+              The maximum string length in characters is 50.
+            type: string
+          snapshotId:
+            description: |-
+              ID of the snapshot to create the image from.
+
+              The maximum string length in characters is 50.
+            type: string
+          uri:
+            description: |-
+              URI of the source image to create the new image from.
+              Currently only supports links to images that are stored in Yandex Object Storage.
+              Currently only supports Qcow2, VMDK, and VHD formats.
+            type: string
+    CreateInstanceMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            ID of the instance that is being created.
+
+            The maximum string length in characters is 50.
+          type: string
+    CreateInstanceRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create an instance in.
+            To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of the instance.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the instance.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        zoneId:
+          description: |-
+            Required.
+            ID of the availability zone where the instance resides.
+            To get a list of available zones, use the [list](/docs/compute/api-ref/Zone/list) request
+
+            The maximum string length in characters is 50.
+          type: string
+        platformId:
+          description: |-
+            Required.
+            ID of the hardware platform configuration for the instance.
+            This field affects the available values in [resourcesSpec](/docs/compute/api-ref/Instance/create#body_params) field.
+
+            Currently only several platforms is available - `standard-v1`, `standard-v2`. These platforms are suitable for most tasks.
+            These platforms allows you to create various types of instances: with a large amount of memory,
+            with a large number of cores, with a burstable performance.
+            For more information, see [Platforms](/docs/compute/concepts/vm-platforms).
+
+            Value must match the regular expression `` standard-v1 ``.
+          type: string
+        resourcesSpec:
+          $ref: '#/components/schemas/ResourcesSpec_in_CreateInstanceRequest_resourcesSpec'
+        metadata:
+          description: |-
+            The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys.
+            The total size of all keys and values must be less than 512 KB.
+
+            Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance.
+            The only restriction placed on values is that their size must be 256 KB or less.
+
+            For example, you may use the metadata in order to provide your public SSH key to the instance.
+            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+          type: object
+          additionalProperties:
+            type: string
+        bootDiskSpec:
+          $ref: '#/components/schemas/AttachedDiskSpec_in_CreateInstanceRequest_bootDiskSpec'
+        secondaryDiskSpecs:
+          description: |-
+            Array of secondary disks to attach to the instance.
+
+            The maximum number of elements is 3.
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedDiskSpec'
+        networkInterfaceSpecs:
+          description: |-
+            Required.
+            Network configuration for the instance. Specifies how the network interface is configured
+            to interact with other services on the internal network and on the internet.
+            Currently only one network interface is supported per instance.
+
+            Must contain exactly 1 element.
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkInterfaceSpec'
+        hostname:
+          description: |-
+            Host name for the instance.
+            This field is used to generate the [Instance.fqdn](/docs/compute/api-ref/Instance#representation) value.
+            The host name must be unique within the network and region.
+            If not specified, the host name will be equal to [Instance.id](/docs/compute/api-ref/Instance#representation) of the instance
+            and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        schedulingPolicy:
+          $ref: '#/components/schemas/SchedulingPolicy_in_CreateInstanceRequest_schedulingPolicy'
+        serviceAccountId:
+          description: |-
+            ID of the service account. For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
+            To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
+          type: string
+    CreateSnapshotMetadata:
+      type: object
+      properties:
+        snapshotId:
+          description: ID of the snapshot that is being created.
+          type: string
+        diskId:
+          description: ID of the source disk used to create this snapshot.
+          type: string
+    CreateSnapshotRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create a snapshot in.
+            To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        diskId:
+          description: |-
+            Required.
+            ID of the disk to create the snapshot from.
+            To get the disk ID use a [list](/docs/compute/api-ref/Disk/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of the snapshot.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the snapshot.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    DeleteDiskMetadata:
+      type: object
+      properties:
+        diskId:
+          description: ID of the disk that is being deleted.
+          type: string
+    DeleteImageMetadata:
+      type: object
+      properties:
+        imageId:
+          description: ID of the image that is being deleted.
+          type: string
+    DeleteInstanceMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: ID of the instance that is being deleted.
+          type: string
+    DeleteSnapshotMetadata:
+      type: object
+      properties:
+        snapshotId:
+          description: ID of the snapshot that is being deleted.
+          type: string
+    DetachInstanceDiskMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: ID of the instance.
+          type: string
+        diskId:
+          description: ID of the disk.
+          type: string
+    DetachInstanceDiskRequest:
+      type: object
+      allOf:
+      - title: disk
+        type: object
+        maxProperties: 1
+        properties:
+          diskId:
+            description: |-
+              ID of the disk that should be detached.
+
+              The maximum string length in characters is 50.
+            type: string
+          deviceName:
+            description: |-
+              Serial number of the disk that should be detached. This value is reflected into the /dev/disk/by-id/ tree
+              of a Linux operating system running within the instance.
+
+              Value must match the regular expression `` [a-z][a-z0-9-_]{,19} ``.
+            type: string
+    Disk:
+      description: A Disk resource. For more information, see [Disks](/docs/compute/concepts/disk).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the disk.
+            type: string
+          folderId:
+            description: ID of the folder that the disk belongs to.
+            type: string
+          createdAt:
+            description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format.
+            type: string
+            format: date-time
+          name:
+            description: Name of the disk. 1-63 characters long.
+            type: string
+          description:
+            description: Description of the disk. 0-256 characters long.
+            type: string
+          labels:
+            description: Resource labels as `key:value` pairs. Maximum of 64 per resource.
+            type: object
+            additionalProperties:
+              type: string
+          typeId:
+            description: ID of the disk type.
+            type: string
+          zoneId:
+            description: ID of the availability zone where the disk resides.
+            type: string
+          size:
+            description: Size of the disk, specified in bytes.
+            type: string
+            format: int64
+          productIds:
+            description: |-
+              License IDs that indicate which licenses are attached to this resource.
+              License IDs are used to calculate additional charges for the use of the virtual machine.
+
+              The correct license ID is generated by Yandex.Cloud. IDs are inherited by new resources created from this resource.
+
+              If you know the license IDs, specify them when you create the image.
+              For example, if you create a disk image using a third-party utility and load it into Yandex Object Storage, the license IDs will be lost.
+              You can specify them in the [create](/docs/compute/api-ref/Image/create) request.
+            type: array
+            items:
+              type: string
+          status:
+            $ref: '#/components/schemas/DiskStatus'
+            description: Current status of the disk.
+          instanceIds:
+            description: Array of instances to which the disk is attached.
+            type: array
+            items:
+              type: string
+      - title: source
+        type: object
+        maxProperties: 1
+        properties:
+          sourceImageId:
+            description: ID of the image that was used for disk creation.
+            type: string
+          sourceSnapshotId:
+            description: ID of the snapshot that was used for disk creation.
+            type: string
+    DiskStatus:
+      description: |2-
+         - CREATING: Disk is being created.
+         - READY: Disk is ready to use.
+         - ERROR: Disk encountered a problem and cannot operate.
+         - DELETING: Disk is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
+    DiskType:
+      type: object
+      properties:
+        id:
+          description: ID of the disk type.
+          type: string
+        description:
+          description: Description of the disk type. 0-256 characters long.
+          type: string
+        zoneIds:
+          description: Array of availability zones where the disk type is available.
+          type: array
+          items:
+            type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    GetInstanceSerialPortOutputResponse:
+      type: object
+      properties:
+        contents:
+          description: |-
+            The contents of the serial port output, starting from the time when the instance
+            started to boot.
+          type: string
+    Image:
+      description: An Image resource.
+      type: object
+      properties:
+        id:
+          description: ID of the image.
+          type: string
+        folderId:
+          description: ID of the folder that the image belongs to.
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the image. 1-63 characters long.
+          type: string
+        description:
+          description: Description of the image. 0-256 characters long.
+          type: string
+        labels:
+          description: Resource labels as `key:value` pairs. Maximum of 64 per resource.
+          type: object
+          additionalProperties:
+            type: string
+        family:
+          description: |-
+            The name of the image family to which this image belongs.
+
+            You can get the most recent image from a family by using
+            the [getLatestByFamily](/docs/compute/api-ref/Image/getLatestByFamily) request
+            and create the disk from this image.
+          type: string
+        storageSize:
+          description: The size of the image, specified in bytes.
+          type: string
+          format: int64
+        minDiskSize:
+          description: Minimum size of the disk which will be created from this image.
+          type: string
+          format: int64
+        productIds:
+          description: |-
+            License IDs that indicate which licenses are attached to this resource.
+            License IDs are used to calculate additional charges for the use of the virtual machine.
+
+            The correct license ID is generated by Yandex.Cloud. IDs are inherited by new resources created from this resource.
+
+            If you know the license IDs, specify them when you create the image.
+            For example, if you create a disk image using a third-party utility and load it into Yandex Object Storage, the license IDs will be lost.
+            You can specify them in the [create](/docs/compute/api-ref/Image/create) request.
+          type: array
+          items:
+            type: string
+        status:
+          $ref: '#/components/schemas/ImageStatus_in_Image_status'
+        os:
+          $ref: '#/components/schemas/Os_in_Image_os'
+    ImageStatus:
+      description: |2-
+         - CREATING: Image is being created.
+         - READY: Image is ready to use.
+         - ERROR: Image encountered a problem and cannot operate.
+         - DELETING: Image is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
+    Instance:
+      description: An Instance resource. For more information, see [Instances](/docs/compute/concepts/vm).
+      type: object
+      properties:
+        id:
+          description: ID of the instance.
+          type: string
+        folderId:
+          description: ID of the folder that the instance belongs to.
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the instance. 1-63 characters long.
+          type: string
+        description:
+          description: Description of the instance. 0-256 characters long.
+          type: string
+        labels:
+          description: Resource labels as `key:value` pairs. Maximum of 64 per resource.
+          type: object
+          additionalProperties:
+            type: string
+        zoneId:
+          description: ID of the availability zone where the instance resides.
+          type: string
+        platformId:
+          description: ID of the hardware platform configuration for the instance.
+          type: string
+        resources:
+          $ref: '#/components/schemas/Resources_in_Instance_resources'
+        status:
+          $ref: '#/components/schemas/InstanceStatus_in_Instance_status'
+        metadata:
+          description: |-
+            The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys.
+
+            For example, you may use the metadata in order to provide your public SSH key to the instance.
+            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+          type: object
+          additionalProperties:
+            type: string
+        bootDisk:
+          $ref: '#/components/schemas/AttachedDisk_in_Instance_bootDisk'
+        secondaryDisks:
+          description: Array of secondary disks that are attached to the instance.
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedDisk'
+        networkInterfaces:
+          description: Array of network interfaces that are attached to the instance.
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkInterface'
+        fqdn:
+          description: |-
+            A domain name of the instance. FQDN is defined by the server
+            in the format `<hostname>.<region_id>.internal` when the instance is created.
+            If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`.
+          type: string
+        schedulingPolicy:
+          $ref: '#/components/schemas/SchedulingPolicy_in_Instance_schedulingPolicy'
+        serviceAccountId:
+          description: |-
+            ID of the service account. For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
+            To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
+          type: string
+    InstanceStatus:
+      description: |2-
+         - PROVISIONING: Instance is waiting for resources to be allocated.
+         - RUNNING: Instance is running normally.
+         - STOPPING: Instance is being stopped.
+         - STOPPED: Instance stopped.
+         - STARTING: Instance is being started.
+         - RESTARTING: Instance is being restarted.
+         - UPDATING: Instance is being updated.
+         - ERROR: Instance encountered a problem and cannot operate.
+         - CRASHED: Instance crashed and will be restarted automatically.
+         - DELETING: Instance is being deleted.
+      type: string
+      enum:
+      - PROVISIONING
+      - RUNNING
+      - STOPPING
+      - STOPPED
+      - STARTING
+      - RESTARTING
+      - UPDATING
+      - ERROR
+      - CRASHED
+      - DELETING
+    InstanceView:
+      description: |2-
+         - BASIC: Doesn't include the metadata of the instance in the server response.
+         - FULL: Returns the metadata of the instance in the server response.
+      type: string
+      enum:
+      - BASIC
+      - FULL
+      default: BASIC
+    IpVersion:
+      description: |2-
+         - IPV4: IPv4 address, for example 192.0.2.235.
+         - IPV6: IPv6 address. Not available yet.
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    ListDiskOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified disk.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/Disk/listOperations#query_params), use the [nextPageToken](/docs/compute/api-ref/Disk/listOperations#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/Disk/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/compute/api-ref/Disk/listOperations#responses) to continue paging through the results.
+          type: string
+    ListDiskTypesResponse:
+      type: object
+      properties:
+        diskTypes:
+          description: List of disk types.
+          type: array
+          items:
+            $ref: '#/components/schemas/DiskType'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/DiskType/list#query_params), use
+            the [nextPageToken](/docs/compute/api-ref/DiskType/list#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/DiskType/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/DiskType/list#responses) to continue paging through the results.
+          type: string
+    ListDisksResponse:
+      type: object
+      properties:
+        disks:
+          description: List of Disk resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/Disk'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/Disk/list#query_params), use
+            the [nextPageToken](/docs/compute/api-ref/Disk/list#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/Disk/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/Disk/list#responses) to continue paging through the results.
+          type: string
+    ListImageOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified image.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/Image/listOperations#query_params), use the [nextPageToken](/docs/compute/api-ref/Image/listOperations#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/Image/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/compute/api-ref/Image/listOperations#responses) to continue paging through the results.
+          type: string
+    ListImagesResponse:
+      type: object
+      properties:
+        images:
+          description: List of images.
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/Snapshot/list#query_params), use
+            the [nextPageToken](/docs/compute/api-ref/Image/list#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/Snapshot/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/Image/list#responses) to continue paging through the results.
+          type: string
+    ListInstanceOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified instance.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/Instance/listOperations#query_params), use the [nextPageToken](/docs/compute/api-ref/Instance/listOperations#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/Instance/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/compute/api-ref/Instance/listOperations#responses) to continue paging through the results.
+          type: string
+    ListInstancesResponse:
+      type: object
+      properties:
+        instances:
+          description: List of Instance resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/Instance'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/Instance/list#query_params), use
+            the [nextPageToken](/docs/compute/api-ref/Instance/list#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/Instance/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/Instance/list#responses) to continue paging through the results.
+          type: string
+    ListSnapshotOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified snapshot.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/Snapshot/listOperations#query_params), use the [nextPageToken](/docs/compute/api-ref/Snapshot/listOperations#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/Snapshot/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/compute/api-ref/Snapshot/listOperations#responses) to continue paging through the results.
+          type: string
+    ListSnapshotsResponse:
+      type: object
+      properties:
+        snapshots:
+          description: List of snapshots.
+          type: array
+          items:
+            $ref: '#/components/schemas/Snapshot'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/Snapshot/list#query_params), use
+            the [nextPageToken](/docs/compute/api-ref/Snapshot/list#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/Snapshot/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/Snapshot/list#responses) to continue paging through the results.
+          type: string
+    ListZonesResponse:
+      type: object
+      properties:
+        zones:
+          description: List of availability zones.
+          type: array
+          items:
+            $ref: '#/components/schemas/Zone'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/Zone/list#query_params), use
+            the [pageToken](/docs/compute/api-ref/Zone/list#query_params) as the value
+            for the [pageToken](/docs/compute/api-ref/Zone/list#query_params) query parameter
+            in the next list request. Subsequent list requests will have their own
+            [pageToken](/docs/compute/api-ref/Zone/list#query_params) to continue paging through the results.
+          type: string
+    NetworkInterface:
+      type: object
+      properties:
+        index:
+          description: |-
+            The index of the network interface, generated by the server, 0,1,2... etc.
+            Currently only one network interface is supported per instance.
+          type: string
+        macAddress:
+          description: MAC address that is assigned to the network interface.
+          type: string
+        subnetId:
+          description: ID of the subnet.
+          type: string
+        primaryV4Address:
+          $ref: '#/components/schemas/PrimaryAddress_in_NetworkInterface_primaryV4Address'
+        primaryV6Address:
+          $ref: '#/components/schemas/PrimaryAddress_in_NetworkInterface_primaryV6Address'
+    NetworkInterfaceSpec:
+      type: object
+      properties:
+        subnetId:
+          description: |-
+            Required.
+            ID of the subnet.
+
+            The maximum string length in characters is 50.
+          type: string
+        primaryV4AddressSpec:
+          $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec'
+        primaryV6AddressSpec:
+          $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec'
+    OneToOneNat:
+      type: object
+      properties:
+        address:
+          description: An external IP address associated with this instance.
+          type: string
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_OneToOneNat_ipVersion'
+    OneToOneNatSpec:
+      type: object
+      properties:
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    Os:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/OsType_in_Os_type'
+    OsType:
+      description: |2-
+         - LINUX: Linux operating system.
+         - WINDOWS: Windows operating system.
+      type: string
+      enum:
+      - LINUX
+      - WINDOWS
+    PrimaryAddress:
+      type: object
+      properties:
+        address:
+          description: An IPv4 internal network address that is assigned to the instance
+            for this network interface.
+          type: string
+        oneToOneNat:
+          $ref: '#/components/schemas/OneToOneNat_in_PrimaryAddress_oneToOneNat'
+    PrimaryAddressSpec:
+      type: object
+      properties:
+        address:
+          description: |-
+            An IPv4 internal network address that is assigned to the instance for this network interface.
+            If not specified by the user, an unused internal IP is assigned by the system.
+          type: string
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
+    Resources:
+      type: object
+      properties:
+        memory:
+          description: The amount of memory available to the instance, specified in
+            bytes.
+          type: string
+          format: int64
+        cores:
+          description: The number of cores available to the instance.
+          type: string
+          format: int64
+        coreFraction:
+          description: |-
+            Baseline level of CPU performance with the ability to burst performance above that baseline level.
+            This field sets baseline performance for each core.
+          type: string
+          format: int64
+        gpus:
+          description: The number of GPUs available to the instance.
+          type: string
+          format: int64
+    ResourcesSpec:
+      type: object
+      properties:
+        memory:
+          description: |-
+            Required.
+            The amount of memory available to the instance, specified in bytes.
+
+            The maximum value is 274877906944.
+          type: string
+          format: int64
+        cores:
+          description: |-
+            Required.
+            The number of cores available to the instance.
+
+            Value must be one of 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 or 32.
+          type: string
+          format: int64
+        coreFraction:
+          description: |-
+            Baseline level of CPU performance with the ability to burst performance above that baseline level.
+            This field sets baseline performance for each core.
+
+            For example, if you need only 5% of the CPU performance, you can set core_fraction=5.
+            For more information, see [Levels of core performance](/docs/compute/concepts/performance-levels).
+
+            Value must be one of 0, 5, 20, 50 or 100.
+          type: string
+          format: int64
+        gpus:
+          description: |-
+            The number of GPUs available to the instance.
+
+            Value must be one of 1, 2 or 4.
+          type: string
+          format: int64
+    RestartInstanceMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: ID of the instance.
+          type: string
+    SchedulingPolicy:
+      type: object
+      properties:
+        preemptible:
+          description: True for short-lived compute instances. For more information,
+            see [Preemptible VMs](/docs/compute/concepts/preemptible-vm).
+          type: boolean
+          format: boolean
+    Snapshot:
+      description: A Snapshot resource. For more information, see [Snapshots](/docs/compute/concepts/snapshot).
+      type: object
+      properties:
+        id:
+          description: ID of the snapshot.
+          type: string
+        folderId:
+          description: ID of the folder that the snapshot belongs to.
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the snapshot. 1-63 characters long.
+          type: string
+        description:
+          description: Description of the snapshot. 0-256 characters long.
+          type: string
+        labels:
+          description: Resource labels as `key:value` pairs. Maximum of 64 per resource.
+          type: object
+          additionalProperties:
+            type: string
+        storageSize:
+          description: Size of the snapshot, specified in bytes.
+          type: string
+          format: int64
+        diskSize:
+          description: Size of the disk when the snapshot was created, specified in
+            bytes.
+          type: string
+          format: int64
+        productIds:
+          description: |-
+            License IDs that indicate which licenses are attached to this resource.
+            License IDs are used to calculate additional charges for the use of the virtual machine.
+
+            The correct license ID is generated by Yandex.Cloud. IDs are inherited by new resources created from this resource.
+
+            If you know the license IDs, specify them when you create the image.
+            For example, if you create a disk image using a third-party utility and load it into Yandex Object Storage, the license IDs will be lost.
+            You can specify them in the [create](/docs/compute/api-ref/Image/create) request.
+          type: array
+          items:
+            type: string
+        status:
+          $ref: '#/components/schemas/SnapshotStatus_in_Snapshot_status'
+        sourceDiskId:
+          description: ID of the source disk used to create this snapshot.
+          type: string
+    SnapshotStatus:
+      description: |2-
+         - CREATING: Snapshot is being created.
+         - READY: Snapshot is ready to use.
+         - ERROR: Snapshot encountered a problem and cannot operate.
+         - DELETING: Snapshot is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
+    StartInstanceMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: ID of the instance.
+          type: string
+    StopInstanceMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: ID of the instance that is being deleted.
+          type: string
+    UpdateDiskMetadata:
+      type: object
+      properties:
+        diskId:
+          description: ID of the Disk resource that is being updated.
+          type: string
+    UpdateDiskRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateDiskRequest_updateMask'
+        name:
+          description: |-
+            Name of the disk.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the disk.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            Existing set of `labels` is completely replaced by the provided set.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        size:
+          description: |-
+            Size of the disk, specified in bytes.
+
+            Acceptable values are 4194304 to 4398046511104, inclusive.
+          type: string
+          format: int64
+    UpdateImageMetadata:
+      type: object
+      properties:
+        imageId:
+          description: ID of the Image resource that is being updated.
+          type: string
+    UpdateImageRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateImageRequest_updateMask'
+        name:
+          description: |-
+            Name of the image.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the image.
+
+            The maximum string length in characters is 256.
+          type: string
+        minDiskSize:
+          description: |-
+            Minimum size of the disk that can be created from this image.
+            Specified in bytes. Should be more than the volume of source data and more than the virtual disk size.
+
+            Acceptable values are 4194304 to 4398046511104, inclusive.
+          type: string
+          format: int64
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            Existing set of `labels` is completely replaced by the provided set.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    UpdateInstanceMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: ID of the Instance resource that is being updated.
+          type: string
+    UpdateInstanceMetadataMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: ID of the instance that is being updated.
+          type: string
+    UpdateInstanceMetadataRequest:
+      type: object
+      properties:
+        delete:
+          description: List of keys to be deleted.
+          type: array
+          items:
+            type: string
+        upsert:
+          description: The metadata `key:value` pairs that will be added or updated
+            to this instance.
+          type: object
+          additionalProperties:
+            type: string
+    UpdateInstanceRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateInstanceRequest_updateMask'
+        name:
+          description: |-
+            Name of the instance.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the instance.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            Existing set of `labels` is completely replaced by the provided set.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        platformId:
+          description: |-
+            ID of the hardware platform configuration for the instance.
+            This field affects the available values in [resourcesSpec](/docs/compute/api-ref/Instance/update#body_params) field.
+
+            Currently only several platforms is available - `standard-v1`, `standard-v2`. These platforms are suitable for most tasks.
+            These platforms allows you to create various types of instances: with a large amount of memory,
+            with a large number of cores, with a burstable performance.
+            For more information, see [Platforms](/docs/compute/concepts/vm-platforms).
+
+            Value must match the regular expression `` standard-v1 ``.
+          type: string
+        resourcesSpec:
+          $ref: '#/components/schemas/ResourcesSpec_in_UpdateInstanceRequest_resourcesSpec'
+        metadata:
+          description: |-
+            The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys.
+            The total size of all keys and values must be less than 512 KB.
+
+            Existing set of `metadata` is completely replaced by the provided set.
+
+            Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance.
+            The only restriction placed on values is that their size must be 256 KB or less.
+
+            For example, you may use the metadata in order to provide your public SSH key to the instance.
+            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+          type: object
+          additionalProperties:
+            type: string
+        serviceAccountId:
+          type: string
+    UpdateSnapshotMetadata:
+      type: object
+      properties:
+        snapshotId:
+          description: ID of the Snapshot resource that is being updated.
+          type: string
+    UpdateSnapshotRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateSnapshotRequest_updateMask'
+        name:
+          description: |-
+            Name of the snapshot.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the snapshot.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            Existing set of `labels` is completely replaced by the provided set.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    Zone:
+      description: Availability zone. For more information, see [Availability zones](/docs/overview/concepts/geo-scope).
+      type: object
+      properties:
+        id:
+          description: ID of the zone.
+          type: string
+        regionId:
+          description: ID of the region.
+          type: string
+        status:
+          $ref: '#/components/schemas/ZoneStatus_in_Zone_status'
+    ZoneStatus:
+      description: |2-
+         - UP: Zone is available. You can access the resources allocated in this zone.
+         - DOWN: Zone is not available.
+      type: string
+      enum:
+      - UP
+      - DOWN
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    AttachedDiskSpec_in_AttachInstanceDiskRequest_attachedDiskSpec:
+      description: |-
+        Required.
+        Disk that should be attached.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          mode:
+            $ref: '#/components/schemas/AttachedDiskSpecMode'
+            description: The mode in which to attach this disk.
+          deviceName:
+            description: |-
+              Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree
+              of a Linux operating system running within the instance.
+
+              This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
+              If not specified, a random value will be generated.
+
+              Value must match the regular expression `` [a-z][a-z0-9-_]{,19} ``.
+            type: string
+          autoDelete:
+            description: Specifies whether the disk will be auto-deleted when the
+              instance is deleted.
+            type: boolean
+            format: boolean
+      - title: disk
+        type: object
+        maxProperties: 1
+        properties:
+          diskSpec:
+            $ref: '#/components/schemas/AttachedDiskSpecDiskSpec'
+            description: Disk specification.
+          diskId:
+            description: |-
+              ID of the disk that should be attached.
+
+              The maximum string length in characters is 50.
+            type: string
+    AttachedDiskMode_in_AttachedDisk_mode:
+      description: |-
+        Access mode to the Disk resource.
+
+         - READ_ONLY: Read-only access.
+         - READ_WRITE: Read/Write access.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    ResourcesSpec_in_CreateInstanceRequest_resourcesSpec:
+      description: |-
+        Required.
+        Computing resources of the instance, such as the amount of memory and number of cores.
+        To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels).
+      type: object
+      properties:
+        memory:
+          description: |-
+            Required.
+            The amount of memory available to the instance, specified in bytes.
+
+            The maximum value is 274877906944.
+          type: string
+          format: int64
+        cores:
+          description: |-
+            Required.
+            The number of cores available to the instance.
+
+            Value must be one of 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 or 32.
+          type: string
+          format: int64
+        coreFraction:
+          description: |-
+            Baseline level of CPU performance with the ability to burst performance above that baseline level.
+            This field sets baseline performance for each core.
+
+            For example, if you need only 5% of the CPU performance, you can set core_fraction=5.
+            For more information, see [Levels of core performance](/docs/compute/concepts/performance-levels).
+
+            Value must be one of 0, 5, 20, 50 or 100.
+          type: string
+          format: int64
+        gpus:
+          description: |-
+            The number of GPUs available to the instance.
+
+            Value must be one of 1, 2 or 4.
+          type: string
+          format: int64
+    AttachedDiskSpec_in_CreateInstanceRequest_bootDiskSpec:
+      description: |-
+        Required.
+        Boot disk to attach to the instance.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          mode:
+            $ref: '#/components/schemas/AttachedDiskSpecMode'
+            description: The mode in which to attach this disk.
+          deviceName:
+            description: |-
+              Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree
+              of a Linux operating system running within the instance.
+
+              This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
+              If not specified, a random value will be generated.
+
+              Value must match the regular expression `` [a-z][a-z0-9-_]{,19} ``.
+            type: string
+          autoDelete:
+            description: Specifies whether the disk will be auto-deleted when the
+              instance is deleted.
+            type: boolean
+            format: boolean
+      - title: disk
+        type: object
+        maxProperties: 1
+        properties:
+          diskSpec:
+            $ref: '#/components/schemas/AttachedDiskSpecDiskSpec'
+            description: Disk specification.
+          diskId:
+            description: |-
+              ID of the disk that should be attached.
+
+              The maximum string length in characters is 50.
+            type: string
+    SchedulingPolicy_in_CreateInstanceRequest_schedulingPolicy:
+      description: Scheduling policy configuration.
+      type: object
+      properties:
+        preemptible:
+          description: True for short-lived compute instances. For more information,
+            see [Preemptible VMs](/docs/compute/concepts/preemptible-vm).
+          type: boolean
+          format: boolean
+    ImageStatus_in_Image_status:
+      description: |-
+        Current status of the image.
+
+         - CREATING: Image is being created.
+         - READY: Image is ready to use.
+         - ERROR: Image encountered a problem and cannot operate.
+         - DELETING: Image is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
+    Os_in_Image_os:
+      description: Operating system that is contained in the image.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/OsType_in_Os_type'
+    Resources_in_Instance_resources:
+      description: Computing resources of the instance such as the amount of memory
+        and number of cores.
+      type: object
+      properties:
+        memory:
+          description: The amount of memory available to the instance, specified in
+            bytes.
+          type: string
+          format: int64
+        cores:
+          description: The number of cores available to the instance.
+          type: string
+          format: int64
+        coreFraction:
+          description: |-
+            Baseline level of CPU performance with the ability to burst performance above that baseline level.
+            This field sets baseline performance for each core.
+          type: string
+          format: int64
+        gpus:
+          description: The number of GPUs available to the instance.
+          type: string
+          format: int64
+    InstanceStatus_in_Instance_status:
+      description: |-
+        Status of the instance.
+
+         - PROVISIONING: Instance is waiting for resources to be allocated.
+         - RUNNING: Instance is running normally.
+         - STOPPING: Instance is being stopped.
+         - STOPPED: Instance stopped.
+         - STARTING: Instance is being started.
+         - RESTARTING: Instance is being restarted.
+         - UPDATING: Instance is being updated.
+         - ERROR: Instance encountered a problem and cannot operate.
+         - CRASHED: Instance crashed and will be restarted automatically.
+         - DELETING: Instance is being deleted.
+      type: string
+      enum:
+      - PROVISIONING
+      - RUNNING
+      - STOPPING
+      - STOPPED
+      - STARTING
+      - RESTARTING
+      - UPDATING
+      - ERROR
+      - CRASHED
+      - DELETING
+    AttachedDisk_in_Instance_bootDisk:
+      description: Boot disk that is attached to the instance.
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/AttachedDiskMode_in_AttachedDisk_mode'
+        deviceName:
+          description: |-
+            Serial number that is reflected into the /dev/disk/by-id/ tree
+            of a Linux operating system running within the instance.
+
+            This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
+          type: string
+        autoDelete:
+          description: Specifies whether the disk will be auto-deleted when the instance
+            is deleted.
+          type: boolean
+          format: boolean
+        diskId:
+          description: ID of the disk that is attached to the instance.
+          type: string
+    SchedulingPolicy_in_Instance_schedulingPolicy:
+      description: Scheduling policy configuration.
+      type: object
+      properties:
+        preemptible:
+          description: True for short-lived compute instances. For more information,
+            see [Preemptible VMs](/docs/compute/concepts/preemptible-vm).
+          type: boolean
+          format: boolean
+    PrimaryAddress_in_NetworkInterface_primaryV4Address:
+      description: Primary IPv4 address that is assigned to the instance for this
+        network interface.
+      type: object
+      properties:
+        address:
+          description: An IPv4 internal network address that is assigned to the instance
+            for this network interface.
+          type: string
+        oneToOneNat:
+          $ref: '#/components/schemas/OneToOneNat_in_PrimaryAddress_oneToOneNat'
+    PrimaryAddress_in_NetworkInterface_primaryV6Address:
+      description: Primary IPv6 address that is assigned to the instance for this
+        network interface. IPv6 not available yet.
+      type: object
+      properties:
+        address:
+          description: An IPv4 internal network address that is assigned to the instance
+            for this network interface.
+          type: string
+        oneToOneNat:
+          $ref: '#/components/schemas/OneToOneNat_in_PrimaryAddress_oneToOneNat'
+    PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec:
+      description: Primary IPv4 address that will be assigned to the instance for
+        this network interface.
+      type: object
+      properties:
+        address:
+          description: |-
+            An IPv4 internal network address that is assigned to the instance for this network interface.
+            If not specified by the user, an unused internal IP is assigned by the system.
+          type: string
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
+    PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec:
+      description: Primary IPv6 address that will be assigned to the instance for
+        this network interface. IPv6 not available yet.
+      type: object
+      properties:
+        address:
+          description: |-
+            An IPv4 internal network address that is assigned to the instance for this network interface.
+            If not specified by the user, an unused internal IP is assigned by the system.
+          type: string
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
+    IpVersion_in_OneToOneNat_ipVersion:
+      description: |-
+        IP version for the external IP address.
+
+         - IPV4: IPv4 address, for example 192.0.2.235.
+         - IPV6: IPv6 address. Not available yet.
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    IpVersion_in_OneToOneNatSpec_ipVersion:
+      description: |-
+        Required.
+        External IP address version.
+
+         - IPV4: IPv4 address, for example 192.0.2.235.
+         - IPV6: IPv6 address. Not available yet.
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    OsType_in_Os_type:
+      description: |-
+        Operating system type.
+
+         - LINUX: Linux operating system.
+         - WINDOWS: Windows operating system.
+      type: string
+      enum:
+      - LINUX
+      - WINDOWS
+    OneToOneNat_in_PrimaryAddress_oneToOneNat:
+      description: One-to-one NAT configuration. If missing, NAT has not been set
+        up.
+      type: object
+      properties:
+        address:
+          description: An external IP address associated with this instance.
+          type: string
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_OneToOneNat_ipVersion'
+    OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec:
+      description: |-
+        An external IP address configuration.
+        If not specified, then this instance will have no external internet access.
+      type: object
+      properties:
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
+    SnapshotStatus_in_Snapshot_status:
+      description: |-
+        Current status of the snapshot.
+
+         - CREATING: Snapshot is being created.
+         - READY: Snapshot is ready to use.
+         - ERROR: Snapshot encountered a problem and cannot operate.
+         - DELETING: Snapshot is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
+    FieldMask_in_UpdateDiskRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the Disk resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    FieldMask_in_UpdateImageRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the Image resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    FieldMask_in_UpdateInstanceRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the Instance resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ResourcesSpec_in_UpdateInstanceRequest_resourcesSpec:
+      description: |-
+        Computing resources of the instance, such as the amount of memory and number of cores.
+        To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels).
+      type: object
+      properties:
+        memory:
+          description: |-
+            Required.
+            The amount of memory available to the instance, specified in bytes.
+
+            The maximum value is 274877906944.
+          type: string
+          format: int64
+        cores:
+          description: |-
+            Required.
+            The number of cores available to the instance.
+
+            Value must be one of 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 or 32.
+          type: string
+          format: int64
+        coreFraction:
+          description: |-
+            Baseline level of CPU performance with the ability to burst performance above that baseline level.
+            This field sets baseline performance for each core.
+
+            For example, if you need only 5% of the CPU performance, you can set core_fraction=5.
+            For more information, see [Levels of core performance](/docs/compute/concepts/performance-levels).
+
+            Value must be one of 0, 5, 20, 50 or 100.
+          type: string
+          format: int64
+        gpus:
+          description: |-
+            The number of GPUs available to the instance.
+
+            Value must be one of 1, 2 or 4.
+          type: string
+          format: int64
+    FieldMask_in_UpdateSnapshotRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the Snapshot resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ZoneStatus_in_Zone_status:
+      description: |-
+        Status of the zone.
+
+         - UP: Zone is available. You can access the resources allocated in this zone.
+         - DOWN: Zone is not available.
+      type: string
+      enum:
+      - UP
+      - DOWN
+tags:
+- name: Disk
+  description: A set of methods for managing Disk resources.
+- name: DiskType
+  description: A set of methods to retrieve information about disk types.
+- name: Image
+  description: A set of methods for managing Image resources.
+- name: Instance
+  description: A set of methods for managing Instance resources.
+- name: Snapshot
+  description: A set of methods for managing Snapshot resources.
+- name: Zone
+  description: A set of methods to retrieve information about availability zones.

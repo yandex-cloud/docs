@@ -40,7 +40,7 @@ To get a list of instances:
   
 - API
   
-  Use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
+  Use the [listInstances](../../../_api-ref/compute/api-ref/InstanceGroup/listInstances.md) method.
   
 {% endlist %}
 

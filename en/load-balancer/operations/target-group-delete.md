@@ -53,7 +53,7 @@ You cannot restore a target group after it is deleted.
   
 - API
   
-  You can delete target groups using the [delete](../api-ref/TargetGroup/delete.md) API method.
+  You can delete target groups using the [delete](../../_api-ref/loadbalancer/api-ref/TargetGroup/delete.md) API method.
   
 {% endlist %}
 

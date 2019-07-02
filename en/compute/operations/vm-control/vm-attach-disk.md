@@ -67,7 +67,7 @@ To attach a disk to a VM:
   
 - API
   
-  Use the [attachDisk](../../api-ref/Instance/attachDisk.md) method for the [Instance](../../api-ref/Instance/) resource.
+  Use the [attachDisk](../../../_api-ref/compute/api-ref/Instance/attachDisk.md) method for the [Instance](../../../_api-ref/compute/api-ref/Instance/) resource.
   
 {% endlist %}
 

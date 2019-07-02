@@ -1,0 +1,231 @@
+items:
+  - name: Все функции
+    href: function-ref/all.md
+  - name: Агрегатные функции
+    items:
+      - name: AVG
+        href: function-ref/aggregation/AVG/overview.md
+      - name: AVG_IF
+        href: function-ref/aggregation/AVG_IF/overview.md
+      - name: COUNT
+        href: function-ref/aggregation/COUNT/overview.md
+      - name: COUNTD
+        href: function-ref/aggregation/COUNTD/overview.md
+      - name: COUNTD_APPROX
+        href: function-ref/aggregation/COUNTD_APPROX/overview.md
+      - name: COUNTD_IF
+        href: function-ref/aggregation/COUNTD_IF/overview.md
+      - name: COUNT_IF
+        href: function-ref/aggregation/COUNT_IF/overview.md
+      - name: MAX
+        href: function-ref/aggregation/MAX/overview.md
+      - name: MEDIAN
+        href: function-ref/aggregation/MEDIAN/overview.md
+      - name: MIN
+        href: function-ref/aggregation/MIN/overview.md
+      - name: STDEV
+        href: function-ref/aggregation/STDEV/overview.md
+      - name: STDEVP
+        href: function-ref/aggregation/STDEVP/overview.md
+      - name: SUM
+        href: function-ref/aggregation/SUM/overview.md
+      - name: SUM_IF
+        href: function-ref/aggregation/SUM_IF/overview.md
+      - name: VAR
+        href: function-ref/aggregation/VAR/overview.md
+      - name: VARP
+        href: function-ref/aggregation/VARP/overview.md
+  - name: Функции даты и времени
+    items:
+      - name: DATEADD
+        href: function-ref/date/DATEADD/overview.md
+      - name: DATEPART
+        href: function-ref/date/DATEPART/overview.md
+      - name: DATETRUNC
+        href: function-ref/date/DATETRUNC/overview.md
+      - name: DAY
+        href: function-ref/date/DAY/overview.md
+      - name: DAYOFWEEK
+        href: function-ref/date/DAYOFWEEK/overview.md
+      - name: HOUR
+        href: function-ref/date/HOUR/overview.md
+      - name: MINUTE
+        href: function-ref/date/MINUTE/overview.md
+      - name: MONTH
+        href: function-ref/date/MONTH/overview.md
+      - name: NOW
+        href: function-ref/date/NOW/overview.md
+      - name: SECOND
+        href: function-ref/date/SECOND/overview.md
+      - name: TODAY
+        href: function-ref/date/TODAY/overview.md
+      - name: WEEK
+        href: function-ref/date/WEEK/overview.md
+      - name: YEAR
+        href: function-ref/date/YEAR/overview.md
+  - name: Логические функции
+    items:
+      - name: CASE
+        href: function-ref/logical/CASE/overview.md
+      - name: IF
+        href: function-ref/logical/IF/overview.md
+      - name: IFNULL
+        href: function-ref/logical/IFNULL/overview.md
+      - name: ISNULL
+        href: function-ref/logical/ISNULL/overview.md
+      - name: ZN
+        href: function-ref/logical/ZN/overview.md
+  - name: Математические функции
+    items:
+      - name: ABS
+        href: function-ref/numeric/ABS/overview.md
+      - name: ACOS
+        href: function-ref/numeric/ACOS/overview.md
+      - name: ASIN
+        href: function-ref/numeric/ASIN/overview.md
+      - name: ATAN
+        href: function-ref/numeric/ATAN/overview.md
+      - name: ATAN2
+        href: function-ref/numeric/ATAN2/overview.md
+      - name: CEILING
+        href: function-ref/numeric/CEILING/overview.md
+      - name: COS
+        href: function-ref/numeric/COS/overview.md
+      - name: COT
+        href: function-ref/numeric/COT/overview.md
+      - name: DEGREES
+        href: function-ref/numeric/DEGREES/overview.md
+      - name: DIV
+        href: function-ref/numeric/DIV/overview.md
+      - name: EXP
+        href: function-ref/numeric/EXP/overview.md
+      - name: FLOOR
+        href: function-ref/numeric/FLOOR/overview.md
+      - name: GREATEST
+        href: function-ref/numeric/GREATEST/overview.md
+      - name: LEAST
+        href: function-ref/numeric/LEAST/overview.md
+      - name: LN
+        href: function-ref/numeric/LN/overview.md
+      - name: LOG
+        href: function-ref/numeric/LOG/overview.md
+      - name: LOG10
+        href: function-ref/numeric/LOG10/overview.md
+      - name: PI
+        href: function-ref/numeric/PI/overview.md
+      - name: POWER
+        href: function-ref/numeric/POWER/overview.md
+      - name: RADIANS
+        href: function-ref/numeric/RADIANS/overview.md
+      - name: ROUND
+        href: function-ref/numeric/ROUND/overview.md
+      - name: SIGN
+        href: function-ref/numeric/SIGN/overview.md
+      - name: SIN
+        href: function-ref/numeric/SIN/overview.md
+      - name: SQRT
+        href: function-ref/numeric/SQRT/overview.md
+      - name: SQUARE
+        href: function-ref/numeric/SQUARE/overview.md
+      - name: TAN
+        href: function-ref/numeric/TAN/overview.md
+  - name: Операторы
+    items:
+      - name: AND
+        href: function-ref/operator/AND/overview.md
+      - name: BETWEEN
+        href: function-ref/operator/BETWEEN/overview.md
+      - name: IN
+        href: function-ref/operator/IN/overview.md
+      - name: IS FALSE
+        href: function-ref/operator/ISFALSE/overview.md
+      - name: IS TRUE
+        href: function-ref/operator/ISTRUE/overview.md
+      - name: LIKE
+        href: function-ref/operator/LIKE/overview.md
+      - name: NOT
+        href: function-ref/operator/OP_NOT/overview.md
+      - name: OR
+        href: function-ref/operator/OR/overview.md
+      - name: Вычитание (-)
+        href: function-ref/operator/OP_MINUS/overview.md
+      - name: Деление (/)
+        href: function-ref/operator/OP_DIV/overview.md
+      - name: Остаток (%)
+        href: function-ref/operator/OP_MOD/overview.md
+      - name: Отрицание (-)
+        href: function-ref/operator/OP_NEGATION/overview.md
+      - name: Сложение и конкатенация (+)
+        href: function-ref/operator/OP_PLUS/overview.md
+      - name: Сравнение
+        href: function-ref/operator/OP_COMPARISON/overview.md
+      - name: Степень (^)
+        href: function-ref/operator/OP_POWER/overview.md
+      - name: Умножение (*)
+        href: function-ref/operator/OP_MULT/overview.md
+  - name: Строковые функции
+    items:
+      - name: ASCII
+        href: function-ref/string/ASCII/overview.md
+      - name: CHAR
+        href: function-ref/string/CHAR/overview.md
+      - name: CONCAT
+        href: function-ref/string/CONCAT/overview.md
+      - name: CONTAINS
+        href: function-ref/string/CONTAINS/overview.md
+      - name: ENDSWITH
+        href: function-ref/string/ENDSWITH/overview.md
+      - name: FIND
+        href: function-ref/string/FIND/overview.md
+      - name: LEFT
+        href: function-ref/string/LEFT/overview.md
+      - name: LEN
+        href: function-ref/string/LEN/overview.md
+      - name: LOWER
+        href: function-ref/string/LOWER/overview.md
+      - name: LTRIM
+        href: function-ref/string/LTRIM/overview.md
+      - name: REGEXP_EXTRACT
+        href: function-ref/string/REGEXP_EXTRACT/overview.md
+      - name: REGEXP_EXTRACT_NTH
+        href: function-ref/string/REGEXP_EXTRACT_NTH/overview.md
+      - name: REGEXP_MATCH
+        href: function-ref/string/REGEXP_MATCH/overview.md
+      - name: REGEXP_REPLACE
+        href: function-ref/string/REGEXP_REPLACE/overview.md
+      - name: REPLACE
+        href: function-ref/string/REPLACE/overview.md
+      - name: RIGHT
+        href: function-ref/string/RIGHT/overview.md
+      - name: RTRIM
+        href: function-ref/string/RTRIM/overview.md
+      - name: SPACE
+        href: function-ref/string/SPACE/overview.md
+      - name: SPLIT
+        href: function-ref/string/SPLIT/overview.md
+      - name: STARTSWITH
+        href: function-ref/string/STARTSWITH/overview.md
+      - name: SUBSTR
+        href: function-ref/string/SUBSTR/overview.md
+      - name: TRIM
+        href: function-ref/string/TRIM/overview.md
+      - name: UPPER
+        href: function-ref/string/UPPER/overview.md
+      - name: UTF8
+        href: function-ref/string/UTF8/overview.md
+  - name: Функции преобразования типов
+    items:
+      - name: BOOL
+        href: function-ref/type-conversion/BOOL/overview.md
+      - name: DATE
+        href: function-ref/type-conversion/DATE/overview.md
+      - name: DATETIME
+        href: function-ref/type-conversion/DATETIME/overview.md
+      - name: FLOAT
+        href: function-ref/type-conversion/FLOAT/overview.md
+      - name: INT
+        href: function-ref/type-conversion/INT/overview.md
+      - name: STR
+        href: function-ref/type-conversion/STR/overview.md
+  - name: Поддержка функций
+    href: function-ref/availability.md

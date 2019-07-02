@@ -222,7 +222,7 @@ To create an instance group with a load balancer:
   
 - API
   
-  Use the [create](../../api-ref/InstanceGroup/create.md) API method.
+  Use the [create](../../../_api-ref/compute/api-ref/InstanceGroup/create.md) API method.
   
 {% endlist %}
 

@@ -55,5 +55,5 @@ items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
     include:
-      repo: docs-api
-      path: ru/monitoring/toc.yaml
+      repo: docs
+      path: ru/_api-ref/monitoring/toc.yaml

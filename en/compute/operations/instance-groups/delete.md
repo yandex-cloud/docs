@@ -45,9 +45,9 @@ To delete an instance group:
   
 - API
   
-  Use the [delete](../../api-ref/InstanceGroup/delete.md) API method.
+  Use the [delete](../../../_api-ref/compute/api-ref/InstanceGroup/delete.md) API method.
   
-  To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
+  To request a list of available groups, use the [listInstances](../../../_api-ref/compute/api-ref/InstanceGroup/listInstances.md) method.
   
 {% endlist %}
 

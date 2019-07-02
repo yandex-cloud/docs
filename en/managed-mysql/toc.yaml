@@ -49,8 +49,8 @@ items:
       - name: Authentication in the API
         href: api-ref/authentication.md
     include:
-      repo: docs-api
-      path: en/mdb/mysql/toc.yaml
+      repo: docs
+      path: en/_api-ref/mdb/mysql/toc.yaml
   - name: Questions and answers
     items:
       - name: General questions

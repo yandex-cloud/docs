@@ -1,0 +1,161 @@
+openapi: "3.0"
+info:
+  title: Title not set.
+  description: Description not set.
+  version: Version not set.
+paths: {}
+components:
+  schemas:
+    HDFSInfo:
+      type: object
+      properties:
+        available:
+          type: boolean
+          format: boolean
+        percentRemaining:
+          type: number
+          format: double
+        used:
+          type: string
+          format: int64
+        free:
+          type: string
+          format: int64
+        totalBlocks:
+          type: string
+          format: int64
+        missingBlocks:
+          type: string
+          format: int64
+        missingBlocksReplicaOne:
+          type: string
+          format: int64
+        liveNodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/HDFSNodeInfo'
+        deadNodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/HDFSNodeInfo'
+        decomNodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/HDFSNodeInfo'
+    HDFSNodeInfo:
+      type: object
+      properties:
+        name:
+          type: string
+        used:
+          type: string
+          format: int64
+        remaining:
+          type: string
+          format: int64
+        capacity:
+          type: string
+          format: int64
+        numBlocks:
+          type: string
+          format: int64
+        state:
+          type: string
+    HbaseInfo:
+      type: object
+      properties:
+        available:
+          type: boolean
+          format: boolean
+        regions:
+          type: string
+          format: int64
+        requests:
+          type: string
+          format: int64
+        averageLoad:
+          type: number
+          format: double
+        liveNodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/HbaseNodeInfo'
+        deadNodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/HbaseNodeInfo'
+    HbaseNodeInfo:
+      type: object
+      properties:
+        name:
+          type: string
+        requests:
+          type: string
+          format: int64
+        heapSizeMb:
+          type: string
+          format: int64
+        maxHeapSizeMb:
+          type: string
+          format: int64
+    HiveInfo:
+      type: object
+      properties:
+        available:
+          type: boolean
+          format: boolean
+        queriesSucceeded:
+          type: string
+          format: int64
+        queriesFailed:
+          type: string
+          format: int64
+        queriesExecuting:
+          type: string
+          format: int64
+        sessionsOpen:
+          type: string
+          format: int64
+        sessionsActive:
+          type: string
+          format: int64
+    ReportReply:
+      description: The response message containing the agent commands to apply on
+        host.
+      type: object
+      properties: {}
+    YarnInfo:
+      type: object
+      properties:
+        available:
+          type: boolean
+          format: boolean
+        liveNodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/YarnNodeInfo'
+    YarnNodeInfo:
+      type: object
+      properties:
+        name:
+          type: string
+        state:
+          type: string
+        numContainers:
+          type: string
+          format: int64
+        usedMemoryMb:
+          type: string
+          format: int64
+        availableMemoryMb:
+          type: string
+          format: int64
+    ZookeeperInfo:
+      type: object
+      properties:
+        alive:
+          type: boolean
+          format: boolean
+tags:
+- name: DataprocManager
+  description: Dataproc manager service defifnition

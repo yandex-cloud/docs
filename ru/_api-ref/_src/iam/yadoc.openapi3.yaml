@@ -1,0 +1,1471 @@
+openapi: "3.0"
+info:
+  title: Yandex IAM API
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
+    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://iam.api.cloud.yandex.net
+paths:
+  /iam/v1/apiKeys:
+    get:
+      tags:
+      - ApiKey
+      summary: Возвращает список API-ключей для указанного сервисного аккаунта.
+      operationId: ApiKeyList
+      parameters:
+      - name: serviceAccountId
+        in: query
+        description: |-
+          Идентификатор сервисного аккаунта, для которого запрашивается список API-ключей.
+          Чтобы получить идентификатор сервисного аккаунта, используйте запрос
+          [list](/docs/iam/api-ref/ServiceAccount/list). Если параметр не указан, то используется идентификатор
+          субъекта, который сделал запрос.
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/iam/api-ref/ApiKey/list#query_params) , сервис вернет значение [nextPageToken](/docs/iam/api-ref/ApiKey/list#responses), которое
+          можно использовать для получения следующей страницы. Значение по умолчанию: 100.
+
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/ApiKey/list#query_params) равным значению поля
+          [nextPageToken](/docs/iam/api-ref/ApiKey/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListApiKeysResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - ApiKey
+      summary: Создает API-ключ для указанного сервисного аккаунта.
+      operationId: ApiKeyCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateApiKeyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateApiKeyResponse'
+      x-y-navtitle: create
+  /iam/v1/apiKeys/{apiKeyId}:
+    get:
+      tags:
+      - ApiKey
+      summary: Возвращает указанный API-ключ.
+      description: Чтобы получить список доступных API-ключ, используйте запрос [list](/docs/iam/api-ref/ApiKey/list).
+      operationId: ApiKeyGet
+      parameters:
+      - name: apiKeyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого API-ключа. Чтобы получить идентификатор ключа,
+          используйте запрос [list](/docs/iam/api-ref/ApiKey/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiKey'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - ApiKey
+      summary: Удаляет указанный API-ключ.
+      operationId: ApiKeyDelete
+      parameters:
+      - name: apiKeyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемого ключа. Чтобы получить идентификатор ключа, используйте
+          запрос [list](/docs/iam/api-ref/ApiKey/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Empty'
+      x-y-navtitle: delete
+  /iam/v1/tokens:
+    post:
+      tags:
+      - IamToken
+      summary: Создает IAM-токен для указанного субъекта.
+      operationId: IamTokenCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateIamTokenRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateIamTokenResponse'
+      x-y-navtitle: create
+  /iam/v1/keys/{keyId}:
+    get:
+      tags:
+      - Key
+      summary: Возвращает указанный ресурс Key.
+      description: Чтобы получить список доступных ресурсов Key, используйте запрос
+        [list](/docs/iam/api-ref/Key/list).
+      operationId: KeyGet
+      parameters:
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого ресурса Key. Чтобы получить идентификатор, используйте
+          запрос [list](/docs/iam/api-ref/Key/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: Формат ключа.
+        schema:
+          $ref: '#/components/schemas/KeyFormat'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Key'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Key
+      summary: Удаляет указанную пару ключей.
+      operationId: KeyDelete
+      parameters:
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемого ключа. Чтобы получить идентификатор ключа, используйте
+          запрос [list](/docs/iam/api-ref/Key/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Empty'
+      x-y-navtitle: delete
+  /iam/v1/keys:
+    get:
+      tags:
+      - Key
+      summary: Возвращает список доступных ресурсов Key для указанного сервисного
+        аккаунта.
+      operationId: KeyList
+      parameters:
+      - name: format
+        in: query
+        description: Формат ключа.
+        schema:
+          $ref: '#/components/schemas/KeyFormat'
+      - name: serviceAccountId
+        in: query
+        description: |-
+          Идентификатор сервисного аккаунта для вывода списка пар ключей. Чтобы получить
+          идентификатор сервисного аккаунта, используйте запрос [list](/docs/iam/api-ref/ServiceAccount/list).
+          Если параметр не указан, то используется идентификатор субъекта, который сделал
+          запрос.
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/iam/api-ref/Key/list#query_params), сервис вернет значение [nextPageToken](/docs/iam/api-ref/Key/list#responses), которое
+          можно использовать для получения следующей страницы. Значение по умолчанию: 100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/Key/list#query_params) равным значению поля [nextPageToken](/docs/iam/api-ref/Key/list#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListKeysResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Key
+      summary: Создает пару ключей для указанного сервисного аккаунта.
+      operationId: KeyCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateKeyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateKeyResponse'
+      x-y-navtitle: create
+  /iam/v1/roles/{roleId}:
+    get:
+      tags:
+      - Role
+      summary: Возвращает указанный ресурс Role.
+      description: Чтобы получить список доступных ресурсов Role, используйте запрос
+        [list](/docs/iam/api-ref/Role/list).
+      operationId: RoleGet
+      parameters:
+      - name: roleId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого ресурса Role. Чтобы получить идентификатор роли,
+          используйте запрос [list](/docs/iam/api-ref/Role/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+      x-y-navtitle: get
+  /iam/v1/roles:
+    get:
+      tags:
+      - Role
+      summary: Возвращает список доступных ресурсов Role.
+      operationId: RoleList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/iam/api-ref/Role/list#query_params), сервис вернет значение [nextPageToken](/docs/iam/api-ref/Role/list#responses), которое
+          можно использовать для получения следующей страницы. Значение по умолчанию: 100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/Role/list#query_params) равным значению поля [nextPageToken](/docs/iam/api-ref/Role/list#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе.
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRolesResponse'
+      x-y-navtitle: list
+  /iam/v1/serviceAccounts/{serviceAccountId}:
+    get:
+      tags:
+      - ServiceAccount
+      summary: Возвращает указанный ресурс ServiceAccount.
+      description: Чтобы получить список доступных ресурсов ServiceAccount, используйте
+        запрос [list](/docs/iam/api-ref/ServiceAccount/list).
+      operationId: ServiceAccountGet
+      parameters:
+      - name: serviceAccountId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого ресурса ServiceAccount. Чтобы получить идентификатор
+          сервисного аккаунта, используйте запрос [list](/docs/iam/api-ref/ServiceAccount/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceAccount'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - ServiceAccount
+      summary: Удаляет указанный сервисный аккаунт.
+      operationId: ServiceAccountDelete
+      parameters:
+      - name: serviceAccountId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемого сервисного аккаунта. Чтобы получить идентификатор
+          сервисного аккаунта, используйте запрос [list](/docs/iam/api-ref/ServiceAccount/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteServiceAccountMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - ServiceAccount
+      summary: Обновляет указанный сервисный аккаунт.
+      operationId: ServiceAccountUpdate
+      parameters:
+      - name: serviceAccountId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор обновляемого ресурса ServiceAccount. Чтобы получить идентификатор
+          сервисного аккаунта, используйте запрос [list](/docs/iam/api-ref/ServiceAccount/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateServiceAccountRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateServiceAccountMetadata'
+      x-y-operation-response: '[ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation)'
+  /iam/v1/serviceAccounts:
+    get:
+      tags:
+      - ServiceAccount
+      summary: Возвращает список доступных ресурсов ServiceAccount в указанном каталоге.
+      operationId: ServiceAccountList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка сервисных аккаунтов. Чтобы получить
+          идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/iam/api-ref/ServiceAccount/list#query_params), сервис вернет значение [nextPageToken](/docs/iam/api-ref/ServiceAccount/list#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/ServiceAccount/list#query_params) равным значению поля
+          [nextPageToken](/docs/iam/api-ref/ServiceAccount/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [ServiceAccount.name](/docs/iam/api-ref/ServiceAccount#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListServiceAccountsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - ServiceAccount
+      summary: Создает сервисный аккаунт в указанном каталоге.
+      operationId: ServiceAccountCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateServiceAccountRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateServiceAccountMetadata'
+      x-y-operation-response: '[ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation)'
+  /iam/v1/serviceAccounts/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - ServiceAccount
+      summary: Возвращает список привязок прав доступа для указанного сервисного аккаунта.
+      operationId: ServiceAccountListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /iam/v1/serviceAccounts/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - ServiceAccount
+      summary: Задает список привязок прав доступа для указанного сервисного аккаунта.
+      operationId: ServiceAccountSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /iam/v1/serviceAccounts/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - ServiceAccount
+      summary: Обновляет список привязок прав доступа для указанного сервисного аккаунта.
+      operationId: ServiceAccountUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          ID of the resource for which access bindings are being updated.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /iam/v1/serviceAccounts/{serviceAccountId}/operations:
+    get:
+      tags:
+      - ServiceAccount
+      summary: Возвращает список операций для указанного сервисного аккаунта.
+      operationId: ServiceAccountListOperations
+      parameters:
+      - name: serviceAccountId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса ServiceAccount, для которого запрашивается список операций.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/iam/api-ref/ServiceAccount/listOperations#query_params) , сервис вернет значение [nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/ServiceAccount/listOperations#query_params) равным значению поля
+          [nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListServiceAccountOperationsResponse'
+      x-y-navtitle: listOperations
+  /iam/v1/userAccounts/{userAccountId}:
+    get:
+      tags:
+      - UserAccount
+      summary: Возвращает указанный ресурс UserAccount.
+      operationId: UserAccountGet
+      parameters:
+      - name: userAccountId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор запрашиваемого ресурса UserAccount.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserAccount'
+      x-y-navtitle: get
+  /iam/v1/yandexPassportUserAccounts:byLogin:
+    get:
+      tags:
+      - YandexPassportUserAccount
+      summary: Возвращает указанный ресурс YandexPassportUserAccount.
+      operationId: YandexPassportUserAccountGetByLogin
+      parameters:
+      - name: login
+        in: query
+        description: |-
+          Обязательное поле.
+          Логин для запрашиваемого ресурса YandexPassportUserAccount.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserAccount'
+      x-y-navtitle: getByLogin
+components:
+  schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    ApiKey:
+      description: Ресурс ApiKey.
+      type: object
+      properties:
+        id:
+          description: Идентификатор API-ключа.
+          type: string
+        serviceAccountId:
+          description: Идентификатор сервисного аккаунта, которому принадлежит API-ключ.
+          type: string
+        createdAt:
+          description: |-
+            Время создания.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        description:
+          description: Описание API-ключа. Длина описания должна быть от 0 до 256
+            символов.
+          type: string
+    CreateApiKeyRequest:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            Идентификатор сервисного аккаунта для создания API-ключа. Чтобы получить
+            идентификатор сервисного аккаунта, используйте запрос [list](/docs/iam/api-ref/ServiceAccount/list).
+            Если параметр не указан, то используется идентификатор субъекта, который сделал
+            запрос.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        description:
+          description: |-
+            Описание API-ключа.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+    CreateApiKeyResponse:
+      type: object
+      properties:
+        apiKey:
+          $ref: '#/components/schemas/ApiKey_in_CreateApiKeyResponse_apiKey'
+        secret:
+          description: |-
+            Секретная часть API-ключа. Этот секретный ключ можно использовать для аутентификации
+            при запросах.
+          type: string
+    CreateIamTokenRequest:
+      type: object
+      allOf:
+      - title: identity
+        type: object
+        maxProperties: 1
+        properties:
+          yandexPassportOauthToken:
+            description: |-
+              OAuth-токен для аккаунта в Яндекса.Паспорте. Подробнее см. в
+              разделе [OAuth-токен](/docs/iam/concepts/authorization/oauth-token).
+            type: string
+          jwt:
+            description: |-
+              JSON Web Token (JWT) для сервисного аккаунта. Подробнее см. в разделе
+              [Получить IAM-токен для сервисного аккаунта](/docs/iam/operations/iam-token/create-for-sa).
+            type: string
+    CreateIamTokenResponse:
+      type: object
+      properties:
+        iamToken:
+          description: |-
+            IAM-токен для указанного субъекта.
+
+            Передавайте токен в заголовке `Authorization` для дальнейших запросов к API. Например,
+            `Authorization: Bearer [iam_token]`.
+          type: string
+        expiresAt:
+          description: |-
+            Время окончания действия IAM-токена.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+    CreateKeyRequest:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            Идентификатор сервисного аккаунта для создания пары ключей. Чтобы получить
+            идентификатор сервисного аккаунта, используйте запрос [list](/docs/iam/api-ref/ServiceAccount/list).
+            Если параметр не указан, то используется идентификатор субъекта, который сделал
+            запрос.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        description:
+          description: |-
+            Описание пары ключей.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        format:
+          $ref: '#/components/schemas/KeyFormat_in_CreateKeyRequest_format'
+        keyAlgorithm:
+          $ref: '#/components/schemas/KeyAlgorithm_in_CreateKeyRequest_keyAlgorithm'
+    CreateKeyResponse:
+      type: object
+      properties:
+        key:
+          $ref: '#/components/schemas/Key_in_CreateKeyResponse_key'
+        privateKey:
+          description: Закрытый ключ из ресурса Key. Этот ключ должен храниться в
+            надежном месте.
+          type: string
+    CreateServiceAccountMetadata:
+      type: object
+      properties:
+        serviceAccountId:
+          description: Идентификатор создаваемого сервисного аккаунта.
+          type: string
+    CreateServiceAccountRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Обязательное поле.
+            Идентификатор каталога, в котором создается сервисный аккаунт. Чтобы получить
+            идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        name:
+          description: |-
+            Обязательное поле.
+            Имя сервисного аккаунта. Имя должно быть уникальным в облаке.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Описание сервисного аккаунта.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+    DeleteServiceAccountMetadata:
+      type: object
+      properties:
+        serviceAccountId:
+          description: Идентификатор удаляемого сервисного аккаунта.
+          type: string
+    Empty:
+      description: Пустой JSON объект `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    Key:
+      description: Ресурс Key. Подробнее см. в разделе [Авторизованные ключи](/docs/iam/concepts/authorization/key).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Идентификатор ресурса Key
+            type: string
+          createdAt:
+            description: |-
+              Время создания.
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          description:
+            description: Описание ресурса Key. Длина 0-256 символов.
+            type: string
+          keyAlgorithm:
+            $ref: '#/components/schemas/KeyAlgorithm'
+            description: Алгоритм, используемый для создания пары ключей ресурса Key.
+          publicKey:
+            description: Закрытый ключ из ресурса Key.
+            type: string
+      - title: subject
+        type: object
+        maxProperties: 1
+        properties:
+          userAccountId:
+            description: Идентификатор аккаунта пользователя, которому принадлежит
+              ресурс Key.
+            type: string
+          serviceAccountId:
+            description: Идентификатор сервисного аккаунта, которому принадлежит ресурс
+              Key.
+            type: string
+    KeyAlgorithm:
+      description: |2-
+         - RSA_2048: RSA с длиной ключа 2048 бит. Значение по умолчанию.
+         - RSA_4096: RSA с длиной ключа 4096 бит.
+      type: string
+      enum:
+      - RSA_2048
+      - RSA_4096
+    KeyFormat:
+      description: ' - PEM_FILE: Формат Privacy-Enhanced Mail (PEM). Значение по умолчанию.'
+      type: string
+      enum:
+      - PEM_FILE
+      default: PEM_FILE
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than pageSize, use
+            the nextPageToken as the value
+            for the pageToken query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
+    ListApiKeysResponse:
+      type: object
+      properties:
+        apiKeys:
+          description: Список API-ключей.
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiKey'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/iam/api-ref/ApiKey/list#query_params), используйте [nextPageToken](/docs/iam/api-ref/ApiKey/list#responses) в качестве значения
+            параметра [pageToken](/docs/iam/api-ref/ApiKey/list#query_params) в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/ApiKey/list#responses) для перебора страниц результатов.
+          type: string
+    ListKeysResponse:
+      type: object
+      properties:
+        keys:
+          description: Список ресурсов Key.
+          type: array
+          items:
+            $ref: '#/components/schemas/Key'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/iam/api-ref/Key/list#query_params), используйте [nextPageToken](/docs/iam/api-ref/Key/list#responses) в качестве значения
+            параметра [pageToken](/docs/iam/api-ref/Key/list#query_params) в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/Key/list#responses) для перебора страниц результатов.
+          type: string
+    ListRolesResponse:
+      type: object
+      properties:
+        roles:
+          description: Список ресурсов Role.
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/iam/api-ref/Role/list#query_params), используйте [nextPageToken](/docs/iam/api-ref/Role/list#responses) в качестве значения
+            параметра [pageToken](/docs/iam/api-ref/Role/list#query_params) в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/Role/list#responses) для перебора страниц результатов.
+          type: string
+    ListServiceAccountOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанного сервисного аккаунта.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/iam/api-ref/ServiceAccount/listOperations#query_params), используйте [nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/iam/api-ref/ServiceAccount/listOperations#query_params) в следующем запросе списка ресурсов.
+            Все последующие запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#responses) для перебора страниц
+            результатов.
+          type: string
+    ListServiceAccountsResponse:
+      type: object
+      properties:
+        serviceAccounts:
+          description: Список ресурсов ServiceAccount.
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceAccount'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/iam/api-ref/ServiceAccount/list#query_params), используйте [nextPageToken](/docs/iam/api-ref/ServiceAccount/list#responses) в качестве
+            значения параметра [pageToken](/docs/iam/api-ref/ServiceAccount/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/ServiceAccount/list#responses) для перебора страниц
+            результатов.
+          type: string
+    Operation:
+      description: |-
+        Ресурс Operation. Дополнительные сведения см. в разделе
+        [Объект Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Только для вывода. Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Только для вывода. Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Только для вывода. Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Только для вывода. Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Только для вывода. Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
+    Role:
+      description: Ресурс Role. Подробнее см. в разделе [Роли](/docs/iam/concepts/access-control/roles).
+      type: object
+      properties:
+        id:
+          description: Идентификатор роли.
+          type: string
+        description:
+          description: Описание роли. Длина описания должна быть от 0 до 256 символов.
+          type: string
+    ServiceAccount:
+      description: Ресурс ServiceAccount. Дополнительные сведения см. в разделе [Сервисные
+        аккаунты](/docs/iam/concepts/users/service-accounts).
+      type: object
+      properties:
+        id:
+          description: Идентификатор сервисного аккаунта.
+          type: string
+        folderId:
+          description: Идентификатор каталога, которому принадлежит сервисный аккаунт.
+          type: string
+        createdAt:
+          description: |-
+            Время создания.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        name:
+          description: Имя сервисного аккаунта. Имя должно быть уникальным в облаке.
+            Длина 3-63 символов.
+          type: string
+        description:
+          description: Описание сервисного аккаунта. Длина описания должна быть от
+            0 до 256 символов.
+          type: string
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being set.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Обязательное поле.
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    Status:
+      description: Описание ошибки в случае сбоя или отмены операции.
+      type: object
+      properties:
+        code:
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: Текст ошибки.
+          type: string
+        details:
+          description: Список сообщений с подробными сведениями об ошибке.
+          type: array
+          items:
+            type: object
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the type is `system`.
+
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the type is `userAccount` or `serviceAccount`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        type:
+          description: |-
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `system`: System group. This type represents several accounts with a common system identifier.
+            * `userAccount`: An user account (for example, "alice.the.girl@yandex.ru"). This type represents the [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+          type: string
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being updated.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Обязательное поле.
+            Updates to access bindings.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateServiceAccountMetadata:
+      type: object
+      properties:
+        serviceAccountId:
+          description: Идентификатор изменяемого ресурса ServiceAccount.
+          type: string
+    UpdateServiceAccountRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateServiceAccountRequest_updateMask'
+        name:
+          description: |-
+            Обязательное поле.
+            Имя сервисного аккаунта. Имя должно быть уникальным в облаке.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Описание сервисного аккаунта.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+    UserAccount:
+      description: В настоящее время представляет только [аккаунт Яндекс.Паспорта](/docs/iam/concepts/#passport).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Идентификатор аккаунта пользователя
+            type: string
+      - title: user_account
+        type: object
+        maxProperties: 1
+        properties:
+          yandexPassportUserAccount:
+            $ref: '#/components/schemas/YandexPassportUserAccount'
+            description: Ресурс YandexPassportUserAccount.
+    YandexPassportUserAccount:
+      description: Ресурс YandexPassportUserAccount. Подробнее см. в разделе [Аккаунт
+        Яндекс.Паспорта](/docs/iam/concepts/#passport).
+      type: object
+      properties:
+        login:
+          description: Логин аккаунта Яндекс.Паспорта.
+          type: string
+        defaultEmail:
+          description: Email используемый по умолчанию для пользователя с аккаунтом
+            Яндекс.Паспорта.
+          type: string
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Обязательное поле.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the type is `system`.
+
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the type is `userAccount` or `serviceAccount`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        type:
+          description: |-
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `system`: System group. This type represents several accounts with a common system identifier.
+            * `userAccount`: An user account (for example, "alice.the.girl@yandex.ru"). This type represents the [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Обязательное поле.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Обязательное поле.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    ApiKey_in_CreateApiKeyResponse_apiKey:
+      description: |-
+        Ресурс ApiKey.
+
+        Ресурс ApiKey.
+      type: object
+      properties:
+        id:
+          description: Идентификатор API-ключа.
+          type: string
+        serviceAccountId:
+          description: Идентификатор сервисного аккаунта, которому принадлежит API-ключ.
+          type: string
+        createdAt:
+          description: |-
+            Время создания.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        description:
+          description: Описание API-ключа. Длина описания должна быть от 0 до 256
+            символов.
+          type: string
+    KeyFormat_in_CreateKeyRequest_format:
+      description: |-
+        Формат ключа.
+
+         - PEM_FILE: Формат Privacy-Enhanced Mail (PEM). Значение по умолчанию.
+      type: string
+      enum:
+      - PEM_FILE
+      default: PEM_FILE
+    KeyAlgorithm_in_CreateKeyRequest_keyAlgorithm:
+      description: |-
+        Алгоритм, используемый для создания пары ключей ресурса Key.
+
+         - RSA_2048: RSA с длиной ключа 2048 бит. Значение по умолчанию.
+         - RSA_4096: RSA с длиной ключа 4096 бит.
+      type: string
+      enum:
+      - RSA_2048
+      - RSA_4096
+    Key_in_CreateKeyResponse_key:
+      description: |-
+        Ресурс Key.
+
+        Ресурс Key. Подробнее см. в разделе [Авторизованные ключи](/docs/iam/concepts/authorization/key).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Идентификатор ресурса Key
+            type: string
+          createdAt:
+            description: |-
+              Время создания.
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          description:
+            description: Описание ресурса Key. Длина 0-256 символов.
+            type: string
+          keyAlgorithm:
+            $ref: '#/components/schemas/KeyAlgorithm'
+            description: Алгоритм, используемый для создания пары ключей ресурса Key.
+          publicKey:
+            description: Закрытый ключ из ресурса Key.
+            type: string
+      - title: subject
+        type: object
+        maxProperties: 1
+        properties:
+          userAccountId:
+            description: Идентификатор аккаунта пользователя, которому принадлежит
+              ресурс Key.
+            type: string
+          serviceAccountId:
+            description: Идентификатор сервисного аккаунта, которому принадлежит ресурс
+              Key.
+            type: string
+    FieldMask_in_UpdateServiceAccountRequest_updateMask:
+      description: |-
+        Маска, определяющая, какие поля ресурса ServiceAccount будут обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+tags:
+- name: ApiKey
+  description: Набор методов управления API-ключами.
+- name: IamToken
+  description: Набор методов для управления IAM-токенами.
+- name: Key
+  description: Набор методов для управления ресурсами Key.
+- name: Role
+  description: Набор методов для управления ресурсами Role.
+- name: ServiceAccount
+  description: Набор методов для управления ресурсами ServiceAccount.
+- name: UserAccount
+  description: |-
+    Набор методов управления пользовательскими аккаунтами. Сейчас используется только
+    для [аккаунтов Яндекс.Паспорта](/docs/iam/concepts/#passport).
+- name: YandexPassportUserAccount
+  description: Набор методов для управления ресурсами YandexPassportUserAccount.

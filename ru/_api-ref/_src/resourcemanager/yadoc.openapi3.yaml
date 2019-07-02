@@ -1,0 +1,1155 @@
+openapi: "3.0"
+info:
+  title: Yandex Resource Management API
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
+    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://resource-manager.api.cloud.yandex.net
+paths:
+  /resource-manager/v1/clouds/{cloudId}:
+    get:
+      tags:
+      - Cloud
+      summary: Возвращает указанный ресурс Cloud.
+      description: Чтобы получить список доступных ресурсов Cloud, используйте запрос
+        [list](/docs/resource-manager/api-ref/Cloud/list).
+      operationId: CloudGet
+      parameters:
+      - name: cloudId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор запрашиваемого ресурса Cloud. Чтобы получить идентификатор облака,
+          используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cloud'
+      x-y-navtitle: get
+    patch:
+      tags:
+      - Cloud
+      summary: Обновляет указанное облако.
+      operationId: CloudUpdate
+      parameters:
+      - name: cloudId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор облака для обновления. Чтобы получить идентификатор облака,
+          используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCloudRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateCloudMetadata'
+      x-y-operation-response: '[Cloud](/docs/resource-manager/api-ref/Cloud#representation)'
+  /resource-manager/v1/clouds:
+    get:
+      tags:
+      - Cloud
+      summary: Возвращает список доступных ресурсов Cloud.
+      operationId: CloudList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/resource-manager/api-ref/Cloud/list#query_params) , сервис вернет значение [nextPageToken](/docs/resource-manager/api-ref/Cloud/list#responses), которое
+          можно использовать для получения следующей страницы. Значение по умолчанию: 100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/resource-manager/api-ref/Cloud/list#query_params) равным значению поля [nextPageToken](/docs/resource-manager/api-ref/Cloud/list#responses)
+          прошлого запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Cloud.name](/docs/resource-manager/api-ref/Cloud#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCloudsResponse'
+      x-y-navtitle: list
+  /resource-manager/v1/clouds/{cloudId}/operations:
+    get:
+      tags:
+      - Cloud
+      summary: Возвращает список операций для указанного облака.
+      operationId: CloudListOperations
+      parameters:
+      - name: cloudId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса Cloud, для которого запрашивается список операций.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/resource-manager/api-ref/Cloud/listOperations#query_params) , сервис вернет значение [nextPageToken](/docs/resource-manager/api-ref/Cloud/listOperations#responses),
+          которое можно использовать для получения следующей страницы. Допустимые значения —
+          от 0 до 1000 включительно. Значение по умолчанию: 100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/resource-manager/api-ref/Cloud/listOperations#query_params) равным значению поля
+          [nextPageToken](/docs/resource-manager/api-ref/Cloud/listOperations#responses) прошлого запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCloudOperationsResponse'
+      x-y-navtitle: listOperations
+  /resource-manager/v1/clouds/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - Cloud
+      summary: Возвращает список привязок прав доступа для указанного облака.
+      operationId: CloudListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /resource-manager/v1/clouds/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Cloud
+      summary: Задает список привязок прав доступа для указанного облака.
+      operationId: CloudSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /resource-manager/v1/clouds/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - Cloud
+      summary: Обновляет список привязок прав доступа для указанного облака.
+      operationId: CloudUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          ID of the resource for which access bindings are being updated.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /resource-manager/v1/folders/{folderId}:
+    get:
+      tags:
+      - Folder
+      summary: Возвращает указанный ресурс Folder.
+      description: Чтобы получить список доступных ресурсов Folder, используйте запрос
+        [list](/docs/resource-manager/api-ref/Folder/list).
+      operationId: FolderGet
+      parameters:
+      - name: folderId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор запрашиваемого ресурса Folder. Чтобы получить идентификатор каталога,
+          используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Folder'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Folder
+      summary: Удаляет указанный каталог.
+      description: Метод временно недоступен.
+      operationId: FolderDelete
+      parameters:
+      - name: folderId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемого каталога. Чтобы получить идентификатор каталога,
+          используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteFolderMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Folder
+      summary: Обновляет указанный каталог.
+      operationId: FolderUpdate
+      parameters:
+      - name: folderId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса Folder для обновления. Чтобы получить идентификатор каталога,
+          используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFolderRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateFolderMetadata'
+      x-y-operation-response: '[Folder](/docs/resource-manager/api-ref/Folder#representation)'
+  /resource-manager/v1/folders:
+    get:
+      tags:
+      - Folder
+      summary: Возвращает список доступных ресурсов Folder в указанном облаке.
+      operationId: FolderList
+      parameters:
+      - name: cloudId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор облака, для которого запрашивается список каталогов. Чтобы получить
+          идентификатор облака, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list).
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/resource-manager/api-ref/Folder/list#query_params) , сервис вернет значение [nextPageToken](/docs/resource-manager/api-ref/Folder/list#responses), которое
+          можно использовать для получения следующей страницы. Значение по умолчанию: 100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/resource-manager/api-ref/Folder/list#query_params) равным значению поля
+          [nextPageToken](/docs/resource-manager/api-ref/Folder/list#responses) прошлого запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Folder.name](/docs/resource-manager/api-ref/Folder#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFoldersResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Folder
+      summary: Создает каталог в указанном облаке.
+      operationId: FolderCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFolderRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateFolderMetadata'
+      x-y-operation-response: '[Folder](/docs/resource-manager/api-ref/Folder#representation)'
+  /resource-manager/v1/folders/{folderId}/operations:
+    get:
+      tags:
+      - Folder
+      summary: Возвращает список операций для указанного каталога.
+      operationId: FolderListOperations
+      parameters:
+      - name: folderId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса Folder, для которого запрашивается список операций.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/resource-manager/api-ref/Folder/listOperations#query_params) , сервис вернет значение [nextPageToken](/docs/resource-manager/api-ref/Folder/listOperations#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/resource-manager/api-ref/Folder/listOperations#query_params) равным значению поля
+          [nextPageToken](/docs/resource-manager/api-ref/Folder/listOperations#responses) прошлого запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFolderOperationsResponse'
+      x-y-navtitle: listOperations
+  /resource-manager/v1/folders/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - Folder
+      summary: Возвращает список привязок прав доступа к указанному каталогу.
+      operationId: FolderListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /resource-manager/v1/folders/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Folder
+      summary: Задает привязки прав доступа для указанного каталога.
+      operationId: FolderSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /resource-manager/v1/folders/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - Folder
+      summary: Обновляет привязки прав доступа для указанного каталога.
+      operationId: FolderUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Обязательное поле.
+          ID of the resource for which access bindings are being updated.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+components:
+  schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    Cloud:
+      description: Ресурс Cloud. Подробнее см. в разделе [Облако как ресурс Яндекс.Облака](/docs/resource-manager/concepts/resources-hierarchy#cloud).
+      type: object
+      properties:
+        id:
+          description: Идентификатор облака.
+          type: string
+        createdAt:
+          description: |-
+            Время создания.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        name:
+          description: Имя облака. Длина имени должна быть от 3 до 63 символов.
+          type: string
+        description:
+          description: Описание облака. Длина описания должна быть от 0 до 256 символов.
+          type: string
+    CreateFolderMetadata:
+      type: object
+      properties:
+        folderId:
+          description: Идентификатор создаваемого каталога.
+          type: string
+    CreateFolderRequest:
+      type: object
+      properties:
+        cloudId:
+          description: |-
+            Обязательное поле.
+            Идентификатор облака, в котором создается каталог. Чтобы получить идентификатор
+            облака, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list).
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        name:
+          description: |-
+            Обязательное поле.
+            Имя каталога. Имя должно быть уникальным в облаке.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Описание каталога.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки ресурса в формате `` key:value ``.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    DeleteFolderMetadata:
+      type: object
+      properties:
+        folderId:
+          description: Идентификатор удаляемого каталога.
+          type: string
+    Empty:
+      description: Пустой JSON объект `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    Folder:
+      description: |-
+        Ресурс Folder. Дополнительные сведения см. в разделе
+        [Каталог как ресурс Яндекс.Облака](/docs/resource-manager/concepts/resources-hierarchy#folder).
+      type: object
+      properties:
+        id:
+          description: Идентификатор каталога.
+          type: string
+        cloudId:
+          description: Идентификатор облака, которому принадлежит каталог.
+          type: string
+        createdAt:
+          description: |-
+            Время создания.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        name:
+          description: |-
+            Имя каталога. Имя должно быть уникальным в облаке. Длина имени должна быть от 3 до 63
+            символов.
+          type: string
+        description:
+          description: Описание каталога. Длина описания должна быть от 0 до 256 символов.
+          type: string
+        labels:
+          description: Метки ресурса в формате `` key:value ``. Максимум 64 на ресурс.
+          type: object
+          additionalProperties:
+            type: string
+        status:
+          $ref: '#/components/schemas/FolderStatus_in_Folder_status'
+    FolderStatus:
+      description: |2-
+         - ACTIVE: Каталог доступен.
+         - DELETING: Каталог удаляется.
+      type: string
+      enum:
+      - ACTIVE
+      - DELETING
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than pageSize, use
+            the nextPageToken as the value
+            for the pageToken query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
+    ListCloudOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанного облака.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/resource-manager/api-ref/Cloud/listOperations#query_params), используйте [nextPageToken](/docs/resource-manager/api-ref/Cloud/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/resource-manager/api-ref/Cloud/listOperations#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/resource-manager/api-ref/Cloud/listOperations#responses) для перебора страниц
+            результатов.
+          type: string
+    ListCloudsResponse:
+      type: object
+      properties:
+        clouds:
+          description: Список ресурсов Cloud.
+          type: array
+          items:
+            $ref: '#/components/schemas/Cloud'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/resource-manager/api-ref/Cloud/list#query_params), используйте [nextPageToken](/docs/resource-manager/api-ref/Cloud/list#responses) в качестве значения
+            параметра [pageToken](/docs/resource-manager/api-ref/Cloud/list#query_params) в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения [nextPageToken](/docs/resource-manager/api-ref/Cloud/list#responses) для перебора страниц результатов.
+          type: string
+    ListFolderOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанного каталога.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/resource-manager/api-ref/Folder/listOperations#query_params), используйте [nextPageToken](/docs/resource-manager/api-ref/Folder/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/resource-manager/api-ref/Folder/listOperations#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/resource-manager/api-ref/Folder/listOperations#responses) для перебора страниц
+            результатов.
+          type: string
+    ListFoldersResponse:
+      type: object
+      properties:
+        folders:
+          description: Список ресурсов Folder.
+          type: array
+          items:
+            $ref: '#/components/schemas/Folder'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/resource-manager/api-ref/Folder/list#query_params), используйте [nextPageToken](/docs/resource-manager/api-ref/Folder/list#responses) в качестве значения
+            параметра [pageToken](/docs/resource-manager/api-ref/Folder/list#query_params) в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения [nextPageToken](/docs/resource-manager/api-ref/Folder/list#responses) для перебора страниц результатов.
+          type: string
+    Operation:
+      description: |-
+        Ресурс Operation. Дополнительные сведения см. в разделе
+        [Объект Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Только для вывода. Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Только для вывода. Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Только для вывода. Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Только для вывода. Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Только для вывода. Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being set.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Обязательное поле.
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the type is `system`.
+
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the type is `userAccount` or `serviceAccount`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        type:
+          description: |-
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `system`: System group. This type represents several accounts with a common system identifier.
+            * `userAccount`: An user account (for example, "alice.the.girl@yandex.ru"). This type represents the [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+          type: string
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being updated.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Обязательное поле.
+            Updates to access bindings.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateCloudMetadata:
+      type: object
+      properties:
+        cloudId:
+          description: Идентификатор облака, которое будет обновлено.
+          type: string
+    UpdateCloudRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateCloudRequest_updateMask'
+        name:
+          description: |-
+            Имя облака.
+
+            Значение должно соответствовать регулярному выражению `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Описание облака.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+    UpdateFolderMetadata:
+      type: object
+      properties:
+        folderId:
+          description: Идентификатор обновляемого ресурса Folder.
+          type: string
+    UpdateFolderRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateFolderRequest_updateMask'
+        name:
+          description: |-
+            Обязательное поле.
+            Имя каталога. Имя должно быть уникальным в облаке.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Описание каталога.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки ресурса в формате `` key:value ``.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    rpcStatus:
+      description: Описание ошибки в случае сбоя или отмены операции.
+      type: object
+      properties:
+        code:
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: Текст ошибки.
+          type: string
+        details:
+          description: Список сообщений с подробными сведениями об ошибке.
+          type: array
+          items:
+            type: object
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Обязательное поле.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the type is `system`.
+
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the type is `userAccount` or `serviceAccount`.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        type:
+          description: |-
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `system`: System group. This type represents several accounts with a common system identifier.
+            * `userAccount`: An user account (for example, "alice.the.girl@yandex.ru"). This type represents the [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Обязательное поле.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Обязательное поле.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    FolderStatus_in_Folder_status:
+      description: |-
+        Статус каталога.
+
+         - ACTIVE: Каталог доступен.
+         - DELETING: Каталог удаляется.
+      type: string
+      enum:
+      - ACTIVE
+      - DELETING
+    FieldMask_in_UpdateCloudRequest_updateMask:
+      description: |-
+        Маска, определяющая, какие поля указанного облака будут обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    FieldMask_in_UpdateFolderRequest_updateMask:
+      description: |-
+        Маска, определяющая, какие поля ресурса Folder будут обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+tags:
+- name: Cloud
+  description: Набор методов для управления ресурсом Cloud.
+- name: Folder
+  description: Набор методов для управления ресурсом Folder.

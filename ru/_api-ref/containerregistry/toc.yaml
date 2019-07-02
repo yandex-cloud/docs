@@ -1,0 +1,33 @@
+items:
+  - name: Обзор
+    href: api-ref/index.md
+  - name: Image
+    items:
+      - name: Обзор
+        href: api-ref/Image/index.md
+      - name: delete
+        href: api-ref/Image/delete.md
+      - name: get
+        href: api-ref/Image/get.md
+      - name: list
+        href: api-ref/Image/list.md
+  - name: Registry
+    items:
+      - name: Обзор
+        href: api-ref/Registry/index.md
+      - name: create
+        href: api-ref/Registry/create.md
+      - name: delete
+        href: api-ref/Registry/delete.md
+      - name: get
+        href: api-ref/Registry/get.md
+      - name: list
+        href: api-ref/Registry/list.md
+      - name: update
+        href: api-ref/Registry/update.md
+  - name: Repository
+    items:
+      - name: Обзор
+        href: api-ref/Repository/index.md
+      - name: list
+        href: api-ref/Repository/list.md

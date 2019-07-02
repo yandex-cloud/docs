@@ -1,0 +1,17 @@
+items:
+  - name: Обзор
+    href: api-ref/index.md
+  - name: MetricsData
+    items:
+      - name: Обзор
+        href: api-ref/MetricsData/index.md
+      - name: read
+        href: api-ref/MetricsData/read.md
+      - name: write
+        href: api-ref/MetricsData/write.md
+  - name: MetricsMeta
+    items:
+      - name: Обзор
+        href: api-ref/MetricsMeta/index.md
+      - name: listMetrics
+        href: api-ref/MetricsMeta/listMetrics.md

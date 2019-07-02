@@ -1,0 +1,209 @@
+default:
+  # Полные имена сервисов
+  iam-full-name: Yandex Identity and Access Management
+  resmgr-full-name: Yandex Resource Manager
+  compute-full-name: Yandex Compute Cloud
+  objstorage-full-name: Yandex Object Storage
+  mpg-full-name: Yandex Managed Service for PostgreSQL
+  mch-full-name: Yandex Managed Service for ClickHouse
+  mmg-full-name: Yandex Managed Service for MongoDB
+  mmy-full-name: Yandex Managed Service for MySQL
+  mrd-full-name: Yandex Managed Service for Redis
+  vpc-full-name: Yandex Virtual Private Cloud
+  monitoring-full-name: Yandex Monitoring
+  dsvm-full-name: Yandex Data Science Virtual Machine
+  speechkit-full-name: Yandex SpeechKit
+  translate-full-name: Yandex Translate
+  load-balancer-full-name: Yandex Load Balancer
+  message-queue-full-name: Yandex Message Queue
+  container-registry-full-name: Yandex Container Registry
+  dataproc-full-name: Yandex Data Proc
+  vision-full-name: Yandex Vision
+  datalens-full-name: Yandex DataLens
+  managed-k8s-full-name: Yandex Managed Service for Kubernetes
+
+  # Полные имена сервисов без Yandex
+  iam-name: Identity and Access Management
+  ig-name: Instance Groups
+  resmgr-name: Resource Manager
+  compute-name: Compute Cloud
+  objstorage-name: Object Storage
+  mpg-name: Managed Service for PostgreSQL
+  mch-name: Managed Service for ClickHouse
+  mmg-name: Managed Service for MongoDB
+  mmy-name: Managed Service for MySQL
+  mrd-name: Managed Service for Redis
+  monitoring-name: Yandex Monitoring
+  vpc-name: Virtual Private Cloud
+  dsvm-name: Data Science Virtual Machine
+  speechkit-name: SpeechKit
+  translate-name: Translate
+  load-balancer-name: Load Balancer
+  message-queue-name: Message Queue
+  container-registry-name: Container Registry
+  dataproc-name: Data Proc
+  vision-name: Vision
+  datalens-name: DataLens
+  managed-k8s-name: Managed Service for Kubernetes
+
+  # Короткие имена
+  iam-short-name: IAM
+  resmgr-short-name: Resource Manager
+  compute-short-name: Compute Cloud
+  objstorage-short-name: Object Storage
+  mpg-short-name: Managed Service for PostgreSQL
+  mch-short-name: Managed Service for ClickHouse
+  mmg-short-name: Managed Service for MongoDB
+  mrd-short-name: Managed Service for Redis
+  mmy-short-name: Managed Service for MySQL
+  monitoring-short-name: Monitoring
+  vpc-short-name: VPC
+  dsvm-short-name: DSVM
+  speechkit-short-name: SpeechKit
+  translate-short-name: Translate
+  load-balancer-short-name: Load Balancer
+  message-queue-short-name: Message Queue
+  container-registry-short-name: Container Registry
+  dataproc-short-name: Data Proc
+  vision-short-name: Vision
+  datalens-short-name: DataLens
+  managed-k8s-short-name: Managed Service for Kubernetes
+
+  # Тарифы
+  price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
+
+  # Роли
+  roles-image-user: compute.images.user
+  roles-cloud-owner: resource-manager.clouds.owner
+  roles-cloud-member: resource-manager.clouds.member
+  roles-admin: admin
+  roles-owner: owner
+  roles-editor: editor
+  roles-viewer: viewer
+
+  # Системные субъекты
+  subjects-allUsers: allUsers
+  subjects-allAuthenticatedUsers: allAuthenticatedUsers
+
+  # Хосты
+  s3-storage-host: storage.yandexcloud.net
+  s3-web-host: website.yandexcloud.net
+
+  # Команды CLI
+  yc-mdb-mg: yc managed-mongodb
+  yc-mdb-ch: yc managed-clickhouse
+  yc-mdb-pg: yc managed-postgresql
+  yc-mdb-rd: yc managed-redis
+  yc-mdb-my: yc managed-mysql
+  yc-compute-ig: yc compute instance-group
+  yc-compute: yc compute
+  yc-compute-instance: yc compute instance
+
+  # MDB specific
+  pem-path: '/cloud-certs/CA.pem'
+  dns-zone: mdb.yandexcloud.net
+  network-name: default
+  PG: PostgreSQL
+  CH: ClickHouse
+  MG: MongoDB
+  MY: MySQL
+  RD: Redis
+  zone-id: ru-central1-c
+  host-class: s1.nano
+
+  b1-nano: b1.nano (2 vCPU × 5%, 2 ГБ)
+  b1-micro: b1.micro (2 vCPU × 20%, 2 ГБ)
+  b1-small: b1.small (2 vCPU × 20%, 4 ГБ)
+  b1-medium: b1.medium (2 vCPU × 50%, 4 ГБ)
+  m1-micro: m1.micro (2 vCPU, 16 ГБ)
+  m1-small: m1.small (4 vCPU, 32 ГБ)
+  m1-medium: m1.medium (6 vCPU, 48 ГБ)
+  m1-large: m1.large (8 vCPU, 64 ГБ)
+  m1-xlarge: m1.xlarge (12 vCPU, 96 ГБ)
+  m1-2xlarge: m1.2xlarge (16 vCPU, 128 ГБ)
+  m1-3xlarge: m1.3xlarge (24 vCPU, 192 ГБ)
+  m1-4xlarge: m1.4xlarge (32 vCPU, 256 ГБ)
+  s1-nano: s1.nano (1 vCPU, 4 ГБ)
+  s1-micro: s1.micro (2 vCPU, 8 ГБ)
+  s1-small: s1.small (4 vCPU, 16 ГБ)
+  s1-medium: s1.medium (8 vCPU, 32 ГБ)
+  s1-large: s1.large (16 vCPU, 64 ГБ)
+  s1-xlarge: s1.xlarge (32 vCPU, 128 ГБ)
+
+  b2-nano: b2.nano (2 vCPU × 5%, 2 ГБ)
+  b2-micro: b2.micro (2 vCPU × 20%, 2 ГБ)
+  b2-small: b2.small (2 vCPU × 20%, 4 ГБ)
+  b2-medium: b2.medium (2 vCPU × 50%, 4 ГБ)
+  m2-micro: m2.micro (2 vCPU, 16 ГБ)
+  m2-small: m2.small (4 vCPU, 32 ГБ)
+  m2-medium: m2.medium (6 vCPU, 48 ГБ)
+  m2-large: m2.large (8 vCPU, 64 ГБ)
+  m2-xlarge: m2.xlarge (12 vCPU, 96 ГБ)
+  m2-2xlarge: m2.2xlarge (16 vCPU, 128 ГБ)
+  m2-3xlarge: m2.3xlarge (24 vCPU, 192 ГБ)
+  m2-4xlarge: m2.4xlarge (32 vCPU, 256 ГБ)
+  m2-5xlarge: m2.5xlarge (40 vCPU, 320 ГБ)
+  m2-6xlarge: m2.6xlarge (48 vCPU, 384 ГБ)
+  s2-micro: s2.micro (2 vCPU, 8 ГБ)
+  s2-small: s2.small (4 vCPU, 16 ГБ)
+  s2-medium: s2.medium (8 vCPU, 32 ГБ)
+  s2-large: s2.large (12 vCPU, 48 ГБ)
+  s2-xlarge: s2.xlarge (16 vCPU, 64 ГБ)
+  s2-2xlarge: s2.2xlarge (24 vCPU, 96 ГБ)
+  s2-3xlarge: s2.3xlarge (32 vCPU, 128 ГБ)
+  s2-4xlarge: s2.4xlarge (40 vCPU, 160 ГБ)
+  s2-5xlarge: s2.5xlarge (48 vCPU, 192 ГБ)
+
+  # SpeechKit specific
+  stt-short-fileSize: 1 МБ
+  stt-short-audioLength: 1 минута
+  stt-short-channelsCount: 1
+  stt-long-fileSize: 1 ГБ
+  stt-long-resultsStorageTime: 3 суток
+  stt-streaming-fileSize: 10 МБ
+  stt-streaming-audioLength: 5 минут
+
+  # K8s specific
+  k8s: Kubernetes
+
+  # links
+  link-console-billing: https://console.cloud.yandex.ru/billing
+  link-console-main: https://console.cloud.yandex.ru/
+  link-console-quotas: https://console.cloud.yandex.ru/cloud?select=quotas
+  link-console-access-management: https://console.cloud.yandex.ru/iam
+  link-console-support: https://console.cloud.yandex.ru/support
+  link-yandex-connect: https://connect.yandex.ru
+  link-passport-login: https://passport.yandex.ru/auth
+  link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+internal:
+  audience: internal
+  console-link: yc.yandex-team.ru
+  host-class: db1.micro
+  network-name: ' '
+  zone-id: vla
+
+  # links
+  link-console-billing: https://console.cloud.yandex.ru/billing
+  link-console-main: https://console.cloud.yandex.ru/
+  link-console-quotas: https://console.cloud.yandex.ru/cloud?select=quotas
+  link-console-access-management: https://console.cloud.yandex.ru/iam
+  link-console-support: https://console.cloud.yandex.ru/support
+  link-yandex-connect: https://connect.yandex.ru
+  link-passport-login: https://passport.yandex.ru/auth
+  link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+external:
+  audience: external
+  console-link: console.cloud.yandex.ru
+  host-class: s1.nano
+  network-name: default-net
+  zone-id: ru-central1-c
+
+  # links
+  link-console-billing: https://console.cloud.yandex.ru/billing
+  link-console-main: https://console.cloud.yandex.ru/
+  link-console-quotas: https://console.cloud.yandex.ru/cloud?select=quotas
+  link-console-access-management: https://console.cloud.yandex.ru/iam
+  link-console-support: https://console.cloud.yandex.ru/support
+  link-yandex-connect: https://connect.yandex.ru
+  link-passport-login: https://passport.yandex.ru/auth
+  link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb

@@ -1,0 +1,10 @@
+default:
+  iot-full-name: Yandex IoT Core
+  iot-name: Yandex IoT Core
+  iot-short-name: Yandex IoT Core
+
+  # IoT specific
+
+  ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
+  mqtt-broker-address: mqtt.cloud.yandex.net
+  mqtt-broker-port: 8883

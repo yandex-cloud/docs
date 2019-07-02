@@ -1,0 +1,9 @@
+items:
+  - name: Обзор
+    href: api-ref/index.md
+  - name: Locator
+    items:
+      - name: Обзор
+        href: api-ref/Locator/index.md
+      - name: getLocation
+        href: api-ref/Locator/getLocation.md

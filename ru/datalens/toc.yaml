@@ -91,5 +91,5 @@ items:
   - name: Справочник функций
     items:
     include:
-      repo: docs-api
-      path: ru/datalens/toc.yaml
+      repo: docs
+      path: ru/_api-ref/datalens/toc.yaml

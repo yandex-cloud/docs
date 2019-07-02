@@ -1,0 +1,69 @@
+items:
+  - name: Обзор
+    href: undefined/index.md
+  - name: Deployment
+    items:
+      - name: Обзор
+        href: undefined/Deployment/index.md
+      - name: create
+        href: undefined/Deployment/create.md
+      - name: get
+        href: undefined/Deployment/get.md
+      - name: listOperations
+        href: undefined/Deployment/listOperations.md
+      - name: stop
+        href: undefined/Deployment/stop.md
+      - name: validate
+        href: undefined/Deployment/validate.md
+  - name: DeploymentTemplate
+    items:
+      - name: Обзор
+        href: undefined/DeploymentTemplate/index.md
+      - name: create
+        href: undefined/DeploymentTemplate/create.md
+      - name: delete
+        href: undefined/DeploymentTemplate/delete.md
+      - name: get
+        href: undefined/DeploymentTemplate/get.md
+      - name: listOperations
+        href: undefined/DeploymentTemplate/listOperations.md
+      - name: setTag
+        href: undefined/DeploymentTemplate/setTag.md
+  - name: Infrastructure
+    items:
+      - name: Обзор
+        href: undefined/Infrastructure/index.md
+      - name: create
+        href: undefined/Infrastructure/create.md
+      - name: delete
+        href: undefined/Infrastructure/delete.md
+      - name: get
+        href: undefined/Infrastructure/get.md
+      - name: list
+        href: undefined/Infrastructure/list.md
+      - name: listDeployments
+        href: undefined/Infrastructure/listDeployments.md
+      - name: listOperations
+        href: undefined/Infrastructure/listOperations.md
+      - name: listResources
+        href: undefined/Infrastructure/listResources.md
+      - name: update
+        href: undefined/Infrastructure/update.md
+  - name: InfrastructureTemplate
+    items:
+      - name: Обзор
+        href: undefined/InfrastructureTemplate/index.md
+      - name: create
+        href: undefined/InfrastructureTemplate/create.md
+      - name: delete
+        href: undefined/InfrastructureTemplate/delete.md
+      - name: get
+        href: undefined/InfrastructureTemplate/get.md
+      - name: list
+        href: undefined/InfrastructureTemplate/list.md
+      - name: listDeploymentTemplates
+        href: undefined/InfrastructureTemplate/listDeploymentTemplates.md
+      - name: listOperations
+        href: undefined/InfrastructureTemplate/listOperations.md
+      - name: update
+        href: undefined/InfrastructureTemplate/update.md

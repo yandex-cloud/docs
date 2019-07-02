@@ -66,7 +66,7 @@ Keys (the table lists keys that directly define the base instance's configuratio
 | `core_fraction` | Base CPU performance. The value must be 0, 5, or 100. |
 | `mode` | Disk access mode. </br> - `READ_ONLY`: read-only access. </br>- `READ_WRITE`: read/write access. |
 | `image_id` | ID of the image that will be used for disk creation. |
-| `type_id` | ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.diskTypes](../../api-ref/DiskType/list.md) request. |
+| `type_id` | ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.diskTypes](../../../_api-ref/compute/api-ref/DiskType/list.md) request. |
 | `size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB). |
 | `network_id` | ID of the network. |
 | `subnet_ids` | IDs of cloud subnets. |

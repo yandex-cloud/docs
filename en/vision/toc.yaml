@@ -60,5 +60,5 @@ items:
       - name: Troubleshooting
         href: api-ref/support-headers.md
     include:
-      repo: docs-api
-      path: en/ai/vision/toc.yaml
+      repo: docs
+      path: en/_api-ref/ai/vision/toc.yaml

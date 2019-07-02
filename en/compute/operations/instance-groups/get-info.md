@@ -41,9 +41,9 @@ To get information about an instance group:
   
 - API
   
-  Use the [get](../../api-ref/InstanceGroup/get.md) API method.
+  Use the [get](../../../_api-ref/compute/api-ref/InstanceGroup/get.md) API method.
   
-  To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
+  To request a list of available groups, use the [listInstances](../../../_api-ref/compute/api-ref/InstanceGroup/listInstances.md) method.
   
 {% endlist %}
 

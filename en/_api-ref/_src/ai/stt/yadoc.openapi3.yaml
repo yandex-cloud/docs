@@ -1,0 +1,295 @@
+openapi: "3.0"
+info:
+  title: Yandex Speech To Text Service API
+  description: This API reference is organized by resource. All actions are performed
+    by sending HTTP requests to resource URLs. For more information about Yandex.Cloud
+    API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v2
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://stt.api.cloud.yandex.net
+paths:
+  /speech/stt/v2/longRunningRecognize:
+    post:
+      tags:
+      - Stt
+      operationId: SttLongRunningRecognize
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LongRunningRecognitionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: longRunningRecognize
+      x-y-operation-response: LongRunningRecognitionResponse
+components:
+  schemas:
+    LongRunningRecognitionRequest:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/RecognitionConfig_in_LongRunningRecognitionRequest_config'
+        audio:
+          $ref: '#/components/schemas/RecognitionAudio_in_LongRunningRecognitionRequest_audio'
+    LongRunningRecognitionResponse:
+      type: object
+      properties:
+        chunks:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpeechRecognitionResult'
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    RecognitionAudio:
+      type: object
+      allOf:
+      - title: audio_source
+        type: object
+        maxProperties: 1
+        properties:
+          content:
+            type: string
+            format: byte
+          uri:
+            type: string
+    RecognitionConfig:
+      type: object
+      properties:
+        specification:
+          $ref: '#/components/schemas/RecognitionSpec_in_RecognitionConfig_specification'
+        folderId:
+          type: string
+    RecognitionSpec:
+      type: object
+      properties:
+        audioEncoding:
+          $ref: '#/components/schemas/RecognitionSpecAudioEncoding_in_RecognitionSpec_audioEncoding'
+        sampleRateHertz:
+          description: 8000, 16000, 48000 only for pcm
+          type: string
+          format: int64
+        languageCode:
+          description: code in BCP-47
+          type: string
+        profanityFilter:
+          type: boolean
+          format: boolean
+        model:
+          type: string
+        partialResults:
+          description: |-
+            If set true, tentative hypotheses may be returned as they become available (final=false flag)
+            If false or omitted, only final=true result(s) are returned.
+            Makes sense only for StreamingRecognize requests.
+          type: boolean
+          format: boolean
+        singleUtterance:
+          type: boolean
+          format: boolean
+        audioChannelCount:
+          description: Used only for long running recognize.
+          type: string
+          format: int64
+        rawResults:
+          description: This mark allows disable normalization text
+          type: boolean
+          format: boolean
+    RecognitionSpecAudioEncoding:
+      description: ' - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)'
+      type: string
+      enum:
+      - LINEAR16_PCM
+      - OGG_OPUS
+    SpeechRecognitionAlternative:
+      type: object
+      properties:
+        text:
+          type: string
+        confidence:
+          type: number
+          format: float
+        words:
+          type: array
+          items:
+            $ref: '#/components/schemas/WordInfo'
+    SpeechRecognitionChunk:
+      type: object
+      properties:
+        alternatives:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpeechRecognitionAlternative'
+        final:
+          type: boolean
+          format: boolean
+    SpeechRecognitionResult:
+      type: object
+      properties:
+        alternatives:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpeechRecognitionAlternative'
+        channelTag:
+          type: string
+          format: int64
+    Status:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    StreamingRecognitionResponse:
+      type: object
+      properties:
+        chunks:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpeechRecognitionChunk'
+        endOfSingleUtterance:
+          type: boolean
+          format: boolean
+    WordInfo:
+      type: object
+      properties:
+        startTime:
+          type: string
+        endTime:
+          type: string
+        word:
+          type: string
+        confidence:
+          type: number
+          format: float
+    RecognitionConfig_in_LongRunningRecognitionRequest_config:
+      type: object
+      properties:
+        specification:
+          $ref: '#/components/schemas/RecognitionSpec_in_RecognitionConfig_specification'
+        folderId:
+          type: string
+    RecognitionAudio_in_LongRunningRecognitionRequest_audio:
+      type: object
+      allOf:
+      - title: audio_source
+        type: object
+        maxProperties: 1
+        properties:
+          content:
+            type: string
+            format: byte
+          uri:
+            type: string
+    RecognitionSpec_in_RecognitionConfig_specification:
+      type: object
+      properties:
+        audioEncoding:
+          $ref: '#/components/schemas/RecognitionSpecAudioEncoding_in_RecognitionSpec_audioEncoding'
+        sampleRateHertz:
+          description: 8000, 16000, 48000 only for pcm
+          type: string
+          format: int64
+        languageCode:
+          description: code in BCP-47
+          type: string
+        profanityFilter:
+          type: boolean
+          format: boolean
+        model:
+          type: string
+        partialResults:
+          description: |-
+            If set true, tentative hypotheses may be returned as they become available (final=false flag)
+            If false or omitted, only final=true result(s) are returned.
+            Makes sense only for StreamingRecognize requests.
+          type: boolean
+          format: boolean
+        singleUtterance:
+          type: boolean
+          format: boolean
+        audioChannelCount:
+          description: Used only for long running recognize.
+          type: string
+          format: int64
+        rawResults:
+          description: This mark allows disable normalization text
+          type: boolean
+          format: boolean
+    RecognitionSpecAudioEncoding_in_RecognitionSpec_audioEncoding:
+      description: ' - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)'
+      type: string
+      enum:
+      - LINEAR16_PCM
+      - OGG_OPUS
+tags:
+- name: Stt

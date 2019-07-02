@@ -33,7 +33,7 @@ You can get the information that the VM outputs to the serial port. This can be 
   
 - API
   
-  To get the serial port output, use the [getSerialPortOutput](../../api-ref/Instance/getSerialPortOutput.md) method of the [Instance](../../api-ref/Instance/index.md) resource.
+  To get the serial port output, use the [getSerialPortOutput](../../../_api-ref/compute/api-ref/Instance/getSerialPortOutput.md) method of the [Instance](../../../_api-ref/compute/api-ref/Instance/index.md) resource.
   
 {% endlist %}
 

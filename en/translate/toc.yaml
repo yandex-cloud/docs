@@ -20,8 +20,8 @@ items:
       - name: Troubleshooting
         href: api-ref/support-headers.md
       include:
-        repo: docs-api
-        path: en/ai/translate/toc.yaml
+        repo: docs
+        path: en/_api-ref/ai/translate/toc.yaml
     - name: v1 (DEPRECATED)
       items:
       - name: Overview

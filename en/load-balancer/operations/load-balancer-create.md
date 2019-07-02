@@ -79,7 +79,7 @@ Before creating a load balancer, [create](target-group-create.md) a target group
   
 - API
   
-  You can create a new load balancer using the [create](../api-ref/NetworkLoadBalancer/create.md) API method.
+  You can create a new load balancer using the [create](../../_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/create.md) API method.
   
 {% endlist %}
 

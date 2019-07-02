@@ -50,8 +50,8 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
 
 - API
 
-  To get basic information about a VM, use the [get](../../api-ref/Instance/get.md) method for the [Instance](../../api-ref/Instance/index.md) resource.
-
+  To get basic information about a VM, use the [get](../../../_api-ref/compute/api-ref/Instance/get.md) method for the [Instance](../../../_api-ref/compute/api-ref/Instance/index.md) resource.
+  
   The basic information does not include the user-defined metadata that was passed when creating or updating the VM. To get the information along with the metadata, specify `view=FULL` in the parameters.
 
 {% endlist %}

@@ -64,7 +64,7 @@
   
 - API
   
-  You can attach a target group to a load balancer using the [attachTargetGroup](../api-ref/NetworkLoadBalancer/attachTargetGroup.md) API method.
+  You can attach a target group to a load balancer using the [attachTargetGroup](../../_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) API method.
   
 {% endlist %}
 

@@ -55,9 +55,9 @@ After you create a disk, you can:
   
 - API
   
-  You can change the name and description of the disk using the [update](../../api-ref/Disk/update.md) API method.
+  You can change the name and description of the disk using the [update](../../../_api-ref/compute/api-ref/Disk/update.md) API method.
   
-  To request the list of available disks, use the [list](../../api-ref/Disk/list.md) method.
+  To request the list of available disks, use the [list](../../../_api-ref/compute/api-ref/Disk/list.md) method.
   
 {% endlist %}
 
@@ -134,10 +134,10 @@ Disk size can be increased only if the disk is not connected to a running VM. To
   
 - API
   
-  You can change the disk size using the [update](../../api-ref/Disk/update.md) API method.
+  You can change the disk size using the [update](../../../_api-ref/compute/api-ref/Disk/update.md) API method.
   
-  To request the list of available disks, use the [list](../../api-ref/Disk/list.md) method.
+  To request the list of available disks, use the [list](../../../_api-ref/compute/api-ref/Disk/list.md) method.
   
-  To stop or start the VM, use the [stop](../../api-ref/Instance/stop.md) and [start](../../api-ref/Instance/get.md) methods for the [Instance](../../api-ref/Instance/) resource.
+  To stop or start the VM, use the [stop](../../../_api-ref/compute/api-ref/Instance/stop.md) and [start](../../../_api-ref/compute/api-ref/Instance/get.md) methods for the [Instance](../../../_api-ref/compute/api-ref/Instance/) resource.
   
 {% endlist %}

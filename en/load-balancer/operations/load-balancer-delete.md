@@ -46,7 +46,7 @@
   
 - API
   
-  You can delete load balancers using the [delete](../api-ref/NetworkLoadBalancer/delete.md) API method.
+  You can delete load balancers using the [delete](../../_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/delete.md) API method.
   
 {% endlist %}
 

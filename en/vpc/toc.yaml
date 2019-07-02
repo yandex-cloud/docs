@@ -62,7 +62,7 @@ items:
       - name: Authentication in the API
         href: api-ref/authentication.md
     include:
-      repo: docs-api
-      path: en/vpc/toc.yaml
+      repo: docs
+      path: en/_api-ref/vpc/toc.yaml
   - name: Questions and answers
     href: qa/index.md

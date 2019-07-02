@@ -44,7 +44,7 @@ To create a VM from a set of disk snapshots:
   
 - API
   
-  Use the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource.
+  Use the [Create](../../../_api-ref/compute/api-ref/Instance/create.md) method for the `Instance` resource.
   
 {% endlist %}
 

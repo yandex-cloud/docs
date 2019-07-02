@@ -1,0 +1,21 @@
+---
+editable: false
+---
+
+# Repository
+A set of methods for managing Repository resources.
+## JSON Representation {#representation}
+```json 
+{
+  "name": "string"
+}
+```
+ 
+Field | Description
+--- | ---
+name | **string**<br><p>Name of the repository. The name is unique within the registry.</p> 
+
+## Methods {#methods}
+Method | Description
+--- | ---
+[list](list.md) | Retrieves the list of Repository resources in the specified registry.

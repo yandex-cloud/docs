@@ -66,7 +66,7 @@ Create a new image from the link received in {{ objstorage-name }}:
   
 - API
   
-  To create a new image via the link, use the [Create](../../api-ref/Image/create.md) method for the `Image` resource. Pass the link to the image in the `uri` element.
+  To create a new image via the link, use the [Create](../../../_api-ref/compute/api-ref/Image/create.md) method for the `Image` resource. Pass the link to the image in the `uri` element.
   
 {% endlist %}
 
