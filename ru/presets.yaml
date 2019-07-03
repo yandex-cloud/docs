@@ -177,7 +177,7 @@ default:
   # links
   link-console-billing: https://console.cloud.yandex.ru/billing
   link-console-main: https://console.cloud.yandex.ru/
-  link-console-quotas: https://console.cloud.yandex.ru/cloud?select=quotas
+  link-console-quotas: https://console.cloud.yandex.ru/cloud?section=quotas
   link-console-access-management: https://console.cloud.yandex.ru/iam
   link-console-support: https://console.cloud.yandex.ru/support
   link-yandex-connect: https://connect.yandex.ru
@@ -193,7 +193,7 @@ internal:
   # links
   link-console-billing: https://console.cloud.yandex.ru/billing
   link-console-main: https://console.cloud.yandex.ru/
-  link-console-quotas: https://console.cloud.yandex.ru/cloud?select=quotas
+  link-console-quotas: https://console.cloud.yandex.ru/cloud?section=quotas
   link-console-access-management: https://console.cloud.yandex.ru/iam
   link-console-support: https://console.cloud.yandex.ru/support
   link-yandex-connect: https://connect.yandex.ru
@@ -209,7 +209,7 @@ external:
   # links
   link-console-billing: https://console.cloud.yandex.ru/billing
   link-console-main: https://console.cloud.yandex.ru/
-  link-console-quotas: https://console.cloud.yandex.ru/cloud?select=quotas
+  link-console-quotas: https://console.cloud.yandex.ru/cloud?section=quotas
   link-console-access-management: https://console.cloud.yandex.ru/iam
   link-console-support: https://console.cloud.yandex.ru/support
   link-yandex-connect: https://connect.yandex.ru

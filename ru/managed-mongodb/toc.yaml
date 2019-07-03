@@ -21,10 +21,16 @@ items:
       href: operations/cluster-users.md
     - name: Управление резервными копиями
       href: operations/cluster-backups.md
+    - name: Управление шардами
+      href: operations/shards.md
     - name: Удаление кластера
       href: operations/cluster-delete.md
     - name: Миграция базы данных в Облако
       href: operations/data-migration.md
+  - name: Сценарии использования
+    items:
+    - name: Шардирование коллекций
+      href: tutorials/sharding.md
   - name: Основные понятия
     items:
     - name: Взаимосвязь ресурсов сервиса
@@ -41,6 +47,8 @@ items:
       href: concepts/backup.md
     - name: Репликация
       href: concepts/replication.md
+    - name: Шардирование
+      href: concepts/sharding.md
     - name: Поддерживаемые клиенты
       href: concepts/supported-clients.md
   - name: Управление доступом
