@@ -1,0 +1,54 @@
+title: "Yandex IoT Core"
+href: index.yaml
+stage: preview
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Sending messages
+        href: operations/publish.md
+      - name: Subscribing a device or registry to receive messages
+        href: operations/subscribe.md
+      - name: Registry
+        items:
+          - name: Getting information about a registry
+            href: operations/registry/registry-list.md
+          - name: Creating a registry
+            href: operations/registry/registry-create.md
+          - name: Updating a registry
+            href: operations/registry/registry-update.md
+          - name: Deleting a registry
+            href: operations/registry/registry-delete.md
+      - name: Device
+        items:
+          - name: Getting information about a device
+            href: operations/device/device-list.md
+          - name: Creating a device
+            href: operations/device/device-create.md
+          - name: Updating a device
+            href: operations/device/device-update.md
+          - name: Deleting a device
+            href: operations/device/device-delete.md
+      - name: Certificate
+        items:
+          - name: Managing registry certificates
+            href: operations/certificates/registry-certificates.md
+          - name: Managing device certificates
+            href: operations/certificates/device-certificates.md
+  - name: Concepts
+    items:
+      - name: Relationship between service resources
+        href: concepts/index.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  #  - name: Сценарии использования
+  #    items:
+  #      - name: Запуск Docker-образа на виртуальной машине
+  #        href: scenario/index.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md

@@ -12,7 +12,7 @@
 
 {% endnote %}
 
-{% include [iot-before-begin](../../_includes/iot-before-begin.md) %}
+{% include [iot-before-begin](../../_includes/iot-core/iot-before-begin.md) %}
 
 ## Отправить сообщение с данными {#pub-events}
 

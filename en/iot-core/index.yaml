@@ -1,0 +1,34 @@
+# Yandex IoT Core
+title: "Yandex IoT Core"
+description:
+- "<em>Yandex IOT Core is currently in the <a href=\"/docs/overview/concepts/launch-stages\">Preview stage</a></em>."
+- "Yandex IoT Core is a cloud-based fail-safe MQTT broker that ensures secure two-way communication between devices and local or cloud resources."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex IoT Core"
+# Блок с ссылками
+links:
+- title: "Getting started"
+  description: "Create your first registry and add a device"
+  href: "quickstart"
+- title: "Step-by-step instructions"
+  description: "Instructions on how to perform routine operations"
+  href: "operations/"
+- title: "Concepts"
+  description: "Learn about the concepts and resources of the service"
+  href: "concepts/"
+#- title: "Справочник API"
+#  description: "Описание методов HTTP API"
+#  href: "api-ref/"
+#- title: "Сценарии использования"
+#  description: "Решайте типовые задачи по управлению Docker-образами с помощью Container Registry"
+#  href: "scenario/"
+- title: "Quotas and limits"
+  description: "Technical and organizational limitations of the service"
+  href: "concepts/limits"
+- title: "Access management"
+  description: "Configure access rights to work with the service"
+  href: "security/"
+- title: "Pricing policy"
+  description: "Pricing and cost calculation for services"
+  href: "pricing"
