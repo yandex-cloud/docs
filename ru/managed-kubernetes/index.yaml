@@ -2,7 +2,7 @@
 title: "Managed Service for Kubernetes"
 description:
 - "<em>Сервис Managed Service for Kubernetes находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a></em>."
-- "Сервис Managed Service for Kubernetes предоставляет окружение для удобного управления контейнерными приложениями с помощью Kubernetes в инфраструктуре Яндекс.Облака."
+- "Сервис Managed Service for Kubernetes предоставляет окружение для удобного управления контейнеризованными приложениями с помощью Kubernetes в инфраструктуре Яндекс.Облака."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Managed Kubernetes"
