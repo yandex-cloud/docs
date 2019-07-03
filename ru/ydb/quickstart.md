@@ -407,13 +407,12 @@
   
       ```bash
       sudo apt-get update
-      sudo apt-get install git openjdk-11-jdk
+      sudo apt-get install openjdk-11-jdk
       ```
   
-  1. Скомпилируйте тестовое приложение [ydb-test-app](https://github.com/jamel/ydb-test-app):
+  1. Скомпилируйте тестовое приложение, например, `ydb-test-app`:
   
        ```bash
-       git clone https://github.com/jamel/ydb-test-app.git
        cd ydb-test-app
        ./mvnw package
        ```
@@ -429,11 +428,5 @@
       * `private_key_file_path` — локальный путь к файлу с закрытым авторизованным ключом
       * `endpoint` — эндпоинд базы данных
       * `database` — имя базы данных
-      
-  Результат выполнения приложения:
-    
-  ```bash
-  result: 42
-  ```
   
 {% endlist %}
