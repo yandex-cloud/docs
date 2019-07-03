@@ -9,7 +9,7 @@ Currently, the following services are available as part of the Yandex.Cloud plat
   - [{{ iam-full-name }}](../../iam/) — service for managing access to cloud resources.
   - [{{ resmgr-full-name }}](../../resource-manager/) — cloud resource management service.
   - [{{ load-balancer-full-name }}](../../load-balancer/) — load balancing service.
-  - [{{ container-registry-full-name }}](../../container-registry/) — Docker images management service.
+  - [{{ container-registry-full-name }}](../../container-registry/) — container images management service.
   - [{{ mpg-full-name }}](../../managed-postgresql/) — PostgreSQL management service.
   - [{{ mch-full-name }}](../../managed-clickhouse/) — ClickHouse management service.
   - [{{ mmg-full-name }}](../../managed-mongodb/) — MongoDB management service.
