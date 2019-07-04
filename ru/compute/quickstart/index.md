@@ -1,12 +1,12 @@
-# Начало работы с Yandex Compute Cloud
+# Начало работы с {{ compute-name }}
 
 Выберите сценарий для знакомства с:
 
-- Yandex Compute Cloud
+- {{ compute-name }}
 
     - [Создание виртуальной машины Linux](quick-create-linux.md)
     - [Создание виртуальной машины Windows](quick-create-windows.md)
 
 - {{ ig-name }}
 
-    - [Создание группы виртуальных машин фиксированного размера](ig.md)
+    - [Создание группы виртуальных машин](ig.md)

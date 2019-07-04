@@ -5,11 +5,11 @@ items:
     items:
       - name: Обзор
         href: quickstart/index.md
-      - name: Создать виртуальную машину Linux
+      - name: Создание виртуальной машины Linux
         href: quickstart/quick-create-linux.md
-      - name: Создать виртуальную машину Windows
+      - name: Создание виртуальной машины Windows
         href: quickstart/quick-create-windows.md
-      - name: Начало работы с Instance Groups
+      - name: Создание группы виртуальных машин
         href: quickstart/ig.md
   - name: Пошаговые инструкции
     items:

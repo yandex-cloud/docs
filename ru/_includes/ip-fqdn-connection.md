@@ -1,3 +1,1 @@
-При создании виртуальной машине назначаются IP-адрес и имя хоста (FQDN). Эти данные можно использовать для доступа по SSH.
-
-Публичный IP-адрес можно сделать статическим. Подробнее читайте в разделе [#T](../compute/operations/vm-control/vm-set-static-ip.md).
+При создании виртуальной машине назначаются [IP-адрес](../../vpc/concepts/address#publichnye-adresa) и [доменное имя](../../vpc/concepts/address#imya-hosta-(fqdn)) (FQDN).
