@@ -1,8 +1,42 @@
 # YC CLI releases
 
-## Version 0.30.0 (18.06.19) {#latest-release}
+## Version 0.31.0 (01.07.19) {#latest-release}
+
+#### Changes to the CLI {#cli}
+
+**Improved**
+
+- When using the CLI on a virtual machine launched under a service account, the CLI will be authorized under this service account by default.
+
+**Fixed**
+
+- Attempts to get resources by specifying their unique ID failed if the CLI configuration did not specify a `folder-id` parameter.
+
+- Attempts to get folders by specifying their unique ID failed if the user did not have the `viewer` role for the folder in Yandex.Cloud.
+
+- The `yc init` command failed if the user didn't have the `viewer` role in Yandex.Cloud.
 
 ### Changes to Yandex.Cloud services {#services}
+
+#### {{ load-balancer-name }} {#load-balancer}
+
+- `$ yc load-balancer network-load-balancer create` and `$ yc load-balancer network-load-balancer update`
+
+    For the `--listener` flag, you can now set the `target-port` parameter, which lets you configure NAT so that target resources receive traffic on a port other than `listener`.
+
+#### Managed database services {#managed-db}
+
+**{{ mch-name }}**
+
+- `$ yc managed-clickhouse user create` and `$ yc managed-clickhouse user update`
+
+    Added the `--settings` flag, which lets you pass user settings.
+
+## Previous releases {#previous-releases}
+
+### Version 0.30.0 (18.06.19) {#version0.30.0}
+
+#### Changes to Yandex.Cloud services {#services}
 
 #### {{ compute-name }} {#compute}
 
@@ -20,15 +54,9 @@
     
     Added `--default-gateway-v4-address` flag, which lets you update the gateway address for existing {{ k8s }} clusters.    
 
-### Upcoming releases {#coming-soon}
-
-- {{ dataproc-full-name }}.
-
-## Previous releases {#previous-releases}
-
 ### Version 0.29.0 (11.06.19) {#version0.29.0}
 
-- Minor corrections and updates.
+- Minor fixes and updates.
 
 ### Version 0.28.0 (05.06.19) {#version0.28.0}
 
