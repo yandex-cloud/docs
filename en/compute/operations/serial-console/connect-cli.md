@@ -32,7 +32,8 @@ To connect to the serial console, use the CLI.
 
     ```
     $ yc compute connect-to-serial-port \
-        --instance-name first-instance
+        --instance-name first-instance \
+        --port 2
     ```
 
     | Parameter | Value |

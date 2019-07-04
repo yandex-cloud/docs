@@ -31,7 +31,8 @@
 
     ```
     $ yc compute connect-to-serial-port \
-        --instance-name first-instance
+         --instance-name first-instance \
+         --port 2
     ```
 
     Параметр | Значение

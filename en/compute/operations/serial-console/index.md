@@ -225,7 +225,7 @@ To enable access to the serial console when editing the VM settings, set the `se
       ```
   
       ```
-      $ bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200
+      $ bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200
       The operation completed successfully.
       ```
   
