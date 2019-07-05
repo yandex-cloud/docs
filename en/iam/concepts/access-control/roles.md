@@ -47,15 +47,15 @@ For example, the role of `{{ roles-admin }}` allows you to perform the following
 
 ## Service roles {#service-roles}
 
-### Yandex Resource Manager {#yrm-roles}
+### {{ resmgr-name }} {#yrm-roles}
 
 {% include [cloud-roles](../../../_includes/cloud-roles.md) %}
 
-### Yandex {{ iam-full-name }} {#iam-roles}
+### {{ iam-name }} {#iam-roles}
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
 
-### Yandex Compute Cloud {#compute-roles}
+### {{ compute-name }} {#compute-roles}
 
 {% include [roles-disks-user](../../../_includes/roles-disks-user.md) %}
 

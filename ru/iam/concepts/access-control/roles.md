@@ -43,16 +43,20 @@ _Роль_ — это набор разрешений, который опре�
 
 ## Сервисные роли {#service-roles}
 
-### Yandex Resource Manager {#yrm-roles}
+### {{ resmgr-name }} {#yrm-roles}
 
 {% include [cloud-roles](../../../_includes/cloud-roles.md) %}
 
-### Yandex {{ iam-full-name }} {#iam-roles}
+### {{ iam-name }} {#iam-roles}
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
 
-### Yandex Compute Cloud {#compute-roles}
+### {{ compute-name }} {#compute-roles}
 
 {% include [roles-disks-user](../../../_includes/roles-disks-user.md) %}
 
 {% include [roles-images-user](../../../_includes/roles-images-user.md) %}
+
+### {{ dataproc-short-name }} {#mdb-roles}
+
+{% include [mdb.dataproc.agent ](../../../_includes/roles-dataproc-agent.md) %}
