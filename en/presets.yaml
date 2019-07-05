@@ -160,6 +160,7 @@ default:
   link-console-quotas: https://console.cloud.yandex.com/cloud?section=quotas
   link-console-access-management: https://console.cloud.yandex.com/iam
   link-console-support: https://console.cloud.yandex.com/support
+  link-cloud-calculator: https://cloud.yandex.com/prices#calculator
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
   link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb

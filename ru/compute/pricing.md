@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ compute-name }}
 
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Из чего складывается стоимость использования {{ compute-short-name }} {#rules}
