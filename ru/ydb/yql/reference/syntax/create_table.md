@@ -28,3 +28,7 @@ CREATE TABLE my_table (
     PRIMARY KEY (b, a)
 )
 ```
+
+## Добавление вторичных индексов {#si-add}
+
+{% include [add_secondary_index](../../../_includes/add_secondary_index.md) %}

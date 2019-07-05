@@ -158,6 +158,12 @@ USING (key)
 SELECT *;
 ```
 
+
+## SELECT по вторичному индексу {#si-select}
+
+{% include [select_by_secondary_index](../../../_includes/select_by_secondary_index.md) %}
+
+
 ## Обращение к именованным выражениям как к таблицам {#as-table}
 
 Иногда возникает задача сделать SELECT из именованного выражения, которое не является результатом подзапроса из таблицы. Для этого в SELECT после FROM можно использовать функцию AS_TABLE.

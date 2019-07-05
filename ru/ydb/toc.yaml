@@ -36,8 +36,6 @@ items:
     items:
     - name: Проектирование схемы
       href: best_practices/schema_design.md
-    - name: Применение вторичных индексов
-      href: best_practices/secondary_indexes.md
     - name: Постраничный вывод
       href: best_practices/paging.md
     - name: Загрузка больших объемов данных
