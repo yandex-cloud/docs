@@ -24,11 +24,11 @@ The list below shows all roles that are considered when verifying access rights 
 
 _Service roles_ are roles that allow access to the resources of a particular service. When checking {{ iam-short-name }} resource access rights, {{ resmgr-name }} service roles are also taken into account.
 
-### Yandex {{ iam-full-name }} {#yrm-roles}
+### {{ iam-name }} {#yrm-roles}
 
 {% include [roles-sa-user](../../_includes/roles-sa-user.md) %}
 
-### Yandex Resource Manager {#yrm-roles}
+### {{ resmgr-name }} {#yrm-roles}
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
