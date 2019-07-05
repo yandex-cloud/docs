@@ -5,7 +5,7 @@ description:
 # Мета-информация title, description, keywords и т.п.
 meta:
   title: "Yandex Managed Service for MySQL"
-# Блок с ссылками
+# Блок со ссылками
 links:
 - title: "Getting started"
   description: "Create the first database cluster"

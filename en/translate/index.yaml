@@ -6,7 +6,7 @@ description:
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Translate"
-# Блок с ссылками
+# Блок со ссылками
 links:
 - title: "Step-by-step instructions"
   description: "Instructions on how to perform routine operations"

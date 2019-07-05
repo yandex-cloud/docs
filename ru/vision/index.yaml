@@ -5,7 +5,7 @@ description:
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Vision"
-# Блок с ссылками
+# Блок со ссылками
 links:
 - title: "Начало работы"
   description: "Отправьте ваше изображение на анализ"

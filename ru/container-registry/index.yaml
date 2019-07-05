@@ -6,7 +6,7 @@ description:
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Container Registry"
-# Блок с ссылками
+# Блок со ссылками
 links:
 - title: "Начало работы"
   description: "Создайте первый реестр"

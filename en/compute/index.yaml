@@ -4,7 +4,7 @@ description: "The Yandex Compute Cloud service provides scalable computing capac
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Compute Cloud"
-# Блок с ссылками
+# Блок со ссылками
 links:
 - title: "Getting started"
   description: "Create your first VM or instance group"

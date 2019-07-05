@@ -3,7 +3,7 @@ description: "Сервис Yandex Identity and Access Management (IAM) — эт�
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Identity and Access Management"
-# Блок с ссылками
+# Блок со ссылками
 links:
 - title: "Начало работы"
   description: "Добавьте пользователя и назначьте ему роль"

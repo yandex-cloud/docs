@@ -4,7 +4,7 @@ description: "Yandex Virtual Private Cloud is a service for managing cloud netwo
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Virtual Private Cloud"
-# Блок с ссылками
+# Блок со ссылками
 links:
 - title: "Getting started"
   description: "Create your first cloud network"

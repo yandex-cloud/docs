@@ -3,7 +3,7 @@ description: "Yandex Identity and Access Management (IAM) is an identification a
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Identity and Access Management"
-# Блок с ссылками
+# Блок со ссылками
 links:
 - title: "Getting started"
   description: "Add a user and assign a role to this user"

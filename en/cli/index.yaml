@@ -5,7 +5,7 @@ description:
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex.Cloud CLI"
-# Блок с ссылками
+# Блок со ссылками
 links:
 - title: "Getting started"
   description: "Install the CLI and run your first command"

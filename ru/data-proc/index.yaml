@@ -6,7 +6,7 @@ description:
 # Мета-информация title, description, keywords и т.п.
 meta:
   title: "Yandex Data Proc"
-# Блок с ссылками
+# Блок со ссылками
 links:
 #- title: "Начало работы"
 #  description: "Создайте первый кластер баз данных"

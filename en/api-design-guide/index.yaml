@@ -11,7 +11,7 @@ meta:
     - keyword: "API concepts"
     - keyword: "REST API"
     - keyword: "gRPC API"
-# Блок с ссылками
+# Блок со ссылками
 links:
 - title: "Basic principles"
   description: "How Yandex.Cloud APIs work and what the resource-based approach entails"

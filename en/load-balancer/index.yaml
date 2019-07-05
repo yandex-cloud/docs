@@ -5,7 +5,7 @@ description:
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Load Balancer"
-# Блок с ссылками
+# Блок со ссылками
 links:
 - title: "Getting started"
   description: "Create and configure your first load balancer"
