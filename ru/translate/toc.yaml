@@ -32,8 +32,8 @@ items:
       - name: Диагностика ошибок
         href: api-ref/support-headers.md
       include:
-        repo: docs-api
-        path: ru/ai/translate/toc.yaml
+        repo: docs
+        path: ru/_api-ref/ai/translate/toc.yaml
     - name: v1 (DEPRECATED)
       items:
       - name: Обзор
