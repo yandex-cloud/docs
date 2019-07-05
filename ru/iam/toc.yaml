@@ -59,7 +59,7 @@ items:
             href: concepts/access-control/index.md
           - name: Роли
             href: concepts/access-control/roles.md
-          - name: Системная группа allAuthenticatedUsers
+          - name: Системные группы
             href: concepts/access-control/system-group.md
       - name: Авторизация
         items:
