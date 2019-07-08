@@ -20,7 +20,7 @@
 
 #### {{ load-balancer-name }} {#load-balancer}
 
-- `$ yc load-balancer network-load-balancer create` and `$ yc load-balancer network-load-balancer update`
+- `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update`
 
     For the `--listener` flag, you can now set the `target-port` parameter, which lets you configure NAT so that target resources receive traffic on a port other than `listener`.
 
@@ -28,7 +28,7 @@
 
 **{{ mch-name }}**
 
-- `$ yc managed-clickhouse user create` and `$ yc managed-clickhouse user update`
+- `yc managed-clickhouse user create` and `yc managed-clickhouse user update`
 
     Added the `--settings` flag, which lets you pass user settings.
 
@@ -40,17 +40,17 @@
 
 #### {{ compute-name }} {#compute}
 
-- Command `$ yc compute instance update`.
+- Command `yc compute instance update`.
 
     Added `--service-account-id` and `--service-account-name` flags, which let you add and change the service account for existing virtual machines. 
 
-- Command `$ yc compute instance create`.
+- Command `yc compute instance create`.
 
     Changed the default number of available cores when creating virtual machines with the Intel Cascade Lake platform (`standard-v2`). Now `cores: 2`.
     
 #### {{ managed-k8s-name }} {#k8s}
 
-- Command `$ yc managed-kubernetes cluster update`.
+- Command `yc managed-kubernetes cluster update`.
     
     Added `--default-gateway-v4-address` flag, which lets you update the gateway address for existing {{ k8s }} clusters.    
 
@@ -68,7 +68,7 @@
 
 ####  {{ compute-name }} {#compute-cloud}
 
-- Command `$ yc compute instance create`.
+- Command `yc compute instance create`.
 
     Added `--gpus` flag, which lets you indicate the number of GPUs for a virtual machine.
 
@@ -76,21 +76,21 @@
 
 **All managed database services** 
 
-- Command `$ yc <database name> cluster get <cluster name>`.
+- Command `yc <database name> cluster get <cluster name>`.
     
     Improved cluster data output. 
 
-- Command `$ yc <database name> cluster create`.
+- Command `yc <database name> cluster create`.
 
     Added `--backup-window-start` flag, which lets you configure daily backup time for the cluster that is going to be created.
 
 **{{ mch-name }}** 
 
-- Command `$ yc managed-clickhouse cluster add-zookeeper <cluster name>`.
+- Command `yc managed-clickhouse cluster add-zookeeper <cluster name>`.
 
     Added ability to add ZooKeeper hosts.
  
-- Command: `$ yc managed-clickhouse shards add`. 
+- Command: `yc managed-clickhouse shards add`. 
 
     Changed shard creation logic.
     - If the `--host` flag is not given, shard parameters are copied from the oldest shard. 

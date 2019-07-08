@@ -1,6 +1,28 @@
 # Релизы YC CLI
 
-## Версия 0.31.0 (01.07.19) {#latest-release}
+## Версия 0.32.0 (05.07.19) {#latest-release}
+
+### Изменения в CLI {#cli} 
+
+**Улучшено**
+
+- Команды для отображения списка элементов `yc <сервис> <ресурс> list`
+
+   Увеличено максимальное число элементов в выводе со 100 до 1000.
+
+### Изменения в сервисах Облака {#services}
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mmg-name }}**
+
+- Команды  `yc managed-clickhouse cluster update` и `yc managed-clickhouse cluster update-config`.
+
+    Для [шардированных](../managed-mongodb/concepts/sharding.md) клаcтеров появилась возможность изменять параметры компонентов `mongos` и `mongocfg`.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.31.0 (01.07.19) {#version0.31.0}
 
 #### Изменения в CLI {#cli} 
 
@@ -16,11 +38,11 @@
 
 - Команда `yc init` завершалась с ошибкой, если у пользователя не было роли `viewer` в Облаке.
 
-### Изменения в сервисах Облака {#services}
+#### Изменения в сервисах Облака {#services}
 
 #### {{ load-balancer-name }} {#load-balancer}
 
-- Команды `$ yc load-balancer network-load-balancer create` и `$ yc load-balancer network-load-balancer update`. 
+- Команды `yc load-balancer network-load-balancer create` и `yc load-balancer network-load-balancer update`. 
 
     Для флага `--listener`  появилась возможность задать параметр `target-port`, позволяющий настроить NAT так, чтобы целевые ресурсы принимали трафик на порту, отличном от порта `listener`.
 
@@ -28,11 +50,9 @@
 
 **{{ mch-name }}**
 
-- Команды `$ yc managed-clickhouse user create` и `$ yc managed-clickhouse user update`. 
+- Команды `yc managed-clickhouse user create` и `yc managed-clickhouse user update`. 
 
     Добавлен флаг `--settings`, позволяющий задать пользовательские настройки.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.30.0 (18.06.19) {#version0.30.0}
 
@@ -40,17 +60,17 @@
 
 #### {{ compute-name }} {#compute}
 
-- Команда `$ yc compute instance update`.
+- Команда `yc compute instance update`.
 
     Добавлены флаги `--service-account-id` и `--service-account-name`, позволяющие добавить или изменить сервисный аккаунт для существующей виртуальной машины.
 
-- Команда `$ yc compute instance create`.
+- Команда `yc compute instance create`.
 
     Изменено количество ядер, используемое по умолчанию при создании виртуальной машины с платформой Intel Cascade Lake (`standard-v2`). Теперь `cores: 2`.
 
 #### {{ managed-k8s-name }} {#k8s}
 
-- Команда `$ yc managed-kubernetes cluster update`.
+- Команда `yc managed-kubernetes cluster update`.
 
     Добавлен флаг `--default-gateway-v4-address`, позволяющий обновить адрес шлюза для существующего {{ k8s }} кластера.
 
@@ -68,7 +88,7 @@
 
 ####  {{ compute-name }} {#compute-cloud}
 
-- Команда `$ yc compute instance create`.
+- Команда `yc compute instance create`.
 
     Добавлен флаг `--gpus`, позволяющий указать количество графических процессоров у виртуальной машины.
 
@@ -76,21 +96,21 @@
 
 **Все сервисы управляемых БД**
 
-- Команда `$ yc <имя базы данных> cluster get <имя кластера>`.
+- Команда `yc <имя базы данных> cluster get <имя кластера>`.
 
     Улучшен вывод информации о кластере.
 
-- Команда `$ yc <имя базы данных> cluster create`.
+- Команда `yc <имя базы данных> cluster create`.
 
     Добавлен флаг `--backup-window-start`, позволяющий при создании кластера настроить время его ежедневного резервного копирования.
 
 **{{ mch-name }}**
 
-- Команда `$ yc managed-clickhouse cluster add-zookeeper <имя кластера>`.
+- Команда `yc managed-clickhouse cluster add-zookeeper <имя кластера>`.
 
     Добавлена возможность добавлять хосты ZooKeeper.
 
-- Команда: `$ yc managed-clickhouse shards add`.
+- Команда: `yc managed-clickhouse shards add`.
 
     Изменена логика создания шардов:
     - Если не указан флаг `--host`, параметры для шарда копируются из самого старого шарда.
