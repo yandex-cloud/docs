@@ -3,13 +3,6 @@ editable: false
 ---
 # Pricing policy for {{ container-registry-name }}
 
-{% note alert %}
-
-During the Preview stage, the service can be used free of charge. The following pricing policy will be starting July 9, 2019, when the service becomes [general availability](../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## What goes into the cost of using {{ container-registry-short-name }} {#rules}

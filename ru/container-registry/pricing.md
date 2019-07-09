@@ -4,12 +4,6 @@ editable: false
 
 # Правила тарификации для {{ container-registry-name }}
 
-{% note alert %}
-
-На стадии Preview сервис не тарифицируется. Приведенные ниже тарифы начнут действовать с 9 июля 2019 года после перехода сервиса в [общедоступную версию](../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Из чего складывается стоимость использования {{ container-registry-short-name }} {#rules}
