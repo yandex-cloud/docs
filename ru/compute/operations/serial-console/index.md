@@ -18,17 +18,17 @@
 
 1. Создайте текстовый файл (например, `sshkeys.txt`) и укажите следующие данные:
 
-    ```txt
-    <имя пользователя>:<открытый SSH-ключ пользователя>
-    ```
+   ```txt
+   <имя пользователя>:<открытый SSH-ключ пользователя>
+   ```
 
-    Пример текстового файла для пользователя `yc-user`:
+   Пример текстового файла для пользователя `yc-user`:
 
-    ```txt
-    yc-user:ssh-rsa AAAAB3Nza......OjbSMRX yc-user@example.com
-    ```
+   ```txt
+   yc-user:ssh-rsa AAAAB3Nza......OjbSMRX yc-user@example.com
+   ```
 
-    По умолчанию пользовательские SSH-ключи хранятся в каталоге `~/.ssh` этого пользователя. Получить открытый ключ можно с помощью команды `cat ~/.ssh/<имя открытого ключа>.pub`.
+   По умолчанию пользовательские SSH-ключи хранятся в каталоге `~/.ssh` этого пользователя. Получить открытый ключ можно с помощью команды `cat ~/.ssh/<имя открытого ключа>.pub`.
 
 ## Включение консоли при создании виртуальной машины из публичного образа {#turn-on-for-new-instance}
 
@@ -125,13 +125,13 @@
 
 1. Установите в метаданных виртуальной машины параметр `serial-port-enable=1`:
 
-    ```
-    $ yc compute instance add-metadata \
-        --name first-instance \
-        --metadata serial-port-enable=1
-    ```
+   ```
+   $ yc compute instance add-metadata \
+       --name first-instance \
+       --metadata serial-port-enable=1
+   ```
 
-    Данная команда запустит операцию активации серийной консоли на машине с именем `first-instance`.
+   Данная команда запустит операцию активации серийной консоли на машине с именем `first-instance`.
 
 ## Настройка виртуальной машины для доступа через серийный порт {#configuration}
 
@@ -156,9 +156,9 @@
 1. Задайте для опции `PasswordAuthentication` значение `no`.
 1. Перезапустите SSH-сервер:
 
-  ```
-  $ sudo systemctl restart ssh
-  ```
+   ```
+   $ sudo systemctl restart ssh
+   ```
 
 #### Создайте пароль для пользователя Linux {#create-pass}
 
@@ -178,54 +178,62 @@
 
 1. Получите публичный IP-адрес виртуальной машины.
 
-  ```
-  $ yc compute instance get first-instance
-  ```
+   ```
+   $ yc compute instance get first-instance
+   ```
 
-  В выводе команды найдите адрес виртуальной машины в блоке `one_to_one_nat`:
+   В выводе команды найдите адрес виртуальной машины в блоке `one_to_one_nat`:
 
-  ```
-  ...
-  one_to_one_nat:
-      address: <публичный IP-адрес>
-      ip_version: IPV4
-  ...
-  ```
+   ```
+   ...
+   one_to_one_nat:
+       address: <публичный IP-адрес>
+       ip_version: IPV4
+   ...
+   ```
 
-  Если публичного IP-адреса нет, [измените виртуальную машину](../vm-control/vm-update.md), дополнительно указав флаг `--public-ip`.
+   Если публичного IP-адреса нет, [измените виртуальную машину](../vm-control/vm-update.md), дополнительно указав флаг `--public-ip`.
 
 1. Подключитесь к виртуальной машине. Подробнее читайте в разделе [#T](../vm-connect/ssh.md#vm-connect).
 
 1. Создайте локальный пароль. В OC Linux задать пароль можно с помощью команды `passwd`:
 
-  ```
-  $ sudo passwd <имя пользователя>
-  ```
+   ```
+   $ sudo passwd <имя пользователя>
+   ```
 
-  Пример для пользователя `yc-user`:
+   Пример для пользователя `yc-user`:
 
-  ```
-  $ sudo passwd yc-user
-  ```
+   ```
+   $ sudo passwd yc-user
+   ```
 
 1. Завершите SSH-сессию с помощью команды `exit`.
 
 
 ### Windows {#windows-configuration}
   
-Аналог серийной консоли в Windows — специальная административная консоль (Special Administration Console, SAC). Чтобы подключаться к ней, нужно внести соответствующие изменения в реестр ОС:
+Аналог серийной консоли в Windows — специальная административная консоль (Special Administration Console, SAC).
+
+{% note info %}
+
+Если ваша виртуальная машина была создана после 22 февраля 2019 года, дополнительно настраивать ничего не нужно — SAC включена по умолчанию.
+
+{% endnote %}
+
+Если ваша виртуальная машина была создана до 22 февраля 2019 года, для подключения к SAC нужно изменить реестр Windows:
 
 1. [Подключитесь к виртуальной машине по RDP](../vm-connect/rdp.md).
 
 1. Запустите `cmd` или PowerShell и выполните следующие команды:
 
-  ```
-  $ bcdedit /ems "{current}" on
-  The operation completed successfully.
+   ```
+   $ bcdedit /ems "{current}" on
+   The operation completed successfully.
 
-  $ bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200
-  The operation completed successfully.
-  ```
+   $ bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200
+   The operation completed successfully.
+   ```
 
 1. Перезагрузите виртуальную машину.
   
