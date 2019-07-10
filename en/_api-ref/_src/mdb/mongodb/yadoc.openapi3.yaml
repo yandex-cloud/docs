@@ -1364,10 +1364,6 @@ components:
           description: Allow access for DataLens
           type: boolean
           format: boolean
-        webSql:
-          description: Allow access for Web SQL
-          type: boolean
-          format: boolean
     AddClusterHostsMetadata:
       type: object
       properties:
@@ -2897,6 +2893,12 @@ components:
           description: |-
             Required.
             ID of the network to create the MongoDB cluster in.
+
+            The maximum string length in characters is 50.
+          type: string
+        folderId:
+          description: |-
+            Required. ID of the folder to create the MongoDB cluster in.
 
             The maximum string length in characters is 50.
           type: string

@@ -53,8 +53,7 @@ filter | A filter expression that filters resources listed in the response. The 
           "nanos": "integer"
         },
         "access": {
-          "dataLens": true,
-          "webSql": true
+          "dataLens": true
         },
 
         // `clusters[].config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`
@@ -415,7 +414,6 @@ clusters[].<br>config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br
 clusters[].<br>config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 clusters[].<br>config.<br>access | **object**<br>Access policy to DB<br>
 clusters[].<br>config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
-clusters[].<br>config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow access for Web SQL</p> 
 clusters[].<br>config.<br>mongodb_3_6 | **object**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. <br>`clusters[].config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`<br><br>
 clusters[].<br>config.<br>mongodb_3_6.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster.</p> 
 clusters[].<br>config.<br>mongodb_3_6.<br>mongod.<br>config | **object**<br><p>Configuration for a mongod 3.6 hosts.</p> 

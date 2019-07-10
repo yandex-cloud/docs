@@ -31,8 +31,7 @@ A set of methods for managing MongoDB Cluster resources.
       "nanos": "integer"
     },
     "access": {
-      "dataLens": true,
-      "webSql": true
+      "dataLens": true
     },
 
     // `config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`
@@ -388,7 +387,6 @@ config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds of 
 config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 config.<br>access | **object**<br>
 config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
-config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow access for Web SQL</p> 
 config.<br>mongodb_3_6 | **object** <br>`config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`<br><br>
 config.<br>mongodb_3_6.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster.</p> 
 config.<br>mongodb_3_6.<br>mongod.<br>config | **object**<br><p>Configuration for a mongod 3.6 hosts.</p> 

@@ -32,7 +32,8 @@ pageToken | The maximum string length in characters is 100.
       "registryId": "string",
       "createdAt": "string",
       "name": "string",
-      "description": "string"
+      "description": "string",
+      "topicAliases": "object"
     }
   ],
   "nextPageToken": "string"
@@ -48,4 +49,5 @@ devices[].<br>registryId | **string**<br>
 devices[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 devices[].<br>name | **string**<br>
 devices[].<br>description | **string**<br>
+devices[].<br>topicAliases | **object**<br><p>map from alias to canonical topic name prefix, e.g. my/custom/alias -&gt; $device/abcdef/events</p> 
 nextPageToken | **string**<br>

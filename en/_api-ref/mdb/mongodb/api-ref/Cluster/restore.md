@@ -31,8 +31,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters:restore
       "nanos": "integer"
     },
     "access": {
-      "dataLens": true,
-      "webSql": true
+      "dataLens": true
     },
 
     // `configSpec` includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`
@@ -181,7 +180,8 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters:restore
       "shardName": "string"
     }
   ],
-  "networkId": "string"
+  "networkId": "string",
+  "folderId": "string"
 }
 ```
 
@@ -203,7 +203,6 @@ configSpec.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds
 configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 configSpec.<br>access | **object**<br>Access policy to DB<br>
 configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
-configSpec.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow access for Web SQL</p> 
 configSpec.<br>mongodbSpec_3_6 | **object**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. <br>`configSpec` includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`<br><br>
 configSpec.<br>mongodbSpec_3_6.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod 3.6 hosts.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongod.<br>config | **object**<br><p>Configuration for mongod 3.6 hosts.</p> <p>Configuration of a mongod daemon. Supported options are a limited subset of all options described in <a href="https://docs.mongodb.com/v3.6/reference/configuration-options/">MongoDB documentation</a>.</p> 
@@ -298,6 +297,7 @@ hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host sh
 hostSpecs[].<br>type | **string**<br><p>Type of the host to be deployed.</p> <ul> <li>MONGOD: A mongod host.</li> <li>MONGOS: A mongos host.</li> <li>MONGOCFG: A mongocfg host.</li> </ul> 
 hostSpecs[].<br>shardName | **string**<br><p>Name of the shard that the host belongs to.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
 networkId | **string**<br><p>Required. ID of the network to create the MongoDB cluster in.</p> <p>The maximum string length in characters is 50.</p> 
+folderId | **string**<br><p>Required. ID of the folder to create the MongoDB cluster in.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

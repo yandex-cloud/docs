@@ -39,8 +39,7 @@ A set of methods for managing PostgreSQL Cluster resources.
       "nanos": "integer"
     },
     "access": {
-      "dataLens": true,
-      "webSql": true
+      "dataLens": true
     },
 
     // `config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10`, `postgresqlConfig_11`
@@ -892,7 +891,6 @@ config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds of 
 config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 config.<br>access | **object**<br>
 config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
-config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow access for Web SQL</p> 
 config.<br>postgresqlConfig_9_6 | **object** <br>`config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10`, `postgresqlConfig_11`<br><br>
 config.<br>postgresqlConfig_9_6.<br>effectiveConfig | **object**<br><p>Required. Effective settings for a PostgreSQL 9.6 cluster (a combination of settings defined in userConfig and [default_config]).</p> <p>Options and structure of <code>PostgresqlConfig</code> reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/9.6/static/runtime-config">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>

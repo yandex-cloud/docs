@@ -22,7 +22,7 @@ instanceId | Required. ID of the instance to return the serial port output for. 
  
 Parameter | Description
 --- | ---
-port | Specifies which serial port to retrieve data from. The default is 1.  Value must be one of 1, 2, 3 or 4.
+port | Serial port to retrieve data from. The default is 1.  Value must be one of 1, 2, 3 or 4.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

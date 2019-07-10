@@ -774,7 +774,7 @@ paths:
       - name: port
         in: query
         description: |-
-          Specifies which serial port to retrieve data from. The default is 1.
+          Serial port to retrieve data from. The default is 1.
 
           Value must be one of 1, 2, 3 or 4.
         schema:
@@ -1711,7 +1711,7 @@ components:
           $ref: '#/components/schemas/SchedulingPolicy_in_CreateInstanceRequest_schedulingPolicy'
         serviceAccountId:
           description: |-
-            ID of the service account. For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
+            ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm).
             To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
           type: string
     CreateSnapshotMetadata:
@@ -2075,7 +2075,7 @@ components:
           $ref: '#/components/schemas/SchedulingPolicy_in_Instance_schedulingPolicy'
         serviceAccountId:
           description: |-
-            ID of the service account. For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
+            ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm).
             To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
           type: string
     InstanceStatus:
@@ -2741,6 +2741,9 @@ components:
           additionalProperties:
             type: string
         serviceAccountId:
+          description: |-
+            ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm).
+            To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
           type: string
     UpdateSnapshotMetadata:
       type: object

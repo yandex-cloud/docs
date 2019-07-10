@@ -3044,6 +3044,12 @@ components:
 
             The maximum string length in characters is 50.
           type: string
+        folderId:
+          description: |-
+            ID of the folder to create the ClickHouse cluster in.
+
+            The maximum string length in characters is 50.
+          type: string
     RevokeUserPermissionMetadata:
       type: object
       properties:

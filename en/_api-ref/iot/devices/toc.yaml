@@ -41,6 +41,8 @@ items:
         href: undefined/Registry/list.md
       - name: listCertificates
         href: undefined/Registry/listCertificates.md
+      - name: listDeviceTopicAliases
+        href: undefined/Registry/listDeviceTopicAliases.md
       - name: listOperations
         href: undefined/Registry/listOperations.md
       - name: update

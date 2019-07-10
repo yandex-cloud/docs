@@ -35,5 +35,6 @@ Method | Description
 [get](get.md) | 
 [list](list.md) | 
 [listCertificates](listCertificates.md) | 
+[listDeviceTopicAliases](listDeviceTopicAliases.md) | 
 [listOperations](listOperations.md) | 
 [update](update.md) | 

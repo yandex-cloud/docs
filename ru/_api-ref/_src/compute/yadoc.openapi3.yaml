@@ -805,6 +805,15 @@ paths:
         required: true
         schema:
           type: string
+      - name: port
+        in: query
+        description: |-
+          Номер последовательного порта для получения данных с виртуальной машины. Значение по умолчанию: `1`.
+
+          Значение должно быть равно 1, 2, 3 или 4.
+        schema:
+          type: string
+          format: int64
       responses:
         "200":
           description: OK
@@ -1783,6 +1792,11 @@ components:
           type: string
         schedulingPolicy:
           $ref: '#/components/schemas/SchedulingPolicy_in_CreateInstanceRequest_schedulingPolicy'
+        serviceAccountId:
+          description: |-
+            ID сервисного аккаунта для [аутентификации изнутри виртуальной машины](/docs/compute/operations/vm-connect/auth-inside-vm).
+            Чтобы получить ID сервисного аккаунта, используйте метод [list](/docs/iam/api-ref/ServiceAccount/list).
+          type: string
     CreateSnapshotMetadata:
       type: object
       properties:
@@ -2174,6 +2188,11 @@ components:
           type: string
         schedulingPolicy:
           $ref: '#/components/schemas/SchedulingPolicy_in_Instance_schedulingPolicy'
+        serviceAccountId:
+          description: |-
+            ID сервисного аккаунта для [аутентификации изнутри виртуальной машины](/docs/compute/operations/vm-connect/auth-inside-vm).
+            Чтобы получить ID сервисного аккаунта, используйте метод [list](/docs/iam/api-ref/ServiceAccount/list).
+          type: string
     InstanceStatus:
       description: |2-
          - PROVISIONING: Виртуальная машина ожидает выделения ресурсов.
@@ -2553,6 +2572,10 @@ components:
             устанавливает базовую производительность для каждого ядра.
           type: string
           format: int64
+        gpus:
+          description: Количество GPU, доступных виртуальной машине.
+          type: string
+          format: int64
     ResourcesSpec:
       type: object
       properties:
@@ -2583,6 +2606,13 @@ components:
             [Легкие виртуальные машины](/docs/compute/concepts/vm-types#light-vms).
 
             Значение должно быть равно 0, 5, 20, 50 или 100.
+          type: string
+          format: int64
+        gpus:
+          description: |-
+            Количество GPU, доступных виртуальной машине.
+
+            Значение должно быть равно 1, 2 или 4.
           type: string
           format: int64
     RestartInstanceMetadata:
@@ -2870,6 +2900,11 @@ components:
           type: object
           additionalProperties:
             type: string
+        serviceAccountId:
+          description: |-
+            ID сервисного аккаунта для [аутентификации изнутри виртуальной машины](/docs/compute/operations/vm-connect/auth-inside-vm).
+            Чтобы получить ID сервисного аккаунта, используйте метод [list](/docs/iam/api-ref/ServiceAccount/list).
+          type: string
     UpdateSnapshotMetadata:
       type: object
       properties:
@@ -3035,6 +3070,13 @@ components:
             Значение должно быть равно 0, 5, 20, 50 или 100.
           type: string
           format: int64
+        gpus:
+          description: |-
+            Количество GPU, доступных виртуальной машине.
+
+            Значение должно быть равно 1, 2 или 4.
+          type: string
+          format: int64
     AttachedDiskSpec_in_CreateInstanceRequest_bootDiskSpec:
       description: |-
         Обязательное поле.
@@ -3127,6 +3169,10 @@ components:
             Базовый уровень производительности CPU с возможностью
             повышения производительности выше этого уровня. Это поле
             устанавливает базовую производительность для каждого ядра.
+          type: string
+          format: int64
+        gpus:
+          description: Количество GPU, доступных виртуальной машине.
           type: string
           format: int64
     InstanceStatus_in_Instance_status:
@@ -3380,6 +3426,13 @@ components:
             [Легкие виртуальные машины](/docs/compute/concepts/vm-types#light-vms).
 
             Значение должно быть равно 0, 5, 20, 50 или 100.
+          type: string
+          format: int64
+        gpus:
+          description: |-
+            Количество GPU, доступных виртуальной машине.
+
+            Значение должно быть равно 1, 2 или 4.
           type: string
           format: int64
     FieldMask_in_UpdateSnapshotRequest_updateMask:

@@ -110,7 +110,7 @@ networkInterfaces[].<br>primaryV6Address.<br>oneToOneNat.<br>ipVersion | **strin
 fqdn | **string**<br><p>A domain name of the instance. FQDN is defined by the server in the format <code>&lt;hostname&gt;.&lt;region_id&gt;.internal</code> when the instance is created. If the hostname were not specified when the instance was created, FQDN would be <code>&lt;id&gt;.auto.internal</code>.</p> 
 schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
 schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for short-lived compute instances. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible VMs</a>.</p> 
-serviceAccountId | **string**<br><p>ID of the service account. For more information, see <a href="/docs/iam/concepts/users/service-accounts">Service accounts</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 
+serviceAccountId | **string**<br><p>ID of the service account to use for <a href="/docs/compute/operations/vm-connect/auth-inside-vm">authentication inside the instance</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 
 
 ## Methods {#methods}
 Method | Description

@@ -27,7 +27,8 @@ deviceId | Required. The maximum string length in characters is 50.
   "registryId": "string",
   "createdAt": "string",
   "name": "string",
-  "description": "string"
+  "description": "string",
+  "topicAliases": "object"
 }
 ```
 
@@ -39,3 +40,4 @@ registryId | **string**<br>
 createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br>
 description | **string**<br>
+topicAliases | **object**<br><p>map from alias to canonical topic name prefix, e.g. my/custom/alias -&gt; $device/abcdef/events</p> 

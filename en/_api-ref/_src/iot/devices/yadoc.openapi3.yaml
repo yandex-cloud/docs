@@ -469,6 +469,39 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteRegistryCertificateMetadata'
       x-y-operation-response: Empty
+  /iot-devices/v1/registries/{registryId}:listDeviceTopicAliases:
+    get:
+      tags:
+      - Registry
+      operationId: RegistryListDeviceTopicAliases
+      parameters:
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDeviceTopicAliasesResponse'
+      x-y-navtitle: listDeviceTopicAliases
   /iot-devices/v1/registries/{registryId}/operations:
     get:
       tags:
@@ -557,6 +590,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CreateDeviceRequestCertificate'
+        topicAliases:
+          description: map from alias to canonical topic name prefix, e.g. my/custom/alias
+            -> $device/{id}/events
+          type: object
+          additionalProperties:
+            type: string
     CreateDeviceRequestCertificate:
       type: object
       properties:
@@ -655,6 +694,22 @@ components:
           type: string
         description:
           type: string
+        topicAliases:
+          description: map from alias to canonical topic name prefix, e.g. my/custom/alias
+            -> $device/abcdef/events
+          type: object
+          additionalProperties:
+            type: string
+    DeviceAlias:
+      type: object
+      properties:
+        deviceId:
+          type: string
+        topicPrefix:
+          description: prefix of canonical topic name to be aliased, e.g. $devices/abcdef
+          type: string
+        alias:
+          type: string
     DeviceCertificate:
       type: object
       properties:
@@ -699,6 +754,15 @@ components:
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
+          type: string
+    ListDeviceTopicAliasesResponse:
+      type: object
+      properties:
+        aliases:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceAlias'
+        nextToken:
           type: string
     ListDevicesResponse:
       type: object
@@ -859,6 +923,12 @@ components:
         description:
           description: The maximum string length in characters is 256.
           type: string
+        topicAliases:
+          description: map from alias to canonical topic name prefix, e.g. my/custom/alias
+            -> $device/abcdef/events
+          type: object
+          additionalProperties:
+            type: string
     UpdateRegistryMetadata:
       type: object
       properties:

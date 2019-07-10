@@ -23,7 +23,8 @@ POST undefined/iot-devices/v1/devices
     {
       "certificateData": "string"
     }
-  ]
+  ],
+  "topicAliases": "object"
 }
 ```
 
@@ -35,6 +36,7 @@ name | **string**<br><p>Required. The maximum string length in characters is 50.
 description | **string**<br><p>The maximum string length in characters is 256.</p> 
 certificates[] | **object**<br>
 certificates[].<br>certificateData | **string**<br>
+topicAliases | **object**<br><p>map from alias to canonical topic name prefix, e.g. my/custom/alias -&gt; $device/{id}/events</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

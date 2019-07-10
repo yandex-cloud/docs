@@ -27,7 +27,8 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
   "resourcesSpec": {
     "memory": "string",
     "cores": "string",
-    "coreFraction": "string"
+    "coreFraction": "string",
+    "gpus": "string"
   },
   "metadata": "object",
   "bootDiskSpec": {
@@ -96,7 +97,8 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
   "hostname": "string",
   "schedulingPolicy": {
     "preemptible": true
-  }
+  },
+  "serviceAccountId": "string"
 }
 ```
 
@@ -113,6 +115,7 @@ resourcesSpec | **object**<br><p>Обязательное поле. Вычисл
 resourcesSpec.<br>memory | **string** (int64)<br><p>Обязательное поле. Объем памяти в байтах, доступный виртуальной машине.</p> <p>Максимальное значение — 274877906944.</p> 
 resourcesSpec.<br>cores | **string** (int64)<br><p>Обязательное поле. Количество ядер, доступных виртуальной машине.</p> <p>Значение должно быть равно 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 или 32.</p> 
 resourcesSpec.<br>coreFraction | **string** (int64)<br><p>Базовый уровень производительности CPU с возможностью повышения производительности выше этого уровня. Это поле устанавливает базовую производительность для каждого ядра.</p> <p>Например, если требуется только 5% производительности CPU, можно задать core_fraction=5. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/vm-types#light-vms">Легкие виртуальные машины</a>.</p> <p>Значение должно быть равно 0, 5, 20, 50 или 100.</p> 
+resourcesSpec.<br>gpus | **string** (int64)<br><p>Количество GPU, доступных виртуальной машине.</p> <p>Значение должно быть равно 1, 2 или 4.</p> 
 metadata | **object**<br><p>Метаданные, назначаемые данной виртуальной машине, в формате пар &quot;<code>key:value</code>&quot;. Это включает произвольные пользовательские метаданные и предзаданные ключи. Общий размер всех ключей и значений не должен превышать 512 КБ.</p> <p>Значениями являются строки и используются только программами, которые настраивают виртуальную машину. Единственное ограничение для значений — их размер не должен превышать 256 КБ.</p> <p>Например, можно использовать метаданные для доставки открытого ключа SSH на виртуальную машину. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/vm-metadata">Метаданные виртуальной машины</a>.</p> 
 bootDiskSpec | **object**<br><p>Обязательное поле. Загрузочный диск для подключения к виртуальной машине.</p> 
 bootDiskSpec.<br>mode | **string**<br>Режим, в котором необходимо подключить этот диск.<br><ul> <li>READ_ONLY: Доступ на чтение.</li> <li>READ_WRITE: Доступ на чтение и запись. Значение по умолчанию.</li> </ul> 
@@ -151,6 +154,7 @@ networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>ipVersi
 hostname | **string**<br><p>Имя хоста виртуальной машины. Это поле используется для генерации значения <a href="/docs/compute/api-ref/Instance#representation">Instance.fqdn</a>. Имя хоста должно быть уникальным в пределах сети и региона. Если не указано, то имя хоста будет равно <a href="/docs/compute/api-ref/Instance#representation">Instance.id</a> виртуальной машины и FQDN будет <code>&lt;id&gt;.auto.internal</code>. В противном случае FQDN будет <code>&lt;hostname&gt;.&lt;region_id&gt;.internal</code>.</p> <p>Значение должно соответствовать регулярному выражению <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
 schedulingPolicy | **object**<br><p>Политика планирования.</p> 
 schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>Если значение равно true — будет создана прерываемая виртуальная машина. Дополнительные сведения см. в разделе <a href="/docs/compute/concepts/preemptible-vm">Прерываемые виртуальные машины</a>.</p> 
+serviceAccountId | **string**<br><p>ID сервисного аккаунта для <a href="/docs/compute/operations/vm-connect/auth-inside-vm">аутентификации изнутри виртуальной машины</a>. Чтобы получить ID сервисного аккаунта, используйте метод <a href="/docs/iam/api-ref/ServiceAccount/list">list</a>.</p> 
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

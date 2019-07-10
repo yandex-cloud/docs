@@ -24,7 +24,8 @@ deviceId | Required. The maximum string length in characters is 50.
 {
   "updateMask": "string",
   "name": "string",
-  "description": "string"
+  "description": "string",
+  "topicAliases": "object"
 }
 ```
 
@@ -34,6 +35,7 @@ Field | Description
 updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
 name | **string**<br><p>The maximum string length in characters is 50. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
 description | **string**<br><p>The maximum string length in characters is 256.</p> 
+topicAliases | **object**<br><p>map from alias to canonical topic name prefix, e.g. my/custom/alias -&gt; $device/abcdef/events</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

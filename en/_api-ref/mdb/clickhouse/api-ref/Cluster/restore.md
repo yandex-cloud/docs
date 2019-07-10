@@ -181,7 +181,8 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore
       "shardName": "string"
     }
   ],
-  "networkId": "string"
+  "networkId": "string",
+  "folderId": "string"
 }
 ```
 
@@ -305,6 +306,7 @@ hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet that the host shoul
 hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host should get a public IP address on creation.</p> <p>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with assignPublicIp set as needed.</p> <p>Possible values:</p> <ul> <li>false — don't assign a public IP to the host.</li> <li>true — the host should have a public IP address.</li> </ul> 
 hostSpecs[].<br>shardName | **string**<br><p>Name of the shard that the host is assigned to.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
 networkId | **string**<br><p>Required. ID of the network to create the ClickHouse cluster in.</p> <p>The maximum string length in characters is 50.</p> 
+folderId | **string**<br><p>ID of the folder to create the ClickHouse cluster in.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
