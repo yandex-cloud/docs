@@ -31,7 +31,7 @@ items:
     items:
     - name: Шардирование коллекций
       href: tutorials/sharding.md
-  - name: Основные понятия
+  - name: Концепции
     items:
     - name: Взаимосвязь ресурсов сервиса
       href: concepts/index.md

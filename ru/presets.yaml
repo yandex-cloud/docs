@@ -111,6 +111,7 @@ default:
   MG: MongoDB
   MY: MySQL
   RD: Redis
+  ZK: ZooKeeper
   zone-id: ru-central1-c
   host-class: s1.nano
 
