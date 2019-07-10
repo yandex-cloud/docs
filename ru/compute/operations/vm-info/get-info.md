@@ -118,6 +118,8 @@ $ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?re
 `id` | Идентификатор виртуальной машины. ID генерируется автоматически при создании виртуальной машины и уникален в пределах Яндекс.Облака.
 `name` | Имя, переданное при создании или изменении виртуальной машины.
 `networkInterfaces/` | Сетевые интерфейсы, подключенные к виртуальной машине.
+`service-accounts` | [Сервисные аккаунты](../../../iam/concepts/users/service-accounts.md), привязанные к виртуальной машине.
+`service-accounts/default/token` | [IAM-токен](../../../iam/concepts/authorization/iam-token.md) привязанного сервисного аккаунта.
 
 Другие элементы, например `project`, используются для обратной совместимости и остаются пустыми.
 
@@ -157,6 +159,7 @@ GET http://169.254.169.254/latest/meta-data/<элемент>
 `network/interfaces/macs/<mac>/local-ipv4s` | Внутренние IPv4-адреса, ассоциированные с сетевым интерфейсом.
 `network/interfaces/macs/<mac>/mac` | MAC-адрес сетевого интерфейса виртуальной машины.
 `public-ipv4` | Внешний IPv4-адрес.
+`iam/security-credentials/default/` | [IAM-токен](../../../iam/concepts/authorization/iam-token.md) привязанного сервисного аккаунта.
 
 #### Примеры запросов
 

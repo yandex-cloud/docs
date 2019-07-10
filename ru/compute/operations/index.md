@@ -37,10 +37,11 @@
 - [#T](vm-control/vm-update-resources.md)
 - [#T](vm-control/vm-delete.md)
 
-## Подключение к виртуальной машине
+## Работа на виртуальной машине
 
 - [#T](vm-connect/ssh.md)
 - [#T](vm-connect/rdp.md)
+- [#T](vm-connect/auth-inside-vm.md)
 
 ## Создание нового диска
 

@@ -69,12 +69,14 @@ items:
             href: operations/vm-control/vm-update-resources.md
           - name: Удалить ВМ
             href: operations/vm-control/vm-delete.md
-      - name: Подключение к виртуальной машине
+      - name: Работа на виртуальной машине
         items:
           - name: Подключиться к ВМ по SSH
             href: operations/vm-connect/ssh.md
           - name: Подключиться к ВМ по RDP
             href: operations/vm-connect/rdp.md
+          - name: Работа с Яндекс.Облаком изнутри ВМ
+            href: operations/vm-connect/auth-inside-vm.md
       - name: Создание нового диска
         items:
           - name: Создать пустой диcк

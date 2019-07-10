@@ -13,24 +13,24 @@
 {% list tabs %}
 
 - Консоль управления
-  
+
   Аутентификация происходит автоматически, когда вы входите в аккаунт Яндекса или Яндекс.Коннекта.
-  
+
 - CLI
-  
+
   Чтобы настроить аутентификацию в CLI, укажите ваш [OAuth-токен](oauth-token.md) при [инициализации профиля](../../../cli/quickstart.md#initialize). Токен будет сохранен в конфигурации профиля и аутентификация будет происходить автоматически.
-  
+
 - API
-  
+
   {% include [owner-warning](../../../_includes/iam/owner-warning.md) %}
-  
+
   Чтобы выполнять операции в API:
-  
+
   1. [Получите IAM-токен](../../operations/iam-token/create.md) в обмен на [OAuth-токен](oauth-token.md).
   2. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
-  
+
       {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
-  
+
 {% endlist %}
 
 
@@ -39,23 +39,24 @@
 {% list tabs %}
 
 - CLI
-  
+
   Чтобы выполнять операции от имени сервисного аккаунта, укажите путь к авторизованному ключу сервисного аккаунта в конфигурации (в `service-account-key`) при [инициализации профиля](../../../cli/quickstart.md#initialize). Ключ будет сохранен в конфигурации профиля и аутентификация будет происходить автоматически.
-  
+
 - API
-  
+
   Есть 3 способа выполнять операции от имени сервисного аккаунта:
-  
+
   * С помощью [IAM-токена](iam-token.md). Это рекомендуемый способ аутентификации, но срок действия IAM-токена ограничен. Поэтому этот способ подойдет для разработки приложений, которые будут запрашивать IAM-токен автоматически.
-  
-      [Инструкция получения IAM-токена](../../operations/iam-token/create-for-sa.md).
+
+    * [Инструкция получения IAM-токена](../../operations/iam-token/create-for-sa.md).
+    * [Получение IAM-токена изнутри виртуальной машины](../../../compute/operations/vm-connect/auth-inside-vm.md).
   * С помощью [API-ключей](api-key).
-  
+
       {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}
-  
+
       [Инструкция получения API-ключа](../../operations/api-key/create.md).
   * С помощью [статических ключей доступа](access-key.md). Этот способ необходимо использовать в сервисах с AWS-совместимым API, например в {{ objstorage-name }} и {{ message-queue-name }}.
-  
+
       [Инструкция получения статического ключа доступа](../../operations/sa/create-access-key.md).
-  
+
 {% endlist %}
