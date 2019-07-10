@@ -7,11 +7,11 @@
 
 {% if audience == "internal" %}
 
-Начать работать с YQL можно в [веб-интерфейсе](https://yql.yandex-team.ru/Tutorial/ydb_01_Create_demo_tables) после создания базы данных. В разделе [#T](../../quickstart.md#data-plane) приведены примеры YQL-инструкций для работы с таблицами.
+Начать работать с YQL можно в [веб-интерфейсе](https://yql.yandex-team.ru/Tutorial/ydb_01_Create_demo_tables) после создания базы данных. В разделе [#T](../../quickstart.md#replace-data) приведены примеры YQL-инструкций для работы с таблицами.
 
 {% else if audience == "external" %}
 
-Начать работать с YQL можно в консоли управления после создания базы данных. В разделе [#T](../../quickstart.md#data-plane) приведены примеры YQL-инструкций для работы с таблицами.
+Начать работать с YQL можно в консоли управления после создания базы данных. В разделе [#T](../../quickstart.md#replace-data) приведены примеры YQL-инструкций для работы с таблицами.
 
 {% endif %}
 
