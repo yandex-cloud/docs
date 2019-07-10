@@ -1,14 +1,17 @@
-# Connecting to a database in a cluster {{ PG }}
+# Connecting to a database in a {{ PG }} cluster
 
-Inside Yandex.Cloud, you can connect to a DB cluster only from a VM whose address is in the same Cloud subnet.
+In Yandex.Cloud, you can connect to a DB cluster only from a VM that has an address in the the Yandex.Cloud subnet.
 
 ## Authentication
 
-{{ PG }}-clusters in {{ mpg-short-name }} support only encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
+{{mpg-short-name }} clusters only support encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
 
-{% include [get-cert](../../_includes/mdb/get-cert.md) %}
+```bash
+$ mkdir ~/.postgresql
+$ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/CA.pem
+```
 
-For information about how to use a certificate via `libpq`, read the [documentation on {{ PG }}](https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
+Ready about using a certificate with `libpq` in the [documentation {{ PG }}](https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
 
 ## Connection string
 
@@ -19,7 +22,7 @@ psql "host=<DB host address> \
       port=6432 \
       sslmode=verify-full \
       dbname=<DB name> \
-      user=<DB user name>"
+      user=<DB username>"
 ```
 
 ## Automatic master host selection
@@ -57,6 +60,6 @@ $ psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
       port=6432 \
       sslmode=verify-full \
       dbname=<DB name> \
-      user=<DB user name>"
+      user=<DB username>"
 ```
 

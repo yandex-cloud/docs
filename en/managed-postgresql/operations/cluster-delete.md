@@ -9,24 +9,23 @@ You cannot restore a DB cluster that has been deleted, because all the cluster's
 {% list tabs %}
 
 - Management console
-  
   1. Open the folder page in the management console.
-  1. Click **{{ mpg-name }}**.
+  1. Select **{{ mpg-name }}**.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) for the necessary cluster and select **Delete**.
-  
+
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   To delete a cluster, run the command:
-  
+
   ```
   $ {{ yc-mdb-pg }} cluster delete <cluster name or ID>
   ```
-  
-  The cluster name and ID can be requested with a [list of folder clusters](#list-clusters).
-  
+
+  The cluster name and ID can be requested with a [list clusters in the folder](#list-clusters).
+
 {% endlist %}
 

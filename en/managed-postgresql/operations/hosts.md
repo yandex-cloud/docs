@@ -8,7 +8,7 @@ You can add and remove cluster hosts and manage {{ PG }} settings for individual
 
 - Management console
 
-  1. Go to the folder page and click **{{ mpg-name }}**.
+  1. Go to the folder page and select **{{ mpg-name }}**.
 
   2. Click on the name of the cluster you need and select the **Hosts** tab.
 
@@ -23,7 +23,7 @@ You can add and remove cluster hosts and manage {{ PG }} settings for individual
   ```
   $ {{ yc-mdb-pg }} host list
        --cluster-name=<cluster name>
-
+  
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
@@ -32,7 +32,7 @@ You can add and remove cluster hosts and manage {{ PG }} settings for individual
   +----------------------------+--------------+---------+--------+---------------+
   ```
 
-  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -42,18 +42,17 @@ You can add and remove cluster hosts and manage {{ PG }} settings for individual
 
 ## Adding a host  {#add}
 
-The number of hosts in {{ mpg-short-name }} clusters is limited by the quotas on CPUs and RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}
-) and find the **{{ mpg-full-name }}**.
+The number of hosts in {{ mpg-short-name}} clusters is limited by CPU quotas and the amount of memory available to database clusters in your cloud. To check the resources in use, open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page and find the **{{ mpg-full-name }}** block.
 
 {% list tabs %}
 
 - Management console
 
-  1. Go to the folder page and click **{{ mpg-name }}**.
+  1. Go to the folder page and select **{{ mpg-name }}**.
 
-  2. Click on the name of the cluster you need and go to the **Hosts** tab.
+  1. Click on the name of the cluster you need and go to the **Hosts** tab.
 
-  3. Click **Add host**.
+  1. Click **Add host**.
 
   1. Specify the host parameters:
 
@@ -79,7 +78,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the quotas on
 
       ```
       $ yc vpc subnet list
-
+      
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
@@ -90,23 +89,25 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the quotas on
       +-----------+-----------+------------+---------------+------------------+
       ```
 
-  2. See the description of the CLI command for adding a host:
+     If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
-      ```
-      $ {{ yc-mdb-pg }} host add --help
-      ```
+  1. See the description of the CLI command for adding a host:
 
-  3. Run the add host command:
+     ```
+     $ {{ yc-mdb-pg }} host add --help
+     ```
 
-      ```
-      $ {{ yc-mdb-pg }} host add
-           --cluster-name <cluster name>
-           --host zone-id=<availability zone>,subnet-id=<subnet ID>
-      ```
+  1. Run the add host command:
 
-      {{ mpg-short-name }} will run the add host operation.
+     ```
+     $ {{ yc-mdb-pg }} host add
+          --cluster-name <cluster name>
+          --host zone-id=<availability zone>,subnet-id=<subnet ID>
+     ```
 
-      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mpg-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+     {{ mpg-short-name }} launches the add host operation.
+
+     The subnet ID must be specified if there is more than one subnet in the availability zone, otherwise {{ mpg-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -133,10 +134,10 @@ For each host in a {{ PG }} cluster, you can change:
   To change the parameters of the {{ PG }} host, run the command:
 
   ```
-  $ {{ yc-mdb-pg }} host update <host name>
+  $ {{ yc-mdb-pg }} host update <hostname>
        --cluster-name <cluster name>
-       --replication-source <source host name>
-       --priority <replica priority>
+       --replication-source <source host's name
+       --priority <replica's priority
   ```
 
   The host names can be requested with a [list of cluster hosts](#list-hosts) and the cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
@@ -151,13 +152,13 @@ For each host in a {{ PG }} cluster, you can change:
 
 You can remove a host from a {{ PG }} cluster if it is not the only host in it. To replace a single host, first create a new host and then delete the old one.
 
-If the host is a master at the time of deletion, {{ mpg-short-name }} automatically assigns the next highest-priority replica as a master.
+If the host is the master when it's deleted, {{mpg-short-name }} will automatically assign another the next replica by priority the master.
 
 {% list tabs %}
 
 - Management console
 
-  1. Go to the folder page and click **{{ mpg-name }}**.
+  1. Go to the folder page and select **{{ mpg-name }}**.
 
   2. Click on the name of the cluster you need and select the **Hosts** tab.
 
@@ -172,11 +173,11 @@ If the host is a master at the time of deletion, {{ mpg-short-name }} automatica
   To remove a host from the cluster, run:
 
   ```
-  $ {{ yc-mdb-pg }} host delete <host name>
+  $ {{ yc-mdb-pg }} host delete <hostname>
        --cluster-name=<cluster name>
   ```
 
-  The name of the host can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  The name of the host can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

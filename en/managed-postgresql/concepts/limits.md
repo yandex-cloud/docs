@@ -3,7 +3,7 @@ editable: false
 ---
 # Quotas and limits
 
-In the {{ mpg-name }} service, the following limitations apply:
+The {{ mpg-name }} service has the following restrictions:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

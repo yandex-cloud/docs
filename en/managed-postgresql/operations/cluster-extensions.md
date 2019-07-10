@@ -1,30 +1,30 @@
 # Managing {{ PG }} extensions
 
-{{ mpg-short-name }} supports a large number of standard {{ PG }} extensions and some non-standard ones. A full list of available extensions is [ given below](#postgresql).
+{{ mpg-short-name }} supports many standard and some non-standard {{ PG }} extensions. A full list of available extensions is [given below](#postgresql).
 
 ## Getting a list of extensions {#list-extensions}
 
 {% list tabs %}
 
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   To get a list of extensions for a specific database, run the command:
-  
+
   ```
-  $ {{ yc-mdb-pg }} database get <DB name> \
+  $ {{ yc-mdb-pg }} database get <database name> \
        --cluster-name <cluster name>
   ```
-  
+
   The enabled extensions will be listed in the `extensions` list.
-  
+
 - API
-  
+
   To get a list of extensions for the cluster database, use the [get](../api-ref/Database/get.md) method.
-  
+
 {% endlist %}
 
 ## Updating a set of extensions {#update-extensions}
@@ -32,32 +32,32 @@
 {% list tabs %}
 
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
-  To enable or disable {{ PG }} DB extensions, pass the full list of the required extensions in a CLI command. The enabled extensions that aren't in that list will be disabled.
-  
+
+  To enable or disable {{ PG }} database extensions, pass the full list of required extensions in a CLI command. The enabled extensions that aren't in that list will be disabled.
+
   ```
-  $ {{ yc-mdb-pg }} database update <DB name> \
+  $ {{ yc-mdb-pg }} database update <database name> \
        --cluster-name <cluster name>
        --extensions <extension name>=<version>,<extension name>=<version>...
   ```
-  
+
   {% note info %}
 
   The extension version is not considered when handling the command: you can pass any non-empty string as a version.
 
   {% endnote %}
-  
+
 - API
-  
+
   To pass a new list of DB extensions, use the [update](../api-ref/Database/update.md) method.
-  
+
 {% endlist %}
 
-## Supported {{ PG }} extensions {#postgresql}
+## Supported {{ PG }} {#postgresql} extensions
 
 All supported extensions are listed here:
 

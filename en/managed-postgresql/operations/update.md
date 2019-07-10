@@ -6,9 +6,9 @@ After creating a cluster, you can:
 
 * [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-nvme`).
 
-* [Configure the servers](#change-postgresql-config) {{ PG }} as described in the [documentation {{ PG }}](https://www.postgresql.org/docs/current/runtime-config.html).
+* [Configure the {{ PG }} servers](#change-postgresql-config) according to the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config.html).
 
-* [Set the operation mode for the connection pooler](#change-pgbouncer-config).
+* [Set the operation mode for the connection pooler ](#change-pgbouncer-config).
 
 ## Change the host class {#change-resource-preset}
 
@@ -30,19 +30,19 @@ After creating a cluster, you can:
 
   2. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
 
-      ```
-      $ {{ yc-mdb-pg }} resource-preset list
-
-      +-----------+--------------------------------+-------+----------+
-      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
-      +-----------+--------------------------------+-------+----------+
-      | s1.nano   | ru-central1-a, ru-central1-b,  |     1 | 4.0 GB   |
-      |           | ru-central1-c                  |       |          |
-      | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
-      |           | ru-central1-c                  |       |          |
-      | ...                                                           |
-      +-----------+--------------------------------+-------+----------+
-      ```
+     ```
+     $ {{ yc-mdb-pg }} resource-preset list
+     
+     +-----------+--------------------------------+-------+----------+
+     |    ID     |            ZONE IDS            | CORES |  MEMORY  |
+     +-----------+--------------------------------+-------+----------+
+     | s1.nano   | ru-central1-a, ru-central1-b,  |     1 | 4.0 GB   |
+     |           | ru-central1-c                  |       |          |
+     | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
+     |           | ru-central1-c                  |       |          |
+     | ...                                                           |
+     +-----------+--------------------------------+-------+----------+
+     ```
 
   3. Specify the class in the update cluster command:
 
@@ -51,7 +51,7 @@ After creating a cluster, you can:
            --resource-preset <class ID>
       ```
 
-      {{ mpg-short-name }} will run the update host class command for the cluster.
+      {{ mpg-short-name }} launches the operation to change the host class for the cluster.
 
 - API
 
@@ -73,20 +73,11 @@ After creating a cluster, you can:
 
   To increase the storage size for a cluster:
 
-  1. View the description of the CLI's update cluster command:
-
-      ```
-      $ {{ yc-mdb-pg }} cluster update --help
-      ```
-
-  2. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}
-  ) page for your cloud and check that the {{ mpg-full-name }} section still has space remaining in the **space** line.
-
   3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-nvme`:
 
       ```
       $ {{ yc-mdb-pg }} cluster get <cluster name>
-
+      
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
       ...
@@ -99,27 +90,46 @@ After creating a cluster, you can:
       ...
       ```
 
-  4. Specify the required amount of storage in the update cluster command (it must be at least as large as `disk_size` in the cluster properties):
+  1. View the description of the CLI's update cluster command:
+
+     ```
+     $ {{ yc-mdb-pg }} cluster update --help
+     ```
+
+  1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page for your cloud and check that the {{ mpg-full-name section still has space remaining in the **space** line.
+
+  1. Specify the required amount of storage in the update cluster command (it must be at least as large as `disk_size` in the cluster properties):
 
       ```
       $ {{ yc-mdb-pg }} cluster update <cluster name>
            --disk-size <storage size in GB>
       ```
 
-      If all requirements are met, {{ mpg-short-name }} runs the operation to increase the storage size.
+      If all these conditions are met, {{ mpg-short-name }} launches the operation to increase storage space.
 
 - API
 
   You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.postgresqlConfig_<version>.resources.diskSize`.
 
-  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}
-  ) page for your cloud and check that the {{ mpg-full-name }} section still has space remaining in the **space** line.
+  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page for your cloud and check that the {{ mpg-full-name section still has space remaining in the **space** line.
 
 {% endlist %}
 
 ## Changing {{ PG }} settings {#change-postgresql-config}
 
-You can change the DBMS settings of the hosts in your cluster. All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
+You can change the DBMS settings for the hosts in your cluster, both the default ones and those changing with the host class.
+
+After [changing the host class](#change-resource-preset), {{ mpg-short-name }} automatically changes the following settings (if they weren't set manually):
+
+- `max_connections`
+- `shared_buffers`
+- `min_wal_size`
+- `max_wal_size`
+- `autovacuum_max_workers`
+- `autovacuum_vacuum_cost_delay`
+- `autovacuum_vacuum_cost_limit`
+
+The settings you set manually will no longer change automatically. Exceptions can occur if the set value does not become invalid as you change the host class: for example, it's impossible to set `max_connections` to 400 and then change the cluster's host class to `s1.nano` (for more information about the maximum number of connections, see [#T](cluster-create.md).
 
 {% list tabs %}
 
@@ -130,6 +140,12 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To change {{ PG }} server settings:
+
+  1. View the full list of settings specified for the cluster:
+
+     ```
+     $ {{ yc-mdb-pg }} cluster get <cluster name> --full
+     ```
 
   1. View the description of the CLI's update cluster configuration command:
 
@@ -146,7 +162,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
            --set log_min_duration_statement=100,<parameter name>=<value>,...
       ```
 
-      {{ mpg-short-name }} will run the operation for changing the cluster settings.
+      {{ mpg-short-name }} launches the operation to change the cluster settings.
 
 - API
 
@@ -181,7 +197,7 @@ You can set one of the modes described in the [PgBouncer documentation](https://
            --connection-pooling-mode <SESSION, TRANSACTION or STATEMENT>
       ```
 
-      {{ mpg-short-name }} runs the operation for changing the connection pooler mode.
+      {{ mpg-short-name }} launches the operation to change the connection pooler mode.
 
 - API
 
