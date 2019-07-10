@@ -16,7 +16,7 @@
 
 **{{ mmg-name }}**
 
-- Команды  `yc managed-clickhouse cluster update` и `yc managed-clickhouse cluster update-config`.
+- Команды  `{{ yc-mdb-mg }} cluster update` и `{{ yc-mdb-mg }} cluster update-config`.
 
     Для [шардированных](../managed-mongodb/concepts/sharding.md) клаcтеров появилась возможность изменять параметры компонентов `mongos` и `mongocfg`.
 
@@ -50,7 +50,7 @@
 
 **{{ mch-name }}**
 
-- Команды `yc managed-clickhouse user create` и `yc managed-clickhouse user update`. 
+- Команды `{{ yc-mdb-ch }} user create` и `{{ yc-mdb-ch }} user update`. 
 
     Добавлен флаг `--settings`, позволяющий задать пользовательские настройки.
 
@@ -96,7 +96,7 @@
 
 **Все сервисы управляемых БД**
 
-- Команда `yc <имя базы данных> cluster get <имя кластера>`.
+- Команда `yc <имя базы данных> cluster get`.
 
     Улучшен вывод информации о кластере.
 
@@ -106,11 +106,11 @@
 
 **{{ mch-name }}**
 
-- Команда `yc managed-clickhouse cluster add-zookeeper <имя кластера>`.
+- Команда `{{ yc-mdb-ch }} cluster add-zookeeper`.
 
     Добавлена возможность добавлять хосты ZooKeeper.
 
-- Команда: `yc managed-clickhouse shards add`.
+- Команда: `{{ yc-mdb-ch }} shards add`.
 
     Изменена логика создания шардов:
     - Если не указан флаг `--host`, параметры для шарда копируются из самого старого шарда.
