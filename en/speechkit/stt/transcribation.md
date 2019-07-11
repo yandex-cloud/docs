@@ -86,7 +86,7 @@ Use this ID at the next step.
 
 ## Get recognition results
 
-[Monitor the recognition results](../../api-design-guide/concepts/operation.md#monitoring) using the received ID. The number of result monitoring requests is [limited](../concepts/limits.md#stt-long), so consider the recognition speed: it takes about 10 seconds to recognize 1 minute of single-channel audio.
+[Monitor the recognition results](../../api-design-guide/concepts/operation.md#monitoring) using the received ID. The number of result monitoring requests is [limited](../concepts/limits.md), so consider the recognition speed: it takes about 10 seconds to recognize 1 minute of single-channel audio.
 
 {% note important %}
 

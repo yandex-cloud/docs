@@ -8,13 +8,4 @@ editable: false
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-#### Квоты {#quotas}
-Вид ограничения | Значение
------ | -----
-Вызовов одного метода API в секунду | 20
-Символов, отправленных на перевод, в час | 1 млн
-Символов, отправленных на определение языка, в час | 1 млн
-
-#### Лимиты {#limits}
-
-Лимиты в сервисе отсутствуют. Ограничения на значения полей в теле запроса см. в [справочнике API](api-ref/Translation/).
+{% include [translate-limits](../../_includes/translate-limits.md) %}

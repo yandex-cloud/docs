@@ -48,3 +48,14 @@ Quotas and limits for Yandex.Cloud services during the trial period are listed b
 
 {% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
 
+### {{ speechkit-full-name }} {#speechkit}
+
+{% include [speechkit](../../_includes/speechkit-limits.md) %}
+
+### {{ translate-full-name }} {#translate}
+
+{% include [translate](../../_includes/translate-limits.md) %}
+
+### {{ vision-full-name }} {#vision}
+
+{% include [vision](../../_includes/vision-limits.md) %}
