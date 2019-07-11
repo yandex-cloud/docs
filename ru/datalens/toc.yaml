@@ -30,10 +30,12 @@ items:
             href: operations/connection/create-postgresql.md
           - name: Создание подключения к MS SQL Server
             href: operations/connection/create-mssql-server.md
-          - name: Создание подключения к Metrika API
-            href: operations/connection/create-metrika-api.md
-          - name: Создание подключения к Metrika Logs API
-            href: operations/connection/create-metrika-logs-api.md
+          - name: Создание подключения к Metrica API
+            href: operations/connection/create-metrica-api.md
+          - name: Создание подключения к Metrica Logs API
+            href: operations/connection/create-metrica-logs-api.md
+          - name: Создание подключения к AppMetrica
+            href: operations/connection/create-appmetrica.md
           - name: Управление доступом к подключению
             href: operations/connection/manage-access.md
       - name: Датасет

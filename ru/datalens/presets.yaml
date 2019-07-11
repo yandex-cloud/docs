@@ -17,6 +17,6 @@ default:
   roles-read: read
 
   # DataLens
-  datalens-full-name: Yandex Datalens
+  datalens-full-name: Yandex DataLens
   datalens-name: DataLens
   datalens-short-name: DataLens

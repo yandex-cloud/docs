@@ -17,6 +17,7 @@ _Коннектор_ — это компонент сервиса {{ datalens-sh
 - **MS SQL Server**
 - **Metrica**
 - **Metrica Logs API**
+- **AppMetrica**
 
 {% include [connection-note](../../_includes/datalens/datalens-connection-note.md) %}
 
@@ -30,6 +31,6 @@ _Коннектор_ — это компонент сервиса {{ datalens-sh
 - [#T](../operations/connection/create-mysql.md)
 - [#T](../operations/connection/create-postgresql.md)
 - [#T](../operations/connection/create-mssql-server.md)
-- [#T](../operations/connection/create-metrika-api.md)
-- [#T](../operations/connection/create-metrika-logs-api.md)
-
+- [#T](../operations/connection/create-metrica-api.md)
+- [#T](../operations/connection/create-metrica-logs-api.md)
+- [#T](../operations/connection/create-appmetrica.md)

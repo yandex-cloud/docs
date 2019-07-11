@@ -7,8 +7,9 @@
 - [#T](connection/create-mysql.md)
 - [#T](connection/create-postgresql.md)
 - [#T](connection/create-mssql-server.md)
-- [#T](connection/create-metrika-api.md)
-- [#T](connection/create-metrika-logs-api.md)
+- [#T](connection/create-metrica-api.md)
+- [#T](connection/create-metrica-logs-api.md)
+- [#T](connection/create-appmetrica.md)
 - [#T](connection/manage-access.md)
 
 ## Работа с датасетом
@@ -31,4 +32,5 @@
 
 - [#T](dashboard/create.md)
 - [#T](dashboard/add-chart.md)
+- [#T](dashboard/add-selector.md)
 - [#T](dashboard/manage-access.md)
