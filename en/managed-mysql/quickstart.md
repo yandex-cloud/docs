@@ -1,4 +1,4 @@
-# How to get started with {{ mmy-short-name }}<sup>®</sup>
+# How to get started with Managed Service for MySQL<sup>®</sup>
 
 To use the service, create a cluster and connect to a DBMS:
 
@@ -14,19 +14,19 @@ Follow the instructions below to quickly create a cluster and test your connecti
 
 1. In the management console, select the folder where you want to create a DB cluster.
 
-1. Click **{{ mmy-name }}**.
+1. Click **Managed Service for MySQL**.
 
 1. Click **Create cluster** and select the necessary DBMS.
 
 1. Set the cluster parameters and click **Create cluster**. The process is described in detail in the section [#T](operations/cluster-create.md).
 
-1. When the cluster is ready to operate, its status on the {{ mmy-short-name }} dashboard will change to **RUNNING**.
+1. When the cluster is ready to operate, its status on the Managed Service for MySQL dashboard will change to **RUNNING**.
 
 1. To connect to the DB server, an SSL certificate is required. You can prepare all the necessary authentication data as follows:
 
     ```bash
     $ mkdir ~/.mysql
-    $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
+    $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mysql/root.crt
     $ chmod 0600 ~/.mysql/root.crt
     ```
 

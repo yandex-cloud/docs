@@ -25,8 +25,8 @@ items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
     include:
-      repo: docs-api
-      path: ru/k8s/toc.yaml
+      repo: docs
+      path: ru/_api-ref/k8s/toc.yaml
 
 
 

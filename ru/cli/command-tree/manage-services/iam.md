@@ -1,6 +1,6 @@
 # yc iam
 
-Управление ресурсами {{ iam-full-name }}.
+Управление ресурсами Yandex Identity and Access Management.
 
 #### Использование команды
 

@@ -1,26 +1,26 @@
-# Creating a {{ RD }} cluster
+# Creating a Redis cluster
 
-A {{ RD }} cluster is one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
+A Redis cluster is one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
 
-The number of hosts that can be created together with a {{ RD }} cluster depends on the host type selected:
+The number of hosts that can be created together with a Redis cluster depends on the host type selected:
 
 * In a cluster with **high-memory** hosts, you can create an unlimited number of hosts (from 1 to the current maximum [quota](../concepts/limits.md)).
 
 * In a cluster with **burstable** hosts, you can create only one host.
 
-## How to create a {{ RD }} cluster {#create-cluster}
+## How to create a Redis cluster {#create-cluster}
 
 {% list tabs %}
 
 - Management console
   
   1. In the management console, select the folder where you want to create a DB cluster.
-  1. Click **{{ mrd-name }}**.
+  1. Click **Managed Service for Redis**.
   1. Click **Create cluster** and select the necessary DBMS.
   1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the Cloud.
   1. Select the environment where you want to create the cluster (you cannot change the environment after cluster creation):
       - <q>production</q> — for stable versions of your apps.
-      - <q>prestable</q> — to perform testing, including that of the {{ mrd-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner in it, but this may cause backward incompatible changes.
+      - <q>prestable</q> — to perform testing, including that of the Managed Service for Redis service itself. The prestable environment is updated more often, which means that known problems are fixed sooner in it, but this may cause backward incompatible changes.
   1. Select the DBMS version.
   1. In the **Host class** section:
       - Select the host type: it determines the [performance](../../compute/concepts/performance-levels) level of the processor cores. **High-memory** hosts allow full core usage, whereas **burstable** hosts only a portion.
@@ -47,24 +47,24 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
      $ yc vpc subnet list
      ```
   
-     If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in the {{ vpc-short-name }} service.
+     If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in the VPC service.
   
   1. See the description of the CLI's create cluster command:
   
       ```
-      $ {{ yc-mdb-rd }} cluster create --help
+      $ yc managed-redis cluster create --help
       ```
   
   1. View available host classes:
   
      ```
-     $ {{ yc-mdb-rd }} resource-preset list
+     $ yc managed-redis resource-preset list
      ```
   
   1. Specify the cluster parameters in the create command (only some of the supported flags are given in the example):
   
       ```bash
-      $ {{ yc-mdb-rd }} cluster create \
+      $ yc managed-redis cluster create \
          --name <cluster name> \
          --environment <prestable or production> \
          --network-name <network name> \
@@ -84,7 +84,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
 To create a cluster with a single host, you should pass a single parameter, `--host`.
 
-Let's say we need to create a {{ RD }} cluster with the following characteristics:
+Let's say we need to create a Redis cluster with the following characteristics:
 
 - Named `myredis`.
 - In the `production` environment.
@@ -96,7 +96,7 @@ Let's say we need to create a {{ RD }} cluster with the following characteristic
 Run the command:
 
 ```
-$ {{ yc-mdb-rd }} cluster create \
+$ yc managed-redis cluster create \
      --name myredis \
      --environment production \
      --network-name default \

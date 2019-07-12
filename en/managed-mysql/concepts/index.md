@@ -1,6 +1,6 @@
 # Relationship between service resources
 
-The main entity used in {{ mmy-name }} is a _database cluster_.
+The main entity used in Managed Service for MySQL is a _database cluster_.
 
 Each cluster consists of one or more _database hosts_, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones and even different availability regions. [Learn more about the Cloud geography](../../overview/concepts/geo-scope.md).
 

@@ -1,6 +1,6 @@
-# Ограничения {{ mrd-name }}
+# Ограничения Managed Service for Redis
 
-{{ mrd-name }} позволяет выполнять [любые команды Redis](https://redis.io/commands), кроме следующих:
+Managed Service for Redis позволяет выполнять [любые команды Redis](https://redis.io/commands), кроме следующих:
 
 - `BGREWRITEAOF`
 - `BGSAVE`

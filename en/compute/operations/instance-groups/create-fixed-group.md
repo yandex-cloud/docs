@@ -21,7 +21,7 @@ To create a fixed-size instance group:
   1. See the description of the CLI's create instance group command:
   
       ```
-      $ {{ yc-compute-ig }} create --help
+      $ yc compute instance-group create --help
       ```
   
   1. Check whether there are networks in the folder:
@@ -30,7 +30,7 @@ To create a fixed-size instance group:
       $ yc vpc network list
       ```
   
-      If there aren't any, [create the necessary networks](../../../vpc/operations/subnet-create.md) in the {{ vpc-short-name }} service.
+      If there aren't any, [create the necessary networks](../../../vpc/operations/subnet-create.md) in the VPC service.
   
   1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) (for example, CentOS 7).
   
@@ -142,7 +142,7 @@ To create a fixed-size instance group:
   1. Create an instance group in the default folder:
   
       ```
-      $ {{ yc-compute-ig }} create --file template.yaml
+      $ yc compute instance-group create --file template.yaml
       ```
   
       This command creates a group of three similar instances with the following characteristics:
@@ -155,7 +155,7 @@ To create a fixed-size instance group:
   
 - API
   
-  Use the [create](../../api-ref/InstanceGroup/create.md) API method.
+  Use the [create](../../../_api-ref/compute/api-ref/InstanceGroup/create.md) API method.
   
   
 {% endlist %}

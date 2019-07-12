@@ -5,7 +5,7 @@ description:
 # Мета-информация title, description, keywords и т.п.
 meta:
   title: "Yandex Managed Service for ClickHouse"
-# Блок с ссылками
+# Блок со ссылками
 links:
 - title: "Начало работы"
   description: "Создайте первый кластер баз данных"

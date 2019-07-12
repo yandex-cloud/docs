@@ -46,7 +46,7 @@ To work with Object Storage and create resources in the cloud, you need to creat
 1. Get a list of service accounts and their IDs using the `yc iam service-account list` command. Assign the `ad-sa` service account the `editor` role in the folder where operations will be performed:
 
    ```
-   $ yc resource-manager folder add-access-binding <folder_name> \
+   $ yc resource-manager folder add-access-binding <folder_name> \ 
      --role editor \
      --subject serviceAccount:<service account ID>
    ```

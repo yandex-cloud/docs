@@ -1,4 +1,4 @@
-# Пошаговые инструкции для {{ mpg-name }}
+# Пошаговые инструкции для Managed Service for PostgreSQL
 
 - [#T](cluster-list.md)
 - [#T](cluster-create.md)

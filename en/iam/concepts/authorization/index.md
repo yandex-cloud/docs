@@ -56,7 +56,7 @@ Before authorization, a user must get authenticated, i.e., log in under their ac
   
       [Instructions for how to get an API key](../../operations/api-key/create.md).
   
-  * Using [static access keys](access-key.md). This method should be used in services with an AWS-compatible API, such as {{ objstorage-name }} and {{ message-queue-name }}.
+  * Using [static access keys](access-key.md). This method should be used in services with an AWS-compatible API, such as Object Storage and Message Queue.
   
       [Instructions for how to get a static access key](../../operations/sa/create-access-key.md).
   

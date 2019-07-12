@@ -38,7 +38,7 @@ Instructions for how to create [static access keys](../../concepts/users/service
   
       ```
       $ yc iam access-key create --service-account-name my-robot
-  
+      
       access_key:
         id: aje6t3vsbj8lp9r4vk2u
         service_account_id: ajepg0mjt06siuj65usm
@@ -87,6 +87,6 @@ Add a description when creating an access key.
 
 #### What's next
 
-- [Customize tools to work with {{ objstorage-name }}](../../../storage/instruments/)
+- [Customize tools to work with Object Storage](../../../storage/instruments/)
 - [#T](assign-role-for-sa.md)
 

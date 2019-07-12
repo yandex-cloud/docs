@@ -20,31 +20,42 @@ Technical support is provided in full during the trial period. For more informat
 
 Quotas and limits for Yandex.Cloud services during the trial period are listed below.
 
-### {{ resmgr-full-name }} {#resource-manager}
+### Yandex Resource Manager {#resource-manager}
 
 {% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
 
-### {{ compute-full-name }} {#compute}
+### Yandex Compute Cloud {#compute}
 
 {% include [compute-limits.md](../../_includes/compute-limits.md) %}
 
-### {{ objstorage-full-name }} {#storage}
+### Yandex Object Storage {#storage}
 
 {% include [storage-limits.md](../../_includes/storage-limits.md) %}
 
-### {{ vpc-full-name }} {#vpc}
+### Yandex Virtual Private Cloud {#vpc}
 
 {% include [vpc-limits.md](../../_includes/vpc-limits.md) %}
 
-### {{ mch-full-name }} {#mdb}
+### Yandex Managed Service for ClickHouse {#mdb}
 
 {% include [mch-limits.md](../../_includes/mdb/mch-limits.md) %}
 
-### {{ mmg-full-name }} {#mdb}
+### Yandex Managed Service for MongoDB {#mdb}
 
 {% include [mmg-limits.md](../../_includes/mdb/mmg-limits.md) %}
 
-### {{ mpg-full-name }} {#mdb}
+### Yandex Managed Service for PostgreSQL {#mdb}
 
 {% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
 
+### Yandex SpeechKit {#speechkit}
+
+{% include [speechkit](../../_includes/speechkit-limits.md) %}
+
+### Yandex Translate {#translate}
+
+{% include [translate](../../_includes/translate-limits.md) %}
+
+### Yandex Vision {#vision}
+
+{% include [vision](../../_includes/vision-limits.md) %}

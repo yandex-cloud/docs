@@ -135,9 +135,9 @@ To grant a user access to all the cloud resources, assign them a [role](../../..
   The `add-access-binding` command allows you to add only one role. You can assign multiple roles using the `set-access-binding` command.
   
   {% note alert %}
-  
+
   The `set-access-binding` command completely rewrites the access rights to the resource. All current resource roles will be deleted.
-  
+
   {% endnote %}
   
   1. Make sure the resource doesn't have any roles that you don't want to lose:
@@ -185,9 +185,9 @@ To grant a user access to all the cloud resources, assign them a [role](../../..
   You can also assign roles using the [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md) method.
   
   {% note alert %}
-  
+
   The `setAccessBindings` method completely rewrites the access rights to the resource. All current resource roles will be deleted.
-  
+
   {% endnote %}
   
   ```bash

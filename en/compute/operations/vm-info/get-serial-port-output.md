@@ -1,4 +1,4 @@
-# Getting serial port output
+# Viewing serial port output
 
 You can get the information that the VM outputs to the serial port. This can be useful for troubleshooting.
 
@@ -7,7 +7,7 @@ You can get the information that the VM outputs to the serial port. This can be 
 - Management console
   
   1. Select the folder the VM belongs to.
-  1. Click on the **Compute Cloud** tile.
+  1. Select **Compute Cloud**.
   1. Click on the line with the VM you need.
   1. Go to the **Serial port** tab.
   
@@ -33,7 +33,7 @@ You can get the information that the VM outputs to the serial port. This can be 
   
 - API
   
-  To get the serial port output, use the [getSerialPortOutput](../../api-ref/Instance/getSerialPortOutput.md) method of the [Instance](../../api-ref/Instance/index.md) resource.
+  To get the serial port output, use the [getSerialPortOutput](../../../_api-ref/compute/api-ref/Instance/getSerialPortOutput.md) method of the [Instance](../../../_api-ref/compute/api-ref/Instance/index.md) resource.
   
 {% endlist %}
 

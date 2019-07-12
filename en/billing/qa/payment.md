@@ -43,7 +43,7 @@ If you upgraded to the paid version and used Yandex.Cloud services, do the follo
 
 1. Settle your arrears (if any).
 1. Delete all billable service resources.
-1. Contact [technical support](https://cloud.yandex.ru/support) to deactivate your account.
+1. Contact [technical support](https://cloud.yandex.com/support) to deactivate your account.
 
 #### Will you provide an agreement for the provision and payment of services? {#oferta}
 

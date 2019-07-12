@@ -33,7 +33,7 @@ This section describes how to assign a role for a user's account on Yandex. The 
       * `<RESOURCE>` is the resource category, for example `cloud`.
       * `<RESOURCE-NAME>` is the name of the resource. You can specify a resource by its name or identifier.
       * `<RESOURCE-ID>` is the resource identifier.
-      * `<ROLE-ID>` is the identifier of the role (for example, `{{ roles-cloud-owner }}`).
+      * `<ROLE-ID>` is the identifier of the role (for example, `resource-manager.clouds.owner`).
       * `<USER-ACCOUNT-ID>` is the identifier of the user account assigned the role.
   
       For example, assign the `viewer` role for the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
@@ -103,9 +103,9 @@ This section describes how to assign a role for a user's account on Yandex. The 
   The `add-access-binding` command allows you to add only one role. You can assign multiple roles using the `set-access-binding` command.
   
   {% note alert %}
-  
+
   The `set-access-binding` command completely rewrites the access rights to the resource. All current resource roles will be deleted.
-  
+
   {% endnote %}
   
   For example, to assign multiple roles for a folder:
@@ -160,9 +160,9 @@ This section describes how to assign a role for a user's account on Yandex. The 
   You can also assign roles using the `setAccessBindings` method.
   
   {% note alert %}
-  
+
   The `setAccessBindings` method completely rewrites the access rights to the resource. All current resource roles will be deleted.
-  
+
   {% endnote %}
   
   1. List new access bindings in the request body.

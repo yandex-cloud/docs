@@ -2,11 +2,13 @@
 editable: false
 ---
 
-# Правила тарификации для {{ translate-name }}
+# Правила тарификации для Translate
+
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## Из чего складывается стоимость использования {{ translate-short-name }} {#rules}
+## Из чего складывается стоимость использования Translate {#rules}
 
 
 ### Использование перевода и определения языка текста {#rules-translate-detect}

@@ -2,6 +2,7 @@
 
 ## Облако
 
+- [#T](cloud/create.md)
 - [#T](cloud/set-access-bindings.md)
 - [#T](cloud/switch-cloud.md)
 

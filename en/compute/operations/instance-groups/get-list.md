@@ -7,7 +7,7 @@ To get a list of instance groups:
 - Management console
   
   1. Open the folder page in the management console.
-  1. Select **{{ compute-full-name }}**.
+  1. Select **Yandex Compute Cloud**.
   1. On the **Virtual machines** page, go to the **Instance groups** tab.
   
 - CLI
@@ -19,7 +19,7 @@ To get a list of instance groups:
   1. See the description of the CLI's use instance group command:
   
       ```
-      $ {{ yc-compute-ig }} --help
+      $ yc compute instance-group --help
       ```
   
   1. Get a list of instance groups in the default folder:
@@ -28,9 +28,9 @@ To get a list of instance groups:
   
 - API
   
-  Use the [list](../../api-ref/InstanceGroup/list.md) API method.
+  Use the [list](../../../_api-ref/compute/api-ref/InstanceGroup/list.md) API method.
   
-  To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
+  To request a list of available groups, use the [listInstances](../../../_api-ref/compute/api-ref/InstanceGroup/listInstances.md) method.
   
 {% endlist %}
 

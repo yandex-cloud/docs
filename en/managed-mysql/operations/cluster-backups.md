@@ -6,13 +6,13 @@ You can create backups and restore clusters from existing backups.
 
 When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
 
-For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ CH }} backup cannot be restored as a {{ MY }} cluster).
+For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a ClickHouse backup cannot be restored as a MySQL cluster).
 
 {% list tabs %}
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and click **Managed Service for MySQL**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
   1. Click ![image](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
   
@@ -24,7 +24,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and click **Managed Service for MySQL**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
   1. Click **Create a backup**.
   
@@ -36,7 +36,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and click **Managed Service for MySQL**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
   
 {% endlist %}
@@ -47,7 +47,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and click **Managed Service for MySQL**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
   
 {% endlist %}

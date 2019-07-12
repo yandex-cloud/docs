@@ -8,7 +8,7 @@ To switch the master:
 
 - Management console
   
-  1. Go to the folder page and click **{{ mrd-name }}**.
+  1. Go to the folder page and click **Managed Service for Redis**.
   1. Select the appropriate cluster from the list.
   1. Open the **Hosts** tab.
   1. Click **Switch master**.

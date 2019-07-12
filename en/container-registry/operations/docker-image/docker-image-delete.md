@@ -1,5 +1,11 @@
 # Deleting a Docker image from a registry
 
+{% note alert %}
+
+Deleting a Docker image is a deferred action operation: when you delete a Docker image, its layers are physically removed **in 1 hour**. Information about the total size of the registry is also updated in 1 hour.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console

@@ -14,14 +14,14 @@ To set up a static website on Joomla:
 
 Before creating a VM and a DB cluster:
 
-1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.com) and select the folder where you want to perform the operations.
+1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.com/) and select the folder where you want to perform the operations.
 1. Make sure the selected folder has a network with subnets in the availability zones `ru-cental1-a`, `ru-central1-b`, and `ru-central1-c`. To do this, click the **Virtual Private Cloud** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
 ## 1. Create a VM for Joomla {#create-vm}
 
 To create a VM:
 
-1. On the folder page of the [management console](https://console.cloud.yandex.com), click **Create resource** and select **Virtual machine**.
+1. On the folder page of the [management console](https://console.cloud.yandex.com/), click **Create resource** and select **Virtual machine**.
 
 1. In the **Name** field, enter the VM name: `joomla-pg-tutorial-web`.
 
@@ -71,7 +71,7 @@ Creating the DB cluster may take several minutes.
 
 After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the following:
 
-1. Go to the VM page of the [management console](https://console.cloud.yandex.com). In the **Network** section, find the VM's public IP address.
+1. Go to the VM page of the [management console](https://console.cloud.yandex.com/). In the **Network** section, find the VM's public IP address.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
@@ -93,7 +93,7 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
     {% list tabs %}
 
     - Ubuntu 14
-  
+
       ```bash
       $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
       $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -104,9 +104,9 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
       $ sudo chmod 0600 ~www-data/.postgresql/root.crt
       $ sudo chown -R www-data:www-data ~www-data/.postgresql
       ```
-  
+
     - Ubuntu 16
-  
+
       ```bash
       $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
       $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -117,9 +117,9 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
       $ sudo chmod 0600 ~www-data/.postgresql/root.crt
       $ sudo chown -R www-data:www-data ~www-data/.postgresql
       ```
-  
+
     - Ubuntu 18
-  
+
       ```bash
       $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
       $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -130,9 +130,9 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
       $ sudo chmod 0600 ~www-data/.postgresql/root.crt
       $ sudo chown -R www-data:www-data ~www-data/.postgresql
       ```
-  
+
     - CentOS 6
-  
+
       ```bash
       $ sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-6-x86_64/pgdg-centos10-10-2.noarch.rpm
       $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
@@ -143,9 +143,9 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
       $ sudo chmod 0600 ~apache/.postgresql/root.crt
       $ sudo chown -R apache:apache ~apache/.postgresql
       ```
-  
+
     - CentOS 7
-  
+
       ```bash
       $ sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
       $ sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
@@ -156,7 +156,7 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
       $ sudo chmod 0600 ~apache/.postgresql/root.crt
       $ sudo chown -R apache:apache ~apache/.postgresql
       ```
-  
+
     {% endlist %}
 
 ## 4. Configure Apache2 web server {#configure-apache2}
@@ -166,7 +166,7 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
    {% list tabs %}
 
    - Ubuntu 14
-  
+
      ```bash
      $ sudo a2enmod php5
      $ sudo a2dismod mpm_event
@@ -174,9 +174,9 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
      $ sudo a2enmod rewrite
      $ sudo chown -R www-data /var/www/html/
      ```
-  
+
    - Ubuntu 16
-  
+
      ```bash
      $ sudo a2enmod php7.0
      $ sudo a2dismod mpm_event
@@ -184,9 +184,9 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
      $ sudo a2enmod rewrite
      $ sudo chown -R www-data /var/www/html/
      ```
-  
+
    - Ubuntu 18
-  
+
      ```bash
      $ sudo a2enmod php7.2
      $ sudo a2dismod mpm_event
@@ -194,13 +194,13 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
      $ sudo a2enmod rewrite
      $ sudo chown -R www-data /var/www/html/
      ```
-  
+
    - CentOS
-  
+
      ```bash
      $ sudo chown -R apache /var/www/html/
      ```
-  
+
    {% endlist %}
 
 1. Specify the virtual host settings in the Apache2 configuration file. You can edit the file using the `nano` editor:
@@ -208,17 +208,17 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
    {% list tabs %}
 
    - Ubuntu
-  
+
      ```bash
      $ sudo nano /etc/apache2/sites-enabled/000-default.conf
      ```
-  
+
    - CentOS
-  
+
      ```bash
      $ sudo nano /etc/httpd/conf.d/joomla.conf
      ```
-  
+
    {% endlist %}
 
    Make the file look like:
@@ -243,17 +243,17 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
    {% list tabs %}
 
    - Ubuntu
-  
+
      ```bash
      $ sudo service apache2 restart
      ```
-  
+
    - CentOS
-  
+
      ```bash
      $ sudo service httpd restart
      ```
-  
+
    {% endlist %}
 
 1. This step should only be performed on a VM running CentOS.
@@ -286,7 +286,7 @@ During the configuration process, you'll need the DB connection settings. To get
 
 1. Get the addresses of the DB cluster hosts in the management console:
     1. Open the folder where the DB cluster was created.
-    1. Click on **{{ mpg-name }}**.
+    1. Click on **Managed Service for PostgreSQL**.
     1. Select the cluster `joomla-pg-tutorial-db-cluster`.
     1. Open the **Hosts** tab.
     1. In the **Address (domain name)** column, find the host addresses.

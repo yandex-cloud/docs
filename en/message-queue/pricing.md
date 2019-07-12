@@ -1,7 +1,7 @@
 ---
 editable: false
 ---
-# Pricing policy for {{ message-queue-name }}
+# Pricing policy for Message Queue
 
 ## What goes into the cost of using Message Queue
 
@@ -26,5 +26,9 @@ When using Yandex Message Queue, you are charged for the requests to [standard](
   Requests to FIFO queues | ₽38.22
   
 {% endlist %}
+
+You are charged for an actual number of requests. E.g., the cost of 1000 requests to standard queue will be `$0,000390769`.
+
+Every 64 KB of request data are charged as a separate request. E.g., a request with a 63 KB size will be charged as one request, and a request with a 65 KB (64 + 1) size will be charged as two requests.
 
 {% include [pricing-egress-traffic.md](../_includes/pricing/pricing-egress-traffic.md) %}

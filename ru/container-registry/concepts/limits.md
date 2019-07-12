@@ -1,6 +1,6 @@
 # Квоты и лимиты
 
-В сервисе {{ container-registry-full-name }} действуют следующие ограничения:
+В сервисе Yandex Container Registry действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

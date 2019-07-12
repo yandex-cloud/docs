@@ -4,7 +4,7 @@ When using the service, you pay for the traffic from the Cloud to the internet. 
 
 The minimum charging unit is 1 MB.
 
-| Resource category | Cost of 1 GB, without VAT | Cost of 1 GB, incl. VAT |
+| Resource category | Cost of 1 GB without VAT | Cost of 1 GB with VAT |
 | ----- | ----- | ----- |
 | Outgoing traffic | 1.2712 ₽ | 1.5000 ₽ |
 

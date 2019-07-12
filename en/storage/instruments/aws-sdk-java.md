@@ -24,7 +24,7 @@ Install SDK 1.11.336 or higher.
 
 For sample code, see `aws-java-sdk/samples/AmazonS3` in the archive with the SDK distribution package.
 
-To connect to {{ objstorage-name }}, the code in the example should be replaced
+To connect to Object Storage, the code in the example should be replaced
 
 ```cpp
 AmazonS3 s3 = AmazonS3ClientBuilder.standard()
@@ -40,7 +40,7 @@ AmazonS3 s3 = AmazonS3ClientBuilder.standard()
     .withCredentials(new AWSStaticCredentialsProvider(credentials))
     .withEndpointConfiguration(
         new AmazonS3ClientBuilder.EndpointConfiguration(
-            "{{ s3-storage-host }}","us-east-1"
+            "storage.yandexcloud.net","us-east-1"
         )
     )
     .build();

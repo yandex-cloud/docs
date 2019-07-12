@@ -1,4 +1,4 @@
-# Getting started with {{ mch-short-name }}
+# Getting started with Managed Service for ClickHouse
 
 To use the service, create a cluster and connect to a DBMS:
 
@@ -14,16 +14,16 @@ To use the service, create a cluster and connect to a DBMS:
 
 3. In the management console, select the folder where you want to create a DB cluster.
 
-1. Click **Create resource** and select **Cluster {{ CH }}**.
+1. Click **Create resource** and select **Cluster ClickHouse**.
 
 2. Set the cluster parameters and click **Create cluster**. The process is described in detail in the section [#T](operations/cluster-create.md).
 
-3. When the cluster is ready to operate, its status on the {{ mch-name }} dashboard will change to **RUNNING**.
+3. When the cluster is ready to operate, its status on the Managed Service for ClickHouse dashboard will change to **RUNNING**.
 
 4. To connect to the DB server, an SSL certificate is required. Download it:
 
     ```bash
-    $ wget "https://{{ s3-storage-host }}{{ pem-path }}"
+    $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem"
     ```
 
 5. Send a request specifying the path to the received SSL certificate, database attributes, and the request text in urlencoded format:

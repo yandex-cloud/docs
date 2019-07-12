@@ -5,8 +5,8 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
 ![image](../_assets/billing-cycle-individual.svg)
 
 1. You [activate the paid version](../operations/activate-commercial.md) before the end of the trial period.
-
-   {% include [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md) %}
+   
+   {% include [billing-how-to-use-grant](../../_includes/billing-how-to-use-grant.md) %} 
 
 1. If you are awarded a grant, you use it. The grant amount is reduced as the resources of Yandex.Cloud services are consumed.
 

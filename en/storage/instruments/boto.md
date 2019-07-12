@@ -27,7 +27,7 @@ To install boto, use the instructions in the developer's repository: [boto3](htt
   session = boto3.session.Session()
   s3 = session.client(
       service_name='s3',
-      endpoint_url='https://{{ s3-storage-host }}'
+      endpoint_url='https://storage.yandexcloud.net'
   )
   
   # Creating a bucket

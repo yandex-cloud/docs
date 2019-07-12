@@ -1,4 +1,4 @@
-# Пошаговые инструкции для {{ mrd-name }}<sup>®</sup>
+# Пошаговые инструкции для Managed Service for Redis<sup>®</sup>
 
 - [#T](cluster-list.md)
 - [#T](cluster-create.md)

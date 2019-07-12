@@ -1,6 +1,6 @@
 # get method
 
-Returns a bucket's object lifecycle configuration from {{ objstorage-name }}.
+Returns a bucket's object lifecycle configuration from Object Storage.
 
 ## Request {#request}
 
@@ -32,7 +32,7 @@ A response can only contain [common response headers](../common-response-headers
 
 ### Response codes {#response-codes}
 
-If there is no configuration, {{ objstorage-name }} returns error code 404 `NoSuchLifecycleConfiguration`.
+If there is no configuration, Object Storage returns error code 404 `NoSuchLifecycleConfiguration`.
 
 For a list of other possible responses, see [#T](../response-codes.md).
 

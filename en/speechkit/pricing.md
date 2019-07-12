@@ -1,11 +1,13 @@
 ---
 editable: false
 ---
-# Pricing for {{ speechkit-name }}
+# Pricing for SpeechKit
+
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of use for {{ speechkit-short-name }} {#rules}
+## What goes into the cost of using SpeechKit {#rules}
 
 ### Speech synthesis use {#rules-tts}
 
@@ -51,24 +53,24 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio that
 | 15.5 seconds | 2 | 16 |
 | 15.5 seconds | 4 | 32 |
 
-## Pricing {#prices}
+## Prices {#prices}
 
 ### Speech synthesis {#prices-tts}
 
 {% list tabs %}
 
 - Prices in USD
-  
+
   | Service | Rate for 1 million characters, without VAT |
   | ----- | ----- |
   | Speech synthesis | $2.346805 |
-  
+
 - Prices in roubles
-  
+
   | Service | Rate per 1 million characters,<br/>with VAT |
   | ----- | ----- |
   | Speech synthesis | ₽183.0508 |
-  
+
 {% endlist %}
 
 ### Speech recognition {#prices-stt}
@@ -76,17 +78,17 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio that
 {% list tabs %}
 
 - Prices in USD
-  
+
   | Service | Rate for 15 sec segment, without VAT |
   | ----- | ----- |
   | [Short audio recognition](#rules-stt-short) | $0.001953 |
   | [Long audio recognition](#rules-stt-long) | $0.000128 |
-  
+
 - Prices in roubles
-  
+
   | Service | Rate for 15 sec segment, with VAT |
   | ----- | ----- |
   | [Short audio recognition](#rules-stt-short) | ₽0.1524 |
   | [Long audio recognition](#rules-stt-long) | ₽0.01 |
-  
+
 {% endlist %}

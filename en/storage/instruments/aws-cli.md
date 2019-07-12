@@ -2,7 +2,7 @@
 
 [AWS CLI](https://aws.amazon.com/cli/) is a command line interface designed for AWS services. To learn [how to run commands](https://docs.aws.amazon.com/cli/latest/reference/), see the official Amazon documentation.
 
-To work with {{ objstorage-full-name }} via the AWS CLI, you can use the following sets of commands:
+To work with Yandex Object Storage via the AWS CLI, you can use the following sets of commands:
 
 - [s3api](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html) — commands corresponding to operations in the REST API. Before you start, look through the [list of supported operations](../s3 /api-ref/index.md).
 - [s3](https://docs.aws.amazon.com/cli/latest/reference/s3/index.html) — additional commands that make it easier to work with a large number of objects.
@@ -54,14 +54,14 @@ The `aws configure` command will result in saving your settings to the following
 
 ## Specifics {#specifics}
 
-When using the AWS CLI to work with {{ objstorage-name }}, keep the following in mind:
+When using the AWS CLI to work with Object Storage, keep the following in mind:
 
-- The AWS CLI works with {{ objstorage-name }} like a hierarchical file system and object keys look like a file path.
-- When running the `aws` command to work with {{ objstorage-name }}, the `--endpoint-url` parameter is required because the client is configured to work with Amazon servers by default.
+- The AWS CLI works with Object Storage like a hierarchical file system and object keys look like a file path.
+- When running the `aws` command to work with Object Storage, the `--endpoint-url` parameter is required because the client is configured to work with Amazon servers by default.
 - When using macOS, in some cases you need to run the command:
 
     ```
-    export PYTHONPATH=/Library/Python/2.7/site-packages; aws --endpoint-url=https://{{ s3-storage-host }} s3 ls
+    export PYTHONPATH=/Library/Python/2.7/site-packages; aws --endpoint-url=https://storage.yandexcloud.net s3 ls
     ```
 
 ## Examples of operations {#aws-cli-examples}
@@ -69,7 +69,7 @@ When using the AWS CLI to work with {{ objstorage-name }}, keep the following in
 ### Create a bucket
 
    ```bash
-   aws --endpoint-url=https://{{ s3-storage-host }} s3 mb s3://bucket-name
+   aws --endpoint-url=https://storage.yandexcloud.net s3 mb s3://bucket-name
    ```
 
 {% note info %}
@@ -85,27 +85,27 @@ You can upload objects using one of the following methods:
 - Upload all objects from a local directory:
 
    ```bash
-   aws --endpoint-url=https://{{ s3-storage-host }} \
+   aws --endpoint-url=https://storage.yandexcloud.net \
        s3 cp --recursive local_files/ s3://bucket-name/path_style_prefix/
    ```
 - Upload objects specified in the `--include` filter and skip objects specified in the `--exclude` filter:
 
    ```bash
-   aws --endpoint-url=https://{{ s3-storage-host }} \
+   aws --endpoint-url=https://storage.yandexcloud.net \
        s3 cp --recursive --exclude "*" --include "*.log" \
        local_files/ s3://bucket-name/path_style_prefix/
    ```
 - Upload objects one by one, running the following command for each object:
 
    ```bash
-   aws --endpoint-url=https://{{ s3-storage-host }} \
+   aws --endpoint-url=https://storage.yandexcloud.net \
        s3 cp testfile.txt s3://bucket-name/path_style_prefix/textfile.txt
    ```
 
 ### Getting a list of objects
 
    ```bash
-   aws --endpoint-url=https://{{ s3-storage-host }} \
+   aws --endpoint-url=https://storage.yandexcloud.net \
        s3 ls --recursive s3://bucket-name
    ```
 
@@ -116,27 +116,27 @@ You can delete objects using one of the following methods:
 - Delete all objects with the specified prefix:
 
    ```bash
-   aws --endpoint-url=https://{{ s3-storage-host }} \
-       s3 rm s3://bucket-name/path_style_prefix/ --recursive
+   aws --endpoint-url=https://storage.yandexcloud.net \
+       s3 rm s3://bucket-name/path_style_prefix/ --recursive 
    ```
 - Delete objects specified in the `--include` filter and skip objects specified in the `--exclude` filter:
 
    ```bash
-   aws --endpoint-url=https://{{ s3-storage-host }} \
+   aws --endpoint-url=https://storage.yandexcloud.net \
        s3 rm s3://bucket-name/path_style_prefix/ --recursive \
        --exclude "*" --include "*.log"
    ```
 - Delete objects one by one, running the following command for each object:
 
    ```bash
-   aws --endpoint-url=https://{{ s3-storage-host }} \
+   aws --endpoint-url=https://storage.yandexcloud.net \
        s3 rm s3://bucket-name/path_style_prefix/textfile.txt
    ```
 
 ### Retrieve an object
 
    ```bash
-   aws --endpoint-url=https://{{ s3-storage-host }} \
+   aws --endpoint-url=https://storage.yandexcloud.net \
        s3 cp s3://bucket-name/textfile.txt textfile.txt
    ```
 

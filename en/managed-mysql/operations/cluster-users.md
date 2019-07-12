@@ -8,7 +8,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and click **Managed Service for MySQL**.
   1. Click on the name of the cluster you need and then select the **Users** tab.
   
 {% endlist %}
@@ -21,7 +21,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and click **Managed Service for MySQL**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click **Add**.
   1. Enter the database user name and password (from 8 to 128 characters).
@@ -42,7 +42,7 @@ For the user, you can change:
   
   In the management console, you can only change the password of a database user:
   
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and click **Managed Service for MySQL**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Change password**.
   
@@ -54,7 +54,7 @@ For the user, you can change:
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and click **Managed Service for MySQL**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Delete**.
   

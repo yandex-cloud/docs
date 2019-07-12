@@ -1,4 +1,4 @@
-# Step-by-step instructions for {{ mmg-name }}
+# Step-by-step instructions for Managed Service for MongoDB
 
 - [#T](cluster-list.md)
 - [#T](cluster-create.md)

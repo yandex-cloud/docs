@@ -14,8 +14,8 @@
 
 Перед тем, как создавать виртуальные машины:
 
-1. Перейдите в [консоль управления](https://console.cloud.yandex.ru) Яндекс.Облака и выберите каталог, в котором будете выполнять операции.
-1. Убедитесь, что в выбранном каталоге есть сеть с подсетями в зонах доступности `ru-cental1-a` и `ru-central1-b`. Для этого на странице каталога нажмите плитку **Virtual Private Cloud**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md).
+1. Перейдите в [консоль управления](https://console.cloud.yandex.ru/) Яндекс.Облака и выберите каталог, в котором будете выполнять операции.
+1. Убедитесь, что в выбранном каталоге есть сеть с подсетями в зонах доступности `ru-cental1-a` и `ru-central1-b`. Для этого на странице каталога выберите сервис **Virtual Private Cloud**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md).
 
 ## 1. Создайте виртуальные машины с предустановленным веб-сервером {#create-web-server-vm}
 
@@ -106,7 +106,7 @@
 
 Для виртуальных машин `dns-lb-tutorial-slb-ru-central1-a` и `dns-lb-tutorial-slb-ru-central1-b` выполните:
 
-1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru) найдите публичный IP-адрес виртуальной машины.
+1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru/) найдите публичный IP-адрес виртуальной машины.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows.
 
    Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей.  Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на виртуальную машину.
@@ -115,14 +115,14 @@
    {% list tabs %}
 
    - Ubuntu 16/18
-  
+
      ```bash
      $ sudo apt-get update
      $ sudo apt-get install pdns-server pdns-backend-remote memcached python3-yaml python3-memcache python3-pip
      ```
-  
+
    - CentOS 6/7
-  
+
      ```bash
      $ sudo yum check-update
      $ sudo yum -y install epel-release
@@ -131,7 +131,7 @@
      $ sudo chkconfig pdns on
      $ sudo chkconfig memcached on
      ```
-  
+
    {% endlist %}
 
 1. Установите `polaris-gslb`:
@@ -145,7 +145,7 @@
    {% list tabs %}
 
    - Ubuntu 16/18
-  
+
      ```bash
      $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/powerdns/pdns.conf
      $ cd /opt/polaris/etc
@@ -154,9 +154,9 @@
      $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
      $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
      ```
-  
+
    - CentOS 6
-  
+
      ```bash
      $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
      $ cd /opt/polaris/etc
@@ -167,9 +167,9 @@
      $ sudo cp -a /opt/polaris/bin/polaris-health /etc/init.d/polaris-health
      $ sudo chkconfig polaris-health on
      ```
-  
+
    - CentOS 7
-  
+
      ```bash
      $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
      $ cd /opt/polaris/etc
@@ -178,7 +178,7 @@
      $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
      $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
      ```
-  
+
    {% endlist %}
 
 1. Узнайте внутренний адрес виртуальной машины:
@@ -190,17 +190,17 @@
      {% list tabs %}
 
      - Ubuntu 16/18
-  
+
        ```bash
        $ sudo nano /etc/powerdns/pdns.conf
        ```
-  
+
      - CentOS 6/7
-  
+
        ```bash
        $ sudo nano /etc/pdns/pdns.conf
        ```
-  
+
      {% endlist %}
 
    Файл `pdns.conf` имеет вид:
@@ -281,7 +281,7 @@
        * Вместо `<dns-lb-tutorial-web-ru-central1-a PUBLIC IP>` — публичный IP-адрес виртуальной машины `dns-lb-tutorial-web-ru-central1-a`.
        * Вместо `<dns-lb-tutorial-web-ru-central1-b PUBLIC IP>` — публичный IP-адрес виртуальной машины `dns-lb-tutorial-web-ru-central1-b`.
 
-       Публичный адрес виртуальной машины вы можете найти в блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru).
+       Публичный адрес виртуальной машины вы можете найти в блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru/).
    1. `$ sudo nano /opt/polaris/etc/polaris-pdns.yaml`
 
       Файл `polaris-pdns.yaml` имеет вид:
@@ -401,7 +401,7 @@
 
 Чтобы настроить внешний DNS-сервер, выполните:
 
-1. Найдите публичные IP-адреса виртуальных машин `dns-lb-tutorial-slb-ru-central1-a` и `dns-lb-tutorial-slb-ru-central1-b` в блоке **Сеть** на страницах виртуальных машин в [консоли управления](https://console.cloud.yandex.ru).
+1. Найдите публичные IP-адреса виртуальных машин `dns-lb-tutorial-slb-ru-central1-a` и `dns-lb-tutorial-slb-ru-central1-b` в блоке **Сеть** на страницах виртуальных машин в [консоли управления](https://console.cloud.yandex.ru/).
 1. Войдите в панель управления внешнего DNS-сервиса. Перейдите в список ваших доменов и нажмите на имя нужного домена.
 1. Создайте две A-записи:
    * Для виртуальной машины `dns-lb-tutorial-slb-ru-central1-a`:
@@ -423,7 +423,7 @@
 
 ### 6.1. DNS-балансировщики {#test-dns-balancers}
 
-1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru) найдите публичный IP-адрес виртуальной машины `dns-lb-tutorial-slb-ru-central1-a`.
+1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru/) найдите публичный IP-адрес виртуальной машины `dns-lb-tutorial-slb-ru-central1-a`.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH.
 1. Остановите сервис DNS, чтобы сымитировать сбой в работе DNS-баласировщика:
    ```bash
@@ -437,24 +437,24 @@
 
 ### 6.2. Веб-серверы {#test-web-servers}
 
-1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru) найдите публичный IP-адрес виртуальной машины `dns-lb-tutorial-web-ru-central1-a`.
+1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.cloud.yandex.ru/) найдите публичный IP-адрес виртуальной машины `dns-lb-tutorial-web-ru-central1-a`.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH.
 1. Остановите веб-сервис, чтобы сымитировать сбой в работе веб-сервера:
 
    {% list tabs %}
 
    - LAMP
-  
+
      ```bash
      $ sudo service apache2 stop
      ```
-  
+
    - LEMP
-  
+
      ```bash
      $ sudo service nginx stop
      ```
-  
+
    {% endlist %}
 1. Подключитесь к вашему веб-сайту через браузер. Несмотря на сбой в работе одного из веб-серверов, подключение должно пройти успешно.
 1. После завершения проверки запустите веб-сервис:
@@ -462,16 +462,16 @@
    {% list tabs %}
 
    - LAMP
-  
+
      ```bash
      $ sudo service apache2 start
      ```
-  
+
    - LEMP
-  
+
      ```bash
      $ sudo service nginx start
      ```
-  
+
    {% endlist %}
 

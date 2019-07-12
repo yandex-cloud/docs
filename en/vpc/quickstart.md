@@ -1,4 +1,4 @@
-# Getting started with {{ vpc-short-name }}
+# Getting started with VPC
 
 If you already have a folder in Yandex.Cloud, open the page of that folder in the management console. If you don't have any folders yet, create a new folder before creating a cloud network:
 

@@ -1,6 +1,6 @@
 # Начало работы
 
-Создайте [кластер {{ k8s }}](concepts/index.md#kubernetes-cluster) и [группу узлов](concepts/index.md#node-group) и настройте kubectl для работы с ними.
+Создайте [кластер Kubernetes](concepts/index.md#kubernetes-cluster) и [группу узлов](concepts/index.md#node-group) и настройте kubectl для работы с ними.
 
 ## Подготовка к работе {#before-begin}
 
@@ -12,19 +12,19 @@
 
 1. CLI: [Yandex CLI](../cli/quickstart.md) и [Kubernetes CLI (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 1. [Сеть](../vpc/operations/network-create.md).
-1. [Подсети](../vpc/operations/subnet-create.md) в зонах доступности, где будут созданы кластер {{ k8s }} и группа узлов.
+1. [Подсети](../vpc/operations/subnet-create.md) в зонах доступности, где будут созданы кластер Kubernetes и группа узлов.
 1. [Сервисный аккаунт](../iam/operations/sa/create.md) с правами `editor` на каталог.
 1. Свободные ресурсы в облаке, согласно [квотам](concepts/limits.md).
 
-## Создание кластера {{ k8s }} {#create-kubernetes-cluster}
+## Создание кластера Kubernetes {#create-kubernetes-cluster}
 
-1. Посмотрите описание команды CLI для создания кластера {{ k8s }}:
+1. Посмотрите описание команды CLI для создания кластера Kubernetes:
 
     ```
     $ yc managed-kubernetes cluster create --help
     ```
 
-1. Создайте кластер {{ k8s }}:
+1. Создайте кластер Kubernetes:
 
     ```
     $ yc managed-kubernetes cluster create \
@@ -75,7 +75,7 @@
 
 ## Создание группы узлов {#create-node-group}
 
-1. Посмотрите описание команды CLI для создания группы узлов {{ k8s }}:
+1. Посмотрите описание команды CLI для создания группы узлов Kubernetes:
 
     ```
     $ yc managed-kubernetes node-group create --help

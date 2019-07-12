@@ -11,7 +11,7 @@ To get information about an instance group:
 - Management console
   
   1. Open the folder page in the management console.
-  1. Select **{{ compute-full-name }}**.
+  1. Select **Yandex Compute Cloud**.
   1. On the **Virtual machines** page, go to the **Instance groups** tab.
   1. Click on the name of the group you need.
   
@@ -24,7 +24,7 @@ To get information about an instance group:
   1. See the description of the CLI's get instance group info command:
   
       ```
-      $ {{ yc-compute-ig }} get --help
+      $ yc compute instance-group get --help
       ```
   
   1. Get a list of instance groups in the default folder:
@@ -36,14 +36,14 @@ To get information about an instance group:
   1. Get information about the instance group:
   
       ```
-      $ {{ yc-compute-ig }} get --name first-instance-group
+      $ yc compute instance-group get --name first-instance-group
       ```
   
 - API
   
-  Use the [get](../../api-ref/InstanceGroup/get.md) API method.
+  Use the [get](../../../_api-ref/compute/api-ref/InstanceGroup/get.md) API method.
   
-  To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
+  To request a list of available groups, use the [listInstances](../../../_api-ref/compute/api-ref/InstanceGroup/listInstances.md) method.
   
 {% endlist %}
 

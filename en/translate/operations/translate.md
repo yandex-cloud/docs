@@ -77,7 +77,7 @@ List the text strings to translate in the `texts` field. Specify the target lang
 
 ### Specify the source language
 
-Sometimes words that are written identically in different languages, but are translated differently. For example, the word <q>angel</q> in English means a spiritual being, while in German it means a fishing rod. If the text you transmit contains words like this, {{ translate-short-name }} may detect the source language incorrectly.
+Sometimes words that are written identically in different languages, but are translated differently. For example, the word <q>angel</q> in English means a spiritual being, while in German it means a fishing rod. If the text you transmit contains words like this, Translate may detect the source language incorrectly.
 
 To avoid mistakes, specify the source language in the `sourceLanguageCode` field:
 

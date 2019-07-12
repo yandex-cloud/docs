@@ -43,12 +43,14 @@ items:
             href: operations/iam-token/create.md
           - name: Получить IAM-токен для сервисного аккаунта
             href: operations/iam-token/create-for-sa.md
-      - name: API-ключи
+      - name: Ключи
         items:
           - name: Создать API-ключ
             href: operations/api-key/create.md
           - name: Удалить API-ключ
             href: operations/api-key/delete.md
+          - name: Создать авторизованный ключ
+            href: operations/authorized-key/create.md
   - name: Концепции
     items:
       - name: Обзор
@@ -59,7 +61,7 @@ items:
             href: concepts/access-control/index.md
           - name: Роли
             href: concepts/access-control/roles.md
-          - name: Системная группа allAuthenticatedUsers
+          - name: Системные группы
             href: concepts/access-control/system-group.md
       - name: Авторизация
         items:
@@ -88,8 +90,8 @@ items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
     include:
-      repo: docs-api
-      path: ru/iam/toc.yaml
+      repo: docs
+      path: ru/_api-ref/iam/toc.yaml
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

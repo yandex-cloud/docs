@@ -20,14 +20,14 @@
 
    {% note info %}
 
-   Для работы с {{ objstorage-name }} всегда указывайте регион `us-east-1`. Другие значения региона могут привести к ошибке авторизации.
+   Для работы с Object Storage всегда указывайте регион `us-east-1`. Другие значения региона могут привести к ошибке авторизации.
 
    {% endnote %}
-1. `S3 Endpoint` - введите `{{ s3-storage-host }}`.
-1. `DNS-style bucket+hostname:port template for accessing a bucket` — введите  `%(bucket)s.{{ s3-storage-host }}`.
+1. `S3 Endpoint` - введите `storage.yandexcloud.net`.
+1. `DNS-style bucket+hostname:port template for accessing a bucket` — введите  `%(bucket)s.storage.yandexcloud.net`.
 1. Значения остальных параметров оставьте без изменений.
 
-Программа попытается установить соединение с {{ objstorage-name }} и получить список бакетов. В случае успеха, программа выведет `Success. Your access key and secret key worked fine :-)`.
+Программа попытается установить соединение с Object Storage и получить список бакетов. В случае успеха, программа выведет `Success. Your access key and secret key worked fine :-)`.
 
 Команда `s3cmd --configure` сохранит настройки в файле `~/.s3cfg` в формате:
 
@@ -36,8 +36,8 @@
 access_key = id
 secret_key = secretKey
 bucket_location = us-east-1
-host_base = {{ s3-storage-host }}
-host_bucket = %(bucket)s.{{ s3-storage-host }}
+host_base = storage.yandexcloud.net
+host_bucket = %(bucket)s.storage.yandexcloud.net
 ```
 
 При необходимости эти настройки можно изменить напрямую в файле. Также можно указать настройки при запуске программы с помощью соответствующих параметров.
@@ -45,12 +45,12 @@ host_bucket = %(bucket)s.{{ s3-storage-host }}
 Для корректной работы команд, управляющих хостингом статических сайтов, в конфигурационный файл необходимо вручную добавить параметр
 
 ```
-website_endpoint = http://%(bucket)s.{{ s3-web-host }}
+website_endpoint = http://%(bucket)s.website.yandexcloud.net
 ```
 
 ## Особенности {#specifics}
 
-Помните, что S3cmd работает с {{ objstorage-name }} как с иерархической файловой системой и ключи объектов имеют вид пути к файлу.
+Помните, что S3cmd работает с Object Storage как с иерархической файловой системой и ключи объектов имеют вид пути к файлу.
 
 ## Примеры операций {#s3cmd-examples}
 

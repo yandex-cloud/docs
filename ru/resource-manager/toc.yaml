@@ -9,6 +9,8 @@ items:
         href: operations/index.md
       - name: Облако
         items:
+          - name: Создать облако
+            href: operations/cloud/create.md
           - name: Установить права доступа
             href: operations/cloud/set-access-bindings.md
           - name: Переключиться на другое облако
@@ -38,5 +40,5 @@ items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
     include:
-      repo: docs-api
-      path: ru/resourcemanager/toc.yaml
+      repo: docs
+      path: ru/_api-ref/resourcemanager/toc.yaml

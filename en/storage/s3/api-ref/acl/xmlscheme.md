@@ -26,7 +26,7 @@ ACL general view:
 | Element | Description |
 | ----- | ----- |
 | `AccessControlPolicy` | Root element.<br/><br/>Path: `/AccessControlPolicy`. |
-| `Owner` | User information.<br/><br/>Users can specify this element for `objectPutAcl` and `bucketPutAcl` requests. If the element is specified, then, when uploading an ACL, {{ objstorage-name }} checks whether the passed ID matches the actual ID. If not, code 403 is returned.<br/><br/>Path: `/AccessControlPolicy/Owner`. |
+| `Owner` | User information.<br/><br/>Users can specify this element for `objectPutAcl` and `bucketPutAcl` requests. If the element is specified, then, when uploading an ACL, Object Storage checks whether the passed ID matches the actual ID. If not, code 403 is returned.<br/><br/>Path: `/AccessControlPolicy/Owner`. |
 | `AccessControlList` | Access control list. Can contain up to 100 access permissions.<br/><br/>Path: `/AccessControlPolicy/AccessControlList`. |
 | `Grant` | Access description.<br/><br/>Path: `/AccessControlPolicy/AccessControlList/Grant`. |
 | `Grantee` | The user or group that access is granted to.<br/><br/>Path: `/AccessControlPolicy/AccessControlList/Grant/Grantee`. |

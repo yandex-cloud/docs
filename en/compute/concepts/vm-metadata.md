@@ -2,7 +2,7 @@
 
 Information about VM instances is stored on the metadata server. You can request metadata from [inside](../operations/vm-info/get-info.md#inside-instance) or [outside](../operations/vm-info/get-info.md#outside-instance) an instance using the API or CLI.
 
-Metadata is used by programs that are run when the VM starts. For example, to make a list of users or specify a public SSH key to connect to the VM.
+Metadata is used by programs that are run when the VM starts (for example, to make a list of users or specify a public SSH key to connect to the VM).
 
 {% include [vm-metadata](../../_includes/vm-metadata.md) %}
 
@@ -16,11 +16,11 @@ You can specify any keys. The keys you need to specify depend on the program tha
 
 {% note important %}
 
-Metadata, including user-defined, is stored unencrypted. Anyone who can connect to a VM can get this metadata. If you place confidential information in the metadata, take measures to protect it, for example, by encrypting it.
+Metadata, including user-defined metadata, is stored unencrypted. Anyone who can connect to a VM can get this metadata. If you place confidential information in the metadata, take measures to protect it (for example, by encrypting it).
 
 {% endnote %}
 
-## Programs handling metadata in Yandex.Cloud images {#public-images-metadata}
+## Programs that process metadata in Yandex.Cloud images {#public-images-metadata}
 
 In Linux public images, the program used to configure VMs by default is [cloud-init](https://cloud-init.io).
 
@@ -28,7 +28,7 @@ In Windows public images, it is [Cloudbase-Init](https://cloudbase.it/cloudbase-
 
 ### Using cloud-init
 
-The `cloud-init` program handles metadata that was passed in the keys `user-data` and `ssh-keys`.
+The `cloud-init` program handles metadata that was passed in the `user-data` and `ssh-keys` keys.
 
 #### user-data
 

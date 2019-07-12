@@ -2,7 +2,7 @@
 
 Для создания графика с помощью текстового запроса выполните следующее:
 
-1. На главной странице сервиса {{ monitoring-full-name }} нажмите **Создать график**.
+1. На главной странице сервиса Yandex Monitoring нажмите **Создать график**.
 1. В разделе **Запросы** нажмите значок ![image](../../_assets/ellipsis.svg) и выберите пункт **Редактировать как текст**.
 1. Укажите через запятую обязательные метки с необходимыми значениями:
 
@@ -23,7 +23,7 @@
 
 ## Пример запроса
 
-Запрос метрики `disk_read_bytes` виртуальной машины сервиса {{ compute-full-name }}:
+Запрос метрики `disk_read_bytes` виртуальной машины сервиса Yandex Compute Cloud:
 ```
 project="project_id", cluster="cluster_id", service="compute", resource_type="vm", resource_id="resource_id", name="disk_read_bytes"
 ```

@@ -2,11 +2,11 @@
 
 Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them. If the user has no roles assigned, all operations are forbidden.
 
-To allow access to the {{ iam-full-name }} service resources (service accounts and their access keys), assign appropriate roles to the user from the list below. You can assign a user a role for the service account, the folder hosting the account, or the entire cloud: access rights are inherited in Yandex Cloud.
+To allow access to the Yandex Identity and Access Management service resources (service accounts and their access keys), assign appropriate roles to the user from the list below. You can assign a user a role for the service account, the folder hosting the account, or the entire cloud: access rights are inherited in Yandex Cloud.
 
 {% note info %}
 
-For more information about role inheritance, see [#T](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+For more information about role inheritance, see [#T](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the Yandex Resource Manager documentation.
 
 {% endnote %}
 
@@ -18,17 +18,17 @@ To assign a user a role for the cloud or folder:
 
 ## Roles
 
-The list below shows all roles that are considered when verifying access rights in the {{ iam-short-name }} service.
+The list below shows all roles that are considered when verifying access rights in the IAM service.
 
 ### Service roles
 
-_Service roles_ are roles that allow access to the resources of a particular service. When checking {{ iam-short-name }} resource access rights, {{ resmgr-name }} service roles are also taken into account.
+_Service roles_ are roles that allow access to the resources of a particular service. When checking IAM resource access rights, Resource Manager service roles are also taken into account.
 
-### Yandex {{ iam-full-name }} {#yrm-roles}
+### Identity and Access Management {#yrm-roles}
 
 {% include [roles-sa-user](../../_includes/roles-sa-user.md) %}
 
-### Yandex Resource Manager {#yrm-roles}
+### Resource Manager {#yrm-roles}
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
@@ -36,19 +36,19 @@ _Service roles_ are roles that allow access to the resources of a particular ser
 
 You can assign primitive roles to any resource in any service.
 
-#### {{ roles-viewer }}
+#### viewer
 
-A user with the `{{ roles-viewer }}` can view information about resources, for example, get a list of access keys for a service account.
+A user with the `viewer` can view information about resources, for example, get a list of access keys for a service account.
 
-#### {{ roles-editor }}
+#### editor
 
-A user with the `{{ roles-editor }}` can manage any resources, for example, create a service account or its access keys.
+A user with the `editor` can manage any resources, for example, create a service account or its access keys.
 
-In addition, the `{{ roles-editor }}` role includes all permissions of the `{{ roles-viewer }}` role.
+In addition, the `editor` role includes all permissions of the `viewer` role.
 
-#### {{ roles-admin }}
+#### admin
 
-A user with the `{{ roles-admin }}` can manage access rights to resources, for example, allow other users to view service accounts or view information about them.
+A user with the `admin` can manage access rights to resources, for example, allow other users to view service accounts or view information about them.
 
-In addition, the `{{ roles-admin }}` role includes all permissions of the role of `{{ roles-editor }}`.
+In addition, the `admin` role includes all permissions of the role of `editor`.
 

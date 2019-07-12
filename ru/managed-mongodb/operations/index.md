@@ -1,4 +1,4 @@
-# Пошаговые инструкции для {{ mmg-name }}
+# Пошаговые инструкции для Managed Service for MongoDB
 
 - [#T](cluster-list.md)
 - [#T](cluster-create.md)

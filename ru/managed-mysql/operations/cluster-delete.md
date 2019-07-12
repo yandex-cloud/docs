@@ -11,8 +11,22 @@
 - Консоль управления
   
   1. Откройте страницу каталога в консоли управления.
-  1. Нажмите плитку **{{ mmy-name }}**.
-  1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) для нужного кластера и выберите пункт **Удалить**.
+  1. Выберите сервис **Managed Service for MySQL**.
+  1. Нажмите значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **Удалить**.
+
+- CLI
+  
+  {% include [cli-install](../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  
+  Чтобы удалить кластер, выполните команду:
+  
+  ```
+  $ yc managed-mysql cluster delete <имя или идентификатор кластера>
+  ```
+  
+  Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
   
 {% endlist %}
 

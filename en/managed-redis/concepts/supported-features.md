@@ -1,6 +1,6 @@
-# Restrictions {{ mrd-name }}
+# Restrictions Managed Service for Redis
 
-{{ mrd-name }} allows you to run [any Redis commands](https://redis.io/commands), except the following:
+Managed Service for Redis allows you to run [any Redis commands](https://redis.io/commands), except the following:
 
 - `BGREWRITEAOF`
 - `BGSAVE`

@@ -1,6 +1,6 @@
 # yc resource-manager
 
-Manage {{ resmgr-full-name }} resources.
+Manage Yandex Resource Manager resources.
 
 #### Usage
 

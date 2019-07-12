@@ -1,10 +1,10 @@
-# Questions and answers about {{ mmy-short-name }}<sup>®</sup>
+# Questions and answers about Managed Service for MySQL<sup>®</sup>
 
 ## General questions {#general}
 
 {% include notitle [general](general.md) %}
 
-## Questions about {{ MY }} {#mysql}
+## Questions about MySQL {#mysql}
 
 {% include notitle [mysql](mysql.md) %}
 

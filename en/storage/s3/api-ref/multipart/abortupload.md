@@ -1,6 +1,6 @@
 # abortUpload method
 
-Aborts an upload and deletes from {{ objstorage-name }} all object parts that have been saved. If the abort upload request was received during the upload of any part, no result is guaranteed.
+Aborts an upload and deletes from Object Storage all object parts that have been saved. If the abort upload request was received during the upload of any part, no result is guaranteed.
 
 We recommend that you [get a list of parts](listparts.md) after aborting the upload and, if it is not empty, resend the request. Abort requests should be sent until the list of parts is returned empty.
 
@@ -21,7 +21,7 @@ DELETE /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `uploadId` | ID of the multipart upload returned by {{ objstorage-name }} at the [start](startupload.md). |
+| `uploadId` | ID of the multipart upload returned by Object Storage at the [start](startupload.md). |
 
 ### Headers {#request-headers}
 
@@ -37,7 +37,7 @@ A response can only contain [common response headers](../common-response-headers
 
 For a list of possible responses, see [#T](../response-codes.md).
 
-Additionally, {{ objstorage-name }} may return errors described in the table below.
+Additionally, Object Storage may return errors described in the table below.
 
 | Error | Description | HTTP code |
 | ----- | ----- | ----- |

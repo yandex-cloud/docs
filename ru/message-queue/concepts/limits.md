@@ -4,7 +4,7 @@ editable: false
 
 # Квоты и лимиты
 
-В сервисе {{ message-queue-full-name }} действуют следующие ограничения:
+В сервисе Yandex Message Queue действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

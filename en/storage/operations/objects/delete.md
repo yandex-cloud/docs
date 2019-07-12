@@ -14,9 +14,9 @@
   To do the same with multiple objects, select them in the list and click **Delete** at the bottom of the screen.
   
       {% note info %}
-  
+
       You cannot delete a folder that contains objects. First delete all the objects from the folder and then delete the folder itself.
-  
+
       {% endnote %}
   
   1. Confirm the deletion.

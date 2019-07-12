@@ -41,7 +41,7 @@ To get help with architecture-related tasks, use the feedback form on the manage
 Technical support includes troubleshooting of problems with third-party software that is used in conjunction with the cloud infrastructure, and assistance in solving identified problems to a limited extent. Technical support engineers can help you with installation, basic configuration, and diagnostics of the following software:
 
 - Operating systems running on Yandex.Cloud VM instances that were created using public images provided by Yandex.Cloud.
-- Databases created with [{{ mpg-full-name }}](../managed-postgresql/), [{{ mch-full-name }}](../managed-clickhouse/), [{{ mmg-full-name }}](../managed-mongodb/).
+- Databases created with [Yandex Managed Service for PostgreSQL](../managed-postgresql/), [Yandex Managed Service for ClickHouse](../managed-clickhouse/), [Yandex Managed Service for MongoDB](../managed-mongodb/).
 
 #### What happens if you can't solve my problem with third-party software? {#unresolved-third-party-issues}
 

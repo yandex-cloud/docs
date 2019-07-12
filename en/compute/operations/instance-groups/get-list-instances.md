@@ -9,7 +9,7 @@ To get a list of instances:
 - Management console
   
   1. Open the folder page in the management console.
-  1. Select **{{ compute-full-name }}**.
+  1. Select **Yandex Compute Cloud**.
   1. On the **Virtual machines** page, go to the **Instance groups** tab.
   1. Click on the name of the group you need.
   1. On the **Overview** page, go to the **List of VMs** tab.
@@ -23,7 +23,7 @@ To get a list of instances:
   1. See the description of the CLI's get instance list command:
   
       ```
-      $ {{ yc-compute-ig }} list-instances --help
+      $ yc compute instance-group list-instances --help
       ```
   
   1. Get a list of instance groups in the default folder:
@@ -35,12 +35,12 @@ To get a list of instances:
   1. Get information about the instance group:
   
       ```
-      $ {{ yc-compute-ig }} list-instances --name first-instance-group
+      $ yc compute instance-group list-instances --name first-instance-group
       ```
   
 - API
   
-  Use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
+  Use the [listInstances](../../../_api-ref/compute/api-ref/InstanceGroup/listInstances.md) method.
   
 {% endlist %}
 

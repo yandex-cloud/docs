@@ -1,6 +1,6 @@
 # yc iam
 
-Manage {{ iam-full-name }} resources.
+Manage Yandex Identity and Access Management resources.
 
 #### Usage
 

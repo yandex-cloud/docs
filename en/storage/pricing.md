@@ -1,13 +1,15 @@
 ---
 editable: false
 ---
-# Pricing policy for {{ objstorage-name }}
+# Pricing policy for Object Storage
+
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of using {{ objstorage-short-name }} {#rules}
+## What goes into the cost of using Object Storage {#rules}
 
-The cost of {{ objstorage-name }} usage is based on:
+The cost of Object Storage usage is based on:
 
 - The amount of storage used by your data.
 - The number of operations on your data.
@@ -41,19 +43,19 @@ Prices are specified for a 30-day month. For shorter months, the price is higher
 {% list tabs %}
 
 - Prices in USD
-  
+
   | Service | Rate for 1 GB per month, without VAT
   | ----- | -----
   | Standard storage | $0.016166 |
   | Cold storage |  $0.008605 |
-  
+
 - Prices in roubles
-  
+
   | Service | Rate for 1 GB per month, with VAT |
   | ----- | -----
   | Standard storage | ₽1.2610 |
   | Cold storage |  ₽0.6712 |
-  
+
 {% endlist %}
 
 Here is an example of proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a month that is 30 days long. The total cost of storage can be calculated using the formula:
@@ -68,7 +70,7 @@ Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
 {% list tabs %}
 
 - Prices in USD
-  
+
   | Service | Cost, without VAT
   | ----- | ----- |
   | **Standard storage** |
@@ -77,9 +79,9 @@ Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
   | **Cold storage** |
   | 1,000 PUT or POST operations | $0.009517 |
   | 10,000 GET or HEAD operations | $0.007823 |
-  
+
 - Prices in roubles
-  
+
   | Service | Cost, with VAT |
   | ----- | -----
   | **Standard storage** |
@@ -88,7 +90,7 @@ Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
   | **Cold storage** |
   | 1,000 PUT or POST operations | ₽0.7424 |
   | 10,000 GET or HEAD operations | ₽0.6102 |
-  
+
 {% endlist %}
 
 {% note info %}

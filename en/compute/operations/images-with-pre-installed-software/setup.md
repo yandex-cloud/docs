@@ -16,10 +16,10 @@ To run the web setup wizard:
     If you can't connect to the VM, try again in a few minutes.
 
     {% endnote %}
-
+    
 1. Complete the steps of the web setup wizard and follow the recommendations from the developers: [Drupal](https://drupal.org/), [GitLab](https://about.gitlab.com), [Joomla](https://joomla.org/), or [WordPress](https://wordpress.org/).
 
-During software configuration, you may need the DB connection parameters. To find out these parameters, [connect to the VM](operate.md) via SSH and run the command:
+During software configuration, you may need the DB connection parameters. To find out these parameters, [connect to the VM](operate.md) over SSH and run the command:
 
 ```
 $ sudo cat /root/default_passwords.txt

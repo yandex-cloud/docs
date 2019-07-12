@@ -6,9 +6,11 @@ To detach a disk from a VM:
 
 - CLI
   
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+  
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
   
-  1. See the description of the CLI's detach disk command:
+  1. View a description of the CLI's detach disk command:
   
       ```
       $ yc compute instance detach-disk --help
@@ -49,7 +51,7 @@ To detach a disk from a VM:
   
 - API
   
-  Use the [detachDisk](../../api-ref/Instance/detachDisk.md) method for the [Instance](../../api-ref/Instance/) resource.
+  Use the [detachDisk](../../../_api-ref/compute/api-ref/Instance/detachDisk.md) method for the [Instance](../../../_api-ref/compute/api-ref/Instance/) resource.
   
 {% endlist %}
 

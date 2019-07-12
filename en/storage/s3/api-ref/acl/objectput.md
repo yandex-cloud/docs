@@ -19,7 +19,7 @@ PUT /{bucket}/{key}?acl HTTP/1.1
 | Parameter | Description |
 | ----- | ----- |
 | `bucket` | Name of the bucket. |
-| `key` | Object key. ID to use for saving the object in {{ objstorage-name }}. |
+| `key` | Object key. ID to use for saving the object in Object Storage. |
 
 ### Query parameters {#request-params}
 

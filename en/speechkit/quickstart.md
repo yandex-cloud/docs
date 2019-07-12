@@ -1,6 +1,6 @@
-# Getting started with {{ speechkit-short-name }}
+# Getting started with SpeechKit
 
-In this section, you will learn how to use the {{ speechkit-short-name }} API. First you will create an audio file from text and then try to recognize the audio.
+In this section, you will learn how to use the SpeechKit API. First you will create an audio file from text and then try to recognize the audio.
 
 ## Before you start {#before-begin}
 

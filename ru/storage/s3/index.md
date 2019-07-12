@@ -14,7 +14,7 @@
 
 ```
 {GET|HEAD|PUT|DELETE} {path} HTTP/1.1
-Host: {{ s3-storage-host }}
+Host: storage.yandexcloud.net
 Content-Length: length
 Date: date
 Authorization: authorization string (AWS Signature Version 4)
@@ -31,4 +31,4 @@ Request_body
 
 Кросс-доменные запросы доступны для всех методов API, которые управляют объектами.
 
-Для проверки разрешений, CORS подразумевает предварительный запрос [options](api-ref/object/options.md) к ресурсу. {{ objstorage-name }} позволяет отправлять кросс-доменные запросы к ресурсам без предварительного запроса, при этом в запросе должны быть те же [заголовки](api-ref/object/options.md#request-headers), что и у предварительного запроса.
+Для проверки разрешений, CORS подразумевает предварительный запрос [options](api-ref/object/options.md) к ресурсу. Object Storage позволяет отправлять кросс-доменные запросы к ресурсам без предварительного запроса, при этом в запросе должны быть те же [заголовки](api-ref/object/options.md#request-headers), что и у предварительного запроса.

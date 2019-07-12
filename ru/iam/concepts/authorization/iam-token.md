@@ -16,4 +16,5 @@ IAM-токен (токен) — уникальная последователь
 
 * [#T](../../operations/iam-token/create.md)
 * [#T](../../operations/iam-token/create-for-sa.md)
+* [#T](../../../compute/operations/vm-connect/auth-inside-vm.md)
 * [#T](index.md)

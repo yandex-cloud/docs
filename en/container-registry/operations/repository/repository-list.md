@@ -9,7 +9,7 @@
   Get the list of repositories in the registry:
   
   ```
-  $ yc container repository list
+  $ yc container repository list 
   +-----------------------------+
   |            NAME             |
   +-----------------------------+

@@ -15,18 +15,22 @@ If previously created disks are attached to the VM, they will be detached when t
 - Management console
   
   1. Select the folder the VM belongs to.
-  1. Click on the **Compute Cloud** tile.
+  
+  1. Select **Compute Cloud**.
+  
   1. Select the VM → click ![image](../../../_assets/dots.svg) → select **Delete**.
   
       To do this with multiple VMs, select the VMs you need to delete from the list → click **Delete** at the bottom of the screen.
   
-  1. Confirm the deletion.
+  1. Confirm deletion.
   
 - CLI
   
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+  
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
   
-  1. See the description of the CLI's delete VM command:
+  1. View a description of the CLI's delete VM command:
   
       ```
       $ yc compute instance delete --help
@@ -37,6 +41,7 @@ If previously created disks are attached to the VM, they will be detached when t
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
   
   1. Select the `ID` or `NAME` of the VM you need (for example, `first-instance`).
+  
   1. Delete the VM:
   
       ```

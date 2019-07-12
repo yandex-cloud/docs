@@ -1,4 +1,4 @@
-# Как начать работать c {{ container-registry-short-name }}
+# Как начать работать c Container Registry
 
 В этой инструкции вы создадите свой первый [реестр](../concepts/registry.md) и попробуете управлять [Docker-образами](../concepts/docker-image.md).
 
@@ -14,7 +14,7 @@
 
 ## Создание реестра и базовые операции с Docker-образом
 
-1. Создайте реестр в {{ container-registry-short-name }}:
+1. Создайте реестр в Container Registry:
 
     ```
     $ yc container registry create --name my-first-registry
@@ -28,7 +28,7 @@
 
     Полученный `id` далее будет использоваться для обращения к созданному реестру.
 
-1. Пройдите аутентификацию в {{ container-registry-short-name }} командой `docker login` с помощью OAuth-токена,
+1. Пройдите аутентификацию в Container Registry командой `docker login` с помощью OAuth-токена,
 получить его можно по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
 
     ```
@@ -68,7 +68,7 @@
 #### Смотрите также
 
 - [Создание реестра](../operations/registry/registry-create.md)
-- [Аутентификация в {{ container-registry-short-name }}](../operations/authentication.md)
+- [Аутентификация в Container Registry](../operations/authentication.md)
 - [Создание Docker-образа](../operations/docker-image/docker-image-create.md)
 - [Загрузка Docker-образа](../operations/docker-image/docker-image-push.md)
 - [Скачивание Docker-образа](../operations/docker-image/docker-image-pull.md)

@@ -31,3 +31,7 @@
 
 - [#T](api-key/create.md)
 - [#T](api-key/delete.md)
+
+## Авторизованные ключи
+
+- [#T](authorized-key/create.md)

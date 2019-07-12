@@ -1,6 +1,6 @@
-# Getting started with {{ vision-short-name }}
+# Getting started with Vision
 
-This section describes how to get started with the {{ vision-short-name }} API for image analysis.
+This section describes how to get started with the Vision API for image analysis.
 
 ## Before getting started
 

@@ -2,13 +2,13 @@
 editable: false
 ---
 
-# Pricing policy for {{ vpc-name }}
+# Pricing policy for Virtual Private Cloud
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of using {{ vpc-short-name }} {#rules}
+## What goes into the cost of using VPC {#rules}
 
-In {{ vpc-short-name }}, you pay per hour of using public IP addresses.
+In VPC, you pay per hour of using public IP addresses.
 
 ## Pricing {#prices}
 
@@ -42,13 +42,13 @@ The price of an inactive public static address is calculated by adding the price
 
 - Prices in USD
   
-  | Service | Rate for 1 GB of traffic after filtering, without VAT |
+  | Service | Rate for 1 GB of traffic after filtering, without VAT | 
   | ----- | ----- |
   | Filtering incoming traffic to a public IP address with DDoS protection | $0.031153 |
   
 - Prices in roubles
   
-  | Service | Rate for 1 GB of traffic after filtering, with VAT |
+  | Service | Rate for 1 GB of traffic after filtering, with VAT | 
   | ----- | ----- |
   | Filtering incoming traffic to a public IP address with DDoS protection | ₽2.4300 |
   

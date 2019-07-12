@@ -15,7 +15,7 @@ To change the name and description of an instance group:
 - Management console
   
   1. Open the folder page in the management console.
-  1. Select **{{ compute-full-name }}**.
+  1. Select **Yandex Compute Cloud**.
   1. On the **Virtual machines** page, go to the **Instance groups** tab.
   1. Click on the name of the group you want to update.
   1. Click **Change** in the upper-right corner of the page.
@@ -31,7 +31,7 @@ To change the name and description of an instance group:
   1. See the description of the CLI's update group command:
   
      ```
-     $ {{ yc-compute-ig }} update --help
+     $ yc compute instance-group update --help
      ```
   
   1. Get a list of instance groups in the default folder:
@@ -45,16 +45,16 @@ To change the name and description of an instance group:
   1. Update the instance group in the default folder:
   
       ```
-      $ {{ yc-compute-ig }} update --name first-instance-group --file template.yaml
+      $ yc compute instance-group update --name first-instance-group --file template.yaml
       ```
   
-     {{ ig-name }} starts the operation to update the instance group.
+     Instance Groups starts the operation to update the instance group.
   
 - API
   
-  You can change the group name and description using the [update](../../api-ref/InstanceGroup/update.md) API method.
+  You can change the group name and description using the [update](../../../_api-ref/compute/api-ref/InstanceGroup/update.md) API method.
   
-  To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
+  To request a list of available groups, use the [listInstances](../../../_api-ref/compute/api-ref/InstanceGroup/listInstances.md) method.
   
 {% endlist %}
 
@@ -72,7 +72,7 @@ To change the computing resources of an instance group:
 - Management console
   
   1. Open the folder page in the management console.
-  1. Select **{{ compute-full-name }}**.
+  1. Select **Yandex Compute Cloud**.
   1. On the **Virtual machines** page, go to the **Instance groups** tab.
   1. Click on the name of the group you want to update.
   1. Click **Change** in the upper-right corner of the page.
@@ -88,7 +88,7 @@ To change the computing resources of an instance group:
   1. See the description of the CLI's update group command:
   
      ```
-     $ {{ yc-compute-ig }} update --help
+     $ yc compute instance-group update --help
      ```
   
   1. Get a list of instance groups in the default folder:
@@ -102,16 +102,16 @@ To change the computing resources of an instance group:
   1. Update the instance group in the default folder:
   
       ```
-      $ {{ yc-compute-ig }} update --name first-instance-group --file template.yaml
+      $ yc compute instance-group update --name first-instance-group --file template.yaml
       ```
   
-     {{ ig-name }} starts the operation to update the instance group.
+     Instance Groups starts the operation to update the instance group.
   
 - API
   
-  You can change the computing resources using the [update](../../api-ref/InstanceGroup/update.md) API method.
+  You can change the computing resources using the [update](../../../_api-ref/compute/api-ref/InstanceGroup/update.md) API method.
   
-  To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
+  To request a list of available groups, use the [listInstances](../../../_api-ref/compute/api-ref/InstanceGroup/listInstances.md) method.
   
 {% endlist %}
 
@@ -124,7 +124,7 @@ To increase the disk size of an instance group:
 - Management console
   
   1. Open the folder page in the management console.
-  1. Select **{{ compute-full-name }}**.
+  1. Select **Yandex Compute Cloud**.
   1. On the **Virtual machines** page, go to the **Instance groups** tab.
   1. Click on the name of the group you want to update.
   1. Click **Change** in the upper-right corner of the page.
@@ -140,7 +140,7 @@ To increase the disk size of an instance group:
   1. See the description of the CLI's update group command:
   
      ```
-     $ {{ yc-compute-ig }} update --help
+     $ yc compute instance-group update --help
      ```
   
   1. Get a list of instance groups in the default folder:
@@ -154,16 +154,16 @@ To increase the disk size of an instance group:
   1. Update the instance group in the default folder:
   
       ```
-      $ {{ yc-compute-ig }} update --name first-instance-group --file template.yaml
+      $ yc compute instance-group update --name first-instance-group --file template.yaml
       ```
   
-     {{ ig-name }} starts the operation to update the instance group.
+     Instance Groups starts the operation to update the instance group.
   
 - API
   
-  You can change the disk size using the [update](../../api-ref/InstanceGroup/update.md) API method.
+  You can change the disk size using the [update](../../../_api-ref/compute/api-ref/InstanceGroup/update.md) API method.
   
-  To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
+  To request a list of available groups, use the [listInstances](../../../_api-ref/compute/api-ref/InstanceGroup/listInstances.md) method.
   
 {% endlist %}
 

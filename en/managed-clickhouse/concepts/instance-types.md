@@ -6,7 +6,7 @@ The available storage does not depend on the host class.  For storage limitation
 
 ## Available host classes {#available-flavors}
 
-Hosts in the cluster {{ mch-name }} are deployed on virtual machines in {{ compute-full-name }}. These virtual machines can be created on any of the platforms that are supported by {{ compute-name }}. Platforms are described in detail in the section [#T](../../compute/concepts/vm-platforms.md).
+Hosts in the cluster Managed Service for ClickHouse are deployed on virtual machines in Yandex Compute Cloud. These virtual machines can be created on any of the platforms that are supported by Compute Cloud. Platforms are described in detail in the section [#T](../../compute/concepts/vm-platforms.md).
 
 The full list of possible host configurations on each of the platforms is provided below.
 

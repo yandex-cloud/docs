@@ -20,17 +20,17 @@ Install Terraform:
 {% list tabs %}
 
 - macOS
-  
+
   Install Terraform via [Homebrew](https://brew.sh):
-  
+
   ```
   $ brew install terraform
   ```
-  
+
 - Windows/Linux
-  
+
   Download Terraform installer and follow the [instructions](https://www.terraform.io/intro/getting-started/install.html).
-  
+
 {% endlist %}
 
 ## 2. Configure Terraform {#configure-terraform}
@@ -167,7 +167,7 @@ All resources created via Terraform are charged, therefore check the plan carefu
 
 {% endnote %}
 
-If there are no errors in the configuration, run the `terraform apply` command. Terraform will ask you to confirm the resource creation: type `yes` in the terminal and press Enter. After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check the availability of the resources and their settings in the [management console](https://console.cloud.yandex.ru).
+If there are no errors in the configuration, run the `terraform apply` command. Terraform will ask you to confirm the resource creation: type `yes` in the terminal and press Enter. After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check the availability of the resources and their settings in the [management console](https://console.cloud.yandex.com/).
 
 ## 6. Delete resources {#delete-resources}
 

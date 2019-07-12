@@ -8,7 +8,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmg-name }}**.
+  1. Go to the folder page and click **Managed Service for MongoDB**.
   1. Click on the name of the cluster you need and then select the **Users** tab.
   
 - CLI
@@ -20,7 +20,7 @@ You can add and remove users, as well as manage their individual settings.
   To get a list of cluster users, run the command:
   
   ```
-  $ {{ yc-mdb-mg }} user list
+  $ yc managed-mongodb user list
        --cluster-name <cluster name>
   ```
   
@@ -34,7 +34,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmg-name }}**.
+  1. Go to the folder page and click **Managed Service for MongoDB**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click **Add**.
   1. Enter the database user name and password (from 8 to 128 characters).
@@ -50,13 +50,13 @@ You can add and remove users, as well as manage their individual settings.
   1. See the description of the CLI's create user command:
   
      ```
-     $ {{ yc-mdb-mg }} user create --help
+     $ yc managed-mongodb user create --help
      ```
   
   1. Specify the user properties in the create command:
   
      ```
-     $ {{ yc-mdb-mg }} user create <user name>
+     $ yc managed-mongodb user create <user name>
         --cluster-name <cluster name>
         --password <user password>
         --permission database=<DB name>,role=<role>,role=<another role>,...
@@ -75,7 +75,7 @@ You can add and remove users, as well as manage their individual settings.
   
   In the management console, you can only change the password of a database user:
   
-  1. Go to the folder page and click **{{ mmg-name }}**.
+  1. Go to the folder page and click **Managed Service for MongoDB**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Change password**.
   
@@ -90,13 +90,13 @@ You can add and remove users, as well as manage their individual settings.
   1. See the description of the CLI's update user command:
   
      ```
-     $ {{ yc-mdb-mg }} user update --help
+     $ yc managed-mongodb user update --help
      ```
   
   1. Specify the user properties in the create command:
   
      ```
-     $ {{ yc-mdb-mg }} user update <user name>
+     $ yc managed-mongodb user update <user name>
         --cluster-name <cluster name>
         --password <user password>
         --permission database=<DB name>,role=<role>,role=<another role>,...
@@ -113,7 +113,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmg-name }}**.
+  1. Go to the folder page and click **Managed Service for MongoDB**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Delete**.
   
@@ -126,7 +126,7 @@ You can add and remove users, as well as manage their individual settings.
   To remove a user, run:
   
   ```
-  $ {{ yc-mdb-mg }} user delete <user name>
+  $ yc managed-mongodb user delete <user name>
        --cluster-name <cluster name>
   ```
   

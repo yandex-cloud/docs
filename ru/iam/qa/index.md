@@ -1,4 +1,4 @@
-# Вопросы и ответы про {{ iam-name }}
+# Вопросы и ответы про Identity and Access Management
 
 ## Общие вопросы
 

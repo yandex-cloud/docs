@@ -1,4 +1,4 @@
-# Connecting to a database in a cluster {{ RD }}
+# Connecting to a database in a cluster Redis
 
 Redis cluster hosts cannot be assigned public IPs. You can only connect to a Redis host from a VM located in the same subnet as the host.
 

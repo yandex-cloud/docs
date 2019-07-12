@@ -1,8 +1,8 @@
-# Creating a {{ MG }} cluster
+# Creating a MongoDB cluster
 
-{{ MG }} cluster is one or more database hosts that can have replication configured between them. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
+MongoDB cluster is one or more database hosts that can have replication configured between them. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
 
-The number of hosts that can be created together with a {{ MG }} cluster depends on the storage option selected:
+The number of hosts that can be created together with a MongoDB cluster depends on the storage option selected:
 
 * When using network drives, you can request any number of hosts (from one to the limits of the current [quota](../concepts/limits.md)).
 
@@ -14,7 +14,7 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
   
   1. In the management console, select the folder where you want to create a DB cluster.
   
-  2. Click **{{ mmg-name }}**.
+  2. Click **Managed Service for MongoDB**.
   
   3. Click **Create cluster** and select the necessary DBMS. Once a cluster is created, you cannot change the DBMS.
   
@@ -24,7 +24,7 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
   
       * <q>production</q> — for stable versions of your apps.
   
-      * <q>prestable</q> — to perform testing, including that of the {{ mmg-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner in it, but this may cause backward incompatible changes.
+      * <q>prestable</q> — to perform testing, including that of the Managed Service for MongoDB service itself. The prestable environment is updated more often, which means that known problems are fixed sooner in it, but this may cause backward incompatible changes.
   
   6. Select the DBMS version.
   
@@ -44,7 +44,7 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
   
       * User password (a minimum of 8 characters).
   
-  10. In the **Hosts** section, select parameters for database hosts created with the cluster (keep in mind that if you use SSDs when creating {{ MG }} clusters, you can set at least three hosts). If you open the **Advanced settings** section, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
+  10. In the **Hosts** section, select parameters for database hosts created with the cluster (keep in mind that if you use SSDs when creating MongoDB clusters, you can set at least three hosts). If you open the **Advanced settings** section, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
   
   11. Click **Create cluster**.
   
@@ -62,18 +62,18 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
       $ yc vpc subnet list
       ```
   
-      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in the {{ vpc-short-name }} service.
+      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in the VPC service.
   
   1. See the description of the CLI's create cluster command:
   
       ```
-      $ {{ yc-mdb-mg }} cluster create --help
+      $ yc managed-mongodb cluster create --help
       ```
   
   2. Specify the cluster parameters in the create command (the example shows only mandatory flags):
   
       ```
-      $ {{ yc-mdb-mg }} cluster create \
+      $ yc managed-mongodb cluster create \
          --name <cluster name> \
          --environment=<prestable or production> \
          --network-name <network name> \
@@ -95,7 +95,7 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
 
 To create a cluster with a single host, you should pass a single parameter, `--host`.
 
-Let's say we need to create a {{ MG }} cluster with the following characteristics:
+Let's say we need to create a MongoDB cluster with the following characteristics:
 
 * Named `mymg`.
 
@@ -114,7 +114,7 @@ Let's say we need to create a {{ MG }} cluster with the following characteristic
 Run the command:
 
 ```
-$ {{ yc-mdb-mg }} cluster create \
+$ yc managed-mongodb cluster create \
      --name mymg \
      --environment production \
      --network-name default \

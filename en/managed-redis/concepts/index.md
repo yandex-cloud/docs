@@ -1,8 +1,8 @@
 # Relationship between service resources
 
-{{ RD }} is a high-performance key-value store that runs in RAM. {{ mrd-name }} allows you to easily create {{ RD }} host clusters with a high level of fault tolerance.
+Redis is a high-performance key-value store that runs in RAM. Managed Service for Redis allows you to easily create Redis host clusters with a high level of fault tolerance.
 
-The main entity used in {{ mrd-name }} is a _database cluster_.
+The main entity used in Managed Service for Redis is a _database cluster_.
 
 Each cluster consists of one or more _database hosts_, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones and even different availability regions. [Learn more about the Cloud geography](../../overview/concepts/geo-scope.md).
 

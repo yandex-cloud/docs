@@ -13,5 +13,5 @@ The [Yandex Identity and Access Management](../iam/pricing.md) and [Yandex Resou
 
 Billable service costs are calculated based on the resources consumed and usage timeframe. Each service implements its own logic for calculating the volume of resources consumed.
 
-For more information about Yandex.Cloud pricing as well as pricing rules for all services, see the [Pricing](https://cloud.yandex.ru/prices) page.
+For more information about Yandex.Cloud pricing as well as pricing rules for all services, see the [Pricing](https://cloud.yandex.com/prices) page.
 

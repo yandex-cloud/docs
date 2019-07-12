@@ -2,7 +2,7 @@
 
 {% note info %}
 
-На [стадии Preview](../../../overview/concepts/launch-stages) сервиса {{ monitoring-full-name }} вы можете копировать только созданные вами дашборды, но не сервисные.
+На [стадии Preview](../../../overview/concepts/launch-stages) сервиса Yandex Monitoring вы можете копировать только созданные вами дашборды, но не сервисные.
 
 {% endnote %}
 

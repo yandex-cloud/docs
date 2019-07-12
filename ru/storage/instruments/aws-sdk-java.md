@@ -26,7 +26,7 @@
 
 Пример кода находится в каталоге `aws-java-sdk/samples/AmazonS3` в архиве с дистрибутивом SDK.
 
-Чтобы подключиться к {{ objstorage-name }} замените в примере код
+Чтобы подключиться к Object Storage замените в примере код
 
 ```cpp
 AmazonS3 s3 = AmazonS3ClientBuilder.standard()
@@ -42,7 +42,7 @@ AmazonS3 s3 = AmazonS3ClientBuilder.standard()
     .withCredentials(new AWSStaticCredentialsProvider(credentials))
     .withEndpointConfiguration(
         new AmazonS3ClientBuilder.EndpointConfiguration(
-            "{{ s3-storage-host }}","us-east-1"
+            "storage.yandexcloud.net","us-east-1"
         )
     )
     .build();

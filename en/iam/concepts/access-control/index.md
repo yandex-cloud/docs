@@ -1,16 +1,16 @@
 # How access management in Yandex.Cloud works
 
-On this page, you can find out how to manage access to resources and how {{ iam-short-name }} checks access rights to them.
+On this page, you can find out how to manage access to resources and how IAM checks access rights to them.
 
 ## How are access rights verified?
 
-All operations with resources in Yandex.Cloud are first sent for verification to {{ iam-short-name }}. For example:
+All operations with resources in Yandex.Cloud are first sent for verification to IAM. For example:
 
 1. A user wants the Yandex Compute Cloud service to create a new disk in the <q>default</q> folder.
-1. The service sends a request to {{ iam-short-name }} to check whether this user is allowed to create disks in this folder.
-1. {{ iam-short-name }} checks if the user is a member of the cloud with the <q>default</q> folder and has the necessary permissions to create a disk in this folder.
+1. The service sends a request to IAM to check whether this user is allowed to create disks in this folder.
+1. IAM checks if the user is a member of the cloud with the <q>default</q> folder and has the necessary permissions to create a disk in this folder.
 1. If the user does not have any of the permissions, the operation is not performed and Yandex.Cloud returns an error.
-If all the required permissions are granted, {{ iam-short-name }} reports this to the service.
+If all the required permissions are granted, IAM reports this to the service.
 1. The service creates a new disk.
 
 ![checkPermissions.png](../../../_assets/checkPermissions.png)
@@ -53,7 +53,7 @@ There are three types of subjects:
 
 * `userAccount`: a user's account on Yandex.
 * `serviceAccount`: a service account created in Yandex.Cloud.
-* `system` : a [system group](system-group.md). At the moment, there is just one system group, `{{ subjects-allAuthenticatedUsers }}`, that incudes all users registered with and [authenticated](../authorization/) in Yandex.Cloud.
+* `system` : a [system group](system-group.md). At the moment, there is just one system group, `allAuthenticatedUsers`, that incudes all users registered with and [authenticated](../authorization/) in Yandex.Cloud.
 
 ### Binding access rights {#access-bindings}
 

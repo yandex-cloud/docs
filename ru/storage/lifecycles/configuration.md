@@ -27,9 +27,9 @@
 
 Элемент | Описание
 ----- | -----
-`Date` | Дата, в которую {{ objstorage-name }} выполнит действие.<br/><br/>Дата должна соответствовать формату ISO 8601, например, `YYYY-MM-DD`. Время — всегда 00:00 UTC.<br/><br/>Путь: `LifecycleConfiguration\Rule\Expiration\Date`.
+`Date` | Дата, в которую Object Storage выполнит действие.<br/><br/>Дата должна соответствовать формату ISO 8601, например, `YYYY-MM-DD`. Время — всегда 00:00 UTC.<br/><br/>Путь: `LifecycleConfiguration\Rule\Expiration\Date`.
 `Days` | Определяет количество дней после загрузки объекта, когда правило становится применимо.<br/><br/>Путь: `LifecycleConfiguration\Rule\Expiration\Days`.
-`Expiration` | Содержит элементы `<Days>` и/или `<Date>`, которые определяют сроки удаления объекта из {{ objstorage-name }}.<br/><br/>Путь: `LifecycleConfiguration\Rule\Expiration`.
+`Expiration` | Содержит элементы `<Days>` и/или `<Date>`, которые определяют сроки удаления объекта из Object Storage.<br/><br/>Путь: `LifecycleConfiguration\Rule\Expiration`.
 `Filter` | Содержит не более одного элемента `Prefix`.<br/><br/>Если установить пустой фильтр `<Filter></Filter>`, то правило применяется ко всем элементам в бакете.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter`.
 `ID` | Уникальный идентификатор правила.<br/><br/>Длина идентификатора не более 255 символов. Необязательный параметр. Можно использовать для поиска правила в конфигурации.<br/><br/>Путь: `LifecycleConfiguration\Rule\ID`.
 `LifecycleConfiguration` | Корневой элемент XML документа. Может содержать до 1000 элементов `<Rule>`.<br/><br/>Путь: `LifecycleConfiguration`.

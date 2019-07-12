@@ -4,7 +4,7 @@ If you want to prohibit a [subject](../../concepts/access-control/index.md#subje
 
 {% note info %}
 
-If you need to temporarily revoke all access rights from a user with a Yandex account, you can just revoke the role of `{{ roles-cloud-member }}`. Although the user keeps all the other roles, they can't perform any operations with the cloud resources. When you add the user to the cloud again, the access rights will already be configured.
+If you need to temporarily revoke all access rights from a user with a Yandex account, you can just revoke the role of `resource-manager.clouds.member`. Although the user keeps all the other roles, they can't perform any operations with the cloud resources. When you add the user to the cloud again, the access rights will already be configured.
 
 {% endnote %}
 
@@ -52,7 +52,7 @@ If you need to temporarily revoke all access rights from a user with a Yandex ac
       * `<RESOURCE>` is the category of the resource, such as `folder`.
       * `<RESOURCE-NAME>` is the name of the resource. You can specify a resource by its name or identifier.
       * `<RESOURCE-ID>` is the resource identifier.
-      * `<ROLE-ID>` is the identifier of the role to revoke (such as `{{ roles-cloud-owner }}`).
+      * `<ROLE-ID>` is the identifier of the role to revoke (such as `resource-manager.clouds.owner`).
       * `<SUBJECT-TYPE>` is the type of the [subject](../../concepts/access-control/index.md#subject) to revoke the role from.
       * `<SUBJECT-ID>` is the identifier of the subject.
   

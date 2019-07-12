@@ -20,7 +20,7 @@ You can specify the internal IP address at which the VM will be accessible after
 
 {% note info %}
 
-Only IPv4 addresses are currently supported.
+Only IPv4 addresses are currently supported. Yandex Compute Cloud VMs and DB hosts provide access to and from the internet via public IP addresses only.
 
 {% endnote %}
 
@@ -53,6 +53,8 @@ For example, if you specified the hostname `myinstance`, the FQDN will be like t
 ```
 myinstance.ru-central1.internal
 ```
+
+{% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
 If no hostname is specified, the VM's ID will be used as its hostname. In this case, the region is omitted, since the VM's ID is unique within the entire Yandex.Cloud.
 

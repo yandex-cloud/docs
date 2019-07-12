@@ -1,6 +1,6 @@
 # All services and methods
 
-{{ objstorage-name }} The HTTP API provides the following services:
+Object Storage The HTTP API provides the following services:
 
 | Service | Description |
 | ------- | --------- |
@@ -28,9 +28,9 @@
 
 | Method | Description |
 | ----- | ----- |
-| [upload](object/upload.md) | Uploads an object to {{ objstorage-name }}. |
-| [get](object/get.md) | Retrieves an object from {{ objstorage-name }}. |
-| [copy](object/copy.md) | Copies an object stored in {{ objstorage-name }}. |
+| [upload](object/upload.md) | Uploads an object to Object Storage. |
+| [get](object/get.md) | Retrieves an object from Object Storage. |
+| [copy](object/copy.md) | Copies an object stored in Object Storage. |
 | [getObjectMeta](object/getobjectmeta.md) | Retrieves object metadata. |
 | [delete](object/delete.md) | Deletes an object. |
 | [deleteMultipleObjecs](object/deletemultipleobjects.md) | Deletes objects based on a list. |
@@ -52,8 +52,8 @@
 
 | Method | Description |
 | ----- | ----- |
-| [upload](hosting/upload.md) | Uploads a bucket's configuration for static website hosting to {{ objstorage-name }}. |
-| [get](hosting/get.md) | Returns a bucket's configuration for static website hosting from {{ objstorage-name }}. |
+| [upload](hosting/upload.md) | Uploads a bucket's configuration for static website hosting to Object Storage. |
+| [get](hosting/get.md) | Returns a bucket's configuration for static website hosting from Object Storage. |
 | [delete](hosting/delete.md) | Deletes a bucket's configuration for static website hosting. |
 
 ### CORS service
@@ -68,9 +68,9 @@
 
 | Method | Description |
 | ----- | ----- |
-| [upload](lifecycles/upload.md) | Uploads an object lifecycle configuration to {{ objstorage-name }}. |
-| [get](lifecycles/get.md) | Returns an object lifecycle configuration from {{ objstorage-name }}. |
-| [delete](lifecycles/delete.md) | Deletes an object lifecycle configuration from {{ objstorage-name }}. |
+| [upload](lifecycles/upload.md) | Uploads an object lifecycle configuration to Object Storage. |
+| [get](lifecycles/get.md) | Returns an object lifecycle configuration from Object Storage. |
+| [delete](lifecycles/delete.md) | Deletes an object lifecycle configuration from Object Storage. |
 
 ### ACL service
 

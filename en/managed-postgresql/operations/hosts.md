@@ -1,27 +1,27 @@
 # Managing hosts in a cluster
 
-You can add and remove cluster hosts and manage {{ PG }} settings for individual clusters.
+You can add and remove cluster hosts and manage PostgreSQL settings for individual clusters.
 
 ## Getting a list of cluster hosts {#list}
 
 {% list tabs %}
 
 - Management console
-  
-  1. Go to the folder page and click **{{ mpg-name }}**.
-  
+
+  1. Go to the folder page and select **Managed Service for PostgreSQL**.
+
   2. Click on the name of the cluster you need and select the **Hosts** tab.
-  
+
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   To get a list of cluster databases, run the command:
-  
+
   ```
-  $ {{ yc-mdb-pg }} host list
+  $ yc managed-postgresql host list
        --cluster-name=<cluster name>
   
   +----------------------------+--------------+---------+--------+---------------+
@@ -31,55 +31,54 @@ You can add and remove cluster hosts and manage {{ PG }} settings for individual
   | rc1c...mdb.yandexcloud.net | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-c |
   +----------------------------+--------------+---------+--------+---------------+
   ```
-  
-  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
-  
+
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
 - API
-  
+
   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) method.
-  
+
 {% endlist %}
 
 ## Adding a host  {#add}
 
-The number of hosts in {{ mpg-short-name }} clusters is limited by the quotas on CPUs and RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas](https://console.cloud.yandex.ru/?section=quotas
-) and find the **{{ mpg-full-name }}**.
+The number of hosts in Managed Service for PostgreSQL clusters is limited by CPU quotas and the amount of memory available to database clusters in your cloud. To check the resources in use, open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page and find the **Yandex Managed Service for PostgreSQL** block.
 
 {% list tabs %}
 
 - Management console
-  
-  1. Go to the folder page and click **{{ mpg-name }}**.
-  
-  2. Click on the name of the cluster you need and go to the **Hosts** tab.
-  
-  3. Click **Add host**.
-  
+
+  1. Go to the folder page and select **Managed Service for PostgreSQL**.
+
+  1. Click on the name of the cluster you need and go to the **Hosts** tab.
+
+  1. Click **Add host**.
+
   1. Specify the host parameters:
-  
+
       * Availability zone.
-  
+
       * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
-  
-      * Priority of the host as a {{ PG }} replica.
-  
+
+      * Priority of the host as a PostgreSQL replica.
+
       * Replication source (if you use cascading replication).
-  
+
       * Select the **Public access** option if the host must be accessible from outside the Cloud.
-  
+
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   To add a host to the cluster:
-  
+
   1. Request a list of cluster subnets to select one for the new host:
-  
+
       ```
       $ yc vpc subnet list
-  
+      
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
@@ -89,34 +88,36 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the quotas on
       | e9b9v2... | default-a | enp6rq7... | ru-central1-a | [172.16.16.0/20] |
       +-----------+-----------+------------+---------------+------------------+
       ```
-  
-  2. See the description of the CLI command for adding a host:
-  
-      ```
-      $ {{ yc-mdb-pg }} host add --help
-      ```
-  
-  3. Run the add host command:
-  
-      ```
-      $ {{ yc-mdb-pg }} host add
-           --cluster-name <cluster name>
-           --host zone-id=<availability zone>,subnet-id=<subnet ID>
-      ```
-  
-      {{ mpg-short-name }} will run the add host operation.
-  
-      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mpg-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
-  
+
+     If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+
+  1. See the description of the CLI command for adding a host:
+
+     ```
+     $ yc managed-postgresql host add --help
+     ```
+
+  1. Run the add host command:
+
+     ```
+     $ yc managed-postgresql host add
+          --cluster-name <cluster name>
+          --host zone-id=<availability zone>,subnet-id=<subnet ID>
+     ```
+
+     Managed Service for PostgreSQL launches the add host operation.
+
+     The subnet ID must be specified if there is more than one subnet in the availability zone, otherwise Managed Service for PostgreSQL automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
 - API
-  
+
   To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
-  
+
 {% endlist %}
 
 ## Changing a host {#update}
 
-For each host in a {{ PG }} cluster, you can change:
+For each host in a PostgreSQL cluster, you can change:
 
 * The host's priority in the cluster, according to which a new master is selected when the old one is unavailable.
 
@@ -125,62 +126,62 @@ For each host in a {{ PG }} cluster, you can change:
 {% list tabs %}
 
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
-  To change the parameters of the {{ PG }} host, run the command:
-  
+
+  To change the parameters of the PostgreSQL host, run the command:
+
   ```
-  $ {{ yc-mdb-pg }} host update <host name>
+  $ yc managed-postgresql host update <hostname>
        --cluster-name <cluster name>
-       --replication-source <source host name>
-       --priority <replica priority>
+       --replication-source <source host's name
+       --priority <replica's priority
   ```
-  
+
   The host names can be requested with a [list of cluster hosts](#list-hosts) and the cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
-  
+
 - API
-  
+
   To remove a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method.
-  
+
 {% endlist %}
 
 ## Removing a host {#remove}
 
-You can remove a host from a {{ PG }} cluster if it is not the only host in it. To replace a single host, first create a new host and then delete the old one.
+You can remove a host from a PostgreSQL cluster if it is not the only host in it. To replace a single host, first create a new host and then delete the old one.
 
-If the host is a master at the time of deletion, {{ mpg-short-name }} automatically assigns the next highest-priority replica as a master.
+If the host is the master when it's deleted, Managed Service for PostgreSQL will automatically assign another the next replica by priority the master.
 
 {% list tabs %}
 
 - Management console
-  
-  1. Go to the folder page and click **{{ mpg-name }}**.
-  
+
+  1. Go to the folder page and select **Managed Service for PostgreSQL**.
+
   2. Click on the name of the cluster you need and select the **Hosts** tab.
-  
+
   3. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
-  
+
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   To remove a host from the cluster, run:
-  
+
   ```
-  $ {{ yc-mdb-pg }} host delete <host name>
+  $ yc managed-postgresql host delete <hostname>
        --cluster-name=<cluster name>
   ```
-  
-  The name of the host can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
-  
+
+  The name of the host can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
 - API
-  
+
   To remove a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method.
-  
+
 {% endlist %}
 

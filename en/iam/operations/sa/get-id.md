@@ -52,7 +52,7 @@ If you don't have a service account yet, [create one](create.md).
       $ export IAM_TOKEN=CggaATEVAgA...
       $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
           "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
-  
+      
       {
        "serviceAccounts": [
         {

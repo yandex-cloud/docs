@@ -7,22 +7,22 @@
 {% list tabs %}
 
 - Консоль управления
-  
+
   1. {% include [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md) %}
   1. {% include [configure-roles-console](../../../_includes/iam/configure-roles-console.md) %}
   1. Нажмите значок ![image](../../../_assets/plus-sign.svg) в блоке **Роли на облако <имя облака>**.
   1. Выберите необходимую роль из списка.
-  
+
 - CLI
-  
+
   1. Посмотрите описание команды для назначения роли на облако:
-  
+
       ```
       $ yc resource-manager cloud add-access-binding --help
       ```
-  
+
   2. Выберите облако, например `my-cloud`:
-  
+
       ```
       $ yc resource-manager cloud list
       +----------------------+----------+
@@ -31,9 +31,9 @@
       | b1gg8sgd16g7qca5onqs | my-cloud |
       +----------------------+----------+
       ```
-  
+
   3. Выберите [роль](../../../iam/concepts/access-control/roles.md):
-  
+
       ```
       $ yc iam role list
       +--------------------------------+-------------+
@@ -46,7 +46,7 @@
       +--------------------------------+-------------+
       ```
   4. Узнайте ID пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или системной группе используйте [примеры](#examples) ниже.
-  
+
       ```
       $ yc iam user-account get test-user
       id: gfei8n54hmfhuk5nogse
@@ -54,25 +54,25 @@
           login: test-user
           default_email: test-user@yandex.ru
       ```
-  
-  
+
+
   5. Назначьте пользователю `test-user` роль `editor` на облако `my-cloud`. В субъекте укажите тип `userAccount` и ID пользователя:
-  
+
       ```
       $ yc resource-manager cloud add-access-binding my-cloud \
           --role editor \
           --subject userAccount:gfei8n54hmfhuk5nogse
       ```
-  
+
 - API
-  
+
   Воспользуйтесь методом [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md). Вам понадобится ID облака и ID пользователя, которому назначается роль на облако.
-  
+
   1. Узнайте ID облака с помощью метода [list](../../api-ref/Cloud/list.md):
       ```bash
       $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
-  
+
       {
        "clouds": [
         {
@@ -87,7 +87,7 @@
       ```bash
       $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
-  
+
       {
        "id": "gfei8n54hmfhuk5nogse",
        "yandexPassportUserAccount": {
@@ -97,7 +97,7 @@
       }
       ```
   3. Назначьте пользователю роль `editor` на облако `my-cloud`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
-  
+
       ```bash
       $ curl -X POST \
           -H 'Content-Type: application/json' \
@@ -113,7 +113,7 @@
           }}}]}' \
           https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
       ```
-  
+
 {% endlist %}
 
 ## Примеры {#examples}
@@ -127,15 +127,15 @@
 {% list tabs %}
 
 - CLI
-  
+
   Команда `add-access-binding` позволяет добавить только одну роль. Вы можете назначить несколько ролей с помощью команды `set-access-binding`.
-  
+
   {% note alert %}
-  
+
   Команда `set-access-binding` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
-  
+
   {% endnote %}
-  
+
   1. Убедитесь, что на ресурс не назначено ролей, которые вы не хотите потерять:
       ```
       $ yc resource-manager cloud list-access-binding my-cloud
@@ -146,11 +146,11 @@
           --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
           --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
       ```
-  
+
 - API
-  
+
   Назначьте одному пользователю роль `editor`, а другому `viewer`:
-  
+
   ```bash
   $ curl -X POST \
       -H 'Content-Type: application/json' \
@@ -175,15 +175,15 @@
       }}}]}' \
       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
   ```
-  
+
   Вы также можете назначать роли с помощью метода [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md).
-  
+
   {% note alert %}
-  
+
   Метод `setAccessBindings` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
-  
+
   {% endnote %}
-  
+
   ```bash
   curl -X POST \
       -H 'Content-Type: application/json' \
@@ -198,7 +198,7 @@
       }]}' \
       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:setAccessBindings
   ```
-  
+
 {% endlist %}
 
 
@@ -209,9 +209,9 @@
 {% list tabs %}
 
 - CLI
-  
+
   1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
-  
+
       ```
       $ yc iam service-account list
       +----------------------+----------+------------------+
@@ -220,23 +220,23 @@
       | ajebqtreob2dpblin8pe | test-sa  | test-description |
       +----------------------+----------+------------------+
       ```
-  
+
   2. Назначьте роль `editor` сервисному аккаунту `test-sa`, указав его ID. В типе субъекта укажите `serviceAccount`:
-  
+
       ```
       $ yc resource-manager cloud add-access-binding my-cloud \
           --role editor \
           --subject serviceAccount:ajebqtreob2dpblin8pe
       ```
-  
+
 - API
-  
+
   1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
-  
+
       ```bash
       $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob03goohplct641
-  
+
       {
        "serviceAccounts": [
         {
@@ -249,9 +249,9 @@
        ]
       }
       ```
-  
+
   2. Назначьте сервисному аккаунту `test-sa` роль `editor` на облако `my-cloud`. В свойстве `subject` укажите тип `serviceAccount` и ID `test-sa`. В URL запроса в качестве ресурса укажите ID `my-cloud`:
-  
+
   ```bash
   $ curl -X POST \
       -H 'Content-Type: application/json' \
@@ -267,31 +267,31 @@
       }}}]}' \
       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
   ```
-  
+
 {% endlist %}
 
 ### Доступ к ресурсу всем пользователям {#access-to-all}
 
-Вы можете предоставить доступ к ресурсу всем пользователям Яндекс.Облака. Для этого назначьте роль [системной группе](../../../iam/concepts/access-control/system-group.md) `allAuthenticatedUsers`.
+{% include [set-access-to-all](../../../_includes/iam/set-access-to-all.md) %}
 
-Разрешите любому прошедшему аутентификацию пользователю просматривать информацию об облаке `my-cloud` и ресурсах в нем:
+Например, разрешите любому прошедшему аутентификацию пользователю просматривать информацию об облаке `my-cloud` и ресурсах в нем:
 
 {% list tabs %}
 
 - CLI
-  
+
   Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В типе субъекта укажите `system`:
-  
+
   ```
   $ yc resource-manager cloud add-access-binding my-cloud \
       --role viewer \
       --subject system:allAuthenticatedUsers
   ```
-  
+
 - API
-  
+
   Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В свойстве `subject` укажите тип `system`:
-  
+
   ```bash
   $ curl -X POST \
       -H 'Content-Type: application/json' \
@@ -307,7 +307,7 @@
       }}}]}' \
       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
   ```
-  
+
 {% endlist %}
 
 #### Что дальше

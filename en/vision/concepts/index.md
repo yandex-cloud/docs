@@ -1,6 +1,6 @@
 # About the computer vision service
 
-The {{ vision-full-name }} computer vision service analyzes a transmitted image and returns you the result.
+The Yandex Vision computer vision service analyzes a transmitted image and returns you the result.
 
 ## Analysis features {#features}
 

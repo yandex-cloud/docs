@@ -22,7 +22,7 @@
   
 - CLI
   
-  If you don't have the Yandex.Cloud command line interface yet, [install it](https://cloud.yandex.ru/docs/cli/quickstart#install).
+  If you don't have the Yandex.Cloud command line interface yet, [install it](https://cloud.yandex.com/docs/cli/quickstart#install).
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
@@ -68,7 +68,7 @@
   
 - API
   
-  You can create a new target group using the [create](../api-ref/TargetGroup/create.md) API method.
+  You can create a new target group using the [create](../../_api-ref/loadbalancer/api-ref/TargetGroup/create.md) API method.
   
   Once the target group has been created, add targets that the load will be distributed across. You can use the [addTargets](../ api-ref/TargetGroup/addTargets) method to add targets to a group.
   

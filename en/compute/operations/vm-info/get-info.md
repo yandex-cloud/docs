@@ -1,8 +1,6 @@
 # Getting information about a VM
 
-Basic information about a VM, for example, its IP address, FQDN, and disk capacity can be obtained in the [management console](https://console.cloud.yandex.ru), on the corresponding VM's page.
-
-To get user-defined [metadata](../../concepts/vm-metadata.md), use the CLI or API.
+To get information about a virtual machine you created, go to the [management console](https://console.cloud.yandex.com/) and open the virtual machine page. To get detailed information with user-defined [metadata](../../concepts/vm-metadata.md), use the CLI or API.
 
 You can also get basic information and metadata [from inside a VM](#inside-instance).
 
@@ -11,51 +9,51 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
 {% list tabs %}
 
 - Management console
-  
-  On the **Virtual machines** page in the **Compute Cloud** section, you can find a list of VMs in the folder and brief information on them.
-  
-  For more information about a certain VM, click on the line with its name.
-  
+
+  On the **Virtual machines** page in the **Compute Cloud** section, you can find a list of VMs in the folder and brief information for each of them.
+
+  For more information about a certain VM, click its name.
+
   Tabs:
-  
+
   - **Overview** shows general information about the VM, including the IP addresses assigned to it.
   - **Disks** provides information about the disks attached to the VM.
   - **Operations** lists operations on the VM and resources attached to it, such as disks.
   - **Monitoring** shows information about resource consumption on the VM. You can only get this information from the management console or from inside the VM.
   - **Serial port** provides information that is output by the VM to the serial port. To obtain this information via the API or CLI, follow the instructions [#T](get-serial-port-output.md).
-  
+
 - CLI
-  
+
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. View the description of the command to get serial port output:
-  
+
       ```
       $ yc compute instance get --help
       ```
-  
+
   1. Select a VM, for example, `first-instance`:
-  
+
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-  
+
   1. Get basic information about a VM:
-  
+
       ```
       $ yc compute instance get first-instance
       ```
-  
+
       To get information about a VM with [metadata](../../concepts/vm-metadata.md), use the `--full` flag:
-  
+
       ```
       $ yc compute instance get --full first-instance
       ```
-  
+
 - API
-  
-  To get basic information about a VM, use the [get](../../api-ref/Instance/get.md) method for the [Instance](../../api-ref/Instance/index.md) resource.
+
+  To get basic information about a VM, use the [get](../../../_api-ref/compute/api-ref/Instance/get.md) method for the [Instance](../../../_api-ref/compute/api-ref/Instance/index.md) resource.
   
   The basic information does not include the user-defined metadata that was passed when creating or updating the VM. To get the information along with the metadata, specify `view=FULL` in the parameters.
-  
+
 {% endlist %}
 
 ## Getting information from inside a VM {#inside-instance}
@@ -81,12 +79,12 @@ Metadata-Flavor: Google
 | Parameter | Description |
 | ----- | ----- |
 | `alt` | Response format (by default, `text`). |
-| `recursive` | If `true`, it returns all values in the tree in a recursive manner. By default, `false`. |
+| `recursive` | If `true`, it returns all values in the tree recursively. By default, `false`. |
 | `wait_for_change` | If `true`, this response will be returned only when one of the metadata parameters is modified. By default, `false`. |
-| `last_etag` | The ETag value from the previous response to a similar request. Used when `wait_for_change="true"`. |
-| `timeout_sec` | Maximum request timeout. Used when `wait_for_change="true"`. |
+| `last_etag` | The ETag value from the previous response to a similar request. Use it when `wait_for_change="true"`. |
+| `timeout_sec` | Maximum request timeout. Use when `wait_for_change="true"`. |
 
-#### Sample requests
+#### Request examples
 
 Find out the ID of a VM from inside it:
 
@@ -112,8 +110,8 @@ List of elements that are available for this request.
 
 | Element | Description |
 | ----- | ----- |
-| `attributes/` | User-defined metadata that is passed in the `metadata` field when creating or updating the VM. |
-| `attributes/ssh-keys` | List of public SSH keys passed when creating the VM in the `metadata` field through the `ssh-keys` value. |
+| `attributes/` | User-defined metadata that was passed in the `metadata` field when creating or updating the VM. |
+| `attributes/ssh-keys` | List of public SSH keys passed during VM creation in the `metadata` field through the `ssh-keys` value. |
 | `description` | Text description passed when creating or updating the VM. |
 | `disks/` | Disks attached to the VM. |
 | `hostname` | [FQDN](../../concepts/network.md#hostname) assigned to the VM. |
@@ -160,7 +158,7 @@ The angle brackets contain parameters that need to be replaced with values. For 
 | `network/interfaces/macs/<mac>/mac` | MAC address of the VM's network interface. |
 | `public-ipv4` | External IPv4 address. |
 
-#### Sample requests
+#### Request examples
 
 Get an internal IP address from inside a VM:
 

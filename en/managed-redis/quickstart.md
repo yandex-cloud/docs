@@ -1,4 +1,4 @@
-# Getting started with {{ mrd-short-name }}
+# Getting started with Managed Service for Redis
 
 Before creating a database cluster:
 
@@ -11,10 +11,10 @@ Before creating a database cluster:
 Follow the instructions below to quickly create a cluster and test your connection to it.
 
 1. In the management console, select the folder where you want to create a DB cluster.
-1. Select the **{{ mrd-full-name }}** service.
+1. Select the **Yandex Managed Service for Redis** service.
 1. Click **Create cluster**.
 1. Set the cluster parameters and click **Create cluster**.
-1. When the cluster is ready to operate, its status on the {{ mrd-short-name }} dashboard will change to **RUNNING**.
+1. When the cluster is ready to operate, its status on the Managed Service for Redis dashboard will change to **RUNNING**.
 1. You can connect to the database using the [redis-cli](https://redis.io/topics/rediscli) program:
 
     ```

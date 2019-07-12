@@ -1,6 +1,6 @@
 # Information about existing clusters
 
-You can request detailed information about each {{ mch-short-name }} cluster you created.
+You can request detailed information about each Managed Service for ClickHouse cluster you created.
 
 ## Getting a list of DB clusters in a folder {#list-clusters}
 
@@ -8,7 +8,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - Management console
   
-  Go to the folder page and click **{{ mch-name }}**.
+  Go to the folder page and click **Managed Service for ClickHouse**.
   
 - CLI
   
@@ -16,10 +16,10 @@ You can request detailed information about each {{ mch-short-name }} cluster you
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To request a list of {{ CH }} clusters in the default folder, run the command:
+  To request a list of ClickHouse clusters in the default folder, run the command:
   
   ```
-  $ {{ yc-mdb-ch }} cluster list
+  $ yc managed-clickhouse cluster list
   
   +----------------------+---------------+-----------------------------+--------+---------+
   |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
@@ -37,7 +37,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
 - Management console
   
-  1. Go to the folder page and click **{{ mch-name }}**.
+  1. Go to the folder page and click **Managed Service for ClickHouse**.
   1. Click on the name of the cluster you need.
   
 - CLI
@@ -46,10 +46,10 @@ You can request detailed information about each {{ mch-short-name }} cluster you
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To get information about a {{ CH }} cluster, run the command:
+  To get information about a ClickHouse cluster, run the command:
   
   ```
-  $ {{ yc-mdb-ch }} cluster get <cluster name or ID>
+  $ yc managed-clickhouse cluster get <cluster name or ID>
   ```
   
   The cluster name and ID can be requested with a [list of folder clusters](#list-clusters).

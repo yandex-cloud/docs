@@ -13,7 +13,7 @@
   
 - CLI
   
-  If you don't have the Yandex.Cloud command line interface yet, [install it](https://cloud.yandex.ru/docs/cli/quickstart#install).
+  If you don't have the Yandex.Cloud command line interface yet, [install it](https://cloud.yandex.com/docs/cli/quickstart#install).
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
@@ -64,7 +64,7 @@
   
 - API
   
-  You can attach a target group to a load balancer using the [attachTargetGroup](../api-ref/NetworkLoadBalancer/attachTargetGroup.md) API method.
+  You can attach a target group to a load balancer using the [attachTargetGroup](../../_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) API method.
   
 {% endlist %}
 

@@ -1,6 +1,6 @@
 # Метод get
 
-Возвращает конфигурацию жизненного цикла объектов в бакете из {{ objstorage-name }}.
+Возвращает конфигурацию жизненного цикла объектов в бакете из Object Storage.
 
 ## Запрос {#request}
 
@@ -35,7 +35,7 @@ GET /{bucket}?lifecycle HTTP/1.1
 
 ### Коды ответов {#response-codes}
 
-Если конфигурации не существует, то {{ objstorage-name }} возвращает ошибку 404 с кодом `NoSuchLifecycleConfiguration`.
+Если конфигурации не существует, то Object Storage возвращает ошибку 404 с кодом `NoSuchLifecycleConfiguration`.
 
 Перечень других возможных ответов смотрите в разделе [#T](../response-codes.md).
 

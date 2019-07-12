@@ -8,7 +8,7 @@ You can create backups and restore clusters from existing backups.
 
 - Management console
   
-  1. Go to the folder page and click **{{ mch-name }}**.
+  1. Go to the folder page and click **Managed Service for ClickHouse**.
   
   2. Click on the name of the cluster you need and select the tab **Backup copies**.
   
@@ -22,16 +22,16 @@ You can create backups and restore clusters from existing backups.
   
   To create a cluster backup:
   
-  1. See the description of the CLI's create backup command {{ CH }}:
+  1. See the description of the CLI's create backup command ClickHouse:
   
       ```
-      $ {{ yc-mdb-ch }} cluster backup --help
+      $ yc managed-clickhouse cluster backup --help
       ```
   
   2. Request creation of a backup specifying the cluster name or ID:
   
       ```
-      $ {{ yc-mdb-ch }} cluster backup my-ch-cluster
+      $ yc managed-clickhouse cluster backup my-ch-cluster
       ```
   
       The cluster name and ID can be obtained with a [list of clusters](cluster-list.md#list-clusters).
@@ -42,13 +42,13 @@ You can create backups and restore clusters from existing backups.
 
 When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the cloud has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
 
-For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ CH }} backup cannot be restored as a {{ PG }} cluster).
+For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a ClickHouse backup cannot be restored as a PostgreSQL cluster).
 
 {% list tabs %}
 
 - Management console
   
-  1. Go to the folder page and click **{{ mch-name }}**.
+  1. Go to the folder page and click **Managed Service for ClickHouse**.
   
   2. Click on the name of the cluster you need and select the tab **Backup copies**.
   
@@ -62,17 +62,17 @@ For a new cluster, you should set all the parameters that are required at creati
   
   To restore a cluster from a backup:
   
-  1. View the description of the CLI's restore cluster command {{ CH }}:
+  1. View the description of the CLI's restore cluster command ClickHouse:
   
       ```
-      $ {{ yc-mdb-ch }} cluster restore --help
+      $ yc managed-clickhouse cluster restore --help
       ```
   
-  2. Get a list of available backups for {{ CH }} clusters:
+  2. Get a list of available backups for ClickHouse clusters:
   
       ```
-      $ {{ yc-mdb-ch }} backup list
-  
+      $ yc managed-clickhouse backup list
+      
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -84,26 +84,26 @@ For a new cluster, you should set all the parameters that are required at creati
   3. Request creation of a cluster from a backup:
   
       ```
-      $ {{ yc-mdb-ch }} cluster restore \
+      $ yc managed-clickhouse cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
              --name mynewch \
              --environment=PRODUCTION \
-             --network-name {{ network-name }} \
-             --host type=clickhouse,zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
+             --network-name default \
+             --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
              --clickhouse-disk-size 20 \
              --clickhouse-disk-type network-nvme \
-             --clickhouse-resource-preset {{ host-class }}
+             --clickhouse-resource-preset s1.nano
       ```
   
-      This results in a new {{ CH }} cluster with the following characteristics:
+      This results in a new ClickHouse cluster with the following characteristics:
   
       * Named `mynewch`.
   
       * In the `PRODUCTION` environment.
   
-      * In the network `{{ network-name }}`.
+      * In the network `default`.
   
-      * With a single host of the `{{ host-class }}` in the `b0rcctk2rvtr8efcch63` subnet and the ` availability zone{{ zone-id }}`.
+      * With a single host of the `s1.nano` in the `b0rcctk2rvtr8efcch63` subnet and the ` availability zoneru-central1-c`.
   
       * With the databases and users from the backup.
   
@@ -117,7 +117,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
   
-  1. Go to the folder page and click **{{ mch-name }}**.
+  1. Go to the folder page and click **Managed Service for ClickHouse**.
   
   2. Click on the name of the cluster you need and select the tab **Backup copies**.
   
@@ -127,10 +127,10 @@ For a new cluster, you should set all the parameters that are required at creati
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To get a list of {{ CH }} cluster backups available in the default folder, run the command:
+  To get a list of ClickHouse cluster backups available in the default folder, run the command:
   
   ```
-  $ {{ yc-mdb-ch }} backup list
+  $ yc managed-clickhouse backup list
   
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -148,7 +148,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
   
-  1. Go to the folder page and click **{{ mch-name }}**.
+  1. Go to the folder page and click **Managed Service for ClickHouse**.
   
   2. Click on the name of the cluster you need and select the tab **Backup copies**.
   
@@ -158,10 +158,10 @@ For a new cluster, you should set all the parameters that are required at creati
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To get information about a {{ CH }} cluster backup, run the command:
+  To get information about a ClickHouse cluster backup, run the command:
   
   ```
-  $ yc {{ yc-mdb-ch }} backup get <backup ID>
+  $ yc yc managed-clickhouse backup get <backup ID>
   ```
   
   The backup ID can be obtained from a [list of backups](#list-backups).

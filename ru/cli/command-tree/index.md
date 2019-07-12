@@ -28,10 +28,10 @@
 
 #### Управление сервисами
 
-- `yc iam` — [управление ресурсами {{ iam-full-name }}](manage-services/iam.md).
-- `yc resource-manager` — [управление ресурсами {{ resmgr-full-name }}](manage-services/resource-manager.md).
-- `yc compute` — [управление ресурсами {{ compute-full-name }}](manage-services/compute.md).
-- `yc vpc` — [управление ресурсами {{ vpc-full-name }}](manage-services/vpc.md).
-- `yc managed-clickhouse` — [управление {{ CH }}](manage-services/managed-clickhouse.md).
-- `yc managed-mongodb` — [управление {{ MG }}](manage-services/managed-mongodb.md).
-- `yc managed-postgresql` — [управление {{ PG }}](manage-services/managed-postgresql.md).
+- `yc iam` — [управление ресурсами Yandex Identity and Access Management](manage-services/iam.md).
+- `yc resource-manager` — [управление ресурсами Yandex Resource Manager](manage-services/resource-manager.md).
+- `yc compute` — [управление ресурсами Yandex Compute Cloud](manage-services/compute.md).
+- `yc vpc` — [управление ресурсами Yandex Virtual Private Cloud](manage-services/vpc.md).
+- `yc managed-clickhouse` — [управление ClickHouse](manage-services/managed-clickhouse.md).
+- `yc managed-mongodb` — [управление MongoDB](manage-services/managed-mongodb.md).
+- `yc managed-postgresql` — [управление PostgreSQL](manage-services/managed-postgresql.md).

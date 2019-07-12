@@ -49,7 +49,7 @@ In this example, attribute 1 is the `VisibilityTimeout` set to 40; attribute 2 i
 
 ## API response {#api-response}
 
-In response to an API request, {{ message-queue-name }} returns an XML structure containing the request result.
+In response to an API request, Message Queue returns an XML structure containing the request result.
 
 ### Successful response {#success}
 

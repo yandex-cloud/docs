@@ -36,4 +36,4 @@ DELETE /{bucket}?cors HTTP/1.1
 
 Перечень возможных ответов смотрите в разделе [#T](../response-codes.md).
 
-Если конфигурация CORS не существует, то {{ objstorage-name }} ответит кодом `204 No Content`.
+Если конфигурация CORS не существует, то Object Storage ответит кодом `204 No Content`.

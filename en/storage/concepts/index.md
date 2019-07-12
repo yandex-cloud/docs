@@ -1,6 +1,6 @@
 # Concepts
 
-{{ objstorage-name }} uses the following concepts:
+Object Storage uses the following concepts:
 
 - [Bucket](bucket.md)
 - [Object](object.md)

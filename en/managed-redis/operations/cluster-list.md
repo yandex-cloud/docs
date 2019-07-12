@@ -1,6 +1,6 @@
 # Information about existing clusters
 
-You can request detailed information about each {{ mrd-short-name }} cluster you created.
+You can request detailed information about each Managed Service for Redis cluster you created.
 
 ## Getting a list of DB clusters in a folder {#list-clusters}
 
@@ -8,7 +8,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
 
 - Management console
   
-  Go to the folder page and click **{{ mrd-name }}**.
+  Go to the folder page and click **Managed Service for Redis**.
   
 - CLI
   
@@ -16,10 +16,10 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To request a list of {{ RD }} clusters in the default folder, run the command:
+  To request a list of Redis clusters in the default folder, run the command:
   
   ```
-  $ {{ yc-mdb-rd }} cluster list
+  $ yc managed-redis cluster list
   
   +----------------------+---------------+-----------------------------+--------+---------+
   |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
@@ -37,7 +37,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
 
 - Management console
   
-  1. Go to the folder page and click **{{ mrd-name }}**.
+  1. Go to the folder page and click **Managed Service for Redis**.
   1. Click on the name of the cluster you need.
   
 - CLI
@@ -46,10 +46,10 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To get information about a {{ RD }} cluster, run the command:
+  To get information about a Redis cluster, run the command:
   
   ```
-  $ {{ yc-mdb-rd }} cluster get <cluster name or ID>
+  $ yc managed-redis cluster get <cluster name or ID>
   ```
   
   The cluster name and ID can be requested with a [list clusters in the folder](#list-clusters).

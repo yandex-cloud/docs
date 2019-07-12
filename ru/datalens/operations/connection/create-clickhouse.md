@@ -1,11 +1,11 @@
 # Создание подключения к ClickHouse
 {% note info %}
 
-{{ datalens-short-name }} поддерживает подключение к ClickHouse только по HTTP-интерфейсу.
+DataLens поддерживает подключение к ClickHouse только по HTTP-интерфейсу.
 
 {% endnote %}
 
-Чтобы создать подключения к ClickHouse:
+Чтобы создать подключение к ClickHouse:
 1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
 1. Нажмите кнопку **Создать подключение**.
 1. Выберите коннектор **ClickHouse**.

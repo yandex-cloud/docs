@@ -1,9 +1,9 @@
 # Управление доступом
 
-В этом разделе перечислены необходимые роли, которыми должен обладать аккаунт для выполнения операций с ресурсами {{ objstorage-name }}. Доступ к {{ objstorage-name }} могут получить следующие категории пользователей:
+В этом разделе перечислены необходимые роли, которыми должен обладать аккаунт для выполнения операций с ресурсами Object Storage. Доступ к Object Storage могут получить следующие категории пользователей:
 
 - пользователи с зарегистрированным аккаунтом в Яндекс.Паспорте;
-- [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) {{ iam-full-name }}.
+- [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) Yandex Identity and Access Management.
 
 {% note info %}
 
@@ -20,7 +20,7 @@
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Разрешения в {{ objstorage-short-name }}
+## Разрешения в Object Storage
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 

@@ -1,4 +1,4 @@
-# Getting started with {{ load-balancer-short-name }}
+# Getting started with Load Balancer
 
 If you already have a folder in Yandex.Cloud, open the page of that folder in the management console. If not, create a new folder before creating load balancers and target groups:
 

@@ -1,1 +1,2 @@
-The name may contain lowercase Latin letters, numbers, and underscores. Name for a FIFO queue must end with `.fifo` suffix. The maximum length of the name is 80 characters.
+The name may contain lowercase Latin letters, numbers, hyphens, and underscores. The name of a FIFO queue must end with the `.fifo` suffix. The name can't be longer than 80 characters.
+

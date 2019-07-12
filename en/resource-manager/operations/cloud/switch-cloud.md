@@ -38,9 +38,9 @@
       ```
   
       {% note info %}
-  
+
       If the list contains only one cloud, it means you don't have access to any other clouds. To access the cloud you need, ask the [owner](../../concepts/resources-hierarchy.md#owner) of that cloud to [add](../../../iam/operations/users/create.md) you to it.
-  
+
       {% endnote %}
   
   3. Specify the ID of the cloud to be used by default:

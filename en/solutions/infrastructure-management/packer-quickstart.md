@@ -81,7 +81,7 @@ $ packer build image.json
 
 Make sure the image was created:
 
-1. Go to the [management console](https://console.cloud.yandex.ru/).
+1. Go to the [management console](https://console.cloud.yandex.com/).
 1. Open **Compute Cloud**.
 1. Open **Images**. Check if the new disk image is there.
 

@@ -1,6 +1,6 @@
 # yc compute
 
-Manage {{ compute-full-name }} resources.
+Manage Yandex Compute Cloud resources.
 
 #### Usage
 

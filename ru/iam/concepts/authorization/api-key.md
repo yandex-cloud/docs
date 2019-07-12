@@ -14,9 +14,9 @@ _API-ключ_ — секретный ключ, используемый для 
 
 О том, как использовать API-ключ для аутентификации, читайте в документации сервисов, поддерживающих этот способ авторизации:
 
-* [{{ speechkit-name }}](../../../speechkit/concepts/auth.md)
-* [{{ translate-name }}](../../../translate/api-ref/authentication.md)
-* [{{ vision-name }}](../../../vision/api-ref/authentication.md)
+* [SpeechKit](../../../speechkit/concepts/auth.md)
+* [Translate](../../../translate/api-ref/authentication.md)
+* [Vision](../../../vision/api-ref/authentication.md)
 
 #### См. также
 

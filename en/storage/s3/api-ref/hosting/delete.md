@@ -34,5 +34,5 @@ A response can only contain [common response headers](../common-response-headers
 
 For a list of possible responses, see [#T](../response-codes.md).
 
-If there is no hosting configuration, {{ objstorage-name }} returns 200.
+If there is no hosting configuration, Object Storage returns 200.
 

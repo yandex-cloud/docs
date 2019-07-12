@@ -1,6 +1,6 @@
 # delete method
 
-Deletes a bucket's object lifecycle configuration from {{ objstorage-name }}.
+Deletes a bucket's object lifecycle configuration from Object Storage.
 
 ## Request {#request}
 
@@ -34,5 +34,5 @@ A response can only contain [common response headers](../common-response-headers
 
 For a list of possible responses, see [#T](../response-codes.md).
 
-If there is no bucket object lifecycle configuration, {{ objstorage-name }} returns 200.
+If there is no bucket object lifecycle configuration, Object Storage returns 200.
 

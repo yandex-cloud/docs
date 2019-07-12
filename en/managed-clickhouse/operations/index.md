@@ -1,4 +1,4 @@
-# Step-by-step instructions for {{ mch-name }}
+# Step-by-step instructions for Managed Service for ClickHouse
 
 - [#T](cluster-list.md)
 - [#T](cluster-create.md)

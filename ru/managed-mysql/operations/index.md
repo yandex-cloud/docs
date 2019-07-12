@@ -1,4 +1,4 @@
-# Пошаговые инструкции для {{ mmy-name }}<sup>®</sup>
+# Пошаговые инструкции для Managed Service for MySQL<sup>®</sup>
 
 - [#T](cluster-list.md)
 - [#T](cluster-create.md)

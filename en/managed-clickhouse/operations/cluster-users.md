@@ -8,7 +8,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console
   
-  1. Go to the folder page and click **{{ mch-name }}**.
+  1. Go to the folder page and click **Managed Service for ClickHouse**.
   1. Click on the name of the cluster you need and then select the **Users** tab.
   
 - CLI
@@ -20,7 +20,7 @@ You can add and remove users, as well as manage their individual settings.
   To get a list of cluster users, run the command:
   
   ```
-  $ {{ yc-mdb-ch }} user list
+  $ yc managed-clickhouse user list
        --cluster-name=<cluster name>
   ```
   
@@ -34,7 +34,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console
   
-  1. Go to the folder page and click **{{ mch-name }}**.
+  1. Go to the folder page and click **Managed Service for ClickHouse**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click **Add**.
   1. Enter the database user name and password (from 8 to 128 characters).
@@ -48,7 +48,7 @@ You can add and remove users, as well as manage their individual settings.
   To create a user in a cluster, run the command:
   
   ```
-  $ {{ yc-mdb-ch }} user create <user name>
+  $ yc managed-clickhouse user create <user name>
        --cluster-name=<cluster name>
        --password=<DB user password>
        --permissions=<list of DBs the user can access>
@@ -66,7 +66,7 @@ You can add and remove users, as well as manage their individual settings.
   
   In the management console, you can only change the password of a database user:
   
-  1. Go to the folder page and click **{{ mch-name }}**.
+  1. Go to the folder page and click **Managed Service for ClickHouse**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Change password**.
   
@@ -79,7 +79,7 @@ You can add and remove users, as well as manage their individual settings.
   To change the user's password or the list of databases available to the user, run:
   
   ```
-  $ {{ yc-mdb-ch }} user update <user name>
+  $ yc managed-clickhouse user update <user name>
        --cluster-name=<cluster name>
        --password=<DB user password>
        --permissions=<list of DBs the user can access>
@@ -95,7 +95,7 @@ You can add and remove users, as well as manage their individual settings.
 
 - Management console
   
-  1. Go to the folder page and click **{{ mch-name }}**.
+  1. Go to the folder page and click **Managed Service for ClickHouse**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Delete**.
   
@@ -108,7 +108,7 @@ You can add and remove users, as well as manage their individual settings.
   To remove a user, run:
   
   ```
-  $ {{ yc-mdb-ch }} user delete <user name>
+  $ yc managed-clickhouse user delete <user name>
        --cluster-name=<cluster name>
   ```
   

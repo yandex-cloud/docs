@@ -1,6 +1,6 @@
 # Сценарии использования
 
-Ниже описаны сценарии использования сервиса {{ datalens-full-name }}:
+Ниже описаны сценарии использования сервиса Yandex DataLens:
 
 - [#T](data-from-csv-visualization.md)
 - [#T](data-from-db-visualization.md)

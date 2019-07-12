@@ -1,6 +1,6 @@
 # Relationship between service resources
 
-The main entity used by the {{ ig-name }} component of {{ compute-full-name }} is an _instance group_.
+The main entity used by the Instance Groups component of Yandex Compute Cloud is an _instance group_.
 
 Each group consists of one or more instances of the same type. Group instances may reside in different availability zones and regions. [Learn more about the Cloud geography](../../../overview/concepts/geo-scope.md).
 

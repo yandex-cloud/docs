@@ -1,8 +1,8 @@
-# Questions about {{ CH }}
+# Questions about ClickHouse
 
-#### Why should I use {{ CH }} in {{ mch-short-name }} and not my own installation on a VM? {#clickhouse-advantages-vm}
+#### Why should I use ClickHouse in Managed Service for ClickHouse and not my own installation on a VM? {#clickhouse-advantages-vm}
 
-{{ mch-short-name }} automates routine database maintenance:
+Managed Service for ClickHouse automates routine database maintenance:
 
 * Quick DB deployment with the necessary available resources.
 
@@ -14,25 +14,25 @@
 
 * Database usage monitoring and statistics.
 
-#### When should I use {{ CH }} instead of {{ PG }}? {#clickhouse-advantages-pg}
+#### When should I use ClickHouse instead of PostgreSQL? {#clickhouse-advantages-pg}
 
-{{ CH }} supports only adding and reading data, as it is designed primarily for analytics (OLAP). In other cases, it is probably more convenient to use {{ PG }}.
+ClickHouse supports only adding and reading data, as it is designed primarily for analytics (OLAP). In other cases, it is probably more convenient to use PostgreSQL.
 
-#### Is it possible to connect to individual {{ CH }} hosts? {#connect-node}
+#### Is it possible to connect to individual ClickHouse hosts? {#connect-node}
 
-Yes. You can connect to the hosts of a {{ CH }} cluster via an encrypted connection:
+Yes. You can connect to the hosts of a ClickHouse cluster via an encrypted connection:
 
-* Using the [HTTPS interface](https://clickhouse.yandex/docs/ru/interfaces/http_interface/), port 8443.
+* Using the [HTTPS interface](https://clickhouse.yandex/docs/en/interfaces/http/), port 8443.
 
-* Using the [command-line client](https://clickhouse.yandex/docs/ru/interfaces/cli/), port 9440.
+* Using the [command-line client](https://clickhouse.yandex/docs/en/interfaces/cli/), port 9440.
 
 SSH connections are not supported.
 
-#### How can I load data to {{ CH }}? {#load-data}
+#### How can I load data to ClickHouse? {#load-data}
 
-Use the INSERT query described in the [ documentation on {{ CH }}](https://clickhouse.yandex/docs/ru/query_language/queries.html#insert).
+Use the INSERT query described in the [ documentation on ClickHouse](https://clickhouse.yandex/docs/en/query_language/queries.html#insert).
 
-#### How do I load a very large amount of data to {{ CH }}? {#loadalot}
+#### How do I load a very large amount of data to ClickHouse? {#loadalot}
 
 Use the [CLI](https://clickhouse.yandex/docs/en/interfaces/cli/) for efficient data compression during transmission (the recommended frequency is no more than one INSERT command per second).
 
@@ -42,25 +42,25 @@ Data transfer from physical media is not yet supported.
 
 DB clusters consist of at least two replicas, so the cluster will continue working if one of its nodes is out.
 
-Data may be lost only if a node with a [non-replicated table](https://clickhouse.yandex/docs/ru/table_engines/replication/) fails.
+Data may be lost only if a node with a [non-replicated table](https://clickhouse.yandex/docs/en/table_engines/replication/) fails.
 
-#### Is it possible to deploy a {{ CH }} DB cluster in multiple availability zones? {#multiple-az}
+#### Is it possible to deploy a ClickHouse DB cluster in multiple availability zones? {#multiple-az}
 
 Yes. A database cluster may consist of hosts that reside in different availability zones and even different availability regions.
 
-#### How can I back up a {{ CH }} database? {#backup}
+#### How can I back up a ClickHouse database? {#backup}
 
 Backups are created every 24 hours and stored for seven days after being created. You can restore data only as of backup creation time.
 
-#### How does replication work for {{ CH }}? {#zookeeper-access}
+#### How does replication work for ClickHouse? {#zookeeper-access}
 
-ZooKeeper is used for replication. {{ mch-short-name }} creates a separate ZooKeeper cluster for each {{ CH }} cluster.
+ZooKeeper is used for replication. Managed Service for ClickHouse creates a separate ZooKeeper cluster for each ClickHouse cluster.
 
 Access to ZooKeeper and its setup are not available to Cloud users.
 
-#### Why does a {{ CH }} cluster take up 3 hosts more than it should?
+#### Why does a ClickHouse cluster take up 3 hosts more than it should?
 
-When creating a {{ CH }} cluster with two or more hosts, {{ mch-short-name }} automatically creates a cluster of three ZooKeeper hosts for managing replication and fault tolerance. These hosts are included when calculating the [resource quotas](https://console.cloud.yandex.ru/?section=quotas) used in the cloud and when calculating the cost of the cluster. By default, ZooKeeper hosts are created with a minimal [host class](../concepts/instance-types.md).
+When creating a ClickHouse cluster with two or more hosts, Managed Service for ClickHouse automatically creates a cluster of three ZooKeeper hosts for managing replication and fault tolerance. These hosts are included when calculating the [resource quotas](https://console.cloud.yandex.com/cloud?section=quotas) used in the cloud and when calculating the cost of the cluster. By default, ZooKeeper hosts are created with a minimal [host class](../concepts/instance-types.md).
 
-For more information about using ZooKeeper, see [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/table_engines/replication/).
+For more information about using ZooKeeper, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/table_engines/replication/).
 

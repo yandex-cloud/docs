@@ -1,6 +1,6 @@
 # upload method
 
-Uploads a bucket's object lifecycle configuration to {{ objstorage-name }}.
+Uploads a bucket's object lifecycle configuration to Object Storage.
 
 ## Request {#request}
 

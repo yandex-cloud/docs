@@ -2,7 +2,7 @@
 
 Запрос завершает составную загрузку.
 
-При получении запроса {{ objstorage-name }}:
+При получении запроса Object Storage:
 
 - Собирает конечный объект из полученных в процессе загрузки частей в порядке их номеров
 - Удаляет идентификатор загрузки, так что все последующие запросы с идентификатором загрузки вернут ошибку `NoSuchUpload`.
@@ -32,7 +32,7 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 
 Параметр | Описание
 ----- | -----
-`uploadId` | Идентификатор составной загрузки, который {{ objstorage-name }} вернул при [инициализации](startupload.md).
+`uploadId` | Идентификатор составной загрузки, который Object Storage вернул при [инициализации](startupload.md).
 
 
 ### Заголовки {#request-headers}
@@ -58,7 +58,7 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 `CompleteMultipartUpload` | Данные запроса.<br/><br/>Путь: `/CompleteMultipartUpload`.
 `Part` | Данные о загруженной части объекта.<br/><br/>Путь: `/CompleteMultipartUpload/Part`.
 `PartNumber` | Номер части.<br/><br/>Уникальный идентификатор, определяющий положение части среди других частей в загрузке.<br/><br/>Путь: `/CompleteMultipartUpload/Part/PartNumber`.
-`ETag` | Идентификатор, который клиент получил от {{ objstorage-name }} в ответ на загрузку части.<br/><br/>Путь: `/CompleteMultipartUpload/Part/ETag`.
+`ETag` | Идентификатор, который клиент получил от Object Storage в ответ на загрузку части.<br/><br/>Путь: `/CompleteMultipartUpload/Part/ETag`.
 
 ## Ответ {#response}
 
@@ -70,7 +70,7 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 
 Перечень возможных ответов смотрите в разделе [#T](../response-codes.md).
 
-Дополнительно, {{ objstorage-name }} может вернуть ошибки, описанные в таблице ниже.
+Дополнительно, Object Storage может вернуть ошибки, описанные в таблице ниже.
 
 Ошибка | Описание | HTTP-код
 ----- | ----- | -----
@@ -85,7 +85,7 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 
 ```
 <CompleteMultipartUploadResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-  <Location>http://Example-Bucket.{{ s3-storage-host }}/Example-Object</Location>
+  <Location>http://Example-Bucket.storage.yandexcloud.net/Example-Object</Location>
   <Bucket>Example-Bucket</Bucket>
   <Key>Example-Object</Key>
   <ETag>"3858f62230ac3c915f300c664312c11f-9"</ETag>

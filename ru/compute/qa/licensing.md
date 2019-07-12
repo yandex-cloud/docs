@@ -38,7 +38,7 @@
 
 Да, вы можете приобрести виртуальную машину с предустановленным образом Windows Server 2012 или Windows Server 2016 у Яндекс.Облака. Лицензия на Windows Server входит в стоимость.
 
-### Можно ли использовать собственные лицензии Windows Server в {{ compute-name }}? {#custom-windows-server}
+### Можно ли использовать собственные лицензии Windows Server в Compute Cloud? {#custom-windows-server}
 
 Нет, на данный момент использовать собственные лицензии Windows Server нельзя.
 

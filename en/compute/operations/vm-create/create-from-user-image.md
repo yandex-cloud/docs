@@ -23,9 +23,9 @@ Make sure the uploaded image is in the `READY` status.
       {% include [name-format](../../../_includes/name-format.md) %}
   
       {% note info %}
-  
+
       The virtual machine name is used for generating the FQDN, which cannot be changed later. If the FQDN is important to you, choose an appropriate name for the virtual machine at the creation stage. For more information about generating FQDN names, see the section [#T](../../concepts/network.md#hostname).
-  
+
       {% endnote %}
   
   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to locate the VM in.
@@ -49,7 +49,7 @@ Make sure the uploaded image is in the `READY` status.
   
   1. In **Public address**, choose:
       - **Automatically** — to set a public IP address automatically. The address is allocated from the pool of Yandex.Cloud addresses.
-      - **List** — to select a public IP address from the list of static addresses. For more information, see the section [#T](../../../vpc/operations/set-static-ip.md) in the {{ vpc-name }} service documentation.
+      - **List** — to select a public IP address from the list of static addresses. For more information, see the section [#T](../../../vpc/operations/set-static-ip.md) in the Virtual Private Cloud service documentation.
       - **No address** — to not assign a public IP address.
   
   1. Specify data required for accessing the VM:
@@ -102,16 +102,16 @@ Make sure the uploaded image is in the `READY` status.
       {% include [name-format](../../../_includes/name-format.md) %}
   
       {% note info %}
-  
+
       The virtual machine name is used for generating the FQDN, which cannot be changed later. If the FQDN is important to you, choose an appropriate name for the virtual machine at the creation stage. For more information about generating FQDN names, see the section [#T](../../concepts/network.md#hostname).
-  
+
       {% endnote %}
   
       The `yc-user` user will be created on the VM with a public key from the `~/.ssh/id_rsa.pub` file. The VM gets a public IP address. To create a VM without a public IP, remove the `--public-ip` flag.
   
 - API
   
-  Use the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource.
+  Use the [Create](../../../_api-ref/compute/api-ref/Instance/create.md) method for the `Instance` resource.
   
 {% endlist %}
 

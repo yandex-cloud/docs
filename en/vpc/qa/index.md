@@ -1,12 +1,12 @@
-# Questions and answers about {{ vpc-name }}
+# Questions and answers about Virtual Private Cloud
 
-#### What is {{ vpc-short-name }}?
+#### What is VPC?
 
-{{ vpc-short-name }} ({{ vpc-full-name }}) is a way to connect and organize cloud resources using virtual networks.
+VPC (Yandex Virtual Private Cloud) is a way to connect and organize cloud resources using virtual networks.
 
 #### Which network technologies are available to Yandex.Cloud users?
 
-{{ vpc-short-name }} allows you to assign internal and external IP addresses to VMs and create cloud networks and subnets.
+VPC allows you to assign internal and external IP addresses to VMs and create cloud networks and subnets.
 
 #### How do I create a cloud network?
 
@@ -26,9 +26,9 @@ Public IP addresses are assigned to cloud resources automatically. You can assig
 
 #### How do I make a public IP address static?
 
-You can[make a public IP address static](../operations/set-static-ip.md) using the **IP addresses** tab of the VPC service in the [management console](https://console.cloud.yandex.ru).
+You can [make a public IP address static](../operations/set-static-ip.md) using the **IP addresses** tab of the VPC service in the [management console](https://console.cloud.yandex.com/).
 
 #### What limitations apply when creating subnets?
 
-Subnets can only use private addresses from IPv4 ranges defined by [RFC 1918](https://tools.ietf.org/html/rfc1918):
+Subnets can only use private addresses from IPv4 ranges defined by [RFC 1918](https://tools.ietf.org/html/rfc1918).
 

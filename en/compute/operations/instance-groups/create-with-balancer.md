@@ -1,6 +1,6 @@
 # Create a fixed-size group with a load balancer
 
-You can create a fixed-size group along with a network load balancer that will evenly distribute the load across cloud resources. For more information, see [#T](../../../load-balancer/concepts/index.md) in the {{ load-balancer-full-name }} documentation.
+You can create a fixed-size group along with a network load balancer that will evenly distribute the load across cloud resources. For more information, see [#T](../../../load-balancer/concepts/index.md) in the Yandex Load Balancer documentation.
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
@@ -11,7 +11,7 @@ To create an instance group with a load balancer:
 - Management console
   
   1. In the management console, select the folder where you want to create an instance group.
-  1. Select **{{ compute-full-name }}**.
+  1. Select **Yandex Compute Cloud**.
   1. On the **Virtual machines** page, go to the **Instance groups** tab.
   1. Click **Create group**.
   1. In the **Basic parameters** section, enter:
@@ -55,7 +55,7 @@ To create an instance group with a load balancer:
   1. In the **Scalability** section:
       - Select the [scale type](../../concepts/instance-groups/scale.md).
       - Specify the required number of instances.
-  1. In the **Integration with {{ load-balancer-name }}** section, switch the **Create target group** option to the right.
+  1. In the **Integration with Load Balancer** section, switch the **Create target group** option to the right.
   1. Click **Create**.
   
 - CLI
@@ -67,7 +67,7 @@ To create an instance group with a load balancer:
   1. See the description of the CLI's create instance group command:
   
       ```
-      $ {{ yc-compute-ig }} create --help
+      $ yc compute instance-group create --help
       ```
   
   1. Check whether there are networks in the folder:
@@ -76,7 +76,7 @@ To create an instance group with a load balancer:
       $ yc vpc network list
       ```
   
-      If there aren't any, [create the necessary networks](../../../vpc/operations/subnet-create.md) in the {{ vpc-short-name }} service.
+      If there aren't any, [create the necessary networks](../../../vpc/operations/subnet-create.md) in the VPC service.
   
   1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) (for example, CentOS 7).
   
@@ -155,7 +155,7 @@ To create an instance group with a load balancer:
           | `scale_policy` | Scaling policy for instances in the group. |
           | `allocation_policy` | Policy for allocating instances across zones and regions. |
   
-      - Target group {{ load-balancer-name }}:
+      - Target group Load Balancer:
   
           ```
           load_balancer_spec:
@@ -167,8 +167,8 @@ To create an instance group with a load balancer:
   
           | Key | Value |
           | ----- | ----- |
-          | `target_group_spec` | Specification of the {{ load-balancer-name }} target group associated with the instance group. |
-          | `name` | A name for the {{ load-balancer-name }} target group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters. |
+          | `target_group_spec` | Specification of the Load Balancer target group associated with the instance group. |
+          | `name` | A name for the Load Balancer target group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters. |
   
           Full code for the `template.yaml` file:
   
@@ -206,7 +206,7 @@ To create an instance group with a load balancer:
   1. Create an instance group in the default folder:
   
       ```
-      $ {{ yc-compute-ig }} create --file template.yaml
+      $ yc compute instance-group create --file template.yaml
       ```
   
       This command creates a group of three similar instances with the following characteristics:
@@ -222,7 +222,7 @@ To create an instance group with a load balancer:
   
 - API
   
-  Use the [create](../../api-ref/InstanceGroup/create.md) API method.
+  Use the [create](../../../_api-ref/compute/api-ref/InstanceGroup/create.md) API method.
   
 {% endlist %}
 

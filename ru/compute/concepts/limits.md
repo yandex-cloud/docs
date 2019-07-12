@@ -4,7 +4,7 @@ editable: false
 
 # Квоты и лимиты
 
-В сервисе {{ compute-name }} действуют следующие ограничения:
+В сервисе Compute Cloud действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

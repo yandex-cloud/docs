@@ -23,7 +23,7 @@
   1. Посмотрите описание команды CLI для создания группы виртуальных машин:
   
       ```
-      $ {{ yc-compute-ig }} create --help
+      $ yc compute instance-group create --help
       ```
   
   1. Проверьте, есть ли в каталоге сети:
@@ -32,7 +32,7 @@
       $ yc vpc network list
       ```
   
-      Если ни одной сети в каталоге нет, [создайте нужные сети](../../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
+      Если ни одной сети в каталоге нет, [создайте нужные сети](../../../vpc/operations/subnet-create.md) в сервисе VPC.
   
   1. Выберите один из [публичных образов](../images-with-pre-installed-software/get-list.md) (например, CentOS 7).
   
@@ -149,7 +149,7 @@
   1. Создайте группу виртуальных машин в каталоге по умолчанию:
   
       ```
-      $ {{ yc-compute-ig }} create --file specification.yaml
+      $ yc compute instance-group create --file specification.yaml
       ```
   
       Данная команда создаст группу из трех однотипных виртуальных машин со следующими характеристиками:

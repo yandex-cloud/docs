@@ -1,4 +1,4 @@
-# Step-by-step instructions for {{ mpg-name }}
+# Step-by-step instructions for Managed Service for PostgreSQL
 
 - [#T](cluster-list.md)
 - [#T](cluster-create.md)
@@ -11,3 +11,4 @@
 - [#T](connect.md)
 - [#T](update.md)
 - [#T](data-migration.md)
+

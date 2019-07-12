@@ -1,6 +1,6 @@
 # yc compute
 
-Управление ресурсами {{ compute-full-name }}.
+Управление ресурсами Yandex Compute Cloud.
 
 #### Использование команды
 

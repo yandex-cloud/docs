@@ -1,7 +1,7 @@
-### General rules for calculating the cost of consumption {#general-rules}
+### General rules for calculating usage costs {#rules-general}
 
 For each resource category:
 
-  * The minimum cost of consumption is equal to 0.01 rubles.
-  * The estimated cost of consumption is rounded up to the nearest hundredth of a ruble.
+  * The minimum usage cost is equal to 0.01 rubles.
+  * The estimated usage cost is rounded up to the nearest hundredth of a ruble.
 

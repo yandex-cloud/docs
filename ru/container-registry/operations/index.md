@@ -1,6 +1,6 @@
 # Пошаговые инструкции
 
-Чтобы работать с Docker-образами, [аутентифицируйтесь в {{ container-registry-short-name }}](authentication.md).
+Чтобы работать с Docker-образами, [аутентифицируйтесь в Container Registry](authentication.md).
 
 ## Docker-образ
 

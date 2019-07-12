@@ -1,6 +1,6 @@
 {% note info %}
 
-In public Linux images provided by Yandex.Cloud, the functionality of connecting over SSH using login and password is disabled by default.
+SSH connections using a login and password are disabled by default on public Linux images that are provided by Yandex.Cloud.
 
 {% endnote %}
 

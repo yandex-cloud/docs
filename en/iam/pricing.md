@@ -1,7 +1,7 @@
 ---
 editable: false
 ---
-# Pricing for {{ iam-full-name }}
+# Pricing for Yandex Identity and Access Management
 
-The fee for using the {{ iam-full-name }} service is included in the service price and is not charged separately.
+The fee for using the Yandex Identity and Access Management service is included in the service price and is not charged separately.
 

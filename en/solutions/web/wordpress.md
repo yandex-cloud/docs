@@ -10,14 +10,14 @@ To set up a website in WordPress:
 
 Before creating a VM:
 
-1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.ru) and select the folder where you want to perform the operations.
+1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.com/) and select the folder where you want to perform the operations.
 1. Make sure the selected folder has a cloud network with a subnet in at least one availability zone. To do this, click **Yandex Virtual Private Cloud** on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
 ## 1. Create a VM for WordPress {#create-vm}
 
 To create a VM:
 
-1. On the folder page of the [management console](https://console.cloud.yandex.ru), click **Create resource** and select **Virtual machine**.
+1. On the folder page of the [management console](https://console.cloud.yandex.com/), click **Create resource** and select **Virtual machine**.
 1. In the **Name** field, enter the VM name: `wordpress`.
 
    {% include [name-format](../../_includes/name-format.md) %}
@@ -51,7 +51,7 @@ When the VM is created, it is assigned a public IP address and hostname (FQDN). 
 
 After the `wordpress` VM's status changes to `RUNNING`, do the following:
 
-1. Go to the VM page of the [management console](https://console.cloud.yandex.ru). In the **Network** section, find the VM's public IP address.
+1. Go to the VM page of the [management console](https://console.cloud.yandex.com/). In the **Network** section, find the VM's public IP address.
 1. Open the VM by entering its address in your browser.
 1. Select the language and click **Continue**.
 1. Fill out information to access the website:

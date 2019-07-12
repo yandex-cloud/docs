@@ -6,13 +6,13 @@ You can create backups and restore clusters from existing backups.
 
 When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
 
-For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ MG }} backup cannot be restored as a {{ PG }} cluster).
+For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a MongoDB backup cannot be restored as a PostgreSQL cluster).
 
 {% list tabs %}
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmg-name }}**.
+  1. Go to the folder page and click **Managed Service for MongoDB**.
   
   2. Click on the name of the cluster you need and select the tab **Backup copies**.
   
@@ -26,17 +26,17 @@ For a new cluster, you should set all the parameters that are required at creati
   
   To restore a cluster from a backup:
   
-  1. View the description of the CLI's restore cluster command {{ MG }}:
+  1. View the description of the CLI's restore cluster command MongoDB:
   
       ```
-      $ {{ yc-mdb-mg }} cluster restore --help
+      $ yc managed-mongodb cluster restore --help
       ```
   
-  2. Get a list of available backups for {{ MG }} clusters:
+  2. Get a list of available backups for MongoDB clusters:
   
       ```
-      $ {{ yc-mdb-mg }} backup list
-  
+      $ yc managed-mongodb backup list
+      
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -48,7 +48,7 @@ For a new cluster, you should set all the parameters that are required at creati
   3. Request creation of a cluster from a backup:
   
       ```
-      $ {{ yc-mdb-mg }} cluster restore \
+      $ yc managed-mongodb cluster restore \
            --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
            --name mynewmg \
            --environment=PRODUCTION \
@@ -59,7 +59,7 @@ For a new cluster, you should set all the parameters that are required at creati
            --mongod-resource-preset s1.nano
       ```
   
-      This results in a new {{ MG }} cluster with the following characteristics:
+      This results in a new MongoDB cluster with the following characteristics:
   
       * Named `mynewmg`.
   
@@ -67,7 +67,7 @@ For a new cluster, you should set all the parameters that are required at creati
   
       * In the `default` network.
   
-      * With a single host of the `{{ host-class }}` in the `b0rcctk2rvtr8efcch63` subnet and the ` availability zone{{ zone-id }}`.
+      * With a single host of the `s1.nano` in the `b0rcctk2rvtr8efcch63` subnet and the ` availability zoneru-central1-c`.
   
       * With the databases and users from the backup.
   
@@ -81,7 +81,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmg-name }}**.
+  1. Go to the folder page and click **Managed Service for MongoDB**.
   
   2. Click on the name of the cluster you need and select the tab **Backup copies**.
   
@@ -95,16 +95,16 @@ For a new cluster, you should set all the parameters that are required at creati
   
   To create a cluster backup:
   
-  1. See the description of the CLI's create backup command {{ MG }}:
+  1. See the description of the CLI's create backup command MongoDB:
   
       ```
-      $ {{ yc-mdb-mg }} cluster backup --help
+      $ yc managed-mongodb cluster backup --help
       ```
   
   2. Request creation of a backup specifying the cluster name or ID:
   
       ```
-      $ {{ yc-mdb-mg }} cluster backup my-mg-cluster
+      $ yc managed-mongodb cluster backup my-mg-cluster
       ```
   
       The cluster name and ID can be obtained with a [list of clusters](cluster-list.md#list-clusters).
@@ -117,7 +117,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmg-name }}**.
+  1. Go to the folder page and click **Managed Service for MongoDB**.
   
   2. Click on the name of the cluster you need and select the tab **Backup copies**.
   
@@ -127,10 +127,10 @@ For a new cluster, you should set all the parameters that are required at creati
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To get a list of {{ MG }} cluster backups available in the default folder, run the command:
+  To get a list of MongoDB cluster backups available in the default folder, run the command:
   
   ```
-  $ {{ yc-mdb-mg }} backup list
+  $ yc managed-mongodb backup list
   
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -148,7 +148,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmg-name }}**.
+  1. Go to the folder page and click **Managed Service for MongoDB**.
   
   2. Click on the name of the cluster you need and select the tab **Backup copies**.
   
@@ -158,10 +158,10 @@ For a new cluster, you should set all the parameters that are required at creati
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To get information about a {{ MG }} cluster backup, run the command:
+  To get information about a MongoDB cluster backup, run the command:
   
   ```
-  $ yc {{ yc-mdb-mg }} backup get <backup ID>
+  $ yc yc managed-mongodb backup get <backup ID>
   ```
   
   The backup ID can be obtained from a [list of backups](#list-backups).

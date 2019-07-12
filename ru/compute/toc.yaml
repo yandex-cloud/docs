@@ -5,11 +5,11 @@ items:
     items:
       - name: Обзор
         href: quickstart/index.md
-      - name: Создать виртуальную машину Linux
+      - name: Создание виртуальной машины Linux
         href: quickstart/quick-create-linux.md
-      - name: Создать виртуальную машину Windows
+      - name: Создание виртуальной машины Windows
         href: quickstart/quick-create-windows.md
-      - name: Начало работы с Instance Groups
+      - name: Создание группы виртуальных машин
         href: quickstart/ig.md
   - name: Пошаговые инструкции
     items:
@@ -69,12 +69,14 @@ items:
             href: operations/vm-control/vm-update-resources.md
           - name: Удалить ВМ
             href: operations/vm-control/vm-delete.md
-      - name: Подключение к виртуальной машине
+      - name: Работа на виртуальной машине
         items:
           - name: Подключиться к ВМ по SSH
             href: operations/vm-connect/ssh.md
           - name: Подключиться к ВМ по RDP
             href: operations/vm-connect/rdp.md
+          - name: Работа с Яндекс.Облаком изнутри ВМ
+            href: operations/vm-connect/auth-inside-vm.md
       - name: Создание нового диска
         items:
           - name: Создать пустой диcк
@@ -165,7 +167,7 @@ items:
             href: concepts/instance-groups/access.md
           - name: Шаблон виртуальной машины
             href: concepts/instance-groups/instance-template.md
-          - name:	Политики
+          - name: Политики
             href: concepts/instance-groups/policies.md
           - name: Типы масштабирования
             href: concepts/instance-groups/scale.md
@@ -196,8 +198,8 @@ items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
     include:
-      repo: docs-api
-      path: ru/compute/toc.yaml
+      repo: docs
+      path: ru/_api-ref/compute/toc.yaml
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

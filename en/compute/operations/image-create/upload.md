@@ -1,18 +1,18 @@
 # Uploading your disk image to Yandex.Cloud
 
-These guidelines describe how to upload a disk image file to Yandex.Cloud and create an [image](../../concepts/image.md) in the {{ compute-name }} service. Supported image formats: Qcow2, VMDK, and VHD. Currently, you cannot upload your own image with the Windows OS.
+These guidelines describe how to upload a disk image file to Yandex.Cloud and create an [image](../../concepts/image.md) in the Compute Cloud service. Supported image formats: Qcow2, VMDK, and VHD. Currently, you cannot upload your own image with the Windows OS.
 
 ## 1. Upload an image file to Yandex.Cloud
 
-Upload your image file to {{ objstorage-full-name }} and get a link to the uploaded image:
+Upload your image file to Yandex Object Storage and get a link to the uploaded image:
 
-1. If you don't have a bucket in {{ objstorage-name }}, [create](../../../storage/operations/buckets/create.md) it.
-1. [Upload the image](../../../storage/operations/objects/upload.md) to your bucket. In {{ objstorage-name }} terms, the uploaded image file will be called an _object_.
-1. [Get a link](../../../storage/operations/objects/link-for-download.md) to the uploaded image. Use this link when creating an image in {{ compute-name }}.
+1. If you don't have a bucket in Object Storage, [create](../../../storage/operations/buckets/create.md) it.
+1. [Upload the image](../../../storage/operations/objects/upload.md) to your bucket. In Object Storage terms, the uploaded image file will be called an _object_.
+1. [Get a link](../../../storage/operations/objects/link-for-download.md) to the uploaded image. Use this link when creating an image in Compute Cloud.
 
-## 2. Create an image in {{ compute-name }}
+## 2. Create an image in Compute Cloud
 
-Create a new image from the link received in {{ objstorage-name }}:
+Create a new image from the link received in Object Storage:
 
 {% list tabs %}
 
@@ -27,7 +27,7 @@ Create a new image from the link received in {{ objstorage-name }}:
       {% include [name-format](../../../_includes/name-format.md) %}
   
   1. If necessary, add an arbitrary description of the image.
-  1. Insert the link to the image you received in {{ objstorage-name }}.
+  1. Insert the link to the image you received in Object Storage.
   1. Click **Upload**.
   
 - CLI
@@ -41,7 +41,7 @@ Create a new image from the link received in {{ objstorage-name }}:
   where:
   
   - `<IMAGE-NAME>` is the name to be assigned to the image.
-  - `<IMAGE-URL>` is the link to the image received in {{ objstorage-name }}.
+  - `<IMAGE-URL>` is the link to the image received in Object Storage.
   
   If necessary, add a description and specify the [family](../../concepts/image.md#family) to which the image refers:
   
@@ -66,15 +66,15 @@ Create a new image from the link received in {{ objstorage-name }}:
   
 - API
   
-  To create a new image via the link, use the [Create](../../api-ref/Image/create.md) method for the `Image` resource. Pass the link to the image in the `uri` element.
+  To create a new image via the link, use the [Create](../../../_api-ref/compute/api-ref/Image/create.md) method for the `Image` resource. Pass the link to the image in the `uri` element.
   
 {% endlist %}
 
 After being created, the image will get the `CREATING` status. Wait until the image status changes to `READY` before using it.
 
-## 3. Delete the image from {{ objstorage-name }}
+## 3. Delete the image from Object Storage
 
-If the image was created successfully, you can [delete the image file](../../../storage/operations/objects/delete.md) from the {{ objstorage-name }} service. You can also [delete the bucket](../../../storage/operations/buckets/delete.md) if there are no objects left in it.
+If the image was created successfully, you can [delete the image file](../../../storage/operations/objects/delete.md) from the Object Storage service. You can also [delete the bucket](../../../storage/operations/buckets/delete.md) if there are no objects left in it.
 
-For information about the cost of using {{ objstorage-name }}, see the section [#T](../../../storage/pricing.md).
+For information about the cost of using Object Storage, see the section [#T](../../../storage/pricing.md).
 

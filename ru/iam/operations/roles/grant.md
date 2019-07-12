@@ -33,7 +33,7 @@
       * `<RESOURCE>` — категория ресурса, например `cloud`.
       * `<RESOURCE-NAME>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
       * `<RESOURCE-ID>` — идентификатор ресурса.
-      * `<ROLE-ID>` — идентификатор роли, например `{{ roles-cloud-owner }}`.
+      * `<ROLE-ID>` — идентификатор роли, например `resource-manager.clouds.owner`.
       * `<USER-ACCOUNT-ID>` — идентификатор аккаунта пользователя, которому назначается роль.
   
       Например, назначьте роль `viewer` на [облако](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:

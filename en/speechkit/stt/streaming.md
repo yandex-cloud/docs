@@ -43,8 +43,8 @@ You can configure the service to return intermediate recognition results. In the
 After receiving the message with the recognition settings, the service starts a recognition session. The following limitations apply to each session:
 
 * The time between sending messages to the service must not exceed 5 seconds.
-* Maximum duration of transmitted audio for the entire session: {{ stt-streaming-audioLength }}.
-* Maximum size of transmitted audio data: {{ stt-streaming-fileSize }}.
+* Maximum duration of transmitted audio for the entire session: 5 minutes.
+* Maximum size of transmitted audio data: 10 MB.
 
 If messages have not been sent to the service within 5 seconds or the limit on the duration or size of data has been reached, the session is terminated. To continue speech recognition, reconnect and send a new message with the speech recognition settings.
 

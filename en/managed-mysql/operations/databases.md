@@ -8,7 +8,7 @@ You can add and remove databases, as well as view information about them.
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and click **Managed Service for MySQL**.
   1. Click on the name of the cluster you need and select the **Databases** tab.
   
 {% endlist %}
@@ -21,7 +21,7 @@ The number of databases in a cluster is unlimited.
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and click **Managed Service for MySQL**.
   1. Click on the name of the cluster you need.
   1. If a new database should be owned by a non-existing user, [create a user](cluster-users.md#adduser).
   1. Select the **Databases** tab.
@@ -36,7 +36,7 @@ The number of databases in a cluster is unlimited.
 
 - Management console
   
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and click **Managed Service for MySQL**.
   1. Click on the name of the cluster you need and select the **Databases** tab.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary DB and select **Delete**.
   

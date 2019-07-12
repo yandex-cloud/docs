@@ -5,7 +5,7 @@ description:
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "CLI Яндекс.Облака"
-# Блок с ссылками
+# Блок со ссылками
 links:
 - title: "Начало работы"
   description: "Установите CLI и выполните первую команду"
@@ -13,6 +13,9 @@ links:
 - title: "Принципы работы с CLI"
   description: "Запуск команд, работа с профилями и конфигурация CLI"
   href: "concepts/"
+- title: "Релизы CLI"
+  description: "Описание релизов"
+  href: "release-notes"
 - title: "Произошла ошибка?"
   description: "Узнайте, как собрать диагностическую информацию"
   href: "error"

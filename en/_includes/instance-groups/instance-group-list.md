@@ -1,19 +1,17 @@
 ```
 $ {{ yc-compute-ig }} list
-+----------------------+----------------------+---------+--------+------------+--------+
-|          ID          |         NAME         | RUNNING | TARGET | PROCESSING | FAILED |
-+----------------------+----------------------+---------+--------+------------+--------+
-| amc6qgmkv1fjiaoljblh | first-instance-group |       2 |      3 |          1 |      0 |
-+----------------------+----------------------+---------+--------+------------+--------+
++----------------------+-----------------------+------+
+|          ID          |         NAME          | SIZE |
++----------------------+-----------------------+------+
+| amc65sbgfqeqf00m02sc | first-instance-group  |    2 |
++----------------------+-----------------------+------+
 ```
 
 Fields:
 
 | Field | Value |
 | ----- | ----- |
-| `ID` | The instance group ID. |
-| `NAME` | The instance group name. |
-| `RUNNING` | Number of virtual machines that work. |
-| `TARGET` | Target number of virtual machines. |
-| `PROCESSING` | Number of virtual machines that creating, updating, deleting. |
-| `FAILED` | Number of virtual machines that failed. |
+| `ID` | Group ID. |
+| `NAME` | Group name. |
+| `SIZE` | Group size. |
+

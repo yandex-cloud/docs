@@ -1,9 +1,9 @@
-# Вопросы и ответы про {{ mpg-short-name }}
+# Вопросы и ответы про Managed Service for PostgreSQL
 
 ## Общие вопросы {#general}
 
 {% include notitle [general](general.md) %}
 
-## Вопросы о {{ PG }} {#postgresql}
+## Вопросы о PostgreSQL {#postgresql}
 
 {% include notitle [postgresql](postgresql.md) %}

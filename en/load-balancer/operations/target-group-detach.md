@@ -12,7 +12,7 @@
   
 - CLI
   
-  If you don't have the Yandex.Cloud command line interface yet, [install it](https://cloud.yandex.ru/docs/cli/quickstart#install).
+  If you don't have the Yandex.Cloud command line interface yet, [install it](https://cloud.yandex.com/docs/cli/quickstart#install).
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
@@ -46,7 +46,7 @@
   
 - API
   
-  You can detach a target group from a load balancer using the [detachTargetGroup](../api-ref/NetworkLoadBalancer/detachTargetGroup.md) API method.
+  You can detach a target group from a load balancer using the [detachTargetGroup](../../_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/detachTargetGroup.md) API method.
   
 {% endlist %}
 

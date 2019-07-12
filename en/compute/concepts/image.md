@@ -20,7 +20,7 @@ If you regularly update your images, you can group them into families. A search 
 
 ## Public images {#public}
 
-You can allow public access to your image by assigning the role `{{ roles-image-user }}` to the system group `{{ subjects-allAuthenticatedUsers }}`. Then other Yandex.Cloud users will be able to use your image to create their own disks and VMs. In this case, the role `{{ roles-image-user }}` does not give the right to delete or change your image.
+You can allow public access to your image by assigning the role `compute.images.user` to the system group `allAuthenticatedUsers`. Then other Yandex.Cloud users will be able to use your image to create their own disks and VMs. In this case, the role `compute.images.user` does not give the right to delete or change your image.
 
 An example of public images are OS distributions provided by Yandex.Cloud.
 

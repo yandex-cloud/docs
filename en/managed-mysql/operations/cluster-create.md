@@ -1,15 +1,15 @@
-# Creating a {{ MY }} cluster
+# Creating a MySQL cluster
 
-{{ MY }} cluster is one or more database hosts that can have replication configured between them. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, synchronously duplicates changes in the primary replica, and does it asynchronously in all the others.
+MySQL cluster is one or more database hosts that can have replication configured between them. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, synchronously duplicates changes in the primary replica, and does it asynchronously in all the others.
 
-Number of hosts that can be created together with a {{ MY }} cluster depends on the selected storage option:
+Number of hosts that can be created together with a MySQL cluster depends on the selected storage option:
 
   - When using network drives, you can request any number of hosts (from one to the limits of the current [quota](../concepts/limits.md)).
   - When using SSDs, you can create at least three replicas along with the cluster (a minimum of three replicas is required to ensure fault tolerance). If the [available folder resources](../concepts/limits.md) are still sufficient after creating a cluster, you can add extra replicas.
 
-By default, {{ mmy-short-name }} sets the maximum limit on the number of connections to each {{ MY }} cluster host calculated as: `200 × <number of vCPUs per host>`. For example, for a host of the [s1.micro class](../concepts/instance-types.md) the `max_connections` default parameter value is 400.
+By default, Managed Service for MySQL sets the maximum limit on the number of connections to each MySQL cluster host calculated as: `200 × <number of vCPUs per host>`. For example, for a host of the [s1.micro class](../concepts/instance-types.md) the `max_connections` default parameter value is 400.
 
-## How to create a {{ MY }} cluster {#create-cluster}
+## How to create a MySQL cluster {#create-cluster}
 
 {% list tabs %}
 
@@ -17,7 +17,7 @@ By default, {{ mmy-short-name }} sets the maximum limit on the number of connect
   
   1. In the management console, select the folder where you want to create a DB cluster.
   
-  1. Click **{{ mmy-name }}**.
+  1. Click **Managed Service for MySQL**.
   
   1. Click **Create cluster** and select the necessary DBMS. Once a cluster is created, you cannot change the DBMS.
   
@@ -25,7 +25,7 @@ By default, {{ mmy-short-name }} sets the maximum limit on the number of connect
   
   1. Select the environment where you want to create the cluster (you cannot change the environment after cluster creation):
       - <q>production</q> — for stable versions of your apps.
-      - <q>prestable</q> — to perform testing, including that of the {{ mmy-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner in it, but this may cause backward incompatible changes.
+      - <q>prestable</q> — to perform testing, including that of the Managed Service for MySQL service itself. The prestable environment is updated more often, which means that known problems are fixed sooner in it, but this may cause backward incompatible changes.
   
   1. Select the DBMS version.
   
@@ -40,7 +40,7 @@ By default, {{ mmy-short-name }} sets the maximum limit on the number of connect
       - The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores.
       - User's password (from 8 to 128 characters).
   
-  1. In the **Hosts** section, select parameters for database hosts created with the cluster (keep in mind that if you use SSDs when creating {{ MY }} clusters, you can set at least three hosts). If you open the **Advanced settings** section, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
+  1. In the **Hosts** section, select parameters for database hosts created with the cluster (keep in mind that if you use SSDs when creating MySQL clusters, you can set at least three hosts). If you open the **Advanced settings** section, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
   
   1. Click **Create cluster**.
   

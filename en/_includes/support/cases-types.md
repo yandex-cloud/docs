@@ -1,0 +1,7 @@
+- Restore access to the management console.
+- Request links to documentation.
+- Diagnose errors in Yandex.Cloud services and fix identified problems not related to third-party software.
+- Get information about issues related to billing.
+- Ask general questions like <q>How does this work?</q> and <q>What is this?</q> concerning Yandex.Cloud services and functionality.
+- Get answers to frequently asked questions.
+- Request consultation or assistance in setting up Yandex.Cloud services.

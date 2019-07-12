@@ -10,7 +10,7 @@ To create a VM from a set of disk snapshots:
   
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
   
-  1. See the description of the CLI's create VM command:
+  1. View the description of the CLI's create VM command:
   
       ```
       $ yc compute instance create --help
@@ -40,9 +40,11 @@ To create a VM from a set of disk snapshots:
   
       {% include [name-format](../../../_includes/name-format.md) %}
   
+      {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+  
 - API
   
-  Use the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource.
+  Use the [Create](../../../_api-ref/compute/api-ref/Instance/create.md) method for the `Instance` resource.
   
 {% endlist %}
 

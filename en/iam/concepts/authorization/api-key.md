@@ -14,9 +14,9 @@ If someone might have gotten access to your private key, [delete it](../../opera
 
 For information about how to use an API key for authentication, read the documentation on the services that support this authorization method:
 
-* [{{ speechkit-name }}](../../../speechkit/concepts/auth.md)
-* [{{ translate-name }}](../../../translate/concepts/auth.md)
-* [{{ vision-name }}](../../../vision/api-ref/authentication.md)
+* [SpeechKit](../../../speechkit/concepts/auth.md)
+* [Translate](../../../translate/concepts/auth.md)
+* [Vision](../../../vision/api-ref/authentication.md)
 
 #### See also
 

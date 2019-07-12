@@ -1,7 +1,7 @@
 ---
 editable: false
 ---
-# Pricing policy for {{ load-balancer-name }}
+# Pricing policy for Load Balancer
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -17,7 +17,7 @@ You are charged for incoming traffic to the IP address and port specified as the
 
 - Prices in USD
   
-  | Service | Rate for 1 GB of processed traffic, without VAT |
+  | Service | Rate for 1 GB of processed traffic, without VAT | 
   | ----- | ----- |
   | Processing of incoming traffic by the load balancer | $0.002215 |
   

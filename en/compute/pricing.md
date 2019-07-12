@@ -1,13 +1,15 @@
 ---
 editable: false
 ---
-# Pricing policy for {{ compute-name }}
+# Pricing for Compute Cloud
+
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of using {{ compute-short-name }} {#rules}
+## What goes into the cost of using Compute Cloud {#rules}
 
-The cost of {{ compute-short-name }} usage is based on:
+The cost of Compute Cloud usage is based on:
 
 * Computing resources
     * Type and number of cores (vCPU)
@@ -26,7 +28,7 @@ The cost of {{ compute-short-name }} usage is based on:
 
 The cost of a VM depends on the allocated computing resources, operating system, and usage time. Attached disks and network usage are charged separately.
 
-The cost is calculated for the time of using the VM, from the moment it is started (when its status changes to `RUNNING`) and to a complete stop. The time when the VM is stopped is not charged.
+The cost is calculated for the time of using the VM, from the moment it is started (when its status changes to `RUNNING`) until it is completely stopped. The time when the VM is stopped is not charged.
 
 The VM starts automatically once it is created.
 
@@ -35,46 +37,46 @@ For information about charges for using an external IP address, see the section 
 
 #### Computing resources {#instance-resources}
 
-When creating a VM, you specify the number of vCPUs, the basic level of core performance, and the amount of RAM in GB. For more information, see the section [#T](concepts/vm-platforms.md).
+When creating a VM, you specify the number of vCPUs, the basic level of core performance, and the amount of RAM in GB. For more information, see [#T](concepts/performance-levels.md).
 
-The baseline core performance level depends on the type of [platform](concepts/vm-platforms.md).
+The basic level of core performance depends on the [platform](concepts/vm-platforms.md) you selected.
 
-{{ price-per-hour-count-per-second }}
+The price is indicated for 1 hour of use. Charging per second.
 
-#### Operating systems {#burstable-instance-os}
+#### Operating systems {#instance-os}
 
 OS usage on a VM is charged, as well. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
 
-{{ price-per-hour-count-per-second }}
+The price is indicated for 1 hour of use. Charging per second.
 
 #### Example of cost calculation
 
-Compare costs using virtual machines with diferents levels of core performance.
+Let's compare the cost of running VMs on the Intel Broadwell [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
 
-Two VMs are running Linux OS:
+Two VMs have been created running Linux OS:
 
-* 5% vCPU, 1 GB RAM.
-* 100% vCPU, 1 GB RAM.
+* 5% vCPU and 1 GB RAM
+* 100% vCPU and 1 GB RAM
 
 Both VMs have been running for 30 days.
 
-Cost of the virtual machine with 5% core usage:
+VM cost with 5% vCPU:
 
-> 5% of vCPU = ₽0.1932/hour * 30 days * 24 hours = ₽139.1040
+> 5% vCPU = ₽0.1932/hour * 30 days * 24 hours = ₽139.1040
 >
 > 1 GB RAM = ₽0.2441/hour * 30 days * 24 hours = ₽175.7520
 >
 > Total: ₽314.8560
 
-Cost of the virtual machine with 100% core usage:
+VM cost with 100% vCPU:
 
 > 1 vCPU = ₽0.7017/hour * 30 days * 24 hours = ₽505.2240
 >
->1 GB RAM = ₽0.2441/hour * 30 days * 24 hours = ₽175.7520
+> 1 GB RAM = ₽0.2441/hour * 30 days * 24 hours = ₽175.7520
 >
->Total: ₽680.9760
+> Total: ₽680.9760
 
-The cost of a VM with 5% core usage is about half as much as a VM with 100% core usage.
+As you can see, the cost of the VM using 5% vCPU is about half as much as that of the VM using 100% vCPU.
 
 ### Use of storage (disks, snapshots, and images) {#disk}
 
@@ -84,13 +86,13 @@ You are charged for your disks regardless of whether the VM is running.
 
 If you created an image or snapshot, you pay for the storage of this object separately depending on its size.
 
-The cost is specified for one month of use. Charging per second.
+The cost is specified for one month of use. Pricing is per second.
 
-### Use of {{ ig-name }}
+### Use of Instance Groups {#instance-groups}
 
-{{ ig-name }} can be used free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
+The Instance Groups component can be used free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
 
-All other Yandex.Cloud services, such as creation of VMs or allocation of external IP addresses, are [charged as usual](../billing/pricing.md). Outgoing traffic is [charged](#prices-traffic) similarly to other services.
+All other Yandex.Cloud services, such as creation of VMs or allocation of external IP addresses, are [charged as usual](../billing/pricing.md). Outgoing traffic is [charged](#prices-traffic) the same as other services.
 
 ## Prices {#prices}
 
@@ -99,7 +101,7 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 {% list tabs %}
 
 - Prices in USD
-  
+
   Computing resources | Rate for 1 hour, without VAT |
   ----- | -----
   **Intel Broadwell** |
@@ -113,9 +115,9 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   50%+ vCPU | $0.005753
   100% vCPU | $0.009584
   RAM (за 1 ГБ) | $0.002538
-  
+
 - Prices in roubles
-  
+
   Computing resources | Rate for 1 hour, with VAT |
   ----- | -----
   **Intel Broadwell** |
@@ -129,7 +131,7 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   50%+ vCPU | ₽0.4488
   100% vCPU | ₽0.7476
   RAM (за 1 ГБ) | ₽0.1980
-  
+
 {% endlist %}
 
 
@@ -138,7 +140,7 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 {% list tabs %}
 
 - Prices in USD
-  
+
   Computing resources | Rate for 1 hour, without VAT |
   ----- | -----
   **Intel Broadwell** |
@@ -152,9 +154,9 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   50%+ vCPU | $0.001794
   100% vCPU | $0.002615
   RAM (за 1 ГБ) | $0.000630
-  
+
 - Prices in roubles
-  
+
   Computing resources | Rate for 1 hour, with VAT |
   ----- | -----
   **Intel Broadwell** |
@@ -168,7 +170,7 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   | 50%+ vCPU| ₽0.1400 |
   | 100% of vCPU| ₽0.2040 |
   | RAM (for 1 GB)| ₽0.0492 |
-  
+
 {% endlist %}
 
 ### Operating systems {#burstable-instance-os}
@@ -176,21 +178,21 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 {% list tabs %}
 
 - Prices in USD
-  
+
   | OS | Cost per vCPU per hour, without VAT
   ----- | -----
   | Linux for all core types  | $0 |
   | Windows Server for 5%+ of vCPU | $0.008135 |
   | Windows Server for 20%+, 50%+, 100% vCPU | $0.016270 |
-  
+
 - Prices in roubles
-  
+
   | OS | Cost per vCPU per hour, with VAT |
   ----- | -----
   | Linux for all core types  | ₽0 |
   | Windows Server for 5%+ of vCPU | ₽0.6346 |
   | Windows Server for 20%+, 50%+, 100% vCPU | ₽1.2691 |
-  
+
 {% endlist %}
 
 ### Disks, snapshots, and images {#prices-storage}
@@ -198,26 +200,26 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 {% list tabs %}
 
 - Prices in USD
-  
+
   | Type | Rate for 1 GB per month, without VAT
   ----- | -----
   | Fast network drive (NVMe) | $0.095437 |
   | Standard disk drive (HDD) | $0.026726 |
   | Snapshot | $0.028552 |
   | Image | $0.028552 |
-  
+
 - Prices in roubles
-  
+
   | Type | Rate for 1 GB per month, with VAT |
   ----- | -----
   | Fast network drive (NVMe) | ₽7.4441 |
   | Standard disk drive (HDD) | ₽2.0847 |
   | Snapshot | ₽2.2271 |
   | Image | ₽2.2271 |
-  
-{% endlist %}
 
+{% endlist %}
 
 ### Outgoing traffic {#prices-traffic}
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+

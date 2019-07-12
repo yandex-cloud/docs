@@ -1,14 +1,14 @@
-# Connecting to a database in a cluster {{ MY }}
+# Connecting to a database in a cluster MySQL
 
 You can connect to a DB cluster from a Yandex.Cloud VM only if this VM belongs to the same cloud network.
 
 ## Authentication
 
-{{ MY }}-clusters in {{ mmy-short-name }} support only encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
+MySQL-clusters in Managed Service for MySQL support only encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
 
 ```bash
 $ mkdir ~/.mysql
-$ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
+$ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mysql/root.crt
 $ chmod 0600 ~/.mysql/root.crt
 ```
 

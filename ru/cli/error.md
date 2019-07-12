@@ -1,10 +1,10 @@
 # Произошла ошибка?
 
-Если во время выполнения операции возникла ошибка, CLI отобразит соответствующее сообщение. 
+Если во время выполнения операции возникла ошибка, CLI отобразит соответствующее сообщение.
 
 ### Пример сообщения об ошибке
 
-``` 
+```
 $ yc compute instance create --name my-inst3 --metadata user-data="#ps1\nnet user Administrator 123q
 we" --zone ru-central1-b --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk-153
 7967224
@@ -19,12 +19,12 @@ Use server-request-id, client-request-id, client-trace-id for investigation of i
 If you are going to ask for help of cloud support, please send the following trace file: C:\Users\username\yandex-cloud\logs\yc_compute_instance_create-2019-02-18T12-26-39.897.txt
 ```
 
-### Что делать? 
+### Что делать?
 
-Чтобы помочь нашим специалистам быстрее решить вашу проблему, из сообщения об ошибке: 
+Чтобы помочь нашим специалистам быстрее решить вашу проблему, из сообщения об ошибке:
 
 1. Скопируйте все доступные **идентификаторы**. В данном примере это `server-request-id`, `client-request-id` и `client-trace-id`.
-1. Скопируйте **файл с логами**, который сохранился на вашем ПК. Путь к логам указан в конце сообщения об ошибке. 
+1. Скопируйте **файл с логами**, который сохранился на вашем ПК. Путь к логам указан в конце сообщения об ошибке.
 В данном примере это:
     ```
     C:\Users\username\yandex-cloud\logs\yc_compute_instance_create-2019-02-18T12-26-39.897.txt

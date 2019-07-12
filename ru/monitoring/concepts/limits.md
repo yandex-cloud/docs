@@ -4,7 +4,7 @@ editable: false
 
 # Квоты и лимиты
 
-В сервисе {{ monitoring-full-name }} действуют следующие ограничения:
+В сервисе Yandex Monitoring действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

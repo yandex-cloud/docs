@@ -1,25 +1,25 @@
 # Information about existing clusters
 
-You can request detailed information about each {{ mpg-short-name }} cluster you created.
+You can request detailed information about each Managed Service for PostgreSQL cluster you created.
 
 ## Getting a list of DB clusters in a folder {#list-clusters}
 
 {% list tabs %}
 
 - Management console
-  
-  Go to the folder page and click **{{ mpg-name }}**.
-  
+
+  Go to the folder page and select **Managed Service for PostgreSQL**.
+
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
-  To request a list of {{ PG }} clusters in the default folder, run the command:
-  
+
+  To request a list of PostgreSQL clusters in the default folder, run the command:
+
   ```
-  $ {{ yc-mdb-pg }} cluster list
+  $ yc managed-postgresql cluster list
   
   +----------------------+---------------+-----------------------------+--------+---------+
   |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
@@ -28,7 +28,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
   | ...                                                                                   |
   +----------------------+---------------+-----------------------------+--------+---------+
   ```
-  
+
 {% endlist %}
 
 ## Getting detailed information about a cluster {#get-cluster}
@@ -36,23 +36,22 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 {% list tabs %}
 
 - Management console
-  
-  1. Go to the folder page and click **{{ mpg-name }}**.
+  1. Go to the folder page and select **Managed Service for PostgreSQL**.
   1. Click on the name of the cluster you need.
-  
+
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
-  To get information about a {{ PG }} cluster, run the command:
-  
+
+  To get information about a PostgreSQL cluster, run the command:
+
   ```
-  $ {{ yc-mdb-pg }} cluster get <cluster name or ID>
+  $ yc managed-postgresql cluster get <cluster name or ID>
   ```
-  
-  The cluster name and ID can be requested with a [list of folder clusters](#list-clusters).
-  
+
+  The cluster name and ID can be requested with a [list clusters in the folder](#list-clusters).
+
 {% endlist %}
 

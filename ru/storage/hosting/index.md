@@ -1,6 +1,6 @@
 # Хостинг статических сайтов
 
-Вы можете разместить свой статический сайт в {{ objstorage-full-name }}. Статический сайт строится на клиентских технологиях, таких как  HTML, CSS и JavaScript. Он не может содержать каких-либо скриптов, требующих запуска на стороне веб-сервера.
+Вы можете разместить свой статический сайт в Yandex Object Storage. Статический сайт строится на клиентских технологиях, таких как  HTML, CSS и JavaScript. Он не может содержать каких-либо скриптов, требующих запуска на стороне веб-сервера.
 
 Для размещения сайта:
 
@@ -10,13 +10,13 @@
 После настройки бакета для хостинга сайт становится доступен по адресу:
 
 ```
-http(s)://<имя_бакета>.{{ s3-web-host }}
+http(s)://<имя_бакета>.website.yandexcloud.net
 ```
 
 или
 
 ```
-http(s)://{{ s3-web-host }}/<имя_бакета>
+http(s)://website.yandexcloud.net/<имя_бакета>
 ```
 
 {% note info %}
@@ -35,7 +35,7 @@ http(s)://{{ s3-web-host }}/<имя_бакета>
 
     {% note info %}
 
-    Используйте для хостинга в {{ objstorage-name }} домены не ниже третьего уровня. Это связано с особенностями обработки записей `CNAME` на DNS-хостингах. Читайте подробнее в п.2.4 [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt).
+    Используйте для хостинга в Object Storage домены не ниже третьего уровня. Это связано с особенностями обработки записей `CNAME` на DNS-хостингах. Читайте подробнее в п.2.4 [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt).
 
     {% endnote %}
 
@@ -44,11 +44,11 @@ http(s)://{{ s3-web-host }}/<имя_бакета>
     Например, для домена `www.example.com` необходимо добавить запись
 
     ```
-    www.example.com CNAME www.example.com.{{ s3-web-host }}
+    www.example.com CNAME www.example.com.website.yandexcloud.net
     ```
 
 {% note info %}
 
-Сайт доступен только по протоколу HTTP, например, `http://www.example.com` или `http://www.example.com.{{ s3-web-host }}`.
+Сайт доступен только по протоколу HTTP, например, `http://www.example.com` или `http://www.example.com.website.yandexcloud.net`.
 
 {% endnote %}

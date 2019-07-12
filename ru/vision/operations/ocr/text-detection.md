@@ -1,4 +1,4 @@
-# Распознать текст на картинке
+# Распознавание текста на картинке
 
 Чтобы распознать текст на картинке, воспользуйтесь возможностью [Распознавание текста](../../concepts/ocr/index.md).
 
@@ -14,11 +14,11 @@
 
 {% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 
-### Распознать текст {#basic}
+### Распознайте текст {#basic}
 
 {% include [text-detection-steps](../../../_includes/vision/text-detection-steps.md) %}
 
-### Распознать текст на нескольких языках {#multiple-languages}
+### Распознайте текст на нескольких языках {#multiple-languages}
 
 1. Создайте файл с телом запроса, например `body.json`. В свойстве `content` укажите изображение, [кодированное в Base64](../base64-encode.md).
 
@@ -82,3 +82,254 @@
         -d @body.json \
         https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze > output.json
     ```
+
+### Примеры кода {#code-examples}
+
+В примерах ниже показан код скрипта для распознавания текста. Аутентификация реализована для аккаунта на Яндексе с помощью [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md) ([подробнее о способах аутентификации](../../api-ref/authentication.md)).
+
+{% list tabs %}
+
+- Go
+
+    Создайте файл скрипта, например `text_detection.go` и скопируйте в него следующий код:
+
+    ```go
+    package main
+
+    import (
+        "bytes"
+        "encoding/base64"
+        "encoding/json"
+        "errors"
+        "flag"
+        "fmt"
+        "io/ioutil"
+        "log"
+        "net/http"
+    )
+
+    // Функция возвращает IAM-токен для аккаунта на Яндексе.
+    func GetIamToken(iamURL, oauthToken string) (string, error) {
+        body, err := json.Marshal(&IamTokenRequest{YandexPassportOauthToken: oauthToken})
+        if err != nil {
+            return "", err
+        }
+
+        resp, err := http.Post(iamURL, "application/json", bytes.NewReader(body))
+        if err != nil {
+            return "", errors.New("Failed to obtain IAM token by oAuth token: " + err.Error())
+        }
+
+        if resp.StatusCode != http.StatusOK {
+            return "", fmt.Errorf("Auth service returned status %d", resp.StatusCode)
+        }
+
+        defer func() {
+            err := resp.Body.Close()
+            if err != nil {
+                log.Fatal(err)
+            }
+        }()
+
+        respBody, err := ioutil.ReadAll(resp.Body)
+        if err != nil {
+            return "", err
+        }
+
+        iamTokenResponse := &IamTokenResponse{}
+        err = json.Unmarshal(respBody, iamTokenResponse)
+        if err != nil {
+            return "", err
+        }
+
+        return iamTokenResponse.IamToken, nil
+    }
+
+    type IamTokenRequest struct {
+        YandexPassportOauthToken string `json:"yandexPassportOauthToken"`
+    }
+
+    type IamTokenResponse struct {
+        IamToken string
+    }
+
+    // Функция отправляет на сервер запрос на распознавание изображения и возвращает ответ сервера.
+    func RequestAnalyze(visionURL, iamToken, folderID, imageBase64 string) (string, error) {
+        request := BatchAnalyzeRequest{
+            FolderID: folderID,
+            AnalyzeSpecs: []AnalyzeSpec{
+                {
+                    Content: imageBase64,
+                    Features: []Feature{
+                        {
+                            Type: "TEXT_DETECTION",
+                            TextDetectionConfig: TextDetectionConfig{
+                                LanguageCodes: []string{
+                                    "en",
+                                    "ru",
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        }
+
+        body, err := json.Marshal(&request)
+        if err != nil {
+            return "", err
+        }
+
+        req, err := http.NewRequest("POST", visionURL, bytes.NewReader(body))
+        if err != nil {
+            return "", errors.New("Failed to prepare request: " + err.Error())
+        }
+        req.Header.Set("Content-Type", "application/json")
+        req.Header.Set("Authorization", "Bearer "+iamToken)
+
+        resp, err := http.DefaultClient.Do(req)
+        if err != nil {
+            return "", errors.New("Failed to process request: " + err.Error())
+        }
+
+        if resp.StatusCode != http.StatusOK {
+            return "", fmt.Errorf("Service returned status %d", resp.StatusCode)
+        }
+
+        defer func() {
+            err := resp.Body.Close()
+            if err != nil {
+                log.Panic(err)
+            }
+        }()
+
+        respBody, err := ioutil.ReadAll(resp.Body)
+        if err != nil {
+            return "", err
+        }
+
+        return string(respBody), nil
+    }
+
+    type BatchAnalyzeRequest struct {
+        FolderID     string        `json:"folderId"`
+        AnalyzeSpecs []AnalyzeSpec `json:"analyzeSpecs"`
+    }
+
+    type AnalyzeSpec struct {
+        Content  string    `json:"content"`
+        Features []Feature `json:"features"`
+    }
+
+    type Feature struct {
+        Type                string `json:"type"`
+        TextDetectionConfig `json:"textDetectionConfig"`
+    }
+
+    type TextDetectionConfig struct {
+        LanguageCodes []string `json:"languageCodes"`
+    }
+
+    func main() {
+        iamURL := "https://iam.api.cloud.yandex.net/iam/v1/tokens"
+        visionURL := "https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze"
+
+        oauthToken := flag.String("oauth-token", "", "oAuth token to obtain IAM token")
+        folderID := flag.String("folder-id", "", "Folder ID")
+        imagePath := flag.String("image-path", "", "Path to image to recognize")
+        flag.Parse()
+
+        iamToken, err := GetIamToken(iamURL, *oauthToken)
+        if err != nil {
+            log.Panic(err)
+        }
+
+        imageData, err := ioutil.ReadFile(*imagePath)
+        if err != nil {
+            log.Panic(err)
+        }
+        imageBase64 := base64.StdEncoding.EncodeToString(imageData)
+
+        responseText, err := RequestAnalyze(visionURL, iamToken, *folderID, imageBase64)
+        if err != nil {
+            log.Panic(err)
+        }
+        fmt.Print(responseText)
+    }
+    ```
+
+    {% include [text-detection-run-example](../../../_includes/vision/text-detection-run-example.md) %}
+
+    ```bash
+    $ export TOKEN=AgAAAAAMTHnsAATuwWRH4eDvnEC4g0T8n0stk8A
+    $ export FOLDER_ID=b1g898ftfp23iiskeip5
+    $ go run text_detection.go -folder-id $FOLDER_ID -oauth-token $TOKEN -image-path input.jpg
+    ```
+
+- Python
+
+    Создайте файл скрипта, например `text_detection.py` и скопируйте в него следующий код:
+
+    ```python
+    # coding: utf-8
+    from requests import post
+    import json
+    import argparse
+    import base64
+
+    # Функция возвращает IAM-токен для аккаунта на Яндексе.
+    def get_iam_token(iam_url, oauth_token):
+        response = post(iam_url, json={"yandexPassportOauthToken": oauth_token})
+        json_data = json.loads(response.text)
+        if json_data is not None and 'iamToken' in json_data:
+            return json_data['iamToken']
+        return None
+
+    # Функция отправляет на сервер запрос на распознавание изображения и возвращает ответ сервера.
+    def request_analyze(vision_url, iam_token, folder_id, image_data):
+        response = post(vision_url, headers={'Authorization': 'Bearer '+iam_token}, json={
+            'folderId': folder_id,
+            'analyzeSpecs': [
+                {
+                    'content': image_data,
+                    'features': [
+                        {
+                            'type': 'TEXT_DETECTION',
+                            'textDetectionConfig': {'languageCodes': ['en', 'ru']}
+                        }
+                    ],
+                }
+            ]})
+        return response.text
+
+
+    def main():
+        parser = argparse.ArgumentParser()
+
+        parser.add_argument('--folder-id', required=True)
+        parser.add_argument('--oauth-token', required=True)
+        parser.add_argument('--image-path', required=True)
+        args = parser.parse_args()
+
+        iam_url = 'https://iam.api.cloud.yandex.net/iam/v1/tokens'
+        vision_url = 'https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze'
+
+        iam_token = get_iam_token(iam_url, args.oauth_token)
+        with open(args.image_path, "rb") as f:
+            image_data = base64.b64encode(f.read()).decode('utf-8')
+        response_text = request_analyze(vision_url, iam_token, args.folder_id, image_data)
+        print(response_text)
+
+
+    if __name__ == '__main__':
+        main()
+    ```
+
+    {% include [text-detection-run-example](../../../_includes/vision/text-detection-run-example.md) %}
+
+    ```bash
+    $ export TOKEN=AgAAAAAMTH...
+    $ export FOLDER_ID=ajk55f3mblj12eghq2oe
+    $ python text_detection.py --folder-id=$FOLDER_ID --oauth-token=$TOKEN --image-path=input.jpg
+    ```
+{% endlist %}

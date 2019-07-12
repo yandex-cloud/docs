@@ -11,7 +11,7 @@ You cannot restore a DB cluster that has been deleted, because all the cluster's
 - Management console
   
   1. Open the folder page in the management console.
-  1. Click **{{ mmy-name }}**.
+  1. Click **Managed Service for MySQL**.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) for the necessary cluster and select **Delete**.
   
 {% endlist %}

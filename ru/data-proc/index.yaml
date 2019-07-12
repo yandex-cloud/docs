@@ -6,14 +6,14 @@ description:
 # Мета-информация title, description, keywords и т.п.
 meta:
   title: "Yandex Data Proc"
-# Блок с ссылками
+# Блок со ссылками
 links:
 #- title: "Начало работы"
 #  description: "Создайте первый кластер баз данных"
 #  href: "quickstart"
-#- title: "Пошаговые инструкции"
-#  description: "Инструкции по выполнению рутинных операций"
-#  href: "operations/"
+- title: "Пошаговые инструкции"
+  description: "Инструкции по выполнению рутинных операций"
+  href: "operations/"
 - title: "Концепции"
   description: "Концепции и общее устройство сервиса"
   href: "concepts/"
