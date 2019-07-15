@@ -6,6 +6,8 @@ items:
     href: quickstart.md
   - name: Пошаговые инструкции
     items:
+      - name: Все инструкции
+        href: getting_started/index.md
       - name: Управление базами данных
         href: getting_started/create_manage_database.md
       - name: Создание схемы
@@ -34,6 +36,8 @@ items:
     href: pricing.md
   - name: Рекомендации
     items:
+    - name: Все рекомендации
+      href: best_practices/index.md
     - name: Проектирование схемы
       href: best_practices/schema_design.md
     - name: Постраничный вывод
@@ -70,6 +74,8 @@ items:
         href: yql/reference/syntax/expressions.md
       - name: CREATE TABLE
         href: yql/reference/syntax/create_table.md
+      - name: INDEX GLOBAL ON
+        href: yql/reference/syntax/index_global_on.md
       - name: DROP TABLE
         href: yql/reference/syntax/drop_table.md
       - name: INSERT INTO

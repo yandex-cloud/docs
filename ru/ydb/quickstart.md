@@ -441,3 +441,9 @@
       * `database` — имя базы данных
   
 {% endlist %}
+
+## Что дальше {#what-is-next}
+
+* Прочитайте [пошаговые инструкции по работе с {{ ydb-short-name }}](getting_started/index.md).
+* Узнайте [рекомендации по работе с {{ ydb-short-name }}](best_practices/index.md).
+* Пройдите [туториал по работе с {{ yql-short-name }}](yql/tutorial/overview.md).

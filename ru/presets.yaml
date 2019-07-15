@@ -1,4 +1,6 @@
 default:
+  audience: external
+
   # Полные имена сервисов
   iam-full-name: Yandex Identity and Access Management
   resmgr-full-name: Yandex Resource Manager
@@ -166,6 +168,10 @@ default:
   stt-long-resultsStorageTime: 3 суток
   stt-streaming-fileSize: 10 МБ
   stt-streaming-audioLength: 5 минут
+
+  # YDB specific
+  yql-full-name: Yandex Query Language
+  yql-short-name: YQL
 
   # K8s specific
   k8s: Kubernetes
