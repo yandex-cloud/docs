@@ -1,6 +1,6 @@
 # Синтаксис Markdown разметки в документации Яндекс.Облака
 
-[Документация](https://cloud.yandex.ru/docs) Яндекс.Облака разработана с использованием [GitHub Flavored Markdown](https://github.github.com/gfm/)  (GFM)с некоторыми расширениями.
+[Документация](https://cloud.yandex.ru/docs) Яндекс.Облака разработана с использованием [GitHub Flavored Markdown](https://github.github.com/gfm/)(GFM) с некоторыми расширениями.
 
 
 ## Содержание
