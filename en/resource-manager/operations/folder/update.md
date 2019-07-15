@@ -29,7 +29,7 @@ The management console only allows you to change the name of a folder. To change
           |          ID          |        NAME        | LABELS | STATUS | DESCRIPTION |
           +----------------------+--------------------+--------+--------+-------------+
           | b1gppulhhm2aaufq9eug | yet-another-folder |        | ACTIVE |             |
-          | b1gvmob03goohplct641 | default            |        | ACTIVE |             |
+          | b1gvmob95yysaplct532 | default            |        | ACTIVE |             |
           +----------------------+--------------------+--------+--------+-------------+
           ```
 

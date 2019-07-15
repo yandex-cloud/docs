@@ -14,15 +14,15 @@
     {% list tabs %}
 
     - CLI
-  
+
       ```
       $ yc iam create-token
       ```
-  
+
     - API
-  
+
       {% include [create-iam-token-api-steps](../_includes/iam/create-iam-token-api-steps.md) %}
-  
+
     {% endlist %}
 
 1. Убедитесь, что у вас установлена утилита [cURL](https://curl.haxx.se), используемая в примерах.
@@ -40,7 +40,7 @@
     **body.json:**
     ```json
     {
-        "folder_id": "ajk55f3mblj12eghq2oe",
+        "folder_id": "b1gvmob95yysaplct532",
         "cell_towers": [{
             "mobile_country_code": 250,
             "mobile_network_code": 2,

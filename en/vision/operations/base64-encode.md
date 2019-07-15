@@ -8,7 +8,7 @@ Pass the content of the resulting `output.txt` file in the request body's `conte
 
 ```json
 {
-    "folderId": "ajk55f3mblj12eghq2oe",
+    "folderId": "b1gvmob95yysaplct532",
     "analyze_specs": [{
         "content": "iVBORw0KGgo...",
         ...

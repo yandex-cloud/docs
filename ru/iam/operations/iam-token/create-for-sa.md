@@ -73,7 +73,7 @@ yc iam create-token
   {
     "typ": "JWT",
     "alg": "PS256",
-    "kid": "b1gvmob03goohplcf641"
+    "kid": "lfkoe35hsk58aks301nl"
   }
   ```
 
@@ -123,7 +123,7 @@ yc iam create-token
   import jwt
 
   service_account_id = "ajepg0mjt06siua65usm"
-  key_id = "b1gvmob03goohplcf641" # ID ресурса Key, который принадлежит сервисному аккаунту.
+  key_id = "lfkoe35hsk58aks301nl" # ID ресурса Key, который принадлежит сервисному аккаунту.
 
   with open("private.pem", 'r') as private:
     private_key = private.read() # Чтение закрытого ключа из файла.
@@ -171,7 +171,7 @@ yc iam create-token
           PrivateKey privateKey = keyFactory.generatePrivate(new PKCS8EncodedKeySpec(privateKeyPem.getContent()));
 
           String serviceAccountId = "ajepg0mjt06siua65usm";
-          String keyId = "b1gvmob03goohplcf641";
+          String keyId = "lfkoe35hsk58aks301nl";
 
           Instant now = Instant.now();
 
@@ -202,7 +202,7 @@ yc iam create-token
   )
 
   const (
-  	keyID            = "b1gvmob03goohplcf641"
+  	keyID            = "lfkoe35hsk58aks301nl"
   	serviceAccountID = "ajepg0mjt06siua65usm"
   	keyFile          = "private.pem"
   )
@@ -262,7 +262,7 @@ yc iam create-token
   var key = fs.readFileSync(require.resolve('private.pem'));
 
   var serviceAccountId = 'ajepg0mjt06siua65usm';
-  var keyId = 'b1gvmob03goohplcf641';
+  var keyId = 'lfkoe35hsk58aks301nl';
   var now = Math.floor(new Date().getTime() / 1000);
 
   var payload = { aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
@@ -294,7 +294,7 @@ yc iam create-token
   use Jose\Component\Signature\Serializer\CompactSerializer;
 
   $service_account_id = 'ajepg0mjt06siua65usm';
-  $key_id = 'b1gvmob03goohplcf641';
+  $key_id = 'lfkoe35hsk58aks301nl';
 
   $jsonConverter = new StandardConverter();
   $algorithmManager = AlgorithmManager::create([
@@ -354,7 +354,7 @@ yc iam create-token
       auto now = std::chrono::system_clock::now();
       auto expires_at = now + std::chrono::hours(1);
       auto serviceAccountId = "ajepg0mjt06siua65usm";
-      auto keyId = "b1gvmob03goohplcf641";
+      auto keyId = "lfkoe35hsk58aks301nl";
       std::set<std::string> audience;
       audience.insert("https://iam.api.cloud.yandex.net/iam/v1/tokens");
       auto algorithm = jwt::algorithm::ps256(

@@ -29,7 +29,7 @@ _Классификация изображений сейчас находитс
     **body.json:**
     ```json
     {
-        "folderId": "ajk55f3mblj12eghq2oe",
+        "folderId": "b1gvmob95yysaplct532",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "features": [{

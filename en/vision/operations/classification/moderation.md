@@ -32,7 +32,7 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
 
     ```json
     {
-        "folderId": "ajk55f3mblj12eghq2oe",
+        "folderId": "b1gvmob95yysaplct532",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "features": [{

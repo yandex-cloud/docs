@@ -55,7 +55,7 @@
     "texts": [
         "cırtlı çocuk spor ayakkabı"
     ],
-    "folderId": "b1g898ftfp23iiskeip5",
+    "folderId": "b1gvmob95yysaplct532",
     "glossaryConfig": {
         "glossaryData": {
             "glossaryPairs": [

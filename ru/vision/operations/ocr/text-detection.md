@@ -25,7 +25,7 @@
     **body.json:**
     ```json
     {
-        "folderId": "ajk55f3mblj12eghq2oe",
+        "folderId": "b1gvmob95yysaplct532",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             ...
@@ -37,7 +37,7 @@
        **body.json:**
        ```json
        {
-           "folderId": "ajk55f3mblj12eghq2oe",
+           "folderId": "b1gvmob95yysaplct532",
            "analyze_specs": [{
                "content": "iVBORw0KGgo...",
                "features": [{
@@ -55,7 +55,7 @@
        **body.json:**
        ```json
        {
-           "folderId": "ajk55f3mblj12eghq2oe",
+           "folderId": "b1gvmob95yysaplct532",
            "analyze_specs": [{
                "content": "iVBORw0KGgo...",
                "features": [{
@@ -261,8 +261,8 @@
     {% include [text-detection-run-example](../../../_includes/vision/text-detection-run-example.md) %}
 
     ```bash
-    $ export TOKEN=AgAAAAAMTHnsAATuwWRH4eDvnEC4g0T8n0stk8A
-    $ export FOLDER_ID=b1g898ftfp23iiskeip5
+    $ export TOKEN=AgAAAAAMTH...
+    $ export FOLDER_ID=b1gvmob95yysaplct532
     $ go run text_detection.go -folder-id $FOLDER_ID -oauth-token $TOKEN -image-path input.jpg
     ```
 
@@ -329,7 +329,7 @@
 
     ```bash
     $ export TOKEN=AgAAAAAMTH...
-    $ export FOLDER_ID=ajk55f3mblj12eghq2oe
+    $ export FOLDER_ID=b1gvmob95yysaplct532
     $ python text_detection.py --folder-id=$FOLDER_ID --oauth-token=$TOKEN --image-path=input.jpg
     ```
 {% endlist %}

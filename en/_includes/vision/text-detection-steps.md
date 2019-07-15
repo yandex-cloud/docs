@@ -19,7 +19,7 @@ In the recognition settings, list the languages that image text might be written
 
     ```json
     {
-        "folderId": "ajk55f3mblj12eghq2oe",
+        "folderId": "b1gvmob95yysaplct532",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "features": [{

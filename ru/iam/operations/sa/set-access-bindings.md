@@ -67,13 +67,13 @@
   1. Узнайте ID сервисного аккаунта с помощью метода [list](../../api-ref/ServiceAccount/list.md):
       ```bash
       $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob03goohplct641
+          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
 
       {
        "serviceAccounts": [
         {
          "id": "aje6o61dvog2h6g9a33s",
-         "folderId": "b1gvmob03goohplct641",
+         "folderId": "b1gvmob95yysaplct532",
          "createdAt": "2018-10-19T13:26:29Z",
          "name": "my-robot"
         }
@@ -234,20 +234,20 @@
 
       ```bash
       $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob03goohplct641
+          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
 
       {
        "serviceAccounts": [
         {
          "id": "ajebqtreob2dpblin8pe",
-         "folderId": "b1gvmob03goohplct641",
+         "folderId": "b1gvmob95yysaplct532",
          "createdAt": "2018-10-18T13:42:40Z",
          "name": "test-sa",
          "description": "test-description"
         },
         {
          "id": "aje6o61dvog2h6g9a33s",
-         "folderId": "b1gvmob03goohplct641",
+         "folderId": "b1gvmob95yysaplct532",
          "createdAt": "2018-10-15T18:01:25Z",
          "name": "my-robot"
         }

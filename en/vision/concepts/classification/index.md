@@ -14,7 +14,7 @@ To use this feature, specify `CLASSIFICATION` in the feature type and pass the n
 
 ```json
 {
-    "folderId": "ajk55f3mblj12eghq2oe",
+    "folderId": "b1gvmob95yysaplct532",
     "analyze_specs": [{
         "content": "iVBORw0KGgo...",
         "features": [{
@@ -31,7 +31,7 @@ Only one model can be used within a single analysis feature. If you need to appl
 
 ```json
 {
-    "folderId": "ajk55f3mblj12eghq2oe",
+    "folderId": "b1gvmob95yysaplct532",
     "analyze_specs": [{
         "content": "iVBORw0KGgo...",
         "features": [{
