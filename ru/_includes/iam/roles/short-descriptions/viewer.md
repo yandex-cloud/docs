@@ -1,0 +1,1 @@
+[`viewer`](../../../../iam/concepts/access-control/roles.md#viewer) — позволяет только просматривать информацию о ресурсах.

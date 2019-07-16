@@ -1,3 +1,4 @@
 default:
-  service-name: Yandex Identity and Access Management
-  service-name-short: IAM
+  service-full-name: Yandex Identity and Access Management
+  service-name: Identity and Access Management
+  service-short-name: IAM

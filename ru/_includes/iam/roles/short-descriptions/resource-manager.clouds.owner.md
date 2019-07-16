@@ -1,0 +1,1 @@
+[`resource-manager.clouds.owner`](../../../../iam/concepts/access-control/roles.md#owner) — дает полный доступ к облаку и ресурсам в нем. Можно назначить только на облако.
