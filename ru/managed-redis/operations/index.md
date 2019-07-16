@@ -4,5 +4,5 @@
 - [#T](cluster-create.md)
 - [#T](connect.md)
 - [#T](failover.md)
-- [#T](cluster-delete.md)
 - [#T](hosts.md)
+- [#T](cluster-delete.md)
