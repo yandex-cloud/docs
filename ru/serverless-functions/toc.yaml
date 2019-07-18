@@ -1,0 +1,46 @@
+title: Yandex Serverless Functions
+href: index.yaml
+stage: preview
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Создание функции
+        href: operations/function-create.md
+      - name: Управление правами на запуск функции
+        href: operations/function-public.md
+      - name: Управление версиями функции
+        href: operations/version-manage.md
+      - name: Вызов функции
+        href: operations/function-invoke.md
+      - name: Изменение функции
+        href: operations/function-update.md
+      - name: Просмотр журнала выполнения
+        href: operations/function-logs.md
+      - name: Удаление функции
+        href: operations/function-delete.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Функция
+        href: concepts/function.md
+      - name: Вызов функции
+        href: concepts/function-invoke.md
+      - name: Среда выполнения
+        items:
+          - name: Обзор
+            href: runtime/index.md
+          - name: Переменные окружения
+            href: runtime/environment-variables.md
+          - name: Контекст выполнения
+            href: runtime/execution-context.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Управление доступом
+    href: security/index.md

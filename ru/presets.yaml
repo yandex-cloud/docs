@@ -24,6 +24,7 @@ default:
   datalens-full-name: Yandex DataLens
   managed-k8s-full-name: Yandex Managed Service for Kubernetes
   iot-full-name: Yandex IoT Core
+  sf-full-name: Yandex Serverless Functions
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -49,6 +50,7 @@ default:
   datalens-name: DataLens
   managed-k8s-name: Managed Service for Kubernetes
   iot-name: Yandex IoT Core
+  sf-name: Serverless Functions
 
   # Короткие имена
   iam-short-name: IAM
@@ -73,11 +75,13 @@ default:
   datalens-short-name: DataLens
   managed-k8s-short-name: Managed Service for Kubernetes
   iot-short-name: Yandex IoT Core
+  sf-short-name: Functions
 
   # Тарифы
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
 
   # Роли
+  roles-functions-ivoker: serverless.functions.invoker
   roles-image-user: compute.images.user
   roles-cloud-owner: resource-manager.clouds.owner
   roles-cloud-member: resource-manager.clouds.member
@@ -180,6 +184,9 @@ default:
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   mqtt-broker-address: mqtt.cloud.yandex.net
   mqtt-broker-port: 8883
+
+  # Serverless Functions specific
+  sf-url: https://functions.yandexcloud.net
 
   # links
   link-console-billing: https://console.cloud.yandex.ru/billing
