@@ -723,7 +723,7 @@ components:
           description: |-
             ID of the disk type.
 
-            Value must match the regular expression `` |network-nvme|network-hdd ``.
+            Value must match the regular expression `` |network-ssd|network-hdd ``.
           type: string
         diskSize:
           description: |-
@@ -1130,7 +1130,7 @@ components:
           description: |-
             Number of nodes in the node group.
 
-            The minimum value is 1.
+            Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
     SchedulingPolicy:
@@ -1441,7 +1441,7 @@ components:
           description: |-
             ID of the disk type.
 
-            Value must match the regular expression `` |network-nvme|network-hdd ``.
+            Value must match the regular expression `` |network-ssd|network-hdd ``.
           type: string
         diskSize:
           description: |-

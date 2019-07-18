@@ -938,9 +938,6 @@ components:
           type: string
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_ExternalAddressSpec_ipVersion'
-        regionId:
-          description: Регион, в котором находится адрес.
-          type: string
     FieldMask:
       description: |-
         Имена всех обновляемых полей, разделенные запятыми.
@@ -1160,6 +1157,12 @@ components:
             description: |-
               Обязательное поле.
               Сетевой протокол для входящего трафика.
+          targetPort:
+            description: |-
+              Порты целевых ресурсов для входящего трафика.
+              Допустимые значения — от 1 до 32767 включительно.
+            type: string
+            format: int64
       - title: address
         type: object
         maxProperties: 1
@@ -1589,6 +1592,12 @@ components:
             description: |-
               Обязательное поле.
               Сетевой протокол для входящего трафика.
+          targetPort:
+            description: |-
+              Порты целевых ресурсов для входящего трафика.
+              Допустимые значения — от 1 до 32767 включительно.
+            type: string
+            format: int64
       - title: address
         type: object
         maxProperties: 1

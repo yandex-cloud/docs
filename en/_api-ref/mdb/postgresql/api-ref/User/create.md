@@ -36,7 +36,8 @@ clusterId | Required. ID of the PostgreSQL cluster to create a user in. To get t
       "lockTimeout": "integer",
       "logMinDurationStatement": "integer",
       "synchronousCommit": "string",
-      "tempFileLimit": "integer"
+      "tempFileLimit": "integer",
+      "logStatement": "string"
     },
     "login": true,
     "grants": [
@@ -61,6 +62,7 @@ userSpec.<br>settings.<br>lockTimeout | **integer** (int64)<br><p>in millisecond
 userSpec.<br>settings.<br>logMinDurationStatement | **integer** (int64)<br><p>in milliseconds.</p> 
 userSpec.<br>settings.<br>synchronousCommit | **string**<br>
 userSpec.<br>settings.<br>tempFileLimit | **integer** (int64)<br><p>in bytes.</p> 
+userSpec.<br>settings.<br>logStatement | **string**<br>
 userSpec.<br>login | **boolean** (boolean)<br><p>User can login (default True)</p> 
 userSpec.<br>grants[] | **string**<br><p>User grants (GRANT <role> TO <user>), role must be other user</p> <p>The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[a-zA-Z0-9_]*</code>.</p> 
  

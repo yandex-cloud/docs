@@ -472,8 +472,6 @@ components:
             description: |-
               Required.
               ID of the disk type.
-
-              Value must match the regular expression `` network-nvme|network-hdd ``.
             type: string
           size:
             description: |-
@@ -1363,8 +1361,6 @@ components:
             description: |-
               Required.
               ID of the disk type.
-
-              Value must match the regular expression `` network-nvme|network-hdd ``.
             type: string
           size:
             description: |-

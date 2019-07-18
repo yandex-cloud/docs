@@ -43,7 +43,7 @@ description | **string**<br><p>Description of the node group.</p> <p>The maximum
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>Existing set of <code>labels</code> is completely replaced by the provided set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
 scalePolicy | **object**<br><p>Scale policy of the node group.</p> 
 scalePolicy.<br>fixedScale | **object**<br>Fixed scale policy of the node group.<br>
-scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of nodes in the node group.</p> <p>The minimum value is 1.</p> 
+scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

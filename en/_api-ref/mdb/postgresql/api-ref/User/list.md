@@ -45,7 +45,8 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/m
         "lockTimeout": "integer",
         "logMinDurationStatement": "integer",
         "synchronousCommit": "string",
-        "tempFileLimit": "integer"
+        "tempFileLimit": "integer",
+        "logStatement": "string"
       },
       "login": true,
       "grants": [
@@ -72,6 +73,7 @@ users[].<br>settings.<br>lockTimeout | **integer** (int64)<br><p>in milliseconds
 users[].<br>settings.<br>logMinDurationStatement | **integer** (int64)<br><p>in milliseconds.</p> 
 users[].<br>settings.<br>synchronousCommit | **string**<br>
 users[].<br>settings.<br>tempFileLimit | **integer** (int64)<br><p>in bytes.</p> 
+users[].<br>settings.<br>logStatement | **string**<br>
 users[].<br>login | **boolean** (boolean)<br><p>User can login (default True)</p> 
 users[].<br>grants[] | **string**<br><p>User grants (GRANT <role> TO <user>), role must be other user</p> <p>The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[a-zA-Z0-9_]*</code>.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-postgresql/api-ref/User/list#query_params">pageSize</a>, use the <a href="/docs/managed-postgresql/api-ref/User/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-postgresql/api-ref/User/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-postgresql/api-ref/User/list#responses">nextPageToken</a> to continue paging through the results.</p> 

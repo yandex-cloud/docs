@@ -1193,7 +1193,9 @@ components:
               Required.
               Protocol for incoming traffic.
           targetPort:
-            description: Port of a target.
+            description: |-
+              Port of a target.
+              Acceptable values are 1 to 32767, inclusive.
             type: string
             format: int64
       - title: address
@@ -1616,7 +1618,9 @@ components:
               Required.
               Protocol for incoming traffic.
           targetPort:
-            description: Port of a target.
+            description: |-
+              Port of a target.
+              Acceptable values are 1 to 32767, inclusive.
             type: string
             format: int64
       - title: address

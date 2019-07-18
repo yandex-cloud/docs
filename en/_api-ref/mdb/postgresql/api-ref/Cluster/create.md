@@ -343,7 +343,8 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
         "lockTimeout": "integer",
         "logMinDurationStatement": "integer",
         "synchronousCommit": "string",
-        "tempFileLimit": "integer"
+        "tempFileLimit": "integer",
+        "logStatement": "string"
       },
       "login": true,
       "grants": [
@@ -867,6 +868,7 @@ userSpecs[].<br>settings.<br>lockTimeout | **integer** (int64)<br><p>in millisec
 userSpecs[].<br>settings.<br>logMinDurationStatement | **integer** (int64)<br><p>in milliseconds.</p> 
 userSpecs[].<br>settings.<br>synchronousCommit | **string**<br>
 userSpecs[].<br>settings.<br>tempFileLimit | **integer** (int64)<br><p>in bytes.</p> 
+userSpecs[].<br>settings.<br>logStatement | **string**<br>
 userSpecs[].<br>login | **boolean** (boolean)<br><p>User can login (default True)</p> 
 userSpecs[].<br>grants[] | **string**<br><p>User grants (GRANT <role> TO <user>), role must be other user</p> <p>The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[a-zA-Z0-9_]*</code>.</p> 
 hostSpecs[] | **object**<br><p>Required. Individual configurations for hosts that should be created for the PostgreSQL cluster.</p> 

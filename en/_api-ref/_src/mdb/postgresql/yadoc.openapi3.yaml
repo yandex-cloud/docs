@@ -4493,6 +4493,15 @@ components:
           description: in bytes.
           type: integer
           format: int64
+        logStatement:
+          $ref: '#/components/schemas/UserSettingsLogStatement_in_UserSettings_logStatement'
+    UserSettingsLogStatement:
+      type: string
+      enum:
+      - LOG_STATEMENT_NONE
+      - LOG_STATEMENT_DDL
+      - LOG_STATEMENT_MOD
+      - LOG_STATEMENT_ALL
     UserSettingsSynchronousCommit:
       type: string
       enum:
@@ -8192,6 +8201,8 @@ components:
           description: in bytes.
           type: integer
           format: int64
+        logStatement:
+          $ref: '#/components/schemas/UserSettingsLogStatement_in_UserSettings_logStatement'
     UserSettings_in_User_settings:
       description: |-
         Postgresql settings for this user
@@ -8215,6 +8226,8 @@ components:
           description: in bytes.
           type: integer
           format: int64
+        logStatement:
+          $ref: '#/components/schemas/UserSettingsLogStatement_in_UserSettings_logStatement'
     UserSettingsTransactionIsolation_in_UserSettings_defaultTransactionIsolation:
       type: string
       enum:
@@ -8230,6 +8243,13 @@ components:
       - SYNCHRONOUS_COMMIT_LOCAL
       - SYNCHRONOUS_COMMIT_REMOTE_WRITE
       - SYNCHRONOUS_COMMIT_REMOTE_APPLY
+    UserSettingsLogStatement_in_UserSettings_logStatement:
+      type: string
+      enum:
+      - LOG_STATEMENT_NONE
+      - LOG_STATEMENT_DDL
+      - LOG_STATEMENT_MOD
+      - LOG_STATEMENT_ALL
     UserSettings_in_UserSpec_settings:
       description: |-
         Postgresql settings for this user
@@ -8253,6 +8273,8 @@ components:
           description: in bytes.
           type: integer
           format: int64
+        logStatement:
+          $ref: '#/components/schemas/UserSettingsLogStatement_in_UserSettings_logStatement'
 tags:
 - name: Backup
   description: A set of methods for managing PostgreSQL Backup resources.

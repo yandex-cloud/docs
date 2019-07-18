@@ -37,7 +37,8 @@ userName | Required. Name of the PostgreSQL User resource to return. To get the 
     "lockTimeout": "integer",
     "logMinDurationStatement": "integer",
     "synchronousCommit": "string",
-    "tempFileLimit": "integer"
+    "tempFileLimit": "integer",
+    "logStatement": "string"
   },
   "login": true,
   "grants": [
@@ -61,5 +62,6 @@ settings.<br>lockTimeout | **integer** (int64)<br><p>in milliseconds.</p>
 settings.<br>logMinDurationStatement | **integer** (int64)<br><p>in milliseconds.</p> 
 settings.<br>synchronousCommit | **string**<br>
 settings.<br>tempFileLimit | **integer** (int64)<br><p>in bytes.</p> 
+settings.<br>logStatement | **string**<br>
 login | **boolean** (boolean)<br><p>User can login (default True)</p> 
 grants[] | **string**<br><p>User grants (GRANT <role> TO <user>), role must be other user</p> <p>The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[a-zA-Z0-9_]*</code>.</p> 

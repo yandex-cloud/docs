@@ -27,10 +27,10 @@ POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBala
       "name": "string",
       "port": "string",
       "protocol": "string",
+      "targetPort": "string",
       "externalAddressSpec": {
         "address": "string",
-        "ipVersion": "string",
-        "regionId": "string"
+        "ipVersion": "string"
       }
     }
   ],
@@ -75,10 +75,10 @@ listenerSpecs[] | **object**<br><p>Спецификация обработчик
 listenerSpecs[].<br>name | **string**<br><p>Обязательное поле. Имя обработчика. У обработчиков одного балансировщика должны быть уникальные имена. Длина 3-63 символов.</p> <p>Значение должно соответствовать регулярному выражению <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
 listenerSpecs[].<br>port | **string** (int64)<br><p>Порт для входящего трафика.</p> <p>Допустимые значения — от 1 до 32767 включительно.</p> 
 listenerSpecs[].<br>protocol | **string**<br>Обязательное поле. Сетевой протокол для входящего трафика.<br><p>Сетевой протокол для использования при проверке.</p> <ul> <li>TCP: Протокол TCP.</li> </ul> 
+listenerSpecs[].<br>targetPort | **string** (int64)<br><p>Порты целевых ресурсов для входящего трафика. Допустимые значения — от 1 до 32767 включительно.</p> 
 listenerSpecs[].<br>externalAddressSpec | **object**<br>Спецификация внешнего IP-адреса.<br><p>Спецификация внешнего адреса для ListenerSpec.</p> 
 listenerSpecs[].<br>externalAddressSpec.<br>address | **string**<br><p>Публичный IP-адрес для обработчика. Если адрес передается в методе <a href="/docs/load-balancer/api-ref/NetworkLoadBalancer/update">update</a>, он заменит существующий адрес обработчика.</p> 
 listenerSpecs[].<br>externalAddressSpec.<br>ipVersion | **string**<br><p>Версия IP-адреса.</p> <p>Версия IP-адресов, с которыми работает балансировщик нагрузки. В настоящее время доступны только адреса IPv4.</p> <ul> <li>IPV4: Протокол IPv4.</li> <li>IPV6: Протокол IPv6.</li> </ul> 
-listenerSpecs[].<br>externalAddressSpec.<br>regionId | **string**<br><p>Регион, в котором находится адрес.</p> 
 attachedTargetGroups[] | **object**<br><p>Ресурс AttachedTargetGroup. Дополнительные сведения см. в разделе <a href="/docs/load-balancer/concepts/target-resources">Целевые группы и ресурсы</a></p> 
 attachedTargetGroups[].<br>targetGroupId | **string**<br><p>Обязательное поле. Идентификатор целевой группы.</p> <p>Максимальная длина строки в символах — 50.</p> 
 attachedTargetGroups[].<br>healthChecks[] | **object**<br><p>Ресурс HealthCheck. Подробнее см. в разделе <a href="/docs/load-balancer/concepts/health-check">Проверка состояния</a>.</p> 
