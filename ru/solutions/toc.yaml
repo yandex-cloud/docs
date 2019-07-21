@@ -15,6 +15,8 @@ items:
       href: web/joomla-postgresql.md
     - name: Сайт на WordPress
       href: web/wordpress.md
+    - name: Интернет-магазин на 1С-Битрикс
+      href: web/bitrix-shop.md
   - name: Архив данных
     items:
     - name: Обзор
