@@ -1,46 +1,10 @@
 # Перевод текста
 
-Чтобы перевести текст, воспользуйтесь методом [translate](../api-ref/Translation/translate).
+Чтобы перевести текст, передайте его с помощью метода [translate](../api-ref/Translation/translate).
 
-## Примеры
+Пример в этом разделе совпадает с примером из раздела [#T](../quickstart.md). Другие примеры смотрите в разделе [#T](better-quality.md).
 
-{% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
-
-### Переведите текст с любого языка {#any-language}
-
-В этом примере показано, как перевести на русский язык две строки с текстом: <q>Hello</q> и <q>World</q>. Язык текста будет определен автоматически.
-
-1. Создайте файл с телом запроса, например `body.json`.
-    В `folder_id` укажите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Строки текста для перевода перечислите в поле `texts`.
-
-    В поле `targetLanguageCode` укажите язык перевода в формате [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1). Для русского языка это `ru`. Код языка можно получить вместе со [списком поддерживаемых языков](list.md).
-
-    ```json
-    {
-        "folder_id": "b1gvmob95yysaplct532",
-        "texts": ["Hello", "World"],
-        "targetLanguageCode": "ru"
-    }
-    ```
-1. Передайте файл на перевод с помощью метода [translate](../../translate/api-ref/Translation/translate):
-
-    {% include [translate-file](../../_includes/translate/translate-file.md) %}
-
-    В ответе сервис вернет переведенные строки текста:
-    ```json
-    {
-        "translations": [
-            {
-            "text": "Привет",
-            "detectedLanguageCode": "en"
-            },
-            {
-            "text": "Мир",
-            "detectedLanguageCode": "en"
-            }
-        ]
-    }
-    ```
+{% include [translate-instruction](../../_includes/translate/translate-instruction.md) %}
 
 #### Что дальше
 
