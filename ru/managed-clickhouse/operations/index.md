@@ -11,6 +11,7 @@
 - [#T](cluster-users.md)
 - [#T](databases.md)
 - [#T](hosts.md)
+- [#T](zk-hosts.md)
 - [#T](shards.md)
 - [#T](cluster-version-update.md)
 - [#T](cluster-delete.md)
