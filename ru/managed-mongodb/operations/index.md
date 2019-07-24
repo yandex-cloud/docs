@@ -6,9 +6,9 @@
 - [#T](connect.md)
 - [#T](cluster-backups.md)
 - [#T](update.md)
+- [#T](cluster-version-update.md)
 - [#T](databases.md)
 - [#T](hosts.md)
 - [#T](shards.md)
 - [#T](cluster-users.md)
 - [#T](cluster-delete.md)
-
