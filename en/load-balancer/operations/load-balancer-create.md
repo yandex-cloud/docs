@@ -44,7 +44,7 @@ Before creating a load balancer, [create](target-group-create.md) a target group
   
   1. Click **Add listener**.
   
-  1. In the window that opens, specify the port number (in the range from 1 to 32767) that the load balancer will receive incoming traffic on. The specified port number must match the port numbers that the VMs receive traffic on.
+  1. In the window that opens, specify the port number (in the range from 1 to 32767) that the load balancer will receive incoming traffic on. 
   
   1. Click **Add**.
   
