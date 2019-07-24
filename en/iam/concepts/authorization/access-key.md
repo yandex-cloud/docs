@@ -1,4 +1,4 @@
-## Static access keys compatible with the Amazon AWS API {#access-keys}
+# Static access keys compatible with the Amazon AWS API
 
 _Static access keys_ consist of a private key and a key ID used for authentication in services with an AWS-compatible API, such as {{ objstorage-name }} and {{ message-queue-name }}. Access keys are only used for [service accounts](../users/service-accounts.md).
 
