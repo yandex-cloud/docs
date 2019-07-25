@@ -8,7 +8,7 @@
 
 {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
 
-## Получите IAM-токен с помощью CLI {#via-cli}
+## Получить IAM-токен с помощью CLI {#via-cli}
 
 {% include [cli-set-sa-profile](../../../_includes/cli-set-sa-profile.md) %}
 
@@ -26,7 +26,7 @@ yc iam create-token
 
 {% endnote %}
 
-## Получите IAM-токен с помощью JWT {#via-jwt}
+## Получить IAM-токен с помощью JWT {#via-jwt}
 
 Чтобы получить IAM-токен, создайте [JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT) и обменяйте его на IAM-токен.
 
@@ -35,7 +35,7 @@ yc iam create-token
 1. [Узнайте идентификатор сервисного аккаунта](../sa/get-id.md).
 1. [Создайте авторизованные ключи](../authorized-key/create.md), которые необходимы при создании JWT.
 
-### 1. Создайте JWT {#jwt-create}
+### 1. Создать JWT {#jwt-create}
 
 Сформируйте JWT вручную по инструкции или воспользуйтесь библиотекой для вашего языка.
 
@@ -376,7 +376,7 @@ yc iam create-token
 
 
 
-### 2. Обменяйте JWT на IAM-токен {#get-iam-token}
+### 2. Обменять JWT на IAM-токен {#get-iam-token}
 
 Когда вы обмениваете JWT на IAM-токен, необходимо соблюсти условия:
 * Указанные в JWT сервисный аккаунт и ключ существуют (не удалены).
