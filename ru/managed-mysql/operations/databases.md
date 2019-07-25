@@ -10,7 +10,21 @@
   
   1. Перейдите на страницу каталога и выберите сервис **{{ mmy-name }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Базы данных**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
   
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  
+  Чтобы получить список баз данных в кластере, выполните команду:
+  
+  ```
+  $ {{ yc-mdb-my }} database list
+       --cluster-name=<имя кластера>
+  ```
+  
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
   
 {% endlist %}
 
@@ -29,6 +43,30 @@
   1. Нажмите кнопку **Добавить**.
   1. Введите имя для базы данных и выберите ее владельца.
   
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  
+  Чтобы создать базу данных в кластере:
+  
+  1. Посмотрите описание команды CLI для создания БД:
+  
+     ```
+     $ {{ yc-mdb-my }} database create --help
+     ```
+  
+  1. Выполните команду создания БД:
+  
+     ```
+     $ {{ yc-mdb-my }} database create <имя базы данных> --cluster-name <имя кластера>
+     ```
+  
+     {{ mmy-short-name }} запустит операцию создания базы данных.
+  
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
+
 {% endlist %}
 
 ## Удалить базу данных {#remove-db}
@@ -40,5 +78,19 @@
   1. Перейдите на страницу каталога и выберите сервис **{{ mmy-name }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
   1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
+
+- CLI
+  
+  {% include [cli-install](../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  
+  Чтобы удалить базу данных, выполните команду:
+  
+  ```
+  $ {{ yc-mdb-my }} database delete <имя базы данных> --cluster-name <имя кластера>
+  ```
+  
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).  
   
 {% endlist %}
