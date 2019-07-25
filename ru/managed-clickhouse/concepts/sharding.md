@@ -11,7 +11,7 @@ _Шардирование_ — стратегия горизонтального
 
 Недостаток шардирования — в сложности инфраструктуры, процедур развертывания и обслуживания.
 
-Более подробно шардирование баз {{ CH }} рассмотрено в [описании движка Distributed](https://clickhouse.yandex/docs/en/operations/table_engines/distributed/).
+Более подробно шардирование баз {{ CH }} рассмотрено в [описании движка Distributed](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/).
 
 
 ## Использование шардирования {#uses}
