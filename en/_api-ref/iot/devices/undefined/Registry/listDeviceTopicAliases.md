@@ -37,7 +37,7 @@ pageToken | The maximum string length in characters is 100.
       "alias": "string"
     }
   ],
-  "nextToken": "string"
+  "nextPageToken": "string"
 }
 ```
 
@@ -48,4 +48,4 @@ aliases[] | **object**<br>
 aliases[].<br>deviceId | **string**<br>
 aliases[].<br>topicPrefix | **string**<br><p>prefix of canonical topic name to be aliased, e.g. $devices/abcdef</p> 
 aliases[].<br>alias | **string**<br>
-nextToken | **string**<br>
+nextPageToken | **string**<br>

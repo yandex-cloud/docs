@@ -762,7 +762,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DeviceAlias'
-        nextToken:
+        nextPageToken:
           type: string
     ListDevicesResponse:
       type: object

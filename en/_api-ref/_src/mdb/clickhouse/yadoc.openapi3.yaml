@@ -1802,6 +1802,8 @@ components:
           mongodbSource:
             $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryMongodbSource'
             description: MongoDB source for the dictionary.
+          postgresqlSource:
+            $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryPostgresqlSource'
     ClickhouseConfigExternalDictionaryClickhouseSource:
       type: object
       properties:
@@ -2001,6 +2003,53 @@ components:
         password:
           description: Password of the MySQL database user.
           type: string
+    ClickhouseConfigExternalDictionaryPostgresqlSource:
+      type: object
+      properties:
+        db:
+          description: |-
+            Required.
+            Required.
+          type: string
+        table:
+          description: |-
+            Required.
+            Required.
+          type: string
+        hosts:
+          description: |-
+            Required.
+            Required.
+
+            Must contain at least one element.
+          type: array
+          items:
+            type: string
+        port:
+          description: Acceptable values are 0 to 65535, inclusive.
+          type: string
+          format: int64
+        user:
+          description: |-
+            Required.
+            Required.
+          type: string
+        password:
+          type: string
+        invalidateQuery:
+          description: Query for checking the dictionary status and figuring out whether
+            the data should be reloaded.
+          type: string
+        sslMode:
+          $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryPostgresqlSourceSslMode_in_ClickhouseConfigExternalDictionaryPostgresqlSource_sslMode'
+    ClickhouseConfigExternalDictionaryPostgresqlSourceSslMode:
+      type: string
+      enum:
+      - DISABLE
+      - ALLOW
+      - PREFER
+      - VERIFY_CA
+      - VERIFY_FULL
     ClickhouseConfigExternalDictionaryRange:
       type: object
       properties:
@@ -3658,6 +3707,14 @@ components:
       - RANGE_HASHED
       - CACHE
       - COMPLEX_KEY_CACHE
+    ClickhouseConfigExternalDictionaryPostgresqlSourceSslMode_in_ClickhouseConfigExternalDictionaryPostgresqlSource_sslMode:
+      type: string
+      enum:
+      - DISABLE
+      - ALLOW
+      - PREFER
+      - VERIFY_CA
+      - VERIFY_FULL
     ClickhouseConfigExternalDictionaryStructureId_in_ClickhouseConfigExternalDictionaryStructure_id:
       description: |-
         Single numeric key column for the dictionary.
@@ -4377,6 +4434,8 @@ components:
           mongodbSource:
             $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryMongodbSource'
             description: MongoDB source for the dictionary.
+          postgresqlSource:
+            $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryPostgresqlSource'
     ClusterEnvironment_in_CreateClusterRequest_environment:
       description: |-
         Required.

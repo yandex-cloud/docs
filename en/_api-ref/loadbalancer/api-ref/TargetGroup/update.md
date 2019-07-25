@@ -42,7 +42,7 @@ updateMask | **string**<br><p>Field mask that specifies which fields of the Targ
 name | **string**<br><p>Name of the target group. The name must be unique within the folder.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
 description | **string**<br><p>Description of the target group.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>The existing set of <code>labels</code> is completely replaced with the provided set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
-targets[] | **object**<br><p>A Target resource. For more information, see <a href="/docs/load-balancer/target-resources">Target groups and resources</a>.</p> 
+targets[] | **object**<br><p>A Target resource. For more information, see <a href="/docs/load-balancer/concepts/target-resources">Target groups and resources</a>.</p> 
 targets[].<br>subnetId | **string**<br><p>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.</p> <p>The maximum string length in characters is 50.</p> 
 targets[].<br>address | **string**<br><p>IP address of the target.</p> 
  

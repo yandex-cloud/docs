@@ -1399,7 +1399,7 @@ components:
           type: string
     Target:
       description: A Target resource. For more information, see [Target groups and
-        resources](/docs/load-balancer/target-resources).
+        resources](/docs/load-balancer/concepts/target-resources).
       type: object
       properties:
         subnetId:

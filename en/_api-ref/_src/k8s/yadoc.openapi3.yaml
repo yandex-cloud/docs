@@ -1183,6 +1183,12 @@ components:
             type: object
             additionalProperties:
               type: string
+          serviceAccountId:
+            description: |-
+              Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster.
+              Selected service account should have `edit` role on the folder where the Kubernetes cluster will be
+              located and on the folder where selected network resides.
+            type: string
       - title: internet_gateway
         type: object
         maxProperties: 1
