@@ -9,21 +9,21 @@ items:
         href: operations/index.md
       - name: Облако
         items:
-          - name: Создать облако
+          - name: Создание облака
             href: operations/cloud/create.md
-          - name: Установить права доступа
+          - name: Настройка прав доступа
             href: operations/cloud/set-access-bindings.md
-          - name: Переключиться на другое облако
+          - name: Переключение на другое облако
             href: operations/cloud/switch-cloud.md
       - name: Каталог
         items:
-          - name: Создать каталог
+          - name: Создание каталога
             href: operations/folder/create.md
-          - name: Изменить каталог
+          - name: Изменение каталога
             href: operations/folder/update.md
-          - name: Установить права доступа
+          - name: Настройка прав доступа
             href: operations/folder/set-access-bindings.md
-          - name: Получить идентификатор каталога
+          - name: Получение идентификатора каталога
             href: operations/folder/get-id.md
   - name: Концепции
     items:
