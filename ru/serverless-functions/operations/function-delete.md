@@ -16,7 +16,7 @@
   
     {% include [cli-install](../../_includes/cli-install.md) %}
     
-    1. Удалите функцию:
+    Удалите функцию:
     
     ```
     $ yc serverless function delete my-functions
