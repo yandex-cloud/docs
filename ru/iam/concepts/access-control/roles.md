@@ -59,4 +59,8 @@ _Роль_ — это набор разрешений, который опре�
 
 ### {{ dataproc-short-name }} {#mdb-roles}
 
-{% include [mdb.dataproc.agent ](../../../_includes/roles-dataproc-agent.md) %}
+{% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
+
+### {{ sf-short-name }} {#sf-roles}
+
+{% include [serverless.functions.invoker](../../../_includes/roles-functions-invoker.md) %}
