@@ -49,8 +49,7 @@ POST https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
             "audioEncoding": "string",
             "sampleRateHertz": "integer",
             "audioChannelCount": "integer"
-        },
-        "folderId": "string"
+        }
     },
     "audio": {
         "uri": "string"
