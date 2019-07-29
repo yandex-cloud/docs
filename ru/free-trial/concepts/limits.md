@@ -24,11 +24,6 @@ editable: false
 Квоты и лимиты для сервисов Яндекс.Облака, которые действуют во время пробного периода, приведены ниже.
 
 
-### {{ resmgr-full-name }} {#resource-manager}
-
-{% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
-
-
 ### {{ compute-full-name }} {#compute}
 
 {% include [compute-limits.md](../../_includes/compute-limits.md) %}
@@ -44,31 +39,56 @@ editable: false
 {% include [vpc-limits.md](../../_includes/vpc-limits.md) %}
 
 
-### {{ mch-full-name }} {#mdb}
+### {{ resmgr-full-name }} {#resource-manager}
+
+{% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
+
+
+### {{ load-balancer-full-name }} {#load-balancer}
+
+{% include [load-balancer-limits.md](../../_includes/load-balancer-limits.md) %}
+
+
+### {{ mch-full-name }} {#mch}
 
 {% include [mch-limits.md](../../_includes/mdb/mch-limits.md) %}
 
 
-### {{ mmg-full-name }} {#mdb}
+### {{ mmg-full-name }} {#mmg}
 
 {% include [mmg-limits.md](../../_includes/mdb/mmg-limits.md) %}
 
 
-### {{ mpg-full-name }} {#mdb}
+### {{ mmy-full-name }} {#mmy}
+
+{% include [mmy-limits.md](../../_includes/mdb/mmy-limits.md) %}
+
+
+### {{ mpg-full-name }} {#mpg}
 
 {% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
 
 
+### {{ mrd-full-name }} {#mrd}
+
+{% include [mrd-limits.md](../../_includes/mdb/mrd-limits.md) %}
+
+
+### {{ message-queue-full-name }} {#mq}
+
+{% include [ymq-limits.md](../../_includes/ymq-limits.md) %}
+
+
 ### {{ speechkit-full-name }} {#speechkit}
 
-{% include [speechkit](../../_includes/speechkit-limits.md) %}
+{% include [speechkit-limits](../../_includes/speechkit-limits.md) %}
 
 
 ### {{ translate-full-name }} {#translate}
 
-{% include [translate](../../_includes/translate-limits.md) %}
+{% include [translate-limits](../../_includes/translate-limits.md) %}
 
 
 ### {{ vision-full-name }} {#vision}
 
-{% include [vision](../../_includes/vision-limits.md) %}
+{% include [vision-limits](../../_includes/vision-limits.md) %}
