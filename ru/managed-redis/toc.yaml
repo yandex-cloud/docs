@@ -16,6 +16,8 @@ items:
         href: operations/connect.md
       - name: Управление хостами кластера
         href: operations/hosts.md
+      - name: Управление резервными копиями
+        href: operations/cluster-backups.md
       - name: Сменить мастер
         href: operations/failover.md
       - name: Удаление кластера
