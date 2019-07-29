@@ -59,6 +59,8 @@ items:
         href: concepts/multipart.md
       - name: Список управления доступом (ACL)
         href: concepts/acl.md
+      - name: Загрузка файла через HTML форму
+        href: concepts/presigned-post-forms.md
       - name: Класс хранилища
         href: concepts/storage-class.md
       - name: Квоты и лимиты
@@ -93,6 +95,8 @@ items:
     items:
       - name: Как пользоваться API
         href: s3/index.md
+      - name: Подписывание запросов
+        href: s3/signing_requests.md
       - name: Справочник API
         items:
           - name: Все сервисы и методы

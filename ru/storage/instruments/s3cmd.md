@@ -16,11 +16,11 @@
 
 1. `Access Key` — введите идентификатор ключа, который вы получили при генерации статического ключа.
 1. `Secret Key` — введите секретный ключ, который вы получили при генерации статического ключа.
-1. `Default Region` — введите `us-east-1`.
+1. `Default Region` — введите `ru-central1`.
 
    {% note info %}
 
-   Для работы с {{ objstorage-name }} всегда указывайте регион `us-east-1`. Другие значения региона могут привести к ошибке авторизации.
+   Для работы с {{ objstorage-name }} всегда указывайте регион `ru-central1`. Другие значения региона могут привести к ошибке авторизации.
 
    {% endnote %}
 1. `S3 Endpoint` - введите `{{ s3-storage-host }}`.
@@ -35,7 +35,7 @@
 [default]
 access_key = id
 secret_key = secretKey
-bucket_location = us-east-1
+bucket_location = ru-central1
 host_base = {{ s3-storage-host }}
 host_bucket = %(bucket)s.{{ s3-storage-host }}
 ```
