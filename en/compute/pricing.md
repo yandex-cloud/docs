@@ -173,7 +173,9 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 
 {% endlist %}
 
-### Operating systems {#burstable-instance-os}
+### Operating systems {#prices-os}
+
+#### Prices before August 1, 2019
 
 {% list tabs %}
 
@@ -181,7 +183,7 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 
   | OS | Cost per vCPU per hour, without VAT
   ----- | -----
-  | Linux for all core types  | $0 |
+  | Linux for all core types | $0 |
   | Windows Server for 5%+ of vCPU | $0.008135 |
   | Windows Server for 20%+, 50%+, 100% vCPU | $0.016270 |
 
@@ -189,11 +191,36 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 
   | OS | Cost per vCPU per hour, with VAT |
   ----- | -----
-  | Linux for all core types  | ₽0 |
+  | Linux for all core types | ₽0 |
   | Windows Server for 5%+ of vCPU | ₽0.6346 |
   | Windows Server for 20%+, 50%+, 100% vCPU | ₽1.2691 |
 
 {% endlist %}
+
+#### Prices after August 1, 2019
+
+{% list tabs %}
+
+- Prices in USD
+
+  | OS | Cost per vCPU per hour, without VAT
+  ----- | -----
+  | Linux for all core types | $0 |
+  | Windows Server for 5%+ of vCPU | $0.008135 |
+  | Windows Server for 20%+ and 50%+ vCPU | $0.009615 |
+  | Windows Server for 100% vCPU | $0.016270 |
+
+- Prices in roubles
+
+  | OS | Cost per vCPU per hour, with VAT |
+  ----- | -----
+  | Linux for all core types | ₽0 |
+  | Windows Server for 5%+ of vCPU | ₽0.6346 |
+  | Windows Server for 20%+ and 50%+ vCPU | ₽0.75 |
+  | Windows Server for 100% vCPU | ₽1.2691 |
+
+{% endlist %}
+
 
 ### Disks, snapshots, and images {#prices-storage}
 
