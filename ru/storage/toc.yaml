@@ -96,7 +96,7 @@ items:
       - name: Как пользоваться API
         href: s3/index.md
       - name: Подписывание запросов
-        href: s3/signing_requests.md
+        href: s3/signing-requests.md
       - name: Справочник API
         items:
           - name: Все сервисы и методы
