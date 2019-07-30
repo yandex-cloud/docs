@@ -7,21 +7,20 @@ You can add and remove cluster hosts and manage {{ MY }} settings for individual
 {% list tabs %}
 
 - Management console
-
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the **Hosts** tab.
 
 {% endlist %}
 
 ## Adding a host  {#add}
 
-The number of hosts in {{ mmy-short-name }} clusters is limited by the quotas on the number of CPUs and RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mmy-full-name }}**.
+The number of hosts in {{ mmy-short-name }} clusters is limited by CPU quotas and the amount of memory available to database clusters in your cloud. To check the resources in use, open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page and find the **{{ mmy-full-name }}** block.
 
 {% list tabs %}
 
 - Management console
 
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and select **{{ mmy-name }}**.
 
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
 
@@ -38,15 +37,14 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the quotas on
 
 ## Removing a host {#remove}
 
-You can remove a host from a {{ MY }} cluster if it is not the only host in it. To replace a single host, first create a new host and then delete the old one.
+You can remove a host from a {{ MY }} cluster if it is not the only host in the cluster. To replace a single host, first create a new host and then delete the old one.
 
-If the host is a master at the time of deletion, {{ mmy-short-name }} automatically assigns the next highest-priority replica as a master.
+If the host is the master when it's removed, {{ mmy-short-name }} will automatically assign the next replica by priority the master.
 
 {% list tabs %}
 
 - Management console
-
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the **Hosts** tab.
   1. Click ![image](../../_assets/cross.svg) in the row of the host you need.
 

@@ -12,6 +12,8 @@ items:
         href: operations/cluster-list.md
       - name: How to create a cluster
         href: operations/cluster-create.md
+      - name: Migrating database to Cloud
+        href: operations/data-migration.md
       - name: How to connect to a database
         href: operations/connect.md
       - name: Updating a cluster

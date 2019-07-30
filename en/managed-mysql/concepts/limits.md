@@ -3,7 +3,7 @@ editable: false
 ---
 # Quotas and limits
 
-In the {{ mmy-name }} service, the following limitations apply:
+{{ mmy-name }} has the following limitations:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

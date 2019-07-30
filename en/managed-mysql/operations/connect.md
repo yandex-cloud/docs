@@ -1,10 +1,10 @@
-# Connecting to a database in a cluster {{ MY }}
+# Connecting to a database in a {{ MY }} cluster
 
 You can connect to a DB cluster from a Yandex.Cloud VM only if this VM belongs to the same cloud network.
 
 ## Authentication
 
-{{ MY }}-clusters in {{ mmy-short-name }} support only encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
+{{ mmy-short-name }} {{ MY }} clusters only support encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
 
 ```bash
 $ mkdir ~/.mysql
@@ -26,4 +26,19 @@ $ mysql --host=<host address>
 ```
 
 You can find the addresses of all the hosts in the DB cluster on the appropriate cluster page in the management console.
+
+## Connecting to the master
+
+Hosts will always identify the current master as `c-<cluster ID>.rw.{{ dns-zone }}`.
+
+For example, you can connect to the master of the cluster with the `c9qash3nb1v9ulc8j9nm` ID as follows:
+
+```bash
+$ mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }}
+        --port=3306
+        --ssl-ca=~/.mysql/root.crt
+        --ssl-mode=REQUIRED
+        --user=<name of the database user>
+        --password <DB name>
+```
 

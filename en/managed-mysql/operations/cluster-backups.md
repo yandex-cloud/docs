@@ -11,11 +11,10 @@ For a new cluster, you should set all the parameters that are required at creati
 {% list tabs %}
 
 - Management console
-  
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
   1. Click ![image](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
-  
+
 {% endlist %}
 
 ## Creating backups {#create-backup}
@@ -23,11 +22,10 @@ For a new cluster, you should set all the parameters that are required at creati
 {% list tabs %}
 
 - Management console
-  
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
   1. Click **Create a backup**.
-  
+
 {% endlist %}
 
 ## Getting a list of backups {#list-backups}
@@ -35,10 +33,9 @@ For a new cluster, you should set all the parameters that are required at creati
 {% list tabs %}
 
 - Management console
-  
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
-  
+
 {% endlist %}
 
 ## Getting information about a backup {#get-backup}
@@ -46,9 +43,8 @@ For a new cluster, you should set all the parameters that are required at creati
 {% list tabs %}
 
 - Management console
-  
-  1. Go to the folder page and click **{{ mmy-name }}**.
+  1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
-  
+
 {% endlist %}
 

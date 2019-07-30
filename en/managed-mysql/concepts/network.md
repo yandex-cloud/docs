@@ -10,9 +10,9 @@ You can create a cluster without specifying any subnets for the hosts, if the av
 
 ## Hostname and FQDN {#hostname}
 
-{{ mmy-short-name }} generates the name of each cluster host when it is being created. This name will be the host's fully qualified domain name (FQDN). The hostname and, consequently, the FQDN cannot be changed.
+{{ mmy-short-name }} generates a name for each cluster host when they're created. This name will be the host's fully qualified domain name (FQDN). The hostname and, consequently, the FQDN cannot be changed.
 
-You can use the FQDN to access the host within a single cloud network. Read more in the [documentation on Yandex {{ vpc-short-name }}](../../vpc/).
+You can use the FQDN to access the host within a single cloud network. Read more in the [Yandex {{ vpc-short-name }} documentation](../../vpc/).
 
 ## Public access to a host
 

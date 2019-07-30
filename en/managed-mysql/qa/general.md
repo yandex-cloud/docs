@@ -4,35 +4,35 @@
 
 {{ mmy-short-name }} is a service that helps you create, operate, and scale {{ MY }} databases in the cloud infrastructure.
 
-With {{ mmy-short-name }}, you can:
+Use {{ mmy-short-name }} to:
 
 - Create a database with the required performance characteristics.
 - Scale processing power and storage dedicated for your databases as needed.
 - Get database logs.
 
-{{ mmy-short-name }} takes on labor-intensive {{ mmy-short-name }} infrastructure administration tasks:
+{{ mmy-short-name }} takes on time-consuming {{ MY }} infrastructure administration tasks:
 
 - Monitors resource usage.
 - Automatically creates DB backups.
 - Provides fault tolerance through automatic failover to backup replicas.
 - Keeps the database software updated.
 
-You interact with a database cluster in {{ mmy-short-name }} in the same way as with a regular database in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
+You interact with database clusters in {{ mmy-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
 
-#### What part of DB management and maintenance is {{ mmy-short-name }} responsible for? {#services}
+#### What part of database management and maintenance is {{ mmy-short-name }} responsible for? {#services}
 
 When creating clusters, {{ mmy-short-name }} allocates resources, installs the DBMS, and creates databases.
 
-For the created and running databases, {{ mmy-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
+For created and running databases, {{ mmy-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
 
 {{ mmy-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-#### For which tasks should I use {{ mmy-short-name }} and for which VMs with databases? {#mdb-advantage}
+#### What tasks should I use {{ mmy-short-name }} for and for which VMs with databases? {#mdb-advantage}
 
 Yandex.Cloud offers two ways to work with databases:
 
-- {{ mmy-short-name }} allows you to operate template databases with no need to worry about administration.
-- With {{ compute-full-name }} VMs, you can create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
+- {{ mmy-short-name }} lets you use template databases without having to worry about administration.
+- {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
 
 #### What is a database host and database cluster? {#what-is-cluster}
 
@@ -44,20 +44,20 @@ _A database cluster_ is one or more database hosts between which replication can
 
 {{ mmy-short-name }} is available to all registered Yandex.Cloud users.
 
-To create a database cluster in {{ mmy-short-name }}, decide what the characteristics will be:
+To create a database cluster in {{ mmy-short-name }}, you must define its characteristics:
 
 - [Host class](../concepts/instance-types.md) (performance characteristics such as CPUs, memory, and so on).
 - Storage size (reserved in full when you create the cluster).
 - The network your cluster will be connected to.
 - The number of hosts for the cluster and the availability zone for each host.
 
-For detailed instructions, see the section [#T](../quickstart.md).
+For detailed instructions, see [#T](../quickstart.md).
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
 For a network-based storage (NBS), the number of hosts in a cluster is limited only by the requested computing resources and the size of the storage for the cluster.
 
-For NVMe SSD storage, the number of hosts is limited during cluster creation: for {{ MY }}-clusters, at least three hosts must be created.
+For NVMe SSD storage, the number of hosts is limited during cluster creation: for {{ MY }} clusters, at least three hosts must be created.
 
 #### How can I access a running DB host? {#db-access}
 
@@ -67,7 +67,7 @@ You can connect to {{ mmy-short-name }} databases using standard DBMS methods.
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-For MDB technical and organizational limitations, see the section [#T](../concepts/limits.md).
+MDB technical and organizational limitations are given in [#T](../concepts/limits.md).
 
 #### How do I maintain database clusters? {#service-window}
 
@@ -77,7 +77,7 @@ Maintenance in {{ mmy-short-name }} implies:
 - Changes to the host class and storage size.
 - Other {{ mmy-short-name }} maintenance activities.
 
-#### Which {{ MY }} version does {{ mmy-short-name }} use? {#dbms-version}
+#### What version of {{ MY }} does {{ mmy-short-name }} use? {#dbms-version}
 
 {{ mmy-short-name }} supports {{ MY }} 5.7.
 
@@ -87,7 +87,7 @@ The database software is updated when new minor versions are released. The owner
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
-One month after the database version becomes deprecated, {{ mmy-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
+A month after the DBMS version becomes deprecated, {{ mmy-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
 
 New hosts can no longer be created using deprecated DBMS versions. Seven days within such notification for minor versions and one month for major versions, the database clusters are automatically upgraded to the next supported version. Deprecated major versions are upgraded even if you have disabled their automatic updates.
 
@@ -98,7 +98,7 @@ In {{ mmy-short-name }}, the usage cost is calculated based on the following par
 - Selected host class.
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Storage of backups in excess of this size is charged at special [rates](../pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in the section [#T](../pricing.md).
+- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [#T](../pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -108,7 +108,7 @@ The cluster characteristics change within 30 minutes. During this period, other 
 
 #### Is DB host backup enabled by default? {#default-backup}
 
-Yes, backup is enabled by default. For {{ MY }}, a full backup is performed once a day with all DB cluster transaction logs saved. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
+Yes, backup is enabled by default. For {{ MY }}, a full backup is performed once a day, saving all the database cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
 
 By default, backups are stored for seven days.
 
