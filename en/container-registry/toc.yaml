@@ -10,6 +10,8 @@ items:
         href: operations/index.md
       - name: Authentication in Yandex Container Registry
         href: operations/authentication.md
+      - name: Creating a VM with Container Optimized Image
+        href: operations/create-coi-vm.md
       - name: Docker image
         items:
           - name: Getting information about available Docker images

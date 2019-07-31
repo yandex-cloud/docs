@@ -2,6 +2,8 @@
 
 Чтобы работать с Docker-образами, [аутентифицируйтесь в {{ container-registry-short-name }}](authentication.md).
 
+- [#T](create-coi-vm.md)
+
 ## Docker-образ
 
 - [#T](docker-image/docker-image-list.md)
