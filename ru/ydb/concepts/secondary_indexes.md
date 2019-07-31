@@ -18,6 +18,6 @@ _Вторичные индексы_ — это индексы таблицы, к
 
 ```sql
 SELECT *
-    FROM [TableName]:IndexName
+    FROM TableName view IndexName
     WHERE …
 ```

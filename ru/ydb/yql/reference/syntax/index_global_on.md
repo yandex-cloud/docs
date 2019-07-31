@@ -26,7 +26,7 @@ CREATE TABLE series (
     release_date Datetime,
     views Uint64,
     uploaded_user_id Uint64,
-    PRIMARY_KEY (series_id),
+    PRIMARY KEY (series_id),
     INDEX views_index GLOBAL ON (views),
     INDEX users_index GLOBAL ON (uploaded_user_id)
 );
