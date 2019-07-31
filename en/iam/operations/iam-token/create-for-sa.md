@@ -539,6 +539,40 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
   }
   ```
 
+- Ruby
+
+  Example of creating a JWT using [ruby-jwt](https://github.com/jwt/ruby-jwt).
+
+  ```ruby
+  require 'jwt'
+
+  privateKey = OpenSSL::PKey::RSA.new(File.read('private.pem'))
+
+  issuedAt = Time.now.to_i
+  expirationTime = issuedAt + 360
+
+  serviceAccountId = "ajefnghf8o71512u5o8d"
+
+  # ID of the Key resource belonging to the service account.
+  keyId = "ajecsls45da39r33kngg"
+
+  headers = { kid: keyId }
+  payload = {
+      typ: 'JWT',
+      aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+      iss: serviceAccountId,
+      iat: issuedAt,
+      exp: expirationTime,
+      data: 'data' }
+
+  # JWT generation.
+  token = JWT.encode(
+      payload,
+      privateKey,
+      'PS256',
+      headers)
+  ```
+
 {% endlist %}
 
 #### What's next
