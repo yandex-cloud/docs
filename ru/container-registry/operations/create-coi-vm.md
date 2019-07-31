@@ -81,7 +81,7 @@ $ yc compute instance create \
 --name coi-vm \
 --ssh-key ssh-key.pub \ 
 --service-account-name=default-sa \ 
---create-boot-disk image-id=fd8psnb698l16qrc2kpd \ 
+--create-boot-disk image-id=fd89oc88814o9i6fiume \ 
 --zone=ru-central1-b \
 --metadata-from-file docker-container-declaration=my-container.yaml \ 
 --public-ip 
