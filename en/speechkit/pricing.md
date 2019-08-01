@@ -79,14 +79,14 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio that
 
 - Prices in USD
 
-  | Service | Rate for 15 sec segment, without VAT |
+  | Service | Rate for the billable unit, without VAT |
   | ----- | ----- |
   | [Short audio recognition](#rules-stt-short) | $0.001953 |
   | [Long audio recognition](#rules-stt-long) | $0.000128 |
 
 - Prices in roubles
 
-  | Service | Rate for 15 sec segment, with VAT |
+  | Service | Rate for the billable unit, with VAT |
   | ----- | ----- |
   | [Short audio recognition](#rules-stt-short) | ₽0.1524 |
   | [Long audio recognition](#rules-stt-long) | ₽0.01 |
