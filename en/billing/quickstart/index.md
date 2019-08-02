@@ -7,16 +7,11 @@ To start using the Billing service:
 - [Create a billing account](#create_billing_account)
 - [Start exploring Yandex.Cloud](#start)
 
-
 ### Create a billing account {#create_billing_account}
 
 To create a [billing account](../concepts/billing-account.md):
 
-1. Go to [Yandex.Cloud](https://cloud.yandex.com/).
-
-1. Click **Console**.
-
-   You will be redirected to the Yandex.Cloud [management console]({{ link-console-main }}).
+1. Open [management console]({{ link-console-main }}) of Yandex.Cloud.
 
 1. Log in to Yandex:
     - If you are already logged in to Yandex or Yandex.Connect with your username and password, go to step 4.
@@ -37,7 +32,7 @@ To create a [billing account](../concepts/billing-account.md):
 
 1. Fill in the questionnaire:
 
-    {% list tabs %}
+   {% list tabs %}
 
     - Individual account
 
@@ -50,7 +45,7 @@ To create a [billing account](../concepts/billing-account.md):
 
         {% note info %}
 
-        Funds from the linked card can only be debited after [activating the paid version](../operations/activate-commercial.md) and the use of Yandex.Cloud services.
+        Funds from the linked card can only be debited after [activating the paid version](../operations/activate-commercial.md) and using Yandex.Cloud services.
 
         {% endnote %}
 
@@ -58,8 +53,10 @@ To create a [billing account](../concepts/billing-account.md):
 
     - Business account
 
-      10.1. Select a payment method:
-      - **Bank card**.<br/>Link your corporate bank card:
+      9.1. Select a payment method:
+
+      - **Bank card**
+<br/>Link your corporate bank card:
         - Click **Add card**.
         - Enter the bank card details: the 16-digit number, expiry date, and CVV (on the back of the card).
         - Click **Link**.
@@ -74,17 +71,18 @@ To create a [billing account](../concepts/billing-account.md):
 
         {% include [yandex-account](../_includes/payment-card-validation.md) %}
 
-      - **Bank transfer**.<br/>After you click the **Activate** button (step 11), the billing account is created with the [Not verified](../concepts/billing-account.md#conditions) status. An email with further instructions will be sent to the email address specified in your Yandex or Yandex.Connect account. It may take up to three business days to activate your billing account.
+      - **Bank transfer**
+<br/>After you click **Activate** (step 11), the billing account is created with the status [Not verified](../concepts/billing-account.md#conditions). An email with further instructions will be sent to the email address specified in your Yandex or Yandex.Connect account. It may take up to three business days to activate your billing account.
 
-      10.2. Enter the legal details of your organization.
+      9.2. Enter the legal details of your organization.
 
-    {% endlist %}
+   {% endlist %}
 
-    {% note info %}
+   {% note info %}
 
-    Carefully fill in your contact information and payment details. This information is required not only to contact you, but also to issue payment invoices and send financial documents.
+   Carefully fill in your contact information and payment details. This information is required not only to contact you, but also to issue payment invoices and send financial documents.
 
-    {% endnote %}
+   {% endnote %}
 
 1. Read the agreement. If you agree to the terms and conditions, select **I have read and accept the Terms**.
 
@@ -96,9 +94,9 @@ To create a [billing account](../concepts/billing-account.md):
 
     {% endnote %}
 
-
 ### Get started {#start}
 
 To start working with Yandex.Cloud:
 
    {% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
+
