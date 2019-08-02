@@ -77,14 +77,14 @@ spec:
 Создайте ВМ и Docker-контейнер, используя метаданные из файла `my-container.yaml`:
 
 ```
-$ yc compute instance create \ 
+$ yc compute instance create \
      --name coi-vm \
      --ssh-key ssh-key.pub \
      --service-account-name=default-sa \
      --create-boot-disk image-family=container-optimized-image,image-folder-id=standard-images \
      --zone=ru-central1-b \
      --metadata-from-file docker-container-declaration=my-container.yaml \
-     --public-ip 
+     --public-ip
 done (1m27s)
 id: epdegdecs9o14r13gbad
 folder_id: b1g88tflru0ek1omtsu0

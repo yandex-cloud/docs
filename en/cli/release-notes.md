@@ -1,16 +1,60 @@
 # YC CLI Releases
 
-## Version 0.32.0 (05.07.19) {#latest-release}
+## Version 0.34.0 (26.07.19) {#latest-release}
 
-### Changes to the CLI {#cli}
+### Changes to Yandex.Cloud services {#services}
+
+#### Managed database services {#managed-db}
+
+**{{ mrd-name }}**
+
+- `{{ yc-mdb-rd }} shards`
+
+    Added shard support for Redis clusters.
+
+**{{ mch-name }}**
+
+- `{{ yc-mdb-ch }} cluster add-external-dictionary`.
+
+    Added PostgreSQL dictionary support. Flags for working with dictionaries: `--postgresql-source`, `--postgresql-source-hosts`, and `--postgresql-invalidate-query`.
+
+**{{ mmy-name }}**
+
+- `{{ mmy-name }} cluster update-config --set`
+
+    Added ability to globally set the SQL mode using `sql_mode`.
+
+## Previous releases {#previous-releases}
+
+### Version 0.33.0 (19.07.19) {#version0.33.0}
+
+#### Changes to the CLI {#cli}
 
 **Improved**
 
-- Commands for displaying a list of `yc <service> <resource> list`
+- Changed command progress indicator from dots to [throbber](https://en.wikipedia.org/wiki/Throbber).
 
-    The maximum number of elements to output has been increased from 100 to 1000.
+#### Changes to Yandex.Cloud services {#services}
 
-### Changes to Yandex.Cloud services {#services}
+#### Managed database services {#managed-db}
+
+**{{ mpg-name }}**
+
+- `{{ yc-mdb-pg }} user create` and `{{ yc-mdb-pg }} user update`
+
+    Added ability to set user parameters with flags such as `--lock_timeout` and `--log_min_duration_statement`.
+
+### Version 0.32.0 (05.07.19) {#version0.32.0}
+
+#### Changes to the CLI {#cli}
+
+**Improved**
+
+- Commands for displaying lists of `yc <service> <resource> list` elements.
+
+   The maximum number of elements to output has been increased from 100 to 1000.
+
+#### Changes to Yandex.Cloud services {#services}
 
 #### Managed database services {#managed-db}
 
@@ -18,9 +62,7 @@
 
 - `{{ yc-mdb-mg }} cluster update` and `{{ yc-mdb-mg }} cluster update-config`
 
-    In sharded clusters, you can now change `mongos` and `mongocfg` component parameters.
-
-## Previous releases {#previous-releases}
+    In [sharded](../managed-mongodb/concepts/sharding.md) clusters, you can now change `mongos` and `mongocfg` component parameters.
 
 ### Version 0.31.0 (01.07.19) {#version0.31.0}
 
@@ -62,7 +104,7 @@
 
 - `yc compute instance update`
 
-    Added the `--service-account-id` and `--service-account-name` flags that let you add and change service accounts for existing virtual machines.
+    Added the `--service-account-id` and `--service-account-name` flags, which let you add and change service accounts for existing virtual machines.
 
 - `yc compute instance create`
 
@@ -90,7 +132,7 @@
 
 - `yc compute instance create`
 
-    Added the `--gpus` flag that lets you specify the number of GPUs in a virtual machine.
+    Added the `--gpus` flag, which lets you specify the number of GPUs in a virtual machine.
 
 #### Managed database services {#managed-db}
 
@@ -102,11 +144,11 @@
 
 - `yc <database name> cluster create`
 
-    Added the `--backup-window-start` flag that lets you set the daily cluster backup time when creating a cluster.
+    Added the `--backup-window-start` flag, which lets you set the daily cluster backup time when creating a cluster.
 
 **{{ mch-name }}**
 
-- `{{ yc-mdb-ch }} cluster add-zookeeper`
+- `{{ yc-mdb-ch }} cluster add-zooker`
 
     Added the ability to add ZooKeeper hosts.
 
