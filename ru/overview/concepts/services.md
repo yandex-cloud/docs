@@ -10,7 +10,7 @@ _Сервис_ в составе Яндекс.Облака позволяет у
   - [{{ resmgr-full-name }}](../../resource-manager/) — сервис для управления облачными ресурсами.
   - [{{ load-balancer-full-name }}](../../load-balancer/) — сервис для управлениями балансерами нагрузки.
   - [{{ container-registry-full-name }}](../../container-registry/) — сервис для управления образами контейнеров.
-  - [{{ monitoring-full-name }}](../../monitoring/) — сервис по управлению доступом к облачным ресурсам.
+  - [{{ monitoring-full-name }}](../../monitoring/) — сервис для сбора метрик состояния ресурсов и сервисов с возможностью их визуализации.
   - [{{ mpg-full-name }}](../../managed-postgresql/) — сервис управления для PostgreSQL.
   - [{{ mch-full-name }}](../../managed-clickhouse/) — сервис управления для ClickHouse.
   - [{{ mmg-full-name }}](../../managed-mongodb/) — сервис управления для MongoDB.
