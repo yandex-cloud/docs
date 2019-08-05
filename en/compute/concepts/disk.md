@@ -10,7 +10,7 @@ Each disk is located in one of the availability zones and is not automatically r
 
 A disk is created within a folder and inherits its access rights.
 
-Disks use storage capacity that incurs additional fees. For more information, see [#T](../pricing.md). The size of a disk is specified when creating it. This is the capacity that you are charged for.
+Disks use storage capacity that incurs additional fees. For more information, see [{#T}](../pricing.md). The size of a disk is specified when creating it. This is the capacity that you are charged for.
 
 If a disk is created from a snapshot or image, the disk information contains the ID of the source resource. In addition, the license IDs are inherited from the source resource (`product_ids`), which are used to calculate the cost of disk usage.
 

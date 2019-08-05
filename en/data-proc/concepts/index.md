@@ -20,7 +20,7 @@ Each cluster consists of _subclusters_. They integrate _hosts_ that perform iden
 
 Subclusters for one cluster must reside in the same cloud network and availability zone. [Learn more about Yandex.Cloud geography](../../overview/concepts/geo-scope.md).
 
-Hosts in each subcluster are created with the computing power consistent with the specified _host class_. For a list of available host classes and their characteristics, see [#T](instance-types.md).
+Hosts in each subcluster are created with the computing power consistent with the specified _host class_. For a list of available host classes and their characteristics, see [{#T}](instance-types.md).
 
-For information about network configuration and network access to clusters, see [#T](network.md).
+For information about network configuration and network access to clusters, see [{#T}](network.md).
 

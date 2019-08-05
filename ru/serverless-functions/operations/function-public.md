@@ -6,16 +6,16 @@
 
 {% note important %}
 
-Не давайте права `editor` и `admin` на системную группу `allUsers`. Это позволит любому пользователю в интернете использовать ресурсы вашего Облака за ваш счет. Подробнее о системных группах читайте в разделе [#T](../../iam/concepts/access-control/system-group.md).
+Не давайте права `editor` и `admin` на системную группу `allUsers`. Это позволит любому пользователю в интернете использовать ресурсы вашего Облака за ваш счет. Подробнее о системных группах читайте в разделе [{#T}](../../iam/concepts/access-control/system-group.md).
 
 {% endnote %}
 
-Назначить необходимые права можно с помощью команды: 
+Назначить необходимые права можно с помощью команды:
 
 ```
-$ yc resource-manager folder add-access-binding <ID каталога> 
-                             --role serverless.functions.invoker 
-                             --subject system:allUsers 
+$ yc resource-manager folder add-access-binding <ID каталога>
+                             --role serverless.functions.invoker
+                             --subject system:allUsers
 ```
 
-Подробнее о правах, читайте в разделе [#T](../security/index.md).
+Подробнее о правах, читайте в разделе [{#T}](../security/index.md).

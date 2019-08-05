@@ -14,5 +14,5 @@
 
 #### См. также {#see-also}
 
-- [#T](policies.md#scale-policy).
-- [#T](../../operations/instance-groups/create-fixed-group.md).
+- [{#T}](policies.md#scale-policy).
+- [{#T}](../../operations/instance-groups/create-fixed-group.md).

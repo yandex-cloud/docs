@@ -55,7 +55,7 @@ When a VM is created, it is assigned an IP address and hostname (FQDN). This dat
 
 #### See also
 
-- [#T](../../compute/operations/vm-connect/ssh.md)
+- [{#T}](../../compute/operations/vm-connect/ssh.md)
 
 ## 2. Upload the website files {#upload-files}
 

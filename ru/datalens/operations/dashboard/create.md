@@ -7,4 +7,4 @@
 
 
 #### Что дальше
-- [#T](add-chart.md)
+- [{#T}](add-chart.md)

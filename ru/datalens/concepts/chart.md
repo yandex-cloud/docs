@@ -2,7 +2,7 @@
 
 _Чарт_ — это визуализация данных из датасета в виде таблицы или диаграммы.
 
-Чарты создаются в [визарде](https://datalens.yandex.ru/wizard/) на основе данных из датасета. 
+Чарты создаются в [визарде](https://datalens.yandex.ru/wizard/) на основе данных из датасета.
 На базе одного датасета может быть создано неограниченное количество чартов.
 
 Рабочая область в интерфейсе визарда разделена на три основные панели:
@@ -125,15 +125,15 @@ Y  | Измерение или показатель по оси Y
 
 ## Управление доступом {#access-management}
 
-Вы можете настроить права доступа к чарту. Подробнее в разделе [#T](../security/index.md).
+Вы можете настроить права доступа к чарту. Подробнее в разделе [{#T}](../security/index.md).
 
 #### См. также {#see-also}
-- [#T](../operations/chart/create-pivot-table.md)
-- [#T](../operations/chart/create-table.md)
-- [#T](../operations/chart/create-line-chart.md)
-- [#T](../operations/chart/create-area-chart.md)
-- [#T](../operations/chart/create-bar-chart.md)
-- [#T](../operations/chart/create-pie-chart.md)
+- [{#T}](../operations/chart/create-pivot-table.md)
+- [{#T}](../operations/chart/create-table.md)
+- [{#T}](../operations/chart/create-line-chart.md)
+- [{#T}](../operations/chart/create-area-chart.md)
+- [{#T}](../operations/chart/create-bar-chart.md)
+- [{#T}](../operations/chart/create-pie-chart.md)
 
 
 

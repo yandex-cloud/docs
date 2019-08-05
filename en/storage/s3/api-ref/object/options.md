@@ -46,5 +46,5 @@ The method returns:
 - 200: if requests to the object are allowed.
 - 403: if requests to the object are not allowed.
 
-For detailed descriptions of response codes, see [#T](../response-codes.md).
+For detailed descriptions of response codes, see [{#T}](../response-codes.md).
 

@@ -15,7 +15,7 @@
   5. Вы можете сразу назначить сервисному аккаунту [роль](../../concepts/access-control/roles.md) на каталог, в котором он будет создан.
       Для этого нажмите **Добавить роль** и выберите роль.
 
-      Чтобы назначить роль на другой ресурс, воспользуйтесь CLI или API по инструкции [#T](assign-role-for-sa.md).
+      Чтобы назначить роль на другой ресурс, воспользуйтесь CLI или API по инструкции [{#T}](assign-role-for-sa.md).
   6. Нажмите кнопку **Добавить**.
 
 - CLI
@@ -76,6 +76,6 @@
 
 #### Что дальше
 
-- [#T](assign-role-for-sa.md)
-- [#T](create-access-key.md)
-- [#T](set-access-bindings.md)
+- [{#T}](assign-role-for-sa.md)
+- [{#T}](create-access-key.md)
+- [{#T}](set-access-bindings.md)

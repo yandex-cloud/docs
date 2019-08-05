@@ -27,7 +27,7 @@
                 --password \
                 --port=<порт> \
                 --set-gtid-purged=OFF \
-                --quick 
+                --quick
                 --single-transaction <имя базы данных> \
                 > ~/db_dump.sql
     ```
@@ -81,7 +81,7 @@
 
 ## Создание кластера {{ mmy-name }} {#create-cluster}
 
-Инструкцию по созданию кластера можно найти в разделе [#T](./cluster-create.md).
+Инструкцию по созданию кластера можно найти в разделе [{#T}](./cluster-create.md).
 
 
 ## Восстановление данных {#restore}

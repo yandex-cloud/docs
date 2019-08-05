@@ -43,7 +43,7 @@
 
 Каждая роль состоит из набора разрешений, описывающих допустимые операции с ресурсом. Пользователь может назначить роли только с теми разрешениями, которые имеются у него самого. Например, чтобы назначить роль [владельца облака](roles.md#owner), пользователь должен сам обладать этой ролью, а роли администратора для этого недостаточно.
 
-О том, какие есть роли и какие разрешения в них входят, читайте в разделе [#T](roles.md).
+О том, какие есть роли и какие разрешения в них входят, читайте в разделе [{#T}](roles.md).
 
 ### Субъект, которому назначается роль {#subject}
 
@@ -75,9 +75,9 @@
 
 Пошаговые инструкции и примеры:
 
-* [#T](../../operations/roles/grant.md)
-* [#T](../../operations/roles/revoke.md)
-* [#T](../../operations/sa/assign-role-for-sa.md)
-* [#T](../../operations/sa/set-access-bindings.md)
-* [#T](../../../resource-manager/operations/cloud/set-access-bindings.md)
-* [#T](../../../resource-manager/operations/folder/set-access-bindings.md)
+* [{#T}](../../operations/roles/grant.md)
+* [{#T}](../../operations/roles/revoke.md)
+* [{#T}](../../operations/sa/assign-role-for-sa.md)
+* [{#T}](../../operations/sa/set-access-bindings.md)
+* [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md)
+* [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md)

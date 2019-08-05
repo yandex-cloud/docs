@@ -577,6 +577,6 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
 #### What's next
 
-* [#T](../sa/set-access-bindings.md)
-* [#T](../sa/assign-role-for-sa.md)
+* [{#T}](../sa/set-access-bindings.md)
+* [{#T}](../sa/assign-role-for-sa.md)
 

@@ -6,7 +6,7 @@ To allow access to {{ iot-short-name }} resources (registries and devices), assi
 
 {% note info %}
 
-For more information about role inheritance, see [#T](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
 
 {% endnote %}
 

@@ -6,7 +6,7 @@ To grant access to {{ managed-k8s-name }} resources (Kubernetes clusters and nod
 
 {% note info %}
 
-For more information about role inheritance, see [#T](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
 
 {% endnote %}
 

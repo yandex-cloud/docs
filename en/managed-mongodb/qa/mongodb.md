@@ -37,5 +37,5 @@ The following limitations are imposed on the {{ MG }} clusters:
 - Each cluster may have a maximum of five hosts.
 - The maximum storage capacity for each {{ MG }} cluster is 512 GB.
 
-For more information about the limitations of the {{ mmg-short-name }} service, see [#T](../concepts/limits.md).
+For more information about the limitations of the {{ mmg-short-name }} service, see [{#T}](../concepts/limits.md).
 

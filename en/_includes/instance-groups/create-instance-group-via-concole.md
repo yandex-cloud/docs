@@ -39,7 +39,7 @@
 
     - Maximum number of instances when deleting a group.
 
-        For more information, see [#T](../../compute/concepts/instance-groups/policies.md#deploy-policy).
+        For more information, see [{#T}](../../compute/concepts/instance-groups/policies.md#deploy-policy).
 1. In the **Scalability** section:
     - Select the [scale type](../../compute/concepts/instance-groups/scale.md).
     - Specify the required number of instances.

@@ -13,7 +13,7 @@ As a result of recognition, the service returns a JSON object with the recognize
 
 ### Detecting the language model {#detect-model}
 
-In your request, specify the languages for recognition. The list of languages and their order affect model selection and recognition quality. If the service tries to recognize Chinese in text written in Arabic, the result will be meaningless. For more information, see [#T](supported-languages.md).
+In your request, specify the languages for recognition. The list of languages and their order affect model selection and recognition quality. If the service tries to recognize Chinese in text written in Arabic, the result will be meaningless. For more information, see [{#T}](supported-languages.md).
 
 {% note info %}
 

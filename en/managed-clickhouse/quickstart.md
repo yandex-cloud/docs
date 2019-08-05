@@ -16,7 +16,7 @@ To use the service, create a cluster and connect to a DBMS:
 
 1. Click **Create resource** and select **Cluster {{ CH }}**.
 
-2. Set the cluster parameters and click **Create cluster**. The process is described in detail in the section [#T](operations/cluster-create.md).
+2. Set the cluster parameters and click **Create cluster**. The process is described in detail in the section [{#T}](operations/cluster-create.md).
 
 3. When the cluster is ready to operate, its status on the {{ mch-name }} dashboard will change to **RUNNING**.
 

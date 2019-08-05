@@ -6,22 +6,22 @@
 
 {% endnote %}
 
-Для обращения к [реестру](../../concepts/index.md#registry) используйте его идентификатор или имя. Как узнать идентификатор или имя реестра, читайте в разделе [#T](registry-list.md).
+Для обращения к [реестру](../../concepts/index.md#registry) используйте его идентификатор или имя. Как узнать идентификатор или имя реестра, читайте в разделе [{#T}](registry-list.md).
 
 {% list tabs %}
 
 - CLI
-  
+
   {% include [cli-install](../../../_includes/cli-install.md) %}
-  
+
   1. Удалите реестр:
-  
+
       ```
       $ yc iot registry delete my-registry
       ```
-  
+
   1. Проверьте, что реестр удален:
-  
+
       ```
       $ yc iot registry list
       +----+------+

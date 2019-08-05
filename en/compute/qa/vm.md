@@ -6,11 +6,11 @@
 
 {% include [support-channels](../../_includes/compute/compute-resources.md) %}
 
-For more information, see the section [#T](../concepts/performance-levels.md).
+For more information, see the section [{#T}](../concepts/performance-levels.md).
 
 #### How can I change the amount of RAM and the number of cores allocated to a VM? {#update-type}
 
-For more information, see the section [#T](../operations/vm-control/vm-update-resources.md).
+For more information, see the section [{#T}](../operations/vm-control/vm-update-resources.md).
 
 ## Operations on VMs
 

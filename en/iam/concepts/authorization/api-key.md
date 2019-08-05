@@ -21,6 +21,6 @@ For information about how to use an API key for authentication, read the documen
 #### See also
 
 * [How to create an API key](../../operations/api-key/create.md)
-* [#T](iam-token.md)
-* [#T](index.md)
+* [{#T}](iam-token.md)
+* [{#T}](index.md)
 

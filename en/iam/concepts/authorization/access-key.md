@@ -14,5 +14,5 @@ For information about how to use static access keys, read the documentation on t
 #### See also
 
 * [How to create a static access key](../../operations/sa/create-access-key.md)
-* [#T](index.md)
+* [{#T}](index.md)
 

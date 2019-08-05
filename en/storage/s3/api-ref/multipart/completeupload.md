@@ -7,7 +7,7 @@ When receiving the request, {{ objstorage-name }}:
 - Combines the parts obtained during the upload in the order of their numbering to form a target object.
 - Deletes the upload ID, which means that any subsequent requests with that ID will return the `NoSuchUpload` error.
 
-When completing the upload, the client must provide the list of the parts it sent. Each part's description must contain the `ETag` which the client receives in response to each uploaded part. See the section [#T](uploadpart.md).
+When completing the upload, the client must provide the list of the parts it sent. Each part's description must contain the `ETag` which the client receives in response to each uploaded part. See the section [{#T}](uploadpart.md).
 
 The operation may take several minutes, depending on the object size and the number of parts.
 
@@ -65,7 +65,7 @@ A response can only contain [common response headers](../common-response-headers
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [#T](../response-codes.md).
+For a list of possible responses, see [{#T}](../response-codes.md).
 
 Additionally, {{ objstorage-name }} may return errors described in the table below.
 

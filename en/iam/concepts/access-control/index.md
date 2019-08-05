@@ -43,7 +43,7 @@ Resource roles can be assigned by users with the [administrator](roles.md#admin)
 
 Each role consists of a set of permissions that describe operations that can be performed with the resource. A user can assign a role with only those permissions which are available to themselves. For example, to assign somebody the role of [cloud owner](roles.md#owner), the user must be granted this role, while the admin role is not sufficient for this.
 
-For information about what roles exist and what permissions they include, see [#T](roles.md).
+For information about what roles exist and what permissions they include, see [{#T}](roles.md).
 
 ### Subject that a role is assigned to {#subject}
 
@@ -75,10 +75,10 @@ For more information about managing access to a specific Yandex.Cloud service, s
 
 Step-by-step instructions and examples:
 
-* [#T](../../operations/roles/grant.md)
-* [#T](../../operations/roles/revoke.md)
-* [#T](../../operations/sa/assign-role-for-sa.md)
-* [#T](../../operations/sa/set-access-bindings.md)
-* [#T](../../../resource-manager/operations/cloud/set-access-bindings.md)
-* [#T](../../../resource-manager/operations/folder/set-access-bindings.md)
+* [{#T}](../../operations/roles/grant.md)
+* [{#T}](../../operations/roles/revoke.md)
+* [{#T}](../../operations/sa/assign-role-for-sa.md)
+* [{#T}](../../operations/sa/set-access-bindings.md)
+* [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md)
+* [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md)
 

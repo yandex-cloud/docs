@@ -18,5 +18,5 @@
 
 #### Какие ограничения накладываются на кластеры БД {{ MY }}? {#instance-limitations}
 
-Подробнее об ограничениях {{ mmy-short-name }} см. раздел [#T](../concepts/limits.md). В разделе [#T](../concepts/instance-types.md) приведены характеристики кластеров, которые можно создать с помощью {{ mmy-short-name }}.
+Подробнее об ограничениях {{ mmy-short-name }} см. раздел [{#T}](../concepts/limits.md). В разделе [{#T}](../concepts/instance-types.md) приведены характеристики кластеров, которые можно создать с помощью {{ mmy-short-name }}.
 

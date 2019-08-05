@@ -53,5 +53,5 @@ In addition to [common response headers](../common-response-headers.md), respons
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [#T](../response-codes.md).
+For a list of possible responses, see [{#T}](../response-codes.md).
 

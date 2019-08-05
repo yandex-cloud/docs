@@ -35,5 +35,5 @@ COMMIT;
 
 #### Читайте также
 
-* [#T](select.md#si-select).
-* [#T](../../../concepts/secondary_indexes.md).
+* [{#T}](select.md#si-select).
+* [{#T}](../../../concepts/secondary_indexes.md).

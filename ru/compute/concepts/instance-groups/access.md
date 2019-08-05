@@ -10,5 +10,5 @@
 
 #### См. также {#see-also}
 
-- [#T](../../quickstart/ig.md).
-- [#T](../../../iam/operations/sa/create.md).
+- [{#T}](../../quickstart/ig.md).
+- [{#T}](../../../iam/operations/sa/create.md).

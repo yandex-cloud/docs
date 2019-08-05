@@ -21,5 +21,5 @@ _API-ключ_ — секретный ключ, используемый для 
 #### См. также
 
 * [Как создать API-ключ](../../operations/api-key/create.md)
-* [#T](iam-token.md)
-* [#T](index.md)
+* [{#T}](iam-token.md)
+* [{#T}](index.md)

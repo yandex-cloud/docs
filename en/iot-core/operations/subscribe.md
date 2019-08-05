@@ -7,7 +7,7 @@ You can subscribe:
 
 {% note info %}
 
-To learn about messaging, see [#T](publish.md).
+To learn about messaging, see [{#T}](publish.md).
 
 {% endnote %}
 
@@ -25,37 +25,37 @@ You can subscribe a registry to one, multiple, or all devices added to it. Let's
 
       ```
       $ mosquitto_sub -h mqtt.cloud.yandex.net \ # MQTT broker address.
-       -p 8883 \ # MQTT broker port. 
+       -p 8883 \ # MQTT broker port.
        --cafile rootCA.pem \ # Path to the certificate from the certificate authority (CA).
        --cert registry-cert.pem \ # Path to the public part of the registry certificate.
-       --key registry-key.pem \ # Path to the private part of the registry certificate. 
+       --key registry-key.pem \ # Path to the private part of the registry certificate.
        -t '$devices/<device ID>/events' \ # Device topic.
-       -q 1 # QoS 1. 
+       -q 1 # QoS 1.
       ```
 
   - Subscribe a registry to multiple devices:
 
       ```
       $ mosquitto_sub -h mqtt.cloud.yandex.net \ # MQTT broker address.
-      -p 8883 \ # MQTT broker port. 
+      -p 8883 \ # MQTT broker port.
       --cafile rootCA.pem \ # Path to the certificate from the certificate authority (CA).
       --cert registry-cert.pem \ # Path to the public part of the registry certificate.
-      --key registry-key.pem \ # Path to the private part of the registry certificate. 
+      --key registry-key.pem \ # Path to the private part of the registry certificate.
       -t '$devices/<ID of the first device/events' \ # Topic of the first device.
       -t '$devices/<ID of the second device/events' \ # Topic of the second device.
-      -q 1 # QoS 1. 
+      -q 1 # QoS 1.
       ```
 
   - Subscribe a registry to all devices added to it:
 
       ```
       $ mosquitto_sub -h mqtt.cloud.yandex.net \ # MQTT broker address.
-      -p 8883 \ # MQTT broker port. 
+      -p 8883 \ # MQTT broker port.
       --cafile rootCA.pem \ # Path to the certificate from the certificate authority (CA).
       --cert registry-cert.pem \ # Path to the public part of the registry certificate.
-      --key registry-key.pem \ # Path to the private part of the registry certificate. 
+      --key registry-key.pem \ # Path to the private part of the registry certificate.
       -t '$registry/<registry ID>/events' \ # Registry topic.
-      -q 1 # QoS 1. 
+      -q 1 # QoS 1.
       ```
 
       The registry will only receive data from devices that send messages to the `$registry/<registry ID>/events` topic.
@@ -79,7 +79,7 @@ Commands from a registry can be given to a specific device or all devices in the
       --cert device-cert.pem \ # Path to the public part of the device certificate.
       --key device-key.pem \ # Path to the private part of the device certificate.
       -t '$devices/<device ID/commands' \ # Device topic.
-      -q 1 # QoS 1. 
+      -q 1 # QoS 1.
       ```
 
   - Subscribe a device to commands for all devices:
@@ -91,7 +91,7 @@ Commands from a registry can be given to a specific device or all devices in the
       --cert device-cert.pem \ # Path to the public part of the device certificate.
       --key device-key.pem \ # Path to the private part of the device certificate.
       -t '$registry/<registry ID>/commands' \ # Registry topic.
-      -q 1 # QoS 1. 
+      -q 1 # QoS 1.
       ```
 
       Only devices subscribed to the `$registry/<registry ID>/commands` topic will receive commands.

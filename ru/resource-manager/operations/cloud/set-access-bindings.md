@@ -118,9 +118,9 @@
 
 ## Примеры {#examples}
 
-* [#T](#multiple-roles)
-* [#T](#access-to-sa)
-* [#T](#access-to-all)
+* [{#T}](#multiple-roles)
+* [{#T}](#access-to-sa)
+* [{#T}](#access-to-all)
 
 ### Назначить несколько ролей {#multiple-roles}
 
@@ -312,6 +312,6 @@
 
 #### Что дальше
 
-* [#T](../folder/create.md)
-* [#T](../folder/set-access-bindings.md)
-* [#T](../../concepts/resources-hierarchy.md)
+* [{#T}](../folder/create.md)
+* [{#T}](../folder/set-access-bindings.md)
+* [{#T}](../../concepts/resources-hierarchy.md)

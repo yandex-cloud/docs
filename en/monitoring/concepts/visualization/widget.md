@@ -41,6 +41,6 @@ Text that lets you label a dashboard or group of charts.
 
 #### See also
 
-- [#T](../../operations/chart/create.md)
-- [#T](../../operations/chart/create-query.md)
+- [{#T}](../../operations/chart/create.md)
+- [{#T}](../../operations/chart/create-query.md)
 

@@ -3,11 +3,11 @@
 Раздел содержит информацию о том, как из браузера загрузить файлы в {{ objstorage-name }} с помощью HTML формы.
 
 {% note info %}
-  
-Через форму нельзя загрузить объекты размером более 5 ГБ (см. [#T](limits.md)).
+
+Через форму нельзя загрузить объекты размером более 5 ГБ (см. [{#T}](limits.md)).
 
 {% endnote %}
-    
+
 
 ## Общее описание {#common-dscr}
 
@@ -76,10 +76,10 @@ HTML-форма описывается тегом `<form>` и состоит и�
 {% list tabs %}
 
 - AWS Signature V4
- 
+
      ```html
      <form action="https://{{ s3-storage-host }}/{bucket-name}" method="post" enctype="multipart/form-data">
-        Ключ в хранилище: 
+        Ключ в хранилище:
         <input type="input" name="key" value="object_key"> /><br />
         <!-- Свойства запроса -->
         <input type="hidden" name="x-amz-credential" value="access_key_id/date/ru-central1/s3/aws4_request" />
@@ -97,7 +97,7 @@ HTML-форма описывается тегом `<form>` и состоит и�
     </form>
     ```
 
-- AWS Signature V2 
+- AWS Signature V2
 
   ```html
    <form action="https://{{ s3-storage-host }}/{bucket-name}" method="post" enctype="multipart/form-data">
@@ -161,8 +161,8 @@ HTML-форма содержит политику безопасности, ко
 ```json
 {
     "expiration": "timestamp",
-    "conditions": [ 
-        {"bucket": "bucket-name"}, 
+    "conditions": [
+        {"bucket": "bucket-name"},
         ["starts-with", "$key", "users-uploads/"],
         {"acl": "public-read"},
         {"success_action_redirect": "http://localhost/"},
@@ -173,7 +173,7 @@ HTML-форма содержит политику безопасности, ко
 ```
 
 Поле `expiration` содержит срок действия политики в формате [ISO8601](https://ru.wikipedia.org/wiki/ISO_8601), например, `20190722T153936Z`. По истечению срока действия политики {{ objstorage-name }} перестает принимать файлы, загружаемые с помощью формы.
- 
+
 Поле `conditions` содержит набор правил для полей формы. Хотя бы одно правило должно быть указано для каждого поля формы.
 
 Правила политики безопасности могут быть следующих типов:
@@ -224,7 +224,7 @@ aws_access_key_id = 'JK38EXAMPLEAKDID8'
 aws_secret_access_key = 'ExamP1eSecReTKeykdokKK38800'
 endpoint = 'https://storage.yandexcloud.net'
 
-s3 = boto3.client('s3', 
+s3 = boto3.client('s3',
                   aws_access_key_id=aws_access_key_id,
                   aws_secret_access_key=aws_secret_access_key,
                   region_name='ru-central1',
@@ -273,7 +273,7 @@ print(prepared_form_fields)
     </head>
     <body>
         <form action="https://storage.yandexcloud.net/user-data" method="post" enctype="multipart/form-data">
-            Ключ в хранилище: 
+            Ключ в хранилище:
             <input type="input"    name="key" value="users/uploads/${filename}" /><br />
             <input type="hidden"   name="x-amz-credential" value="JK38EXAMPLEAKDID8/20190722/ru-central1/s3/aws4_request" />
             <input type="hidden"   name="acl" value="public-read" />
@@ -282,7 +282,7 @@ print(prepared_form_fields)
             <input type="hidden"   name="success_action_redirect" value="https://cloud.yandex.ru/docs/storage/concepts/presigned-post-forms" />
             <input type="hidden"   name="policy" value="eyJjb25kaXRpb25zIj...M5OjM2WiJ9" />
             <input type="hidden" name="x-amz-signature" value="4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96" />
-            Файл для загрузки: 
+            Файл для загрузки:
             <input type="file"   name="file" /> <br />
             <input type="submit" name="submit" value="Загрузить" />
         </form>

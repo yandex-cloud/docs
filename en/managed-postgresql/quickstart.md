@@ -16,7 +16,7 @@ To use the service, create a cluster and connect to a DBMS:
 
 2. Click **Create cluster** and select the necessary DBMS.
 
-3. Set the cluster parameters and click **Create cluster**. This process is described in detail in [#T](operations/cluster-create.md).
+3. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
 
 4. When the cluster is ready, its status in the {{ mpg-short-name }} dashboard will change to **RUNNING**.
 
@@ -27,7 +27,7 @@ To use the service, create a cluster and connect to a DBMS:
     $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/CA.pem
     ```
 
-1. You can connect to the database using the `psql` command (for more information, see [#T](operations/connect.md)):
+1. You can connect to the database using the `psql` command (for more information, see [{#T}](operations/connect.md)):
 
     ```
     $ psql "host=<host address> \

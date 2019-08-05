@@ -2,7 +2,7 @@
 
 Copies part of an object.
 
-It has the same functionality as [#T](uploadpart.md), but data is not passed in the request body, it is copied from an existing object.
+It has the same functionality as [{#T}](uploadpart.md), but data is not passed in the request body, it is copied from an existing object.
 
 ## Request {#request}
 
@@ -54,7 +54,7 @@ A response can only contain [common response headers](../common-response-headers
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [#T](../response-codes.md).
+For a list of possible responses, see [{#T}](../response-codes.md).
 
 Additionally, {{ objstorage-name }} may return errors described in the table below.
 

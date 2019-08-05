@@ -23,7 +23,7 @@ The cost of {{ mch-name }} usage is based on:
 
 ### Use of DB hosts {#rules-hosts-uptime}
 
-The cost is calculated for each hour of the host's operation in accordance with its class. The exact class characteristics are given in the section [#T](concepts/instance-types.md).
+The cost is calculated for each hour of the host's operation in accordance with its class. The exact class characteristics are given in the section [{#T}](concepts/instance-types.md).
 
 {% note important %}
 
@@ -65,9 +65,9 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
 {% list tabs %}
 
 - Prices in USD
-  
-  | Host class | Rate for 1 hour, without VAT 
-  | ----- | ----- 
+
+  | Host class | Rate for 1 hour, without VAT
+  | ----- | -----
   | **Intel Broadwell** |  |
   | {{ b1-nano }} | $0.009046 |
   | {{ b1-micro }} | $0.015276 |
@@ -91,12 +91,12 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | {{ s2-3xlarge }} | $1.042184 |
   | {{ s2-4xlarge }} | $1.302738 |
   | {{ s2-5xlarge }} | $1.563276 |
-  
+
 - Prices in roubles
-  
+
   | Host class | Rate for 1 hour, with VAT |
   | ----- | -----
-  | **Intel Broadwell** | 
+  | **Intel Broadwell** |
   | {{ b1-nano }} | ₽0.7056 |
   | {{ b1-micro }} | ₽1.1916 |
   | {{ b1-medium }} | ₽2.1960 |
@@ -106,7 +106,7 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | {{ s1-medium }} | ₽22.0271 |
   | {{ s1-large }} | ₽44.0542 |
   | {{ s1-xlarge }} | ₽88.0983 |
-  | **Intel Cascade Lake** | 
+  | **Intel Cascade Lake** |
   | {{ b2-nano }} | ₽0.7056 |
   | {{ b2-micro }} | ₽1.1916 |
   | {{ b2-medium }} | ₽2.1960 |
@@ -119,7 +119,7 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | {{ s2-3xlarge }} | ₽81.2904 |
   | {{ s2-4xlarge }} | ₽101.6136 |
   | {{ s2-5xlarge }} | ₽121.9356 |
-  
+
 {% endlist %}
 
 ### ZooKeeper hosts {#prices-zookeeper}
@@ -127,10 +127,10 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
 {% list tabs %}
 
 - Prices in USD
-  
-  | Host class | Rate for 1 hour, without VAT 
-  | ----- | ----- 
-  | **Intel Broadwell** | 
+
+  | Host class | Rate for 1 hour, without VAT
+  | ----- | -----
+  | **Intel Broadwell** |
   | {{ b1-nano }} | $0.008984 |
   | {{ b1-micro }} | $0.014215 |
   | {{ b1-medium }} | $0.022953 |
@@ -140,7 +140,7 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | {{ s1-medium }} | $0.172098 |
   | {{ s1-large }} | $0.343415 |
   | {{ s1-xlarge }} | $0.685658 |
-  | **Intel Cascade Lake** | 
+  | **Intel Cascade Lake** |
   | {{ b2-nano }} |  $0.008984 |
   | {{ b2-micro }} | $0.014215 |
   | {{ b2-medium }} | $0.022953 |
@@ -153,22 +153,22 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | {{ s2-3xlarge }} | $0.632938 |
   | {{ s2-4xlarge }} | $0.790846 |
   | {{ s2-5xlarge }} | $0.948753 |
-  
+
 - Prices in roubles
-  
+
   | Host class | Rate for 1 hour, with VAT |
-  | ----- | ----- 
-  | **Intel Broadwell** | 
+  | ----- | -----
+  | **Intel Broadwell** |
   {{ b1-nano }}| ₽0.7008
   {{ b1-micro }}| ₽1.1088
   {{ b1-medium }}| ₽1.7904
-  {{ s1-nano }}| ₽1.7492 | 
-  {{ s1-micro }}| ₽3.4169 | 
-  {{ s1-small }}| ₽6.7525 | 
-  {{ s1-medium }}| ₽13.4237 | 
-  {{ s1-large }}| ₽26.7864 | 
-  {{ s1-xlarge }}| ₽53.4814 | 
-  **Intel Cascade Lake** | 
+  {{ s1-nano }}| ₽1.7492 |
+  {{ s1-micro }}| ₽3.4169 |
+  {{ s1-small }}| ₽6.7525 |
+  {{ s1-medium }}| ₽13.4237 |
+  {{ s1-large }}| ₽26.7864 |
+  {{ s1-xlarge }}| ₽53.4814 |
+  **Intel Cascade Lake** |
   {{ b2-nano }}| ₽0.7008
   {{ b2-micro }}| ₽1.1088
   {{ b2-medium }}| ₽1.7904
@@ -181,7 +181,7 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   {{ s2-3xlarge }}| ₽49.3692
   {{ s2-4xlarge }}| ₽61.6860
   {{ s2-5xlarge }}| ₽74.0028
-  
+
 {% endlist %}
 
 ### Storage and backups {#prices-storage}
@@ -190,20 +190,20 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
 
 - Prices in USD
   | Service | Rate for 1 GB per month, without VAT |
-  | ----- | ----- 
+  | ----- | -----
   | Standard network storage| $0.029334 |
   | Fast network storage| $0.104302 |
   | NVMe| $0.104302 |
   | Backups beyond the storage size| $0.032594 |
-  
+
 - Prices in roubles
   | Service | Rate for 1 GB per month, with VAT |
-  | ----- | ----- 
+  | ----- | -----
   | Standard network storage| ₽2.2881 |
   | Fast network storage| ₽8.1356 |
   | NVMe| ₽8.1356 |
   | Backups beyond the storage size| ₽2.5424 |
-  
+
 {% endlist %}
 
 

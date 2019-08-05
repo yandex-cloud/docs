@@ -40,7 +40,7 @@ To create a VM:
 1. Specify data required for accessing the VM:
     - Enter the username in the **Login** field.
     - In the **SSH key** field, paste the contents of the public key file.
-You need to create a key pair for SSH connection yourself. For more information, see [#T](../../compute/operations/vm-connect/ssh.md).
+You need to create a key pair for SSH connection yourself. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md).
 1. Click **Create VM**.
 
 Creating the VM may take several minutes. When the VM's status changes to `RUNNING`, you can begin configuring the website.

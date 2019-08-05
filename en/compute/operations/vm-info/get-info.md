@@ -20,7 +20,7 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
   - **Disks** provides information about the disks attached to the VM.
   - **Operations** lists operations on the VM and resources attached to it, such as disks.
   - **Monitoring** shows information about resource consumption on the VM. You can only get this information from the management console or from inside the VM.
-  - **Serial port** provides information that is output by the VM to the serial port. To obtain this information via the API or CLI, follow the instructions [#T](get-serial-port-output.md).
+  - **Serial port** provides information that is output by the VM to the serial port. To obtain this information via the API or CLI, follow the instructions [{#T}](get-serial-port-output.md).
 
 - CLI
 
@@ -51,7 +51,7 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
 - API
 
   To get basic information about a VM, use the [get](../../../_api-ref/compute/api-ref/Instance/get.md) method for the [Instance](../../../_api-ref/compute/api-ref/Instance/index.md) resource.
-  
+
   The basic information does not include the user-defined metadata that was passed when creating or updating the VM. To get the information along with the metadata, specify `view=FULL` in the parameters.
 
 {% endlist %}

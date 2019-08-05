@@ -482,5 +482,5 @@ yc iam create-token
 
 #### Что дальше
 
-* [#T](../sa/set-access-bindings.md)
-* [#T](../sa/assign-role-for-sa.md)
+* [{#T}](../sa/set-access-bindings.md)
+* [{#T}](../sa/assign-role-for-sa.md)

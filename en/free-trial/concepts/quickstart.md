@@ -16,10 +16,10 @@ To start working with Yandex.Cloud:
 
 You might also find these links useful:
 
-* [#T](limits.md)
-* [#T](usage-monitor.md)
-* [#T](trial-ending.md)
-* [#T](upgrade-to-paid.md)
+* [{#T}](limits.md)
+* [{#T}](usage-monitor.md)
+* [{#T}](trial-ending.md)
+* [{#T}](upgrade-to-paid.md)
 * [Overview of the Yandex.Cloud platform](../../overview/)
 * [Yandex.Cloud documentation](/docs)
 

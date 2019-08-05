@@ -6,7 +6,7 @@ To allow access to the {{ resmgr-full-name }} service resources (clouds and fold
 
 {% note info %}
 
-For more information about role inheritance, see [#T](../concepts/resources-hierarchy.md#access-rights-inheritance).
+For more information about role inheritance, see [{#T}](../concepts/resources-hierarchy.md#access-rights-inheritance).
 
 {% endnote %}
 

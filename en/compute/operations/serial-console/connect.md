@@ -1,6 +1,6 @@
 # Connecting to a VM's serial console via SSH
 
-After [enabling access](index.md), you can connect to the serial console to interact with the VM. Before connecting to the serial console, carefully read the section [#T](#security).
+After [enabling access](index.md), you can connect to the serial console to interact with the VM. Before connecting to the serial console, carefully read the section [{#T}](#security).
 
 ## Security {#security}
 
@@ -44,35 +44,35 @@ To connect to the serial console:
 {% list tabs %}
 
 - CLI
-  
+
   {% include [cli-install](../../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. Get a list of VMs in the default folder:
-  
+
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-  
+
   1. Select the `ID` of the appropriate VM (for example, `fhm0b28lgfp4tkoa3jl6`).
-  
+
   1. Connect to the serial console:
-  
+
       ```bash
       $ ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/<secret key name> <VM ID>.<user name>@serialssh.cloud.yandex.net
       ```
-  
+
       Example for `yc-user`:
-  
+
       ```bash
       $ ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_rsa fhm0b28lgfp4tkoa3jl6.yc-user@serialssh.cloud.yandex.net
       ```
-  
+
   Access to the serial console is provided to users with `serial-port-enable=1` parameter in metadata and SSH key authentication configured:
-  
+
   - If nothing appears on the screen after you connect to the serial console, press `Enter`. If the problem persists, restart the VM.
   - If the system requests user data to provide access to the VM, enter the login and password.
   - If you see the error `Warning: remote host identification has changed!` when connecting to the VM, run `ssh-keygen -R <IP address of VM>`.
-  
+
 {% endlist %}
 
 ## Disconnecting from the serial console

@@ -4,17 +4,17 @@
 
 ## Создание группы виртуальных машин
 
-- [#T](create-fixed-group.md)
-- [#T](create-with-balancer.md)
+- [{#T}](create-fixed-group.md)
+- [{#T}](create-with-balancer.md)
 
 ## Получение информации о группе виртуальных машин
 
-- [#T](get-list.md)
-- [#T](get-info.md)
-- [#T](get-list-instances.md)
+- [{#T}](get-list.md)
+- [{#T}](get-info.md)
+- [{#T}](get-list-instances.md)
 
 ## Управление группой виртуальных машин
 
-- [#T](update.md)
-- [#T](delete.md)
-- [#T](enable-autohealing.md)
+- [{#T}](update.md)
+- [{#T}](delete.md)
+- [{#T}](enable-autohealing.md)

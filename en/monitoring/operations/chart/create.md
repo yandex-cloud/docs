@@ -9,7 +9,7 @@ To create a chart:
     - `cluster` — Folder.
     - `service` — Service.
 
-    For more information about labels, see [#T](../../concepts/data-model.md)
+    For more information about labels, see [{#T}](../../concepts/data-model.md)
 
 1. Select additional labels using the ![image](../../_assets/plus-sign.svg) icon. Afterwards, metrics appear on the chart.
 

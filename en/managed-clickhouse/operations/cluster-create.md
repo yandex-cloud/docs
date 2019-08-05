@@ -32,13 +32,13 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
       * <q>prestable</q> — to perform testing, including that of the {{ mch-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner in it, but this may cause backward incompatible changes.
 
-  5. Select the host class that will define the technical specifications of the VMs where the DB hosts will be deployed. For the list of available classes, see the section [#T](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
+  5. Select the host class that will define the technical specifications of the VMs where the DB hosts will be deployed. For the list of available classes, see the section [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
 
   6. In the **Storage size** section:
 
       * Select the type of storage, either a more flexible network type (**network-hdd** or **network-nvme**) or faster local SSD storage (**local-nvme**). The size of the local storage can only be changed in increments of 100 GB.
 
-      * Select the size to be used for data and backups. For more information about how backups take up storage space, see [#T](../concepts/backup.md).
+      * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   7. In the **Database** section, specify DB attributes:
 

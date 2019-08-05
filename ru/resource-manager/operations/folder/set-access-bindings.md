@@ -118,9 +118,9 @@
 
 ## Примеры {#examples}
 
-* [#T](#multiple-roles)
-* [#T](#access-to-sa)
-* [#T](#access-to-all)
+* [{#T}](#multiple-roles)
+* [{#T}](#access-to-sa)
+* [{#T}](#access-to-all)
 
 ### Назначить несколько ролей {#multiple-roles}
 
@@ -237,5 +237,5 @@
 
 #### Что дальше
 
-* [#T](update.md)
-* [#T](../../concepts/resources-hierarchy.md)
+* [{#T}](update.md)
+* [{#T}](../../concepts/resources-hierarchy.md)

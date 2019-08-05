@@ -22,7 +22,7 @@ To start working with {{ objstorage-name }}:
 At this step, you can already use {{ objstorage-name }} via the Yandex.Cloud management console. You can create and delete buckets, as well as upload objects to and download them from buckets.
 1. Get static keys to use the {{ objstorage-name }} HTTP API or available SDKs and apps.
 
-For more detailed instructions, see the sections [#T](quickstart.md) and [#T](s3/index.md).
+For more detailed instructions, see the sections [{#T}](quickstart.md) and [{#T}](s3/index.md).
 
 #### What data formats can I store? {#qa-data-types}
 
@@ -40,7 +40,7 @@ You can contact technical support using any of these methods:
 
 #### How much data can I store? {#qa-storage-volume}
 
-Read the section [#T](concepts/limits.md).
+Read the section [{#T}](concepts/limits.md).
 
 #### How can I delete multiple objects at a time? {#qa-delete-multiple-objects}
 

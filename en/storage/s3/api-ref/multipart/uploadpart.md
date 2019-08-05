@@ -8,7 +8,7 @@ If multiple parts with the same number are uploaded, {{ objstorage-name }} saves
 
 The size of each part, except the last one, should be at least 5 MB.
 
-For more information, see the section [#T](../multipart.md).
+For more information, see the section [{#T}](../multipart.md).
 
 ## Request {#request}
 
@@ -48,7 +48,7 @@ A response may contain [common response headers](../common-response-headers.md) 
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [#T](../response-codes.md).
+For a list of possible responses, see [{#T}](../response-codes.md).
 
 Additionally, {{ objstorage-name }} may return errors described in the table below.
 

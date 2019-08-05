@@ -54,7 +54,7 @@
 
 #### См. также
 
-- [#T](../../compute/operations/vm-connect/ssh.md)
+- [{#T}](../../compute/operations/vm-connect/ssh.md)
 
 
 ## 2. Загрузите файлы веб-сайта {#upload-files}
@@ -99,7 +99,7 @@
 
 #### См. также
 
-- [#T](../../compute/operations/vm-connect/ssh.md)
+- [{#T}](../../compute/operations/vm-connect/ssh.md)
 
 
 ## 4. Установите и настройте ПО DNS-балансировщика {#install-configure-dns-balancer}

@@ -5,7 +5,7 @@
 {% note info %}
 
 Мы предполагаем, что вы уже создали таблицы ранее
-на шаге [#T](01_Create_demo_tables.md).
+на шаге [{#T}](01_Create_demo_tables.md).
 
 {% endnote %}
 

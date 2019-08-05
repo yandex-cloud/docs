@@ -17,4 +17,4 @@ When creating or updating a group, you can set:
 
 #### See also {#see-also}
 
-- [#T](../../operations/instance-groups/enable-autohealing.md).
+- [{#T}](../../operations/instance-groups/enable-autohealing.md).

@@ -2,7 +2,7 @@
 
 Long audio fragment recognition can be used for multi-channel audio files up to {{ stt-long-fileSize }}.
 
-Long audio fragment recognition is somewhat cheaper than other [recognition methods](index.md#stt-ways), but it is not suitable for online speech recognition as it has a longer response time. For more information about pricing, see [#T](../pricing.md).
+Long audio fragment recognition is somewhat cheaper than other [recognition methods](index.md#stt-ways), but it is not suitable for online speech recognition as it has a longer response time. For more information about pricing, see [{#T}](../pricing.md).
 
 ## Before getting started
 
@@ -164,8 +164,8 @@ Each result in the `chunks[]` list contains the following fields:
 
 ## Examples {#examples}
 
-* [#T](#examples_ogg)
-* [#T](#examples_lpcm)
+* [{#T}](#examples_ogg)
+* [{#T}](#examples_lpcm)
 
 ### Recognize Russian speech in OggOpus format {#examples_ogg}
 

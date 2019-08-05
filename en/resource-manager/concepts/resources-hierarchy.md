@@ -10,7 +10,7 @@ Folders contain resources such as virtual machines, disks, and others. When you 
 
 All resources inside the cloud are isolated from outside users by default. The cloud owner can manage access rights for the cloud and its resources.
 
-Resource access rights are inherited within the cloud. Rights to access the cloud apply to all resources within the cloud. Folder access rights apply to all resources in the folder. For more information, see [#T](#access-rights-inheritance).
+Resource access rights are inherited within the cloud. Rights to access the cloud apply to all resources within the cloud. Folder access rights apply to all resources in the folder. For more information, see [{#T}](#access-rights-inheritance).
 
 Some types of resources are not created in folders, so they have a separate logic for verifying access rights. For example, when a user manages access keys for a service account, the rights to access this service account are verified.
 
@@ -84,7 +84,7 @@ You can't assign roles for some resources because all their permissions are inhe
 
 #### See also
 
-- [#T](../operations/cloud/set-access-bindings.md)
-- [#T](../operations/folder/create.md)
-- [#T](../operations/folder/set-access-bindings.md)
+- [{#T}](../operations/cloud/set-access-bindings.md)
+- [{#T}](../operations/folder/create.md)
+- [{#T}](../operations/folder/set-access-bindings.md)
 

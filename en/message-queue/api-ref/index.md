@@ -85,7 +85,7 @@ The Error element contains the following child elements:
 | Tag | Description |
 | ----- | ----- |
 | `Type` | Error type indicating whether the error occurred on the producer or consumer's side. |
-| `Code` | Error ID.<br/><br/>For a list of common errors, see the section [#T](common-errors.md). |
+| `Code` | Error ID.<br/><br/>For a list of common errors, see the section [{#T}](common-errors.md). |
 | `Message` | Error description in English. |
 | `Detail` | Additional information about the error (optional). |
 

@@ -8,7 +8,7 @@ assign applicable roles to the user from the list below. For now, a role can onl
 
 {% note info %}
 
-For more information about role inheritance, see [#T](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
 
 {% endnote %}
 

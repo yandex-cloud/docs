@@ -3,17 +3,17 @@
 {% list tabs %}
 
 - Management console
-  
-  The management console allows you to work with {{ objstorage-name }} buckets like a hierarchical file system. You can create folders inside buckets and upload objects there. Keep in mind that in the SDK and HTTP API, an object's key will be the entire path to the object from the bucket root. For more information, see the section [#T](../../concepts/object.md).
-  
+
+  The management console allows you to work with {{ objstorage-name }} buckets like a hierarchical file system. You can create folders inside buckets and upload objects there. Keep in mind that in the SDK and HTTP API, an object's key will be the entire path to the object from the bucket root. For more information, see the section [{#T}](../../concepts/object.md).
+
   {% note info %}
 
-  You can upload objects of up to 5 GB in size via the management console (see [#T](../../concepts/limits.md)). To upload larger objects, use other [tools](../../instruments/index.md).
+  You can upload objects of up to 5 GB in size via the management console (see [{#T}](../../concepts/limits.md)). To upload larger objects, use other [tools](../../instruments/index.md).
 
   {% endnote %}
-  
+
   To upload an object:
-  
+
   1. In the management console, select the appropriate folder.
   1. Click **Object Storage**.
   1. Click the name of the desired bucket.
@@ -22,6 +22,6 @@
   1. In the window that opens, select the required files and click **Open**.
   1. The management console displays all the objects selected for uploading and prompts you to select a [storage class](../../concepts/storage-class.md) for each of them. The default storage class is defined in the [bucket settings](../../concepts/bucket.md#bucket-settings).
   1. Click **Upload**.
-  
+
 {% endlist %}
 

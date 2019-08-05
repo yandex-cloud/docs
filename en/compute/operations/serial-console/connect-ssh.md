@@ -1,6 +1,6 @@
 # Connecting to a VM's serial console via SSH
 
-After [enabling access](index.md), you can connect to the serial console to work with the VM. Before connecting to the serial console, carefully read the section [#T](#security).
+After [enabling access](index.md), you can connect to the serial console to work with the VM. Before connecting to the serial console, carefully read the section [{#T}](#security).
 
 ## Security {#security}
 
@@ -44,7 +44,7 @@ How the serial console works depends on the operating system settings. {{ comput
 
 {% endnote %}
 
-To connect to the VM, you must use its ID. To get the ID, read [#T](../vm-info/get-info.md).
+To connect to the VM, you must use its ID. To get the ID, read [{#T}](../vm-info/get-info.md).
 
 Connection command example:
 
@@ -58,7 +58,7 @@ Example with `yc-user` and the virtual machine with the ID `fhm0b28lgfp4tkoa3jl6
 $ ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_rsa fhm0b28lgfp4tkoa3jl6.yc-user@serialssh.cloud.yandex.net
 ```
 
-The  `yc-user` user is generated automatically when the VM is being created. For more information, see [#T](../vm-create/create-linux-vm.md).
+The  `yc-user` user is generated automatically when the VM is being created. For more information, see [{#T}](../vm-create/create-linux-vm.md).
 
 #### Troubleshooting
 

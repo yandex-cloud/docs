@@ -10,14 +10,14 @@ Cоздайте [группу виртуальных машин](../concepts/ins
 
 ## Создайте группу виртуальных машин {#create-ig}
 
-Вы можете создать группу с заданным количеством виртуальных машин. Управление размером группы осуществляется вручную. Подробнее читайте в разделе [#T](../concepts/instance-groups/scale.md#fixed-scale).
+Вы можете создать группу с заданным количеством виртуальных машин. Управление размером группы осуществляется вручную. Подробнее читайте в разделе [{#T}](../concepts/instance-groups/scale.md#fixed-scale).
 
 {% include [warning.md](../../_includes/instance-groups/warning.md) %}
 
 {% include [create-instance-group-via-concole.md](../../_includes/instance-groups/create-instance-group-via-concole.md) %}
 
 ## Что дальше {#next}
-              
+
 - Посмотрите [Сценарии создания веб-сервисов в Яндекс.Облаке](../../solutions/web/).
 - Узнайте [как работать с группами виртуальных машин](../operations/).
 - Прочитайте [ответы на часто задаваемые вопросы](../qa/general.md).

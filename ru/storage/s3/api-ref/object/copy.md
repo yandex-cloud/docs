@@ -68,7 +68,7 @@ PUT /{bucket}/{key} HTTP/1.1
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [#T](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
 ### Схема данных {#response-scheme}
 

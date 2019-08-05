@@ -1,6 +1,6 @@
 # Set service account access rights
 
-This section describes how to assign a [role](../../concepts/access-control/roles.md ) for a [ service account](../../concepts/users/service-accounts.md) as a resource. To assign the service account a role for another resource, follow the instructions [#T](assign-role-for-sa.md).
+This section describes how to assign a [role](../../concepts/access-control/roles.md ) for a [ service account](../../concepts/users/service-accounts.md) as a resource. To assign the service account a role for another resource, follow the instructions [{#T}](assign-role-for-sa.md).
 
 You can't set service account access rights via the management console. You can [assign a role for a folder](../../../resource-manager/operations/folder/set-access-bindings.md) hosting the service account.
 
@@ -122,9 +122,9 @@ You can't set service account access rights via the management console. You can 
 
 ## Examples {#examples}
 
-* [#T](#multiple-roles)
-* [#T](#access-to-sa)
-* [#T](#access-to-all)
+* [{#T}](#multiple-roles)
+* [{#T}](#access-to-sa)
+* [{#T}](#access-to-all)
 
 ### Assign multiple roles {#multiple-roles}
 

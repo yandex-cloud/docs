@@ -31,34 +31,34 @@
 {% list tabs %}
 
 - Консоль управления
-  
+
   1. В консоли управления выберите каталог, в котором нужно создать образ.
   1. Выберите сервис **{{ compute-name }}**.
   1. На странице **Виртуальные машины** перейдите на вкладку **Образы**.
   1. Нажмите кнопку **Загрузить образ**.
   1. Введите имя образа.
-  
+
       {% include [name-format](../../../_includes/name-format.md) %}
-  
+
   1. Если требуется, добавьте произвольное описание образа.
   1. Вставьте ссылку на образ, полученную в {{ objstorage-name }}.
   1. Нажмите кнопку **Загрузить**.
-  
+
 - CLI
-  
+
   Чтобы создать новый образ по ссылке, воспользуйтесь флагом `--source-uri`.
-  
+
   ```
   $ yc compute image create --name <IMAGE-NAME> --source-uri <IMAGE-URL>
   ```
-  
+
   где:
-  
+
   - `<IMAGE-NAME>` — имя, которое будет присвоено образу.
   - `<IMAGE-URL>` — ссылка на образ, полученная в {{ objstorage-name }}.
-  
+
   Если необходимо, добавьте описание и укажите [семейство](../../concepts/image.md#family), к которому относится этот образ:
-  
+
   ```
   $ yc compute image create  \
       --name ubuntu-cosmic \
@@ -66,22 +66,22 @@
       --family ubuntu \
       --source-uri "https://storage.yandexcloud.net/mybucket/cosmic-server-cloudimg-amd64.vmdk"
   ```
-  
+
   Если вы знаете минимальные требования к размеру диска, который будет создан из этого образа, укажите размер в гигабайтах:
-  
+
   ```
   $ yc compute image create  \
       --name big-image \
       --min-disk-size 20 \
       --source-uri "https://storage.yandexcloud.net/mybucket/cosmic-server-cloudimg-amd64.vmdk"
   ```
-  
+
   {% include [min-disk-size](../../_includes_service/min-disk-size.md) %}
-  
+
 - API
-  
+
   Чтобы создать новый образ по ссылке, воспользуйтесь методом [Create](../../api-ref/Image/create.md) для ресурса `Image`. Ссылку на образ передайте в элементе `uri`.
-  
+
 {% endlist %}
 
 После создания образ перейдет в статус `CREATING`. Дождитесь, когда образ перейдет в статус `READY`, прежде чем его использовать.
@@ -90,4 +90,4 @@
 
 Если образ был успешно создан, вы можете [удалить файл образа](../../../storage/operations/objects/delete.md) из сервиса {{ objstorage-name }}. Также можно [удалить бакет](../../../storage/operations/buckets/delete.md), если в нем не осталось объектов.
 
-О стоимости использования {{ objstorage-name }} читайте в разделе [#T](../../../storage/pricing.md).
+О стоимости использования {{ objstorage-name }} читайте в разделе [{#T}](../../../storage/pricing.md).

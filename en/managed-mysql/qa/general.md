@@ -51,7 +51,7 @@ To create a database cluster in {{ mmy-short-name }}, you must define its charac
 - The network your cluster will be connected to.
 - The number of hosts for the cluster and the availability zone for each host.
 
-For detailed instructions, see [#T](../quickstart.md).
+For detailed instructions, see [{#T}](../quickstart.md).
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
@@ -67,7 +67,7 @@ You can connect to {{ mmy-short-name }} databases using standard DBMS methods.
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-MDB technical and organizational limitations are given in [#T](../concepts/limits.md).
+MDB technical and organizational limitations are given in [{#T}](../concepts/limits.md).
 
 #### How do I maintain database clusters? {#service-window}
 
@@ -98,7 +98,7 @@ In {{ mmy-short-name }}, the usage cost is calculated based on the following par
 - Selected host class.
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Storage of backups in excess of this size is charged at special [rates](../pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [#T](../pricing.md).
+- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 

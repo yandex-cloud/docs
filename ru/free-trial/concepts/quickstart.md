@@ -15,10 +15,10 @@
 {% include [quickstart-all](../../_includes/quickstart-all-no-billing.md) %}
 
 Вам также могут быть полезны ссылки:
-* [#T](limits.md)
-* [#T](usage-monitor.md)
-* [#T](trial-ending.md)
-* [#T](upgrade-to-paid.md)
+* [{#T}](limits.md)
+* [{#T}](usage-monitor.md)
+* [{#T}](trial-ending.md)
+* [{#T}](upgrade-to-paid.md)
 * [Обзор платформы Яндекс.Облака](../../overview/)
 * [Документация Яндекс.Облака](/docs)
 

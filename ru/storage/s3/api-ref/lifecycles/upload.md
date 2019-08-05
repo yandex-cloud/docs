@@ -30,7 +30,7 @@ PUT /{bucket}?lifecycle HTTP/1.1
 
 ### Схема данных {#request-scheme}
 
-Вид конфигурации описан в разделе [#T](../../../lifecycles/configuration.md).
+Вид конфигурации описан в разделе [{#T}](../../../lifecycles/configuration.md).
 
 ## Ответ {#response}
 
@@ -40,4 +40,4 @@ PUT /{bucket}?lifecycle HTTP/1.1
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [#T](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).

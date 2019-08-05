@@ -6,7 +6,7 @@ The object ID is the string [key](#key).
 
 Along with the object, {{ objstorage-name }} stores [user-defined ](#user-meta) and [system](#system-meta) metadata.
 
-{{ objstorage-name }} allows you to store objects in standard and cold storage. For more information, see the section [#T](storage-class.md).
+{{ objstorage-name }} allows you to store objects in standard and cold storage. For more information, see the section [{#T}](storage-class.md).
 
 {{ objstorage-name }} supports the following operations with objects:
 

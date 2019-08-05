@@ -14,7 +14,7 @@ To create a dashboard:
 
 #### What's next
 
-- [#T](../chart/create.md)
-- [#T](../chart/create-query.md)
-- [#T](add-widget.md)
+- [{#T}](../chart/create.md)
+- [{#T}](../chart/create-query.md)
+- [{#T}](add-widget.md)
 

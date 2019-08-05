@@ -17,7 +17,7 @@ Other Yandex.Cloud services use the {{ iam-short-name }} API to provide you with
 
 To start working with IAM, you need to register with Yandex.Cloud. After registration, you will be able to use the IAM features.
 
-See [#T](../quickstart.md) to find out how to add a new user to your cloud and assign them a role.
+See [{#T}](../quickstart.md) to find out how to add a new user to your cloud and assign them a role.
 
 #### How much does it cost to use {{ iam-short-name }}?
 

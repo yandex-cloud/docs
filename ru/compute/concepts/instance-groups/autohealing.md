@@ -17,4 +17,4 @@
 
 #### См. также {#see-also}
 
-- [#T](../../operations/instance-groups/enable-autohealing.md).
+- [{#T}](../../operations/instance-groups/enable-autohealing.md).

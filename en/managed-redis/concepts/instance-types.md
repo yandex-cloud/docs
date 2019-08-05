@@ -4,7 +4,7 @@ Host class needs to be defined to create each cluster. The class defines computi
 
 For  {{ mrd-name }} host classes are defined by the type of CPU usage and RAM volume:
 
-* For small datasets and loads you can create clusters with low performance guarantee (`burstable`). For more information, see the section [#T](../../compute/concepts/performance-levels.md).
+* For small datasets and loads you can create clusters with low performance guarantee (`burstable`). For more information, see the section [{#T}](../../compute/concepts/performance-levels.md).
 * For big loads, or high performance requirements use standard hosts (`high-memory`).
 
 {% note info %}
@@ -13,7 +13,7 @@ Memory set for a host also defines the `maxmemory` configuration parameter: maxi
 
 {% endnote %}
 
-Disk volume available to a host must be at least twice as large as available RAM volume. Technical and organizational restrictions of {{ mrd-name }} are described in the [#T](limits.md) section.
+Disk volume available to a host must be at least twice as large as available RAM volume. Technical and organizational restrictions of {{ mrd-name }} are described in the [{#T}](limits.md) section.
 
 ## Available host classes {#available-flavors}
 

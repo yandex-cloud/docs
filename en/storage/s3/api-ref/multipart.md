@@ -2,7 +2,7 @@
 
 Multipart upload allows saving objects to Yandex {{ objstorage-name }} in parts. This can be useful when uploading or copying large objects. We recommend that you use multipart upload for objects starting from 100 MB in size.
 
-To find out the maximum size of an object to upload, see the section [#T](../../concepts/limits.md).
+To find out the maximum size of an object to upload, see the section [{#T}](../../concepts/limits.md).
 
 Multipart upload consists of the following steps:
 

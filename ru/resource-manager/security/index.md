@@ -6,7 +6,7 @@
 
 {% note info %}
 
-Подробнее о наследовании ролей читайте в разделе [#T](../concepts/resources-hierarchy.md#access-rights-inheritance).
+Подробнее о наследовании ролей читайте в разделе [{#T}](../concepts/resources-hierarchy.md#access-rights-inheritance).
 
 {% endnote %}
 

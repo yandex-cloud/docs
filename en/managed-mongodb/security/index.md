@@ -6,7 +6,7 @@ To allow access to the {{ mmg-name }} service resources (DB clusters and hosts, 
 
 {% note info %}
 
-For more information about role inheritance, see [#T](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
 
 {% endnote %}
 

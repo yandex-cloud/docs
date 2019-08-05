@@ -25,7 +25,7 @@ The cost of {{ mrd-name }} usage is based on:
 
 ### Use of DB hosts {#rules-hosts-uptime}
 
-The cost is calculated for each hour of the host's operation in accordance with its class. The exact class characteristics are given in the section [#T](concepts/instance-types.md).
+The cost is calculated for each hour of the host's operation in accordance with its class. The exact class characteristics are given in the section [{#T}](concepts/instance-types.md).
 
 The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation). You are not charged for time when the {{ RD }} host is not performing its main functions.
 
@@ -56,9 +56,9 @@ The first two tabs contain prices for a single {{ mrd-name }} host working for a
 {% list tabs %}
 
 - Prices in USD
-  
+
   Prices are indicated without VAT.
-  
+
   Host class | Rate for 1 host per hour | Price per 1 GB RAM per hour
   ----- | ----- | -----
   {{ b1-nano }} | $0.009046 | $0.004523
@@ -77,11 +77,11 @@ The first two tabs contain prices for a single {{ mrd-name }} host working for a
   {{ hm1-7xlarge }} | $0.945523 | $0.004925
   {{ hm1-8xlarge }} | $1.075538 | $0.004802
   {{ hm1-9xlarge }} | $1.197692 | $0.004678
-  
+
 - Prices in roubles
-  
+
   Prices are indicated including VAT.
-  
+
   Host class | Rate for 1 host per hour | Price per 1 GB RAM per hour
   ----- | ----- | ----- | -----
   {{ b1-nano }} | ₽0.7056 | ₽0.3528
@@ -100,7 +100,7 @@ The first two tabs contain prices for a single {{ mrd-name }} host working for a
   {{ hm1-7xlarge }} | ₽73.7508 | ₽0.3841
   {{ hm1-8xlarge }} | ₽83.8920 | ₽0.3745
   {{ hm1-9xlarge }} | ₽93.4200 | ₽0.3649
-  
+
 {% endlist %}
 
 
@@ -109,20 +109,20 @@ The first two tabs contain prices for a single {{ mrd-name }} host working for a
 {% list tabs %}
 
 - Prices in USD
-  
+
   Service | Rate for 1 GB per month, without VAT
-  ----- | ----- | ----- 
+  ----- | ----- | -----
   Fast network storage | $0.104302 |
   Backup over storage size | $0.032594 ₽
-  
-  
+
+
 - Prices in roubles
-  
+
   Service | Rate for 1 GB per month, with VAT
   ----- | -----
   Fast network storage | ₽8.1356 |
   Backup over storage size | ₽2.5424 ₽
-  
+
 {% endlist %}
 
 ### Outgoing traffic {#prices-traffic}

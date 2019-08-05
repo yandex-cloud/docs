@@ -32,7 +32,7 @@ After creating a cluster, you can:
 
      ```
      $ {{ yc-mdb-pg }} resource-preset list
-     
+
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
@@ -77,7 +77,7 @@ After creating a cluster, you can:
 
       ```
       $ {{ yc-mdb-pg }} cluster get <cluster name>
-      
+
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
       ...
@@ -129,7 +129,7 @@ After [changing the host class](#change-resource-preset), {{ mpg-short-name }} a
 - `autovacuum_vacuum_cost_delay`
 - `autovacuum_vacuum_cost_limit`
 
-The settings you set manually will no longer change automatically. Exceptions can occur if the set value does not become invalid as you change the host class: for example, it's impossible to set `max_connections` to 400 and then change the cluster's host class to `s1.nano` (for more information about the maximum number of connections, see [#T](cluster-create.md).
+The settings you set manually will no longer change automatically. Exceptions can occur if the set value does not become invalid as you change the host class: for example, it's impossible to set `max_connections` to 400 and then change the cluster's host class to `s1.nano` (for more information about the maximum number of connections, see [{#T}](cluster-create.md).
 
 {% list tabs %}
 

@@ -16,7 +16,7 @@ Follow the instructions below to quickly create a cluster and test your connecti
 
 2. Click **Create cluster** and select the necessary DBMS.
 
-3. Set the cluster parameters and click **Create cluster**. The process is described in detail in the section [#T](operations/cluster-create.md).
+3. Set the cluster parameters and click **Create cluster**. The process is described in detail in the section [{#T}](operations/cluster-create.md).
 
 4. When the cluster is ready to operate, its status on the {{ mmg-short-name }} dashboard will change to **RUNNING**.
 

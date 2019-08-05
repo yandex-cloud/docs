@@ -18,7 +18,7 @@ Follow the instructions below to quickly create a cluster and test your connecti
 
 1. Click **Create cluster** and select the necessary DBMS.
 
-1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [#T](operations/cluster-create.md).
+1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
 
 1. When the cluster is ready, its status in the {{ mmy-short-name }} dashboard will change to **RUNNING**.
 
@@ -30,7 +30,7 @@ Follow the instructions below to quickly create a cluster and test your connecti
     $ chmod 0600 ~/.mysql/root.crt
     ```
 
-1. You can connect to the database using the command `mysql` (for more information, see [#T](operations/connect.md)):
+1. You can connect to the database using the command `mysql` (for more information, see [{#T}](operations/connect.md)):
 
     ```
     $ mysql --host=<host address>

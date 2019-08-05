@@ -16,7 +16,7 @@ Use {{ monitoring-full-name }} to:
 ## How the service works {#how-it-works}
 
 The {{ monitoring-full-name }} service collects and stores metrics as [time series](https://en.wikipedia.org/wiki/Time_series).
-The service uses labels to identify and describe the time series characteristics. Labels indicate the resource that the metric belongs to, describe the meaning of metric, and so forth. For more information, see [#T](data-model.md).
+The service uses labels to identify and describe the time series characteristics. Labels indicate the resource that the metric belongs to, describe the meaning of metric, and so forth. For more information, see [{#T}](data-model.md).
 
-{{ monitoring-full-name }} displays metrics on charts. You can place a large number of interrelated charts on dashboards. Charts and dashboards are available in the file navigation panel. For more information, see [#T](visualization/index.md).
+{{ monitoring-full-name }} displays metrics on charts. You can place a large number of interrelated charts on dashboards. Charts and dashboards are available in the file navigation panel. For more information, see [{#T}](visualization/index.md).
 

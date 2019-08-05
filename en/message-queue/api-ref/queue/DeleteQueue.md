@@ -28,7 +28,7 @@ The response does not contain any fields.
 
 ### DeleteQueue errors {#errors}
 
-The method does not return any specific errors. For a list of errors that are common to all methods, see the section [#T](../common-errors.md).
+The method does not return any specific errors. For a list of errors that are common to all methods, see the section [{#T}](../common-errors.md).
 
 ## Sample request {#request-example}
 

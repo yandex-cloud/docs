@@ -122,9 +122,9 @@ To grant a user access to all the cloud resources, assign them a [role](../../..
 
 ## Examples {#examples}
 
-* [#T](#multiple-roles)
-* [#T](#access-to-sa)
-* [#T](#access-to-all)
+* [{#T}](#multiple-roles)
+* [{#T}](#access-to-sa)
+* [{#T}](#access-to-all)
 
 ### Assign multiple roles {#multiple-roles}
 
@@ -317,7 +317,7 @@ Allow any authenticated user to view information about the `my-cloud` cloud and 
 
 #### What's next
 
-* [#T](../folder/create.md)
-* [#T](../folder/set-access-bindings.md)
-* [#T](../../concepts/resources-hierarchy.md)
+* [{#T}](../folder/create.md)
+* [{#T}](../folder/set-access-bindings.md)
+* [{#T}](../../concepts/resources-hierarchy.md)
 

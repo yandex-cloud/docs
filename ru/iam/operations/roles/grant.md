@@ -1,6 +1,6 @@
 # Назначение роли
 
-Чтобы предоставить доступ к ресурсу, назначьте субъекту [роль](../../../iam/concepts/access-control/roles.md) на сам ресурс или ресурс, от которого наследуются права доступа, например на каталог или облако. Подробнее читайте в разделе [#T](../../concepts/access-control/index.md).
+Чтобы предоставить доступ к ресурсу, назначьте субъекту [роль](../../../iam/concepts/access-control/roles.md) на сам ресурс или ресурс, от которого наследуются права доступа, например на каталог или облако. Подробнее читайте в разделе [{#T}](../../concepts/access-control/index.md).
 
 ## Назначить роль пользователю {#access-to-user}
 
@@ -71,17 +71,17 @@
   1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
 
   Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса:
-  * [#T](../sa/set-access-bindings.md)
-  * [#T](../../../resource-manager/operations/cloud/set-access-bindings.md)
-  * [#T](../../../resource-manager/operations/folder/set-access-bindings.md)
+  * [{#T}](../sa/set-access-bindings.md)
+  * [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md)
+  * [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md)
 
 {% endlist %}
 
 ## Примеры {#examples}
 
-* [#T](#multiple-roles)
-* [#T](#access-to-sa)
-* [#T](#access-to-all)
+* [{#T}](#multiple-roles)
+* [{#T}](#access-to-sa)
+* [{#T}](#access-to-all)
 
 ### Назначить несколько ролей {#multiple-roles}
 

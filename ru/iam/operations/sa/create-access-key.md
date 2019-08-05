@@ -98,4 +98,4 @@
 #### Что дальше
 
 - [Настроить инструменты для работы с {{ objstorage-name }}](../../../storage/instruments/)
-- [#T](assign-role-for-sa.md)
+- [{#T}](assign-role-for-sa.md)

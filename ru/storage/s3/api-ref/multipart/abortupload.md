@@ -39,7 +39,7 @@ DELETE /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [#T](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
 Дополнительно, {{ objstorage-name }} может вернуть ошибки, описанные в таблице ниже.
 

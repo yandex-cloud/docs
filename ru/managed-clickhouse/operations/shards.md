@@ -12,7 +12,7 @@
 
 ## Включить шардирование {#enable}
 
-Кластеры {{ mch-name }} создаются с конфигурацией одного шарда. Чтобы начать непосредственно шардирование данных, следуйте инструкциям в разделе [#T](../tutorials/sharding.md).
+Кластеры {{ mch-name }} создаются с конфигурацией одного шарда. Чтобы начать непосредственно шардирование данных, следуйте инструкциям в разделе [{#T}](../tutorials/sharding.md).
 
 
 ## Изменить шард {#shard-update}
@@ -28,29 +28,29 @@
   1. Нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Изменить**.
 
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы изменить шард в кластере:
-  
+
   1. Посмотрите описание команды CLI для изменения шарда:
-  
+
      ```bash
      {{ yc-mdb-ch }} shards update --help
      ```
 
   1. Запустите операцию, например, изменения веса для шарда:
-  
+
      ```bash
      {{ yc-mdb-ch }} shards update --cluster-name clickhouse12 \
                                    --name shard1 \
-                                   --weight 80 
-     ``` 
+                                   --weight 80
+     ```
 
    После успешного завершения операции CLI выведет информацию об измененном шарде:
-   
+
    ```
    name: shard1
    cluster_id: c9fmo2rf013t4q0ab8m1
@@ -60,7 +60,7 @@
          effective_config:
            log_level: INFORMATION
      ...
-   
+
      weight: "80"
    ```
 

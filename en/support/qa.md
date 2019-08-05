@@ -12,13 +12,13 @@ If you successfully logged in to your Yandex account but you can't connect to th
 
 #### What types of issues and cases can be solved by technical support? {#support-cases-types}
 
-Depending on your service plan, you can contact support for various issues. For more information about service plans, see [#T](overview.md).
+Depending on your service plan, you can contact support for various issues. For more information about service plans, see [{#T}](overview.md).
 
 #### How quickly does technical support respond to requests? {#reaction-time}
 
 Technical support responds to requests 24 hours a day, 7 days a week.
 
-The response time depends on your service plan. For more information about service plans, see [#T](overview.md).
+The response time depends on your service plan. For more information about service plans, see [{#T}](overview.md).
 
 #### How quickly will technical support solve the problem? {#resolution-time}
 

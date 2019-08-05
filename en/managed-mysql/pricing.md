@@ -23,7 +23,7 @@ The cost of {{ mmy-name }} usage is based on:
 
 ### Use of DB hosts {#rules-hosts-uptime}
 
-The cost is calculated for each hour of the host's operation in accordance with its class. Exact class characteristics are given in [#T](concepts/instance-types.md).
+The cost is calculated for each hour of the host's operation in accordance with its class. Exact class characteristics are given in [{#T}](concepts/instance-types.md).
 
 The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation). You are not charged for time when the {{ MY }} host is not performing its main functions.
 

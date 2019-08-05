@@ -39,7 +39,7 @@ To connect to the serial console, use the CLI.
     | Parameter | Value |
     | ----- | ----- |
     | `instance-name` | Required parameter. Name of the instance. |
-    | `user` | Optional parameter. User name. If this parameter is omitted, the default `yc-user` user will be used. The `yc-user` user is generated automatically when the VM is being created. For more information, see [#T](../vm-create/create-linux-vm.md). |
+    | `user` | Optional parameter. User name. If this parameter is omitted, the default `yc-user` user will be used. The `yc-user` user is generated automatically when the VM is being created. For more information, see [{#T}](../vm-create/create-linux-vm.md). |
     | `ssh-key` | Optional parameter. The path to the private key for SSH access will be added to the VM metadata. If this parameter is omitted, the default `yc_serialssh_key`  SSH key will be generated. |
 
 #### Troubleshooting

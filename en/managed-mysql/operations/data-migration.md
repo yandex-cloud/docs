@@ -71,7 +71,7 @@ For Debina and Ubuntu — `mysqldump` and `mysql` are available in the ['mysql-c
 
 ## Creating {{ mmy-name }} clusters {#create-cluster}
 
-For instructions on creating a cluster, see [#T](./cluster-create.md).
+For instructions on creating a cluster, see [{#T}](./cluster-create.md).
 
 ## Restoring data {#restore}
 

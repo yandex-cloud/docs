@@ -83,5 +83,5 @@
 
 
 ## См. также
-- [#T](../../s3/index.md)
-- [#T](../../instruments/index.md)
+- [{#T}](../../s3/index.md)
+- [{#T}](../../instruments/index.md)

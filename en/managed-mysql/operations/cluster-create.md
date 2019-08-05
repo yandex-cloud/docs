@@ -29,11 +29,11 @@ By default, {{ mmy-short-name }} sets a limit on the number of connections to ea
 
   1. Select the DBMS version.
 
-  1. Select the host class that will define the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [#T](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
+  1. Select the host class that will define the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
 
   1. In the **Storage size** section:
       - Select the type of storage, either a more flexible network type (**network-hdd** or **network-nvme**) or faster local SSD storage (**local-nvme**). The size of the local storage can only be changed in increments of 100 GB.
-      - Select the size to be used for data and backups. For more information about how backups take up storage space, see [#T](../concepts/backup.md).
+      - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. In the **Database** section, specify DB attributes:
       - Database name. The DB name must be unique within the folder and contain only Latin letters, numbers, and underscores.

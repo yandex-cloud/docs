@@ -18,5 +18,5 @@ A read-only replica is a host in a {{ MY }} database cluster that can only be re
 
 #### What limitations are imposed on {{ MY }} database clusters? {#instance-limitations}
 
-For more information about {{ mmy-short-name }} limitations, see [#T](../concepts/limits.md). Characteristics of clusters that can be created using {{ mmy-short-name }} are given in [#T](../concepts/instance-types.md).
+For more information about {{ mmy-short-name }} limitations, see [{#T}](../concepts/limits.md). Characteristics of clusters that can be created using {{ mmy-short-name }} are given in [{#T}](../concepts/instance-types.md).
 

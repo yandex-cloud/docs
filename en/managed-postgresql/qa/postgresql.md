@@ -22,9 +22,9 @@ A read-only replica is a host in a {{ PG }} database cluster that can only be re
 
 #### What {{ PG }} extensions are supported in {{ mpg-short-name }}? {#pg-extension}
 
-The list of supported {{ PG }} extensions is provided in [#T](../operations/cluster-extensions.md).
+The list of supported {{ PG }} extensions is provided in [{#T}](../operations/cluster-extensions.md).
 
 #### What limitations are imposed on {{ PG }} database clusters? {#instance-limitations}
 
-For more information about {{ mpg-short-name }} restrictions, see [#T](../concepts/limits.md). Characteristics of clusters that can be created using {{ mpg-short-name }} are given in [#T](../concepts/instance-types.md).
+For more information about {{ mpg-short-name }} restrictions, see [{#T}](../concepts/limits.md). Characteristics of clusters that can be created using {{ mpg-short-name }} are given in [{#T}](../concepts/instance-types.md).
 

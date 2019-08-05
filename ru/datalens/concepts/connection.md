@@ -23,14 +23,14 @@ _Коннектор_ — это компонент сервиса {{ datalens-sh
 
 ## Управление доступом {#access-management}
 
-Вы можете настроить права доступа к подключению. Подробнее в разделе [#T](../security/index.md).
+Вы можете настроить права доступа к подключению. Подробнее в разделе [{#T}](../security/index.md).
 
 #### См. также
-- [#T](../operations/connection/create-clickhouse.md)
-- [#T](../operations/connection/create-csv.md)
-- [#T](../operations/connection/create-mysql.md)
-- [#T](../operations/connection/create-postgresql.md)
-- [#T](../operations/connection/create-mssql-server.md)
-- [#T](../operations/connection/create-metrica-api.md)
-- [#T](../operations/connection/create-metrica-logs-api.md)
-- [#T](../operations/connection/create-appmetrica.md)
+- [{#T}](../operations/connection/create-clickhouse.md)
+- [{#T}](../operations/connection/create-csv.md)
+- [{#T}](../operations/connection/create-mysql.md)
+- [{#T}](../operations/connection/create-postgresql.md)
+- [{#T}](../operations/connection/create-mssql-server.md)
+- [{#T}](../operations/connection/create-metrica-api.md)
+- [{#T}](../operations/connection/create-metrica-logs-api.md)
+- [{#T}](../operations/connection/create-appmetrica.md)

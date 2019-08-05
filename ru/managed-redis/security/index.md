@@ -6,7 +6,7 @@
 
 {% note info %}
 
-Подробнее о наследовании ролей читайте в разделе [#T](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-full-name }}.
+Подробнее о наследовании ролей читайте в разделе [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-full-name }}.
 
 {% endnote %}
 

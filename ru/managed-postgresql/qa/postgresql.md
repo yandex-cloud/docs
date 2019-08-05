@@ -22,9 +22,9 @@
 
 #### Какие расширения для {{ PG }} поддерживаются в {{ mpg-short-name }}? {#pg-extension}
 
-Список поддерживаемых расширений для {{ PG }} приведен в разделе [#T](../operations/cluster-extensions.md).
+Список поддерживаемых расширений для {{ PG }} приведен в разделе [{#T}](../operations/cluster-extensions.md).
 
 #### Какие ограничения накладываются на кластеры БД {{ PG }}? {#instance-limitations}
 
-Подробнее об ограничениях {{ mpg-short-name }} см. раздел [#T](../concepts/limits.md). В разделе [#T](../concepts/instance-types.md) приведены характеристики кластеров, которые можно создать с помощью {{ mpg-short-name }}.
+Подробнее об ограничениях {{ mpg-short-name }} см. раздел [{#T}](../concepts/limits.md). В разделе [{#T}](../concepts/instance-types.md) приведены характеристики кластеров, которые можно создать с помощью {{ mpg-short-name }}.
 

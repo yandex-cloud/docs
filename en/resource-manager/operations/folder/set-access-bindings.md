@@ -124,9 +124,9 @@ To grant a user access to all the folder resources, assign them a [role](../../.
 
 ## Examples {#examples}
 
-* [#T](#multiple-roles)
-* [#T](#access-to-sa)
-* [#T](#access-to-all)
+* [{#T}](#multiple-roles)
+* [{#T}](#access-to-sa)
+* [{#T}](#access-to-all)
 
 ### Assign multiple roles {#multiple-roles}
 
@@ -243,6 +243,6 @@ Allow the service account to manage the folder and its resources:
 
 #### What's next
 
-* [#T](update.md)
-* [#T](../../concepts/resources-hierarchy.md)
+* [{#T}](update.md)
+* [{#T}](../../concepts/resources-hierarchy.md)
 
