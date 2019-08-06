@@ -7,9 +7,10 @@
 - `"month"` — номер месяца в году (см. [MONTH](../../date/MONTH/overview.md)),
 - `"week"` — номер недели в году по [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) (см. [WEEK](../../date/WEEK/overview.md)),
 - `"dayofweek"`, `"dow"` — номер дня недели (см. [DAYOFWEEK](../../date/DAYOFWEEK/overview.md)),
-- `"day"` — номер месяца в году (см. [DAY](../../date/DAY/overview.md)),
+- `"day"` — номер дня в месяце (см. [DAY](../../date/DAY/overview.md)),
 - `"hour"` — номер часа в дне (см. [HOUR](../../date/HOUR/overview.md)),
 - `"minute"` — номер минуты в часе (см. [MINUTE](../../date/MINUTE/overview.md)),
 - `"second"` — номер секунды в минуте (см. [SECOND](../../date/SECOND/overview.md)).
 
-Если выбран "`dayofweek`", то дполнительным параметром `firstday` можно задать, какой день недели считать первым - по умолчанию это понедельник.Более подробно об этом параметре смотрите в описании функции [DAYOFWEEK](../../date/DAYOFWEEK/overview.md)
+Если выбран "`dayofweek`", то дополнительным параметром `firstday` можно задать, какой день недели считать первым - по умолчанию это понедельник.  
+Более подробно об этом параметре смотрите в описании функции [DAYOFWEEK](../../date/DAYOFWEEK/overview.md)
