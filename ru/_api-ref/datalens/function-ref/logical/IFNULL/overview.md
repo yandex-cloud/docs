@@ -19,9 +19,11 @@ IFNULL( check_value, alt_value )
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`check_value`, `alt_value`)
 
-> [!NOTE]
->
-> Тип аргументов (`check_value`, `alt_value`) должен совпадать.
+{% note info %}
+
+Тип аргументов (`check_value`, `alt_value`) должен совпадать.
+
+{% endnote %}
 
 
 

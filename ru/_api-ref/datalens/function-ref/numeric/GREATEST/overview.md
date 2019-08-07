@@ -28,9 +28,11 @@ GREATEST( value_1, value_2, value_3 )
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`value_1`, `value_2`, `value_3`)
 
-> [!NOTE]
->
-> Тип аргументов (`value_1`, `value_2`, `value_3`) должен совпадать.
+{% note info %}
+
+Тип аргументов (`value_1`, `value_2`, `value_3`) должен совпадать.
+
+{% endnote %}
 
 
 

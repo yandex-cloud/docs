@@ -18,4 +18,4 @@
 
 ## Вопросы по работе с нерезидентами РФ
 
-[!INCLUDE-NOTITLE [non-resident](non-resident.md)]
+{% include notitle [non-resident](non-resident.md) %}

@@ -39,9 +39,11 @@ CASE(
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`result_1`, `result_2`, `default_result`)
 
-> [!NOTE]
->
-> Тип аргументов (`result_1`, `result_2`, `default_result`) должен совпадать.
+{% note info %}
+
+Тип аргументов (`result_1`, `result_2`, `default_result`) должен совпадать.
+
+{% endnote %}
 
 
 
