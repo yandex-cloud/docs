@@ -77,3 +77,5 @@ Data is stored in an encrypted format and none of those who have access to the p
 
 By default, the storage is accessed via HTTPS.
 
+
+{% include [qa-fz-152.md](../_includes/qa-fz-152.md) %}
