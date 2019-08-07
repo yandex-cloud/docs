@@ -8,7 +8,7 @@ You can add and remove cluster hosts and manage {{ MG }} settings for individual
 
 - Management console
 
-  1. Go to the folder page and click **{{ mmg-name }}**.
+  1. Go to the folder page and select **{{ mmg-name }}**.
 
   2. Click on the name of the cluster you need and select the **Hosts** tab.
 
@@ -18,7 +18,7 @@ You can add and remove cluster hosts and manage {{ MG }} settings for individual
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of cluster databases, run the command:
+  To get a list of cluster hosts, run the command:
 
   ```
   $ {{ yc-mdb-mg }} host list
@@ -32,7 +32,7 @@ You can add and remove cluster hosts and manage {{ MG }} settings for individual
   +----------------------------+--------------+---------+--------+---------------+
   ```
 
-  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -42,18 +42,17 @@ You can add and remove cluster hosts and manage {{ MG }} settings for individual
 
 ## Adding a host {#add-host}
 
-The number of hosts in {{ mmg-short-name }} clusters is limited by the quotas on CPUs and RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}
-) and find the **{{ mmg-full-name }}**.
+The number of hosts in {{ mmg-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mmg-full-name }}** block.
 
 {% list tabs %}
 
 - Management console
 
-  1. Go to the folder page and click **{{ mmg-name }}**.
+  1. Go to the folder page and select **{{ mmg-name }}**.
 
-  2. Click on the name of the cluster you need and go to the **Hosts** tab.
+  1. Click on the name of the cluster you need and go to the **Hosts** tab.
 
-  3. Click **Add host**.
+  1. Click **Add host**.
 
   1. Specify the host parameters:
 
@@ -86,13 +85,15 @@ The number of hosts in {{ mmg-short-name }} clusters is limited by the quotas on
       +-----------+-----------+------------+---------------+------------------+
       ```
 
-  2. See the description of the CLI command for adding a host:
+     If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
-      ```
-      $ {{ yc-mdb-mg }} host add --help
-      ```
+  1. See the description of the CLI command for adding a host:
 
-  3. Run the add host command:
+     ```
+     $ {{ yc-mdb-mg }} host add --help
+     ```
+
+  1. Run the add host command:
 
       ```
       $ {{ yc-mdb-mg }} host add
@@ -102,7 +103,7 @@ The number of hosts in {{ mmg-short-name }} clusters is limited by the quotas on
 
       {{ mmg-short-name }} will run the add host operation.
 
-      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mmg-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mmg-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -112,17 +113,17 @@ The number of hosts in {{ mmg-short-name }} clusters is limited by the quotas on
 
 ## Removing a host {#remove-host}
 
-You can remove a host from a {{ MG }} cluster if it is not the only host in it. To replace a single host, first create a new host and then delete the old one.
+You can remove a host from a {{ MG }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
 
-If the host is a primary one at the time of deletion, {{ mmg-short-name }} automatically selects a new primary replica.
+If the host is a primary one at the time of removal, {{ mmg-short-name }} automatically selects a new primary replica.
 
 {% list tabs %}
 
 - Management console
 
-  1. Go to the folder page and click **{{ mmg-name }}**.
+  1. Go to the folder page and select **{{ mmg-name }}**.
 
-  2. Click on the name of the cluster you need and select the **Hosts** tab.
+  2. Click on the name of the cluster you want and select the **Hosts** tab.
 
   3. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
 
@@ -135,11 +136,11 @@ If the host is a primary one at the time of deletion, {{ mmg-short-name }} autom
   To remove a host from the cluster, run:
 
   ```
-  $ {{ yc-mdb-mg }} host delete <host name>
+  $ {{ yc-mdb-mg }} host delete <hostname>
        --cluster-name=<cluster name>
   ```
 
-  The name of the host can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  You can retrieve the host name with the [list of cluster hosts](list-hosts) and the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

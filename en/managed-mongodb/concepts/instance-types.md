@@ -1,12 +1,12 @@
 # Host classes
 
-The host class defines the computing power and storage space that is allocated for each host in the cluster. When you change the host class for a cluster, characteristics of all existing hosts change, too.
+The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match.
 
-The available storage does not depend on the host class.  For storage limitations, see the section [{#T}](limits.md).
+The available storage does not depend on the host class.  For storage limitations, see [{#T}](limits.md).
 
 ## Available host classes {#available-flavors}
 
-Hosts in the cluster {{ mmg-name }} are deployed on virtual machines in {{ compute-full-name }}. These virtual machines can be created on any of the platforms that are supported by {{ compute-name }}. Platforms are described in detail in the section [{#T}](../../compute/concepts/vm-platforms.md).
+Hosts in {{ mmg-name }} clusters are deployed on VMs{{ compute-full-name }}. You can create these VMs on any of the platforms that {{ compute-name }} supports. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
 
 The full list of possible host configurations on each of the platforms is provided below.
 
@@ -16,6 +16,14 @@ The full list of possible host configurations on each of the platforms is provid
 | b1.nano | 2 | 5% | 2 |
 | b1.micro | 2 | 20% | 2 |
 | b1.medium | 2 | 50% | 4 |
+| m1.micro | 2 | 100% | 16 |
+| m1.small | 4 | 100% | 32 |
+| m1.medium | 6 | 100% | 48 |
+| m1.large | 8 | 100% | 64 |
+| m1.xlarge | 12 | 100% | 96 |
+| m1.2xlarge | 16 | 100% | 128 |
+| m1.3xlarge | 24 | 100% | 192 |
+| m1.4xlarge | 32 | 100% | 256 |
 | s1.nano | 1 | 100% | 4 |
 | s1.micro | 2 | 100% | 8 |
 | s1.small | 4 | 100% | 16 |
@@ -26,6 +34,16 @@ The full list of possible host configurations on each of the platforms is provid
 | b2.nano | 2 | 5% | 2 |
 | b2.micro | 2 | 20% | 2 |
 | b2.medium | 2 | 50% | 4 |
+| m2.micro | 2 | 100% | 16 |
+| m2.small | 4 | 100% | 32 |
+| m2.medium | 6 | 100% | 48 |
+| m2.large | 8 | 100% | 64 |
+| m2.xlarge | 12 | 100% | 96 |
+| m2.2xlarge | 16 | 100% | 128 |
+| m2.3xlarge | 24 | 100% | 192 |
+| m2.4xlarge | 32 | 100% | 256 |
+| m2.5xlarge | 40 | 100% | 320 |
+| m2.6xlarge | 48 | 100% | 384 |
 | s2.micro | 2 | 100% | 8 |
 | s2.small | 4 | 100% | 16 |
 | s2.medium | 8 | 100% | 32 |

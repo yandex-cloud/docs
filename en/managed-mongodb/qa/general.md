@@ -1,8 +1,8 @@
 # General questions
 
-#### What is {{ mmg-short-name }}? {#what-is}
+#### What's {{ mmg-short-name }}? {#what-is}
 
-{{ mmg-short-name }} is a service that helps you create, operate, and scale {{ MG }} databases in the cloud infrastructure.
+{{ mmg-short-name }} is a service that helps you create, operate, and scale {{ MG }} databases in a cloud infrastructure.
 
 With {{ mmg-short-name }}, you can:
 
@@ -10,16 +10,16 @@ With {{ mmg-short-name }}, you can:
 - Scale processing power and storage dedicated for your databases as needed.
 - Get database logs.
 
-{{ mmg-short-name }} takes on labor-intensive {{ mmg-short-name }} infrastructure administration tasks:
+{{ mmg-short-name }} takes on time-consuming {{ MG }} infrastructure administration tasks:
 
 - Monitors resource usage.
 - Automatically creates DB backups.
 - Provides fault tolerance through automatic failover to backup replicas.
 - Keeps the database software updated.
 
-You interact with a database cluster in {{ mmg-short-name }} in the same way as with a regular database in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
+You interact with database clusters in {{ mmg-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
 
-#### What part of DB management and maintenance is {{ mmg-short-name }} responsible for? {#services}
+#### What part of database management and maintenance is {{ mmg-short-name }} responsible for? {#services}
 
 When creating clusters, {{ mmg-short-name }} allocates resources, installs the DBMS, and creates databases.
 
@@ -27,12 +27,12 @@ For the created and running databases, {{ mmg-short-name }} automatically create
 
 {{ mmg-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-#### For which tasks should I use {{ mmg-short-name }} and for which VMs with databases? {#mdb-advantage}
+#### Which tasks should I use {{ mmg-short-name }} for and for which VMs with databases? {#mdb-advantage}
 
 Yandex.Cloud offers two ways to work with databases:
 
 - {{ mmg-short-name }} allows you to operate template databases with no need to worry about administration.
-- With {{ compute-full-name }} VMs, you can create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
+- {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
 
 #### What is a database host and database cluster? {#what-is-cluster}
 
@@ -44,20 +44,20 @@ _A database cluster_ is one or more database hosts between which replication can
 
 {{ mmg-short-name }} is available to all registered Yandex.Cloud users.
 
-To create a database cluster in {{ mmg-short-name }}, decide what the characteristics will be:
+To create a database cluster in {{ mmg-short-name }}, you must define its characteristics:
 
 - [Host class](../concepts/instance-types.md) (performance characteristics such as CPUs, memory, and so on).
 - Storage size (reserved in full when you create the cluster).
 - The network your cluster will be connected to.
 - The number of hosts for the cluster and the availability zone for each host.
 
-For detailed instructions, see the section [{#T}](../quickstart.md).
+For detailed instructions, see [{#T}](../quickstart.md).
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
 For a network-based storage (NBS), the number of hosts in a cluster is limited only by the requested computing resources and the size of the storage for the cluster.
 
-For NVMe SSD storage, the number of hosts is limited during cluster creation: for {{ MG }}-clusters, at least three hosts must be created.
+For NVMe SSD storage, the number of hosts is limited during cluster creation: for {{ MG }} clusters, at least three hosts must be created.
 
 #### How can I access a running DB host? {#db-access}
 
@@ -67,7 +67,7 @@ You can connect to {{ mmg-short-name }} databases using standard DBMS methods.
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-For MDB technical and organizational limitations, see the section [{#T}](../concepts/limits.md).
+MDB technical and organizational limits are given in [{#T}](../concepts/limits.md).
 
 #### How do I maintain database clusters? {#service-window}
 
@@ -77,9 +77,9 @@ Maintenance in {{ mmg-short-name }} implies:
 - Changes to the host class and storage size.
 - Other {{ mmg-short-name }} maintenance activities.
 
-#### Which {{ MG }} version does {{ mmg-short-name }} use? {#dbms-version}
+#### Which version of {{ MG }} does {{ mmg-short-name }} use? {#dbms-version}
 
-{{ mmg-short-name }} supports {{ MG }} 3.6 and 4.0.
+{{ mmg-short-name }} supports {{ MG }} versions 3.6 and 4.0.
 
 #### What happens when a new DBMS version is released? {#new-version}
 

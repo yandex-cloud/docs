@@ -23,4 +23,4 @@
 
 [Примеры](https://a.yandex-team.ru/arc/trunk/arcadia/yql/udfs/common/histogram/test/cases/).
 
-{% endif $}
+{% endif %}
