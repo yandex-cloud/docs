@@ -70,7 +70,7 @@ RUN_PROGRAM(
         concepts/iam.md
         concepts/olap.md
         concepts/queries.md
-        concepts/secondary_indexes.md
+        concepts/secondary_index.md
         concepts/sessions.md
         concepts/strict_consistency.md
         concepts/transactions.md

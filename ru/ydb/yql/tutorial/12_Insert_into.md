@@ -3,6 +3,7 @@
 Задача: вставить данные в таблицу.
 
 [INSERT](../reference/syntax/insert_into.md) используется для вставки новых записей.
+
 При попытке вставить строку с существующим первичным ключом, появится сообщение об ошибке ```"Transaction rolled back due to constraint violation: insert_pk"``` ("Транзакция не выполнена из-за нарушения ограничения: insert_pk").
 
 Операция INSERT менее эффективна, чем UPSERT и REPLACE.

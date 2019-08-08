@@ -6,8 +6,6 @@ items:
     href: quickstart.md
   - name: Пошаговые инструкции
     items:
-      - name: Все инструкции
-        href: getting_started/index.md
       - name: Управление базами данных
         href: getting_started/create_manage_database.md
       - name: Создание схемы
@@ -16,10 +14,12 @@ items:
         href: getting_started/connect.md
       - name: Чтение и запись данных
         href: getting_started/crud.md
+  - name: Работа с SDK
+    href: sdk/index.md
   - name: Концепции
     items:
     - name: Обзор
-      href: concepts/overview.md
+      href: concepts/index.md
     - name: Модель данных и схема
       href: concepts/datamodel.md
     - name: Типы данных
@@ -27,7 +27,7 @@ items:
     - name: Транзакции и запросы к YDB
       href: concepts/transactions.md
     - name: Вторичные индексы
-      href: concepts/secondary_indexes.md
+      href: concepts/secondary_index.md
     - name: Термины и определения
       href: concepts/databases.md
   - name: Управление доступом
@@ -36,8 +36,6 @@ items:
     href: pricing.md
   - name: Рекомендации
     items:
-    - name: Все рекомендации
-      href: best_practices/index.md
     - name: Проектирование схемы
       href: best_practices/schema_design.md
     - name: Постраничный вывод
@@ -46,8 +44,6 @@ items:
       href: best_practices/batch_upload.md
     - name: Удаление устаревших данных (TTL)
       href: best_practices/ttl.md
-  - name: Работа с SDK
-    href: getting_started/sdk.md
   - name: Справочник API
     items:
     - name: Обработка ошибок в API
@@ -74,8 +70,6 @@ items:
         href: yql/reference/syntax/expressions.md
       - name: CREATE TABLE
         href: yql/reference/syntax/create_table.md
-      - name: INDEX GLOBAL ON
-        href: yql/reference/syntax/index_global_on.md
       - name: DROP TABLE
         href: yql/reference/syntax/drop_table.md
       - name: INSERT INTO
@@ -155,7 +149,7 @@ items:
   - name: Туториал YQL
     items:
     - name: Обзор
-      href: yql/tutorial/overview.md
+      href: yql/tutorial/index.md
     - name: Создание таблицы
       href: yql/tutorial/01_Create_demo_tables.md
     - name: Добавление данных в таблицу
@@ -170,6 +164,8 @@ items:
       href: yql/tutorial/06_Basic_aggregation.md
     - name: Дополнительные условия выборки
       href: yql/tutorial/07_Conditional_values.md
+    - name: Именованные выражения
+      href: yql/tutorial/08_Named_nodes.md
     - name: Соединения таблиц с помощью JOIN
       href: yql/tutorial/09_Join_tables.md
     - name: Вставка и модификация данных с помощью REPLACE

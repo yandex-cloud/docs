@@ -1,0 +1,25 @@
+title: Yandex Database
+description:
+- "<em>Yandex Database is currently at the <a href=\"/docs/overview/concepts/launch-stages\">Preview</a> stage.</em>"
+- "<i>Yandex Database</i> (YDB) is a distributed fault tolerant NewSQL DBMS. YDB provides high availability and scalability, while ensuring strong consistency and support for ACID transactions. Queries are made using a declarative SQL-like query language called YQL."
+- "YDB can be an alternative to other solutions in the following cases: <ul> <li>In systems demanding ACID transaction support between tables loaded unevenly over time.</li> <li>In systems that need to process and store large amounts of data.</li> <li>When developing a new product natively designed for expected high loads (thousands of database queries per second) and strong consistency.</li> <li>As a backend for databases with poorly predictable loads.</li> </ul>"
+nav:
+  title: "Yandex Database"
+meta:
+  title: "Yandex Database"
+links:
+- title: "Getting started"
+  description: "Create your first database and perform basic operations"
+  href: "quickstart"
+- title: "Step-by-step instructions"
+  description: "Instructions on how to perform routine operations"
+  href: "getting_started/create_manage_database"
+- title: "Concepts"
+  description: "Learn about the concepts and features of the service"
+  href: "concepts/"
+- title: "Working with the SDK"
+  description: "How to create a user app for Python and Go SDKs"
+  href: "best_practices/schema_design"
+- title: "YQL tutorial"
+  description: "YQL introductory tutorial"
+  href: "yql/tutorial/"

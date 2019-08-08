@@ -24,7 +24,7 @@ CREATE TABLE table_name (
 CREATE TABLE my_table (
     a Uint64,
     b Bool,
-    c Float,
+    c Float
     PRIMARY KEY (b, a)
 )
 ```

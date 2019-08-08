@@ -1,4 +1,4 @@
-# Ошибки
+## Ошибки
 
 ### Что делать, если я часто получаю ошибку "Transaction locks invalidated"? {#locks-invalidated}
 

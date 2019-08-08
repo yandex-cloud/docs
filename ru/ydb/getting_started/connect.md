@@ -14,11 +14,11 @@
 
 * адрес балансировщика: ydb-ru.yandex.net, протокол TCP, порт 2135;
 
-![Pucnher_request_form_4slb_sample](../_assets/puncher_request_4slb_form_ydb_ru.png)
+![Puncher_request_form_4slb_sample](../_assets/puncher_request_4slb_form_ydb_ru.png)
 
 * макрос: ```_C_YDB_RU_``` для баз данных в кластере `ydb-ru`, протокол TCP, диапазон портов 31000-32000.
 
-![Pucnher_request_form_sample](../_assets/puncher_request_form_ydb_ru.png)
+![Puncher_request_form_sample](../_assets/puncher_request_form_ydb_ru.png)
 
 ## Доступ к кластеру ydb-ru-prestable {#access-to-ydb-ru-prestable}
 
@@ -26,11 +26,11 @@
 
 * адрес балансировщика: ydb-ru-prestable.yandex.net, протокол TCP, порт 2135;
 
-![Pucnher_request_form_4slb_sample](../_assets/puncher_request_4slb_form_ydb_ru_prestable.png)
+![Puncher_request_form_4slb_sample](../_assets/puncher_request_4slb_form_ydb_ru_prestable.png)
 
 * макрос: ```_C_YDB_RU_PRESTABLE_``` для баз данных в кластере ydb-ru, протокол TCP, диапазон портов 31000-32000.
 
-![Pucnher_request_form_sample](../_assets/puncher_request_form_ydb_ru_prestable.png)
+![Puncher_request_form_sample](../_assets/puncher_request_form_ydb_ru_prestable.png)
 
 {% else if audience == "external" %}
 

@@ -1,4 +1,4 @@
-Чтобы добавить [вторичный индекс](../concepts/secondary_indexes.md) при создании таблицы, используйте конструкцию `INDEX IndexName GLOBAL ON (SomeKey1, ... SomeKeyN)`:
+Чтобы добавить [вторичный индекс](../concepts/secondary_index.md) при создании таблицы, используйте конструкцию `INDEX IndexName GLOBAL ON (SomeKey1, ... SomeKeyN)`:
 
 ```sql
 CREATE TABLE TableName (
@@ -14,17 +14,17 @@ COMMIT;
 
 **Пример**
 
-Таблица `series` с двумя вторичными ключами: `views_index` по полю `views`, и `users_index` по полю `uploaded_user_id`:
+Таблица `series` со вторичными ключами `views_index` по полю `views`, и `users_index` по полю `uploaded_user_id`:
 
 ```sql
 CREATE TABLE series (
-    series_id Uint64,
+    series_id Uint64;
     title Utf8,
     info Utf8,
     release_date Datetime,
-    views Uint64,
+    views Uint64
     uploaded_user_id Uint64,
-    PRIMARY KEY (series_id),
+    PRIMARY_KEY (series_id),
     INDEX views_index GLOBAL ON (views),
     INDEX users_index GLOBAL ON (uploaded_user_id)
 );
