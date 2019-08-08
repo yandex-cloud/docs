@@ -22,6 +22,7 @@ default:
   datalens-full-name: Yandex DataLens
   managed-k8s-full-name: Yandex Managed Service for Kubernetes
   iot-full-name: Yandex IoT Core
+  ydb-full-name: Yandex Database
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -47,6 +48,7 @@ default:
   datalens-name: DataLens
   managed-k8s-name: Managed Service for Kubernetes
   iot-name: Yandex IoT Core
+  ydb-name: Yandex Database
 
   # Короткие имена
   iam-short-name: IAM
@@ -71,6 +73,8 @@ default:
   datalens-short-name: DataLens
   managed-k8s-short-name: Managed Service for Kubernetes
   iot-short-name: Yandex IoT Core
+  ydb-short-name: YDB
+
   # Тарифы
   price-per-hour-count-per-second: The price is indicated for 1 hour of use. Charging per second.
 
@@ -164,6 +168,10 @@ default:
   stt-long-resultsStorageTime: 3 days
   stt-streaming-fileSize: 10 MB
   stt-streaming-audioLength: 5 minutes
+
+  # YDB specific
+  yql-full-name: Yandex Query Language
+  yql-short-name: YQL
 
   # K8s specific
   k8s: Kubernetes
