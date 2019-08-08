@@ -25,6 +25,7 @@ default:
   managed-k8s-full-name: Yandex Managed Service for Kubernetes
   iot-full-name: Yandex IoT Core
   sf-full-name: Yandex Serverless Functions
+  ydb-full-name: Yandex Database
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -51,6 +52,7 @@ default:
   managed-k8s-name: Managed Service for Kubernetes
   iot-name: Yandex IoT Core
   sf-name: Serverless Functions
+  ydb-name: Yandex Database
 
   # Короткие имена
   iam-short-name: IAM
@@ -76,6 +78,7 @@ default:
   managed-k8s-short-name: Managed Service for Kubernetes
   iot-short-name: Yandex IoT Core
   sf-short-name: Functions
+  ydb-short-name: YDB
 
   # Тарифы
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.

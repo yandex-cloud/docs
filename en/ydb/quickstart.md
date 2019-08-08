@@ -74,7 +74,7 @@ To create a database:
 
     1. **Storage groups**. Type and number of [storage groups](../concepts/databases.md#storage_groups): combinations of disk types and memory sizes.
 
-1. In the **Network** section, add a network. If you don't have any [networks](/../vpc/concepts/network.md#network), create one. The network must have at least one [subnet](../vpc/concepts/network.md#subnet).
+1. In the **Network** section, add a network. If you don't have any [networks](../vpc/concepts/network.md#network), create one. The network must have at least one [subnet](../vpc/concepts/network.md#subnet).
 
 1. Click **Create a database**.
 
