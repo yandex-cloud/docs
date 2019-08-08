@@ -2,6 +2,12 @@
 
 These guidelines describe how to upload a disk image file to Yandex.Cloud and create an [image](../../concepts/image.md) in the Compute Cloud service. Supported image formats: Qcow2, VMDK, and VHD. Currently, you cannot upload your own image with the Windows OS.
 
+Recommend to execute optimize command (even for qcow-images), it improve import speed:
+
+```
+qemu-img convert -p -O qcow2 -o cluster_size=2M source-file img.qcow2
+```
+
 ## 1. Upload an image file to Yandex.Cloud
 
 Upload your image file to Yandex Object Storage and get a link to the uploaded image:
