@@ -35,7 +35,7 @@ items:
         href: concepts/long-polling.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
-      - name: Очереди с отложенной доставкой сообщений
+      - name: Отложенная доставка сообщений в очереди
         href: concepts/delay-queues.md
       - name: Квоты и лимиты
         href: concepts/limits.md
