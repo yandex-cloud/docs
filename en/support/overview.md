@@ -4,7 +4,7 @@ Yandex.Cloud provides technical support to users with different service plans. Y
 
 {% note info %}
 
-No additional fees apply for technical support until September 1, 2019, provided that:
+No additional fees apply for technical support until December 31, 2019, provided that:
 
 * You use the <q>Standard</q> service plan.
 * Under the <q>Business</q> service plan, you spend at least RUB 30,000 a month.
