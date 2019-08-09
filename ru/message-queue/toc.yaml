@@ -1,6 +1,5 @@
 title: "Yandex Message Queue"
 href: index.yaml
-stage: new
 items:
   - name: Начало работы
     items:
@@ -35,7 +34,9 @@ items:
       - name: Long Polling
         href: concepts/long-polling.md
       - name: Dead Letter Queue
-        href: concepts/dlq.md        
+        href: concepts/dlq.md
+      - name: Очереди с отложенной доставкой сообщений
+        href: concepts/delay-queues.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
