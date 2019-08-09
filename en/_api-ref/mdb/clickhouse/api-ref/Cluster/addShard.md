@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the ClickHouse cluster to add a shard to. To get the ClickHouse cluster ID, use a [List] request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the ClickHouse cluster to add a shard to. To get the ClickHouse cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  

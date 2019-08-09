@@ -29,7 +29,7 @@ A set of methods for managing databases.
     }
   },
   "networkId": "string",
-  "subnetsIds": [
+  "subnetIds": [
     "string"
   ],
 
@@ -63,7 +63,7 @@ scalePolicy | **object**<br>
 scalePolicy.<br>fixedScale | **object**<br>
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>The minimum value is 1.</p> 
 networkId | **string**<br>
-subnetsIds[] | **string**<br>
+subnetIds[] | **string**<br>
 zonalDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`<br><br>
 zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
 regionalDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`<br><br>

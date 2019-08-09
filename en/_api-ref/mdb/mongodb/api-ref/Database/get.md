@@ -17,7 +17,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/dat
 Parameter | Description
 --- | ---
 clusterId | Required. ID of the MongoDB cluster that the database belongs to. To get the cluster ID use a [list](/docs/managed-mongodb/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-databaseName | Required. Name of the MongoDB database to return. To get the name of the database use a [List] request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+databaseName | Required. Name of the MongoDB database to return. To get the name of the database use a [list](/docs/managed-mongodb/api-ref/Database/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

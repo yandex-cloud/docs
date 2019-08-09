@@ -9,7 +9,7 @@ Retrieves a list of MySQL users in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/users
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/users
 ```
  
 ## Path parameters {#path_params}

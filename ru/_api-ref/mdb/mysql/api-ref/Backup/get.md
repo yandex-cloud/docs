@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/backups/{backupId}
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/backups/{backupId}
 ```
  
 ## Path-параметры {#path_params}
@@ -30,7 +30,7 @@ backupId | Обязательное поле. Идентификатор рез�
   "startedAt": "string"
 }
 ```
-Резервная копия MySQL. Подробнее см. в разделе [documentation](/docs/managed-mysql/concepts/backup).
+Резервная копия MySQL. Подробнее см. в разделе [Резервные копии](/docs/managed-mysql/concepts/backup).
  
 Поле | Описание
 --- | ---

@@ -9,14 +9,14 @@ Creates an external dictionary for the specified ClickHouse cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/mdb/clickhouse/v1/clusters/{clusterId}:createExternalDictionary
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}:createExternalDictionary
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the ClickHouse cluster to create the external dictionary for. To get the cluster ID, use a [List] request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the ClickHouse cluster to create the external dictionary for. To get the cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  

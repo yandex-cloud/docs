@@ -9,7 +9,7 @@ Retrieves the list of operations for the specified MySQL cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/operations
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/operations
 ```
  
 ## Path parameters {#path_params}

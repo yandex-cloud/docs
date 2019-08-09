@@ -68,7 +68,7 @@ components:
       - type: object
         properties:
           id:
-            description: Только для вывода. Идентификатор операции.
+            description: Идентификатор операции.
             type: string
           description:
             description: |-
@@ -77,7 +77,7 @@ components:
             type: string
           createdAt:
             description: |-
-              Только для вывода. Время создания ресурса в формате в
+              Время создания ресурса в формате в
               [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
               Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
@@ -85,12 +85,12 @@ components:
             format: date-time
           createdBy:
             description: |-
-              Только для вывода. Идентификатор пользователя или сервисного
+              Идентификатор пользователя или сервисного
               аккаунта, инициировавшего операцию.
             type: string
           modifiedAt:
             description: |-
-              Только для вывода. Время, когда ресурс Operation последний раз
+              Время, когда ресурс Operation последний раз
               обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
               Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
@@ -98,7 +98,7 @@ components:
             format: date-time
           done:
             description: |-
-              Только для вывода. Если значение равно `false` — операция еще
+              Если значение равно `false` — операция еще
               выполняется. Если `true` — операция завершена, и задано значение
               одного из полей `error` или `response`.
             type: boolean

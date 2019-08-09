@@ -9,7 +9,7 @@ Starts the specified MySQL cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}:start
+POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:start
 ```
  
 ## Path parameters {#path_params}

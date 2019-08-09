@@ -2,13 +2,13 @@ openapi: "3.0"
 info:
   title: Yandex Managed Service for Redis API
   description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
-    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
-  version: v1alpha
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов.
+    Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+  version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
 paths:
-  /mdb/redis/v1alpha/backups/{backupId}:
+  /managed-redis/v1/backups/{backupId}:
     get:
       tags:
       - Backup
@@ -34,7 +34,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Backup'
       x-y-navtitle: get
-  /mdb/redis/v1alpha/backups:
+  /managed-redis/v1/backups:
     get:
       tags:
       - Backup
@@ -80,7 +80,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListBackupsResponse'
       x-y-navtitle: list
-  /managed-redis/v1alpha/clusters/{clusterId}:
+  /managed-redis/v1/clusters/{clusterId}:
     get:
       tags:
       - Cluster
@@ -170,7 +170,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
-  /managed-redis/v1alpha/clusters:
+  /managed-redis/v1/clusters:
     get:
       tags:
       - Cluster
@@ -305,7 +305,41 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
-  /managed-redis/v1alpha/clusters/{clusterId}:backup:
+  /managed-redis/v1/clusters/{clusterId}:move:
+    post:
+      tags:
+      - Cluster
+      summary: Перемещает кластер Redis в указанный каталог.
+      operationId: ClusterMove
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера Redis, который следует переместить.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: move
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/MoveClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
+  /managed-redis/v1/clusters/{clusterId}:backup:
     post:
       tags:
       - Cluster
@@ -334,7 +368,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/BackupClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
-  /managed-redis/v1alpha/clusters:restore:
+  /managed-redis/v1/clusters:restore:
     post:
       tags:
       - Cluster
@@ -357,7 +391,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RestoreClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
-  /mdb/redis/v1alpha/clusters/{clusterId}:startFailover:
+  /managed-redis/v1/clusters/{clusterId}:startFailover:
     post:
       tags:
       - Cluster
@@ -385,7 +419,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StartClusterFailoverMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
-  /managed-redis/v1alpha/clusters/{clusterId}:logs:
+  /managed-redis/v1/clusters/{clusterId}:logs:
     get:
       tags:
       - Cluster
@@ -467,7 +501,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterLogsResponse'
       x-y-navtitle: listLogs
-  /managed-redis/v1alpha/clusters/{clusterId}/operations:
+  /managed-redis/v1/clusters/{clusterId}/operations:
     get:
       tags:
       - Cluster
@@ -560,7 +594,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterBackupsResponse'
       x-y-navtitle: listBackups
-  /managed-redis/v1alpha/clusters/{clusterId}/hosts:
+  /managed-redis/v1/clusters/{clusterId}/hosts:
     get:
       tags:
       - Cluster
@@ -607,7 +641,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterHostsResponse'
       x-y-navtitle: listHosts
-  /managed-redis/v1alpha/clusters/{clusterId}/hosts:batchCreate:
+  /managed-redis/v1/clusters/{clusterId}/hosts:batchCreate:
     post:
       tags:
       - Cluster
@@ -642,7 +676,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterHostsMetadata'
       x-y-operation-response: Empty
-  /managed-redis/v1alpha/clusters/{clusterId}/hosts:batchDelete:
+  /managed-redis/v1/clusters/{clusterId}/hosts:batchDelete:
     post:
       tags:
       - Cluster
@@ -677,7 +711,165 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteClusterHostsMetadata'
       x-y-operation-response: Empty
-  /managed-redis/v1alpha/resourcePresets/{resourcePresetId}:
+  /mdb/redis/v1/clusters/{clusterId}/shards/{shardName}:
+    get:
+      tags:
+      - Cluster
+      summary: Возвращает указанный шард.
+      operationId: ClusterGetShard
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: shardName
+        in: path
+        description: |-
+          Обязательное поле.
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shard'
+      x-y-navtitle: getShard
+    delete:
+      tags:
+      - Cluster
+      summary: Удаляет указанный шард.
+      operationId: ClusterDeleteShard
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: shardName
+        in: path
+        description: |-
+          Обязательное поле.
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deleteShard
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteClusterShardMetadata'
+      x-y-operation-response: Empty
+  /mdb/redis/v1/clusters/{clusterId}/shards:
+    get:
+      tags:
+      - Cluster
+      summary: Получает список шардов.
+      operationId: ClusterListShards
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterShardsResponse'
+      x-y-navtitle: listShards
+    post:
+      tags:
+      - Cluster
+      summary: Создает новый шард.
+      operationId: ClusterAddShard
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddClusterShardRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addShard
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddClusterShardMetadata'
+      x-y-operation-response: Shard
+  /mdb/redis/v1/clusters/{clusterId}:rebalance:
+    post:
+      tags:
+      - Cluster
+      summary: Перебалансирует кластер. Равномерно распределяет все хэш-слоты между
+        шардами.
+      operationId: ClusterRebalance
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: rebalance
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RebalanceClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-redis/api-ref/Cluster#representation)'
+  /managed-redis/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
       - ResourcePreset
@@ -703,7 +895,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourcePreset'
       x-y-navtitle: get
-  /managed-redis/v1alpha/resourcePresets:
+  /managed-redis/v1/resourcePresets:
     get:
       tags:
       - ResourcePreset
@@ -760,6 +952,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HostSpec'
+    AddClusterShardMetadata:
+      type: object
+      properties:
+        clusterId:
+          type: string
+        shardName:
+          type: string
+    AddClusterShardRequest:
+      type: object
+      properties:
+        shardName:
+          description: |-
+            Обязательное поле.
+            Максимальная длина строки в символах — 63.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+          type: string
+        hostSpecs:
+          description: |-
+            Обязательное поле.
+            Должен содержать хотя бы один элемент.
+          type: array
+          items:
+            $ref: '#/components/schemas/HostSpec'
     Backup:
       description: |-
         Описание резервной копии Redis. Подробнее смотрите в [documentation](/docs/managed-redis/concepts/backup) Managed
@@ -791,6 +1006,12 @@ components:
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
           format: date-time
+        sourceShardNames:
+          description: Имена шардов, которые использовались при создании резервной
+            копии.
+          type: array
+          items:
+            type: string
     BackupClusterMetadata:
       type: object
       properties:
@@ -848,6 +1069,10 @@ components:
           $ref: '#/components/schemas/ClusterHealth_in_Cluster_health'
         status:
           $ref: '#/components/schemas/ClusterStatus_in_Cluster_status'
+        sharded:
+          description: Включение/выключение режима Redis Cluster.
+          type: boolean
+          format: boolean
     ClusterConfig:
       type: object
       allOf:
@@ -859,6 +1084,10 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Ресурсы, выделенные хостам Redis.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
       - title: redis_config
         type: object
         maxProperties: 1
@@ -922,6 +1151,10 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Ресурсы, выделенные хостам Redis.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
       - title: redis_spec
         type: object
         maxProperties: 1
@@ -991,6 +1224,10 @@ components:
 
             Максимальная длина строки в символах — 50.
           type: string
+        sharded:
+          description: Включение/выключение режима Redis Cluster.
+          type: boolean
+          format: boolean
     DeleteClusterHostsMetadata:
       type: object
       properties:
@@ -1021,6 +1258,13 @@ components:
         clusterId:
           description: Идентификатор удаляемого кластера Redis.
           type: string
+    DeleteClusterShardMetadata:
+      type: object
+      properties:
+        clusterId:
+          type: string
+        shardName:
+          type: string
     Empty:
       description: Пустой JSON объект `` {} ``.
       type: object
@@ -1048,8 +1292,8 @@ components:
             полное доменное имя (FQDN) хоста.
           type: string
         clusterId:
-          description: Идентификатор хоста Redis. Этот идентификатор генерирует MDB
-            при создании.
+          description: Идентификатор кластера Redis. Этот идентификатор генерирует
+            MDB при создании.
           type: string
         zoneId:
           description: Идентификатор зоны доступности, в которой находится хост Redis.
@@ -1068,6 +1312,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Service'
+        shardName:
+          type: string
     HostHealth:
       description: |2-
          - HEALTH_UNKNOWN: Состояние хоста неизвестно.
@@ -1105,6 +1351,11 @@ components:
             Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть
             частью сети, к которой принадлежит кластер. Идентификатор сети задан в поле
             [Cluster.networkId](/docs/managed-redis/api-ref/Cluster#representation).
+          type: string
+        shardName:
+          description: |-
+            Максимальная длина строки в символах — 63.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
     ListBackupsResponse:
       type: object
@@ -1190,6 +1441,15 @@ components:
             последующие запросы будут получать свои значения [nextPageToken](/docs/managed-redis/api-ref/Cluster/listOperations#responses) для перебора страниц
             результатов.
           type: string
+    ListClusterShardsResponse:
+      type: object
+      properties:
+        shards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Shard'
+        nextPageToken:
+          type: string
     ListClustersResponse:
       type: object
       properties:
@@ -1248,6 +1508,28 @@ components:
         link:
           description: Ссылка на графики системы мониторинга для кластера Redis.
           type: string
+    MoveClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор перемещаемого кластера Redis.
+          type: string
+        sourceFolderId:
+          description: Идентификатор исходного каталога.
+          type: string
+        destinationFolderId:
+          description: Идентификатор каталога, в который следует переместить кластер.
+          type: string
+    MoveClusterRequest:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            Обязательное поле.
+            Идентификатор каталога, в который следует переместить кластер.
+
+            Максимальная длина строки в символах — 50.
+          type: string
     Operation:
       description: |-
         Ресурс Operation. Дополнительные сведения см. в разделе
@@ -1257,7 +1539,7 @@ components:
       - type: object
         properties:
           id:
-            description: Только для вывода. Идентификатор операции.
+            description: Идентификатор операции.
             type: string
           description:
             description: |-
@@ -1266,7 +1548,7 @@ components:
             type: string
           createdAt:
             description: |-
-              Только для вывода. Время создания ресурса в формате в
+              Время создания ресурса в формате в
               [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
               Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
@@ -1274,12 +1556,12 @@ components:
             format: date-time
           createdBy:
             description: |-
-              Только для вывода. Идентификатор пользователя или сервисного
+              Идентификатор пользователя или сервисного
               аккаунта, инициировавшего операцию.
             type: string
           modifiedAt:
             description: |-
-              Только для вывода. Время, когда ресурс Operation последний раз
+              Время, когда ресурс Operation последний раз
               обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
               Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
@@ -1287,7 +1569,7 @@ components:
             format: date-time
           done:
             description: |-
-              Только для вывода. Если значение равно `false` — операция еще
+              Если значение равно `false` — операция еще
               выполняется. Если `true` — операция завершена, и задано значение
               одного из полей `error` или `response`.
             type: boolean
@@ -1316,6 +1598,11 @@ components:
               возвращает ресурс Operation, в описании метода приведена
               структура соответствующего ему поля `response`.
             type: object
+    RebalanceClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          type: string
     RedisConfig5_0:
       description: Поля и структура `RedisConfig` отражает параметры файла конфигурации
         Redis.
@@ -1380,11 +1667,6 @@ components:
           type: array
           items:
             type: string
-        cores:
-          description: Количество vCPU для хоста Redis, созданного с данным набором
-            ресурсов.
-          type: string
-          format: int64
         memory:
           description: |-
             Объем оперативной памяти для хоста Redis, созданного с данным набором ресурсов, в
@@ -1491,11 +1773,25 @@ components:
     ServiceType:
       description: |2-
          - REDIS: Хост — сервер Redis.
-         - SENTINEL: Хост — сервер Redis Sentinel.
+         - ARBITER: Хост предоставляет только сервис Sentinel (хост кворума).
+         - REDIS_CLUSTER: Хост является узлом Redis Cluster.
       type: string
       enum:
       - REDIS
-      - SENTINEL
+      - ARBITER
+      - REDIS_CLUSTER
+    Shard:
+      type: object
+      properties:
+        name:
+          description: |-
+            Имя шарда Redis. Имя хоста назначается пользователем при создании и не может быть
+            изменено. Длина 1-63 символов.
+          type: string
+        clusterId:
+          description: Идентификатор кластера Redis. Этот идентификатор генерирует
+            MDB при создании.
+          type: string
     StartClusterFailoverMetadata:
       type: object
       properties:
@@ -1515,6 +1811,34 @@ components:
         clusterId:
           description: Идентификатор кластера Redis.
           type: string
+    TimeOfDay:
+      description: |-
+        Описывает время суток. Дата и часовой пояс либо не имеют значения, либо указаны другим
+        образом. API может разрешить високосные секунды. Связанные типы: [google.type.Date][google.type.Date] и
+        `google.protobuf.Timestamp`.
+      type: object
+      properties:
+        hours:
+          description: |-
+            Час в 24-часовом формате. Допустимые значения — от 0 до 23. API может разрешить значение
+            "24:00:00" для таких сценариев, как время закрытия заведения.
+          type: integer
+          format: int32
+        minutes:
+          description: Минута часа. Допустимые значения — от 0 до 59.
+          type: integer
+          format: int32
+        seconds:
+          description: |-
+            Секунда минуты. Обычно допустимые значения — от 0 до 59. API может разрешить значение 60,
+            если поддерживаются високосные секунды.
+          type: integer
+          format: int32
+        nanos:
+          description: Доли секунды, в наносекундах. Допустимые значения — от 0 до
+            999 999 999.
+          type: integer
+          format: int32
     UpdateClusterMetadata:
       type: object
       properties:
@@ -1598,6 +1922,10 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Ресурсы, выделенные хостам Redis.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
       - title: redis_config
         type: object
         maxProperties: 1
@@ -1622,7 +1950,7 @@ components:
       default: HEALTH_UNKNOWN
     ClusterStatus_in_Cluster_status:
       description: |-
-        Состояние кластера
+        Состояние кластера.
 
          - STATUS_UNKNOWN: Состояние кластера неизвестно
          - CREATING: Кластер создается
@@ -1671,6 +1999,10 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Ресурсы, выделенные хостам Redis.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
       - title: redis_spec
         type: object
         maxProperties: 1
@@ -1841,6 +2173,10 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Ресурсы, выделенные хостам Redis.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
       - title: redis_spec
         type: object
         maxProperties: 1
@@ -1852,11 +2188,13 @@ components:
         Тип сервиса, предоставляемого хостом.
 
          - REDIS: Хост — сервер Redis.
-         - SENTINEL: Хост — сервер Redis Sentinel.
+         - ARBITER: Хост предоставляет только сервис Sentinel (хост кворума).
+         - REDIS_CLUSTER: Хост является узлом Redis Cluster.
       type: string
       enum:
       - REDIS
-      - SENTINEL
+      - ARBITER
+      - REDIS_CLUSTER
     ServiceHealth_in_Service_health:
       description: |-
         Код состояния доступности сервера.
@@ -1896,6 +2234,10 @@ components:
           resources:
             $ref: '#/components/schemas/Resources'
             description: Ресурсы, выделенные хостам Redis.
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
       - title: redis_spec
         type: object
         maxProperties: 1

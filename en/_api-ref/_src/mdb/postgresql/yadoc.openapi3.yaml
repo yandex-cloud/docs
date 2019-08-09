@@ -1,9 +1,9 @@
 openapi: "3.0"
 info:
   title: Yandex Managed Service for PostgreSQL API
-  description: This API reference is organized by resource. All actions are performed
-    by sending HTTP requests to resource URLs. For more information about Yandex.Cloud
-    API architecture, see [API Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
@@ -4255,7 +4255,7 @@ components:
       description: |-
         Represents a time of day. The date and time zone are either not significant
         or are specified elsewhere. An API may choose to allow leap seconds. Related
-        types are [google.type.Date][google.type.Date] and `google.protobuf.Timestamp`.
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:

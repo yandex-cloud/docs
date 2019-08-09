@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/hosts
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/hosts
 ```
  
 ## Path-параметры {#path_params}
@@ -64,13 +64,13 @@ hosts[].<br>name | **string**<br><p>Имя хоста MySQL. Имя хоста M
 hosts[].<br>clusterId | **string**<br><p>Идентификатор хоста MySQL. Этот идентификатор Managed Service for MySQL генерирует при создании.</p> 
 hosts[].<br>zoneId | **string**<br><p>Идентификатор зоны доступности, в которой находится хост MySQL.</p> 
 hosts[].<br>resources | **object**<br><p>Ресурсы, выделенные хосту.</p> 
-hosts[].<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mysql/concepts/instance-types">documentation</a>.</p> 
+hosts[].<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mysql/concepts/instance-types">документации</a>.</p> 
 hosts[].<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту.</p> 
 hosts[].<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-nvme — сетевой SSD-диск;</li> <li>local-nvme — локальное SSD-хранилище.</li> </ul> 
 hosts[].<br>role | **string**<br><p>Роль хоста в кластере.</p> <ul> <li>ROLE_UNKNOWN: Роль хоста в кластере неизвестна.</li> <li>MASTER: Хост является мастером в кластере MySQL.</li> <li>REPLICA: Хост является репликой в кластере MySQL.</li> </ul> 
 hosts[].<br>health | **string**<br><p>Код работоспособности хоста.</p> <ul> <li>HEALTH_UNKNOWN: Состояние хоста неизвестно.</li> <li>ALIVE: Хозяин выполняет все свои функции нормально.</li> <li>DEAD: Хост не работает и не может выполнять свои основные функции.</li> <li>DEGRADED: Хост деградировал, и может выполнять только некоторые из своих основных функций.</li> </ul> 
 hosts[].<br>services[] | **object**<br><p>Сервисы, предоставляемые хостом.</p> 
-hosts[].<br>services[].<br>type | **string**<br><p>Тип сервиса, предоставляемого хостом.</p> <ul> <li>MYSQL_ERROR: Хост предоставляет лог ошибок MySQL.</li> <li>MYSQL_GENERAL: Хост предоставляет общий лог запросов MySQL.</li> <li>MYSQL_SLOW_QUERY: Хост предоставляет лог медленных запросов MySQL.</li> </ul> 
+hosts[].<br>services[].<br>type | **string**<br><p>Тип сервиса, предоставляемого хостом.</p> <ul> <li>MYSQL: Хост является сервером MySQL.</li> </ul> 
 hosts[].<br>services[].<br>health | **string**<br><p>Код состояния доступности сервера.</p> <ul> <li>HEALTH_UNKNOWN: Работоспособность сервера неизвестна.</li> <li>ALIVE: Сервер работает нормально.</li> <li>DEAD: Сервер отключен или не отвечает.</li> </ul> 
 hosts[].<br>subnetId | **string**<br><p>Идентификатор подсети, к которой принадлежит хост.</p> 
 hosts[].<br>assignPublicIp | **boolean** (boolean)<br><p>Флаг, показывающий статус публичного IP-адреса для этого хоста.</p> 

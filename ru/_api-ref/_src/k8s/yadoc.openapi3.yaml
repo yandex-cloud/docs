@@ -2,8 +2,8 @@ openapi: "3.0"
 info:
   title: Yandex Managed Service for Kubernetes
   description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
-    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов.
+    Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mks.api.cloud.yandex.net
@@ -1007,10 +1007,7 @@ components:
       type: object
       properties:
         platformId:
-          description: |-
-            Идентификатор аппаратной платформы виртуальной машины.
-
-            Значение должно соответствовать регулярному выражению `` |standard-v1|standard-v2 ``.
+          description: Идентификатор аппаратной платформы виртуальной машины.
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_NodeTemplate_resourcesSpec'
@@ -1043,7 +1040,7 @@ components:
       - type: object
         properties:
           id:
-            description: Только для вывода. Идентификатор операции.
+            description: Идентификатор операции.
             type: string
           description:
             description: |-
@@ -1052,7 +1049,7 @@ components:
             type: string
           createdAt:
             description: |-
-              Только для вывода. Время создания ресурса в формате в
+              Время создания ресурса в формате в
               [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
               Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
@@ -1060,12 +1057,12 @@ components:
             format: date-time
           createdBy:
             description: |-
-              Только для вывода. Идентификатор пользователя или сервисного
+              Идентификатор пользователя или сервисного
               аккаунта, инициировавшего операцию.
             type: string
           modifiedAt:
             description: |-
-              Только для вывода. Время, когда ресурс Operation последний раз
+              Время, когда ресурс Operation последний раз
               обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
               Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
@@ -1073,7 +1070,7 @@ components:
             format: date-time
           done:
             description: |-
-              Только для вывода. Если значение равно `false` — операция еще
+              Если значение равно `false` — операция еще
               выполняется. Если `true` — операция завершена, и задано значение
               одного из полей `error` или `response`.
             type: boolean
@@ -1285,10 +1282,7 @@ components:
       type: object
       properties:
         platformId:
-          description: |-
-            Идентификатор аппаратной платформы виртуальной машины.
-
-            Значение должно соответствовать регулярному выражению `` |standard-v1|standard-v2 ``.
+          description: Идентификатор аппаратной платформы виртуальной машины.
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_NodeTemplate_resourcesSpec'
@@ -1365,10 +1359,7 @@ components:
       type: object
       properties:
         platformId:
-          description: |-
-            Идентификатор аппаратной платформы виртуальной машины.
-
-            Значение должно соответствовать регулярному выражению `` |standard-v1|standard-v2 ``.
+          description: Идентификатор аппаратной платформы виртуальной машины.
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_NodeTemplate_resourcesSpec'

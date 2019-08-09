@@ -807,12 +807,9 @@ components:
         platformId:
           description: |-
             ID of the hardware platform configuration for the instance.
-            Currently only several platforms is available - `standard-v1`, `standard-v2`. These platforms are suitable for most tasks.
-            These platforms allows you to create various types of instances: with a large amount of memory,
+            Platforms allows you to create various types of instances: with a large amount of memory,
             with a large number of cores, with a burstable performance.
             For more information, see [Platforms](/docs/compute/concepts/vm-platforms).
-
-            Value must match the regular expression `` standard-v1|standard-v2 ``.
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_InstanceTemplate_resourcesSpec'
@@ -1192,6 +1189,13 @@ components:
             Value must be one of 0, 5, 20, 50 or 100.
           type: string
           format: int64
+        gpus:
+          description: |-
+            The number of GPUs available to the instance.
+
+            Value must be one of 0, 1, 2 or 4.
+          type: string
+          format: int64
     ScalePolicy:
       type: object
       allOf:
@@ -1412,12 +1416,9 @@ components:
         platformId:
           description: |-
             ID of the hardware platform configuration for the instance.
-            Currently only several platforms is available - `standard-v1`, `standard-v2`. These platforms are suitable for most tasks.
-            These platforms allows you to create various types of instances: with a large amount of memory,
+            Platforms allows you to create various types of instances: with a large amount of memory,
             with a large number of cores, with a burstable performance.
             For more information, see [Platforms](/docs/compute/concepts/vm-platforms).
-
-            Value must match the regular expression `` standard-v1|standard-v2 ``.
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_InstanceTemplate_resourcesSpec'
@@ -1581,12 +1582,9 @@ components:
         platformId:
           description: |-
             ID of the hardware platform configuration for the instance.
-            Currently only several platforms is available - `standard-v1`, `standard-v2`. These platforms are suitable for most tasks.
-            These platforms allows you to create various types of instances: with a large amount of memory,
+            Platforms allows you to create various types of instances: with a large amount of memory,
             with a large number of cores, with a burstable performance.
             For more information, see [Platforms](/docs/compute/concepts/vm-platforms).
-
-            Value must match the regular expression `` standard-v1|standard-v2 ``.
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_InstanceTemplate_resourcesSpec'
@@ -1777,6 +1775,13 @@ components:
             This field sets baseline performance for each core.
 
             Value must be one of 0, 5, 20, 50 or 100.
+          type: string
+          format: int64
+        gpus:
+          description: |-
+            The number of GPUs available to the instance.
+
+            Value must be one of 0, 1, 2 or 4.
           type: string
           format: int64
     AttachedDiskSpec_in_InstanceTemplate_bootDiskSpec:
@@ -1990,12 +1995,9 @@ components:
         platformId:
           description: |-
             ID of the hardware platform configuration for the instance.
-            Currently only several platforms is available - `standard-v1`, `standard-v2`. These platforms are suitable for most tasks.
-            These platforms allows you to create various types of instances: with a large amount of memory,
+            Platforms allows you to create various types of instances: with a large amount of memory,
             with a large number of cores, with a burstable performance.
             For more information, see [Platforms](/docs/compute/concepts/vm-platforms).
-
-            Value must match the regular expression `` standard-v1|standard-v2 ``.
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_InstanceTemplate_resourcesSpec'

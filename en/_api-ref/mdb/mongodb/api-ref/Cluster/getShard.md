@@ -16,8 +16,8 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/sha
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the MongoDB cluster that the shard belongs to. To get the cluster ID use a [List] request.  The maximum string length in characters is 50.
-shardName | Required. Name of the MongoDB shard to return. To get the name of the shard use a [ListShards] request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. ID of the MongoDB cluster that the shard belongs to. To get the cluster ID use a [list](/docs/managed-mongodb/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+shardName | Required. Name of the MongoDB shard to return. To get the name of the shard use a [listShards](/docs/managed-mongodb/api-ref/Cluster/listShards) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

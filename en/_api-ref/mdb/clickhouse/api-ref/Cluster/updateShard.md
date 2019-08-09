@@ -16,8 +16,8 @@ PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the ClickHouse cluster the shard belongs to. To get the cluster ID, use a [List] request.  The maximum string length in characters is 50.
-shardName | Required. Name of the shard to be updated. To get the name of a shard, use a [ListShards] request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. ID of the ClickHouse cluster the shard belongs to. To get the cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+shardName | Required. Name of the shard to be updated. To get the name of a shard, use a [listShards](/docs/managed-clickhouse/api-ref/Cluster/listShards) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
 ## Body parameters {#body_params}
  

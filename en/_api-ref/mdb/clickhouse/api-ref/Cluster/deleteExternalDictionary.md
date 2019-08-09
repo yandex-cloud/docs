@@ -9,14 +9,14 @@ Deletes the specified external dictionary.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/mdb/clickhouse/v1/clusters/{clusterId}:deleteExternalDictionary
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}:deleteExternalDictionary
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the ClickHouse cluster to delete the external dictionary from. To get the cluster ID, use a [List] request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the ClickHouse cluster to delete the external dictionary from. To get the cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  

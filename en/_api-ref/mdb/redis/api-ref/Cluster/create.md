@@ -9,7 +9,7 @@ Creates a Redis cluster in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-redis/v1alpha/clusters
+POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters
 ```
  
 ## Body parameters {#body_params}
@@ -27,6 +27,15 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1alpha/clusters
       "resourcePresetId": "string",
       "diskSize": "string"
     },
+    "backupWindowStart": {
+      "hours": "integer",
+      "minutes": "integer",
+      "seconds": "integer",
+      "nanos": "integer"
+    },
+    "access": {
+      "dataLens": true
+    },
     "redisConfig_5_0": {
       "maxmemoryPolicy": "string",
       "timeout": "integer",
@@ -36,10 +45,12 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1alpha/clusters
   "hostSpecs": [
     {
       "zoneId": "string",
-      "subnetId": "string"
+      "subnetId": "string",
+      "shardName": "string"
     }
   ],
-  "networkId": "string"
+  "networkId": "string",
+  "sharded": true
 }
 ```
 
@@ -56,6 +67,13 @@ configSpec.<br>version | **string**<br><p>Version of Redis used in the cluster. 
 configSpec.<br>resources | **object**<br>Resources allocated to Redis hosts.<br>
 configSpec.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-redis/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
+configSpec.<br>backupWindowStart | **object**<br>Time to start the daily backup, in the UTC timezone.<br><p>Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> and <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p> 
+configSpec.<br>backupWindowStart.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value &quot;24:00:00&quot; for scenarios like business closing time.</p> 
+configSpec.<br>backupWindowStart.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p> 
+configSpec.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
+configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
+configSpec.<br>access | **object**<br>Access policy to DB<br>
+configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
 configSpec.<br>redisConfig_5_0 | **object**<br><p>Fields and structure of <code>RedisConfig</code> reflects Redis configuration file parameters.</p> 
 configSpec.<br>redisConfig_5_0.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with <code>expire set</code>.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with <code>expire set</code>.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with <code>expire set</code> randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with <code>expire set</code> and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
 configSpec.<br>redisConfig_5_0.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
@@ -63,7 +81,9 @@ configSpec.<br>redisConfig_5_0.<br>password | **string**<br><p>Authentication pa
 hostSpecs[] | **object**<br><p>Required. Individual configurations for hosts that should be created for the Redis cluster.</p> <p>Must contain at least one element.</p> 
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> 
 hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field <a href="/docs/managed-redis/api-ref/Cluster#representation">Cluster.networkId</a>.</p> 
+hostSpecs[].<br>shardName | **string**<br><p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
 networkId | **string**<br><p>Required. ID of the network to create the cluster in.</p> <p>The maximum string length in characters is 50.</p> 
+sharded | **boolean** (boolean)<br><p>Redis cluster mode on/off.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

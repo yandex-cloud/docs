@@ -9,7 +9,7 @@ To get the list of available MySQL users, make a [list](/docs/managed-mysql/api-
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/users/{userName}
 ```
  
 ## Path parameters {#path_params}
@@ -17,7 +17,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/
 Parameter | Description
 --- | ---
 clusterId | Required. ID of the MySQL cluster.  The maximum string length in characters is 50.
-userName | Required. Name of the user.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+userName | Required. Required.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

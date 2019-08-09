@@ -1,9 +1,9 @@
 openapi: "3.0"
 info:
   title: Yandex Managed Services for Kubernetes API
-  description: This API reference is organized by resource. All actions are performed
-    by sending HTTP requests to resource URLs. For more information about Yandex.Cloud
-    API architecture, see [API Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mks.api.cloud.yandex.net
@@ -1004,10 +1004,7 @@ components:
       type: object
       properties:
         platformId:
-          description: |-
-            ID of the hardware platform configuration for the node.
-
-            Value must match the regular expression `` |standard-v1|standard-v2 ``.
+          description: ID of the hardware platform configuration for the node.
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_NodeTemplate_resourcesSpec'
@@ -1238,6 +1235,8 @@ components:
             type: string
         scalePolicy:
           $ref: '#/components/schemas/ScalePolicy_in_UpdateNodeGroupRequest_scalePolicy'
+        nodeTemplate:
+          $ref: '#/components/schemas/NodeTemplate_in_UpdateNodeGroupRequest_nodeTemplate'
     ZonalMaster:
       type: object
       properties:
@@ -1285,10 +1284,7 @@ components:
       type: object
       properties:
         platformId:
-          description: |-
-            ID of the hardware platform configuration for the node.
-
-            Value must match the regular expression `` |standard-v1|standard-v2 ``.
+          description: ID of the hardware platform configuration for the node.
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_NodeTemplate_resourcesSpec'
@@ -1363,10 +1359,7 @@ components:
       type: object
       properties:
         platformId:
-          description: |-
-            ID of the hardware platform configuration for the node.
-
-            Value must match the regular expression `` |standard-v1|standard-v2 ``.
+          description: ID of the hardware platform configuration for the node.
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_NodeTemplate_resourcesSpec'
@@ -1508,6 +1501,32 @@ components:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
             description: Fixed scale policy of the node group.
+    NodeTemplate_in_UpdateNodeGroupRequest_nodeTemplate:
+      description: |-
+        Node template for the node group.
+        Change may trigger nodes rolling reboot or recreate.
+      type: object
+      properties:
+        platformId:
+          description: ID of the hardware platform configuration for the node.
+          type: string
+        resourcesSpec:
+          $ref: '#/components/schemas/ResourcesSpec_in_NodeTemplate_resourcesSpec'
+        bootDiskSpec:
+          $ref: '#/components/schemas/DiskSpec_in_NodeTemplate_bootDiskSpec'
+        metadata:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 131072.
+          type: object
+          additionalProperties:
+            type: string
+        v4AddressSpec:
+          $ref: '#/components/schemas/NodeAddressSpec_in_NodeTemplate_v4AddressSpec'
+        schedulingPolicy:
+          $ref: '#/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy'
     InternalAddressSpec_in_ZonalMasterSpec_internalV4AddressSpec:
       description: Specification of parameters for internal IPv4 networking.
       type: object

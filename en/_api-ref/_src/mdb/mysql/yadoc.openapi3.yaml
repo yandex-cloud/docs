@@ -1,14 +1,14 @@
 openapi: "3.0"
 info:
   title: Yandex Managed Service for MySQL API
-  description: This API reference is organized by resource. All actions are performed
-    by sending HTTP requests to resource URLs. For more information about Yandex.Cloud
-    API architecture, see [API Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
 paths:
-  /managed-mysql/v1alpha/backups/{backupId}:
+  /managed-mysql/v1/backups/{backupId}:
     get:
       tags:
       - Backup
@@ -34,7 +34,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Backup'
       x-y-navtitle: get
-  /managed-mysql/v1alpha/backups:
+  /managed-mysql/v1/backups:
     get:
       tags:
       - Backup
@@ -79,7 +79,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListBackupsResponse'
       x-y-navtitle: list
-  /managed-mysql/v1alpha/clusters/{clusterId}:
+  /managed-mysql/v1/clusters/{clusterId}:
     get:
       tags:
       - Cluster
@@ -169,7 +169,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1alpha/clusters:
+  /managed-mysql/v1/clusters:
     get:
       tags:
       - Cluster
@@ -248,7 +248,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1alpha/clusters/{clusterId}:start:
+  /managed-mysql/v1/clusters/{clusterId}:start:
     post:
       tags:
       - Cluster
@@ -276,7 +276,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StartClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1alpha/clusters/{clusterId}:stop:
+  /managed-mysql/v1/clusters/{clusterId}:stop:
     post:
       tags:
       - Cluster
@@ -304,7 +304,41 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1alpha/clusters/{clusterId}:backup:
+  /managed-mysql/v1/clusters/{clusterId}:move:
+    post:
+      tags:
+      - Cluster
+      summary: Moves the specified MySQL cluster to the specified folder.
+      operationId: ClusterMove
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to move.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: move
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/MoveClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
+  /managed-mysql/v1/clusters/{clusterId}:backup:
     post:
       tags:
       - Cluster
@@ -333,7 +367,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/BackupClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1alpha/clusters:restore:
+  /managed-mysql/v1/clusters:restore:
     post:
       tags:
       - Cluster
@@ -356,7 +390,41 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RestoreClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
-  /managed-mysql/v1alpha/clusters/{clusterId}:logs:
+  /managed-mysql/v1/clusters/{clusterId}:startFailover:
+    post:
+      tags:
+      - Cluster
+      summary: Start a manual failover on the specified MySQL cluster.
+      operationId: ClusterStartFailover
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of MySQL cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartClusterFailoverRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: startFailover
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StartClusterFailoverMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-mysql/api-ref/Cluster#representation)'
+  /managed-mysql/v1/clusters/{clusterId}:logs:
     get:
       tags:
       - Cluster
@@ -442,7 +510,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterLogsResponse'
       x-y-navtitle: listLogs
-  /managed-mysql/v1alpha/clusters/{clusterId}/operations:
+  /managed-mysql/v1/clusters/{clusterId}/operations:
     get:
       tags:
       - Cluster
@@ -487,7 +555,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterOperationsResponse'
       x-y-navtitle: listOperations
-  /managed-mysql/v1alpha/clusters/{clusterId}/backups:
+  /managed-mysql/v1/clusters/{clusterId}/backups:
     get:
       tags:
       - Cluster
@@ -533,7 +601,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterBackupsResponse'
       x-y-navtitle: listBackups
-  /managed-mysql/v1alpha/clusters/{clusterId}/hosts:
+  /managed-mysql/v1/clusters/{clusterId}/hosts:
     get:
       tags:
       - Cluster
@@ -579,7 +647,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterHostsResponse'
       x-y-navtitle: listHosts
-  /managed-mysql/v1alpha/clusters/{clusterId}/hosts:batchCreate:
+  /managed-mysql/v1/clusters/{clusterId}/hosts:batchCreate:
     post:
       tags:
       - Cluster
@@ -614,7 +682,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterHostsMetadata'
       x-y-operation-response: Empty
-  /managed-mysql/v1alpha/clusters/{clusterId}/hosts:batchDelete:
+  /managed-mysql/v1/clusters/{clusterId}/hosts:batchDelete:
     post:
       tags:
       - Cluster
@@ -649,7 +717,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteClusterHostsMetadata'
       x-y-operation-response: Empty
-  /managed-mysql/v1alpha/clusters/{clusterId}/databases/{databaseName}:
+  /managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}:
     get:
       tags:
       - Database
@@ -729,7 +797,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteDatabaseMetadata'
       x-y-operation-response: Empty
-  /managed-mysql/v1alpha/clusters/{clusterId}/databases:
+  /managed-mysql/v1/clusters/{clusterId}/databases:
     get:
       tags:
       - Database
@@ -809,7 +877,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateDatabaseMetadata'
       x-y-operation-response: '[Database](/docs/managed-mysql/api-ref/Database#representation)'
-  /managed-mysql/v1alpha/resourcePresets/{resourcePresetId}:
+  /managed-mysql/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
       - ResourcePreset
@@ -835,7 +903,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourcePreset'
       x-y-navtitle: get
-  /managed-mysql/v1alpha/resourcePresets:
+  /managed-mysql/v1/resourcePresets:
     get:
       tags:
       - ResourcePreset
@@ -870,7 +938,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListResourcePresetsResponse'
       x-y-navtitle: list
-  /managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}:
+  /managed-mysql/v1/clusters/{clusterId}/users/{userName}:
     get:
       tags:
       - User
@@ -893,7 +961,7 @@ paths:
         in: path
         description: |-
           Required.
-          Name of the user.
+          Required.
 
           The maximum string length in characters is 63.
           Value must match the regular expression `` [a-zA-Z0-9_]* ``.
@@ -994,7 +1062,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateUserMetadata'
       x-y-operation-response: '[User](/docs/managed-mysql/api-ref/User#representation)'
-  /managed-mysql/v1alpha/clusters/{clusterId}/users:
+  /managed-mysql/v1/clusters/{clusterId}/users:
     get:
       tags:
       - User
@@ -1074,7 +1142,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateUserMetadata'
       x-y-operation-response: '[User](/docs/managed-mysql/api-ref/User#representation)'
-  /managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}:grantPermission:
+  /managed-mysql/v1/clusters/{clusterId}/users/{userName}:grantPermission:
     post:
       tags:
       - User
@@ -1121,7 +1189,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/GrantUserPermissionMetadata'
       x-y-operation-response: '[User](/docs/managed-mysql/api-ref/User#representation)'
-  /managed-mysql/v1alpha/clusters/{clusterId}/users/{userName}:revokePermission:
+  /managed-mysql/v1/clusters/{clusterId}/users/{userName}:revokePermission:
     post:
       tags:
       - User
@@ -1170,6 +1238,13 @@ paths:
       x-y-operation-response: '[User](/docs/managed-mysql/api-ref/User#representation)'
 components:
   schemas:
+    Access:
+      type: object
+      properties:
+        dataLens:
+          description: Allow access for DataLens
+          type: boolean
+          format: boolean
     AddClusterHostsMetadata:
       type: object
       properties:
@@ -1293,6 +1368,9 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Time to start the daily backup, in the UTC timezone.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -1361,6 +1439,9 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Time to start the daily backup, in the UTC timezone.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -1706,10 +1787,17 @@ components:
             Each subsequent list request will have its own [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#responses) to continue paging through the results.
           type: string
     ListClusterLogsRequestServiceType:
-      description: ' - MYSQL: Logs of MySQL activity.'
+      description: |2-
+         - MYSQL_ERROR: MySQL error log.
+         - MYSQL_GENERAL: MySQL general query log.
+         - MYSQL_SLOW_QUERY: MySQL slow query log.
+         - MYSQL_AUDIT: MySQL audit log.
       type: string
       enum:
-      - MYSQL
+      - MYSQL_ERROR
+      - MYSQL_GENERAL
+      - MYSQL_SLOW_QUERY
+      - MYSQL_AUDIT
     ListClusterLogsResponse:
       type: object
       properties:
@@ -1829,6 +1917,28 @@ components:
         link:
           description: Link to the monitoring system charts for the MySQL cluster.
           type: string
+    MoveClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the MySQL cluster being moved.
+          type: string
+        sourceFolderId:
+          description: ID of the source folder.
+          type: string
+        destinationFolderId:
+          description: ID of the destnation folder.
+          type: string
+    MoveClusterRequest:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            Required.
+            ID of the destination folder.
+
+            The maximum string length in characters is 50.
+          type: string
     MysqlConfig5_7:
       description: Options and structure of `MysqlConfig5_7` reflects MySQL 5.7 configuration
         file
@@ -1859,6 +1969,60 @@ components:
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
+        generalLog:
+          description: |-
+            Enable writing of general query log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log).
+          type: boolean
+          format: boolean
+        auditLog:
+          description: |-
+            Enable writing of audit log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log).
+          type: boolean
+          format: boolean
+        sqlMode:
+          description: |-
+            Server SQL mode of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
+    MysqlConfig5_7SQLMode:
+      type: string
+      enum:
+      - ALLOW_INVALID_DATES
+      - ANSI_QUOTES
+      - ERROR_FOR_DIVISION_BY_ZERO
+      - HIGH_NOT_PRECEDENCE
+      - IGNORE_SPACE
+      - NO_AUTO_VALUE_ON_ZERO
+      - NO_BACKSLASH_ESCAPES
+      - NO_ENGINE_SUBSTITUTION
+      - NO_UNSIGNED_SUBTRACTION
+      - NO_ZERO_DATE
+      - NO_ZERO_IN_DATE
+      - NO_FIELD_OPTIONS
+      - NO_KEY_OPTIONS
+      - NO_TABLE_OPTIONS
+      - ONLY_FULL_GROUP_BY
+      - PAD_CHAR_TO_FULL_LENGTH
+      - PIPES_AS_CONCAT
+      - REAL_AS_FLOAT
+      - STRICT_ALL_TABLES
+      - STRICT_TRANS_TABLES
+      - ANSI
+      - TRADITIONAL
+      - DB2
+      - MAXDB
+      - MSSQL
+      - MYSQL323
+      - MYSQL40
+      - ORACLE
+      - POSTGRESQL
     MysqlConfigSet5_7:
       type: object
       properties:
@@ -2092,6 +2256,12 @@ components:
 
             The maximum string length in characters is 50.
           type: string
+        folderId:
+          description: |-
+            ID of the folder to create the MySQL cluster in.
+
+            The maximum string length in characters is 50.
+          type: string
     RevokeUserPermissionMetadata:
       type: object
       properties:
@@ -2104,14 +2274,8 @@ components:
     RevokeUserPermissionRequest:
       type: object
       properties:
-        databaseName:
-          description: |-
-            Required.
-            Name of the database that the user should lose access to.
-
-            The maximum string length in characters is 63.
-            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-          type: string
+        permission:
+          $ref: '#/components/schemas/Permission_in_RevokeUserPermissionRequest_permission'
     Service:
       type: object
       properties:
@@ -2131,15 +2295,25 @@ components:
       - DEAD
       default: HEALTH_UNKNOWN
     ServiceType:
-      description: |2-
-         - MYSQL_ERROR: Host provides the MySQL error log.
-         - MYSQL_GENERAL: Host provides the MySQL general query log.
-         - MYSQL_SLOW_QUERY: Host provides the MySQL slow query log.
+      description: ' - MYSQL: The host is a MySQL server.'
       type: string
       enum:
-      - MYSQL_ERROR
-      - MYSQL_GENERAL
-      - MYSQL_SLOW_QUERY
+      - MYSQL
+    StartClusterFailoverMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the MySQL cluster being failovered.
+          type: string
+    StartClusterFailoverRequest:
+      type: object
+      properties:
+        hostName:
+          description: |-
+            New master host. Switch to the most up-to-date replica if not provided.
+
+            The maximum string length in characters is 253.
+          type: string
     StartClusterMetadata:
       type: object
       properties:
@@ -2156,7 +2330,7 @@ components:
       description: |-
         Represents a time of day. The date and time zone are either not significant
         or are specified elsewhere. An API may choose to allow leap seconds. Related
-        types are [google.type.Date][google.type.Date] and `google.protobuf.Timestamp`.
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
@@ -2329,6 +2503,9 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Time to start the daily backup, in the UTC timezone.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -2405,6 +2582,9 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Time to start the daily backup, in the UTC timezone.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -2551,6 +2731,28 @@ components:
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
+        generalLog:
+          description: |-
+            Enable writing of general query log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log).
+          type: boolean
+          format: boolean
+        auditLog:
+          description: |-
+            Enable writing of audit log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log).
+          type: boolean
+          format: boolean
+        sqlMode:
+          description: |-
+            Server SQL mode of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
     MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig:
       description: |-
         User-defined settings for a MySQL 5.7 cluster.
@@ -2583,6 +2785,28 @@ components:
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
+        generalLog:
+          description: |-
+            Enable writing of general query log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log).
+          type: boolean
+          format: boolean
+        auditLog:
+          description: |-
+            Enable writing of audit log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log).
+          type: boolean
+          format: boolean
+        sqlMode:
+          description: |-
+            Server SQL mode of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
     MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig:
       description: |-
         Default configuration for a MySQL 5.7 cluster.
@@ -2615,6 +2839,28 @@ components:
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
+        generalLog:
+          description: |-
+            Enable writing of general query log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log).
+          type: boolean
+          format: boolean
+        auditLog:
+          description: |-
+            Enable writing of audit log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log).
+          type: boolean
+          format: boolean
+        sqlMode:
+          description: |-
+            Server SQL mode of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Deployment environment of the new MySQL cluster.
@@ -2645,6 +2891,9 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Time to start the daily backup, in the UTC timezone.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -2652,18 +2901,32 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfig5_7'
             description: Configuration for a MySQL 5.7 cluster.
+    Permission_in_RevokeUserPermissionRequest_permission:
+      description: |-
+        Required.
+        Permission that should be revoked from the specified user.
+      type: object
+      properties:
+        databaseName:
+          description: Name of the database that the permission grants access to.
+          type: string
+        roles:
+          description: |-
+            Required.
+            Roles granted to the user within the database.
+
+            The minimum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/PermissionPrivilege'
     ServiceType_in_Service_type:
       description: |-
         Type of the service provided by the host.
 
-         - MYSQL_ERROR: Host provides the MySQL error log.
-         - MYSQL_GENERAL: Host provides the MySQL general query log.
-         - MYSQL_SLOW_QUERY: Host provides the MySQL slow query log.
+         - MYSQL: The host is a MySQL server.
       type: string
       enum:
-      - MYSQL_ERROR
-      - MYSQL_GENERAL
-      - MYSQL_SLOW_QUERY
+      - MYSQL
     ServiceHealth_in_Service_health:
       description: |-
         Status code of server availability.
@@ -2708,6 +2971,9 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Time to start the daily backup, in the UTC timezone.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Access policy to DB
       - title: mysql_config
         type: object
         maxProperties: 1

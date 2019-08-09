@@ -1,9 +1,9 @@
 openapi: "3.0"
 info:
   title: Yandex Managed Service for ClickHouse API
-  description: This API reference is organized by resource. All actions are performed
-    by sending HTTP requests to resource URLs. For more information about Yandex.Cloud
-    API architecture, see [API Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
@@ -341,7 +341,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/MoveClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-clickhouse/api-ref/Cluster#representation)'
-  /mdb/clickhouse/v1/clusters/{clusterId}:addZookeeper:
+  /managed-clickhouse/v1/clusters/{clusterId}:addZookeeper:
     post:
       tags:
       - Cluster
@@ -727,8 +727,8 @@ paths:
         description: |-
           Required.
           ID of the cluster that the shard belongs to.
-          To get the cluster ID, use a [List] request.
-          To get the name of the database, use a [List] request.
+          To get the cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.
+          To get the name of the database, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -739,7 +739,7 @@ paths:
         description: |-
           Required.
           Name of the shard to request information about.
-          To get the name of a shard, use a [ListShards] request.
+          To get the name of a shard, use a [listShards](/docs/managed-clickhouse/api-ref/Cluster/listShards) request.
 
           The maximum string length in characters is 63.
           Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
@@ -765,7 +765,7 @@ paths:
         description: |-
           Required.
           ID of the ClickHouse cluster the shard belongs to.
-          To get the cluster ID, use a [List] request.
+          To get the cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -776,7 +776,7 @@ paths:
         description: |-
           Required.
           Name of the shard to be deleted.
-          To get the name of a shard, use a [ListShards] request.
+          To get the name of a shard, use a [listShards](/docs/managed-clickhouse/api-ref/Cluster/listShards) request.
 
           The maximum string length in characters is 63.
           Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
@@ -805,7 +805,7 @@ paths:
         description: |-
           Required.
           ID of the ClickHouse cluster the shard belongs to.
-          To get the cluster ID, use a [List] request.
+          To get the cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -816,7 +816,7 @@ paths:
         description: |-
           Required.
           Name of the shard to be updated.
-          To get the name of a shard, use a [ListShards] request.
+          To get the name of a shard, use a [listShards](/docs/managed-clickhouse/api-ref/Cluster/listShards) request.
 
           The maximum string length in characters is 63.
           Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
@@ -852,7 +852,7 @@ paths:
         description: |-
           Required.
           ID of the ClickHouse cluster to list shards in.
-          To get the cluster ID, use a [List] request.
+          To get the cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -897,7 +897,7 @@ paths:
         description: |-
           Required.
           ID of the ClickHouse cluster to add a shard to.
-          To get the ClickHouse cluster ID, use a [List] request.
+          To get the ClickHouse cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -920,7 +920,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterShardMetadata'
       x-y-operation-response: Shard
-  /mdb/clickhouse/v1/clusters/{clusterId}:createExternalDictionary:
+  /managed-clickhouse/v1/clusters/{clusterId}:createExternalDictionary:
     post:
       tags:
       - Cluster
@@ -932,7 +932,7 @@ paths:
         description: |-
           Required.
           ID of the ClickHouse cluster to create the external dictionary for.
-          To get the cluster ID, use a [List] request.
+          To get the cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -955,7 +955,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateClusterExternalDictionaryMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-clickhouse/api-ref/Cluster#representation)'
-  /mdb/clickhouse/v1/clusters/{clusterId}:deleteExternalDictionary:
+  /managed-clickhouse/v1/clusters/{clusterId}:deleteExternalDictionary:
     post:
       tags:
       - Cluster
@@ -967,7 +967,7 @@ paths:
         description: |-
           Required.
           ID of the ClickHouse cluster to delete the external dictionary from.
-          To get the cluster ID, use a [List] request.
+          To get the cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -3207,7 +3207,7 @@ components:
       description: |-
         Represents a time of day. The date and time zone are either not significant
         or are specified elsewhere. An API may choose to allow leap seconds. Related
-        types are [google.type.Date][google.type.Date] and `google.protobuf.Timestamp`.
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
@@ -4106,7 +4106,7 @@ components:
 
         Represents a time of day. The date and time zone are either not significant
         or are specified elsewhere. An API may choose to allow leap seconds. Related
-        types are [google.type.Date][google.type.Date] and `google.protobuf.Timestamp`.
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:
@@ -4213,7 +4213,7 @@ components:
 
         Represents a time of day. The date and time zone are either not significant
         or are specified elsewhere. An API may choose to allow leap seconds. Related
-        types are [google.type.Date][google.type.Date] and `google.protobuf.Timestamp`.
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
       type: object
       properties:
         hours:

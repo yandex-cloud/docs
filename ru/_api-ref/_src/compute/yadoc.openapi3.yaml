@@ -2,8 +2,8 @@ openapi: "3.0"
 info:
   title: Yandex Compute Cloud API
   description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
-    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
-    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов.
+    Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://compute.api.cloud.yandex.net
@@ -151,6 +151,7 @@ paths:
         description: |-
           Параметры фильтрации ресурсов в ответе. В параметрах
           фильтрации указываются:
+
           1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Disk.name](/docs/compute/api-ref/Disk#representation).
           2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
           3. Значение. Должен содержать от 3 до 63 символов и соответствовать регулярному выражению `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.
@@ -1725,16 +1726,10 @@ components:
         platformId:
           description: |-
             Обязательное поле.
-            Идентификатор аппаратной платформы виртуальной машины. Это
-            поле влияет на допустимые значения в поле [resourcesSpec](/docs/compute/api-ref/Instance/create#body_params).
-
-            В настоящее время доступна только одна платформа - `standard-v1`. Эта
-            платформа подходит для большинства задач. Эта платформа
-            позволяет создавать машины различных типов: с большим объемом
-            памяти, с большим количеством ядер, с высокой
-            производительностью.
-
-            Значение должно соответствовать регулярному выражению `` standard-v1 ``.
+            Идентификатор аппаратной платформы виртуальной машины.
+            Платформа позволяет создавать виртуальные машины с большим объемом памяти,
+            количеством ядер и высокой производительностью. Дополнительные сведения см. в
+            разделе [Платформы](/docs/compute/concepts/vm-platforms).
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_CreateInstanceRequest_resourcesSpec'
@@ -2461,7 +2456,7 @@ components:
       - type: object
         properties:
           id:
-            description: Только для вывода. Идентификатор операции.
+            description: Идентификатор операции.
             type: string
           description:
             description: |-
@@ -2470,7 +2465,7 @@ components:
             type: string
           createdAt:
             description: |-
-              Только для вывода. Время создания ресурса в формате в
+              Время создания ресурса в формате в
               [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
               Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
@@ -2478,12 +2473,12 @@ components:
             format: date-time
           createdBy:
             description: |-
-              Только для вывода. Идентификатор пользователя или сервисного
+              Идентификатор пользователя или сервисного
               аккаунта, инициировавшего операцию.
             type: string
           modifiedAt:
             description: |-
-              Только для вывода. Время, когда ресурс Operation последний раз
+              Время, когда ресурс Operation последний раз
               обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
 
               Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
@@ -2491,7 +2486,7 @@ components:
             format: date-time
           done:
             description: |-
-              Только для вывода. Если значение равно `false` — операция еще
+              Если значение равно `false` — операция еще
               выполняется. Если `true` — операция завершена, и задано значение
               одного из полей `error` или `response`.
             type: boolean
@@ -2612,7 +2607,7 @@ components:
           description: |-
             Количество GPU, доступных виртуальной машине.
 
-            Значение должно быть равно 1, 2 или 4.
+            Значение должно быть равно 0, 1, 2 или 4.
           type: string
           format: int64
     RestartInstanceMetadata:
@@ -2867,16 +2862,10 @@ components:
             type: string
         platformId:
           description: |-
-            Идентификатор аппаратной платформы виртуальной машины. Это
-            поле влияет на допустимые значения в поле [resourcesSpec](/docs/compute/api-ref/Instance/update#body_params).
-
-            В настоящее время доступна только одна платформа - `standard-v1`. Эта
-            платформа подходит для большинства задач. Эта платформа
-            позволяет создавать машины различных типов: с большим объемом
-            памяти, с большим количеством ядер, с высокой
-            производительностью.
-
-            Значение должно соответствовать регулярному выражению `` standard-v1 ``.
+            Идентификатор аппаратной платформы виртуальной машины.
+            Платформа позволяет создавать виртуальные машины с большим объемом памяти,
+            количеством ядер и высокой производительностью. Дополнительные сведения см. в
+            разделе [Платформы](/docs/compute/concepts/vm-platforms).
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_UpdateInstanceRequest_resourcesSpec'
@@ -3074,7 +3063,7 @@ components:
           description: |-
             Количество GPU, доступных виртуальной машине.
 
-            Значение должно быть равно 1, 2 или 4.
+            Значение должно быть равно 0, 1, 2 или 4.
           type: string
           format: int64
     AttachedDiskSpec_in_CreateInstanceRequest_bootDiskSpec:
@@ -3432,7 +3421,7 @@ components:
           description: |-
             Количество GPU, доступных виртуальной машине.
 
-            Значение должно быть равно 1, 2 или 4.
+            Значение должно быть равно 0, 1, 2 или 4.
           type: string
           format: int64
     FieldMask_in_UpdateSnapshotRequest_updateMask:

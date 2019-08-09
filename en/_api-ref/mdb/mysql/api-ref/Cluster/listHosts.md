@@ -9,7 +9,7 @@ Retrieves a list of hosts for the specified MySQL cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/hosts
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/hosts
 ```
  
 ## Path parameters {#path_params}
@@ -70,7 +70,7 @@ hosts[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage envi
 hosts[].<br>role | **string**<br><p>Role of the host in the cluster.</p> <ul> <li>ROLE_UNKNOWN: Role of the host in the cluster is unknown.</li> <li>MASTER: Host is the master MySQL server in the cluster.</li> <li>REPLICA: Host is a replica MySQL server in the cluster.</li> </ul> 
 hosts[].<br>health | **string**<br><p>Status code of the aggregated health of the host.</p> <ul> <li>HEALTH_UNKNOWN: Health of the host is unknown.</li> <li>ALIVE: The host is performing all its functions normally.</li> <li>DEAD: The host is inoperable, and cannot perform any of its essential functions.</li> <li>DEGRADED: The host is degraded, and can perform only some of its essential functions.</li> </ul> 
 hosts[].<br>services[] | **object**<br><p>Services provided by the host.</p> 
-hosts[].<br>services[].<br>type | **string**<br><p>Type of the service provided by the host.</p> <ul> <li>MYSQL_ERROR: Host provides the MySQL error log.</li> <li>MYSQL_GENERAL: Host provides the MySQL general query log.</li> <li>MYSQL_SLOW_QUERY: Host provides the MySQL slow query log.</li> </ul> 
+hosts[].<br>services[].<br>type | **string**<br><p>Type of the service provided by the host.</p> <ul> <li>MYSQL: The host is a MySQL server.</li> </ul> 
 hosts[].<br>services[].<br>health | **string**<br><p>Status code of server availability.</p> <ul> <li>HEALTH_UNKNOWN: Health of the server is unknown.</li> <li>ALIVE: The server is working normally.</li> <li>DEAD: The server is dead or unresponsive.</li> </ul> 
 hosts[].<br>subnetId | **string**<br><p>ID of the subnet that the host belongs to.</p> 
 hosts[].<br>assignPublicIp | **boolean** (boolean)<br><p>Flag showing public IP assignment status to this host.</p> 

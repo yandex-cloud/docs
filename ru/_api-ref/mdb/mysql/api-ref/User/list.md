@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/users
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/users
 ```
  
 ## Path-параметры {#path_params}
@@ -51,7 +51,7 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-users[] | **object**<br><p>Пользователь MySQL. Подробнее см. в разделе <a href="/docs/managed-mysql/concepts">documentation</a>.</p> 
+users[] | **object**<br><p>Пользователь MySQL. Подробнее см. в <a href="/docs/managed-mysql/concepts">документации</a>.</p> 
 users[].<br>name | **string**<br><p>Имя пользователя MySQL.</p> 
 users[].<br>clusterId | **string**<br><p>Идентификатор кластера MySQL, которому принадлежит пользователь.</p> 
 users[].<br>permissions[] | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 

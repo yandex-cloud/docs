@@ -49,7 +49,7 @@ pageToken | Page token. Set `page_token` to the `next_page_token` returned by a 
         }
       },
       "networkId": "string",
-      "subnetsIds": [
+      "subnetIds": [
         "string"
       ],
 
@@ -88,7 +88,7 @@ databases[].<br>scalePolicy | **object**<br>Required.<br>
 databases[].<br>scalePolicy.<br>fixedScale | **object**<br>
 databases[].<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>The minimum value is 1.</p> 
 databases[].<br>networkId | **string**<br>
-databases[].<br>subnetsIds[] | **string**<br>
+databases[].<br>subnetIds[] | **string**<br>
 databases[].<br>zonalDatabase | **object** <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`<br><br>
 databases[].<br>zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
 databases[].<br>regionalDatabase | **object** <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`<br><br>

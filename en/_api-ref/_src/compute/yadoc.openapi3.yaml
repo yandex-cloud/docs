@@ -1,9 +1,9 @@
 openapi: "3.0"
 info:
   title: Yandex Compute Cloud API
-  description: This API reference is organized by resource. All actions are performed
-    by sending HTTP requests to resource URLs. For more information about Yandex.Cloud
-    API architecture, see [API Concepts](/docs/api-design-guide/).
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://compute.api.cloud.yandex.net
@@ -847,7 +847,7 @@ paths:
       x-y-navtitle: start
       x-y-operation-metadata:
         $ref: '#/components/schemas/StartInstanceMetadata'
-      x-y-operation-response: Empty
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
   /compute/v1/instances/{instanceId}:restart:
     post:
       tags:
@@ -1654,12 +1654,9 @@ components:
             ID of the hardware platform configuration for the instance.
             This field affects the available values in [resourcesSpec](/docs/compute/api-ref/Instance/create#body_params) field.
 
-            Currently only several platforms is available - `standard-v1`, `standard-v2`. These platforms are suitable for most tasks.
-            These platforms allows you to create various types of instances: with a large amount of memory,
+            Platforms allows you to create various types of instances: with a large amount of memory,
             with a large number of cores, with a burstable performance.
             For more information, see [Platforms](/docs/compute/concepts/vm-platforms).
-
-            Value must match the regular expression `` standard-v1 ``.
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_CreateInstanceRequest_resourcesSpec'
@@ -2471,7 +2468,7 @@ components:
           description: |-
             The number of GPUs available to the instance.
 
-            Value must be one of 1, 2 or 4.
+            Value must be one of 0, 1, 2 or 4.
           type: string
           format: int64
     RestartInstanceMetadata:
@@ -2716,12 +2713,9 @@ components:
             ID of the hardware platform configuration for the instance.
             This field affects the available values in [resourcesSpec](/docs/compute/api-ref/Instance/update#body_params) field.
 
-            Currently only several platforms is available - `standard-v1`, `standard-v2`. These platforms are suitable for most tasks.
-            These platforms allows you to create various types of instances: with a large amount of memory,
+            Platforms allows you to create various types of instances: with a large amount of memory,
             with a large number of cores, with a burstable performance.
             For more information, see [Platforms](/docs/compute/concepts/vm-platforms).
-
-            Value must match the regular expression `` standard-v1 ``.
           type: string
         resourcesSpec:
           $ref: '#/components/schemas/ResourcesSpec_in_UpdateInstanceRequest_resourcesSpec'
@@ -2905,7 +2899,7 @@ components:
           description: |-
             The number of GPUs available to the instance.
 
-            Value must be one of 1, 2 or 4.
+            Value must be one of 0, 1, 2 or 4.
           type: string
           format: int64
     AttachedDiskSpec_in_CreateInstanceRequest_bootDiskSpec:
@@ -3241,7 +3235,7 @@ components:
           description: |-
             The number of GPUs available to the instance.
 
-            Value must be one of 1, 2 or 4.
+            Value must be one of 0, 1, 2 or 4.
           type: string
           format: int64
     FieldMask_in_UpdateSnapshotRequest_updateMask:

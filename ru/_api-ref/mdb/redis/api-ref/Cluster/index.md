@@ -27,6 +27,12 @@ editable: false
       "resourcePresetId": "string",
       "diskSize": "string"
     },
+    "backupWindowStart": {
+      "hours": "integer",
+      "minutes": "integer",
+      "seconds": "integer",
+      "nanos": "integer"
+    },
     "redisConfig_5_0": {
       "effectiveConfig": {
         "maxmemoryPolicy": "string",
@@ -47,7 +53,8 @@ editable: false
   },
   "networkId": "string",
   "health": "string",
-  "status": "string"
+  "status": "string",
+  "sharded": true
 }
 ```
  
@@ -69,6 +76,11 @@ config.<br>version | **string**<br><p>Версия серверного прог
 config.<br>resources | **object**<br>
 config.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-redis/concepts/instance-types">documentation</a>.</p> 
 config.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
+config.<br>backupWindowStart | **object**<br><p>Описывает время суток. Дата и часовой пояс либо не имеют значения, либо указаны другим образом. API может разрешить високосные секунды. Связанные типы: [google.type.Date][google.type.Date] и <code>google.protobuf.Timestamp</code>.</p> 
+config.<br>backupWindowStart.<br>hours | **integer** (int32)<br><p>Час в 24-часовом формате. Допустимые значения — от 0 до 23. API может разрешить значение &quot;24:00:00&quot; для таких сценариев, как время закрытия заведения.</p> 
+config.<br>backupWindowStart.<br>minutes | **integer** (int32)<br><p>Минута часа. Допустимые значения — от 0 до 59.</p> 
+config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Секунда минуты. Обычно допустимые значения — от 0 до 59. API может разрешить значение 60, если поддерживаются високосные секунды.</p> 
+config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Доли секунды, в наносекундах. Допустимые значения — от 0 до 999 999 999.</p> 
 config.<br>redisConfig_5_0 | **object**<br>
 config.<br>redisConfig_5_0.<br>effectiveConfig | **object**<br><p>Действующие параметры для кластера Redis 5.0 (сочетание параметров, определенных в userConfig и [default_config]).</p> <p>Поля и структура <code>RedisConfig</code> отражает параметры файла конфигурации Redis.</p> 
 config.<br>redisConfig_5_0.<br>effectiveConfig.<br>maxmemoryPolicy | **string**<br><p>Политика Redis для отбрасывания ключей из набора данных, который достиг максимального объема памяти, доступного на хосте. Параметр maxmemory зависит от <a href="/docs/managed-redis/concepts/instance-types">host class</a> Managed Service for Redis.</p> <p>Все политики подробно описаны в <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Пытаться удалять менее востребованные (LRU) ключи с <code>expire set</code>.</li> <li>ALLKEYS_LRU: Удалять менее востребованные (LRU) ключи.</li> <li>VOLATILE_LFU: Пытаться удалять наименее часто используемые (LFU) ключи с <code>expire set</code>.</li> <li>ALLKEYS_LFU: Удалять наименее часто используемые (LFU) ключи.</li> <li>VOLATILE_RANDOM: Пытаться удалять ключи с <code>expire set</code> в случайном порядке.</li> <li>ALLKEYS_RANDOM: Удалять ключи случайным образом.</li> <li>VOLATILE_TTL: Пытаться сначала удалять менее востребованные (LRU) ключи с <code>expire set</code> и более коротким сроком жизни (TTL).</li> <li>NOEVICTION: Возвращать ошибки, когда память заполнена, и заданные команды могут потребовать больше памяти.</li> </ul> 
@@ -84,22 +96,29 @@ config.<br>redisConfig_5_0.<br>defaultConfig.<br>timeout | **integer** (int64)<b
 config.<br>redisConfig_5_0.<br>defaultConfig.<br>password | **string**<br><p>Пароль для аутентификации.</p> <p>Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9@=+?*.,!&amp;#$^&lt;&gt;_-]{8,128}</code>.</p> 
 networkId | **string**<br>
 health | **string**<br><p>Агрегированная работоспособность кластера.</p> <ul> <li>HEALTH_UNKNOWN: Хост находится в неизвестном состоянии (у нас нет данных)</li> <li>ALIVE: Кластер жив и здоров (все хосты живы)</li> <li>DEAD: Кластер не работает и не может выполнять свои основные функции</li> <li>DEGRADED: Кластер частично жив (может выполнять некоторые из своих основных функций)</li> </ul> 
-status | **string**<br><p>Состояние кластера</p> <ul> <li>STATUS_UNKNOWN: Состояние кластера неизвестно</li> <li>CREATING: Кластер создается</li> <li>RUNNING: Кластер работает нормально</li> <li>ERROR: Кластер отказал.</li> <li>UPDATING: Кластер изменяется.</li> <li>STOPPING: Кластер останавливается.</li> <li>STOPPED: Кластер остановлен.</li> <li>STARTING: Кластер запускается.</li> </ul> 
+status | **string**<br><p>Состояние кластера.</p> <ul> <li>STATUS_UNKNOWN: Состояние кластера неизвестно</li> <li>CREATING: Кластер создается</li> <li>RUNNING: Кластер работает нормально</li> <li>ERROR: Кластер отказал.</li> <li>UPDATING: Кластер изменяется.</li> <li>STOPPING: Кластер останавливается.</li> <li>STOPPED: Кластер остановлен.</li> <li>STARTING: Кластер запускается.</li> </ul> 
+sharded | **boolean** (boolean)<br><p>Включение/выключение режима Redis Cluster.</p> 
 
 ## Методы {#methods}
 Метод | Описание
 --- | ---
 [addHosts](addHosts.md) | Создает новые хосты для кластера.
+[addShard](addShard.md) | Создает новый шард.
 [backup](backup.md) | Создает резервную копию для указанного кластера Redis.
 [create](create.md) | Создает кластер Redis в указанном каталоге.
 [delete](delete.md) | Удаляет указанный кластер Redis.
 [deleteHosts](deleteHosts.md) | Удаляет указанные хосты кластера.
+[deleteShard](deleteShard.md) | Удаляет указанный шард.
 [get](get.md) | Возвращает указанный кластер Redis.
+[getShard](getShard.md) | Возвращает указанный шард.
 [list](list.md) | Возвращает список кластеров Redis, принадлежащих указанному каталогу.
 [listBackups](listBackups.md) | Получает список доступных резервных копий для указанного кластера Redis.
 [listHosts](listHosts.md) | Получает список хостов для указанного кластера.
 [listLogs](listLogs.md) | Получает логи для указанного кластера Redis. Дополнительные сведения о логах см. в разделе [Logs](/docs/managed-redis/concepts/logs) документации.
 [listOperations](listOperations.md) | Возвращает список операций для указанного кластера.
+[listShards](listShards.md) | Получает список шардов.
+[move](move.md) | Перемещает кластер Redis в указанный каталог.
+[rebalance](rebalance.md) | Перебалансирует кластер. Равномерно распределяет все хэш-слоты между шардами.
 [restore](restore.md) | Создает новый кластер Redis с использованием указанной резервной копии.
 [start](start.md) | Запускает указанный кластер Redis.
 [startFailover](startFailover.md) | Запускает ручное переключение мастера для указанного кластера Redis.

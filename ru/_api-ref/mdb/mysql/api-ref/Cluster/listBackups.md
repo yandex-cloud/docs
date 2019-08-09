@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/backups
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/backups
 ```
  
 ## Path-параметры {#path_params}
@@ -46,7 +46,7 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-backups[] | **object**<br><p>Резервная копия MySQL. Подробнее см. в разделе <a href="/docs/managed-mysql/concepts/backup">documentation</a>.</p> 
+backups[] | **object**<br><p>Резервная копия MySQL. Подробнее см. в разделе <a href="/docs/managed-mysql/concepts/backup">Резервные копии</a>.</p> 
 backups[].<br>id | **string**<br><p>Обязательное поле. Идентификатор резервной копии.</p> 
 backups[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит резервная копия.</p> 
 backups[].<br>createdAt | **string** (date-time)<br><p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 

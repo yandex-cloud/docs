@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}/databases/{databaseName}
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}
 ```
  
 ## Path-параметры {#path_params}
@@ -28,7 +28,7 @@ databaseName | Обязательное поле. Имя базы данных M
   "clusterId": "string"
 }
 ```
-База данных MySQL. Подробнее см. в разделе [documentation](/docs/managed-mysql/concepts).
+База данных MySQL. Подробнее см. в [документации](/docs/managed-mysql/concepts).
  
 Поле | Описание
 --- | ---

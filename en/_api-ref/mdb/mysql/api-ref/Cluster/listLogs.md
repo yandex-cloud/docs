@@ -10,7 +10,7 @@ For more information about logs, see the [Logs](/docs/managed-mysql/concepts/log
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1alpha/clusters/{clusterId}:logs
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:logs
 ```
  
 ## Path parameters {#path_params}
@@ -24,7 +24,7 @@ clusterId | Required. ID of the MySQL cluster to request logs for. To get the My
 Parameter | Description
 --- | ---
 columnFilter | Columns from the logs table to request. If no columns are specified, entire log records are returned.
-serviceType | Type of the service to request logs about.<ul> <li>MYSQL: Logs of MySQL activity.</li> </ul> 
+serviceType | Type of the service to request logs about.<ul> <li>MYSQL_ERROR: MySQL error log.</li> <li>MYSQL_GENERAL: MySQL general query log.</li> <li>MYSQL_SLOW_QUERY: MySQL slow query log.</li> <li>MYSQL_AUDIT: MySQL audit log.</li> </ul> 
 fromTime | Start timestamp for the logs request.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 toTime | End timestamp for the logs request.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params), the service returns a [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#responses) that can be used to get the next page of results in subsequent list requests.  Acceptable values are 0 to 1000, inclusive.
