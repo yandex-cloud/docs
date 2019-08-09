@@ -1,10 +1,34 @@
 # Релизы YC CLI
 
-## Версия 0.34.0 (26.07.19) {#latest-release}
+## Версия 0.35.0 (09.08.19) {#latest-release}
+
+#### Изменения в CLI {#cli}
+
+**Улучшено**
+
+- В сообщение о новой версии CLI добавлена ссылка на документацию с описанием релизов.
 
 ### Изменения в сервисах Облака {#services}
 
-#### Сервисы управляемых баз данных {#managed-db}
+### {{ iot-name }} {#iot}
+
+- Добавлена поддержка MQTT.
+
+### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mpg-name }}**
+
+* Команда `{{ yc-mdb-pg }} cluster create`.
+
+    Для флага `--user` добавлены параметры: `permission`, `conn-limit`, `default-transaction-isolation`, `lock-timeout`, `log-min-duration-statement`, `synchronous-commit`, `temp-file-limit`, `log-statement`.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.34.0 (26.07.19) {#version0.34.0}
+
+#### Изменения в сервисах Облака {#services}
+
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mrd-name }}**
 
@@ -23,8 +47,6 @@
 - Команда `{{ mmy-name }} cluster update-config --set`
 
     Добавлена возможность глобально задать режим SQL с помощью параметра `sql_mode`. 
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.33.0 (19.07.19) {#version0.33.0}
 
