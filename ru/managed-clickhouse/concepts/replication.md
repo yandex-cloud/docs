@@ -49,8 +49,13 @@ CREATE TABLE db_01.table_01 ON CLUSTER '{cluster}' (log_date Date, user_name Str
 Как управляются хосты ZooKeeper:
 
 * По умолчанию хосты ZooKeeper создаются с минимальным [классом хостов](instance-types.md). Вы можете задать нужный класс хостов при создании кластера [через API](../api-ref/Cluster/create.md).
+
 * {{ mch-short-name }} не предоставляет возможности подключаться к серверам ZooKeeper и настраивать их. Но вы можете изменить ресурсы, выделенные хостам ZooKeeper, изменив класс хостов.
 
+{% if audience != "internal" %}
+
 * Если вы не указали подсети для хостов ZooKeeper, {{ mch-short-name }} автоматически распределит их по подсетям той сети, к которой подключен {{ CH }}-кластер.
+
+{% endif %}
 
 Подробнее об использовании ZooKeeper для управления репликацией в {{ CH }} см. [документацию {{ CH }}](https://clickhouse.yandex/docs/ru/operations/table_engines/replication/).

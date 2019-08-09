@@ -1,0 +1,97 @@
+title: "Yandex DataLens"
+stage: preview
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Сценарии использования
+    items:
+      - name: Все сценарии
+        href: solutions/index.md
+      - name: Визуализация данных из CSV-файла
+        href: solutions/data-from-csv-visualization.md
+      - name: Визуализация данных из базы данных ClickHouse
+        href: solutions/data-from-db-visualization.md
+      - name: Визуализация данных из Metriсa
+        href: solutions/data-from-metrica-visualization.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Подключение
+        items:
+          - name: Создание подключения к ClickHouse
+            href: operations/connection/create-clickhouse.md
+          - name: Создание подключения к файлу CSV
+            href: operations/connection/create-csv.md
+          - name: Создание подключения к MySQL
+            href: operations/connection/create-mysql.md
+          - name: Создание подключения к PostgreSQL
+            href: operations/connection/create-postgresql.md
+          - name: Создание подключения к MS SQL Server
+            href: operations/connection/create-mssql-server.md
+          - name: Создание подключения к Metrica API
+            href: operations/connection/create-metrica-api.md
+          - name: Создание подключения к Metrica Logs API
+            href: operations/connection/create-metrica-logs-api.md
+          - name: Создание подключения к AppMetrica
+            href: operations/connection/create-appmetrica.md
+          - name: Управление доступом к подключению
+            href: operations/connection/manage-access.md
+      - name: Датасет
+        items:
+          - name: Создание датасета
+            href: operations/dataset/create.md
+          - name: Создание поля данных
+            href: operations/dataset/create-field.md
+          - name: Управление доступом к датасету
+            href: operations/dataset/manage-access.md
+      - name: Чарт
+        items:
+          - name: Создание линейной диаграммы
+            href: operations/chart/create-line-chart.md
+          - name: Создание диаграммы с площадями
+            href: operations/chart/create-area-chart.md
+          - name: Создания круговой диаграммы
+            href: operations/chart/create-pie-chart.md
+          - name: Создание столбчатой диаграммы
+            href: operations/chart/create-bar-chart.md
+          - name: Создание таблицы
+            href: operations/chart/create-table.md
+          - name: Создание сводной таблицы
+            href: operations/chart/create-pivot-table.md
+          - name: Управление доступом к чарту
+            href: operations/chart/manage-access.md
+      - name: Дашборд
+        items:
+          - name: Создание дашборда
+            href: operations/dashboard/create.md
+          - name: Добавление чарта на дашборд
+            href: operations/dashboard/add-chart.md
+          - name: Добавление селектора на дашборд
+            href: operations/dashboard/add-selector.md
+          - name: Управление доступом к дашборду
+            href: operations/dashboard/manage-access.md
+  - name: Концепции
+    items:
+      - name: Обзор сервиса
+        href: concepts/index.md
+      - name: Подключение
+        href: concepts/connection.md
+      - name: Датасет
+        href: concepts/dataset.md
+      - name: Чарт
+        href: concepts/chart.md
+      - name: Дашборд
+        href: concepts/dashboard.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Справочник функций
+    items:
+    - name: Аутентификация в API
+      href: api-ref/authentication.md
+    include:
+      repo: docs
+      path: ru/_api-ref/datalens/toc.yaml

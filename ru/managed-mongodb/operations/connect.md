@@ -12,11 +12,23 @@
 
 {{ MG }}-кластеры {{ mmg-short-name }} поддерживают только шифрованные соединения. Поэтому для подключения к такому кластеру необходим SSL-сертификат. Подготовить все нужные аутентификационные данные можно так:
 
+{% if audience != "internal" %}
+
 ```bash
 $ mkdir ~/.mongodb
 $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/CA.pem
 $ chmod 0600 ~/.mongodb/CA.pem
 ```
+
+{% else %}
+
+```bash
+$ mkdir ~/.mongodb
+$ wget "{{ pem-path }}" -O ~/.mongodb/CA.pem
+$ chmod 0600 ~/.mongodb/CA.pem
+```
+
+{% endif %}
 
 ## Строка подключения
 

@@ -115,6 +115,8 @@ default:
   pem-path: '/cloud-certs/CA.pem'
   dns-zone: mdb.yandexcloud.net
   network-name: default
+  host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63
+  disk-type-example: network-nvme
   PG: PostgreSQL
   CH: ClickHouse
   MG: MongoDB
@@ -205,9 +207,21 @@ default:
 internal:
   audience: internal
   console-link: yc.yandex-team.ru
-  host-class: db1.micro
+
+  # MDB specific
+  pem-path: https://crls.yandex.net/allCAs.pem
+  dns-zone: mdb.yandexcloud.net
   network-name: ' '
+  host-net-example: zone-id=vla
+  disk-type-example: local-ssd
+  PG: PostgreSQL
+  CH: ClickHouse
+  MG: MongoDB
+  MY: MySQL
+  RD: Redis
+  ZK: ZooKeeper
   zone-id: vla
+  host-class: db1.micro
 
   # links
   link-console-billing: https://console.cloud.yandex.ru/billing

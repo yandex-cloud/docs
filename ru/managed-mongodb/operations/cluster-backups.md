@@ -43,7 +43,7 @@
   
       ```
       $ {{ yc-mdb-mg }} backup list
-  
+      
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -54,26 +54,57 @@
   
   1. Запросите создание кластера из резервной копии:
   
-     ```
-     $ {{ yc-mdb-mg }} cluster restore \
-       --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
-       --name mynewmg \
-       --environment=PRODUCTION \
-       --network-name default \
-       --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
-       --mongod-disk-size 20 \
-       --mongod-disk-type network-nvme \
-       --mongod-resource-preset s1.nano
-     ```
-    
-     В результате будет создан {{ MG }}-кластер со следующими характеристиками:
-    
-     - С именем `mynewmg`.
-     - В окружении `PRODUCTION`.
-     - В сети `default`.
-     - С одним хостом класса `s1.nano` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `ru-central1-c`.
-     - С базами данных и пользователями из резервной копии.
-     - С сетевым SSD-хранилищем объемом 20 ГБ.
+      {% if audience == "internal" %}
+  
+      ```
+      $ {{ yc-mdb-mg }} cluster restore \
+           --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
+           --name mynewmg \
+           --environment=PRODUCTION \
+           --network-id {{ network-name }} \
+           --host type=clickhouse,zone-id={{ zone-id }} \
+           --mongod-disk-size 20 \
+           --mongod-disk-type network-nvme \
+           --mongod-resource-preset {{ host-class }}
+      ```
+  
+      {% else %}
+  
+      ```
+      $ {{ yc-mdb-mg }} cluster restore \
+           --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
+           --name mynewmg \
+           --environment=PRODUCTION \
+           --network-name {{ network-name }} \
+           --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
+           --mongod-disk-size 20 \
+           --mongod-disk-type network-nvme \
+           --mongod-resource-preset s1.nano
+      ```
+      
+      {% endif %}
+  
+      В результате будет создан {{ MG }}-кластер со следующими характеристиками:
+      
+      {% if audience == "internal" %}
+      
+      - С именем `mynewmg`.
+      - В окружении `PRODUCTION`.
+      - С одним хостом класса `{{ host-class }}` в зоне доступности `{{ zone-id }}`.
+      - С базами данных и пользователями из резервной копии.
+      - С сетевым SSD-хранилищем объемом 20 ГБ.
+      
+      {% endif %}
+      
+      {% if audience != "internal" %}
+      - С именем `mynewmg`.
+      - В окружении `PRODUCTION`.
+      - В сети `{{ network-name }}`.
+      - С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `{{ zone-id }}`.
+      - С базами данных и пользователями из резервной копии.
+      - С сетевым SSD-хранилищем объемом 20 ГБ.
+      
+      {% endif %}
   
 {% endlist %}
 
@@ -155,7 +186,7 @@
   
   1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
   
-  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
+  2. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
   
 - CLI
   
@@ -168,40 +199,8 @@
   ```
   $ yc {{ yc-mdb-mg }} backup get <идентификатор резервной копии>
   ```
-
+  
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
-
-{% endlist %}
-
-## Задать время начала резервного копирования {#set-backup-window}
-
-{% list tabs %}
-
-- Консоль управления
-  
-  В консоли управления задать время начала резервного копирования можно только при [изменении кластера](update.md).
-
-- CLI
-
-  Чтобы задать время начала резервного копирования, используйте флаг `--backup-window-start`. Время задается в формате ``ЧЧ:ММ:СС``.
-
-  ```
-  $ yc {{ yc-mdb-mg }} cluster create \
-     --name <имя кластера> \
-     --environment <окружение, prestable или production> \
-     --network-name <имя сети> \
-     --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-     --mongodb-version <версия базы данных> \
-     --backup-window-start 10:25:00  
-  ```
-  
-  Изменить время начала резервного копирования в существующем кластере можно с помощью команды `update`:
-
-  ```
-  $ yc {{ yc-mdb-mg }} cluster update \
-     --name <имя кластера> \
-     --backup-window-start 11:25:00
-  ```
   
 {% endlist %}
 

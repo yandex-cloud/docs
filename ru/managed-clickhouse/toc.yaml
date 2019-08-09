@@ -89,5 +89,3 @@ items:
       href: qa/clickhouse.md
     - name: Все вопросы на одной странице
       href: qa/all.md
-data-migration:
-  md:

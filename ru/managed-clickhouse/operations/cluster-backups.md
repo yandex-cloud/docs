@@ -89,6 +89,22 @@
   
   1. Запросите создание кластера из резервной копии:
   
+      {% if audience == "internal" %}
+  
+      ```
+      $ {{ yc-mdb-ch }} cluster restore \
+             --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
+             --name mynewch \
+             --environment=PRODUCTION \
+             --network-id ' ' \
+             --host type=clickhouse,zone-id={{ zone-id }} \
+             --clickhouse-disk-size 20 \
+             --clickhouse-disk-type local-ssd \
+             --clickhouse-resource-preset {{ host-class }}
+      ```
+  
+      {% else %}
+  
       ```
       $ {{ yc-mdb-ch }} cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
@@ -100,15 +116,29 @@
              --clickhouse-disk-type network-nvme \
              --clickhouse-resource-preset {{ host-class }}
       ```
+      
+      {% endif %}
   
       В результате будет создан {{ CH }}-кластер со следующими характеристиками:
-  
+
+      {% if audience != "internal" %}
+        
       - С именем `mynewch`.
       - В окружении `PRODUCTION`.
-      - В сети `default-net`.
-      - С одним хостом класса `s1.nano` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `ru-central1-c`.
+      - В сети `{{ network-name }}`.
+      - С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `{{ zone-id }}`. 
       - С базами данных и пользователями из резервной копии.
       - С сетевым SSD-хранилищем объемом 20 ГБ.
+      
+      {% else %}
+      
+      - С именем `mynewch`.
+      - В окружении `PRODUCTION`.
+      - С одним хостом класса `{{ host-class }}` в зоне доступности `{{ zone-id }}`.
+      - С базами данных и пользователями из резервной копии.
+      - С сетевым SSD-хранилищем объемом 20 ГБ.
+      
+      {% endif %}
   
 {% endlist %}
 

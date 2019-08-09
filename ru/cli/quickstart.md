@@ -1,6 +1,20 @@
 # Начало работы с интерфейсом командной строки
 
+{% if audience != "internal" %}
+
 _Интерфейс командной строки Яндекс.Облака (CLI)_ — скачиваемое программное обеспечение для управления вашими облачными ресурсами через командную строку.
+
+{% else %}
+
+Внутри Яндекса CLI (command-line interface) Яндекс.Облака позволяет использовать:
+
+- Managed Service for ClickHouse
+- Managed Service for MongoDB
+- Managed Service for MySQL
+- Managed Service for Redis
+- Managed Service for PostgreSQL
+
+{% endif %}
 
 ## Установка {#install}
 
@@ -105,6 +119,18 @@ _Интерфейс командной строки Яндекс.Облака (C
 
 
 ## Инициализация {#initialize}
+
+
+{% if audience == "internal" %}
+
+О том, как правильно инициализировать CLI, читайте в документации соответствующего сервиса:
+
+- [Managed Service for {{ CH }}](../managed-clickhouse/quickstart.md#setup)
+- [Managed Service for {{ MG }}](../managed-mongodb/quickstart.md#setup)
+- [Managed Service for {{ RD }}](../managed-redis/quickstart.md#setup)
+- [Managed Service for {{ PG }}](../managed-postgresql/quickstart.md#setup)
+
+{% else %}
 
   1. Получите OAuth-токен в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке]({{ link-cloud-oauth }}) и нажмите **Разрешить**.
   1. Запустите команду `yc init`, чтобы выполнить настройку вашего профиля CLI.
@@ -229,3 +255,4 @@ _Интерфейс командной строки Яндекс.Облака (C
    $ yc vpc subnet delete my-yc-subnet-b
    $ yc vpc network delete my-yc-network
    ```
+{% endif %}

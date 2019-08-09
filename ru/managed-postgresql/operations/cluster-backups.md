@@ -6,7 +6,7 @@
 
 Восстанавливая кластер из резервной копии, вы создаете новый кластер с данными из резервной копии. Если в каталоге не хватает [ресурсов](../concepts/limits.md) для создания такого кластера, восстановиться из резервной копии не получится.
 
-Для нового кластера необходимо задать все параметры, обязательные при создании, кроме типа кластера (резервную копию {{ CH }} не получится восстановить как кластер {{ PG }}).
+Для нового кластера необходимо задать все параметры, обязательные при создании.
 
 {% list tabs %}
 
@@ -61,19 +61,19 @@
              --time 2018-11-02T10:09:38Z \
              --name mynewpg \
              --environment=PRODUCTION \
-             --network-name default-net \
-             --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
+             --network-name {{ network-name }} \
+             --host {{ host-net-example }} \
              --disk-size 20 \
-             --disk-type network-nvme \
-             --resource-preset s1.nano
+             --disk-type {{ disk-type-example }} \
+             --resource-preset {{ host-class }}
       ```
   
       В результате будет создан {{ PG }}-кластер со следующими характеристиками:
   
       - С именем `mynewpg`.
       - В окружении `PRODUCTION`.
-      - В сети `default-net`.
-      - С одним хостом класса `s1.nano` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `ru-central1-c`.
+      {% if audience != "internal" %} - В сети `{{ network-name }}`. {% endif %}
+      - С одним хостом класса `{{ host-class }}` {% if audience != "internal" %} в подсети `b0rcctk2rvtr8efcch63` {% endif %} , в зоне доступности `{{ zone-id }}`.
       - С базами данных и пользователями из резервной копии.
       - С сетевым SSD-хранилищем объемом 20 ГБ.
   

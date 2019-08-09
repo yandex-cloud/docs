@@ -6,11 +6,23 @@
 
 {{ MY }}-кластеры {{ mmy-short-name }} с публичным доступом поддерживают только шифрованные соединения. Поэтому для подключения к такому кластеру необходим SSL-сертификат. Подготовить все нужные аутентификационные данные можно так:
 
+{% if audience != "internal" %}
+
 ```bash
 $ mkdir ~/.mysql
 $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
 $ chmod 0600 ~/.mysql/root.crt
 ```
+
+{% else %}
+
+```bash
+$ mkdir ~/.mysql
+$ wget "{{ pem-path }}" -O ~/.mysql/root.crt
+$ chmod 0600 ~/.mysql/root.crt
+```
+
+{% endif %}
 
 ## Строка подключения
 

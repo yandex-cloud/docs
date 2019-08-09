@@ -435,7 +435,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
   var payload = { aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
                   iss: serviceAccountId,
                   iat: now,
-                  exp: now + 3600 }
+                  exp: now + 3600 };
 
   jose.JWK.asKey(key, 'pem', { kid: keyId, alg: 'PS256' })
       .then(function(result) {
