@@ -1,8 +1,28 @@
 # YC CLI Releases
 
-## Version 0.34.0 (26.07.19) {#latest-release}
+## Version 0.35.0 (09.08.19) {#latest-release}
+
+### Changes to the CLI {#cli}
+
+**Improved**
+
+- Added a link to the documentation with release descriptions in the message about the new CLI version.
 
 ### Changes to Yandex.Cloud services {#services}
+
+#### Managed database services {#managed-db}
+
+**{{ mpg-name }}**
+
+- `{{ yc-mdb-pg }} cluster create`
+
+    Added the following parameters to the `--user` flag: `permission`, `conn-limit`, `default-transaction-isolation`, `lock-timeout`, `log-min-duration-statement`, `synchronous-commit`, `temp-file-limit`, `log-statement`.
+
+## Previous releases {#previous-releases}
+
+### Version 0.34.0 (26.07.19) {#version0.34.0}
+
+#### Changes to Yandex.Cloud services {#services}
 
 #### Managed database services {#managed-db}
 
@@ -22,10 +42,8 @@
 
 - `{{ mmy-name }} cluster update-config --set`
 
-    Added ability to globally set the SQL mode using `sql_mode`.
-
-## Previous releases {#previous-releases}
-
+    Added the ability to globally set the SQL mode using `sql_mode`.
+    
 ### Version 0.33.0 (19.07.19) {#version0.33.0}
 
 #### Changes to the CLI {#cli}

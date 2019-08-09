@@ -10,15 +10,11 @@
 
 ### Изменения в сервисах Облака {#services}
 
-#### {{ iot-name }} {#iot-core}
-
-- Добавлена поддержка MQTT.
-
 #### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mpg-name }}**
 
-* Команда `{{ yc-mdb-pg }} cluster create`.
+- Команда `{{ yc-mdb-pg }} cluster create`.
 
     Для флага `--user` добавлены параметры: `permission`, `conn-limit`, `default-transaction-isolation`, `lock-timeout`, `log-min-duration-statement`, `synchronous-commit`, `temp-file-limit`, `log-statement`.
 
