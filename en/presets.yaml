@@ -162,7 +162,7 @@ default:
 
   # SpeechKit specific
   stt-short-fileSize: 1 MB
-  stt-short-audioLength: 1 minute
+  stt-short-audioLength: 30 seconds
   stt-short-channelsCount: 1
   stt-long-fileSize: 1 GB
   stt-long-resultsStorageTime: 3 days
