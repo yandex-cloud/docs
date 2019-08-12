@@ -15,7 +15,7 @@ _Сервис_ в составе Яндекс.Облака позволяет у
   - [{{ mch-full-name }}](../../managed-clickhouse/) — сервис управления для ClickHouse.
   - [{{ mmg-full-name }}](../../managed-mongodb/) — сервис управления для MongoDB.
   - [{{ mmy-full-name }}](../../managed-mysql/) — сервис управления для MySQL.
-  - [{{ mrd-full-name }}](../../managed-redis/) — сервис сервис управления для Redis.
+  - [{{ mrd-full-name }}](../../managed-redis/) — сервис управления для Redis.
   - [{{ dataproc-full-name }}](../../data-proc/) — сервис для развертывания кластеров Hadoop.
   - [{{ message-queue-full-name }}](../../message-queue/) — сервис для организации очередей сообщений.
   - [{{ speechkit-full-name }}](../../speechkit/) — сервис речевых технологий.
