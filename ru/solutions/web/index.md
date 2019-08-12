@@ -5,3 +5,4 @@
 * [{#T}](dns-load-balancer.md)
 * [{#T}](joomla-postgresql.md)
 * [{#T}](wordpress.md)
+* [{#T}](bitrix-shop.md)
