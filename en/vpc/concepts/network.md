@@ -13,6 +13,8 @@ Yandex.Cloud always blocks outgoing traffic to ports 25:
 * To any servers on the internet other than Yandex.Mail servers.
 * To Yandex Compute Cloud VMs when accessed via a public IP address.
 
+Yandex.Cloud may open port 25 by request via technical support if you comply with [Acceptable Use Policy](https://yandex.com/legal/cloud_aup/). Yandex.Cloud is entitled to block outgoing traffic on port 25 if you violate the Use Policy.
+
 ## Subnets {#subnet}
 
 _A subnet_ is a range of IP addresses in a cloud network. Addresses from this range can be assigned to cloud resources, such as VMs and DB clusters. Subnets can only be created in the folder the cloud network belongs to.
