@@ -45,3 +45,5 @@ items:
         href: infrastructure-management/packer-quickstart.md
       - name: Развертывание Active Directory
         href: infrastructure-management/active-directory.md
+      - name: Автоматизация сборки образов ВМ с помощью Jenkins
+        href: infrastructure-management/jenkins.md
