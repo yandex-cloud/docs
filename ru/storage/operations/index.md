@@ -6,6 +6,7 @@
 - [{#T}](buckets/delete.md)
 - [{#T}](buckets/limit-max-volume.md)
 - [{#T}](buckets/bucket-availability.md)
+- [{#T}](buckets/edit-acl.md)
 
 ## Объекты
 
@@ -14,3 +15,4 @@
 - [{#T}](objects/download.md)
 - [{#T}](objects/link-for-download.md)
 - [{#T}](objects/delete.md)
+- [{#T}](objects/edit-acl.md)

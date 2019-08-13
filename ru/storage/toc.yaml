@@ -27,26 +27,30 @@ items:
         href: operations/index.md
       - name: Бакеты
         items:
-          - name: Создать бакет
+          - name: Создание бакета
             href: operations/buckets/create.md
-          - name: Удалить бакет
+          - name: Удаление бакета
             href: operations/buckets/delete.md
-          - name: Ограничить максимальный размер бакета
+          - name: Ограничение максимального размера бакета
             href: operations/buckets/limit-max-volume.md
-          - name: Открыть публичный доступ к бакету
+          - name: Открытие публичного доступа к бакету
             href: operations/buckets/bucket-availability.md
+          - name: Редактирование ACL бакета
+            href: operations/buckets/edit-acl.md
       - name: Объекты
         items:
-          - name: Загрузить объект
+          - name: Загрузка объекта
             href: operations/objects/upload.md
-          - name: Получить информацию об объекте
+          - name: Получение информации об объекте
             href: operations/objects/info.md
-          - name: Скачать объект
+          - name: Скачивание объекта
             href: operations/objects/download.md
-          - name: Получить ссылку на скачивание
+          - name: Получение публичной ссылки на объект
             href: operations/objects/link-for-download.md
-          - name: Удалить объект
+          - name: Удаление объекта
             href: operations/objects/delete.md
+          - name: Редактирование ACL объекта
+            href: operations/objects/edit-acl.md
   - name: Концепции
     items:
       - name: Обзор
