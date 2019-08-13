@@ -8,6 +8,8 @@ _Классификация изображений сейчас находитс
 
 ## Примеры {#examples}
 
+### Перед началом {#before-beginning}
+
 {% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 
 ### Примените модель для модерации {#basic}
