@@ -7,9 +7,9 @@
    Подробнее читайте в разделе [Начало работы](../billing/quickstart/index.md) документации про Биллинг.
 1. Получите необходимые роли для работы с {{ objstorage-name }}. Выберите один из вариантов:
 
-    * роль `resource-manager.cloud.owner` на облако;
-    * пара ролей `resource-manager.cloud.member` на облако и `admin` на облако или каталог;
-    * пара ролей `resource-manager.cloud.member` на облако и `editor` на облако или каталог.
+    * роль `resource-manager.clouds.owner` на облако;
+    * пара ролей `resource-manager.clouds.member` на облако и `admin` на облако или каталог;
+    * пара ролей `resource-manager.clouds.member` на облако и `editor` на облако или каталог.
 
 1. Чтобы назначить роли, выполните:
 
