@@ -11,6 +11,7 @@
 1. [Настройте расписание для бэкапа](#schedule).
 1. [Проверьте работоспособность бэкапа](#check-backup).
 1. [Восстановите настройки из бэкапа](#restore).
+1. [Удалите созданные облачные ресурсы](#cleanup).
 
 
 ![alt text](_assets/infrastructure-for-sftp.jpg "SFTP клиент и сервер должны иметь IP связность друг с другом")
@@ -30,8 +31,8 @@
 
 ### Необходимые платные ресурсы
 В стоимость поддержки SFTP-клиента и  SFTP-сервера входит:
-* плата за постоянно запущенную виртуальную машину (см. тарифы Yandex Compute Cloud);
-* плата за использование динамического или статического внешнего IP-адреса (см. тарифы Yandex Virtual Private Cloud).
+* плата за постоянно запущенную виртуальную машину (см. [тарифы Yandex Compute Cloud](https://cloud.yandex.ru/docs/compute/pricing))
+* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](https://cloud.yandex.ru/docs/vpc/pricing)).
 
 
 ## Создайте виртуальную машину для SFTP-сервера {#create-vm-sftp-server}
@@ -439,3 +440,9 @@
     ```bash
     ## this is from backup
     ```
+
+## Удалите созданные облачные ресурсы. {#cleanup}
+
+После того, как завершите пользоваться облачными ресурсами 
+* [Удалите вирутальные машины](https://cloud.yandex.ru/docs/compute/operations/vm-control/vm-delete) для SFTP-клиента и SFTP-сервера.
+* [Удалите статический IP адрес](https://cloud.yandex.ru/docs/vpc/operations/address-delete), если он был вами создан.
