@@ -31,7 +31,7 @@
 
 ### Необходимые платные ресурсы
 В стоимость поддержки SFTP-клиента и  SFTP-сервера входит:
-* плата за постоянно запущенную виртуальную машину (см. [тарифы Yandex Compute Cloud](https://cloud.yandex.ru/docs/compute/pricing))
+* плата за постоянно запущенную виртуальную машину (см. [тарифы Yandex Compute Cloud](https://cloud.yandex.ru/docs/compute/pricing));
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](https://cloud.yandex.ru/docs/vpc/pricing)).
 
 
