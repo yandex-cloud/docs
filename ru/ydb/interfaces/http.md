@@ -20,7 +20,7 @@ HTTP API построен по принципу REST, то есть каждой
 [yql.yandex-team.ru/docs/http/reference](https://yql.yandex-team.ru/docs/http/reference/)
 
 ## Клиентские библиотеки
-Обёртки YQL HTTP API для:
+Обертки YQL HTTP API для:
 
 * [Python](python.md)
 * [JDBC](jdbc.md) (Java)
@@ -145,4 +145,4 @@ $ curl -X POST \
 * URL для подключения (также требуется аутентификация): `wss://yql.yandex.net/websocket`
 * Демо: <https://yql.yandex.net/api/ws/index2.html>
 
-Сам протокол обмена сообщениями ещё не до конца сформировался, будет подробнее описан позже, текущий вариант см. [в демо](https://yql.yandex.net/api/ws/index2.html).
+Сам протокол обмена сообщениями еще не до конца сформировался, будет подробнее описан позже, текущий вариант см. [в демо](https://yql.yandex.net/api/ws/index2.html).

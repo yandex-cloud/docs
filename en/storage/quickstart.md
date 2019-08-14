@@ -7,9 +7,9 @@
    For more information, see the section [Getting started](../billing/quickstart/index.md) in the documentation on Billing.
 
 1. Get the roles required to work with {{ objstorage-name }}. Select one of the options:
-    * The `resource-manager.cloud.owner` role for the cloud.
-    * A pair of roles: `resource-manager.cloud.member` for the cloud and `admin` for the cloud or folder.
-    * A pair of roles: `resource-manager.cloud.member` for the cloud and `editor` for the cloud or folder.
+    * The `resource-manager.clouds.owner` role for the cloud.
+    * A pair of roles: `resource-manager.clouds.member` for the cloud and `admin` for the cloud or folder.
+    * A pair of roles: `resource-manager.clouds.member` for the cloud and `editor` for the cloud or folder.
 
 1. To assign roles:
 

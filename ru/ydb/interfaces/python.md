@@ -13,7 +13,7 @@
 * [Все примеры](https://a.yandex-team.ru/arc/trunk/arcadia/yql/library/python/yql/api/v1/examples)
 
 ## Интеграция
-Помимо своего интерфейса библиотека поставляется в комплекте с тонкой оберткой, реализующей протокол [DBAPI 2.0 (PEP 0249)](https://www.python.org/dev/peps/pep-0249/). Через неё можно подключить различные opensource и не только продукты, работающие по этому протоколу. Например, также есть готовый адаптер к [библиотеке SQLAlchemy](https://www.sqlalchemy.org) для генерации и запуска SQL запросов, см. [отдельные примеры по работе через SQLAlchemy](https://a.yandex-team.ru/arc/trunk/arcadia/yql/library/python/yql/sqlalchemy/examples).
+Помимо своего интерфейса библиотека поставляется в комплекте с тонкой оберткой, реализующей протокол [DBAPI 2.0 (PEP 0249)](https://www.python.org/dev/peps/pep-0249/). Через нее можно подключить различные opensource и не только продукты, работающие по этому протоколу. Например, также есть готовый адаптер к [библиотеке SQLAlchemy](https://www.sqlalchemy.org) для генерации и запуска SQL запросов, см. [отдельные примеры по работе через SQLAlchemy](https://a.yandex-team.ru/arc/trunk/arcadia/yql/library/python/yql/sqlalchemy/examples).
 
 ## Как воспользоваться?
 ### Из консольного клиента YQL
