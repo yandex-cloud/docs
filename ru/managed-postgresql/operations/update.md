@@ -4,7 +4,7 @@
 
 * [Изменить класс хостов](#change-resource-preset).
 
-* [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища, `network-hdd` и `network-nvme`).
+* [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища, `network-hdd` и `network-ssd`).
 
 * [Настраивать серверы](#change-postgresql-config) {{ PG }} согласно [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config.html).
 
@@ -97,7 +97,7 @@
   
   {% if audience != "internal" %}
   
-  3. Проверьте, что нужный кластер использует именно сетевое хранилище (увеличить размер локального хранилища пока невозможно). Для этого запросите информацию о кластере и найдите поле `disk_type_id` — его значение должно быть `network-hdd` или `network-nvme`:
+  3. Проверьте, что нужный кластер использует именно сетевое хранилище (увеличить размер локального хранилища пока невозможно). Для этого запросите информацию о кластере и найдите поле `disk_type_id` — его значение должно быть `network-hdd` или `network-ssd`:
   
       ```
       $ {{ yc-mdb-pg }} cluster get <имя кластера>
@@ -110,7 +110,7 @@
         resources:
           resource_preset_id: s1.nano
           disk_size: "10737418240"
-          disk_type_id: network-nvme
+          disk_type_id: network-ssd
       ...
       ```
   

@@ -34,7 +34,7 @@
   
       {% if audience != "internal" %}
       
-      - Выберите тип хранилища — более гибкое сетевое (**network-hdd** или **network-nvme**) или более быстрое локальное SSD-хранилище (**local-nvme**). Размер локального хранилища можно менять только с шагом 100 ГБ. 
+      - Выберите тип хранилища — более гибкое сетевое (**network-hdd** или **network-ssd**) или более быстрое локальное SSD-хранилище (**local-ssd**). Размер локального хранилища можно менять только с шагом 100 ГБ.
       
       {% endif %}
        
@@ -83,7 +83,7 @@
         --network-name <имя сети> \
         --host type=<clickhouse или zookeeper>,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
         --resource-preset <класс хоста> \
-        --clickhouse-disk-type <network-hdd | network-nvme | local-nvme> \
+        --clickhouse-disk-type <network-hdd | network-ssd | local-ssd> \
         --clickhouse-disk-size <размер хранилища в гигабайтах> \
         --user name=<имя пользователя>,password=<пароль пользователя> \
         --database name=<имя базы данных>
@@ -152,7 +152,7 @@ $ {{ yc-mdb-ch }} cluster create \
      --clickhouse-resource-preset s1.nano \
      --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
      --clickhouse-disk-size 20 \
-     --clickhouse-disk-type network-nvme \
+     --clickhouse-disk-type network-ssd \
      --user name=user1,password=user1user1 \
      --database name=db1
 ```

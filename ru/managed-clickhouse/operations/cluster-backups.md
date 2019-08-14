@@ -113,7 +113,7 @@
              --network-name {{ network-name }} \
              --host type=clickhouse,zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
              --clickhouse-disk-size 20 \
-             --clickhouse-disk-type network-nvme \
+             --clickhouse-disk-type network-ssd \
              --clickhouse-resource-preset {{ host-class }}
       ```
       
@@ -219,7 +219,7 @@
         --network-name <имя сети> \
         --host type=<clickhouse или zookeeper>,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
         --resource-preset <класс хоста> \
-        --clickhouse-disk-type <network-hdd | network-nvme | local-nvme> \
+        --clickhouse-disk-type <network-hdd | network-ssd | local-ssd> \
         --clickhouse-disk-size <размер хранилища в гигабайтах> \
         --user name=<имя пользователя>,password=<пароль пользователя> \
         --database name=<имя базы данных>

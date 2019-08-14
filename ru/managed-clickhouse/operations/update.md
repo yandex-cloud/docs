@@ -4,7 +4,7 @@
 
 * [Изменить класс хостов](#change-resource-preset).
 
-* [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища, `network-hdd` и `network-nvme`).
+* [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища, `network-hdd` и `network-ssd`).
 
 * [Настраивать серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
 
@@ -98,7 +98,7 @@
   
   {% if audience != "internal" %}
   
-  1. Проверьте, что нужный кластер использует именно сетевое хранилище (увеличить размер локального хранилища пока невозможно). Для этого запросите информацию о кластере и найдите поле `disk_type_id` — его значение должно быть `network-hdd` или `network-nvme`:
+  1. Проверьте, что нужный кластер использует именно сетевое хранилище (увеличить размер локального хранилища пока невозможно). Для этого запросите информацию о кластере и найдите поле `disk_type_id` — его значение должно быть `network-hdd` или `network-ssd`:
   
      ```
      $ {{ yc-mdb-ch }} cluster get <имя кластера>
@@ -111,7 +111,7 @@
          resources:
            resource_preset_id: s1.nano
            disk_size: "21474836480"
-           disk_type_id: network-nvme
+           disk_type_id: network-ssd
      ...
      ```
      

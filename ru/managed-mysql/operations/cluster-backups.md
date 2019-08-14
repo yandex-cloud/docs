@@ -63,7 +63,7 @@
              --network-id {{ network-name }} \
              --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
              --disk-size 20 \
-             --disk-type network-nvme \
+             --disk-type network-ssd \
              --resource-preset {{ host-class }}
       ```
   
@@ -78,7 +78,7 @@
              --network-name {{ network-name }} \
              --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
              --disk-size 20 \
-             --disk-type network-nvme \
+             --disk-type network-ssd \
              --resource-preset {{ host-class }}
       ```
       
