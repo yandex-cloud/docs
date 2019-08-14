@@ -11,6 +11,8 @@ items:
         items:
           - name: Создание облака
             href: operations/cloud/create.md
+          - name: Переименование облака
+            href: operations/cloud/update.md
           - name: Настройка прав доступа
             href: operations/cloud/set-access-bindings.md
           - name: Переключение на другое облако
