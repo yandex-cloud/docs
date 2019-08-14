@@ -46,7 +46,8 @@ filter | A filter expression that filters resources listed in the response. The 
       "config": {
         "version": "string",
         "poolerConfig": {
-          "poolingMode": "string"
+          "poolingMode": "string",
+          "poolDiscard": true
         },
         "resources": {
           "resourcePresetId": "string",
@@ -403,7 +404,11 @@ filter | A filter expression that filters resources listed in the response. The 
             "enableTidscan": true,
             "maxWorkerProcesses": "integer",
             "maxParallelWorkers": "integer",
-            "maxParallelWorkersPerGather": "integer"
+            "maxParallelWorkersPerGather": "integer",
+            "autovacuumVacuumScaleFactor": "number",
+            "autovacuumAnalyzeScaleFactor": "number",
+            "defaultTransactionReadOnly": true,
+            "timezone": "string"
           },
           "userConfig": {
             "maxConnections": "integer",
@@ -497,7 +502,11 @@ filter | A filter expression that filters resources listed in the response. The 
             "enableTidscan": true,
             "maxWorkerProcesses": "integer",
             "maxParallelWorkers": "integer",
-            "maxParallelWorkersPerGather": "integer"
+            "maxParallelWorkersPerGather": "integer",
+            "autovacuumVacuumScaleFactor": "number",
+            "autovacuumAnalyzeScaleFactor": "number",
+            "defaultTransactionReadOnly": true,
+            "timezone": "string"
           },
           "defaultConfig": {
             "maxConnections": "integer",
@@ -591,7 +600,11 @@ filter | A filter expression that filters resources listed in the response. The 
             "enableTidscan": true,
             "maxWorkerProcesses": "integer",
             "maxParallelWorkers": "integer",
-            "maxParallelWorkersPerGather": "integer"
+            "maxParallelWorkersPerGather": "integer",
+            "autovacuumVacuumScaleFactor": "number",
+            "autovacuumAnalyzeScaleFactor": "number",
+            "defaultTransactionReadOnly": true,
+            "timezone": "string"
           }
         },
         "postgresqlConfig_11": {
@@ -686,7 +699,20 @@ filter | A filter expression that filters resources listed in the response. The 
             "enableTidscan": true,
             "maxWorkerProcesses": "integer",
             "maxParallelWorkers": "integer",
-            "maxParallelWorkersPerGather": "integer"
+            "maxParallelWorkersPerGather": "integer",
+            "autovacuumVacuumScaleFactor": "number",
+            "autovacuumAnalyzeScaleFactor": "number",
+            "defaultTransactionReadOnly": true,
+            "timezone": "string",
+            "enableParallelAppend": true,
+            "enableParallelHash": true,
+            "enablePartitionPruning": true,
+            "enablePartitionwiseAggregate": true,
+            "enablePartitionwiseJoin": true,
+            "jit": true,
+            "maxParallelMaintenanceWorkers": "integer",
+            "parallelLeaderParticipation": true,
+            "vacuumCleanupIndexScaleFactor": "number"
           },
           "userConfig": {
             "maxConnections": "integer",
@@ -779,7 +805,20 @@ filter | A filter expression that filters resources listed in the response. The 
             "enableTidscan": true,
             "maxWorkerProcesses": "integer",
             "maxParallelWorkers": "integer",
-            "maxParallelWorkersPerGather": "integer"
+            "maxParallelWorkersPerGather": "integer",
+            "autovacuumVacuumScaleFactor": "number",
+            "autovacuumAnalyzeScaleFactor": "number",
+            "defaultTransactionReadOnly": true,
+            "timezone": "string",
+            "enableParallelAppend": true,
+            "enableParallelHash": true,
+            "enablePartitionPruning": true,
+            "enablePartitionwiseAggregate": true,
+            "enablePartitionwiseJoin": true,
+            "jit": true,
+            "maxParallelMaintenanceWorkers": "integer",
+            "parallelLeaderParticipation": true,
+            "vacuumCleanupIndexScaleFactor": "number"
           },
           "defaultConfig": {
             "maxConnections": "integer",
@@ -872,7 +911,20 @@ filter | A filter expression that filters resources listed in the response. The 
             "enableTidscan": true,
             "maxWorkerProcesses": "integer",
             "maxParallelWorkers": "integer",
-            "maxParallelWorkersPerGather": "integer"
+            "maxParallelWorkersPerGather": "integer",
+            "autovacuumVacuumScaleFactor": "number",
+            "autovacuumAnalyzeScaleFactor": "number",
+            "defaultTransactionReadOnly": true,
+            "timezone": "string",
+            "enableParallelAppend": true,
+            "enableParallelHash": true,
+            "enablePartitionPruning": true,
+            "enablePartitionwiseAggregate": true,
+            "enablePartitionwiseJoin": true,
+            "jit": true,
+            "maxParallelMaintenanceWorkers": "integer",
+            "parallelLeaderParticipation": true,
+            "vacuumCleanupIndexScaleFactor": "number"
           }
         },
         // end of the list of possible fields`clusters[].config`
@@ -906,6 +958,7 @@ clusters[].<br>config | **object**<br><p>Configuration of the PostgreSQL cluster
 clusters[].<br>config.<br>version | **string**<br><p>Version of PostgreSQL server software.</p> 
 clusters[].<br>config.<br>poolerConfig | **object**<br>Configuration of the connection pooler.<br>
 clusters[].<br>config.<br>poolerConfig.<br>poolingMode | **string**<br><p>Mode that the connection pooler is working in. See descriptions of all modes in the <a href="https://pgbouncer.github.io/usage">documentation for PgBouncer</a>.</p> <ul> <li>SESSION: Session pooling mode.</li> <li>TRANSACTION: Transaction pooling mode.</li> <li>STATEMENT: Statement pooling mode.</li> </ul> 
+clusters[].<br>config.<br>poolerConfig.<br>poolDiscard | **boolean** (boolean)<br><p>Setting pool_discard in Odyssey; server_reset_query_always in PgBouncer</p> 
 clusters[].<br>config.<br>resources | **object**<br>Resources allocated to PostgreSQL hosts.<br>
 clusters[].<br>config.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-postgresql/concepts/instance-types">documentation</a>.</p> 
 clusters[].<br>config.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1253,6 +1306,10 @@ clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>enableTids
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>autovacuumVacuumScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>autovacuumAnalyzeScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>defaultTransactionReadOnly | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>timezone | **string**<br>
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 10 cluster.</p> <p>Options and structure of <code>PostgresqlConfig</code> reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -1346,6 +1403,10 @@ clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>enableTidscan |
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>autovacuumVacuumScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>autovacuumAnalyzeScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>defaultTransactionReadOnly | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_10.<br>userConfig.<br>timezone | **string**<br>
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 10 cluster.</p> <p>Options and structure of <code>PostgresqlConfig</code> reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -1439,6 +1500,10 @@ clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>enableTidsca
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>autovacuumVacuumScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>autovacuumAnalyzeScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>defaultTransactionReadOnly | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_10.<br>defaultConfig.<br>timezone | **string**<br>
 clusters[].<br>config.<br>postgresqlConfig_11 | **object**<br>Configuration of a PostgreSQL 11 server. <br>`clusters[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10`, `postgresqlConfig_11`<br><br>
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 11 cluster (a combination of settings defined in userConfig and [default_config]).</p> <p>Options and structure of <code>PostgresqlConfig</code> reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
@@ -1532,6 +1597,19 @@ clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>enableTids
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>autovacuumVacuumScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>autovacuumAnalyzeScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>defaultTransactionReadOnly | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>timezone | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>enableParallelAppend | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>enableParallelHash | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>enablePartitionPruning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>enablePartitionwiseAggregate | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>enablePartitionwiseJoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>jit | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxParallelMaintenanceWorkers | **integer** (int64)<br><p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>parallelLeaderParticipation | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>vacuumCleanupIndexScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 10000000000, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 11 cluster.</p> <p>Options and structure of <code>PostgresqlConfig</code> reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -1624,6 +1702,19 @@ clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>enableTidscan |
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>autovacuumVacuumScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>autovacuumAnalyzeScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>defaultTransactionReadOnly | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>timezone | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>enableParallelAppend | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>enableParallelHash | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>enablePartitionPruning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>enablePartitionwiseAggregate | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>enablePartitionwiseJoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>jit | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>maxParallelMaintenanceWorkers | **integer** (int64)<br><p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>parallelLeaderParticipation | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>userConfig.<br>vacuumCleanupIndexScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 10000000000, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 11 cluster.</p> <p>Options and structure of <code>PostgresqlConfig</code> reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -1716,6 +1807,19 @@ clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>enableTidsca
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxWorkerProcesses | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>autovacuumVacuumScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>autovacuumAnalyzeScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>defaultTransactionReadOnly | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>timezone | **string**<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>enableParallelAppend | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>enableParallelHash | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>enablePartitionPruning | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>enablePartitionwiseAggregate | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>enablePartitionwiseJoin | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>jit | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxParallelMaintenanceWorkers | **integer** (int64)<br><p>The minimum value is 0.</p> 
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>parallelLeaderParticipation | **boolean** (boolean)<br>
+clusters[].<br>config.<br>postgresqlConfig_11.<br>defaultConfig.<br>vacuumCleanupIndexScaleFactor | **number** (double)<br><p>Acceptable values are 0 to 10000000000, inclusive.</p> 
 clusters[].<br>networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
 clusters[].<br>health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown ([Host.health] for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is alive and well ([Host.health] for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable ([Host.health] for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity ([Host.health] for at least one host in the cluster is not ALIVE).</li> </ul> 
 clusters[].<br>status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 

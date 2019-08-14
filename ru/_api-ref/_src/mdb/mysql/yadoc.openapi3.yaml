@@ -1986,10 +1986,19 @@ components:
           description: |-
             Режим SQL для сервера MySQL.
 
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
           type: array
           items:
             $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
+        maxAllowedPacket:
+          description: |-
+            Максимальный размер одного пакета в байтах.
+
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
+
+            Допустимые значения — от 1024 до 134217728 включительно.
+          type: integer
+          format: int64
     MysqlConfig5_7SQLMode:
       type: string
       enum:
@@ -2756,10 +2765,19 @@ components:
           description: |-
             Режим SQL для сервера MySQL.
 
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
           type: array
           items:
             $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
+        maxAllowedPacket:
+          description: |-
+            Максимальный размер одного пакета в байтах.
+
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
+
+            Допустимые значения — от 1024 до 134217728 включительно.
+          type: integer
+          format: int64
     MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig:
       description: |-
         Пользовательские настройки для кластера MySQL 5.7.
@@ -2812,10 +2830,19 @@ components:
           description: |-
             Режим SQL для сервера MySQL.
 
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
           type: array
           items:
             $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
+        maxAllowedPacket:
+          description: |-
+            Максимальный размер одного пакета в байтах.
+
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
+
+            Допустимые значения — от 1024 до 134217728 включительно.
+          type: integer
+          format: int64
     MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig:
       description: |-
         Конфигурация по умолчанию для кластера MySQL 5.7.
@@ -2868,10 +2895,19 @@ components:
           description: |-
             Режим SQL для сервера MySQL.
 
-            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
           type: array
           items:
             $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
+        maxAllowedPacket:
+          description: |-
+            Максимальный размер одного пакета в байтах.
+
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
+
+            Допустимые значения — от 1024 до 134217728 включительно.
+          type: integer
+          format: int64
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Среда развертывания для нового кластера MySQL.

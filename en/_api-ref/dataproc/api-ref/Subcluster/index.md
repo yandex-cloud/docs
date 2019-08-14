@@ -18,8 +18,7 @@ A set of methods for managing Dataproc subclusters.
     "diskSize": "string"
   },
   "subnetId": "string",
-  "hostsCount": "string",
-  "status": "string"
+  "hostsCount": "string"
 }
 ```
  
@@ -36,7 +35,6 @@ resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for 
 resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 subnetId | **string**<br><p>ID of using compute subnet for hosts in subcluster.</p> 
 hostsCount | **string** (int64)<br><p>Number of hosts in subcluster.</p> 
-status | **string**<br><p>Subcluster status</p> <ul> <li>STATUS_UNKNOWN: Subcluster state is unknown.</li> <li>CREATING: Subcluster is being created.</li> <li>RUNNING: Subcluster is running.</li> <li>ERROR: Subcluster failed.</li> <li>STOPPING: Subcluster stopping</li> <li>STOPPED: Subcluster stopped</li> <li>STARTING: Subcluster starting</li> </ul> 
 
 ## Methods {#methods}
 Method | Description

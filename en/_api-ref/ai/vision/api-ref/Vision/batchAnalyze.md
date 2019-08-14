@@ -36,6 +36,7 @@ POST https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze
 
         }
       ],
+      "mimeType": "string",
       "content": "string"
     }
   ],
@@ -54,6 +55,7 @@ analyzeSpecs[].<br>features[].<br>classificationConfig.<br>model | **string**<br
 analyzeSpecs[].<br>features[].<br>textDetectionConfig | **object**<br>Required for the `TEXT_DETECTION` type. Specifies configuration for the text detection (OCR) feature. <br>`analyzeSpecs[].features[]` includes only one of the fields `classificationConfig`, `textDetectionConfig`<br><br>
 analyzeSpecs[].<br>features[].<br>textDetectionConfig.<br>languageCodes[] | **string**<br><p>Required. List of the languages to recognize text. Specified in <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> format (for example, <code>ru</code>).</p> <p>The number of elements must be in the range 1-8. The maximum string length in characters for each value is 3.</p> 
 analyzeSpecs[].<br>features[].<br>textDetectionConfig.<br>model | **string**<br><p>Do not specify this field, custom models are not supported yet.</p> <p>The maximum string length in characters is 50.</p> 
+analyzeSpecs[].<br>mimeType | **string**<br><p><a href="https://en.wikipedia.org/wiki/Media_type">MIME type</a> of content (for example, <code>application/pdf</code>).</p> <p>The maximum string length in characters is 255.</p> 
 analyzeSpecs[].<br>content | **string** (byte)<br><p>Image content, represented as a stream of bytes. Note: As with all bytes fields, protobuffers use a pure binary representation, whereas JSON representations use base64.</p> <p>The maximum string length in characters is 1048576.</p> 
 folderId | **string**<br><p>ID of the folder to which you have access. Required for authorization with a user account (see <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource). Don't specify this field if you make the request on behalf of a service account.</p> <p>The maximum string length in characters is 50.</p> 
  

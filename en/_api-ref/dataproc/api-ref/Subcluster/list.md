@@ -44,8 +44,7 @@ filter | A filter expression that filters resources listed in the response. The 
         "diskSize": "string"
       },
       "subnetId": "string",
-      "hostsCount": "string",
-      "status": "string"
+      "hostsCount": "string"
     }
   ],
   "nextPageToken": "string"
@@ -67,5 +66,4 @@ subclusters[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storag
 subclusters[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 subclusters[].<br>subnetId | **string**<br><p>ID of using compute subnet for hosts in subcluster.</p> 
 subclusters[].<br>hostsCount | **string** (int64)<br><p>Number of hosts in subcluster.</p> 
-subclusters[].<br>status | **string**<br><p>Subcluster status</p> <ul> <li>STATUS_UNKNOWN: Subcluster state is unknown.</li> <li>CREATING: Subcluster is being created.</li> <li>RUNNING: Subcluster is running.</li> <li>ERROR: Subcluster failed.</li> <li>STOPPING: Subcluster stopping</li> <li>STOPPED: Subcluster stopped</li> <li>STARTING: Subcluster starting</li> </ul> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for ListSubclusters requests, if the number of results is larger than <code>page_size</code> specified in the request. To get the next page, specify the value of <code>next_page_token</code> as a value for the <code>page_token</code> parameter in the next ListClusters request. Subsequent ListClusters requests will have their own <code>next_page_token</code> to continue paging through the results.</p> 

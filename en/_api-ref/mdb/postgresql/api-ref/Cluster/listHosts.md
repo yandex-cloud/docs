@@ -174,7 +174,8 @@ pageToken | Page token.  To get the next page of results, set [pageToken](/docs/
           "enableSort": true,
           "enableTidscan": true,
           "maxParallelWorkers": "integer",
-          "maxParallelWorkersPerGather": "integer"
+          "maxParallelWorkersPerGather": "integer",
+          "timezone": "string"
         },
         "postgresqlConfig_11": {
           "recoveryMinApplyDelay": "integer",
@@ -240,7 +241,8 @@ pageToken | Page token.  To get the next page of results, set [pageToken](/docs/
           "enableSort": true,
           "enableTidscan": true,
           "maxParallelWorkers": "integer",
-          "maxParallelWorkersPerGather": "integer"
+          "maxParallelWorkersPerGather": "integer",
+          "timezone": "string"
         },
         // end of the list of possible fields`hosts[].config`
 
@@ -393,6 +395,7 @@ hosts[].<br>config.<br>postgresqlConfig_10.<br>enableSort | **boolean** (boolean
 hosts[].<br>config.<br>postgresqlConfig_10.<br>enableTidscan | **boolean** (boolean)<br>
 hosts[].<br>config.<br>postgresqlConfig_10.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_10.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+hosts[].<br>config.<br>postgresqlConfig_10.<br>timezone | **string**<br>
 hosts[].<br>config.<br>postgresqlConfig_11 | **object**<br>Configuration for a host with PostgreSQL 11 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10`, `postgresqlConfig_11`<br><br><p>Options and structure of <code>PostgresqlConfig</code> reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 hosts[].<br>config.<br>postgresqlConfig_11.<br>recoveryMinApplyDelay | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_11.<br>sharedBuffers | **integer** (int64)<br>
@@ -458,6 +461,7 @@ hosts[].<br>config.<br>postgresqlConfig_11.<br>enableSort | **boolean** (boolean
 hosts[].<br>config.<br>postgresqlConfig_11.<br>enableTidscan | **boolean** (boolean)<br>
 hosts[].<br>config.<br>postgresqlConfig_11.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_11.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+hosts[].<br>config.<br>postgresqlConfig_11.<br>timezone | **string**<br>
 hosts[].<br>assignPublicIp | **boolean** (boolean)<br><p>Flag showing public IP assignment status to this host.</p> 
 hosts[].<br>replicaType | **string**<br>
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#query_params">pageSize</a>, use the <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#responses">nextPageToken</a> as the value for the <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#responses">nextPageToken</a> to continue paging through the results.</p> 

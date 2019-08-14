@@ -57,6 +57,12 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Feature'
+          mimeType:
+            description: |-
+              [MIME type](https://en.wikipedia.org/wiki/Media_type) of content (for example, `` application/pdf ``).
+
+              The maximum string length in characters is 255.
+            type: string
       - title: source
         type: object
         maxProperties: 1

@@ -1116,27 +1116,6 @@ components:
           description: Number of hosts in subcluster.
           type: string
           format: int64
-        status:
-          $ref: '#/components/schemas/SubclusterStatus_in_Subcluster_status'
-    SubclusterStatus:
-      description: |2-
-         - STATUS_UNKNOWN: Subcluster state is unknown.
-         - CREATING: Subcluster is being created.
-         - RUNNING: Subcluster is running.
-         - ERROR: Subcluster failed.
-         - STOPPING: Subcluster stopping
-         - STOPPED: Subcluster stopped
-         - STARTING: Subcluster starting
-      type: string
-      enum:
-      - STATUS_UNKNOWN
-      - CREATING
-      - RUNNING
-      - ERROR
-      - STOPPING
-      - STOPPED
-      - STARTING
-      default: STATUS_UNKNOWN
     UpdateClusterConfigSpec:
       type: object
       properties:
@@ -1564,27 +1543,6 @@ components:
           description: Volume of the storage available to a host, in bytes.
           type: string
           format: int64
-    SubclusterStatus_in_Subcluster_status:
-      description: |-
-        Subcluster status
-
-         - STATUS_UNKNOWN: Subcluster state is unknown.
-         - CREATING: Subcluster is being created.
-         - RUNNING: Subcluster is running.
-         - ERROR: Subcluster failed.
-         - STOPPING: Subcluster stopping
-         - STOPPED: Subcluster stopped
-         - STARTING: Subcluster starting
-      type: string
-      enum:
-      - STATUS_UNKNOWN
-      - CREATING
-      - RUNNING
-      - ERROR
-      - STOPPING
-      - STOPPED
-      - STARTING
-      default: STATUS_UNKNOWN
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the Dataproc Cluster resource should be updated.

@@ -57,6 +57,12 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Feature'
+          mimeType:
+            description: |-
+              [MIME-тип](https://en.wikipedia.org/wiki/Media_type) контента (например, `` application/pdf ``).
+
+              Максимальная длина строки в символах — 255.
+            type: string
       - title: source
         type: object
         maxProperties: 1
@@ -90,7 +96,7 @@ components:
             $ref: '#/components/schemas/AnalyzeSpec'
         folderId:
           description: |-
-            Идентификатор папки, к которой у вас есть доступ. Требуется для авторизации с
+            Идентификатор каталога, к которому у вас есть доступ. Требуется для авторизации с
             пользовательским аккаунтом (см. ресурс [UserAccount](/docs/iam/api-ref/UserAccount#representation) ). Не используйте это поле,
             если вы делаете запрос от имени сервисного аккаунта.
 
@@ -206,6 +212,12 @@ components:
           type: array
           items:
             type: string
+        model:
+          description: |-
+            Не используйте это поле, пользовательские модели пока не поддерживаются.
+
+            Максимальная длина строки в символах — 50.
+          type: string
     FeatureType:
       description: |2-
          - TEXT_DETECTION: Распознавание текста (OCR).

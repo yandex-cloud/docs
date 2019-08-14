@@ -1552,6 +1552,11 @@ components:
       properties:
         poolingMode:
           $ref: '#/components/schemas/ConnectionPoolerConfigPoolingMode_in_ConnectionPoolerConfig_poolingMode'
+        poolDiscard:
+          description: Setting pool_discard in Odyssey; server_reset_query_always
+            in PgBouncer
+          type: boolean
+          format: boolean
     ConnectionPoolerConfigPoolingMode:
       description: |2-
          - SESSION: Session pooling mode.
@@ -2514,6 +2519,19 @@ components:
           description: Acceptable values are 0 to 1024, inclusive.
           type: integer
           format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
     PostgresqlConfig10BackslashQuote:
       type: string
       enum:
@@ -2877,6 +2895,48 @@ components:
           description: Acceptable values are 0 to 1024, inclusive.
           type: integer
           format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
+        enableParallelAppend:
+          type: boolean
+          format: boolean
+        enableParallelHash:
+          type: boolean
+          format: boolean
+        enablePartitionPruning:
+          type: boolean
+          format: boolean
+        enablePartitionwiseAggregate:
+          type: boolean
+          format: boolean
+        enablePartitionwiseJoin:
+          type: boolean
+          format: boolean
+        jit:
+          type: boolean
+          format: boolean
+        maxParallelMaintenanceWorkers:
+          description: The minimum value is 0.
+          type: integer
+          format: int64
+        parallelLeaderParticipation:
+          type: boolean
+          format: boolean
+        vacuumCleanupIndexScaleFactor:
+          description: Acceptable values are 0 to 10000000000, inclusive.
+          type: number
+          format: double
     PostgresqlConfig11BackslashQuote:
       type: string
       enum:
@@ -3505,6 +3565,8 @@ components:
           description: Acceptable values are 0 to 1024, inclusive.
           type: integer
           format: int64
+        timezone:
+          type: string
     PostgresqlHostConfig10BackslashQuote:
       type: string
       enum:
@@ -3765,6 +3827,8 @@ components:
           description: Acceptable values are 0 to 1024, inclusive.
           type: integer
           format: int64
+        timezone:
+          type: string
     PostgresqlHostConfig11BackslashQuote:
       type: string
       enum:
@@ -5544,6 +5608,19 @@ components:
           description: Acceptable values are 0 to 1024, inclusive.
           type: integer
           format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
     PostgresqlConfig10_in_PostgresqlConfigSet10_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 10 cluster.
@@ -5831,6 +5908,19 @@ components:
           description: Acceptable values are 0 to 1024, inclusive.
           type: integer
           format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
     PostgresqlConfig10_in_PostgresqlConfigSet10_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 10 cluster.
@@ -6118,6 +6208,19 @@ components:
           description: Acceptable values are 0 to 1024, inclusive.
           type: integer
           format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
     PostgresqlConfig11_in_PostgresqlConfigSet11_effectiveConfig:
       description: |-
         Effective settings for a PostgreSQL 11 cluster (a combination of settings defined
@@ -6403,6 +6506,48 @@ components:
           description: Acceptable values are 0 to 1024, inclusive.
           type: integer
           format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
+        enableParallelAppend:
+          type: boolean
+          format: boolean
+        enableParallelHash:
+          type: boolean
+          format: boolean
+        enablePartitionPruning:
+          type: boolean
+          format: boolean
+        enablePartitionwiseAggregate:
+          type: boolean
+          format: boolean
+        enablePartitionwiseJoin:
+          type: boolean
+          format: boolean
+        jit:
+          type: boolean
+          format: boolean
+        maxParallelMaintenanceWorkers:
+          description: The minimum value is 0.
+          type: integer
+          format: int64
+        parallelLeaderParticipation:
+          type: boolean
+          format: boolean
+        vacuumCleanupIndexScaleFactor:
+          description: Acceptable values are 0 to 10000000000, inclusive.
+          type: number
+          format: double
     PostgresqlConfig11_in_PostgresqlConfigSet11_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 11 cluster.
@@ -6687,6 +6832,48 @@ components:
           description: Acceptable values are 0 to 1024, inclusive.
           type: integer
           format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
+        enableParallelAppend:
+          type: boolean
+          format: boolean
+        enableParallelHash:
+          type: boolean
+          format: boolean
+        enablePartitionPruning:
+          type: boolean
+          format: boolean
+        enablePartitionwiseAggregate:
+          type: boolean
+          format: boolean
+        enablePartitionwiseJoin:
+          type: boolean
+          format: boolean
+        jit:
+          type: boolean
+          format: boolean
+        maxParallelMaintenanceWorkers:
+          description: The minimum value is 0.
+          type: integer
+          format: int64
+        parallelLeaderParticipation:
+          type: boolean
+          format: boolean
+        vacuumCleanupIndexScaleFactor:
+          description: Acceptable values are 0 to 10000000000, inclusive.
+          type: number
+          format: double
     PostgresqlConfig11_in_PostgresqlConfigSet11_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 11 cluster.
@@ -6971,6 +7158,48 @@ components:
           description: Acceptable values are 0 to 1024, inclusive.
           type: integer
           format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
+        enableParallelAppend:
+          type: boolean
+          format: boolean
+        enableParallelHash:
+          type: boolean
+          format: boolean
+        enablePartitionPruning:
+          type: boolean
+          format: boolean
+        enablePartitionwiseAggregate:
+          type: boolean
+          format: boolean
+        enablePartitionwiseJoin:
+          type: boolean
+          format: boolean
+        jit:
+          type: boolean
+          format: boolean
+        maxParallelMaintenanceWorkers:
+          description: The minimum value is 0.
+          type: integer
+          format: int64
+        parallelLeaderParticipation:
+          type: boolean
+          format: boolean
+        vacuumCleanupIndexScaleFactor:
+          description: Acceptable values are 0 to 10000000000, inclusive.
+          type: number
+          format: double
     PostgresqlConfig9_6_in_PostgresqlConfigSet9_6_effectiveConfig:
       description: |-
         Required.

@@ -1987,10 +1987,19 @@ components:
           description: |-
             Server SQL mode of MySQL.
 
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
           type: array
           items:
             $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
+        maxAllowedPacket:
+          description: |-
+            The maximum size in bytes of one packet.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
+
+            Acceptable values are 1024 to 134217728, inclusive.
+          type: integer
+          format: int64
     MysqlConfig5_7SQLMode:
       type: string
       enum:
@@ -2749,10 +2758,19 @@ components:
           description: |-
             Server SQL mode of MySQL.
 
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
           type: array
           items:
             $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
+        maxAllowedPacket:
+          description: |-
+            The maximum size in bytes of one packet.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
+
+            Acceptable values are 1024 to 134217728, inclusive.
+          type: integer
+          format: int64
     MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig:
       description: |-
         User-defined settings for a MySQL 5.7 cluster.
@@ -2803,10 +2821,19 @@ components:
           description: |-
             Server SQL mode of MySQL.
 
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
           type: array
           items:
             $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
+        maxAllowedPacket:
+          description: |-
+            The maximum size in bytes of one packet.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
+
+            Acceptable values are 1024 to 134217728, inclusive.
+          type: integer
+          format: int64
     MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig:
       description: |-
         Default configuration for a MySQL 5.7 cluster.
@@ -2857,10 +2884,19 @@ components:
           description: |-
             Server SQL mode of MySQL.
 
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting).
           type: array
           items:
             $ref: '#/components/schemas/MysqlConfig5_7SQLMode'
+        maxAllowedPacket:
+          description: |-
+            The maximum size in bytes of one packet.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet).
+
+            Acceptable values are 1024 to 134217728, inclusive.
+          type: integer
+          format: int64
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Deployment environment of the new MySQL cluster.

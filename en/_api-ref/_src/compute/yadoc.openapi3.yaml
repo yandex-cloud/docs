@@ -1537,8 +1537,9 @@ components:
               type: string
           family:
             description: |-
-              The name of the image family to which this image belongs.
-              To get information about the most recent image from a family, use a [getLatestByFamily](/docs/compute/api-ref/Image/getLatestByFamily) request.
+              The name of the image family to which this image belongs. For more information, see [Image family](/docs/compute/concepts/image#family).
+
+              To get an information about the most recent image from a family, use a [getLatestByFamily](/docs/compute/api-ref/Image/getLatestByFamily) request.
 
               Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
             type: string
@@ -1567,7 +1568,10 @@ components:
               type: string
           os:
             $ref: '#/components/schemas/Os'
-            description: Operating system that is contained in the image.
+            description: |-
+              Operating system that is contained in the image.
+
+              If not specified and you used the `image_id` or `disk_id` field to set the source, then the value can be inherited from the source resource.
       - title: source
         type: object
         maxProperties: 1
@@ -3119,7 +3123,9 @@ components:
       - IPV6
     OsType_in_Os_type:
       description: |-
-        Operating system type.
+        Operating system type. The default is `LINUX`.
+
+        This field is used to correctly emulate a vCPU and calculate the cost of using an instance.
 
          - LINUX: Linux operating system.
          - WINDOWS: Windows operating system.

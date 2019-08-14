@@ -8,3 +8,4 @@ editable: false
 ## Методы {#methods}
 Метод | Описание
 --- | ---
+[longRunningRecognize](longRunningRecognize.md) | 

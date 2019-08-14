@@ -150,7 +150,8 @@ clusterId | Required. ID of the PostgreSQL cluster to update hosts in. To get th
           "enableSort": true,
           "enableTidscan": true,
           "maxParallelWorkers": "integer",
-          "maxParallelWorkersPerGather": "integer"
+          "maxParallelWorkersPerGather": "integer",
+          "timezone": "string"
         },
         "postgresqlConfig_11": {
           "recoveryMinApplyDelay": "integer",
@@ -216,7 +217,8 @@ clusterId | Required. ID of the PostgreSQL cluster to update hosts in. To get th
           "enableSort": true,
           "enableTidscan": true,
           "maxParallelWorkers": "integer",
-          "maxParallelWorkersPerGather": "integer"
+          "maxParallelWorkersPerGather": "integer",
+          "timezone": "string"
         },
         // end of the list of possible fields`updateHostSpecs[].configSpec`
 
@@ -354,6 +356,7 @@ updateHostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>enableSort | **bool
 updateHostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>enableTidscan | **boolean** (boolean)<br>
 updateHostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 updateHostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+updateHostSpecs[].<br>configSpec.<br>postgresqlConfig_10.<br>timezone | **string**<br>
 updateHostSpecs[].<br>configSpec.<br>postgresqlConfig_11 | **object**<br>Configuration for a host with PostgreSQL 11 server deployed. <br>`updateHostSpecs[].configSpec` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10`, `postgresqlConfig_11`<br><br><p>Options and structure of <code>PostgresqlConfig</code> reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 updateHostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>recoveryMinApplyDelay | **integer** (int64)<br>
 updateHostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>sharedBuffers | **integer** (int64)<br>
@@ -419,6 +422,7 @@ updateHostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>enableSort | **bool
 updateHostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>enableTidscan | **boolean** (boolean)<br>
 updateHostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 updateHostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+updateHostSpecs[].<br>configSpec.<br>postgresqlConfig_11.<br>timezone | **string**<br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
