@@ -18,8 +18,8 @@ If a disk is created from a snapshot or image, the disk information contains the
 
 In Yandex.Cloud, there are two types of disks:
 
-- Fast network disks (`network-nvme`) — network block storage on an SSD connected via the NVMe interface.
-- Standard network disks (`network-hdd`) — network block storage on an HDD.
+- Fast network disks (`network-ssd`) — fast network disk with network block storage on an SSD drive.
+- Standard network disks (`network-hdd`) — standard network disk with network block storage on an HDD drive.
 
 The availability zone affects which types of disks you can create in it.
 
