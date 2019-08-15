@@ -6,14 +6,24 @@ items:
     href: quickstart.md
   - name: Пошаговые инструкции
     items:
-      - name: Настроить виртуальную машину в качестве NAT-шлюза
+      - name: Настройка виртуальной машины в качестве NAT-шлюза
         href: operations/nat-instance.md
-      - name: Подключиться к узлу по SSH
+      - name: Подключение к узлу по SSH
         href: operations/node-connect-ssh.md
+      - name: Работа с постоянными томами
+        items:
+          - name: Динамическая подготовка тома
+            href: operations/volumes/dynamic-create-pv.md
+          - name: Статическая подготовка тома
+            href: operations/volumes/static-create-pv.md
+          - name: Управление классами хранилищ
+            href: operations/volumes/manage-storage-class.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Тома
+        href: concepts/volume.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
