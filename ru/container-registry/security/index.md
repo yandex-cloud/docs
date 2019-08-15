@@ -29,6 +29,10 @@ _Сервисные роли_ — роли, дающие доступ к рес�
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
+{% include [container-registry-puller](../../_includes/roles-container-registry-puller.md)%}
+
+{% include [container-registry-pusher](../../_includes/roles-container-registry-pusher.md)%}
+
 ### Примитивные роли
 
 Примитивные роли можно назначать на любой ресурс в любом сервисе.
