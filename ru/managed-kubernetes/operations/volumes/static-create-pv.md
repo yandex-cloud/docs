@@ -2,7 +2,7 @@
 
 Создайте под со статически подготовленным [томом](../../concepts/volume.md): 
 1. [Создайте объект PersistentVolume](#create-pv).
-1. [Создайте объект PersistentVolumeClaim](#create-pvс).
+1. [Создайте объект PersistentVolumeClaim](#create-claim).
 1. [Создайте под](#create-pod).
 
 ## Перед началом {#before-begin}
@@ -69,7 +69,7 @@
     ...
     ```
             
-## Создайте объекст PersistentVolumeClaim {#create-pvc}
+## Создайте объект PersistentVolumeClaim {#create-claim}
 
 1. Сохраните спецификацию для создания объекта `PersistentVolumeClaim` YAML-файл с названием `test-claim.yaml`.
 
