@@ -4,7 +4,7 @@
 
 To work with {{ objstorage-full-name }} via the AWS CLI, you can use the following sets of commands:
 
-- [s3api](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html) — commands corresponding to operations in the REST API. Before you start, look through the [list of supported operations](../s3 /api-ref/index.md).
+- [s3api](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html) — commands corresponding to operations in the REST API. Before you start, review the [list of supported operations](../s3/api-ref/index.md).
 - [s3](https://docs.aws.amazon.com/cli/latest/reference/s3/index.html) — additional commands that make it easier to work with a large number of objects.
 
 ## Before you start {#preparations}
@@ -13,9 +13,9 @@ To work with {{ objstorage-full-name }} via the AWS CLI, you can use the followi
 
 ## Installation {#installation}
 
-To install the AWS CLI, follow the [instructions](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) on the manufacturer's website.
+To install the AWS CLI, follow the [guidelines](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) on the developer's website.
 
-## Setup {#setup}
+## Configuration {#setup}
 
 To configure the AWS CLI, use the `aws configure` command. The command will request values for the following parameters:
 
@@ -23,15 +23,15 @@ To configure the AWS CLI, use the `aws configure` command. The command will requ
 
 1. `AWS Secret Access Key`: enter the secret key that you received when generating the static key.
 
-1. `Default region name`: enter `us-east-1`.
+1. `Default region name`: Enter `ru-central1`.
 
    {% note info %}
 
-   To work with Yandex Object Storage, always specify the `us-east-1` region. A different value of the region may lead to an authorization error.
+   To work with Yandex Object Storage, always specify the `ru-central1` region. A different value of the region may lead to an authorization error.
 
    {% endnote %}
 
-1. Leave the other parameter values of the other parameters unchanged.
+1. Leave the other parameter values unchanged.
 
 ### Configuration files {#config-files}
 
@@ -49,15 +49,15 @@ The `aws configure` command will result in saving your settings to the following
 
     ```
     [default]
-                region=us-east-1
+                region=ru-central1
     ```
 
 ## Specifics {#specifics}
 
 When using the AWS CLI to work with {{ objstorage-name }}, keep the following in mind:
 
-- The AWS CLI works with {{ objstorage-name }} like a hierarchical file system and object keys look like a file path.
-- When running the `aws` command to work with {{ objstorage-name }}, the `--endpoint-url` parameter is required because the client is configured to work with Amazon servers by default.
+- The AWS CLI treats {{ objstorage-name }} like a hierarchical file system and object keys look like file paths.
+- When running the `aws` command to work with {{ objstorage-name }}, the `--endpoint-url` parameter is required because the client is configured to work with the Amazon servers by default.
 - When using macOS, in some cases you need to run the command:
 
     ```
@@ -74,7 +74,7 @@ When using the AWS CLI to work with {{ objstorage-name }}, keep the following in
 
 {% note info %}
 
-When creating a bucket, follow the [naming guidelines](../concepts/bucket.md#naming).
+When creating a bucket, follow the [naming conventions](../concepts/bucket.md#naming).
 
 {% endnote %}
 
@@ -117,7 +117,7 @@ You can delete objects using one of the following methods:
 
    ```bash
    aws --endpoint-url=https://{{ s3-storage-host }} \
-       s3 rm s3://bucket-name/path_style_prefix/ --recursive 
+       s3 rm s3://bucket-name/path_style_prefix/ --recursive
    ```
 - Delete objects specified in the `--include` filter and skip objects specified in the `--exclude` filter:
 

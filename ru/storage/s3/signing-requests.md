@@ -50,7 +50,7 @@
 
 - [Обращение к API](./index.md), совместимому с Amazon S3, без помощи SDK или специализированных утилит.
 - [Загрузка объектов с помощью HTML-формы](../concepts/presigned-post-forms.md).
-- [Подписывание URL с помощью query параметров](../concepts/pre-signed-urls.md).
+- [Подписывание URL с помощью query-параметров](../concepts/pre-signed-urls.md).
 
 ## Подпись строки с помощью ключа {#signing}
 

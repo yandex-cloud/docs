@@ -16,15 +16,15 @@ Install SDK 1.11.336 or higher.
 
 {% endnote %}
 
-## Setup {#setup}
+## Configuration {#setup}
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup.md) %}
 
-## Code examples {#java-sdk-examples}
+## Code samples {#java-sdk-examples}
 
-For sample code, see `aws-java-sdk/samples/AmazonS3` in the archive with the SDK distribution package.
+For a code sample, see `aws-java-sdk/samples/AmazonS3` in the archive with the SDK distribution package.
 
-To connect to {{ objstorage-name }}, the code in the example should be replaced
+To connect to {{ objstorage-name }}, replace the code in the sample:
 
 ```cpp
 AmazonS3 s3 = AmazonS3ClientBuilder.standard()
@@ -40,7 +40,7 @@ AmazonS3 s3 = AmazonS3ClientBuilder.standard()
     .withCredentials(new AWSStaticCredentialsProvider(credentials))
     .withEndpointConfiguration(
         new AmazonS3ClientBuilder.EndpointConfiguration(
-            "{{ s3-storage-host }}","us-east-1"
+            "{{ s3-storage-host }}","ru-central1"
         )
     )
     .build();

@@ -10,7 +10,7 @@
 
 To install boto, use the instructions in the developer's repository: [boto3](https://github.com/boto/boto3/blob/develop/README.rst#quick-start), [boto](https://github.com/boto/boto#installation).
 
-## Setup {#setup}
+## Configuration {#setup}
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup.md) %}
 
@@ -19,7 +19,7 @@ To install boto, use the instructions in the developer's repository: [boto3](htt
 {% list tabs %}
 
 - boto3
-  
+
   ```python
   #!/usr/bin/env python
   #-*- coding: utf-8 -*-
@@ -30,7 +30,7 @@ To install boto, use the instructions in the developer's repository: [boto3](htt
       endpoint_url='https://{{ s3-storage-host }}'
   )
   
-  # Creating a bucket
+  # Create a new bucket
   s3.create_bucket(Bucket='bucket-name')
   
   # Uploading objects into the bucket
@@ -54,9 +54,9 @@ To install boto, use the instructions in the developer's repository: [boto3](htt
   get_object_response = s3.get_object(Bucket='bucket-name',Key='py_script.py')
   print(get_object_response['Body'].read())
   ```
-  
+
 - boto
-  
+
   ```python
   #!/usr/bin/env python
   #-*- coding: utf-8 -*-
@@ -67,9 +67,9 @@ To install boto, use the instructions in the developer's repository: [boto3](htt
   conn = S3Connection(
       host='storage.api.cloud.yandex.net'
   )
-  conn.auth_region_name = 'us-east-1'
+  conn.auth_region_name = 'ru-central1'
   
-  # Creating a bucket
+  # Create a new bucket
   conn.create_bucket('bucket-name')
   bucket = conn.get_bucket('bucket-name')
   
@@ -98,5 +98,5 @@ To install boto, use the instructions in the developer's repository: [boto3](htt
   key = bucket.get_key('script/py_script.py')
   print key.get_contents_as_string()
   ```
-  
+
 {% endlist %}
