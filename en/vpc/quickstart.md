@@ -44,7 +44,7 @@ Create a subnet where cloud resources will be assigned [internal IP addresses](c
 
 1. Select an availability zone from the drop-down list. Any zone from the list will be fine for the first subnet.
 
-1. Enter the subnet CIDR: its IP address and mask (for example, `10.10.0.0/24`). For more information about subnet IP address ranges, see [Cloud networks and subnets](../concepts/network.md).
+1. Enter the subnet CIDR: its IP address and mask (for example, `10.10.0.0/24`). For more information about subnet IP address ranges, see [Cloud networks and subnets](concepts/network.md).
 
 1. Click **Create subnet**.
 
