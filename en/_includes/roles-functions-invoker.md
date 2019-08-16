@@ -1,4 +1,4 @@
-### serverless.functions.invoker {#invoker}
+#### serverless.functions.invoker {#invoker}
 
 The `serverless.functions.invoker` role grants the right to run functions.
 

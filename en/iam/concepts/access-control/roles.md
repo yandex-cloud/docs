@@ -61,3 +61,6 @@ For example, the role of `{{ roles-admin }}` allows you to perform the following
 
 {% include [roles-images-user](../../../_includes/roles-images-user.md) %}
 
+### {{ sf-short-name }} {#functions-roles}
+
+{% include [serverless.functions.invoker](../../../_includes/roles-functions-invoker.md) %}
