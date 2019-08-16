@@ -1,4 +1,4 @@
-## SPLIT
+# SPLIT
 
 _Строковые функции_
 
@@ -13,9 +13,9 @@ SPLIT( orig_string, delimiter, part_index )
 Возвращает подстроку из `orig_string`, используя символ разделителя `delimiter` для разделения строки на последовательность частей `part_index`.
 
 **Типы аргументов:**
-- `orig_string` - `Строка`
-- `delimiter` - `Строка`
-- `part_index` - `Целое число`
+- `orig_string` — `Строка`
+- `delimiter` — `Строка`
+- `part_index` — `Целое число`
 
 
 **Возвращаемый тип**: `Строка`

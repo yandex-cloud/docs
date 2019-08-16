@@ -1,4 +1,4 @@
-## REGEXP_MATCH
+# REGEXP_MATCH
 
 _Строковые функции_
 
@@ -14,8 +14,8 @@ REGEXP_MATCH( string, pattern )
 
 
 **Типы аргументов:**
-- `string` - `Строка`
-- `pattern` - `Строка`
+- `string` — `Строка`
+- `pattern` — `Строка`
 
 
 **Возвращаемый тип**: `Логический`

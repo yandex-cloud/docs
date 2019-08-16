@@ -1,4 +1,4 @@
-## COUNTD
+# COUNTD
 
 _Агрегатные функции_
 
@@ -15,7 +15,7 @@ COUNTD( value )
  См. также [COUNTD_APPROX](../../aggregation/COUNTD_APPROX/overview.md).
 
 **Типы аргументов:**
-- `value` - `Любой`
+- `value` — `Любой`
 
 
 **Возвращаемый тип**: `Целое число`

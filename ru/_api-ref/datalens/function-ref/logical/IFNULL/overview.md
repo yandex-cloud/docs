@@ -1,4 +1,4 @@
-## IFNULL
+# IFNULL
 
 _Логические функции_
 
@@ -13,8 +13,8 @@ IFNULL( check_value, alt_value )
 Возвращает `check_value`, если оно не `NULL`. В противном случае возвращает `alt_value`.
 
 **Типы аргументов:**
-- `check_value` - `Любой`
-- `alt_value` - `Любой`
+- `check_value` — `Любой`
+- `alt_value` — `Любой`
 
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`check_value`, `alt_value`)

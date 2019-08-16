@@ -1,4 +1,4 @@
-## DATETRUNC
+# DATETRUNC
 
 _Функции даты и времени_
 

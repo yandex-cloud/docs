@@ -1,4 +1,4 @@
-## REPLACE
+# REPLACE
 
 _Строковые функции_
 
@@ -15,9 +15,9 @@ REPLACE( string, substring, replace_with )
 Если подстрока не найдена, то строка не будет изменена.
 
 **Типы аргументов:**
-- `string` - `Строка`
-- `substring` - `Строка`
-- `replace_with` - `Строка`
+- `string` — `Строка`
+- `substring` — `Строка`
+- `replace_with` — `Строка`
 
 
 **Возвращаемый тип**: `Строка`

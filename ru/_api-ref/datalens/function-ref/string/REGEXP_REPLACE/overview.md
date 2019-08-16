@@ -1,4 +1,4 @@
-## REGEXP_REPLACE
+# REGEXP_REPLACE
 
 _Строковые функции_
 
@@ -15,9 +15,9 @@ REGEXP_REPLACE( string, pattern, replace_with )
 Если подстрока не найдена, то строка не будет изменена.
 
 **Типы аргументов:**
-- `string` - `Строка`
-- `pattern` - `Строка`
-- `replace_with` - `Строка`
+- `string` — `Строка`
+- `pattern` — `Строка`
+- `replace_with` — `Строка`
 
 
 **Возвращаемый тип**: `Строка`

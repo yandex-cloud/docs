@@ -1,4 +1,4 @@
-## REGEXP_EXTRACT
+# REGEXP_EXTRACT
 
 _Строковые функции_
 
@@ -14,8 +14,8 @@ REGEXP_EXTRACT( string, pattern )
 
 
 **Типы аргументов:**
-- `string` - `Строка`
-- `pattern` - `Строка`
+- `string` — `Строка`
+- `pattern` — `Строка`
 
 
 **Возвращаемый тип**: `Строка`

@@ -1,4 +1,4 @@
-## REGEXP_EXTRACT_NTH
+# REGEXP_EXTRACT_NTH
 
 _Строковые функции_
 
@@ -13,9 +13,9 @@ REGEXP_EXTRACT_NTH( string, pattern, match_index )
 Возвращает подстроку `string`, которая соответствует шаблону регулярного выражения `pattern`, начиная с указанного индекса.
 
 **Типы аргументов:**
-- `string` - `Строка`
-- `pattern` - `Строка`
-- `match_index` - `Целое число`
+- `string` — `Строка`
+- `pattern` — `Строка`
+- `match_index` — `Целое число`
 
 
 **Возвращаемый тип**: `Строка`

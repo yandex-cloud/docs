@@ -1,4 +1,4 @@
-## STARTSWITH
+# STARTSWITH
 
 _Строковые функции_
 
@@ -13,8 +13,8 @@ STARTSWITH( string, substring )
 Возвращает `TRUE`, если строка `string` начинается на подстроку `substring`.
 
 **Типы аргументов:**
-- `string` - `Строка`
-- `substring` - `Строка`
+- `string` — `Строка`
+- `substring` — `Строка`
 
 
 **Возвращаемый тип**: `Логический`
