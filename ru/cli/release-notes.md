@@ -1,14 +1,28 @@
 # Релизы YC CLI
 
-## Версия 0.35.0 (09.08.19) {#latest-release}
+## Версия 0.35.1 (16.08.19) {#latest-release}
 
-### Изменения в CLI {#cli}
+### Изменения в сервисах Облака {#services}
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**Все сервисы управляемых БД**
+
+- Команда `yc <имя базы данных> cluster create`.
+
+    Переименованы типы дисков по умолчанию: `network-nvme` на `network-ssd`, `local-nvme` на `local-ssd`.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.35.0 (09.08.19) {#version0.35.1}
+
+#### Изменения в CLI {#cli}
 
 **Улучшено**
 
 - В сообщение о новой версии CLI добавлена ссылка на документацию с описанием релизов.
 
-### Изменения в сервисах Облака {#services}
+#### Изменения в сервисах Облака {#services}
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -17,8 +31,6 @@
 - Команда `{{ yc-mdb-pg }} cluster create`.
 
     Для флага `--user` добавлены параметры: `permission`, `conn-limit`, `default-transaction-isolation`, `lock-timeout`, `log-min-duration-statement`, `synchronous-commit`, `temp-file-limit`, `log-statement`.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.34.0 (26.07.19) {#version0.34.0}
 
