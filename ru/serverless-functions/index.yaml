@@ -17,7 +17,7 @@ links:
   href: "concepts/"
 - title: "Среда выполнения"
   description: "Какие среды выполнения поддерживает сервис"
-  href: "runtime/"
+  href: "concepts/runtime/"
 - title: "Квоты и лимиты"
   description: "Технические и организационные ограничения сервиса"
   href: "concepts/limits"

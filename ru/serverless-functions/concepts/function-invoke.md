@@ -20,13 +20,13 @@ JSON-структура запроса:
 
 ```
 {
-    "httpMethod": "<название HTTP метода>"
-    "headers": "<словарь со строковыми значениями HTTP-заголовков>"
-    "multiValueHeaders": "<словарь со списками значений HTTP-заголовков>"
-    "queryStringParameters": "<словарь queryString-параметров>"
-    "multiValueQueryStringParameters": "<словарь списков значений queryString-параметров>"
-    "requestContext": "<словарь с контекстом запроса>"
-    "body": "<содержимое запроса>"
+    "httpMethod": "<название HTTP метода>",
+    "headers": "<словарь со строковыми значениями HTTP-заголовков>",
+    "multiValueHeaders": "<словарь со списками значений HTTP-заголовков>",
+    "queryStringParameters": "<словарь queryString-параметров>",
+    "multiValueQueryStringParameters": "<словарь списков значений queryString-параметров>",
+    "requestContext": "<словарь с контекстом запроса>",
+    "body": "<содержимое запроса>",
     "isBase64Encoded": "<true или false>"
 }
 ```
@@ -48,10 +48,10 @@ JSON-структура запроса:
     Содержит данные следующей структуры:
     ```
     {
-        "identity": "<набор пар ключ:значение для аутентификации пользователя>"
-        "httpMethod": "<DELETE, GET, HEAD, OPTIONS, PATCH, POST или PUT>"
-        "requestId": "<ID запроса, генерируется в роутере>"
-        "requestTime": "<время запроса в формате CLF>"
+        "identity": "<набор пар ключ:значение для аутентификации пользователя>",
+        "httpMethod": "<DELETE, GET, HEAD, OPTIONS, PATCH, POST или PUT>",
+        "requestId": "<ID запроса, генерируется в роутере>",
+        "requestTime": "<время запроса в формате CLF>",
         "requestTimeEpoch": "<время запроса в формате Unix>"
     }
     ```
@@ -59,7 +59,7 @@ JSON-структура запроса:
     Структура элемента `identity`:
     ```
     {
-        "sourceIp": "<адрес, с которого был сделан запрос>"
+        "sourceIp": "<адрес, с которого был сделан запрос>",
         "userAgent": "<содержимое HTTP-заголовка User-Agent исходного запроса>"
     }
     ```
@@ -75,9 +75,9 @@ JSON-структура ответа:
 ``` 
 {
     "statusCode": <HTTP код ответа>,
-    "headers": "<словарь со строковыми значениями HTTP-заголовков>"
-    "multiValueHeaders": "<словарь со списками значений HTTP-заголовков>"
-    "body": "<содержимое ответа>"
+    "headers": "<словарь со строковыми значениями HTTP-заголовков>",
+    "multiValueHeaders": "<словарь со списками значений HTTP-заголовков>",
+    "body": "<содержимое ответа>",
     "isBase64Encoded": "<true или false>"
 }
 ```       
@@ -88,7 +88,7 @@ JSON-структура ответа:
     
 - `headers` — словарь строк, содержащий HTTP-заголовки ответа и их значения.
 
-- `multiValueHeaders` — словарь, в котором для HTTP-заголовки ответа можно указать одно или несколько значений в виде списка. Если один и тот же заголовок указан и в `headers` и в `multiValueHeaders`, содержимое `headers` игнорируется.
+- `multiValueHeaders` — словарь, в котором для HTTP-заголовков ответа можно указать одно или несколько значений в виде списка. Если один и тот же заголовок указан и в `headers` и в `multiValueHeaders`, содержимое `headers` игнорируется.
 
 - `body` — содержимое ответа в виде строки, содержащей JSON или двоичные данные в формате Base64.
         
@@ -152,7 +152,7 @@ JSON-структура ответа:
 - 403 Forbidden — запрос не может быть выполнен из-за ограничений в доступе для клиента к указанному ресурсу. 
 - 404 Not Found — по указанному URL не найден соответствующий ресурс.
 - 429 TooManyRequests — превышение максимального количества одновременно выполняемых запросов.
-- 500 Internal Server Error — внутренняя ошибка сервиса.
+- 500 Internal Server Error — внутренняя ошибка сервера.
 - 502 BadGateway — ошибка в коде функции или в формате возвращаемого JSON-ответа.
 - 503 Service Unavailable — недоступность сервиса, от которого зависит Serverless Functions. 
 - 504 Gateway Timeout — превышено максимальное время выполнения функции до таймаута.
@@ -165,8 +165,8 @@ JSON-структура ответа:
 
 ```
 {
-  "errorMessage": <сообщение ошибки>
-  "errorType": <тип ошибки>
+  "errorMessage": <сообщение ошибки>,
+  "errorType": <тип ошибки>,
   "stackTrace": <список вызываемых методов>
 }
 ```
@@ -190,7 +190,7 @@ JSON-структура ответа:
 
 ## Вызов функции с помощью YC CLI {#cli}
 
-Вызов функции с помощью CLI это HTTP-запрос с методом POST и параметром `integration=raw`. Подробнее данный параметр описан [выше](#http).
+Вызов функции с помощью CLI — это HTTP-запрос с методом POST и параметром `integration=raw`. Подробнее данный параметр описан [выше](#http).
 
 Посмотрите справку о команде вызова функции: 
 
@@ -235,5 +235,8 @@ Flags:
      echo '{"queryStringParameters": "name"}' | yc serverless function invoke b09bhaokchn9pnbrlseb --data-stdin
      ```
 
-    Аналогично команде с аргументом `-d`, имеющим значение `@-`: `echo '{"queryStringParameters": "name"}' | yc serverless function invoke b09bhaokchn9pnbrlseb -d @-`
- 
+    Аналогично команде с аргументом `-d`, имеющим значение `@-`: 
+    
+    ```
+    echo '{"queryStringParameters": "name"}' | yc serverless function invoke b09bhaokchn9pnbrlseb -d @-`.
+    ```

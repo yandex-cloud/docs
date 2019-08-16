@@ -22,6 +22,7 @@ default:
   datalens-full-name: Yandex DataLens
   managed-k8s-full-name: Yandex Managed Service for Kubernetes
   iot-full-name: Yandex IoT Core
+  sf-full-name: Yandex Serverless Functions
   ydb-full-name: Yandex Database
 
   # Полные имена сервисов без Yandex
@@ -48,6 +49,7 @@ default:
   datalens-name: DataLens
   managed-k8s-name: Managed Service for Kubernetes
   iot-name: Yandex IoT Core
+  sf-name: Serverless Functions
   ydb-name: Yandex Database
 
   # Короткие имена
@@ -73,12 +75,14 @@ default:
   datalens-short-name: DataLens
   managed-k8s-short-name: Managed Service for Kubernetes
   iot-short-name: Yandex IoT Core
+  sf-short-name: Functions
   ydb-short-name: YDB
 
   # Тарифы
   price-per-hour-count-per-second: The price is indicated for 1 hour of use. Charging per second.
 
   # Роли
+  roles-functions-ivoker: serverless.functions.invoker
   roles-image-user: compute.images.user
   roles-cloud-owner: resource-manager.clouds.owner
   roles-cloud-member: resource-manager.clouds.member
@@ -180,6 +184,9 @@ default:
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   mqtt-broker-address: mqtt.cloud.yandex.net
   mqtt-broker-port: 8883
+
+  # Serverless Functions specific
+  sf-url: https://functions.yandexcloud.net
 
   # links
   link-console-billing: https://console.cloud.yandex.com/billing
