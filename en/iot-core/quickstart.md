@@ -114,8 +114,8 @@ To enable data exchange, use the following [topics](concepts/index.md#interactio
     - `$devices/<device ID>/commands` — a topic for commands. The registry can write data to this topic and the device can read data from it.
 
 - Registry topics:
-    - `$registry/<registry ID>/events` — a topic for telemetry data. The device can write data to this topic and the registry can read data from it.
-    - `$registry/<registry ID>/commands` — a topic for commands. The registry can write data to this topic and the device can read data from it.
+    - `$registries/<registry ID>/events` — a topic for telemetry data. The device can write data to this topic and the registry can read data from it.
+    - `$registries/<registry ID>/commands` — a topic for commands. The registry can write data to this topic and the device can read data from it.
 
 You can get the ID of a device when creating it or using the following command:
 

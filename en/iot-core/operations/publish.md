@@ -2,8 +2,8 @@
 
 You can send the following types of messages:
 
-- Send data from a device to a registry using the `$devices/<device ID>/events` or `$registry/<registry ID>/events` topics.
-- Send registry commands to a device using the `$devices/<device ID>/commands` or `$registry/<registry ID>/commands` topics.
+- Send data from a device to a registry using the `$devices/<device ID>/events` or `$registries/<registry ID>/events` topics.
+- Send registry commands to a device using the `$devices/<device ID>/commands` or `$registries/<registry ID>/commands` topics.
 
 {% note info %}
 
@@ -42,7 +42,7 @@ To receive messages, you need to subscribe to the sender. For information about 
       --cafile rootCA.pem \ # Path to the certificate from the certificate authority (CA).
       --cert device-cert.pem \ # Path to the public part of the device certificate.
       --key device-key.pem \ # Path to the private part of the device certificate.
-      -t '$registry/<registry ID>/events' \ # Registry topic.
+      -t '$registries/<registry ID>/events' \ # Registry topic.
       -m 'Test data' \ # Message text.
       -q 1 # QoS 1.
       ```
@@ -80,7 +80,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
       --cafile cert.pem \ # Path to the certificate from the certificate authority (CA).
       --cert registry-cert.pem \ # Path to the public part of the registry certificate.
       --key registry-key.pem \ # Path to the private part of the registry certificate.
-      t '$devices/<ID of the first device>/commands' \ # Topic of the first device.
+      -t '$devices/<ID of the first device>/commands' \ # Topic of the first device.
       -t '$devices/<ID of the second device>/commands' \ # Topic of the second device.
       -m 'Test command for first and second device' \ # Message text.
       -q 1 # QoS 1.
@@ -94,7 +94,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
       --cafile cert.pem \ # Path to the certificate from the certificate authority (CA).
       --cert registry-cert.pem \ # Path to the public part of the registry certificate.
       --key registry-key.pem \ # Path to the private part of the registry certificate.
-      -t '$registry/<registry ID>/commands' \ # Registry topic.
+      -t '$registries/<registry ID>/commands' \ # Registry topic.
       -m 'Test command for all devices' \ # Message text.
       -q 1 # QoS 1.
       ```
