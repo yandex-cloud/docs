@@ -59,6 +59,8 @@ items:
         href: concepts/bucket.md
       - name: Объект
         href: concepts/object.md
+      - name: Подписанные (pre-signed) URL
+        href: concepts/pre-signed-urls.md
       - name: Составная (multipart) загрузка
         href: concepts/multipart.md
       - name: Список управления доступом (ACL)

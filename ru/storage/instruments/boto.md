@@ -18,7 +18,6 @@
 
 ## Пример {#boto-example}
 
-
 {% list tabs %}
 
 - boto3
