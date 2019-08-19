@@ -33,11 +33,11 @@ items:
       - name: Runtime environment
         items:
           - name: Overview
-            href: runtime/index.md
+            href: concepts/runtime/index.md
           - name: Environment variables
-            href: runtime/environment-variables.md
+            href: concepts/runtime/environment-variables.md
           - name: Execution context
-            href: runtime/execution-context.md
+            href: concepts/runtime/execution-context.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Pricing policy

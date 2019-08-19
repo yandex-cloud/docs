@@ -33,11 +33,11 @@ items:
       - name: Среда выполнения
         items:
           - name: Обзор
-            href: runtime/index.md
+            href: concepts/runtime/index.md
           - name: Переменные окружения
-            href: runtime/environment-variables.md
+            href: concepts/runtime/environment-variables.md
           - name: Контекст выполнения
-            href: runtime/execution-context.md
+            href: concepts/runtime/execution-context.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Правила тарификации
