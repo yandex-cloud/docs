@@ -848,6 +848,7 @@ components:
       - FLUME
       - SPARK
       - ZEPPELIN
+      - OOZIE
     Health:
       description: |2-
          - HEALTH_UNKNOWN: State of the cluster is unknown ([Host.health] for every host in the cluster is UNKNOWN).

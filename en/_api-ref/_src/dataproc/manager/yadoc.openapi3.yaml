@@ -132,6 +132,14 @@ components:
           $ref: '#/components/schemas/ZookeeperInfo_in_Info_zookeeper'
         hbase:
           $ref: '#/components/schemas/HbaseInfo_in_Info_hbase'
+        oozie:
+          $ref: '#/components/schemas/OozieInfo_in_Info_oozie'
+    OozieInfo:
+      type: object
+      properties:
+        alive:
+          type: boolean
+          format: boolean
     ReportReply:
       description: The response message containing the agent commands to apply on
         host.
@@ -265,6 +273,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HbaseNodeInfo'
+    OozieInfo_in_Info_oozie:
+      type: object
+      properties:
+        alive:
+          type: boolean
+          format: boolean
 tags:
 - name: DataprocManager
   description: Dataproc manager service defifnition

@@ -26,7 +26,17 @@ clusterId | Required. ID of the Kubernetes cluster to update. To get the Kuberne
   "name": "string",
   "description": "string",
   "labels": "object",
+  "masterSpec": {
+    "zonalMasterSpec": {
+      "zoneId": "string",
+      "internalV4AddressSpec": {
+        "subnetId": "string"
+      },
+      "externalV4AddressSpec": {}
+    }
+  },
   "serviceAccountId": "string",
+  "nodeServiceAccountId": "string",
   "gatewayIpv4Address": "string"
 }
 ```
@@ -38,7 +48,14 @@ updateMask | **string**<br><p>A comma-separated names off ALL fields to be updat
 name | **string**<br><p>Name of the Kubernetes cluster. The name must be unique within the folder.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
 description | **string**<br><p>Description of the Kubernetes cluster.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>Existing set of <code>labels</code> is completely replaced by the provided set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
+masterSpec | **object**<br>master_spec change is not implemented yet. That is, if [updateMask](/docs/managed-kubernetes/api-ref/Cluster/update#body_params) is empty, or contains field path, passed value should be equal to current.<br>
+masterSpec.<br>zonalMasterSpec | **object**<br>Specification of the master availability zone.<br>
+masterSpec.<br>zonalMasterSpec.<br>zoneId | **string**<br><p>Required. ID of the availability zone.</p> 
+masterSpec.<br>zonalMasterSpec.<br>internalV4AddressSpec | **object**<br><p>Specification of parameters for internal IPv4 networking.</p> 
+masterSpec.<br>zonalMasterSpec.<br>internalV4AddressSpec.<br>subnetId | **string**<br><p>ID of the subnet. If no ID is specified, and there only one subnet in specified zone, an address in this subnet will be allocated.</p> 
+masterSpec.<br>zonalMasterSpec.<br>externalV4AddressSpec | **object**<br><p>Specification of parameters for external IPv4 networking.</p> 
 serviceAccountId | **string**<br><p>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have <code>edit</code> role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides.</p> 
+nodeServiceAccountId | **string**<br><p>node_service_account_id change is not implemented yet. That is, if <a href="/docs/managed-kubernetes/api-ref/Cluster/update#body_params">updateMask</a> is empty, or contains field path, passed value should be equal to current.</p> 
 gatewayIpv4Address | **string**<br><p>The maximum string length in characters is 15.</p> 
  
 ## Response {#responses}

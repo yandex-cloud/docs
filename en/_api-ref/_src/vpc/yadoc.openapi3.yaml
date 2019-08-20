@@ -602,11 +602,6 @@ components:
           type: array
           items:
             type: string
-        v6CidrBlocks:
-          description: IPv6 not available yet.
-          type: array
-          items:
-            type: string
         routeTableId:
           description: |-
             ID of route table the subnet is linked to.

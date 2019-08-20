@@ -2068,6 +2068,10 @@ components:
           $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryStructureId_in_ClickhouseConfigExternalDictionaryStructure_id'
         key:
           $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryStructureKey_in_ClickhouseConfigExternalDictionaryStructure_key'
+        rangeMin:
+          $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryStructureAttribute_in_ClickhouseConfigExternalDictionaryStructure_rangeMin'
+        rangeMax:
+          $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryStructureAttribute_in_ClickhouseConfigExternalDictionaryStructure_rangeMax'
         attributes:
           description: |-
             Required.
@@ -2101,13 +2105,13 @@ components:
         hierarchical:
           description: |-
             Indication of hierarchy support.
-            Default value: "false".
+            Default value: `false`.
           type: boolean
           format: boolean
         injective:
           description: |-
             Indication of injective mapping "id -> attribute".
-            Default value: "false".
+            Default value: `false`.
           type: boolean
           format: boolean
     ClickhouseConfigExternalDictionaryStructureId:
@@ -3334,13 +3338,20 @@ components:
       properties:
         readonly:
           description: |-
+            Restricts permissions for non-DDL queries.
+            Possible values:
+            * 0 (default) —  no restrictions.
+            * 1 — only read data queries are allowed.
+            * 2 — read data and change settings queries are allowed.
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_readonly).
 
             Acceptable values are 0 to 2, inclusive.
           type: integer
           format: int64
         allowDdl:
-          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_allow_ddl).
+          description: |-
+            Whether DDL queries are allowed. Default value: `false`.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_allow_ddl).
           type: boolean
           format: boolean
         insertQuorum:
@@ -3348,6 +3359,30 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-insert_quorum).
 
             The minimum value is 0.
+          type: integer
+          format: int64
+        connectTimeout:
+          description: |-
+            Connection timeout in milliseconds.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        receiveTimeout:
+          description: |-
+            Receive timeout in milliseconds.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        sendTimeout:
+          description: |-
+            Send timeout in milliseconds.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Value must be greater than 0.
           type: integer
           format: int64
         insertQuorumTimeout:
@@ -3374,9 +3409,36 @@ components:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
           type: boolean
           format: boolean
-        maxThreads:
+        replicationAlterPartitionsSync:
           description: |-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_threads).
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/query_language/alter/#synchronicity-of-alter-queries).
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        distributedProductMode:
+          $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
+        compile:
+          description: |-
+            Whether query compilation is enabled.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#compile).
+          type: boolean
+          format: boolean
+        minCountToCompile:
+          description: |-
+            The number of structurally identical queries before they are compiled.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#min-count-to-compile).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        compileExpressions:
+          description: Whether expression compilation is enabled.
+          type: boolean
+          format: boolean
+        minCountToCompileExpression:
+          description: |-
+            The number of identical expressions before they are compiled.
 
             Value must be greater than 0.
           type: integer
@@ -3388,9 +3450,80 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        minInsertBlockSizeRows:
+          description: |-
+            Squash blocks passed to INSERT query to specified size in rows, if blocks are not big enough.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        minInsertBlockSizeBytes:
+          description: |-
+            Squash blocks passed to INSERT query to specified size in bytes, if blocks are not big enough.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
         maxInsertBlockSize:
           description: |-
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_insert_block_size).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        minBytesToUseDirectIo:
+          description: |-
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-min_bytes_to_use_direct_io).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        useUncompressedCache:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#setting-use_uncompressed_cache).
+          type: boolean
+          format: boolean
+        mergeTreeMaxRowsToUseCache:
+          description: |-
+            The maximum request size in rows to use the cache of uncompressed data. The cache is not used for requests larger
+            than the specified value.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#setting-merge_tree_max_rows_to_use_cache).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        mergeTreeMaxBytesToUseCache:
+          description: |-
+            The maximum request size in bytes to use the cache of uncompressed data. The cache is not used for requests larger
+            than the specified value.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        mergeTreeMinRowsForConcurrentRead:
+          description: |-
+            The minimum number of rows to be read from a file to enable concurrent read.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#setting-merge_tree_min_rows_for_concurrent_read).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        mergeTreeMinBytesForConcurrentRead:
+          description: |-
+            The minimum number of bytes to be read from a file to enable concurrent read.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        priority:
+          description: |-
+            Priority of the query.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        maxThreads:
+          description: |-
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_threads).
 
             Value must be greater than 0.
           type: integer
@@ -3409,6 +3542,22 @@ components:
             The minimum value is 0.
           type: integer
           format: int64
+        maxNetworkBandwidth:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth).
+          type: boolean
+          format: boolean
+        maxNetworkBandwidthForUser:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth_for_user).
+          type: boolean
+          format: boolean
+        forceIndexByDate:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-force_index_by_date).
+          type: boolean
+          format: boolean
+        forcePrimaryKey:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#force-primary-key).
+          type: boolean
+          format: boolean
         maxRowsToRead:
           description: |-
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/query_complexity/#max-rows-to-read).
@@ -3563,6 +3712,64 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        inputFormatValuesInterpretExpressions:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-input_format_values_interpret_expressions).
+          type: boolean
+          format: boolean
+        inputFormatDefaultsForOmittedFields:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuote_64BitIntegers:
+          description: |-
+            Whether quoting of 64-bit integers is enabled in JSON output format.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#session_settings-output_format_json_quote_64bit_integers).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuoteDenormals:
+          description: Whether output of special floating-point values (`+nan`, `-nan`,
+            `+inf` and `-inf`) is enabled in JSON output format.
+          type: boolean
+          format: boolean
+        httpConnectTimeout:
+          description: HTTP connection timeout, in milliseconds.
+          type: integer
+          format: int64
+        httpReceiveTimeout:
+          description: HTTP receive timeout, in milliseconds.
+          type: integer
+          format: int64
+        httpSendTimeout:
+          description: HTTP send timeout, in milliseconds.
+          type: integer
+          format: int64
+        enableHttpCompression:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-enable_http_compression).
+          type: boolean
+          format: boolean
+        sendProgressInHttpHeaders:
+          description: |-
+            Whether progress notifications using X-ClickHouse-Progress headers are enabled. Default value: `false`.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-send_progress_in_http_headers).
+          type: boolean
+          format: boolean
+        httpHeadersProgressInterval:
+          description: 'Minimum interval between progress notifications, in milliseconds.
+            Default value: 100.'
+          type: integer
+          format: int64
+        addHttpCorsHeader:
+          description: 'Whether CORS header in HTTP responses is enabled. Default
+            value: `false`.'
+          type: boolean
+          format: boolean
+    UserSettingsDistributedProductMode:
+      type: string
+      enum:
+      - DISTRIBUTED_PRODUCT_MODE_DENY
+      - DISTRIBUTED_PRODUCT_MODE_LOCAL
+      - DISTRIBUTED_PRODUCT_MODE_GLOBAL
+      - DISTRIBUTED_PRODUCT_MODE_ALLOW
     UserSettingsGroupByOverflowMode:
       type: string
       enum:
@@ -3744,6 +3951,76 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryStructureAttribute'
+    ClickhouseConfigExternalDictionaryStructureAttribute_in_ClickhouseConfigExternalDictionaryStructure_rangeMin:
+      description: |-
+        Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout.
+        For details, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed).
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name of the column.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the column.
+          type: string
+        nullValue:
+          description: Default value for an element without data (for example, an
+            empty string).
+          type: string
+        expression:
+          description: Expression, describing the attribute, if applicable.
+          type: string
+        hierarchical:
+          description: |-
+            Indication of hierarchy support.
+            Default value: `false`.
+          type: boolean
+          format: boolean
+        injective:
+          description: |-
+            Indication of injective mapping "id -> attribute".
+            Default value: `false`.
+          type: boolean
+          format: boolean
+    ClickhouseConfigExternalDictionaryStructureAttribute_in_ClickhouseConfigExternalDictionaryStructure_rangeMax:
+      description: |-
+        Field holding the end of the range for dictionaries with `RANGE_HASHED` layout.
+        For details, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed).
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name of the column.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the column.
+          type: string
+        nullValue:
+          description: Default value for an element without data (for example, an
+            empty string).
+          type: string
+        expression:
+          description: Expression, describing the attribute, if applicable.
+          type: string
+        hierarchical:
+          description: |-
+            Indication of hierarchy support.
+            Default value: `false`.
+          type: boolean
+          format: boolean
+        injective:
+          description: |-
+            Indication of injective mapping "id -> attribute".
+            Default value: `false`.
+          type: boolean
+          format: boolean
     ClickhouseConfig_in_ClickhouseConfigSet_effectiveConfig:
       description: |-
         Required.
@@ -4874,13 +5151,20 @@ components:
       properties:
         readonly:
           description: |-
+            Restricts permissions for non-DDL queries.
+            Possible values:
+            * 0 (default) —  no restrictions.
+            * 1 — only read data queries are allowed.
+            * 2 — read data and change settings queries are allowed.
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_readonly).
 
             Acceptable values are 0 to 2, inclusive.
           type: integer
           format: int64
         allowDdl:
-          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_allow_ddl).
+          description: |-
+            Whether DDL queries are allowed. Default value: `false`.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_allow_ddl).
           type: boolean
           format: boolean
         insertQuorum:
@@ -4888,6 +5172,30 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-insert_quorum).
 
             The minimum value is 0.
+          type: integer
+          format: int64
+        connectTimeout:
+          description: |-
+            Connection timeout in milliseconds.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        receiveTimeout:
+          description: |-
+            Receive timeout in milliseconds.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        sendTimeout:
+          description: |-
+            Send timeout in milliseconds.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Value must be greater than 0.
           type: integer
           format: int64
         insertQuorumTimeout:
@@ -4914,9 +5222,36 @@ components:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
           type: boolean
           format: boolean
-        maxThreads:
+        replicationAlterPartitionsSync:
           description: |-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_threads).
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/query_language/alter/#synchronicity-of-alter-queries).
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        distributedProductMode:
+          $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
+        compile:
+          description: |-
+            Whether query compilation is enabled.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#compile).
+          type: boolean
+          format: boolean
+        minCountToCompile:
+          description: |-
+            The number of structurally identical queries before they are compiled.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#min-count-to-compile).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        compileExpressions:
+          description: Whether expression compilation is enabled.
+          type: boolean
+          format: boolean
+        minCountToCompileExpression:
+          description: |-
+            The number of identical expressions before they are compiled.
 
             Value must be greater than 0.
           type: integer
@@ -4928,9 +5263,80 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        minInsertBlockSizeRows:
+          description: |-
+            Squash blocks passed to INSERT query to specified size in rows, if blocks are not big enough.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        minInsertBlockSizeBytes:
+          description: |-
+            Squash blocks passed to INSERT query to specified size in bytes, if blocks are not big enough.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
         maxInsertBlockSize:
           description: |-
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_insert_block_size).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        minBytesToUseDirectIo:
+          description: |-
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-min_bytes_to_use_direct_io).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        useUncompressedCache:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#setting-use_uncompressed_cache).
+          type: boolean
+          format: boolean
+        mergeTreeMaxRowsToUseCache:
+          description: |-
+            The maximum request size in rows to use the cache of uncompressed data. The cache is not used for requests larger
+            than the specified value.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#setting-merge_tree_max_rows_to_use_cache).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        mergeTreeMaxBytesToUseCache:
+          description: |-
+            The maximum request size in bytes to use the cache of uncompressed data. The cache is not used for requests larger
+            than the specified value.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        mergeTreeMinRowsForConcurrentRead:
+          description: |-
+            The minimum number of rows to be read from a file to enable concurrent read.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#setting-merge_tree_min_rows_for_concurrent_read).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        mergeTreeMinBytesForConcurrentRead:
+          description: |-
+            The minimum number of bytes to be read from a file to enable concurrent read.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        priority:
+          description: |-
+            Priority of the query.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        maxThreads:
+          description: |-
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_threads).
 
             Value must be greater than 0.
           type: integer
@@ -4949,6 +5355,22 @@ components:
             The minimum value is 0.
           type: integer
           format: int64
+        maxNetworkBandwidth:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth).
+          type: boolean
+          format: boolean
+        maxNetworkBandwidthForUser:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth_for_user).
+          type: boolean
+          format: boolean
+        forceIndexByDate:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-force_index_by_date).
+          type: boolean
+          format: boolean
+        forcePrimaryKey:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#force-primary-key).
+          type: boolean
+          format: boolean
         maxRowsToRead:
           description: |-
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/query_complexity/#max-rows-to-read).
@@ -5103,6 +5525,57 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        inputFormatValuesInterpretExpressions:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-input_format_values_interpret_expressions).
+          type: boolean
+          format: boolean
+        inputFormatDefaultsForOmittedFields:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuote_64BitIntegers:
+          description: |-
+            Whether quoting of 64-bit integers is enabled in JSON output format.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#session_settings-output_format_json_quote_64bit_integers).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuoteDenormals:
+          description: Whether output of special floating-point values (`+nan`, `-nan`,
+            `+inf` and `-inf`) is enabled in JSON output format.
+          type: boolean
+          format: boolean
+        httpConnectTimeout:
+          description: HTTP connection timeout, in milliseconds.
+          type: integer
+          format: int64
+        httpReceiveTimeout:
+          description: HTTP receive timeout, in milliseconds.
+          type: integer
+          format: int64
+        httpSendTimeout:
+          description: HTTP send timeout, in milliseconds.
+          type: integer
+          format: int64
+        enableHttpCompression:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-enable_http_compression).
+          type: boolean
+          format: boolean
+        sendProgressInHttpHeaders:
+          description: |-
+            Whether progress notifications using X-ClickHouse-Progress headers are enabled. Default value: `false`.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-send_progress_in_http_headers).
+          type: boolean
+          format: boolean
+        httpHeadersProgressInterval:
+          description: 'Minimum interval between progress notifications, in milliseconds.
+            Default value: 100.'
+          type: integer
+          format: int64
+        addHttpCorsHeader:
+          description: 'Whether CORS header in HTTP responses is enabled. Default
+            value: `false`.'
+          type: boolean
+          format: boolean
     UserSettings_in_User_settings:
       description: |-
         ClickHouse user settings. Supported settings are a limited subset of all settings
@@ -5111,13 +5584,20 @@ components:
       properties:
         readonly:
           description: |-
+            Restricts permissions for non-DDL queries.
+            Possible values:
+            * 0 (default) —  no restrictions.
+            * 1 — only read data queries are allowed.
+            * 2 — read data and change settings queries are allowed.
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_readonly).
 
             Acceptable values are 0 to 2, inclusive.
           type: integer
           format: int64
         allowDdl:
-          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_allow_ddl).
+          description: |-
+            Whether DDL queries are allowed. Default value: `false`.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_allow_ddl).
           type: boolean
           format: boolean
         insertQuorum:
@@ -5125,6 +5605,30 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-insert_quorum).
 
             The minimum value is 0.
+          type: integer
+          format: int64
+        connectTimeout:
+          description: |-
+            Connection timeout in milliseconds.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        receiveTimeout:
+          description: |-
+            Receive timeout in milliseconds.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        sendTimeout:
+          description: |-
+            Send timeout in milliseconds.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Value must be greater than 0.
           type: integer
           format: int64
         insertQuorumTimeout:
@@ -5151,9 +5655,36 @@ components:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
           type: boolean
           format: boolean
-        maxThreads:
+        replicationAlterPartitionsSync:
           description: |-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_threads).
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/query_language/alter/#synchronicity-of-alter-queries).
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        distributedProductMode:
+          $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
+        compile:
+          description: |-
+            Whether query compilation is enabled.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#compile).
+          type: boolean
+          format: boolean
+        minCountToCompile:
+          description: |-
+            The number of structurally identical queries before they are compiled.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#min-count-to-compile).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        compileExpressions:
+          description: Whether expression compilation is enabled.
+          type: boolean
+          format: boolean
+        minCountToCompileExpression:
+          description: |-
+            The number of identical expressions before they are compiled.
 
             Value must be greater than 0.
           type: integer
@@ -5165,9 +5696,80 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        minInsertBlockSizeRows:
+          description: |-
+            Squash blocks passed to INSERT query to specified size in rows, if blocks are not big enough.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        minInsertBlockSizeBytes:
+          description: |-
+            Squash blocks passed to INSERT query to specified size in bytes, if blocks are not big enough.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
         maxInsertBlockSize:
           description: |-
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_insert_block_size).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        minBytesToUseDirectIo:
+          description: |-
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-min_bytes_to_use_direct_io).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        useUncompressedCache:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#setting-use_uncompressed_cache).
+          type: boolean
+          format: boolean
+        mergeTreeMaxRowsToUseCache:
+          description: |-
+            The maximum request size in rows to use the cache of uncompressed data. The cache is not used for requests larger
+            than the specified value.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#setting-merge_tree_max_rows_to_use_cache).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        mergeTreeMaxBytesToUseCache:
+          description: |-
+            The maximum request size in bytes to use the cache of uncompressed data. The cache is not used for requests larger
+            than the specified value.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        mergeTreeMinRowsForConcurrentRead:
+          description: |-
+            The minimum number of rows to be read from a file to enable concurrent read.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#setting-merge_tree_min_rows_for_concurrent_read).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        mergeTreeMinBytesForConcurrentRead:
+          description: |-
+            The minimum number of bytes to be read from a file to enable concurrent read.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        priority:
+          description: |-
+            Priority of the query.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        maxThreads:
+          description: |-
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_threads).
 
             Value must be greater than 0.
           type: integer
@@ -5186,6 +5788,22 @@ components:
             The minimum value is 0.
           type: integer
           format: int64
+        maxNetworkBandwidth:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth).
+          type: boolean
+          format: boolean
+        maxNetworkBandwidthForUser:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth_for_user).
+          type: boolean
+          format: boolean
+        forceIndexByDate:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-force_index_by_date).
+          type: boolean
+          format: boolean
+        forcePrimaryKey:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#force-primary-key).
+          type: boolean
+          format: boolean
         maxRowsToRead:
           description: |-
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/query_complexity/#max-rows-to-read).
@@ -5340,6 +5958,65 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        inputFormatValuesInterpretExpressions:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-input_format_values_interpret_expressions).
+          type: boolean
+          format: boolean
+        inputFormatDefaultsForOmittedFields:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuote_64BitIntegers:
+          description: |-
+            Whether quoting of 64-bit integers is enabled in JSON output format.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#session_settings-output_format_json_quote_64bit_integers).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuoteDenormals:
+          description: Whether output of special floating-point values (`+nan`, `-nan`,
+            `+inf` and `-inf`) is enabled in JSON output format.
+          type: boolean
+          format: boolean
+        httpConnectTimeout:
+          description: HTTP connection timeout, in milliseconds.
+          type: integer
+          format: int64
+        httpReceiveTimeout:
+          description: HTTP receive timeout, in milliseconds.
+          type: integer
+          format: int64
+        httpSendTimeout:
+          description: HTTP send timeout, in milliseconds.
+          type: integer
+          format: int64
+        enableHttpCompression:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-enable_http_compression).
+          type: boolean
+          format: boolean
+        sendProgressInHttpHeaders:
+          description: |-
+            Whether progress notifications using X-ClickHouse-Progress headers are enabled. Default value: `false`.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-send_progress_in_http_headers).
+          type: boolean
+          format: boolean
+        httpHeadersProgressInterval:
+          description: 'Minimum interval between progress notifications, in milliseconds.
+            Default value: 100.'
+          type: integer
+          format: int64
+        addHttpCorsHeader:
+          description: 'Whether CORS header in HTTP responses is enabled. Default
+            value: `false`.'
+          type: boolean
+          format: boolean
+    UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode:
+      description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#distributed-product-mode).
+      type: string
+      enum:
+      - DISTRIBUTED_PRODUCT_MODE_DENY
+      - DISTRIBUTED_PRODUCT_MODE_LOCAL
+      - DISTRIBUTED_PRODUCT_MODE_GLOBAL
+      - DISTRIBUTED_PRODUCT_MODE_ALLOW
     UserSettingsOverflowMode_in_UserSettings_readOverflowMode:
       description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/query_complexity/#read-overflow-mode).
       type: string
@@ -5391,13 +6068,20 @@ components:
       properties:
         readonly:
           description: |-
+            Restricts permissions for non-DDL queries.
+            Possible values:
+            * 0 (default) —  no restrictions.
+            * 1 — only read data queries are allowed.
+            * 2 — read data and change settings queries are allowed.
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_readonly).
 
             Acceptable values are 0 to 2, inclusive.
           type: integer
           format: int64
         allowDdl:
-          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_allow_ddl).
+          description: |-
+            Whether DDL queries are allowed. Default value: `false`.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_allow_ddl).
           type: boolean
           format: boolean
         insertQuorum:
@@ -5405,6 +6089,30 @@ components:
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-insert_quorum).
 
             The minimum value is 0.
+          type: integer
+          format: int64
+        connectTimeout:
+          description: |-
+            Connection timeout in milliseconds.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        receiveTimeout:
+          description: |-
+            Receive timeout in milliseconds.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        sendTimeout:
+          description: |-
+            Send timeout in milliseconds.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Value must be greater than 0.
           type: integer
           format: int64
         insertQuorumTimeout:
@@ -5431,9 +6139,36 @@ components:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
           type: boolean
           format: boolean
-        maxThreads:
+        replicationAlterPartitionsSync:
           description: |-
-            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_threads).
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/query_language/alter/#synchronicity-of-alter-queries).
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        distributedProductMode:
+          $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
+        compile:
+          description: |-
+            Whether query compilation is enabled.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#compile).
+          type: boolean
+          format: boolean
+        minCountToCompile:
+          description: |-
+            The number of structurally identical queries before they are compiled.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#min-count-to-compile).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        compileExpressions:
+          description: Whether expression compilation is enabled.
+          type: boolean
+          format: boolean
+        minCountToCompileExpression:
+          description: |-
+            The number of identical expressions before they are compiled.
 
             Value must be greater than 0.
           type: integer
@@ -5445,9 +6180,80 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        minInsertBlockSizeRows:
+          description: |-
+            Squash blocks passed to INSERT query to specified size in rows, if blocks are not big enough.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        minInsertBlockSizeBytes:
+          description: |-
+            Squash blocks passed to INSERT query to specified size in bytes, if blocks are not big enough.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
         maxInsertBlockSize:
           description: |-
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_insert_block_size).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        minBytesToUseDirectIo:
+          description: |-
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-min_bytes_to_use_direct_io).
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        useUncompressedCache:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#setting-use_uncompressed_cache).
+          type: boolean
+          format: boolean
+        mergeTreeMaxRowsToUseCache:
+          description: |-
+            The maximum request size in rows to use the cache of uncompressed data. The cache is not used for requests larger
+            than the specified value.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#setting-merge_tree_max_rows_to_use_cache).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        mergeTreeMaxBytesToUseCache:
+          description: |-
+            The maximum request size in bytes to use the cache of uncompressed data. The cache is not used for requests larger
+            than the specified value.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        mergeTreeMinRowsForConcurrentRead:
+          description: |-
+            The minimum number of rows to be read from a file to enable concurrent read.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#setting-merge_tree_min_rows_for_concurrent_read).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        mergeTreeMinBytesForConcurrentRead:
+          description: |-
+            The minimum number of bytes to be read from a file to enable concurrent read.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+        priority:
+          description: |-
+            Priority of the query.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        maxThreads:
+          description: |-
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_threads).
 
             Value must be greater than 0.
           type: integer
@@ -5466,6 +6272,22 @@ components:
             The minimum value is 0.
           type: integer
           format: int64
+        maxNetworkBandwidth:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth).
+          type: boolean
+          format: boolean
+        maxNetworkBandwidthForUser:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth_for_user).
+          type: boolean
+          format: boolean
+        forceIndexByDate:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-force_index_by_date).
+          type: boolean
+          format: boolean
+        forcePrimaryKey:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#force-primary-key).
+          type: boolean
+          format: boolean
         maxRowsToRead:
           description: |-
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/query_complexity/#max-rows-to-read).
@@ -5620,6 +6442,57 @@ components:
             Value must be greater than 0.
           type: integer
           format: int64
+        inputFormatValuesInterpretExpressions:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-input_format_values_interpret_expressions).
+          type: boolean
+          format: boolean
+        inputFormatDefaultsForOmittedFields:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuote_64BitIntegers:
+          description: |-
+            Whether quoting of 64-bit integers is enabled in JSON output format.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#session_settings-output_format_json_quote_64bit_integers).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuoteDenormals:
+          description: Whether output of special floating-point values (`+nan`, `-nan`,
+            `+inf` and `-inf`) is enabled in JSON output format.
+          type: boolean
+          format: boolean
+        httpConnectTimeout:
+          description: HTTP connection timeout, in milliseconds.
+          type: integer
+          format: int64
+        httpReceiveTimeout:
+          description: HTTP receive timeout, in milliseconds.
+          type: integer
+          format: int64
+        httpSendTimeout:
+          description: HTTP send timeout, in milliseconds.
+          type: integer
+          format: int64
+        enableHttpCompression:
+          description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-enable_http_compression).
+          type: boolean
+          format: boolean
+        sendProgressInHttpHeaders:
+          description: |-
+            Whether progress notifications using X-ClickHouse-Progress headers are enabled. Default value: `false`.
+            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-send_progress_in_http_headers).
+          type: boolean
+          format: boolean
+        httpHeadersProgressInterval:
+          description: 'Minimum interval between progress notifications, in milliseconds.
+            Default value: 100.'
+          type: integer
+          format: int64
+        addHttpCorsHeader:
+          description: 'Whether CORS header in HTTP responses is enabled. Default
+            value: `false`.'
+          type: boolean
+          format: boolean
 tags:
 - name: Backup
   description: A set of methods for managing ClickHouse Backup resources.

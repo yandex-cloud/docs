@@ -32,4 +32,7 @@ Method | Description
 [delete](delete.md) | Deletes the specified registry.
 [get](get.md) | Returns the specified Registry resource.
 [list](list.md) | Retrieves the list of Registry resources in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the specified registry.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the specified registry.
 [update](update.md) | Updates the specified registry.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified registry.

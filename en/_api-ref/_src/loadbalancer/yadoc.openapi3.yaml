@@ -789,8 +789,8 @@ components:
         attachedTargetGroup:
           $ref: '#/components/schemas/AttachedTargetGroup_in_AttachNetworkLoadBalancerTargetGroupRequest_attachedTargetGroup'
     AttachedTargetGroup:
-      description: An AttachedTargetGroup resource. For more information, see [Attached
-        Target Groups](/load-balancer/concepts)
+      description: An AttachedTargetGroup resource. For more information, see [Targets
+        and groups](/docs/load-balancer/concepts/target-resources).
       type: object
       properties:
         targetGroupId:
@@ -1636,7 +1636,7 @@ components:
         ID of the attached target group to attach to the network load balancer.
         To get the network load balancer ID, use a [list](/docs/load-balancer/api-ref/NetworkLoadBalancer/list) request.
 
-        An AttachedTargetGroup resource. For more information, see [Attached Target Groups](/load-balancer/concepts)
+        An AttachedTargetGroup resource. For more information, see [Targets and groups](/docs/load-balancer/concepts/target-resources).
       type: object
       properties:
         targetGroupId:

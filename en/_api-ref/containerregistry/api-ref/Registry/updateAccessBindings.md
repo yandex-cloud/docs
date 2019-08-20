@@ -2,38 +2,51 @@
 editable: false
 ---
 
-# Method update
-Updates the specified cloud.
+# Method updateAccessBindings
+Updates access bindings for the specified registry.
  
 
  
 ## HTTP request {#https-request}
 ```
-PATCH https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{cloudId}
+POST https://container-registry.api.cloud.yandex.net/container-registry/v1/registries/{resourceId}:updateAccessBindings
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-cloudId | Required. ID of the cloud to update. To get the cloud ID, use a [list](/docs/resource-manager/api-ref/Cloud/list) request.  The maximum string length in characters is 50.
+resourceId | Required. ID of the resource for which access bindings are being updated.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
 ```json 
 {
-  "updateMask": "string",
-  "name": "string",
-  "description": "string"
+  "accessBindingDeltas": [
+    {
+      "action": "string",
+      "accessBinding": {
+        "roleId": "string",
+        "subject": {
+          "id": "string",
+          "type": "string"
+        }
+      }
+    }
+  ]
 }
 ```
 
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>Field mask that specifies which fields of the cloud are going to be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-name | **string**<br><p>Name of the cloud.</p> <p>Value must match the regular expression <code>[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
-description | **string**<br><p>Description of the cloud.</p> <p>The maximum string length in characters is 256.</p> 
+accessBindingDeltas[] | **object**<br><p>Required. Updates to access bindings.</p> 
+accessBindingDeltas[].<br>action | **string**<br><p>Required. The action that is being performed on an access binding.</p> <ul> <li>ADD: Addition of an access binding.</li> <li>REMOVE: Removal of an access binding.</li> </ul> 
+accessBindingDeltas[].<br>accessBinding | **object**<br><p>Required. Access binding. For more information, see <a href="/docs/iam/concepts/access-control/#access-bindings">Access Bindings</a>.</p> 
+accessBindingDeltas[].<br>accessBinding.<br>roleId | **string**<br><p>ID of the <a href="/docs/iam/api-ref/Role#representation">Role</a> that is assigned to the subject.</p> <p>The maximum string length in characters is 50.</p> 
+accessBindingDeltas[].<br>accessBinding.<br>subject | **object**<br><p>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier.</p> 
+accessBindingDeltas[].<br>accessBinding.<br>subject.<br>id | **string**<br><p>ID of the subject.</p> <p>It can contain one of the following values:</p> <ul> <li> <p><code>allAuthenticatedUsers</code>: A special system identifier that represents anyone who is authenticated. It can be used only if the type is <code>system</code>.</p> </li> <li> <p><code>&lt;cloud generated id&gt;</code>: An identifier that represents a user account. It can be used only if the type is <code>userAccount</code> or <code>serviceAccount</code>.</p> </li> </ul> <p>The maximum string length in characters is 50.</p> 
+accessBindingDeltas[].<br>accessBinding.<br>subject.<br>type | **string**<br><p>Type of the subject.</p> <p>It can contain one of the following values:</p> <ul> <li><code>system</code>: System group. This type represents several accounts with a common system identifier.</li> <li><code>userAccount</code>: An user account (for example, &quot;alice.the.girl@yandex.ru&quot;). This type represents the <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource.</li> <li><code>serviceAccount</code>: A service account. This type represents the <a href="/docs/iam/api-ref/ServiceAccount#representation">ServiceAccount</a> resource.</li> </ul> <p>For more information, see <a href="/docs/iam/concepts/access-control/#subject">Subject to which the role is assigned</a>.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

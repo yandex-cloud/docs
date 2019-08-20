@@ -1180,11 +1180,21 @@ components:
             type: object
             additionalProperties:
               type: string
+          masterSpec:
+            $ref: '#/components/schemas/MasterSpec'
+            description: |-
+              master_spec change is not implemented yet.
+              That is, if [updateMask](/docs/managed-kubernetes/api-ref/Cluster/update#body_params) is empty, or contains field path, passed value should be equal to current.
           serviceAccountId:
             description: |-
               Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster.
               Selected service account should have `edit` role on the folder where the Kubernetes cluster will be
               located and on the folder where selected network resides.
+            type: string
+          nodeServiceAccountId:
+            description: |-
+              node_service_account_id change is not implemented yet.
+              That is, if [updateMask](/docs/managed-kubernetes/api-ref/Cluster/update#body_params) is empty, or contains field path, passed value should be equal to current.
             type: string
       - title: internet_gateway
         type: object
@@ -1233,10 +1243,12 @@ components:
           type: object
           additionalProperties:
             type: string
-        scalePolicy:
-          $ref: '#/components/schemas/ScalePolicy_in_UpdateNodeGroupRequest_scalePolicy'
         nodeTemplate:
           $ref: '#/components/schemas/NodeTemplate_in_UpdateNodeGroupRequest_nodeTemplate'
+        scalePolicy:
+          $ref: '#/components/schemas/ScalePolicy_in_UpdateNodeGroupRequest_scalePolicy'
+        allocationPolicy:
+          $ref: '#/components/schemas/NodeGroupAllocationPolicy_in_UpdateNodeGroupRequest_allocationPolicy'
     ZonalMaster:
       type: object
       properties:
@@ -1490,17 +1502,6 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
-    ScalePolicy_in_UpdateNodeGroupRequest_scalePolicy:
-      description: Scale policy of the node group.
-      type: object
-      allOf:
-      - title: scale_type
-        type: object
-        maxProperties: 1
-        properties:
-          fixedScale:
-            $ref: '#/components/schemas/ScalePolicyFixedScale'
-            description: Fixed scale policy of the node group.
     NodeTemplate_in_UpdateNodeGroupRequest_nodeTemplate:
       description: |-
         Node template for the node group.
@@ -1527,6 +1528,27 @@ components:
           $ref: '#/components/schemas/NodeAddressSpec_in_NodeTemplate_v4AddressSpec'
         schedulingPolicy:
           $ref: '#/components/schemas/SchedulingPolicy_in_NodeTemplate_schedulingPolicy'
+    ScalePolicy_in_UpdateNodeGroupRequest_scalePolicy:
+      description: Scale policy of the node group.
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+            description: Fixed scale policy of the node group.
+    NodeGroupAllocationPolicy_in_UpdateNodeGroupRequest_allocationPolicy:
+      description: Allocation policy of the node group by the zones and regions.
+      type: object
+      properties:
+        locations:
+          description: List of locations where resources for the node group will be
+            allocated.
+          type: array
+          items:
+            $ref: '#/components/schemas/NodeGroupLocation'
     InternalAddressSpec_in_ZonalMasterSpec_internalV4AddressSpec:
       description: Specification of parameters for internal IPv4 networking.
       type: object

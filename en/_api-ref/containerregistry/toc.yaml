@@ -23,8 +23,14 @@ items:
         href: api-ref/Registry/get.md
       - name: list
         href: api-ref/Registry/list.md
+      - name: listAccessBindings
+        href: api-ref/Registry/listAccessBindings.md
+      - name: setAccessBindings
+        href: api-ref/Registry/setAccessBindings.md
       - name: update
         href: api-ref/Registry/update.md
+      - name: updateAccessBindings
+        href: api-ref/Registry/updateAccessBindings.md
   - name: Repository
     items:
       - name: Overview

@@ -81,7 +81,7 @@ listenerSpecs[].<br>targetPort | **string** (int64)<br><p>Port of a target. Acce
 listenerSpecs[].<br>externalAddressSpec | **object**<br>External IP address specification.<br><p>External address specification that is used by ListenerSpec.</p> 
 listenerSpecs[].<br>externalAddressSpec.<br>address | **string**<br><p>Public IP address for a listener. If you provide a static public IP address for the <a href="/docs/load-balancer/api-ref/NetworkLoadBalancer/update">update</a> method, it will replace the existing listener address.</p> 
 listenerSpecs[].<br>externalAddressSpec.<br>ipVersion | **string**<br><p>IP version.</p> <p>IP version of the addresses that the load balancer works with. Only IPv4 is currently available.</p> <ul> <li>IPV4: IPv4</li> <li>IPV6: IPv6</li> </ul> 
-attachedTargetGroups[] | **object**<br><p>An AttachedTargetGroup resource. For more information, see <a href="/load-balancer/concepts">Attached Target Groups</a></p> 
+attachedTargetGroups[] | **object**<br><p>An AttachedTargetGroup resource. For more information, see <a href="/docs/load-balancer/concepts/target-resources">Targets and groups</a>.</p> 
 attachedTargetGroups[].<br>targetGroupId | **string**<br><p>Required. ID of the target group.</p> <p>The maximum string length in characters is 50.</p> 
 attachedTargetGroups[].<br>healthChecks[] | **object**<br><p>A HealthCheck resource. For more information, see <a href="/docs/load-balancer/concepts/health-check">Health check</a>.</p> 
 attachedTargetGroups[].<br>healthChecks[].<br>name | **string**<br><p>Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 

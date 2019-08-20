@@ -26,11 +26,6 @@ nodeGroupId | Required. ID of the node group to update. To get the node group ID
   "name": "string",
   "description": "string",
   "labels": "object",
-  "scalePolicy": {
-    "fixedScale": {
-      "size": "string"
-    }
-  },
   "nodeTemplate": {
     "platformId": "string",
     "resourcesSpec": {
@@ -51,6 +46,19 @@ nodeGroupId | Required. ID of the node group to update. To get the node group ID
     "schedulingPolicy": {
       "preemptible": true
     }
+  },
+  "scalePolicy": {
+    "fixedScale": {
+      "size": "string"
+    }
+  },
+  "allocationPolicy": {
+    "locations": [
+      {
+        "zoneId": "string",
+        "subnetId": "string"
+      }
+    ]
   }
 }
 ```
@@ -62,9 +70,6 @@ updateMask | **string**<br><p>Field mask that specifies which fields of the node
 name | **string**<br><p>Name of the node group. The name must be unique within the folder.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
 description | **string**<br><p>Description of the node group.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>Existing set of <code>labels</code> is completely replaced by the provided set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
-scalePolicy | **object**<br><p>Scale policy of the node group.</p> 
-scalePolicy.<br>fixedScale | **object**<br>Fixed scale policy of the node group.<br>
-scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 nodeTemplate | **object**<br><p>Node template for the node group. Change may trigger nodes rolling reboot or recreate.</p> 
 nodeTemplate.<br>platformId | **string**<br><p>ID of the hardware platform configuration for the node.</p> 
 nodeTemplate.<br>resourcesSpec | **object**<br><p>Computing resources of the node such as the amount of memory and number of cores.</p> 
@@ -80,6 +85,13 @@ nodeTemplate.<br>v4AddressSpec.<br>oneToOneNatSpec | **object**<br><p>One-to-one
 nodeTemplate.<br>v4AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>IP version for the public IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
 nodeTemplate.<br>schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
 nodeTemplate.<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
+scalePolicy | **object**<br><p>Scale policy of the node group.</p> 
+scalePolicy.<br>fixedScale | **object**<br>Fixed scale policy of the node group.<br>
+scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+allocationPolicy | **object**<br><p>Allocation policy of the node group by the zones and regions.</p> 
+allocationPolicy.<br>locations[] | **object**<br><p>List of locations where resources for the node group will be allocated.</p> 
+allocationPolicy.<br>locations[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the nodes may reside.</p> 
+allocationPolicy.<br>locations[].<br>subnetId | **string**<br><p>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
