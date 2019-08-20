@@ -212,7 +212,7 @@ internal:
 
   # MDB specific
   pem-path: https://crls.yandex.net/allCAs.pem
-  dns-zone: mdb.yandexcloud.net
+  dns-zone: db.yandex.net
   network-name: ' '
   host-net-example: zone-id=vla
   disk-type-example: local-ssd
