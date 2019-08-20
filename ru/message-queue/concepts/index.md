@@ -9,7 +9,6 @@ Yandex Message Queue — это сервис очередей сообщений
 - [{#T}](long-polling.md)
 - [{#T}](dlq.md)
 - [{#T}](delay-queues.md)
-- [{#T}](message-timers.md)
 - [{#T}](limits.md)
 
 
