@@ -35,15 +35,15 @@
     
     ```
     $ yc compute instance create \
-    --name nat-instance \
-    --zone ru-central1-a \
-    --hostname nat-instance \
-    --create-boot-disk "image-family=nat-instance-ubuntu,size=40" \
-    --image-folder-id=standard-images \
-    --ssh-key ssh-key.pub \
-    --network-interface subnet-name="nat-subnet,nat-ip-version=ipv4" \
-    --memory 2 \
-    --cores 2
+        --name nat-instance \
+        --zone ru-central1-a \
+        --hostname nat-instance \
+        --create-boot-disk "image-family=nat-instance-ubuntu,size=40" \
+        --image-folder-id=standard-images \
+        --ssh-key ssh-key.pub \
+        --network-interface subnet-name="nat-subnet,nat-ip-version=ipv4" \
+        --memory 2 \
+        --cores 2
     done (18s)
     id: fhmp220q3kgoqfop85q6
     folder_id: b1g88tflru0ek1omtsu0
