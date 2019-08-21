@@ -64,3 +64,9 @@ For example, the role of `{{ roles-admin }}` allows you to perform the following
 ### {{ sf-short-name }} {#functions-roles}
 
 {% include [serverless.functions.invoker](../../../_includes/roles-functions-invoker.md) %}
+
+### {{ container-registry-name }} {#cr-roles}
+
+{% include [container-registry-puller](../../../_includes/roles-container-registry-puller.md)%}
+
+{% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md)%}

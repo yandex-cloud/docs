@@ -28,6 +28,10 @@ _Service roles_ are roles that allow access to the resources of a particular ser
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
+{% include [container-registry-puller](../../_includes/roles-container-registry-puller.md)%}
+
+{% include [container-registry-pusher](../../_includes/roles-container-registry-pusher.md)%}
+
 ### Primitive roles
 
 You can assign primitive roles to any resource in any service.
