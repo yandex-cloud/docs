@@ -1,6 +1,6 @@
 # Пошаговые инструкции
 
-## Создание виртуальной машины
+## Создание виртуальной машины {#vm-create}
 
 - [{#T}](vm-create/create-linux-vm.md)
 - [{#T}](vm-create/create-windows-vm.md)
@@ -9,24 +9,24 @@
 - [{#T}](vm-create/create-from-user-image.md)
 - [{#T}](vm-create/create-preemptible-vm.md)
 
-## DSVM
+## DSVM {#dsvm}
 
 - [{#T}](dsvm/index.md)
 - [{#T}](dsvm/quickstart.md)
 
-## Образы с предустановленным программным обеспечением
+## Образы с предустановленным программным обеспечением {#images-with-pre-installed-software}
 
 - [{#T}](images-with-pre-installed-software/create.md)
 - [{#T}](images-with-pre-installed-software/setup.md)
 - [{#T}](images-with-pre-installed-software/operate.md)
 - [{#T}](images-with-pre-installed-software/get-list.md)
 
-## Получение информации о виртуальных машинах
+## Получение информации о виртуальных машинах {#vm-info}
 
 - [{#T}](vm-info/get-info.md)
 - [{#T}](vm-info/get-serial-port-output.md)
 
-## Управление виртуальной машиной
+## Управление виртуальной машиной {#vm-control}
 
 - [{#T}](vm-control/vm-stop-and-start.md)
 - [{#T}](vm-control/vm-attach-disk.md)
@@ -37,50 +37,50 @@
 - [{#T}](vm-control/vm-update-resources.md)
 - [{#T}](vm-control/vm-delete.md)
 
-## Работа на виртуальной машине
+## Работа на виртуальной машине {#vm-use}
 
 - [{#T}](vm-connect/ssh.md)
 - [{#T}](vm-connect/rdp.md)
 - [{#T}](vm-connect/auth-inside-vm.md)
 
-## Создание нового диска
+## Создание нового диска {#disk-create}
 
 - [{#T}](disk-create/empty.md)
 
-## Управление диском
+## Управление диском {#disk-control}
 
 - [{#T}](disk-control/create-snapshot.md)
 - [{#T}](disk-control/update.md)
 - [{#T}](disk-control/delete.md)
 - [{#T}](snapshot-control/delete.md)
 
-## Создание нового образа
+## Создание нового образа {#image-create}
 
 - [{#T}](image-create/upload.md)
 
-## Управление образом
+## Управление образом {#image-control}
 
 - [{#T}](image-control/delete.md)
 
-## Управление серийной консолью
+## Управление серийной консолью {#serial-console}
 
 - [{#T}](serial-console/index.md)
 - [{#T}](serial-console/connect-cli.md)
 - [{#T}](serial-console/connect-ssh.md)
 - [{#T}](serial-console/disable.md)
 
-## Создание группы виртуальных машин
+## Создание группы виртуальных машин {#ig-create}
 
 - [{#T}](instance-groups/create-fixed-group.md)
 - [{#T}](instance-groups/create-with-balancer.md)
 
-## Получение информации о группе виртуальных машин
+## Получение информации о группе виртуальных машин {#ig-info}
 
 - [{#T}](instance-groups/get-list.md)
 - [{#T}](instance-groups/get-info.md)
 - [{#T}](instance-groups/get-list-instances.md)
 
-## Управление группой виртуальных машин
+## Управление группой виртуальных машин {#ig-control}
 
 - [{#T}](instance-groups/update.md)
 - [{#T}](instance-groups/delete.md)
