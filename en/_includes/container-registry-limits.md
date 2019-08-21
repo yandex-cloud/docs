@@ -1,10 +1,10 @@
-#### Quotas
+#### Quotas {#quotas}
 
 | Type of limit | Value |
 | ----- | ----- |
 | Maximum size of the registry | 100 GB |
 
-#### Limits
+#### Limits {#limits}
 
 | Type of limit | Value |
 | ----- | ----- |
