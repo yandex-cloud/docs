@@ -45,35 +45,39 @@ DATEPART( datetime, unit [ , firstday ] )
 #### Примеры
 
 ```
-DATEPART("year", #2019-01-23#) = 2019
+DATEPART(#2019-01-23#, "year") = 2019
 ```
 
 ```
-DATEPART("month", #2019-01-23#) = 1
+DATEPART(#2019-01-23#, "month") = 1
 ```
 
 ```
-DATEPART("day", #2019-01-23#) = 23
+DATEPART(#2019-01-23#, "week") = 4
 ```
 
 ```
-DATEPART("hour", #2019-01-23 11:47:07#) = 11
+DATEPART(#2019-01-23#, "day") = 23
 ```
 
 ```
-DATEPART("minute", #2019-01-23 11:47:07#) = 47
+DATEPART(#2019-01-23 11:47:07#, "hour") = 11
 ```
 
 ```
-DATEPART("second", #2019-01-23 11:47:07#) = 7
+DATEPART(#2019-01-23 11:47:07#, "minute") = 47
 ```
 
 ```
-DATEPART(#1971-01-14 01:02:03#, "dayofweek") = 4
+DATEPART(#2019-01-23 11:47:07#, "second") = 7
 ```
 
 ```
-DATEPART(#1971-01-14 01:02:03#, "dayofweek", "wed") = 2
+DATEPART(#1971-01-14 11:47:07#, "dayofweek") = 3
+```
+
+```
+DATEPART(#1971-01-14 11:47:07#, "dayofweek", "wed") = 1
 ```
 
 
