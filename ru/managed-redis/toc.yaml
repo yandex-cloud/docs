@@ -29,8 +29,6 @@ items:
       href: concepts/instance-types.md
     - name: Сеть в Managed Service for Redis
       href: concepts/network.md
-    - name: Квоты и лимиты сервиса
-      href: concepts/limits.md
     - name: Резервные копии
       href: concepts/backup.md
     - name: Репликация и отказоустойчивость
@@ -39,6 +37,8 @@ items:
       href: concepts/supported-clients.md
     - name: Ограничения Managed Service for Redis
       href: concepts/supported-features.md
+    - name: Квоты и лимиты сервиса
+      href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
