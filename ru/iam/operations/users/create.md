@@ -11,4 +11,6 @@
   
 {% endlist %}
 
+{% include [yandex-account-2fa-warning.md](../../../_includes/iam/yandex-account-2fa-warning.md) %}
+
 Теперь вы можете [назначить пользователю роли](../roles/grant.md) на облако или каталог.
