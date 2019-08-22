@@ -1,50 +1,52 @@
 # Управление доступом
 
-Пользователь Яндекс.Облака может выполнять только те операции над ресурсами, которые разрешены назначенными ему ролями. Пока у пользователя нет никаких ролей все операции ему запрещены.
+В этом разделе вы узнаете:
+* [на какие ресурсы можно назначить роль](#resources);
+* [какие роли действуют в сервисе](#roles-list);
+* [какие роли необходимы](#required-roles) для того или иного действия.
 
-Чтобы разрешить доступ к ресурсам сервиса {{ vpc-full-name }}, назначьте пользователю нужные роли из приведенного ниже списка. На данный момент роль может быть назначена только на родительский ресурс (каталог или облако), роли которого наследуются вложенными ресурсами.
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-{% note info %}
+## На какие ресурсы можно назначить роль {#resources}
 
-Подробнее о наследовании ролей читайте в разделе [Наследование прав доступа](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-name }}.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-{% endnote %}
+## Какие роли действуют в сервисе {#roles-list}
 
-## Назначение ролей
+На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
-Для управления облачными сетями пользователь должен иметь соответствующие полномочия в облаке и каталогах, в которых будут выполняться операции.
+![image](service-roles-hierarchy.svg)
 
-Чтобы дать пользователю полномочия:
+Роли, действующие в сервисе:
 
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
+* Сервисные роли:
+    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* Примитивные роли:
+    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-## Роли
+## Какие роли мне необходимы {#required-roles}
 
-Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ service-name }}.
+В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `editor` вместо `viewer`.
 
-### Сервисные роли
+Действие | Методы | Необходимые роли
+----- | ----- | -----
+**Просмотр информации** | |
+Просмотр информации о любом ресурсе | `get`, `list`, `listOperations` | `viewer` на этот ресурс
+Получение списка подсетей в сети | `listSubnets` | `viewer` на сеть
+**Управление ресурсами** | |
+[Создание сетей в каталоге](../operations/network-create.md) | `create` | `editor` на каталог
+[Изменение](../operations/network-update.md), [удаление сетей](../operations/network-delete.md) | `update`, `delete` | `editor` на сеть
+[Создание подсетей в каталоге](../operations/subnet-create.md) | `create` | `editor` на каталог и на сеть
+[Изменение](../operations/subnet-update.md), [удаление подсетей](../operations/subnet-delete.md) | `update`, `delete` | `editor` на каталог
+**Управление доступом к ресурсам** | |
+[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на ресурс | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
 
-Сервисные роли — роли, дающие доступ к ресурсам определенного сервиса. При проверке прав доступа к ресурсам {{ service-name }} учитываются сервисные роли {{ resmgr-name }}.
+#### Что дальше
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
-
-### Примитивные роли
-
-Примитивные роли можно назначать на любой ресурс в любом сервисе.
-
-#### {{ roles-viewer }}
-Пользователь с ролью `{{ roles-viewer }}` может смотреть списки облачных сетей и подсетей.
-
-#### {{ roles-editor }}
-Пользователь с ролью `{{ roles-editor }}` может выполнять любые операции с облачными сетями и подсетями: создавать, удалять и изменять их.
-
-Помимо этого роль `{{ roles-editor }}` включает в себя все разрешения роли `{{ roles-viewer }}`.
-
-#### {{ roles-admin }}
-Пользователь с ролью `{{ roles-admin }}` управлять правами доступа к ресурсам, например, разрешить другим пользователям создавать облачные сети и подсети или просматривать информацию о них.
-
-Помимо этого роль `{{ roles-admin }}` включает в себя все разрешения роли `{{ roles-editor }}`.
-
-## См. также
-
-[Структура ресурсов Яндекс.Облака](../../resource-manager/concepts/resources-hierarchy.md)
+* [Как назначить роль](../../iam/operations/roles/grant.md).
+* [Как отозвать роль](../../iam/operations/roles/revoke.md).
+* [Подробнее об управлении доступом в Яндекс.Облаке](../../iam/concepts/access-control/index.md).
+* [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

@@ -42,8 +42,9 @@
 [Просмотр информации о сервисном аккаунте](../operations/sa/get-id.md) | `get`, `list`, `listOperations` | `iam.serviceAccounts.user` или `viewer` на сервисный аккаунт
 Просмотр информации о любом ресурсе | `get`, `list` | `viewer` на этот ресурс
 **Управление ресурсами** | |
-[Создание](../operations/sa/create.md), [изменение](../operations/sa/update.md), [удаление](../operations/sa/delete.md) сервисных аккаунтов | `create`, `update`, `delete` | `editor` на каталог, в котором создается сервисный аккаунт
-Создание, изменение, удаление ключей для сервисного аккаунта | `create`, `update`, `delete` | `editor` на сервисный аккаунт
+[Создание](../operations/sa/create.md) сервисных аккаунтов в каталоге | `create` | `editor` на каталог
+[Изменение](../operations/sa/update.md), [удаление](../operations/sa/delete.md) сервисных аккаунтов | `update`, `delete` | `editor` на сервисный аккаунт
+Создание и удаление ключей для сервисного аккаунта | `create`, `delete` | `editor` на сервисный аккаунт
 **Управление доступом к ресурсам** | |
 [Добавление нового пользователя в облако](../operations/users/create.md) | `setAccessBindings` | `admin` на облако
 [Сделать нового пользователя владельцем облака](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` на это облако

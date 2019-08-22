@@ -45,12 +45,12 @@
 Действие | Методы | Необходимые роли
 ----- | ----- | -----
 **Просмотр информации** | |
-[Получение IAM-токена](../operations/iam-token/create.md) | `create` | роли не требуются, только аутентификация
 Просмотр информации о любом ресурсе | `get`, `list` | `viewer` на этот ресурс
 **Управление ресурсами** | |
-Создание, изменение, удаление ресурсов | `create`, `update`, `delete` | `editor` на ресурс
+Создание ресурсов в каталоге | `create` | `editor` на каталог <!-- и на другие связанные ресурсы -->
+Изменение, удаление ресурсов | `update`, `delete` | `editor` на ресурс <!-- и на другие связанные ресурсы -->
 **Управление доступом к ресурсам** | |
-[Назначение роли](../operations/roles/grant.md), [отзыв роли](../operations/roles/revoke.md) и просмотр назначенных ролей на ресурс | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
+[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на ресурс | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
 
 #### Что дальше
 
