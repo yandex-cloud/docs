@@ -72,18 +72,18 @@
   
   1. Добавьте в файл спецификацию проверок состояния:
   
-      ```yaml
-      ...
-      health_checks_spec:
-          health_check_specs:
-          - tcp_options:
-              port: 80
-          interval: 10s
-          timeout: 30s
-          unhealthy_threshold: 5
-          healthy_threshold: 3
-      ...
-      ```
+     ```yaml
+     ...
+     health_checks_spec:
+       health_check_specs:
+         - tcp_options:
+             port: 80
+           interval: 30s
+           timeout: 10s
+           unhealthy_threshold: 5
+           healthy_threshold: 3
+     ...
+     ```
   
       Где:
   
