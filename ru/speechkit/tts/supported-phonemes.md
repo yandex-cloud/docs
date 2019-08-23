@@ -78,48 +78,48 @@ u | u | ударная "у" или "ю" (close back rounded vowel) | м**у**ж 
 IPA | X-SAMPA | Описание | Примеры
 ----- | ----- | ----- | -----
 **Согласные** |
-b | b | voiced bilabial plosive | a**b**ack [əˈbæk]
-d | d | voiced alveolar plosive | **d**ash [ˈdæʃ]
-d͡ʒ | dZ | voiced postalveolar affricate | **j**ump [ˈd͡ʒʌmp]
-ð | D | voiced dental fricative | **th**is [ðɪs]
-f | f | voiceless labiodental fricative | **f**ive
-ɡ | g | voiced velar plosive | **g**aggle [ˈɡæɡl]
-h | h | voiceless glottal fricative | **h**igh [haɪ]
-j | j | palatal approximant | **y**es
-k | k | voiceless velar plosive | **c**at [kæt]
-l | l | alveolar lateral approximant | **l**et [lɛt]
-m | m | bilabial nasal | hi**m** [hɪm]
-n | n | alveolar nasal | **n**ice [naɪs]
-ŋ | N | velar nasal | si**ng** [sɪŋ]
-p | p | voiceless bilabial plosive | **p**ack [pæk]
-ɹ | r\ | alveolar approximant | **r**ed [ɹɛd]
-s | s | voiceless alveolar fricative | **s**it [sɪt]
-ʃ | S | voiceless postalveolar fricative | **sh**eep [ˈʃiːp]
-t | t | voiceless alveolar plosive | **t**ick [tɪk]
-t͡ʃ | tS | voiceless postalveolar affricate | **ch**ur**ch** ['t͡ʃuɹt͡ʃ]
-θ | T | voiceless dental fricative | **th**in [θɪn]
-v | v | voiced labiodental fricative | **v**alve [vælv]
-w | w | labial-velar approximant | **w**est
-z | z | voiced alveolar fricative | **z**oo [zuː]
-ʒ | Z | voiced postalveolar fricative | vi**s**ion [ˈvɪʒən]
+b | b | voiced bilabial plosive | **b**ody [ˈbɑː.di]
+d | d | voiced alveolar plosive | **d**ance [dæns]
+d͡ʒ | dZ | voiced postalveolar affricate | **j**ob [ˈd͡ʒɑːb]
+ð | D | voiced dental fricative | **th**em [ðɛm]
+f | f | voiceless labiodental fricative | le**f**t [left]
+ɡ | g | voiced velar plosive | **g**oal [ɡoʊl]
+h | h | voiceless glottal fricative | **h**abit [ˈhæb.ɪt]
+j | j | palatal approximant | **y**et [jɛt]
+k | k | voiceless velar plosive | **c**lear [klɪr]
+l | l | alveolar lateral approximant | **l**ist [lɪst]
+m | m | bilabial nasal | s**m**art [smɑːrt]
+n | n | alveolar nasal | **n**ame [neɪm]
+ŋ | N | velar nasal | fi**ng**er [ˈfɪŋ.ɡɚ]
+p | p | voiceless bilabial plosive | **p**oint [pɔɪnt]
+ɹ | r\ | alveolar approximant | **r**eady [ɹɛd]
+s | s | voiceless alveolar fricative | **s**earch [sɝːt͡ʃ]
+ʃ | S | voiceless postalveolar fricative | **sh**ort [ʃɔːrt]
+t | t | voiceless alveolar plosive | **t**ime [taɪm]
+t͡ʃ | tS | voiceless postalveolar affricate | **ch**oose [t͡ʃuːz]
+θ | T | voiceless dental fricative | **th**eme [θiːm]
+v | v | voiced labiodental fricative | **v**ine [vaɪn]
+w | w | labial-velar approximant | **w**ait [weɪt]
+z | z | voiced alveolar fricative | **z**one [zoʊn]
+ʒ | Z | voiced postalveolar fricative | ca**s**ual [ˈkæʒ.u.əl]
 **Гласные** |
-ə | @ | mid-central vowel | **a**ren**a**
-ɚ | @` | mid-central r-colored vowel | read**er**
-æ | { | near open-front unrounded vowel | c**a**t [kæt]
-aɪ | aI | diphthong | l**i**ght
-aʊ | aU | diphthong | l**ou**d
-ɑ | A | long open-back unrounded vowel | f**a**ther
-eɪ | eI | diphthong | f**a**ce
-ɝ | 3` | open mid-central unrounded r-colored vowel | n**ur**se
-ɛ | E | open mid-front unrounded vowel | dr**e**ss
-i | i | long close front unrounded vowel | fl**ee**ce
-ɪ | I | near-close near-front unrounded vowel | k**i**t
-oʊ | oU | diphthong | l**o**w
-ɔ | O | long open mid-back rounded vowel | th**ou**ght [θɔːt]
-ɔɪ | OI | diphthong | l**oi**n
-u | u | long close-back rounded vowel | g**oo**se
-ʊ | U | near-close near-back rounded vowel | f**oo**t
-ʌ | V | open-mid-back unrounded vowel | str**u**t
+ə | @ | mid-central vowel | **a**gain [əˈɡen]
+ɚ | @` | mid-central r-colored vowel | ov**er** [ˈoʊ.vɚ]
+æ | { | near open-front unrounded vowel | **a**pple [ˈæp.əl]
+aɪ | aI | diphthong | **i**ce [aɪs]
+aʊ | aU | diphthong | **hou**r [aʊr]
+ɑ | A | long open-back unrounded vowel | b**o**x [bɑːks]
+eɪ | eI | diphthong | c**a**ke [keɪk]
+ɝ | 3` | open mid-central unrounded r-colored vowel | **ear**ly [ˈɝː.li]
+ɛ | E | open mid-front unrounded vowel | **e**nd [ɛnd]
+i | i | long close front unrounded vowel | **ea**st [iːst]
+ɪ | I | near-close near-front unrounded vowel | g**i**ft [ɡɪft]
+oʊ | oU | diphthong | **o**ver [ˈoʊ.vɚ]
+ɔ | O | long open mid-back rounded vowel | b**ou**ght [bɔːt]
+ɔɪ | OI | diphthong | ch**oi**se [t͡ʃɔɪs]
+u | u | long close-back rounded vowel | m**o**ve [muːv]
+ʊ | U | near-close near-back rounded vowel | b**oo**k [bʊk]
+ʌ | V | open-mid-back unrounded vowel | **u**s [ʌs]
 **Другое** |
 ˈ | " | первичное ударение. (primary stress), ставится в начале слога | Alab**a**ma [ˌæləˈbæmə]
 ˌ | % | вторичное ударение (secondary stress), ставится в начале слога | **A**labama [ˌæləˈbæmə]
@@ -133,47 +133,47 @@ u | u | long close-back rounded vowel | g**oo**se
 IPA | X-SAMPA | Описание | Примеры
 ----- | ----- | ----- | -----
 **Согласные** | | |
-ɾ | 4 | alveolar flap | durum
-ɾ̝̊ | 4_0_r | voiceless fricated alveolar flap | bir
-ɾ̝ | 4_r | fricated alveolar flap | raf
-b | b | voiced bilabial plosive | raf
-c | c | voiceless palatal plosive | kedi
-d | d | voiced alveolar plosive | dede
-d͡ʒ | dZ | voiced postalveolar affricate | cam
-f | f | voiceless labiodental fricative | fare
-g | g | voiced velar plosiv | galibi
-h | h | voiceless glottal fricative | hasta
-j | j | palatal approximant | yat
-ɟ | J\ | voiced palatal plosive | genç
-k | k | voiceless velar plosive | akıl
-l | l | alveolar lateral approximant | lale
-ɫ | 5 | velarized alveolar lateral approximant | labirent
-m | m | bilabial nasal | maaş
-n | n | alveolar nasal | anı
-p | p | voiceless bilabial plosive | ip
-s | s | voiceless alveolar fricative | ses
-ʃ | S | voiceless postalveolar fricative | aşı
-t | t | voiceless alveolar plosive | ütü
-t͡ʃ | tS | voiceless postalveolar affricate | çaba
-v | v | voiced labiodental fricative | ekvator, kahveci, akvaryum, isveçli, teşviki, cetvel
-z | z | voiced alveolar fricative | ver
-ʒ | Z | voiced postalveolar fricative | azık
+ɾ | 4 | alveolar flap | uçu**r**um
+ɾ̝̊ | 4_0_r | voiceless fricated alveolar flap | misafi**r**
+ɾ̝ | 4_r | fricated alveolar flap | **r**akip
+b | b | voiced bilabial plosive | **b**akır
+c | c | voiceless palatal plosive | **k**im
+d | d | voiced alveolar plosive | **d**emir
+d͡ʒ | dZ | voiced postalveolar affricate | **c**anlı
+f | f | voiceless labiodental fricative | **f**aranjit
+g | g | voiced velar plosiv | **g**ol
+h | h | voiceless glottal fricative | **h**amur
+j | j | palatal approximant | **y**atırım
+ɟ | J\ | voiced palatal plosive | **g**enç
+k | k | voiceless velar plosive | a**k**varyum
+l | l | alveolar lateral approximant | a**l**ev
+ɫ | 5 | velarized alveolar lateral approximant | ko**l**ay
+m | m | bilabial nasal | **m**aşa
+n | n | alveolar nasal | ka**n**al
+p | p | voiceless bilabial plosive | ede**p**
+s | s | voiceless alveolar fricative | **s**e**s**lendirme
+ʃ | S | voiceless postalveolar fricative | ka**ş**
+t | t | voiceless alveolar plosive | **t**ükürük
+t͡ʃ | tS | voiceless postalveolar affricate | **ç**orba
+v | v | voiced labiodental fricative | **v**ernik
+z | z | voiced alveolar fricative | ya**z**lık
+ʒ | Z | voiced postalveolar fricative | **j**oker
 **Гласные** | | |
-ø | 2 | close-mid front rounded vowel | göl
-œ | 9 | open-mid front rounded vowel | banliyö
-a | a | open front unrounded vowel | kal
-a: | a: | long open front unrounded vowel | davacı
-æ | { | near-open front unrounded vowel | özlem, güvenlik, gürel, somersault
-e | e | close-mid front unrounded vowel | keçi
-ɛ | E | open-mid front unrounded vowel | dede
-i | i | close front unrounded vowel | bir
-i: | i: | long close front unrounded vowel | izah
-ɪ | I | near-close near-front unrounded vowel | keçi
-ɯ | M | close back unrounded vowel | kıl
-o | o | close-mid back rounded vowel | kol
-o: | o: | long close-mid back rounded vowel | dolar
-u | u | close back rounded vowel | durum
-u: | u: | long close back rounded vowel | ruhum
-ʊ | U | near-close near-back rounded vowel | dolu
-y | y | close front rounded vowel | güvenlik
-ʏ | Y | near-close near-front rounded vowel | aşı
+ø | 2 | close-mid front rounded vowel | k**ö**r, g**ö**zlük
+œ | 9 | open-mid front rounded vowel | banliy**ö**
+a | a | open front unrounded vowel | b**a**lık
+a: | a: | long open front unrounded vowel | vey**a**
+æ | { | near-open front unrounded vowel | gözlem, güv**e**n
+e | e | close-mid front unrounded vowel | d**e**ri
+ɛ | E | open-mid front unrounded vowel | ded**e**
+i | i | close front unrounded vowel | b**i**rlik
+i: | i: | long close front unrounded vowel | **i**zah
+ɪ | I | near-close near-front unrounded vowel | keç**i**
+ɯ | M | close back unrounded vowel | k**ı**l
+o | o | close-mid back rounded vowel | d**o**st
+o: | o: | long close-mid back rounded vowel | d**o**lma
+u | u | close back rounded vowel | k**u**r
+u: | u: | long close back rounded vowel | r**u**hum
+ʊ | U | near-close near-back rounded vowel | dol**u**
+y | y | close front rounded vowel | g**ü**n
+ʏ | Y | near-close near-front rounded vowel | aş**ı**
