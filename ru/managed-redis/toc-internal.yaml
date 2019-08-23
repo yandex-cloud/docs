@@ -32,7 +32,7 @@ items:
           - name: Сеть в Managed Service for Redis
             href: concepts/network.md
           - name: Шардирование
-            href: concepts/cluster.md
+            href: concepts/sharding.md
           - name: Резервные копии
             href: concepts/backup.md
           - name: Репликация и отказоустойчивость

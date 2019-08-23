@@ -1,10 +1,12 @@
 # Шардирование
 
+{% if audience != "internal"%}
 {% note info %}
 
 Возможность использования Redis Cluster находится на [стадии Preview](../../overview/concepts/launch-stages.md). Обратитесь в [поддержку Яндекс.Облака](https://cloud.yandex.ru/support), если вам требуется получить доступ к возможностям шардирования.
 
 {% endnote %}
+{% endif %}
 
 Шардирование в {{mrd-name}} реализовано с помощью [{{ RD }} Cluster](https://redis.io/topics/cluster-tutorial). 
 
