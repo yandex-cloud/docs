@@ -17,6 +17,8 @@ items:
       href: web/wordpress.md
     - name: Интернет-магазин на 1С-Битрикс
       href: web/bitrix-shop.md
+    - name: Веб-сайт на базе 1С-Битрикс
+      href: web/bitrix-website.md
   - name: Архив данных
     items:
     - name: Обзор
