@@ -2,7 +2,7 @@
 
 Method for getting attributes for the specified queue.
 
-If the queue name ends with the `.fifo` suffix, the type of the requested queue is[FIFO](../../concepts/queue.md#fifo-queues).
+If the queue name ends with the `.fifo` suffix, the type of the requested queue is [FIFO](../../concepts/queue.md#fifo-queues).
 
 ## Request {#request}
 
@@ -27,9 +27,9 @@ Attribute.N.Value (attribute value)
 | `All` | Returns all attributes of a queue. |
 | `ApproximateNumberOfMessages` | Returns the approximate number of enqueued messages that can be received. |
 | `ApproximateNumberOfMessagesDelayed` |  Returns the approximate number of messages in the queue that are delayed and not available for reading immediately. |
-| `ApproximateNumberOfMessagesNotVisible` | Returns the approximate number of messages that are in flight: they have been sent to a client but have not yet been deleted or have not yet reached the end of their [visibility timeout](../../concepts/visibility-timeout). |
+| `ApproximateNumberOfMessagesNotVisible` | Returns the approximate number of messages that are in flight: they have been sent to a client but have not yet been deleted or have not yet reached the end of their [visibility timeout](../../concepts/visibility-timeout.md). |
 | `CreatedTimestamp` | Returns the time when the queue was created in seconds (epoch time). |
-| `DelaySeconds` |  The number of seconds to delay the message from being available for processing. |
+| `DelaySeconds` |  The number of seconds to [delay the message](../../concepts/delay-queues.md) from being available for processing. |
 | `LastModifiedTimestamp` | Returns the time when the queue was last changed in seconds  (epoch time). |
 | `MaximumMessageSize` | Returns the maximum message size in bytes. |
 | `MessageRetentionPeriod` | Returns the length of time, in seconds, for which a message is retained. |

@@ -35,6 +35,8 @@ items:
         href: concepts/long-polling.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
+      - name: Delayed message delivery in a queue
+        href: concepts/delay-queues.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
