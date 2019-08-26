@@ -49,6 +49,12 @@
 
 {% endnote %}
 
+## URL объекта {#object-url}
+
+URL объекта может иметь одну из следующих форм.
+
+- `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
+- `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
 
 ## Метаданные {#metadata}
 

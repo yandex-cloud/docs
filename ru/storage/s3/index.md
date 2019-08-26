@@ -10,10 +10,10 @@
 
 Перечень поддерживаемых методов Amazon S3 HTTP API смотрите в [Справочнике API](api-ref/index.md).
 
-## Общий вид запроса к API
+## Общий вид запроса к API {#common-request-form}
 
 ```
-{GET|HEAD|PUT|DELETE} {path} HTTP/1.1
+{GET|HEAD|PUT|DELETE} /<bucket>/<key> HTTP/1.1
 Host: {{ s3-storage-host }}
 Content-Length: length
 Date: date
@@ -22,10 +22,24 @@ Authorization: authorization string (AWS Signature Version 4)
 Request_body
 ```
 
-Про заголовки читайте в разделе [{#T}](api-ref/common-request-headers.md). Набор заголовков зависит от конкретного запроса.
+Имя бакета можно указать как часть имени хоста. В этом случае запрос примет вид:
+
+```
+{GET|HEAD|PUT|DELETE} /<key>} HTTP/1.1
+Host: <bucket>.{{ s3-storage-host }}
+...
+```
+
+Набор заголовков зависит от конкретного запроса и описан в документации на соответствующий запрос.
 
 Если вы используете API напрямую (без SDK и приложений), то для подписи запросов вам придется самостоятельно генерировать заголовок `Authorization`. О том, как это сделать, читайте в разделе [Authenticating Requests (AWS Signature Version 4) ](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) документации Amazon S3.
 
+### URL для запроса {#request-url}
+
+URL может иметь одну из следующих форм:
+
+- `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
+- `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
 
 ## CORS запросы
 
