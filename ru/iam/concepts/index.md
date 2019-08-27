@@ -31,7 +31,11 @@
 
 _Аккаунт Яндекс.Паспорта_ — ваш аккаунт на Яндексе или [Яндекс.Коннекте]({{ link-yandex-connect }}). Аккаунт Яндекс.Паспорта необходим для управления ресурсами через [консоль управления]({{ link-console-main }}).
 
+{% note info %}
+
 {% include [yandex-account-2fa-warning.md](../../_includes/iam/yandex-account-2fa-warning.md) %}
+
+{% endnote %}
 
 ### Сервисный аккаунт {#sa}
 

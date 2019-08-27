@@ -84,35 +84,46 @@
 
   1. Создайте новый профиль:
 
-      `yc config profile create my-robot-profile`
+      ```
+      yc config profile create my-robot-profile
+      ```
 
       Все операции в этом профиле будут выполняться от имени привязанного сервисного аккаунта. О том, как сменить профиль или изменить его параметры, читайте в разделе [{#T}](../../../cli/concepts/profile.md) в документации CLI.
 
+      Вы также можете получить IAM-токен, например, чтобы аутентифицироваться в API:
+
+      ```
+      yc iam create-token
+      ```
+
+      [Время жизни IAM-токена](../../../iam/concepts/authorization/iam-token.md#lifetime) в этом случае будет меньше чем {{ iam-token-lifetime }}. Запрашивайте IAM-токен чаще, например каждый час или при каждой операции. Чтобы узнать оставшееся время жизни токена, воспользуйтесь инструкцией для API.
 - API
 
   1. Подключитесь к виртуальной машине [по SSH](../vm-connect/ssh.md) или [по RDP](../vm-connect/rdp.md).
-  1. Получите IAM-токен, необходимый для аутентификации.
+  1. Получите IAM-токен из метаданных в одном из форматов:
 
-    * В формате GCP, выполните:
-      ```bash
-      $ curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
+       * **GCP**:
+         ```bash
+         $ curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
 
-      {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
-      ```
-      IAM-токен будет указан в ответе в поле `access_token`.
+         {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
+         ```
+         IAM-токен будет указан в ответе в поле `access_token`. Оставшееся время жизни IAM-токена указано в поле `expires_in`.
 
-    * Чтобы получить IAM-токен в формате EC2, выполните:
-      ```bash
-      $ curl http://169.254.169.254/latest/meta-data/iam/security-credentials/default/
+       * **EC2**:
+         ```bash
+         $ curl http://169.254.169.254/latest/meta-data/iam/security-credentials/default/
 
-      {
-        "Code" : "Success",
-        "Expiration" : "2019-06-28T04:43:32+00:00",
-        "Token" : "CggVAgAAA..."
-      }
-      ```
-      IAM-токен будет указан в ответе в поле `Token`.
+         {
+           "Code" : "Success",
+           "Expiration" : "2019-06-28T04:43:32+00:00",
+           "Token" : "CggVAgAAA..."
+         }
+         ```
+         IAM-токен будет указан в ответе в поле `Token`. Время жизни IAM-токена указано в поле `Expiration`.
 
-  {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
+  1. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
+
+    Учитывайте время жизни IAM-токена или запрашивайте токен чаще, например каждый час или при каждой операции.
 
 {% endlist %}

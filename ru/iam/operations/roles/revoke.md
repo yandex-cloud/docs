@@ -25,7 +25,9 @@
   Чтобы отозвать роль у субъекта, удалите соответствующую привязку прав доступа для соответствующего ресурса:
 
   1. Посмотрите, кому и какие роли назначены на ресурс:
-      `yc <SERVICE-NAME> <RESOURCE> list-access-bindings <RESOURCE-NAME>|<RESOURCE-ID>`
+      ```
+      yc <SERVICE-NAME> <RESOURCE> list-access-bindings <RESOURCE-NAME>|<RESOURCE-ID>
+      ```
 
       Например, посмотрите привязки прав доступа на каталог `default`:
       ```

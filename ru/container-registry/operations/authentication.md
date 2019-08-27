@@ -16,10 +16,10 @@
 
 - Как пользователь:
     - [С помощью OAuth-токена](#oauth) (срок жизни **год**).
-    - [С помощью IAM-токена](#iam) (срок жизни **12 часов**).
+    - [С помощью IAM-токена](#iam) (срок жизни не больше **{{ iam-token-lifetime }}**).
 - Как сервисный аккаунт:
     - [С помощью авторизованных ключей](#sa-json) (неограниченный срок жизни).
-    - [C помощью IAM-токена](#sa-iam) (срок жизни **12 часов**).
+    - [C помощью IAM-токена](#sa-iam) (срок жизни не больше **{{ iam-token-lifetime }}**).
 - [С помощью хранилища учетных данных Docker Credential helper](#cred-helper).
 
 Команда для аутентификации выглядит следующим образом:
@@ -41,7 +41,7 @@ $ docker login \
 
 {% note info %}
 
-Срок жизни OAuth-токена 1 год. После этого необходимо [получить новый OAuth-токен]({{ link-cloud-oauth }}) и повторить процедуру аутентификации.
+{% include [oauth-token-lifetime](../../_includes/oauth-token-lifetime.md) %}
 
 {% endnote %}
 
@@ -60,16 +60,11 @@ $ docker login \
 
 {% note info %}
 
-Срок жизни IAM-токена 12 часов. После этого необходимо получить новый IAM-токен и повторить процедуру аутентификации.
+{% include [iam-token-note](../../_includes/iam/iam-token-note.md) %}
 
 {% endnote %}
 
-1. Если у вас еще нет IAM-токена, получите его командой:
-
-    ```
-    $ yc iam create-token
-    ```
-
+1. [Получите IAM-токен](../../iam/operations/iam-token/create.md).
 1. Выполните команду:
 
     ```
@@ -120,34 +115,11 @@ $ docker login \
 
 {% note info %}
 
-Срок жизни IAM-токена 12 часов. После этого необходимо получить новый IAM-токен и повторить процедуру аутентификации.
+{% include [iam-token-note](../../_includes/iam/iam-token-note.md) %}
 
 {% endnote %}
 
-1. Получите [авторизованные ключи](../../iam/concepts/users/service-accounts.md#sa-key) для вашего сервисного аккаунта:
-
-    ```
-    $ yc iam key create --service-account-name default-sa -o key.json
-    id: aje8a87g4e...
-    service_account_id: aje3932acd...
-    created_at: "2019-05-31T16:56:47Z"
-    key_algorithm: RSA_2048
-    ```
-
-1. Добавьте файл с авторизованным ключом в ваш профиль CLI:
-
-   ```
-   $ yc config set service-account-key key.json
-   ```
-
-   При установке параметра `service-account-key` обнуляется параметр `token`. Подробнее о параметрах, читайте в разделе [Конфигурация CLI](../../cli/concepts/core-propreties.md).
-
-1. Получите IAM-токен:
-
-    ```
-    $ yc iam create-token
-    ```
-
+1. [Получите IAM-токен](../../iam/operations/iam-token/create.md).
 1. Выполните команду:
 
     ```

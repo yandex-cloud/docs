@@ -113,6 +113,9 @@ default:
   yc-compute: yc compute
   yc-compute-instance: yc compute instance
 
+  # IAM specific
+  iam-token-lifetime: 12 часов
+
   # MDB specific
   pem-path: '/cloud-certs/CA.pem'
   dns-zone: mdb.yandexcloud.net
