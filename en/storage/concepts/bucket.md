@@ -2,13 +2,13 @@
 
 A logical entity that helps organize the storage of objects.
 
-## Bucket naming {#naming}
+## Naming buckets {#naming}
 
-A bucket's name is used as part of the data access URL and will be visible to your data users. For example, `http://{{ s3-storage-host }}/bucket-name`.
+A bucket's name is used as part of the data access URL and will be visible to your users. For example, `http://{{ s3-storage-host }}/bucket-name`.
 
 Naming rules:
 
-- Bucket names are unique in the entire {{ objstorage-name }}, that is, you can't create two buckets with the same name even in different folders of different clouds. Keep this in mind if you plan to create buckets automatically via the API.
+- Bucket names are unique throughout {{ objstorage-name }}, so you can't create two buckets with the same name (even in different folders in different clouds). Keep this in mind if you plan to create buckets automatically via the API.
 
 - The bucket name restrictions are as follows:
 
@@ -20,23 +20,29 @@ Names containing dots should only be used for [static website hosting](../hostin
 
 You can:
 
-- [Limit the maximum size of a bucket](../operations/buckets/limit-max-volume.md). {{ objstorage-name }} will not allow uploading an object if, when adding it, the bucket size exceeds the maximum value.
-- Set the default [storage class](storage-class.md). Objects uploaded to a bucket are by default saved with the storage class specified for that bucket.
+- [Limit the maximum size of a bucket](../operations/buckets/limit-max-volume.md).
+
+    {{ objstorage-name }} doesn't let you upload objects if their addition exceeds the maximum bucket size.
+
+- Set the default [storage class](storage-class.md).
+
+    Objects uploaded to a bucket are by default saved with the storage class specified for that bucket.
+
 - Configure a bucket for [static website hosting](../hosting/index.md).
 - Download a [CORS configuration](../cors/index.md) for a bucket.
 - Configure the [lifecycle of objects](../lifecycles/index.md).
 
-## Usage {#details-of-usage}
+## Guidelines and limitations {#details-of-usage}
 
-- A bucket cannot be renamed.
+- A bucket can't be renamed.
 
-- {{ objstorage-name }} performance does not depend on the number of buckets. You can store all your data in one or several buckets.
+- {{ objstorage-name }} performance doesn't depend on the number of buckets. You can store all your data in one or several buckets.
 
 - Buckets can't be nested.
 
 - You can only delete an empty bucket.
 
-- It may take some time after deleting a bucket before you can create a new bucket with the same name. There is also a risk that another Yandex.Cloud user will create a bucket with the name you've released before you claim it again. Do not delete buckets for no good reason.
+- It may take some time after deleting a bucket before you can create a new bucket with the same name. There is also a risk that another Yandex.Cloud user will create a bucket with the name you've released before you claim it again. Don't delete buckets without a reason.
 
 - When objects are uploaded in quick succession, the maximum specified bucket size can be exceeded.
 
