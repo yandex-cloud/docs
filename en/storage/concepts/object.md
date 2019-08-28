@@ -1,12 +1,12 @@
-# Object
+# Objects
 
-Objects are placed in buckets and contain user data in whatever format it was uploaded in.
+Objects are hosted in buckets and contain user data in the format it was uploaded in.
 
 The object ID is the string [key](#key).
 
 {{ objstorage-name }} stores [user-defined](#user-meta) and [system](#system-meta) metadata along with the object.
 
-{{ objstorage-name }} allows you to store objects in standard and cold storage. For more information, see [{#T}](storage-class.md).
+{{ objstorage-name }} lets you store objects in standard and cold storage. For more information, see [{#T}](storage-class.md).
 
 {{ objstorage-name }} supports the following operations with objects:
 
@@ -23,7 +23,7 @@ You can configure the following for a bucket's object:
 
 {{ objstorage-name }} restricts the size of objects and their metadata. For more information, see [{#T}](limits.md)).
 
-## Key {#key}
+## Keys {#key}
 
 The key is the ID of an object in a bucket.
 
@@ -37,13 +37,17 @@ A key must:
 
 The following characters are safe to use in a key: `[a-zA-Z0-9]`, `-`, `_`, `/`, `\`. Other characters may cause various problems in {{ objstorage-name }}.
 
-### Folder
+### Folders {#folder}
 
 There are no folders in {{ objstorage-name }}, but GUI-based file management clients like [CyberDuck](../instruments/cyberduck.md) and the {{ objstorage-name }} interface in the Yandex.Cloud management console emulate folders. A zero-size object serves as a folder. Its key is included in the keys of other objects as a prefix. For example, an object with the `x` key and zero size will be a folder in the management console, while an object with the `x/y.txt` key will be the `y.txt` object located in the `x` folder.
 
-Each of the [tools](../instruments/index.md) manages objects and folders according to their own logic described in their respective documentation.
+Each of the [tools](../instruments/index.md) manages objects and folders according to their own logic, which is described in their respective documentation.
 
-The management console allows you to create folders and fill them with objects, but you can only delete an empty folder.
+{% note info %}
+
+Deleting folders with objects is an asynchronous operation. At the start of the operation, {{ objstorage-name }} prepares a list of objects to delete and then deletes them. If during the deletion process, you upload an object to {{ objstorage-name }} that should be in the folder being deleted, the object will still be uploaded successfully. After bother operations in {{objstorage-name}} are complete, you're left with the folder that was supposed to be deleted and the newly uploaded file.
+
+{% endnote %}
 
 ## Metadata {#metadata}
 
@@ -68,7 +72,7 @@ System metadata is defined by {{ objstorage-name }}.
 
 When uploading an object to {{ objstorage-name }}, you can pass a set of metadata as a `name-value` pair along with the object.
 
-In the HTTP API compatible with Amazon S3, metadata is passed as HTTP headers. The header name must start with `x-amz-meta-`. When an object is requested via the HTTP API, Yandex Object Storage returns metadata in the form of HTTP headers with the same prefix.
+In the Amazon S3-compatible HTTP API, metadata is passed as HTTP headers. The header name must start with `x-amz-meta-`. When an object is requested via the HTTP API, Yandex Object Storage returns metadata in the form of HTTP headers with the same prefix.
 
 Metadata names must conform to the HTTP header naming convention and be in lowercase.
 
