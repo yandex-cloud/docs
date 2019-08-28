@@ -1,24 +1,97 @@
-# Access management
+# Access control
 
-### Access to Billing {#billing}
+## Billing access {#billing}
 
 {% include [yandex-account](../_includes/yandex-account.md) %}
 
-### Access to billing account {#billing-account}
+## Billing account access {#billing-account}
 
-Access to [billing accounts](../concepts/billing-account.md) of the Billing system is provided by the service[Yandex.Cloud IAM](../../iam/).
-
-Once you create a billing account, you are automatically assigned the _Owner_ role. The _Owner_ role lets you perform any action from your billing account:
-
-* Activate the [trial period](../trial/activation.md).
-* Activate the [paid version](../operations/activate-commercial.md).
-* [Monitor spending](../operations/check-diagram.md) and [view service usage details](../operations/check-charges.md).
-* [Enable the credit limit](../concepts/credit-limit.md).
-* [Change your billing account data](../operations/change-data.md).
-* [Change a bank card](../operations/pin-card.md).
+[Billing account](../concepts/billing-account.md) access is provided through the Billing service. The operations that a user can perform on a billing account are determined by the role assigned to them.
 
 {% note info %}
 
-You cannot change the owner or grant another user access to your billing account.
+Access can only be granted to users who were added to a cloud in [{{ iam-name }}](../../iam/).
 
 {% endnote %}
+
+## Billing account roles {#role-list}
+
+Billing has the following roles:
+
+{% list tabs %}
+
+- Service roles
+
+  Service roles are roles that provide access to cloud Billing:
+  * `billing.accounts.member` is automatically issued when a user is added to Billing. <br/>All users except billing account owners require this role to access cloud Billing. This role doesn't allow you to perform any actions with the billing account and is only used in combination with the `viewer` and `editor` role.
+  * `billing.accounts.owner` is automatically issued when you create a billing account and can't be reassigned to another user. The role lets you perform any action with the billing account.
+
+- Primitive roles
+
+  Primitive roles are roles that provide access to the cloud billing account:
+  * `viewer` is issued by the owner of the billing account and lets the user view billing account information.
+  * `editor` is issued by the owner of the billing account and lets the user view and edit billing account information.
+  * `admin` is issued by the owner of the billing account and lets the user assign and revoke the roles of other user.
+
+  Primitive roles can only be assigned to users in the **Users** list.
+
+{% endlist %}
+
+A list of operations available to each role is given in the table below.
+
+| Operations | `member` | `owner` | `viewer` | `editor` | `admin` |
+| ----- | ----- | ----- | ----- | ----- | ----- |
+| Activate the trial period | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
+| Activate the paid version | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
+| Check expenses | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) |
+| Access usage details | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) |
+| Activate promo codes | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) |
+| Top up balance | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
+| View billing account information | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) |
+| Change payer contacts | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
+| Change billing details | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
+| Change bank cards | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
+| Change payment methods | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
+| Assign roles to billing accounts | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) |
+| View and edit roles | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) |
+| Link clouds to billing accounts | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) |
+
+## Adding users {#set-member-role}
+
+The owner of the billing account can only add members to the **Users** list for the cloud that the billing account is linked to. To add a user:
+
+1. In the [management console](https://console.cloud.yandex.ru/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. Go to **Access control**.
+1. Click **Add user**.
+1. Enter a Yandex.Passport or Yandex.Connect username. <br/>Usernames that match the search are displayed in the list. Select the appropriate account.
+1. Click **Add**.
+
+The user with the specified username is assigned the `billing.accounts.member` role and added to the **Users** list. To grant billing account access, assign the user the desired role.
+
+## Assigning roles {#set-role}
+
+The owner can grant billing account access to any user who was added to the list and granted the `billing.accounts.member` role. To do this:
+
+1. In the [management console](https://console.cloud.yandex.ru/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. Go to **Access control**.
+1. Find the user in the list.
+1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure roles**.
+1. Click **Assign role**.
+1. Select a role from the list. The role is assigned without expiration.
+
+## Revoking roles {#delete-role}
+
+The billing account owner can revoke roles from users on the list at any time. To do this:
+
+1. In the [management console](https://console.cloud.yandex.ru/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. Go to **Access control**.
+1. Find the user in the list.
+1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure roles**.
+1. Click ![image](../../_assets/cross.svg) next to the role you want to revoke. The role is revoked.
+
+{% note info %}
+
+If the `billing.accounts.member` role is revoked in Billing, the billing account becomes inaccessible.
+
+{% endnote %}
+
