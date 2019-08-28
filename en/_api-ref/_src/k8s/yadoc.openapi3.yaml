@@ -1180,11 +1180,6 @@ components:
             type: object
             additionalProperties:
               type: string
-          masterSpec:
-            $ref: '#/components/schemas/MasterSpec'
-            description: |-
-              master_spec change is not implemented yet.
-              That is, if [updateMask](/docs/managed-kubernetes/api-ref/Cluster/update#body_params) is empty, or contains field path, passed value should be equal to current.
           serviceAccountId:
             description: |-
               Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster.

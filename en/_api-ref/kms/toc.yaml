@@ -1,0 +1,41 @@
+items:
+  - name: Overview
+    href: api-ref/index.md
+  - name: SymmetricCrypto
+    items:
+      - name: Overview
+        href: api-ref/SymmetricCrypto/index.md
+      - name: decrypt
+        href: api-ref/SymmetricCrypto/decrypt.md
+      - name: encrypt
+        href: api-ref/SymmetricCrypto/encrypt.md
+      - name: generateDataKey
+        href: api-ref/SymmetricCrypto/generateDataKey.md
+      - name: reEncrypt
+        href: api-ref/SymmetricCrypto/reEncrypt.md
+  - name: SymmetricKey
+    items:
+      - name: Overview
+        href: api-ref/SymmetricKey/index.md
+      - name: cancelVersionDestruction
+        href: api-ref/SymmetricKey/cancelVersionDestruction.md
+      - name: create
+        href: api-ref/SymmetricKey/create.md
+      - name: delete
+        href: api-ref/SymmetricKey/delete.md
+      - name: get
+        href: api-ref/SymmetricKey/get.md
+      - name: list
+        href: api-ref/SymmetricKey/list.md
+      - name: listOperations
+        href: api-ref/SymmetricKey/listOperations.md
+      - name: listVersions
+        href: api-ref/SymmetricKey/listVersions.md
+      - name: rotate
+        href: api-ref/SymmetricKey/rotate.md
+      - name: scheduleVersionDestruction
+        href: api-ref/SymmetricKey/scheduleVersionDestruction.md
+      - name: setPrimaryVersion
+        href: api-ref/SymmetricKey/setPrimaryVersion.md
+      - name: update
+        href: api-ref/SymmetricKey/update.md

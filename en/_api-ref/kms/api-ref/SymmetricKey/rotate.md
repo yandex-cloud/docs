@@ -2,46 +2,21 @@
 editable: false
 ---
 
-# Method update
-Updates the specified Kubernetes cluster.
+# Method rotate
+Rotates given key: creates new key version and makes it primary.
  
 
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters/{clusterId}
+POST https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}:rotate
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Kubernetes cluster to update. To get the Kubernetes cluster ID use a [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
- 
-## Body parameters {#body_params}
- 
-```json 
-{
-  "updateMask": "string",
-  "name": "string",
-  "description": "string",
-  "labels": "object",
-  "serviceAccountId": "string",
-  "nodeServiceAccountId": "string",
-  "gatewayIpv4Address": "string"
-}
-```
-
- 
-Field | Description
---- | ---
-updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-name | **string**<br><p>Name of the Kubernetes cluster. The name must be unique within the folder.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
-description | **string**<br><p>Description of the Kubernetes cluster.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>Existing set of <code>labels</code> is completely replaced by the provided set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
-serviceAccountId | **string**<br><p>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have <code>edit</code> role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides.</p> 
-nodeServiceAccountId | **string**<br><p>node_service_account_id change is not implemented yet. That is, if <a href="/docs/managed-kubernetes/api-ref/Cluster/update#body_params">updateMask</a> is empty, or contains field path, passed value should be equal to current.</p> 
-gatewayIpv4Address | **string**<br><p>The maximum string length in characters is 15.</p> 
+keyId | Required. The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
