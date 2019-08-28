@@ -1,10 +1,6 @@
 # Удаление кластера
 
-{% note important %}
-
-Резервные копии удаленного кластера хранятся 7 дней.
-
-{% endnote %}
+{% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
 {% list tabs %}
 

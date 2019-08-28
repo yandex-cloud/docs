@@ -1,10 +1,6 @@
 # Удаление кластера
 
-{% note important %}
-
-Удаленный кластер баз данных невозможно восстановить: вместе с кластером удаляются все его резервные копии.
-
-{% endnote %}
+{% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
 {% list tabs %}
 
