@@ -3,7 +3,9 @@ href: index.yaml
 items:
   - name: How to use the free trial
     href: concepts/quickstart.md
-  - name: Restrictions on the trial period
+  - name: Grant terms of use
+    href: concepts/usage-grant.md
+  - name: Trial period restrictions
     href: concepts/limits.md
   - name: Monitoring resource usage
     href: concepts/usage-monitor.md
