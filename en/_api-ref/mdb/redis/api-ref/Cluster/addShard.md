@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/shar
  
 Parameter | Description
 --- | ---
-clusterId | Required. The maximum string length in characters is 50.
+clusterId | Required. ID of the Redis cluster to create a shard in. To get the cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -36,11 +36,11 @@ clusterId | Required. The maximum string length in characters is 50.
  
 Field | Description
 --- | ---
-shardName | **string**<br><p>Required. The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
-hostSpecs[] | **object**<br><p>Required. Must contain at least one element.</p> 
+shardName | **string**<br><p>Required. Name of the shard. The name must be unique within the cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
+hostSpecs[] | **object**<br><p>Required. Configurations for Redis hosts that should be created with the shard. Must contain at least one element.</p> <p>Must contain at least one element.</p> 
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> 
 hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field <a href="/docs/managed-redis/api-ref/Cluster#representation">Cluster.networkId</a>.</p> 
-hostSpecs[].<br>shardName | **string**<br><p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
+hostSpecs[].<br>shardName | **string**<br><p>ID of the Redis shard the host belongs to. To get the shard ID use a <a href="/docs/managed-redis/api-ref/Cluster/listShards">listShards</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

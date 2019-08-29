@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:reba
  
 Parameter | Description
 --- | ---
-clusterId | Required. The maximum string length in characters is 50.
+clusterId | Required. ID of the Redis cluster to rebalance. To get the cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

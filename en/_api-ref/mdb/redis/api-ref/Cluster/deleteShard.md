@@ -16,8 +16,8 @@ DELETE https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/sh
  
 Parameter | Description
 --- | ---
-clusterId | Required. The maximum string length in characters is 50.
-shardName | Required. The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. ID of the Redis cluster the shard belongs to. To get the cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+shardName | Required. Name of the Redis shard to delete. To get the shard name use a [listShards](/docs/managed-redis/api-ref/Cluster/listShards) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
