@@ -10,11 +10,11 @@ The grant terms of use remain in effect upon upgrade:
 
 {% list tabs %}
 
-- For individuals
+- For individual accounts
 
    A remainder of [part](usage-grant.md) of the grant is only used to pay for the intended service or services.
 
-- For businesses
+- For business accounts
 
    The grant terms of use depend on the payment method you select when creating your billing account:
 

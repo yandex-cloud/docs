@@ -4,11 +4,11 @@ The trial period terms of termination differ for individual and business account
 
 {% list tabs %}
 
-- For individuals
+- For individual accounts
 
    The trial period ends automatically when you use up the grant or a [part](usage-grant.md) of the grant, or when it expires.
 
-- For businesses
+- For business accounts
 
    Automatic termination of the trial period depends on the payment method you select when [creating your billing account](../../billing/quickstart/index.md).
 
