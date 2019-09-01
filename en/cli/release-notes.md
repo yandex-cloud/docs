@@ -1,8 +1,20 @@
 # YC CLI Releases
 
-## Version 0.35.1 (16.08.19) {#latest-release}
+## Version 0.36.0 (27.08.19) {#latest-release}
 
 ### Changes to Yandex.Cloud services {#services}
+
+#### {{ resmgr-name }} {#resmgr}
+
+- Command `yc resource-manager cloud update`.
+
+    Added the ability to rename clouds.
+
+## Previous releases {#previous-releases}
+
+### Version 0.35.1 (16.08.19) {##version0.35.1}
+
+#### Changes to Yandex.Cloud services {#services}
 
 #### Managed database services {#managed-db}
 
@@ -11,9 +23,7 @@
 - Command `yc <database name> cluster create`.
 
     Renamed default disk types: `network-nvme` is now `network-ssd` and `local-nvme` is now `local-ssd`.
-
-## Previous releases {#previous-releases}
-
+    
 ### Version 0.35.0 (09.08.19) {#version0.35.1}
 
 #### Changes to the CLI {#cli}
@@ -70,7 +80,7 @@
 
 **{{ mpg-name }}**
 
-- Command `{{ yc-mdb-pg }} user create` and `{{ yc-mdb-pg }} user update`.
+- Commands `{{ yc-mdb-pg }} user create` and `{{ yc-mdb-pg }} user update`.
 
     Added ability to set user parameters with flags such as `--lock_timeout` and `--log_min_duration_statement`.
 
@@ -90,7 +100,7 @@
 
 **{{ mmg-name }}**
 
-- Command `{{ yc-mdb-mg }} cluster update` and `{{ yc-mdb-mg }} cluster update-config`.
+- Commands `{{ yc-mdb-mg }} cluster update` and `{{ yc-mdb-mg }} cluster update-config`.
 
     In [sharded](../managed-mongodb/concepts/sharding.md) clusters, you can now change `mongos` and `mongocfg` component parameters.
 
@@ -114,7 +124,7 @@
 
 #### {{ load-balancer-name }} {#load-balancer}
 
-- Command `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update`.
+- Commands `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update`.
 
     For the `--listener` flag, you can now set the `target-port` parameter, which lets you configure NAT so that target resources receive traffic on a port other than `listener`.
 
@@ -122,7 +132,7 @@
 
 **{{ mch-name }}**
 
-- Command `{{ yc-mdb-ch }} user create` and `{{ yc-mdb-ch }} user update`.
+- Commands `{{ yc-mdb-ch }} user create` and `{{ yc-mdb-ch }} user update`.
 
     Added the `--settings` flag that lets you pass user settings.
 
