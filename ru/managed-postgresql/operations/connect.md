@@ -1,7 +1,6 @@
 # Подключение к базе данных в кластере {{ PG }}
 
-Внутри Яндекс.Облака подключиться к кластеру БД можно только с виртуальной машины с адресом в той же подсети Облака.
-
+{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 
 ## Аутентификация
 
@@ -30,22 +29,23 @@ $ wget "{{ pem-path }}" -O ~/.postgresql/allCA.pem
 Теперь вы можете подключиться к БД с помощью команды `psql`:
 
 ```bash
-psql "host=<адрес хоста БД> \
+psql "host=<FQDN хоста БД> \
       port=6432 \
       sslmode=verify-full \
       dbname=<имя базы данных> \
       user=<имя пользователя базы данных>"
 ```
 
+{% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
 ## Автоматический выбор хоста-мастера
 
 
 ### С библиотекой libpq
-Чтобы гарантированно подключиться к хосту-мастеру, укажите адреса всех хостов кластера в аргументе `host` и передайте параметр `target_session_attrs=read-write`. Этот параметр поддерживается библиотекой `libpq` начиная с [версии 10](https://www.postgresql.org/docs/10/static/libpq-connect.html):
+Чтобы гарантированно подключиться к хосту-мастеру, укажите FQDN всех хостов кластера в аргументе `host` и передайте параметр `target_session_attrs=read-write`. Этот параметр поддерживается библиотекой `libpq` начиная с [версии 10](https://www.postgresql.org/docs/10/static/libpq-connect.html):
 
 ```bash
-psql "host=<адрес хоста 1>,<адрес хоста 2>,<адрес хоста 3> \
+psql "host=<FQDN хоста 1>,<FQDN хоста 2>,<FQDN хоста 3> \
       port=6432 \
       sslmode=verify-full \
       dbname=<имя базы данных> \

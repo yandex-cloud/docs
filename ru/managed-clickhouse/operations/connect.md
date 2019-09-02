@@ -2,7 +2,7 @@
 
 {% if audience != "internal" %}
 
-Внутри Яндекс.Облака подключиться к кластеру БД можно только с виртуальной машины с адресом в той же подсети Облака.
+{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 
 {% endif %}
 
@@ -51,13 +51,15 @@ wget "{{ pem-path }}"
 Затем запустите ClickHouse CLI со следующими параметрами:
 
 ```bash
-clickhouse-client --host <адрес хоста> \
+clickhouse-client --host <FQDN хоста> \
                   -s \
                   --user <имя пользователя БД> \
                   --password <пароль пользователя БД> \
                   -q "<запрос к БД>"
                   --port 9440
 ```
+
+{% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
 ## Подключение по HTTP {#http}
 
@@ -67,7 +69,7 @@ clickhouse-client --host <адрес хоста> \
 curl --cacert <путь к SSL-сертификату> \
      -H "X-ClickHouse-User: <имя пользователя БД>" \
      -H "X-ClickHouse-Key: <пароль пользователя БД>" \
-     'https://<адрес хоста>:8443/?database=<имя БД>&query=SELECT%20now()'
+     'https://<FQDN хоста>:8443/?database=<имя БД>&query=SELECT%20now()'
 ```
 
 При подключении с помощью HTTP-метода GET возможны только операции чтения. GET-запрос операции записи всегда вызовет ошибку, как при использовании параметра соединения `readonly=1`.
@@ -78,6 +80,6 @@ curl -X POST \
      --cacert <путь к SSL-сертификату> \
      -H "X-ClickHouse-User: <имя пользователя БД>" \
      -H "X-ClickHouse-Key: <пароль пользователя БД>" \
-     'https://<адрес хоста>:8443/?database=<имя БД>&query=INSERT%20INTO%20Customers%20%28CustomerName%2C%20Address%29%20VALUES%20%28%27Example%20Exampleson%27%2C%20%27Moscow%2C%20Lva%20Tolstogo%2C%2016%27%29%3B'
+     'https://<FQDN хоста>:8443/?database=<имя БД>&query=INSERT%20INTO%20Customers%20%28CustomerName%2C%20Address%29%20VALUES%20%28%27Example%20Exampleson%27%2C%20%27Moscow%2C%20Lva%20Tolstogo%2C%2016%27%29%3B'
 ```
 
