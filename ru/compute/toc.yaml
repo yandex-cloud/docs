@@ -33,7 +33,7 @@ items:
         items:
           - name: Обзор
             href: operations/dsvm/index.md
-          - name: Создать ВМ и подключиться
+          - name: Создание и поключение к ВМ
             href: operations/dsvm/quickstart.md
       - name: Образы с предустановленным ПО
         items:
