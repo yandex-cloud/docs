@@ -72,6 +72,7 @@
 ## Создание группы виртуальных машин {#ig-create}
 
 - [{#T}](instance-groups/create-fixed-group.md)
+- [{#T}](instance-groups/create-autoscaled-group.md)
 - [{#T}](instance-groups/create-with-balancer.md)
 
 ## Получение информации о группе виртуальных машин {#ig-info}

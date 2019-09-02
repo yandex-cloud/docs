@@ -30,11 +30,11 @@
   
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
   
-  1. Выберите `ID` или `NAME` нужной группы, например `first-group`.
+  1. Выберите `ID` или `NAME` нужной группы, например `first-fixed-group`.
   1. Получите информацию о группе виртуальных машин:
   
       ```
-      $ {{ yc-compute-ig }} list-instances --name first-group
+      $ {{ yc-compute-ig }} list-instances --name first-fixed-group
       ```
   
 - API

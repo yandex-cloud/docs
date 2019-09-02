@@ -1,5 +1,5 @@
 1. In the management console, select the folder where you want to create an instance group.
-1. Select **{{ compute-full-name }}**.
+1. Select **{{ compute-name }}**.
 1. On the **Virtual machines** page, go to the **Instance groups** tab.
 1. Click **Create group**.
 1. In the **Basic parameters** section, enter:

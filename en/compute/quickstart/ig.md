@@ -10,5 +10,5 @@ You can create a group with an assigned number of instances. You control the gro
 
 To create a fixed-size instance group:
 
-{% include [create-instance-group-via-concole.md](../../_includes/instance-groups/create-instance-group-via-concole.md) %}
+{% include [create-fixed-group-via-concole.md](../../_includes/instance-groups/create-fixed-group-via-concole.md) %}
 

@@ -116,7 +116,7 @@
       - Общую информацию о группе:
 
           ```
-          name: first-group
+          name: first-fixed-group
           service_account_id: <ID>
           description: "This instance group was created from YAML config"
           ```
@@ -204,7 +204,7 @@
           Полный код файла `specification.yaml`:
 
           ```
-          name: first-group-with-balancer
+          name: first-fixed-group-with-balancer
           service_account_id: <ID>
           description: "This instance group was created from YAML config"
           instance_template:
@@ -243,7 +243,7 @@
 
       Данная команда создаст группу из трех однотипных виртуальных машин со следующими характеристиками:
 
-      - С именем `first-group-with-balancer`.
+      - С именем `first-fixed-group-with-balancer`.
       - С OC CentOS 7.
       - В сети `default-net`.
       - В зоне доступности `ru-central1-a`.
