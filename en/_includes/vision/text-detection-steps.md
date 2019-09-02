@@ -13,7 +13,8 @@
     {% include [base64-encode-command](base64-encode-command.md) %}
 
 1. Create a file with the request body (for example, `body.json`). In the `content` property, specify the [Base64-encoded](../../vision/operations/base64-encode.md) image.
-In the recognition settings, list the languages that image text might be written in, such as English (`en`). You can specify from 1 to 8 languages:
+
+    For the service to automatically detect the text language, specify the `"language_codes": ["*"]` property in the configuration.
 
     **body.json:**
 
@@ -25,7 +26,7 @@ In the recognition settings, list the languages that image text might be written
             "features": [{
                 "type": "TEXT_DETECTION",
                 "text_detection_config": {
-                    "language_codes": ["en"]
+                    "language_codes": ["*"]
                 }
             }]
         }]

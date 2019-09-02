@@ -1,8 +1,8 @@
-#### serverless.functions.invoker {#invoker}
+#### serverless.functions.invoker {#serverless-functions-invoker}
 
-The `serverless.functions.invoker` role grants the right to run functions.
+The `serverless.functions.invoker` role grants permission to run functions.
 
 For now, a role can only be assigned for a parent resource (folder or cloud), and roles are inherited by nested resources.
 
-For more information about how to assign this role, see [#T](../serverless-functions/operations/function-public.md).
+To find out how to assign this role, see [{#T}](../serverless-functions/operations/function-public.md).
 

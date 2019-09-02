@@ -1,15 +1,14 @@
-# Update a service account
+# Updating a service account
 
 You can edit the description of a [service account](../../concepts/users/service-accounts.md) via the CLI or API. For now, the management console only allows you to change the name of a service account.
 
-You can use the management console to immediately add or remove [roles](../../concepts/access-control/roles.md) of a service account for the folder it belongs to. To assign a role for another resource to a service account, use the CLI or API following the instructions [{#T}](assign-role-for-sa.md).
+You can use the management console to immediately add or remove [roles](../../concepts/access-control/roles.md) of a service account for the folder it belongs to. To assign the service account a role for another resource, use the CLI or API by following the instructions in [{#T}](assign-role-for-sa.md).
 
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder that the service account belongs to.
-  2. Select the **Service accounts** tab.
+  2. Go to the **Service accounts** tab.
   3. Click ![image](../../../_assets/options.svg) next to the service account and select **Edit service account**.
   4. Change the name of your service account.
   5. Add or remove roles assigned to the service account. The roles will be assigned for the folder where the service account was created.

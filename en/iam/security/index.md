@@ -1,54 +1,61 @@
 # Access management
 
-Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them. If the user has no roles assigned, all operations are forbidden.
+In this section, you'll learn:
 
-To allow access to the {{ iam-full-name }} service resources (service accounts and their access keys), assign appropriate roles to the user from the list below. You can assign a user a role for the service account, the folder hosting the account, or the entire cloud: access rights are inherited in Yandex Cloud.
+* [What resources you can assign roles to](#resources).
+* [What roles exist in the service](#roles-list).
+* [What roles are required](#required-roles) for particular actions.
 
-{% note info %}
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+## What resources you can assign roles to. {#resources}
 
-{% endnote %}
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Assigning roles
+## What roles exist in the service {#roles-list}
 
-To assign a user a role for the cloud or folder:
+The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
 
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
+![image](service-roles-hierarchy.svg)
 
-## Roles
+Active roles in the service:
 
-The list below shows all roles that are considered when verifying access rights in the {{ iam-short-name }} service.
+* Service roles:
+    * {% include [iam.serviceAccounts.user](../../_includes/iam/roles/short-descriptions/iam.serviceAccounts.user.md) %}
 
-### Service roles
+        For some services, you need the service account to perform operations, such as in [{{ ig-name }}]({{ link-cloud-services }}/instance-groups) and [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes). If you have entered a service account in the request, {{ iam-short-name }} checks that you have rights to use this account.
 
-_Service roles_ are roles that allow access to the resources of a particular service. When checking {{ iam-short-name }} resource access rights, {{ resmgr-name }} service roles are also taken into account.
+    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
 
-### {{ iam-name }} {#yrm-roles}
+    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* Primitive roles:
+    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-{% include [roles-sa-user](../../_includes/roles-sa-user.md) %}
+## What roles do I need {#required-roles}
 
-### {{ resmgr-name }} {#yrm-roles}
+The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+| Action | Methods | Required roles |
+| ----- | ----- | ----- |
+| **View data** |  |
+| [Get an IAM token](../operations/iam-token/create.md) | `create` | no roles needed, only authentication |
+| [View user data](../operations/users/get.md) | `get`, `getByLogin` | no roles needed, only authentication |
+| [View service account data](../operations/sa/get-id.md) | `get`, `list`, `listOperations` | `iam.serviceAccounts.user` or `viewer` for the service account |
+| View information about any resource | `get`, `list` | `viewer` for this resource |
+| **Manage resources** |  |
+| [Create](../operations/sa/create.md), [update](../operations/sa/update.md), and [delete](../operations/sa/delete.md) service accounts | `create`, `update`, `delete` | `editor` role for the folder where the service account is created |
+| Create, update, and delete keys for a service account | `create`, `update`, `delete` | `editor` for the service account |
+| **Manage resource access** |  |
+| [Add a new user to the cloud](../operations/users/create.md) | `setAccessBindings` | `admin` for the cloud |
+| [Make a new cloud owner user](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` for the cloud |
+| [Grant a role](../operations/roles/grant.md), [revoke a role](../operations/roles/revoke.md), and view roles granted for the resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource |
 
-### Primitive roles
+#### What's next
 
-You can assign primitive roles to any resource in any service.
-
-#### {{ roles-viewer }}
-
-A user with the `{{ roles-viewer }}` can view information about resources, for example, get a list of access keys for a service account.
-
-#### {{ roles-editor }}
-
-A user with the `{{ roles-editor }}` can manage any resources, for example, create a service account or its access keys.
-
-In addition, the `{{ roles-editor }}` role includes all permissions of the `{{ roles-viewer }}` role.
-
-#### {{ roles-admin }}
-
-A user with the `{{ roles-admin }}` can manage access rights to resources, for example, allow other users to view service accounts or view information about them.
-
-In addition, the `{{ roles-admin }}` role includes all permissions of the role of `{{ roles-editor }}`.
+* [How to assign a role](../../iam/operations/roles/grant.md).
+* [How to revoke a role](../../iam/operations/roles/revoke.md).
+* [Read more about access management in Yandex.Cloud](../../iam/concepts/access-control/index.md).
+* [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 

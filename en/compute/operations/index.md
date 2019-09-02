@@ -1,6 +1,6 @@
 # Step-by-step instructions
 
-## Creating a VM
+## Creating VMs {#vm-create}
 
 - [{#T}](vm-create/create-linux-vm.md)
 - [{#T}](vm-create/create-windows-vm.md)
@@ -9,25 +9,24 @@
 - [{#T}](vm-create/create-from-user-image.md)
 - [{#T}](vm-create/create-preemptible-vm.md)
 
-## DSVM
+## DSVM {#dsvm}
 
 - [{#T}](dsvm/index.md)
 - [{#T}](dsvm/quickstart.md)
 
-## Images with pre-installed software
+## Images with pre-installed software {#images-with-pre-installed-software}
 
 - [{#T}](images-with-pre-installed-software/create.md)
 - [{#T}](images-with-pre-installed-software/setup.md)
 - [{#T}](images-with-pre-installed-software/operate.md)
 - [{#T}](images-with-pre-installed-software/get-list.md)
 
-## Getting information about a VM
+## Getting information about VMs {#vm-info}
 
 - [{#T}](vm-info/get-info.md)
 - [{#T}](vm-info/get-serial-port-output.md)
 
-## Performing VM management
-
+## Managing VMs {#vm-control}
 
 - [{#T}](vm-control/vm-stop-and-start.md)
 - [{#T}](vm-control/vm-attach-disk.md)
@@ -38,43 +37,52 @@
 - [{#T}](vm-control/vm-update-resources.md)
 - [{#T}](vm-control/vm-delete.md)
 
-## Connecting to a VM
+## Working on VMs {#vm-use}
 
 - [{#T}](vm-connect/ssh.md)
 - [{#T}](vm-connect/rdp.md)
+- [{#T}](vm-connect/auth-inside-vm.md)
 
-## Creating a new disk
+## Creating new disks {#disk-create}
 
 - [{#T}](disk-create/empty.md)
 
-## Performing disk management
+## Disk management {#disk-control}
 
 - [{#T}](disk-control/create-snapshot.md)
+- [{#T}](disk-control/update.md)
 - [{#T}](disk-control/delete.md)
 - [{#T}](snapshot-control/delete.md)
 
-## Creating a new image
+## Creating new images {#image-create}
 
 - [{#T}](image-create/upload.md)
 
-## Performing a serial console management
+## Managing images {#image-control}
+
+- [{#T}](image-control/delete.md)
+
+## Managing the serial console {#serial-console}
 
 - [{#T}](serial-console/index.md)
-- [{#T}](serial-console/connect.md)
+- [{#T}](serial-console/connect-cli.md)
+- [{#T}](serial-console/connect-ssh.md)
+- [{#T}](serial-console/disable.md)
 
-## Creating an instance group
+## Creating instance groups {#ig-create}
 
 - [{#T}](instance-groups/create-fixed-group.md)
 - [{#T}](instance-groups/create-with-balancer.md)
 
-## Getting information about an instance group
+## Getting information about instance groups {#ig-info}
 
 - [{#T}](instance-groups/get-list.md)
 - [{#T}](instance-groups/get-info.md)
 - [{#T}](instance-groups/get-list-instances.md)
 
-## Managing an instance group
+## Managing instance groups {#ig-control}
 
 - [{#T}](instance-groups/update.md)
 - [{#T}](instance-groups/delete.md)
-- [{#T}](instance-groups/recover.md)
+- [{#T}](instance-groups/enable-autohealing.md)
+

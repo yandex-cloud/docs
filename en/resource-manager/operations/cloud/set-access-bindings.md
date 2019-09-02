@@ -1,13 +1,12 @@
-# Set the cloud access rights
+# Setting up cloud access rights
 
 To grant a user access to all the cloud resources, assign them a [role](../../../iam/concepts/access-control/roles.md) for that cloud.
 
-## How to assign a role for a cloud {#access-to-user}
+## Assign a role for the cloud {#access-to-user}
 
 {% list tabs %}
 
 - Management console
-
   1. {% include [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md) %}
   1. {% include [configure-roles-console](../../../_includes/iam/configure-roles-console.md) %}
   1. Click ![image](../../../_assets/plus-sign.svg) in the **Roles for the cloud <cloud name>** section.
@@ -139,7 +138,6 @@ To grant a user access to all the cloud resources, assign them a [role](../../..
   The `set-access-binding` command completely rewrites the access rights to the resource. All current resource roles will be deleted.
 
   {% endnote %}
-
   1. Make sure the resource doesn't have any roles that you don't want to lose:
 
       ```
@@ -186,7 +184,7 @@ To grant a user access to all the cloud resources, assign them a [role](../../..
 
   {% note alert %}
 
-  The `setAccessBindings` method completely rewrites the access rights to the resource. All current resource roles will be deleted.
+  The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
 
   {% endnote %}
 
@@ -207,7 +205,7 @@ To grant a user access to all the cloud resources, assign them a [role](../../..
 
 {% endlist %}
 
-### Cloud access for a service account {#access-to-sa}
+### Cloud access for service accounts {#access-to-sa}
 
 Allow the `test-sa` service account to manage the `my-cloud` cloud and its resources:
 
@@ -277,9 +275,9 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
 
 ### Access to a resource for all users {#access-to-all}
 
-You can grant access to a resource to all Yandex.Cloud users. To do this, assign a role to the [system group](../../../iam/concepts/access-control/system-group.md) `allAuthenticatedUsers`.
+{% include [set-access-to-all](../../../_includes/iam/set-access-to-all.md) %}
 
-Allow any authenticated user to view information about the `my-cloud` cloud and its resources:
+For instance, allow any authenticated user to view information about the `my-cloud` cloud and its resources:
 
 {% list tabs %}
 

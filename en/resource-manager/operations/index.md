@@ -2,10 +2,11 @@
 
 ## Cloud
 
+- [{#T}](cloud/create.md)
 - [{#T}](cloud/set-access-bindings.md)
 - [{#T}](cloud/switch-cloud.md)
 
-## Folder
+## Folders
 
 - [{#T}](folder/create.md)
 - [{#T}](folder/update.md)

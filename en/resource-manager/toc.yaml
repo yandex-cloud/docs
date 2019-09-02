@@ -9,19 +9,21 @@ items:
         href: operations/index.md
       - name: Cloud
         items:
-          - name: Set access rights
+          - name: Creating a cloud
+            href: operations/cloud/create.md
+          - name: Setting up access rights
             href: operations/cloud/set-access-bindings.md
-          - name: Switch to another cloud
+          - name: Switching clouds
             href: operations/cloud/switch-cloud.md
-      - name: Folder
+      - name: Folders
         items:
-          - name: Create a folder
+          - name: Creating a folder
             href: operations/folder/create.md
-          - name: Update a folder
+          - name: Updating a folder
             href: operations/folder/update.md
-          - name: Set access rights
+          - name: Setting up access rights
             href: operations/folder/set-access-bindings.md
-          - name: Get a folder ID
+          - name: Getting the folder ID
             href: operations/folder/get-id.md
   - name: Concepts
     items:

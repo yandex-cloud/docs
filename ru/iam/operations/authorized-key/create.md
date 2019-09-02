@@ -22,7 +22,7 @@
   $  yc iam key create --service-account-name my-robot -o my-robot-key.json
   ```
 
-  В случае успеха в файл my-robot-key.json будет записан закрытый ключ (`privateKey`) и идентификатор открытого ключа (`id`).
+  В случае успеха в файл `my-robot-key.json` будет записан закрытый ключ (`privateKey`) и идентификатор открытого ключа (`id`).
 
   Пример файла с ключом:
 

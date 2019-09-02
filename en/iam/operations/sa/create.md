@@ -1,8 +1,8 @@
-# Create a service account
+# Creating a service account
 
 Create a [service account](../../concepts/users/service-accounts.md) to manage resources under a different account.
 
-## How to create a service account
+## Create a service account
 
 {% list tabs %}
 
@@ -10,16 +10,16 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
 
   1. Select a folder.
 
-  2. Select the **Service accounts** tab.
+  2. Go to the **Service accounts** tab.
 
   3. Click **Create service account**.
 
   4. Enter the name of the service account.
 
   5. You can immediately assign the service account a [role](../../concepts/access-control/roles.md) for the folder where it is created.
-  To do this, click **Add role** and select a role.
+To do this, click **Add role** and select a role.
 
-      To assign a role for another resource, use the CLI or API following the instructions [{#T}](assign-role-for-sa.md).
+      To assign a role for another resource, use the CLI or API by following the instructions [{#T}](assign-role-for-sa.md).
 
   6. Click **Add**.
 
@@ -49,7 +49,7 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
 
 ## Examples
 
-### Create with a description
+### Add a description when creating
 
 Create a service account with the following name and description:
 

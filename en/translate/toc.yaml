@@ -10,7 +10,7 @@ items:
       - name: Detect the language of the text
         href: operations/detect.md
   - name: Authentication in the API
-    href: concepts/auth.md
+    href: api-ref/authentication.md
   - name: API reference
     items:
     - name: v2

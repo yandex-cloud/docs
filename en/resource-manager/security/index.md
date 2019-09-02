@@ -1,8 +1,8 @@
 # Access management
 
-Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them. If the user has no roles assigned, all operations are forbidden.
+Yandex.Cloud users can only perform operations on resources that are permitted under the roles assigned to them. If the user has no roles assigned, all operations are forbidden.
 
-To allow access to the {{ resmgr-full-name }} service resources (clouds and folders), assign applicable roles to the user from the list below. The roles assigned to the parent resource are inherited by nested resources.
+To allow access to {{ resmgr-full-name }} resources (clouds and folders), assign applicable roles to the user from the list below. The roles assigned to the parent resource are inherited by nested resources.
 
 {% note info %}
 
@@ -12,7 +12,7 @@ For more information about role inheritance, see [{#T}](../concepts/resources-hi
 
 ## Assigning roles
 
-To assign a role to a user:
+To assign a user a role:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
@@ -32,17 +32,17 @@ You can assign primitive roles to any resource in any service.
 
 #### {{ roles-viewer }}
 
-A user with the `{{ roles-viewer }}` can view information about resources, for example, view a list of folders in the cloud or obtain information about a folder.
+Users with the `{{ roles-viewer }}` role can view information about resources. For example, they can view a list of folders in the cloud and get information about a folder.
 
 #### {{ roles-editor }}
 
-A user with the `{{ roles-editor }}` can manage all resources, for example, create a folder.
+Users with the `{{ roles-editor }}` role can manage any resource, such as creating a folder.
 
-In addition, the `{{ roles-editor }}` role includes all permissions of the `{{ roles-viewer }}` role.
+The `{{ roles-editor }}` role also includes all `{{ roles-viewer }}` role permissions.
 
 #### {{ roles-admin }}
 
-A user with the `{{ roles-admin }}` can manage access rights to resources, for example, allow other users to create folders or view information about them.
+Users with the `{{ roles-admin }}` role can manage resource access rights, such as allowing other users to create folders or view their details.
 
-In addition, the `{{ roles-admin }}` role includes all permissions of the role of `{{ roles-editor }}`.
+The `{{ roles-admin }}` role also includes all `{{ roles-editor }}` role permissions.
 

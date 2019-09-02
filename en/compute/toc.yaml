@@ -69,12 +69,14 @@ items:
             href: operations/vm-control/vm-update-resources.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
-      - name: Connecting to a VM
+      - name: Working on a VM
         items:
           - name: Connecting to a VM via SSH
             href: operations/vm-connect/ssh.md
           - name: Connecting to a VM via RDP
             href: operations/vm-connect/rdp.md
+          - name: Working with Yandex.Cloud from inside a VM
+            href: operations/vm-connect/auth-inside-vm.md
       - name: Creating a new disk
         items:
           - name: Creating an empty disk

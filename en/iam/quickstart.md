@@ -5,7 +5,7 @@ In this guide, you will learn how to:
 * [Add users to your cloud](#add-user).
 * [Assign cloud roles to users](#cloud-role).
 * [Assign folder roles to users](#folder-role).
-* [Revoke the assigned roles](#revoke-roles).
+* [Revoke assigned roles](#revoke-roles).
 
 ## Before getting started
 
@@ -28,25 +28,25 @@ To grant another user access to your resources, add the user to your cloud:
 
 {% include [roles-cloud-member](../_includes/roles-cloud-member.md) %}
 
-## Assign a user a role for the cloud {#cloud-role}
+## Assign the user a role for the cloud {#cloud-role}
 
-To grant a user access to view resources in your cloud, assign the user the role of `{{ roles-viewer }}`:
+To grant a user access to view resources in your cloud, assign them the `{{ roles-viewer }}` role:
 
 1. {% include [configure-roles-console](../_includes/iam/configure-roles-console.md) %}
 1. In the **Roles for the cloud <cloud name>** click ![image](../_assets/plus-sign.svg).
-1. Choose the role of `{{ roles-viewer }}`.
+1. Choose the `{{ roles-viewer }}` role.
 
 ## Assign a user a role for a folder {#folder-role}
 
-To allow a user to create resources in a folder, assign the user the role of `{{ roles-editor }}` for this folder:
+To allow a user to create resources in a folder, assign them the `{{ roles-editor }}` role for that folder:
 
-1. If you have closed the window with the role settings, open it again.
+1. If you closed the window with role settings, open it again.
 1. Select a folder in the **Roles in folders** section and click ![image](../_assets/plus-sign.svg).
-1. Choose the role of `{{ roles-editor }}`.
+1. Choose the `{{ roles-editor }}` role.
 
 ## Revoke assigned roles {#revoke-roles}
 
-1. If you have closed the window with the role settings, open it again.
+1. If you closed the window with role settings, open it again.
 1. Click x next to each role you would like to revoke.
 
 {% note info %}
@@ -56,4 +56,10 @@ If the user doesn't have any more roles for your cloud, this user disappears fro
 If you want to revoke all roles at once, [delete the user](operations/users/delete.md) from your cloud.
 
 {% endnote %}
+
+#### See also
+
+* [All step-by-step instructions](operations/index.md)
+* [Learn more about the service](concepts/index.md)
+* [How to perform API operations](api-ref/authentication.md)
 

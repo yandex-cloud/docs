@@ -1,16 +1,34 @@
-# Create static access keys
+# Creating static access keys
 
-Instructions for how to create [static access keys](../../concepts/users/service-accounts.md#access-keys) for a [service account](../../concepts/users/service-accounts.md). If you don't have a service account yet, [create one](../sa/create.md) and [configure access rights](../sa/assign-role-for-sa.md) for it.
+Instructions for how to create [static access keys](../../concepts/authorization/access-key.md) for [service accounts](../../concepts/users/service-accounts.md).
+
+If you don't have a service account yet, [create one](../sa/create.md) and [assign it roles](../sa/assign-role-for-sa.md).
+
+To create a static access key:
 
 {% list tabs %}
 
 - Management console
 
   1. Go to the folder that the service account belongs to.
-  1. Select the **Service accounts** tab.
+
+  1. Go to the **Service accounts** tab.
+
   1. Choose a service account and click the line with its name.
-  1. Click **Create access key** in the top panel.
-  1. Save the ID and private key. After the dialog is closed, the private key value will be unavailable.
+
+  1. Click **Create new key** in the top panel.
+
+  1. Click **Create access key**.
+
+  1. Enter a description of the key so that you can easily find it in the management console.
+
+  1. Save the ID and private key.
+
+      {% note alert %}
+
+      After the dialog is closed, the private key value will be unavailable.
+
+      {% endnote %}
 
 - CLI
 
@@ -57,7 +75,7 @@ Instructions for how to create [static access keys](../../concepts/users/service
 
 ## Examples
 
-### Create with a description
+### Add a description when creating
 
 Add a description when creating an access key.
 
@@ -87,6 +105,6 @@ Add a description when creating an access key.
 
 #### What's next
 
-- [Customize tools to work with {{ objstorage-name }}](../../../storage/instruments/)
+- [Configuring tools to work with {{ objstorage-name }}](../../../storage/instruments/)
 - [{#T}](assign-role-for-sa.md)
 

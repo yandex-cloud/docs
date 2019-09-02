@@ -1,4 +1,4 @@
-# Get the service account ID
+# Getting the service account ID
 
 If you don't have a service account yet, [create one](create.md).
 
@@ -8,7 +8,7 @@ If you don't have a service account yet, [create one](create.md).
 
   1. Go to the folder that the service account belongs to.
 
-  1. Select the **Service accounts** tab.
+  1. Go to the **Service accounts** tab.
 
   1. Choose a service account and click the line with its name.
 
@@ -24,7 +24,7 @@ If you don't have a service account yet, [create one](create.md).
 
   ```
   $ yc iam service-account get my-robot
-
+  
   id: aje6o61dvog2h6g9a33s
   ...
   ```
@@ -52,7 +52,7 @@ If you don't have a service account yet, [create one](create.md).
       $ export IAM_TOKEN=CggaATEVAgA...
       $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
           "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
-
+      
       {
        "serviceAccounts": [
         {

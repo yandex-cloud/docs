@@ -50,9 +50,9 @@ yc iam create-token
 - Инструкция
 
   Сгенерируйте части, из которых состоит JWT:
-  * header — заголовки JWT в формате Base64Url.
-  * payload — JWT Claims Set в формате Base64Url.
-  * signature — подпись, которая создается на основе частей header и payload.
+  * `header` — заголовки JWT в формате Base64Url.
+  * `payload` — JWT Claims Set в формате Base64Url.
+  * `signature` — подпись, которая создается на основе частей header и payload.
 
   Чтобы создать JWT, соедините все части, используя точку как разделитель:
 

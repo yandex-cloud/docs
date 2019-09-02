@@ -1,12 +1,11 @@
-# Update a folder
+# Updating a folder
 
 The management console only allows you to change the name of a folder. To change its description, use the CLI or API.
 
 {% list tabs %}
 
 - Management console
-
-  1. Select a folder on the [Home page]({{ link-console-main }}) of the management console. This page displays folders for the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
+  1. Select the folder on the [Home page]({{ link-console-main }}) of the management console. This page displays folders for the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
   2. Click ![image](../../../_assets/options.svg) next to the folder and select **Rename**.
   3. Enter a new name for the folder.
   4. Click **Rename**.
@@ -42,7 +41,7 @@ The management console only allows you to change the name of a folder. To change
           where:
           * `<SERVICE-NAME>` is the name of the service, such as `compute`.
           * `<RESOURCE>` is the category of the resource, such as `instance`.
-          * `<RESOURCE-ID>` is the resource identifier.
+          * `<RESOURCE-ID>` is the resource ID.
 
           For example, the `fhmp74bfis2aim728p2a` VM belongs to the `b1gpvjd9ir42nsng55ck` folder:
 

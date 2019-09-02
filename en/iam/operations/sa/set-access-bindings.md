@@ -1,10 +1,10 @@
-# Set service account access rights
+# Setting up access rights for a service account
 
-This section describes how to assign a [role](../../concepts/access-control/roles.md ) for a [ service account](../../concepts/users/service-accounts.md) as a resource. To assign the service account a role for another resource, follow the instructions [{#T}](assign-role-for-sa.md).
+This section describes how to assign a [role](../../concepts/access-control/roles.md ) for a [ service account](../../concepts/users/service-accounts.md) as a resource. To assign the service account a role for another resource, follow the instructions in [{#T}](assign-role-for-sa.md).
 
 You can't set service account access rights via the management console. You can [assign a role for a folder](../../../resource-manager/operations/folder/set-access-bindings.md) hosting the service account.
 
-## How to assign a role for a service account
+## Assign a role to a service account
 
 {% list tabs %}
 
@@ -44,7 +44,7 @@ You can't set service account access rights via the management console. You can 
       +--------------------------------+-------------+
       ```
 
-  4. Find out the user's ID from the login or email address. To assign a role to a service account or group of users, see the [examples](#examples) below.
+  4. Find out the user's ID from the login or email address. To assign a role to a service account or group of users rather than one user, see the [examples](#examples) below.
 
       ```
       $ yc iam user-account get test-user
@@ -139,7 +139,6 @@ You can't set service account access rights via the management console. You can 
   The `set-access-binding` command completely rewrites the access rights to the resource. All current resource roles will be deleted.
 
   {% endnote %}
-
   1. Make sure the resource doesn't have any roles that you don't want to lose:
 
       ```
@@ -186,7 +185,7 @@ You can't set service account access rights via the management console. You can 
 
   {% note alert %}
 
-  The `setAccessBindings` method completely rewrites the access rights to the resource. All current resource roles will be deleted.
+  The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
 
   {% endnote %}
 
@@ -207,7 +206,7 @@ You can't set service account access rights via the management console. You can 
 
 {% endlist %}
 
-### Service account access to another service account {#access-to-sa}
+### Access from one service account to another service account {#access-to-sa}
 
 Allow the `test-sa` service account to manage the `my-robot` service account:
 
@@ -284,9 +283,9 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
 ### Access to a resource for all users {#access-to-all}
 
-You can grant access to a resource to all Yandex.Cloud users. To do this, assign a role to the [system group](../../concepts/access-control/system-group.md) `allAuthenticatedUsers`.
+{% include [set-access-to-all](../../../_includes/iam/set-access-to-all.md) %}
 
-Allow any authenticated user to view information about the `my-robot` service account:
+For example, allow any authenticated user to view information about the `my-robot` service account:
 
 {% list tabs %}
 

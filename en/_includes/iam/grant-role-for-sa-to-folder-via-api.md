@@ -7,7 +7,7 @@
     $ export IAM_TOKEN=CggaATEVAgA...
     $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
         "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
-
+    
     {
      "serviceAccounts": [
       {
@@ -21,7 +21,7 @@
     }
     ```
 
-1. Create a request body, for example, in a `body.json` file. Set the `action` property to `ADD` and specify the `serviceAccount`  type and service account ID in the `subject`  property:
+1. Create a request body, for example, in a `body.json` file. Set the `action` property to `ADD` and specify the `serviceAccount` type and service account ID in the `subject` property:
 
     **body.json:**
 

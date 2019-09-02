@@ -1,10 +1,10 @@
-# Assign a role
+# Assigning roles
 
-To grant access to a resource, assign a [role](../../../iam/concepts/access-control/roles.md) to  the subject for that resource or the resource that the access rights are inherited from (such as a folder or cloud). For more information, see the section [{#T}](../../concepts/access-control/index.md).
+To grant access to a resource, assign a [role](../../../iam/concepts/access-control/roles.md) to the subject for that resource or the resource that the access rights are inherited from (such as a folder or cloud). For more information, see [{#T}](../../concepts/access-control/index.md).
 
-## How to assign a role to a user {#access-to-user}
+## Assign a role to a user {#access-to-user}
 
-This section describes how to assign a role for a user's account on Yandex. The examples below show how to assign a role for a [service account](#access-to-sa) or [all users at once](#access-to-all).
+This section describes how to assign a role for a user's account on Yandex. The examples below show how to assign a role to a [service account](#access-to-sa) or [all users at once](#access-to-all).
 
 {% list tabs %}
 
@@ -31,9 +31,9 @@ This section describes how to assign a role for a user's account on Yandex. The 
       where:
       * `<SERVICE-NAME>` is the name of the service that the resource belongs to (for example, `resource-manager`).
       * `<RESOURCE>` is the resource category, for example `cloud`.
-      * `<RESOURCE-NAME>` is the name of the resource. You can specify a resource by its name or identifier.
-      * `<RESOURCE-ID>` is the resource identifier.
-      * `<ROLE-ID>` is the identifier of the role (for example, `{{ roles-cloud-owner }}`).
+      * `<RESOURCE-NAME>` is the name of the resource. You can specify a resource by its name or ID.
+      * `<RESOURCE-ID>` is the resource ID.
+      * `<ROLE-ID>` is the role ID, for example `{{ roles-cloud-owner }}`.
       * `<USER-ACCOUNT-ID>` is the identifier of the user account assigned the role.
 
       For example, assign the `viewer` role for the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
@@ -52,7 +52,7 @@ This section describes how to assign a role for a user's account on Yandex. The 
 
   1. [Get a user ID](../users/get.md).
 
-  1. Create a request body, for example, in a `body.json` file. Set the `action` property to `ADD` and specify the `userAccount`  type and user ID in the `subject`  property:
+  1. Create a request body, for example, in a `body.json` file. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
 
       **body.json:**
 
@@ -75,7 +75,6 @@ This section describes how to assign a role for a user's account on Yandex. The 
   1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
 
   For detailed instructions on how to assign a role for the corresponding resource, see:
-
   * [{#T}](../sa/set-access-bindings.md)
   * [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md)
   * [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md)
@@ -109,7 +108,6 @@ This section describes how to assign a role for a user's account on Yandex. The 
   {% endnote %}
 
   For example, to assign multiple roles for a folder:
-
   1. Make sure the resource doesn't have any roles that you don't want to lose:
 
       ```
@@ -161,7 +159,7 @@ This section describes how to assign a role for a user's account on Yandex. The 
 
   {% note alert %}
 
-  The `setAccessBindings` method completely rewrites the access rights to the resource. All current resource roles will be deleted.
+  The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
 
   {% endnote %}
 

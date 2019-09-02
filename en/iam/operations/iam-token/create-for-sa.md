@@ -1,245 +1,118 @@
-# Get an IAM token for a service account
+# Getting an IAM token for a service account
 
-To perform operations in Yandex.Cloud via the API, you need an [IAM token](../../concepts/authorization/iam-token.md). To get an IAM token for a [service account](../../concepts/users/service-accounts.md), exchange it for a [JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT):
+[An IAM token](../../concepts/authorization/iam-token.md) is needed for authenticating API operations. There are several ways to get an IAM token for the [service account](../../concepts/users/service-accounts.md):
 
-1. [Find out the service account ID](#before-begin).
-2. [Create authorized keys](#keys-create) required for JWT generation.
-3. [Create a JWT](#jwt-create).
-4. [Exchange the JWT for an IAM token](#get-iam-token).
+* [Using the CLI](#via-cli) (the easiest way).
+* [Using JSON Web Token](#via-jwt). This method is better if you need to automate your API operations.
+* [Using a virtual machine](../../../compute/operations/vm-connect/auth-inside-vm.md) in {{ compute-name }}. This method is convenient for running apps on Yandex.Cloud virtual machines. For more see the [documentation](../../../compute/operations/vm-connect/auth-inside-vm.md) for {{ compute-name }}.
 
 {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
 
-## 1. Find out the service account ID {#before-begin}
+## Get an IAM token using the CLI {#via-cli}
 
-{% list tabs %}
+{% include [cli-set-sa-profile](../../../_includes/cli-set-sa-profile.md) %}
 
-- CLI
-
-  1. Get a list of service accounts:
-
-      ```
-      $ yc iam service-account list
-      +----------------------+----------+-------------+
-      |          ID          |   NAME   | DESCRIPTION |
-      +----------------------+----------+-------------+
-      | ajepg0mjt06siua65usm | my-robot |             |
-      +----------------------+----------+-------------+
-      ```
-
-  2. Select a service account and save its `ID`.
-
-- API
-
-  To find out the service account ID, use the [list](../../api-ref/ServiceAccount/list.md) method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource.
-
-  Sample request using cURL:
-
-  ```
-  curl -H "Authorization: Bearer <IAM_TOKEN>" \
-      https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=<FOLDER_ID>
-  ```
-
-  where:
-
-  * `<IAM_TOKEN>` is the IAM token of the user who has rights to view service accounts in the folder.
-  * `<FOLDER_ID>` is the ID of the folder that the service account belongs to.
-
-{% endlist %}
-
-## 2. Create authorized keys {#keys-create}
-
-To create a JWT, you need [authorized keys](../../concepts/users/service-accounts.md#keys).
-
-{% list tabs %}
-
-- Management console
-
-  1. Go to the folder that the service account belongs to.
-  1. Select the **Service accounts** tab.
-  1. Choose a service account and click the line with its name.
-  1. Click **Create an authorized key** in the top panel.
-  1. Select the encryption algorithm.
-  1. Enter a description of the key so that you can find it easily in the management console.
-  1. Save both the public and private keys. The private key is not saved in Yandex.Cloud, and you won't be able to view the public key in the management console.
-
-- CLI
-
-  Create authorized keys for the `my-robot` service account:
-
-  ```
-  $  yc iam key create --service-account-name my-robot -o my-robot-key.json
-  ```
-
-  If successful, a private key (`privateKey`) and public key ID (`id`) will be written to the my-robot-key.json file.
-
-  _my-robot-key.json_
-
-  ```json
-  {
-     "id": "lfkoe35hsk58aks301nl",
-     "service_account_id": "ajepg0mjt06siua65usm",
-     "created_at": "2019-03-20T10:04:56Z",
-     "key_algorithm": "RSA_2048",
-     "public_key": "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----\n",
-     "private_key": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
-  }
-  ```
-
-  {% include [key-response-format](../../../_includes/key-response-format.md) %}
-
-- API
-
-  To create authorized keys, use the `create` method for the `Key` resource.
-
-  Sample request using cURL:
-
-  ```
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-TOKEN>" \
-      -d '{"serviceAccountId": "<SERVICE-ACCOUNT-ID>"}' \
-      https://iam.api.cloud.yandex.net/iam/v1/keys
-  ```
-
-  where:
-
-  * `<IAM-TOKEN>` is the IAM token of the user who has rights to view service accounts in the folder.
-  * `<SERVICE-ACCOUNT-ID>` is the `ID` of the service account that the keys are created for.
-
-  If successful, the server response will contain the private key (`privateKey`) and public key ID (`id`). Save this data because it will be used later.
-
-  ```json
-  {
-      "key": {
-          "createdAt": "2018-10-30T15:55:00+00:00",
-          "description": "",
-          "id": "lfkoe35hsk58aks301nl",
-          "keyAlgorithm": "RSA_2048",
-          "publicKey": "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----\n",
-          "serviceAccountId": "ajepg0mjt06siua65usm"
-      },
-      "privateKey": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
-  }
-  ```
-
-  {% include [key-response-format](../../../_includes/key-response-format.md) %}
-
-{% endlist %}
-
-## 3. Create a JWT {#jwt-create}
-
-Generate the parts that make up a JWT:
-
-* [header](#header): JWT headers in Base64Url format.
-* [payload](#payload): JWT Claims Set in Base64Url format.
-* [signature](#signature): signature generated based on the header and payload.
-
-To generate a JWT, [create a ](#concat) dot-separated string of these parts:
+Now you can get an IAM token for your service account:
 
 ```
-header.payload.signature
+yc iam create-token
 ```
-
-### 3.1. Generate a header {#header}
-
-A service account's JWT header must contain the following fields:
-
-* `typ`: token type, the value is always `JWT`.
-* `alg`: encryption algorithm. The only supported algorithm is [PS256](https://tools.ietf.org/html/rfc7518#section-3.5).
-* `kid`: ID of the public key received when [creating authorized keys](#keys-create). The key must belong to the service account that the IAM token is requested for.
-
-Example:
-
-```
-{
-  "typ": "JWT",
-  "alg": "PS256",
-  "kid": "lfkoe35hsk58aks301nl"
-}
-```
-
-Save the result as a Base64Url encoded string.
-
-### 3.2. Create a payload {#load}
-
-A service account's JWT payload must contain the following fields:
-
-* `iss`: ID of the service account whose key the JWT is signed with.
-* `aud`: link by which an IAM token will be requested: `https://iam.api.cloud.yandex.net/iam/v1/tokens.`
-* `iat`: token issue time, in [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time) format.
-* `exp`: token expiration time, in Unix timestamp format. The expiration time must not exceed the issue time by more than one hour, i.e., `exp-iat ≤ 3600`.
-
-Example:
-
-```
-{
-  "iss": "ajepg0mjt06siua65usm",
-  "aud": "https://iam.api.cloud.yandex.net/iam/v1/tokens",
-  "iat": 1516239022,
-  "exp": 1516240822
-}
-```
-
-Save the result as a Base64Url encoded string.
-
-### 3.3. Create a signature {#signature}
-
-Create a signature using the private key received when [creating authorized keys](#keys-create). For the signature, use a string consisting of the header and payload separated by a dot (`.`):
-
-```
-header.payload
-```
-
-The only supported algorithm is [PS256](https://tools.ietf.org/html/rfc7518#section-3.5).
-
-Save the result as a Base64Url encoded string.
-
-### 3.4 Concatenate all parts {#concat}
-
-To get a token in JWT format, concatenate all the parts using a dot as a separator.
-
-Example of a JWT:
-
-```
-eyJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiIsImtpZCI6ImIxZ3Ztb2IwM2dvb2hwbGNmNjQxIn0.eyJpc3MiOiJiMWdwcHVsaGhtMmFhdWZxOWF1ZyIsImF1ZCI6Imh0dHBzOi8vYXBpLmNsb3VkLnlhbmRleC5uZXQvaWFtL3YxL3Rva2VucyIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNTE2MjQwODIyfQ.N7jbzUx54KFr-YjGOx2ESGlOLjUU2qK_3gVYTTqqh6AcXGBeDhr32Wrpnm62_aP894gzY1rjYwBOaU8ri-akXJA0W8ufrbEKMR9vhd3QZmCe2beW6-Ut_XSUr2atUMYrB8OZ6EYkFqlpVQmWA1WqBHJOtwaM8H4PjYLUhQrXwiM
-```
-
-The resulting token can be exchanged for an IAM token.
-
-## 4. Exchange the JWT for an IAM token {#get-iam-token}
-
-When exchanging the JWT for an IAM token, make sure the following conditions are met:
-
-* The service account and key specified in the JWT exist (they have not been deleted).
-* The key belongs to the service account.
-* The signature is valid.
-
-{% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
-
-{% list tabs %}
-
-- API
-
-  To get an IAM token, use the [create](../../api-ref/IamToken/create.md) method for the [IamToken](../../api-ref/IamToken/index.md) resource.
-
-  Sample request using cURL:
-
-  ```
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -d '{"jwt": "<SIGNED-JWT>"}' \
-      https://iam.api.cloud.yandex.net/iam/v1/tokens
-  ```
-
-  where `<SIGNED-JWT>` is the JWT received in the previous step.
-
-{% endlist %}
 
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
-## Examples {#examples}
+{% note tip %}
+
+You can use the profile you created to perform CLI operations under your service account.
+
+{% endnote %}
+
+## Get an IAM token using a JWT {#via-jwt}
+
+To get an IAM token, create a [JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT) and exchange it for an IAM token.
+
+### Before getting started
+
+1. [Find out the service account ID](../sa/get-id.md).
+1. [Create the authorized keys](../authorized-key/create.md) required for generating a JWT.
+
+### 1. Create a JWT {#jwt-create}
+
+Create a JWT manually by following the instructions or use a library for your programming language.
+
+{% note tip %}
+
+On [jwt.io](https://jwt.io), you can view the list of libraries and try generating a token manually.
+
+{% endnote %}
 
 {% list tabs %}
+
+- Instructions
+
+  Generate the parts that make up a JWT:
+  * `header`: Base64Url encoded JWT headers.
+  * `payload`: A Base64Url encoded JWT Claims Set.
+  * `signature`: A signature generated from parts of the header and payload.
+
+  To create a JWT, join all the parts using a dot as the delimiter:
+
+  ```
+  header.payload.signature
+  ```
+
+  **1.1. Generating a header**
+
+  A service account's JWT header must contain the following fields:
+  * `typ`: The token type, the value is always `JWT`.
+  * `alg`: The encryption algorithm. The only supported algorithm is [PS256](https://tools.ietf.org/html/rfc7518#section-3.5).
+  * `kid`: The ID of the public key obtained when [creating authorized keys](../authorized-key/create.md). The key must belong to the service account that the IAM token is requested for.
+
+  Example:
+
+  ```
+  {
+    "typ": "JWT",
+    "alg": "PS256",
+    "kid": "lfkoe35hsk58aks301nl"
+  }
+  ```
+
+  Save the result as a Base64Url encoded string.
+
+  **1.2. Generating a payload**
+
+  A service account's JWT payload must contain the following fields:
+  * `iss`: The ID of the service account whose key the JWT is signed with.
+  * `aud`: The link by which an IAM token will be requested: `https://iam.api.cloud.yandex.net/iam/v1/tokens.`
+  * `iat`: The token issue time, in [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time) format.
+  * `exp`: The token expiration time, in Unix timestamp format. The expiration time must not exceed the issue time by more than one hour, meaning `exp-iat ≤ 3600`.
+
+  Example:
+
+  ```
+  {
+    "iss": "ajepg0mjt06siua65usm",
+    "aud": "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+    "iat": 1516239022,
+    "exp": 1516240822
+  }
+  ```
+
+  Save the result as a Base64Url encoded string.
+
+  **1.3. Generating a signature**
+
+  Create a signature using the private key obtained when [creating authorized keys](keys-create). For the signature, use a string consisting of the header and payload separated by a dot (`.`):
+
+  ```
+  header.payload
+  ```
+
+  The only supported algorithm is [PS256](https://tools.ietf.org/html/rfc7518#section-3.5).
+
+  Save the result as a Base64Url encoded string.
+
+  If you generate a token using [jwt.io](https://jwt.io), note that `\n` in the key value must be replaced by line breaks .
 
 - Python
 
@@ -250,7 +123,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
   import jwt
 
   service_account_id = "ajepg0mjt06siua65usm"
-  key_id = "lfkoe35hsk58aks301nl" # ID of the Key resource belonging to the service account.
+  key_id = "lfkoe35hsk58aks301nl" # The ID of the Key resource belonging to the service account.
 
   with open("private.pem", 'r') as private:
     private_key = private.read() # Reading the private key from the file.
@@ -317,9 +190,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
 - Go
 
-  Example of creating a JWT using [jwt-go](https://github.com/dgrijalva/jwt-go).
-
-  JWT generation:
+  Example of JWT creation using [jwt-go](https://github.com/dgrijalva/jwt-go).
 
   ```go
   import (
@@ -380,44 +251,6 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
   }
   ```
 
-  JWT exchange for an IAM token:
-
-  ```go
-  import (
-  	"encoding/json"
-  	"fmt"
-  	"io/ioutil"
-  	"net/http"
-  	"strings"
-  )
-
-  func getIAMToken() string {
-  	jot := signedToken()
-  	fmt.Println(jot)
-  	resp, err := http.Post(
-  		"https://iam.api.cloud.yandex.net/iam/v1/tokens",
-  		"application/json",
-  		strings.NewReader(fmt.Sprintf(`{"jwt":"%s"}`, jot)),
-  	)
-  	if err != nil {
-  		panic(err)
-  	}
-  	defer resp.Body.Close()
-  	if resp.StatusCode != http.StatusOK {
-  		body, _ := ioutil.ReadAll(resp.Body)
-  		panic(fmt.Sprintf("%s: %s", resp.Status, body))
-  	}
-  	var data struct {
-  		IAMToken string `json:"iamToken"`
-  	}
-  	err = json.NewDecoder(resp.Body).Decode(&data)
-  	if err != nil {
-  		panic(err)
-  	}
-  	return data.IAMToken
-  }
-  ```
-
 - Node.js
 
   Example of creating a JWT using [node-jose](https://github.com/cisco/node-jose):
@@ -435,7 +268,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
   var payload = { aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
                   iss: serviceAccountId,
                   iat: now,
-                  exp: now + 3600 };
+                  exp: now + 3600 }
 
   jose.JWK.asKey(key, 'pem', { kid: keyId, alg: 'PS256' })
       .then(function(result) {
@@ -539,41 +372,76 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
   }
   ```
 
-- Ruby
+{% endlist %}
 
-  Example of creating a JWT using [ruby-jwt](https://github.com/jwt/ruby-jwt).
+### 2. Exchange the JWT for an IAM token {#get-iam-token}
 
-  ```ruby
-  require 'jwt'
+When exchanging the JWT for an IAM token, make sure the following conditions are met:
 
-  privateKey = OpenSSL::PKey::RSA.new(File.read('private.pem'))
+* The service account and key specified in the JWT exist (they have not been deleted).
+* The key belongs to the service account.
+* The signature is valid.
 
-  issuedAt = Time.now.to_i
-  expirationTime = issuedAt + 360
+{% list tabs %}
 
-  serviceAccountId = "ajefnghf8o71512u5o8d"
+- API
 
-  # ID of the Key resource belonging to the service account.
-  keyId = "ajecsls45da39r33kngg"
+  To get an IAM token, use the [create](../../api-ref/IamToken/create.md) method for the [IamToken](../../api-ref/IamToken/index.md) resource.
 
-  headers = { kid: keyId }
-  payload = {
-      typ: 'JWT',
-      aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
-      iss: serviceAccountId,
-      iat: issuedAt,
-      exp: expirationTime,
-      data: 'data' }
+  Sample request using cURL:
 
-  # JWT generation.
-  token = JWT.encode(
-      payload,
-      privateKey,
-      'PS256',
-      headers)
+  ```
+  curl -X POST \
+      -H 'Content-Type: application/json' \
+      -d '{"jwt": "<SIGNED-JWT>"}' \
+      https://iam.api.cloud.yandex.net/iam/v1/tokens
+  ```
+
+  where `<SIGNED-JWT>` is the JWT received in the previous step.
+
+- Go
+
+  An example of a JWT exchange for an IAM token:
+
+  ```go
+  import (
+  	"encoding/json"
+  	"fmt"
+  	"io/ioutil"
+  	"net/http"
+  	"strings"
+  )
+
+  func getIAMToken() string {
+  	jot := signedToken()
+  	fmt.Println(jot)
+  	resp, err := http.Post(
+  		"https://iam.api.cloud.yandex.net/iam/v1/tokens",
+  		"application/json",
+  		strings.NewReader(fmt.Sprintf(`{"jwt":"%s"}`, jot)),
+  	)
+  	if err != nil {
+  		panic(err)
+  	}
+  	defer resp.Body.Close()
+  	if resp.StatusCode != http.StatusOK {
+  		body, _ := ioutil.ReadAll(resp.Body)
+  		panic(fmt.Sprintf("%s: %s", resp.Status, body))
+  	}
+  	var data struct {
+  		IAMToken string `json:"iamToken"`
+  	}
+  	err = json.NewDecoder(resp.Body).Decode(&data)
+  	if err != nil {
+  		panic(err)
+  	}
+  	return data.IAMToken
+  }
   ```
 
 {% endlist %}
+
+{% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
 #### What's next
 

@@ -6,7 +6,7 @@ Users get permissions along with resource roles. For more information about how 
 
 ## Authentication in Yandex.Cloud
 
-Before authorization, a user must get authenticated, i.e., log in under their account. Authentication is performed in different ways, depending on the type of account and the interface used.
+Before authorization, a user must get authenticated, meaning they must log in under their account. Authentication is performed in different ways, depending on the type of account and the interface used.
 
 ### Authentication with a Yandex.Passport account {#passport}
 
@@ -47,8 +47,8 @@ Before authorization, a user must get authenticated, i.e., log in under their ac
   There are three ways to perform operations on behalf of a service account:
 
   * Using an [IAM token](iam-token.md). This is the recommended authentication method. However, please note that the IAM token validity is limited. Therefore, this method is suitable for developing applications that will request the IAM token automatically.
-
-      [Instructions for how to get an IAM token](../../operations/iam-token/create-for-sa.md).
+    * [Instructions for how to get an IAM token](../../operations/iam-token/create-for-sa.md).
+    * [How to get an IAM token from inside the VM](../../../compute/operations/vm-connect/auth-inside-vm.md).
 
   * Using [API keys](api-key).
 

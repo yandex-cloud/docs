@@ -13,6 +13,7 @@
 - [{#T}](sa/assign-role-for-sa.md)
 - [{#T}](sa/set-access-bindings.md)
 - [{#T}](sa/create-access-key.md)
+- [{#T}](sa/get-id.md)
 - [{#T}](sa/delete.md)
 
 ## Roles
@@ -29,4 +30,8 @@
 
 - [{#T}](api-key/create.md)
 - [{#T}](api-key/delete.md)
+
+## Authorized keys
+
+- [{#T}](authorized-key/create.md)
 
