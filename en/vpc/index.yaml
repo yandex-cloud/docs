@@ -1,6 +1,8 @@
 # Yandex Virtual Private Cloud
 title: "Yandex Virtual Private Cloud"
-description: "Yandex Virtual Private Cloud is a service for managing cloud networks."
+description: 
+  - "Yandex Virtual Private Cloud is a service for managing cloud networks."
+  - "Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf\">complies</a> with the law No. 152-FZ of the Russian Federation \"On Personal Data\"."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Virtual Private Cloud"

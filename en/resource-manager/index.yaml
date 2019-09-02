@@ -1,5 +1,7 @@
 title: "Yandex Resource Manager"
-description: "The Yandex Resource Manager service defines the Yandex.Cloud resource model and allows you to structure your resources using folders."
+description: 
+  - "The Yandex Resource Manager service defines the Yandex.Cloud resource model and allows you to structure your resources using folders."
+  - "Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf\">complies</a> with the law No. 152-FZ of the Russian Federation \"On Personal Data\"."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Resource Manager"

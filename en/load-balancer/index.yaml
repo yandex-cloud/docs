@@ -1,7 +1,8 @@
 # Yandex Load Balancer
 title: "Yandex Load Balancer"
 description:
-- "Yandex Load Balancer is a service that evenly distributes network load across cloud resources."
+  - "Yandex Load Balancer is a service that evenly distributes network load across cloud resources."
+  - "Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf\">complies</a> with the law No. 152-FZ of the Russian Federation \"On Personal Data\"."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Load Balancer"

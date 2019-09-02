@@ -1,5 +1,7 @@
 title: Yandex Object Storage
-description: "Yandex Object Storage is a universal, scalable solution for data storage. It is the perfect choice both for high-load services that require reliable and fast access to data, and for projects with minimal requirements for storage infrastructure. The service API is compatible with the Amazon S3 API, so you can use popular object storage tools to access data."
+description: 
+  - "Yandex Object Storage is a universal, scalable solution for data storage. It is the perfect choice both for high-load services that require reliable and fast access to data, and for projects with minimal requirements for storage infrastructure. The service API is compatible with the Amazon S3 API, so you can use popular object storage tools to access data."
+  - "Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf\">complies</a> with the law No. 152-FZ of the Russian Federation \"On Personal Data\"."
 nav:
   title: "Yandex Object Storage"
 meta:

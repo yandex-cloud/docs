@@ -1,5 +1,7 @@
 title: "Yandex Resource Manager"
-description: "Сервис Yandex Resource Manager определяет ресурсную модель Яндекс.Облака и позволяет структурировать ресурсы с помощью каталогов."
+description: 
+  - "Сервис Yandex Resource Manager определяет ресурсную модель Яндекс.Облака и позволяет структурировать ресурсы с помощью каталогов."
+  - "Инфраструктура Яндекс.Облака <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Resource Manager"

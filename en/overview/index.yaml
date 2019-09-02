@@ -4,6 +4,7 @@ description:
   - "Yandex.Cloud is a suite of services that makes it fast and safe to get as much computing power as you need on a pay-as-you-go model. You access this computing power over the internet. This approach to computing resource usage is called <i>cloud computing</i>."
   - "Cloud computing can replace or supplement traditional data centers located on the consumer's premises. Yandex.Cloud assumes all responsibility for maintaining the health and performance of the cloud platform's hardware and software."
   - "Yandex.Cloud offers different categories of cloud resources, such as virtual machines, block storage, and databases. You can manage resources in each category using the appropriate service."
+  - "Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf\">complies</a> with the law No. 152-FZ of the Russian Federation \"On Personal Data\"."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex.Cloud overview"

@@ -3,6 +3,7 @@ title: "Yandex Data Proc"
 description:
   - "<em>Сервис Data Proc находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a></em>."
   - "Сервис помогает разворачивать кластеры Apache Hadoop<sup>®</sup> и Apache Spark в инфраструктуре Яндекс.Облака. Вы сами определяете размер кластера, мощность узлов и набор сервисов Apache<sup>®</sup> (Spark, HDFS, YARN, Hive, HBase, Oozie, Sqoop, Flume, Tez, Zeppelin)."
+  - "Инфраструктура Яндекс.Облака <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
 # Мета-информация title, description, keywords и т.п.
 meta:
   title: "Yandex Data Proc"
