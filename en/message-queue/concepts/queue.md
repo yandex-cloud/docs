@@ -22,7 +22,7 @@ With group IDs, you can send multiple ordered message groups to different consum
 
 ### Deduplication on enqueueing {#deduplication}
 
-FIFO queues deduplicate messages being enqueued by their deduplication ID or content. For more information, see ["Deduplication"](deduplication.md).
+FIFO queues deduplicate messages being enqueued by their deduplication ID or content. For more information, see [{#T}](deduplication.md).
 
 {% note info %}
 
