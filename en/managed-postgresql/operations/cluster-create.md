@@ -36,7 +36,7 @@ By default, {{ mpg-short-name }} sets the maximum limit on the number of connect
 
   1. In the **Storage size** section:
 
-      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-nvme**) or faster local SSD storage (**local-nvme**). The size of the local storage can only be changed in increments of 100 GB.
+      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in increments of 100 GB.
 
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
@@ -114,7 +114,7 @@ $ {{ yc-mdb-pg }} cluster create \
      --network-name default \
      --resource-preset s1.nano \
      --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
-     --disk-type network-nvme \
+     --disk-type network-ssd \
      --disk-size 20 \
      --user name=user1,password=user1user1 \
      --database name=db1,owner=user1

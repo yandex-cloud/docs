@@ -37,7 +37,7 @@ To create a VM:
 1. In the **Disks** section, click **Add disk**. In the **Add disk** window, specify the disk settings for data storage:
    * **Name**: `fileserver-tutorial-disk`.
    * **Size**: 100 GB.
-   * **Disk type**: NVMe.
+   * **Disk type**: SSD.
    * **Content**: Empty.
 
    Click **Add**.

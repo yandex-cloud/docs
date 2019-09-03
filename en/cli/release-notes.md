@@ -22,7 +22,7 @@
 
 - Command `yc <database name> cluster create`.
 
-    Renamed default disk types: `network-nvme` is now `network-ssd` and `local-nvme` is now `local-ssd`.
+    Renamed default disk types: `network-ssd` is now `network-ssd` and `local-ssd` is now `local-ssd`.
     
 ### Version 0.35.0 (09.08.19) {#version0.35.1}
 

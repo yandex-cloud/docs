@@ -38,7 +38,7 @@ The minimum billing unit is one hour (for example, the cost of 1.5 hours of oper
 The following is charged:
 
 * Storage allocated for DB clusters.
-    * Storage on fast local disks (NVMe) can only be ordered for clusters with more than 2 hosts, in 100 GB increments.
+    * Storage on fast local disks (SSD) can only be ordered for clusters with more than 2 hosts, in 100 GB increments.
 
 * Space used by DB backups in excess of the storage specified for the cluster.
 
@@ -193,7 +193,7 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | ----- | -----
   | Standard network storage| $0.029334 |
   | Fast network storage| $0.104302 |
-  | NVMe| $0.104302 |
+  | SSD | $0.104302 |
   | Backups beyond the storage size| $0.032594 |
 
 - Prices in roubles
@@ -201,7 +201,7 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | ----- | -----
   | Standard network storage| ₽2.2881 |
   | Fast network storage| ₽8.1356 |
-  | NVMe| ₽8.1356 |
+  | SSD | ₽8.1356 |
   | Backups beyond the storage size| ₽2.5424 |
 
 {% endlist %}

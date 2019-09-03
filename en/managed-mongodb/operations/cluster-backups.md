@@ -55,7 +55,7 @@ For a new cluster, you should set all the parameters that are required during cr
            --network-name default \
            --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
            --mongod-disk-size 20 \
-           --mongod-disk-type network-nvme \
+           --mongod-disk-type network-ssd \
            --mongod-resource-preset s1.nano
       ```
 

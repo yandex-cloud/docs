@@ -32,7 +32,7 @@ The minimum billing unit is one hour (for example, the cost of 1.5 hours of oper
 The following is charged:
 
 * Storage allocated for DB clusters.
-    * Storage on fast local disks (NVMe) can only be ordered for clusters with more than 3 hosts, in 100 GB increments.
+    * Storage on fast local disks (SSD) can only be ordered for clusters with more than 3 hosts, in 100 GB increments.
 
 * Space used by DB backups in excess of the storage specified for the cluster.
 
@@ -148,7 +148,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 | ----- | ----- |
 | Standard network storage | 2.2881 ₽ |
 | Fast network storage | 8.1356 ₽ |
-| NVMe | 8.1356 ₽ |
+| SSD | 8.1356 ₽ |
 | Backups beyond the storage size | 2.5424 ₽ |
 
 ### Outgoing traffic {#prices-traffic}

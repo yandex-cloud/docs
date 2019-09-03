@@ -24,7 +24,7 @@ To create an instance group with a load balancer:
   1. In the **Instance template** section, click **Add**:
       - Select the required public [image](../images-with-pre-installed-software/get-list.md).
       - In the **Disks** section:
-          - Select the [disk type](../../concepts/disk.md#disks_types) (HDD or NVME).
+          - Select the [disk type](../../concepts/disk.md#disks_types) (HDD or SSD).
 
           - Specify the disk size.
 

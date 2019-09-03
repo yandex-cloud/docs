@@ -34,7 +34,7 @@ Make sure the uploaded image is in the `READY` status.
      1. In the **Name** field, enter the disk name.
      1. Set the required disk size.
      1. In **Disk designation**, choose **Boot**.
-     1. Select the [disk type](../../concepts/disk.md#disks_types): **HDD** or **NVMe**.
+     1. Select the [disk type](../../concepts/disk.md#disks_types): **HDD** or **SSD**.
      1. In **Content**, choose **Image**. A list of images that you uploaded opens.
      1. Select the necessary image.
      1. Click **Add**.

@@ -4,7 +4,7 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-nvme`).
+* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-ssd`).
 
 * [Configure {{ MG }} servers](#change-mongod-config) according to the [documentation{{ MG }}](https://docs.mongodb.com/v3.6/reference/configuration-options/).
 
@@ -79,7 +79,7 @@ After creating a cluster, you can:
 
   1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmg-full-name }} section still has space available in the **space** line.
 
-  3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-nvme`:
+  3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ {{ yc-mdb-mg }} cluster get <cluster name>
@@ -95,7 +95,7 @@ After creating a cluster, you can:
             resources:
               resource_preset_id: s1.micro
               disk_size: "21474836480"
-              disk_type_id: network-nvme
+              disk_type_id: network-ssd
       ...
       ```
 

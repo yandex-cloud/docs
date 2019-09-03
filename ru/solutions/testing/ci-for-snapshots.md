@@ -452,7 +452,7 @@ Runner — это инструмент для выполнения задач, �
          --folder-id $folder_id
          --zone ru-central1-c
          --network-interface subnet-name=$subnet_name,nat-ip-version=ipv4
-         --create-boot-disk name=$instance_name-boot,type=network-nvme,size=15,snapshot-name=$snapshot_name,auto-delete=true
+         --create-boot-disk name=$instance_name-boot,type=network-ssd,size=15,snapshot-name=$snapshot_name,auto-delete=true
          --memory 1
          --cores 1
          --hostname $instance_name > instance-creation.out

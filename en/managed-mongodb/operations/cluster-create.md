@@ -20,7 +20,7 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
   1. Select the DBMS version.
   1. Select the host class that will define the technical specifications of the VMs where the DB hosts will be deployed. When you change the host class for the cluster, the characteristics of all existing hosts change, too.
   1. In the **Storage size** section:
-      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-nvme**) or faster local SSD storage (**local-nvme**). The size of the local storage can only be changed in increments of 100 GB.
+      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in increments of 100 GB.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
   1. In the **Database** section, specify DB attributes:
       - DB name.
@@ -62,7 +62,7 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
          --resource-preset <host class> \
          --user name=<username>,password=<user password> \
          --database name=<database name>,owner=<database owner name> \
-         --mongod-disk-type <network-hdd | network-nvme | local-nvme> \
+         --mongod-disk-type <network-hdd | network-ssd | local-ssd> \
          --mongod-disk-size <storage size in GB>
       ```
 
@@ -96,7 +96,7 @@ $ {{ yc-mdb-mg }} cluster create \
      --mongod-resource-preset s1.nano \
      --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
      --mongod-disk-size 20 \
-     --mongod-disk-type network-nvme \
+     --mongod-disk-type network-ssd \
      --user name=user1,password=user1user1 \
      --database name=db1
 ```

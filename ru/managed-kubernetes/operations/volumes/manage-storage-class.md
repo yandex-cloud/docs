@@ -67,7 +67,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
 - `provisioner`: `disk-csi-driver.mks.ycloud.io`.
 - `parameters`
-    - `type`: `network-hdd` или `network-nvme`.
+    - `type`: `network-hdd` или `network-ssd`.
     - `csi.storage.k8s.io/fstype`: `ext2`, `ext3` или `ext4`.
 - `reclaimPolice`: `Retain` или `Delete`.
 

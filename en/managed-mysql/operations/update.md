@@ -4,7 +4,7 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-nvme`).
+* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-ssd`).
 
 * [Configuring {{ MY }} servers](#change-mysql-config).
 
@@ -79,7 +79,7 @@ After creating a cluster, you can:
 
   2. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page for your cloud and check that the {{ mmy-full-name }} section still has space remaining in the **space** line.
 
-  3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-nvme`:
+  3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ {{ yc-mdb-my }} cluster get <cluster name>
@@ -92,7 +92,7 @@ After creating a cluster, you can:
         resources:
           resource_preset_id: s1.nano
           disk_size: "10737418240"
-          disk_type_id: network-nvme
+          disk_type_id: network-ssd
       ...
       ```
 

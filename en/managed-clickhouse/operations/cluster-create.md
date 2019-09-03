@@ -36,7 +36,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
   6. In the **Storage size** section:
 
-      * Select the type of storage, either a more flexible network type (**network-hdd** or **network-nvme**) or faster local SSD storage (**local-nvme**). The size of the local storage can only be changed in increments of 100 GB.
+      * Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in increments of 100 GB.
 
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
@@ -83,7 +83,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
          --network-name <network name> \
          --host type=<clickhouse or zookeeper>,zone-id=<availability zone>,subnet-id=<subnet ID> \
          --resource-preset <host class> \
-         --clickhouse-disk-type <network-hdd | network-nvme | local-nvme> \
+         --clickhouse-disk-type <network-hdd | network-ssd | local-ssd> \
          --clickhouse-disk-size <storage size in GB> \
          --user name=<user name>,password=<user password> \
          --database name=<DB name>
@@ -125,7 +125,7 @@ $ {{ yc-mdb-ch }} cluster create \
      --clickhouse-resource-preset s1.nano \
      --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
      --clickhouse-disk-size 20 \
-     --clickhouse-disk-type network-nvme \
+     --clickhouse-disk-type network-ssd \
      --user name=user1,password=user1user1 \
      --database name=db1
 ```

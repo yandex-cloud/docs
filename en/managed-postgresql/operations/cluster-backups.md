@@ -58,7 +58,7 @@ For a new cluster, you should set all the parameters that are required at creati
              --network-name default-net \
              --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
              --disk-size 20 \
-             --disk-type network-nvme \
+             --disk-type network-ssd \
              --resource-preset s1.nano
       ```
 

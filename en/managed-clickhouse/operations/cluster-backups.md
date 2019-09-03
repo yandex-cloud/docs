@@ -91,7 +91,7 @@ For a new cluster, you should set all the parameters that are required at creati
              --network-name {{ network-name }} \
              --host type=clickhouse,zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
              --clickhouse-disk-size 20 \
-             --clickhouse-disk-type network-nvme \
+             --clickhouse-disk-type network-ssd \
              --clickhouse-resource-preset {{ host-class }}
       ```
   

@@ -49,7 +49,7 @@ Download and install Packer by following the [instructions on the official websi
       "source_image_family": "debian-9",
       "subnet_id":           "<subnet ID>",
       "use_ipv4_nat":        true,
-      "disk_type":           "network-nvme",
+      "disk_type":           "network-ssd",
       "ssh_username":        "debian"
     }
   ],

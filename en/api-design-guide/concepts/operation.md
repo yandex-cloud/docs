@@ -142,7 +142,7 @@ Server response:
         "name": "disk-1",
         "description": "Test disk",
         "zoneId" : "ru-central1-a",
-        "typeId" : "network-nvme",
+        "typeId" : "network-ssd",
         "size" : 10737418240
       }
     },

@@ -230,7 +230,7 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 
   | Type | Rate for 1 GB per month, without VAT
   ----- | -----
-  | Fast network drive (NVMe) | $0.095437 |
+  | Fast network drive (SSD) | $0.095437 |
   | Standard disk drive (HDD) | $0.026726 |
   | Snapshot | $0.028552 |
   | Image | $0.028552 |
@@ -239,7 +239,7 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 
   | Type | Rate for 1 GB per month, with VAT |
   ----- | -----
-  | Fast network drive (NVMe) | ₽7.4441 |
+  | Fast network drive (SSD) | ₽7.4441 |
   | Standard disk drive (HDD) | ₽2.0847 |
   | Snapshot | ₽2.2271 |
   | Image | ₽2.2271 |

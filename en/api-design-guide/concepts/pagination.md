@@ -59,7 +59,7 @@ Response:
       "id": "de019dv504rmhoinn3nk",
       "name": "development",
       "zoneId" : "ru-central1-a",
-      "typeId" : "network-nvme",
+      "typeId" : "network-ssd",
       "size" : 5368709120 
     },
     ...
