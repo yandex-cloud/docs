@@ -1,6 +1,6 @@
-# Evaluate image quality
+# Assessing image quality
 
-_Image classification is currently at the [Preview stage](/docs/overview/concepts/launch-stages)._
+_Image classification is currently in the [Preview stage](/docs/overview/concepts/launch-stages)._
 
 To evaluate the quality of an image, use the [Image Classification](../../concepts/classification/index.md) feature.
 
@@ -8,9 +8,11 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
 
 ## Examples {#examples}
 
+### Before getting started {#before-beginning}
+
 {% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 
-### Applying a model for quality assessment {#basic}
+### Apply the model to assess quality {#basic}
 
 1. Prepare an image file that meets the requirements:
 

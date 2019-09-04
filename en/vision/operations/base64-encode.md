@@ -1,6 +1,6 @@
-# Encode a file to Base64
+# Encoding a file as Base64
 
-To pass an image file to the {{ vision-short-name }} API, convert the file content into text in the Base64 format:
+To pass an image file to the {{ vision-short-name }} API, convert the file content to text in Base64 format:
 
 {% include [base64-encode-command](../../_includes/vision/base64-encode-command.md) %}
 

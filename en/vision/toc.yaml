@@ -8,30 +8,30 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Recognizing text on an image
+      - name: Text recognition
         href: operations/ocr/text-detection.md
-      - name: Evaluate image quality
+      - name: Assessing image quality
         stage: preview
         href: operations/classification/quality.md
-      - name: Moderate images
+      - name: Image moderation
         stage: preview
         href: operations/classification/moderation.md
-      - name: Detect faces in an image
+      - name: Face detection
         stage: preview
         href: operations/face-detection/index.md
-      - name: Encode a file to Base64
+      - name: Base64 encoding
         href: operations/base64-encode.md
   - name: Concepts
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Optical character recognition (OCR)
+      - name: Text recognition
         items:
           - name: Overview
             href: concepts/ocr/index.md
           - name: Supported languages
             href: concepts/ocr/supported-languages.md
-          - name: Restrictions for the current version
+          - name: Current version restrictions
             href: concepts/ocr/known-issues.md
       - name: Image classification
         stage: preview

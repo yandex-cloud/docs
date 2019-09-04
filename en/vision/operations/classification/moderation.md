@@ -1,16 +1,18 @@
-# Moderate images
+# Image moderation
 
-_Image classification is currently at the [Preview stage](/docs/overview/concepts/launch-stages)._
+_Image classification is currently in the [Preview stage](/docs/overview/concepts/launch-stages)._
 
 To determine whether an image matches properties such as <q>adult content</q>, <q>shocking content</q>, or <q>watermarks</q>, use the [Image Classification](../../concepts/classification/index.md) feature.
 
-In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `Classification`, and in the configuration, specify the [moderation](../../concepts/classification/supported-models.md#moderation) model.
+In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `Classification`, and in the configuration, specify the [moderation](../../concepts/classification/supported-models.md#moderation).
 
 ## Examples {#examples}
 
+### Before getting started {#before-beginning}
+
 {% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 
-### Applying a model for moderation {#basic}
+### Apply the moderation model {#basic}
 
 1. Prepare an image file that meets the requirements:
 
