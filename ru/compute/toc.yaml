@@ -179,6 +179,8 @@ items:
             href: concepts/instance-groups/configuration-update.md
           - name: Статусы виртуальных машин
             href: concepts/instance-groups/vm-statuses.md
+      - name: Резервное копирование
+        href: concepts/backups.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
