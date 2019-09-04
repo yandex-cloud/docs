@@ -5,13 +5,8 @@
 {% list tabs %}
 
 - Management console
-  
-  1. In the management console, select the appropriate folder.
-  1. Click on the **Yandex Object Storage** tile.
-  1. Click on the name of the desired bucket.
-  1. Click on the object name.
-  1. Click **Copy link**.
-  The link is valid for one hour.
-  
+
+  {% include [storage-get-link-for-download](../../_includes_service/storage-get-link-for-download.md) %}
+
 {% endlist %}
 

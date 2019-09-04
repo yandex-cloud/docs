@@ -35,7 +35,7 @@ items:
             href: operations/buckets/limit-max-volume.md
           - name: Allowing public access to a bucket
             href: operations/buckets/bucket-availability.md
-          - name: Editing a bucket ACL
+          - name: Editing a bucket's ACL
             href: operations/buckets/edit-acl.md
       - name: Objects
         items:
@@ -49,7 +49,7 @@ items:
             href: operations/objects/link-for-download.md
           - name: Deleting an object
             href: operations/objects/delete.md
-          - name: Editing an object ACL
+          - name: Editing an object's ACL
             href: operations/objects/edit-acl.md
   - name: Concepts
     items:
@@ -59,6 +59,8 @@ items:
         href: concepts/bucket.md
       - name: Object
         href: concepts/object.md
+      - name: Pre-signed URLs
+        href: concepts/pre-signed-urls.md
       - name: Multipart upload
         href: concepts/multipart.md
       - name: Access control lists (ACLs)

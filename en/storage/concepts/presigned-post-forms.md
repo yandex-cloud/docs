@@ -78,7 +78,11 @@ Generic form layout:
 
      ```html
      <form action="https://{{ s3-storage-host }}/{bucket-name}" method="post" enctype="multipart/form-data">
+<<<<<<< HEAD
+        Key in storage:
+=======
         Key in storage: 
+>>>>>>> 517ff823af39d7b98ad8cd4df635e4e8676170f7
         <input type="input" name="key" value="object_key"> /><br />
         <!-- Request properties -->
         <input type="hidden" name="x-amz-credential" value="access_key_id/date/ru-central1/s3/aws4_request" />
@@ -141,9 +145,15 @@ Description of form fields:
 | `x-amz-signature` | The policy signature that has to be generated using the secret key.<br/><br/>It's required if the form has a security policy. | Conditional |
 | `success_action_redirect` | The URL the user is redirected to when the file is successfully uploaded. If the value isn't set, {{ objstorage-name }} returns the response specified in the `success_action_status` field. | No |
 | `success_action_status` | The response status after a successful upload.<br/><br/>If `success_action_redirect` isn't specified, {{ objstorage-name }} returns `success_action_status`. The response body is empty.<br/><br/>Acceptable values: 200, 204 (default). | No |
+<<<<<<< HEAD
+| `x-amz-algorithm` | The security policy signature algorithm. Value: `AWS4-HMAC-SHA256`.<br/><br/>Required if the form has a security policy. | Conditional |
+| `x-amz-credential` | Signature ID.<br/><br/>A string in `<access-key-id>/<date>/ru-central1/s3/aws4_request` format, where `<date>` must match the `x-amz-date` field value and the date used to sign the policy.<br/><br/>Required if the form has a security policy. | Conditional |
+| `x-amz-date` | Date in ISO8601 format, for example: `20180719T000000Z`. It must match the date in the `x-amz-credential` field (by the value rather than format) and the date used to sign the policy.<br/><br/>Required if the form has a security policy. | Conditional |
+=======
 | `x-amz-algorithm` | The security policy signature algorithm. Value: `AWS4-HMAC-SHA256`.<br/><br/>It's required if the form has a security policy. | Conditional |
 | `x-amz-credential` | The ID for the signature.<br/><br/>A string in `<access-key-id>/<date>/ru-central1/s3/aws4_request` format, where <date> must match the `x-amz-date` field value and date used to sign the policy.<br/><br/>It's required if the form has a security policy. | Conditional |
 | `x-amz-date` | Date in ISO8601 format, for example: `20180719T000000Z`. It must match the date in the `x-amz-credential` field and the date used to sign the policy.<br/><br/>It's required if the form has a security policy. | Conditional |
+>>>>>>> 517ff823af39d7b98ad8cd4df635e4e8676170f7
 | `x-amz-storage-class` | [The storage class](storage-class.md) for the object. With an HTML form, you can only put an object in Standard storage. | No |
 | `x-amz-meta-*` | User-defined object metadata.<br/><br/>{{ objstorage-name }} considers all headers starting with `x-amz-meta-` as user-defined. It doesn't process these headers. Instead, it saves them in their original format.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The header names and their values are included when calculating the size. | No |
 | `x-amz-website-` `redirect-location` | If the bucket is configured as a [website](../hosting/index.md), this field sets a redirect from the specified object to any other object in the bucket or any URL on the internet. The redirect is saved in the metadata of the object. | No |
@@ -158,8 +168,13 @@ The security policy is a JSON document and may look like the following:
 ```json
 {
     "expiration": "timestamp",
+<<<<<<< HEAD
+    "conditions": [
+        {"bucket": "bucket-name"},
+=======
     "conditions": [ 
         {"bucket": "bucket-name"}, 
+>>>>>>> 517ff823af39d7b98ad8cd4df635e4e8676170f7
         ["starts-with", "$key", "users-uploads/"],
         {"acl": "public-read"},
         {"success_action_redirect": "http://localhost/"},
@@ -203,7 +218,11 @@ Common [policy signature](../s3/signing-requests.md) algorithm:
 
 1. Encode the policy JSON document in [base64](https://en.wikipedia.org/wiki/Base64).
 2. [Generate a signing key](../s3/signing-requests.md#signing-key-gen).
+<<<<<<< HEAD
+3. [Generate a policy signature](../s3/signing-requests.md#signing).
+=======
 3. [Generate the policy signature](../s3/signing-requests.md#signing).
+>>>>>>> 517ff823af39d7b98ad8cd4df635e4e8676170f7
 
 ## Example of generating a form using boto3
 
@@ -220,7 +239,11 @@ aws_access_key_id = 'JK38EXAMPLEAKDID8'
 aws_secret_access_key = 'ExamP1eSecReTKeykdokKK38800'
 endpoint = 'https://storage.yandexcloud.net'
 
+<<<<<<< HEAD
+s3 = boto3.client('s3',
+=======
 s3 = boto3.client('s3', 
+>>>>>>> 517ff823af39d7b98ad8cd4df635e4e8676170f7
                   aws_access_key_id=aws_access_key_id,
                   aws_secret_access_key=aws_secret_access_key,
                   region_name='ru-central1',
@@ -268,7 +291,11 @@ Using the values from the returned document, you can build an HTML page with a f
     </head>
     <body>
         <form action="https://storage.yandexcloud.net/user-data" method="post" enctype="multipart/form-data">
+<<<<<<< HEAD
+            Key in storage:
+=======
             Key in storage: 
+>>>>>>> 517ff823af39d7b98ad8cd4df635e4e8676170f7
             <input type="input"    name="key" value="users/uploads/${filename}" /><br />
             <input type="hidden"   name="x-amz-credential" value="JK38EXAMPLEAKDID8/20190722/ru-central1/s3/aws4_request" />
             <input type="hidden"   name="acl" value="public-read" />
@@ -277,7 +304,11 @@ Using the values from the returned document, you can build an HTML page with a f
             <input type="hidden"   name="success_action_redirect" value="https://cloud.yandex.ru/docs/storage/concepts/presigned-post-forms" />
             <input type="hidden"   name="policy" value="eyJjb25kaXRpb25zIj...M5OjM2WiJ9" />
             <input type="hidden" name="x-amz-signature" value="4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96" />
+<<<<<<< HEAD
+            File to upload:
+=======
             File to upload: 
+>>>>>>> 517ff823af39d7b98ad8cd4df635e4e8676170f7
             <input type="file"   name="file" /> <br />
             <input type="submit" name="submit" value="Upload" />
         </form>
