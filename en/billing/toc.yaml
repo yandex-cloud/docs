@@ -20,9 +20,11 @@ items:
       href: operations/pay-the-bill.md
     - name: Link another bank card
       href: operations/pin-card.md
+    - name: Link a new cloud
+      href: operations/pin-cloud.md
     - name: Change the payment method
       href: operations/change-payment-method.md
-    - name: Read your payment invoice
+    - name: Understand your payment invoice
       href: operations/spell-out-bill.md
     - name: View your payment history
       href: operations/check-bill-history.md
@@ -36,7 +38,7 @@ items:
       href: concepts/promo-code.md
     - name: Credit limit
       href: concepts/credit-limit.md
-    - name: Billing account
+    - name: Billing accounts
       items:
         - name: Overview
           href: concepts/billing-account.md
@@ -50,7 +52,7 @@ items:
       href: concepts/contract.md
     - name: Glossary
       href: concepts/glossary.md
-- name: How to pay for resources
+- name: Resource payments
   items:
     - name: General information
       href: payment/index.md
@@ -62,9 +64,9 @@ items:
           href: payment/payment-methods-individual.md
         - name: For businesses
           items:
-          - name: Transfer from your bank account
+          - name: Bank transfers
             href: payment/payment-methods-business.md
-          - name: Transfer from a bank card
+          - name: Bank card transfer
             href: payment/payment-methods-card-business.md
     - name: Billing cycle
       items:
@@ -74,7 +76,7 @@ items:
           href: payment/billing-cycle-individual.md
         - name: For businesses
           href: payment/billing-cycle-business.md
-    - name: Financial documents
+    - name: Reporting documents
       items:
         - name: General information
           href: payment/documents.md
@@ -88,7 +90,7 @@ items:
           href: concepts/individual-bill.md
     - name: Payment currency
       href: payment/currency.md
-- name: Access management
+- name: Access control
   href: security/index.md
 - name: Pricing policy
   href: pricing.md

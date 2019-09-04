@@ -74,7 +74,7 @@ To create a [billing account](../concepts/billing-account.md):
       - **Bank transfer**
 <br/>After you click **Activate** (step 11), the billing account is created with the status [Not verified](../concepts/billing-account.md#conditions). An email with further instructions will be sent to the email address specified in your Yandex or Yandex.Connect account. It may take up to three business days to activate your billing account.
 
-      9.2. Enter the legal details of your organization.
+       9.2. Enter the legal details of your organization.
 
    {% endlist %}
 

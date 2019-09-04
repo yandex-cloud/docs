@@ -1,10 +1,15 @@
 # View service usage details
 
-Go to the **Usage Details** page to see graphs and tables showing information about usage of Yandex.Cloud services.
+Go to **Usage details** to see graphs and tables showing information about Yandex.Cloud service usage.
 
 {% include [currency](../_includes/currency.md) %}
 
-By default, data is displayed as of the current day from the beginning of the month. Data may be updated with a slight delay (up to several hours).
+By default, data is displayed from the start of the month to the current day. Data may be updated with a slight delay (up to several hours).
+
+## Select clouds {#clouds}
+
+You can view usage details for one or more clouds.
+By default, all linked clouds are selected (a check mark is displayed next to the name of the cloud). To view usage details for only some clouds, open the list and click the names of the clouds that you don't want to view data for (the check mark will disappear next to their names).
 
 ## Select a period {#period}
 
@@ -24,7 +29,7 @@ To choose the data segment:
 
 ## Interpret the chart{#graph}
 
-The chart shows how the data has changed over time.
+The chart shows how data changed over time.
 The number of details and their values depend on the selected grouping, chart type, and filters:
 
 - **Total cost**: Shows the cost of services consumed before the discount.
@@ -42,16 +47,16 @@ Point the cursor to a line on the chart to see a popup. Each cloud, service, and
 
 ## Interpret the table {#tab}
 
-In the table, all data is presented as the total amount for the specified period (without splitting by date).
+In the table, all data is presented as the total amount for the specified period (without splitting by date or cloud).
 The number of columns in the table depends on the selected grouping. Columns are described in the table below.
 
 | Name | Description |
 | ----- | ----- |
 | Cloud | The name of the cloud that resources were used for. <br/>Only shown when grouping by cloud. |
-| Service | The name of the service within which the resources were used. <br/>Only shown when grouping by service or product. |
+| Service | The name of the service that resources were used in. <br/>Only shown when grouping by service or product. |
 | Product | Product name. <br/>Only shown when grouping by product. |
 | Unit | Units and amount of resources consumed. <br/>Only shown when grouping by product. |
-| Total cost | The pre-discount amount for the volume of resources consumed. |
+| Total cost | The amount for the volume of resources consumed before applying discounts. |
 | Discount | The discount amount in the currency of the agreement (excluding VAT or other taxes and fees). |
-| Total | The total amount after the discount for the amount of resources consumed. |
+| Total | The total amount for the amount of resources consumed after applying the discount. |
 

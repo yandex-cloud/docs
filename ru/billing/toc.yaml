@@ -20,6 +20,8 @@ items:
       href: operations/pay-the-bill.md
     - name: Привязать другую карту
       href: operations/pin-card.md
+    - name: Привязать новое облако
+      href: operations/pin-cloud.md
     - name: Изменить способ оплаты
       href: operations/change-payment-method.md
     - name: Расшифровать счет на оплату
