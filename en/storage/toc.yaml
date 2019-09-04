@@ -27,14 +27,16 @@ items:
         href: operations/index.md
       - name: Buckets
         items:
-          - name: Create a bucket
+          - name: Creating a bucket
             href: operations/buckets/create.md
-          - name: Removing a bucket
+          - name: Deleting a bucket
             href: operations/buckets/delete.md
           - name: Limiting the maximum size of a bucket
             href: operations/buckets/limit-max-volume.md
           - name: Allowing public access to a bucket
             href: operations/buckets/bucket-availability.md
+          - name: Editing a bucket ACL
+            href: operations/buckets/edit-acl.md
       - name: Objects
         items:
           - name: Uploading an object
@@ -43,10 +45,12 @@ items:
             href: operations/objects/info.md
           - name: Downloading an object
             href: operations/objects/download.md
-          - name: Getting the download link
+          - name: Getting a public link to an object
             href: operations/objects/link-for-download.md
           - name: Deleting an object
             href: operations/objects/delete.md
+          - name: Editing an object ACL
+            href: operations/objects/edit-acl.md
   - name: Concepts
     items:
       - name: Overview
@@ -211,5 +215,7 @@ items:
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
+          - name: From January 1 to March 1, 2019
+            href: pricing-archive/pricing-01032019.md
   - name: Questions and answers
     href: qa.md
