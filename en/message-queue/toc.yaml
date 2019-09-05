@@ -40,7 +40,7 @@ items:
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
-    href: security/security.md
+    href: security/index.md
   - name: Pricing policy
     href: pricing.md
   - name: Yandex Message Queue API
