@@ -1,20 +1,31 @@
 # Bucket
 
-A logical entity that helps organize the storage of objects.
+A logical entity that helps store objects.
 
 ## Naming buckets {#naming}
 
-A bucket's name is used as part of the data access URL and will be visible to your users. For example, `http://{{ s3-storage-host }}/bucket-name`.
+A bucket's name is used as part of the data access URL and is visible to your users. For example, `https://{{ s3-storage-host }}/bucket-name`.
 
 Naming rules:
 
 - Bucket names are unique throughout {{ objstorage-name }}, so you can't create two buckets with the same name (even in different folders in different clouds). Keep this in mind if you plan to create buckets automatically via the API.
 
-- The bucket name restrictions are as follows:
+- Bucket names are subject to the following restrictions:
 
    {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
 
-Names containing dots should only be used for [static website hosting](../hosting/index.md).
+{% note info %}
+
+Names containing periods should only be used for [static website hosting](../hosting/index.md). HTTPS is not available for buckets with names that contain periods.
+
+{% endnote %}
+
+## Bucket URL {#bucket-url}
+
+The name of the bucket can be placed in different parts of the URL, which can take one of the following forms:
+
+- `https://{{ s3-storage-host }}/<bucket>?<parameters>`
+- `https://<bucket>.{{ s3-storage-host }}?<parameters>`
 
 ## Bucket settings {#bucket-settings}
 
@@ -22,15 +33,21 @@ You can:
 
 - [Limit the maximum size of a bucket](../operations/buckets/limit-max-volume.md).
 
-    {{ objstorage-name }} doesn't let you upload objects if their addition exceeds the maximum bucket size.
+    {{ objstorage-name }} doesn't let you upload objects if adding them exceeds the maximum bucket size.
 
 - Set the default [storage class](storage-class.md).
 
     Objects uploaded to a bucket are by default saved with the storage class specified for that bucket.
-
+    
 - Configure a bucket for [static website hosting](../hosting/index.md).
 - Download a [CORS configuration](../cors/index.md) for a bucket.
-- Configure the [lifecycle of objects](../lifecycles/index.md).
+- Configure [object lifecycles](../lifecycles/index.md).
+
+## Bucket access {#bucket-access}
+
+By default, buckets are created with restricted access, as set in the [IAM](../../iam/concepts/index.md) settings. If necessary, you can configure permissions to buckets and the objects they contain with [ACL](acl.md).
+
+You can use the management console to [open public access](../operations/buckets/bucket-availability.md) to buckets. With public access, any internet user can get a list of objects in a bucket and download them.
 
 ## Guidelines and limitations {#details-of-usage}
 
@@ -50,7 +67,7 @@ You can:
 
   {% note info %}
 
-  If you have limited the maximum size of a bucket, it may remain unavailable for writes for some time, even if you free up enough space for new objects.
+  If you limit the maximum size of a bucket, it may remain unavailable for writes for some time, even if you free up enough space for new objects.
 
   {% endnote %}
 

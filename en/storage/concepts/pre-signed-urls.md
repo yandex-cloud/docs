@@ -155,7 +155,7 @@ Let's compose a pre-signed URL to download the `object-for-share.txt` object tha
 
     ```
     GET
-    /object-for-share.txt
+    /example-bucket/object-for-share.txt
     X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host
     host:{{ s3-storage-host }}
     
@@ -189,7 +189,7 @@ Let's compose a pre-signed URL to download the `object-for-share.txt` object tha
 - Pre-signed URL:
 
     ```
-    {{ s3-storage-host }}/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96
+    https://{{ s3-storage-host }}/example-bucket/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96
     ```
 
 ## Examples of getting pre-signed links in tools {{ objstorage-name }}

@@ -45,9 +45,16 @@ Each of the [tools](../instruments/index.md) manages objects and folders accordi
 
 {% note info %}
 
-Deleting folders with objects is an asynchronous operation. At the start of the operation, {{ objstorage-name }} prepares a list of objects to delete and then deletes them. If during the deletion process, you upload an object to {{ objstorage-name }} that should be in the folder being deleted, the object will still be uploaded successfully. After bother operations in {{objstorage-name}} are complete, you're left with the folder that was supposed to be deleted and the newly uploaded file.
+Deleting folders with objects is an asynchronous operation. At the start of the operation, {{ objstorage-name }} prepares a list of objects to delete and then deletes them. If during the deletion process, you upload an object to {{ objstorage-name }} that should be in the folder being deleted, the object will still be uploaded successfully. After both operations in {{objstorage-name}} are complete, you're left with the folder that was supposed to be deleted and the newly uploaded file.
 
 {% endnote %}
+
+## Object URL {#object-url}
+
+Object URLs can take one of the following forms:
+
+- `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
+- `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
 
 ## Metadata {#metadata}
 
