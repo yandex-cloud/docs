@@ -61,7 +61,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
 ### Формат спецификации для создания класса хранилищ {#sc-spec}
 
-Каждый объект `StorageClass` содержит параметры `provisioner`, `parameters` и `reclaimPolicy`, которы используются для динамического выделения объекта `PersistentVolume`.
+Каждый объект `StorageClass` содержит параметры `provisioner`, `parameters` и `reclaimPolicy`, которые используются для динамического выделения объекта `PersistentVolume`.
 
 Допустимые значения параметров: 
 
@@ -69,7 +69,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 - `parameters`
     - `type`: `network-hdd` или `network-ssd`.
     - `csi.storage.k8s.io/fstype`: `ext2`, `ext3` или `ext4`.
-- `reclaimPolice`: `Retain` или `Delete`.
+- `reclaimPolicy`: `Retain` или `Delete`.
 
 Структура YAML-файла: 
 

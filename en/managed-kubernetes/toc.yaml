@@ -10,10 +10,20 @@ items:
         href: operations/nat-instance.md
       - name: Connecting to a node over SSH
         href: operations/node-connect-ssh.md
+      - name: Working with persistent volumes
+        items:
+          - name: Dynamic volume provisioning
+            href: operations/volumes/dynamic-create-pv.md
+          - name: Static volume provisioning
+            href: operations/volumes/static-create-pv.md
+          - name: Managing storage classes
+            href: operations/volumes/manage-storage-class.md
   - name: Concepts
     items:
       - name: Relationship between service resources
         href: concepts/index.md
+      - name: Volumes
+        href: concepts/volume.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
