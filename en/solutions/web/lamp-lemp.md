@@ -36,8 +36,9 @@ To create a VM:
     - Specify the required amount of vCPUs and RAM.
 
     The minimum configuration is enough for functional testing:
+    * **Platform**: Intel Cascade Lake.
     * **Guaranteed vCPU share**: 5%.
-    * **vCPU**: 1.
+    * **vCPU**: 2.
     * **RAM**: 1 GB.
 
 1. In the **Network settings** section, select the subnet to connect the VM to when creating it.

@@ -34,8 +34,9 @@ Create a VM where the test application will be installed, the set of components 
 1. Select a public image of Ubuntu 18.04.
 
 1. In the **Computing resources** section, select the following configuration:
+   * **Platform**: Intel Cascade Lake.
    * **Guaranteed vCPU share**: 5%.
-   * **vCPU**: 1.
+   * **vCPU**: 2.
    * **RAM**: 1 GB.
 
 1. In the **Network settings** section, select the subnet to connect the VM to when creating it.
