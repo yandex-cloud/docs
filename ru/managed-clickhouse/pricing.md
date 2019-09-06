@@ -2,10 +2,9 @@
 editable: false
 ---
 
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
 # Правила тарификации для {{ mch-short-name }}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Из чего складывается стоимость использования {{ mch-short-name }} {#rules}
 

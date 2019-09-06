@@ -306,7 +306,7 @@ configSpec.<br>clickhouse.<br>config.<br>timezone | **string**<br><p>The server'
 configSpec.<br>clickhouse.<br>resources | **object**<br><p>Computational resources for the shard.</p> 
 configSpec.<br>clickhouse.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-clickhouse/concepts/instance-types">documentation</a></p> 
 configSpec.<br>clickhouse.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-configSpec.<br>clickhouse.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-nvme — network SSD drive,</li> <li>local-nvme — local SSD storage.</li> </ul> 
+configSpec.<br>clickhouse.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive,</li> <li>local-ssd — local SSD storage.</li> </ul> 
 configSpec.<br>clickhouse.<br>weight | **integer** (int64)<br><p>Relative weight of the shard considered when writing data to the cluster. For details, see <a href="https://clickhouse.yandex/docs/en/operations/table_engines/distributed/">ClickHouse documentation</a>.</p> 
  
 ## Response {#responses}

@@ -27,5 +27,5 @@ links:
   description: "Configure access rights to work with the service"
   href: "security/"
 - title: "Pricing policy"
-  description: "Pricing and cost calculation for services"
+  description: "Service pricing and cost calculations"
   href: "pricing"

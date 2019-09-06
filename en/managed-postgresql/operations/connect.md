@@ -4,14 +4,25 @@ In Yandex.Cloud, you can connect to a DB cluster only from a VM that has an addr
 
 ## Authentication
 
-{{mpg-short-name }} clusters only support encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
+{{ mpg-short-name }} clusters only support encrypted connections, which is why an SSL certificate is required to connect to them. You can prepare all the necessary authentication data as follows:
+
+{% if audience != "internal" %}
 
 ```bash
 $ mkdir ~/.postgresql
 $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/CA.pem
 ```
 
-Ready about using a certificate with `libpq` in the [documentation {{ PG }}](https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
+{% else %}
+
+```bash
+$ mkdir ~/.postgresql
+$ wget "{{ pem-path }}" -O ~/.postgresql/allCA.pem
+```
+
+{% endif %}
+
+Read about using certificates with `libpq` in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
 
 ## Connection string
 
@@ -50,8 +61,16 @@ You can find the addresses of all the hosts in the DB cluster on the appropriate
 
 ### With a driver that supports only one host
 
-If your database connection driver does not allow passing multiple hosts in the connection string (for example,
+If your database connection driver doesn't allow passing multiple hosts in the connection string (for example,
 [pgx in Go](https://github.com/jackc/pgx)), you can connect to a special host like `c-<cluster ID>.rw.{{ dns-zone }}`.
+
+{% if audience == "internal" %}{% note info %}
+
+There is also a special host for the least lagged working replica: `c-<cluster ID>.ro.{{ dns-zone }}`.
+
+{% endnote %}
+
+{% endif %}
 
 This domain name always indicates the current master in the cluster. For example, you can connect to the master of the cluster with the `c9qash3nb1v9ulc8j9nm` ID as follows:
 

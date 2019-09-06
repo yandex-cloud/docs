@@ -4,12 +4,9 @@
 
 - `BGREWRITEAOF`
 - `BGSAVE`
-- `CLUSTER`
 - `COMMAND`
 - `CONFIG`
 - `DEBUG`
-- `EVAL`
-- `EVALSHA`
 - `LASTSAVE`
 - `MIGRATE`
 - `MODULE`
@@ -18,7 +15,6 @@
 - `OBJECT`
 - `REPLICAOF`
 - `SAVE`
-- `SCRIPT`
 - `SHUTDOWN`
 - `SLAVEOF`
 

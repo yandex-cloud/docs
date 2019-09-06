@@ -1,4 +1,4 @@
-# How to manage backups
+# Managing backups
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
@@ -6,7 +6,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
 
-For a new cluster, you should set all the parameters that are required during creation, except for the cluster type (a {{ MG }} backup can't be restored as a {{ PG }} cluster).
+For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ MG }} backup cannot be restored as a {{ PG }} cluster).
 
 {% list tabs %}
 
@@ -14,9 +14,15 @@ For a new cluster, you should set all the parameters that are required during cr
 
   1. Go to the folder page and select **{{ mmg-name }}**.
 
-  2. Click on the name of the cluster you need and select the tab **Backup copies**.
+  1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
-  3. Click ![image](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
+  1. Click ![image](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
+
+  1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+
+  1. Click **Restore cluster**.
+
+  {{ mmg-name }} runs cluster restore from backup.
 
 - CLI
 
@@ -32,7 +38,7 @@ For a new cluster, you should set all the parameters that are required during cr
       $ {{ yc-mdb-mg }} cluster restore --help
       ```
 
-  2. Getting a list of available {{ MG }} cluster backups:
+  1. Getting a list of available {{ MG }} cluster backups:
 
       ```
       $ {{ yc-mdb-mg }} backup list
@@ -47,25 +53,56 @@ For a new cluster, you should set all the parameters that are required during cr
 
   1. Request creation of a cluster from a backup:
 
+      {% if audience == "internal" %}
+
       ```
       $ {{ yc-mdb-mg }} cluster restore \
            --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
            --name mynewmg \
            --environment=PRODUCTION \
-           --network-name default \
+           --network-id {{ network-name }} \
+           --host type=clickhouse,zone-id={{ zone-id }} \
+           --mongod-disk-size 20 \
+           --mongod-disk-type network-ssd \
+           --mongod-resource-preset {{ host-class }}
+      ```
+
+      {% else %}
+
+      ```
+      $ {{ yc-mdb-mg }} cluster restore \
+           --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
+           --name mynewmg \
+           --environment=PRODUCTION \
+           --network-name {{ network-name }} \
            --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
            --mongod-disk-size 20 \
            --mongod-disk-type network-ssd \
            --mongod-resource-preset s1.nano
       ```
 
+      {% endif %}
+
       This results in a new {{ MG }} cluster with the following characteristics:
+
+      {% if audience == "internal" %}
       - Named `mynewmg`.
       - In the `PRODUCTION` environment.
-      - In the `default` network.
-      - With a single host of the `s1.nano` class in the `b0rcctk2rvtr8efcch63` subnet and the `ru-central1-c` availability zone.
+      - With one `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
       - With SSD network storage of 20 GB.
+
+      {% endif %}
+
+      {% if audience != "internal" %}
+      - Named `mynewmg`.
+      - In the `PRODUCTION` environment.
+      - In the `{{ network-name }}` network.
+      - With one `{{ host-class }}` class host in the  `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
+      - With the databases and users from the backup.
+      - With SSD network storage of 20 GB.
+
+      {% endif %}
 
 {% endlist %}
 
@@ -77,9 +114,9 @@ For a new cluster, you should set all the parameters that are required during cr
 
   1. Go to the folder page and select **{{ mmg-name }}**.
 
-  2. Click on the name of the cluster you need and select the tab **Backup copies**.
+  1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
-  3. Click **Create a backup**.
+  1. Click **Create a backup**.
 
 - CLI
 
@@ -95,7 +132,7 @@ For a new cluster, you should set all the parameters that are required during cr
       $ {{ yc-mdb-mg }} cluster backup --help
       ```
 
-  2. Request creation of a backup specifying the cluster name or ID:
+  1. Request creation of a backup specifying the cluster name or ID:
 
       ```
       $ {{ yc-mdb-mg }} cluster backup my-mg-cluster
@@ -113,7 +150,7 @@ For a new cluster, you should set all the parameters that are required during cr
 
   1. Go to the folder page and select **{{ mmg-name }}**.
 
-  2. Click on the name of the cluster you need and select the tab **Backup copies**.
+  1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
 - CLI
 

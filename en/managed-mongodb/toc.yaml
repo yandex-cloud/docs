@@ -13,21 +13,21 @@ items:
       href: operations/cluster-create.md
     - name: Connecting to databases
       href: operations/connect.md
-    - name: How to change cluster and database settings
+    - name: Changing cluster and database settings
       href: operations/update.md
     - name: MongoDB version upgrade
       href: operations/cluster-version-update.md
     - name: Database management
       href: operations/databases.md
-    - name: How to manage database users
+    - name: Managing database users
       href: operations/cluster-users.md
-    - name: How to manage backups
+    - name: Managing backups
       href: operations/cluster-backups.md
-    - name: How to manage shards
+    - name: Managing shards
       href: operations/shards.md
     - name: Deleting clusters
       href: operations/cluster-delete.md
-    - name: Database migration to the Cloud
+    - name: Migrating data to Managed Service for MongoDB
       href: operations/data-migration.md
   - name: Tutorials
     items:

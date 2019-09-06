@@ -1,6 +1,6 @@
 # Questions about {{ MY }}
 
-#### What versions of {{ MY }} does {{ mmy-short-name }} support? {#supported-version}
+#### What {{ MY }} versions does {{ mmy-short-name }} support? {#supported-version}
 
 {{ mmy-short-name }} only supports {{ MY }} 5.7.
 
@@ -14,7 +14,7 @@ Connections between a database cluster and an application are always encrypted u
 
 #### What is a read-only replica in {{ MY }}? {#read-only-instance}
 
-A read-only replica is a host in a {{ MY }} database cluster that can only be read. Its data is synced with the master host (if the cluster has more than one host). You can use a read-only replica to reduce the load on the DB master host with a large number of read requests.
+A read-only replica is a host in a {{ MY }} DB cluster that can only be read. Its data is synced with the master host (if the cluster has more than one host). You can use a read-only replica to reduce the load on the DB master host with a large number of read requests.
 
 #### What limitations are imposed on {{ MY }} database clusters? {#instance-limitations}
 

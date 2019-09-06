@@ -1,12 +1,12 @@
-# How to manage backups
+# Managing backups
 
-You can create backups and restore clusters from existing backups.
+You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
 ## Restoring clusters from backups {#restore}
 
 When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
 
-For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ CH }} backup cannot be restored as a {{ PG }} cluster).
+For a new cluster, you should set all the parameters that are required at creation.
 
 {% list tabs %}
 
@@ -14,9 +14,15 @@ For a new cluster, you should set all the parameters that are required at creati
 
   1. Go to the folder page and select **{{ mpg-name }}**.
 
-  2. Click on the name of the cluster you need and select the tab **Backup copies**.
+  1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
-  3. Click ![image](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
+  1. Click ![image](../../_assets/dots.svg) for the required backup and then click **Restore cluster**.
+
+  1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+
+  1. Click **Restore cluster**.
+
+  {{ mpg-name }} runs cluster restore from backup.
 
 - CLI
 
@@ -26,13 +32,13 @@ For a new cluster, you should set all the parameters that are required at creati
 
   To restore a cluster from a backup:
 
-  1. View a description of the CLI restore {{ PG }} cluster command:
+  1. View the description of the CLI's restore cluster command {{ PG }}:
 
       ```
       $ {{ yc-mdb-pg }} cluster restore --help
       ```
 
-  1. Get a list of available {{ PG }} cluster backups:
+  1. Getting a list of available {{ PG }} cluster backups:
 
       ```
       $ {{ yc-mdb-pg }} backup list
@@ -55,18 +61,18 @@ For a new cluster, you should set all the parameters that are required at creati
              --time 2018-11-02T10:09:38Z \
              --name mynewpg \
              --environment=PRODUCTION \
-             --network-name default-net \
-             --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
+             --network-name {{ network-name }} \
+             --host {{ host-net-example }} \
              --disk-size 20 \
-             --disk-type network-ssd \
-             --resource-preset s1.nano
+             --disk-type {{ disk-type-example }} \
+             --resource-preset {{ host-class }}
       ```
 
       This results in a new {{ PG }} cluster with the following characteristics:
       - Named `mynewpg`.
       - In the `PRODUCTION` environment.
-      - In the `default-net` network.
-      - With a single host of the `s1.nano` class in the `b0rcctk2rvtr8efcch63` subnet and the `ru-central1-c` availability zone.
+      {% if audience != "internal" %} - В сети `{{ network-name }}`. {% endif %}
+      - With one `{{ host-class }}` class host {% if audience != "internal" %} в подсети `b0rcctk2rvtr8efcch63` {% endif %} in the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
       - With SSD network storage of 20 GB.
 
@@ -101,7 +107,7 @@ For a new cluster, you should set all the parameters that are required at creati
       $ {{ yc-mdb-pg }} cluster backup my-pg-cluster
       ```
 
-      The cluster name and ID can be obtained with a [list of clusters](cluster-list.md#list-clusters).
+      The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -134,7 +140,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 {% endlist %}
 
-## Getting information about a backup {#get-backup}
+## Getting information about backups {#get-backup}
 
 {% list tabs %}
 
@@ -154,7 +160,42 @@ For a new cluster, you should set all the parameters that are required at creati
   $ {{ yc-mdb-pg }} backup get <backup ID>
   ```
 
-  The backup ID can be obtained from a [list of backups](#list-backups).
+  The backup ID can be retrieved with the [list of backups](#list-backups) .
+
+{% endlist %}
+
+## Set the backup start time {#set-backup-window}
+
+{% list tabs %}
+
+- Management console
+
+  In the management console, you can only set the start time for creating backups by [editing the cluster](update.md).
+
+- CLI
+
+  To set the backup start time, use the `-- backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
+
+  ```bash
+  $ {{ yc-mdb-pg }} cluster create \
+     --name <cluster name> \
+     --environment <prestable or production> \
+     --network-name <network name> \
+     --host zone-id=<availability zone>,subnet-id=<subnet ID> \
+     --resource-preset <host class> \
+     --user name=<username>,password=<user password> \
+     --database name=<database name>,owner=<database owner name> \
+     --disk-size <storage size in GB>
+     --backup-window-start 10:00:00
+  ```
+
+  To change the backup start time in an existing cluster, use the  `update` command:
+
+  ```
+  $ yc {{ yc-mdb-pg }} cluster update \
+     --name <cluster name> \
+     --backup-window-start 11:25:00
+  ```
 
 {% endlist %}
 

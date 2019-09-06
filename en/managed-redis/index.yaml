@@ -1,7 +1,6 @@
 # Заголовок и описание на странице
 title: "Yandex Managed Service for Redis"
 description:
-  - "<em>Managed Service for Redis is in the <a href=\"/docs/overview/concepts/launch-stages\">Preview stage</a></em>."
   - "Yandex Managed Service for Redis is a service that helps you deploy and maintain Redis server clusters in the Yandex.Cloud infrastructure."
   - "Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf\">complies</a> with the law No. 152-FZ of the Russian Federation \"On Personal Data\"."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
@@ -20,9 +19,13 @@ links:
   href: "concepts/"
 - title: "API reference"
   description: "HTTP API method descriptions"
+  href: "api-ref/"
 - title: "Quotas and limits"
   description: "Technical and organizational limitations of the service"
   href: "concepts/limits"
 - title: "Access management"
-  description: "Set up access rights to work with the service"
+  description: "Configure access rights to work with the service"
   href: "security/"
+- title: "Pricing policy"
+  description: "Service pricing and cost calculations"
+  href: "pricing"

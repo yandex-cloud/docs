@@ -1,4 +1,4 @@
-# How to manage database users
+# Managing database users
 
 You can add and remove users, as well as manage their individual settings.
 
@@ -23,13 +23,13 @@ You can add and remove users, as well as manage their individual settings.
        --cluster-name=<cluster name>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 {% endlist %}
 
-## Adding users {#adduser}
+## Add a user {#adduser}
 
-When adding a {{mpg-short-name }} user, 50 connections to the {{ PG }} cluster are reserved (the `connlimit` parameter). The minimum number of connections per user is 10.
+When adding a user, {{ mpg-short-name }} reserves 50 connections to the {{ PG }} cluster (the `connlimit` parameter) by default. The minimum number of connections per user is 10.
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
 
@@ -57,11 +57,11 @@ When adding a {{mpg-short-name }} user, 50 connections to the {{ PG }} cluster a
        --conn-limit=<maximum number of connections per user>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 {% endlist %}
 
-## Updating users {#updateuser}
+## Changing users {#updateuser}
 
 For the user, you can change:
 
@@ -94,11 +94,11 @@ For the user, you can change:
        --conn-limit=<maximum number of connections per user>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 {% endlist %}
 
-## Removing a user {#removeuser}
+## Deleting users {#removeuser}
 
 {% list tabs %}
 
@@ -120,7 +120,7 @@ For the user, you can change:
        --cluster-name=<cluster name>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 {% endlist %}
 

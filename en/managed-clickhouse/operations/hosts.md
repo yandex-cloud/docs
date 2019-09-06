@@ -4,7 +4,7 @@ You can add and remove cluster hosts and manage {{ CH }} settings for individual
 
 {% note important %}
 
-It is not currently possible to add hosts to a single-host cluster or reduce the number of hosts in a cluster to 1. When creating a {{ CH }} cluster, you need to decide right away whether data in the cluster should be replicated.
+To add new hosts to a single-host cluster, first [add the {{ ZK }} hosts ](zk-hosts.md) to ensure fault tolerance for the cluster.
 
 {% endnote %}
 
@@ -14,7 +14,7 @@ It is not currently possible to add hosts to a single-host cluster or reduce the
 
 - Management console
 
-  1. Go to the folder page and click **{{ mch-name }}**.
+  1. Go to the folder page and select **{{ mch-name }}**.
 
   2. Click on the name of the cluster you need and select the **Hosts** tab.
 
@@ -24,12 +24,12 @@ It is not currently possible to add hosts to a single-host cluster or reduce the
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of cluster databases, run the command:
+  To get a list of hosts in a cluster, run the command:
 
   ```
   $ {{ yc-mdb-ch }} host list
        --cluster-name=<cluster name>
-
+  
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
@@ -38,7 +38,7 @@ It is not currently possible to add hosts to a single-host cluster or reduce the
   +----------------------------+--------------+---------+--------+---------------+
   ```
 
-  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -48,18 +48,16 @@ It is not currently possible to add hosts to a single-host cluster or reduce the
 
 ## Adding a host {#add-host}
 
-The number of hosts in {{ mch-short-name }} clusters is limited by the quotas on CPUs and RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}
-) and find the **{{ mch-full-name }}** section.
+The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mch-full-name }}** block.
 
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and click **{{ mch-name }}**.
+  1. Click on the name of the cluster you need and go to the **Hosts** tab.
+  1. Click **Add host**.
 
-  2. Click on the name of the cluster you need and go to the **Hosts** tab.
-
-  3. Click **Add host**.
+  {% if audience != "internal" %}
 
   1. Specify the host parameters:
 
@@ -69,6 +67,8 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the quotas on
 
       * Select the **Public access** option if the host must be accessible from outside the Cloud.
 
+  {% endif %}
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -77,11 +77,13 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the quotas on
 
   To add a host to the cluster:
 
+  {% if audience != "internal" %}
+
   1. Request a list of cluster subnets to select one for the new host:
 
       ```
       $ yc vpc subnet list
-
+      
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
@@ -94,23 +96,37 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the quotas on
 
       If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
+  {% endif %}
+
   1. See the description of the CLI command for adding a host:
 
-      ```
-      $ {{ yc-mdb-ch }} host add --help
-      ```
+     ```
+     $ {{ yc-mdb-ch }} host add --help
+     ```
 
-  2. Run the add host command:
+  1. Run the add host command:
 
-      ```
-      $ {{ yc-mdb-ch }} host add
-           --cluster-name <cluster name>
-           --host zone-id=<availability zone>,subnet-id=<subnet ID>
-      ```
+     {% if audience != "internal" %}
 
-      {{ mch-short-name }} will run the add host operation.
+     ```
+     $ {{ yc-mdb-ch }} host add
+          --cluster-name <cluster name>
+          --host zone-id=<availability zone>,subnet-id=<subnet ID>
+     ```
 
-      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+     {% else %}
+
+     ```
+     $ {{ yc-mdb-ch }} host add
+          --cluster-name <cluster name>
+          --host zone-id=<availability zone>
+     ```
+
+     {% endif %}
+
+     {{ mch-short-name }} will run the add host operation.
+
+     {% if audience != "internal" %} The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. {% endif %} You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -128,7 +144,7 @@ You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
 
   1. Go to the folder page and click **{{ mch-name }}**.
 
-  2. Click on the name of the cluster you need and select the **Hosts** tab.
+  2. Click on the name of the cluster you want and select the **Hosts** tab.
 
   3. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
 
@@ -145,7 +161,7 @@ You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
        --cluster-name=<cluster name>
   ```
 
-  The name of the host can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

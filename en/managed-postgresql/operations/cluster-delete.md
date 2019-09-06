@@ -1,4 +1,4 @@
-# Deleting a cluster
+# Deleting clusters
 
 {% note important %}
 
@@ -25,7 +25,7 @@ You cannot restore a DB cluster that has been deleted, because all the cluster's
   $ {{ yc-mdb-pg }} cluster delete <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list clusters in the folder](#list-clusters).
+  The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
 
 {% endlist %}
 

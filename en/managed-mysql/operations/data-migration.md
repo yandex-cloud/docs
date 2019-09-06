@@ -2,17 +2,17 @@
 
 To migrate your database to {{ mmy-name }}, you need to transfer the data directly, close the old database for writing, and then transfer the load to the database cluster in Yandex.Cloud.
 
-To transfer data to a {{ mmy-name }} cluster, you can use `mysqldump` and `mysql`: create a dump of a working database and restore it in the desired cluster.
+To migrate data to a {{ mmy-name }} cluster, you can use `mysqldump` and `mysql`: create a dump of a working database and restore it in the desired cluster.
 
 Before importing your data, check whether the DBMS versions of the existing database and your cluster in Yandex.Cloud match. Since the dump is logical and a set of SQL queries, transferring data between clusters with different versions is possible, but not guaranteed. For more information, see [MySQL 5.7 FAQ Migration](https://dev.mysql.com/doc/refman/5.7/en/faqs-migration.html).
 
-Below, the DBMS server you are transferring data from is called the _source server_, and the {{ mmy-name }} cluster that you are migrating to is the _destination server_.
+Below, the DBMS server you are migrating data from is called the _source server_, and the {{ mmy-name }}  cluster that you are migrating to is the _destination server_.
 
 Migration stages:
 
 1. [Create a dump](#dump) of the database you want to migrate.
 2. If necessary, [create a virtual machine](#create-vm) in Yandex.Cloud and upload your data to it.
-3. [Create a {{ mmy-name }} cluster](#create-cluster).
+3. [Create a cluster {{ mmy-name }}](#create-cluster).
 4. [Restore data from the dump](#restore).
 
 ## Creating a dump {#dump}
@@ -22,12 +22,19 @@ You can create a database dump using `mysqldump`, which is described in detail i
 1. Before creating a dump, we recommend switching the database to <q>read-only</q> to avoid losing data that might appear while the dump is created. Create the database dump itself using the following command:
 
     ```bash
-    $ mysqldump -h <source server address> --user=<username> --password --port=<port> --set-gtid-purged=OFF --quick --single-transaction <database name> > ~/db_dump.sql
+    $ mysqldump -h <source server address> \
+                --user=<username> \
+                --password \
+                --port=<port> \
+                --set-gtid-purged=OFF \
+                --quick
+                --single-transaction <database name> \
+                > ~/db_dump.sql
     ```
 
    If the source server uses InnoDB tables, use the `-- single-transaction` option to guarantee data consistency. For MyISAM tables, there's no point in using this option because transactions are not supported. You should also consider the following flags:
-   * `-- events` — If there are recurring events in your database.
-   * `-- routines` — If your database contains functions and stored procedures.
+   * `--events` — If there are recurring events in your database.
+   * `--routines` — If your database contains functions and stored procedures.
 
 1. Archive the dump:
 
@@ -37,7 +44,7 @@ You can create a database dump using `mysqldump`, which is described in detail i
 
 ## (optional) Creating a VM in Yandex.Cloud and uploading a dump {#create-vm}
 
-Transfer data to an intermediate virtual machine in {{ compute-full-name }} if:
+Transfer your data to an intermediate VM in {{ compute-full-name }} if:
 
 * Your {{ mmy-name }} cluster is not accessible from the internet.
 * Your hardware or connection to the cluster in Yandex.Cloud is not very reliable.
@@ -50,8 +57,8 @@ To prepare the virtual machine to restore the dump:
 
     The virtual machine must be in the same network and availability zone as the {{ MY }} cluster master host. Additionally, the VM must be assigned an external IP address so that you can load the dump from outside Yandex.Cloud.
 
-2. Install the {{ MY}} client and additional database utilities:
-For Debina and Ubuntu — `mysqldump` and `mysql` are available in the ['mysql-client`](https://packages.ubuntu.com/search?keywords=mysql-client) package. To install:
+2. Install the {{ MY }} client and additional database utilities:
+For Debian and Ubuntu — `mysqldump` and `mysql` are available in the [`mysql-client`](https://packages.ubuntu.com/search?keywords=mysql-client) package. To install:
 
    ```
    $ sudo apt-get install mysql-client
@@ -69,7 +76,7 @@ For Debina and Ubuntu — `mysqldump` and `mysql` are available in the ['mysql-c
     tar -xzf /tmp/db_dump.tar.gz
     ```
 
-## Creating {{ mmy-name }} clusters {#create-cluster}
+## Creating clusters {{ mmy-name }} {#create-cluster}
 
 For instructions on creating a cluster, see [{#T}](./cluster-create.md).
 
@@ -80,7 +87,12 @@ Use [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to restore a dat
 * If you restore a dump from a Yandex.Cloud virtual machine:
 
     ```
-    $ mysql -h <DBMS server address> --user=<username> --password --port=3306 --line-numbers <database name> < /tmp/db_dump.sql
+    $ mysql -h <DBMS server address> \
+            --user=<username> \
+            --password \
+            --port=3306 \
+            --line-numbers <database name> \
+            < /tmp/db_dump.sql
     ```
 
 * If you restore a dump from your own server, download a certificate and set the `--ssl-cal` and `--ssl-mode` SSL parameters. You can find the commands for connecting to the cluster as well as a link to the certificate by clicking **Connect** in the management console.

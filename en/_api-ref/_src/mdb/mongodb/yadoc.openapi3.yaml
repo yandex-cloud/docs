@@ -2826,8 +2826,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     RestoreClusterMetadata:
       type: object
@@ -3326,8 +3326,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     Resources_in_EnableClusterShardingRequestMongos_resources:
       description: |-
@@ -3349,8 +3349,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     Permission_in_GrantUserPermissionRequest_permission:
       description: |-
@@ -3385,8 +3385,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     HostRole_in_Host_role:
       description: |-
@@ -3969,8 +3969,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     MongodConfigSet3_6_in_Mongodb3_6Mongod_config:
       description: Configuration for a mongod 3.6 hosts.
@@ -4000,8 +4000,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     MongosConfigSet3_6_in_Mongodb3_6Mongos_config:
       type: object
@@ -4030,8 +4030,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     Mongodb4_0Mongod_in_Mongodb4_0_mongod:
       description: Configuration and resource allocation for mongod in a MongoDB 4.0
@@ -4088,8 +4088,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     MongodConfigSet4_0_in_Mongodb4_0Mongod_config:
       description: Configuration for mongod 4.0 hosts.
@@ -4119,8 +4119,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     MongosConfigSet4_0_in_Mongodb4_0Mongos_config:
       description: Configuration for mongos 4.0 hosts.
@@ -4150,8 +4150,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     MongodbSpec3_6Mongod_in_MongodbSpec3_6_mongod:
       description: Configuration and resource allocation for mongod 3.6 hosts.
@@ -4205,8 +4205,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     MongodConfig3_6_in_MongodbSpec3_6Mongod_config:
       description: |-
@@ -4240,8 +4240,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     MongosConfig3_6_in_MongodbSpec3_6Mongos_config:
       description: Configuration for mongos 3.6 hosts.
@@ -4267,8 +4267,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     MongodbSpec4_0Mongod_in_MongodbSpec4_0_mongod:
       description: Configuration and resource allocation for mongod 4.0 hosts.
@@ -4322,8 +4322,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     MongodConfig4_0_in_MongodbSpec4_0Mongod_config:
       description: |-
@@ -4357,8 +4357,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     MongosConfig4_0_in_MongodbSpec4_0Mongos_config:
       description: Configuration for mongos 4.0 hosts.
@@ -4384,8 +4384,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     MongosConfig3_6Network_in_MongosConfig3_6_net:
       description: Network settings for mongos.

@@ -6,7 +6,7 @@ After creating a cluster, you can:
 
 * [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-ssd`).
 
-* [Configure {{ MG }} servers](#change-mongod-config) according to the [documentation{{ MG }}](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+* [Configure {{ MG }} servers](#change-mongod-config) according to the [{{ MG }} documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
 
 ## Changing the host class {#change-resource-preset}
 
@@ -28,9 +28,11 @@ After creating a cluster, you can:
 
   2. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
 
+     {% if audience != "internal" %}
+
      ```bash
      $ {{ yc-mdb-mg }} resource-preset list
-
+     
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
@@ -41,6 +43,23 @@ After creating a cluster, you can:
      | ...                                                           |
      +-----------+--------------------------------+-------+----------+
      ```
+
+     {% else %}
+
+     ```
+     +------------+---------------+-------+----------+
+     |     ID     |   ZONE IDS    | CORES |  MEMORY  |
+     +------------+---------------+-------+----------+
+     | db1.nano   | man, sas, vla |     1 | 2.0 GB   |
+     | db1.micro  | man, sas, vla |     1 | 8.0 GB   |
+     | db1.small  | man, sas, vla |     2 | 16.0 GB  |
+     | db1.medium | man, sas, vla |     4 | 32.0 GB  |
+     | db1.large  | man, sas, vla |     8 | 64.0 GB  |
+     | db1.xlarge | man, sas, vla |    16 | 128.0 GB |
+     +------------+---------------+-------+----------+
+     ```
+
+     {% endif %}
 
   3. Specify the class in the update cluster command:
 
@@ -83,7 +102,7 @@ After creating a cluster, you can:
 
       ```
       $ {{ yc-mdb-mg }} cluster get <cluster name>
-
+      
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
       ...

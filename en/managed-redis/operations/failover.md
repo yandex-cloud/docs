@@ -7,12 +7,11 @@ To switch the master:
 {% list tabs %}
 
 - Management console
-  
-  1. Go to the folder page and click **{{ mrd-name }}**.
+  1. Go to the folder page and select **{{ mrd-name }}**.
   1. Select the appropriate cluster from the list.
   1. Open the **Hosts** tab.
   1. Click **Switch master**.
   1. In the window that opens, check **I want to switch the master** and click **Switch**.
-  
+
 {% endlist %}
 

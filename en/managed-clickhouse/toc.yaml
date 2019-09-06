@@ -9,53 +9,78 @@ items:
       href: operations/index.md
     - name: Information about existing clusters
       href: operations/cluster-list.md
-    - name: How to create a cluster
+    - name: Creating clusters
       href: operations/cluster-create.md
-    - name: How to connect to a database
+    - name: Connecting to databases
       href: operations/connect.md
-    - name: How to change cluster and database settings
+    - name: Adding data to the database
+      href: operations/insert.md
+    - name: Migrating ClickHouse data
+      href: operations/data-migration.md
+    - name: SQL queries in the management console
+      href: operations/web-sql-query.md
+      stage: preview
+    - name: Changing cluster and database settings
       href: operations/update.md
-    - name: How to manage ClickHouse hosts
+    - name: Changing ClickHouse versions
+      href: operations/cluster-version-update.md
+    - name: Managing ClickHouse hosts
       href: operations/hosts.md
-    - name: How to manage database users
+    - name: Adding ZooKeeper hosts
+      href: operations/zk-hosts.md
+    - name: Database management
+      href: operations/databases.md
+    - name: Managing database users
       href: operations/cluster-users.md
-    - name: How to manage backups
+    - name: Managing backups
       href: operations/cluster-backups.md
-    - name: Deleting a cluster
+    - name: Managing shards
+      href: operations/shards.md
+    - name: Deleting clusters
       href: operations/cluster-delete.md
+  - name: Tutorials
+    items:
+      - name: Sharding tables
+        href: tutorials/sharding.md
   - name: Concepts
     items:
     - name: Relationship between service resources
       href: concepts/index.md
     - name: Host classes
       href: concepts/instance-types.md
-    - name: Network in Yandex Managed Service for ClickHouse
+    - name: DB network and clusters
       href: concepts/network.md
     - name: Quotas and limits
       href: concepts/limits.md
+    - name: Storage types
+      href: concepts/storage.md
     - name: Backups
       href: concepts/backup.md
     - name: Replication
       href: concepts/replication.md
+    - name: Sharding
+      href: concepts/sharding.md
     - name: Supported clients
       href: concepts/supported-clients.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     items:
-      - name: Current policy
+      - name: Current rules
         href: pricing.md
       - name: Archive
         items:
-          - name: Before January 1st 2019
+          - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
+          - name: From January 1 to March 1, 2019
+            href: pricing-archive/pricing-01032019.md
   - name: API Reference
     items:
     - name: Authentication in the API
       href: api-ref/authentication.md
     include:
       repo: docs
-      path: en/_api-ref/mdb/clickhouse/toc.yaml
+      path: ru/_api-ref/mdb/clickhouse/toc.yaml
   - name: Questions and answers
     items:
     - name: General questions

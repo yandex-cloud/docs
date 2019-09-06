@@ -1,4 +1,4 @@
-# Creating a {{ RD }} cluster
+# Creating {{ RD }} clusters
 
 A {{ RD }} cluster is one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
 
@@ -13,56 +13,55 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 {% list tabs %}
 
 - Management console
-  
   1. In the management console, select the folder where you want to create a DB cluster.
-  1. Click **{{ mrd-name }}**.
-  1. Click **Create cluster** and select the necessary DBMS.
+  1. Select **{{ mrd-name }}**.
+  1. Click **Create cluster**.
   1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the Cloud.
   1. Select the environment where you want to create the cluster (you cannot change the environment after cluster creation):
       - <q>production</q> — for stable versions of your apps.
-      - <q>prestable</q> — to perform testing, including that of the {{ mrd-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner in it, but this may cause backward incompatible changes.
+      - <q>prestable</q> — for testing, including the {{ mrd-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner in it, but this may cause backward incompatible changes.
   1. Select the DBMS version.
   1. In the **Host class** section:
       - Select the host type: it determines the [performance](../../compute/concepts/performance-levels) level of the processor cores. **High-memory** hosts allow full core usage, whereas **burstable** hosts only a portion.
-  
+
       - Select the amount of RAM for the host.
-  
+
       - Select the disk size.
   1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
   1. Under **Network**, select the network whose subnets the hosts will be connected to.
   1. Under **Hosts**, click **Add host** and select the availability zone and subnet to connect the host to. Create the necessary number of hosts. To change the availability zone and the added host, click the pencil icon in the host line.
   1. Click **Create cluster**.
-  
+
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   To create a cluster:
-  
+
   1. Check whether the folder has any subnets for the cluster hosts:
-  
+
      ```
      $ yc vpc subnet list
      ```
-  
-     If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in the {{ vpc-short-name }} service.
-  
+
+     If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+
   1. See the description of the CLI's create cluster command:
-  
+
       ```
       $ {{ yc-mdb-rd }} cluster create --help
       ```
-  
+
   1. View available host classes:
-  
+
      ```
      $ {{ yc-mdb-rd }} resource-preset list
      ```
-  
+
   1. Specify the cluster parameters in the create command (only some of the supported flags are given in the example):
-  
+
       ```bash
       $ {{ yc-mdb-rd }} cluster create \
          --name <cluster name> \
@@ -72,10 +71,11 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
          --resource-preset <host class> \
          --disk-size <storage size in GB> \
          --password=<user password> \
+         --backup-window-start <backup start time in HH:MM:SS format>
       ```
-  
+
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
-  
+
 {% endlist %}
 
 ## Examples

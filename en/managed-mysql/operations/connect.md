@@ -4,13 +4,25 @@ You can connect to a DB cluster from a Yandex.Cloud VM only if this VM belongs t
 
 ## Authentication
 
-{{ mmy-short-name }} {{ MY }} clusters only support encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
+{{ mmy-short-name }} clusters with public access only support encrypted connections, which is why an SSL certificate is required to connect to them. You can prepare all the necessary authentication data as follows:
+
+{% if audience != "internal" %}
 
 ```bash
 $ mkdir ~/.mysql
 $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
 $ chmod 0600 ~/.mysql/root.crt
 ```
+
+{% else %}
+
+```bash
+$ mkdir ~/.mysql
+$ wget "{{ pem-path }}" -O ~/.mysql/root.crt
+$ chmod 0600 ~/.mysql/root.crt
+```
+
+{% endif %}
 
 ## Connection string
 
@@ -26,6 +38,16 @@ $ mysql --host=<host address>
 ```
 
 You can find the addresses of all the hosts in the DB cluster on the appropriate cluster page in the management console.
+
+If you don't need to encrypt traffic within the virtual network when connecting to the database, you can connect to the database without an SSL connection. This is only possible if the host is not publicly accessible. Otherwise, the server always requires an SSL connection. If you connect to the database without public access from a  {{ compute-name }} virtual machine, then pass parameter `-- ssl-mode` with the `DISABLED` value:
+
+```bash
+$ mysql --host=<host address>
+        --port=3306
+        --ssl-mode=DISABLED
+        --user=<name of the database user>
+        --password <DB name>
+```
 
 ## Connecting to the master
 

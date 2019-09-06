@@ -4163,8 +4163,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     RestoreClusterMetadata:
       type: object
@@ -4920,8 +4920,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     HostRole_in_Host_role:
       description: |-

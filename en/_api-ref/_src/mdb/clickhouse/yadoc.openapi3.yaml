@@ -3027,8 +3027,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     RestoreClusterMetadata:
       type: object
@@ -3846,8 +3846,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     ClickhouseConfigLogLevel_in_ClickhouseConfig_logLevel:
       description: Logging level for the ClickHouse cluster.
@@ -4446,8 +4446,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     Resources_in_ClusterConfigZookeeper_resources:
       description: Resources allocated to ZooKeeper hosts.
@@ -4467,8 +4467,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     ConfigSpecClickhouse_in_ConfigSpec_clickhouse:
       description: Configuration and resources for a ClickHouse server.
@@ -4634,8 +4634,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     Resources_in_ConfigSpecZookeeper_resources:
       description: |-
@@ -4657,8 +4657,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     ClickhouseConfigExternalDictionary_in_CreateClusterExternalDictionaryRequest_externalDictionary:
       description: Configuration of the external dictionary.
@@ -4822,8 +4822,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     HostHealth_in_Host_health:
       description: |-
@@ -4954,8 +4954,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     ShardConfigSpecClickhouse_in_ShardConfigSpec_clickhouse:
       description: ClickHouse configuration for a shard.
@@ -5080,8 +5080,8 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive,
-            * local-nvme — local SSD storage.
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
           type: string
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-

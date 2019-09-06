@@ -2,7 +2,7 @@
 
 {{ mpg-short-name }} supports many standard and some non-standard {{ PG }} extensions. A full list of available extensions is [given below](#postgresql).
 
-## Getting a list of extensions {#list-extensions}
+## How to get a list of extensions {#list-extensions}
 
 {% list tabs %}
 
@@ -27,7 +27,7 @@
 
 {% endlist %}
 
-## Updating a set of extensions {#update-extensions}
+## How to change a set of extensions {#update-extensions}
 
 {% list tabs %}
 
@@ -37,7 +37,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To enable or disable {{ PG }} database extensions, pass the full list of required extensions in a CLI command. The enabled extensions that aren't in that list will be disabled.
+  To enable or disable {{ PG }} extensions for a database, pass the full list of the required extensions in a CLI command. The enabled extensions that aren't in that list will be disabled.
 
   ```
   $ {{ yc-mdb-pg }} database update <database name> \
@@ -57,7 +57,7 @@
 
 {% endlist %}
 
-## Supported {{ PG }} {#postgresql} extensions
+## Supported {{ PG }} extensions {#postgresql}
 
 All supported extensions are listed here:
 

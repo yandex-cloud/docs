@@ -8,9 +8,9 @@ After creating a cluster, you can:
 
 * [Configure the {{ PG }} servers](#change-postgresql-config) according to the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config.html).
 
-* [Set the operation mode for the connection pooler ](#change-pgbouncer-config).
+* [Set the operation mode for the connection pooler](#change-pgbouncer-config).
 
-## Change the host class {#change-resource-preset}
+## Changing the host class {#change-resource-preset}
 
 {% list tabs %}
 
@@ -30,9 +30,11 @@ After creating a cluster, you can:
 
   2. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
 
+     {% if audience != "internal" %}
+
      ```
      $ {{ yc-mdb-pg }} resource-preset list
-
+     
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
@@ -44,6 +46,23 @@ After creating a cluster, you can:
      +-----------+--------------------------------+-------+----------+
      ```
 
+     {% else %}
+
+     ```
+     +------------+---------------+-------+----------+
+     |     ID     |   ZONE IDS    | CORES |  MEMORY  |
+     +------------+---------------+-------+----------+
+     | db1.nano   | man, sas, vla |     1 | 2.0 GB   |
+     | db1.micro  | man, sas, vla |     1 | 8.0 GB   |
+     | db1.small  | man, sas, vla |     2 | 16.0 GB  |
+     | db1.medium | man, sas, vla |     4 | 32.0 GB  |
+     | db1.large  | man, sas, vla |     8 | 64.0 GB  |
+     | db1.xlarge | man, sas, vla |    16 | 128.0 GB |
+     +------------+---------------+-------+----------+
+     ```
+
+     {% endif %}
+
   3. Specify the class in the update cluster command:
 
       ```
@@ -51,7 +70,7 @@ After creating a cluster, you can:
            --resource-preset <class ID>
       ```
 
-      {{ mpg-short-name }} launches the operation to change the host class for the cluster.
+      {{ mpg-short-name }} will run the update host class command for the cluster.
 
 - API
 
@@ -61,7 +80,7 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Increasing the storage size {#change-disk-size}
+## Increasing storage size {#change-disk-size}
 
 {% list tabs %}
 
@@ -73,11 +92,13 @@ After creating a cluster, you can:
 
   To increase the storage size for a cluster:
 
+  {% if audience != "internal" %}
+
   3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ {{ yc-mdb-pg }} cluster get <cluster name>
-
+      
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
       ...
@@ -90,13 +111,15 @@ After creating a cluster, you can:
       ...
       ```
 
+  {% endif %}
+
   1. View the description of the CLI's update cluster command:
 
      ```
      $ {{ yc-mdb-pg }} cluster update --help
      ```
 
-  1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page for your cloud and check that the {{ mpg-full-name section still has space remaining in the **space** line.
+  1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mpg-full-name }} section still has space available in the **space** line.
 
   1. Specify the required amount of storage in the update cluster command (it must be at least as large as `disk_size` in the cluster properties):
 
@@ -111,7 +134,7 @@ After creating a cluster, you can:
 
   You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.postgresqlConfig_<version>.resources.diskSize`.
 
-  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page for your cloud and check that the {{ mpg-full-name section still has space remaining in the **space** line.
+  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mpg-full-name }} section still has space available in the **space** line.
 
 {% endlist %}
 
@@ -119,7 +142,7 @@ After creating a cluster, you can:
 
 You can change the DBMS settings for the hosts in your cluster, both the default ones and those changing with the host class.
 
-After [changing the host class](#change-resource-preset), {{ mpg-short-name }} automatically changes the following settings (if they weren't set manually):
+When [the host class changes](#change-resource-preset), {{ mpg-short-name }} automatically changes the following settings (if they weren't set manually):
 
 - `max_connections`
 - `shared_buffers`
@@ -129,7 +152,7 @@ After [changing the host class](#change-resource-preset), {{ mpg-short-name }} a
 - `autovacuum_vacuum_cost_delay`
 - `autovacuum_vacuum_cost_limit`
 
-The settings you set manually will no longer change automatically. Exceptions can occur if the set value does not become invalid as you change the host class: for example, it's impossible to set `max_connections` to 400 and then change the cluster's host class to `s1.nano` (for more information about the maximum number of connections, see [{#T}](cluster-create.md).
+The settings you set manually will no longer change automatically. Exceptions can occur if the set value doesn't become invalid as you change the host class: for example, it's impossible to set `max_connections` to 400 and then change the cluster host class to `s1.nano` (for more information about the maximum number of connections, see [{#T}](cluster-create.md).
 
 {% list tabs %}
 
@@ -162,7 +185,7 @@ The settings you set manually will no longer change automatically. Exceptions ca
            --set log_min_duration_statement=100,<parameter name>=<value>,...
       ```
 
-      {{ mpg-short-name }} launches the operation to change the cluster settings.
+      {{ mpg-short-name }} will run the operation for changing the cluster settings.
 
 - API
 
@@ -170,7 +193,7 @@ The settings you set manually will no longer change automatically. Exceptions ca
 
 {% endlist %}
 
-## Setting the operation mode for the connection pooler {#change-pgbouncer-config}
+## Set the operation mode for the connection pooler {#change-pgbouncer-config}
 
 You can set one of the modes described in the [PgBouncer documentation](https://pgbouncer.github.io/usage).
 
@@ -197,7 +220,7 @@ You can set one of the modes described in the [PgBouncer documentation](https://
            --connection-pooling-mode <SESSION, TRANSACTION or STATEMENT>
       ```
 
-      {{ mpg-short-name }} launches the operation to change the connection pooler mode.
+      {{ mpg-short-name }} runs the operation for changing the connection pooler mode.
 
 - API
 

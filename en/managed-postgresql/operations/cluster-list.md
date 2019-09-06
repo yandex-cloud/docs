@@ -2,7 +2,7 @@
 
 You can request detailed information about each {{ mpg-short-name }} cluster you created.
 
-## Getting a list of DB clusters in a folder {#list-clusters}
+## Getting a list of database clusters in a folder {#list-clusters}
 
 {% list tabs %}
 
@@ -51,7 +51,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
   $ {{ yc-mdb-pg }} cluster get <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list clusters in the folder](#list-clusters).
+  The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
 
 {% endlist %}
 

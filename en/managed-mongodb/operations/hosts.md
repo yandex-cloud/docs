@@ -18,12 +18,12 @@ You can add and remove cluster hosts and manage {{ MG }} settings for individual
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of cluster hosts, run the command:
+  To get a list of hosts in the cluster, run the command:
 
   ```
   $ {{ yc-mdb-mg }} host list
        --cluster-name=<cluster name>
-
+  
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
@@ -32,7 +32,7 @@ You can add and remove cluster hosts and manage {{ MG }} settings for individual
   +----------------------------+--------------+---------+--------+---------------+
   ```
 
-  You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -47,12 +47,11 @@ The number of hosts in {{ mmg-short-name }} clusters is limited by the CPU and R
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mmg-name }}**.
-
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
-
   1. Click **Add host**.
+
+  {% if audience != "internal" %}
 
   1. Specify the host parameters:
 
@@ -62,6 +61,8 @@ The number of hosts in {{ mmg-short-name }} clusters is limited by the CPU and R
 
       * Select the **Public access** option if the host must be accessible from outside the Cloud.
 
+  {% endif %}
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -70,11 +71,13 @@ The number of hosts in {{ mmg-short-name }} clusters is limited by the CPU and R
 
   To add a host to the cluster:
 
+  {% if audience != "internal" %}
+
   1. Request a list of cluster subnets to select one for the new host:
 
       ```
       $ yc vpc subnet list
-
+      
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
@@ -85,7 +88,7 @@ The number of hosts in {{ mmg-short-name }} clusters is limited by the CPU and R
       +-----------+-----------+------------+---------------+------------------+
       ```
 
-     If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+     If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md). {% endif %}
 
   1. See the description of the CLI command for adding a host:
 
@@ -140,7 +143,7 @@ If the host is a primary one at the time of removal, {{ mmg-short-name }} automa
        --cluster-name=<cluster name>
   ```
 
-  You can retrieve the host name with the [list of cluster hosts](list-hosts) and the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

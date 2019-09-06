@@ -1,10 +1,10 @@
 # General questions
 
-#### What is {{ mmy-short-name }}? {#what-is}
+#### What's {{ mmy-short-name }}? {#what-is}
 
-{{ mmy-short-name }} is a service that helps you create, operate, and scale {{ MY }} databases in the cloud infrastructure.
+{{ mmy-short-name }} is a service that helps you create, operate, and scale {{ MY }} databases in a cloud infrastructure.
 
-Use {{ mmy-short-name }} to:
+With {{ mmy-short-name }}, you can:
 
 - Create a database with the required performance characteristics.
 - Scale processing power and storage dedicated for your databases as needed.
@@ -23,15 +23,15 @@ You interact with database clusters in {{ mmy-short-name }} the same way you int
 
 When creating clusters, {{ mmy-short-name }} allocates resources, installs the DBMS, and creates databases.
 
-For created and running databases, {{ mmy-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
+For the created and running databases, {{ mmy-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
 
 {{ mmy-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-#### What tasks should I use {{ mmy-short-name }} for and for which VMs with databases? {#mdb-advantage}
+#### Which tasks should I use {{ mmy-short-name }} for and for which VMs with databases? {#mdb-advantage}
 
 Yandex.Cloud offers two ways to work with databases:
 
-- {{ mmy-short-name }} lets you use template databases without having to worry about administration.
+- {{ mmy-short-name }} allows you to operate template databases with no need to worry about administration.
 - {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
 
 #### What is a database host and database cluster? {#what-is-cluster}
@@ -57,7 +57,7 @@ For detailed instructions, see [{#T}](../quickstart.md).
 
 For a network-based storage (NBS), the number of hosts in a cluster is limited only by the requested computing resources and the size of the storage for the cluster.
 
-For SSD storage, the number of hosts is limited during cluster creation: for {{ MY }} clusters, at least three hosts must be created.
+For SSD SSD storage, the number of hosts is limited during cluster creation: for {{ MY }} clusters, at least three hosts must be created.
 
 #### How can I access a running DB host? {#db-access}
 
@@ -67,7 +67,7 @@ You can connect to {{ mmy-short-name }} databases using standard DBMS methods.
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-MDB technical and organizational limitations are given in [{#T}](../concepts/limits.md).
+MDB technical and organizational limits are given in [{#T}](../concepts/limits.md).
 
 #### How do I maintain database clusters? {#service-window}
 
@@ -77,7 +77,7 @@ Maintenance in {{ mmy-short-name }} implies:
 - Changes to the host class and storage size.
 - Other {{ mmy-short-name }} maintenance activities.
 
-#### What version of {{ MY }} does {{ mmy-short-name }} use? {#dbms-version}
+#### Which version of {{ MY }} does {{ mmy-short-name }} use? {#dbms-version}
 
 {{ mmy-short-name }} supports {{ MY }} 5.7.
 
@@ -87,7 +87,7 @@ The database software is updated when new minor versions are released. The owner
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
-A month after the DBMS version becomes deprecated, {{ mmy-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
+One month after the database version becomes deprecated, {{ mmy-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
 
 New hosts can no longer be created using deprecated DBMS versions. Seven days within such notification for minor versions and one month for major versions, the database clusters are automatically upgraded to the next supported version. Deprecated major versions are upgraded even if you have disabled their automatic updates.
 
@@ -134,5 +134,5 @@ For any DB hosts, you can track metrics specific to the type of the correspondin
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 
-
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+

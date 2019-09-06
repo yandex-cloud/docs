@@ -1,7 +1,8 @@
 ---
 editable: false
 ---
-# Pricing policy for {{ mch-short-name }}
+
+# Pricing for {{ mch-short-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -11,7 +12,7 @@ The cost of {{ mch-name }} usage is based on:
 
 * Storage type and size (disk space).
 
-* [The DB class](concepts/instance-types.md) selected for the cluster.
+* [The host class](concepts/instance-types.md) selected for the cluster.
 
 * The number of database hosts in clusters (including ZooKeeper hosts for {{ CH }} clusters).
 
@@ -23,44 +24,44 @@ The cost of {{ mch-name }} usage is based on:
 
 ### Use of DB hosts {#rules-hosts-uptime}
 
-The cost is calculated for each hour of the host's operation in accordance with its class. The exact class characteristics are given in the section [{#T}](concepts/instance-types.md).
+The cost is calculated for each hour of the host's operation in accordance with its class. Exact class characteristics are given in [{#T}](concepts/instance-types.md).
 
 {% note important %}
 
-For each {{ CH }} cluster with 2 or more hosts, {{ CH }} automatically creates 3 ZooKeeper hosts.
+When you create a cluster with 2 or more {{ CH }}  hosts, 3  {{ ZK }} hosts are created automatically to provide replication and fault tolerance.
 
 {% endnote %}
 
-The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation). The time when the DBMS host or ZooKeeper cannot perform its main functions is not charged.
+The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation). You aren't charged for time when the DBMS or {{ ZK }} host isn't performing its main functions.
 
-### Disk space use {#rules-storage}
+### Disk space usage {#rules-storage}
 
 The following is charged:
 
 * Storage allocated for DB clusters.
-    * Storage on fast local disks (SSD) can only be ordered for clusters with more than 2 hosts, in 100 GB increments.
+    * Storage on fast local disks (SSD) can only be ordered for clusters with more than 2 hosts in 100 GB increments.
 
 * Space used by DB backups in excess of the storage specified for the cluster.
 
-    * Backups are stored free of charge as long as the combined size of the DB and all backups is less than the selected storage volume.
+    * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
 
-    * During an automatic backup, {{ mch-short-name }} does not create a new copy but saves changes in the DB as compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
+    * During an automatic backup, {{ mch-short-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
     * The number of hosts in the cluster does not affect the size of the storage and, consequently, that of free backups.
 
 The cost is specified for one month of use.  The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
 
-### {{ CH }} and ZooKeeper {#clickhouse-zooker}
+### {{ CH }} and ZooKeeper {#clickhouse-zookeeper}
 
-You can choose the host class for the {{ CH }} hosts and ZooKeeper hosts (as appropriate for the expected replication load).
+You can choose the host class for {{ CH }} and ZooKeeper hosts (as appropriate for the expected replication load).
 
-For example, let's say you created a {{ CH }} cluster with 3 hosts using the `s1.micro` host class, and did not specify the class for the ZooKeeper hosts. {{ mch-short-name }} automatically creates 3 ZooKeeper hosts using the `s1.nano` class.
+For example, let's say you create a {{ CH }} cluster with 3 `s1.micro` class hosts, but didn't specify the class of the ZooKeeper hosts. {{ mch-short-name }} automatically creates 3 `s1.nano` class ZooKeeper hosts.
 
 The hourly price will be calculated using the rates below (including VAT): `3 × ₽5.5119 + 3 × ₽1.7492 = ₽21.78`.
 
 ## Pricing {#prices}
 
-### Hosts {{ CH }} {#prices-clickhouse}
+### {{ CH }} hosts {#prices-clickhouse}
 
 {% list tabs %}
 
@@ -122,7 +123,7 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
 
 {% endlist %}
 
-### ZooKeeper hosts {#prices-zookeeper}
+### {{ ZK }} hosts {#prices-zookeeper}
 
 {% list tabs %}
 
@@ -193,7 +194,7 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | ----- | -----
   | Standard network storage| $0.029334 |
   | Fast network storage| $0.104302 |
-  | SSD | $0.104302 |
+  | SSD| $0.104302 |
   | Backups beyond the storage size| $0.032594 |
 
 - Prices in roubles
@@ -201,7 +202,7 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | ----- | -----
   | Standard network storage| ₽2.2881 |
   | Fast network storage| ₽8.1356 |
-  | SSD | ₽8.1356 |
+  | SSD| ₽8.1356 |
   | Backups beyond the storage size| ₽2.5424 |
 
 {% endlist %}

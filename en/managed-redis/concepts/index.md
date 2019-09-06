@@ -1,10 +1,10 @@
 # Relationship between service resources
 
-{{ RD }} is a high-performance key-value store that runs in RAM. {{ mrd-name }} allows you to easily create {{ RD }} host clusters with a high level of fault tolerance.
+{{ RD }} is a high-performance key-value store that runs in RAM. {{ mrd-name }} lets you easily create {{ RD }} host clusters with a high level of fault tolerance.
 
 The main entity used in {{ mrd-name }} is a _database cluster_.
 
-Each cluster consists of one or more _database hosts_, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones and even different availability regions. [Learn more about the Cloud geography](../../overview/concepts/geo-scope.md).
+Each cluster consists of one or more _database hosts_, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones and even different availability regions. [Learn more about Yandex.Cloud geography](../../overview/concepts/geo-scope.md).
 
 * A cluster consisting of 3 and more hosts has automatic failover, because the hosts can take over each other's functions as the cluster's primary replica.
 
@@ -18,5 +18,7 @@ The amount of memory allocated to a host is also determined by the `maxmemory` c
 
 {% endnote %}
 
-A DB cluster connected to a cloud network can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/).
+{% if audience != "internal" %} A DB cluster connected to a cloud network can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/). {% endif %}
+
+{% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 

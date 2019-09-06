@@ -1032,7 +1032,7 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive.
+            * network-ssd — network SSD drive.
           type: string
         diskSize:
           description: Volume of the storage available to a host, in bytes.
@@ -1402,7 +1402,7 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive.
+            * network-ssd — network SSD drive.
           type: string
         diskSize:
           description: Volume of the storage available to a host, in bytes.
@@ -1451,7 +1451,7 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive.
+            * network-ssd — network SSD drive.
           type: string
         diskSize:
           description: Volume of the storage available to a host, in bytes.
@@ -1538,7 +1538,7 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive.
+            * network-ssd — network SSD drive.
           type: string
         diskSize:
           description: Volume of the storage available to a host, in bytes.
@@ -1581,7 +1581,7 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive.
+            * network-ssd — network SSD drive.
           type: string
         diskSize:
           description: Volume of the storage available to a host, in bytes.
@@ -1612,7 +1612,7 @@ components:
             Type of the storage environment for the host.
             Possible values:
             * network-hdd — network HDD drive,
-            * network-nvme — network SSD drive.
+            * network-ssd — network SSD drive.
           type: string
         diskSize:
           description: Volume of the storage available to a host, in bytes.

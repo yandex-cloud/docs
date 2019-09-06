@@ -6,7 +6,7 @@ After creating a cluster, you can:
 
 * [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-ssd`).
 
-* [Configuring {{ MY }} servers](#change-mysql-config).
+* [Configure the {{ MY }} servers](#change-mysql-config).
 
 ## Changing the host class {#change-resource-preset}
 
@@ -18,7 +18,7 @@ After creating a cluster, you can:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the [host class](../concepts / instance-types.md) for the cluster:
+  To change the [host class](../concepts/instance-types.md) for the cluster:
 
   1. View the description of the CLI's update cluster command:
 
@@ -27,6 +27,8 @@ After creating a cluster, you can:
       ```
 
   2. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
+
+     {% if audience != "internal" %}
 
      ```
      $ {{ yc-mdb-my }} resource-preset list
@@ -42,6 +44,20 @@ After creating a cluster, you can:
      +-----------+--------------------------------+-------+----------+
      ```
 
+     {% else %}
+
+     ```
+     +------------+---------------+-------+----------+
+     |     ID     |   ZONE IDS    | CORES |  MEMORY  |
+     +------------+---------------+-------+----------+
+     | db1.nano   | man, sas, vla |     1 | 2.0 GB   |
+     | db1.micro  | man, sas, vla |     1 | 8.0 GB   |
+     | ...                                           |
+     +------------+---------------+-------+----------+
+     ```
+
+     {% endif %}
+
   3. Specify the class in the update cluster command:
 
       ```
@@ -49,7 +65,7 @@ After creating a cluster, you can:
            --resource-preset <class ID>
       ```
 
-      {{ mmy-short-name }} launches the operation to change the host class for the cluster.
+      {{ mmy-short-name }} will run the update host class command for the cluster.
 
 - API
 
@@ -59,7 +75,7 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Increasing the storage size {#change-disk-size}
+## Increasing storage size {#change-disk-size}
 
 {% list tabs %}
 
@@ -77,7 +93,7 @@ After creating a cluster, you can:
       $ {{ yc-mdb-my }} cluster update --help
       ```
 
-  2. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page for your cloud and check that the {{ mmy-full-name }} section still has space remaining in the **space** line.
+  2. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
 
   3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
@@ -109,7 +125,7 @@ After creating a cluster, you can:
 
   You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.resources.diskSize`.
 
-  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page for your cloud and check that the {{ mmy-full-name }} section still has space remaining in the **space** line.
+  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
 
 {% endlist %}
 
@@ -142,7 +158,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
           --set log_min_duration_statement=100,<parameter name>=<value>,...
      ```
 
-     {{ mmy-short-name }} launches the operation to change the cluster settings.
+     {{ mmy-short-name }} will run the operation for changing the cluster settings.
 
 - API
 

@@ -2,7 +2,7 @@
 
 You can add and remove databases, as well as view information about them.
 
-## Getting a list of databases in a cluster {#list-db}
+## Getting a list of cluster databases {#list-db}
 
 {% list tabs %}
 
@@ -16,14 +16,14 @@ You can add and remove databases, as well as view information about them.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of cluster databases, run the command:
+  To get a list of databases in a cluster, run the command:
 
   ```
   $ {{ yc-mdb-pg }} database list
        --cluster-name=<cluster name>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 - API
 
@@ -39,7 +39,7 @@ The number of databases in a cluster is unlimited.
 
 By default, databases are created with string collation and sorting settings: `LC_COLLATE=C` and `LC_CTYPE=C`.
 This allows {{ PG }} to more effectively execute queries with string data, but it can
-work subtly, for example, with Cyrillic.
+work subtly (for example, with Cyrillic).
 
 These settings are covered in more detail in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/collation.html).
 
@@ -56,7 +56,7 @@ Once the database is created, you can specify the collation and order sorting se
 - Management console
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need.
-  1. If a new database should be owned by a non-existing user, [create a user](cluster-users.md#adduser).
+  1. If the owner of the new database still doesn't exist, [add the user](cluster-users.md#adduser).
   1. Select the **Databases** tab.
   1. Click **Add**.
   1. Enter the database name and select its owner.
@@ -82,7 +82,7 @@ Once the database is created, you can specify the collation and order sorting se
           --cluster-name <cluster name>
      ```
 
-     If the required user is not in the list, [create a user](cluster-users.md#adduser).
+     If the required user is not in the list, [create it](cluster-users.md#adduser).
 
   1. Run the create database command:
 
@@ -92,9 +92,9 @@ Once the database is created, you can specify the collation and order sorting se
           --owner <username of the DB owner>
      ```
 
-     {{ mpg-short-name }} launches the create database operation.
+     {{ mpg-short-name }} runs the create database operation.
 
-  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 - API
 
@@ -102,7 +102,7 @@ Once the database is created, you can specify the collation and order sorting se
 
 {% endlist %}
 
-## Removing a database {#remove-db}
+## Deleting a database {#remove-db}
 
 {% list tabs %}
 
@@ -117,14 +117,14 @@ Once the database is created, you can specify the collation and order sorting se
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To remove a database, run the command:
+  To delete a database, run the command:
 
   ```
   $ {{ yc-mdb-pg }} database delete <database name>
        --cluster-name=<cluster name>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 - API
 

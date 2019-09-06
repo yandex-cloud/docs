@@ -9,25 +9,25 @@ items:
       href: operations/index.md
     - name: Information about existing clusters
       href: operations/cluster-list.md
-    - name: How to create a cluster
+    - name: Creating clusters
       href: operations/cluster-create.md
-    - name: How to connect to a database
+    - name: Connecting to databases
       href: operations/connect.md
-    - name: How to change cluster and database settings
+    - name: Changing cluster and database settings
       href: operations/update.md
     - name: Managing PostgreSQL hosts
       href: operations/hosts.md
     - name: Database management
       href: operations/databases.md
-    - name: How to manage PostgreSQL extensions
+    - name: Managing PostgreSQL extensions
       href: operations/cluster-extensions.md
-    - name: How to manage database users
+    - name: Managing database users
       href: operations/cluster-users.md
-    - name: How to manage backups
+    - name: Managing backups
       href: operations/cluster-backups.md
-    - name: Deleting a cluster
+    - name: Deleting clusters
       href: operations/cluster-delete.md
-    - name: Migrating database to Cloud
+    - name: Database migration to the Cloud
       href: operations/data-migration.md
   - name: Concepts
     items:
@@ -35,7 +35,7 @@ items:
       href: concepts/index.md
     - name: Host classes
       href: concepts/instance-types.md
-    - name: Network in Managed Service for PostgreSQL
+    - name: Network in Yandex Managed Service for PostgreSQL
       href: concepts/network.md
     - name: Quotas and limits
       href: concepts/limits.md
@@ -51,13 +51,13 @@ items:
     href: security/index.md
   - name: Pricing policy
     items:
-      - name: Current policy
+      - name: Current rules
         href: pricing.md
       - name: Archive
         items:
-          - name: Before January 1st 2019
+          - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
-          - name: Between January 1st and March 1st 2019
+          - name: From January 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
   - name: API reference
     items:

@@ -1,8 +1,8 @@
 # General questions
 
-#### What is {{ mrd-short-name }}? {#what-is}
+#### What's {{ mrd-short-name }}? {#what-is}
 
-{{ mrd-short-name }} is a service that helps you create, operate, and scale {{ RD }} databases in the cloud infrastructure.
+{{ mrd-short-name }} is a service that helps you create, operate, and scale {{ RD }} databases in a cloud infrastructure.
 
 With {{ mrd-short-name }}, you can:
 
@@ -10,16 +10,16 @@ With {{ mrd-short-name }}, you can:
 - Scale processing power and storage dedicated for your databases as needed.
 - Get database logs.
 
-{{ mrd-short-name }} takes on labor-intensive {{ mrd-short-name }} infrastructure administration tasks:
+{{ mrd-short-name }} takes on time-consuming {{ RD }} infrastructure administration tasks:
 
 - Monitors resource usage.
 - Automatically creates DB backups.
 - Provides fault tolerance through automatic failover to backup replicas.
 - Keeps the database software updated.
 
-You interact with a database cluster in {{ mrd-short-name }} in the same way as with a regular database in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
+You interact with database clusters in {{ mrd-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
 
-#### What part of DB management and maintenance is {{ mrd-short-name }} responsible for? {#services}
+#### What part of database management and maintenance is {{ mrd-short-name }} responsible for? {#services}
 
 When creating clusters, {{ mrd-short-name }} allocates resources, installs the DBMS, and creates databases.
 
@@ -27,12 +27,12 @@ For the created and running databases, {{ mrd-short-name }} automatically create
 
 {{ mrd-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-#### For which tasks should I use {{ mrd-short-name }} and for which VMs with databases? {#mdb-advantage}
+#### Which tasks should I use {{ mrd-short-name }} for and for which VMs with databases? {#mdb-advantage}
 
 Yandex.Cloud offers two ways to work with databases:
 
 - {{ mrd-short-name }} allows you to operate template databases with no need to worry about administration.
-- With {{ compute-full-name }} VMs, you can create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
+- {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
 
 #### What is a database host and database cluster? {#what-is-cluster}
 
@@ -44,14 +44,14 @@ _A database cluster_ is one or more database hosts between which replication can
 
 {{ mrd-short-name }} is available to all registered Yandex.Cloud users.
 
-To create a database cluster in {{ mrd-short-name }}, decide what the characteristics will be:
+To create a database cluster in {{ mrd-short-name }}, you must define its characteristics:
 
 - [Host class](../concepts/instance-types.md) (performance characteristics such as CPUs, memory, and so on).
 - Storage size (reserved in full when you create the cluster).
 - The network your cluster will be connected to.
 - The number of hosts for the cluster and the availability zone for each host.
 
-For detailed instructions, see the section [{#T}](../quickstart.md).
+For detailed instructions, see [{#T}](../quickstart.md).
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
@@ -59,11 +59,11 @@ A {{ mrd-short-name }} cluster can include from 1 to 7 DB hosts.
 
 #### How can I access a running DB host? {#db-access}
 
-You can connect to {{ mrd-short-name }} databases using standard DBMS methods. However, there is one exception: {{ mrd-short-name }} hosts can be accessed only from Yandex.Cloud VMs connected to the same network.
+You can connect to {{ mrd-short-name }} databases using standard DBMS methods. However, there is one exception: {{ mrd-short-name }} hosts can only be accessed from Yandex.Cloud VMs in the same network.
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-For MDB technical and organizational limitations, see the section [{#T}](../concepts/limits.md).
+MDB technical and organizational limits are given in [{#T}](../concepts/limits.md).
 
 #### How do I maintain database clusters? {#service-window}
 
@@ -73,7 +73,7 @@ Maintenance in {{ mrd-short-name }} implies:
 - Changes to the host class and storage size.
 - Other {{ mrd-short-name }} maintenance activities.
 
-#### Which {{ RD }} version does {{ mrd-short-name }} use? {#dbms-version}
+#### Which version of {{ RD }} does {{ mrd-short-name }} use? {#dbms-version}
 
 {{ mrd-short-name }} supports {{ RD }} 5.
 
@@ -94,7 +94,7 @@ In {{ mrd-short-name }}, the usage cost is calculated based on the following par
 - Selected host class.
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Storage of backups in excess of this size is charged at special [rates](../pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in the section [{#T}](../pricing.md).
+- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -104,7 +104,7 @@ The cluster characteristics change within 30 minutes. During this period, other 
 
 #### Is DB host backup enabled by default? {#default-backup}
 
-Yes, backup is enabled by default. For {{ RD }}, a full backup is performed once a day with all DB cluster transaction logs saved. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
+Yes, backup is enabled by default. For {{ RD }}, a full backup is performed once a day, saving all the database cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
 
 By default, backups are stored for seven days.
 
@@ -130,5 +130,5 @@ For any DB hosts, you can track metrics specific to the type of the correspondin
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 
-
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+

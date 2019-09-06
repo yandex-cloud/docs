@@ -1,10 +1,10 @@
 # Questions about {{ PG }}
 
-#### How do I import data to a {{ PG }} database cluster in {{ mpg-short-name }}? {#migrate}
+#### How to import data to a {{ PG }} database cluster in {{ mpg-short-name }}? {#migrate}
 
-Use the built-in `pg_dump` tool for migrating data to the {{ PG }} cluster {{ mpg-short-name }}.
+Use the `pg_dump` built-in tool to migrate data to a {{ PG }} cluster in {{ mpg-short-name }}.
 
-#### Which versions of {{ PG }} support {{ mpg-short-name }? {#supported-version}
+#### What {{ PG }} versions does {{ mpg-short-name }} support? {#supported-version}
 
 {{ mpg-short-name }} supports {{ PG }} 10 and 11.
 
@@ -18,7 +18,7 @@ Connections between a database cluster and an application are always encrypted u
 
 #### What is a read-only replica in {{ PG }}? {#read-only-instance}
 
-A read-only replica is a host in a {{ PG }} database cluster that can only be read. Its data is synced with the master host (applies only if the cluster has more than one host). You can use a read-only replica to reduce the load on the DB master host with a large number of read requests.
+A read-only replica is a host in a {{ PG }} DB cluster that can only be read. Its data is synced with the master host (applies only if the cluster has more than 1 host). You can use a read-only replica to reduce the load on the DB master host with a large number of read requests.
 
 #### What {{ PG }} extensions are supported in {{ mpg-short-name }}? {#pg-extension}
 
@@ -26,5 +26,5 @@ The list of supported {{ PG }} extensions is provided in [{#T}](../operations/cl
 
 #### What limitations are imposed on {{ PG }} database clusters? {#instance-limitations}
 
-For more information about {{ mpg-short-name }} restrictions, see [{#T}](../concepts/limits.md). Characteristics of clusters that can be created using {{ mpg-short-name }} are given in [{#T}](../concepts/instance-types.md).
+For more information about {{ mpg-short-name }} limitations, see [{#T}](../concepts/limits.md). Characteristics of clusters that can be created using {{ mpg-short-name }} are given in [{#T}](../concepts/instance-types.md).
 

@@ -1,4 +1,4 @@
-# How to manage database users
+# Managing database users
 
 You can add and remove users, as well as manage their individual settings.
 
@@ -23,7 +23,7 @@ You can add and remove users, as well as manage their individual settings.
        --cluster-name <cluster name>
   ```
 
-  You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -61,7 +61,7 @@ You can add and remove users, as well as manage their individual settings.
         --permission database=<another DB name>,role=<role>,...
      ```
 
-     You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -100,7 +100,7 @@ You can add and remove users, as well as manage their individual settings.
         --permission database=<another DB name>,role=<role>,...
      ```
 
-     You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -126,7 +126,7 @@ You can add and remove users, as well as manage their individual settings.
        --cluster-name <cluster name>
   ```
 
-  You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 

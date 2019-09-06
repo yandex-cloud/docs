@@ -13,9 +13,9 @@ Sequence of actions:
 3. [Create a {{ mmg-name }} cluster](create-cluster) where the restored database will be deployed.
 4. [Restore data from the dump](restore) in the cluster using`mongorestore`.
 
-## Create a dump {#dump}
+### Create a dump {#dump}
 
-You can create a database dump using `mongodump`. Fore more information about this utility, see the [documentation{{ MG }}](https://docs.mongodb.com/manual/reference/program/mongodump/).
+You can create a database dump using `mongodump`. Fore more information about this utility, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/program/mongodump/).
 
 1. Install `mongodump` and other utilities for working with MongoDB. Example for Ubuntu and Debian distributions:
 
@@ -51,7 +51,7 @@ You can create a database dump using `mongodump`. Fore more information about th
     $ tar -cvzf db_dump.tar.gz ~/db_dump
     ```
 
-## (optional) Create a virtual machine for loading the dump {#create-vm}
+### (optional) Create a virtual machine for loading the dump {#create-vm}
 
 You need an intermediate virtual machine in {{ compute-full-name }} if:
 
@@ -94,9 +94,9 @@ You get a virtual machine with a database dump that is ready to be restored to t
 
 ## Create a cluster {{ mmg-name }} {#create-cluster}
 
-Create a cluster with the computing power and storage size appropriate for the environment where the existing database is deployed. More information about creating {{ mmg-name }} clusters can be found at [{#T}](cluster-create.md).
+Create a cluster with the computing power and storage size appropriate for the environment where the existing database is deployed. More information about creating {{ mmg-name }} clusters can be found here [{#T}](cluster-create.md).
 
-## Recover data {#restore}
+### Recover data {#restore}
 
 Use the [mongorestore](https://docs.mongodb.com/manual/reference/program/mongorestore/) utility to restore your DB dump.
 
@@ -127,3 +127,4 @@ Use the [mongorestore](https://docs.mongodb.com/manual/reference/program/mongore
     ```
 
 * If you only want to transfer specific collections, set the `--nsInclude` and `--nsExclude` flags, specifying the namespaces to include or exclude for the collection being restored.
+

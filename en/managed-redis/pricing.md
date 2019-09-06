@@ -1,8 +1,7 @@
 ---
 editable: false
 ---
-
-# Pricing policy for {{ mrd-name }}
+# Pricing for {{ RD }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -10,48 +9,43 @@ editable: false
 
 The cost of {{ mrd-name }} usage is based on:
 
-* Storage (disk space) type and size.
+* Type and size of the disk selected for the cluster hosts.
 
 * [The host class](concepts/instance-types.md) selected for the cluster.
 
-* How many DB hosts are in the clusters.
+* The number of DB hosts in the cluster.
 
-* Number of backups.
+* The size of the backups.
 
 * The amount of outgoing traffic.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-
 ### Use of DB hosts {#rules-hosts-uptime}
 
-The cost is calculated for each hour of the host's operation in accordance with its class. The exact class characteristics are given in the section [{#T}](concepts/instance-types.md).
+The cost is calculated for each hour of the host's operation in accordance with its class. Class characteristics are given in [{#T}](concepts/instance-types.md).
 
 The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation). You are not charged for time when the {{ RD }} host is not performing its main functions.
 
-
-### Disk space use {#rules-storage}
+### Disk space usage {#rules-storage}
 
 The following is charged:
 
-* Storage allocated for DB clusters.
+* Disk space allocated for database clusters.
 
-* Space used by DB backups in excess of the storage specified for the cluster.
-
+* Space used by DB backups in excess of the disk space requested for the cluster.
     * Backups are stored free of charge as long as the combined size of the DB and all backups is less than the selected storage volume.
-    * The number of hosts in the cluster does not affect the size of the storage and, consequently, that of free backups.
+    * The requested disk size is allocated for each host, so the number of hosts in the cluster does not affect the storage size and, consequently, the free backup size.
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
 
-
-## Prices {#prices}
-
+## Pricing {#prices}
 
 ### Hosts {#prices-hosts}
 
-The first two tabs contain prices for a single {{ mrd-name }} host working for a month or an hour.
+The first two tabs show the cost per {{ mrd-name }} host per month and per hour.
 
-**Price per 1 GB of RAM per hour** is quoted for reference: the table shows how the price of 1 GB of RAM of a Redis host change with the host class.
+The data in the **Per 1 GB RAM** tab is given for reference purposes: the table shows how the cost of 1 GB of RAM changes as the host class is increased.
 
 {% list tabs %}
 

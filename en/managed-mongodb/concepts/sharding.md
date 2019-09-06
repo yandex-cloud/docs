@@ -23,7 +23,7 @@ The downside of sharding is the complexity of the infrastructure, deployment, an
 
 More information on {{ MG }} database sharding can be found in the [{{ MG }} documentation](https://docs.mongodb.com/v4.0/sharding/#sharded-cluster).
 
-## Sharding use cases {#uses}
+## Use of sharding {#uses}
 
 Sharding is often used in the following cases:
 
@@ -60,5 +60,5 @@ To reduce the risk of a whole shard going offline, we recommend configuring shar
 
 Query processing can slow down when they begin to compete for resources. This usually happens as the number of read operations or CPU time per query grows.
 
-However, in a sharded cluster, where shards process queries to the same collection in parallel, competition
-for shared resources (CPU, disk subsystem) is eliminated and query processing time reduced.
+However, in a sharded cluster, where shards process queries to the same collection in parallel, competitionfor shared resources (CPU, disk subsystem) is eliminated and query processing time reduced.
+

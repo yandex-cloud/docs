@@ -62,4 +62,3 @@
   Добавить в кластер хосты {{ ZK }} можно с помощью метода [addZookeeper](../api-ref/Cluster/addZookeeper.md).
 
 {% endlist %}
-****

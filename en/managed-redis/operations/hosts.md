@@ -8,7 +8,7 @@ You can add and remove cluster hosts and request a list of hosts in the selected
 
 - Management console
 
-  1. Go to the folder page and click **{{ mrd-name }}**.
+  1. Go to the folder page and select **{{ mrd-name }}**.
 
   2. Click on the name of the cluster you need and select the **Hosts** tab.
 
@@ -18,12 +18,12 @@ You can add and remove cluster hosts and request a list of hosts in the selected
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of cluster databases, run the command:
+  To get a list of databases in a cluster, run the command:
 
   ```
   $ {{ yc-mdb-rd }} host list
        --cluster-name=<cluster name>
-
+  
   +---------------------------------+----------------------+--------+---------------+
   |               NAME              |      CLUSTER ID      | HEALTH |    ZONE ID    |
   +---------------------------------+----------------------+--------+---------------+
@@ -32,7 +32,7 @@ You can add and remove cluster hosts and request a list of hosts in the selected
   +---------------------------------+----------------------+--------+---------------+
   ```
 
-  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -40,15 +40,15 @@ You can add and remove cluster hosts and request a list of hosts in the selected
 
 {% endlist %}
 
-## Adding a host  {#add}
+## Adding a host {#add}
 
-The number of hosts in {{ mrd-short-name }} clusters is limited by the quotas on the number of CPUs and the amount of RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mrd-full-name }}** service.
+The number of hosts in {{ mrd-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mrd-full-name }}** block.
 
 {% list tabs %}
 
 - Management console
 
-  1. Go to the folder page and click **{{ mrd-name }}**.
+  1. Go to the folder page and select **{{ mrd-name }}**.
 
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
 
@@ -72,7 +72,7 @@ The number of hosts in {{ mrd-short-name }} clusters is limited by the quotas on
 
       ```
       $ yc vpc subnet list
-
+      
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
@@ -101,7 +101,7 @@ The number of hosts in {{ mrd-short-name }} clusters is limited by the quotas on
 
      {{ mrd-short-name }} will run the add host operation.
 
-     The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mrd-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mrd-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -111,17 +111,17 @@ The number of hosts in {{ mrd-short-name }} clusters is limited by the quotas on
 
 ## Removing a host {#remove}
 
-You can remove a host from a {{ RD }} cluster if it is not the only host in it. To replace a single host, first create a new host and then delete the old one.
+You can remove a host from a {{ RD }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
 
-If the host is the master at the time of deletion, {{ mrd-short-name }} automatically assigns another replica as the master.
+If the host is the master when deleted, {{ mrd-short-name }} automatically assigns another replica as the master.
 
 {% list tabs %}
 
 - Management console
 
-  1. Go to the folder page and click **{{ mrd-name }}**.
+  1. Go to the folder page and select **{{ mrd-name }}**.
 
-  2. Click on the name of the cluster you need and select the **Hosts** tab.
+  2. Click on the name of the cluster you want and select the **Hosts** tab.
 
   3. Click ![image](../../_assets/cross.svg) in the row of the host you need.
 
@@ -136,11 +136,11 @@ If the host is the master at the time of deletion, {{ mrd-short-name }} automati
   To remove a host from the cluster, run:
 
   ```
-  $ {{ yc-mdb-rd }} host delete <host name>
+  $ {{ yc-mdb-rd }} host delete <hostname>
        --cluster-name=<cluster name>
   ```
 
-  The name of the host can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

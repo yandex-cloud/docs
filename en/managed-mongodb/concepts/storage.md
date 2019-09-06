@@ -9,3 +9,4 @@
 Local storage does not provide fault tolerance: if a local disk fails, data is permanently lost. Therefore, when creating a new {{ mmg-name }} cluster using local storage, a 3-host fail-safe configuration is automatically set up.
 
 {% endnote %}
+
