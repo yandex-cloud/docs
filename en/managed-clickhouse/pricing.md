@@ -73,6 +73,14 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | {{ b1-nano }} | $0.009046 |
   | {{ b1-micro }} | $0.015276 |
   | {{ b1-medium }} | $0.028153 |
+  {{ m1-micro }} | $0.098646
+  {{ m1-small }} | $0.197292
+  {{ m1-medium }}| $0.295938
+  {{ m1-large }} | $0.394585
+  {{ m1-xlarge }} | $0.591877
+  {{ m1-2xlarge }} | $0.789169
+  {{ m1-3xlarge }} | $1.183738
+  {{ m1-4xlarge }} | $1.578323
   | {{ s1-nano }} | $0.035332 |
   | {{ s1-micro }} | $0.070665 |
   | {{ s1-small }} | $0.141200 |
@@ -83,6 +91,16 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | {{ b2-nano }}  |  $0.009046 |
   | {{ b2-micro }} | $0.015276 |
   | {{ b2-medium }} | $0.028153 |
+  {{ m2-micro }} | $0.098646
+  {{ m2-small }} | $0.197292
+  {{ m2-medium }}| $0.295938
+  {{ m2-large }} | $0.394585
+  {{ m2-xlarge }} | $0.591877
+  {{ m2-2xlarge }} | $0.789169
+  {{ m2-3xlarge }} | $1.183738
+  {{ m2-4xlarge }} | $1.578323
+  {{ m2-5xlarge }} | $1.972892
+  {{ m2-6xlarge }} | $2.367477
   | {{ s2-micro }} | $0.065138 |
   | {{ s2-small }} | $0.130276 |
   | {{ s2-medium }} | $0.260553 |
@@ -101,6 +119,14 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | {{ b1-nano }} | ₽0.7056 |
   | {{ b1-micro }} | ₽1.1916 |
   | {{ b1-medium }} | ₽2.1960 |
+  {{ m1-micro }} | ₽7.6944
+  {{ m1-small }} | ₽15.3888
+  {{ m1-medium }}| ₽23.0832
+  {{ m1-large }} | ₽30.7776
+  {{ m1-xlarge }} | ₽46.1664
+  {{ m1-2xlarge }} | ₽61.5552
+  {{ m1-3xlarge }} | ₽92.3316
+  {{ m1-4xlarge }} | ₽123.1092
   | {{ s1-nano }} | ₽2.7559 |
   | {{ s1-micro }} | ₽5.5119 |
   | {{ s1-small }} | ₽11.0136 |
@@ -111,6 +137,16 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | {{ b2-nano }} | ₽0.7056 |
   | {{ b2-micro }} | ₽1.1916 |
   | {{ b2-medium }} | ₽2.1960 |
+  {{ m2-micro }} | ₽7.6944
+  {{ m2-small }} | ₽15.3888
+  {{ m2-medium }}| ₽23.0832
+  {{ m2-large }} | ₽30.7776
+  {{ m2-xlarge }} | ₽46.1664
+  {{ m2-2xlarge }} | ₽61.5552
+  {{ m2-3xlarge }} | ₽92.3316
+  {{ m2-4xlarge }} | ₽123.1092
+  {{ m2-5xlarge }} | ₽153.8856
+  {{ m2-6xlarge }} | ₽184.6632
   | {{ s2-micro }} | ₽5.0808 |
   | {{ s2-small }} | ₽10.1616 |
   | {{ s2-medium }} | ₽20.3232 |
@@ -135,6 +171,14 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | {{ b1-nano }} | $0.008984 |
   | {{ b1-micro }} | $0.014215 |
   | {{ b1-medium }} | $0.022953 |
+  {{ m1-micro }} | $0.063969
+  {{ m1-small }} | $0.127938
+  {{ m1-medium }}| $0.191908
+  {{ m1-large }} | $0.255877
+  {{ m1-xlarge }} | $0.383815
+  {{ m1-2xlarge }} | $0.511754
+  {{ m1-3xlarge }} | $0.767631
+  {{ m1-4xlarge }} | $1.023492
   | {{ s1-nano }} | $0.022425 |
   | {{ s1-micro }} | $0.043806 |
   | {{ s1-small }} | $0.086570 |
@@ -145,6 +189,16 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   | {{ b2-nano }} |  $0.008984 |
   | {{ b2-micro }} | $0.014215 |
   | {{ b2-medium }} | $0.022953 |
+  {{ m2-micro }} | $0.063969
+  {{ m2-small }} | $0.127938
+  {{ m2-medium }}| $0.191908
+  {{ m2-large }} | $0.255877
+  {{ m2-xlarge }} | $0.383815
+  {{ m2-2xlarge }} | $0.511754
+  {{ m2-3xlarge }} | $0.767631
+  {{ m2-4xlarge }} | $1.023492
+  {{ m2-5xlarge }} | $1.279369
+  {{ m2-6xlarge }} | $1.535246
   | {{ s2-micro }} | $0.040784 |
   | {{ s2-small }} | $0.080261 |
   | {{ s2-medium }} | $0.159215 |
@@ -163,6 +217,14 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   {{ b1-nano }}| ₽0.7008
   {{ b1-micro }}| ₽1.1088
   {{ b1-medium }}| ₽1.7904
+  {{ m1-micro }} | ₽7.6944
+  {{ m1-small }} | ₽15.3888
+  {{ m1-medium }}| ₽23.0832
+  {{ m1-large }} | ₽30.7776
+  {{ m1-xlarge }} | ₽46.1664
+  {{ m1-2xlarge }} | ₽61.5552
+  {{ m1-3xlarge }} | ₽92.3316
+  {{ m1-4xlarge }} | ₽123.1092
   {{ s1-nano }}| ₽1.7492 |
   {{ s1-micro }}| ₽3.4169 |
   {{ s1-small }}| ₽6.7525 |
@@ -173,6 +235,16 @@ The hourly price will be calculated using the rates below (including VAT): `3 ×
   {{ b2-nano }}| ₽0.7008
   {{ b2-micro }}| ₽1.1088
   {{ b2-medium }}| ₽1.7904
+  {{ m2-micro }} | ₽4.9896
+  {{ m2-small }} | ₽9.9792
+  {{ m2-medium }}| ₽14.9688
+  {{ m2-large }} | ₽19.9584
+  {{ m2-xlarge }} | ₽29.9376
+  {{ m2-2xlarge }} | ₽39.9168
+  {{ m2-3xlarge }} | ₽59.8752
+  {{ m2-4xlarge }} | ₽79.8324
+  {{ m2-5xlarge }} | ₽99.7908
+  {{ m2-6xlarge }} | ₽119.7492
   {{ s2-micro }}| ₽3.1812
   {{ s2-small }}| ₽6.2604
   {{ s2-medium }}| ₽12.4188
