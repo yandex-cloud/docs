@@ -3,6 +3,7 @@ title: "Yandex Managed Service for MongoDB"
 description:
   - "Сервис Managed Service for MongoDB помогает разворачивать и поддерживать кластеры серверов MongoDB 3.6 и 4.0 в инфраструктуре Яндекс.Облака."
   - "Инфраструктура Яндекс.Облака <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
+  - "Для сервиса действует <a href=\"https://yandex.ru/legal/cloud_sla\">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href=\"https://yandex.ru/legal/cloud_sla_mdb\">Уровень обслуживания Yandex Managed Databases</a>."
 # Мета-информация title, description, keywords и т.п.
 meta:
   title: "Yandex Managed Service for MongoDB"

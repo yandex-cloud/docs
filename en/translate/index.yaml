@@ -4,6 +4,7 @@ description:
   - "Use this service to integrate <a href=\"https://translate.yandex.com/\">Yandex Translate</a> algorithms into end-user applications or web projects. Yandex Translate supports more than 90 languages and can translate individual words or complete texts."
   - "To access the service, use the HTTP API."
   - "The Yandex.Cloud infrastructure is protected in accordance with Federal Law No. 152."
+  - "Service is provided under the <a href=\"https://yandex.com/legal/cloud_sla\">Service Level Agreement</a>. Service level for Yandex Translate is defined in the <a href=\"https://yandex.com/legal/cloud_sla_translate\">Service Level for Yandex Translate</a> document."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Translate"
