@@ -44,7 +44,7 @@
   created_at: "2019-06-14T10:03:37.475Z"
   name: my-python-function
   log_group_id: eolm8aoq9vcppsieej6h
-  http_invoke_url: https://functions.cloud-preprod.yandex.net/b09bhaokchn9pnbrlseb
+  http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
   ```
 
 {% endlist %}
@@ -138,7 +138,7 @@
   created_at: "2019-06-14T09:53:39.885Z"
   name: my-nodejs-function
   log_group_id: eol8eetd68mq3849eurs
-  http_invoke_url: https://functions.cloud-preprod.yandex.net/b09hnm3nucbm1tk8dops
+  http_invoke_url: https://functions.yandexcloud.net/b09hnm3nucbm1tk8dops
   ```
 
 {% endlist %}

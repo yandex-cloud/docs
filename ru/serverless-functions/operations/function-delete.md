@@ -26,7 +26,7 @@
     created_at: "2019-06-13T13:21:40.022Z"
     name: my-functions
     log_group_id: eolq9ac97486t34iut5q
-    http_invoke_url: https://functions.cloud-preprod.yandex.net/b09kk2ujb8js23f73b06
+    http_invoke_url: https://functions.yandexcloud.net/b09kk2ujb8js23f73b06
     ```
 
 {% endlist %}

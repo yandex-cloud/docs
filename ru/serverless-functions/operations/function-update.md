@@ -33,7 +33,7 @@
     labels:
      test: test
     log_group_id: eolv6578frac08uh5h6s
-    http_invoke_url: https://functions.cloud-preprod.yandex.net/b097d9ous3gep99khe83 
+    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83 
   ```
   
 {% endlist %}
@@ -69,7 +69,7 @@
     labels:
       test: test
     log_group_id: eolv6578frac08uh5h6s
-    http_invoke_url: https://functions.cloud-preprod.yandex.net/b097d9ous3gep99khe83
+    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     ```
   
 {% endlist %}
@@ -104,7 +104,7 @@
       test: test
       version: beta
     log_group_id: eolv6578frac08uh5h6s
-    http_invoke_url: https://functions.cloud-preprod.yandex.net/b097d9ous3gep99khe83
+    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     ```
 
 {% endlist %}
@@ -136,7 +136,7 @@
     labels:
       new_labels: my-beta-function
     log_group_id: eolv6578frac08uh5h6s
-    http_invoke_url: https://functions.cloud-preprod.yandex.net/b097d9ous3gep99khe83
+    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     ```
   
 {% endlist %}
@@ -162,7 +162,7 @@
     labels:
       version: beta
     log_group_id: eolv6578frac08uh5h6s
-    http_invoke_url: https://functions.cloud-preprod.yandex.net/b097d9ous3gep99khe83
+    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     ```
   
 {% endlist %}
