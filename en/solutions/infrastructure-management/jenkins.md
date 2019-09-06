@@ -97,7 +97,7 @@ Yandex.Cloud requires Packer 1.4.1 and higher.
    $ scp packer_<Packer version>_linux_amd64.zip <Login>@<Public IP address of your VM>:~/
    ```
 
-1. [Connect](../../compute/operations/vm-control/vm-connect-ssh.md) to the VM over SSH. You can use the `ssh` utility in Linux or macOS, or `PuTTY` in Windows.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. You can use the `ssh` utility in Linux or macOS, or `PuTTY` in Windows.
 
 1. Create a new folder, move the Packer executables there, and unpack the archive:
 
