@@ -1,8 +1,58 @@
 # Релизы YC CLI
 
-## Версия 0.36.0 (27.08.19) {#latest-release}
+## Версия 0.37.0 (06.09.19) {#latest-release}
+
+### Изменения в CLI {#cli}
+
+**Улучшено**
+
+- Добавлена проверка доступности эндпоинтов API {{ iam-short-name }}, {{ resmgr-short-name }}, {{ compute-short-name }}. Если эндпоинт недоступен, выдается ошибка.
+- Добавлено отображение деталей ошибок. 
 
 ### Изменения в сервисах Облака {#services}
+
+#### {{ container-registry-name }} {#container-registry}
+
+**Улучшено**
+ 
+- Добавлена поддержка ОС Windows для работы с Docker Credential helper.
+- Добавлена подробная ошибка при использовании `docker login` одновременно с Docker Credential helper.
+
+#### {{ ig-name }} {#instance-groups}
+
+- Добавлены команды для управления метаданными группы виртуальных машин: `yc compute instance-group add-metadata` и `yc compute instance-group remove-metadata`.
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Команда `yc managed-kubernetes cluster update`.
+
+    Добавлены флаги `--node-service-account-id` и `--node-service-account-name`, позволяющие добавить или изменить сервисный аккаунт для узлов у существующего кластера {{ k8s }}.
+    
+- Команда `yc managed-kubernetes node-group update`.
+
+    Добавлены флаги для изменения параметров существующей группы узлов: `--metadata`, `--metadata-from-file`, `--platform-id`, `--memory`, `--cores`, `--core-fraction`, `--disk-type`, `--disk-size`, `--preemptible`.
+
+- Добавлены команды для управления метками: `yc managed-kubernetes node-group add-labels` и `yc managed-kubernetes node-group remove-labels`.
+
+- Добавлены команды для управления метаданными группы узлов: `yc managed-kubernetes node-group add-metadata` и `yc managed-kubernetes node-group remove-metadata`.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mpg-name }}**
+
+- Команда `{{ yc-mdb-pg }} cluster update`.
+
+    Добавлен флаг `--connection-pool-discard` для отключения менеджера подключений.
+    
+- Команды `{{ yc-mdb-pg }} user create` и `yc managed-postgresql user update`. 
+
+    Добавлена возможность указать логин и задать права доступа для пользователя с помощью флагов `--login` и `--grants`.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.36.0 (27.08.19) {##version0.36.0}
+
+#### Изменения в сервисах Облака {#services}
 
 #### {{ resmgr-name }} {#resmgr}
 
@@ -10,9 +60,7 @@
 
     Добавлена возможность переименовать облако.
 
-## Предыдущие релизы {#previous-releases}
-
-### Версия 0.35.1 (16.08.19) {##version0.35.1}
+### Версия 0.35.1 (16.08.19) {#version0.35.1}
 
 #### Изменения в сервисах Облака {#services}
 
