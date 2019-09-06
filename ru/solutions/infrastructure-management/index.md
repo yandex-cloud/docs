@@ -2,5 +2,4 @@
 
 * [{#T}](terraform-quickstart.md)
 * [{#T}](packer-quickstart.md)
-* [{#T}](active-directory.md)
 * [{#T}](jenkins.md)
