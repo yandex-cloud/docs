@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/mdb/clickhouse/v1/clusters/{clusterId}:deleteExternalDictionary
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}:deleteExternalDictionary
 ```
  
 ## Path-параметры {#path_params}

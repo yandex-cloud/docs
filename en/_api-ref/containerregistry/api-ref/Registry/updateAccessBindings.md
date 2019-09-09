@@ -16,7 +16,7 @@ POST https://container-registry.api.cloud.yandex.net/container-registry/v1/regis
  
 Parameter | Description
 --- | ---
-resourceId | Required. ID of the resource for which access bindings are being updated.  The maximum string length in characters is 50.
+resourceId | Required. ID of the resource for which access bindings are being updated.
  
 ## Body parameters {#body_params}
  

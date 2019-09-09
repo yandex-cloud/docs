@@ -35,7 +35,8 @@ filter |
       "description": "string",
       "labels": "object",
       "logGroupId": "string",
-      "httpInvokeUrl": "string"
+      "httpInvokeUrl": "string",
+      "status": "string"
     }
   ],
   "nextPageToken": "string"
@@ -54,4 +55,5 @@ functions[].<br>description | **string**<br>
 functions[].<br>labels | **object**<br>
 functions[].<br>logGroupId | **string**<br>
 functions[].<br>httpInvokeUrl | **string**<br>
+functions[].<br>status | **string**<br>
 nextPageToken | **string**<br>

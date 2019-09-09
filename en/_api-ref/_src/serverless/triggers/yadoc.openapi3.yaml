@@ -172,7 +172,7 @@ components:
           description: |-
             Maximum batch size: trigger will send a batch if number of events exceeds this value.
 
-            Acceptable values are 0 to 100, inclusive.
+            Acceptable values are 0 to 10, inclusive.
           type: string
           format: int64
         cutoff:
@@ -244,6 +244,21 @@ components:
         serviceAccountId:
           description: SA which should be used to call a function, optional.
           type: string
+    InvokeFunctionWithRetry:
+      type: object
+      properties:
+        functionId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        functionTag:
+          type: string
+        serviceAccountId:
+          description: SA which has call permission on the function, optional.
+          type: string
+        retrySettings:
+          $ref: '#/components/schemas/RetrySettings_in_InvokeFunctionWithRetry_retrySettings'
     ListTriggerOperationsResponse:
       type: object
       properties:
@@ -319,6 +334,21 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    RetrySettings:
+      type: object
+      properties:
+        retryAttempts:
+          description: |-
+            Maximum number of retries (extra calls) before an action fails.
+
+            Acceptable values are 1 to 5, inclusive.
+          type: string
+          format: int64
+        interval:
+          description: |-
+            Required.
+            Interval between tries.
+          type: string
     Status:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -370,6 +400,24 @@ components:
             type: string
         rule:
           $ref: '#/components/schemas/TriggerRule_in_Trigger_rule'
+    TriggerIoTMessage:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          registryId:
+            description: Required.
+            type: string
+          deviceId:
+            type: string
+          mqttTopic:
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
     TriggerMessageQueue:
       type: object
       allOf:
@@ -412,6 +460,8 @@ components:
         properties:
           messageQueue:
             $ref: '#/components/schemas/TriggerMessageQueue'
+          iotMessage:
+            $ref: '#/components/schemas/TriggerIoTMessage'
     UpdateTriggerMetadata:
       type: object
       properties:
@@ -450,6 +500,24 @@ components:
         properties:
           messageQueue:
             $ref: '#/components/schemas/TriggerMessageQueue'
+          iotMessage:
+            $ref: '#/components/schemas/TriggerIoTMessage'
+    RetrySettings_in_InvokeFunctionWithRetry_retrySettings:
+      description: Retry policy, optional (no value means no retry).
+      type: object
+      properties:
+        retryAttempts:
+          description: |-
+            Maximum number of retries (extra calls) before an action fails.
+
+            Acceptable values are 1 to 5, inclusive.
+          type: string
+          format: int64
+        interval:
+          description: |-
+            Required.
+            Interval between tries.
+          type: string
     TriggerRule_in_Trigger_rule:
       description: |-
         Required.
@@ -462,6 +530,8 @@ components:
         properties:
           messageQueue:
             $ref: '#/components/schemas/TriggerMessageQueue'
+          iotMessage:
+            $ref: '#/components/schemas/TriggerIoTMessage'
     FieldMask_in_UpdateTriggerRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.

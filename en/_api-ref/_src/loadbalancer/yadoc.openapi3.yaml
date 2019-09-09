@@ -1002,6 +1002,7 @@ components:
         properties:
           name:
             description: |-
+              Required.
               Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.
 
               Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
@@ -1144,10 +1145,8 @@ components:
       type: object
       properties:
         name:
-          description: |-
-            Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.
-
-            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          description: Name of the listener. The name must be unique for each listener
+            on a single load balancer. 3-63 characters long.
           type: string
         address:
           description: IP address for the listener.

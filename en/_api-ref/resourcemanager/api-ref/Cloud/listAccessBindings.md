@@ -16,7 +16,7 @@ GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{re
  
 Parameter | Description
 --- | ---
-resourceId | Required. ID of the resource to list access bindings for.  To get the resource ID, use a corresponding List request. For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.  The maximum string length in characters is 50.
+resourceId | Required. ID of the resource to list access bindings for.  To get the resource ID, use a corresponding List request. For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
  
 ## Query parameters {#query_params}
  

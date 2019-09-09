@@ -844,7 +844,7 @@ components:
         maxProperties: 1
         properties:
           error:
-            $ref: '#/components/schemas/Status'
+            $ref: '#/components/schemas/rpcStatus'
             description: The error result of the operation in case of failure or cancellation.
           response:
             description: |-
@@ -875,6 +875,8 @@ components:
           type: object
           additionalProperties:
             type: string
+        status:
+          $ref: '#/components/schemas/RegistryStatus_in_Registry_status'
     RegistryCertificate:
       type: object
       properties:
@@ -889,22 +891,12 @@ components:
             format.
           type: string
           format: date-time
-    Status:
-      description: The error result of the operation in case of failure or cancellation.
-      type: object
-      properties:
-        code:
-          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
-          type: integer
-          format: int32
-        message:
-          description: An error message.
-          type: string
-        details:
-          description: A list of messages that carry the error details.
-          type: array
-          items:
-            type: object
+    RegistryStatus:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
     UpdateDeviceMetadata:
       type: object
       properties:
@@ -957,6 +949,28 @@ components:
           type: object
           additionalProperties:
             type: string
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    RegistryStatus_in_Registry_status:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
     FieldMask_in_UpdateDeviceRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.

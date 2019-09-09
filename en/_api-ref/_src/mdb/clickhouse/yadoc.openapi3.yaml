@@ -3429,7 +3429,7 @@ components:
             The number of structurally identical queries before they are compiled.
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#min-count-to-compile).
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         compileExpressions:
@@ -3440,7 +3440,7 @@ components:
           description: |-
             The number of identical expressions before they are compiled.
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         maxBlockSize:
@@ -3544,12 +3544,12 @@ components:
           format: int64
         maxNetworkBandwidth:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth).
-          type: boolean
-          format: boolean
+          type: integer
+          format: int64
         maxNetworkBandwidthForUser:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth_for_user).
-          type: boolean
-          format: boolean
+          type: integer
+          format: int64
         forceIndexByDate:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-force_index_by_date).
           type: boolean
@@ -5242,7 +5242,7 @@ components:
             The number of structurally identical queries before they are compiled.
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#min-count-to-compile).
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         compileExpressions:
@@ -5253,7 +5253,7 @@ components:
           description: |-
             The number of identical expressions before they are compiled.
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         maxBlockSize:
@@ -5357,12 +5357,12 @@ components:
           format: int64
         maxNetworkBandwidth:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth).
-          type: boolean
-          format: boolean
+          type: integer
+          format: int64
         maxNetworkBandwidthForUser:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth_for_user).
-          type: boolean
-          format: boolean
+          type: integer
+          format: int64
         forceIndexByDate:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-force_index_by_date).
           type: boolean
@@ -5675,7 +5675,7 @@ components:
             The number of structurally identical queries before they are compiled.
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#min-count-to-compile).
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         compileExpressions:
@@ -5686,7 +5686,7 @@ components:
           description: |-
             The number of identical expressions before they are compiled.
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         maxBlockSize:
@@ -5790,12 +5790,12 @@ components:
           format: int64
         maxNetworkBandwidth:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth).
-          type: boolean
-          format: boolean
+          type: integer
+          format: int64
         maxNetworkBandwidthForUser:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth_for_user).
-          type: boolean
-          format: boolean
+          type: integer
+          format: int64
         forceIndexByDate:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-force_index_by_date).
           type: boolean
@@ -6159,7 +6159,7 @@ components:
             The number of structurally identical queries before they are compiled.
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#min-count-to-compile).
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         compileExpressions:
@@ -6170,7 +6170,7 @@ components:
           description: |-
             The number of identical expressions before they are compiled.
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         maxBlockSize:
@@ -6274,12 +6274,12 @@ components:
           format: int64
         maxNetworkBandwidth:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth).
-          type: boolean
-          format: boolean
+          type: integer
+          format: int64
         maxNetworkBandwidthForUser:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_network_bandwidth_for_user).
-          type: boolean
-          format: boolean
+          type: integer
+          format: int64
         forceIndexByDate:
           description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-force_index_by_date).
           type: boolean

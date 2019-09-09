@@ -84,7 +84,7 @@ status | **string**<br><p>Status of the network load balancer.</p> <ul> <li>CREA
 type | **string**<br><p>Type of the network load balancer. Only external network load balancers are available now.</p> <p>Type of the load balancer. Only external load balancers are currently available.</p> <ul> <li>EXTERNAL: External network load balancer.</li> </ul> 
 sessionAffinity | **string**<br><p>Type of the session affinity. Only 5-tuple affinity is available now.</p> <p>Type of session affinity. Only 5-tuple affinity is currently available. For more information, see <a href="/load-balancer/concepts/">Load Balancer concepts</a>.</p> <ul> <li>CLIENT_IP_PORT_PROTO: 5-tuple affinity.</li> </ul> 
 listeners[] | **object**<br><p>A Listener resource. For more information, see <a href="/docs/load-balancer/concepts/listener">Listener</a></p> 
-listeners[].<br>name | **string**<br><p>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+listeners[].<br>name | **string**<br><p>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.</p> 
 listeners[].<br>address | **string**<br><p>IP address for the listener.</p> 
 listeners[].<br>port | **string** (int64)<br><p>Port.</p> 
 listeners[].<br>protocol | **string**<br><p>Network protocol for incoming traffic.</p> <p>Network protocol to use.</p> 
@@ -92,7 +92,7 @@ listeners[].<br>targetPort | **string** (int64)<br><p>Port of a target.</p>
 attachedTargetGroups[] | **object**<br><p>An AttachedTargetGroup resource. For more information, see <a href="/docs/load-balancer/concepts/target-resources">Targets and groups</a>.</p> 
 attachedTargetGroups[].<br>targetGroupId | **string**<br><p>Required. ID of the target group.</p> <p>The maximum string length in characters is 50.</p> 
 attachedTargetGroups[].<br>healthChecks[] | **object**<br><p>A HealthCheck resource. For more information, see <a href="/docs/load-balancer/concepts/health-check">Health check</a>.</p> 
-attachedTargetGroups[].<br>healthChecks[].<br>name | **string**<br><p>Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+attachedTargetGroups[].<br>healthChecks[].<br>name | **string**<br><p>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
 attachedTargetGroups[].<br>healthChecks[].<br>interval | **string**<br><p>The interval between health checks. The default is 2 seconds.</p> 
 attachedTargetGroups[].<br>healthChecks[].<br>timeout | **string**<br><p>Timeout for a target to return a response for the health check. The default is 1 second.</p> 
 attachedTargetGroups[].<br>healthChecks[].<br>unhealthyThreshold | **string** (int64)<br><p>Number of failed health checks before changing the status to <code>UNHEALTHY</code>. The default is 2.</p> <p>Acceptable values are 2 to 10, inclusive.</p> 

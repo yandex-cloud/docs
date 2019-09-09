@@ -339,7 +339,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/MoveClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-clickhouse/api-ref/Cluster#representation)'
-  /mdb/clickhouse/v1/clusters/{clusterId}:addZookeeper:
+  /managed-clickhouse/v1/clusters/{clusterId}:addZookeeper:
     post:
       tags:
       - Cluster
@@ -923,7 +923,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterShardMetadata'
       x-y-operation-response: Shard
-  /mdb/clickhouse/v1/clusters/{clusterId}:createExternalDictionary:
+  /managed-clickhouse/v1/clusters/{clusterId}:createExternalDictionary:
     post:
       tags:
       - Cluster
@@ -958,7 +958,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateClusterExternalDictionaryMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-clickhouse/api-ref/Cluster#representation)'
-  /mdb/clickhouse/v1/clusters/{clusterId}:deleteExternalDictionary:
+  /managed-clickhouse/v1/clusters/{clusterId}:deleteExternalDictionary:
     post:
       tags:
       - Cluster
@@ -2977,8 +2977,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     RestoreClusterMetadata:
       type: object
@@ -3622,8 +3622,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     ClickhouseConfigLogLevel_in_ClickhouseConfig_logLevel:
       description: Уровень логирования для кластера ClickHouse.
@@ -4124,8 +4124,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     Resources_in_ClusterConfigZookeeper_resources:
       description: Ресурсы, выделенные хостам ZooKeeper.
@@ -4144,8 +4144,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     ConfigSpecClickhouse_in_ConfigSpec_clickhouse:
       description: Конфигурация и ресурсы для сервера ClickHouse.
@@ -4297,8 +4297,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     Resources_in_ConfigSpecZookeeper_resources:
       description: |-
@@ -4320,8 +4320,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     ClickhouseConfigExternalDictionary_in_CreateClusterExternalDictionaryRequest_externalDictionary:
       description: Конфигурация внешнего словаря.
@@ -4478,8 +4478,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     HostHealth_in_Host_health:
       description: |-
@@ -4607,8 +4607,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     ShardConfigSpecClickhouse_in_ShardConfigSpec_clickhouse:
       description: Конфигурация ClickHouse для шарда.
@@ -4730,8 +4730,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-

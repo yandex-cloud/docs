@@ -2903,8 +2903,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     RestoreClusterMetadata:
       type: object
@@ -3398,8 +3398,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     Resources_in_EnableClusterShardingRequestMongos_resources:
       description: |-
@@ -3420,8 +3420,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     Permission_in_GrantUserPermissionRequest_permission:
       description: |-
@@ -3455,8 +3455,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     HostRole_in_Host_role:
       description: |-
@@ -4050,8 +4050,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     MongodConfigSet3_6_in_Mongodb3_6Mongod_config:
       description: Конфигурация для хостов mongod 3.6.
@@ -4080,8 +4080,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     MongosConfigSet3_6_in_Mongodb3_6Mongos_config:
       type: object
@@ -4109,8 +4109,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     Mongodb4_0Mongod_in_Mongodb4_0_mongod:
       description: Конфигурация и распределение ресурсов для mongod в кластере MongoDB
@@ -4166,8 +4166,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     MongodConfigSet4_0_in_Mongodb4_0Mongod_config:
       description: Конфигурация для хостов mongod 4.0.
@@ -4196,8 +4196,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     MongosConfigSet4_0_in_Mongodb4_0Mongos_config:
       description: Конфигурация для хостов mongos 4.0.
@@ -4226,8 +4226,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     MongodbSpec3_6Mongod_in_MongodbSpec3_6_mongod:
       description: Конфигурация и выделенные ресурсы для хостов mongod 3.6.
@@ -4280,8 +4280,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     MongodConfig3_6_in_MongodbSpec3_6Mongod_config:
       description: |-
@@ -4314,8 +4314,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     MongosConfig3_6_in_MongodbSpec3_6Mongos_config:
       description: Конфигурация для хостов mongos 3.6.
@@ -4340,8 +4340,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     MongodbSpec4_0Mongod_in_MongodbSpec4_0_mongod:
       description: Конфигурация и выделенные ресурсы для хостов mongod 4.0.
@@ -4394,8 +4394,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     MongodConfig4_0_in_MongodbSpec4_0Mongod_config:
       description: |-
@@ -4428,8 +4428,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     MongosConfig4_0_in_MongodbSpec4_0Mongos_config:
       description: Конфигурация для хостов mongos 4.0.
@@ -4454,8 +4454,8 @@ components:
           description: |-
             Тип хранилища для хоста. Возможные значения:
             * network-hdd — сетевой HDD-диск;
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     MongosConfig3_6Network_in_MongosConfig3_6_net:
       description: Сетевые настройки для mongos.

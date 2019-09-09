@@ -3,13 +3,13 @@ editable: false
 ---
 
 # Method listAccessBindings
-Lists access bindings for the specified folder.
+Lists access bindings for the specified repository.
  
 
  
 ## HTTP request {#https-request}
 ```
-GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{resourceId}:listAccessBindings
+GET https://container-registry.api.cloud.yandex.net/container-registry/v1/repositories/{resourceId}:listAccessBindings
 ```
  
 ## Path parameters {#path_params}

@@ -9,14 +9,14 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/mdb/redis/v1/clusters/{clusterId}:rebalance
+POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:rebalance
 ```
  
 ## Path-параметры {#path_params}
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Максимальная длина строки в символах — 50.
+clusterId | Обязательное поле. Идентификатор кластера Redis, который следует перебалансировать. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-redis/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

@@ -37,3 +37,9 @@ items:
         href: api-ref/Repository/index.md
       - name: list
         href: api-ref/Repository/list.md
+      - name: listAccessBindings
+        href: api-ref/Repository/listAccessBindings.md
+      - name: setAccessBindings
+        href: api-ref/Repository/setAccessBindings.md
+      - name: updateAccessBindings
+        href: api-ref/Repository/updateAccessBindings.md

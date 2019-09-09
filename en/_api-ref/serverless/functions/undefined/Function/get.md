@@ -30,7 +30,8 @@ functionId | Required.
   "description": "string",
   "labels": "object",
   "logGroupId": "string",
-  "httpInvokeUrl": "string"
+  "httpInvokeUrl": "string",
+  "status": "string"
 }
 ```
 
@@ -45,3 +46,4 @@ description | **string**<br>
 labels | **object**<br>
 logGroupId | **string**<br>
 httpInvokeUrl | **string**<br>
+status | **string**<br>

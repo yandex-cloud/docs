@@ -19,3 +19,6 @@ name | **string**<br><p>Name of the repository. The name is unique within the re
 Method | Description
 --- | ---
 [list](list.md) | Retrieves the list of Repository resources in the specified registry.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the specified repository.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the specified repository.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified repository.

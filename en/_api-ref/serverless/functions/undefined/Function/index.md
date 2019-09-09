@@ -14,7 +14,8 @@ editable: false
   "description": "string",
   "labels": "object",
   "logGroupId": "string",
-  "httpInvokeUrl": "string"
+  "httpInvokeUrl": "string",
+  "status": "string"
 }
 ```
  
@@ -28,6 +29,7 @@ description | **string**<br>
 labels | **object**<br>
 logGroupId | **string**<br>
 httpInvokeUrl | **string**<br>
+status | **string**<br>
 
 ## Methods {#methods}
 Method | Description
@@ -39,10 +41,13 @@ Method | Description
 [getFunctionVersion](getFunctionVersion.md) | 
 [getFunctionVersionByTag](getFunctionVersionByTag.md) | 
 [list](list.md) | 
+[listAccessBindings](listAccessBindings.md) | 
 [listFunctionTagHistory](listFunctionTagHistory.md) | 
 [listFunctionVersions](listFunctionVersions.md) | 
 [listOperations](listOperations.md) | 
 [listRuntimes](listRuntimes.md) | 
 [removeTag](removeTag.md) | 
+[setAccessBindings](setAccessBindings.md) | 
 [setTag](setTag.md) | 
 [update](update.md) | 
+[updateAccessBindings](updateAccessBindings.md) | 

@@ -28,7 +28,8 @@ registryId | Required. The maximum string length in characters is 50.
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "object"
+  "labels": "object",
+  "status": "string"
 }
 ```
 
@@ -41,3 +42,4 @@ createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org
 name | **string**<br>
 description | **string**<br>
 labels | **object**<br>
+status | **string**<br>

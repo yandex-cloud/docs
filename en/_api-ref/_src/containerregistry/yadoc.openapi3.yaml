@@ -343,8 +343,6 @@ paths:
 
           To get the resource ID, use a corresponding List request.
           For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
-
-          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -393,8 +391,6 @@ paths:
           ID of the resource for which access bindings are being set.
 
           To get the resource ID, use a corresponding List request.
-
-          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -427,8 +423,6 @@ paths:
         description: |-
           Required.
           ID of the resource for which access bindings are being updated.
-
-          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -525,6 +519,121 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListRepositoriesResponse'
       x-y-navtitle: list
+  /container-registry/v1/repositories/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - Repository
+      summary: Lists access bindings for the specified repository.
+      operationId: RepositoryListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /container-registry/v1/repositories/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Repository
+      summary: Sets access bindings for the specified repository.
+      operationId: RepositorySetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /container-registry/v1/repositories/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - Repository
+      summary: Updates access bindings for the specified repository.
+      operationId: RepositoryUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
 components:
   schemas:
     AccessBinding:

@@ -2207,8 +2207,8 @@ components:
         diskTypeId:
           description: |-
             Тип хранилища для хоста. Возможные значения:
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     RestoreClusterMetadata:
       type: object
@@ -2681,8 +2681,8 @@ components:
         diskTypeId:
           description: |-
             Тип хранилища для хоста. Возможные значения:
-            * network-nvme — сетевой SSD-диск;
-            * local-nvme — локальное SSD-хранилище.
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
           type: string
     HostRole_in_Host_role:
       description: |-

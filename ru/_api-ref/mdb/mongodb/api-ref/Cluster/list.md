@@ -459,7 +459,7 @@ clusters[].<br>config.<br>mongodb_3_6.<br>mongod.<br>config.<br>defaultConfig.<b
 clusters[].<br>config.<br>mongodb_3_6.<br>mongod.<br>resources | **object**<br><p>Ресурсы, выделенные хостам MongoDB.</p> 
 clusters[].<br>config.<br>mongodb_3_6.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 clusters[].<br>config.<br>mongodb_3_6.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-clusters[].<br>config.<br>mongodb_3_6.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-nvme — сетевой SSD-диск;</li> <li>local-nvme — локальное SSD-хранилище.</li> </ul> 
+clusters[].<br>config.<br>mongodb_3_6.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
 clusters[].<br>config.<br>mongodb_3_6.<br>mongocfg | **object**<br><p>Конфигурация и распределение ресурсов mongocfg для кластера MongoDB 3.6.</p> 
 clusters[].<br>config.<br>mongodb_3_6.<br>mongocfg.<br>config | **object**<br>
 clusters[].<br>config.<br>mongodb_3_6.<br>mongocfg.<br>config.<br>effectiveConfig | **object**<br><p>Действующие параметры mongocfg для кластера MongoDB 3.6 (сочетание параметров, определенных в userConfig и [default_config]).</p> 

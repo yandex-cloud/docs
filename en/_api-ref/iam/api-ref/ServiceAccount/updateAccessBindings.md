@@ -16,7 +16,7 @@ POST https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{resourceId}:update
  
 Parameter | Description
 --- | ---
-resourceId | Required. ID of the resource for which access bindings are being updated.  The maximum string length in characters is 50.
+resourceId | Required. ID of the resource for which access bindings are being updated.
  
 ## Body parameters {#body_params}
  

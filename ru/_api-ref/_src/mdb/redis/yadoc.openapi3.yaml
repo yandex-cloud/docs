@@ -711,7 +711,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteClusterHostsMetadata'
       x-y-operation-response: Empty
-  /mdb/redis/v1/clusters/{clusterId}/shards/{shardName}:
+  /managed-redis/v1/clusters/{clusterId}/shards/{shardName}:
     get:
       tags:
       - Cluster
@@ -722,6 +722,9 @@ paths:
         in: path
         description: |-
           Обязательное поле.
+          Идентификатор кластера Redis, к которому принадлежит шард. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-redis/api-ref/Cluster/list).
+
           Максимальная длина строки в символах — 50.
         required: true
         schema:
@@ -730,6 +733,9 @@ paths:
         in: path
         description: |-
           Обязательное поле.
+          Имя запрашиваемого шарда Redis. Чтобы получить имя шаода, используйте запрос
+          [listShards](/docs/managed-redis/api-ref/Cluster/listShards).
+
           Максимальная длина строки в символах — 63.
           Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
         required: true
@@ -753,6 +759,9 @@ paths:
         in: path
         description: |-
           Обязательное поле.
+          Идентификатор кластера Redis, к которому принадлежит шард. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-redis/api-ref/Cluster/list).
+
           Максимальная длина строки в символах — 50.
         required: true
         schema:
@@ -761,6 +770,9 @@ paths:
         in: path
         description: |-
           Обязательное поле.
+          Имя шарда Redis, который следует удалить. Чтобы получить имя шаода, используйте запрос
+          [listShards](/docs/managed-redis/api-ref/Cluster/listShards).
+
           Максимальная длина строки в символах — 63.
           Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
         required: true
@@ -777,7 +789,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteClusterShardMetadata'
       x-y-operation-response: Empty
-  /mdb/redis/v1/clusters/{clusterId}/shards:
+  /managed-redis/v1/clusters/{clusterId}/shards:
     get:
       tags:
       - Cluster
@@ -788,19 +800,33 @@ paths:
         in: path
         description: |-
           Обязательное поле.
+          Идентификатор кластера redis, для которого нужно вывести список шардов. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-redis/api-ref/Cluster/list).
+
           Максимальная длина строки в символах — 50.
         required: true
         schema:
           type: string
       - name: pageSize
         in: query
-        description: Максимальное значение — 1000.
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-redis/api-ref/Cluster/listShards#query_params) , сервис вернет значение [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
+
+          Максимальное значение — 1000.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: Максимальная длина строки в символах — 100.
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/managed-redis/api-ref/Cluster/listShards#query_params) равным значению поля
+          [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
         schema:
           type: string
       responses:
@@ -821,6 +847,9 @@ paths:
         in: path
         description: |-
           Обязательное поле.
+          Идентификатор кластера Redis, в котором следует создать шард. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-redis/api-ref/Cluster/list).
+
           Максимальная длина строки в символах — 50.
         required: true
         schema:
@@ -842,7 +871,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterShardMetadata'
       x-y-operation-response: Shard
-  /mdb/redis/v1/clusters/{clusterId}:rebalance:
+  /managed-redis/v1/clusters/{clusterId}:rebalance:
     post:
       tags:
       - Cluster
@@ -854,6 +883,9 @@ paths:
         in: path
         description: |-
           Обязательное поле.
+          Идентификатор кластера Redis, который следует перебалансировать. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-redis/api-ref/Cluster/list).
+
           Максимальная длина строки в символах — 50.
         required: true
         schema:
@@ -929,6 +961,13 @@ paths:
       x-y-navtitle: list
 components:
   schemas:
+    Access:
+      type: object
+      properties:
+        dataLens:
+          description: Разрешить доступ для DataLens
+          type: boolean
+          format: boolean
     AddClusterHostsMetadata:
       type: object
       properties:
@@ -956,8 +995,10 @@ components:
       type: object
       properties:
         clusterId:
+          description: Идентификатор кластера Redis, в который добавляется шард.
           type: string
         shardName:
+          description: Имя создаваемого шарда Redis.
           type: string
     AddClusterShardRequest:
       type: object
@@ -965,12 +1006,17 @@ components:
         shardName:
           description: |-
             Обязательное поле.
+            Имя шарда. Имя должно быть уникальным в пределах кластера.
+
             Максимальная длина строки в символах — 63.
             Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
         hostSpecs:
           description: |-
             Обязательное поле.
+            Конфигурации для хостов Redis, которые должны быть созданы вместе с шардом. Должен
+            содержать хотя бы один элемент.
+
             Должен содержать хотя бы один элемент.
           type: array
           items:
@@ -1088,6 +1134,9 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Политика доступа к БД
       - title: redis_config
         type: object
         maxProperties: 1
@@ -1155,6 +1204,9 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Политика доступа к БД
       - title: redis_spec
         type: object
         maxProperties: 1
@@ -1262,8 +1314,10 @@ components:
       type: object
       properties:
         clusterId:
+          description: Идентификатор кластера Redis, к которому принадлежит шард.
           type: string
         shardName:
+          description: Имя удаляемого шарда Redis.
           type: string
     Empty:
       description: Пустой JSON объект `` {} ``.
@@ -1354,6 +1408,9 @@ components:
           type: string
         shardName:
           description: |-
+            Идентификатор шарда Redis, которому принадлежит хост. Чтобы получить идентификатор
+            шарда, используйте запрос [listShards](/docs/managed-redis/api-ref/Cluster/listShards).
+
             Максимальная длина строки в символах — 63.
             Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
@@ -1445,10 +1502,17 @@ components:
       type: object
       properties:
         shards:
+          description: Список шардов Redis.
           type: array
           items:
             $ref: '#/components/schemas/Shard'
         nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-redis/api-ref/Cluster/listShards#query_params), используйте [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses) в качестве
+            значения параметра [pageToken](/docs/managed-redis/api-ref/Cluster/listShards#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/managed-redis/api-ref/Cluster/listShards#responses) для перебора страниц
+            результатов.
           type: string
     ListClustersResponse:
       type: object
@@ -1602,6 +1666,7 @@ components:
       type: object
       properties:
         clusterId:
+          description: Идентификатор кластера Redis, для которого выполняется перебалансировка.
           type: string
     RedisConfig5_0:
       description: Поля и структура `RedisConfig` отражает параметры файла конфигурации
@@ -1752,6 +1817,12 @@ components:
 
             Максимальная длина строки в символах — 50.
           type: string
+        folderId:
+          description: |-
+            Идентификатор каталога, в котором нужно создать кластер Redis.
+
+            Максимальная длина строки в символах — 50.
+          type: string
     Service:
       type: object
       properties:
@@ -1785,12 +1856,13 @@ components:
       properties:
         name:
           description: |-
-            Имя шарда Redis. Имя хоста назначается пользователем при создании и не может быть
+            Имя шарда Redis. Имя шарда назначается пользователем при создании и не может быть
             изменено. Длина 1-63 символов.
           type: string
         clusterId:
-          description: Идентификатор кластера Redis. Этот идентификатор генерирует
-            MDB при создании.
+          description: |-
+            Идентификатор кластера Redis, к которому принадлежит шард. Этот идентификатор
+            генерирует MDB при создании.
           type: string
     StartClusterFailoverMetadata:
       type: object
@@ -1926,6 +1998,9 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Политика доступа к БД
       - title: redis_config
         type: object
         maxProperties: 1
@@ -2003,6 +2078,9 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Политика доступа к БД
       - title: redis_spec
         type: object
         maxProperties: 1
@@ -2177,6 +2255,9 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Политика доступа к БД
       - title: redis_spec
         type: object
         maxProperties: 1
@@ -2238,6 +2319,9 @@ components:
             $ref: '#/components/schemas/TimeOfDay'
             description: Время запуска ежедневного резервного копирования, в часовом
               поясе UTC.
+          access:
+            $ref: '#/components/schemas/Access'
+            description: Политика доступа к БД
       - title: redis_spec
         type: object
         maxProperties: 1

@@ -182,8 +182,6 @@ paths:
 
           To get the resource ID, use a corresponding List request.
           For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
-
-          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -232,8 +230,6 @@ paths:
           ID of the resource for which access bindings are being set.
 
           To get the resource ID, use a corresponding List request.
-
-          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -266,8 +262,6 @@ paths:
         description: |-
           Required.
           ID of the resource for which access bindings are being updated.
-
-          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -523,8 +517,6 @@ paths:
 
           To get the resource ID, use a corresponding List request.
           For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
-
-          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -573,8 +565,6 @@ paths:
           ID of the resource for which access bindings are being set.
 
           To get the resource ID, use a corresponding List request.
-
-          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -607,8 +597,6 @@ paths:
         description: |-
           Required.
           ID of the resource for which access bindings are being updated.
-
-          The maximum string length in characters is 50.
         required: true
         schema:
           type: string

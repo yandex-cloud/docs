@@ -3,13 +3,13 @@ editable: false
 ---
 
 # Method updateAccessBindings
-Updates access bindings for the specified cloud.
+
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{resourceId}:updateAccessBindings
+POST undefined/functions/v1/functions/{resourceId}:updateAccessBindings
 ```
  
 ## Path parameters {#path_params}

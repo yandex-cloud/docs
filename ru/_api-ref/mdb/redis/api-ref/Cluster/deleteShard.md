@@ -9,15 +9,15 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-DELETE https://mdb.api.cloud.yandex.net/mdb/redis/v1/clusters/{clusterId}/shards/{shardName}
+DELETE https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/shards/{shardName}
 ```
  
 ## Path-параметры {#path_params}
  
 Параметр | Описание
 --- | ---
-clusterId | Обязательное поле. Максимальная длина строки в символах — 50.
-shardName | Обязательное поле. Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+clusterId | Обязательное поле. Идентификатор кластера Redis, к которому принадлежит шард. Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-redis/api-ref/Cluster/list).  Максимальная длина строки в символах — 50.
+shardName | Обязательное поле. Имя шарда Redis, который следует удалить. Чтобы получить имя шаода, используйте запрос [listShards](/docs/managed-redis/api-ref/Cluster/listShards).  Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

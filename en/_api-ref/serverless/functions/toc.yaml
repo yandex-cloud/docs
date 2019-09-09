@@ -19,6 +19,8 @@ items:
         href: undefined/Function/getFunctionVersionByTag.md
       - name: list
         href: undefined/Function/list.md
+      - name: listAccessBindings
+        href: undefined/Function/listAccessBindings.md
       - name: listFunctionTagHistory
         href: undefined/Function/listFunctionTagHistory.md
       - name: listFunctionVersions
@@ -29,7 +31,11 @@ items:
         href: undefined/Function/listRuntimes.md
       - name: removeTag
         href: undefined/Function/removeTag.md
+      - name: setAccessBindings
+        href: undefined/Function/setAccessBindings.md
       - name: setTag
         href: undefined/Function/setTag.md
       - name: update
         href: undefined/Function/update.md
+      - name: updateAccessBindings
+        href: undefined/Function/updateAccessBindings.md

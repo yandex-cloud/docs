@@ -32,7 +32,8 @@ pageToken | The maximum string length in characters is 100.
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "object"
+      "labels": "object",
+      "status": "string"
     }
   ],
   "nextPageToken": "string"
@@ -49,4 +50,5 @@ registries[].<br>createdAt | **string** (date-time)<br><p>String in <a href="htt
 registries[].<br>name | **string**<br>
 registries[].<br>description | **string**<br>
 registries[].<br>labels | **object**<br>
+registries[].<br>status | **string**<br>
 nextPageToken | **string**<br>

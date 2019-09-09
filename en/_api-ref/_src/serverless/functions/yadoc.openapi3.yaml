@@ -380,8 +380,146 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListFunctionOperationsResponse'
       x-y-navtitle: listOperations
+  /functions/v1/functions/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - Function
+      operationId: FunctionListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /functions/v1/functions/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Function
+      operationId: FunctionSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /functions/v1/functions/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - Function
+      operationId: FunctionUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
 components:
   schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
     CreateFunctionMetadata:
       type: object
       properties:
@@ -499,6 +637,32 @@ components:
         logGroupId:
           type: string
         httpInvokeUrl:
+          type: string
+        status:
+          $ref: '#/components/schemas/FunctionStatus_in_Function_status'
+    FunctionStatus:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
+      - ERROR
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than pageSize, use
+            the nextPageToken as the value
+            for the pageToken query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
           type: string
     ListFunctionOperationsResponse:
       type: object
@@ -649,6 +813,22 @@ components:
           description: Acceptable values are 33554432 to 1073741824, inclusive.
           type: string
           format: int64
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being set.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Required.
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
     SetFunctionTagMetadata:
       type: object
       properties:
@@ -661,6 +841,49 @@ components:
           description: Value must match the regular expression `` [a-z][-_0-9a-z]*
             ``.
           type: string
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the type is `system`.
+
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the type is `userAccount` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `system`: System group. This type represents several accounts with a common system identifier.
+            * `userAccount`: An user account (for example, "alice.the.girl@yandex.ru"). This type represents the [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+          type: string
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being updated.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Required.
+            Updates to access bindings.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
     UpdateFunctionMetadata:
       type: object
       properties:
@@ -748,6 +971,69 @@ components:
           type: array
           items:
             type: object
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Required.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the type is `system`.
+
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the type is `userAccount` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `system`: System group. This type represents several accounts with a common system identifier.
+            * `userAccount`: An user account (for example, "alice.the.girl@yandex.ru"). This type represents the [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Required.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    FunctionStatus_in_Function_status:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
+      - ERROR
     FieldMask_in_UpdateFunctionRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.

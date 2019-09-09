@@ -40,7 +40,7 @@ name | **string**<br><p>Name of the Kubernetes cluster. The name must be unique 
 description | **string**<br><p>Description of the Kubernetes cluster.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>Existing set of <code>labels</code> is completely replaced by the provided set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
 serviceAccountId | **string**<br><p>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have <code>edit</code> role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides.</p> 
-nodeServiceAccountId | **string**<br><p>node_service_account_id change is not implemented yet. That is, if <a href="/docs/managed-kubernetes/api-ref/Cluster/update#body_params">updateMask</a> is empty, or contains field path, passed value should be equal to current.</p> 
+nodeServiceAccountId | **string**<br><p>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.</p> 
 gatewayIpv4Address | **string**<br><p>The maximum string length in characters is 15.</p> 
  
 ## Response {#responses}

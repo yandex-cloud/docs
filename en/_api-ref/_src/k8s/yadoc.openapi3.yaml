@@ -1188,8 +1188,8 @@ components:
             type: string
           nodeServiceAccountId:
             description: |-
-              node_service_account_id change is not implemented yet.
-              That is, if [updateMask](/docs/managed-kubernetes/api-ref/Cluster/update#body_params) is empty, or contains field path, passed value should be equal to current.
+              Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry
+              or to push node logs and metrics.
             type: string
       - title: internet_gateway
         type: object
