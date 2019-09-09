@@ -8,6 +8,6 @@
 
 | Type of limit | Value |
 | ----- | ----- |
-| Number of registries per folder | 1 |
+| Maximum number of registries per cloud | 10 |
 | Maximum size of the Docker image | Available size of the registry |
 
