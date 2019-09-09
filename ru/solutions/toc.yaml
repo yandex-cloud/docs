@@ -19,6 +19,8 @@ items:
       href: web/bitrix-shop.md
     - name: Интернет-магазин на Opencart
       href: web/opencart.md
+    - name: Веб-сайт на базе 1С-Битрикс
+      href: web/bitrix-website.md
   - name: Архив данных
     items:
     - name: Обзор
@@ -37,6 +39,8 @@ items:
       href: testing/index.md
     - name: Создание тестовых ВМ через GitLab CI
       href: testing/ci-for-snapshots.md
+    - name: Разработка и тестирование через GitLab CI
+      href: testing/gitlab.md
   - name: Управление инфраструктурой
     items:
       - name: Обзор
