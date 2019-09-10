@@ -2,12 +2,6 @@
 
 You can enable sharding for a cluster as well as add and configure individual shards.
 
-{% note alert %}
-
-Once sharding is enabled, the only right way to access the database is over the mongos hosts that store and update shard data. Don't forget to change the host addresses in your app code.
-
-{% endnote %}
-
 Make sure that your shards consist of at least 3 hosts to ensure higher availability. We don't recommend sharding small tables: query processing is faster with a standard cluster.
 
 ## Enable sharding {#enable}
