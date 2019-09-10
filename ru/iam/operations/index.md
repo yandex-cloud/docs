@@ -6,7 +6,6 @@
 - [{#T}](users/get.md)
 - [{#T}](users/delete.md)
 
-
 ## Сервисные аккаунты
 
 - [{#T}](sa/create.md)
@@ -16,6 +15,12 @@
 - [{#T}](sa/create-access-key.md)
 - [{#T}](sa/get-id.md)
 - [{#T}](sa/delete.md)
+
+## SAML-совместимые федерации
+
+- [{#T}](federations/integration-adfs.md)
+- [{#T}](federations/integration-gsuite.md)
+- [{#T}](federations/integration-common.md)
 
 ## Роли
 
