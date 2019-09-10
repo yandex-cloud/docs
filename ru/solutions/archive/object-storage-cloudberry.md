@@ -10,21 +10,37 @@
 
 Бесплатная версия Cloudberry Desktop Backup позволяет создать не более 200 ГБ резервных копий.
 
-## 1. Создайте бакет {#create-bucket}
+## Подготовьте облако к работе {#before-begin}
+
+Перед использованием {{ objstorage-full-name }} нужно зарегистрироваться в Облаке и создать платежный аккаунт:
+
+{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет находиться ваш бакет. Перейдите на [страницу облака](https://console.cloud.yandex.ru/cloud) и выберите или создайте каталог, в котором вы хотите создать бакет. [Подробнее об иерархии ресурсов Облака](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки статического сайта входит:
+
+* плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-storage));
+* плата за операции с данными (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-operations));
+* стоимость исходящего трафика из Облака в интернет (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing#prices-storage.md#prices-traffic)).
+
+## Создайте бакет {#create-bucket}
 
 Чтобы создать бакет для резервного копирования:
 
 {% include [create-bucket](../_solutions_includes/create-public-bucket.md) %}
 
-## 2. Создайте сервисный аккаунт {#create-service-account}
+## Создайте сервисный аккаунт {#create-service-account}
 
 Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `editor`.
 
-## 3. Создайте статический ключ доступа {#create-access-key}
+## Создайте статический ключ доступа {#create-access-key}
 
 Создайте [статические ключи доступа](../../iam/operations/sa/create-access-key.md). Сразу сохраните идентификатор и секретный ключ. После того, как вы закроете окно, параметры закрытого ключа будут недоступны.
 
-## 4. Установите CloudBerry Desktop Backup {#install-cloudberry}
+## Установите CloudBerry Desktop Backup {#install-cloudberry}
 
 {% list tabs %}
 
@@ -54,7 +70,7 @@
 
 {% endlist %}
 
-## 5. Настройте CloudBerry Backup {#configure-cloudberry}
+## Настройте CloudBerry Backup {#configure-cloudberry}
 
 Чтобы настроить CloudBerry Backup для работы с {{ objstorage-name }}:
 
@@ -118,7 +134,7 @@
 
 {% endlist %}
 
-## 6. Протестируйте резервное копирование {#test-backup}
+## Протестируйте резервное копирование {#test-backup}
 
 Чтобы протестировать резервное копирование:
 
@@ -143,3 +159,7 @@
   1. Откройте бакет `backup` и убедитесь, что все нужные файлы были скопированы.
 
 {% endlist %}
+
+## Как удалить созданные ресурсы {#clear-out}
+
+{% include [clear-out](../_solutions_includes/storage-clear-out.md) %}
