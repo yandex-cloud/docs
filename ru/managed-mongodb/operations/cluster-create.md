@@ -69,7 +69,7 @@
          --environment=<окружение, prestable или production> \
          --network-name <имя сети> \
          --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-         --resource-preset <класс хоста> \
+         --mongod-resource-preset <класс хоста> \
          --user name=<имя пользователя>,password=<пароль пользователя> \
          --database name=<имя базы данных>,owner=<имя владельца БД> \
          --mongod-disk-type <network-hdd | network-ssd | local-ssd> \
@@ -86,7 +86,7 @@
          --environment=<окружение, prestable или production> \
          --network-id {{ network-name }} \
          --host zone-id=<зона доступности> \
-         --resource-preset <класс хоста> \
+         --mongod-resource-preset <класс хоста> \
          --user name=<имя пользователя>,password=<пароль пользователя> \
          --database name=<имя базы данных>,owner=<имя владельца БД> \
          --mongod-disk-type local-ssd \

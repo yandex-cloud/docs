@@ -69,7 +69,7 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
          --environment=<prestable or production> \
          --network-name <network name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-         --resource-preset <host class> \
+         --mongod-resource-preset <host class> \
          --user name=<username>,password=<user password> \
          --database name=<database name>,owner=<database owner name> \
          --mongod-disk-type <network-hdd | network-ssd | local-ssd> \
@@ -86,7 +86,7 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
          --environment=<prestable or production> \
          --network-id {{ network-name }} \
          --host zone-id=<availability zone> \
-         --resource-preset <host class> \
+         --mongod-resource-preset <host class> \
          --user name=<username>,password=<user password> \
          --database name=<database name>,owner=<database owner name> \
          --mongod-disk-type local-ssd \
