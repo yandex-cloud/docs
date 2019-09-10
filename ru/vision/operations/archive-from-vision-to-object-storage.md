@@ -2,19 +2,19 @@
 
 [Yandex Vision](https://cloud.yandex.ru/docs/vision/) — сервис компьютерного зрения для анализа изображений.
 
-С помощью этой инструкции вы научитесь:
-* настраивать окружение Яндекс.Облака для работы с Yandex Vision;
-* распознавать текст в изображениях с помощью Yandex Vision;
-* загружать результат на [Yandex Object Storage](https://cloud.yandex.ru/docs/storage/) (OS или S3 Bucket).
+С помощью этой инструкции вы выполните:
+* настройку окружения Яндекс.Облака для работы с Yandex Vision;
+* распознавание текста в изображениях с помощью Yandex Vision;
+* загрузите результат на [Yandex Object Storage](https://cloud.yandex.ru/docs/storage/).
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте виртуальную машину](#create-vm).
 1. [Настройте Yandex CLI](#yandex-cli).
 1. [Настройте сервисный аккаунт](#service-account).
 1. [Настройте AWS CLI](#aws-cli).
-1. [Настройте доступ в OS](#create-vm-sftp-client).
+1. [Настройте доступ в Object Storage](#object-storage-access).
 1. [Создайте архив с изображениями](#create-archive).
-1. [Создайте скрипт для обработки изображений](#create-script).
+1. [Создайте скрипт для оцифровки и загрузки изображений](#create-script).
 1. [Проверьте корректность оцифровки](#check).
 1. [Удалите созданные облачные ресурсы](#cleanup).
 
@@ -56,7 +56,7 @@
     - Выберите [платформу](../../compute/concepts/vm-platforms.md) виртуальной машины.
     - Укажите необходимое количество vCPU и объем RAM.
 
-   Для запуска SFTP-сервера выберите:
+   Для запуска виртуальной машины выберите:
    * **Платформа** — Intel Cascade Lake.
    * **Гарантированная доля vCPU** — 20%.
    * **vCPU** — 2.
@@ -101,8 +101,8 @@
     ```bash
     yc iam service-account create --name vision --description "this is vision service account"
     ```
-1. Узнайте идентификатор каталога (folder-id) по [инструкции](https://cloud.yandex.ru/docs/resource-manager/operations/folder/get-id):
-1. Узнайте id вашего сервисного аккаунта, подставив соответствующий идентификатор каталога:
+1. Узнайте идентификатор каталога по [инструкции](https://cloud.yandex.ru/docs/resource-manager/operations/folder/get-id):
+1. Узнайте идентификатор вашего сервисного аккаунта, подставив соответствующий идентификатор каталога:
     ```bash
     yc iam service-account --folder-id <FOLDER-ID>  get vision
     ```
@@ -110,7 +110,7 @@
     ```
     id: <SERVICE-ACCOUNT-ID>
     ``` 
-1. Настройте роль `viewer` для вашего сервисного аккаунта, подставив соответствующее значение:
+1. Настройте роль `editor` для вашего сервисного аккаунта, подставив соответствующее значение:
     ```bash
     yc resource-manager folder add-access-binding default --role editor --subject serviceAccount:<SERVICE-ACCOUNT-ID>
     ```
@@ -118,11 +118,10 @@
     ```bash
     yc iam access-key create --service-account-name vision --description "this key is for vision"
     ```
-    На выводе обратите внимание на значения:
+    Сохраните следующие значения, они понадобятся для конфигурации AWS CLI:
     * `key_id`
     * `secret`
     
-    Эти значения понадобятся для конфигурации AWS CLI.
 1. Получите IAM-токен для сервисного аккаунта с помощью CLI по [инструкции](https://cloud.yandex.ru/docs/iam/operations/iam-token/create-for-sa) {#iam-token}:
 
     ```bash
@@ -165,8 +164,8 @@
     cat ~/.aws/config
     ```
 
-## Настройте доступ в OS {#create-vm-sftp-client}
-1. Создайте OS бакет по [инструкции](https://cloud.yandex.ru/docs/storage/operations/buckets/create):
+## Настройте доступ в Object Storage {#object-storage-access}
+1. Создайте Object Storage бакет по [инструкции](https://cloud.yandex.ru/docs/storage/operations/buckets/create):
     * Максимальный размер оставьте по умолчанию.
     * Доступ к бакету - Ограниченный.
     * Класс хранилища - Холодное.
@@ -180,7 +179,7 @@
     aws --endpoint-url=https://storage.yandexcloud.net s3 ls s3://<BUCKET-NAME>/
     ```
     `<BUCKET-NAME>` - название вашего бакета
-1. Скачайте картинки на виртуальную машину, например, в папку `picdir`:
+1. Скачайте картинки на виртуальную машину, например, в папку `my_pictures`:
      ```bash
     aws --endpoint-url=https://storage.yandexcloud.net s3 cp s3://<BUCKET-NAME>/ my_pictures --recursive
     ```
@@ -193,7 +192,7 @@
     rm -rfd my_pictures
     ```
   
-## Создайте скрипт для обработки изображений {#create-script}
+## Создайте скрипт для оцифровки и загрузки изображений {#create-script}
 ### Подготовка
 1. Установите пакет `jq`, который понадобится в скрипте для обработки результатов из Vision:
     ```bash
@@ -204,25 +203,23 @@
     export BUCKETNAME="<BUCKET-NAME>"
     export FOLDERID="<FOLDER-ID>"
     export IAMTOKEN="<IAM-TOKEN>"
-    export BASEFOLDER="my_pictures"   
     ```
     * `BUCKETNAME` - название вашего бакета.
     * `FOLDERID` - название каталога.
     * `IAMTOKEN`- IAM-токен полученный в [этом разделе](#iam-token).
-    * `BASEFOLDER` -  название tar-архива, в котором находятся картинки. В нашем случае - это `my_pictures`.
 
 ### Написание скрипта
 В данном скрипте реализуются следующие этапы:
-1. Создание необходимых директорий;
-1. Распаковка архива с картинками;
+1. Создание необходимых директорий.
+1. Распаковка архива с картинками.
 1. Обработка изображений в цикле:
-    1. Кодирование изображения для пересылки в POST-запросе в Vision;
-    1. Формирование тела запроса для данного изображения;
-    1. Пересылка изображения в Vision с последующей обработкой;
-    1. Запись полученного результата в `output.json`;
-    1. Парсинг текста из `output.json` и запись в текстовый файл;
-1. Запаковка в архив всех текстовых файлов, полученных после обработки картинок;
-1. Перемещение оцифрованного архива в OS бакет;
+    1. Кодирование изображения для пересылки в POST-запросе в Vision.
+    1. Формирование тела запроса для данного изображения.
+    1. Пересылка изображения в Vision с последующей обработкой.
+    1. Запись полученного результата в `output.json`.
+    1. Парсинг текста из `output.json` и запись в текстовый файл.
+1. Запаковка в архив всех текстовых файлов, полученных после обработки картинок.
+1. Перемещение оцифрованного архива в Object Storage.
 1. Удаление ненужных файлов.
 
 Для удобства в теле скрипта добавлены комментарии по каждому шагу.
@@ -239,14 +236,14 @@
      echo "Creating directories..."
     
     # Создайте директорию для распознанного текста.
-    mkdir $BASEFOLDER"_text"
+    mkdir my_pictures_text
     
     # Распакуйте архив с картинками в созданную папку.
-    echo "Extract pictures in $BASEFOLDER directory..."
-    tar -xf $BASEFOLDER".tar"
+    echo "Extract pictures in my_pictures directory..."
+    tar -xf my_pictures.tar
     
     # Оцифруйте картинки из архива.
-    FILES=$BASEFOLDER/*
+    FILES=my_pictures/*
     for f in $FILES
     # В цикле для каждого файла из папки с архивом произведите следующие действия:
     do
@@ -281,24 +278,24 @@
         IMAGE_NAME="${IMAGE_BASE_NAME%.*}"
     
         # Получите из JSON файла с результатом обработки текстовые данные и запишите их в текстовый файл с названием аналогичным файлу картинки, изменив расширение на ".txt".
-        cat output.json | jq -r '.results[].results[].textDetection.pages[].blocks[].lines[].words[].text' | awk -v ORS=" " '{print}' > $BASEFOLDER"_text"/$IMAGE_NAME".txt"
+        cat output.json | jq -r '.results[].results[].textDetection.pages[].blocks[].lines[].words[].text' | awk -v ORS=" " '{print}' > my_pictures_text/$IMAGE_NAME".txt"
     done
     
     # Запакуйте содержимое папки с текстовыми файлами в архив.
     echo "Packing text files to archive..."
-    tar -cf $BASEFOLDER"_text.tar" $BASEFOLDER"_text"
+    tar -cf my_pictures_text.tar my_pictures_text
     
     # Переместите полученный архив с текстовыми файлами на ваш бакет.
-    echo "Sending archive to S3 Bucket..."
-    aws --endpoint-url=https://storage.yandexcloud.net s3 cp $BASEFOLDER"_text.tar" s3://$BUCKETNAME/ > /dev/null
+    echo "Sending archive to Object Storage Bucket..."
+    aws --endpoint-url=https://storage.yandexcloud.net s3 cp my_pictures_text.tar s3://$BUCKETNAME/ > /dev/null
     
     # Удалите ненужные файлы.
     echo "Cleaning up..."
     rm -f body.json
     rm -f output.json
-    rm -rfd $BASEFOLDER
-    rm -rfd $BASEFOLDER"_text"
-    rm -r $BASEFOLDER"_text.tar"
+    rm -rfd my_pictures
+    rm -rfd my_pictures_text
+    rm -r my_pictures_text.tar
     ```
 1. Установите разрешения на запуск скрипта:
     ```bash
@@ -310,15 +307,15 @@
     ```
 
 ## Проверьте корректность оцифровки {#check}
-1. Зайдите в OS в консоли Яндекс.Облака.
-1. Убедитесь, что в вашем бакете появился архив `<BASEFOLDER>_text.tar` (в нашем случае это `my_pictures_text.tar`).
+1. Зайдите в Object Storage в консоли Яндекс.Облака.
+1. Убедитесь, что в вашем бакете появился архив `my_pictures_text.tar`.
 1. Скачайте и распакуйте архив.
-1. Убедитесь что текст в файле `<PICTURE>.txt` соответствует тексту в оригинальной картинке `<PICTURE>.EXT` (где `EXT` - это расширение оригинальной картинки, например jpg, png и тд.).
+1. Убедитесь что текст в файле `<имя картинки>.txt` совпадает с текстом на соответствующей картинке.
 
 
 ## Удалите созданные облачные ресурсы {#cleanup}
-Если вам больше не нужны облачные ресурсы:
+Если вам больше не нужны облачные ресурсы, созданные в процессе оцифровки архива:
 
 * [Удалите виртуальную машину](https://cloud.yandex.ru/docs/compute/operations/vm-control/vm-delete).
 * [Удалите статический IP адрес](https://cloud.yandex.ru/docs/vpc/operations/address-delete), если он был вами создан.
-* [Удалите S3 Bucket](https://cloud.yandex.ru/docs/storage/operations/buckets/delete)
+* [Удалите Object Storage Bucket](https://cloud.yandex.ru/docs/storage/operations/buckets/delete)
