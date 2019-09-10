@@ -42,6 +42,8 @@ items:
         href: concepts/network.md
       - name: Cloud resource addresses
         href: concepts/address.md
+      - name: MTU and MSS
+        href: concepts/mtu-mss.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: DDoS Protection
