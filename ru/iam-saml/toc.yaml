@@ -31,6 +31,14 @@ items:
             href: operations/sa/get-id.md
           - name: Удаление сервисного аккаунта
             href: operations/sa/delete.md
+      - name: SAML-совместимые федерации
+        items:
+          - name: Аутентификация с помощью Active Directory
+            href: operations/federations/integration-adfs.md
+          - name: Аутентификация с помощью G-Suite
+            href: operations/federations/integration-gsuite.md
+          - name: Аутентификация с помощью SAML-федерации
+            href: operations/federations/integration-common.md
       - name: Роли
         items:
           - name: Назначение роли
@@ -79,6 +87,8 @@ items:
             href: concepts/authorization/access-key.md
       - name: Сервисные аккаунты
         href: concepts/users/service-accounts.md
+      - name: SAML-совместимые федерации
+        href: concepts/users/saml-federations.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Безопасное использование Яндекс.Облака
