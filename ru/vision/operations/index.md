@@ -5,4 +5,4 @@
 - [#T](classification/quality.md)
 - [#T](face-detection/index.md)
 - [#T](base64-encode.md)
-- [#T](archive-from-vision-to-s3.md)
+- [#T](archive-from-vision-to-object-storage.md)
