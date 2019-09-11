@@ -13,7 +13,12 @@
 1. CLI: [Yandex CLI](../cli/quickstart.md) и [Kubernetes CLI (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 1. [Сеть](../vpc/operations/network-create.md).
 1. [Подсети](../vpc/operations/subnet-create.md) в зонах доступности, где будут созданы кластер {{ k8s }} и группа узлов.
-1. [Сервисный аккаунт](../iam/operations/sa/create.md) с правами `editor` на каталог.
+1. [Сервисные аккаунты](../iam/operations/sa/create.md):
+    - Сервисный аккаунт с ролью [{{ roles-editor }}](../resource-manager/security/#roles-list) на каталог, в котором создается кластер {{ k8s }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
+    - Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../container-registry/security/index.md#required-roles) на каталог с реестром Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
+    
+    Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
+    
 1. Свободные ресурсы в облаке, согласно [квотам](concepts/limits.md).
 
 ## Создание кластера {{ k8s }} {#create-kubernetes-cluster}
@@ -35,8 +40,8 @@
     --public-ip \ # Указать, если требуется доступ из интернета.
     --cluster-ipv4-range 10.13.0.0/16 \ # Диапазон IP-адресов для подов.
     --service-ipv4-range 10.14.0.0/16 \ # Диапазон IP-адресов для сервисов.
-    --service-account-id bfbqqeo6jk****** \ # ID сервисного аккаунта для выделения ресурсов.
-    --node-service-account-id bfbqqeo6jk******  # ID сервисного аккаунта для доступа к реестру контейнеров.
+    --service-account-id bfbqqeo6jk****** \ # ID сервисного аккаунта, который должен использоваться для выделения ресурсов.
+    --node-service-account-id bfbqqeo6jk******  # ID сервисного аккаунта, который должен использоваться узлами для доступа к реестру Docker-образов.
     .........................................................done
     id: catcafja9ktuc7ven4le
     folder_id: b1g88tflru0ek1omtsu0
@@ -46,12 +51,6 @@
     health: HEALTHY
     ...
     ```
-
-    {% note info %}
-
-    На текущий момент `--node-service-account-id` не используются, можно указать любой существующий сервисный аккаунт.
-
-    {% endnote %}
 
 1. Добавьте учетные данные в конфигурационный файл kubectl:
 
