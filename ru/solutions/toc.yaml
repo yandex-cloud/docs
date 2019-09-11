@@ -19,8 +19,6 @@ items:
       href: web/bitrix-shop.md
     - name: Интернет-магазин на Opencart
       href: web/opencart.md
-    - name: Веб-сайт на базе 1С-Битрикс
-      href: web/bitrix-website.md
   - name: Архив данных
     items:
     - name: Обзор
