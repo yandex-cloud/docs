@@ -40,6 +40,10 @@ items:
             href: concepts/runtime/execution-context.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Tutorials
+    items:
+      - name: Creating skills for Alice
+        href: solutions/alice-skill.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management

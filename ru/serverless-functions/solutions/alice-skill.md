@@ -45,7 +45,7 @@
 1. Выберите **Функция**.
 1. Введите имя функции.
 
-  {% include [name-format](../../_includes/name-format.md) %}
+    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Нажмите кнопку **Создать**.
 
