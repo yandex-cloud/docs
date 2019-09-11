@@ -1,8 +1,58 @@
 # YC CLI Releases
 
-## Version 0.36.0 (27.08.19) {#latest-release}
+## Version 0.37.0 (06.09.19) {#latest-release}
+
+### Changes to the CLI {#cli}
+
+**Improved**
+
+- Added API endpoint availability checks for {{ iam-short-name }}, {{ resmgr-short-name }}, and {{ compute-short-name }}. If an endpoint is unavailable, an error is returned.
+- Added detailed error messages.
 
 ### Changes to Yandex.Cloud services {#services}
+
+#### {{ container-registry-name }} {#container-registry}
+
+**Improved**
+
+- Added Windows support for Docker Credential helper.
+- Added a detailed error when using `docker login` in parallel with Docker Credential helper.
+
+#### {{ ig-name }} {#instance-groups}
+
+- Added commands for managing instance group metadata: `yc compute instance-group add-metadata` and `yc compute instance-group remove-metadata`.
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Command `yc managed-kubernetes cluster update`.
+
+    Added `--node-service-account-id` and `--node-service-account-name` flags to add or change service accounts for nodes in an existing {{ k8s }} cluster.
+
+- Command `yc managed-kubernetes node-group update`.
+
+    Added flags to edit existing node group parameters: `--metadata`, `--metadata-from-file`, `--platform-id`, `--memory`, `--cores`, `--core-fraction`, `--disk-type`, `--disk-size`, and `--preemptible`.
+
+- Added commands for managing labels: `yc managed-kubernetes node-group add-labels` and `yc managed-kubernetes node-group remove-labels`.
+
+- Added commands for managing node group metadata: `yc managed-kubernetes node-group add-metadata` and `yc managed-kubernetes node-group remove-metadata`.
+
+#### Managed database services {#managed-db}
+
+**{{ mpg-name }}**
+
+- Command `{{ yc-mdb-pg }} cluster update`.
+
+    Added the `--connection-pool-discard` flag for disabling the connection pooler.
+
+- Commands `{{ yc-mdb-pg }} user create` and `yc managed-postgresql user update`
+
+    Added ability to specify a user's login and set their access rights using the`--login` and `--grants` flags.
+
+## Previous releases {#previous-releases}
+
+### Version 0.36.0 (27.08.19) {#version0.36.0}
+
+#### Changes to Yandex.Cloud services {#services}
 
 #### {{ resmgr-name }} {#resmgr}
 
@@ -10,9 +60,7 @@
 
     Added the ability to rename clouds.
 
-## Previous releases {#previous-releases}
-
-### Version 0.35.1 (16.08.19) {##version0.35.1}
+### Version 0.35.1 (16.08.19) {#version0.35.1}
 
 #### Changes to Yandex.Cloud services {#services}
 
