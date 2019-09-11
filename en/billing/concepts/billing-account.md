@@ -22,7 +22,7 @@ The type of billing account determines the Yandex.Cloud resource [payment method
 
 - Individual account
    - Intended for residents of Russia.
-   - Consumed resources are paid for by bank card.
+   - Resources are paid for using a bank card.
    - Funds for the resources consumed are debited automatically. For more information, see [Billing cycle for individuals](../payment/billing-cycle-individual.md).
    - Once the funds are debited from your bank card, a [payment receipt](individual-bill.md) is sent to your email address.
 
@@ -42,5 +42,7 @@ However, if Yandex.Cloud services are suspended due to arrears and you fail to p
 
 ## Number of billing accounts {#restrictions}
 
-Each customer is only allowed to create one billing account.
+{% include [billing-account-amounts](../_includes/billing-account-amounts.md) %}
+
+{% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}
 

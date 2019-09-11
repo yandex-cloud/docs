@@ -30,11 +30,13 @@ items:
       href: operations/check-bill-history.md
     - name: Change your billing account data
       href: operations/change-data.md
+    - name: Create a new billing account
+      href: operations/create-new-account.md
 - name: Concepts
   items:  
     - name: All concepts
       href: concepts/index.md
-    - name: Promo code
+    - name: Promo codes
       href: concepts/promo-code.md
     - name: Credit limit
       href: concepts/credit-limit.md

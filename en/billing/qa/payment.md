@@ -55,6 +55,12 @@ If you upgraded to the paid version and used Yandex.Cloud services, do the follo
 1. Delete all billable service resources.
 1. Contact [technical support](https://cloud.yandex.com/support) to deactivate your account.
 
+
+#### I linked a cloud to another billing account. How can I pay for resources? {#unlink-cloud}
+
+If a [cloud was previously linked](../operations/pin-cloud.md) to another billing account, consider the period of usage the services: pay for services from the current billing account for the time starting when the new account was linked. For usage the services prior to the link, pay for it from the previous account. The payment method corresponds to the [billing account type](../concepts/billing-account.md#ba-types).
+
+
 #### Will you provide an agreement for the provision and payment of services? {#oferta}
 
 In Yandex.Cloud, all services are rendered under an agreement that you accept when you create a [billing account](../concepts/billing-account.md). The agreement does not need to be signed by both parties.

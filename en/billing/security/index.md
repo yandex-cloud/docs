@@ -58,12 +58,12 @@ A list of operations available to each role is given in the table below.
 
 ## Adding users {#set-member-role}
 
-The owner of the billing account can only add members to the **Users** list for the cloud that the billing account is linked to. To add a user:
+The billing account owner can add any Yandex.Cloud user to the **Users** list. To add a user:
 
 1. In the [management console](https://console.cloud.yandex.ru/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
 1. Go to **Access control**.
 1. Click **Add user**.
-1. Enter a Yandex.Passport or Yandex.Connect username. <br/>Usernames that match the search are displayed in the list. Select the appropriate account.
+1. Enter a Yandex.Passport or Yandex.Connect username. <br/>Usernames that match the search are displayed in the list. Select the appropriate one.
 1. Click **Add**.
 
 The user with the specified username is assigned the `billing.accounts.member` role and added to the **Users** list. To grant billing account access, assign the user the desired role.
@@ -91,7 +91,7 @@ The billing account owner can revoke roles from users on the list at any time. T
 
 {% note info %}
 
-If the `billing.accounts.member` role is revoked in Billing, the billing account becomes inaccessible.
+If the `billing.accounts.member` role is revoked in Billing for a user, they won't be able to access the billing account.
 
 {% endnote %}
 

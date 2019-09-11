@@ -30,6 +30,8 @@ items:
       href: operations/check-bill-history.md
     - name: Изменить данные платежного аккаунта
       href: operations/change-data.md
+    - name: Создать новый платежный аккаунт
+      href: operations/create-new-account.md
 - name: Концепции
   items:  
     - name: Все понятия

@@ -47,6 +47,6 @@
 
 ## Количество платежных аккаунтов {#restrictions}
 
-Один клиент может создать только один платежный аккаунт.
+{% include [billing-account-amounts](../_includes/billing-account-amounts.md) %}
 
-
+{% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}

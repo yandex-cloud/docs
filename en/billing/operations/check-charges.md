@@ -11,6 +11,12 @@ By default, data is displayed from the start of the month to the current day. Da
 You can view usage details for one or more clouds.
 By default, all linked clouds are selected (a check mark is displayed next to the name of the cloud). To view usage details for only some clouds, open the list and click the names of the clouds that you don't want to view data for (the check mark will disappear next to their names).
 
+{% note info %}
+
+If a cloud was previously linked to another billing account, consider the period when viewing usage details: details are available to the current billing account for the time starting when the new account was linked. For usage prior to the link, details are available to the previous account.
+
+{% endnote %}
+
 ## Select a period {#period}
 
 You can view details for any period: in the calendar, select the start and end dates in the **From** and **To** sections.
@@ -39,11 +45,11 @@ Point the cursor to a line on the chart to see a popup. Each cloud, service, and
 
 | Chart | Usage data |
 | ----- | ----- |
-| ![image](../_assets/graph-icon.png) | - The date that the value at the current point is valid for.<br/>- The cost of consumption within the cloud, product, or service. <br/>- The name of the product, cloud, or service. |
-| ![image](../_assets/gistogram-icon.png) | - The date that the value at the current point is valid for.<br/>- The cost of consumption within the cloud, product, or service.<br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
-| ![image](../_assets/norm-gistogram-icon.png) | - The date that the value at the current point is valid for.<br/>- The percentage (%) of consumption within the cloud, product, or service relative to the total consumption.<br/>- The cost of consumption within the cloud, product, or service. <br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
-| ![image](../_assets/diagram-icon.png) | - The date that the value at the current point is valid for.<br/>- The cost of consumption within the cloud, product, or service.<br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
-| ![image](../_assets/norm-diagram-icon.png) | - The date that the value at the current point is valid for.<br/>- The percentage (%) of consumption within the cloud, product, or service relative to the total consumption.<br/>- The cost of consumption within the cloud, product, or service.<br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
+| ![image](../_assets/graph-icon.png) | - The date that the value at the current point is valid for.<br/>- The cost of services consumed within the cloud, product, or service. <br/>- The name of the product, cloud, or service. |
+| ![image](../_assets/gistogram-icon.png) | - The date that the value at the current point is valid for.<br/>- The cost of services consumed within the cloud, product, or service.<br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
+| ![image](../_assets/norm-gistogram-icon.png) | - The date that the value at the current point is valid for.<br/>- The percentage (%) of consumption within the cloud, product, or service relative to the total consumption.<br/>- The cost of services consumed within the cloud, product, or service. <br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
+| ![image](../_assets/diagram-icon.png) | - The date that the value at the current point is valid for.<br/>- The cost of services consumed within the cloud, product, or service.<br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
+| ![image](../_assets/norm-diagram-icon.png) | - The date that the value at the current point is valid for.<br/>- The percentage (%) of consumption within the cloud, product, or service relative to the total consumption.<br/>- The cost of services consumed within the cloud, product, or service.<br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
 
 ## Interpret the table {#tab}
 
@@ -58,5 +64,5 @@ The number of columns in the table depends on the selected grouping. Columns are
 | Unit | Units and amount of resources consumed. <br/>Only shown when grouping by product. |
 | Total cost | The amount for the volume of resources consumed before applying discounts. |
 | Discount | The discount amount in the currency of the agreement (excluding VAT or other taxes and fees). |
-| Total | The total amount for the amount of resources consumed after applying the discount. |
+| Total | The total amount for resources consumed after applying discounts. |
 

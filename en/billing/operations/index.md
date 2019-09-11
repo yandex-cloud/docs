@@ -20,4 +20,5 @@
 
 [Change your billing account data](change-data.md)
 
+[Create a new billing account](create-new-account.md)
 
