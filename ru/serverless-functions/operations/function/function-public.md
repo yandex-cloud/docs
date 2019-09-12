@@ -6,7 +6,7 @@
 
 {% note important %}
 
-Не давайте права `editor` и `admin` на системную группу `allUsers`. Это позволит любому пользователю в интернете использовать ресурсы вашего Облака за ваш счет. Подробнее о системных группах читайте в разделе [{#T}](../../iam/concepts/access-control/system-group.md).
+Не давайте права `editor` и `admin` на системную группу `allUsers`. Это позволит любому пользователю в интернете использовать ресурсы вашего Облака за ваш счет. Подробнее о системных группах читайте в разделе [{#T}](../../../iam/concepts/access-control/system-group.md).
 
 {% endnote %}
 
@@ -18,4 +18,4 @@ $ yc resource-manager folder add-access-binding <ID каталога>
                              --subject system:allUsers
 ```
 
-Подробнее о правах, читайте в разделе [{#T}](../security/index.md).
+Подробнее о правах, читайте в разделе [{#T}](../../security/index.md).

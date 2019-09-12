@@ -9,13 +9,13 @@
     1. Выберите **Функция**.
     1. Введите имя функции.
     
-        {% include [name-format](../../_includes/name-format.md) %}
+        {% include [name-format](../../../_includes/name-format.md) %}
     
     1. Нажмите кнопку **Создать**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}    
+    {% include [cli-install](../../../_includes/cli-install.md) %}    
 
     Создайте функцию:
 

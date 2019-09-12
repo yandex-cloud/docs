@@ -8,7 +8,7 @@ meta:
 links:
 - title: "Начало работы"
   description: "Создайте первую функцию"
-  href: "quickstart"
+  href: "quickstart/"
 - title: "Пошаговые инструкции"
   description: "Инструкции по выполнению рутинных операций"
   href: "operations/"

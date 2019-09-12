@@ -2,11 +2,11 @@
 
 {% note info %}
 
-Чтобы любой пользователь мог вызывать функцию, необходимо [сделать ее публичной](function-public.md). Подробнее о правах читайте в разделе [{#T}](../security/index.md).
+Чтобы любой пользователь мог вызывать функцию, необходимо [сделать ее публичной](function-public.md). Подробнее о правах читайте в разделе [{#T}](../../security/index.md).
 
 {% endnote %}
 
-{% include [yc-function-list](../../_includes/serverless-functions/function-list.md) %}
+{% include [yc-function-list](../../../_includes/serverless-functions/function-list.md) %}
 
 Для примера используется функция, описанная в разделе [{#T}](version-manage.md#func-version-create).
 
@@ -64,4 +64,4 @@
 
 {% endlist %}
 
-Подробнее о том, какая должна быть структура функции для вызова разными способами (HTTP, CLI), читайте в разделе [{#T}](../concepts/function-invoke.md).
+Подробнее о том, какая должна быть структура функции для вызова разными способами (HTTP, CLI), читайте в разделе [{#T}](../../concepts/function-invoke.md).

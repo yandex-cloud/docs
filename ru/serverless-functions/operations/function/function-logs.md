@@ -20,9 +20,9 @@
 
 - CLI
     
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
     
-    1. {% include [yc-function-list](../../_includes/serverless-functions/function-list.md) %}
+    1. {% include [yc-function-list](../../../_includes/serverless-functions/function-list.md) %}
 
     1. Посмотрите журнал выполнения функции:
 

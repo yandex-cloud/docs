@@ -1,20 +1,20 @@
 # Удаление функции
 
-{% include [yc-function-list](../../_includes/serverless-functions/function-list.md) %}
+{% include [yc-function-list](../../../_includes/serverless-functions/function-list.md) %}
 
 {% list tabs %}
 
 - Консоль управления
   
-    Чтобы удалить [функцию](../concepts/function.md):
+    Чтобы удалить [функцию](../../concepts/function.md):
     1. Откройте раздел **Serverless Functions** в каталоге, где требуется удалить функцию.
-    1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке функции, которую требуется удалить.
+    1. Нажмите значок ![image](../../../_assets/vertical-ellipsis.svg) в строке функции, которую требуется удалить.
     1. В открывшемся меню нажмите кнопку **Удалить**.
     1. В открывшемся окне нажмите кнопку **Удалить**.
   
 - CLI
   
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
     
     Удалите функцию:
     

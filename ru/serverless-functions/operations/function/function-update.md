@@ -2,7 +2,7 @@
 
 Вы можете изменить [имя](function-update.md#update-name) или [описание](function-update.md#update-description) функции, а также [управлять метками функции](function-update.md#manage-label). Для изменения кода или параметров работы функции необходимо [создать новую версию функции](version-manage.md#version-create).
 
-{% include [yc-function-list](../../_includes/serverless-functions/function-list.md) %}
+{% include [yc-function-list](../../../_includes/serverless-functions/function-list.md) %}
 
 ## Изменить имя функции {#update-name}
 
@@ -10,7 +10,7 @@
 
 - Консоль управления
 
-    Чтобы изменить имя [функции](../concepts/function.md):
+    Чтобы изменить имя [функции](../../concepts/function.md):
     1. Откройте раздел **Serverless Functions** в каталоге, где требуется изменить функцию.
     1. В списке функций выберите функцию, которую необходимо изменить.
     1. В открывшемся окне нажмите кнопку **Редактировать**.
@@ -19,7 +19,7 @@
 
 - CLI
   
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
     
     Измените имя функции:
     
@@ -45,7 +45,7 @@
 
 - Консоль управления
 
-    Чтобы изменить имя [функции](../concepts/function.md):
+    Чтобы изменить имя [функции](../../concepts/function.md):
     1. Откройте раздел **Serverless Functions** в каталоге, где требуется изменить функцию.
     1. В списке функций выберите функцию, которую необходимо изменить.
     1. В открывшемся окне нажмите кнопку **Редактировать**.
@@ -54,7 +54,7 @@
     
 - CLI
   
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
     
     Измените описание функции:
     
@@ -88,7 +88,7 @@
 
 - CLI
   
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
     
     Добавьте метку функции:
     
@@ -115,7 +115,7 @@
 
 - CLI
   
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
     
     Измените метку функции:
   
@@ -147,7 +147,7 @@
 
 - CLI
   
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
     
     Удалите метку функции:
     
