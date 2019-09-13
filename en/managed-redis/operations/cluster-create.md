@@ -90,7 +90,7 @@ Let's say we need to create a {{ RD }} cluster with the following characteristic
 - In the `production` environment.
 - In the `default` network.
 - With a single `b1.nano` class host in the `b0rcctk2rvtr8efcch64` subnet and the `ru-central1-c` availability zone.
-- With SSD network storage of 4 GB.
+- With storage of 20 GB.
 - With the `user1user1` password.
 
 Run the command:
