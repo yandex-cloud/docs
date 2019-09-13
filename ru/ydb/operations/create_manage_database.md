@@ -74,6 +74,8 @@
 
 {% include [create-db-via-console](../../_includes/ydb/create-db-via-console.md) %}
 
+{% endif %}
+
 ## Подключиться к базе данных {#connect-to-db}
 
 {% if audience == "internal" %}
