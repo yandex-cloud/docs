@@ -1,12 +1,15 @@
 # Резервное копирование в {{ objstorage-full-name }} через Duplicati
 
 Чтобы настроить резервное копирование в {{ objstorage-name }} через Duplicati:
+
+1. [Подготовьте облако к работе](#before-begin)
 1. [Создайте бакет](#create-bucket)
 1. [Создайте сервисный аккаунт](#create-service-account)
 1. [Создайте статический ключ доступа](#create-access-key)
 1. [Установите Duplicati](#install-duplicati)
 1. [Настройте Duplicati](#configure-duplicati)
 1. [Протестируйте резервное копирование](#test-backup)
+1. [Удалите созданные облачные ресурсы](#clear-out)
 
 ## Подготовьте облако к работе {#before-begin}
 

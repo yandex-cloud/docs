@@ -1,12 +1,15 @@
 # Резервное копирование в {{ objstorage-full-name }} через CloudBerry Desktop Backup
 
 Чтобы настроить резервное копирование в {{ objstorage-name }} через CloudBerry Desktop Backup:
+
+1. [Подготовьте облако к работе](#before-begin)
 1. [Создайте бакет](#create-bucket)
 1. [Создайте сервисный аккаунт](#create-service-account)
 1. [Создайте статический ключ доступа](#create-access-key)
 1. [Установите CloudBerry Desktop Backup](#install-cloudberry)
 1. [Настройте CloudBerry Desktop Backup](#configure-cloudberry)
 1. [Протестируйте резервное копирование](#test-backup)
+1. [Удалите созданные облачные ресурсы](#clear-out)
 
 Бесплатная версия Cloudberry Desktop Backup позволяет создать не более 200 ГБ резервных копий.
 
