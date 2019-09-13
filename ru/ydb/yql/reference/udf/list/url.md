@@ -25,7 +25,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Url::Normalize("hTTp://wWw.yAnDeX.RU/"); -- "http://www.yandex.ru/"
 SELECT Url::Normalize("http://ya.ru#foo");      -- "http://ya.ru/"
 ```
@@ -51,7 +51,7 @@ SELECT Url::Normalize("http://ya.ru#foo");      -- "http://ya.ru/"
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Url::NormalizeWithDefaultHttpScheme("wWw.yAnDeX.RU");    -- "http://www.yandex.ru/"
 SELECT Url::NormalizeWithDefaultHttpScheme("http://ya.ru#foo"); -- "http://ya.ru/"
 ```
@@ -67,7 +67,7 @@ SELECT Url::NormalizeWithDefaultHttpScheme("http://ya.ru#foo"); -- "http://ya.ru
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Url::Decode("http://ya.ru/%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0"); -- "http://ya.ru/страница"
 SELECT Url::Encode("http://ya.ru/страница");                                         -- "http://ya.ru/%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0"
 ```
@@ -80,7 +80,7 @@ SELECT Url::Encode("http://ya.ru/страница");                            
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Url::Parse("https://wiki.yandex-team.ru/yql/udf/list/.edit?section=24&goanchor=h-24#foo");
 /*
 (
@@ -133,7 +133,7 @@ SELECT Url::Parse("https://wiki.yandex-team.ru/yql/udf/list/.edit?section=24&goa
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Url::GetScheme("https://ya.ru");           -- "https://"
 SELECT Url::GetDomain("http://www.yandex.ru", 2); -- "yandex.ru"
 ```
@@ -157,7 +157,7 @@ SELECT Url::GetDomain("http://www.yandex.ru", 2); -- "yandex.ru"
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Url::CutScheme("http://www.yandex.ru"); -- "www.yandex.ru"
 SELECT Url::CutWWW("www.yandex.ru");           -- "yandex.ru"
 ```
@@ -178,7 +178,7 @@ SELECT Url::CutWWW("www.yandex.ru");           -- "yandex.ru"
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Url::PunycodeToHostName("xn--d1acpjx3f.xn--p1ai"); -- "яндекс.рф"
 ```
 
@@ -186,7 +186,7 @@ SELECT Url::PunycodeToHostName("xn--d1acpjx3f.xn--p1ai"); -- "яндекс.рф"
 
 **Список функций**
 
-``` yql
+```sql
 Url::IsAllowedByRobotsTxt(
   String{Flag:AutoMap}, -- URL
   String?, -- бинарное представление robots.txt в формате https://a.yandex-team.ru/arc/trunk/arcadia/library/robots_txt

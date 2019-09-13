@@ -64,7 +64,7 @@
 
 {% note important %}
 
-Настройка шардирования (Partitioning Policy) таблицы при ее создании в текущей версии возможна только через Java и Python SDK.
+Настройка шардирования (Partitioning Policy) таблицы при ее создании в текущей версии возможна только через [Java](https://github.com/yandex-cloud/ydb-java-sdk) и [Python](https://github.com/yandex-cloud/ydb-python-sdk) SDK.
 
 {% endnote %}
 

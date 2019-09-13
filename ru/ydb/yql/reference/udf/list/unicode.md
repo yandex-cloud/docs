@@ -40,7 +40,7 @@
    
 **Примеры**
 
-``` yql
+```sql
 SELECT Unicode::Fold("Eylül", "Turkish" AS Language); -- "eylul"
 SELECT Unicode::GetLength("жніўня");                  -- 6
 ```

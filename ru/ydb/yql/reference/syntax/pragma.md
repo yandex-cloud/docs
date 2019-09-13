@@ -16,7 +16,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 PRAGMA AutoCommit;
 ```
 

@@ -234,7 +234,7 @@ PRAGMA TablePathPrefix = "/ru/tutorial/home/testdb";
 SELECT * FROM Episodes;
 ```
 
-Подробнее про PRAGMA YQL написано в [документации YQL](../yql/reference/quickstart.md).
+Подробнее про PRAGMA YQL написано в [документации YQL](../yql/reference/overview.md).
 
 ## Обработка запросов и транзакций {#query-processing}
 

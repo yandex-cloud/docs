@@ -14,12 +14,12 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT key, COUNT(*) FROM my_table
 GROUP BY key;
 ```
 
-``` yql
+```sql
 SELECT double_key, COUNT(*) FROM my_table
 GROUP BY key + key AS double_key;
 ```
@@ -38,7 +38,7 @@ GROUP BY key + key AS double_key;
 
 **Примеры**
 .
-``` yql
+```sql
 SELECT
     column1,
     column2,
@@ -85,7 +85,7 @@ GROUP BY
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   key,
   COUNT(DISTINCT value) AS count -- топ-3 ключей по количеству уникальных значений
@@ -103,7 +103,7 @@ LIMIT 3;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     key
 FROM my_table

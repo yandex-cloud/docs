@@ -10,7 +10,7 @@
 Построение типа по строке с его описанием. [Документация по формату](../misc/type_string.md).
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(ParseType("List<Int32>"));  -- List<int32>
 ```
 
@@ -19,10 +19,10 @@ SELECT FormatType(ParseType("List<Int32>"));  -- List<int32>
 Получение типа значения, переданного в аргумент.
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(TypeOf("foo"));  -- String
 ```
-``` yql
+```sql
 SELECT FormatType(TypeOf(AsTuple(1, 1u))); -- Tuple<Int32,Uint32>
 ```
 
@@ -33,7 +33,7 @@ SELECT FormatType(TypeOf(AsTuple(1, 1u))); -- Tuple<Int32,Uint32>
 Если этот экземпляр останется в графе вычислений на этапе окончания оптимизации, то оптимизация будет завершена с ошибкой.
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(TypeOf(
     InstanceOf(ParseType("Int32")) +
     InstanceOf(ParseType("Double"))
@@ -45,7 +45,7 @@ SELECT FormatType(TypeOf(
 Возвращает тип для примитивных типов данных по его имени.
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(DataType("Bool")); -- Bool
 ```
 
@@ -54,7 +54,7 @@ SELECT FormatType(DataType("Bool")); -- Bool
 Добавляет в переданный тип возможность содержать NULL.
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(OptionalType(DataType("Bool"))); -- Bool?
 ```
 
@@ -64,7 +64,7 @@ SELECT FormatType(OptionalType(DataType("Bool"))); -- Bool?
 Строит тип списка или потока по переданному типу элемента.
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(ListType(DataType("Bool"))); -- List<Bool>
 ```
 
@@ -73,7 +73,7 @@ SELECT FormatType(ListType(DataType("Bool"))); -- List<Bool>
 Строит тип словаря по переданным типам ключа (первый аргумент) и значения (второй аргумент).
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(DictType(
     DataType("String"),
     DataType("Double")
@@ -85,7 +85,7 @@ SELECT FormatType(DictType(
 Строит тип кортежа по переданным типам элементов.
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(TupleType(
     DataType("String"),
     DataType("Double"),
@@ -98,7 +98,7 @@ SELECT FormatType(TupleType(
 Строит тип структуры по переданным типам элементов. Для указания имен элементов используется стандартный синтаксис именованных аргументов.
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(StructType(
     DataType("Bool") AS MyBool,
     ListType(DataType("String")) AS StringList
@@ -110,7 +110,7 @@ SELECT FormatType(StructType(
 Возвращает тип варианта по низлежащему типу (структуры или кортежа).
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(VariantType(
   ParseType("Struct<foo:Int32,bar:Double>")
 )); -- Variant<'bar':Double,'foo':Int32>
@@ -121,7 +121,7 @@ SELECT FormatType(VariantType(
 Возвращает тип ресурса по переданной строковой метке.
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(ResourceType("Foo")); -- Resource<'Foo'>
 ```
 
@@ -137,7 +137,7 @@ SELECT FormatType(ResourceType("Foo")); -- Resource<'Foo'>
 * Все последующие аргументы CallableType трактуются как типы аргументов вызываемого значения со сдвигом на два обязательных (третий аргумент CallableType описывает тип первого аргумента вызываемого значения).
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(CallableType(
   1, -- optional args count
   DataType("Double"), -- result type
@@ -151,7 +151,7 @@ SELECT FormatType(CallableType(
 Возвращают одноименные типы данных. Аргументов нет, так как они ничем не параметризуются.
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(VoidType()); -- Void
 ```
 
@@ -160,7 +160,7 @@ SELECT FormatType(VoidType()); -- Void
 Выполняют действие, обратное [OptionalType](#optionaltype), [ListType](#listtype) и [StreamType](#streamtype) — возвращают тип элемента по типу соответствующего контейнера.
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(ListItemType(
   ParseType("List<Int32>")
 )); -- Int32
@@ -171,7 +171,7 @@ SELECT FormatType(ListItemType(
 Возвращают тип ключа или значения по типу словаря.
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(DictKeyType(
   ParseType("Dict<Int32,String>")
 )); -- Int32
@@ -182,7 +182,7 @@ SELECT FormatType(DictKeyType(
 Возвращает тип элемента кортежа по типу кортежа и индексу элемента (индекс с нуля).
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(TupleElementType(
   ParseType("Tuple<Int32,Double>"), 1
 )); -- Double
@@ -193,7 +193,7 @@ SELECT FormatType(TupleElementType(
 Возвращает тип элемента структуры по типу структуры и имени элемента.
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(StructMemberType(
   ParseType("Struct<foo:Int32,bar:Double>"), "foo"
 )); -- Int32
@@ -204,7 +204,7 @@ SELECT FormatType(StructMemberType(
 CallableResultType возвращает тип результата по типу вызываемого значения, а CallableArgumentType — тип аргумента по типу вызываемого значения и его индексу (индекс с нуля).
 
 **Примеры:**
-``` yql
+```sql
 $callable_type = ParseType("(String,Bool)->Double");
 SELECT FormatType(CallableResultType(
     $callable_type
@@ -219,7 +219,7 @@ FormatType(CallableArgumentType(
 Выполняет действие, обратное [VariantType](#varianttype) — возвращает низлежащий тип по типу варианта.
 
 **Примеры:**
-``` yql
+```sql
 SELECT FormatType(VariantUnderlyingType(
   ParseType("Variant<foo:Int32,bar:Double>")
 )), -- Struct<'bar':Double,'foo':Int32>

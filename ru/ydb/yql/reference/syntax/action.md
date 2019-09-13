@@ -29,7 +29,7 @@
 
 Пример:
 
-``` yql
+```sql
 DEFINE ACTION $hello_world($name) AS
     $name = $name ?? "world";
     SELECT "Hello, " || $name || "!";
@@ -62,7 +62,7 @@ DO $hello_world("John");
 
 Примеры:
 
-``` yql
+```sql
 DEFINE ACTION $hello() AS
     SELECT "Hello!";
 END DEFINE;
@@ -77,7 +77,7 @@ ELSE
     DO $bye();
 ```
 
-``` yql
+```sql
 -- скопировать таблицу $input в $count новых таблиц
 $count = 3;
 $input = "my_input";

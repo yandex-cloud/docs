@@ -28,7 +28,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   a.value, b.value
 FROM a_table AS a
@@ -36,7 +36,7 @@ FULL JOIN b_table AS b
 USING (key);
 ```
 
-``` yql
+```sql
 SELECT
   a.value, b.value
 FROM a_table AS a

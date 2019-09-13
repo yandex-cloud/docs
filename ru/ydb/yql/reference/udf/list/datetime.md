@@ -46,7 +46,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     DateTime::MakeTimestamp(DateTime::Split(TzDatetime("2019-01-01T00:00:00,Europe/Moscow"))), -- 2018-12-31T21:00:00Z (конвертация в UTC)
     DateTime::MakeDate(TzDatetime("2019-01-01T12:00:00,GMT")); -- 2019-01-01 (Datetime -> Date с неявным Split)
@@ -76,7 +76,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 $tm = DateTime::Split(TzDatetime("2019-01-09T00:00:00,Europe/Moscow"));
 
 SELECT
@@ -97,7 +97,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 $tm = DateTime::Split(Timestamp("2019-01-01T01:02:03.456789Z"));
 
 SELECT
@@ -131,7 +131,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     DateTime::FromSeconds(1546304523), -- 2019-01-01T01:02:03.000000Z
     DateTime::ToMicroseconds(Datetime("2019-01-01T01:02:03.456789Z")); -- 1546304523456789
@@ -156,7 +156,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     DateTime::ToDays(Interval("PT3000M")), -- 2
     DateTime::IntervalFromSeconds(1000000); -- 11 days 13 hours 46 minutes 40 seconds
@@ -186,7 +186,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 $format = DateTime::Format("%Y-%m-%d %H:%M:%S %Z");
 
 SELECT
@@ -214,7 +214,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 $parse1 = DateTime::Parse("%H:%M:%S");
 $parse2 = DateTime::Parse("%S");
 $parse3 = DateTime::Parse("%m/%d/%Y");
@@ -238,7 +238,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     DateTime::MakeTimestamp(DateTime::ParseRfc822("Fri, 4 Mar 2005 19:34:45 EST")), -- 2005-03-05T00:34:45Z
     DateTime::MakeTimestamp(DateTime::ParseIso8601("2009-02-14T02:31:30+0300")), -- 2009-02-13T23:31:30Z

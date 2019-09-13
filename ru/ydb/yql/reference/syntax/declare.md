@@ -17,7 +17,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 DECLARE $x AS String;
 DECLARE $y AS "String?";
 DECLARE $z AS "List<String>";

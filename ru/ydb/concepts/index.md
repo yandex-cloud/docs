@@ -10,7 +10,7 @@
 {{ ydb-short-name }} обеспечивает:
 
 * [строгую консистентность](https://en.wikipedia.org/wiki/Consistency_model#Strict_Consistency) с возможностью ослабления для увеличения производительности;
-* подержку запросов [YQL](../yql/reference/quickstart.md) (диалект SQL для работы с большими данными);
+* подержку запросов [YQL](../yql/reference/overview.md) (диалект SQL для работы с большими данными);
 * автоматическую репликацию данных;
 * высокую доступность с автоматической обработкой отказов вычислительных узлов или дата-центров;
 * автоматическое перешардирование данных при увеличении их количества.
@@ -34,12 +34,12 @@
 {{ ydb-short-name }} обеспечивает:
 
 * [строгую консистентность](https://en.wikipedia.org/wiki/Consistency_model#Strict_Consistency) с возможностью ослабления для увеличения производительности;
-* подержку запросов [YQL](../yql/reference/quickstart.md) (диалект SQL для работы с большими данными);
+* подержку запросов [YQL](../yql/reference/overview.md) (диалект SQL для работы с большими данными);
 * автоматическую репликацию данных;
 * высокую доступность с автоматической обработкой отказов вычислительных узлов или зон доступности;
 * автоматическое перешардирование данных при увеличении их количества.
 
-{{ ydb-short-name }} предоставляет SDK для Java, [Python](https://github.com/yandex-cloud/ydb-python-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk).
+{{ ydb-short-name }} предоставляет SDK для [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk).
 
 {{ ydb-short-name }} поддерживает реляционную [модель данных](datamodel.md) и оперирует таблицами с предопределённой схемой. Для удобства организации таблиц поддерживается создание директорий по аналогии с файловой системой.
 

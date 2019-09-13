@@ -8,15 +8,15 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT COUNT(*) FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT key, COUNT(value) FROM my_table GROUP BY key;
 ```
 
-``` yql
+```sql
 SELECT COUNT(DISTINCT value) FROM my_table;
 ```
 
@@ -28,7 +28,7 @@ SELECT COUNT(DISTINCT value) FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT MIN(value), MAX(value) FROM my_table;
 ```
 
@@ -40,7 +40,7 @@ SELECT MIN(value), MAX(value) FROM my_table;
 
 Целые числа автоматически расширяются до 64 бит, чтобы уменьшить риск переполнения.
 
-``` yql
+```sql
 SELECT SUM(value) FROM my_table;
 ```
 
@@ -54,7 +54,7 @@ SELECT SUM(value) FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT AVG(value) FROM my_table;
 ```
 
@@ -68,7 +68,7 @@ SELECT AVG(value) FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   COUNT_IF(value % 2 == 1) AS odd_count
 ```
@@ -89,14 +89,14 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     SUM_IF(value, value % 2 == 1) AS odd_sum,
     AVG_IF(value, value % 2 == 1) AS odd_avg,
 FROM my_table;
 ```
 
-``` yql
+```sql
 $sum_if_factory = AGGREGATION_FACTORY("SUM_IF");
 $avg_if_factory = AGGREGATION_FACTORY("AVG_IF");
 
@@ -121,13 +121,13 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   CountDistinctEstimate(my_column)
 FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT
   HyperLogLog(my_column, 4)
 FROM my_table;
@@ -141,7 +141,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   SOME(value)
 FROM my_table;
@@ -169,14 +169,14 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 -- В контексте GROUP BY — тип List
 SELECT LIST(ip, 1)
 FROM [//home/yql/tutorial/users]
 GROUP BY age
 ```
 
-``` yql
+```sql
 -- В контексте без GROUP BY — опциональный тип List?
 SELECT LIST(ip, 1)
 FROM [//home/yql/tutorial/users]
@@ -205,14 +205,14 @@ FROM [//home/yql/tutorial/users]
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   MIN_BY(value, LENGTH(value)),
   MAX_BY(value, key, 100)
 FROM my_table;
 ```
 
-``` yql
+```sql
 $min_by_factory = AGGREGATION_FACTORY("MIN_BY");
 $max_by_factory = AGGREGATION_FACTORY("MAX_BY", 100);
 
@@ -228,14 +228,14 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   TOP(key, 3),
   BOTTOM(value, 3)
 FROM my_table;
 ```
 
-``` yql
+```sql
 $top_factory = AGGREGATION_FACTORY("TOP", 3);
 $bottom_factory = AGGREGATION_FACTORY("BOTTOM", 3);
 
@@ -253,14 +253,14 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   TOP_BY(value, LENGTH(value), 3),
   BOTTOM_BY(value, key, 3)
 FROM my_table;
 ```
 
-``` yql
+```sql
 $top_by_factory = AGGREGATION_FACTORY("TOP_BY", 3);
 $bottom_by_factory = AGGREGATION_FACTORY("BOTTOM_BY", 3);
 
@@ -286,7 +286,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     MODE(my_column),
     TOPFREQ(my_column, 5, 1000)
@@ -308,7 +308,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   STDDEV(numeric_column),
   VARIANCE(numeric_column)
@@ -327,14 +327,14 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   CORRELATION(numeric_column, another_numeric_column),
   COVARIANCE(numeric_column, another_numeric_column)
 FROM my_table;
 ```
 
-``` yql
+```sql
 $corr_factory = AGGREGATION_FACTORY("CORRELATION");
 
 SELECT
@@ -350,7 +350,7 @@ FROM my_table;
 
 {% endnote %}
 
-``` yql
+```sql
 SELECT
     MEDIAN(numeric_column),
     PERCENTILE(numeric_column, 0.99)
@@ -382,7 +382,7 @@ FROM my_table;
 
 Доступны разные модификации алгоритма:
 
-``` yql
+```sql
 AdaptiveDistanceHistogram
 AdaptiveWeightHistogram
 AdaptiveWardHistogram
@@ -413,13 +413,13 @@ While FastGreedyShrink is used most of the time, SlowShrink is mostly used for h
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
         HISTOGRAM(numeric_column)
 FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT
     Histogram::Print(
         HISTOGRAM(numeric_column, 10),
@@ -453,7 +453,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     LogarithmicHistogram(numeric_column, 2)
 FROM my_table;
@@ -467,7 +467,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   BOOL_AND(bool_column),
   BOOL_OR(bool_column)
@@ -480,7 +480,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   BIT_XOR(unsigned_numeric_value)
 FROM my_table;
@@ -494,7 +494,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 $count_factory = AGGREGATION_FACTORY("COUNT");
 
 SELECT

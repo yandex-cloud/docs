@@ -5,7 +5,7 @@
 Получения содержимого словаря в виде списка кортежей с парами ключ-значение.
 
 **Примеры:**
-``` yql
+```sql
 SELECT DictItems(dict_column)
 FROM my_table;
 ```
@@ -15,7 +15,7 @@ FROM my_table;
 Получения списка ключей словаря.
 
 **Примеры:**
-``` yql
+```sql
 SELECT DictKeys(dict_column)
 FROM my_table;
 ```
@@ -25,7 +25,7 @@ FROM my_table;
 Получения списка значений словаря.
 
 **Примеры:**
-``` yql
+```sql
 SELECT DictPayloads(dict_column)
 FROM my_table;
 ```
@@ -35,7 +35,7 @@ FROM my_table;
 Получение элемента словаря по ключу.
 
 **Примеры:**
-``` yql
+```sql
 SELECT DictLookup(dict_column, "foo")
 FROM my_table;
 ```
@@ -45,7 +45,7 @@ FROM my_table;
 Проверка наличия элемента в словаре по ключу. Возвращает true или false.
 
 **Примеры:**
-``` yql
+```sql
 SELECT DictContains(dict_column, "foo")
 FROM my_table;
 ```

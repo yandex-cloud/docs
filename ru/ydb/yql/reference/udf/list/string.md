@@ -95,7 +95,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT String::Base64Encode("YQL"); -- "WVFM"
 SELECT String::Strip("YQL ");       -- "YQL"
 ```

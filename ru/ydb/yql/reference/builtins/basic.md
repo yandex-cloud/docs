@@ -12,20 +12,20 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT COALESCE(
   maybe_empty_column,
   "it's empty!"
 ) FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT
   maybe_empty_column ?? "it's empty!"
 FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT NVL(
   maybe_empty_column,
   "it's empty!"
@@ -38,11 +38,11 @@ SELECT NVL(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT LENGTH("foo");
 ```
 
-``` yql
+```sql
 SELECT LEN("bar");
 ```
 
@@ -69,11 +69,11 @@ SELECT LEN("bar");
 
 **Примеры**
 
-``` yql
+```sql
 SELECT SUBSTRING("abcdefg", 3, 1); -- d
 ```
 
-``` yql
+```sql
 SELECT SUBSTRING("abcdefg", 3); -- defg
 ```
 
@@ -106,7 +106,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   NANVL(double_column, 0.0)
 FROM my_table;
@@ -135,25 +135,25 @@ FROM my_table;
 * `SELECT RANDOM(some_column), RANDOM(some_column + 1) FROM table;` или `SELECT RANDOM(some_column), RANDOM(other_column) FROM table;` — две колонки, и все с разными числами.
 
 **Примеры**
-``` yql
+```sql
 SELECT
     Random(key) -- [0, 1)
 FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT
     RandomNumber(key) -- [0, Max<Uint64>)
 FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT
     RandomUuid(key) -- Uuid version 4
 FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT
     RANDOM(column) AS rand1,
     RANDOM(column) AS rand2, -- same as rand1
@@ -169,10 +169,10 @@ FROM my_table;
 Аргументы опциональны и работают по тому же принципу, что и у [RANDOM](#random).
 
 **Примеры**
-``` yql
+```sql
 SELECT CurrentUtcDate();
 ```
-``` yql
+```sql
 SELECT CurrentUtcTimestamp(TableRow()) FROM my_table;
 ```
 
@@ -206,7 +206,7 @@ SELECT AddTimezone(Datetime("2018-02-01T12:00:00Z"), "Europe/Moscow");
 
 **Примеры**
 
-``` yql
+```sql
 SELECT RemoveTimezone(TzDatetime("2018-02-01T12:00:00,Europe/Moscow"));
 ```
 
@@ -241,7 +241,7 @@ SELECT MIN_OF(1, 2, 3);
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   AsTuple(1, 2, "3") AS tuple,
   AsStruct(
@@ -310,7 +310,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 SELECT AsTagged(
     AsStruct(
         "https://infra.yandex-team.ru" AS href,
@@ -329,7 +329,7 @@ SELECT AsTagged(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT AsTagged(
     AsStruct(
         "https://avatars.yandex-team.ru/get-yablog/id1166620212013/normal" AS src,
@@ -350,7 +350,7 @@ SELECT AsTagged(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT TablePath() FROM CONCAT(table_a, table_b);
 ```
 ## TableName {#tablename}
@@ -364,12 +364,12 @@ SELECT TablePath() FROM CONCAT(table_a, table_b);
 
 **Примеры**
 
-``` yql
+```sql
 USE hahn;
 SELECT TableName() FROM CONCAT(table_a, table_b);
 ```
 
-``` yql
+```sql
 SELECT TableName(Path, "yt") FROM hahn.FOLDER(folder_name);
 ```
 
@@ -381,7 +381,7 @@ SELECT TableName(Path, "yt") FROM hahn.FOLDER(folder_name);
 
 **Примеры**
 
-``` yql
+```sql
 SELECT TableRecord() FROM my_table;
 ```
 
@@ -393,7 +393,7 @@ SELECT TableRecord() FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT TableRow() FROM my_table;
 ```
 {% if audience == "internal" %}
@@ -406,7 +406,7 @@ SELECT TableRow() FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT "Content of "
   || FilePath("my_file.txt")
   || ":\n"
@@ -422,7 +422,7 @@ SELECT "Content of "
 
 **Примеры**
 
-``` yql
+```sql
 PRAGMA File("foo/1.txt", "http://url/to/somewhere");
 PRAGMA File("foo/2.txt", "http://url/to/somewhere/else");
 PRAGMA File("bar/3.txt", "http://url/to/some/other/place");
@@ -450,11 +450,11 @@ SELECT FolderPath("foo"); -- в директории по возвращённо
 
 **Примеры**
 
-``` yql
+```sql
 SELECT ListLength(ParseFile("String", "my_file.txt"));
 ```
 
-``` yql
+```sql
 SELECT * FROM my_table
 WHERE int_column IN ParseFile("Int64", "my_file.txt"));
 ```
@@ -469,7 +469,7 @@ WHERE int_column IN ParseFile("Int64", "my_file.txt"));
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     WeakField(my_column, "String", "no value"),
     WeakField(my_table.other_column, "Int64")
@@ -498,7 +498,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Ensure(
     value,
     value < 100,
@@ -506,7 +506,7 @@ SELECT Ensure(
 ) AS value FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT EnsureType(
     value,
     TypeOf(other_value),
@@ -514,7 +514,7 @@ SELECT EnsureType(
 ) AS value FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT EnsureConvertibleTo(
     value,
     "Double?",
@@ -544,7 +544,7 @@ EvaluateExpr может использоваться в тех местах, г�
 
 **Примеры**
 
-``` yql
+```sql
 $now = CurrentUtcTimestamp();
 SELECT EvaluateExpr(
     DateTime::DateStartOfWeek(
@@ -553,7 +553,7 @@ SELECT EvaluateExpr(
 );
 ```
 
-``` yql
+```sql
 USE hahn;
 
 $folder_path = AsList("home", "yql", "tutorial");
@@ -588,7 +588,7 @@ LIMIT $limit;
 
 **Примеры**
 
-``` yql
+```sql
  SELECT
   Bool("true"),
   Uint8("0"),
@@ -627,7 +627,7 @@ LIMIT $limit;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     CurrentOperationId(),
     CurrentOperationSharedId(),
@@ -640,7 +640,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     ToBytes(123), -- "\u0001\u0000\u0000\u0000"
     FromBytes(
@@ -660,7 +660,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     ByteAt("foo", 0) -- 102
     ByteAt("foo", 1) -- 111
@@ -679,7 +679,7 @@ SELECT
 `TestBit` возвращает `true/false`. Остальные функции возвращают копию своего первого аргумента с проведенным соответствующим преобразованием.
 
 **Примеры**
-``` yql
+```sql
 SELECT
     TestBit(1u, 0), -- true
     SetBit(8u, 0); -- 9
@@ -691,7 +691,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Abs(-123); -- 123
 ```
 
@@ -703,7 +703,7 @@ SELECT Abs(-123); -- 123
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   Just("my_string"); --  String?
 ```
@@ -721,7 +721,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 $value = Just("value");
 
 SELECT Unwrap($value, "Unexpected NULL for $value");
@@ -733,7 +733,7 @@ SELECT Unwrap($value, "Unexpected NULL for $value");
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   Nothing(ParseType("String?")); -- пустое значение (NULL) с типом String?
 ```

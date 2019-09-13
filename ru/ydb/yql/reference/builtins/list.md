@@ -8,11 +8,11 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT ListCreate("Tuple<String,Double?>");
 ```
 
-``` yql
+```sql
 SELECT ListCreate(OptionalType(DataType("String")));
 ```
 
@@ -22,7 +22,7 @@ SELECT ListCreate(OptionalType(DataType("String")));
 
 **Примеры**
 
-``` yql
+```sql
 SELECT AsList(1, 2, 3, 4, 5);
 ```
 
@@ -32,7 +32,7 @@ SELECT AsList(1, 2, 3, 4, 5);
 
 **Примеры**
 
-``` yql
+```sql
 SELECT ListLength(list_column) FROM my_table;
 ```
 
@@ -42,7 +42,7 @@ SELECT ListLength(list_column) FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT ListCollect(list_column) FROM my_table;
 ```
 
@@ -57,11 +57,11 @@ SELECT ListCollect(list_column) FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT ListSortDesc(list_column) FROM my_table;
 ```
 
-``` yql
+```sql
 $list = AsList(
     AsTuple("x", 3),
     AsTuple("xx", 1),
@@ -85,7 +85,7 @@ SELECT ListSort($list, ($x) -> {
 
 **Примеры**
 
-``` yql
+```sql
 SELECT ListCount(list_column) FROM my_table;
 ```
 
@@ -95,7 +95,7 @@ SELECT ListCount(list_column) FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT ListExtend(
     list_column_1,
     list_column_2,
@@ -112,7 +112,7 @@ SELECT ListExtend(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     ListZip(list_column_1, list_column_2, list_column_3),
     ListZipAll(list_column_1, list_column_2)
@@ -124,7 +124,7 @@ FROM my_table;
 Построить список пар (`Tuple`), содержащих номер элемента и сам элемент (`List<Tuple<Uint64,list_element_type>>`).
 
 **Примеры**
-``` yql
+```sql
 SELECT ListEnumerate(list_column) FROM my_table;
 ```
 
@@ -134,7 +134,7 @@ SELECT ListEnumerate(list_column) FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT ListReverse(list_column) FROM my_table;
 ```
 
@@ -146,7 +146,7 @@ SELECT ListReverse(list_column) FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     ListSkip(list_column, 3)
 FROM my_table;
@@ -160,7 +160,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT ListTake(list_column, 3) FROM my_table;
 ```
 
@@ -170,7 +170,7 @@ SELECT ListTake(list_column, 3) FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     ListIndexOf(list_column, 123)
 FROM my_table;
@@ -200,7 +200,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 $callable = Python::test("(Int64)->Bool", "def test(i): return i % 2");
 SELECT
     ListMap(list_column, ($x) -> { RETURN $x > 2; }),
@@ -217,7 +217,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     ListUniq(list_column)
 FROM my_table;
@@ -234,7 +234,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     ListAll(bool_column),
     ListAny(bool_column)
@@ -247,7 +247,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     ListHas(list_column, "my_needle")
 FROM my_table;
@@ -259,7 +259,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     ListMax(numeric_list_column) AS max,
     ListMin(numeric_list_column) AS min,
@@ -289,7 +289,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     ListFromRange(-2, 2), -- [-2, -1, 0, 1]
     ListFromRange(2, 1, -0.5); -- [2.0, 1.5]
@@ -306,7 +306,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 SELECT ListReplicate(true, 3); -- [true, true, true]
 ```
 
@@ -318,7 +318,7 @@ SELECT ListReplicate(true, 3); -- [true, true, true]
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     ListConcat(string_list_column)
 FROM my_table;
@@ -330,7 +330,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     ListExtract(struct_list_column, "MyMember")
 FROM my_table;
@@ -349,7 +349,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 $data = AsList(1, 2, 5, 1, 2, 5);
 
 SELECT
@@ -371,7 +371,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 SELECT ListAggregate(AsList(1, 2, 3), AGGREGATION_FACTORY("Sum")); -- 6
 ```
 
@@ -388,7 +388,7 @@ SELECT ListAggregate(AsList(1, 2, 3), AGGREGATION_FACTORY("Sum")); -- 6
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     ToDict(tuple_list_column)
 FROM my_table;
@@ -401,7 +401,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     ToSet(list_column)
 FROM my_table;

@@ -46,7 +46,7 @@
 
 {% endif %}
 
-## Создайте схему {#create-table}
+## Создайте таблицу {#create-table}
 
 Чтобы начать работать с базой, создайте новую таблицу с помощью оператора [CREATE TABLE](yql/reference/syntax/create_table.md).
 

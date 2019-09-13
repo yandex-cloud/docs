@@ -8,11 +8,11 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT DictCreate("String", "Tuple<String,Double?>");
 ```
 
-``` yql
+```sql
 SELECT DictCreate("Tuple<Int32?,String>", OptionalType(DataType("String")));
 ```
 
@@ -22,7 +22,7 @@ SELECT DictCreate("Tuple<Int32?,String>", OptionalType(DataType("String")));
 
 **Примеры**
 
-``` yql
+```sql
 SELECT DictItems(dict_column)
 FROM my_table;
 ```
@@ -33,7 +33,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT DictKeys(dict_column)
 FROM my_table;
 ```
@@ -44,7 +44,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT DictPayloads(dict_column)
 FROM my_table;
 ```
@@ -55,7 +55,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT DictLookup(dict_column, "foo")
 FROM my_table;
 ```
@@ -66,7 +66,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT DictContains(dict_column, "foo")
 FROM my_table;
 ```
@@ -86,7 +86,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT DictAggregate(AsDict(
     AsTuple(1, AsList("foo", "bar")),
     AsTuple(2, AsList("baz", "qwe"))), 
@@ -106,7 +106,7 @@ SELECT DictAggregate(AsDict(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT SetIsDisjoint(ToSet(AsList(1, 2, 3)), AsList(7, 4)); -- true
 SELECT SetIsDisjoint(ToSet(AsList(1, 2, 3)), ToSet(AsList(3, 4))); -- false
 ```
@@ -122,7 +122,7 @@ SELECT SetIsDisjoint(ToSet(AsList(1, 2, 3)), ToSet(AsList(3, 4))); -- false
 
 **Примеры**
 
-``` yql
+```sql
 SELECT SetIntersection(ToSet(AsList(1, 2, 3)), ToSet(AsList(3, 4))); -- { 3 }
 SELECT SetIntersection(
     AsDict(AsTuple(1, "foo"), AsTuple(3, "bar")),
@@ -142,7 +142,7 @@ SELECT SetIntersection(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT SetIncludes(ToSet(AsList(1, 2, 3)), AsList(3, 4)); -- false
 SELECT SetIncludes(ToSet(AsList(1, 2, 3)), ToSet(AsList(2, 3))); -- true
 ```
@@ -158,7 +158,7 @@ SELECT SetIncludes(ToSet(AsList(1, 2, 3)), ToSet(AsList(2, 3))); -- true
 
 **Примеры**
 
-``` yql
+```sql
 SELECT SetUnion(ToSet(AsList(1, 2, 3)), ToSet(AsList(3, 4))); -- { 1, 2, 3, 4 }
 SELECT SetUnion(
     AsDict(AsTuple(1, "foo"), AsTuple(3, "bar")),
@@ -173,7 +173,7 @@ SELECT SetUnion(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT SetDifference(ToSet(AsList(1, 2, 3)), ToSet(AsList(3, 4))); -- { 1, 2 }
 SELECT SetDifference(
     AsDict(AsTuple(1, "foo"), AsTuple(2, "bar")), 
@@ -192,7 +192,7 @@ SELECT SetDifference(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT SetSymmetricDifference(ToSet(AsList(1, 2, 3)), ToSet(AsList(3, 4))); -- { 1, 2, 4 }
 SELECT SetSymmetricDifference(
     AsDict(AsTuple(1, "foo"), AsTuple(3, "bar")),

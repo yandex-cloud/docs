@@ -33,7 +33,7 @@ SELECT "fo" || "o";
 
 **Примеры**
 
-``` yql
+```sql
 SELECT * FROM my_table
 WHERE string_column REGEXP '\\d+';
 -- второй слеш нужен, так как все
@@ -41,7 +41,7 @@ WHERE string_column REGEXP '\\d+';
 -- могут принимать С-escaped строки
 ```
 
-``` yql
+```sql
 SELECT
     string_column LIKE '___!_!_!_!!!!!!' ESCAPE '!'
     -- ищет строку из ровно 9 символов:
@@ -51,7 +51,7 @@ SELECT
 FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT * FROM my_table
 WHERE key LIKE 'foo%bar';
 -- вероятно, физически просканирует только ключи,
@@ -67,12 +67,12 @@ WHERE key LIKE 'foo%bar';
 
 **Примеры**
 
-``` yql
+```sql
 SELECT 2 + 2;
 
 ```
 
-``` yql
+```sql
 SELECT 0.0 / 0.0;
 ```
 
@@ -85,7 +85,7 @@ SELECT 0.0 / 0.0;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT 2 > 1;
 ```
 
@@ -95,7 +95,7 @@ SELECT 2 > 1;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT 3 > 0 AND false;
 ```
 
@@ -110,7 +110,7 @@ SELECT 3 > 0 AND false;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     key << 10 AS key,
     ~value AS value
@@ -123,7 +123,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT key FROM my_table
 WHERE value IS NOT NULL;
 ```
@@ -134,7 +134,7 @@ WHERE value IS NOT NULL;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT * FROM my_table
 WHERE key BETWEEN 10 AND 20;
 ```
@@ -160,22 +160,22 @@ WHERE key BETWEEN 10 AND 20;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT column IN (1, 2, 3)
 FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT * FROM my_table
 WHERE string_column IN ("a", "b", "c");
 ```
 
-``` yql
+```sql
 $foo = AsList(1, 2, 3);
 SELECT 1 IN $foo;
 ```
 
-``` yql
+```sql
 $values = (SELECT column + 1 FROM table);
 SELECT * FROM my_table WHERE
    -- фильтрация по in-memory хеш-таблице на основе table
@@ -194,15 +194,15 @@ SELECT * FROM my_table WHERE
 
 **Примеры**
 
-``` yql
+```sql
 SELECT key AS k FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT t.key FROM my_table AS t;
 ```
 
-``` yql
+```sql
 SELECT
     MyFunction(key, 123 AS my_optional_arg)
 FROM my_table;
@@ -216,7 +216,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     CAST("12345" AS Double),         -- 12345.0
     CAST(1.2345 AS Byte),            -- 1
@@ -233,7 +233,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   CASE
     WHEN value > 0
@@ -243,7 +243,7 @@ SELECT
 FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT
   CASE value
     WHEN 0 THEN "zero"
@@ -270,7 +270,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   123l AS Int64,
   0b01u AS Uint32,
@@ -286,11 +286,11 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 -- comment
 ```
 
-``` yql
+```sql
 /* comment */
 ```
 
@@ -300,11 +300,11 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 SELECT [Some column] FROM [Some-Table];
 ```
 
-``` yql
+```sql
 SELECT `Some column` FROM `Some\tTable`;
 ```
 
@@ -324,7 +324,7 @@ SELECT `Some column` FROM `Some\tTable`;
 
 **Примеры**
 
-``` yql
+```sql
 $multiplier = 712;
 SELECT
   a * $multipler, -- $multiplier is 712
@@ -337,7 +337,7 @@ SELECT
 FROM abc_table;
 ```
 
-``` yql
+```sql
 $intermediate = (
   SELECT
     value * value AS square,
@@ -350,12 +350,12 @@ INNER JOIN $intermediate AS b
 ON a.value == b.square;
 ```
 
-``` yql
+```sql
 $a, $b, $c = AsTuple(1, 5u, "test"); -- распаковка кортежа
 SELECT $a, $b, $c;
 ```
 
-``` yql
+```sql
 $x, $y = AsTuple($y, $x); -- swap значений выражений
 ```
 
@@ -371,7 +371,7 @@ $x, $y = AsTuple($y, $x); -- swap значений выражений
 
 **Примеры**
 
-``` yql
+```sql
 $x = ($y) -> {
     $prefix = "x";
     RETURN $prefix || $y;
@@ -386,7 +386,7 @@ SELECT $x("y"); -- "xy"
 
 **Примеры**
 
-``` yql
+```sql
 $text = @@some
 multiline
 text@@;
@@ -412,7 +412,7 @@ SELECT LENGTH($text);
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   t.struct.member,
   t.tuple.7,
@@ -421,7 +421,7 @@ SELECT
 FROM my_table AS t;
 ```
 
-``` yql
+```sql
 SELECT
   Sample::ReturnsStruct().member;
 ```

@@ -6,10 +6,10 @@
 
 **Примеры**
 
-``` yql
+```sql
 DISCARD SELECT 1;
 ```
-``` yql
+```sql
 INSERT INTO result_table WITH TRUNCATE
 SELECT * FROM
 my_table

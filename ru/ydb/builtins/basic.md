@@ -13,21 +13,21 @@
 Приведенные справа примеры эквивалентны.
 
 **Примеры:**
-``` yql
+```sql
 SELECT COALESCE(
   maybe_empty_column,
   "it's empty!"
 ) FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT NVL(
   maybe_empty_column,
   "it's empty!"
 ) FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT
   maybe_empty_column ?? "it's empty!"
 FROM my_table;
@@ -40,7 +40,7 @@ FROM my_table;
 Для вычисления длины строки в символах unicode можно воспользоваться функцией [Unicode::GetLength](../udf/list/unicode.md).
 
 **Примеры:**
-``` yql
+```sql
 SELECT LENGTH("foo");
 ```
 
@@ -60,10 +60,10 @@ SELECT LENGTH("foo");
 Если указанные позиция и длина выходят за пределы строки, возвращает пустую строку.
 
 **Примеры:**
-``` yql
+```sql
 SELECT SUBSTRING("abcde", 1, 2); -- bc
 ```
-``` yql
+```sql
 SELECT SUBSTRING("abcde", 3); -- de
 ```
 
@@ -76,7 +76,7 @@ SELECT SUBSTRING("abcde", 3); -- de
 Аргумент `else_expression` можно не указывать: в этом случае, если условие ложно (`condition_expression` вернул `false`), будет возвращено пустое значение  (Optional type), с типом, соответствующим `then_expression` и допускающим значение `NULL`.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
   IF(foo > 0, bar, baz) AS bar_or_baz,
   IF(foo > 0, foo) AS only_positive_foo
@@ -95,7 +95,7 @@ FROM my_table;
 Если один из агрументов `Double`, то в выдаче `Double`, иначе `Float`. Если один из агрументов `Optional`, то и в выдаче `Optional`.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
   NANVL(double_column, 0.0)
 FROM my_table;
@@ -124,19 +124,19 @@ FROM my_table;
 * `SELECT RANDOM(some_column), RANDOM(some_column + 1) FROM table;` или `SELECT RANDOM(some_column), RANDOM(other_column) FROM table;` — две колонки, и все с разными числами.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     Random(key) -- [0, 1)
 FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT
     RandomNumber(key) -- [0, Max<Uint64>)
 FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT
     RANDOM(column) AS rand1,
     RANDOM(column) AS rand2, -- same as rand1
@@ -152,10 +152,10 @@ FROM my_table;
 Аргументы опциональны и работают по тому же принципу, что и у [RANDOM](#random).
 
 **Примеры:**
-``` yql
+```sql
 SELECT CurrentUtcDate();
 ```
-``` yql
+```sql
 SELECT CurrentUtcTimestamp(TableRow()) FROM my_table;
 ```
 
@@ -169,7 +169,7 @@ SELECT CurrentUtcTimestamp(TableRow()) FROM my_table;
 `GREATEST` является синонимом к `MAX_OF`, а `LEAST` — к `MIN_OF`.
 
 **Примеры:**
-``` yql
+```sql
 SELECT MIN_OF(1, 2, 3);
 ```
 
@@ -186,7 +186,7 @@ SELECT MIN_OF(1, 2, 3);
 * В `AsDict` в качестве аргументов ожидаются `Tuple` из двух элементов: ключ и значение, соответственно.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
   AsTuple(1, 2, "3") AS tuple,
   AsStruct(1 AS a,
@@ -235,7 +235,7 @@ AsTagged оборачивает значение в Tagged тип данных �
 Аргументов нет. Возвращает строку c полным путём к таблице, либо пустую строку при использовании в некорректном контексте.
 
 **Примеры:**
-``` yql
+```sql
 SELECT TablePath() FROM CONCAT(table_a, table_b);
 ```
 
@@ -246,7 +246,7 @@ SELECT TablePath() FROM CONCAT(table_a, table_b);
 Аргументов нет. При использовании в сочетании с [CONCAT](../syntax/extensions.md#concat), [RANGE](../syntax/extensions.md#range) и другими подобными механизмами нумерация начинается заново для каждой таблицы на входе. В случае использования в некорректном контексте возвращает 0.
 
 **Примеры:**
-``` yql
+```sql
 SELECT TableRecord() FROM my_table;
 ```
 {% endif %}
@@ -255,7 +255,7 @@ SELECT TableRecord() FROM my_table;
 Получение всей строки таблицы целиком в виде структуры. Аргументов нет.
 
 **Примеры:**
-``` yql
+```sql
 SELECT TableRecord() FROM my_table;
 ```
 {% if yt %}
@@ -266,7 +266,7 @@ SELECT TableRecord() FROM my_table;
 Аргумент `FileContent` и `FilePath` — строка c алиасом.
 
 **Примеры:**
-``` yql
+```sql
 SELECT "Content of "
   || FilePath("my_file.txt")
   || ": "
@@ -281,7 +281,7 @@ SELECT "Content of "
 Также см. [PRAGMA File](../pragmas.md#file) и [PRAGMA Folder](../pragmas.md#folder).
 
 **Примеры:**
-``` yql
+```sql
 PRAGMA File("foo/1.txt", "http://url/to/somewhere");
 PRAGMA File("foo/2.txt", "http://url/to/somewhere/else");
 PRAGMA File("bar/3.txt", "http://url/to/some/other/place");
@@ -302,10 +302,10 @@ SELECT FolderPath("foo"); -- в директории по возвращённо
 2. Имя приложенного файла.
 
 **Примеры:**
-``` yql
+```sql
 SELECT ListLength(ParseFile("String", "my_file.txt"));
 ```
-``` yql
+```sql
 SELECT * FROM my_table
 WHERE int_column IN ParseFile("Int64", "my_file.txt"));
 ```
@@ -319,7 +319,7 @@ WHERE int_column IN ParseFile("Int64", "my_file.txt"));
 Значение по умолчанию используется только в случае отсутствия колонки в схеме данных. Чтобы подставить значение по умолчанию в любом случае можно использовать [COALESCE](#coalesce).
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     WeakField(my_column, "String", "no value"),
     WeakField(my_table.other_column, "Int64")
@@ -344,21 +344,21 @@ FROM my_table;
 Для проверки условий по финальному результату вычисления Ensure удобно использовать в сочетании с [DISCARD SELECT](../syntax/extensions.md#discard).
 
 **Примеры:**
-``` yql
+```sql
 SELECT Ensure(
     value,
     value < 100,
     "value out or range"
 ) AS value FROM my_table;
 ```
-``` yql
+```sql
 SELECT EnsureType(
     value,
     TypeOf(other_value),
     "expected value and other_value to be of same type"
 ) AS value FROM my_table;
 ```
-``` yql
+```sql
 SELECT EnsureConvertibleTo(
     value,
     "Double?",
@@ -385,7 +385,7 @@ EvaluateAtom позволяет динамически менять те час�
 * данный функционал полностью заблокирован в YQL over KiKiMR.
 
 **Примеры:**
-``` yql
+```sql
 $now = DateTime::TimestampFromMicroSeconds(YQL::Now());
 SELECT EvaluateExpr(
     DateTime::DateStartOfWeek(
@@ -394,7 +394,7 @@ SELECT EvaluateExpr(
 );
 ```
 
-``` yql
+```sql
 USE hahn;
 
 $folder_path = AsList("home", "yql", "tutorial");
@@ -425,7 +425,7 @@ LIMIT $limit;
 * не поддерживаются варианты с началом/концом интервала, а также повторами.
 
 **Примеры:**
-``` yql
+```sql
  SELECT
   Bool("true"),
   Uint8("0"),
@@ -458,7 +458,7 @@ LIMIT $limit;
 При отсутствии данной информации, например при запуске в embedded режиме, возвращают строку.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     CurrentOperationId(),
     CurrentOperationSharedId(),
@@ -470,7 +470,7 @@ SELECT
 Конвертация чисел в строку со своим бинарным представлением в little endian и обратно.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     ToBytes(123), -- "\u0001\u0000\u0000\u0000"
     FromBytes(
@@ -489,7 +489,7 @@ SELECT
 2. Индекс: `Uint32`.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     ByteAt("foo", 0) -- 102
     ByteAt("foo", 1) -- 111
@@ -508,7 +508,7 @@ SELECT
 TestBit возвращает `true/false`. Остальные функции возвращают копию своего первого аргумента с проведенным соответствующим преобразованием.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     TestBit(1u, 0), -- true
     SetBit(8u, 0); -- 9
@@ -519,7 +519,7 @@ SELECT
 Абсолютное значение числа.
 
 **Примеры:**
-``` yql
+```sql
 SELECT Abs(-123); -- 123
 ```
 
@@ -530,7 +530,7 @@ SELECT Abs(-123); -- 123
 Обратная операция — [Unwrap](#unwrap).
 
 **Примеры:**
-``` yql
+```sql
 SELECT
   Just("my_string"); --  String?
 ```
@@ -547,7 +547,7 @@ SELECT
 Обратная операция — [Just](#just).
 
 **Примеры:**
-``` yql
+```sql
 $value = Just("value");
 
 SELECT Unwrap($value, "Unexpected NULL for $value");
@@ -560,7 +560,7 @@ SELECT Unwrap($value, "Unexpected NULL for $value");
 [Подробнее о ParseType и других функциях для работы с типами данных](types.md).
 
 **Примеры:**
-``` yql
+```sql
 SELECT
   Nothing(ParseType("String?")); -- пустое значение (NULL) с типом String?
 ```
@@ -572,7 +572,7 @@ SELECT
 Полный список встроенных функций находится в [документации к s-expressions](../s_expressions/functions.md), альтернативному внутреннему синтаксису YQL.  Любую из не упомянутых выше встроенных функций можно вызвать, добавив к ее имени префикс `YQL::` .
 
 **Примеры:**
-``` yql
+```sql
 SELECT
   YQL::Concat("a", "b"); -- в реальности так писать не рекомендуется,
                          -- так как это аналог SELECT "a" || "b";

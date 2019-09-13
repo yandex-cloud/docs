@@ -22,7 +22,7 @@ items:
       href: concepts/datamodel.md
     - name: Типы данных
       href: concepts/datatypes.md
-    - name: Транзакции и запросы к YDB
+    - name: Транзакции
       href: concepts/transactions.md
     - name: Вторичные индексы
       href: concepts/secondary_index.md
@@ -48,8 +48,8 @@ items:
       href: api/error_handling.md
   - name: Справочник YQL
     items:
-    - name: Начало работы
-      href: yql/reference/quickstart.md
+    - name: Обзор
+      href: yql/reference/overview.md
     - name: Типы данных
       items:
       - name: Простые

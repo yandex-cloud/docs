@@ -4,7 +4,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 CREATE TABLE table_name (
     column1 type1,
     column2 type2,
@@ -20,7 +20,7 @@ CREATE TABLE table_name (
 
 **Примеры**
 
-``` yql
+```sql
 CREATE TABLE my_table (
     a Uint64,
     b Bool,

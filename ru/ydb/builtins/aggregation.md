@@ -7,10 +7,10 @@
 Как и другие агрегатные функции, может использоваться в сочетании с `GROUP BY` для получения статистики по частям таблицы, соответствующим значениям в столбцах, по которым идет группировка.
 
 **Примеры:**
-``` yql
+```sql
 SELECT COUNT(*) FROM my_table;
 ```
-``` yql
+```sql
 SELECT COUNT(value) FROM my_table GROUP BY key;
 ```
 
@@ -21,7 +21,7 @@ SELECT COUNT(value) FROM my_table GROUP BY key;
 В качестве аргумента допустимо произвольное вычислимое выражение с числовым результатом.
 
 **Примеры:**
-``` yql
+```sql
 SELECT MIN(value), MAX(value) FROM my_table;
 ```
 
@@ -33,7 +33,7 @@ SELECT MIN(value), MAX(value) FROM my_table;
 
 Целые числа автоматически расширяются до 64 бит, чтобы снизить риск переполнения.
 
-``` yql
+```sql
 SELECT SUM(value) FROM my_table;
 ```
 
@@ -44,7 +44,7 @@ SELECT SUM(value) FROM my_table;
 Целочисленные значения и интервалы времени автоматически приводятся к Double.
 
 **Примеры:**
-``` yql
+```sql
 SELECT AVG(value) FROM my_table;
 ```
 
@@ -57,7 +57,7 @@ SELECT AVG(value) FROM my_table;
 Функция не выполняет неявного приведения типов к булевым для строк и чисел.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
   COUNT_IF(value % 2 == 1) AS odd_count
 FROM my_table;
@@ -70,7 +70,7 @@ FROM my_table;
 Таким образом, `SUM_IF(value, condition)` является чуть более короткой записью для `SUM(IF(condition, value))`, аналогично для `AVG`. Расширение типа данных аргумента работает так же аналогично функциям без суффикса.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
   SUM_IF(value, value % 2 == 1) AS odd_sum,
   AVG_IF(value, value % 2 == 1) AS odd_avg,
@@ -91,13 +91,13 @@ FROM my_table;
 На данный момент все три функции являются алиасами, но в будущем `CountDistinctEstimate` может начать использовать какой-то другой алгоритм.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
   CountDistinctEstimate(my_column)
 FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT
   HyperLogLog(my_column, 4)
 FROM my_table;
@@ -110,7 +110,7 @@ FROM my_table;
 Из-за отсутствия гарантий `SOME` вычислительно дешевле, чем часто использующиеся в подобных ситуациях `MIN/MAX`.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
   SOME(value)
 FROM my_table;
@@ -125,7 +125,7 @@ FROM my_table;
 Например, можно использовать в сочетании с `DISTINCT` и функцией [String::JoinFromList](../udf/list/string.md) (аналог `','.join(list)` из Python) для распечатки в строку всех значений, которые встретились в столбце после применения `GROUP BY`.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
   key,
   String::JoinFromList(
@@ -136,7 +136,7 @@ FROM my_table
 GROUP BY key;
 ```
 
-``` yql
+```sql
 SELECT
   key,
   LIST(value, 1000)
@@ -161,7 +161,7 @@ GROUP BY key;
     Если второй аргумент всегда NULL, то результатом агрегации будет NULL.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
   MIN_BY(value, LENGTH(value)),
   MAX_BY(value, key, 100),
@@ -182,7 +182,7 @@ FROM my_table;
 Если все переданные значения — NULL, возвращает NULL.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
   STDDEV(numeric_column),
   VARIANCE(numeric_column)
@@ -198,7 +198,7 @@ FROM my_table;
 В отличии от большинства других агрегатных функций не пропускают `NULL`, а считают его за 0.
 
 
-``` yql
+```sql
 SELECT
   CORRELATION(numeric_column, another_numeric_column),
   COVARIANCE(numeric_column, another_numeric_column)
@@ -212,7 +212,7 @@ FROM my_table;
 !!! info "Ограничение"
     Первый аргумент (N) должен быть именем колонки таблицы. Если это ограничение необходимо обойти, можно использовать подзапрос. Ограничение введено для упрощения вычислений, поскольку в реализации несколько вызовов с одинаковым первым аргументом (N) склеиваются в один проход.
 
-``` yql
+```sql
 SELECT
     MEDIAN(numeric_column),
     PERCENTILE(numeric_column, 0.99)
@@ -242,7 +242,7 @@ FROM my_table;
 [Используемая библиотека с реализацией в Аркадии](https://a.yandex-team.ru/arc/trunk/arcadia/yweb/robot/kiwi_aggregators/histogram/)
 
 Доступны разные модификации алгоритма:
-``` yql
+```sql
 AdaptiveDistanceHistogram
 AdaptiveWeightHistogram
 AdaptiveWardHistogram
@@ -269,13 +269,13 @@ While FastGreedyShrink is used most of the time, SlowShrink is mostly used for h
 
 ### Примеры
 
-``` yql
+```sql
 SELECT
         HISTOGRAM(numeric_column)
 FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT
     Histogram::Print(
         HISTOGRAM(numeric_column, 10),
@@ -301,7 +301,7 @@ FROM my_table;
 Если разброс входных значений неконтролируемо велик, рекомендуется указывать минимальное и максимальное значение для предотвращения потенциальных падений из-за высокого потребления памяти.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     LogarithmicHistogram(numeric_column, 2)
 FROM my_table;
@@ -313,7 +313,7 @@ FROM my_table;
 Логика работы эквивалентна функциям Python `all()` и `any()` соответственно.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
   BOOL_AND(bool_column),
   BOOL_OR(bool_column)
@@ -324,7 +324,7 @@ FROM my_table;
 
 Применение соответствующей битовой операции ко всем значениям числовой колонки или выражения.
 
-``` yql
+```sql
 SELECT
   BIT_XOR(unsigned_numeric_value)
 FROM my_table;

@@ -6,7 +6,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 UPDATE my_table 
 SET Value1 = YQL::ToString(Value2 + 1), Value2 = Value2 - 1
 WHERE Key1 > 1;
@@ -20,7 +20,7 @@ COMMIT;
 
 **Примеры**
 
-``` yql
+```sql
 to_update = (
     SELECT Key, SubKey, "Updated" AS Value FROM my_table
     WHERE Key = 1

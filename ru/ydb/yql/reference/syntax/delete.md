@@ -5,7 +5,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 DELETE FROM my_table 
 WHERE Key1 == 1 AND Key2 >= "One";
 COMMIT;
@@ -17,7 +17,7 @@ COMMIT;
 
 **Примеры**
 
-``` yql
+```sql
 $to_delete = (
     SELECT Key, SubKey FROM my_table WHERE Value = "ToDelete"
 );

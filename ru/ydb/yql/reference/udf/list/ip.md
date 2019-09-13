@@ -22,7 +22,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Ip::IsEmbeddedIPv4(
   Ip::FromString("::ffff:77.75.155.3")
 ); -- true

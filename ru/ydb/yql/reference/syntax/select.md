@@ -8,11 +8,11 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT "Hello, world!";
 ```
 
-``` yql
+```sql
 SELECT 2 + 2;
 ```
 
@@ -24,16 +24,16 @@ SELECT 2 + 2;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT key FROM my_table;
 ```
 
-``` yql
+```sql
 SELECT * FROM
   (SELECT value FROM my_table);
 ```
 
-``` yql
+```sql
 $table_name = "my_" || "table";
 SELECT * FROM $table_name;
 ```
@@ -44,7 +44,7 @@ SELECT * FROM $table_name;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT key FROM my_table
 WHERE value > 0;
 ```
@@ -65,7 +65,7 @@ WHERE value > 0;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT key, string_column
 FROM my_table
 ORDER BY key DESC, LENGTH(string_column) ASC;
@@ -81,17 +81,17 @@ OFFSET указывает отступ от начала (в строках). П
 
 **Примеры**
 
-``` yql
+```sql
 SELECT key FROM my_table
 LIMIT 7;
 ```
 
-``` yql
+```sql
 SELECT key FROM my_table
 LIMIT 7 OFFSET 3;
 ```
 
-``` yql
+```sql
 SELECT key FROM my_table
 LIMIT 3, 7; -- эквивалентно предыдущему примеру
 ```
@@ -104,7 +104,7 @@ SELECT DISTINCT выбирает уникальные строки.
 
 **Примеры**
 
-``` yql
+```sql
 SELECT DISTINCT value -- только уникальные значения из таблицы
 FROM my_table;
 ```
@@ -117,7 +117,7 @@ FROM my_table;
 
 **Примеры**
 
-``` yql
+```sql
 SELECT 1 AS x
 UNION ALL
 SELECT 2 AS y
@@ -131,11 +131,11 @@ WITHOUT позволяет убрать часть столбцов из рез�
 
 **Примеры**
 
-``` yql
+```sql
 SELECT * WITHOUT foo, bar FROM my_table;
 ```
 
-``` yql
+```sql
 PRAGMA simplecolumns;
 SELECT * WITHOUT t.foo FROM my_table AS t
 CROSS JOIN (SELECT 1 AS foo) AS v;
@@ -147,11 +147,11 @@ CROSS JOIN (SELECT 1 AS foo) AS v;
 
 **Примеры**
 
-``` yql
+```sql
 FROM my_table SELECT key, value;
 ```
 
-``` yql
+```sql
 FROM a_table AS a
 JOIN b_table AS b
 USING (key)
@@ -172,7 +172,7 @@ AS_TABLE($variable) позволяет использовать значение
 
 **Примеры**
 
-``` yql
+```sql
 $data = AsList(
     AsStruct(1u AS Key, "v1" AS Value),
     AsStruct(2u AS Key, "v2" AS Value),

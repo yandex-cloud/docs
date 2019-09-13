@@ -26,7 +26,7 @@
 
 #### Как обратиться к колонке, в имени которой есть знак минус или другой спецсимвол?
 Обернуть имя колонки в квадратные скобки или backticks по аналогии с именами таблиц:
-``` yql
+```sql
 SELECT [field-with-minus] FROM [table];
 SELECT `field-with-minus` FROM `table`;
 ```
@@ -37,13 +37,13 @@ SELECT `field-with-minus` FROM `table`;
 
 Например, такая схема часто присутствует у сортированных таблиц, полученных через YaMR-обертку. В этом случае доступ к `value` можно получить следующим образом:
 
-``` yql
+```sql
 SELECT WeakField(t.value,"String") FROM
 [path/to/my_table] as t;
 ```
 или
 
-``` yql
+```sql
 SELECT t._other{"value"} FROM
 [path/to/my_table] as t;
 ```

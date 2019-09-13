@@ -10,7 +10,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(ParseType("List<Int32>"));  -- List<int32>
 ```
 
@@ -20,11 +20,11 @@ SELECT FormatType(ParseType("List<Int32>"));  -- List<int32>
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(TypeOf("foo"));  -- String
 ```
 
-``` yql
+```sql
 SELECT FormatType(TypeOf(AsTuple(1, 1u))); -- Tuple<Int32,Uint32>
 ```
 
@@ -36,7 +36,7 @@ SELECT FormatType(TypeOf(AsTuple(1, 1u))); -- Tuple<Int32,Uint32>
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(TypeOf(
     InstanceOf(ParseType("Int32")) +
     InstanceOf(ParseType("Double"))
@@ -49,7 +49,7 @@ SELECT FormatType(TypeOf(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(DataType("Bool")); -- Bool
 ```
 
@@ -59,7 +59,7 @@ SELECT FormatType(DataType("Bool")); -- Bool
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(OptionalType(DataType("Bool"))); -- Bool?
 ```
 
@@ -69,7 +69,7 @@ SELECT FormatType(OptionalType(DataType("Bool"))); -- Bool?
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(ListType(DataType("Bool"))); -- List<Bool>
 ```
 
@@ -79,7 +79,7 @@ SELECT FormatType(ListType(DataType("Bool"))); -- List<Bool>
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(DictType(
     DataType("String"),
     DataType("Double")
@@ -91,7 +91,7 @@ SELECT FormatType(DictType(
 Строит тип кортежа по переданным типам элементов.
 
 **Примеры**
-``` yql
+```sql
 SELECT FormatType(TupleType(
     DataType("String"),
     DataType("Double"),
@@ -105,7 +105,7 @@ SELECT FormatType(TupleType(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(StructType(
     DataType("Bool") AS MyBool,
     ListType(DataType("String")) AS StringList
@@ -118,7 +118,7 @@ SELECT FormatType(StructType(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(VariantType(
   ParseType("Struct<foo:Int32,bar:Double>")
 )); -- Variant<'bar':Double,'foo':Int32>
@@ -130,7 +130,7 @@ SELECT FormatType(VariantType(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(ResourceType("Foo")); -- Resource<'Foo'>
 ```
 
@@ -147,7 +147,7 @@ SELECT FormatType(ResourceType("Foo")); -- Resource<'Foo'>
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(CallableType(
   1, -- optional args count
   DataType("Double"), -- result type
@@ -162,7 +162,7 @@ SELECT FormatType(CallableType(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(VoidType()); -- Void
 ```
 
@@ -172,7 +172,7 @@ SELECT FormatType(VoidType()); -- Void
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(ListItemType(
   ParseType("List<Int32>")
 )); -- Int32
@@ -184,7 +184,7 @@ SELECT FormatType(ListItemType(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(DictKeyType(
   ParseType("Dict<Int32,String>")
 )); -- Int32
@@ -196,7 +196,7 @@ SELECT FormatType(DictKeyType(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(TupleElementType(
   ParseType("Tuple<Int32,Double>"), 1
 )); -- Double
@@ -208,7 +208,7 @@ SELECT FormatType(TupleElementType(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(StructMemberType(
   ParseType("Struct<foo:Int32,bar:Double>"), "foo"
 )); -- Int32
@@ -220,7 +220,7 @@ SELECT FormatType(StructMemberType(
 
 **Примеры**
 
-``` yql
+```sql
 $callable_type = ParseType("(String,Bool)->Double");
 SELECT FormatType(CallableResultType(
     $callable_type
@@ -236,7 +236,7 @@ FormatType(CallableArgumentType(
 
 **Примеры**
 
-``` yql
+```sql
 SELECT FormatType(VariantUnderlyingType(
   ParseType("Variant<foo:Int32,bar:Double>")
 )), -- Struct<'bar':Double,'foo':Int32>

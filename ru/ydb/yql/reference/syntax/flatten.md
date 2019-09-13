@@ -66,7 +66,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
   t.item.0 AS key,
   t.item.1 AS value,
@@ -76,7 +76,7 @@ FROM my_table AS t
 FLATTEN DICT BY dict_column AS item;
 ```
 
-``` yql
+```sql
 SELECT * FROM (
     SELECT
         AsList(1, 2, 3) AS a,
@@ -92,7 +92,7 @@ SELECT * FROM (
 
 **Примеры**
 
-``` yql
+```sql
 SELECT x, y, z
 FROM (
   SELECT

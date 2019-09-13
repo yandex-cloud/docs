@@ -32,7 +32,7 @@
 
 Чтобы избежать компиляции регулярного выражения на каждой строке таблицы, необходимо обернуть вызов функции в [именованное выражение](../../syntax/expressions.md#named-nodes):
 
-``` yql
+```sql
 $re = Pire::Grep("\\d+"); -- создаем вызываемое значение для проверки конкретного регулярного выражения
 SELECT * FROM table WHERE $re(key); -- используем его для фильтрации таблицы
 ```
@@ -42,7 +42,7 @@ SELECT * FROM table WHERE $re(key); -- используем его для фил
 
 **Примеры**
 
-``` yql
+```sql
 $value = "xaaxaaxaa";
 $match = Pire::Match("a.*");
 $grep = Pire::Grep("axa");
@@ -96,7 +96,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 $multi_match = Pire::MultiMatch(@@a.*
 .*x.*
 .*axa.*@@);

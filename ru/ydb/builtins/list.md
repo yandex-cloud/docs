@@ -8,10 +8,10 @@
 
 **Примеры:**
 
-``` yql
+```sql
 SELECT ListCreate("Tuple<String,Double?>");
 ```
-``` yql
+```sql
 SELECT ListCreate(OptionalType(DataType("String")));
 ```
 
@@ -20,7 +20,7 @@ SELECT ListCreate(OptionalType(DataType("String")));
 Сконструировать список из 1 или более аргументов.
 
 **Примеры:**
-``` yql
+```sql
 SELECT AsList(1, 2, 3, 4, 5);
 ```
 
@@ -29,7 +29,7 @@ SELECT AsList(1, 2, 3, 4, 5);
 Количество элементов в списке.
 
 **Примеры:**
-``` yql
+```sql
 SELECT ListLength(list_column) FROM my_table;
 ```
 ## ListSort, ListSortAsc и ListSortDesc
@@ -43,10 +43,10 @@ SELECT ListLength(list_column) FROM my_table;
 2. Опциональное выражение для получения ключа сортировки из элемента списка (по умолчанию сам элемент).
 
 **Примеры:**
-``` yql
+```sql
 SELECT ListSortDesc(list_column) FROM my_table;
 ```
-``` yql
+```sql
 $list = AsList(
     AsTuple("x", 3),
     AsTuple("xx", 1),
@@ -61,7 +61,7 @@ SELECT ListSort($list, ($x) -> {RETURN $x.1;});
 Количество элементов в списке за вычетом пустых (`NULL`).
 
 **Примеры:**
-``` yql
+```sql
 SELECT ListCount(list_column) FROM my_table;
 ```
 
@@ -70,7 +70,7 @@ SELECT ListCount(list_column) FROM my_table;
 Последовательно соединить списки с одинаковым типом элементов (конкатенация списков).
 
 **Примеры:**
-``` yql
+```sql
 SELECT ListExtend(
     list_column_1,
     list_column_2,
@@ -86,7 +86,7 @@ SELECT ListExtend(
 Когда более короткий список исчерпан, в качестве пары к элементам более длинного списка подставляется пустое значение (`NULL`) соответствующего optional-типа.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     ListZip(list_column_1, list_column_2, list_column_3),
     ListZipAll(list_column_1, list_column_2)
@@ -98,7 +98,7 @@ FROM my_table;
 Построить список пар (Tuple), содержащих номер элемента и сам элемент.
 
 **Примеры:**
-``` yql
+```sql
 SELECT ListEnumerate(list_column) FROM my_table;
 ```
 
@@ -107,7 +107,7 @@ SELECT ListEnumerate(list_column) FROM my_table;
 Развернуть список.
 
 **Примеры:**
-``` yql
+```sql
 SELECT ListReverse(list_column) FROM my_table;
 ```
 
@@ -118,7 +118,7 @@ SELECT ListReverse(list_column) FROM my_table;
 Первый аргумент — исходный список, второй — сколько элементов пропустить.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     ListSkip(list_column, 3)
 FROM my_table;
@@ -129,7 +129,7 @@ FROM my_table;
 Возвращает копию списка, состоящую из ограниченного числа элементов второго списка. Первый аргумент — исходный список, второй — не больше сколько элементов с начала оставить.
 
 **Примеры:**
-``` yql
+```sql
 SELECT ListTake(list_column, 3) FROM my_table;
 ```
 
@@ -138,7 +138,7 @@ SELECT ListTake(list_column, 3) FROM my_table;
 Ищет элемент с указанным значением в списке и при первом обнаружении возвращает его индекс. Отсчет индексов начинается с 0, а в случае отсутствия элемента возвращается `NULL`.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     ListIndexOf(list_column, 123)
 FROM my_table;
@@ -166,7 +166,7 @@ FROM my_table;
 Некоторые функции из [s-expressions](../s_expressions/functions.md) ожидают в качестве дополнительного аргумента атом. В SQL-синтаксисе его проще всего создать с помощью встроенной функции `AsAtom`.
 
 **Примеры:**
-``` yql
+```sql
 $callable = Python::test("(Int64)->Bool", "def test(i): return i % 2");
 SELECT
     ListMap(list_column, ($x) -> { RETURN $x > 2; }),
@@ -180,7 +180,7 @@ FROM my_table;
 Возвращает копию списка, в котором оставляет только уникальный набор элементов.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     ListUniq(list_column)
 FROM my_table;
@@ -195,7 +195,7 @@ FROM my_table;
 В противном случае возвращает false.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     ListAll(bool_column),
     ListAny(bool_column)
@@ -207,7 +207,7 @@ FROM my_table;
 Содержит ли список указанный элемент.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     ListHas(list_column, "my_needle")
 FROM my_table;
@@ -218,7 +218,7 @@ FROM my_table;
 Применяет соответствующую агрегатную функцию ко всем элементам списка числовых значений.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     ListMax(numeric_list_column) AS max,
     ListMin(numeric_list_column) AS min,
@@ -247,7 +247,7 @@ FROM my_table;
 * Если шаг не положительный и не отрицательный <span class="gray;">(0 или NaN)</span>, то список будет пустой.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     ListFromRange(-2, 2), -- [-2, -1, 0, 1]
     ListFromRange(2, 1, -0.5); -- [2.0, 1.5]
@@ -263,7 +263,7 @@ SELECT
 2. число копий.
 
 **Примеры:**
-``` yql
+```sql
 SELECT ListReplicate(true, 3); -- [true, true, true]
 ```
 
@@ -274,7 +274,7 @@ SELECT ListReplicate(true, 3); -- [true, true, true]
 См. [String::JoinFromList](../udf/list/string.md), если нужны разделители.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     ListConcat(string_list_column)
 FROM my_table;
@@ -285,7 +285,7 @@ FROM my_table;
 По списку структур возвращает список содержащихся в них полей с указанным именем.
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     ListExtract(struct_list_column, "MyMember")
 FROM my_table;
@@ -302,7 +302,7 @@ FROM my_table;
 2. предикат.
 
 **Примеры:**
-``` yql
+```sql
 $data = AsList(1, 2, 5, 1, 2, 5);
 
 SELECT
@@ -320,7 +320,7 @@ SELECT
 * `ToMultiDict` из `List<Tuple<K, V>>` делает `Dict<K, List<V>>`
 
 **Примеры:**
-``` yql
+```sql
 SELECT
     ToDict(tuple_list_column)
 FROM my_table;

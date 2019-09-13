@@ -24,7 +24,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     COUNT(*) OVER w AS rows_count_in_window,
     some_other_value -- доступ к текущей строке
@@ -35,7 +35,7 @@ WINDOW w AS (
 );
 ```
 
-``` yql
+```sql
 SELECT
     LAG(my_column, 2) OVER w AS row_before_previous_one
 FROM my_table

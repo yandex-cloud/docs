@@ -6,7 +6,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     SUM(int_column) OVER w AS running_total
 FROM my_table
@@ -19,7 +19,7 @@ WINDOW w AS ();
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
     ROW_NUMBER() OVER w AS row_num
 FROM my_table
@@ -32,7 +32,7 @@ WINDOW w AS ();
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
    int_value - LAG(int_value) OVER w AS int_value_diff
 FROM my_table
@@ -53,7 +53,7 @@ WINDOW w AS ();
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
    LAST_VALUE(my_column) IGNORE NULLS OVER w
 FROM my_table
@@ -68,14 +68,14 @@ WINDOW w AS ();
 
 **Примеры**
 
-``` yql
+```sql
 SELECT
    RANK(my_column) OVER w
 FROM my_table
 WINDOW w AS ();
 ```
 
-``` yql
+```sql
 SELECT
    RANK() OVER w
 FROM my_table

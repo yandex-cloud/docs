@@ -19,7 +19,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Math::Pi(); -- 3.141592654
 SELECT Math::E();  -- 2.718281828
 ```
@@ -34,7 +34,7 @@ SELECT Math::E();  -- 2.718281828
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Math::IsNaN(0.0/0.0);    -- true
 SELECT Math::IsFinite(1.0/0.0); -- false
 ```
@@ -73,7 +73,7 @@ SELECT Math::IsFinite(1.0/0.0); -- false
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Math::Sqrt(256);     -- 16
 SELECT Math::Trunc(1.2345); -- 1
 ```
@@ -90,7 +90,7 @@ SELECT Math::Trunc(1.2345); -- 1
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Math::Atan2(1, 0);       -- 1.570796327
 SELECT Math::Remainder(2.1, 2); -- 0.1
 ```
@@ -105,7 +105,7 @@ SELECT Math::Remainder(2.1, 2); -- 0.1
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Math::Pow(2, 10);        -- 1024
 SELECT Math::Round(1.2345, -2); -- 1.23
 ```
@@ -119,6 +119,6 @@ SELECT Math::Round(1.2345, -2); -- 1.23
 
 **Примеры**
 
-``` yql
+```sql
 SELECT Math::FuzzyEquals(1.01, 1.0, 0.05); -- true
 ```

@@ -13,7 +13,7 @@
 
 **Примеры**
 
-``` yql
+```sql
 $struct = AsStruct(1 AS a);
 SELECT
   ExpandStruct(
@@ -37,7 +37,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 $struct = AsStruct(1 AS a);
 SELECT
   AddMember(
@@ -60,7 +60,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 $struct = AsStruct(1 AS a, 2 AS b);
 SELECT
   RemoveMember(
@@ -82,7 +82,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 $struct = AsStruct(1 AS a, 2 AS b);
 SELECT
   ForceRemoveMember(
@@ -103,7 +103,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 $struct1 = AsStruct(1 AS a, 2 AS b);
 $struct2 = AsStruct(3 AS c);
 SELECT
@@ -125,7 +125,7 @@ SELECT
 
 **Примеры**
 
-``` yql
+```sql
 $struct1 = AsStruct(1 AS a, 2 AS b);
 $struct2 = AsStruct(3 AS c);
 SELECT

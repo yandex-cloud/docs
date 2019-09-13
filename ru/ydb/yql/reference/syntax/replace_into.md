@@ -15,7 +15,7 @@
 
 Сохранение результата выборки SELECT:
 
-``` yql
+```sql
 REPLACE INTO my_table
 SELECT Key AS Key1, "Empty" AS Key2, Value AS Value1
 FROM my_table1;
@@ -24,7 +24,7 @@ COMMIT;
 
 Сохранение константных значений с помощью VALUES:
 
-``` yql
+```sql
 REPLACE INTO my_table (Key1, Key2, Value2) VALUES
     (1u, "One", 101),
     (2u, "Two", 102);

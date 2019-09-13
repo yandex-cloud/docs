@@ -11,7 +11,7 @@
 
 Сохранение константных значений с помощью VALUES:
 
-``` yql
+```sql
 INSERT INTO my_table (Key1, Key2, Value1, Value2) 
 VALUES (345987,'ydb', 'Яблочный край', 1414);
 COMMIT;
