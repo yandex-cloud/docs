@@ -6,6 +6,8 @@ items:
     href: quickstart.md
   - name: Пошаговые инструкции
     items:
+      - name: Все инструкции
+        href: operations/index.md
       - name: Настройка виртуальной машины в качестве NAT-шлюза
         href: operations/nat-instance.md
       - name: Подключение к узлу по SSH

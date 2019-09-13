@@ -12,8 +12,8 @@
 
 <!-- Тут вcе зависит от сервиса, но принцип следующий:
 
-1. Если вы еще не зарегистрированы в Яндекс.Облаке, перейдите в [консоль управления](https://console.cloud.yandex.ru).
-1. [На странице биллинга](https://console.cloud.yandex.ru/billing) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в Облако или зарегистрируйтесь, если вы еще не зарегистрированы.
+1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
 1. Если у вас нет пары SSH-ключей, [создайте их](../operations/vm-connect/ssh#creating-ssh-keys).
 
  -->
