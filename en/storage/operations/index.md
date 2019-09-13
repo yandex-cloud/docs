@@ -15,5 +15,6 @@
 - [{#T}](objects/download.md)
 - [{#T}](objects/link-for-download.md)
 - [{#T}](objects/delete.md)
+- [{#T}](objects/deleting-multipart.md)
 - [{#T}](objects/edit-acl.md)
 

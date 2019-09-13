@@ -49,7 +49,9 @@ items:
             href: operations/objects/link-for-download.md
           - name: Deleting an object
             href: operations/objects/delete.md
-          - name: Editing an object's ACL
+          - name: Deleting partially uploaded objects
+            href: operations/objects/deleting-multipart.md
+          - name: Editing an object ACL
             href: operations/objects/edit-acl.md
   - name: Concepts
     items:
@@ -57,7 +59,7 @@ items:
         href: concepts/index.md
       - name: Bucket
         href: concepts/bucket.md
-      - name: Object
+      - name: Objects
         href: concepts/object.md
       - name: Pre-signed URLs
         href: concepts/pre-signed-urls.md
@@ -65,7 +67,7 @@ items:
         href: concepts/multipart.md
       - name: Access control lists (ACLs)
         href: concepts/acl.md
-      - name: Upload files via HTML form
+      - name: Upload file via HTML form
         href: concepts/presigned-post-forms.md
       - name: Storage class
         href: concepts/storage-class.md
@@ -207,11 +209,11 @@ items:
             href: s3/api-ref/common-response-headers.md
           - name: Responses
             href: s3/api-ref/response-codes.md
-  - name: Access management
+  - name: Access control
     href: security/index.md
   - name: Pricing policy
     items:
-      - name: Current rules
+      - name: Current pricing policy
         href: pricing.md
       - name: Archive
         items:
