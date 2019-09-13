@@ -1,7 +1,7 @@
 ## План запросов вида (key1, key2) IN ((v1, v2), (v3, v4), ...)
 
 Сейчас это лучше записывать через JOIN с константной таблицей:
-```yql
+```sql
 $keys = AsList(
     AsStruct(1 AS Key1, "One" AS Key2),
     AsStruct(2 AS Key1, "Three" AS Key2),

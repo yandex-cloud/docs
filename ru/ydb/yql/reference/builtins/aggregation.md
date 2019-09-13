@@ -428,7 +428,7 @@ SELECT
 FROM my_table;
 ```
 
-```yql
+```sql
 $hist_factory = AGGREGATION_FACTORY("HISTOGRAM");
 
 SELECT

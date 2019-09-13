@@ -2,7 +2,7 @@
 
 {% if audience == "internal" %}
 
-Запросы YQL могут быть отправлены для выполнения в YDB следующими способами:
+Запросы могут быть отправлены для выполнения в YDB следующими способами:
 
 * из приложения, написанного с использованием YDB SDK для [C++](start_cpp.md), [Java](start_java.md), [Python](start_python.md);
 * при помощи [YQL](https://yql.yandex-team.ru/) интерфейса;
@@ -20,18 +20,18 @@
 
 {% else if audience == external %}
 
-Запросы YQL могут быть отправлены для выполнения в YDB следующими способами:
+Запросы могут быть отправлены для выполнения в YDB следующими способами:
 
 * из консоли управления;
-* из приложения, написанного с использованием YDB SDK для Java, [Python](https://github.com/yandex-cloud/ydb-python-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk).
+* из приложения, написанного с использованием YDB SDK для [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk).
 
-Для выполнения инструкций языка YQL в этом разделе будет использоваться консоль управления.
+Для выполнения запросов в этом разделе будет использоваться консоль управления.
 
 {% endif %}
 
 ## Предварительные требования {#prerequisite}
 
-Для выполнения запросов понадобится [база данных](create_manage_database.md) и [схема](schema.md).
+Для выполнения запросов понадобится создать [базу данных](create_manage_database.md) и [схему](schema.md).
 
 ## Вставьте и измените данные {#change-data}
 
@@ -46,7 +46,8 @@
 {% note important %}
 
 В консоль управления YQL включена PRAGMA AutoCommit. Это означает, что после каждого запроса автоматически будет выполняться COMMIT. Например, если вы введете несколько выражений (как показано в примере ниже) и выполните запрос, после запроса автоматически будет выполнен СOMMIT.
-```yql
+
+```sql
 REPLACE INTO episodes (series_id, season_id, episode_id, title) VALUES (1, 1, 1, "Yesterday's Jam");
 REPLACE INTO episodes (series_id, season_id, episode_id, title) VALUES (1, 1, 2, "Calamity Jen");
 ```
@@ -55,13 +56,13 @@ REPLACE INTO episodes (series_id, season_id, episode_id, title) VALUES (1, 1, 2,
 
 ### REPLACE {#replace}
 
-После создания таблиц *series*, *seasons* и *episodes* можно вставить данные в таблицу с помощью инструкции [REPLACE](../yql/reference/syntax/replace_into.md). Базовый синтаксис:
+После создания таблиц ```series```, ```seasons``` и ```episodes``` можно вставить данные в таблицу с помощью инструкции [REPLACE](../yql/reference/syntax/replace_into.md). Базовый синтаксис:
 
-```yql
-REPLACE INTO, имя_таблицы, список_столбцов, VALUES, список_добавляемых_значений
+```sql
+REPLACE INTO имя_таблицы (список_столбцов) VALUES (список_добавляемых_значений);
 ```
 
-Инструкция REPLACE используется для добавления новой или изменения существущей строки по заданному значению первичного ключа. Если строка с указанным значением первичного ключа не существует, она будет создана. Если строка уже существует, значения колонок существующей строки будут заменены новыми значениями. *При этом значения колонок не участвующих в операции устанавливаются в значения по умолчанию. В этом заключается единственное отличие от инструкции UPSERT.*
+Инструкция REPLACE используется для добавления новой или изменения существущей строки по заданному значению первичного ключа. Если строка с указанным значением первичного ключа не существует, она будет создана. Если строка уже существует, значения колонок существующей строки будут заменены новыми значениями. *При этом значения колонок не участвующих в операции устанавливаются в значения по умолчанию.* В этом заключается единственное отличие от инструкции UPSERT.
 
 {% note info %}
 
@@ -71,38 +72,7 @@ REPLACE INTO, имя_таблицы, список_столбцов, VALUES, сп
 
 Данные, добавленные с помощью следующего примера кода, будут использоваться далее в этом разделе.
 
-```yql
-REPLACE INTO series (series_id, title, release_date, series_info)
-VALUES
-    (
-        1,
-        "IT Crowd",
-        CAST(Date("2006-02-03") AS Uint64),
-        "The IT Crowd is a British sitcom produced by Channel 4, written by Graham Linehan, produced by Ash Atalla and starring Chris O'Dowd, Richard Ayoade, Katherine Parkinson, and Matt Berry."),
-    (
-        2,
-        "Silicon Valley",
-        CAST(Date("2014-04-06") AS Uint64),
-        "Silicon Valley is an American comedy television series created by Mike Judge, John Altschuler and Dave Krinsky. The series focuses on five young men who founded a startup company in Silicon Valley."
-    )
-    ;
-
-REPLACE INTO seasons (series_id, season_id, title, first_aired, last_aired)
-VALUES
-    (1, 1, "Season 1", CAST(Date("2006-02-03") AS Uint64), CAST(Date("2006-03-03") AS Uint64)),
-    (1, 2, "Season 2", CAST(Date("2007-08-24") AS Uint64), CAST(Date("2007-09-28") AS Uint64)),
-    (2, 1, "Season 1", CAST(Date("2014-04-06") AS Uint64), CAST(Date("2014-06-01") AS Uint64)),
-    (2, 2, "Season 2", CAST(Date("2015-04-12") AS Uint64), CAST(Date("2015-06-14") AS Uint64))
-;
-
-REPLACE INTO episodes (series_id, season_id, episode_id, title, air_date)
-VALUES
-    (1, 1, 1, "Yesterday's Jam", CAST(Date("2006-02-03") AS Uint64)),
-    (1, 1, 2, "Calamity Jen", CAST(Date("2006-02-03") AS Uint64)),
-    (2, 1, 1, "Minimum Viable Product", CAST(Date("2014-04-06") AS Uint64)),
-    (2, 1, 2, "The Cap Table", CAST(Date("2014-04-13") AS Uint64))
-;
-```
+{% include notitle [replace-into-3-columns](../../_includes/ydb/queries/replace-into-3-columns.md) %}
 
 ### UPSERT {#upsert}
 
@@ -114,27 +84,9 @@ VALUES
 
 {% endnote %}
 
-Код приведенный ниже вставит в таблицу *episodes* одну строчку с данными.
+Код приведенный ниже вставит в таблицу ```episodes``` одну строчку с данными.
 
-```yql
-UPSERT INTO episodes
-(
-    series_id,
-    season_id,
-    episode_id,
-    title,
-    air_date
-)
-VALUES
-(
-    2,
-    1,
-    3,
-    "Test Episode",
-    CAST(Date("2018-08-27") AS Uint64)
-)
-;
-```
+{% include notitle [upsert-into-3-columns](../../_includes/ydb/queries/upsert-into-3-columns.md) %}
 
 ### INSERT {#insert}
 
@@ -146,75 +98,35 @@ VALUES
 
 {% endnote %}
 
-Код приведенный ниже вставит в таблицу *episodes* одну строчку с данными.
+Код приведенный ниже вставит в таблицу ```episodes``` одну строчку с данными.
 
-```yql
-INSERT INTO episodes
-(
-    series_id,
-    season_id,
-    episode_id,
-    title,
-    air_date
-)
-VALUES
-(
-    2,
-    5,
-    21,
-    "Test 21",
-    CAST(Date("2018-08-27") AS Uint64)
-)
-;
-```
+{% include notitle [insert-into-3-columns](../../_includes/ydb/queries/insert-into-3-columns.md) %}
 
 ### UPDATE {#update}
 
 Инструкция [UPDATE](../yql/reference/syntax/update.md) изменяет значения колонок для строк таблицы, отфильтрованных по предикату из условия WHERE. Базовый синтаксис:
 
-```yql
-UPDATE имя_таблицы SET имя_столбца1=новое_значение_столбца1, ...,имя_столбцаN=новое_значение_столбцаN WHERE условия_для_фильтра_строк
+```sql
+UPDATE имя_таблицы SET имя_столбца1=новое_значение_столбца1, ... ,имя_столбцаN=новое_значение_столбцаN WHERE условия_для_фильтра_строк;
 ```
 
 Значения первичного ключа в рамках инструкции UPDATE не могут быть изменены. Введите и выполните следующую инструкцию UPDATE, чтобы изменить значение столбца ```title``` для эпизода с значениями столбцов ```series_id = 2```, ```season_id = 1```и ```episode_id = 3``` со значения "Test Episode" на значение "Test Episode Updated".
 
-```yql
-UPDATE episodes
-SET title="Test Episode Updated"
-WHERE
-    series_id = 2
-    AND season_id = 1
-    AND episode_id = 3
-;
-```
+{% include notitle [update-3-columns](../../_includes/ydb/queries/update-3-columns.md) %}
 
 ### DELETE {#delete}
 
-Инструкция DELETE удаляет строки таблицы, отфильтрованные по предикату из условия WHERE. Код приведенный ниже удалит из таблицы *episodes* эпизод со следующими значениями столбцов ```series_id = 2```, ```season_id = 1```, и ```episode_id = 3```.
+Инструкция DELETE удаляет строки таблицы, отфильтрованные по предикату из условия WHERE. Код приведенный ниже удалит из таблицы ```episodes``` эпизод со следующими значениями столбцов ```series_id = 2```, ```season_id = 1```, и ```episode_id = 3```.
 
-```yql
-DELETE
-FROM episodes
-WHERE
-    series_id = 2
-    AND season_id = 5
-    AND episode_id = 12
-;
-```
+{% include notitle [delete-from-3-columns](../../_includes/ydb/queries/delete-from-3-columns.md) %}
 
 ## Запросите данные при помощи SELECT {#select}
 
 Для чтения данных в таблице используется инструкция [SELECT](../yql/reference/syntax/select.md).
 
-Чтобы запросить данные из таблицы *series*, выполните код представленный ниже.
+Чтобы запросить данные из таблицы ```series```, выполните код представленный ниже.
 
-```yql
-SELECT
-    series_id,
-    title AS series_title,
-    DateTime::ToDate(DateTime::FromDays(release_date)) AS release_date
-FROM series;
-```
+{% include notitle [select-from-3-columns](../../_includes/ydb/queries/select-from-3-columns.md) %}
 
 {% if audience == "internal" %}
 
@@ -224,26 +136,29 @@ FROM series;
 
 {% endif %}
 
-Чтобы выбрать все столбцы в таблице, можно использовать звездочку. Для того, чтобы получить значения всех столбцов из таблицы *series*,
+Чтобы выбрать все столбцы в таблице, можно использовать звездочку. Для того, чтобы получить значения всех столбцов из таблицы ```series```,
 выполните код представленный ниже.
 
-```yql
-SELECT
-    *
-FROM series;
-```
+{% include notitle [select-all](../../_includes/ydb/queries/select-all.md) %}
 
-## Запросите данные по вторичному индексу {#si-select}
+{% note info %}
 
-{% include [select_by_secondary_index](../_includes/select_by_secondary_index.md) %}
+Подробнее о том, как запросить данные по вторичному индексу, читайте в разделе [{#T}](../yql/reference/syntax/select.md#si-select).
+
+{% endnote %}
 
 ## Сделайте параметризированный запрос {#param-queries}
 
 Использование параметризованных запросов может улучшить производительность за счет сокращения частоты выполнения компиляции и перекомпиляции запросов.
 
-```yql
+**Пример**
+
+```sql
 DECLARE $seriesId AS Uint64;
 DECLARE $seasonId AS Uint64;
+
+$seriesId = 1;
+$seasonId = 2;
 
 SELECT sa.title AS season_title, sr.title AS series_title
 FROM seasons AS sa

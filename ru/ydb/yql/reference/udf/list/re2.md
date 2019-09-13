@@ -22,7 +22,7 @@
 
 **Примеры**
 
-```yql
+```sql
 $value = "xaaxaaxaa";
 $options = Re2::Options(false AS CaseSensitive);
 $match = Re2::Match("[ax]+\\d");

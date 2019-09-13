@@ -161,7 +161,7 @@ SELECT *;
 
 ## SELECT по вторичному индексу {#si-select}
 
-{% include [select_by_secondary_index](../../../_includes/select_by_secondary_index.md) %}
+{% include [select_by_secondary_index](../../../../_includes/ydb/select-by-secondary-index.md) %}
 
 
 ## Обращение к именованным выражениям как к таблицам {#as-table}

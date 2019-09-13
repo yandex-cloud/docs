@@ -24,11 +24,11 @@ CREATE TABLE table_name (
 CREATE TABLE my_table (
     a Uint64,
     b Bool,
-    c Float
+    c Float,
     PRIMARY KEY (b, a)
 )
 ```
 
 ## Добавление вторичных индексов {#si-add}
 
-{% include [add_secondary_index](../../../_includes/add_secondary_index.md) %}
+{% include [add_secondary_index](../../../../_includes/ydb/add-secondary-index.md) %}

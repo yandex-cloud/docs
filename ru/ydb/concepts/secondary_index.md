@@ -1,10 +1,10 @@
 # Вторичные индексы
 
-_Вторичные индексы_ — это индексы таблицы, которые строятся по ключам, отличным от [первичных](../getting_started/schema.md#create-table). Вторичные индексы в {{ ydb-short-name }} являются глобальными и могут быть неуникальными.
+_Вторичные индексы_ — это индексы таблицы, которые строятся по ключам, отличным от [первичных](../operations/schema.md#create-table). Вторичные индексы в {{ ydb-short-name }} являются глобальными и могут быть неуникальными.
 
 {% note alert %}
 
-{% include [secondary_constraints](../_includes/secondary_constraints.md) %}
+{% include [secondary_constraints](../../_includes/ydb/secondary-constraints.md) %}
 
 {% endnote %}
 
@@ -18,6 +18,6 @@ _Вторичные индексы_ — это индексы таблицы, к
 
 ```sql
 SELECT *
-    FROM [TableName]:IndexName
+    FROM TableName view IndexName
     WHERE …
 ```

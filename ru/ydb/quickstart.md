@@ -2,30 +2,19 @@
 
 *Сервис {{ ydb-short-name }} находится на [стадии Preview](../overview/concepts/launch-stages.md), доступ к сервису предоставляется по заявке.*
 
-Начать работать с {{ ydb-short-name }} можно как из консоли управления Яндекс.Облаком, так и с помощью SDK:
-
-* [Получить доступ к сервису](#before-you-begin).
-* [Создать базу данных](#control-plane) в консоли управления.
-* [Создать схему](#create-table), [внести](#replace-data) и [прочитать](#select-data) данные из консоли управления.
-* [Запустить Python, Go или Java приложение](#run-test).
+Создайте базу данных {{ ydb-short-name }} в консоли управления Яндекс.Облаком и ознакомьтесть с правилами написания YQL-запросов. Также вы можете запустить тестовое приложение для знакомства с работой {{ ydb-short-name }} SDK для [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk) или [Java](https://github.com/yandex-cloud/ydb-java-sdk).
 
 ## Перед началом работы {#before-you-begin}
 
 Доступ к сервису предоставляется по заявке. Чтобы оформить заявку:
-
-1. Перейдите в [консоль управления](https://console.cloud.yandex.ru), нажмите кнопку **Войти** и введите логин и пароль от Яндекс.Паспорта. Если вы еще не зарегистрированы, нажмите **Зарегистрироваться** и следуйте инструкциям.
-
+1. Войдите в [консоль управления](https://console.cloud.yandex.ru). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 1. [На странице биллинга](https://console.cloud.yandex.ru/billing) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md).
-
-1. Перейдите на [страницу сервиса](https://cloud.yandex.ru/services/ydb) и нажмите кнопку **Запросить доступ**.
-
+1. Перейдите на [страницу сервиса {{ ydb-short-name }}](https://cloud.yandex.ru/services/ydb) и нажмите кнопку **Запросить доступ**.
 1. Выберите облако, в котором планируете работать с сервисом, и нажмите кнопку **Отправить**. Как только заявка будет одобрена, на вашу электронную почту придет письмо с подтверждением.
-
 1. Откройте письмо и нажмите кнопку **Начать тестирование**. Вы будете перенаправлены в [консоль Яндекс.Облака](https://console.cloud.yandex.ru/) и сможете начать работу с сервисом.
 
-## Создать базу данных {#control-plane}
+## Создайте базу данных {#control-plane}
 
 {% if audience == "internal" %}
 
@@ -53,125 +42,21 @@
 
 {% else if audience == "external" %}
 
-Чтобы создать базу данных, понадобится доступный вам каталог в Яндекс.Облаке. Если у вас уже есть каталог в Яндекс.Облаке, откройте страницу этого каталога в консоли управления. Если каталога еще нет, создайте его.
-
-{% include [owner-warning](../_includes/iam/owner-warning.md) %}
-
-Чтобы создать каталог:
-
-{% include [create-folder](../_includes/create-folder.md) %}
-
-Чтобы создать базу данных:
-
-1. Выберите каталог, в котором нужно создать базу данных.
-
-1. Выберите **{{ ydb-full-name }}** в списке сервисов.
-
-    {% note alert %}
-
-    {{ ydb-full-name }} находится на стадии закрытого Preview и появится в списке доступных ресурсов только после одобрения заявки.
-
-    {% endnote %}
-
-1. Нажмите кнопку **Создать базу данных**.
-
-1. Настройте параметры базы в диалоговом окне:
-
-    1. **Имя**. Имя базы данных регистрозависимое, должно начинаться с латинской буквы, дальше допустимы буквы латинского алфавита и цифры.
-
-    1. **Вычислительные ресурсы**. Тип и количество [вычислительных ресурсов](concepts/databases.md#compute_units) — комбинаций CPU и оперативной памяти.
-
-    1. **Группы хранения**. Тип и количество [групп хранения](concepts/databases.md#storage_groups) — комбинаций типов дисков и объема памяти.
-
-1. В блоке **Сеть** добавьте сеть. Если [сети](../vpc/concepts/network.md#network) нет, создайте ее. У каждой сети должна быть как минимум одна [подсеть](../vpc/concepts/network.md#subnet).
-
-1. Нажмите кнопку **Создать базу данных**.
-
-1. Дождитесь запуска базы данных. В процессе создания база будет иметь статус *Provisioning*, а когда станет готова к использованию — статус сменится на *Running*.
+{% include [create-db-via-console](../_includes/ydb/create-db-via-console.md) %}
 
 {% endif %}
 
-## Создать схему {#create-table}
+## Создайте схему {#create-table}
 
-После создания базы можно проверить выполнение YQL-запросов в консоли управления. Чтобы сделать запрос:
+Чтобы начать работать с базой, создайте новую таблицу с помощью оператора [CREATE TABLE](yql/reference/syntax/create_table.md).
 
-1. Выберите базу данных на главной странице.
+{% include [create-schema-via-console](../_includes/ydb/create-schema-via-console.md) %}
 
-1. Нажмите кнопку **SQL-запрос** в правом верхнем углу. Откроется страница **Корневая папка**. В поле **Запрос**  осуществляются запросы к базе данных.
+## Запишите данные в таблицу {#replace-data}
 
-{% if audience == "internal" %}
+Запишите новые данные в таблицу с помощью оператора [REPLACE](yql/reference/syntax/replace_into.md).
 
-![Open YQL Kit](_assets/db_ui_open_yql_kit.png)
-
-{% else if audience == "external" %}
-
-{% endif %}
-
-Чтобы начать работу с базой, создайте новую таблицу с помощью оператора [CREATE TABLE](yql/reference/syntax/create_table.md):
-
-1. Добавьте в поле **Запрос** следующую инструкцию:
-
-    ```
-    CREATE TABLE series
-    (
-        series_id Uint64,
-        title Utf8,
-        series_info Utf8,
-        release_date Uint64,
-        PRIMARY KEY (series_id)
-    );
-    ```
-
-{% if audience == "internal" %}
-
-![New yql query](_assets/db_ui_yql_kit_panel.png)
-
-{% endif %}
-
-1. Нажмите кнопку **Выполнить**. Новая таблица *series* и имя владельца таблицы отобразятся в поле слева. Если навести курсор на таблицу и кликнуть на значок <svg viewBox="0 0 24 24" width="18" height="18" fill="#26a"><path id="icon.info" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"></path></svg> справа от таблицы, в левом нижнем углу экрана отобразится схема таблицы.
-
-    {% if audience == "internal" %}
-
-    ![Run_сreate table](_assets/db_ui_run_create_table.png)
-
-    {% endif %}
-
-{% if audience == "internal" %}
-
-![Table details](_assets/db_ui_table_details_kit.png)
-
-{% endif %}
-
-## Работа с данными {#replace-data}
-
-Запишите новые данные в таблицу с помощью оператора [REPLACE](yql/reference/syntax/replace_into.md):
-
-1. Добавьте в поле **Запрос** следующую инструкцию:
-
-    ```
-    REPLACE INTO series (series_id, title, release_date, series_info)
-    VALUES
-        (
-            1,
-            "IT Crowd",
-            CAST(Date("2006-02-03") AS Uint64),
-            "The IT Crowd is a British sitcom."),
-        (
-            2,
-            "Silicon Valley",
-            CAST(Date("2014-04-06") AS Uint64),
-            "Silicon Valley is an American comedy television series."
-        ),
-        (
-            3,
-            "Fake series",
-            CAST(Date("2018-09-11") AS Uint64),
-            "Fake series for testing purposes."
-        )
-        ;
-    ```
-
-1. Нажмите кнопку **Выполнить**. Изменения отобразятся в левом нижнем углу экрана.
+{% include [replace-data-via-console](../_includes/ydb/replace-data-via-console.md) %}
 
 {% if audience == "internal" %}
 
@@ -179,21 +64,11 @@
 
 {% endif %}
 
-### Заменить строки {#update-data}
+## Замените строки в таблице {#update-data}
 
-Обновите существующие данные в таблице с помощью оператора [UPDATE](yql/reference/syntax/update.md):
+Обновите существующие данные в таблице с помощью оператора [UPDATE](yql/reference/syntax/update.md).
 
-1. Добавьте в поле **Запрос** следующую инструкцию:
-
-    ```
-    UPDATE series
-    SET series_info="Fake series updated"
-    WHERE
-        series_id = 3
-    ;
-    ```
-
-1. Нажмите кнопку **Выполнить**. Изменения отобразятся в левом нижнем углу экрана.
+{% include [update-data-via-console](../_includes/ydb/update-data-via-console.md) %}
 
 {% if audience == "internal" %}
 
@@ -201,21 +76,11 @@
 
 {% endif %}
 
-### Удалить строки {#delete-data}
+## Удалите строки из таблицы {#delete-data}
 
-Удалите данные из таблицы с помощью оператора [DELETE](yql/reference/syntax/delete.md):
+Удалите данные из таблицы с помощью оператора [DELETE](yql/reference/syntax/delete.md).
 
-1. Добавьте в поле **Запрос** следующую инструкцию:
-
-    ```
-    DELETE
-    FROM series
-    WHERE
-        series_id = 3
-    ;
-    ```
-
-1. Нажмите кнопку **Выполнить**. Изменения отобразятся в левом нижнем углу экрана.
+{% include [delete-data-via-console](../_includes/ydb/delete-data-via-console.md) %}
 
 {% if audience == "internal" %}
 
@@ -223,21 +88,11 @@
 
 {% endif %}
 
-## Прочитать данные {#select-data}
+## Прочитайте данные {#select-data}
 
-Прочитайте данные из таблицы с помощью оператора [SELECT](yql/reference/syntax/select.md):
+Прочитайте данные из таблицы с помощью оператора [SELECT](yql/reference/syntax/select.md).
 
-1. Добавьте в поле **Запрос** следующую инструкцию:
-
-    ```
-    SELECT
-        series_id,
-        title AS series_title,
-        DateTime::ToDate(DateTime::FromDays(release_date)) AS release_date
-    FROM series;
-    ```
-
-1. Нажмите кнопку **Выполнить**. Изменения отобразятся в левом нижнем углу экрана.
+{% include [select-data-via-console](../_includes/ydb/select-data-via-console.md) %}
 
 {% if audience == "internal" %}
 
@@ -245,29 +100,19 @@
 
 {% endif %}
 
-## Удалить таблицу {#drop-table}
+## Удалите таблицу {#drop-table}
 
-Удалите таблицу с помощью оператора [DROP TABLE](yql/reference/syntax/drop_table.md):
+Удалите таблицу с помощью оператора [DROP TABLE](yql/reference/syntax/drop_table.md).
 
-1. Добавьте в поле **Запрос** следующую инструкцию:
+{% include [drop-table-via-console](../_includes/ydb/drop-table-via-console.md) %}
 
-    ```
-    DROP TABLE series;
-    ```
+## Запустите тестовое приложение {#sdk}
 
-1. Нажмите кнопку **Выполнить**. Таблица будет удалена.
-
-## Запустить Python, Go или Java приложение {#sdk}
-
-Чтобы запустить приложение, разработанное с помощью {{ ydb-short-name }} SDK для [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk) или [Java](https://github.com/yandex-cloud/ydb-java-sdk), получите данные для подключения к базе. Вы можете запустить тестовые приложение для знакомства с SDK.
-
-{% note info %}
+Подключитесь к базе данных и запустите тестовые приложения для знакомства с работой {{ ydb-short-name }} SDK для [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk) или [Java](https://github.com/yandex-cloud/ydb-java-sdk).
 
 Подробный разбор кода тестовых приложений читайте в разделе [{#T}](sdk/index.md).
 
-{% endnote %}
-
-### Подключиться к базе данных {#connect-to-db}
+### Подключитесь к базе данных {#connect-to-db}
 
 Чтобы подключиться к базе данных:
 
@@ -283,7 +128,7 @@
 
 1. Перейдите в свойства базы данных и сохраните значения эндпоинта и идентификатора базы, приведенные в поле **Эндпоинт**.
 
-### Запустить тестовое приложение {#run-test}
+### Запустите тестовое приложение {#run-test}
 
 Чтобы запустить приложение:
 

@@ -7,7 +7,7 @@
 
 ### Python
 
-Обработка ошибок в python-module описана в разделе про [python API]((../getting_started/start_python.md#_4)
+Обработка ошибок в python-module описана в разделе про [python API]((../operations/start_python.md#_4)
 
 ## Перечень ошибок и краткое описание
 

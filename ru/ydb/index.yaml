@@ -20,7 +20,7 @@ links:
   href: "quickstart"
 - title: "Пошаговые инструкции"
   description: "Инструкции по выполнению рутинных операций"
-  href: "getting_started/create_manage_database"
+  href: "operations/create_manage_database"
 - title: "Работа с SDK"
   description: "Описание принципов работы с SDK"
   href: "sdk/"

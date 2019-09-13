@@ -7,13 +7,11 @@ items:
   - name: Пошаговые инструкции
     items:
       - name: Управление базами данных
-        href: getting_started/create_manage_database.md
-      - name: Создание схемы
-        href: getting_started/schema.md
-      - name: Подключение к базе данных
-        href: getting_started/connect.md
+        href: operations/create_manage_database.md
+      - name: Управление таблицами
+        href: operations/schema.md
       - name: Чтение и запись данных
-        href: getting_started/crud.md
+        href: operations/crud.md
   - name: Работа с SDK
     href: sdk/index.md
   - name: Концепции
@@ -31,7 +29,7 @@ items:
     - name: Термины и определения
       href: concepts/databases.md
   - name: Управление доступом
-    href: getting_started/start_auth.md
+    href: operations/start_auth.md
   - name: Правила тарификации
     href: pricing.md
   - name: Рекомендации

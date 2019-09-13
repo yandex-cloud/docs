@@ -89,19 +89,19 @@ RUN_PROGRAM(
         faq/performance.md
         faq/queries.md
         faq.md
-        getting_started/confdeploy.md
-        getting_started/create_manage_database.md
-        getting_started/crud.md
-        getting_started/get_cluster.md
-        getting_started/index.md
-        getting_started/public_cluster.md
-        getting_started/setup_network_access.md
-        getting_started/start_auth.md
-        getting_started/start_cpp.md
-        getting_started/start_java.md
-        getting_started/start_local_cluster.md
-        getting_started/start_python.md
-        getting_started/start_rest.md
+        operations/confdeploy.md
+        operations/create_manage_database.md
+        operations/crud.md
+        operations/get_cluster.md
+        operations/index.md
+        operations/public_cluster.md
+        operations/setup_network_access.md
+        operations/start_auth.md
+        operations/start_cpp.md
+        operations/start_java.md
+        operations/start_local_cluster.md
+        operations/start_python.md
+        operations/start_rest.md
         guides/beginners.md
         guides/jupyter.md
         guides/metaprogramming.md

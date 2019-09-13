@@ -215,7 +215,7 @@ Free args: min: 1, max: 1 (listed described args only)
 
 Чтобы воспользоваться `readTable`, нужно:
 
-1. Собрать kikimr cli из Аркадии по [инструкции](../getting_started/start_local_cluster.md), предварительно [выкачав Аркадию](/arcadia/starterguide/#2.spanclassb-page-codeb-page-codeinlineyesi-bemdata-bemb-page-codeyaclonesposobschekautitproektineobxodimyezavisimosti)
+1. Собрать kikimr cli из Аркадии по [инструкции](../operations/start_local_cluster.md), предварительно [выкачав Аркадию](/arcadia/starterguide/#2.spanclassb-page-codeb-page-codeinlineyesi-bemdata-bemb-page-codeyaclonesposobschekautitproektineobxodimyezavisimosti)
 1. Включенный grpc на кластере
 2. readTable работает только по grpc. При использовании версий [kikimr_configure](../internals/configuration.md), собранных после 04.04.2018, эта возможность включена на кластере по умолчанию.
 3. Если grpc на кластере не включен, попытка выполнить readTable закончится ошибкой:

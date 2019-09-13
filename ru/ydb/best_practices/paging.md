@@ -22,7 +22,7 @@
 
 Запрос для организации постраничного вывода:
 
-```yql
+```sql
 DECLARE $limit AS Uint64;
 DECLARE $lastCity AS Utf8;
 DECLARE $lastNumber AS Uint32;
