@@ -12,6 +12,9 @@
 
 ## Addresses
 
+- [{#T}](get-static-ip.md)
 - [{#T}](set-static-ip.md)
+- [{#T}](set-dynamic-ip.md)
 - [{#T}](address-delete.md)
+
 
