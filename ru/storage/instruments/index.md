@@ -6,6 +6,7 @@ Object Storage поддерживает некоторые методы HTTP API
 ----- | -----
 [AWS-cli](aws-cli.md) | Интерфейс командной строки Amazon Web Services
 [aws-sdk-java](aws-sdk-java.md) | Java SDK для работы с Amazon Web Services
+[AspNetCore.Yandex.ObjectStorage](https://github.com/DubZero/AspNetCore.Yandex.ObjectStorage) | .NET Core SDK для работы с Yandex Object Storage
 [boto](boto.md) | Python SDK для работы с Amazon S3
 [Cyberduck](cyberduck.md) | Файловый браузер
 [S3cmd](s3cmd.md) | Интерфейс командной строки
