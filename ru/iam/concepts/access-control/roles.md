@@ -70,3 +70,7 @@ _Роль_ — это набор разрешений, который опре�
 {% include [container-registry-puller](../../../_includes/roles-container-registry-puller.md)%}
 
 {% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md)%}
+
+### {{ datalens-name }} {#datalens-roles}
+
+{% include [datalens-instances-user](../../../_includes/roles-datalens-user.md)%}

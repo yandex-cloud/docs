@@ -11,10 +11,10 @@ default:
   managed-mongodb-full-name: Yandex Managed Service for MongoDB
 
   # Роли
-  roles-owner: owner
-  roles-admin: admin
-  roles-write: write
-  roles-read: read
+  permission-admin: Администрирование
+  permission-write: Редактирование
+  permission-read: Просмотр
+  permission-execute: Исполнение
 
   # DataLens
   datalens-full-name: Yandex DataLens
