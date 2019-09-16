@@ -1,15 +1,15 @@
 ---
 editable: false
 ---
-# Pricing policy for Object Storage
+# Pricing policy for {{ objstorage-name }}
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of using Object Storage {#rules}
+## What goes into the cost of using {{ objstorage-short-name }} {#rules}
 
-The cost of Object Storage usage is based on:
+The cost of {{ objstorage-name }} usage is based on:
 
 - The amount of storage used by your data.
 - The number of operations on your data.

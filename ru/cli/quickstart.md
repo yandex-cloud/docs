@@ -106,7 +106,8 @@ _Интерфейс командной строки Яндекс.Облака (C
 
 ## Инициализация {#initialize}
 
-  1. Получите OAuth-токен в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) и нажмите **Разрешить**.
+
+1. Получите OAuth-токен в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке]({{ link-cloud-oauth }}) и нажмите **Разрешить**.
   1. Запустите команду `yc init`, чтобы выполнить настройку вашего профиля CLI.
   1. По запросу команды введите свой OAuth токен.
      ```
@@ -130,7 +131,7 @@ _Интерфейс командной строки Яндекс.Облака (C
       [3] Create a new folder
      Please enter your numeric choice: 1
      ```
-  1. Выберите зону доступности по умолчанию для сервиса Yandex Compute Cloud:
+  1. Выберите зону доступности по умолчанию для сервиса {{ compute-full-name }}:
      ```
      Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
      Which zone do you want to use as a profile default?

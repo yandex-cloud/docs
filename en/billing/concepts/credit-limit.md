@@ -10,7 +10,7 @@ The credit limit amount is calculated individually and depends on a combination 
 - Amount for resources consumed.
 - Your financial standing.
 
-You can find information about the credit limit amount in the [management console](https://console.cloud.yandex.com/billing).
+You can find information about the credit limit amount in the [management console]({{ link-console-billing }}).
 
 <a name="enable"></a>
 

@@ -1,0 +1,34 @@
+title: "Yandex Data Proc"
+stage: preview
+href: index.yaml
+items:
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Creating clusters
+        href: operations/cluster-create.md
+      - name: Connecting to clusters
+        href: operations/connect.md
+      - name: Updating subclusters
+        href: operations/subcluster-update.md
+      - name: Managing subclusters
+        href: operations/subclusters.md
+      - name: Deleting clusters
+        href: operations/cluster-delete.md
+  - name: Concepts
+    items:
+    - name: Data Proc overview
+      href: concepts/index.md
+    - name: Host classes
+      href: concepts/instance-types.md
+    - name: Network in Data Proc
+      href: concepts/network.md
+    - name: Quotas and limits
+      href: concepts/limits.md
+    - name: Hadoop and component versions
+      href: concepts/environment.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md

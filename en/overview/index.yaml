@@ -1,0 +1,36 @@
+# Заголовок и описание на странице
+title: "Yandex.Cloud overview"
+description:
+  - "Yandex.Cloud is a suite of services that makes it fast and safe to get as much computing power as you need on a pay-as-you-go model. You access this computing power over the internet. This approach to computing resource usage is called <i>cloud computing</i>."
+  - "Cloud computing can replace or supplement traditional data centers located on the consumer's premises. Yandex.Cloud assumes all responsibility for maintaining the health and performance of the cloud platform's hardware and software."
+  - "Yandex.Cloud offers different categories of cloud resources, such as virtual machines, block storage, and databases. You can manage resources in each category using the appropriate service."
+  - "The infrastructure of Yandex.Cloud is <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf\">protected</a> in accordance with the law No. 152-FZ of the Russian Federation \"On Personal Data\"."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex.Cloud overview"
+# Блок со ссылками
+links:
+- title: "Yandex.Cloud services"
+  description: ""
+  href: "concepts/services"
+- title: "Availability zones"
+  description: ""
+  href: "concepts/geo-scope"
+- title: "Getting started"
+  description: ""
+  href: "quickstart"
+- title: "Release stages"
+  description: ""
+  href: "concepts/launch-stages"
+- title: "Quotas and limits"
+  description: ""
+  href: "concepts/quotas-limits"
+- title: "API"
+  description: ""
+  href: "api"
+- title: "Service Level Agreement"
+  description: ""
+  href: "sla"
+- title: "Questions and answers"
+  description: ""
+  href: "qa"

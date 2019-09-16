@@ -1,0 +1,64 @@
+title: "Yandex Vision"
+stage: new
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Text recognition
+        href: operations/ocr/text-detection.md
+      - name: Assessing image quality
+        stage: preview
+        href: operations/classification/quality.md
+      - name: Image moderation
+        stage: preview
+        href: operations/classification/moderation.md
+      - name: Face detection
+        stage: preview
+        href: operations/face-detection/index.md
+      - name: Base64 encoding
+        href: operations/base64-encode.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Text recognition
+        items:
+          - name: Overview
+            href: concepts/ocr/index.md
+          - name: Supported languages
+            href: concepts/ocr/supported-languages.md
+          - name: Current version restrictions
+            href: concepts/ocr/known-issues.md
+      - name: Image classification
+        stage: preview
+        items:
+          - name: Overview
+            stage: preview
+            href: concepts/classification/index.md
+          - name: Supported models
+            stage: preview
+            href: concepts/classification/supported-models.md
+      - name: Face detection
+        stage: preview
+        href: concepts/face-detection/index.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: Handling errors
+        href: api-ref/errors-handling.md
+      - name: Troubleshooting
+        href: api-ref/support-headers.md
+    include:
+      repo: docs
+      path: en/_api-ref/ai/vision/toc.yaml

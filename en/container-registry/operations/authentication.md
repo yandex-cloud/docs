@@ -1,10 +1,10 @@
-# Authentication in Container Registry
+# Authentication in {{ container-registry-short-name }}
 
-Before you start using Container Registry through the Docker CLI, you need to authenticate.
+Before you start using {{ container-registry-short-name }} through the Docker CLI, you need to authenticate.
 
 {% note info %}
 
-The required folder role is `viewer`. For more information about roles, see [#T](../security/index.md).
+The required folder role is `viewer`. For more information about roles, see [{#T}](../security/index.md).
 
 {% endnote %}
 
@@ -108,7 +108,7 @@ Using a [service account](../../iam/concepts/users/service-accounts.md), your pr
     --username json_key \
     --password-stdin \
     cr.yandex
-    
+
     Login Succeeded
     ```
     - The `cat key.json` command writes the contents of the key file to the input stream.

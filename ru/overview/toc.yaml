@@ -7,13 +7,15 @@ items:
     href: concepts/geo-scope.md
   - name: Начало работы
     href: quickstart.md
-  - name: API
-    href: api.md
   - name: Стадии готовности сервисов
     href: concepts/launch-stages.md
-  - name: SLA
-    href: sla.md
+  - name: Квоты и лимиты
+    href: concepts/quotas-limits.md
+  - name: API
+    href: api.md
   - name: Удаление данных пользователей
     href: concepts/data-deletion.md
+  - name: SLA
+    href: sla.md
   - name: Вопросы и ответы
     href: qa.md

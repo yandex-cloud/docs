@@ -1,24 +1,24 @@
 # Access management
 
-Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden.
+Yandex.Cloud users can only perform operations on resources that are permitted under the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden.
 
-To allow access to the Managed Service for MySQL service resources (DB clusters and hosts, cluster backups, databases, and their users), assign the user the appropriate roles from the list below. For now, a role can only be assigned to a parent resource (folder or cloud), whose roles are inherited by nested resources.
+To allow access to {{ mmy-name }} service resources (DB clusters and hosts, cluster backups, databases, and their users), assign the user the appropriate roles from the list below. For now, a role can only be assigned for a parent resource (folder or cloud), and roles are inherited by nested resources.
 
 {% note info %}
 
-For more information about role inheritance, see [#T](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the Yandex Resource Manager documentation.
+For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
 
 {% endnote %}
 
 ## Assigning roles
 
-To assign a role to a user:
+To assign a user a role:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
 ## Roles
 
-The list below shows all roles that are considered when verifying access rights in the Managed Service for MySQL service.
+The list below shows all roles that are considered when verifying access rights in the {{ mmy-name }} service.
 
 ### Service roles
 
@@ -30,19 +30,19 @@ _Service roles_ are roles that allow access to the resources of a particular ser
 
 You can assign primitive roles to any resource in any service.
 
-#### viewer
+#### {{ roles-viewer }}
 
-A user with the `viewer` can view information about resources. For example, they can view a list of hosts or obtain information about a DB cluster.
+Users with the `{{ roles-viewer }}` role can view information about resources. For example, they can view a list of hosts or get information about a database cluster.
 
-#### editor
+#### {{ roles-editor }}
 
-A user with the `editor` can manage any resources. For example, they can create a DB cluster, and create or delete a host in a cluster.
+Users with the `{{ roles-editor }}` role can manage any resource, including creating a database cluster and creating or deleting cluster hosts.
 
-In addition, the `editor` role includes all permissions of the `viewer` role.
+The `{{ roles-editor }}` role also includes all `{{ roles-viewer }}` role permissions.
 
-#### admin
+#### {{ roles-admin }}
 
-A user with the `admin` role can manage access rights to resources. For example, they can allow other users to create DB clusters or view information about them.
+Users with the `{{ roles-admin }}` role can manage resource access rights, including allowing other users to create database clusters and to view information about them.
 
-In addition, the `admin` role includes all permissions of the role of `editor`.
+The `{{ roles-admin }}` role also includes all `{{ roles-editor }}` role permissions.
 

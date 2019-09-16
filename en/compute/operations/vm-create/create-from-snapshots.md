@@ -5,27 +5,27 @@ To create a VM from a set of disk snapshots:
 {% list tabs %}
 
 - CLI
-  
+
   {% include [cli-install](../../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. View the description of the CLI's create VM command:
-  
+
       ```
       $ yc compute instance create --help
       ```
-  
-  1. Prepare the snapshots of the disks you need, see [#T](../disk-control/create-snapshot.md).
-  
+
+  1. Prepare the snapshots of the disks you need, see [{#T}](../disk-control/create-snapshot.md).
+
   1. Get a list of snapshots in the default folder:
-  
+
       {% include [compute-snapshot-list](../../_includes_service/compute-snapshot-list.md) %}
-  
+
   1. Select the `ID` or `NAME` of the necessary snapshots.
-  
+
   1. Create a VM in the default folder:
-  
+
       ```
       $ yc compute instance create \
           --name first-instance \
@@ -35,16 +35,16 @@ To create a VM from a set of disk snapshots:
           --create-disk snapshot-name=second-snapshot \
           --ssh-key ~/.ssh/id_rsa.pub
       ```
-  
+
       This command creates a VM named `first-instance` in the `ru-central1-a` availability zone, with a public IP and the disks from the snapshots. To create a VM without a public IP, remove the `--public-ip` flag.
-  
+
       {% include [name-format](../../../_includes/name-format.md) %}
-  
+
       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
-  
+
 - API
-  
+
   Use the [Create](../../../_api-ref/compute/api-ref/Instance/create.md) method for the `Instance` resource.
-  
+
 {% endlist %}
 

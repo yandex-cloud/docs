@@ -14,14 +14,14 @@ To set up a static website on Joomla:
 
 Before creating a VM and a DB cluster:
 
-1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.com/) and select the folder where you want to perform the operations.
+1. Go to the Yandex.Cloud [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
 1. Make sure the selected folder has a network with subnets in the availability zones `ru-cental1-a`, `ru-central1-b`, and `ru-central1-c`. To do this, click the **Virtual Private Cloud** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
 ## 1. Create a VM for Joomla {#create-vm}
 
 To create a VM:
 
-1. On the folder page of the [management console](https://console.cloud.yandex.com/), click **Create resource** and select **Virtual machine**.
+1. On the folder page of the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
 
 1. In the **Name** field, enter the VM name: `joomla-pg-tutorial-web`.
 
@@ -34,8 +34,9 @@ To create a VM:
     - Specify the required amount of vCPUs and RAM.
 
    The minimum configuration is enough for functional testing:
+   * **Platform**: Intel Cascade Lake.
    * **Guaranteed vCPU share**: 5%.
-   * **vCPU**: 1.
+   * **vCPU**: 2.
    * **RAM**: 1 GB.
 
 1. In the **Network settings** section, select the subnet to connect the VM to when creating it.
@@ -71,7 +72,7 @@ Creating the DB cluster may take several minutes.
 
 After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the following:
 
-1. Go to the VM page of the [management console](https://console.cloud.yandex.com/). In the **Network** section, find the VM's public IP address.
+1. Go to the VM page of the [management console]({{ link-console-main }}). In the **Network** section, find the VM's public IP address.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
@@ -286,7 +287,7 @@ During the configuration process, you'll need the DB connection settings. To get
 
 1. Get the addresses of the DB cluster hosts in the management console:
     1. Open the folder where the DB cluster was created.
-    1. Click on **Managed Service for PostgreSQL**.
+    1. Click on **{{ mpg-name }}**.
     1. Select the cluster `joomla-pg-tutorial-db-cluster`.
     1. Open the **Hosts** tab.
     1. In the **Address (domain name)** column, find the host addresses.

@@ -1,6 +1,8 @@
 # Grant
 
-A grant is a discount given to a business or individual to use with any of the Yandex.Cloud services. The discount amount corresponds to the grant amount. The discount is applied to the total cost of services consumed, including VAT.
+A grant is a discount given to a business or individual to use with any of the Yandex.Cloud services. The discount amount corresponds to the grant amount. The discount is applied to the total cost of services consumed.
+
+{% include [currency](../_includes/currency.md) %}
 
 ## Initial grant {#start}
 

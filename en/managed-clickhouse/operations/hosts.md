@@ -1,10 +1,10 @@
 # Managing hosts in a cluster
 
-You can add and remove cluster hosts and manage ClickHouse settings for individual clusters.
+You can add and remove cluster hosts and manage {{ CH }} settings for individual clusters.
 
 {% note important %}
 
-It is not currently possible to add hosts to a single-host cluster or reduce the number of hosts in a cluster to 1. When creating a ClickHouse cluster, you need to decide right away whether data in the cluster should be replicated.
+To add new hosts to a single-host cluster, first [add the {{ ZK }} hosts ](zk-hosts.md) to ensure fault tolerance for the cluster.
 
 {% endnote %}
 
@@ -14,7 +14,7 @@ It is not currently possible to add hosts to a single-host cluster or reduce the
 
 - Management console
 
-  1. Go to the folder page and click **Managed Service for ClickHouse**.
+  1. Go to the folder page and select **{{ mch-name }}**.
 
   2. Click on the name of the cluster you need and select the **Hosts** tab.
 
@@ -24,12 +24,12 @@ It is not currently possible to add hosts to a single-host cluster or reduce the
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of cluster databases, run the command:
+  To get a list of hosts in a cluster, run the command:
 
   ```
   $ yc managed-clickhouse host list
        --cluster-name=<cluster name>
-
+  
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
@@ -38,7 +38,7 @@ It is not currently possible to add hosts to a single-host cluster or reduce the
   +----------------------------+--------------+---------+--------+---------------+
   ```
 
-  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -48,18 +48,14 @@ It is not currently possible to add hosts to a single-host cluster or reduce the
 
 ## Adding a host {#add-host}
 
-The number of hosts in Managed Service for ClickHouse clusters is limited by the quotas on CPUs and RAM available to the DB clusters in your cloud. To check the resources in use, open the [Quotas](https://console.cloud.yandex.com/cloud?section=quotas
-) and find the **Yandex Managed Service for ClickHouse** section.
+The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mch-full-name }}** block.
 
 {% list tabs %}
 
 - Management console
-
-  1. Go to the folder page and click **Managed Service for ClickHouse**.
-
-  2. Click on the name of the cluster you need and go to the **Hosts** tab.
-
-  3. Click **Add host**.
+  1. Go to the folder page and click **{{ mch-name }}**.
+  1. Click on the name of the cluster you need and go to the **Hosts** tab.
+  1. Click **Add host**.
 
   1. Specify the host parameters:
 
@@ -81,7 +77,7 @@ The number of hosts in Managed Service for ClickHouse clusters is limited by the
 
       ```
       $ yc vpc subnet list
-
+      
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
@@ -96,21 +92,21 @@ The number of hosts in Managed Service for ClickHouse clusters is limited by the
 
   1. See the description of the CLI command for adding a host:
 
-      ```
-      $ yc managed-clickhouse host add --help
-      ```
+     ```
+     $ yc managed-clickhouse host add --help
+     ```
 
-  2. Run the add host command:
+  1. Run the add host command:
 
-      ```
-      $ yc managed-clickhouse host add
-           --cluster-name <cluster name>
-           --host zone-id=<availability zone>,subnet-id=<subnet ID>
-      ```
+     ```
+     $ yc managed-clickhouse host add
+          --cluster-name <cluster name>
+          --host zone-id=<availability zone>,subnet-id=<subnet ID>
+     ```
 
-      Managed Service for ClickHouse will run the add host operation.
+     {{ mch-short-name }} will run the add host operation.
 
-      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise Managed Service for ClickHouse automatically selects a single subnet. The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+     The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -120,15 +116,15 @@ The number of hosts in Managed Service for ClickHouse clusters is limited by the
 
 ## Removing a host {#remove-host}
 
-You can remove a host from a ClickHouse cluster if it contains 3 or more hosts.
+You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
 
 {% list tabs %}
 
 - Management console
 
-  1. Go to the folder page and click **Managed Service for ClickHouse**.
+  1. Go to the folder page and click **{{ mch-name }}**.
 
-  2. Click on the name of the cluster you need and select the **Hosts** tab.
+  2. Click on the name of the cluster you want and select the **Hosts** tab.
 
   3. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
 
@@ -145,7 +141,7 @@ You can remove a host from a ClickHouse cluster if it contains 3 or more hosts.
        --cluster-name=<cluster name>
   ```
 
-  The name of the host can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

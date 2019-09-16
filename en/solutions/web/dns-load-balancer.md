@@ -15,7 +15,7 @@ To set up a fault tolerant website with DNS load balancing:
 
 Before creating VMs:
 
-1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.com/) and select the folder where you want to perform the operations.
+1. Go to the Yandex.Cloud [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
 1. Make sure the selected folder has a network with subnets in the availability zones `ru-cental1-a` and `ru-central1-b`. To do this, click the **Virtual Private Cloud** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
 ## 1. Create VMs with a pre-installed web server {#create-web-server-vm}
@@ -43,8 +43,9 @@ Create two VMs in sequence, following the instructions:
     The characteristics of both VMs must match.
 
     The minimum configuration is enough for functional testing:
+    * **Platform**: Intel Cascade Lake.
     * **Guaranteed vCPU share**: 5%.
-    * **vCPU**: 1.
+    * **vCPU**: 2.
     * **RAM**: 1 GB.
 
 1. In the **Network settings** section, select the subnet to connect the VM to when creating it.
@@ -62,7 +63,7 @@ When a VM is created, it is assigned an IP address and hostname (FQDN). This dat
 
 #### See also
 
-- [#T](../../compute/operations/vm-connect/ssh.md)
+- [{#T}](../../compute/operations/vm-connect/ssh.md)
 
 ## 2. Upload the website files {#upload-files}
 
@@ -93,8 +94,9 @@ Create two VMs in sequence, following the instructions:
     The characteristics of both VMs must match.
 
     The minimum configuration is enough for functional testing:
+    * **Platform**: Intel Cascade Lake.
     * **Guaranteed vCPU share**: 5%.
-    * **vCPU**: 1.
+    * **vCPU**: 2.
     * **RAM**: 1 GB.
 
 1. In the **Network settings** section, select the subnet to connect the VM to when creating it.
@@ -112,13 +114,13 @@ When a VM is created, it is assigned an IP address and hostname (FQDN). This dat
 
 #### See also
 
-- [#T](../../compute/operations/vm-connect/ssh.md)
+- [{#T}](../../compute/operations/vm-connect/ssh.md)
 
 ## 4. Install and configure the DNS load balancer software {#install-configure-dns-balancer}
 
 For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1-b` VMs, do the following:
 
-1. Go to the VM page of the [management console](https://console.cloud.yandex.com/). In the **Network** section, find the VM's public IP address.
+1. Go to the VM page of the [management console]({{ link-console-main }}). In the **Network** section, find the VM's public IP address.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
@@ -302,7 +304,7 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
        * In place of `<dns-lb-tutorial-web-ru-central1-a PUBLIC IP>`, enter the public IP address of the `dns-lb-tutorial-web-ru-central1-a` VM.
        * In place of `<dns-lb-tutorial-web-ru-central1-b PUBLIC IP>`,  enter the public IP address of the `dns-lb-tutorial-web-ru-central1-b` VM.
 
-       You can find out the VM's public address in the **Network** section on the VM page in the [management console](https://console.cloud.yandex.com/).
+       You can find out the VM's public address in the **Network** section on the VM page in the [management console]({{ link-console-main }}).
 
    1. `$ sudo nano /opt/polaris/etc/polaris-pdns.yaml`
 
@@ -436,7 +438,7 @@ The instructions below describe how to configure an external DNS service using a
 
 To configure an external DNS server, do the following:
 
-1. Find the public IP addresses of the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1-b` VMs in the **Network** section on the VM pages in the [management console](https://console.cloud.yandex.com/).
+1. Find the public IP addresses of the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1-b` VMs in the **Network** section on the VM pages in the [management console]({{ link-console-main }}).
 1. Log in to the control panel of the external DNS service. Go to the list of your domains and click on the domain name you need.
 1. Create two A records:
    * For the `dns-lb-tutorial-slb-ru-central1-a` VM:
@@ -458,7 +460,7 @@ To configure an external DNS server, do the following:
 
 ### 6.1. DNS load balancers {#test-dns-balancers}
 
-1. In the **Network** section on the VM page of the [management console](https://console.cloud.yandex.com/), find the public IP address of the `dns-lb-tutorial-slb-ru-central1-a` VM.
+1. In the **Network** section on the VM page of the [management console]({{ link-console-main }}), find the public IP address of the `dns-lb-tutorial-slb-ru-central1-a` VM.
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 1. Stop the DNS service to simulate a failure of the DNS load balancer:
 
@@ -474,7 +476,7 @@ To configure an external DNS server, do the following:
 
 ### 6.2. Web servers {#test-web-servers}
 
-1. In the **Network** section on the VM page of the [management console](https://console.cloud.yandex.com/), find the public IP address of the `dns-lb-tutorial-web-ru-central1-a` VM.
+1. In the **Network** section on the VM page of the [management console]({{ link-console-main }}), find the public IP address of the `dns-lb-tutorial-web-ru-central1-a` VM.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 

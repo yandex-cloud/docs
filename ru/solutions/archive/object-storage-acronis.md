@@ -1,20 +1,37 @@
-# Резервное копирование в Yandex Object Storage через Acronis Backup Gateway
+# Резервное копирование в {{ objstorage-full-name }} через Acronis Backup Gateway
 
-Чтобы настроить резервное копирование в Object Storage через Acronis Backup Gateway:
+Чтобы настроить резервное копирование в {{ objstorage-name }} через Acronis Backup Gateway:
+
+1. [Подготовьте облако к работе](#before-begin)
 1. [Создайте бакет](#create-bucket)
 1. [Настройте Acronis Backup Gateway](#configure-acronis)
 1. [Протестируйте резервное копирование](#test-backup)
+1. [Удалите созданные облачные ресурсы](#clear-out)
 
+## Подготовьте облако к работе {#before-begin}
 
-## 1. Создайте бакет {#create-bucket}
+Перед использованием {{ objstorage-full-name }} нужно зарегистрироваться в Облаке и создать платежный аккаунт:
+
+{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет находиться ваш бакет. Перейдите на [страницу облака](https://console.cloud.yandex.ru/cloud) и выберите или создайте каталог, в котором вы хотите создать бакет. [Подробнее об иерархии ресурсов Облака](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки статического сайта входит:
+
+* плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+
+## Создайте бакет {#create-bucket}
 
 Чтобы создать бакет для резервного копирования:
 
 {% include [create-bucket](../_solutions_includes/create-public-bucket.md) %}
 
-## 2. Настройте Acronis Backup Gateway {#configure-acronis}
+## Настройте Acronis Backup Gateway {#configure-acronis}
 
-Чтобы настроить Acronis Backup Gateway для работы с Object Storage:
+Чтобы настроить Acronis Backup Gateway для работы с {{ objstorage-name }}:
 
 1. В Acronis Storage откройте меню **Services** и выберите пункт **Acronis Backup Gateway**.
 1. Нажмите кнопку **Create Gateway**.
@@ -22,13 +39,17 @@
 1. В списке **ABGW private** выберите сетевой интерфейс с ролью **ABGW private**.
 1. В блоке **Public cloud parameters** задайте следующие настройки:
     1. Выберите тип провайдера **AuthV2 compatible**.
-    1. В поле **Endpoint URL** укажите `storage.yandexcloud.net`.
+    1. В поле **Endpoint URL** укажите `{{ s3-storage-host }}`.
     1. Получите [статический ключ](../../iam/operations/sa/create-access-key.md) и укажите его для аутентификации.
     1. Укажите бакет `backup` для хранения резервных копий.
 1. В блоке **Registration** укажите данные вашего аккаунта Acronis.
 1. Нажмите кнопку **DONE**.
 
-## 3. Протестируйте резервное копирование {#test-backup}
+## Протестируйте резервное копирование {#test-backup}
 
 1. Настройте резервное копирование в Acronis Backup по [инструкции](https://www.acronis.com/ru-ru/support/documentation/BackupService/index.html#33507.html).
 1. Выполните резервное копирование по [инструкции](https://www.acronis.com/ru-ru/support/documentation/BackupService/index.html#33512.html).
+
+## Как удалить созданные ресурсы {#clear-out}
+
+{% include [clear-out](../_solutions_includes/storage-clear-out.md) %}

@@ -1,13 +1,13 @@
 # Bucket object lifecycles
 
-Object Storage allows you to configure how long to keep bucket objects in storage.
+{{ objstorage-name }} allows you to configure how long to keep bucket objects in storage.
 
 You can manage [lifecycle configurations](configuration.md) in:
 
 - [The Yandex.Cloud management console](setup.md).
 - [The HTTP API compatible with Amazon S3](../s3/index.md).
 
-This allows you to manage lifecycle configurations using [tools](../instruments/index.md) that access Object Storage via the HTTP API compatible with Amazon S3.
+This allows you to manage lifecycle configurations using [tools](../instruments/index.md) that access {{ objstorage-name }} via the HTTP API compatible with Amazon S3.
 
 ## Example of uploading a lifecycle configuration via the AWS CLI
 

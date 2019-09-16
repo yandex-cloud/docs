@@ -3,7 +3,7 @@ editable: false
 ---
 # Quotas and limits
 
-In the Managed Service for MongoDB service, the following limitations apply:
+{{ mmg-name }} has the following limits:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

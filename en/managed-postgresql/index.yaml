@@ -1,0 +1,32 @@
+# Заголовок и описание на странице
+title: "Yandex Managed Service for PostgreSQL"
+description:
+  - "With Yandex Managed Service for PostgreSQL, you can deploy and maintain PostgreSQL 10 and 11 server clusters in the Yandex.Cloud infrastructure."
+  - "The Yandex.Cloud infrastructure is protected in accordance with Federal Law No. 152."
+  - "Service is provided under the <a href=\"https://yandex.com/legal/cloud_sla\">Service Level Agreement</a>. Service level for Managed Databases is defined in the <a href=\"https://yandex.com/legal/cloud_sla_mdb\">Service Level for Yandex Managed Databases</a> document."
+# Мета-информация title, description, keywords и т.п.
+meta:
+  title: "Yandex Managed Service for PostgreSQL"
+# Блок со ссылками
+links:
+- title: "Getting started"
+  description: "Create the first database cluster"
+  href: "quickstart"
+- title: "Step-by-step instructions"
+  description: "Instructions on how to perform routine operations"
+  href: "operations/"
+- title: "Concepts"
+  description: "Learn about basic concepts and how the service works"
+  href: "concepts/"
+- title: "API reference"
+  description: "HTTP API method descriptions"
+  href: "api-ref/"
+- title: "Quotas and limits"
+  description: "Technical and organizational limitations of the service"
+  href: "concepts/limits"
+- title: "Identity and access management"
+  description: "Configure access rights to work with the service"
+  href: "security/"
+- title: "Pricing policy"
+  description: "Service pricing and cost calculations"
+  href: "pricing"

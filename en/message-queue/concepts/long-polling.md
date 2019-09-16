@@ -1,6 +1,6 @@
 # Long Polling
 
-The Long Polling technique is implemented to optimize the use of Yandex Message Queue by reducing the number of [ReceiveMessage](../api-ref/message/ReceiveMessage.md) requests sent to empty queues. Instead of making repeated requests, Yandex Message Queue allows consumers to wait for messages to arrive in a queue and read them immediately. In addition, a longer poll time allows Long Polling to avoid false empty responses.
+The Long Polling technique is implemented to optimize the use of {{ message-queue-full-name }} by reducing the number of [ReceiveMessage](../api-ref/message/ReceiveMessage.md) requests sent to empty queues. Instead of making repeated requests, {{ message-queue-full-name }} allows consumers to wait for messages to arrive in a queue and read them immediately. In addition, a longer poll time allows Long Polling to avoid false empty responses.
 
 ## Using Long Polling {#set-up-long-polling}
 

@@ -1,4 +1,4 @@
-# Detecting faces in an image
+# Detecting faces in images
 
 _Face detection is currently at the [Preview stage](/docs/overview/concepts/launch-stages)._
 
@@ -8,9 +8,11 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
 
 ## Examples {#examples}
 
+### Before getting started {#before-beginning}
+
 {% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 
-### Detecting faces {#basic}
+### Find faces in an image {#basic}
 
 1. Prepare an image file that meets the requirements:
 
@@ -32,7 +34,7 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
 
     ```json
     {
-        "folderId": "ajk55f3mblj12eghq2oe",
+        "folderId": "b1gvmob95yysaplct532",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "features": [{

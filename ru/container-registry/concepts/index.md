@@ -1,4 +1,4 @@
-# Концепции Yandex Container Registry
+# Концепции {{ container-registry-full-name }}
 
 Yandex Container Registry — сервис для хранения и распространения Docker-образов.
 

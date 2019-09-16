@@ -43,7 +43,7 @@
 
         {% note info %}
 
-        The virtual machine name is used for generating the FQDN, which cannot be changed later. If the FQDN is important to you, choose an appropriate name for the virtual machine at the creation stage. For more information about generating FQDN names, see the section [#T](../concepts/network.md#hostname).
+        The virtual machine name is used for generating the FQDN, which cannot be changed later. If the FQDN is important to you, choose an appropriate name for the virtual machine at the creation stage. For more information about generating FQDN names, see the section [{#T}](../concepts/network.md#hostname).
 
         {% endnote %}
 

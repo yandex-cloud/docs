@@ -27,9 +27,9 @@ A configuration can contain up to 1,000 rules.
 
 | Element | Description |
 | ----- | ----- |
-| `Date` | Date on which Object Storage will perform an action.<br/><br/> It must be in ISO 8601 format such as `YYYY-MM-DD`. Time: always 00:00 UTC.<br/><br/>Path: `LifecycleConfiguration\Rule\Expiration\Date`. |
+| `Date` | Date on which {{ objstorage-name }} will perform an action.<br/><br/> It must be in ISO 8601 format such as `YYYY-MM-DD`. Time: always 00:00 UTC.<br/><br/>Path: `LifecycleConfiguration\Rule\Expiration\Date`. |
 | `Days` | Determines the number of days after loading an object when the rule becomes applicable.<br/><br/>Path: `LifecycleConfiguration\Rule\Expiration\Days`. |
-| `Expiration` | Contains the `<Days>` and/or `<Date>` elements that determine when to delete an object from Object Storage.<br/><br/>Path: `LifecycleConfiguration\Rule\Expiration`. |
+| `Expiration` | Contains the `<Days>` and/or `<Date>` elements that determine when to delete an object from {{ objstorage-name }}.<br/><br/>Path: `LifecycleConfiguration\Rule\Expiration`. |
 | `Filter` | Contains no more than one `Prefix` element.<br/><br/>If an empty `<Filter></Filter>` is set, the rule will apply to all bucket elements.<br/><br/>Path: `LifecycleConfiguration\Rule\Filter`. |
 | `ID` | Unique rule ID.<br/><br/>The maximum ID length is 255 characters. Optional parameter. You can use it to search for a rule in a configuration.<br/><br/>Path: `LifecycleConfiguration\Rule\ID`. |
 | `LifecycleConfiguration` | Root element of an XML document. It can contain up to 1,000 elements `<Rule>`.<br/><br/>Path: `LifecycleConfiguration`. |

@@ -1,7 +1,7 @@
 ---
 editable: false
 ---
-# Pricing for Yandex Resource Manager
+# Pricing for {{ resmgr-full-name }}
 
-The fee for using the Yandex Resource Manager service is included in the service price and is not charged separately.
+The fee for using {{ resmgr-full-name }} is included in the service price and is not charged separately.
 

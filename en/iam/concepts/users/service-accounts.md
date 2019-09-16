@@ -6,7 +6,7 @@
 
 By using service accounts you can flexibly configure access rights to resources for programs you have written.
 
-> For example, you have a program for tracking VM statuses. This program only needs to have view rights (the [viewer](../access-control/roles.md#viewer) role), but the program runs under your name and you have rights to delete VMs.
+> For example, you have a program for tracking VM statuses. This program only needs to have the right to view (the [viewer](../access-control/roles.md#viewer) role), but the program runs under your name and you have the right to delete VMs.
 >
 > To prevent your program from accidentally deleting a VM, create a service account and grant it view-only access.
 

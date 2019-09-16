@@ -8,6 +8,8 @@ _Классификация изображений сейчас находитс
 
 ## Примеры {#examples}
 
+### Перед началом {#before-beginning}
+
 {% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 
 ### Примените модель для оценки качества {#basic}
@@ -29,7 +31,7 @@ _Классификация изображений сейчас находитс
     **body.json:**
     ```json
     {
-        "folderId": "ajk55f3mblj12eghq2oe",
+        "folderId": "b1gvmob95yysaplct532",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "features": [{

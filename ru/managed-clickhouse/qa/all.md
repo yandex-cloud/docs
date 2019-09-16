@@ -1,4 +1,4 @@
-# Вопросы и ответы про Managed Service for ClickHouse
+# Вопросы и ответы про {{ mch-short-name }}
 
 
 ## Общие вопросы {#general}
@@ -6,6 +6,6 @@
 {% include notitle [general](general.md) %}
 
 
-## Вопросы о ClickHouse {#clickhouse}
+## Вопросы о {{ CH }} {#clickhouse}
 
 {% include notitle [clickhouse](clickhouse.md) %}

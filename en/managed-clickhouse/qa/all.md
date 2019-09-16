@@ -1,10 +1,10 @@
-# Questions and answers about Managed Service for ClickHouse
+# Questions and answers about {{ mch-short-name }}
 
 ## General questions {#general}
 
 {% include notitle [general](general.md) %}
 
-## Questions about ClickHouse {#clickhouse}
+## Questions about {{ CH }} {#clickhouse}
 
 {% include notitle [clickhouse](clickhouse.md) %}
 

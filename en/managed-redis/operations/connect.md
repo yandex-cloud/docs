@@ -1,6 +1,24 @@
-# Connecting to a database in a cluster Redis
+# Connecting to a database in a cluster {{ RD }}
 
-Redis cluster hosts cannot be assigned public IPs. You can only connect to a Redis host from a VM located in the same subnet as the host.
+## Connection methods {#connection-methods}
+
+You can connect to the  {{ RD }} database in two ways: directly or using Redis Sentinel.
+
+[Redis Sentinel](https://redis.io/topics/sentinel) is a {{ RD }} host management system that provides monitoring, notification, automatic failover, and reporting of up-to-date host addresses to the clients.
+
+Not every {{ RD }} client supports connecting via Sentinel. In such cases, you can connect to the host  directly. Note that you will need to track the roles of all the hosts yourself. If there is no need for a direct connection, use Sentinel for more reliable host management.
+
+{% note info %}
+
+Use port `26379` for host connections via Sentinel and port `6379` for direct connections.
+
+{% endnote %}
+
+Redis cluster hosts cannot be assigned public IPs. You can only access hosts from within their subnet.
+
+## Connecting to databases {#connect-to-db}
+
+In this example, we connect to the {{ RD }} host from a virtual machine connected to the same subnet as the host.
 
 1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) with a public IP in the same subnet as the Redis host.
 
@@ -15,19 +33,19 @@ Redis cluster hosts cannot be assigned public IPs. You can only connect to a Red
    {% list tabs %}
 
    - Ubuntu
-  
+
      ```
      $ sudo apt update
      $ sudo apt-get install redis
      ```
-  
+
    - CentOS
-  
+
      ```
      $ sudo yum update
      $ sudo yum install redis
      ```
-  
+
    {% endlist %}
 
 1. Install a certificate for accessing the database:

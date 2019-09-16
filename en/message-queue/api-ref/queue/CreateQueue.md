@@ -73,7 +73,7 @@ Attribute.N.Value (attribute value)
 
 ### CreateQueue errors {#errors}
 
-For a list of errors that are common to all methods, see the section [#T](../common-errors.md).
+For a list of errors that are common to all methods, see the section [{#T}](../common-errors.md).
 
 | HTTP | Error code | Description |
 | ----- | ----- | ----- |

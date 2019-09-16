@@ -15,26 +15,28 @@ items:
       href: web/joomla-postgresql.md
     - name: Сайт на WordPress
       href: web/wordpress.md
+  - name: Интернет-магазины
+    items:
+    - name: Обзор
+      href: internet-store/index.md
     - name: Интернет-магазин на 1С-Битрикс
-      href: web/bitrix-shop.md
+      href: internet-store/bitrix-shop.md
     - name: Интернет-магазин на Opencart
-      href: web/opencart.md
-    - name: Веб-сайт на базе 1С-Битрикс
-      href: web/bitrix-website.md
+      href: internet-store/opencart.md
   - name: Архив данных
     items:
     - name: Обзор
       href: archive/index.md
     - name: Однонодовый файловый сервер
       href: archive/single-node-file-server.md
+    - name: Настройка SFTP-сервера на Centos 7
+      href: archive/backup-and-archive-to-sftp.md
     - name: Резервное копирование в Object Storage через Acronis
       href: archive/object-storage-acronis.md
     - name: Резервное копирование в Object Storage через CloudBerry Desktop Backup
       href: archive/object-storage-cloudberry.md
     - name: Резервное копирование в Object Storage через Duplicati
       href: archive/object-storage-duplicati.md
-    - name: Настройка SFTP-сервера на Centos 7
-      href: archive/backup-and-archive-to-sftp.md
   - name: Тестовая среда
     items:
     - name: Обзор
@@ -49,5 +51,9 @@ items:
         href: infrastructure-management/terraform-quickstart.md
       - name: Начало работы с Packer
         href: infrastructure-management/packer-quickstart.md
+      - name: Автоматизация сборки образов ВМ с помощью Jenkins
+        href: infrastructure-management/jenkins.md\
       - name: Развертывание Active Directory
         href: infrastructure-management/active-directory.md
+      - name: Развертывание Microsoft Exchange
+        href: infrastructure-management/exchange.md

@@ -1,23 +1,21 @@
 # Supported languages and recognition models
 
-The service provides text recognition based on a model that is trained on a specific set of languages. Some languages are very different from each other (for example, Arabic and Chinese), so different models are used for them.
-
-The model is selected automatically based on the list of languages specified in the `language_codes` property in the analysis feature configuration.
-
-Only one model can be used within a single analysis feature. If you specified languages from different models in the same configuration, some text will not be recognized.
-
-## Models and supported languages {#models}
-
 All text recognition models support Russian and English.
 
-### English-Russian model {#engrus}
+## English-Russian model {#engrus}
 
 This model works best, but supports only two languages:
 
 * `en` — English
 * `ru` — Russian
 
-### Latin-Cyrillic model {#latcyr}
+{% note important %}
+
+Currently, this model can't be selected with [automatic language detection](../../operations/ocr/text-detection.md#basic). To use this model, you need to [clearly specify](../../operations/ocr/text-detection.md#multiple-languages) one or both languages.
+
+{% endnote %}
+
+## Latin-Cyrillic model {#latcyr}
 
 This model supports languages with the Latin and Cyrillic alphabets:
 
@@ -57,7 +55,7 @@ This model supports languages with the Latin and Cyrillic alphabets:
 * `uz` — Uzbek
 * `vi` — Vietnamese
 
-### Other models {#others}
+## Other models {#others}
 
 Other models only support a single basic language plus Russian and English:
 

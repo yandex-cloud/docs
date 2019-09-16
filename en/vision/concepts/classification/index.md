@@ -1,6 +1,6 @@
 # Image classification
 
-_Image classification is currently at the [Preview stage](/docs/overview/concepts/launch-stages)._
+_Image classification is currently in the [Preview stage](/docs/overview/concepts/launch-stages)._
 
 This section describes how the _image classification_ feature works in the service.
 
@@ -14,7 +14,7 @@ To use this feature, specify `CLASSIFICATION` in the feature type and pass the n
 
 ```json
 {
-    "folderId": "ajk55f3mblj12eghq2oe",
+    "folderId": "b1gvmob95yysaplct532",
     "analyze_specs": [{
         "content": "iVBORw0KGgo...",
         "features": [{
@@ -31,7 +31,7 @@ Only one model can be used within a single analysis feature. If you need to appl
 
 ```json
 {
-    "folderId": "ajk55f3mblj12eghq2oe",
+    "folderId": "b1gvmob95yysaplct532",
     "analyze_specs": [{
         "content": "iVBORw0KGgo...",
         "features": [{

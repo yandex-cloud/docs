@@ -2,13 +2,13 @@
 editable: false
 ---
 
-# Правила тарификации для Virtual Private Cloud
+# Правила тарификации для {{ vpc-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## Из чего складывается стоимость использования VPC {#rules}
+## Из чего складывается стоимость использования {{ vpc-short-name }} {#rules}
 
-В рамках VPC оплачивается почасовое использование публичных IP-адресов.
+В рамках {{ vpc-short-name }} оплачивается почасовое использование публичных IP-адресов.
 
 ## Цены {#prices}
 

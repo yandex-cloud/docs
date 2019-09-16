@@ -2,15 +2,15 @@
 editable: false
 ---
 
-# Правила тарификации для Object Storage
+# Правила тарификации для {{ objstorage-name }}
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## Из чего складывается стоимость использования Object Storage {#rules}
+## Из чего складывается стоимость использования {{ objstorage-short-name }} {#rules}
 
-Расчет стоимости использования Object Storage учитывает:
+Расчет стоимости использования {{ objstorage-name }} учитывает:
 
 - Объем хранилища, занятый данными.
 - Количество операций с данными.

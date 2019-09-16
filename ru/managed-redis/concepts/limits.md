@@ -1,6 +1,6 @@
 # Квоты и лимиты
 
-В сервисе Managed Service for Redis действуют следующие ограничения:
+В сервисе {{ mrd-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

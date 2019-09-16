@@ -1,15 +1,15 @@
-# Как начать работать с Yandex Object Storage
+# Как начать работать с {{ objstorage-full-name }}
 
 ## Подготовка к работе {#preparations}
 
 1. Зарегистрируйтесь в Яндекс.Облаке.
 
    Подробнее читайте в разделе [Начало работы](../billing/quickstart/index.md) документации про Биллинг.
-1. Получите необходимые роли для работы с Object Storage. Выберите один из вариантов:
+1. Получите необходимые роли для работы с {{ objstorage-name }}. Выберите один из вариантов:
 
-    * роль `resource-manager.cloud.owner` на облако;
-    * пара ролей `resource-manager.cloud.member` на облако и `admin` на облако или каталог;
-    * пара ролей `resource-manager.cloud.member` на облако и `editor` на облако или каталог.
+    * роль `resource-manager.clouds.owner` на облако;
+    * пара ролей `resource-manager.clouds.member` на облако и `admin` на облако или каталог;
+    * пара ролей `resource-manager.clouds.member` на облако и `editor` на облако или каталог.
 
 1. Чтобы назначить роли, выполните:
 
@@ -24,7 +24,7 @@
 
 ## Создание первого бакета {#the-first-bucket}
 
-Чтобы создать первый бакет в Object Storage:
+Чтобы создать первый бакет в {{ objstorage-name }}:
 
 1. Нажмите кнопку **Создать бакет**.
 1. Введите имя бакета.

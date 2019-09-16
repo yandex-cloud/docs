@@ -1,6 +1,6 @@
 # Static website hosting
 
-You can host your static website in Yandex Object Storage. A static website is based on client-side technology such as HTML, CSS, and JavaScript. It may not contain any scripts that run on the web server side.
+You can host your static website in {{ objstorage-full-name }}. A static website is based on client-side technology such as HTML, CSS, and JavaScript. It may not contain any scripts that run on the web server side.
 
 To host a website:
 
@@ -35,7 +35,7 @@ In this case:
 
     {% note info %}
 
-    Use only for hosting third-level domains or higher in Object Storage. This is related to how `CNAME` records are processed on DNS hosting. Read more in point 2.4 in [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt).
+    Use only for hosting third-level domains or higher in {{ objstorage-name }}. This is related to how `CNAME` records are processed on DNS hosting. Read more in point 2.4 in [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt).
 
     {% endnote %}
 
@@ -49,7 +49,7 @@ In this case:
 
 {% note info %}
 
-The website is accessible only over HTTP, for instance, `http://www.example.com` or `http://www.example.com.website.yandexcloud.net`.
+The website is accessible only over HTTP, for instance, `http://www.example.com` or `http://www.example.com.{{ s3-web-host }}`.
 
 {% endnote %}
 

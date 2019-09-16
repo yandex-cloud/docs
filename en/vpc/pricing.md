@@ -2,13 +2,13 @@
 editable: false
 ---
 
-# Pricing policy for Virtual Private Cloud
+# Pricing policy for {{ vpc-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of using VPC {#rules}
+## What goes into the cost of using {{ vpc-short-name }} {#rules}
 
-In VPC, you pay per hour of using public IP addresses.
+In {{ vpc-short-name }}, you pay per hour of using public IP addresses.
 
 ## Pricing {#prices}
 

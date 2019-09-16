@@ -2,7 +2,7 @@
 
 You can set up automatic recovery for a group of instances to enhance the availability of your application and make sure it is responding. You can set up automatic recovery for instances when creating or updating a group.
 
-You can only set up one health check for automatic recovery (don't confuse it with [health checks](../../../load-balancer/concepts/health-check.md) for Yandex Load Balancer).
+You can only set up one health check for automatic recovery (don't confuse it with [health checks](../../../load-balancer/concepts/health-check.md) for {{ load-balancer-full-name }}).
 
 {% include [warning.md](../../../_includes/instance-groups/sa.md) %}
 
@@ -14,7 +14,7 @@ To enable automatic recovery when updating an instance group:
   
   1. Open the folder page in the management console.
   
-  1. Select **Yandex Compute Cloud**.
+  1. Select **{{ compute-full-name }}**.
   
   1. On the **Virtual machines** page, go to the **Instance groups** tab.
   
@@ -103,6 +103,6 @@ To enable automatic recovery when updating an instance group:
       $ yc compute instance-group update --name first-group --file group.yaml
       ```
   
-     Instance Groups starts the operation to update the instance group.
+     {{ ig-name }} starts the operation to update the instance group.
   
 {% endlist %}

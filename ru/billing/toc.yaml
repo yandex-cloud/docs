@@ -20,6 +20,8 @@ items:
       href: operations/pay-the-bill.md
     - name: Привязать другую карту
       href: operations/pin-card.md
+    - name: Привязать новое облако
+      href: operations/pin-cloud.md
     - name: Изменить способ оплаты
       href: operations/change-payment-method.md
     - name: Расшифровать счет на оплату
@@ -28,6 +30,8 @@ items:
       href: operations/check-bill-history.md
     - name: Изменить данные платежного аккаунта
       href: operations/change-data.md
+    - name: Создать новый платежный аккаунт
+      href: operations/create-new-account.md
 - name: Концепции
   items:  
     - name: Все понятия
@@ -101,6 +105,8 @@ items:
     - name: Вопросы о платежном аккаунте
       href: qa/billing-account.md
     - name: Вопросы о пробном периоде и платной версии
-      href: qa/trial-commercial.md  
+      href: qa/trial-commercial.md
+    - name: Вопросы по работе с нерезидентами РФ
+      href: qa/non-resident.md
     - name: Все вопросы на одной странице
       href: qa/all.md

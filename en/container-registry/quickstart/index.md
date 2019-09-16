@@ -1,4 +1,4 @@
-# Getting started with Container Registry
+# Getting started with {{ container-registry-short-name }}
 
 Using these instructions, you will create your first [registry](../concepts/registry.md) and try managing [Docker images](../concepts/docker-image.md).
 
@@ -12,7 +12,7 @@ You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https:
 
 ## Creating a registry and performing basic operations on Docker images
 
-1. Create a registry in Container Registry:
+1. Create a registry in {{ container-registry-short-name }}:
 
     ```
     $ yc container registry create --name my-first-registry
@@ -26,7 +26,7 @@ You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https:
 
     You will need the received `id` to access the created registry.
 
-1. Log in to Container Registry by running the `docker login` command with an OAuth token. You can get a token at this [link](https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
+1. Log in to {{ container-registry-short-name }} by running the `docker login` command with an OAuth token. You can get a token at this [link]({{ link-cloud-oauth }}).
 
     ```
     $ docker login \
@@ -65,7 +65,7 @@ You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https:
 #### See also
 
 * [Creating a registry](../operations/registry/registry-create.md)
-* [Authentication in Container Registry](../operations/authentication.md)
+* [Authentication in {{ container-registry-short-name }}](../operations/authentication.md)
 * [Creating a Docker image](../operations/docker-image/docker-image-create.md)
 * [Pushing a Docker image](../operations/docker-image/docker-image-push.md)
 * [Pulling a Docker image](../operations/docker-image/docker-image-pull.md)

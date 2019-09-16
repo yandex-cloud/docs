@@ -6,7 +6,7 @@ After [enabling access](index.md), you can connect to the serial console to work
 
 {% note info %}
 
-How the serial console works depends on the operating system settings. Compute Cloud provides a communication channel between the user and the COM port on the VM, but it does not guarantee that the console will work correctly on the operating system.
+How the serial console works depends on the operating system settings. {{ compute-name }} provides a communication channel between the user and the COM port on the VM, but it does not guarantee that the console will work correctly on the operating system.
 
 {% endnote %}
 
@@ -39,7 +39,7 @@ To connect to the serial console, use the CLI.
     | Parameter | Value |
     | ----- | ----- |
     | `instance-name` | Required parameter. Name of the instance. |
-    | `user` | Optional parameter. User name. If this parameter is omitted, the default `yc-user` user will be used. The `yc-user` user is generated automatically when the VM is being created. For more information, see [#T](../vm-create/create-linux-vm.md). |
+    | `user` | Optional parameter. User name. If this parameter is omitted, the default `yc-user` user will be used. The `yc-user` user is generated automatically when the VM is being created. For more information, see [{#T}](../vm-create/create-linux-vm.md). |
     | `ssh-key` | Optional parameter. The path to the private key for SSH access will be added to the VM metadata. If this parameter is omitted, the default `yc_serialssh_key`  SSH key will be generated. |
 
 #### Troubleshooting

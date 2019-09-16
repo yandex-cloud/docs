@@ -1,4 +1,4 @@
-# How to manage database users
+# Managing database users
 
 You can add and remove users, as well as manage their individual settings.
 
@@ -7,7 +7,7 @@ You can add and remove users, as well as manage their individual settings.
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **Managed Service for PostgreSQL**.
+  1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need and then select the **Users** tab.
 
 - CLI
@@ -23,20 +23,20 @@ You can add and remove users, as well as manage their individual settings.
        --cluster-name=<cluster name>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 {% endlist %}
 
-## Adding users {#adduser}
+## Add a user {#adduser}
 
-When adding a Managed Service for PostgreSQL user, 50 connections to the PostgreSQL cluster are reserved (the `connlimit` parameter). The minimum number of connections per user is 10.
+When adding a user, {{ mpg-short-name }} reserves 50 connections to the {{ PG }} cluster (the `connlimit` parameter) by default. The minimum number of connections per user is 10.
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
 
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **Managed Service for PostgreSQL**.
+  1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click **Add**.
   1. Enter the database username and password (from 8 to 128 characters).
@@ -57,11 +57,11 @@ When adding a Managed Service for PostgreSQL user, 50 connections to the Postgre
        --conn-limit=<maximum number of connections per user>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 {% endlist %}
 
-## Updating users {#updateuser}
+## Changing users {#updateuser}
 
 For the user, you can change:
 
@@ -74,7 +74,7 @@ For the user, you can change:
 - Management console
 
   In the management console, you can only change the password of a database user:
-  1. Go to the folder page and select **Managed Service for PostgreSQL**.
+  1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Change password**.
 
@@ -94,16 +94,16 @@ For the user, you can change:
        --conn-limit=<maximum number of connections per user>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 {% endlist %}
 
-## Removing a user {#removeuser}
+## Deleting users {#removeuser}
 
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **Managed Service for PostgreSQL**.
+  1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Delete**.
 
@@ -120,7 +120,7 @@ For the user, you can change:
        --cluster-name=<cluster name>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](#list-clusters).
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 {% endlist %}
 

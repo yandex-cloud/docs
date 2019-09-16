@@ -6,7 +6,7 @@ You can configure a bucket:
 
 - As a website
   
-  - [Allow public access](../operations/buckets/bucket-availability.md). Otherwise, Object Storage returns error code 403 to the user.
+  - [Allow public access](../operations/buckets/bucket-availability.md). Otherwise, {{ objstorage-name }} returns error code 403 to the user.
   - [Specify the website's home page](setup.md).
   - You can optionally specify the web page that will be returned if 4xx errors occur.
   
@@ -41,5 +41,5 @@ If for some reason you can't or don't want to redirect the domain, you can do th
 1. Purchase a virtual machine with an external IP address.
 2. Configure the `example.com` domain to use the IP address of the virtual machine.
 3. Set up all necessary aliases on the provider side.
-4. Install a web server on the virtual machine and configure a redirect to the Object Storage bucket.
+4. Install a web server on the virtual machine and configure a redirect to the {{ objstorage-name }} bucket.
 

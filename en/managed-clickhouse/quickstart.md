@@ -1,4 +1,5 @@
-# Getting started with Managed Service for ClickHouse
+# Getting started with {{ mch-short-name }}
+
 
 To use the service, create a cluster and connect to a DBMS:
 
@@ -8,30 +9,32 @@ To use the service, create a cluster and connect to a DBMS:
 
 2. You can connect to DB clusters from both inside and outside of the Cloud:
 
-    1. To connect to a DB cluster from inside the Cloud, create a VM in the same network as the DB cluster (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows md))
+    1. To connect to a DB cluster from inside the Cloud, create a VM in the same network as the DB cluster (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md))
 
     2. To enable connection to a cluster over the internet, request external IP addresses for hosts when creating the cluster.
 
-3. In the management console, select the folder where you want to create a DB cluster.
+1. In the management console, select the folder where you want to create a DB cluster.
 
-1. Click **Create resource** and select **Cluster ClickHouse**.
 
-2. Set the cluster parameters and click **Create cluster**. The process is described in detail in the section [#T](operations/cluster-create.md).
+1. Click **Create resource** and select **Cluster{{ CH }}**.
 
-3. When the cluster is ready to operate, its status on the Managed Service for ClickHouse dashboard will change to **RUNNING**.
+1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
 
-4. To connect to the DB server, an SSL certificate is required. Download it:
+1. When the cluster is ready, its status on the {{ mch-name }} dashboard will change to **RUNNING**.
+
+1. To connect to the DB server, you need an SSL certificate. Download it:
 
     ```bash
     $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem"
     ```
 
-5. Send a request specifying the path to the received SSL certificate, database attributes, and the request text in urlencoded format:
+1. Send a request specifying the path to the received SSL certificate, database attributes, and the request text in urlencoded format:
 
     ```
     $ curl --cacert <path to the SSL certificate> \
-         -H "X-ClickHouse-User: <DB user name>" \
+         -H "X-ClickHouse-User: <DB username>" \
          -H "X-ClickHouse-Key: <DB user password>" \
          'https://<host address>:8443/?database=<DB name>&query=SELECT%20now ()'
     ```
+
 

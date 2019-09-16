@@ -1,6 +1,6 @@
 # Все сервисы и методы
 
-Object Storage HTTP API предоставляет следующие сервисы:
+{{ objstorage-name }} HTTP API предоставляет следующие сервисы:
 
 Сервис | Описание
 -------|---------
@@ -28,9 +28,9 @@ Object Storage HTTP API предоставляет следующие серви
 
 Метод | Описание
 ----- | -----
-[upload](object/upload.md) | Загружает объект в Object Storage.
-[get](object/get.md) | Выгружает объект из Object Storage.
-[copy](object/copy.md) | Копирует объект, хранящийся в Object Storage.
+[upload](object/upload.md) | Загружает объект в {{ objstorage-name }}.
+[get](object/get.md) | Выгружает объект из {{ objstorage-name }}.
+[copy](object/copy.md) | Копирует объект, хранящийся в {{ objstorage-name }}.
 [getObjectMeta](object/getobjectmeta.md) | Выгружает метаданные объекта.
 [delete](object/delete.md) | Удаляет объект.
 [deleteMultipleObjecs](object/deletemultipleobjects.md) | Удаляет объекты по списку.
@@ -52,8 +52,8 @@ Object Storage HTTP API предоставляет следующие серви
 
 Метод | Описание
 ----- | -----
-[upload](hosting/upload.md) | Загружает конфигурацию бакета для хостинга статических сайтов в Object Storage.
-[get](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из Object Storage.
+[upload](hosting/upload.md) | Загружает конфигурацию бакета для хостинга статических сайтов в {{ objstorage-name }}.
+[get](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из {{ objstorage-name }}.
 [delete](hosting/delete.md) | Удаляет конфигурацию бакета для хостинга статических сайтов.
 
 ### Сервис CORS
@@ -68,9 +68,9 @@ Object Storage HTTP API предоставляет следующие серви
 
 Метод | Описание
 ----- | -----
-[upload](lifecycles/upload.md) | Загружает конфигурацию жизненного цикла объектов в Object Storage.
-[get](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из Object Storage.
-[delete](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из Object Storage.
+[upload](lifecycles/upload.md) | Загружает конфигурацию жизненного цикла объектов в {{ objstorage-name }}.
+[get](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
+[delete](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
 
 ### Сервис ACL
 
@@ -83,5 +83,5 @@ Object Storage HTTP API предоставляет следующие серви
 
 
 ## См. также
-- [#T](../../s3/index.md)
-- [#T](../../instruments/index.md)
+- [{#T}](../../s3/index.md)
+- [{#T}](../../instruments/index.md)

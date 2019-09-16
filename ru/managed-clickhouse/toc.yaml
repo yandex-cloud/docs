@@ -22,10 +22,12 @@ items:
       stage: preview
     - name: Изменение настроек кластера и базы данных
       href: operations/update.md
-    - name: Обновление версии кластера
+    - name: Изменение версии ClickHouse
       href: operations/cluster-version-update.md
     - name: Управление хостами ClickHouse
       href: operations/hosts.md
+    - name: Добавление хостов ZooKeeper
+      href: operations/zk-hosts.md
     - name: Управление базами данных
       href: operations/databases.md
     - name: Управление пользователями БД
@@ -87,5 +89,3 @@ items:
       href: qa/clickhouse.md
     - name: Все вопросы на одной странице
       href: qa/all.md
-data-migration:
-  md:

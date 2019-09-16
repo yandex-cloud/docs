@@ -4,16 +4,16 @@
 
 {% include [before-beginning](../../../_includes/monitoring/before-beginning.md) %}
 
-### Пример запроса
+### Пример запроса {#sample-request}
 
-1. Создайте файл с телом запроса, например `body.json`. В свойстве `program` укажите текст запроса. Например, запрос ниже получает данные метрики с загрузкой CPU виртуальной машины с идентификатором `epdpfhoh1r83vdmdnjuf` в период с 00:00 UTC 5 апреля до 00:00 UTC 6 апреля.
+1. Создайте файл с телом запроса, например `body.json`. В свойстве `query` укажите текст запроса. Например, запрос ниже получает данные метрики с загрузкой CPU виртуальной машины с идентификатором `epdpfhoh1r83vdmdnjuf` в период с 00:00 UTC 24 июля до 00:00 UTC 31 июля.
 
     **body.json:**
     ```json
     {
-        "program": "cpu_usage{service=\"compute\", resource_id=\"epdpfhoh1r83vdmdnjuf\"}",
-        "from": "2019-04-05T00:00:00.000Z",
-        "to": "2019-04-06T00:00:00.000Z",
+        "query": "cpu_usage{service=\"compute\", resource_id=\"epdpfhoh1r83vdmdnjuf\"}",
+        "fromTime": "1563926400000",
+        "toTime": "1564531200000",
         "downsampling": {
             "maxPoints": 10
         }
@@ -28,41 +28,47 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d @body.json \
-        'https://monitoring.api.cloud.yandex.net/monitoring/v1/data/read?cloud_id=b2gbkpesobgv2i2266vg&folder_id=b2ghmo15rmnlod3hrf8p' > output.json
+        'https://monitoring.api.cloud.yandex.net/monitoring/v2/data/read?folderId=b2ghmo15rmnlod3hrf8p' > output.json
     ```
 
     Пример ответа на запрос:
 
-    **body.json:**
+    **output.json:**
     ```json
     {
-        "vector": [
+        "metrics": [
             {
-            "timeseries": {
-                "kind": "DGAUGE",
+                "type": "DGAUGE",
                 "name": "cpu_usage",
                 "labels": {
                     "resource_type": "vm",
-                    "cluster": "b1ghmo15rmnlod3hrf8p",
+                    "cluster": "b2ghmo15rmnlod3hrf8p",
                     "project": "b1gbkpesobgv2i2266vg",
                     "resource_id": "epdpfhoh1r83vdmdnjuf",
                     "service": "compute"
                 },
-                "timestamps": [
-                    1554422400000,
-                    1554432000000,
-                    1554441600000,
-                    1554451200000,
-                    ...
-                ],
-                "values": [
-                    8.435615891402113,
-                    7.351297033321152,
-                    22.13237045892276,
-                    6.805491444898502,
-                    ...
-                ]
-            }
+                "timeseries": {
+                    "timestamps": [
+                        1562069440800,
+                        1562405369712,
+                        1562741298624,
+                        1563077227536,
+                        1563413156448,
+                        1563749085360,
+                        1564085014272,
+                        1564420943184
+                    ],
+                    "doubleValues": [
+                        53.6475600118669,
+                        65.5547751323391,
+                        70.7148916473759,
+                        49.4514634827568,
+                        54.3817816479781,
+                        81.9327383032693,
+                        99.3035341016667,
+                        99.982002860023
+                    ]
+                }
             }
         ]
     }

@@ -8,7 +8,7 @@ Preemptible instances may be terminated at any time.
 
 {% endnote %}
 
-Preemptible instances are cheaper than standard virtual machines, but they don't ensure fault tolerance. To get more information about preemptible VM prices, see [#T](../pricing.md#prices-preemptible-instance-resources).
+Preemptible instances are cheaper than standard virtual machines, but they don't ensure fault tolerance. To get more information about preemptible VM prices, see [{#T}](../pricing.md#prices-preemptible-instance-resources).
 
 To create a preemptible VM, [follow the instructions](../operations/vm-create/create-preemptible-vm.md).
 

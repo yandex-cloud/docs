@@ -1,6 +1,6 @@
 # s3fs
 
-[s3fs](https://github.com/s3fs-fuse/s3fs-fuse) is a utility that allows Linux and macOS to mount an Object Storage bucket via [FUSE](https://en.wikipedia.org/wiki/Fuse_ESB).
+[s3fs](https://github.com/s3fs-fuse/s3fs-fuse) is a utility that allows Linux and macOS to mount an {{ objstorage-name }} bucket via [FUSE](https://en.wikipedia.org/wiki/Fuse_ESB).
 
 {% note info %}
 

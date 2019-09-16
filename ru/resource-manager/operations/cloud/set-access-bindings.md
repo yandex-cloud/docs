@@ -1,8 +1,8 @@
-# Установить права доступа на облако
+# Настройка права доступа к облаку
 
 Чтобы предоставить пользователю доступ ко всем ресурсам в облаке, назначьте ему [роль](../../../iam/concepts/access-control/roles.md) на это облако.
 
-## Как назначить роль на облако {#access-to-user}
+## Назначить роль на облако {#access-to-user}
 
 {% list tabs %}
 
@@ -118,9 +118,9 @@
 
 ## Примеры {#examples}
 
-* [#T](#multiple-roles)
-* [#T](#access-to-sa)
-* [#T](#access-to-all)
+* [{#T}](#multiple-roles)
+* [{#T}](#access-to-sa)
+* [{#T}](#access-to-all)
 
 ### Назначить несколько ролей {#multiple-roles}
 
@@ -235,13 +235,13 @@
 
       ```bash
       $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob03goohplct641
+          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
 
       {
        "serviceAccounts": [
         {
          "id": "ajebqtreob2dpblin8pe",
-         "folderId": "b1gvmob03goohplct641",
+         "folderId": "b1gvmob95yysaplct532",
          "createdAt": "2018-10-18T13:42:40Z",
          "name": "test-sa",
          "description": "test-description"
@@ -312,6 +312,6 @@
 
 #### Что дальше
 
-* [#T](../folder/create.md)
-* [#T](../folder/set-access-bindings.md)
-* [#T](../../concepts/resources-hierarchy.md)
+* [{#T}](../folder/create.md)
+* [{#T}](../folder/set-access-bindings.md)
+* [{#T}](../../concepts/resources-hierarchy.md)

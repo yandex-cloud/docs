@@ -1,10 +1,10 @@
 # Получение списка поддерживаемых языков
 
-## Перед началом
+## Перед началом {#before-begin}
 
 {% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
 
-## Получите список поддерживаемых языков
+## Получить список поддерживаемых языков {#get-languages}
 
 Получите список поддерживаемых языков с помощью метода [listLanguages](../api-ref/Translation/listLanguages):
 

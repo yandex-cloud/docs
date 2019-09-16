@@ -7,7 +7,7 @@ The Billing service sends out financial documents regarding any and all payments
 If you used funds from your [personal account](../concepts/personal-account.md) during the reporting period, [Yandex.Balance](https://balance.yandex.com/) will generate the following reporting documents on the last day of the month:
 
 - [Report](../concepts/act.md)
-- [Invoice](../concepts/invoice.md)
+- [Invoice](../concepts/invoice.md) (for residents of Russia only)
 
 Copies of documents will be sent to the email address of the billing account owner at the beginning of the next reporting period.
 <br/>Soft and hard copies of a document are identical. To prepare your financial reports on time, you can use the number, amount, and date of the report from the email received.

@@ -1,8 +1,10 @@
-1. On the management console [home page]({{ link-console-main }}), click **Create folder**.
+1. Click **Create folder** in the [Home page]({{ link-console-main }}) of the management console.
 
 2. Enter the folder name.
 
-   The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The length of the name must be from 3 to 63 characters.
+    {% include [name-format](name-format.md) %}
 
-3. Click **Create folder**.
+1. Select **Create a default network**. A [network](../vpc/concepts/network.md#network) is created with subnets in each availability zone.
+
+1. Click **Create folder**.
 

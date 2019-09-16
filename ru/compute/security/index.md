@@ -1,51 +1,40 @@
 # Управление доступом
 
-Пользователь Яндекс.Облака может выполнять только те операции над ресурсами, которые разрешены назначенными ему ролями. Пока у пользователя нет никаких ролей, почти все операции ему запрещены. Независимо от назначенных ролей пользователь может просматривать справочные списки зон доступности и типов дисков.
+В этом разделе вы узнаете:
+* [на какие ресурсы можно назначить роль](#resources);
+* [какие роли действуют в сервисе](#roles-list).
 
-Чтобы разрешить доступ к ресурсам сервиса Yandex Compute Cloud (виртуальным машинам, дискам, образам и снимкам), назначьте пользователю нужные роли из приведенного ниже списка. На данный момент роль может быть назначена только на родительский ресурс (каталог или облако), роли которого наследуются вложенными ресурсами.
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-{% note info %}
+## На какие ресурсы можно назначить роль {#resources}
 
-Подробнее о наследовании ролей читайте в разделе [#T](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса Yandex Resource Manager.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-{% endnote %}
+## Какие роли действуют в сервисе {#roles-list}
 
-## Назначение ролей
+На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
-Чтобы назначить пользователю роль:
+![image](service-roles-hierarchy.svg)
 
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
+Роли, действующие в сервисе:
 
-## Роли
+* Сервисные роли:
+    * {% include [compute.images.user](../../_includes/iam/roles/short-descriptions/compute.images.user.md) %}
+    * {% include [compute.disks.user](../../_includes/iam/roles/short-descriptions/compute.disks.user.md) %}
+    * {% include [iam.serviceAccounts.user](../../_includes/iam/roles/short-descriptions/iam.serviceAccounts.user.md) %}
 
-Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе Compute Cloud.
+        Эта роль необходима для выполнения операций в [{{ ig-name }}](../concepts/instance-groups/index.md). Если вы указали сервисный аккаунт в запросе, то {{ iam-short-name }} проверит, что у вас есть права на использование этого аккаунта.
+    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* Примитивные роли:
+    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-### Сервисные роли
 
-_Сервисные роли_ — роли, дающие доступ к ресурсам определенного сервиса. При проверке прав доступа к ресурсам Compute Cloud учитываются сервисные роли Compute Cloud и Resource Manager.
+#### Что дальше
 
-{% include [roles-disks-user](../../_includes/roles-disks-user.md) %}
-
-{% include [roles-images-user](../../_includes/roles-images-user.md) %}
-
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
-
-### Примитивные роли
-
-Примитивные роли можно назначать на любой ресурс в любом сервисе.
-
-#### viewer
-
-Пользователь с ролью `viewer` может просматривать информацию о ресурсах, например посмотреть список дисков или получить информацию о виртуальной машине.
-
-#### editor
-
-Пользователь с ролью `editor` может управлять любыми ресурсами, например создать виртуальную машину, остановить или запустить виртуальную машину, подключить или отключить диск.
-
-Помимо этого роль `editor` включает в себя все разрешения роли `viewer`.
-
-#### admin
-
-Пользователь с ролью `admin` может управлять правами доступа к ресурсам, например разрешить другим пользователям создавать виртуальные машины или просматривать информацию о них.
-
-Помимо этого роль `admin` включает в себя все разрешения роли `editor`.
+* [Как назначить роль](../../iam/operations/roles/grant.md).
+* [Как отозвать роль](../../iam/operations/roles/revoke.md).
+* [Подробнее об управлении доступом в Яндекс.Облаке](../../iam/concepts/access-control/index.md).
+* [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

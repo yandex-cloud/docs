@@ -10,7 +10,7 @@
 
 Чтобы создать прерываемую виртуальную машину, [следуйте инструкции](../operations/vm-create/create-preemptible-vm.md).
 
-При необходимости, повторно [запустите виртуальную машину](compute/operations/vm-control/vm-stop-and-start#start).
+При необходимости, повторно [запустите виртуальную машину](../operations/vm-control/vm-stop-and-start#start).
 
 ## Ограничения
 

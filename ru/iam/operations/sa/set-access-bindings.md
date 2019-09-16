@@ -1,10 +1,10 @@
-# Установить права доступа к сервисному аккаунту
+# Настройка прав доступа к сервисному аккаунту
 
-Этот раздел про назначение [роли](../../concepts/access-control/roles.md) на [сервисный аккаунт](../../concepts/users/service-accounts.md) как на ресурс. Чтобы выдать роль сервисному аккаунту на другой ресурс, воспользуйтесь инструкцией [#T](assign-role-for-sa.md).
+Этот раздел про назначение [роли](../../concepts/access-control/roles.md) на [сервисный аккаунт](../../concepts/users/service-accounts.md) как на ресурс. Чтобы выдать роль сервисному аккаунту на другой ресурс, воспользуйтесь инструкцией [{#T}](assign-role-for-sa.md).
 
 Через консоль управления нельзя установить права доступа к сервисному аккаунту. Вы можете [назначить роль на каталог](../../../resource-manager/operations/folder/set-access-bindings.md), которому принадлежит сервисный аккаунт.
 
-## Как назначить роль на сервисный аккаунт
+## Назначить роль на сервисный аккаунт
 
 {% list tabs %}
 
@@ -67,13 +67,13 @@
   1. Узнайте ID сервисного аккаунта с помощью метода [list](../../api-ref/ServiceAccount/list.md):
       ```bash
       $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob03goohplct641
+          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
 
       {
        "serviceAccounts": [
         {
          "id": "aje6o61dvog2h6g9a33s",
-         "folderId": "b1gvmob03goohplct641",
+         "folderId": "b1gvmob95yysaplct532",
          "createdAt": "2018-10-19T13:26:29Z",
          "name": "my-robot"
         }
@@ -116,9 +116,9 @@
 
 ## Примеры {#examples}
 
-* [#T](#multiple-roles)
-* [#T](#access-to-sa)
-* [#T](#access-to-all)
+* [{#T}](#multiple-roles)
+* [{#T}](#access-to-sa)
+* [{#T}](#access-to-all)
 
 ### Назначить несколько ролей {#multiple-roles}
 
@@ -234,20 +234,20 @@
 
       ```bash
       $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob03goohplct641
+          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
 
       {
        "serviceAccounts": [
         {
          "id": "ajebqtreob2dpblin8pe",
-         "folderId": "b1gvmob03goohplct641",
+         "folderId": "b1gvmob95yysaplct532",
          "createdAt": "2018-10-18T13:42:40Z",
          "name": "test-sa",
          "description": "test-description"
         },
         {
          "id": "aje6o61dvog2h6g9a33s",
-         "folderId": "b1gvmob03goohplct641",
+         "folderId": "b1gvmob95yysaplct532",
          "createdAt": "2018-10-15T18:01:25Z",
          "name": "my-robot"
         }

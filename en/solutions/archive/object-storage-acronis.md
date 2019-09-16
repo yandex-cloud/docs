@@ -1,6 +1,6 @@
-# Backup to Yandex Object Storage via Acronis Backup Gateway
+# Backup to {{ objstorage-full-name }} via Acronis Backup Gateway
 
-To set up backups in Object Storage via Acronis Backup Gateway:
+To set up backups in {{ objstorage-name }} via Acronis Backup Gateway:
 
 1. [Create a bucket](#create-bucket)
 1. [Configure Acronis Backup Gateway](#configure-acronis)
@@ -14,7 +14,7 @@ To create a bucket for backups:
 
 ## 2. Configure Acronis Backup Gateway {#configure-acronis}
 
-To configure Acronis Backup Gateway to work with Object Storage:
+To configure Acronis Backup Gateway to work with {{ objstorage-name }}:
 
 1. In Acronis Storage, open the **Services** menu and select **Acronis Backup Gateway**.
 1. Click **Create Gateway**.
@@ -22,7 +22,7 @@ To configure Acronis Backup Gateway to work with Object Storage:
 1. In the **ABGW private** list, select the network interface with the **ABGW private** role.
 1. In the **Public cloud parameters** section, specify the following settings:
     1. Select the **AuthV2 compatible** provider type.
-    1. In the **Endpoint URL** field, specify `storage.yandexcloud.net`.
+    1. In the **Endpoint URL** field, specify `{{ s3-storage-host }}`.
     1. Get a static key and enter it for authentication.
     1. Specify the `backup` bucket for storing backups.
 1. In the **Registration** section, enter your Acronis account details.

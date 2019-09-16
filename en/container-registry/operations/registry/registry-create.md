@@ -1,6 +1,6 @@
 # Creating a registry
 
-One folder may have only one [registry](../../concepts/registry.md). Anyone with access rights to the folder can use the created registry.
+All users and service accounts with access rights to the folder can use the created registry.
 
 {% list tabs %}
 

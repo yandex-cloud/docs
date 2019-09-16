@@ -9,9 +9,8 @@ Deleting a user from the cloud is an operation that cannot be undone. If you acc
 {% list tabs %}
 
 - Management console
-  
   1. {% include [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md) %}
   2. On the **Users and roles** page, go to the line with the user and click ![image](../../../_assets/options.svg), then select the **Delete** command.
-  
+
 {% endlist %}
 

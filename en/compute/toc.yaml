@@ -1,0 +1,214 @@
+title: Yandex Compute Cloud
+href: index.yaml
+items:
+  - name: Getting started
+    items:
+      - name: Overview
+        href: quickstart/index.md
+      - name: Creating a Linux VM
+        href: quickstart/quick-create-linux.md
+      - name: Creating a Windows VM
+        href: quickstart/quick-create-windows.md
+      - name: Getting started with Instance Groups
+        href: quickstart/ig.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Creating a VM
+        items:
+          - name: Creating a Linux VM
+            href: operations/vm-create/create-linux-vm.md
+          - name: Creating a Windows VM
+            href: operations/vm-create/create-windows-vm.md
+          - name: Creating a VM from a set of disks
+            href: operations/vm-create/create-from-disks.md
+          - name: Creating a VM from a set of snapshots
+            href: operations/vm-create/create-from-snapshots.md
+          - name: Creating a VM from a custom image
+            href: operations/vm-create/create-from-user-image.md
+          - name: Creating a preemptible VM
+            href: operations/vm-create/create-preemptible-vm.md
+      - name: DSVM
+        items:
+          - name: Overview
+            href: operations/dsvm/index.md
+          - name: Creating a VM and connecting to it
+            href: operations/dsvm/quickstart.md
+      - name: Images with pre-installed software
+        items:
+          - name: Creating a VM
+            href: operations/images-with-pre-installed-software/create.md
+          - name: Configuring software
+            href: operations/images-with-pre-installed-software/setup.md
+          - name: Using a VM
+            href: operations/images-with-pre-installed-software/operate.md
+          - name: Getting a list of images
+            href: operations/images-with-pre-installed-software/get-list.md
+      - name: Getting information about a VM
+        items:
+          - name: Getting basic information and metadata
+            href: operations/vm-info/get-info.md
+          - name: Getting serial port output
+            href: operations/vm-info/get-serial-port-output.md
+      - name: Performing VM management
+        items:
+          - name: Stopping and starting a VM
+            href: operations/vm-control/vm-stop-and-start.md
+          - name: Attaching a disk to a VM
+            href: operations/vm-control/vm-attach-disk.md
+          - name: Detaching a disk from a VM
+            href: operations/vm-control/vm-detach-disk.md
+          - name: Changing a VM's availability zone
+            href: operations/vm-control/vm-change-zone.md
+          - name: Making a VM's public IP address static
+            href: operations/vm-control/vm-set-static-ip.md
+          - name: Updating a VM
+            href: operations/vm-control/vm-update.md
+          - name: Changing a VM's configuration
+            href: operations/vm-control/vm-update-resources.md
+          - name: Deleting a VM
+            href: operations/vm-control/vm-delete.md
+      - name: Working on a VM
+        items:
+          - name: Connecting to a VM via SSH
+            href: operations/vm-connect/ssh.md
+          - name: Connecting to a VM via RDP
+            href: operations/vm-connect/rdp.md
+          - name: Working with Yandex.Cloud from inside a VM
+            href: operations/vm-connect/auth-inside-vm.md
+      - name: Creating a new disk
+        items:
+          - name: Creating an empty disk
+            href: operations/disk-create/empty.md
+      - name: Performing disk management
+        items:
+          - name: Creating a disk snapshot
+            href: operations/disk-control/create-snapshot.md
+          - name: Changing a disk
+            href: operations/disk-control/update.md
+          - name: Deleting a disk
+            href: operations/disk-control/delete.md
+          - name: Deleting a disk snapshot
+            href: operations/snapshot-control/delete.md
+      - name: Creating a new image
+        items:
+          - name: Uploading your image
+            href: operations/image-create/upload.md
+      - name: Image management
+        items:
+          - name: Deleting an image
+            href: operations/image-control/delete.md
+      - name: Serial console management
+        items:
+          - name: Getting started
+            href: operations/serial-console/index.md
+          - name: Connecting to a VM's serial console via SSH
+            href: operations/serial-console/connect-ssh.md
+          - name: Connecting to a VM's serial console via CLI
+            href: operations/serial-console/connect-cli.md
+          - name: Disable access to serial console
+            href: operations/serial-console/disable.md
+      - name: Creating an instance group
+        items:
+          - name: Create a fixed-size instance group
+            href: operations/instance-groups/create-fixed-group.md
+          - name: Create a fixed-size instance group with a load balancer
+            href: operations/instance-groups/create-with-balancer.md
+      - name: Getting information about an instance group
+        items:
+          - name: Getting a list of groups
+            href: operations/instance-groups/get-list.md
+          - name: Getting basic information and metadata
+            href: operations/instance-groups/get-info.md
+          - name: Getting a list of instances in a group
+            href: operations/instance-groups/get-list-instances.md
+      - name: Managing an instance group
+        items:
+          - name: Update a group
+            href: operations/instance-groups/update.md
+          - name: Delete a group
+            href: operations/instance-groups/delete.md
+          - name: Set up autohealing for virtual machines
+            href: operations/instance-groups/enable-autohealing.md
+  - name: Concepts
+    items:
+      - name: Relationship between resources
+        href: concepts/index.md
+      - name: Virtual machines
+        items:
+          - name: Overview
+            href: concepts/vm.md
+          - name: Platforms
+            href: concepts/vm-platforms.md
+          - name: Levels of core performance
+            href: concepts/performance-levels.md
+          - name: Preemptible VMs
+            href: concepts/preemptible-vm.md
+          - name: Network on a VM
+            href: concepts/network.md
+          - name: Statuses
+            href: concepts/vm-statuses.md
+          - name: Metadata
+            href: concepts/vm-metadata.md
+      - name: Disks
+        items:
+          - name: Overview
+            href: concepts/disk.md
+          - name: Disk snapshots
+            href: concepts/snapshot.md
+      - name: Images
+        href: concepts/image.md
+      - name: Instance Groups
+        items:
+          - name: Overview
+            href: concepts/instance-groups/index.md
+          - name: Access
+            href: concepts/instance-groups/access.md
+          - name: Instance template
+            href: concepts/instance-groups/instance-template.md
+          - name: Policies
+            href: concepts/instance-groups/policies.md
+          - name: Scaling types
+            href: concepts/instance-groups/scale.md
+          - name: Autohealing
+            href: concepts/instance-groups/autohealing.md
+          - name: Configuration update
+            href: concepts/instance-groups/configuration-update.md
+          - name: VM statuses
+            href: concepts/instance-groups/vm-statuses.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    items:
+      - name: Current policy
+        href: pricing.md
+      - name: Archive
+        items:
+        - name: Prices before January 1, 2019
+          href: pricing-archive/pricing-01012019.md
+        - name: Prices from January 1 through March 1, 2019
+          href: pricing-archive/pricing-01032019.md
+        - name: Prices from March 1 through May 1, 2019
+          href: pricing-archive/pricing-30042019.md
+  - name: Compute API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+    include:
+      repo: docs
+      path: en/_api-ref/compute/toc.yaml
+  - name: Questions and answers
+    items:
+      - name: General questions
+        href: qa/general.md
+      - name: Virtual machines
+        href: qa/vm.md
+      - name: Disks and snapshots
+        href: qa/disks.md
+      - name: Licensing
+        href: qa/licensing.md
+      - name: All questions on a single page
+        href: qa/all.md

@@ -35,7 +35,7 @@ If the `DelaySeconds` parameter is not specified for a batch entry, the value fo
 
 ### SendMessageBatch errors {#errors}
 
-For a list of errors that are common to all methods, see the section [#T](../common-errors.md).
+For a list of errors that are common to all methods, see the section [{#T}](../common-errors.md).
 
 | HTTP code | Error ID | Description |
 | ----- | ----- | ----- |

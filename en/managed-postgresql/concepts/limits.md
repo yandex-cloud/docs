@@ -3,7 +3,7 @@ editable: false
 ---
 # Quotas and limits
 
-The Managed Service for PostgreSQL service has the following restrictions:
+{{ mpg-name }} has the following limits:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

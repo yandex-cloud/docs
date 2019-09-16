@@ -1,17 +1,17 @@
-# Connecting to a database in a PostgreSQL cluster
+# Connecting to a database in a {{ PG }} cluster
 
 In Yandex.Cloud, you can connect to a DB cluster only from a VM that has an address in the the Yandex.Cloud subnet.
 
 ## Authentication
 
-Managed Service for PostgreSQL clusters only support encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
+{{ mpg-short-name }} clusters only support encrypted connections, which is why an SSL certificate is required to connect to them. You can prepare all the necessary authentication data as follows:
 
 ```bash
 $ mkdir ~/.postgresql
 $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/CA.pem
 ```
 
-Ready about using a certificate with `libpq` in the [documentation PostgreSQL](https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
+Read about using certificates with `libpq` in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
 
 ## Connection string
 
@@ -44,14 +44,15 @@ To upgrade the library version used by the `psql` utility:
 
 * For Debian-based Linux distributions, install the `postgresql-client-10` package (for example, using an [APT repository](https://www.postgresql.org/download/linux/ubuntu/)).
 
-* For operating systems that use RPM packages, a PostgreSQL distribution is available from a [YUM repository](https://yum.postgresql.org/).
+* For operating systems that use RPM packages, a {{ PG }} distribution is available from a [YUM repository](https://yum.postgresql.org/).
 
 You can find the addresses of all the hosts in the DB cluster on the appropriate cluster page in the management console.
 
 ### With a driver that supports only one host
 
-If your database connection driver does not allow passing multiple hosts in the connection string (for example,
-[pgx in Go](https://github.com/jackc/pgx)), you can connect to a special host like `c-<cluster ID>.rw.mdb.yandexcloud.net`.
+If your database connection driver doesn't allow passing multiple hosts in the connection string (for example,
+[pgx in Go](https://github.com/jackc/pgx)), you can connect to a special host like `c-<cluster ID>.rw.{{ dns-zone }}`.
+
 
 This domain name always indicates the current master in the cluster. For example, you can connect to the master of the cluster with the `c9qash3nb1v9ulc8j9nm` ID as follows:
 

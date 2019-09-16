@@ -1,10 +1,10 @@
-# Concepts VPC
+# Concepts {{ vpc-short-name }}
 
-Yandex Virtual Private Cloud (VPC) is a service for creating cloud networks that are used for transmitting information within your cloud and connecting cloud resources to the internet.
+{{ vpc-full-name }} ({{ vpc-short-name }}) is a service for creating cloud networks that are used for transmitting information within your cloud and connecting cloud resources to the internet.
 
 ![vpc-overview](../_assets/vpc-overview.png)
 
-Use VPC to:
+Use {{ vpc-short-name }} to:
 
 - Create subnets and connect cloud resources to them.
 - Enable the transfer of information between the cloud resources.

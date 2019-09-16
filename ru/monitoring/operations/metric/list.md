@@ -4,7 +4,7 @@
 
 {% include [before-beginning](../../../_includes/monitoring/before-beginning.md) %}
 
-### Пример запроса
+### Пример запроса {#sample-request}
 
 Отправьте запрос и сохраните ответ в файл, например `output.json`:
 
@@ -12,50 +12,50 @@
 $ export IAM_TOKEN=CggaATEVAgA...
 $ curl -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
-    'https://monitoring.api.cloud.yandex.net/monitoring/v1/metrics/?cloud_id=b1ebkpesobgv2i2266vg&folder_id=b1ehmo15rmnlod3hrf8&service=compute' > output.json
+    'https://monitoring.api.cloud.yandex.net/monitoring/v2/metrics/?folderId=aoeng2krmasimogorn5m&service=compute&selectors={resource_id="d9hvsd8eh12n8nzcof4ou"}' > output.json
 ```
 
-Пример ответа на запрос. В свойстве `result` перечислен список метрик, а свойстве `page` – параметры пагинации:
+Пример ответа на запрос, который получает список метрик сервиса Compute для ресурса (виртуальной машины) с идентификатором `d9hvsd8eh12n8nzcof4ou`. В свойстве `metrics` перечислен список метрик:
 
-**body.json:**
+**output.json:**
 ```json
 {
-  "result": [
-    {
-      "name": "memory_usage",
-      "labels": {
-        "cluster": "b1ghmo15rmnlod3hrf8p",
-        "instance_id": "epdpmp80p408he72k3mf",
-        "metric": "memory_usage",
-        "service": "compute",
-        "resource_type": "vm",
-        "project": "b1gbkpesobgv2i2266vg",
-        "resource_id": "epdpmp80p408he72k3mf"
-      },
-      "kind": "DGAUGE",
-      "createdAt": "2019-04-02T07:47:37Z"
-    },
-    {
-      "name": "cpu_usage",
-      "labels": {
-        "cluster": "b1ghmo15rmnlod3hrf8p",
-        "instance_id": "epderigcmk645crlnlvt",
-        "metric": "cpu_usage",
-        "service": "compute",
-        "resource_type": "vm",
-        "project": "b1gbkpesobgv2i2266vg",
-        "resource_id": "epderigcmk645crlnlvt"
-      },
-      "kind": "DGAUGE",
-      "createdAt": "2019-04-02T03:38:01Z"
-    },
+    "metrics": [
+        {
+            "name": "memory_usage",
+            "labels": {
+                "cluster": "aoeng2krmasimogorn5m",
+                "service": "compute",
+                "resource_type": "vm",
+                "project": "b1gbkpesobgv2i2266vg",
+                "resource_id": "d9hvsd8eh12n8nzcof4ou"
+            },
+            "type": "DGAUGE"
+        },
+        {
+            "name": "cpu_usage",
+            "labels": {
+                "cluster": "aoeng2krmasimogorn5m",
+                "service": "compute",
+                "resource_type": "vm",
+                "project": "b1gbkpesobgv2i2266vg",
+                "resource_id": "d9hvsd8eh12n8nzcof4ou"
+            },
+            "type": "DGAUGE"
+        },
+        {
+            "type": "DGAUGE",
+            "name": "disk_write_ops",
+            "labels": {
+                "cluster": "aoeng2krmasimogorn5m",
+                "service": "compute",
+                "resource_type": "vm",
+                "project": "b1gbkpesobgv2i2266vg",
+                "resource_id": "d9hvsd8eh12n8nzcof4ou",
+                "device": "d9hjde6k6168k7k4kgti",
+            }
+        },
     ...
-  ],
-  "page": {
-    "pagesCount": 3,
-    "totalCount": 72,
-    "pageSize": 30,
-    "current": 0
-  }
+    ]
 }
 ```

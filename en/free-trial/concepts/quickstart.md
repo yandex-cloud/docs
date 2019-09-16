@@ -4,9 +4,9 @@
 
 ## Registration
 
-To use the free trial, sign up for Yandex.Cloud and create your first billing account. The trial period is activated automatically after the billing account is created.
+To use the free trial, sign up for Yandex.Cloud and create your first billing account. The trial period is activated automatically after a billing account is created.
 
-[Learn more about registering and creating the billing account](../../billing/quickstart/index.md).
+[Learn more about registering and creating billing accounts](../../billing/quickstart/index.md).
 
 ## Getting started
 
@@ -16,10 +16,10 @@ To start working with Yandex.Cloud:
 
 You might also find these links useful:
 
-* [#T](limits.md)
-* [#T](usage-monitor.md)
-* [#T](trial-ending.md)
-* [#T](upgrade-to-paid.md)
-* [Overview of the Yandex.Cloud platform](../../overview/)
+* [{#T}](limits.md)
+* [{#T}](usage-monitor.md)
+* [{#T}](trial-ending.md)
+* [{#T}](upgrade-to-paid.md)
+* [Yandex.Cloud platform overview](../../overview/)
 * [Yandex.Cloud documentation](/docs)
 

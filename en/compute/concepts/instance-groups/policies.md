@@ -2,7 +2,7 @@
 
 When creating an instance group, you need to define _policies_ for deploying and scaling instances and selecting zones.
 
-The policy description and [instance template](instance-template.md) description are passed to the CLI as a YAML file when creating or updating an instance group, via the `--file` flag. This is convenient for passing values consisting of multiple strings. For more information, see [#T](../../operations/instance-groups/create-fixed-group.md).
+The policy description and [instance template](instance-template.md) description are passed to the CLI as a YAML file when creating or updating an instance group, via the `--file` flag. This is convenient for passing values consisting of multiple strings. For more information, see [{#T}](../../operations/instance-groups/create-fixed-group.md).
 
 ## Allocation policy {#allocation-policy}
 

@@ -1,0 +1,33 @@
+# Yandex Monitoring
+title: "Yandex Monitoring"
+description:
+  - "Yandex Monitoring lets you collect and store metrics and display them as charts on dashboards."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex Monitoring"
+  # Блок со ссылками
+links:
+- title: "Getting started"
+  description: "Start monitoring your metrics"
+  href: "quickstart"
+- title: "Step-by-step instructions"
+  description: "Instructions on how to perform routine operations"
+  href: "operations/"
+- title: "Concepts"
+  description: "Learn about basic concepts and service functions"
+  href: "concepts/"
+#- title: "Справочник метрик"
+  ##  description: "Описание метрик сервисов Яндекс.Облака"
+  ##  href: "metrics-ref/"
+- title: "API reference"
+  description: "HTTP API method descriptions"
+  href: "api-ref/"
+- title: "Quotas and limits"
+  description: "Technical and organizational limitations of the service"
+  href: "concepts/limits"
+- title: "Access management"
+  description: "Access rights required for using the service"
+  href: "security/"
+- title: "Pricing policy"
+  description: "Service pricing and cost calculations"
+  href: "pricing"
