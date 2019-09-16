@@ -2,13 +2,13 @@
 editable: false
 ---
 
-# Правила тарификации для Container Registry
+# Правила тарификации для {{ container-registry-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## Из чего складывается стоимость использования Container Registry {#rules}
+## Из чего складывается стоимость использования {{ container-registry-short-name }} {#rules}
 
-Расчет стоимости использования Container Registry учитывает:
+Расчет стоимости использования {{ container-registry-name }} учитывает:
 
 - Объем хранилища, занятый данными.
 - Объем исходящего трафика.

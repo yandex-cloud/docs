@@ -2,7 +2,7 @@
 
 {% note important %}
 
-Deleting an instance group is an operation that cannot be canceled or reversed. You cannot restore a deleted group. Along with the group, you delete the Load Balancer target group, instances, and disks.
+Deleting an instance group is an operation that cannot be canceled or reversed. You cannot restore a deleted group. Along with the group, you delete the {{ load-balancer-name }} target group, instances, and disks.
 
 {% endnote %}
 
@@ -13,7 +13,7 @@ To delete an instance group:
 - Management console
   
   1. Open the folder page in the management console.
-  1. Select **Yandex Compute Cloud**.
+  1. Select **{{ compute-full-name }}**.
   1. On the **Virtual machines** page, go to the **Instance groups** tab.
   1. Click ![image](../../../_assets/vertical-ellipsis.svg) for the group you want to delete and select **Delete**.
   
@@ -41,7 +41,7 @@ To delete an instance group:
       $ yc compute instance-group delete --name first-instance-group
       ```
   
-      Instance Groups starts the operation to delete the instance group.
+      {{ ig-name }} starts the operation to delete the instance group.
   
 - API
   

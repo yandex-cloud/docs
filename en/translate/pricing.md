@@ -1,13 +1,13 @@
 ---
 editable: false
 ---
-# Pricing for Translate
+# Pricing for {{ translate-name }}
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of using Translate {#rules}
+## What goes into the cost of using {{ translate-short-name }} {#rules}
 
 ### Use of text translation and language detection {#rules-translate-detect}
 

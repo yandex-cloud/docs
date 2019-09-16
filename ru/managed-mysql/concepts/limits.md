@@ -4,7 +4,7 @@ editable: false
 
 # Квоты и лимиты
 
-В сервисе Managed Service for MySQL действуют следующие ограничения:
+В сервисе {{ mmy-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

@@ -8,6 +8,8 @@ _Обнаружение лиц сейчас находится на [стади�
 
 ## Примеры {#examples}
 
+### Перед началом {#before-beginning}
+
 {% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 
 ### Найдите лица на изображении {#basic}
@@ -29,7 +31,7 @@ _Обнаружение лиц сейчас находится на [стади�
     **body.json:**
     ```json
     {
-        "folderId": "ajk55f3mblj12eghq2oe",
+        "folderId": "b1gvmob95yysaplct532",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "features": [{

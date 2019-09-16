@@ -2,11 +2,11 @@
 
 ## Successful response {#success}
 
-If there are no errors, Object Storage returns HTTP code 2xx. The response code and body depend on the request and are given in the request descriptions.
+If there are no errors, {{ objstorage-name }} returns HTTP code 2xx. The response code and body depend on the request and are given in the request descriptions.
 
 ## Error response {#error}
 
-In case of an error, Object Storage returns a message with the appropriate HTTP code and its additional description in XML format.
+In case of an error, {{ objstorage-name }} returns a message with the appropriate HTTP code and its additional description in XML format.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -32,7 +32,7 @@ In case of an error, Object Storage returns a message with the appropriate HTTP 
 | 301 | `PermanentRedirect` | The specified bucket should always be accessed using the address returned in the response. |
 | 307 | `Redirect` | The specified bucket should temporarily be accessed using the address returned in the response. |
 | 307 | `TemporaryRedirect` | Redirect while the DNS is being updated. |
-| 400 | `BadDigest` | The hash passed in the `Content-MD5` header does not match the one calculated on the Object Storage side. |
+| 400 | `BadDigest` | The hash passed in the `Content-MD5` header does not match the one calculated on the {{ objstorage-name }} side. |
 | 400 | `CredentialsNotSupported` | Credentials are not supported. |
 | 400 | `EntityTooSmall` | The size of an uploaded object is smaller than the minimum allowed. |
 | 400 | `EntityTooLarge` | The size of an uploaded object is greater than the maximum allowed. |
@@ -74,9 +74,9 @@ In case of an error, Object Storage returns a message with the appropriate HTTP 
 | 403 | `InvalidObjectState` | The request cannot be executed for the current state of the object. |
 | 403 | `InvalidPayer` | Access to the object is blocked. |
 | 403 | `InvalidSecurity` | The provided secret keys are not valid. |
-| 403 | `NotSignedUp` | Use of Object Storage is not allowed for this account. |
+| 403 | `NotSignedUp` | Use of {{ objstorage-name }} is not allowed for this account. |
 | 403 | `RequestTimeTooSkewed` | The request sending time is too different from the server time. |
-| 403 | `SignatureDoesNotMatch` | The provided request signature does not match the one calculated by Object Storage. |
+| 403 | `SignatureDoesNotMatch` | The provided request signature does not match the one calculated by {{ objstorage-name }}. |
 | 404 | `NoSuchBucket` | The specified bucket does not exist. |
 | 404 | `NoSuchKey` | The specified key does not exist. |
 | 404 | `NoSuchUpload` | The specified multipart upload does not exist.<br/><br/>This error occurs in the following cases:<br/>- Invalid upload ID is specified.<br/>- Upload is aborted.<br/>- Upload is complete. |
@@ -88,8 +88,8 @@ In case of an error, Object Storage returns a message with the appropriate HTTP 
 | 411 | `MissingContentLength` | Add `Content-Length` to the headers. |
 | 412 | `Precondition Failed` | One of the conditions specified in the request is not met. |
 | 416 | `InvalidRange` | Invalid range in the Range header. |
-| 500 | `InternalError` | Object Storage internal error. Repeat the request. |
-| 501 | `NotImplemented` | The passed header is not handled by Object Storage. |
-| 503 | `ServiceUnavailable` | Object Storage is not available.<br/>Reduce your request rate. |
+| 500 | `InternalError` | {{ objstorage-name }} internal error. Repeat the request. |
+| 501 | `NotImplemented` | The passed header is not handled by {{ objstorage-name }}. |
+| 503 | `ServiceUnavailable` | {{ objstorage-name }} is not available.<br/>Reduce your request rate. |
 | 503 | `SlowDown` | Reduce your request rate. |
 

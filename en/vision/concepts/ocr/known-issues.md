@@ -9,6 +9,9 @@ The service is currently running with a number of restrictions. Please read them
   * Handwritten text.
   * Artistic fonts.
   * Vertical text (when a word is written from top to bottom).
+  * Any set of letters and numbers, like a license plate number.
+  * Forms where each character is typed in a separate cell.
+  * Short words and numbers in table cells.
   * Very large text, for example, when one word takes up half of the image.
 
 #### What's next

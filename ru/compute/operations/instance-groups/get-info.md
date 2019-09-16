@@ -11,7 +11,7 @@
 - Консоль управления
   
   1. Откройте страницу каталога в консоли управления.
-  1. Выберите сервис **Yandex Compute Cloud**.
+  1. Выберите сервис **{{ compute-full-name }}**.
   1. На странице **Виртуальные машины** перейдите на вкладку **Группы виртуальных машин**.
   1. Нажмите на имя нужной группы.
   
@@ -31,11 +31,11 @@
   
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
   
-  1. Выберите `ID` или `NAME` нужной группы, например `first-group`.
+  1. Выберите `ID` или `NAME` нужной группы, например `first-fixed-group`.
   1. Получите информацию о группе виртуальных машин:
   
       ```
-      $ yc compute instance-group get --name first-group
+      $ yc compute instance-group get --name first-fixed-group
       ```
   
 - API

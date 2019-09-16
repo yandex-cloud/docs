@@ -1,48 +1,48 @@
-# Billing account
+# Billing accounts
 
-A billing account is used to identify the user paying for resources in Yandex.Cloud.
+Billing accounts are used to identify the user paying for resources in Yandex.Cloud.
 
-The billing account can only be linked to one [personal account](personal-account.md) and one cloud. You can use only the payment method which corresponds to the type of billing account and your [agreement](contract.md).
+The billing account can be linked to multiple clouds and one [personal account](personal-account.md). You can only use the payment method that corresponds to the type of billing account and your [agreement](contract.md).
 
-The relationship between the cloud, billing account, personal account, and payment method is shown in the diagram below.
+The relationship between clouds, billing accounts, personal accounts, and payment methods is shown in the diagram below.
 
-![image](../_assets/cloud-billing-account.png)
+![image](../_assets/cloud-billing-account-svg.svg)
 
 {% note info %}
 
-The billing account is not used for the management of Yandex.Cloud resources.
+The billing account is not used to manage Yandex.Cloud resources.
 
 {% endnote %}
 
 ## Types of billing accounts {#ba-types}
 
-The type of a billing account determines the Yandex.Cloud resource [payment method](../payment/payment-methods.md).
+The type of billing account determines the Yandex.Cloud resource [payment method](../payment/payment-methods.md).
 
-  {% list tabs %}
+{% list tabs %}
 
 - Individual account
-  
-  - Intended for residents of Russia.
-  - You pay for resources using a bank card.
-  - Funds for the resources consumed are debited automatically. For more information, see the section [Billing cycle for individuals](../payment/billing-cycle-individual.md).
-  - Once the funds are debited from your bank card, a [payment receipt](individual-bill.md) is sent to your email address.
-  
+   - Intended for residents of Russia.
+   - Resources are paid for using a bank card.
+   - Funds for the resources consumed are debited automatically. For more information, see [Billing cycle for individuals](../payment/billing-cycle-individual.md).
+   - Once the funds are debited from your bank card, a [payment receipt](individual-bill.md) is sent to your email address.
+
 - Business account
-  
-  - Intended for residents of Russia.
-  - Resource usage is paid for via bank transfer from a business's bank account or a corporate bank card.
-  - Payments for the resources consumed are made based on the [agreement](../concepts/contract.md) and [payment invoice](bill.md), or the amount is debited automatically from the linked bank card. For more information, see the section [Billing cycle for businesses](../payment/billing-cycle-business.md).
-  - A report for services rendered and an invoice are sent to your email address at the beginning of the next reporting period. For more information, see the section [Financial documents](../payment/documents.md).
-  
-  {% endlist %}
+   - Intended for residents of Russia.
+   - Consumed resources are paid for by bank transfer from the business's bank account or by corporate bank card.
+   - Payments for resources consumed are made based on the [agreement](../concepts/contract.md) and [bank invoice](bill.md), or the amount is debited automatically from the linked bank card. For more information, see [Billing cycle for businesses](../payment/billing-cycle-business.md).
+   - A report for services rendered and an invoice are sent to your email address at the beginning of the next reporting period. For more information, see [Reporting documents](../payment/documents.md).
 
-## Validity period {#dates}
+{% endlist %}
 
-The billing account has no validity period.
+## Validity period  {#dates}
 
-However, if the use of Yandex.Cloud services is suspended due to arrears and you fail to pay the outstanding amount within 30 days of suspension, all your data, including the billing account, will be permanently blocked and deleted.
+Billing accounts don't expire.
+
+However, if Yandex.Cloud services are suspended due to arrears and you fail to pay the outstanding amount within 30 days of suspension, all your data, including the billing account, will be permanently blocked and deleted.
 
 ## Number of billing accounts {#restrictions}
 
-Each customer is allowed to create only one billing account.
+{% include [billing-account-amounts](../_includes/billing-account-amounts.md) %}
+
+{% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}
 

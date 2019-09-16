@@ -36,5 +36,5 @@ The structure of the returned data is described in [ACL XML schema](xmlscheme.md
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [#T](../response-codes.md).
+For a list of possible responses, see [{#T}](../response-codes.md).
 

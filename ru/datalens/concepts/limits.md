@@ -4,7 +4,7 @@ editable: false
 
 # Квоты и лимиты
 
-В сервисе Yandex DataLens действуют следующие ограничения:
+В сервисе {{ datalens-full-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

@@ -19,7 +19,7 @@ PUT /{bucket}/{key}?acl HTTP/1.1
 | Parameter | Description |
 | ----- | ----- |
 | `bucket` | Name of the bucket. |
-| `key` | Object key. ID to use for saving the object in Object Storage. |
+| `key` | Object key. ID to use for saving the object in {{ objstorage-name }}. |
 
 ### Query parameters {#request-params}
 
@@ -47,5 +47,5 @@ Responses can only contain [common response headers](../common-response-headers.
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [#T](../response-codes.md).
+For a list of possible responses, see [{#T}](../response-codes.md).
 

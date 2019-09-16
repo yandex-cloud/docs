@@ -1,8 +1,8 @@
-# Подключение к базе данных в кластере ClickHouse
+# Подключение к базе данных в кластере {{ CH }}
 
-Внутри Яндекс.Облака подключиться к кластеру БД можно только с виртуальной машины с адресом в той же подсети Облака.
+{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 
-К кластеру ClickHouse можно подключиться как с помощью [клиента командной строки](https://clickhouse.yandex/docs/ru/interfaces/cli/) (порт 9440), так и по [HTTP-интерфейсу](https://clickhouse.yandex/docs/ru/interfaces/http_interface/) (порт 8443). Все соединения с кластерами БД шифруются.
+К кластеру {{ CH }} можно подключиться как с помощью [клиента командной строки](https://clickhouse.yandex/docs/ru/interfaces/cli/) (порт 9440), так и по [HTTP-интерфейсу](https://clickhouse.yandex/docs/ru/interfaces/http_interface/) (порт 8443). Все соединения с кластерами БД шифруются.
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
@@ -13,7 +13,7 @@ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem"
 ```
 
 
-## Подключение с помощью ClickHouse CLI {#cli}
+## Подключение с помощью {{ CH }} CLI {#cli}
 
 Чтобы подключиться к кластеру с помощью клиента командной строки, укажите путь к SSL-сертификату в [конфигурационном файле](https://clickhouse.yandex/docs/ru/interfaces/cli/#interfaces_cli_configuration), в элементе `<caConfig>`:
 
@@ -37,13 +37,15 @@ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem"
 Затем запустите ClickHouse CLI со следующими параметрами:
 
 ```bash
-clickhouse-client --host <адрес хоста> \
+clickhouse-client --host <FQDN хоста> \
                   -s \
                   --user <имя пользователя БД> \
                   --password <пароль пользователя БД> \
                   -q "<запрос к БД>"
                   --port 9440
 ```
+
+{% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
 ## Подключение по HTTP {#http}
 
@@ -53,7 +55,7 @@ clickhouse-client --host <адрес хоста> \
 curl --cacert <путь к SSL-сертификату> \
      -H "X-ClickHouse-User: <имя пользователя БД>" \
      -H "X-ClickHouse-Key: <пароль пользователя БД>" \
-     'https://<адрес хоста>:8443/?database=<имя БД>&query=SELECT%20now()'
+     'https://<FQDN хоста>:8443/?database=<имя БД>&query=SELECT%20now()'
 ```
 
 При подключении с помощью HTTP-метода GET возможны только операции чтения. GET-запрос операции записи всегда вызовет ошибку, как при использовании параметра соединения `readonly=1`.
@@ -64,6 +66,6 @@ curl -X POST \
      --cacert <путь к SSL-сертификату> \
      -H "X-ClickHouse-User: <имя пользователя БД>" \
      -H "X-ClickHouse-Key: <пароль пользователя БД>" \
-     'https://<адрес хоста>:8443/?database=<имя БД>&query=INSERT%20INTO%20Customers%20%28CustomerName%2C%20Address%29%20VALUES%20%28%27Example%20Exampleson%27%2C%20%27Moscow%2C%20Lva%20Tolstogo%2C%2016%27%29%3B'
+     'https://<FQDN хоста>:8443/?database=<имя БД>&query=INSERT%20INTO%20Customers%20%28CustomerName%2C%20Address%29%20VALUES%20%28%27Example%20Exampleson%27%2C%20%27Moscow%2C%20Lva%20Tolstogo%2C%2016%27%29%3B'
 ```
 

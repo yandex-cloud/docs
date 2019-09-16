@@ -14,13 +14,13 @@ If someone might have gotten access to your private key, [delete it](../../opera
 
 For information about how to use an API key for authentication, read the documentation on the services that support this authorization method:
 
-* [SpeechKit](../../../speechkit/concepts/auth.md)
-* [Translate](../../../translate/concepts/auth.md)
-* [Vision](../../../vision/api-ref/authentication.md)
+* [{{ speechkit-name }}](../../../speechkit/concepts/auth.md)
+* [{{ translate-name }}](../../../translate/api-ref/authentication.md)
+* [{{ vision-name }}](../../../vision/api-ref/authentication.md)
 
 #### See also
 
 * [How to create an API key](../../operations/api-key/create.md)
-* [#T](iam-token.md)
-* [#T](index.md)
+* [{#T}](iam-token.md)
+* [{#T}](index.md)
 

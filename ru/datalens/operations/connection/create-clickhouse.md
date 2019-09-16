@@ -1,7 +1,7 @@
 # Создание подключения к ClickHouse
 {% note info %}
 
-DataLens поддерживает подключение к ClickHouse только по HTTP-интерфейсу.
+{{ datalens-short-name }} поддерживает подключение к ClickHouse только по HTTP-интерфейсу.
 
 {% endnote %}
 

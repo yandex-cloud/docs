@@ -49,7 +49,7 @@ Download and install Packer by following the [instructions on the official websi
       "source_image_family": "debian-9",
       "subnet_id":           "<subnet ID>",
       "use_ipv4_nat":        true,
-      "disk_type":           "network-nvme",
+      "disk_type":           "network-ssd",
       "ssh_username":        "debian"
     }
   ],
@@ -81,7 +81,7 @@ $ packer build image.json
 
 Make sure the image was created:
 
-1. Go to the [management console](https://console.cloud.yandex.com/).
+1. Go to the [management console]({{ link-console-main }}).
 1. Open **Compute Cloud**.
 1. Open **Images**. Check if the new disk image is there.
 

@@ -1,15 +1,12 @@
-# Restrictions Managed Service for Redis
+# Restrictions {{ mrd-name }}
 
-Managed Service for Redis allows you to run [any Redis commands](https://redis.io/commands), except the following:
+{{ mrd-name }} allows you to run [any Redis commands](https://redis.io/commands), except the following:
 
 - `BGREWRITEAOF`
 - `BGSAVE`
-- `CLUSTER`
 - `COMMAND`
 - `CONFIG`
 - `DEBUG`
-- `EVAL`
-- `EVALSHA`
 - `LASTSAVE`
 - `MIGRATE`
 - `MODULE`
@@ -18,7 +15,6 @@ Managed Service for Redis allows you to run [any Redis commands](https://redis.i
 - `OBJECT`
 - `REPLICAOF`
 - `SAVE`
-- `SCRIPT`
 - `SHUTDOWN`
 - `SLAVEOF`
 

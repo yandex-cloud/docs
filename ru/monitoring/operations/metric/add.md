@@ -4,21 +4,23 @@
 
 {% include [before-beginning](../../../_includes/monitoring/before-beginning.md) %}
 
-### Пример запроса
+### Пример запроса {#sample-request}
 
 1. Создайте файл с телом запроса, например `body.json`. В свойстве `metrics` перечислите список метрик для записи. Обязательные метки передаются в query-параметрах запроса, а дополнительные — в теле запроса.
 
     **body.json:**
     ```json
     {
-        "metrics": [{
-            "name": "temperature",
-            "labels": {
-                "building": "office",
-                "room": "openspace"
+        "metrics": [
+            {
+                "name": "temperature",
+                "labels": {
+                    "building": "office",
+                    "room": "openspace"
                 },
-            "value": 18.6
-        }]
+                "value": 18.6
+            }
+        ]
     }
     ```
 
@@ -30,5 +32,14 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d @body.json \
-        'https://monitoring.api.cloud.yandex.net/monitoring/v1/data/write?cloud_id=aoecngvoh58bgtr3s25a&folder_id=aoe6vrq0g3svvs3uf62u&service=custom' > output.json
+        'https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write?folderId=aoe6vrq0g3svvs3uf62u&service=custom' > output.json
+    ```
+
+    Пример ответа на запрос:
+
+    **output.json:**
+    ```json
+    {
+        "metrics_written":"1"
+    }
     ```

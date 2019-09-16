@@ -1,13 +1,13 @@
 ---
 editable: false
 ---
-# Pricing policy for Container Registry
+# Pricing policy for {{ container-registry-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of using Container Registry {#rules}
+## What goes into the cost of using {{ container-registry-short-name }} {#rules}
 
-The cost of Container Registry usage is based on:
+The cost of {{ container-registry-name }} usage is based on:
 
 - The amount of storage used by your data.
 - The amount of outgoing traffic.

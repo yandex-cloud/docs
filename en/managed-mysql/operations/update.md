@@ -4,11 +4,11 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-nvme`).
+* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-ssd`).
 
-* [Configure the servers](#change-postgresql-config) MySQL as described in the [documentation MySQL](https://www.postgresql.org/docs/10/runtime-config.html).
+* [Configure the {{ MY }} servers](#change-mysql-config).
 
-## Change the host class {#change-resource-preset}
+## Changing the host class {#change-resource-preset}
 
 {% list tabs %}
 
@@ -30,7 +30,7 @@ After creating a cluster, you can:
 
      ```
      $ yc managed-mysql resource-preset list
-
+     
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
@@ -49,7 +49,7 @@ After creating a cluster, you can:
            --resource-preset <class ID>
       ```
 
-      Managed Service for MySQL will run the update host class command for the cluster.
+      {{ mmy-short-name }} will run the update host class command for the cluster.
 
 - API
 
@@ -59,7 +59,7 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Increasing the storage size {#change-disk-size}
+## Increasing storage size {#change-disk-size}
 
 {% list tabs %}
 
@@ -77,13 +77,13 @@ After creating a cluster, you can:
       $ yc managed-mysql cluster update --help
       ```
 
-  2. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.com/cloud?section=quotas) for your cloud and check that the Yandex Managed Service for MySQL section still has space remaining in the **space** line.
+  2. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
 
-  3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-nvme`:
+  3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ yc managed-mysql cluster get <cluster name>
-
+      
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
       ...
@@ -92,7 +92,7 @@ After creating a cluster, you can:
         resources:
           resource_preset_id: s1.nano
           disk_size: "10737418240"
-          disk_type_id: network-nvme
+          disk_type_id: network-ssd
       ...
       ```
 
@@ -103,17 +103,17 @@ After creating a cluster, you can:
            --disk-size <storage size in GB>
       ```
 
-      If all requirements are met, Managed Service for MySQL runs the operation to increase the storage size.
+      If all these conditions are met, {{ mmy-short-name }} launches the operation to increase storage space.
 
 - API
 
   You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.resources.diskSize`.
 
-  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.com/cloud?section=quotas) for your cloud and check that the Yandex Managed Service for MySQL section still has space remaining in the **space** line.
+  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
 
 {% endlist %}
 
-## Changing MySQL {#change-postgresql-config} settings
+## Changing {{ MY }} settings {#change-mysql-config}
 
 You can change the DBMS settings of the hosts in your cluster. All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
 
@@ -125,7 +125,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change MySQL server settings:
+  To change {{ MY }} server settings:
 
   1. View the description of the CLI's update cluster configuration command:
 
@@ -139,14 +139,14 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
      ```
      $ yc managed-mysql cluster update-config <cluster name>
-          --set log_min_duration_statement=100,<parameter name>=,...
+          --set log_min_duration_statement=100,<parameter name>=<value>,...
      ```
 
-     Managed Service for MySQL will run the operation for changing the cluster settings.
+     {{ mmy-short-name }} will run the operation for changing the cluster settings.
 
 - API
 
-  You can change the DBMS settings for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.postgresqlConfig_10.config`.
+  You can change the DBMS settings for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.mysql_config_5_7`.
 
 {% endlist %}
 

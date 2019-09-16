@@ -16,7 +16,7 @@ If previously created disks are attached to the VM, they will be detached when t
   
   1. Select the folder the VM belongs to.
   
-  1. Select **Compute Cloud**.
+  1. Select **{{ compute-name }}**.
   
   1. Select the VM → click ![image](../../../_assets/dots.svg) → select **Delete**.
   

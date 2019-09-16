@@ -1,6 +1,6 @@
 # Managing hosts in a cluster
 
-You can add and remove cluster hosts and manage PostgreSQL settings for individual clusters.
+You can add and remove cluster hosts and manage {{ PG }} settings for individual clusters.
 
 ## Getting a list of cluster hosts {#list}
 
@@ -8,7 +8,7 @@ You can add and remove cluster hosts and manage PostgreSQL settings for individu
 
 - Management console
 
-  1. Go to the folder page and select **Managed Service for PostgreSQL**.
+  1. Go to the folder page and select **{{ mpg-name }}**.
 
   2. Click on the name of the cluster you need and select the **Hosts** tab.
 
@@ -18,7 +18,7 @@ You can add and remove cluster hosts and manage PostgreSQL settings for individu
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of cluster databases, run the command:
+  To get a list of databases in a cluster, run the command:
 
   ```
   $ yc managed-postgresql host list
@@ -32,7 +32,7 @@ You can add and remove cluster hosts and manage PostgreSQL settings for individu
   +----------------------------+--------------+---------+--------+---------------+
   ```
 
-  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -40,18 +40,15 @@ You can add and remove cluster hosts and manage PostgreSQL settings for individu
 
 {% endlist %}
 
-## Adding a host  {#add}
+## Adding a host {#add}
 
-The number of hosts in Managed Service for PostgreSQL clusters is limited by CPU quotas and the amount of memory available to database clusters in your cloud. To check the resources in use, open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page and find the **Yandex Managed Service for PostgreSQL** block.
+The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mpg-full-name }}** block.
 
 {% list tabs %}
 
 - Management console
-
-  1. Go to the folder page and select **Managed Service for PostgreSQL**.
-
+  1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
-
   1. Click **Add host**.
 
   1. Specify the host parameters:
@@ -60,7 +57,7 @@ The number of hosts in Managed Service for PostgreSQL clusters is limited by CPU
 
       * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
 
-      * Priority of the host as a PostgreSQL replica.
+      * Priority of the host as a {{ PG }} replica.
 
       * Replication source (if you use cascading replication).
 
@@ -105,9 +102,9 @@ The number of hosts in Managed Service for PostgreSQL clusters is limited by CPU
           --host zone-id=<availability zone>,subnet-id=<subnet ID>
      ```
 
-     Managed Service for PostgreSQL launches the add host operation.
+     {{ mpg-short-name }} will run the add host operation.
 
-     The subnet ID must be specified if there is more than one subnet in the availability zone, otherwise Managed Service for PostgreSQL automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mpg-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -115,13 +112,13 @@ The number of hosts in Managed Service for PostgreSQL clusters is limited by CPU
 
 {% endlist %}
 
-## Changing a host {#update}
+## Change the host {#update}
 
-For each host in a PostgreSQL cluster, you can change:
+For each host in a {{ PG }} cluster, you can change:
 
 * The host's priority in the cluster, according to which a new master is selected when the old one is unavailable.
 
-* The host that should be the replication source for the current host (if you use [cascading replication](https://www.postgresql.org/docs/current/warm-standby.html#CASCADING-REPLICATION)).
+* The host chosen as the replication source for the current host (if you use [cascading replication](https://www.postgresql.org/docs/current/warm-standby.html#CASCADING-REPLICATION)).
 
 {% list tabs %}
 
@@ -131,16 +128,16 @@ For each host in a PostgreSQL cluster, you can change:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the parameters of the PostgreSQL host, run the command:
+  To change the parameters of the {{ PG }} host, run the command:
 
   ```
-  $ yc managed-postgresql host update <hostname>
+  $ yc managed-postgresql host update <host name>
        --cluster-name <cluster name>
        --replication-source <source host's name
        --priority <replica's priority
   ```
 
-  The host names can be requested with a [list of cluster hosts](#list-hosts) and the cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  The host names can be requested with a [list of cluster hosts](list-hosts)  and the cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
 
 - API
 
@@ -150,17 +147,17 @@ For each host in a PostgreSQL cluster, you can change:
 
 ## Removing a host {#remove}
 
-You can remove a host from a PostgreSQL cluster if it is not the only host in it. To replace a single host, first create a new host and then delete the old one.
+You can remove a host from a {{ PG }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
 
-If the host is the master when it's deleted, Managed Service for PostgreSQL will automatically assign another the next replica by priority the master.
+If the host is the master when deleted, {{ mpg-short-name }} automatically assigns the next highest-priority replica as the master.
 
 {% list tabs %}
 
 - Management console
 
-  1. Go to the folder page and select **Managed Service for PostgreSQL**.
+  1. Go to the folder page and select **{{ mpg-name }}**.
 
-  2. Click on the name of the cluster you need and select the **Hosts** tab.
+  2. Click on the name of the cluster you want and select the **Hosts** tab.
 
   3. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
 
@@ -177,7 +174,7 @@ If the host is the master when it's deleted, Managed Service for PostgreSQL will
        --cluster-name=<cluster name>
   ```
 
-  The name of the host can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

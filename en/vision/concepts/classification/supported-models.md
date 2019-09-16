@@ -1,6 +1,6 @@
 # Supported models
 
-_Image classification is currently at the [Preview stage](/docs/overview/concepts/launch-stages)._
+_Image classification is currently in the [Preview stage](/docs/overview/concepts/launch-stages)._
 
 The service provides image classification based on a model that is trained on a specific set of images. The model is specified in the `classificationConfig` configuration of a request.
 
@@ -11,8 +11,8 @@ Only one of the two types of properties can be included in the model:
 
 Currently supported models:
 
-* [quality](#quality): assesses the quality of an image.
-* [moderation](#moderation): estimates whether an image meets moderation requirements.
+* [quality](#quality) — Assesses the quality of an image.
+* [moderation](#moderation) — Assesses whether an image meets moderation requirements.
 
 ## quality
 
@@ -39,9 +39,9 @@ Assesses the quality of an image.
 {% list tabs %}
 
 - high
-  
+
   ![image](../../../_assets/vision/high.jpg)
-  
+
   ```json
   "properties": [
       {
@@ -58,11 +58,11 @@ Assesses the quality of an image.
       }
   ]
   ```
-  
+
 - medium
-  
+
   ![image](../../../_assets/vision/medium.jpg)
-  
+
   ```json
   "properties": [
       {
@@ -79,11 +79,11 @@ Assesses the quality of an image.
       }
   ]
   ```
-  
+
 - low
-  
+
   ![image](../../../_assets/vision/low.jpg)
-  
+
   ```json
   "properties": [
       {
@@ -100,7 +100,7 @@ Assesses the quality of an image.
       }
   ]
   ```
-  
+
 {% endlist %}
 
 ## moderation

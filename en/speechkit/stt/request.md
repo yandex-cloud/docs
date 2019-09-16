@@ -9,8 +9,8 @@ If you want to recognize speech over the same connection, use [streaming mode](s
 The audio you send must meet the following requirements:
 
 1. Maximum file size — {{ stt-short—fileSize }}.
-1. Maximum length — 1 minute.
-1. Maximum number of audio channels — 1.
+1. Maximum length — {{ stt-short-audioLength }}.
+1. Maximum number of audio channels — {{ stt-short-channelsCount }}.
 
 If your file is larger, longer, or has more audio channels, use [long audio recognition](transcribation.md).
 

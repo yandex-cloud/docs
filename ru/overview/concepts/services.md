@@ -3,25 +3,25 @@
 _Сервис_ в составе Яндекс.Облака позволяет управлять определенными категориями облачных ресурсов и доступом к ним.
 На данный момент в рамках платформы Яндекс.Облако доступны следующие сервисы:
 
-  - [Yandex Compute Cloud](../../compute/) — сервис облачных вычислений.
-  - [Yandex Object Storage](../../storage/) — сервис объектного хранилища.
-  - [Yandex Virtual Private Cloud](../../vpc/) — сервис для управлениями сетями.
-  - [Yandex Identity and Access Management](../../iam/) — сервис по управлению доступом к облачным ресурсам.
-  - [Yandex Resource Manager](../../resource-manager/) — сервис для управления облачными ресурсами.
-  - [Yandex Load Balancer](../../load-balancer/) — сервис для управлениями балансерами нагрузки.
-  - [Yandex Container Registry](../../container-registry/) — сервис для управления образами контейнеров.
-  - [Yandex Monitoring](../../monitoring/) — сервис по управлению доступом к облачным ресурсам.
-  - [Yandex Managed Service for PostgreSQL](../../managed-postgresql/) — сервис управления для PostgreSQL.
-  - [Yandex Managed Service for ClickHouse](../../managed-clickhouse/) — сервис управления для ClickHouse.
-  - [Yandex Managed Service for MongoDB](../../managed-mongodb/) — сервис управления для MongoDB.
-  - [Yandex Managed Service for MySQL](../../managed-mysql/) — сервис управления для MySQL.
-  - [Yandex Managed Service for Redis](../../managed-redis/) — сервис сервис управления для Redis.
-  - [Yandex Data Proc](../../data-proc/) — сервис для развертывания кластеров Hadoop.
-  - [Yandex Message Queue](../../message-queue/) — сервис для организации очередей сообщений.
-  - [Yandex SpeechKit](../../speechkit/) — сервис речевых технологий.
-  - [Yandex Translate](../../translate/) — сервис машинного перевода.
-  - [Yandex Vision](../../vision/) — сервис компьютерного зрения.
-  - [Yandex DataLens](../../datalens/) — сервис визуализации и анализа данных.
+  - [{{ compute-full-name }}](../../compute/) — сервис облачных вычислений.
+  - [{{ objstorage-full-name }}](../../storage/) — сервис объектного хранилища.
+  - [{{ vpc-full-name }}](../../vpc/) — сервис для управлениями сетями.
+  - [{{ iam-full-name }}](../../iam/) — сервис по управлению доступом к облачным ресурсам.
+  - [{{ resmgr-full-name }}](../../resource-manager/) — сервис для управления облачными ресурсами.
+  - [{{ load-balancer-full-name }}](../../load-balancer/) — сервис для управлениями балансерами нагрузки.
+  - [{{ container-registry-full-name }}](../../container-registry/) — сервис для управления образами контейнеров.
+  - [{{ monitoring-full-name }}](../../monitoring/) — сервис для сбора метрик состояния ресурсов и сервисов с возможностью их визуализации.
+  - [{{ mpg-full-name }}](../../managed-postgresql/) — сервис управления для PostgreSQL.
+  - [{{ mch-full-name }}](../../managed-clickhouse/) — сервис управления для ClickHouse.
+  - [{{ mmg-full-name }}](../../managed-mongodb/) — сервис управления для MongoDB.
+  - [{{ mmy-full-name }}](../../managed-mysql/) — сервис управления для MySQL.
+  - [{{ mrd-full-name }}](../../managed-redis/) — сервис управления для Redis.
+  - [{{ dataproc-full-name }}](../../data-proc/) — сервис для развертывания кластеров Hadoop.
+  - [{{ message-queue-full-name }}](../../message-queue/) — сервис для организации очередей сообщений.
+  - [{{ speechkit-full-name }}](../../speechkit/) — сервис речевых технологий.
+  - [{{ translate-full-name }}](../../translate/) — сервис машинного перевода.
+  - [{{ vision-full-name }}](../../vision/) — сервис компьютерного зрения.
+  - [{{ datalens-full-name }}](../../datalens/) — сервис визуализации и анализа данных.
 
 
 ### Как подключиться к сервисам

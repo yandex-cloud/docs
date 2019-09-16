@@ -27,26 +27,32 @@ items:
         href: operations/index.md
       - name: Бакеты
         items:
-          - name: Создать бакет
+          - name: Создание бакета
             href: operations/buckets/create.md
-          - name: Удалить бакет
+          - name: Удаление бакета
             href: operations/buckets/delete.md
-          - name: Ограничить максимальный размер бакета
+          - name: Ограничение максимального размера бакета
             href: operations/buckets/limit-max-volume.md
-          - name: Открыть публичный доступ к бакету
+          - name: Открытие публичного доступа к бакету
             href: operations/buckets/bucket-availability.md
+          - name: Редактирование ACL бакета
+            href: operations/buckets/edit-acl.md
       - name: Объекты
         items:
-          - name: Загрузить объект
+          - name: Загрузка объекта
             href: operations/objects/upload.md
-          - name: Получить информацию об объекте
+          - name: Получение информации об объекте
             href: operations/objects/info.md
-          - name: Скачать объект
+          - name: Скачивание объекта
             href: operations/objects/download.md
-          - name: Получить ссылку на скачивание
+          - name: Получение публичной ссылки на объект
             href: operations/objects/link-for-download.md
-          - name: Удалить объект
+          - name: Удаление объекта
             href: operations/objects/delete.md
+          - name: Удаление частично загруженного объекта
+            href: operations/objects/deleting-multipart.md
+          - name: Редактирование ACL объекта
+            href: operations/objects/edit-acl.md
   - name: Концепции
     items:
       - name: Обзор
@@ -55,12 +61,18 @@ items:
         href: concepts/bucket.md
       - name: Объект
         href: concepts/object.md
+      - name: Подписанные (pre-signed) URL
+        href: concepts/pre-signed-urls.md
       - name: Составная (multipart) загрузка
         href: concepts/multipart.md
       - name: Список управления доступом (ACL)
         href: concepts/acl.md
+      - name: Загрузка файла через HTML форму
+        href: concepts/presigned-post-forms.md
       - name: Класс хранилища
         href: concepts/storage-class.md
+      - name: Резервное копирование
+        href: concepts/backup.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Хостинг статических сайтов
@@ -93,6 +105,8 @@ items:
     items:
       - name: Как пользоваться API
         href: s3/index.md
+      - name: Подписывание запросов
+        href: s3/signing-requests.md
       - name: Справочник API
         items:
           - name: Все сервисы и методы

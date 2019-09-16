@@ -1,6 +1,6 @@
 # get method
 
-Returns a bucket's object lifecycle configuration from Object Storage.
+Returns a bucket's object lifecycle configuration from {{ objstorage-name }}.
 
 ## Request {#request}
 
@@ -32,11 +32,11 @@ A response can only contain [common response headers](../common-response-headers
 
 ### Response codes {#response-codes}
 
-If there is no configuration, Object Storage returns error code 404 `NoSuchLifecycleConfiguration`.
+If there is no configuration, {{ objstorage-name }} returns error code 404 `NoSuchLifecycleConfiguration`.
 
-For a list of other possible responses, see [#T](../response-codes.md).
+For a list of other possible responses, see [{#T}](../response-codes.md).
 
 ### Data schema {#response-scheme}
 
-The structure of returned data is the same as that of the data passed by the [upload](upload.md) method. The structure is described in [#T](../../../lifecycles/configuration.md).
+The structure of returned data is the same as that of the data passed by the [upload](upload.md) method. The structure is described in [{#T}](../../../lifecycles/configuration.md).
 

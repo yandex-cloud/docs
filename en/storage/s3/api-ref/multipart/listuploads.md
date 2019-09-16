@@ -2,7 +2,7 @@
 
 Returns a list of current multipart uploads.
 
-The response may contain no more than 1,000 elements. If there are more uploads, Object Storage returns the `IsTruncated` element as well as the `NextKeyMarker` and `NextUploadIdMarker` elements to be used for the `key-marker` and `upload-id-​marker` parameters of a subsequent request.
+The response may contain no more than 1,000 elements. If there are more uploads, {{ objstorage-name }} returns the `IsTruncated` element as well as the `NextKeyMarker` and `NextUploadIdMarker` elements to be used for the `key-marker` and `upload-id-​marker` parameters of a subsequent request.
 
 ## Request {#request}
 
@@ -20,10 +20,10 @@ GET /{bucket}?uploads HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `delimiter` | Delimiter character.<br/><br/>If this parameter is specified, Object Storage interprets the key as the path to the file with folder names separated by the `delimiter` character. The user will get a list of <q>files</q> and <q>folders</q> in the <q>root</q> of the bucket. <q>The files</q> will be output in the `Uploads` elements, and the <q>folders</q> will be in the `CommonPrefixes` elements.<br/><br/>If the request also specifies the `prefix` parameter, Object Storage will return the list of <q>files</q> and <q>folders</q> in the <q>prefix</q>`folder`. |
-| `max-uploads` | Maximum number of uploads in a response.<br/><br/>By default, Object Storage outputs a maximum of 1,000 keys. This parameter should be used if you need to get less than 1,000 keys in a single response.<br/><br/>If the number of keys meeting the selection criteria is greater than the number that could fit in the output, the response contains `<IsTruncated>true</IsTruncated>`.<br/><br/>To get all output objects if their number exceeds the `max-keys` value, make several consecutive requests to Object Storage with the `key-marker` parameter, where each request's `key-marker` value is equal to the value of the `NextKeyMarker` element in the previous response. |
+| `delimiter` | Delimiter character.<br/><br/>If this parameter is specified, {{ objstorage-name }} interprets the key as the path to the file with folder names separated by the `delimiter` character. The user will get a list of <q>files</q> and <q>folders</q> in the <q>root</q> of the bucket. <q>The files</q> will be output in the `Uploads` elements, and the <q>folders</q> will be in the `CommonPrefixes` elements.<br/><br/>If the request also specifies the `prefix` parameter, {{ objstorage-name }} will return the list of <q>files</q> and <q>folders</q> in the <q>prefix</q>`folder`. |
+| `max-uploads` | Maximum number of uploads in a response.<br/><br/>By default, {{ objstorage-name }} outputs a maximum of 1,000 keys. This parameter should be used if you need to get less than 1,000 keys in a single response.<br/><br/>If the number of keys meeting the selection criteria is greater than the number that could fit in the output, the response contains `<IsTruncated>true</IsTruncated>`.<br/><br/>To get all output objects if their number exceeds the `max-keys` value, make several consecutive requests to {{ objstorage-name }} with the `key-marker` parameter, where each request's `key-marker` value is equal to the value of the `NextKeyMarker` element in the previous response. |
 | `key-marker` | Key. Output begins with the key that follows the one specified in the parameter value.<br/><br/>Use it together with the `upload-id-marker` for output filtering.<br/><br/>If the `upload-id-marker` is specified, then the output will also contain the `key-marker`. |
-| `prefix` | String to start the key from.<br/><br/>Object Storage selects only those keys which start with `prefix`. |
+| `prefix` | String to start the key from.<br/><br/>{{ objstorage-name }} selects only those keys which start with `prefix`. |
 | `upload-id-​marker` | Upload ID.<br/><br/>Output begins with the upload whose ID follows the one specified in the parameter value. The `key-marker` value is processed, meaning that the output will contain the uploads that match filtering by both `upload-id-​marker` and `key-marker`.<br/><br/>If no`key-marker`  is specified, the `upload-id-​marker` is ignored. |
 | `uploads` | Flag indicating a multipart upload operation. |
 
@@ -39,7 +39,7 @@ A response can only contain [common response headers](../common-response-headers
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [#T](../response-codes.md).
+For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response contains additional data in XML format with the schema described below.
 
@@ -95,9 +95,9 @@ A successful response contains additional data in XML format with the schema des
 | `UploadIdMarker` | Upload ID.<br/><br/>Output begins with the upload whose ID follows the one specified in the parameter value.<br/><br/>See the `upload-id-marker` parameter description.<br/><br/>Path: `/ListMultipartUploadsResult/UploadIdMarker`. |
 | `NextKeyMarker` | Key.<br/><br/>If the output failed to include all the elements the user should have received, this value is to be used in the `key-marker` parameter for subsequent requests.<br/><br/>Present if some of the elements do not fit in the response.<br/><br/>Path: `/ListMultipartUploadsResult/NextKeyMarker`. |
 | `NextUploadIdMarker` | Upload ID.<br/><br/>If the output failed to include all the elements the user should have received, this value is to be used in the `upload-id-marker` parameter for subsequent requests.<br/><br/>Present if some of the elements do not fit in the response.<br/><br/>Path: `/ListMultipartUploadsResult/NextUploadMarker`. |
-| `Encoding-Type` | Encoding in which Object Storage provides a key in an XML response.<br/><br/>See the `encoding-type` request parameter description.<br/><br/>Path: `/ListMultipartUploadsResult/Encoding-Type`. |
+| `Encoding-Type` | Encoding in which {{ objstorage-name }} provides a key in an XML response.<br/><br/>See the `encoding-type` request parameter description.<br/><br/>Path: `/ListMultipartUploadsResult/Encoding-Type`. |
 | `MaxUploads` | Maximum list length for a single response. <br/><br/>See the description of the `max-uploads` request parameter. <br/><br/>Path: `/ListMultipartUploadsResult/MaxParts`. |
-| `IsTruncated` | Flag indicating that a list is incomplete.<br/><br/>If `IsTruncated` is `true`, this means that Object Storage returned an incomplete list of uploads.<br/><br/>Path: `/ListMultipartUploadsResult/IsTruncated`. |
+| `IsTruncated` | Flag indicating that a list is incomplete.<br/><br/>If `IsTruncated` is `true`, this means that {{ objstorage-name }} returned an incomplete list of uploads.<br/><br/>Path: `/ListMultipartUploadsResult/IsTruncated`. |
 | `Upload` | Upload description.<br/><br/>Path: `/ListMultipartUploadsResult/Upload`. |
 | `Key` | Key of the last upload object.<br/><br/>Path: `/ListMultipartUploadsResult/Upload/Key`. |
 | `UploadId` | Multipart upload ID.<br/><br/>Path: `/ListMultipartUploadsResult/Upload/UploadId`. |

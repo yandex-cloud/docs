@@ -10,6 +10,8 @@ items:
         href: operations/index.md
       - name: Аутентифицироваться в Container Registry
         href: operations/authentication.md
+      - name: Создать ВМ с Container Optimized Image
+        href: operations/create-coi-vm.md
       - name: Docker-образ
         items:
           - name: Получить информацию об имеющихся Docker-образах

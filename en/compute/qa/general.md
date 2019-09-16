@@ -15,7 +15,7 @@ It's easier to manage a cloud infrastructure so you can focus on your business c
 - Create and distribute VM disk images. You can use images to quickly deploy your software on other VMs.
 - Automate VM management using the API and scripts in the command line interface.
 
-For more information about Yandex.Cloud VMs, see the section [#T](../concepts/vm.md).
+For more information about Yandex.Cloud VMs, see the section [{#T}](../concepts/vm.md).
 
 #### How do Yandex.Cloud VMs differ from regular hosting? {#better-than-hosting}
 
@@ -27,7 +27,7 @@ You also get full control over the status of your VMs. You can start and stop VM
 
 #### How do I get started with Yandex.Cloud VMs? {#get-started}
 
-You can create your first VM using one of the methods described in the section [#T](../quickstart/index.md).
+You can create your first VM using one of the methods described in the section [{#T}](../quickstart/index.md).
 
 #### How do I get access to a VM? {#access-ssh}
 
@@ -37,7 +37,7 @@ If a public IP address was assigned to the VM when it was created, you can use i
 
 You can find out the IP addresses, FQDN and other information in the management console (go to the **Network** section on the virtual machine's page).
 
-For more information, see the section [#T](../concepts/network.md)
+For more information, see the section [{#T}](../concepts/network.md)
 
 To connect to Linux VMs, [use SSH](../operations/vm-connect/ssh.md). Connect to Windows VMs via RDP.
 
@@ -53,6 +53,10 @@ You can change the performance of your information system in one of the followin
 Linux and Windows operating systems are supported.
 
 Public boot disk images that have been tested in Yandex.Cloud are available for popular distributions of these systems.
+
+
+{% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+
 
 #### How do I contact technical support? {#support-channels}
 

@@ -4,7 +4,7 @@ editable: false
 
 # Квоты и лимиты
 
-В сервисе Managed Service for ClickHouse действуют следующие ограничения:
+В сервисе {{ mch-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

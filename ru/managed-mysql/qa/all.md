@@ -1,9 +1,9 @@
-# Вопросы и ответы про Managed Service for MySQL<sup>®</sup>
+# Вопросы и ответы про {{ mmy-short-name }}<sup>®</sup>
 
 ## Общие вопросы {#general}
 
 {% include notitle [general](general.md) %}
 
-## Вопросы о MySQL {#mysql}
+## Вопросы о {{ MY }} {#mysql}
 
 {% include notitle [mysql](mysql.md) %}

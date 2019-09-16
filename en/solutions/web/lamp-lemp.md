@@ -10,14 +10,14 @@ To configure a static website or dynamic website in PHP:
 
 Before creating a VM:
 
-1. Go to the Yandex.Cloud [management console](https://console.cloud.yandex.com/) and select the folder where you want to perform the operations.
+1. Go to the Yandex.Cloud [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
 1. Make sure the selected folder has a network with a subnet that the VM can be connected to. To do this, click the **Virtual Private Cloud** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If there aren't any networks or subnets, [create them](../../vpc/quickstart.md).
 
 ## 1. Create a VM with a pre-installed web server {#create-vm}
 
 To create a VM:
 
-1. On the folder page of the [management console](https://console.cloud.yandex.com/), click **Create resource** and select **Virtual machine**.
+1. On the folder page of the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
 
 1. In the **Name** field, enter the VM name.
 
@@ -36,8 +36,9 @@ To create a VM:
     - Specify the required amount of vCPUs and RAM.
 
     The minimum configuration is enough for functional testing:
+    * **Platform**: Intel Cascade Lake.
     * **Guaranteed vCPU share**: 5%.
-    * **vCPU**: 1.
+    * **vCPU**: 2.
     * **RAM**: 1 GB.
 
 1. In the **Network settings** section, select the subnet to connect the VM to when creating it.
@@ -55,7 +56,7 @@ When a VM is created, it is assigned an IP address and hostname (FQDN). This dat
 
 #### See also
 
-- [#T](../../compute/operations/vm-connect/ssh.md)
+- [{#T}](../../compute/operations/vm-connect/ssh.md)
 
 ## 2. Upload the website files {#upload-files}
 

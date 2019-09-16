@@ -5,7 +5,7 @@ Choose the level of core performance when creating each VM. The level determines
 - VMs with part core usage operate with partial use of the core. They are designed to run applications that do not require high performance. In addition, these machines cost less than standard virtual machines.
 - VMs with 100% core usage operate with full use of the core. They are designed to run applications that require high performance.
 
-The available disk space does not depend on the type of virtual machine.  For limitations, see [#T](limits.md).
+The available disk space does not depend on the type of virtual machine.  For limitations, see [{#T}](limits.md).
 
 Minimum and maximum configurations for:
 

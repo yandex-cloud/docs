@@ -123,7 +123,7 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
       [3] Create a new folder
      Please enter your numeric choice: 1
      ```
-  1. Select the default availability zone for the Yandex Compute Cloud service:
+  1. Select the default availability zone for the {{ compute-full-name }} service:
 
      ```
      Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y

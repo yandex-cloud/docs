@@ -26,7 +26,7 @@ The service recognizes text written horizontally. If an image or text is rotated
 
     ```json
     {
-        "folderId": "ajk55f3mblj12eghq2oe",
+        "folderId": "b1gvmob95yysaplct532",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             ...
@@ -40,7 +40,7 @@ The service recognizes text written horizontally. If an image or text is rotated
 
        ```json
        {
-           "folderId": "ajk55f3mblj12eghq2oe",
+           "folderId": "b1gvmob95yysaplct532",
            "analyze_specs": [{
                "content": "iVBORw0KGgo...",
                "features": [{
@@ -60,7 +60,7 @@ For example, you can recognize images in Hebrew, Arabic, and English:
 
        ```json
        {
-           "folderId": "ajk55f3mblj12eghq2oe",
+           "folderId": "b1gvmob95yysaplct532",
            "analyze_specs": [{
                "content": "iVBORw0KGgo...",
                "features": [{

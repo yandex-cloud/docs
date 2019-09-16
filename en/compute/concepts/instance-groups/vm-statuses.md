@@ -6,14 +6,14 @@ An instance in a group of instances can have one of the following statuses:
 
 | Status | Description |
 | ----- | ----- |
-| `CREATING` | An instance is being created in the Yandex Compute Cloud system. |
+| `CREATING` | An instance is being created in the {{ compute-full-name }} system. |
 | `STARTING` | The OS and user application are being started. |
 | `OPENING` | The instance is ready to receive traffic, from the viewpoint of the network load balancer. |
 | `WARMING` | The user application is warming up. |
 | `RUNNING` | The instance is running. |
 | `CLOSING` | The instance no longer receives traffic, from the viewpoint of the network load balancer. |
 | `STOPPING` | The instance is being stopped. |
-| `DELETING` | The instance is being removed from the Yandex Compute Cloud system. |
+| `DELETING` | The instance is being removed from the {{ compute-full-name }} system. |
 | `UPDATING` | The basic parameters or metadata are being updated without re-creating the instance. |
 | `FAILED` | The operation has failed. You should recover the instance from this state yourself. Make sure the [limits](../limits.md) are not exceeded and re-create the group. |
 

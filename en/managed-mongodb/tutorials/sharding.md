@@ -1,0 +1,87 @@
+# Sharding {{ MG }} collections
+
+{% note info %}
+
+Sharding in {{ mmg-name }} is available for clusters running {{ MG }} version 4.0 or higher. If your cluster is deployed with version 3.6, you can [update it](../operations/cluster-version-update.md).
+
+{% endnote %}
+
+It makes sense to shard collections when splitting data into shards significantly helps improve DBMS performance or data availability. To increase availability, each shard should consist of 3 or more database hosts.
+
+Ease of use and actual performance improvements depend strongly on the sharding key you choose: make sure that the data of the collection is logically distributed across shards and isn't linked to data in different shards.
+
+You should use sharding if:
+
+* Significantly large volumes of data. Consider sharding if your collection is 200 GB or more.
+* Collections with non-uniform contents. For example, data can be clearly classified as frequently queried and rarely queried.
+* Collections requiring high read and write speeds. Sharding helps distribute workloads among hosts to bypass technical limitations.
+
+For more information about sharding, see [{#T}](../concepts/sharding.md).
+
+## How to enable collection sharding {#enable}
+
+1. Open a {{ mmg-name }} cluster page in [консоли управления]({{ link-console-main }}).
+
+1. Go to the **Shards** tab and click **Enable**.
+
+1. Specify the host class, storage type and size, and subnets for shard hosts (mongocfg and mongos).
+
+1. Connect to the mongos host using the `mongo` CLI and enable sharding:
+
+   ```
+   sh.enableSharding(<database name>)
+   ```
+
+1. Define an index for the sharded collection:
+
+   ```
+   db.<collection name>.ensureIndex( { "<index>": "hashed" } )
+   ```
+
+1. Enable collection sharding:
+
+   ```
+   sh.shardCollection( "<collection>", { "<index>": "hashed" } )
+   ```
+
+   For a detailed description of the `shardCollection`  command, see the [MongoDB documentation](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#definition).
+
+1. Modify applications that use your database to **only** use the mongos hosts.
+
+### Links on the topic {#links}
+
+From the {{ MG }} documentation, you can learn how to solve issues related to sharding:
+
+* Sharding overview: [Sharding](https://docs.mongodb.com/manual/sharding/index.html).
+* Choosing a shard key and sharding strategies: [Shard Keys](https://docs.mongodb.com/manual/core/sharding-shard-key/).
+
+## Example of sharding {#example}
+
+Let's say you already have a {{ mmg-name }} sharded cluster hosting the `billing` database. Your task is to enable sharding for the `payment` and `addresses` collections. In the example, the `payment` index hash and the value of the `addresses` field are used as the shard key.
+
+Sequence of operations:
+
+1. [Connect](../operations/connect.md) to the database.
+
+1. Enable `billing` database sharding:
+
+   ```
+   sh.enableSharding("billing")
+   ```
+
+1. Define the index for the sharded collection:
+
+   ```
+   db.payments.ensureIndex( { "_id": "hashed" } )
+   ```
+
+1. Create the necessary number of shards in [management console]({{ link-console-main }}).
+
+1. Shard the collection based on its namespace:
+
+   ```
+   sh.shardCollection( "billing.payments", { "_id": "hashed" } )
+   ```
+
+Sharding is now enabled and configured. To make sure, try listing the available shards using the command `db.adminCommand( { listShards: 1 } )`.
+

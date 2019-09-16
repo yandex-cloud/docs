@@ -18,7 +18,6 @@
 
 ## Пример {#boto-example}
 
-
 {% list tabs %}
 
 - boto3
@@ -70,7 +69,7 @@
   conn = S3Connection(
       host='storage.api.cloud.yandex.net'
   )
-  conn.auth_region_name = 'us-east-1'
+  conn.auth_region_name = 'ru-central1'
   
   # Создать новый бакет
   conn.create_bucket('bucket-name')

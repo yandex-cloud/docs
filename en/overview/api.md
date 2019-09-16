@@ -6,15 +6,15 @@ To learn more, read [Yandex.Cloud API concepts](../api-design-guide/).
 
 ## Yandex.Cloud API reference guides
 
-- [Yandex Compute Cloud](../compute/api-ref/)
-- [Yandex Object Storage](../storage/s3/)
-- [Yandex Identity and Access Management](../iam/api-ref/)
-- [Yandex Resource Manager](../resource-manager/api-ref/)
-- [Yandex Virtual Private Cloud](../vpc/api-ref/)
+- [{{ compute-full-name }}](../compute/api-ref/)
+- [{{ objstorage-full-name }}](../storage/s3/)
+- [{{ iam-full-name }}](../iam/api-ref/)
+- [{{ resmgr-full-name }}](../resource-manager/api-ref/)
+- [{{ vpc-full-name }}](../vpc/api-ref/)
 - Database services:
    * [ClickHouse](../managed-clickhouse/api-ref/)
    * [MongoDB](../managed-mongodb/api-ref/)
    * [PostgreSQL](../managed-postgresql/api-ref/)
-- [Yandex SpeechKit](../speechkit/)
-- [Yandex Translate](../translate/)
+- [{{ speechkit-full-name }}](../speechkit/)
+- [{{ translate-full-name }}](../translate/)
 

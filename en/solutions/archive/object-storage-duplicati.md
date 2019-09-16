@@ -1,6 +1,6 @@
-# Backup to Yandex Object Storage via Duplicati
+# Backup to {{ objstorage-full-name }} via Duplicati
 
-To set up backups in Object Storage via Duplicati:
+To set up backups in {{ objstorage-name }} via Duplicati:
 
 1. [Create a bucket](#create-bucket)
 1. [Create a service account](#create-service-account)
@@ -43,7 +43,7 @@ Create static access keys. Save the ID and private key right away. You won't be 
 
 ## 5. Configure Duplicati {#configure-duplicati}
 
-To configure Duplicati to work with Object Storage:
+To configure Duplicati to work with {{ objstorage-name }}:
 
 1. Run Duplicati. If required, set a password for your account.
 1. Select the **Add backup** menu item.
@@ -67,7 +67,7 @@ To test a backup:
 
 1. Open the **Home** menu item.
 1. In the list of backup plans next to the `Yandex Cloud` plan, click **Run now**.
-1. Open the [management console](https://console.cloud.yandex.com/).
+1. Open the [management console]({{ link-console-main }}).
 1. Go to the folder containing the bucket where your backups are stored.
 1. Open the **Object Storage** service.
 1. Open the `backup` bucket and check whether all the necessary files have been copied.

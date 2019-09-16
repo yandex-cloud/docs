@@ -1,6 +1,6 @@
-# Getting a static public IP address
+# Making a dynamic public IP address static
 
-To get a static public IP address, you need to change the type of public IP used by the VM from dynamic to static.
+You can change the type of public IP used by the VM from dynamic to static.
 
 {% list tabs %}
 

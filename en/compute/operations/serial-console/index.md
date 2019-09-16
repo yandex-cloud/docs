@@ -192,7 +192,7 @@ To create a local password, use the CLI.
 
   If there is no public IP address, [update the VM](../vm-control/vm-update.md) by additionally specifying the `--public-ip` flag.
 
-1. Connect to the VM. For more information, see [#T](../vm-connect/ssh.md#vm-connect).
+1. Connect to the VM. For more information, see [{#T}](../vm-connect/ssh.md#vm-connect).
 
 1. Create a local password. In Linux, you can set a password using the `passwd` command:
 
@@ -219,7 +219,7 @@ An equivalent of the serial console in Windows is the Speicial Administration Co
    ```
    $ bcdedit /ems "{current}" on
    The operation completed successfully.
-   
+
    $ bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200
    The operation completed successfully.
    ```

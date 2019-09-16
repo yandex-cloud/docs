@@ -1,52 +1,45 @@
 # Access management
 
-Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden. Regardless of the roles assigned, the user can view reference lists of availability zones and disk types.
+In this section, you'll learn:
 
-To allow access to Yandex Compute Cloud resources (VMs, disks, images, and snapshots), assign the user the required roles from the list below. For now, a role can only be assigned for a parent resource (folder or cloud), and roles are inherited by nested resources.
+* [What resources you can assign roles to](#resources).
+* [What roles exist in the service](#roles-list).
 
-{% note info %}
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-For more information about role inheritance, see [#T](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the Yandex Resource Manager documentation.
+## What resources you can assign roles to. {#resources}
 
-{% endnote %}
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Assigning roles
+## What roles exist in the service {#roles-list}
 
-To assign a role to a user:
+The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
 
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
+![image](service-roles-hierarchy.svg)
 
-## Roles
+Active roles in the service:
 
-The list below shows all roles that are considered when verifying access rights in the Compute Cloud service.
+* Service roles:
+    * {% include [compute.images.user](../../_includes/iam/roles/short-descriptions/compute.images.user.md) %}
 
-### Service roles
+    * {% include [compute.disks.user](../../_includes/iam/roles/short-descriptions/compute.disks.user.md) %}
 
-_Service roles_ are roles that allow access to the resources of a particular service. When checking  Compute Cloud resource access rights, Compute Cloud and Resource Manager service roles are considered.
+    * {% include [iam.serviceAccounts.user](../../_includes/iam/roles/short-descriptions/iam.serviceAccounts.user.md) %}
 
-{% include [roles-disks-user](../../_includes/roles-disks-user.md) %}
+        This role is required to execute operations in [{{ ig-name }}](../concepts/instance-groups/index.md). If you have entered a service account in the request, {{ iam-short-name }} checks that you have rights to use this account.
 
-{% include [roles-images-user](../../_includes/roles-images-user.md) %}
+    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* Primitive roles:
+    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-### Primitive roles
+#### What's next
 
-You can assign primitive roles to any resource in any service.
-
-#### viewer
-
-A user with the `viewer` role can view information about resources (for example, view a list of disks or obtain information about a VM).
-
-#### editor
-
-A user with the `editor` role can manage any resources (for example, create, stop, or start a VM, and attach or detach a disk).
-
-In addition, the `editor` role includes all permissions of the `viewer` role.
-
-#### admin
-
-A user with the `admin` role can manage access rights to resources (for example, allow other users to create VMs or view information about them).
-
-In addition, the `admin` role includes all permissions of the role of `editor`.
+* [How to assign a role](../../iam/operations/roles/grant.md).
+* [How to revoke a role](../../iam/operations/roles/revoke.md).
+* [Read more about access management in Yandex.Cloud](../../iam/concepts/access-control/index.md).
+* [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 

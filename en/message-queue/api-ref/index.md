@@ -49,7 +49,7 @@ In this example, attribute 1 is the `VisibilityTimeout` set to 40; attribute 2 i
 
 ## API response {#api-response}
 
-In response to an API request, Message Queue returns an XML structure containing the request result.
+In response to an API request, {{ message-queue-name }} returns an XML structure containing the request result.
 
 ### Successful response {#success}
 
@@ -85,7 +85,7 @@ The Error element contains the following child elements:
 | Tag | Description |
 | ----- | ----- |
 | `Type` | Error type indicating whether the error occurred on the producer or consumer's side. |
-| `Code` | Error ID.<br/><br/>For a list of common errors, see the section [#T](common-errors.md). |
+| `Code` | Error ID.<br/><br/>For a list of common errors, see the section [{#T}](common-errors.md). |
 | `Message` | Error description in English. |
 | `Detail` | Additional information about the error (optional). |
 

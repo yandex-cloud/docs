@@ -1,6 +1,6 @@
 # yc vpc
 
-Manage Yandex Virtual Private Cloud resources.
+Manage {{ vpc-full-name }} resources.
 
 #### Usage
 

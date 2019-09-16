@@ -1,4 +1,4 @@
-# Questions and answers about Compute Cloud
+# Questions and answers about {{ compute-name }}
 
 ## General questions {#general}
 

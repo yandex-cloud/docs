@@ -1,153 +1,352 @@
 # Развертывание Active Directory
 
-В сценарии приводится пример установки Active Directory в Яндекс.Облаке с помощью Terraform. Состояния Terraform будут храниться в Object Storage.
-
-После установки Active Directory нужно настроить. Подробнее о конфигурации AD читайте [на официальном сайте](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/active-directory-domain-services).
+В сценарии приводится пример развертывания Active Directory в Яндекс.Облаке. 
 
 Чтобы развернуть инфраструктуру Active Directory:
 
-1. [Создайте сервисный аккаунт, ключи доступа и авторизованные ключи](#create-service-account)
-1. [Подготовьте конфигурации Terraform и Active Directory](#prepare-tf-and-ad)
-1. [Инициализируйте Terraform](#terraform-init)
-1. [Задайте переменные Terraform](#tfvars)
-1. [Разверните инфраструктуру](#terraform-plan)
+1. [Подготовьте облако к работе](#before-begin)
+1. [Необходимые платные ресурсы](#paid-resources)
+1. [Создайте облачную сеть и подсети](#create-network)
+1. [Создайте скрипт для управления локальной учетной записью администратора](#admin-script)
+1. [Создайте ВМ для Active Directory](#ad-vm)
+1. [Создайте ВМ для бастионного хоста](#ajump-server-vm)
+1. [Установите и настройте Active Directory](#install-ad)
+1. [Настройте второй контроллер домена](#install-ad-2)
+1. [Проверьте работу Active Directory](#test-ad)
+1. [Удалите созданные ресурсы](#clear-out)
 
-## Подготовка к работе {#prepare}
+## Подготовьте облако к работе {#before-begin}
 
-1. Установите [интерфейс командной строки](../../cli/quickstart.md#install) Яндекс.Облака.
-1. [Создайте](../../storage/operations/buckets/create.md) бакет Object Storage.
+Перед тем, как разворачивать серверы, нужно зарегистрироваться в Облаке и создать платежный аккаунт:
 
-## 1. Создайте сервисный аккаунт и ключи {#create-service-account}
+{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
 
-Для работы с Object Storage и создания ресурсов в облаке нужно создать сервисный аккаунт, ключи доступа и авторизованные ключи.
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака](https://console.cloud.yandex.ru/cloud).
 
-1. Создайте сервисный аккаунт:
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость инсталляции Active Directory входят:
+
+* плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование динамических или статических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* стоимость исходящего трафика из Облака в интернет (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+
+## Создайте облачную сеть и подсети {#create-network}
+
+Создайте облачную сеть `ad-network` с подсетями во всех зонах доступности, где будут находиться виртуальные машины.
+
+1. Создайте облачную сеть:
+
+   {% list tabs %}
+
+   - Консоль управления
+
+     Чтобы создать [облачную сеть](../../vpc/concepts/network.md):
+     1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать облачную сеть.
+     1. Нажмите кнопку **Создать сеть.**
+     1. Задайте имя сети: `ad-network`. 
+     1. Нажмите кнопку **Создать сеть**.
+
+   - CLI
+
+     Чтобы создать облачную сеть, выполните команду:
+
+     ```
+     $ yc vpc network create --name ad-network
+     ```
+
+   {% endlist %}
+
+1. Создайте три подсети в сети `ad-network`:
+
+   {% list tabs %}
+
+     - Консоль управления
+
+       Чтобы создать подсеть:
+       1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать подсеть.
+       1. Нажмите на имя облачной сети.
+       1. Нажмите кнопку **Добавить подсеть**.
+       1. Заполните форму: введите имя подсети `ad-subnet-a`, выберите зону доступности `ru-central1-a` из выпадающего списка.
+       1. Введите CIDR подсети: IP-адрес и маску подсети: `10.1.0.0/16`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
+       1. Нажмите кнопку **Создать подсеть**.
+
+       Повторите шаги еще для двух подсетей `ad-subnet-b` и `ad-subnet-c` в зонах доступности `ru-central1-b` и `ru-central1-c` с CIDR `10.2.0.0/16` и `10.3.0.0/16` соответственно.
+
+     - CLI
+
+       Чтобы создать подсети, выполните команды:
+
+       ```
+       yc vpc subnet create \
+         --name ad-subnet-a \
+         --zone ru-central1-a \
+         --network-name ad-network \
+         --range 10.1.0.0/16
+
+       yc vpc subnet create \
+         --name ad-subnet-b \
+         --zone ru-central1-b \
+         --network-name ad-network \
+         --range 10.2.0.0/16
+
+       yc vpc subnet create \
+         --name ad-subnet-c \
+         --zone ru-central1-c \
+         --network-name ad-network \
+         --range 10.3.0.0/16
+       ```
+
+   {% endlist %}
+
+## Создайте скрипт для управления локальной учетной записью администратора {#admin-script}
+
+Создайте файл `setpass`, содержащий скрипт, который будет устанавливать пароль для локальной учетной записи администратора при создании виртуальных машин через CLI:
+
+```
+#ps1
+Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "P@ssw0rd11" -AsPlainText -Force)
+```
+
+## Создайте ВМ для Active Directory {#ad-vm}
+
+Создайте две виртуальных машины для контроллеров домена Active Directory. Эти машины не будут иметь доступа в интернет.
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. На странице каталога в [консоли управления](https://console.cloud.yandex.ru) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+  1. В поле **Имя** введите имя виртуальной машины: `ad-vm-a`.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
+  1. В блоке **Публичные образы** нажмите кнопку **Выбрать**. В открывшемся окне выберите образ **2016 Datacenter**.
+  1. В блоке **Диски** укажите размер загрузочного диска 35 ГБ.
+  1. В блоке **Вычислительные ресурсы**:
+      - Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Укажите необходимое количество vCPU и объем RAM:
+         * **vCPU** — 4.
+         * **Гарантированная доля vCPU** — 100%.
+         * **RAM** — 8 ГБ.
+
+  1. В блоке **Сетевые настройки** нажмите кнопку **Добавить сеть** и выберите сеть `exchange-network`. Выберите подсеть `exchange-subnet-a`. В блоке **Публичный адрес** выберите вариант **Без адреса**. 
+  1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
+      - В поле **Пароль** укажите пароль `P@ssw0rd11`.
+  1. Нажмите кнопку **Создать ВМ**.
+
+  Повторите операцию для ВМ с именем `ad-vm-b` в зоне доступности `ru-central1-a` и подключите ее к подсети `exchange-subnet-b`
+
+- CLI
+
+  ```
+  $ yc compute instance create \
+      --name ad-vm-a \
+      --hostname ad-vm-a \
+      --memory 8 \
+      --cores 4 \
+      --zone ru-central1-a \
+      --network-interface subnet-name=exchange-subnet-a,ipv4-address=10.1.0.3 \
+      --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
+      --metadata-from-file user-data=setpass
+
+  $ yc compute instance create \
+      --name ad-vm-b \
+      --hostname ad-vm-b \
+      --memory 8 \
+      --cores 4 \
+      --zone ru-central1-b \
+      --network-interface subnet-name=exchange-subnet-b,ipv4-address=10.2.0.3 \
+      --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
+      --metadata-from-file user-data=setpass
+  ```
+
+{% endlist %}
+
+## Создайте ВМ для бастионного хоста {#jump-server-vm}
+
+Для настройки машин с Active Directory будет использоваться файловый сервер с выходом в интернет. 
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. На странице каталога в [консоли управления](https://console.cloud.yandex.ru) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+  1. В поле **Имя** введите имя виртуальной машины: `jump-server-vm`.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-с`.
+  1. В блоке **Публичные образы** нажмите кнопку **Выбрать**. В открывшемся окне выберите образ **2016 Datacenter**.
+  1. В блоке **Диски** укажите размер загрузочного диска 35 ГБ.
+  1. В блоке **Вычислительные ресурсы**:
+      - Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Укажите необходимое количество vCPU и объем RAM:
+         * **vCPU** — 2.
+         * **Гарантированная доля vCPU** — 100%.
+         * **RAM** — 4 ГБ.
+
+  1. В блоке **Сетевые настройки** нажмите кнопку **Добавить сеть** и выберите сеть `exchange-network`. Выберите подсеть `exchange-subnet-c`. В блоке **Публичный адрес** выберите вариант **Без адреса**. 
+  1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
+      - В поле **Пароль** укажите пароль `P@ssw0rd11`.
+  1. Нажмите кнопку **Создать ВМ**.
+
+- CLI
+
+  ```
+  $ yc compute instance create \
+      --name jump-server-vm \
+      --hostname jump-server-vm \
+      --memory 4 \
+      --cores 2 \
+      --zone ru-central1-c \
+      --network-interface subnet-name=exchange-subnet-c,nat-ip-version=ipv4 \
+      --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
+      --metadata-from-file user-data=setpass
+  ```
+
+{% endlist %}
+
+## Установите и настройте Active Directory {#install-ad}
+
+У машин с Active Directory нет доступа в интернет, поэтому их следует настраивать через ВМ `jump-server-vm` с помощью RDP.
+
+1. Подключитесь к ВМ `jump-server-vm` с помощью RDP. Используйте логин `Administrator` и пароль `P@ssw0rd11`.
+1. Запустите RDP и подключитесь к виртуальной машине `ad-vm-a`.
+1. Запустите PowerShell и задайте статический адрес:
+
+   ```powershell
+   netsh interface ip set address "Ethernet 2" static 10.1.0.3 255.255.255.0 10.1.0.1
+   ```
+
+1. Создайте временную папку:
 
    ```
-   $ yc iam service-account create --name ad-sa
+   mkdir C:\Windows\temp
    ```
 
-1. Создайте ключи доступа:
+1. Установите роли Active Directory:
 
-   ```
-   $ yc iam access-key create --service-account-name ad-sa
-   ```
+   ```powershell
+   Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 
-   Сохраните значения полей `key_id` и `secret_key`, они будут использоваться для доступа Terraform к Object Storage.
-
-1. Создайте авторизованные ключи и сохраните их в файл:
-
-   ```
-   $ yc iam key create --service-account-name ad-sa -o ad-sa.json
+   Success Restart Needed Exit Code      Feature Result
+   ------- -------------- ---------      --------------
+   True    No             Success        {Active Directory Domain Services, Group P...
    ```
 
-   После этого будет создан файл `ad-sa.json`, путь к которому нужно указать в конфигурации Terraform.
+1. Создайте лес Active Directory:
 
-1. Получите список сервисных аккаунтов и их идентификаторов командой `yc iam service-account list`. Назначьте сервисному аккаунту `ad-sa` роль `editor` в каталоге, где будут выполняться операции:
-
-   ```
-   $ yc resource-manager folder add-access-binding <имя_каталога> \
-     --role editor \
-     --subject serviceAccount:<идентификатор сервисного аккаунта>
+   ```powershell
+   Install-ADDSForest -DomainName 'yantoso.net' -Force:$true
    ```
 
-## 2. Подготовьте конфигурации Terraform и Active Directory {#prepare-tf-and-ad}
+   Windows перезапустится автоматически. Снова откройте PowerShell.
 
-Склонируйте [репозиторий](https://github.com/yandex-cloud/examples) c примерами.
+1. Переименуйте сайт по умолчанию в `ru-central1-a`:
 
-Проект содержит следующие файлы:
+   ```powershell
+   Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName 'ru-central1-a'
+   ```
 
-* **Terraform**:
-   * `main.tf` — конфигурация инфраструктуры.
-   * `variables.tf` — описание переменных для конфигурации инфраструктуры.
-* **PowerShell**:
-   * `bootstrap.ps1` — PowerShell-скрипт, который выполняется программой cloudbase-init до загрузки операционной системы. Скрипт создает пользователя и задание в планировщике задач Windows. По заданию запустится произвольный PowerShell скрипт в атрибуте `deploy`, который будет задан в [метаданных виртуальной машины](../../compute/concepts/vm-metadata.md).
-   * `deploy-forestroot.ps1` — скрипт установки первого контроллера домена.
-   * `deploy-domaincontroller.ps1` — скрипт установки контроллера домена.
+1. Создайте еще два сайта для других зон доступности:
 
-## 3. Инициализируйте Terraform {#terraform-init}
+   ```powershell
+   New-ADReplicationSite 'ru-central1-b'
+   New-ADReplicationSite 'ru-central1-c'
+   ```
 
-Перейдите в директорию с проектом и выполните следующую команду:
+1. Создайте подсети и привяжите их к сайтам:
 
-```
-$ terraform init \
-  -backend-config="endpoint=storage.yandexcloud.net" \
-  -backend-config="region=us-east-1" \
-  -backend-config="bucket=<имя бакета>" \
-  -backend-config="key=ad-sa.json" \
-  -backend-config="access_key=<идентификатор ключа доступа — key_id>" \
-  -backend-config="secret_key=<секретный ключ — secret_key>" \
-  -backend-config="skip_region_validation=true" \
-  -backend-config="skip_credentials_validation=true"
-```
+   ```powershell
+   New-ADReplicationSubnet -Name '10.1.0.0/16' -Site 'ru-central1-a'
+   New-ADReplicationSubnet -Name '10.2.0.0/16' -Site 'ru-central1-b'
+   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site 'ru-central1-c'
+   ```
 
-## 4. Задайте переменные Terraform {#tfvars}
+1. Переименуйте сайт-линк и настройте репликацию:
 
-Создайте файл `terraform.tfvars` и приведите его к следующему виду:
+   ```powershell
+   Get-ADReplicationSiteLink 'DEFAULTIPSITELINK' | `
+       Set-ADReplicationSiteLink -SitesIncluded @{Add='ru-central1-b'} -ReplicationFrequencyInMinutes 15 -PassThru | `
+       Set-ADObject -Replace @{options = $($_.options -bor 1)} -PassThru | `
+       Rename-ADObject -NewName 'ru-central1'
+   ```
 
-```
-service_account_key_file = "<путь к файлу с авторизованным ключом>"
-cloud_id                 = "<идентификатор облака>"
-folder_id                = "<идентификатор каталога>"
+1. Укажите сервер переадресации DNS:
 
-##########
-# vpc
-##########
+   ```powershell
+   Set-DnsServerForwarder '10.1.0.2'
+   ```
 
-vpc_name         = "ad-demo"
-subnet_cidr      = "10.0.0.0/16"
-zone_names       = ["ru-central1-a", "ru-central1-b", "ru-central1-c"]
-zone_short_names = ["rc1a", "rc1b", "rc1c"]
+1. Настройте DNS-клиент:
 
-##########
-# instance
-##########
+   ```powershell
+   Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses "10.2.0.3,127.0.0.1"
+   ```
 
-name      = "ad"
-number    = 9
-user      = "<имя пользователя Active Directory>"
-pass      = "<пароль пользователя Active Directory>"
-user_data = "powershell/bootstrap.ps1"
+## Настройте второй контроллер домена {#install-ad-2}
 
-ad_smadminpass = "P@ssw0rd!1"
-ad_domainname  = "mydomain.local"
-ad_deploy_root = "powershell/deploy-forestroot.ps1"
-ad_deploy_dc   = "powershell/deploy-domaincontroller.ps1"
-```
+1. Подключитесь к ВМ `jump-server-vm` с помощью RDP. 
+1. С помощью RDP подключитесь к виртуальной машине `ad-vm-b`. Используйте логин `Administrator` и пароль `P@ssw0rd11`.
+1. Создайте временную папку:
 
-Зоны доступности, в которых будут созданы виртуальные машины, определяются в строке `zone_names`, а их короткие имена — в строке `zone_short_names`. Если нужно создать ВМ только в двух зонах, то приведите эти строки к следующему виду:
+   ```
+   mkdir C:\Windows\temp
+   ```
 
-```
-zone_names       = ["ru-central1-a", "ru-central1-b"]
-zone_short_names = ["rc1a", "rc1b"]
-```
+1. Установите роли Active Directory:
 
-## 5. Разверните инфраструктуру {#terraform-plan}
+   ```powershell
+   Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 
-Выполните команду:
+   Success Restart Needed Exit Code      Feature Result
+   ------- -------------- ---------      --------------
+   True    No             Success        {Active Directory Domain Services, Group P...
+   ```
 
-```
-$ terraform plan
-```
+1. Настройте DNS-клиент:
 
-Если конфигурация и переменные заданы верно, Terraform отобразит список создаваемых ресурсов.
+   ```powershell
+   Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses "10.1.0.3,127.0.0.1"
+   ```
 
-{% note alert %}
+1. Настройте статический IP-адрес:
 
-Все созданные с помощью Terraform ресурсы тарифицируются, внимательно проверьте план.
+   ```powershell
+   netsh interface ip set address "Ethernet 2" static 10.2.0.3 255.255.255.0 10.2.0.1
+   ```
 
-{% endnote %}
+1. Добавьте контроллер в домен:
 
-Если конфигурация верна, выполните команду:
+   ```powershell
+   Install-ADDSDomainController `
+       -Credential (Get-Credential "yantoso\Administrator") `
+       -DomainName 'yantoso.net' `
+       -Force:$true
+   ```
 
-```
-$ terraform apply
-```
+   Windows перезапустится автоматически. Снова откройте PowerShell.
 
-Введите `yes` в терминал, чтобы подтвердить создание инфраструктуры.
+1. Укажите сервер переадресации DNS:
 
-Развертывание может занимать продолжительное время. Следить за процессом установки Active Directory можно в выводе последовательного порта:
+   ```powershell
+   Set-DnsServerForwarder '10.2.0.2'
+   ```
 
-```
-$ yc compute instance get-serial-port-output <имя виртуальной машины>
-```
+## Проверьте работу Active Directory {#test-ad}
+
+1. Подключитесь к ВМ `jump-server-vm` с помощью RDP. 
+1. С помощью RDP подключитесь к виртуальной машине `ad-vm-b`. Используйте логин `Administrator` и пароль `P@ssw0rd11`. Запустите PowerShell.
+1. Создайте тестового пользователя:
+
+   ```powershell
+   New-ADUser testUser
+   ```
+1. Убедитесь, что пользователь присутствует на обоих серверах:
+
+   ```
+   Get-ADUser testUser -Server yadc-b
+   Get-ADUser testUser -Server yadc-a
+   ```
+
+## Удалите созданные ресурсы {#clear-out}
+
+Чтобы перестать платить за развернутые серверы, достаточно удалить все созданные [виртуальные машины](../../compute/operations/vm-control/vm-delete.md).

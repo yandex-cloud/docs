@@ -1,0 +1,1 @@
+Как и в других сервисах, роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). Роли, назначенные на облако или каталог, действуют и на вложенные ресурсы.

@@ -41,19 +41,19 @@
 {% list tabs %}
 
 - Linux
-  
+
   1. Посмотрите описание команды CLI для создания виртуальной машины:
-  
+
      ```bash
      $ yc compute instance create --help
      ```
-  
+
   1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, Ubuntu).
-  
+
       {% include [standard-images](../../../_includes/standard-images.md) %}
-  
+
   1.  Создайте виртуальную машину в каталоге по умолчанию:
-  
+
       ```
       $ yc compute instance create \
           --name first-instance \
@@ -64,30 +64,30 @@
           --ssh-key ~/.ssh/<имя открытого ключа>.pub \
           --metadata serial-port-enable=1
       ```
-  
+
       Данная команда создаст виртуальную машину:
-  
+
       - С OC Ubuntu.
       - С именем `first-instance`.
       - В зоне `ru-central1-a`.
       - С активной серийной консолью.
-  
+
       В ОС виртуальной машины будет автоматически создан пользователь `yc-user` с указанным открытым ключом.
-  
+
 - Windows
-  
+
   1. Посмотрите описание команды CLI для создания виртуальной машины:
-  
+
      ```
      $ yc compute instance create --help
      ```
-  
+
   1. Выберите публичный [образ](../images-with-pre-installed-software/get-list.md) на базе операционной системы Windows.
-  
+
       {% include [standard-images](../../../_includes/standard-images.md) %}
-  
+
   1.  Создайте виртуальную машину в каталоге по умолчанию:
-  
+
       ```
       $ yc compute instance create \
       --name win-instance \
@@ -97,16 +97,16 @@
       --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
       --metadata serial-port-enable=1
       ```
-  
+
       Данная команда создаст виртуальную машину:
-  
+
       - С OC Windows.
       - С именем `win-instance`.
       - В зоне `ru-central1-c`.
       - С активной серийной консолью.
-  
+
       В ОС виртуальной машины будет автоматически создан пользователь `Administrator` с паролем, указанном в файле `metadata.yaml`.
-  
+
 {% endlist %}
 
 ## Включение консоли при изменении виртуальной машины {#turn-on-for-current-instance}
@@ -194,7 +194,7 @@
 
    Если публичного IP-адреса нет, [измените виртуальную машину](../vm-control/vm-update.md), дополнительно указав флаг `--public-ip`.
 
-1. Подключитесь к виртуальной машине. Подробнее читайте в разделе [#T](../vm-connect/ssh.md#vm-connect).
+1. Подключитесь к виртуальной машине. Подробнее читайте в разделе [{#T}](../vm-connect/ssh.md#vm-connect).
 
 1. Создайте локальный пароль. В OC Linux задать пароль можно с помощью команды `passwd`:
 
@@ -212,7 +212,7 @@
 
 
 ### Windows {#windows-configuration}
-  
+
 Аналог серийной консоли в Windows — специальная административная консоль (Special Administration Console, SAC).
 
 {% note info %}
@@ -236,5 +236,5 @@
    ```
 
 1. Перезагрузите виртуальную машину.
-  
+
 {% endlist %}

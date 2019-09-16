@@ -1,6 +1,6 @@
-# Relationships between resources in Yandex Compute Cloud
+# Relationships between resources in {{ compute-full-name }}
 
-All resources in Compute Cloud can be divided into three types:
+All resources in {{ compute-short-name }} can be divided into three types:
 
 * _Basic_ resources including [virtual machines](vm.md) and [disks](disk.md).
 * _Auxiliary_ resources including [snapshots](snapshot.md) and [images](image.md). These resources are only used for creating other resources.
@@ -10,7 +10,7 @@ In addition, when creating VMs, resources of other services are used, such as su
 
 ## Basic resources
 
-Compute Cloud allows you to create VMs and attach disks to them.
+{{ compute-short-name }} allows you to create VMs and attach disks to them.
 
 At least one disk must be attached to a VM, that is, a boot disk. A disk can be restored from a snapshot and image or created empty.
 
@@ -34,5 +34,5 @@ When creating a disk, you also specify the disk type. You can view possible disk
 
 When creating a VM, you specify the subnet to which it will be connected. [For more information about cloud networks, see](../../vpc/concepts/network.md).
 
-All Compute Cloud resources are created within folders. Disk types and availability zones are public resources that do not belong to any folder. [Learn more about the resource hierarchy in the Cloud](../../resource-manager/concepts/resources-hierarchy.md).
+All {{ compute-short-name }} resources are created within folders. Disk types and availability zones are public resources that do not belong to any folder. [Learn more about the resource hierarchy in the Cloud](../../resource-manager/concepts/resources-hierarchy.md).
 
