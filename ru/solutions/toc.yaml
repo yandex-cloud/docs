@@ -33,6 +33,8 @@ items:
       href: archive/object-storage-cloudberry.md
     - name: Резервное копирование в Object Storage через Duplicati
       href: archive/object-storage-duplicati.md
+    - name: Настройка SFTP-сервера на Centos 7
+      href: archive/backup-and-archive-to-sftp.md
   - name: Тестовая среда
     items:
     - name: Обзор
