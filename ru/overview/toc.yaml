@@ -13,6 +13,8 @@ items:
     href: concepts/quotas-limits.md
   - name: API
     href: api.md
+  - name: Рекомендации о безопасности
+    href: security-bulletins/index.md
   - name: Удаление данных пользователей
     href: concepts/data-deletion.md
   - name: SLA
