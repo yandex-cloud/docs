@@ -22,7 +22,7 @@ links:
   href: "api-ref/"
 - title: "Сценарии использования"
   description: "Решайте типовые задачи по управлению Docker-образами с помощью Container Registry"
-  href: "scenario/"
+  href: "solutions/"
 - title: "Квоты и лимиты"
   description: "Технические и организационные ограничения сервиса"
   href: "concepts/limits"

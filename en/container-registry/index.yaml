@@ -21,7 +21,7 @@ links:
   href: "api-ref/"
 - title: "Tutorials"
   description: "Use Yandex Container Registry to perform common tasks for managing Docker images"
-  href: "scenario/"
+  href: "solutions/"
 - title: "Quotas and limits"
   description: "Technical and organizational limitations of the service"
   href: "concepts/limits"

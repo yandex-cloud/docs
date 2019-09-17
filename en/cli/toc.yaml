@@ -8,7 +8,7 @@ items:
       - name: Running commands
         href: concepts/index.md
       - name: CLI configuration
-        href: concepts/core-propreties.md
+        href: concepts/core-properties.md
       - name: Profiles
         href: concepts/profile.md
       - name: Synchronous and asynchronous modes of command execution

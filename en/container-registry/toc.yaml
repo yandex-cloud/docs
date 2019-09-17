@@ -53,7 +53,7 @@ items:
   - name: Tutorials
     items:
       - name: Running a Docker image on a VM
-        href: scenario/index.md
+        href: solutions/index.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

@@ -138,7 +138,7 @@ The validity period of an IAM token is 12 hours. Then you need to get a new IAM 
    $ yc config set service-account-key key.json
    ```
 
-   When the `service-account-key` parameter is set, the `token` parameter is reset to zero. For more information about parameters, see [CLI configuration](../../cli/concepts/core-propreties.md).
+   When the `service-account-key` parameter is set, the `token` parameter is reset to zero. For more information about parameters, see [CLI configuration](../../cli/concepts/core-properties.md).
 
 1. Get an IAM token:
 

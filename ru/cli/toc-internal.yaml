@@ -8,7 +8,7 @@ items:
       - name: Запуск команд
         href: concepts/index.md
       - name: Конфигурация CLI
-        href: concepts/core-propreties.md
+        href: concepts/core-properties.md
       - name: Профили
         href: concepts/profile.md
       - name: Синхронный и асинхронный режимы выполнения команд

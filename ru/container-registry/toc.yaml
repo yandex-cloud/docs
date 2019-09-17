@@ -53,7 +53,7 @@ items:
   - name: Сценарии использования
     items:
       - name: Запуск Docker-образа на виртуальной машине
-        href: scenario/index.md
+        href: solutions/index.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

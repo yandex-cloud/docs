@@ -69,5 +69,5 @@ You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https:
 * [Creating a Docker image](../operations/docker-image/docker-image-create.md)
 * [Pushing a Docker image](../operations/docker-image/docker-image-push.md)
 * [Pulling a Docker image](../operations/docker-image/docker-image-pull.md)
-* [Running a Docker image on a VM](../scenario/index.md)
+* [Running a Docker image on a VM](../solutions/index.md)
 
