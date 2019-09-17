@@ -136,7 +136,7 @@
 
   1. Убедитесь, что на ресурс не назначено ролей, которые вы не хотите потерять:
       ```
-      $ yc iam service-account list-access-binding my-robot
+      $ yc iam service-account list-access-bindings my-robot
       ```
   2. Например, назначьте роль нескольким пользователям:
       ```
