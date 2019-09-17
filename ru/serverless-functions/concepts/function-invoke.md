@@ -27,7 +27,7 @@ JSON-структура запроса:
     "multiValueQueryStringParameters": "<словарь списков значений queryString-параметров>",
     "requestContext": "<словарь с контекстом запроса>",
     "body": "<содержимое запроса>",
-    "isBase64Encoded": "<true или false>"
+    "isBase64Encoded": <true или false>
 }
 ```
 
@@ -78,7 +78,7 @@ JSON-структура ответа:
     "headers": "<словарь со строковыми значениями HTTP-заголовков>",
     "multiValueHeaders": "<словарь со списками значений HTTP-заголовков>",
     "body": "<содержимое ответа>",
-    "isBase64Encoded": "<true или false>"
+    "isBase64Encoded": <true или false>
 }
 ```       
 

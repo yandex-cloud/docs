@@ -28,7 +28,7 @@ JSON query structure:
     "multiValueQueryStringParameters": "<dictionary with lists of queryString parameter values>",
     "requestContext": "<dictionary with request context>",
     "body": "<request contents>",
-    "isBase64Encoded": "<true or false>"
+    "isBase64Encoded": <true or false>
 }
 ```
 
@@ -81,7 +81,7 @@ Response JSON structure:
     "headers": "<dictionary with HTTP header string values>",
     "multiValueHeaders": "<dictionary with lists of HTTP header values>",
     "body": "<response contents>",
-    "isBase64Encoded": "<true or false>"
+    "isBase64Encoded": <true or false>
 }
 ```
 
