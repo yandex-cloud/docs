@@ -23,8 +23,8 @@
   - Отправьте данные с устройства в топик устройства:
 
       ```
-      $ mosquitto_pub -h mqtt.cloud.yandex.net \ # Адрес MQTT брокера.
-      -p 8883 \ # Порт MQTT брокера.
+      $ mosquitto_pub -h mqtt.cloud.yandex.net \ # Адрес MQTT-брокера.
+      -p 8883 \ # Порт MQTT-брокера.
       --cafile rootCA.crt \ # Путь к сертификату удостоверяющего центра.
       --cert device-cert.pem \ # Путь к публичной части сертификата устройства.
       --key device-key.pem \ # Путь к приватной части сертификата устройства.
@@ -38,8 +38,8 @@
   - Отправьте данные с устройства в топик реестра:
 
       ```
-      $ mosquitto_pub -h mqtt.cloud.yandex.net \ # Адрес MQTT брокера.
-      -p 8883 \ # Порт MQTT брокера.
+      $ mosquitto_pub -h mqtt.cloud.yandex.net \ # Адрес MQTT-брокера.
+      -p 8883 \ # Порт MQTT-брокера.
       --cafile rootCA.crt \ # Путь к сертификату удостоверяющего центра.
       --cert device-cert.pem \ # Путь к публичной части сертификата устройства.
       --key device-key.pem \ # Путь к приватной части сертификата устройства.
@@ -63,8 +63,8 @@
   - Отправьте команду одному устройству:
 
       ```
-      $ mosquitto_pub -h mqtt.cloud.yandex.net \ # Адрес MQTT брокера.
-      -p 8883 \ # Порт MQTT брокера.
+      $ mosquitto_pub -h mqtt.cloud.yandex.net \ # Адрес MQTT-брокера.
+      -p 8883 \ # Порт MQTT-брокера.
       --cafile rootCA.crt \ # Путь к сертификату удостоверяющего центра.
       --cert registry-cert.pem \ # Путь к публичной части сертификата реестра.
       --key registry-key.pem \ # Путь к приватной части сертификата реестра.
@@ -76,8 +76,8 @@
   - Отправьте команду двум устройствам:
 
       ```
-      $ mosquitto_pub -h mqtt.cloud.yandex.net \ # Адрес MQTT брокера.
-      -p 8883 \ # Порт MQTT брокера.
+      $ mosquitto_pub -h mqtt.cloud.yandex.net \ # Адрес MQTT-брокера.
+      -p 8883 \ # Порт MQTT-брокера.
       --cafile cert.pem \ # Путь к сертификату удостоверяющего центра.
       --cert registry-cert.pem \ # Путь к публичной части сертификата реестра.
       --key registry-key.pem \ # Путь к приватной части сертификата реестра.
@@ -90,8 +90,8 @@
   - Отправьте команду всем устройствам, добавленным в реестр:
 
       ```
-      $ mosquitto_pub -h mqtt.cloud.yandex.net \ # Адрес MQTT брокера.
-      -p 8883 \ # Порт MQTT брокера.
+      $ mosquitto_pub -h mqtt.cloud.yandex.net \ # Адрес MQTT-брокера.
+      -p 8883 \ # Порт MQTT-брокера.
       --cafile cert.pem \ # Путь к сертификату удостоверяющего центра.
       --cert registry-cert.pem \ # Путь к публичной части сертификата реестра.
       --key registry-key.pem \ # Путь к приватной части сертификата реестра.

@@ -25,8 +25,8 @@
   - Подпишите реестр на одно устройство:
 
       ```
-      $ mosquitto_sub -h mqtt.cloud.yandex.net \ # Адрес MQTT брокера.
-       -p 8883 \ # Порт MQTT брокера.
+      $ mosquitto_sub -h mqtt.cloud.yandex.net \ # Адрес MQTT-брокера.
+       -p 8883 \ # Порт MQTT-брокера.
        --cafile rootCA.crt \ # Путь к сертификату удостоверяющего центра.
        --cert registry-cert.pem \ # Путь к публичной части сертификата реестра.
        --key registry-key.pem \ # Путь к приватной части сертификата реестра.
@@ -37,8 +37,8 @@
   - Подпишите реестр на несколько устройств:
 
       ```
-      $ mosquitto_sub -h mqtt.cloud.yandex.net \ # Адрес MQTT брокера.
-      -p 8883 \ # Порт MQTT брокера.
+      $ mosquitto_sub -h mqtt.cloud.yandex.net \ # Адрес MQTT-брокера.
+      -p 8883 \ # Порт MQTT-брокера.
       --cafile rootCA.crt \ # Путь к сертификату удостоверяющего центра.
       --cert registry-cert.pem \ # Путь к публичной части сертификата реестра.
       --key registry-key.pem \ # Путь к приватной части сертификата реестра.
@@ -50,8 +50,8 @@
   - Подпишите реестр на все устройства, добавленные в него:
 
       ```
-      $ mosquitto_sub -h mqtt.cloud.yandex.net \ # Адрес MQTT брокера.
-      -p 8883 \ # Порт MQTT брокера.
+      $ mosquitto_sub -h mqtt.cloud.yandex.net \ # Адрес MQTT-брокера.
+      -p 8883 \ # Порт MQTT-брокера.
       --cafile rootCA.crt \ # Путь к сертификату удостоверяющего центра.
       --cert registry-cert.pem \ # Путь к публичной части сертификата реестра.
       --key registry-key.pem \ # Путь к приватной части сертификата реестра.
@@ -74,8 +74,8 @@
   - Подпишите устройство на команды для конкретного устройства:
 
       ```
-      $ mosquitto_sub -h mqtt.cloud.yandex.net \ # Адрес MQTT брокера.
-      -p 8883 \ # Порт MQTT брокера.
+      $ mosquitto_sub -h mqtt.cloud.yandex.net \ # Адрес MQTT-брокера.
+      -p 8883 \ # Порт MQTT-брокера.
       --cafile rootCA.crt \ # Путь к сертификату удостоверяющего центра.
       --cert device-cert.pem \ # Путь к публичной части сертификата устройства.
       --key device-key.pem \ # Путь к приватной части сертификата устройства.
@@ -86,8 +86,8 @@
   - Подпишите устройство на команды для всех устройств:
 
       ```
-      $ mosquitto_sub -h mqtt.cloud.yandex.net \ # Адрес MQTT брокера.
-      -p 8883 \ # Порт MQTT брокера.
+      $ mosquitto_sub -h mqtt.cloud.yandex.net \ # Адрес MQTT-брокера.
+      -p 8883 \ # Порт MQTT-брокера.
       --cafile rootCA.crt \ # Путь к сертификату удостоверяющего центра.
       --cert device-cert.pem \ # Путь к публичной части сертификата устройства.
       --key device-key.pem \ # Путь к приватной части сертификата устройства.

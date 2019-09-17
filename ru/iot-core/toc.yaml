@@ -42,22 +42,11 @@ items:
     items:
         - name: Взаимосвязь ресурсов сервиса
           href: concepts/index.md
+        - name: Топик
+          href: concepts/topic.md
         - name: Квоты и лимиты
           href: concepts/limits.md
-#  - name: Сценарии использования
-#    items:
-#      - name: Запуск Docker-образа на виртуальной машине
-#        href: scenario/index.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-#  - name: Справочник API
-#    items:
-#      - name: Аутентификация в API
-#        href: api-ref/authentication.md
-#    include:
-#      repo: docs-api
-#      path: ru/containerregistry/toc.yaml
-  # - name: Вопросы и ответы
-  #   href: qa/index.md
