@@ -37,6 +37,8 @@ items:
       href: archive/object-storage-cloudberry.md
     - name: Резервное копирование в Object Storage через Duplicati
       href: archive/object-storage-duplicati.md
+    - name: Настройка системы резервного копирования Bacula на Centos 7
+      href: archive/backup-with-bacula.md
   - name: Тестовая среда
     items:
     - name: Обзор
