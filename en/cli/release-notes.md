@@ -1,15 +1,43 @@
 # YC CLI Releases
 
-## Version 0.37.0 (06.09.19) {#latest-release}
+## Version 0.39.0 (16.09.19) {#latest-release}
 
-### Changes to the CLI {#cli}
+### Changes to Yandex.Cloud services {#services}
+
+#### {{ container-registry-name }} {#container-registry}
+
+- Command `yc container registry`.
+
+    Added the ability to set and view a list of roles for the Docker image registry: `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
+
+#### Managed database services {#managed-db}
+
+**All managed database services**
+
+- Command `yc <database name> users list`.
+
+    The unique cluster ID is no longer displayed when viewing a list of users.
+    
+## Previous releases {#previous-releases}
+
+### Version 0.38.0 (09.09.19) {#version0.38.0}
+
+#### Changes to the CLI {#cli}
+
+**Improved**
+
+- Improved output of fields when viewing a list of API keys.
+
+### Version 0.37.0 (06.09.19) {#version0.37.0}
+
+#### Changes to the CLI {#cli}
 
 **Improved**
 
 - Added API endpoint availability checks for {{ iam-short-name }}, {{ resmgr-short-name }}, and {{ compute-short-name }}. If an endpoint is unavailable, an error is returned.
 - Added detailed error messages.
 
-### Changes to Yandex.Cloud services {#services}
+#### Changes to Yandex.Cloud services {#services}
 
 #### {{ container-registry-name }} {#container-registry}
 
@@ -47,8 +75,6 @@
 - Commands `{{ yc-mdb-pg }} user create` and `yc managed-postgresql user update`
 
     Added ability to specify a user's login and set their access rights using the`--login` and `--grants` flags.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.36.0 (27.08.19) {#version0.36.0}
 
