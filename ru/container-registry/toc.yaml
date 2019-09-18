@@ -1,6 +1,5 @@
 title: "Yandex Container Registry"
 href: index.yaml
-stage: new
 items:
   - name: Начало работы
     href: quickstart/index.md
