@@ -39,8 +39,8 @@ _Диск_ — это виртуальный аналог физических �
 
 **Смотрите также**
 
-- Узнайте как [{#T}](../operations/vm-control/vm-attach-disk.md).
-- Узнайте как [{#T}](../operations/vm-control/vm-detach-disk.md).
+- Узнайте, как [{#T}](../operations/vm-control/vm-attach-disk.md).
+- Узнайте, как [{#T}](../operations/vm-control/vm-detach-disk.md).
 
 ## Резервное копирование {#backup}
 
