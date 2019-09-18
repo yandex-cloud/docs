@@ -80,7 +80,7 @@ items:
       href: api-ref/authentication.md
     include:
       repo: docs
-      path: ru/_api-ref/mdb/clickhouse/toc.yaml
+      path: en/_api-ref/mdb/clickhouse/toc.yaml
   - name: Questions and answers
     items:
     - name: General questions
