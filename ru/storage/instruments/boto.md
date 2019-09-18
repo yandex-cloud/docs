@@ -67,7 +67,7 @@
   from boto.s3.connection import S3Connection
   os.environ['S3_USE_SIGV4'] = 'True'
   conn = S3Connection(
-      host='storage.api.cloud.yandex.net'
+      host='{{ s3-storage-host }}'
   )
   conn.auth_region_name = 'ru-central1'
   
