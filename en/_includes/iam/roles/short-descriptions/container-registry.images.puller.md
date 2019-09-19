@@ -1,0 +1,1 @@
+[`container-registry.images.puller`](../../../../iam/concepts/access-control/roles.md#cr-images-puller): Lets you pull [Docker images](../../../../container-registry/concepts/registry.md) and view information about the service resources (registries, Docker images, repositories).

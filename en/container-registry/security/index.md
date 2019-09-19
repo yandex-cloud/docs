@@ -1,54 +1,59 @@
-# Access management
+# Access control
 
-Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them.
-If a user doesn't have any roles assigned, almost all operations are forbidden.
+In this section, you'll learn:
 
-To allow access to resources of the {{ container-registry-short-name }} service (registries and Docker images),
-assign applicable roles to the user from the list below. For now, a role can only be assigned to a parent resource (folder or cloud), whose roles are inherited by nested resources.
+* [What resources](#resources) you can assign the role to.
+* [What roles exist in the service](#roles-list).
+* [What roles are required](#required-roles) for particular actions.
 
-{% note info %}
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+## What resources you can assign roles to {#resources}
 
-{% endnote %}
+Now you can assign roles for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). These roles also apply to nested resources.
 
-## Assigning roles
+## What roles exist in the service {#roles-list}
 
-To assign a role to a user:
+The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
 
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
+![image](service-roles-hierarchy.svg)
 
-## Roles
+Active roles in the service:
 
-The list below shows all roles that are considered when verifying access rights in the {{ container-registry-short-name }} service.
+* Service roles:
+    * {% include [container-registry.images.puller](../../_includes/iam/roles/short-descriptions/container-registry.images.puller.md) %}
+    * {% include [container-registry.images.pusher](../../_includes/iam/roles/short-descriptions/container-registry.images.pusher.md) %}
+    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* Primitive roles:
+    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-### Service roles
+## What roles do I need {#required-roles}
 
-_Service roles_ are roles that allow access to the resources of a particular service.
+The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+| Action | Methods | Required roles |
+| ----- | ----- | ----- |
+| **View data** | | |
+| Get a list of [registries](../operations/registry/registry-list.md) | `list` | `container-registry.images.puller` for the folder
+| Get information about registries, [Docker](../operations/docker-image/docker-image-list.md) images, and [repositories](../operations/repository/repository-list.md) | `get`, `list` | `container-registry.images.puller` for the registry containing the resources |
+| [Pull a Docker image from a registry](../operations/docker-image/docker-image-pull.md) | — | `container-registry.images.puller`<br>for the specified registry |
+| **Manage resources** |  |
+| [Create registries in a folder](../operations/registry/registry-create.md) | `create` | `editor` for the folder |
+| [Update](../operations/registry/registry-update.md) and [delete](../operations/registry/registry-delete.md) registries | `update`, `delete` | `editor` for the specified registry |
+| [Create Docker images](../operations/docker-image/docker-image-create.md) using basic Docker images from the registry | — | `container-registry.images.puller`<br>for the specified registry |
+| [Create Docker images](../operations/docker-image/docker-image-create.md) without using basic Docker images from the registry | — | No roles required |
+| [Push Docker images to the registry](../operations/docker-image/docker-image-push.md) | — | `container-registry.images.pusher`<br>for the specified registry |
+| [Delete Docker images](../operations/docker-image/docker-image-delete.md) | `delete` | `editor` for the registry containing the Docker image |
+| **Manage resource access** |  |
+| [Assign a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view roles granted for the folder or cloud | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource |
 
-{% include [container-registry-puller](../../_includes/roles-container-registry-puller.md)%}
+#### What's next
 
-{% include [container-registry-pusher](../../_includes/roles-container-registry-pusher.md)%}
-
-### Primitive roles
-
-You can assign primitive roles to any resource in any service.
-
-#### {{ roles-viewer }}
-
-A user with the `{{ roles-viewer }}` role can view information about resources, for example, view a list of registries or pull a Docker image.
-
-#### {{ roles-editor }}
-
-A user with the `{{ roles-editor }}` role can manage Docker images, for example, push or delete them.
-
-In addition, the `{{ roles-editor }}` role includes all permissions of the `{{ roles-viewer }}` role.
-
-#### {{ roles-admin }}
-
-A user with the `{{ roles-admin }}` role can manage access rights to resources, for example, allow other users to view registries or work with Docker images.
-
-In addition, the `{{ roles-admin }}` role includes all permissions of the role of `{{ roles-editor }}`.
+* [How to assign a role](../../iam/operations/roles/grant.md).
+* [How to revoke a role](../../iam/operations/roles/revoke.md).
+* [Read more about access management in Yandex.Cloud](../../iam/concepts/access-control/index.md).
+* [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 

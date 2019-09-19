@@ -4,7 +4,7 @@
 
 - [{#T}](create-coi-vm.md)
 
-## Docker-образ
+## Docker-образ {#docker-images}
 
 - [{#T}](docker-image/docker-image-list.md)
 - [{#T}](docker-image/docker-image-create.md)
@@ -12,14 +12,14 @@
 - [{#T}](docker-image/docker-image-pull.md)
 - [{#T}](docker-image/docker-image-delete.md)
 
-## Реестр
+## Реестр {#registry}
 
 - [{#T}](registry/registry-list.md)
 - [{#T}](registry/registry-create.md)
 - [{#T}](registry/registry-update.md)
 - [{#T}](registry/registry-delete.md)
 
-## Репозиторий
+## Репозиторий {#repository}
 
 - [{#T}](repository/repository-list.md)
 
