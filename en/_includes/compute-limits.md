@@ -18,7 +18,7 @@
 | ----- | ----- |
 | Maximum number of vCPUs per VM | 32 and 48 for Intel Broadwell and Intel Cascade Lake [limits](#limits-vm), respectively |
 | Maximum virtual memory per VM | 256 GB and 384 GB for Intel Broadwell and Intel Cascade Lake [platforms](../compute/concepts/vm-platforms.md), respectively |
-| Maximum number of disks connected to a single VM | 6 |
+| Maximum number of disks connected to a single VM | 7 |
 
 #### Disk limits {#limits-disks}
 
