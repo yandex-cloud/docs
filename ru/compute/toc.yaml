@@ -133,6 +133,10 @@ items:
             href: operations/instance-groups/delete.md
           - name: Настроить автоматическое восстановление виртуальных машин
             href: operations/instance-groups/enable-autohealing.md
+  - name: Сценарии
+    items:
+      - name: Настройка синхронизации времени NTP
+        href: solutions/ntp.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов
