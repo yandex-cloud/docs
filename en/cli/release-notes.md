@@ -14,7 +14,7 @@
 
 **All managed database services**
 
-- Command `yc <database name> users list`.
+- Command `yc <managed database service name> users list`.
 
     The unique cluster ID is no longer displayed when viewing a list of users.
     
@@ -94,7 +94,7 @@
 
 **All managed database services**
 
-- Command `yc <database name> cluster create`.
+- Command `yc <managed database service name> cluster create`.
 
     Renamed default disk types: `network-ssd` is now `network-ssd` and `local-ssd` is now `local-ssd`.
     
@@ -252,11 +252,11 @@
 
 **All managed database services**
 
-- Command `yc <database name> cluster get`.
+- Command `yc <managed database service name> cluster get`.
 
     Improved cluster information printout.
 
-- Command `yc <database name> cluster create`.
+- Command `yc <managed database service name> cluster create`.
 
     Added the `--backup-window-start` flag, which lets you set the daily cluster backup time when creating a cluster.
 
