@@ -149,7 +149,7 @@
 1. Добавьте в файл `authorized_keys` публичный ключ нового пользователя:
 
    ```bash
-   $ echo "ssh-rsa <публичный_ключ>" > /home/testuser/.ssh/authorized_keys
+   $ echo "<публичный_ключ>" > /home/testuser/.ssh/authorized_keys
    ```
 
 1. Измените права доступа к файлу `authorized_keys` и каталогу `.ssh`:
