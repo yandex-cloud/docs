@@ -16,6 +16,11 @@
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
 
+{% note info %}
+
+Если хранилище баз данных заполнится на 95%, кластер перейдет в режим только чтения. Увеличивайте размер хранилища заранее.
+
+{% endnote %}
 
 ## Как создать кластер {{ PG }} {#create-cluster}
 
