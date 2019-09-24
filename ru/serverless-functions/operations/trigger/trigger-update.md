@@ -12,7 +12,7 @@
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
     
-    Измените имя функции:
+    Измените имя триггера:
     
     ```
     $ yc serverless trigger update test-trigger --new-name my-trigger
@@ -46,7 +46,7 @@
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    Измените описание функции:
+    Измените описание триггера:
     
     ```
     $ yc serverless trigger update my-trigger --description "My YMQ trigger."
