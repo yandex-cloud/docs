@@ -2,7 +2,7 @@
 
 API Яндекс.Облака спроектированы на основе механизма [gRPC](https://grpc.io/docs/). Для описания методов и структур данных в API используется [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/proto3) (proto 3).
 
-Сервисы Яндекс.Облака предоставляют JSON REST интерфейс, к которому можно обращаться напрямую. Поддержка REST осуществляется посредством механизма [gRPC-JSON transcoder](https://www.envoyproxy.io/docs/envoy/latest/configuration/http_filters/grpc_json_transcoder_filter). С его помощью сервисы Яндекс.Облака преобразуют входящие HTTP-запросы в gRPC-вызовы. Результаты обработки запроса сервис преобразует в HTTP-ответ и отправляет его клиенту.
+Сервисы Яндекс.Облака предоставляют JSON REST интерфейс, к которому можно обращаться напрямую. Поддержка REST осуществляется посредством механизма [gRPC-JSON transcoder](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/grpc_json_transcoder_filter). С его помощью сервисы Яндекс.Облака преобразуют входящие HTTP-запросы в gRPC-вызовы. Результаты обработки запроса сервис преобразует в HTTP-ответ и отправляет его клиенту.
 
 #### Ресурсо-ориентированный подход {#resource-oriented-design}
 
