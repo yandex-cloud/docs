@@ -18,7 +18,7 @@ If you need to create multiple disks with identical content, use [images](image.
 
 A disk snapshot is a resource like the disk itself. Snapshots are created in a folder. Access rights to a snapshot are inherited from rights to the folder.
 
-Snapshots take up space in the storage so additional fees are charged for storing them. For more information, see the section [#T](../pricing.md).
+Snapshots take up space in the storage so additional fees are charged for storing them. For more information, see the section [{#T}](../pricing.md).
 
 Snapshot information contains the ID of the disk from which the snapshot was created. In addition, the license IDs are inherited from the source resource (`product_ids`), which are used to calculate the cost of disk usage.
 

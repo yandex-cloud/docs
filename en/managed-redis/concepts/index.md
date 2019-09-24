@@ -1,16 +1,16 @@
 # Relationship between service resources
 
-Redis is a high-performance key-value store that runs in RAM. Managed Service for Redis allows you to easily create Redis host clusters with a high level of fault tolerance.
+{{ RD }} is a high-performance key-value store that runs in RAM. {{ mrd-name }} lets you easily create {{ RD }} host clusters with a high level of fault tolerance.
 
-The main entity used in Managed Service for Redis is a _database cluster_.
+The main entity used in {{ mrd-name }} is a _database cluster_.
 
-Each cluster consists of one or more _database hosts_, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones and even different availability regions. [Learn more about the Cloud geography](../../overview/concepts/geo-scope.md).
+Each cluster consists of one or more _database hosts_, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones and even different availability regions. [Learn more about Yandex.Cloud geography](../../overview/concepts/geo-scope.md).
 
 * A cluster consisting of 3 and more hosts has automatic failover, because the hosts can take over each other's functions as the cluster's primary replica.
 
 * A cluster of one or two hosts is cheaper, but it doesn't guarantee fault tolerance.
 
-When creating a cluster, you need to specify the _host class_, which is a VM template for deploying the cluster hosts. For a list of available host classes and their characteristics, see [#T](instance-types.md).
+When creating a cluster, you need to specify the _host class_, which is a VM template for deploying the cluster hosts. For a list of available host classes and their characteristics, see [{#T}](instance-types.md).
 
 {% note info %}
 
@@ -19,4 +19,6 @@ The amount of memory allocated to a host is also determined by the `maxmemory` c
 {% endnote %}
 
 A DB cluster connected to a cloud network can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/).
+
+{% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 

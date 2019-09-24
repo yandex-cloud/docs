@@ -1,12 +1,12 @@
-# Начало работы с Compute Cloud
+# Начало работы с {{ compute-name }}
 
 Выберите сценарий для знакомства с:
 
-- Compute Cloud
+- {{ compute-name }}
 
     - [Создание виртуальной машины Linux](quick-create-linux.md)
     - [Создание виртуальной машины Windows](quick-create-windows.md)
 
-- Instance Groups
+- {{ ig-name }}
 
     - [Создание группы виртуальных машин](ig.md)

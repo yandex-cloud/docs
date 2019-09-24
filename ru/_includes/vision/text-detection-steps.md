@@ -11,18 +11,19 @@
 
     {% include [base64-encode-command](base64-encode-command.md) %}
 1. Создайте файл с телом запроса, например `body.json`. В свойстве `content` укажите изображение, [кодированное в Base64](../../vision/operations/base64-encode.md).
-    В настройках распознавания перечислите языки, на которых может быть написан текст на изображении, например английский (`en`). Можно указать от 1 до 8 языков:
+
+    Чтобы сервис автоматически определил язык текста, укажите в конфигурации свойство `"language_codes": ["*"]`.
 
     **body.json:**
     ```json
     {
-        "folderId": "ajk55f3mblj12eghq2oe",
+        "folderId": "b1gvmob95yysaplct532",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "features": [{
                 "type": "TEXT_DETECTION",
                 "text_detection_config": {
-                    "language_codes": ["en"]
+                    "language_codes": ["*"]
                 }
             }]
         }]

@@ -2,7 +2,9 @@
 
 С помощью этой инструкции вы научитесь:
 * разворачивать [SFTP](https://ru.wikipedia.org/wiki/SFTP)-сервер в инфраструктуре Яндекс.Облака;
-* выполнять бэкап конфигурационных файлов с SFTP-клиента на SFTP-сервер по расписанию.
+* выполнять резервное копирование конфигурационных файлов с SFTP-клиента на SFTP-сервер по расписанию.
+
+Чтобы развернуть нужную инфраструктуру, следуйте инструкциям:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте виртуальную машину для SFTP-сервера](#create-vm-sftp-server).
@@ -27,9 +29,11 @@
 
 ### Необходимые платные ресурсы
 
-* плата за две постоянно запущенные виртуальные машины (см. [тарифы Yandex Compute Cloud](https://cloud.yandex.ru/docs/compute/pricing)):
-    * ВМ для SFTP-клиента
-    * ВМ для SFTP-сервера
+В стоимость инфраструктуры для примера входит:
+
+* плата за две постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](https://cloud.yandex.ru/docs/compute/pricing)):
+    * виртуальная машина для SFTP-клиента;
+    * виртуальная машина для SFTP-сервера.
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](https://cloud.yandex.ru/docs/vpc/pricing)).
 
 
@@ -38,32 +42,26 @@
 Чтобы создать виртуальную машину:
 
 1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Виртуальная машина**.
-1. В поле **Имя** введите имя виртуальной машины.
+1. В поле **Имя** введите имя виртуальной машины, например `sftp-server`.
 
     {% include [name-format](../../_includes/name-format.md) %}
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой должна находиться виртуальная машина.
-1. В блоке **Публичные образы** выберите образ Centos 7.
+1. В блоке **Публичные образы** выберите образ **Centos 7**.
    
-1. В блоке **Вычислительные ресурсы**:
-    - Выберите [платформу](../../compute/concepts/vm-platforms.md) виртуальной машины.
-    - Укажите необходимое количество vCPU и объем RAM.
-
-   Для запуска SFTP-сервера выберите:
+1. В блоке **Вычислительные ресурсы** выберите следующую конфигурацию:
    * **Платформа** — Intel Cascade Lake.
    * **Гарантированная доля vCPU** — 20%.
    * **vCPU** — 2.
    * **RAM** — 2 ГБ.
 
-1. В блоке **Сетевые настройки** нужно выбрать сеть и подсеть, к которым нужно подключить виртуальную машину. Если нужной сети или подсети еще нет, вы можете создать их прямо на странице создания виртуальной машины.
+1. В блоке **Сетевые настройки** выберите сеть и подсеть, к которым нужно подключить виртуальную машину. Если нужной сети или подсети еще нет, вы можете создать их на странице создания виртуальной машины.
 
 1. В поле **Публичный адрес** оставьте значение **Автоматически**, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула Яндекс.Облака. Чтобы внешний IP-адрес не изменялся после остановки виртуальной машины, [сделайте его статическим](https://cloud.yandex.ru/docs/vpc/operations/set-static-ip).
 
 1. Укажите данные для доступа на виртуальную машину:
     - В поле **Логин** введите имя пользователя.
-    - В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
-      
-      Пару ключей для подключения по SSH необходимо создать самостоятельно, см. [раздел о подключении к виртуальным машинам по SSH](../../compute/operations/vm-connect/ssh.md).
+    - В поле **SSH-ключ** вставьте содержимое файла открытого ключа. Пару ключей для подключения по SSH необходимо создать самостоятельно, см. [раздел о подключении к виртуальным машинам по SSH](../../compute/operations/vm-connect/ssh.md).
       
     {% note alert %}
     
@@ -78,12 +76,12 @@
 
 ## Настройте SFTP-сервер {#config-sftp-server}
 
-Функционал SFTP сервера включен в стандартную программу SSH, которая поставляется с дистрибутивом Centos 7. Для настройки SFTP-сервера отредактируйте конфигурационный файл `/etc/ssh/sshd_config`.
+Функционал SFTP-сервера включен в стандартную программу SSH, которая поставляется с дистрибутивом Centos 7. Для настройки SFTP-сервера отредактируйте конфигурационный файл `/etc/ssh/sshd_config`:
 
 1. Откройте конфигурационный файл в редакторе vi. Этот редактор поставляется с дистрибутивом и не требует установки. Если вы не знакомы с этим редактором, то подробности вы можете узнать в [официальной документации](https://www.vim.org/docs.php).
 
     ```bash
-    sudo vi /etc/ssh/sshd_config
+    $ sudo vi /etc/ssh/sshd_config
     ```
 
 1. Добавьте следующие строчки в конец файла:
@@ -102,17 +100,16 @@
     Назначение параметров:
 
     * `Match User fuser` - указывает на то, что все последующие строчки будут применены только при подключении пользователя `fuser`.
-    * `ForceCommand internal-sftp` - подключать пользователя только в режиме SFTP и не разрешать доступ в shell.
-    * `PasswordAuthentication no` - отключить доступ по логину и паролю.
-    * `ChrootDirectory /var/sftp` - ограничить доступ пользователя только в рамках папки `/var/sftp`.
+    * `ForceCommand internal-sftp` — подключать пользователя только в режиме SFTP и не разрешать доступ в shell.
+    * `PasswordAuthentication no` — отключить доступ по логину и паролю.
+    * `ChrootDirectory /var/sftp` — ограничить доступ пользователя только в рамках папки `/var/sftp`.
     * `PermitTunnel no`, `AllowAgentForwarding no`, `AllowTcpForwarding no`, `X11Forwarding no` - отключить туннелирование, проброс портов и графических приложений через SSH-сессию.
 
 1.  Сохраните файл.
-
 1.  Выведите конфигурационный файл без закомментированных и пустых строк:
 
     ```bash
-    cat /etc/ssh/sshd_config | grep -v -e '^#' -e '^$'
+    $ cat /etc/ssh/sshd_config | grep -v -e '^#' -e '^$'
     ```
 
 1. Убедитесь, что вывод предыдущей команды совпадает с данными строками:
@@ -143,36 +140,35 @@
     X11Forwarding no
     ```
 1. Сохраните файл.
-
-1. Перезагрузите SFTP-сервис для того, чтобы настройки вступили в силу:
+1. Перезагрузите SFTP-сервис, чтобы настройки вступили в силу:
     ```bash
-    sudo systemctl restart sshd
+    $ sudo systemctl restart sshd
     ```
 
 1. Создайте группу для SFTP-пользователей:
     ```bash
-    sudo groupadd ftpusers
+    $ sudo groupadd ftpusers
     ```  
 
 1. Создайте папки для сохранения файлов:
     ```bash
-    sudo mkdir -p /var/sftp/backups
+    $ sudo mkdir -p /var/sftp/backups
     ```
 
-    * `sftp` - корневая папка SFTP-сервера.
-    * `backups` - папка для хранения бэкапов на SFTP-сервере.
+    * `sftp` — корневая папка SFTP-сервера.
+    * `backups` — папка для хранения резервных копий на SFTP-сервере.
 
 1.  Установите разрешения на папки таким образом, чтобы все пользователи, входящие в состав группы `ftpusers` могли записывать и читать файлы на SFTP-сервере:
     ```bash
-    sudo chown root:ftpusers /var/sftp/backups
-    sudo chmod 770 /var/sftp/backups
+    $ sudo chown root:ftpusers /var/sftp/backups
+    $ sudo chmod 770 /var/sftp/backups
     ```
 
 1. Проверьте корректность выставленных разрешений:
 
     ```bash
-    ls -la /var | grep sftp
-    ls -la /var/sftp
+    $ ls -la /var | grep sftp
+    $ ls -la /var/sftp
     ```
     Результат должен быть следующим:
     
@@ -182,24 +178,24 @@
     ```
 
 
-## Создайте SFTP-пользователя {#create-sftp-user}.
+## Создайте SFTP-пользователя {#create-sftp-user}
 
 1. Создайте SFTP-пользователя, например `fuser`:
     ```bash
-    sudo useradd fuser
+    $ sudo useradd fuser
     ```
 
 1. Создайте пароль для SFTP-пользователя
     ```bash
-    sudo passwd fuser
+    $ sudo passwd fuser
     ```
 
 1. Создайте SSH-ключи для пользователя `fuser`. Команда должна выполняться от имени пользователя `fuser`:
     ```bash
-    sudo runuser -l  fuser -c 'ssh-keygen'
+    $ sudo runuser -l  fuser -c 'ssh-keygen'
     ```
 
-    Процесс генерации ключа приведен ниже. Поле `passphrase` оставляется пустым.  
+    Процесс генерации ключа приведен ниже. Поле `passphrase` оставьте пустым.  
 
     ```
     [yc-user@ftp-server ~]$ sudo runuser -l fuser -c 'ssh-keygen'      
@@ -229,15 +225,15 @@
 1. Создайте файл для сохранения публичных SSH-ключей SFTP-клиента. Поставьте нужные разрешения. 
 
     ```bash
-    sudo touch /home/fuser/.ssh/authorized_keys
-    sudo chmod 600 /home/fuser/.ssh/authorized_keys
-    sudo chown fuser:fuser /home/fuser/.ssh/authorized_keys
+    $ sudo touch /home/fuser/.ssh/authorized_keys
+    $ sudo chmod 600 /home/fuser/.ssh/authorized_keys
+    $ sudo chown fuser:fuser /home/fuser/.ssh/authorized_keys
     ```
 
 1. Убедитесь что разрешения выставлены верно:
 
     ```bash
-    ls -la /home/fuser/.ssh/
+    $ ls -la /home/fuser/.ssh/
     ```
 
     Вывод должен быть таким:
@@ -249,100 +245,97 @@
 
 1. Добавьте SFTP-пользователя в SFTP-группу:
     ```bash
-    sudo usermod -G ftpusers fuser
+    $ sudo usermod -G ftpusers fuser
     ```
 
 ## Создайте виртуальную машину для SFTP-клиента {#create-vm-sftp-client}
 
 Процесс создания виртуальной машины для SFTP-клиента полностью совпадает с созданием виртуальной машины для SFTP-сервера. 
 
-1. Выполните пункты 1-9 из раздела [создание виртуальной машины для SFTP-сервера](#create-vm-sftp-server)
+1. Выполните пункты 1-9 из раздела [создание виртуальной машины для SFTP-сервера](#create-vm-sftp-server) (в качестве имени машины укажите, например, `sftp-client`).
 
 1. Создайте пару SSH-ключей на SFTP-клиенте. Процесс аналогичен описанному для пользователя `fuser` в [предыдущем разделе](#create-sftp-user):
 
     ```bash
-    ssh-keygen
+    $ ssh-keygen
     ```
 
 1. Выведите публичный ключ на экране SFTP-клиента:
     ```bash
-    cat ~/.ssh/id_rsa.pub
+    $ cat ~/.ssh/id_rsa.pub
     ```
 
 1. Зайдите на SFTP-сервер и откройте файл `/home/fuser/.ssh/authorized_keys`: 
         
     ```bash
-    sudo vi /home/fuser/.ssh/authorized_keys
+    $ sudo vi /home/fuser/.ssh/authorized_keys
     ```
 1. Скопируйте SSH-ключ, полученный на SFTP-клиенте в конец файла.
 1. Сохраните файл.
+1. Убедитесь, что виртуальная машина SFTP-клиента доступна с SFTP-сервера, и наоборот:
+   
+   1. Зайдите по SSH на SFTP-сервер.
+   1. Найдите публичный или внутренний IP адрес SFTP-клиента в консоли Яндекс.Облака в разделе настроек виртуальной машины. 
 
-
-Убедитесь, что виртуальная машина SFTP-клиента доступна с SFTP-сервера, и наоборот:
-
-1. Зайдите по SSH на SFTP-сервер.
-1. Найдите публичный или внутренний IP адрес SFTP-клиента в консоли Яндекс.Облака в разделе настроек виртуальной машины. 
-
-    {% note important %}
+      {% note important %}
     
-    Внутренние адреса SFTP-клиента и SFTP-сервера должны находиться в одной подсети или быть связаны через настройки маршрутизации.
+      Внутренние адреса SFTP-клиента и SFTP-сервера должны находиться в одной подсети или быть связаны через настройки маршрутизации.
     
-    {% endnote %}
+      {% endnote %}
 
-1. Введите команду в терминале SFTP-сервера, подставив соответствующее значение:
-     ```bash
-    ping <IP адрес SFTP-клиента>
-    ```
-1. Убедитесь, что пакеты проходят успешно: 
+   1. Введите команду в терминале SFTP-сервера, подставив соответствующее значение:
+      ```bash
+      $ ping <IP адрес SFTP-клиента>
+      ```
+   1. Убедитесь, что пакеты отправляются и получаются успешно: 
     
-     ```bash
-    $ ping 84.201.170.171
-    PING 84.201.170.171 (84.201.170.171) 56(84) bytes of data.
-    64 bytes from 84.201.170.171: icmp_seq=1 ttl=55 time=8.59 ms
-    64 bytes from 84.201.170.171: icmp_seq=2 ttl=55 time=6.32 ms
-    64 bytes from 84.201.170.171: icmp_seq=3 ttl=55 time=5.95 ms
-    ^C
-    --- 84.201.170.171 ping statistics ---
-    3 packets transmitted, 3 received, 0% packet loss, time 2003ms
-    rtt min/avg/max/mdev = 5.955/6.959/8.595/1.168 ms
-    ```
-1. Повторите описанные шаги на SFTP-клиенте.
+      ```bash
+      $ ping 84.201.170.171
+      PING 84.201.170.171 (84.201.170.171) 56(84) bytes of data.
+      64 bytes from 84.201.170.171: icmp_seq=1 ttl=55 time=8.59 ms
+      64 bytes from 84.201.170.171: icmp_seq=2 ttl=55 time=6.32 ms
+      64 bytes from 84.201.170.171: icmp_seq=3 ttl=55 time=5.95 ms
+      ^C
+      --- 84.201.170.171 ping statistics ---
+      3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+      rtt min/avg/max/mdev = 5.955/6.959/8.595/1.168 ms
+      ```
+   1. Повторите проверку на SFTP-клиенте.
 
 
-## Сделайте бэкап конфигурационных файлов на SFTP-сервер {#backup}
+## Создайте резервную копию конфигурационных файлов на SFTP-сервере {#backup}
 
-Для полного бэкапа виртуальной машины используйте возможность Яндекс.Облака - [снимок диска](https://cloud.yandex.ru/docs/compute/operations/disk-control/create-snapshot). Для последующего восстановления [создайте виртуальную машину из сохраненного снимка](https://cloud.yandex.ru/docs/compute/operations/vm-create/create-from-snapshots). 
+В инструкции рассмотрено резервное копирование конфигурационных файлов (с расширением `.conf`) из папки `/etc`. 
 
-В данной инструкции рассмотрен вариант бэкапа не всей файловой системы, как при снимке диска, а только конфигурационных файлов, оканчивающихся на `“.conf”` и находящихся в папке `/etc`. 
+Процесс резервного копирования:
 
-Процесс бэкапа состоит из:
-1. запаковки конфигурационных файлов в единый архив;
-1. передачи этого архива на SFTP-сервер;
-1. удаления архива на SFTP-клиенте. 
+1. Упакуйте все нужные конфигурационные файлы в архив.
+1. Передайте архив на SFTP-сервер.
+1. Удалите архив на SFTP-клиенте. 
 
+Чтобы настроить процесс резервного копирования:
 
 1. Зайдите по SSH на виртуальную машину SFTP-клиента таким же способом, как это было проделано для SFTP-сервера.
-
 1. Установите переменные окружения для корректной работы скрипта. Для этого откройте файл `~/.bash_profile`
 
     ```bash
-    vi ~/.bash_profile
+    $ vi ~/.bash_profile
     ```
-1. Добавьте следующие строчки в конец файла, подставив соответствующие значения:
-    ```
-    export SFTP_SERVER=<IP адрес SFTP-клиента>
-    export SFTP_USER='fuser'
-    ```
+1. Добавьте следующие строчки в конец файла, подставив нужные значения:
+   ```bash
+   $ export SFTP_SERVER=<IP адрес SFTP-клиента>
+   $ export SFTP_USER='fuser'
+   ```
 
 1. Примените настройки:
-    ```bash
-    source ~/.bash_profile
-    ```
+   ```bash
+   $ source ~/.bash_profile
+   ```
 
 1. Проверьте что у вас появились данные переменные:
-    ```bash
-    env | grep SFTP
-    ```
+   ```bash
+   $ env | grep SFTP
+   ```
 
     На экране должно появиться:
     ```
@@ -350,137 +343,134 @@
     SFTP_SERVER=10.128.0.5
     ```
 
-1. Запакуйте конфигурационные файлы в единый архив:
+1. Запакуйте все конфигурационные файлы в один архив:
     ```bash
-    sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -
+    $ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -
     ```
-    * `sudo find /etc -type f -name *.conf -print0` - поиск всех файлов `.conf` из папки `/etc`.
-    * ` sudo tar -czf backup.tar.gz --null -T -` - перемещение конфигурационных файлов в архив `backup.tar.gz`.
+    * `sudo find /etc -type f -name *.conf -print0` — поиск всех файлов `.conf` из папки `/etc`.
+    * `sudo tar -czf backup.tar.gz --null -T -` — перемещение конфигурационных файлов в архив `backup.tar.gz`.
 
 1. Перешлите полученный архив на SFTP-сервер:
-    ```bash
-    url -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER:
-    ```
+   ```bash
+   $ url -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER:
+   ```
     
-    * `-T` - загрузить файл `backup.tar.gz` на удаленный сервер.
-    * `$SFTP_SERVER`– переменная, которая автоматически примет значение IP адреса SFTP-сервера.
-    * `backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz` – добавить к названию архива название компьютера, а также дату и время, когда был создан архив. 
+    * `-T` — загрузить файл `backup.tar.gz` на удаленный сервер.
+    * `$SFTP_SERVER` – переменная, которая автоматически примет значение IP адреса SFTP-сервера.
+    * `backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz` — добавить к названию архива название компьютера, а также дату и время, когда был создан архив. Это позволит не потеряться в навигации по списку резервных копий на сервере.
     
-        {% note info %}
+      Например, имя архива на сервере может выглядеть так: `backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz`. 
     
-        Название архива на сервере будет выглядеть примерно так: `backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz`. Это позволит не потеряться в навигации по списку бэкапов на сервере.
-    
-        {% endnote %}
-    
-    * `--insecure` - отключить проверку SSL сертификатов со стороны SFTP-сервера. При этом трафик проходящий по SSH-сессии все равно шифруется.
+    * `--insecure` — отключить проверку SSL сертификатов со стороны SFTP-сервера. При этом трафик проходящий по SSH-сессии все равно шифруется.
     * `$SFTP_USER` – переменная, которая автоматически примет значение SFTP-пользователя.
     
 1. Удалите архив на SFTP-клиенте:
     
-    ```bash
-    sudo rm -f backup.tar.gz
-    ```
+   ```bash
+   $ sudo rm -f backup.tar.gz
+   ```
 
-Все действия для создания бэкапа можно выполнить одной командой:
+Все действия для создания резервной копии можно выполнить одной командой:
 ```bash
-sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+$ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
 ```
 
-## Настройте расписание для бэкапа. {#schedule}
+## Настройте расписание для резервного копирования {#schedule}
 
-Для создания регулярных бэкапов ваших настроек можно использовать встроенную программу `crontab`.
+Для создания регулярных резервных копий ваших настроек можно использовать встроенную программу `crontab`.
 
-1. Откройте `crontab` файл для редактирования:
+1. Откройте файл `crontab` для редактирования:
 
-    ```bash
-    crontab -e
-    ```
+   ```bash
+   $ crontab -e
+   ```
 
-1. Добавьте следующую строку:
+1. Добавьте следующую строку, чтобы запускать резервное копирование каждый день в 11 часов вечера:
 
-    ```
-    0 23 * * * sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
-    ```
-
-    * `0 23 * * * `- эта запись в начале строки означает, что бэкап будет запускаться каждый день в 11 часов вечера.
+   ```
+   0 23 * * * sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+   ```
 
 
-## Проверьте работоспособность бэкапа {#check-backup}
+## Проверьте работоспособность резервного копирования {#check-backup}
 
-1. Запустите на SFTP-клиенте команду для бэкапа:
+Чтобы убедиться в том, что резервная копия создается нужным образом, запустите копирование и найдите копию на сервере:
 
-    ```bash
-    sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+1. Запустите на SFTP-клиенте команду для резервного копирования:
+
+   ```bash
+   $ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
     ```
 
 1. Зайдите на SFTP-сервер и убедитесь, что файл вида `backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz` появился в домашнем каталоге SFTP-пользователя. Для этого на SFTP-сервере запустите команду:
 
-    ```bash
-    sudo ls /var/sftp/backups
-    ```
+   ```bash
+   $ sudo ls /var/sftp/backups
+   ```
 
 
-## Восстановите настройки из бэкапа {#restore}
+## Восстановите настройки из резервной копии {#restore}
 
-Процесс восстановления настроек состоит из:
-1. скачивания бэкапа с SFTP-сервера на SFTP-клиент;
-1. распаковки архива;
-1. копирования конфигурационных файлов из архива в систему;
-1. удаления архива. 
+Процесс восстановления настроек:
 
+1. Скачайте резервную копию с SFTP-сервера на SFTP-клиент.
+1. Распакуйте архив.
+1. Скопируйте конфигурационные файлы из архива в систему.
+1. Удалите архив. 
 
-1. На SFTP-сервере в папке `/var/sftp/backups` выберите бэкап файл из которого вы хотите восстановиться. Например это будет `backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz`.
+Чтобы восстановить настройки из резервной копии:
 
-1. На SFTP-клиенте сделайте переменную окружения для названия бэкап файла:
+1. На SFTP-сервере в папке `/var/sftp/backups` выберите резервную копию, из которой следует восстановить конфигурационные файлы. Например это будет `backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz`.
+
+1. На SFTP-клиенте сделайте переменную окружения для названия файла резервной копии:
 
     ```bash
     SFTP_BACKUP='backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz'
     ```
 
-1. Скачивайте бэкап с SFTP-сервера на SFTP-клиент:
+1. Скачайте резервную копию с SFTP-сервера на SFTP-клиент:
 
-    ```bash
-    sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP .
-    ```
+   ```bash
+   $ sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP .
+   ```
 
 1. Распакуйте архив:
 
-    ```bash
-    tar -xzf $SFTP_BACKUP
-    ```
-1. Скопируйте конфигурационные файлы из архива в систему:
+   ```bash
+   $ tar -xzf $SFTP_BACKUP
+   ```
+1. Скопируйте конфигурационные файлы из архива в систему (`yes` — избегать ввода подтверждения при перезаписи файлов):
 
-    ```bash
-    yes | cp -rfp etc / 
-    ```
-    * `yes` - избегать ввода подтверждения при перезаписи файлов.
+   ```bash
+   $ yes | cp -rfp etc / 
+   ```
 
 1. Удалите архив и распакованное содержимое:
 
-    ```bash
-    rm -f $SFTP_BACKUP
-    rm -rfd etc
+   ```bash
+   $ rm -f $SFTP_BACKUP
+   $ rm -rfd etc
     ```
 
-Все действия для восстановления из бэкапа можно выполнить одной командой:
+Все действия для восстановления из резервной копии можно выполнить одной командой:
 
 ```bash
-sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP && yes | cp -rfp etc / && rm -rfd etc && rm -f $SFTP_BACKUP
+$ sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP && yes | cp -rfp etc / && rm -rfd etc && rm -f $SFTP_BACKUP
 ```
 
 ## Проверьте корректность восстановления {#check-restore}
   
-Для проверки того, что конфигурационные файлы из архива успешно попадают в файловую систему, добавьте проверочный блок в команду полученную выше:
+Чтобы проверить, что конфигурационные файлы из архива успешно попадают в файловую систему, добавьте проверочный блок в команду полученную выше:
 
 ```bash
-sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP && echo "## this is from backup" >> etc/yum.conf && yes | cp -rfp etc / && rm -rfd etc && rm -f $SFTP_BACKUP
+$ sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP && echo "## this is from backup" >> etc/yum.conf && yes | cp -rfp etc / && rm -rfd etc && rm -f $SFTP_BACKUP
 ```
     
-* `echo "## this is from backup" >> etc/yum.conf` - этот блок записывает тестовую фразу "## this is from backup" в конец файла `etc/yum.conf`, распакованного из архива.
+Команда `echo "## this is from backup" >> etc/yum.conf` записывает тестовую фразу "## this is from backup" в конец файла `etc/yum.conf`, распакованного из архива.
 
-После выполнения восстановления из бэкапа введите следующую команду: 
+После восстановления из резервной копии выполните следующую команду: 
 ```bash
-cat /etc/yum.conf | grep backup
+$ cat /etc/yum.conf | grep backup
 ```
 
 Убедитесь, что на экране отображается тестовая фраза:
@@ -489,9 +479,9 @@ cat /etc/yum.conf | grep backup
 ```
 
 
-## Удалите созданные облачные ресурсы. {#cleanup}
+## Удалите созданные облачные ресурсы {#cleanup}
 
-Когда вам перестанет быть нужен SFTP-сервер:
+Если вам больше не нужны SFTP-сервер и SFTP-клиент:
 
-* [Удалите виртуальные машины](https://cloud.yandex.ru/docs/compute/operations/vm-control/vm-delete) для SFTP-клиента и SFTP-сервера.
+* [Удалите виртуальные машины](https://cloud.yandex.ru/docs/compute/operations/vm-control/vm-delete) для SFTP-клиента и SFTP-сервера (в примере они названы `sftp-server` и `sftp-client`).
 * [Удалите статический IP адрес](https://cloud.yandex.ru/docs/vpc/operations/address-delete), если он был вами создан.

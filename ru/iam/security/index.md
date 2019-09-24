@@ -1,56 +1,58 @@
 # Управление доступом
 
-Пользователь Яндекс.Облака может выполнять только те операции над ресурсами, которые разрешены назначенными ему ролями. Пока у пользователя нет никаких ролей, все операции ему запрещены.
+В этом разделе вы узнаете:
+* [на какие ресурсы можно назначить роль](#resources);
+* [какие роли действуют в сервисе](#roles-list);
+* [какие роли необходимы](#required-roles) для того или иного действия.
 
-Чтобы разрешить доступ к ресурсам сервиса Yandex Identity and Access Management (сервисным аккаунтам и ключам доступа к ним), назначьте пользователю нужные роли из приведенного ниже списка. Вы можете назначить пользователю роль на сам сервисный аккаунт, на каталог, в котором находится аккаунт, или на все облако — права доступа в Яндекс.Облаке наследуются.
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
+## На какие ресурсы можно назначить роль {#resources}
 
-{% note info %}
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-Подробнее о наследовании ролей читайте в разделе [#T](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса Yandex Resource Manager.
+## Какие роли действуют в сервисе {#roles-list}
 
-{% endnote %}
+На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
+![image](service-roles-hierarchy.svg)
 
-## Назначение ролей
+Роли, действующие в сервисе:
 
-Чтобы назначить пользователю роль на облако или каталог:
+* Сервисные роли:
+    * {% include [iam.serviceAccounts.user](../../_includes/iam/roles/short-descriptions/iam.serviceAccounts.user.md) %}
 
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
+        В некоторых сервисах для выполнения операций необходим сервисный аккаунт, например в [{{ ig-name }}]({{ link-cloud-services }}/instance-groups) или [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes). Если вы указали сервисный аккаунт в запросе, то {{ iam-short-name }} проверит, что у вас есть права на использование этого аккаунта.
+    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* Примитивные роли:
+    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-## Роли
+## Какие роли мне необходимы {#required-roles}
 
-Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе IAM.
+В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `editor` вместо `viewer`.
 
-### Сервисные роли
+Действие | Методы | Необходимые роли
+----- | ----- | -----
+**Просмотр информации** | |
+[Получение IAM-токена](../operations/iam-token/create.md) | `create` | роли не требуются, только аутентификация
+[Просмотр информации о пользователе](../operations/users/get.md) | `get`, `getByLogin` | роли не требуются, только аутентификация
+[Просмотр информации о сервисном аккаунте](../operations/sa/get-id.md) | `get`, `list`, `listOperations` | `iam.serviceAccounts.user` или `viewer` на сервисный аккаунт
+Просмотр информации о любом ресурсе | `get`, `list` | `viewer` на этот ресурс
+**Управление ресурсами** | |
+[Создание](../operations/sa/create.md) сервисных аккаунтов в каталоге | `create` | `editor` на каталог
+[Изменение](../operations/sa/update.md), [удаление](../operations/sa/delete.md) сервисных аккаунтов | `update`, `delete` | `editor` на сервисный аккаунт
+Создание и удаление ключей для сервисного аккаунта | `create`, `delete` | `editor` на сервисный аккаунт
+**Управление доступом к ресурсам** | |
+[Добавление нового пользователя в облако](../operations/users/create.md) | `setAccessBindings` | `admin` на облако
+[Сделать нового пользователя владельцем облака](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` на это облако
+[Назначение роли](../operations/roles/grant.md), [отзыв роли](../operations/roles/revoke.md) и просмотр назначенных ролей на ресурс | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
 
-_Сервисные роли_ — роли, дающие доступ к ресурсам определенного сервиса. При проверке прав доступа к ресурсам IAM также учитываются сервисные роли Resource Manager.
+#### Что дальше
 
-### Identity and Access Management {#yrm-roles}
-
-{% include [roles-sa-user](../../_includes/roles-sa-user.md) %}
-
-### Resource Manager {#yrm-roles}
-
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
-
-### Примитивные роли
-
-Примитивные роли можно назначать на любой ресурс в любом сервисе.
-
-#### viewer
-
-Пользователь с ролью `viewer` может просматривать информацию о ресурсах, например получить список ключей доступа для сервисного аккаунта.
-
-#### editor
-
-Пользователь с ролью `editor` может управлять любыми ресурсами, например создать сервисный аккаунт или ключи доступа для него.
-
-Помимо этого роль `editor` включает в себя все разрешения роли `viewer`.
-
-#### admin
-
-Пользователь с ролью `admin` может управлять правами доступа к ресурсам, например разрешить другим пользователям использовать сервисные аккаунты или просматривать информацию о них.
-
-Помимо этого роль `admin` включает в себя все разрешения роли `editor`.
-
+* [Как назначить роль](../../iam/operations/roles/grant.md).
+* [Как отозвать роль](../../iam/operations/roles/revoke.md).
+* [Подробнее об управлении доступом в Яндекс.Облаке](../../iam/concepts/access-control/index.md).
+* [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

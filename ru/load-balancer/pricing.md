@@ -1,7 +1,7 @@
 ---
 editable: false
 ---
-# Правила тарификации для Load Balancer
+# Правила тарификации для {{ load-balancer-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 

@@ -1,6 +1,6 @@
 # Getting started
 
-Create a [Kubernetes cluster](concepts/index.md#kubernetes-cluster) and a [node group](concepts/index.md#node-group) and configure kubectl to work with them.
+Create a [{{ k8s }} cluster](concepts/index.md#kubernetes-cluster) and a [node group](concepts/index.md#node-group) and configure kubectl to work with them.
 
 ## Before you start {#before-begin}
 
@@ -14,21 +14,21 @@ To get started, you will need:
 
 1. [A network](../vpc/operations/network-create.md).
 
-1. [Subnets](../vpc/operations/subnet-create.md) in the availability zones where a Kubernetes cluster and node group will be created.
+1. [Subnets](../vpc/operations/subnet-create.md) in the availability zones where a {{ k8s }} cluster and node group will be created.
 
 1. [A service account](../iam/operations/sa/create.md)  with `editor` permissions on the folder.
 
 1. Available resources in the cloud within the [quotas](concepts/limits.md).
 
-## Creating a Kubernetes cluster {#create-kubernetes-cluster}
+## Creating a {{ k8s }} cluster {#create-kubernetes-cluster}
 
-1. See the description of the CLI's create Kubernetes cluster command:
+1. See the description of the CLI's create {{ k8s }} cluster command:
 
     ```
     $ yc managed-kubernetes cluster create --help
     ```
 
-1. Create a Kubernetes cluster:
+1. Create a {{ k8s }} cluster:
 
     ```
     $ yc managed-kubernetes cluster create \
@@ -78,7 +78,7 @@ To get started, you will need:
 
 ## Creating a node group {#create-node-group}
 
-1. See the description of the CLI's create Kubernetes node group command:
+1. See the description of the CLI's create {{ k8s }} node group command:
 
     ```
     $ yc managed-kubernetes node-group create --help

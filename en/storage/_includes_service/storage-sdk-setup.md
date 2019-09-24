@@ -12,14 +12,14 @@ To configure the SDK, create configuration files in your home folder and set the
 
    ```
    [default]
-               region=us-east-1
+               region=ru-central1
    ```
 
    {% note info %}
 
-   To work with Yandex Object Storage, always specify the `us-east-1` region. A different value of the region may lead to an authorization error.
+   Some apps designed to work with Amazon S3 don't let you set the region, so {{ objstorage-name }} also accepts the value `us-east-1`.
 
    {% endnote %}
 
-To access {{ objstorage-name }}, use the address `{{ s3-storage-host }}`.
+Use the `{{ s3-storage-host }}` address to access {{ objstorage-name }}.
 

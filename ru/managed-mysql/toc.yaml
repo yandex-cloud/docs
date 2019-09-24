@@ -20,6 +20,8 @@ items:
         href: operations/hosts.md
       - name: Управление базами данных
         href: operations/databases.md
+      - name: Настройка базы данных
+        href: operations/db-settings.md
       - name: Управление пользователями БД
         href: operations/cluster-users.md
       - name: Управление резервными копиями

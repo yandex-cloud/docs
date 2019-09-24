@@ -16,7 +16,7 @@ To stop a VM:
   
   1. In the management console, select the folder the VM belongs to.
   
-  1. Select **Compute Cloud**.
+  1. Select **{{ compute-name }}**.
   
   1. To stop a single VM, select the machine → click ![image](../../../_assets/dots.svg) → select **Stop**.
   
@@ -60,7 +60,7 @@ To start a VM:
   
   1. In the management console, select the folder the VM belongs to.
   
-  1. Select **Compute Cloud**.
+  1. Select **{{ compute-name }}**.
   
   1. To start a single VM, select the machine → click ![image](../../../_assets/dots.svg) → select **Start**.
   
@@ -104,7 +104,7 @@ To restart a VM:
   
   1. In the management console, select the folder the VM belongs to.
   
-  1. Select **Compute Cloud**.
+  1. Select **{{ compute-name }}**.
   
   1. To restart a single VM, select the machine → click ![image](../../../_assets/dots.svg) → select **Restart**.
   

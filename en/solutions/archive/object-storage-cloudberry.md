@@ -1,6 +1,6 @@
-# Backup to  Yandex Object Storage via CloudBerry Desktop Backup
+# Backup to  {{ objstorage-full-name }} via CloudBerry Desktop Backup
 
-To set up backups in Object Storage via CloudBerry Desktop Backup:
+To set up backups in {{ objstorage-name }} via CloudBerry Desktop Backup:
 
 1. [Create a bucket](#create-bucket)
 1. [Create a service account](#create-service-account)
@@ -57,7 +57,7 @@ Create static access keys. Save the ID and private key right away. You won't be 
 
 ## 5. Configure CloudBerry Backup {#configure-cloudberry}
 
-To configure CloudBerry Backup to work with Object Storage:
+To configure CloudBerry Backup to work with {{ objstorage-name }}:
 
 {% list tabs %}
 
@@ -161,7 +161,7 @@ To test a backup:
 
   1. Open the **Backup plans** tab.
   1. Next to the `yc-backup-plan` name, click the arrow button to manually start a backup.
-  1. Open the [management console](https://console.cloud.yandex.com/).
+  1. Open the [management console]({{ link-console-main }}).
   1. Go to the folder containing the bucket where your backups are stored.
   1. Open the **Object Storage** service.
   1. Open the `backup` bucket and check whether all the necessary files have been copied.
@@ -170,7 +170,7 @@ To test a backup:
 
   1. In the **Backup plans** section, select the `yc-backup-plan`.
   1. Click **Start** to manually start a backup.
-  1. Open the [management console](https://console.cloud.yandex.com/).
+  1. Open the [management console]({{ link-console-main }}).
   1. Go to the folder containing the bucket where your backups are stored.
   1. Open the **Object Storage** service.
   1. Open the `backup` bucket and check whether all the necessary files have been copied.

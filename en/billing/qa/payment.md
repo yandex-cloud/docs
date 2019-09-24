@@ -26,7 +26,17 @@ Yes. The minimum payment amount is shown at the time of payment in the **Top up 
 
 #### In which currency can I pay for Yandex.Cloud? {#currency}
 
-You must pay for Yandex.Cloud resources in rubles (₽), regardless of your legal status ([billing account type](../concepts/billing-account.md#ba-types)) and the country you live in.
+{% list tabs %}
+
+- Residents of Russia
+
+   You must pay for Yandex.Cloud resources in rubles (₽), regardless of your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
+
+- Non-residents of Russia
+
+   You must pay for Yandex.Cloud resources in US dollars ($), regardless of the country you live in.
+
+{% endlist %}
 
 #### Can I pay for resources with a bank card in a different currency?  {#currency-2}
 
@@ -45,19 +55,25 @@ If you upgraded to the paid version and used Yandex.Cloud services, do the follo
 1. Delete all billable service resources.
 1. Contact [technical support](https://cloud.yandex.com/support) to deactivate your account.
 
+
+#### I linked a cloud to another billing account. How can I pay for resources? {#unlink-cloud}
+
+If a [cloud was previously linked](../operations/pin-cloud.md) to another billing account, consider the period of usage the services: pay for services from the current billing account for the time starting when the new account was linked. For usage the services prior to the link, pay for it from the previous account. The payment method corresponds to the [billing account type](../concepts/billing-account.md#ba-types).
+
+
 #### Will you provide an agreement for the provision and payment of services? {#oferta}
 
 In Yandex.Cloud, all services are rendered under an agreement that you accept when you create a [billing account](../concepts/billing-account.md). The agreement does not need to be signed by both parties.
 
 For more information, see [Agreement](../concepts/contract.md).
 
-#### Where can I find the terms of an agreement? {#oferta-terms}
+#### Where can I read the terms of the agreement? {#oferta-terms}
 
-You can find it on [Yandex.Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en) page.
+You can learn more about the terms of the agreement in the section [Yandex.Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en).
 
-#### Can a signed contract be finalized? {#contract}
+#### Can a signed agreement be finalized? {#contract}
 
-Businesses may conclude a contract that is signed by both parties. To do this, submit a request using the **Ask a question** form on the [Contact us](https://cloud.yandex.com/support) page. A Yandex.Cloud manager will contact you to discuss the contract signing terms and conditions.
+Businesses may conclude an agreement that is signed by both parties. To do this, you must submit a request using the **Ask a question** form on the [Contact us](https://cloud.yandex.com/support) page. A Yandex.Cloud manager will contact you to discuss terms and conditions of signing the agreement.
 
 #### How is resource consumption charged?  {#tariffs}
 

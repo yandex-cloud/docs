@@ -8,11 +8,11 @@ The Yandex Vision service returns errors for three levels:
 
 This section lists possible errors and provides descriptions for each of these levels.
 
-## Request error {#request-error}
+## Request errors {#request-error}
 
 A standard error returned by Yandex.Cloud if an operation fails. For a list of error codes and descriptions, see the [API concepts](../../api-design-guide/concepts/errors.md).
 
-## File processing error {#file-error}
+## File processing errors {#file-error}
 
 An error that occurs if the service failed to process some of the files received. For example, if it failed to decode an image:
 
@@ -39,7 +39,7 @@ If a file processing error occurs, the gRPC error code is always `3`, and the er
 * The image resolution is too large.
 * Error converting file to JPEG.
 
-## Errors performing analysis {#feature-error}
+## Analysis errors {#feature-error}
 
 An error that occurs if the service failed to analyze one of the requested `features` for the file. For example, it failed to recognize text due to an incorrect configuration:
 

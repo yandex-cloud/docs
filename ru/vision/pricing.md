@@ -2,13 +2,13 @@
 editable: false
 ---
 
-# Правила тарификации для Vision
+# Правила тарификации для {{ vision-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## Из чего складывается стоимость использования Vision {#rules}
+## Из чего складывается стоимость использования {{ vision-short-name }} {#rules}
 
-Сервис Vision предоставляет [возможности для анализа](concepts/index.md#features) изображений.
+Сервис {{ vision-short-name }} предоставляет [возможности для анализа](concepts/index.md#features) изображений.
 
 Каждый выполненный анализ изображения для любой из возможностей — одна _единица_ тарификации:
 

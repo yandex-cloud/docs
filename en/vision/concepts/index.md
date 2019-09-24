@@ -1,6 +1,6 @@
 # About the computer vision service
 
-The Yandex Vision computer vision service analyzes a transmitted image and returns you the result.
+The {{ vision-full-name }} computer vision service analyzes a transmitted image and returns the results.
 
 ## Analysis features {#features}
 
@@ -18,7 +18,7 @@ For example, if you want the service to detect faces and recognize text in an im
 
 ```json
 {
-    "folderId": "ajk55f3mblj12eghq2oe",
+    "folderId": "b1gvmob95yysaplct532",
     "analyze_specs": [{
         "content": "iVBORw0KGgo...",
         "features": [{

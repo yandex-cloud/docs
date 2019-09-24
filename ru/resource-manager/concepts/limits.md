@@ -4,4 +4,4 @@ editable: false
 
 # Квоты и лимиты
 
-Квоты и лимиты для сервиса Yandex Resource Manager не определены.
+Квоты и лимиты для сервиса {{ resmgr-full-name }} не определены.

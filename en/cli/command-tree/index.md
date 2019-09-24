@@ -28,10 +28,10 @@ Syntax:
 
 #### Manage services
 
-- `iam`  — [manage Yandex Identity and Access Management resources](manage-services/iam.md).
-- `resource-manager`  — [manage Yandex Resource Manager resources](manage-services/resource-manager.md).
-- `compute`  — [manage Yandex Compute Cloud resources](manage-services/compute.md).
-- `vpc`  — [manage Yandex Virtual Private Cloud resources](manage-services/vpc.md).
-- `managed-clickhouse`  — [manage ClickHouse](manage-services/managed-clickhouse.md).
-- `managed-mongodb`  — [manage MongoDB](manage-services/managed-mongodb.md).
-- `managed-postgresql`  — [manage PostgreSQL](manage-services/managed-postgresql.md).
+- `iam`  — [manage {{ iam-full-name }} resources](manage-services/iam.md).
+- `resource-manager`  — [manage {{ resmgr-full-name }} resources](manage-services/resource-manager.md).
+- `compute`  — [manage {{ compute-full-name }} resources](manage-services/compute.md).
+- `vpc`  — [manage {{ vpc-full-name }} resources](manage-services/vpc.md).
+- `managed-clickhouse`  — [manage {{ CH }}](manage-services/managed-clickhouse.md).
+- `managed-mongodb`  — [manage {{ MG }}](manage-services/managed-mongodb.md).
+- `managed-postgresql`  — [manage {{ PG }}](manage-services/managed-postgresql.md).

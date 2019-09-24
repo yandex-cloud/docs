@@ -10,7 +10,7 @@
 
     {% note info %}
 
-    The virtual machine name is used for generating the FQDN, which cannot be changed later. If the FQDN is important to you, choose an appropriate name for the virtual machine at the creation stage. For more information about generating FQDN names, see the section [#T](../concepts/network.md#hostname).
+    The virtual machine name is used for generating the FQDN, which cannot be changed later. If the FQDN is important to you, choose an appropriate name for the virtual machine at the creation stage. For more information about generating FQDN names, see the section [{#T}](../concepts/network.md#hostname).
 
     {% endnote %}
 
@@ -28,7 +28,7 @@
 
 1. In **Public address**, choose:
     - **Automatically** — to set a public IP address automatically. The address is allocated from the pool of Yandex.Cloud addresses.
-    - **List** — to select a public IP address from the list of static addresses. For more information, see the section [#T](../../vpc/operations/set-static-ip.md) in the {{ vpc-name }} service documentation.
+    - **List** — to select a public IP address from the list of static addresses. For more information, see the section [{#T}](../../vpc/operations/set-static-ip.md) in the {{ vpc-name }} service documentation.
     - **No address** — to not assign a public IP address.
 
 1. Specify data required for accessing the VM:

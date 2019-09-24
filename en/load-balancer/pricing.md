@@ -1,7 +1,7 @@
 ---
 editable: false
 ---
-# Pricing policy for Load Balancer
+# Pricing policy for {{ load-balancer-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 

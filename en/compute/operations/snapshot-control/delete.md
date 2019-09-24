@@ -13,7 +13,7 @@ To delete a snapshot:
 - Management console
   
   1. In the management console, select the folder the snapshot belongs to.
-  1. Select **Compute Cloud**.
+  1. Select **{{ compute-name }}**.
   1. On the **Virtual machines** page, go to the **Disk snapshots** tab.
   1. In the line with the appropriate snapshot, click ![image](../../../_assets/dots.svg) and select the **Delete** command.
   1. Confirm deletion.

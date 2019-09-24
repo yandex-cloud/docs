@@ -7,12 +7,14 @@
 
 ## Yandex.Cloud services
 
-- [Compute Cloud](../compute/qa/all.md)
-- [Object Storage](../storage/qa.md)
-- [Virtual Private Cloud](../vpc/qa/)
-- [Identity and Access Management](../iam/qa/)
-- [Managed Service for PostgreSQL](../managed-postgresql/qa/all.md)
-- [Managed Service for ClickHouse](../managed-clickhouse/qa/all.md)
-- [Managed Service for MongoDB](../managed-mongodb/qa/all.md)
-- [Managed Service for MySQL](../managed-mysql/qa/all.md)
-- [Managed Service for Redis](../managed-redis/qa/general.md)
+- [{{ compute-name }}](../compute/qa/all.md)
+- [{{ objstorage-name }}](../storage/qa.md)
+- [{{ vpc-name }}](../vpc/qa/)
+- [{{ iam-name }}](../iam/qa/)
+- [{{ ig-name }}](../compute/qa/all.md#instance-groups)
+- [{{ mpg-name }}](../managed-postgresql/qa/all.md)
+- [{{ mch-name }}](../managed-clickhouse/qa/all.md)
+- [{{ mmg-name }}](../managed-mongodb/qa/all.md)
+- [{{ mmy-name }}](../managed-mysql/qa/all.md)
+- [{{ mrd-name }}](../managed-redis/qa/general.md)
+

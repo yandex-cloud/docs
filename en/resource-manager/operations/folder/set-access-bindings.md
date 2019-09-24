@@ -1,13 +1,12 @@
-# Set the folder access rights
+# Setting up folder access rights
 
 To grant a user access to all the folder resources, assign them a [role](../../../iam/concepts/access-control/roles.md) for that folder.
 
-## How to assign a role for a folder {#access-to-user}
+## Assign a role for a folder {#access-to-user}
 
 {% list tabs %}
 
 - Management console
-
   1. {% include [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md) %}
   1. {% include [configure-roles-console](../../../_includes/iam/configure-roles-console.md) %}
   1. Select a folder in the **Roles in folders** section and click ![image](../../../_assets/plus-sign.svg).
@@ -46,7 +45,7 @@ To grant a user access to all the folder resources, assign them a [role](../../.
       +--------------------------------+-------------+
       ```
 
-  4. Find out the user's ID from the login or email address. To assign a role to a service account or group of users, see the [examples](#examples) below.
+  4. Find out the user's ID from the login or email address. To assign a role to a service account or group of users rather than one user, see the [examples](#examples) below.
 
       ```
       $ yc iam user-account get test-user
@@ -124,9 +123,9 @@ To grant a user access to all the folder resources, assign them a [role](../../.
 
 ## Examples {#examples}
 
-* [#T](#multiple-roles)
-* [#T](#access-to-sa)
-* [#T](#access-to-all)
+* [{#T}](#multiple-roles)
+* [{#T}](#access-to-sa)
+* [{#T}](#access-to-all)
 
 ### Assign multiple roles {#multiple-roles}
 
@@ -136,7 +135,7 @@ To grant a user access to all the folder resources, assign them a [role](../../.
 
   Follow the instructions at the [beginning of the section](#access-to-user) and assign multiple roles to the user.
 
-  To assign a role to another user, select the user on the [Users and roles](https://console.cloud.yandex.com/iam) tab and click **Configure roles**.
+  To assign a role to another user, select the user from the [Users and roles]({{ link-console-access-management }}) tab and click **Configure roles**.
 
 - CLI
 
@@ -147,7 +146,6 @@ To grant a user access to all the folder resources, assign them a [role](../../.
   The `set-access-binding` command completely rewrites the access rights to the resource. All current resource roles will be deleted.
 
   {% endnote %}
-
   1. Make sure the resource doesn't have any roles that you don't want to lose:
 
       ```
@@ -194,7 +192,7 @@ To grant a user access to all the folder resources, assign them a [role](../../.
 
   {% note alert %}
 
-  The `setAccessBindings` method completely rewrites the access rights to the resource. All current resource roles will be deleted.
+  The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
 
   {% endnote %}
 
@@ -217,7 +215,7 @@ To grant a user access to all the folder resources, assign them a [role](../../.
 
 ### Folder access for a service account {#access-to-sa}
 
-In the management console you can only assign a role for the folder where the service account was created. To assign it a role for another resource, use the CLI or API.
+In the management console, you can only assign a role for the folder where the service account was created. To assign it a role for another resource, use the CLI or API.
 
 Allow the service account to manage the folder and its resources:
 
@@ -243,6 +241,6 @@ Allow the service account to manage the folder and its resources:
 
 #### What's next
 
-* [#T](update.md)
-* [#T](../../concepts/resources-hierarchy.md)
+* [{#T}](update.md)
+* [{#T}](../../concepts/resources-hierarchy.md)
 

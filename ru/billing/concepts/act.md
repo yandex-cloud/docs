@@ -16,4 +16,14 @@
 
 ## Учет НДС {#nds}
 
-{% include [nds](../_includes/nds.md) %}
+{% list tabs %}
+
+  - Резидентам РФ
+
+    {% include [nds-only-res](../_includes/nds-only-res.md) %}  
+       
+  - Нерезидентам РФ
+
+    Нерезидентам РФ акт не предоставляется.
+    
+{% endlist %} 

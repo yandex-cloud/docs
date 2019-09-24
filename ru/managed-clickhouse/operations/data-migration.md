@@ -1,20 +1,20 @@
-# Миграция данных в Managed Service for ClickHouse
+# Миграция данных в {{ mch-name }}
 
-Чтобы перенести вашу базу данных в сервис Managed Service for ClickHouse, нужно непосредственно перенести данные, закрыть старую базу данных на запись и перенести нагрузку на кластер БД в Яндекс.Облаке.
+Чтобы перенести вашу базу данных в сервис {{ mch-name }}, нужно непосредственно перенести данные, закрыть старую базу данных на запись и перенести нагрузку на кластер БД в Яндекс.Облаке.
 
-Перенести данные в кластер Managed Service for ClickHouse можно с помощью [Apache ZooKeeper](http://zookeeper.apache.org) и стандартной утилиты [clickhouse-copier](https://clickhouse.yandex/docs/ru/operations/utils/clickhouse-copier/).
+Перенести данные в кластер {{ mch-name }} можно с помощью [Apache ZooKeeper](http://zookeeper.apache.org) и стандартной утилиты [clickhouse-copier](https://clickhouse.yandex/docs/ru/operations/utils/clickhouse-copier/).
 
 Переносить данные на промежуточную виртуальную машину в Compute Cloud нужно, если:
 
-* К кластеру Managed Service for ClickHouse нет доступа из интернета.
-* Сетевое оборудование или соединение с ClickHouse-кластером в Облаке не
+* К кластеру {{ mch-name }} нет доступа из интернета.
+* Сетевое оборудование или соединение с {{ CH }}-кластером в Облаке не
 обладают достаточной надежностью.
 * Нет среды, в которой можно запустить `clickhouse-copier`.
 
 Этапы миграции:
 1. [Подготовьтесь к миграции](#prepare).
 1. [Установите Zookeeper](#zookeeper-install).
-1. [Создайте кластер Managed Service for ClickHouse](#create-cluster).
+1. [Создайте кластер {{ mch-name }}](#create-cluster).
 1. [Создайте задачу](#copier-task) для `clickhouse-copier`.
 1. [Добавьте задачу](#zookeeper-task) для `clickhouse-copier` в Zookeeper.
 1. [Запустите](#copier-run) `clickhouse-copier`.
@@ -24,9 +24,9 @@
 
 1. Версии ПО удовлетворяют условиям:
 
-    * Версии ClickHouse в обоих кластерах должны совпадать.
-    * Версия `clickhouse-copier` должна быть не ниже версии ClickHouse в кластере
-    Managed Service for ClickHouse.
+    * Версии {{ CH }} в обоих кластерах должны совпадать.
+    * Версия `clickhouse-copier` должна быть не ниже версии {{ CH }} в кластере
+    {{ mch-name }}.
     * Версия ZooKeeper — не ниже 3.4.10.
 
 2. Проверьте, что кластер-источник готов к миграции:
@@ -38,7 +38,7 @@
     доступ только на чтение.
 
 3. Если вы используете для миграции виртуальную машину в Облаке:
-    * ВМ следует создавать в той же облачной сети, что и кластер Managed Service for ClickHouse.
+    * ВМ следует создавать в той же облачной сети, что и кластер {{ mch-name }}.
     * Вычислительную мощность ВМ стоит выбирать исходя из объема переносимых данных.
 
 
@@ -104,7 +104,7 @@
     ```
 
 
-## Создайте кластер Managed Service for ClickHouse {#create-cluster}
+## Создайте кластер {{ mch-name }} {#create-cluster}
 
 Убедитесь, что вычислительная мощность и размер хранилища кластера соответствуют среде,
  в которой развернуты уже имеющиеся базы данных, и [создайте кластер](cluster-create.md).
@@ -125,9 +125,9 @@
 В конфигурационном файле (`config.xml`) нужно указать:
 
 * В элементе `<zookeeper>` — адрес хоста, на котором установлен ZooKeeper.
-* В элементе `<caConfig>` — путь к сертификату для подключения к Managed Service for ClickHouse.
+* В элементе `<caConfig>` — путь к сертификату для подключения к {{ mch-name }}.
 
-Скачать сертификат можно по адресу [https://storage.yandexcloud.net/cloud-certs/CA.pem](https://storage.yandexcloud.net/cloud-certs/CA.pem).
+Скачать сертификат можно по адресу [https://{{ s3-storage-host }}{{ pem-path }}](https://{{ s3-storage-host }}{{ pem-path }}).
 
 Пример конфигурации:
 

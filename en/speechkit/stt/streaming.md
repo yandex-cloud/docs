@@ -24,7 +24,7 @@ See [examples](#examples) of client apps below. In addition, see the [gRPC docum
 
 In each request, the application must transmit [the ID of folder](../../resource-manager/operations/folder/get-id.md) that you have been granted the `editor` role or higher for. For more information, see [Access management](../security/index.md).
 
-The application must also be authenticated for each request, such as with an IAM token[Read more about service authentication](../concepts/auth.md).
+The application must also be authenticated for each request, such as with an IAM token. [Read more about service authentication](../concepts/auth.md).
 
 ### Recognition result
 
@@ -43,8 +43,8 @@ You can configure the service to return intermediate recognition results. In the
 After receiving the message with the recognition settings, the service starts a recognition session. The following limitations apply to each session:
 
 * The time between sending messages to the service must not exceed 5 seconds.
-* Maximum duration of transmitted audio for the entire session: 5 minutes.
-* Maximum size of transmitted audio data: 10 MB.
+* Maximum duration of transmitted audio for the entire session: {{ stt-streaming-audioLength }}.
+* Maximum size of transmitted audio data: {{ stt-streaming-fileSize }}.
 
 If messages have not been sent to the service within 5 seconds or the limit on the duration or size of data has been reached, the session is terminated. To continue speech recognition, reconnect and send a new message with the speech recognition settings.
 
@@ -119,37 +119,37 @@ Then proceed to creating a client app.
 {% list tabs %}
 
 - Python 3
-  
+
   1. Install the grpcio-tools package using the [pip](https://pip.pypa.io/en/stable/) package manager:
-  
+
       ```bash
       $ pip install grpcio-tools
       ```
-  
+
   1. Go to the directory hosting the [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) repository, create an `output` directory, and generate the client interface code there:
-  
+
       ```bash
       $ cd cloudapi
       $ mkdir output
       $ python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=output --grpc_python_out=output google/api/http.proto google/api/annotations.proto yandex/api/operation.proto google/rpc/status.proto yandex/cloud/operation/operation.proto yandex/cloud/ai/stt/v2/stt_service.proto
       ```
-  
+
       As a result, the `stt_service_pb2.py` and `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
-  
+
   1. Create a file (for example, `test.py`) in the root of the `output` directory and add the following code to it:
-  
+
       ```python
       #coding=utf8
       import argparse
-  
+
       import grpc
-  
+
       import yandex.cloud.ai.stt.v2.stt_service_pb2 as stt_service_pb2
       import yandex.cloud.ai.stt.v2.stt_service_pb2_grpc as stt_service_pb2_grpc
-  
-  
+
+
       CHUNK_SIZE = 16000
-  
+
       def gen(folder_id, audio_file_name):
           # Specify the recognition settings.
           specification = stt_service_pb2.RecognitionSpec(
@@ -161,27 +161,27 @@ Then proceed to creating a client app.
               sample_rate_hertz=8000
           )
           streaming_config = stt_service_pb2.RecognitionConfig(specification=specification, folder_id=folder_id)
-  
+
           # Send a message with the recognition settings.
           yield stt_service_pb2.StreamingRecognitionRequest(config=streaming_config)
-  
+
           # Read the audio file and send its contents in chunks.
           with open(audio_file_name, 'rb') as f:
               data = f.read(CHUNK_SIZE)
               while data != b'':
                   yield stt_service_pb2.StreamingRecognitionRequest(audio_content=data)
                   data = f.read(CHUNK_SIZE)
-  
-  
+
+
       def run(folder_id, iam_token, audio_file_name):
           # Establish a connection with the server.
           cred = grpc.ssl_channel_credentials()
           channel = grpc.secure_channel('stt.api.cloud.yandex.net:443', cred)
           stub = stt_service_pb2_grpc.SttServiceStub(channel)
-  
+
           # Send data for recognition.
           it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(('authorization', 'Bearer %s' % iam_token),))
-  
+
           # Process server responses and output the result to the console.
           try:
               for r in it:
@@ -195,20 +195,20 @@ Then proceed to creating a client app.
                       print('Not available chunks')
           except grpc._channel._Rendezvous as err:
               print('Error code %s, message: %s' % (err._state.code, err._state.details))
-  
-  
+
+
       if __name__ == '__main__':
           parser = argparse.ArgumentParser()
           parser.add_argument('--token', required=True, help='IAM token')
           parser.add_argument('--folder_id', required=True, help='folder ID')
           parser.add_argument('--path', required=True, help='audio file path')
           args = parser.parse_args()
-  
+
           run(args.folder_id, args.token, args.path)
       ```
-  
+
   1. Execute the created file by passing arguments with the IAM token, folder ID, and path to the audio file to recognize:
-  
+
       ```bash
       $ export FOLDER_ID=b1gvmob95yysaplct532
       $ export IAM_TOKEN=CggaATEVAgA...
@@ -216,11 +216,11 @@ Then proceed to creating a client app.
       Start chunk:
       alternative: Hello
       Is final: False
-  
+
       Start chunk:
       alternative: Hello world
       Is final: True
       ```
-  
+
 {% endlist %}
 

@@ -6,6 +6,6 @@ Choose how to explore:
     - [Create a Linux VM](quick-create-linux.md)
     - [Create a Windows VM](quick-create-windows.md)
 
-- Instance Groups
+- {{ ig-name }}
     - [Create a fixed-size instance group](ig.md)
 

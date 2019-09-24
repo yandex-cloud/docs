@@ -4,11 +4,11 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-nvme`).
+* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-ssd`).
 
-* [Configure the servers](#change-mongod-config) MongoDB as described in the [documentation MongoDB](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+* [Configure {{ MG }} servers](#change-mongod-config) according to the [{{ MG }} documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
 
-## Change the host class {#change-resource-preset}
+## Changing the host class {#change-resource-preset}
 
 {% list tabs %}
 
@@ -28,19 +28,19 @@ After creating a cluster, you can:
 
   2. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
 
-      ```bash
-      $ yc managed-mongodb resource-preset list
-
-      +-----------+--------------------------------+-------+----------+
-      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
-      +-----------+--------------------------------+-------+----------+
-      | s1.nano   | ru-central1-a, ru-central1-b,  |     1 | 4.0 GB   |
-      |           | ru-central1-c                  |       |          |
-      | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
-      |           | ru-central1-c                  |       |          |
-      | ...                                                           |
-      +-----------+--------------------------------+-------+----------+
-      ```
+     ```bash
+     $ yc managed-mongodb resource-preset list
+     
+     +-----------+--------------------------------+-------+----------+
+     |    ID     |            ZONE IDS            | CORES |  MEMORY  |
+     +-----------+--------------------------------+-------+----------+
+     | s1.nano   | ru-central1-a, ru-central1-b,  |     1 | 4.0 GB   |
+     |           | ru-central1-c                  |       |          |
+     | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
+     |           | ru-central1-c                  |       |          |
+     | ...                                                           |
+     +-----------+--------------------------------+-------+----------+
+     ```
 
   3. Specify the class in the update cluster command:
 
@@ -49,7 +49,7 @@ After creating a cluster, you can:
            --mongod-resource-preset <class ID>
       ```
 
-      Managed Service for MongoDB will run the update host class command for the cluster.
+      {{ mmg-short-name }} will run the update host class command for the cluster.
 
 - API
 
@@ -59,7 +59,7 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Increasing the storage size {#change-disk-size}
+## Increasing storage size {#change-disk-size}
 
 {% list tabs %}
 
@@ -77,14 +77,13 @@ After creating a cluster, you can:
       $ yc managed-mongodb cluster update --help
       ```
 
-  2. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.com/cloud?section=quotas
-  ) page for your cloud and check that the Yandex Managed Service for MongoDB section still has space remaining in the **space** line.
+  1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmg-full-name }} section still has space available in the **space** line.
 
-  3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-nvme`:
+  3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ yc managed-mongodb cluster get <cluster name>
-
+      
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
       ...
@@ -96,7 +95,7 @@ After creating a cluster, you can:
             resources:
               resource_preset_id: s1.micro
               disk_size: "21474836480"
-              disk_type_id: network-nvme
+              disk_type_id: network-ssd
       ...
       ```
 
@@ -107,22 +106,42 @@ After creating a cluster, you can:
            --mongod-disk-size <storage size in GB>
       ```
 
-      If all requirements are met, Managed Service for MongoDB runs the operation to increase the storage size.
+      If all these conditions are met, {{ mmg-short-name }} launches the operation to increase storage space.
 
 - API
 
   You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.mongodbSpec_3_6.mongod.resources.diskSize`.
 
-  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.com/cloud?section=quotas
-  ) page for your cloud and check that the Yandex Managed Service for MongoDB section still has space remaining in the **space** line.
+  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmg-full-name }} section still has space available in the **space** line.
 
 {% endlist %}
 
-## Changing MongoDB {#change-mongod-config} settings
+## Changing {{ MG }} settings {#change-mongod-config}
 
 You can change the DBMS settings of the hosts in your cluster. All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
 
 {% list tabs %}
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To change the DBMS settings for a cluster, use the command:
+
+  ```
+  $ yc managed-mongodb cluster update-config
+  ```
+
+  For example, to set [net.maxIncomingConnections](https://docs.mongodb.com/v4.0/reference/configuration-options/#net.maxIncomingConnections) to `4096`, run the following command:
+
+  ```
+  $ yc managed-mongodb cluster update-config <cluster name>
+      --set net.max_incoming_connections=4096
+  ```
+
+  {{ mmg-short-name }} will run the update DB configuration command for the cluster. If the setting being changed is only applied when the database is restarted, {{ mmg-short-name }} sequentially restarts the database on all the cluster hosts.
 
 - API
 

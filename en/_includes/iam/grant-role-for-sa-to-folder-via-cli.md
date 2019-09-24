@@ -3,7 +3,7 @@
     ```
     $ yc iam service-account get my-robot
     id: aje6o61dvog2h6g9a33s
-    folder_id: b1gvmob03goohplct641
+    folder_id: b1gvmob95yysaplct532
     created_at: "2018-10-15T18:01:25Z"
     name: my-robot
     ```

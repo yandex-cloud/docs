@@ -31,9 +31,9 @@ You can configure a bucket:
 {% list tabs %}
 
 - As a website
-  
+
   Sample configuration:
-  
+
   ```
   <WebsiteConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
       <IndexDocument>
@@ -44,18 +44,18 @@ You can configure a bucket:
       </ErrorDocument>
   </WebsiteConfiguration>
   ```
-  
+
   Possible elements:
-  
+
   | Element | Description |
   | ----- | ----- |
   | `IndexDocument/Suffix` | The website's home page.<br/><br/>Path: `/WebsiteConfiguration/IndexDocument/Suffix`. |
   | `ErrorDocument/Key` | Document that the user will see if a 4xx error occurs.<br/><br/>Path: `/WebsiteConfiguration/ErrorDocument/Key`. |
-  
+
 - To redirect all requests
-  
+
   Sample configuration:
-  
+
   ```
   <!--Configuration for redirecting all requests-->
   <WebsiteConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
@@ -65,15 +65,15 @@ You can configure a bucket:
       </RedirectAllRequestsTo>
   </WebsiteConfiguration>
   ```
-  
+
   Possible elements:
-  
+
   | Element | Description |
   | ----- | ----- |
   | `RedirectAllRequestsTo` | Contains redirect configuration for all requests.<br/><br/>Path: `/WebsiteConfiguration/RedirectAllRequestsTo`. |
   | `HostName` | Host to which all requests to the bucket are redirected.<br/><br/>Path: `/WebsiteConfiguration/RedirectAllRequestsTo/HostName`. |
   | `Protocol` | Protocol used for redirects: `http` or `https`. Optional element.<br/><br/>Path: `/WebsiteConfiguration/RedirectAllRequestsTo/Protocol`. |
-  
+
 {% endlist %}
 
 ## Response {#response}
@@ -84,5 +84,5 @@ A response can only contain [common response headers](../common-response-headers
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [#T](../response-codes.md).
+For a list of possible responses, see [{#T}](../response-codes.md).
 

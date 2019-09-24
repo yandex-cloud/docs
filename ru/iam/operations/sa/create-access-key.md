@@ -1,4 +1,4 @@
-# Создать статические ключи доступа
+# Создание статических ключей доступа
 
 Это инструкция по созданию  [статических ключей доступа](../../concepts/authorization/access-key.md) для [сервисного аккаунта](../../concepts/users/service-accounts.md).
 
@@ -9,7 +9,7 @@
 {% list tabs %}
 
 - Консоль управления
-  
+
   1. Перейдите в каталог, которому принадлежит сервисный аккаунт.
   1. Выберите вкладку **Сервисные аккаунты**.
   1. Выберите сервисный аккаунт и нажмите на строку с его именем.
@@ -17,25 +17,25 @@
   1. Выберите пункт **Создать ключ доступа**.
   1. Задайте описание ключа, чтобы потом было проще найти его в консоли управления.
   1. Сохраните идентификатор и секретный ключ.
-  
+
       {% note alert %}
-  
+
       После закрытия диалога значение ключа будет недоступно.
-  
+
       {% endnote %}
-  
+
 - CLI
-  
+
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. Посмотрите описание команды создания статического ключа доступа:
-  
+
       ```
       $ yc iam access-key create --help
       ```
-  
+
   1. Выберите сервисный аккаунт, например `my-robot`:
-  
+
       ```
       $ yc iam service-account list
       +----------------------+------------------+-------------------------------+
@@ -46,10 +46,10 @@
       +----------------------+------------------+-------------------------------+
       ```
   1. Создайте ключ доступа для сервисного аккаунта `my-robot`:
-  
+
       ```
       $ yc iam access-key create --service-account-name my-robot
-  
+
       access_key:
         id: aje6t3vsbj8lp9r4vk2u
         service_account_id: ajepg0mjt06siuj65usm
@@ -58,11 +58,11 @@
       secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hxtzMP1
       ```
   1. Сохраните идентификатор `key_id` и секретный ключ `secret`. Получить значение ключа снова будет невозможно.
-  
+
 - API
-  
+
   Чтобы создать ключ доступа, воспользуйтесь методом [create](../../api-ref/AccessKey/create.md) для ресурса [AccessKey](../../api-ref/AccessKey/index.md).
-  
+
 {% endlist %}
 
 ## Примеры
@@ -74,14 +74,14 @@
 {% list tabs %}
 
 - CLI
-  
+
   ```
   $ yc iam access-key create --service-account-name my-robot \
       --description "this key is for my bucket"
   ```
-  
+
 - API
-  
+
   ```bash
   $ curl -X POST \
       -H 'Content-Type: application/json' \
@@ -92,10 +92,10 @@
       }' \
       https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys
   ```
-  
+
 {% endlist %}
 
 #### Что дальше
 
-- [Настроить инструменты для работы с Object Storage](../../../storage/instruments/)
-- [#T](assign-role-for-sa.md)
+- [Настроить инструменты для работы с {{ objstorage-name }}](../../../storage/instruments/)
+- [{#T}](assign-role-for-sa.md)

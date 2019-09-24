@@ -1,10 +1,16 @@
-# Connecting to a database in a cluster MongoDB
+# Connecting to a database in a cluster {{ MG }}
 
-Inside Yandex.Cloud, you can connect to a DB cluster only from a VM whose address is in the same Cloud subnet.
+In Yandex.Cloud, you can connect to a DB cluster only from a VM that has an address in the the Yandex.Cloud subnet.
+
+{% note info %}
+
+To connect to {{ mmg-name }} cluster hosts, specify port 27018.
+
+{% endnote %}
 
 ## Authentication
 
-MongoDB-clusters in Managed Service for MongoDB support only encrypted connections. Therefore, an SSL certificate is required to connect to such a cluster. You can prepare all the necessary authentication data as follows:
+{{ MG }} clusters in {{ mmg-short-name }} only support encrypted connections, which is why an SSL certificate is required to connect to them. You can prepare all the necessary authentication data as follows:
 
 ```bash
 $ mkdir ~/.mongodb
@@ -21,7 +27,7 @@ $ mongo --norc \
         --ssl \
         --sslCAFile ~/.mongodb/CA.pem \
         --host 'rs01/<address of host 1>:27018,<address of host 2>:27018,<address of host N>:27018' \
-        -u <user name> \
+        -u <username> \
         -p <user password> \
         <DB name>
 ```

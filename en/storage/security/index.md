@@ -1,9 +1,9 @@
 # Access management
 
-This section lists the roles required for an account to perform operations with Object Storage resources. The following user categories can be granted access to Object Storage:
+This section lists the roles required for an account to perform operations with {{ objstorage-name }} resources. The following user categories can be granted access to {{ objstorage-name }}:
 
 - Users with a registered account in Yandex.Passport.
-- [Service accounts](../../iam/concepts/users/service-accounts.md) Yandex Identity and Access Management.
+- [Service accounts](../../iam/concepts/users/service-accounts.md) {{ iam-full-name }}.
 
 {% note info %}
 
@@ -19,7 +19,7 @@ To assign the required roles to the user:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Permissions in Object Storage
+## Permissions in {{ objstorage-short-name }}
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 

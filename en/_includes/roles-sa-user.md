@@ -3,7 +3,7 @@
 The `iam.serviceAccounts.user` role means that the user has the right to use service accounts.
 This role is necessary when the user asks the service to perform operations on behalf of a service account.
 
-For example, when creating a group of virtual machines, you specify the service account and the IAM checks that you have permission to use this account.
+For example, when creating an instance group, you specify the service account and the IAM checks whether you have permission to use it.
 
 The following permissions are included in the `iam.serviceAccounts.user` role:
 

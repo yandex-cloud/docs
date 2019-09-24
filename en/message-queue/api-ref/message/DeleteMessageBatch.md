@@ -24,7 +24,7 @@ The result of changing each message's visibility timeout is reported individuall
 
 ### DeleteMessageBatch errors {#errors}
 
-For a list of errors that are common to all methods, see the section [#T](../common-errors.md).
+For a list of errors that are common to all methods, see the section [{#T}](../common-errors.md).
 
 | HTTP code | Error ID | Description |
 | ----- | ----- | ----- |

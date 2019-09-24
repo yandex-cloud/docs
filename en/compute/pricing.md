@@ -1,15 +1,15 @@
 ---
 editable: false
 ---
-# Pricing for Compute Cloud
+# Pricing for {{ compute-name }}
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of using Compute Cloud {#rules}
+## What goes into the cost of using {{ compute-short-name }} {#rules}
 
-The cost of Compute Cloud usage is based on:
+The cost of {{ compute-short-name }} usage is based on:
 
 * Computing resources
     * Type and number of cores (vCPU)
@@ -33,21 +33,21 @@ The cost is calculated for the time of using the VM, from the moment it is start
 The VM starts automatically once it is created.
 
 When creating a VM, you can specify a public IP address for it.
-For information about charges for using an external IP address, see the section [#T](../vpc/pricing.md) in the Yandex Virtual Private Cloud documentation.
+For information about charges for using an external IP address, see the section [{#T}](../vpc/pricing.md) in the Yandex Virtual Private Cloud documentation.
 
 #### Computing resources {#instance-resources}
 
-When creating a VM, you specify the number of vCPUs, the basic level of core performance, and the amount of RAM in GB. For more information, see [#T](concepts/performance-levels.md).
+When creating a VM, you specify the number of vCPUs, the basic level of core performance, and the amount of RAM in GB. For more information, see [{#T}](concepts/performance-levels.md).
 
 The basic level of core performance depends on the [platform](concepts/vm-platforms.md) you selected.
 
-The price is indicated for 1 hour of use. Charging per second.
+{{ price-per-hour-count-per-second }}
 
 #### Operating systems {#instance-os}
 
 OS usage on a VM is charged, as well. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
 
-The price is indicated for 1 hour of use. Charging per second.
+{{ price-per-hour-count-per-second }}
 
 #### Example of cost calculation
 
@@ -88,9 +88,9 @@ If you created an image or snapshot, you pay for the storage of this object sepa
 
 The cost is specified for one month of use. Pricing is per second.
 
-### Use of Instance Groups {#instance-groups}
+### Use of {{ ig-name }} {#instance-groups}
 
-The Instance Groups component can be used free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
+The {{ ig-name }} component can be used free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
 
 All other Yandex.Cloud services, such as creation of VMs or allocation of external IP addresses, are [charged as usual](../billing/pricing.md). Outgoing traffic is [charged](#prices-traffic) the same as other services.
 
@@ -173,7 +173,9 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 
 {% endlist %}
 
-### Operating systems {#burstable-instance-os}
+### Operating systems {#prices-os}
+
+#### Prices before August 1, 2019
 
 {% list tabs %}
 
@@ -181,7 +183,7 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 
   | OS | Cost per vCPU per hour, without VAT
   ----- | -----
-  | Linux for all core types  | $0 |
+  | Linux for all core types | $0 |
   | Windows Server for 5%+ of vCPU | $0.008135 |
   | Windows Server for 20%+, 50%+, 100% vCPU | $0.016270 |
 
@@ -189,11 +191,36 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 
   | OS | Cost per vCPU per hour, with VAT |
   ----- | -----
-  | Linux for all core types  | ₽0 |
+  | Linux for all core types | ₽0 |
   | Windows Server for 5%+ of vCPU | ₽0.6346 |
   | Windows Server for 20%+, 50%+, 100% vCPU | ₽1.2691 |
 
 {% endlist %}
+
+#### Prices after August 1, 2019
+
+{% list tabs %}
+
+- Prices in USD
+
+  | OS | Cost per vCPU per hour, without VAT
+  ----- | -----
+  | Linux for all core types | $0 |
+  | Windows Server for 5%+ of vCPU | $0.008135 |
+  | Windows Server for 20%+ and 50%+ vCPU | $0.009615 |
+  | Windows Server for 100% vCPU | $0.016270 |
+
+- Prices in roubles
+
+  | OS | Cost per vCPU per hour, with VAT |
+  ----- | -----
+  | Linux for all core types | ₽0 |
+  | Windows Server for 5%+ of vCPU | ₽0.6346 |
+  | Windows Server for 20%+ and 50%+ vCPU | ₽0.75 |
+  | Windows Server for 100% vCPU | ₽1.2691 |
+
+{% endlist %}
+
 
 ### Disks, snapshots, and images {#prices-storage}
 
@@ -203,7 +230,7 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 
   | Type | Rate for 1 GB per month, without VAT
   ----- | -----
-  | Fast network drive (NVMe) | $0.095437 |
+  | Fast network drive (SSD) | $0.095437 |
   | Standard disk drive (HDD) | $0.026726 |
   | Snapshot | $0.028552 |
   | Image | $0.028552 |
@@ -212,7 +239,7 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 
   | Type | Rate for 1 GB per month, with VAT |
   ----- | -----
-  | Fast network drive (NVMe) | ₽7.4441 |
+  | Fast network drive (SSD) | ₽7.4441 |
   | Standard disk drive (HDD) | ₽2.0847 |
   | Snapshot | ₽2.2271 |
   | Image | ₽2.2271 |

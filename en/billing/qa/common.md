@@ -12,7 +12,7 @@ In Yandex.Cloud, each service has its own SLA. You can learn more about SLAs in 
 
 You can contact technical support using one of these methods:
 
-- Through the [management console](https://console.cloud.yandex.com/billing) on the support page.
+- Through the [management console]({{ link-console-billing }}) on the support page.
 - By email (to the email address from which you received the welcome email when creating your billing account).
 
 Technical support responds to requests 7 days a week from 10 a.m. to 10 p.m. (UTC+3).

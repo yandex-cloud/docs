@@ -16,3 +16,7 @@
 
 {% include notitle [trial-commercial](trial-commercial.md) %}
 
+## Questions about working with non-residents of Russia
+
+{% include notitle [non-resident](non-resident.md) %}
+

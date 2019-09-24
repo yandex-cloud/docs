@@ -15,13 +15,13 @@ To install CyberDuck, go to the [manufacturer's website](https://cyberduck.io) a
 Create a connection with the following parameters:
 
   - Connection type: `Amazon S3`.
-  - Server and port: `storage.yandexcloud.net:443`.
+  - Server and port: `{{ s3-storage-host }}:443`.
   - Access Key ID: the `id` that you received when generating the static key.
   - Password: the `secretKey` that you received when generating the static key.
 
 {% note info %}
 
-CyberDuck works with Object Storage like a hierarchical file system. This means that keys for objects uploaded via CyberDuck will look like a file path. For example, `prefix/subprefix/picture.jpg`.
+CyberDuck works with {{ objstorage-name }} like a hierarchical file system. This means that keys for objects uploaded via CyberDuck will look like a file path. For example, `prefix/subprefix/picture.jpg`.
 
 {% endnote %}
 

@@ -1,28 +1,47 @@
-# Резервное копирование в Yandex Object Storage через Duplicati
+# Резервное копирование в {{ objstorage-full-name }} через Duplicati
 
-Чтобы настроить резервное копирование в Object Storage через Duplicati:
+Чтобы настроить резервное копирование в {{ objstorage-name }} через Duplicati:
+
+1. [Подготовьте облако к работе](#before-begin)
 1. [Создайте бакет](#create-bucket)
 1. [Создайте сервисный аккаунт](#create-service-account)
 1. [Создайте статический ключ доступа](#create-access-key)
 1. [Установите Duplicati](#install-duplicati)
 1. [Настройте Duplicati](#configure-duplicati)
 1. [Протестируйте резервное копирование](#test-backup)
+1. [Удалите созданные облачные ресурсы](#clear-out)
 
-## 1. Создайте бакет {#create-bucket}
+## Подготовьте облако к работе {#before-begin}
+
+Перед использованием {{ objstorage-full-name }} нужно зарегистрироваться в Облаке и создать платежный аккаунт:
+
+{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет находиться ваш бакет. Перейдите на [страницу облака](https://console.cloud.yandex.ru/cloud) и выберите или создайте каталог, в котором вы хотите создать бакет. [Подробнее об иерархии ресурсов Облака](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки статического сайта входит:
+
+* плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-storage));
+* плата за операции с данными (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-operations));
+* стоимость исходящего трафика из Облака в интернет (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing#prices-storage.md#prices-traffic)).
+
+## Создайте бакет {#create-bucket}
 
 Чтобы создать бакет для резервного копирования:
 
 {% include [create-bucket](../_solutions_includes/create-public-bucket.md) %}
 
-## 2. Создайте сервисный аккаунт {#create-service-account}
+## Создайте сервисный аккаунт {#create-service-account}
 
 Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `editor`.
 
-## 3. Создайте статический ключ доступа {#create-access-key}
+## Создайте статический ключ доступа {#create-access-key}
 
 Создайте [статические ключи доступа](../../iam/operations/sa/create-access-key.md). Сразу сохраните идентификатор и секретный ключ. После того, как вы закроете окно, параметры закрытого ключа будут недоступны.
 
-## 4. Установите Duplicati {#install-duplicati}
+## Установите Duplicati {#install-duplicati}
 
 {% list tabs %}
 
@@ -38,9 +57,9 @@
 
 {% endlist %}
 
-## 5. Настройте Duplicati {#configure-duplicati}
+## Настройте Duplicati {#configure-duplicati}
 
-Чтобы настроить Duplicati для работы с Object Storage:
+Чтобы настроить Duplicati для работы с {{ objstorage-name }}:
 
 1. Запустите Duplicati. Если требуется, установите пароль на свой аккаунт.
 1. Выберите пункт меню **Add backup**.
@@ -58,13 +77,17 @@
 1. Задайте расписание копирования или снимите флаг **Automatically run backups**, чтобы создавать резервные копии вручную. Нажмите кнопку **Next**.
 1. Укажите размер томов и задайте настройки продолжительности хранения. Нажмите кнопку **Save**.
 
-## 6. Протестируйте резервное копирование {#test-backup}
+## Протестируйте резервное копирование {#test-backup}
 
 Чтобы протестировать резервное копирование:
 
 1. Откройте пункт меню **Home**.
 1. В списке планов резервного копирования рядом с планом `Yandex Cloud` нажмите ссылку **Run now**.
-1. Откройте [консоль управления](https://console.cloud.yandex.ru/).
+1. Откройте [консоль управления]({{ link-console-main }}).
 1. Перейдите в каталог, где находится бакет, в который помещаются резервные копии.
 1. Откройте сервис **Object Storage**.
 1. Откройте бакет `backup` и убедитесь, что все нужные файлы были скопированы.
+
+## Как удалить созданные ресурсы {#clear-out}
+
+{% include [clear-out](../_solutions_includes/storage-clear-out.md) %}

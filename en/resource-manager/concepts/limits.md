@@ -3,4 +3,5 @@ editable: false
 ---
 # Quotas and limits
 
-There are no quotas or limits for the Yandex Resource Manager service.
+There are no quotas or limits for {{ resmgr-full-name }}.
+

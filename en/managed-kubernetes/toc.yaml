@@ -1,0 +1,39 @@
+title: Yandex Managed Service for Kubernetes
+href: index.yaml
+stage: preview
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: Configuring a VM as a NAT gateway
+        href: operations/nat-instance.md
+      - name: Connecting to a node over SSH
+        href: operations/node-connect-ssh.md
+      - name: Working with persistent volumes
+        items:
+          - name: Dynamic volume provisioning
+            href: operations/volumes/dynamic-create-pv.md
+          - name: Static volume provisioning
+            href: operations/volumes/static-create-pv.md
+          - name: Managing storage classes
+            href: operations/volumes/manage-storage-class.md
+  - name: Concepts
+    items:
+      - name: Relationship between service resources
+        href: concepts/index.md
+      - name: Volumes
+        href: concepts/volume.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+    include:
+      repo: docs
+      path: en/_api-ref/k8s/toc.yaml

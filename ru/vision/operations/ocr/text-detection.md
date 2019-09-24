@@ -1,6 +1,6 @@
-# Распознавание текста на картинке
+# Распознавание текста
 
-Чтобы распознать текст на картинке, воспользуйтесь возможностью [Распознавание текста](../../concepts/ocr/index.md).
+Чтобы распознать текст с изображения или из PDF-файла, воспользуйтесь возможностью [Распознавание текста](../../concepts/ocr/index.md).
 
 Для этого в методе [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) в свойстве `type` укажите `TEXT_DETECTION`, а в свойстве `textDetectionConfig` задайте настройки распознавания.
 
@@ -12,32 +12,67 @@
 
 ## Примеры {#examples}
 
+### Перед началом {#before-beginning}
+
 {% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 
-### Распознайте текст {#basic}
+### Распознать текст с изображения {#basic}
 
 {% include [text-detection-steps](../../../_includes/vision/text-detection-steps.md) %}
 
-### Распознайте текст на нескольких языках {#multiple-languages}
+### Распознайте текст из PDF-файла
 
+1. В PDF-файле должно быть не больше 8 страниц. Если страниц больше, разбейте его на файлы по 8 страниц.
+1. Кодируйте PDF-файл в формат Base64.
+
+    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
+1. Создайте файл с телом запроса, например `body.json`.
+
+    В теле запроса укажите [MIME-тип](https://en.wikipedia.org/wiki/Media_type) `application/pdf`, а в свойстве `content` укажите PDF-файл, [кодированный в Base64](../base64-encode.md).
+
+    **body.json:**
+    ```json
+    {
+        "folderId": "b1gvmob95yysaplct532",
+        "analyze_specs": [{
+            "content": "iVBORw0KGgo...",
+            "mime_type": "application/pdf",
+            "features": [{
+                "type": "TEXT_DETECTION",
+                "text_detection_config": {
+                    "language_codes": ["*"]
+                }
+            }]
+        }]
+    }
+    ```
+1. {% include [send-request](../../../_includes/vision/send-request.md) %}
+
+### Указать язык текста в запросе {#multiple-languages}
+
+Если вы знаете язык текста, укажите его в запросе, чтобы повысить качество распознавания:
+
+1. Кодируйте файл в формат Base64:
+
+    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
 1. Создайте файл с телом запроса, например `body.json`. В свойстве `content` укажите изображение, [кодированное в Base64](../base64-encode.md).
 
     **body.json:**
     ```json
     {
-        "folderId": "ajk55f3mblj12eghq2oe",
+        "folderId": "b1gvmob95yysaplct532",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             ...
     ```
 1. [Выберите языки](../../concepts/ocr/supported-languages.md) для распознавания текста и соответствующие им модели распознавания:
 
-   * Если все языки входят в одну модель, то укажите в теле запроса несколько языков, например французский и немецкий:
+   * Если все языки входят в одну модель, то укажите их в конфигурации запроса. Можно указать до 8 языков. Например, французский и немецкий:
 
        **body.json:**
        ```json
        {
-           "folderId": "ajk55f3mblj12eghq2oe",
+           "folderId": "b1gvmob95yysaplct532",
            "analyze_specs": [{
                "content": "iVBORw0KGgo...",
                "features": [{
@@ -55,7 +90,7 @@
        **body.json:**
        ```json
        {
-           "folderId": "ajk55f3mblj12eghq2oe",
+           "folderId": "b1gvmob95yysaplct532",
            "analyze_specs": [{
                "content": "iVBORw0KGgo...",
                "features": [{
@@ -72,15 +107,49 @@
            }]
        }
        ```
-1. Отправьте запрос на распознавание с помощью метода [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) и сохраните ответ в файл, например `output.json`:
+1. {% include [send-request](../../../_includes/vision/send-request.md) %}
+
+### Готовая функция для отправки запросов в bash {#oneliner}
+
+1. {% include [cli-install](../../../_includes/cli-install.md) %}
+1. Скопируйте в терминал функцию:
 
     ```bash
-    $ export IAM_TOKEN=CggaATEVAgA...
-    $ curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d @body.json \
-        https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze > output.json
+    vision_text_detection() {
+        if [[ $2 ]]; then MIME_TYPE=$2 ; else MIME_TYPE=image; fi
+        curl -H "Authorization: Bearer `yc iam create-token`" \
+        "https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze" \
+        -d @<(cat << EOF
+    {
+        "folderId": "`yc config get folder-id`",
+        "analyze_specs": [{
+            "content": "`base64 -i $1`",
+            "features": [{
+                "type": "TEXT_DETECTION",
+                "text_detection_config": {
+                    "language_codes": ["*"]
+                }
+            }],
+            "mime_type": "$MIME_TYPE"
+        }]
+    }
+    EOF
+    )
+    }
+    ```
+
+    {% include [oneline-function-hints](../../../_includes/vision/oneline-function-hints.md) %}
+
+1. Теперь вы можете вызывать эту функцию, передав путь к файлу в аргументах:
+
+    ```bash
+    vision_text_detection path/to/image.jpg
+    ```
+
+    Вторым аргументом вы можете передать MIME-тип. Например, чтобы распознать PDF-файл, вызовите:
+
+    ```bash
+    vision_text_detection path/to/document.pdf application/pdf
     ```
 
 ### Примеры кода {#code-examples}
@@ -261,8 +330,8 @@
     {% include [text-detection-run-example](../../../_includes/vision/text-detection-run-example.md) %}
 
     ```bash
-    $ export TOKEN=AgAAAAAMTHnsAATuwWRH4eDvnEC4g0T8n0stk8A
-    $ export FOLDER_ID=b1g898ftfp23iiskeip5
+    $ export TOKEN=AgAAAAAMTH...
+    $ export FOLDER_ID=b1gvmob95yysaplct532
     $ go run text_detection.go -folder-id $FOLDER_ID -oauth-token $TOKEN -image-path input.jpg
     ```
 
@@ -329,7 +398,7 @@
 
     ```bash
     $ export TOKEN=AgAAAAAMTH...
-    $ export FOLDER_ID=ajk55f3mblj12eghq2oe
+    $ export FOLDER_ID=b1gvmob95yysaplct532
     $ python text_detection.py --folder-id=$FOLDER_ID --oauth-token=$TOKEN --image-path=input.jpg
     ```
 {% endlist %}

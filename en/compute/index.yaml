@@ -1,0 +1,32 @@
+# Заголовок и описание на странице
+title: "Yandex Compute Cloud"
+description: 
+  - "The Yandex Compute Cloud service provides scalable computing capacity: you can manage your VMs, create instance groups, attach disks, create disk snapshots, and so on."
+  - "Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf\">complies</a> with the law No. 152-FZ of the Russian Federation \"On Personal Data\"."
+  - "Service is provided under the <a href=\"https://yandex.com/legal/cloud_sla\">Service Level Agreement</a>. Service level for Yandex Compute Cloud is defined in the <a href=\"https://yandex.com/legal/cloud_sla_compute\">Service Level for Yandex Compute Cloud</a> document."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex Compute Cloud"
+# Блок со ссылками
+links:
+- title: "Getting started"
+  description: "Create your first VM or instance group"
+  href: "quickstart/"
+- title: "Step-by-step instructions"
+  description: "Instructions on how to perform routine operations"
+  href: "operations/"
+- title: "Concepts"
+  description: "Learn about relationship between VMs, disks, snapshots, and images"
+  href: "concepts/"
+- title: "API reference"
+  description: "HTTP API method descriptions"
+  href: "api-ref/"
+- title: "Quotas and limits"
+  description: "Technical and organizational limitations of the service"
+  href: "concepts/limits"
+- title: "Access management"
+  description: "Configure access rights to work with the service"
+  href: "security/"
+- title: "Pricing policy"
+  description: "Pricing and cost calculation for services"
+  href: "pricing"

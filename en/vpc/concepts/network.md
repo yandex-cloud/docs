@@ -4,7 +4,7 @@
 
 _A cloud network_ is similar to a traditional LAN in a data center. Cloud networks are created in folders and used for transmitting information between cloud resources and connecting resources to the internet.
 
-Public IP addresses are used for providing internet access to and from Yandex Compute Cloud VMs and database hosts.
+Public IP addresses are used for providing internet access to and from {{ compute-full-name }} VMs and database hosts.
 
 ### Filtering outgoing traffic {#egress-traffic-filter}
 
@@ -12,6 +12,8 @@ Yandex.Cloud always blocks outgoing traffic to ports 25:
 
 * To any servers on the internet other than Yandex.Mail servers.
 * To Yandex Compute Cloud VMs when accessed via a public IP address.
+
+Yandex.Cloud may open port 25 by request via technical support if you comply with [Acceptable Use Policy](https://yandex.com/legal/cloud_aup/). Yandex.Cloud is entitled to block outgoing traffic on port 25 if you violate the Use Policy.
 
 ## Subnets {#subnet}
 

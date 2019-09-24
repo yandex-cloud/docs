@@ -4,13 +4,13 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-nvme`).
+* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-ssd`).
 
-* [Configure the PostgreSQL servers](#change-postgresql-config) according to the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config.html).
+* [Configure the {{ PG }} servers](#change-postgresql-config) according to the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config.html).
 
-* [Set the operation mode for the connection pooler ](#change-pgbouncer-config).
+* [Set the operation mode for the connection pooler](#change-pgbouncer-config).
 
-## Change the host class {#change-resource-preset}
+## Changing the host class {#change-resource-preset}
 
 {% list tabs %}
 
@@ -51,7 +51,7 @@ After creating a cluster, you can:
            --resource-preset <class ID>
       ```
 
-      Managed Service for PostgreSQL launches the operation to change the host class for the cluster.
+      {{ mpg-short-name }} will run the update host class command for the cluster.
 
 - API
 
@@ -61,7 +61,7 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Increasing the storage size {#change-disk-size}
+## Increasing storage size {#change-disk-size}
 
 {% list tabs %}
 
@@ -73,7 +73,7 @@ After creating a cluster, you can:
 
   To increase the storage size for a cluster:
 
-  3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-nvme`:
+  3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ yc managed-postgresql cluster get <cluster name>
@@ -86,7 +86,7 @@ After creating a cluster, you can:
         resources:
           resource_preset_id: s1.nano
           disk_size: "10737418240"
-          disk_type_id: network-nvme
+          disk_type_id: network-ssd
       ...
       ```
 
@@ -96,7 +96,7 @@ After creating a cluster, you can:
      $ yc managed-postgresql cluster update --help
      ```
 
-  1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page for your cloud and check that the {{ mpg-full-name section still has space remaining in the **space** line.
+  1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mpg-full-name }} section still has space available in the **space** line.
 
   1. Specify the required amount of storage in the update cluster command (it must be at least as large as `disk_size` in the cluster properties):
 
@@ -105,21 +105,21 @@ After creating a cluster, you can:
            --disk-size <storage size in GB>
       ```
 
-      If all these conditions are met, Managed Service for PostgreSQL launches the operation to increase storage space.
+      If all these conditions are met, {{ mpg-short-name }} launches the operation to increase storage space.
 
 - API
 
   You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.postgresqlConfig_<version>.resources.diskSize`.
 
-  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas](https://console.cloud.yandex.ru/?section=quotas) page for your cloud and check that the {{ mpg-full-name section still has space remaining in the **space** line.
+  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mpg-full-name }} section still has space available in the **space** line.
 
 {% endlist %}
 
-## Changing PostgreSQL settings {#change-postgresql-config}
+## Changing {{ PG }} settings {#change-postgresql-config}
 
 You can change the DBMS settings for the hosts in your cluster, both the default ones and those changing with the host class.
 
-After [changing the host class](#change-resource-preset), Managed Service for PostgreSQL automatically changes the following settings (if they weren't set manually):
+When [the host class changes](#change-resource-preset), {{ mpg-short-name }} automatically changes the following settings (if they weren't set manually):
 
 - `max_connections`
 - `shared_buffers`
@@ -129,7 +129,7 @@ After [changing the host class](#change-resource-preset), Managed Service for Po
 - `autovacuum_vacuum_cost_delay`
 - `autovacuum_vacuum_cost_limit`
 
-The settings you set manually will no longer change automatically. Exceptions can occur if the set value does not become invalid as you change the host class: for example, it's impossible to set `max_connections` to 400 and then change the cluster's host class to `s1.nano` (for more information about the maximum number of connections, see [#T](cluster-create.md).
+The settings you set manually will no longer change automatically. Exceptions can occur if the set value doesn't become invalid as you change the host class: for example, it's impossible to set `max_connections` to 400 and then change the cluster host class to `s1.nano` (for more information about the maximum number of connections, see [{#T}](cluster-create.md).
 
 {% list tabs %}
 
@@ -139,7 +139,7 @@ The settings you set manually will no longer change automatically. Exceptions ca
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change PostgreSQL server settings:
+  To change {{ PG }} server settings:
 
   1. View the full list of settings specified for the cluster:
 
@@ -162,7 +162,7 @@ The settings you set manually will no longer change automatically. Exceptions ca
            --set log_min_duration_statement=100,<parameter name>=<value>,...
       ```
 
-      Managed Service for PostgreSQL launches the operation to change the cluster settings.
+      {{ mpg-short-name }} will run the operation for changing the cluster settings.
 
 - API
 
@@ -170,7 +170,7 @@ The settings you set manually will no longer change automatically. Exceptions ca
 
 {% endlist %}
 
-## Setting the operation mode for the connection pooler {#change-pgbouncer-config}
+## Set the operation mode for the connection pooler {#change-pgbouncer-config}
 
 You can set one of the modes described in the [PgBouncer documentation](https://pgbouncer.github.io/usage).
 
@@ -197,7 +197,7 @@ You can set one of the modes described in the [PgBouncer documentation](https://
            --connection-pooling-mode <SESSION, TRANSACTION or STATEMENT>
       ```
 
-      Managed Service for PostgreSQL launches the operation to change the connection pooler mode.
+      {{ mpg-short-name }} runs the operation for changing the connection pooler mode.
 
 - API
 

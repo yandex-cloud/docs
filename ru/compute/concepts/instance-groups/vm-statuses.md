@@ -4,9 +4,9 @@
 
 Статус | Описание
 ----- | -----
-`CREATING_INSTANCE` | Создание виртуальной машины в системе Yandex Compute Cloud.
+`CREATING_INSTANCE` | Создание виртуальной машины в системе {{ compute-full-name }}.
 `UPDATING_INSTANCE` | Обновление базовых параметров или метаданных без пересоздания виртуальной машины.
-`DELETING_INSTANCE` | Удаление виртуальной машины в системе Yandex Compute Cloud.
+`DELETING_INSTANCE` | Удаление виртуальной машины в системе {{ compute-full-name }}.
 `STARTING_INSTANCE` | Запуск операционной системы и пользовательского приложения.
 `STOPPING_INSTANCE` | Остановка виртуальной машины.
 `AWAITING_STARTUP_DURATION` | Виртуальная машина создана и ожидает запуска пользовательского приложения.

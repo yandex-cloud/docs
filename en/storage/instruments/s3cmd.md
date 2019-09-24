@@ -10,29 +10,29 @@
 
 To install S3cmd, follow the [instructions](https://github.com/s3tools/s3cmd/blob/master/INSTALL) in the project repository.
 
-## Setup {#setup}
+## Configuration {#setup}
 
 To configure S3cmd, use the `s3cmd --configure` command. The command will request values for the following parameters:
 
-1. `Access Key`: enter the ID of the key that you received when generating the static key.
+1. `Access Key`: Enter the ID of the key that you received when generating the static key.
 
-1. `Secret Key`: enter the secret key that you received when generating the static key.
+1. `Secret Key`: Enter the secret key that you received when generating the static key.
 
-1. `Default Region`: enter `us-east-1`.
+1. `Default Region`: Enter `ru-central1`.
 
    {% note info %}
 
-   To work with Object Storage, always specify the `us-east-1` region. A different value of the region may lead to an authorization error.
+   Always specify the `ru-central1` region when accessing {{ objstorage-name }}. A different value of the region may lead to an authorization error.
 
    {% endnote %}
 
-1. `S3 Endpoint`: enter `storage.yandexcloud.net`.
+1. `S3 Endpoint`: Enter `{{ s3-storage-host }}`.
 
-1. `DNS-style bucket+hostname:port template for accessing a bucket`: enter `.storage.yandexcloud.net`.
+1. `DNS-style bucket+hostname:port template for accessing a bucket`: Enter `%(bucket)s.{{ s3-storage-host }}`.
 
-1. Leave the other parameter values of the other parameters unchanged.
+1. Leave the other parameter values unchanged.
 
-The client will try to establish a connection with Object Storage and get a list of buckets. If successful, it will return `Success. Your access key and secret key worked fine :-)`.
+The client tries to establish a connection with {{ objstorage-name }} and get a list of buckets. If successful, it will return `Success. Your access key and secret key worked fine :-)`.
 
 The `s3cmd --configure` command saves the settings to a `~/.s3cfg` file in the format:
 
@@ -40,7 +40,7 @@ The `s3cmd --configure` command saves the settings to a `~/.s3cfg` file in the f
 [default]
 access_key = id
 secret_key = secretKey
-bucket_location = us-east-1
+bucket_location = ru-central1
 host_base = storage.yandexcloud.net
 host_bucket = %(bucket)s.storage.yandexcloud.net
 ```
@@ -55,9 +55,9 @@ website_endpoint = http://%(bucket)s.website.yandexcloud.net
 
 ## Specifics {#specifics}
 
-Remember that S3cmd works with Object Storage like a hierarchical file system and object keys look like a file path.
+Keep in mind that S3cmd treats {{ objstorage-name }} as a hierarchical file system and object keys look like file paths.
 
-## Operation examples {#s3cmd-examples}
+## Examples of operations {#s3cmd-examples}
 
 ### Create a bucket
 
@@ -67,7 +67,7 @@ Remember that S3cmd works with Object Storage like a hierarchical file system an
 
 {% note info %}
 
-When creating a bucket, follow the [naming guidelines](../concepts/bucket.md#naming).
+When creating a bucket, follow the [naming conventions](../concepts/bucket.md#naming).
 
 {% endnote %}
 

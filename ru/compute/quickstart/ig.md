@@ -1,6 +1,6 @@
 # Создание группы виртуальных машин
 
-Cоздайте [группу виртуальных машин](../concepts/instance-groups/index.md) фиксированного размера с помощью сервиса Compute Cloud в консоли управления Яндекс.Облаком.
+Cоздайте [группу виртуальных машин](../concepts/instance-groups/index.md) фиксированного размера с помощью сервиса {{ compute-short-name }} в консоли управления Яндекс.Облаком.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -10,14 +10,14 @@ Cоздайте [группу виртуальных машин](../concepts/ins
 
 ## Создайте группу виртуальных машин {#create-ig}
 
-Вы можете создать группу с заданным количеством виртуальных машин. Управление размером группы осуществляется вручную. Подробнее читайте в разделе [#T](../concepts/instance-groups/scale.md#fixed-scale).
+Вы можете создать группу с заданным количеством виртуальных машин. Управление размером группы осуществляется вручную. Подробнее читайте в разделе [{#T}](../concepts/instance-groups/scale.md#fixed-scale).
 
 {% include [warning.md](../../_includes/instance-groups/warning.md) %}
 
-{% include [create-instance-group-via-concole.md](../../_includes/instance-groups/create-instance-group-via-concole.md) %}
+{% include [create-fixed-group-via-concole.md](../../_includes/instance-groups/create-fixed-group-via-concole.md) %}
 
 ## Что дальше {#next}
-              
+
 - Посмотрите [Сценарии создания веб-сервисов в Яндекс.Облаке](../../solutions/web/).
 - Узнайте [как работать с группами виртуальных машин](../operations/).
 - Прочитайте [ответы на часто задаваемые вопросы](../qa/general.md).

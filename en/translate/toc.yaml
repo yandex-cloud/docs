@@ -1,0 +1,48 @@
+title: "Yandex Translate"
+href: index.yaml
+items:
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Translate text
+        href: operations/translate.md
+      - name: Detect the language of the text
+        href: operations/detect.md
+  - name: Authentication in the API
+    href: api-ref/authentication.md
+  - name: API reference
+    items:
+    - name: v2
+      items:
+      - name: Handling errors
+        href: api-ref/errors-handling.md
+      - name: Troubleshooting
+        href: api-ref/support-headers.md
+      include:
+        repo: docs
+        path: en/_api-ref/ai/translate/toc.yaml
+    - name: v1 (DEPRECATED)
+      items:
+      - name: Overview
+        href: api-ref/v1/index.md
+      - name: Text translation
+        href: api-ref/v1/translate.md
+      - name: Language detection
+        href: api-ref/v1/detect.md
+      - name: List of supported languages
+        href: api-ref/v1/languages.md
+      - name: Response format
+        href: api-ref/v1/response.md
+  - name: Quotas and limits
+    href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    items:
+      - name: Current policy
+        href: pricing.md
+      - name: Archive
+        items:
+          - name: Policy before January 1, 2019
+            href: pricing-archive/pricing-01012019.md

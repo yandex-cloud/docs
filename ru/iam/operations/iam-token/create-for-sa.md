@@ -4,11 +4,11 @@
 
 * [С помощью CLI](#via-cli) — самый простой способ.
 * [С помощью JSON Web Token](#via-jwt). Этот способ подойдет для автоматизации работы через API.
-* [С помощью виртуальной машины](../../../compute/operations/vm-connect/auth-inside-vm.md) в сервисе Compute Cloud. Этот способ удобен, если ваше приложение запущено на виртуальной машине Яндекс.Облака. Подробнее в [документации](../../../compute/operations/vm-connect/auth-inside-vm.md) сервиса Compute Cloud.
+* [С помощью виртуальной машины](../../../compute/operations/vm-connect/auth-inside-vm.md) в сервисе {{ compute-name }}. Этот способ удобен, если ваше приложение запущено на виртуальной машине Яндекс.Облака. Подробнее в [документации](../../../compute/operations/vm-connect/auth-inside-vm.md) сервиса {{ compute-name }}.
 
 {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
 
-## Получите IAM-токен с помощью CLI {#via-cli}
+## Получить IAM-токен с помощью CLI {#via-cli}
 
 {% include [cli-set-sa-profile](../../../_includes/cli-set-sa-profile.md) %}
 
@@ -26,7 +26,7 @@ yc iam create-token
 
 {% endnote %}
 
-## Получите IAM-токен с помощью JWT {#via-jwt}
+## Получить IAM-токен с помощью JWT {#via-jwt}
 
 Чтобы получить IAM-токен, создайте [JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT) и обменяйте его на IAM-токен.
 
@@ -35,7 +35,7 @@ yc iam create-token
 1. [Узнайте идентификатор сервисного аккаунта](../sa/get-id.md).
 1. [Создайте авторизованные ключи](../authorized-key/create.md), которые необходимы при создании JWT.
 
-### 1. Создайте JWT {#jwt-create}
+### 1. Создать JWT {#jwt-create}
 
 Сформируйте JWT вручную по инструкции или воспользуйтесь библиотекой для вашего языка.
 
@@ -50,9 +50,9 @@ yc iam create-token
 - Инструкция
 
   Сгенерируйте части, из которых состоит JWT:
-  * header — заголовки JWT в формате Base64Url.
-  * payload — JWT Claims Set в формате Base64Url.
-  * signature — подпись, которая создается на основе частей header и payload.
+  * `header` — заголовки JWT в формате Base64Url.
+  * `payload` — JWT Claims Set в формате Base64Url.
+  * `signature` — подпись, которая создается на основе частей header и payload.
 
   Чтобы создать JWT, соедините все части, используя точку как разделитель:
 
@@ -73,7 +73,7 @@ yc iam create-token
   {
     "typ": "JWT",
     "alg": "PS256",
-    "kid": "b1gvmob03goohplcf641"
+    "kid": "lfkoe35hsk58aks301nl"
   }
   ```
 
@@ -123,7 +123,7 @@ yc iam create-token
   import jwt
 
   service_account_id = "ajepg0mjt06siua65usm"
-  key_id = "b1gvmob03goohplcf641" # ID ресурса Key, который принадлежит сервисному аккаунту.
+  key_id = "lfkoe35hsk58aks301nl" # ID ресурса Key, который принадлежит сервисному аккаунту.
 
   with open("private.pem", 'r') as private:
     private_key = private.read() # Чтение закрытого ключа из файла.
@@ -171,7 +171,7 @@ yc iam create-token
           PrivateKey privateKey = keyFactory.generatePrivate(new PKCS8EncodedKeySpec(privateKeyPem.getContent()));
 
           String serviceAccountId = "ajepg0mjt06siua65usm";
-          String keyId = "b1gvmob03goohplcf641";
+          String keyId = "lfkoe35hsk58aks301nl";
 
           Instant now = Instant.now();
 
@@ -202,7 +202,7 @@ yc iam create-token
   )
 
   const (
-  	keyID            = "b1gvmob03goohplcf641"
+  	keyID            = "lfkoe35hsk58aks301nl"
   	serviceAccountID = "ajepg0mjt06siua65usm"
   	keyFile          = "private.pem"
   )
@@ -262,13 +262,13 @@ yc iam create-token
   var key = fs.readFileSync(require.resolve('private.pem'));
 
   var serviceAccountId = 'ajepg0mjt06siua65usm';
-  var keyId = 'b1gvmob03goohplcf641';
+  var keyId = 'lfkoe35hsk58aks301nl';
   var now = Math.floor(new Date().getTime() / 1000);
 
   var payload = { aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
                   iss: serviceAccountId,
                   iat: now,
-                  exp: now + 3600 }
+                  exp: now + 3600 };
 
   jose.JWK.asKey(key, 'pem', { kid: keyId, alg: 'PS256' })
       .then(function(result) {
@@ -294,7 +294,7 @@ yc iam create-token
   use Jose\Component\Signature\Serializer\CompactSerializer;
 
   $service_account_id = 'ajepg0mjt06siua65usm';
-  $key_id = 'b1gvmob03goohplcf641';
+  $key_id = 'lfkoe35hsk58aks301nl';
 
   $jsonConverter = new StandardConverter();
   $algorithmManager = AlgorithmManager::create([
@@ -354,7 +354,7 @@ yc iam create-token
       auto now = std::chrono::system_clock::now();
       auto expires_at = now + std::chrono::hours(1);
       auto serviceAccountId = "ajepg0mjt06siua65usm";
-      auto keyId = "b1gvmob03goohplcf641";
+      auto keyId = "lfkoe35hsk58aks301nl";
       std::set<std::string> audience;
       audience.insert("https://iam.api.cloud.yandex.net/iam/v1/tokens");
       auto algorithm = jwt::algorithm::ps256(
@@ -372,11 +372,45 @@ yc iam create-token
   }
   ```
 
+- Ruby
+
+  Пример создания JWT с использованием [ruby-jwt](https://github.com/jwt/ruby-jwt).
+
+  ```ruby
+  require 'jwt'
+
+  privateKey = OpenSSL::PKey::RSA.new(File.read('private.pem'))
+
+  issuedAt = Time.now.to_i
+  expirationTime = issuedAt + 360
+
+  serviceAccountId = "ajefnghf8o71512u5o8d"
+
+  # ID ресурса Key, который принадлежит сервисному аккаунту.
+  keyId = "ajecsls45da39r33kngg"
+
+  headers = { kid: keyId }
+  payload = {
+      typ: 'JWT',
+      aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+      iss: serviceAccountId,
+      iat: issuedAt,
+      exp: expirationTime,
+      data: 'data' }
+
+  # Формирование JWT.
+  token = JWT.encode(
+      payload,
+      privateKey,
+      'PS256',
+      headers)
+  ```
+
 {% endlist %}
 
 
 
-### 2. Обменяйте JWT на IAM-токен {#get-iam-token}
+### 2. Обменять JWT на IAM-токен {#get-iam-token}
 
 Когда вы обмениваете JWT на IAM-токен, необходимо соблюсти условия:
 * Указанные в JWT сервисный аккаунт и ключ существуют (не удалены).
@@ -448,5 +482,5 @@ yc iam create-token
 
 #### Что дальше
 
-* [#T](../sa/set-access-bindings.md)
-* [#T](../sa/assign-role-for-sa.md)
+* [{#T}](../sa/set-access-bindings.md)
+* [{#T}](../sa/assign-role-for-sa.md)

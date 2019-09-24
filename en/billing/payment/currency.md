@@ -1,12 +1,23 @@
 # Billing and payment currency
 
-You must pay for Yandex.Cloud resources in rubles (₽), regardless of your legal status ([billing account type](../concepts/billing-account.md#ba-types)) and the country you live in.
+The payment currency depends on the agreement and the country of residence:
 
-If you pay for resources with a bank card in a foreign currency, the equivalent amount in rubles, including VAT, is debited from the bank card. Additional bank fees for the currency conversion might be debited or credited a day or two later.
+{% list tabs %}
 
-The payment procedure is as follows:
+- For residents of Russia
 
-1. The payment amount in rubles is reserved on the bank card at the exchange rate valid at the time of payment.
-1. The payment is processed within one or two business days. During that period, the exchange rate changes.
-1. The amount is now calculated at the new exchange rate: in the event of currency appreciation, the difference is charged; otherwise, it is refunded.
+  Residents of Russia may top up their personal accounts and pay for consumed resources in rubles (₽), regardless of their legal status ([billing account type](../concepts/billing-account.md#ba-types)).
+
+- For non-residents of Russia
+
+  Non-residents of Russia must top up their personal accounts and pay for consumed resources in US dollars ($).
+
+{% endlist %}
+
+{% note info %}
+
+If you top up your personal account using a bank card in a currency that is different from that specified in the agreement, the equivalent amount in the agreement currency will be held on the bank card at the time of top-up. However, the final amount debited may differ due to currency exchange rates or conversion conditions.
+Please check the details of debiting funds with your bank.
+
+{% endnote %}
 

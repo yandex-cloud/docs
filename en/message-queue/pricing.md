@@ -1,7 +1,7 @@
 ---
 editable: false
 ---
-# Pricing policy for Message Queue
+# Pricing policy for {{ message-queue-name }}
 
 ## What goes into the cost of using Message Queue
 

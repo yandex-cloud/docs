@@ -1,0 +1,1 @@
+[`iam.serviceAccounts.user`](../../../../iam/concepts/access-control/roles.md#sa-user) — подтверждает права на использование сервисного аккаунта.

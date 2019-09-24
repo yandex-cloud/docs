@@ -2,7 +2,7 @@
 
 Чтобы повысить доступность приложения и убедиться в том, что оно отвечает, можно настроить автоматическое восстановление для группы виртуальных машин. Вы можете настроить автоматическое восстановление виртуальных машин при создании или изменении группы.
 
-Настроить можно только одну проверку состояния для автоматического восстановления (не путайте с [проверкой состояния](../../../load-balancer/concepts/health-check.md) сервиса Yandex Load Balancer).
+Настроить можно только одну проверку состояния для автоматического восстановления (не путайте с [проверкой состояния](../../../load-balancer/concepts/health-check.md) сервиса {{ load-balancer-full-name }}).
 
 {% include [warning.md](../../../_includes/instance-groups/sa.md) %}
 
@@ -14,7 +14,7 @@
   
   1. Откройте страницу каталога в консоли управления.
   
-  1. Выберите сервис **Yandex Compute Cloud**.
+  1. Выберите сервис **{{ compute-full-name }}**.
   
   1. На странице **Виртуальные машины** перейдите на вкладку **Группы виртуальных машин**.
   
@@ -56,7 +56,7 @@
   
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
   
-  1. Выберите `ID` или `NAME` нужной группы, например `first-group`.
+  1. Выберите `ID` или `NAME` нужной группы, например `first-fixed-group`.
   
   1. Получите [информацию](get-info.md) о группе виртуальных машин.
   
@@ -72,18 +72,18 @@
   
   1. Добавьте в файл спецификацию проверок состояния:
   
-      ```yaml
-      ...
-      health_checks_spec:
-          health_check_specs:
-          - tcp_options:
-              port: 80
-          interval: 10s
-          timeout: 30s
-          unhealthy_threshold: 5
-          healthy_threshold: 3
-      ...
-      ```
+     ```yaml
+     ...
+     health_checks_spec:
+       health_check_specs:
+         - tcp_options:
+             port: 80
+           interval: 30s
+           timeout: 10s
+           unhealthy_threshold: 5
+           healthy_threshold: 3
+     ...
+     ```
   
       Где:
   
@@ -103,6 +103,6 @@
       $ yc compute instance-group update --name first-group --file group.yaml
       ```
   
-     Instance Groups запустит операцию изменения группы виртуальных машин.
+     {{ ig-name }} запустит операцию изменения группы виртуальных машин.
   
 {% endlist %}

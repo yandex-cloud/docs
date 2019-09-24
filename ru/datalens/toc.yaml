@@ -18,7 +18,7 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Подключение
+      - name: Работа с подключениями
         items:
           - name: Создание подключения к ClickHouse
             href: operations/connection/create-clickhouse.md
@@ -38,7 +38,7 @@ items:
             href: operations/connection/create-appmetrica.md
           - name: Управление доступом к подключению
             href: operations/connection/manage-access.md
-      - name: Датасет
+      - name: Работа с датасетами
         items:
           - name: Создание датасета
             href: operations/dataset/create.md
@@ -46,7 +46,7 @@ items:
             href: operations/dataset/create-field.md
           - name: Управление доступом к датасету
             href: operations/dataset/manage-access.md
-      - name: Чарт
+      - name: Работа с чартами
         items:
           - name: Создание линейной диаграммы
             href: operations/chart/create-line-chart.md
@@ -62,7 +62,7 @@ items:
             href: operations/chart/create-pivot-table.md
           - name: Управление доступом к чарту
             href: operations/chart/manage-access.md
-      - name: Дашборд
+      - name: Работа с дашбордами
         items:
           - name: Создание дашборда
             href: operations/dashboard/create.md
@@ -72,6 +72,14 @@ items:
             href: operations/dashboard/add-selector.md
           - name: Управление доступом к дашборду
             href: operations/dashboard/manage-access.md
+      - name: Работа с правами доступа
+        items:
+          - name: Назначение прав доступа
+            href: operations/permission/grant.md
+          - name: Удаление прав доступа
+            href: operations/permission/revoke.md
+          - name: Запрос прав доступа
+            href: operations/permission/request.md
   - name: Концепции
     items:
       - name: Обзор сервиса

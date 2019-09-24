@@ -1,47 +1,53 @@
 # Управление доступом
 
-Пользователь Яндекс.Облака может выполнять только те операции над ресурсами, которые разрешены назначенными ему ролями. Пока у пользователя нет никаких ролей, все операции ему запрещены.
+В этом разделе вы узнаете:
+* [на какие ресурсы можно назначить роль](#resources);
+* [какие роли действуют в сервисе](#roles-list);
+* [какие роли необходимы](#required-roles) для того или иного действия.
 
-Чтобы разрешить доступ к ресурсам сервиса Yandex Resource Manager (облакам и каталогам), назначьте пользователю нужные роли из приведенного ниже списка. Роли, назначенные на родительский ресурс, наследуются вложенными ресурсами.
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-{% note info %}
+## На какие ресурсы можно назначить роль {#resources}
 
-Подробнее о наследовании ролей читайте в разделе [#T](../concepts/resources-hierarchy.md#access-rights-inheritance).
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-{% endnote %}
+## Какие роли действуют в сервисе {#roles-list}
 
-## Назначение ролей
+На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
-Чтобы назначить пользователю роль:
+![image](service-roles-hierarchy.svg)
 
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
+Роли, действующие в сервисе:
 
-## Роли
+* Сервисные роли:
+    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* Примитивные роли:
+    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе Resource Manager.
+## Какие роли мне необходимы {#required-roles}
 
-### Сервисные роли
+В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `editor` вместо `viewer`.
 
-_Сервисные роли_ — роли, дающие доступ к ресурсам определенного сервиса.
+Действие | Методы | Необходимые роли
+----- | ----- | -----
+**Просмотр информации** | |
+Просмотр информации о любом ресурсе | `get`, `list` | `viewer` на этот ресурс
+**Управление ресурсами** | |
+[Создание облака](../operations/cloud/create.md) | | роли не требуются, только аутентификация
+[Изменение облака](../operations/cloud/update.md) | `update` | `editor` на облако
+[Создание каталога в облаке](../operations/folder/create.md) | `create` | `editor` на облако
+[Изменение каталога](../operations/folder/update.md) | `update` | `editor` на каталог
+**Управление доступом к ресурсам** | |
+[Добавление нового пользователя в облако](../../iam/operations/users/create.md) | `setAccessBindings` | `admin` на облако
+[Сделать нового пользователя владельцем облака](../operations/cloud/set-access-bindings.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` на это облако
+[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на ресурс | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+#### Что дальше
 
-### Примитивные роли
-
-Примитивные роли можно назначать на любой ресурс в любом сервисе.
-
-#### viewer
-
-Пользователь с ролью `viewer` может просматривать информацию о ресурсах, например посмотреть список каталогов в облаке или получить информацию о каталоге.
-
-#### editor
-
-Пользователь с ролью `editor` может управлять любыми ресурсами, например создать каталог.
-
-Помимо этого роль `editor` включает в себя все разрешения роли `viewer`.
-
-#### admin
-
-Пользователь с ролью `admin` может управлять правами доступа к ресурсам, например разрешить другим пользователям создавать каталоги или просматривать информацию о них.
-
-Помимо этого роль `admin` включает в себя все разрешения роли `editor`.
+* [Как назначить роль](../../iam/operations/roles/grant.md).
+* [Как отозвать роль](../../iam/operations/roles/revoke.md).
+* [Подробнее об управлении доступом в Яндекс.Облаке](../../iam/concepts/access-control/index.md).
+* [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

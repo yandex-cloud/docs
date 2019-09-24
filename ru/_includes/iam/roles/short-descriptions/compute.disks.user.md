@@ -1,0 +1,1 @@
+[`compute.disks.user`](../../../../iam/concepts/access-control/roles.md#compute-disks-user) — позволяет использовать диски для создания новых ресурсов, например виртуальных машин.

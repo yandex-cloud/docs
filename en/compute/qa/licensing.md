@@ -38,7 +38,7 @@ No, you cannot currently upload your own image with the Windows OS.
 
 Yes, you can purchase a VM with a pre-installed Windows Server 2012 or Windows Server 2016 image from Yandex.Cloud. The Windows Server license is included in the cost of using Yandex.Cloud.
 
-#### Can I deploy my own Windows Server licenses in Compute Cloud? {#custom-windows-server}
+#### Can I deploy my own Windows Server licenses in {{ compute-name }}? {#custom-windows-server}
 
 No. You currently can't deploy your own Windows Server licenses.
 
