@@ -2,7 +2,7 @@
 
 *Сервис {{ ydb-short-name }} находится на [стадии Preview](../../overview/concepts/launch-stages.md), доступ к сервису предоставляется по заявке.*
 
-Yandex Database ({{ ydb-short-name }}) — это распределенная отказоустойчивая NewSQL СУБД. {{ ydb-short-name }} использует [YQL](../../yql/reference/quickstart.md) (диалект SQL) для управления данными и предоставляет SDK для разработки собственных приложений.
+Yandex Database ({{ ydb-short-name }}) — это распределенная отказоустойчивая NewSQL СУБД. {{ ydb-short-name }} использует [YQL](../../yql/reference/overview.md) (диалект SQL) для управления данными и предоставляет SDK для разработки собственных приложений.
 
 [Получите доступ](create-db.md#before-you-begin) и начните знакомство с:
 - Базами данных {{ ydb-short-name }}:

@@ -2,7 +2,7 @@
 
 После [создания базы](create-db.md) выполните базовые YQL-запросы.
 
-Подробнее о синтаксисе YQL читайте в [Справочнике YQL](../yql/reference/quickstart.md).
+Подробнее о синтаксисе YQL читайте в [Справочнике YQL](../yql/reference/overview.md).
 
 ## Создайте таблицу {#create-table}
 

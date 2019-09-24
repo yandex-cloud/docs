@@ -32,7 +32,7 @@ links:
   href: "best_practices/schema_design"
 - title: "Справочник YQL"
   description: "Описание синтаксиса и встроенных функций YQL"
-  href: "yql/reference/quickstart"
+  href: "yql/reference/overview"
 - title: "Туториал YQL"
   description: "Туториал для знакомства с базовыми возможностями YQL"
   href: "yql/tutorial/"
