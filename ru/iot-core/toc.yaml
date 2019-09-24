@@ -44,10 +44,20 @@ items:
     items:
         - name: Взаимосвязь ресурсов сервиса
           href: concepts/index.md
+        - name: Параметры подключения MQTT-брокера
+          href: concepts/mqtt-properties.md
         - name: Топик
           href: concepts/topic.md
         - name: Квоты и лимиты
           href: concepts/limits.md
+  - name: Сценарии использования
+    items:
+      - name: Работа с помощью Mosquitto
+        items:
+          - name: Отправить сообщение
+            href: solutions/mosquitto/mosquitto-publish.md
+          - name: Подписать устройство или реестр на получение сообщений
+            href: solutions/mosquitto/mosquitto-subscribe.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
