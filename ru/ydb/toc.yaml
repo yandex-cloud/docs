@@ -3,7 +3,15 @@ href: index.yaml
 stage: preview
 items:
   - name: Начало работы
-    href: quickstart.md
+    items:
+      - name: Обзор
+        href: quickstart/index.md
+      - name: Создание базы данных
+        href: quickstart/create-db.md
+      - name: Примеры YQL-запросов
+        href: quickstart/examples-yql.md
+      - name: Запуск тестового приложения
+        href: quickstart/launch-test-app.md
   - name: Пошаговые инструкции
     items:
       - name: Управление базами данных

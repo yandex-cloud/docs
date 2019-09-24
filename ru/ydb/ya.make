@@ -228,7 +228,10 @@ RUN_PROGRAM(
         misc/type_string.md
         overview.md
         porting/porting.md
-        quickstart.md
+        quickstart/index.md
+        quickstart/create-db.md
+        quickstart/examples-yql.md
+        quickstart/launch-test-app.md
         release_notes.md
         security/basics.md
         security/data_encryption.md

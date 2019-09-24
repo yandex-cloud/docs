@@ -6,7 +6,7 @@
 
 {% if audience == "internal" %}
 
-Начать работать с YQL можно в [веб-интерфейсе](https://yql.yandex-team.ru/Tutorial/ydb_01_Create_demo_tables) после создания базы данных. В разделе [{#T}](../../quickstart.md#replace-data) описаны базовые операции с данными.
+Начать работать с YQL можно в [веб-интерфейсе](https://yql.yandex-team.ru/Tutorial/ydb_01_Create_demo_tables) после создания базы данных. В разделе [{#T}](../../quickstart/examples-yql.md) описаны базовые операции с данными.
 
 {% else if audience == "external" %}
 

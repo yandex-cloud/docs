@@ -10,7 +10,7 @@
 * Для [C++](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/python/examples/basic_example)
 {% endif %}
 
-Чтобы запустить приложение, необходимо подключиться к базе данных. Подробнее читайте в разделе [{#T}](../quickstart.md#sdk).
+Чтобы запустить приложение, необходимо подключиться к базе данных. Подробнее читайте в разделе [{#T}](../quickstart/launch-test-app.md).
 
 {% if audience == "internal" %}
 
