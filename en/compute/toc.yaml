@@ -131,6 +131,10 @@ items:
             href: operations/instance-groups/delete.md
           - name: Set up autohealing for virtual machines
             href: operations/instance-groups/enable-autohealing.md
+  - name: Solutions
+    items:
+        - name: Configuring clock synchronization using NTP
+          href: solutions/ntp.md
   - name: Concepts
     items:
       - name: Relationship between resources
