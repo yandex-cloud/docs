@@ -12,6 +12,8 @@ items:
         href: operations/publish.md
       - name: Подписать устройство или реестр на получение сообщений
         href: operations/subscribe.md
+      - name: Просмотр журнала подключений
+        href: operations/logs.md
       - name: Реестр
         items:
         - name: Получить информацию о реестре
