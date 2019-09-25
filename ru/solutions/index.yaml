@@ -22,3 +22,6 @@ links:
 - title: "Управление инфраструктурой"
   description: "Развертывайте инфраструктуру удобными средствами управления облачными ресурсами"
   href: "infrastructure-management/"
+- title: "Windows в облаке"
+  description: "Используйте службы Windows в Яндекс.Облаке"
+  href: "windows/"
