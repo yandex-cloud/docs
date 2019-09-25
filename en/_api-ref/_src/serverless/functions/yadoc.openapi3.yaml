@@ -1,6 +1,6 @@
 openapi: "3.0"
 info:
-  title: Yandex Serverless Functions Service
+  title: Yandex Cloud Functions Service
   description: Description not set.
   version: v1
 paths:

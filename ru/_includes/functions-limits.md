@@ -12,8 +12,8 @@
 Вид ограничения | Значение
 ----- | -----
 Максимальный объем временных файлов | 512 МБ
-Максимальное время выполнения функции до [таймаута](../serverless-functions/operations/function/version-manage.md#version-create) (включая начальную инициализацию при первом запуске) | 60 секунд
-Максимальное количество [триггеров](../serverless-functions/concepts/trigger.md) для одной [очереди сообщений](../message-queue/concepts/queue.md) | 1
+Максимальное время выполнения функции до [таймаута](../functions/operations/function/version-manage.md#version-create) (включая начальную инициализацию при первом запуске) | 60 секунд
+Максимальное количество [триггеров](../functions/concepts/trigger.md) для одной [очереди сообщений](../message-queue/concepts/queue.md) | 1
 
 #### Прочие ограничения {#other-restrictions}
 

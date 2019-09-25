@@ -12,5 +12,5 @@
 | Type of limit | Value |
 | ----- | ----- |
 | Maximum size of temporary files | 512 MB |
-| Maximum function execution time before [timeout](../serverless-functions/operations/version-manage.md#version-create) (including first initialization at first call) | 60 seconds |
+| Maximum function execution time before [timeout](../functions/operations/version-manage.md#version-create) (including first initialization at first call) | 60 seconds |
 

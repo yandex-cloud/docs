@@ -22,7 +22,7 @@ default:
   datalens-full-name: Yandex DataLens
   managed-k8s-full-name: Yandex Managed Service for Kubernetes
   iot-full-name: Yandex IoT Core
-  sf-full-name: Yandex Serverless Functions
+  sf-full-name: Yandex Cloud Functions
   ydb-full-name: Yandex Database
 
   # Полные имена сервисов без Yandex
@@ -49,7 +49,7 @@ default:
   datalens-name: DataLens
   managed-k8s-name: Managed Service for Kubernetes
   iot-name: Yandex IoT Core
-  sf-name: Serverless Functions
+  sf-name: Cloud Functions
   ydb-name: Yandex Database
 
   # Короткие имена

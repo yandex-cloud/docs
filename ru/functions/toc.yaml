@@ -1,0 +1,68 @@
+title: Yandex Cloud Functions
+href: index.yaml
+stage: preview
+items:
+  - name: Начало работы
+    items:
+      - name: Создание и выполнение функции
+        href: quickstart/function-quickstart.md
+      - name: Создание триггера для очереди сообщений
+        href: quickstart/ymq-trigger-quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Управление функцией
+        items:
+          - name: Создание функции
+            href: operations/function/function-create.md
+          - name: Управление правами на запуск функции
+            href: operations/function/function-public.md
+          - name: Управление версиями функции
+            href: operations/function/version-manage.md
+          - name: Вызов функции
+            href: operations/function/function-invoke.md
+          - name: Изменение функции
+            href: operations/function/function-update.md
+          - name: Просмотр журнала выполнения
+            href: operations/function/function-logs.md
+          - name: Удаление функции
+            href: operations/function/function-delete.md
+      - name: Управление триггером
+        items:
+          - name: Получение информации о триггере
+            href: operations/trigger/trigger-list.md
+          - name: Создание триггера
+            href: operations/trigger/trigger-create.md
+          - name: Изменение триггера
+            href: operations/trigger/trigger-update.md
+          - name: Удаление триггера
+            href: operations/trigger/trigger-delete.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Функция
+        href: concepts/function.md
+      - name: Вызов функции
+        href: concepts/function-invoke.md
+      - name: Среда выполнения
+        items:
+          - name: Обзор
+            href: concepts/runtime/index.md
+          - name: Переменные окружения
+            href: concepts/runtime/environment-variables.md
+          - name: Контекст выполнения
+            href: concepts/runtime/execution-context.md
+      - name: Триггер
+        href: concepts/trigger.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Сценарии использования
+    items:
+      - name: Создание навыка Алисы
+        href: solutions/alice-skill.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Управление доступом
+    href: security/index.md
