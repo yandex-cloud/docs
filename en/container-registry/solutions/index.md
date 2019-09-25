@@ -74,4 +74,3 @@ If you don't have a VM yet, you can [create one](../../compute/quickstart/index.
     $ ssh ${INSTANCE_ID} \
     docker run cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```
-
