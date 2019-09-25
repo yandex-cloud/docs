@@ -37,9 +37,7 @@ The number of databases in a cluster is unlimited.
 
 {% note important %}
 
-By default, databases are created with string collation and sorting settings: `LC_COLLATE=C` and `LC_CTYPE=C`.
-This allows {{ PG }} to more effectively execute queries with string data, but it can
-work subtly (for example, with Cyrillic).
+By default, databases are created with string collation and sorting settings: `LC_COLLATE=C` and `LC_CTYPE=C`. This allows {{ PG }} to more effectively execute queries with string data, but it canwork subtly (for example, with Cyrillic).
 
 These settings are covered in more detail in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/collation.html).
 
@@ -82,14 +80,14 @@ Once the database is created, you can specify the collation and order sorting se
           --cluster-name <cluster name>
      ```
 
-     If the required user is not in the list, [create it](cluster-users.md#adduser).
+     If the required user is not in the list, [create a user](cluster-users.md#adduser).
 
   1. Run the create database command:
 
      ```
      $ {{ yc-mdb-pg }} database create <database name>
           --cluster-name <cluster name>
-          --owner <username of the DB owner>
+          --owner <DB owner username>
      ```
 
      {{ mpg-short-name }} runs the create database operation.
@@ -131,4 +129,10 @@ Once the database is created, you can specify the collation and order sorting se
   You can delete a database using the [delete](../api-ref/Database/delete.md) method.
 
 {% endlist %}
+
+{% note important %}
+
+Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted is restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
+
+{% endnote %}
 

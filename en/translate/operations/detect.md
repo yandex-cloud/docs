@@ -1,75 +1,39 @@
-# Detect the language of a text
+# Detecting language
 
 To detect the language of a text, use the [detectLanguage](../api-ref/Translation/detectLanguage) method.
 
-## Examples
+## Before getting started {#before-begin}
 
 {% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
 
-### Hello, world
+## Detect the language of a phrase {#simple-example}
 
 In this example, we will detect the language that the phrase <q>Hello, world</q> is written in.
 
-1. To detect the language of the text, pass it in the [detectLanguage](../api-ref/Translation/detectLanguage) request body:
+To detect the language of the text, pass it in the [detectLanguage](../api-ref/Translation/detectLanguage) request body:
 
-    ```bash
-    $ export FOLDER_ID=b1gvmob95yysaplct532
-    $ export IAM_TOKEN=CggaATEVAgA...
-    $ export TEXT="Hello, world"
-    $ curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "{\"folder_id\": \"${FOLDER_ID}\", \"text\": \"${TEXT}\"}" \
-        "https://translate.api.cloud.yandex.net/translate/v2/detect"
-    ```
+```bash
+$ export FOLDER_ID=b1gvmob95yysaplct532
+$ export IAM_TOKEN=CggaATEVAgA...
+$ export TEXT="Hello, world"
+$ curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer ${IAM_TOKEN}" \
+    -d "{\"folder_id\": \"${FOLDER_ID}\", \"text\": \"${TEXT}\"}" \
+    "https://translate.api.cloud.yandex.net/translate/v2/detect"
+```
 
-    The service responds with the language code of the source text:
+The service responds with the language code of the source text. The language code is specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format:
 
-    ```json
-    {
-        "languageCode": "en"
-    }
-    ```
+```json
+{
+    "languageCode": "en"
+}
+```
 
-1. To find out what language corresponds to the received code, use the [listLanguages](../api-ref/Translation/listLanguages) method:
+## Specify the most likely languages {#specify-language}
 
-    ```bash
-    curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "{\"folder_id\": \"${FOLDER_ID}\"}" \
-        "https://translate.api.cloud.yandex.net/translate/v2/languages"
-    ```
-
-    The response will contain a list of language names in the corresponding language:
-
-    ```json
-    {
-        "languages": [
-            {
-            "code": "az",
-            "name": "azərbaycan"
-            },
-            {
-            "code": "sq",
-            "name": "shqip"
-            },
-            {
-            "code": "am",
-            "name": "አማርኛ"
-            },
-            {
-            "code": "en",
-            "name": "English"
-            },
-            ...
-        ]
-    }
-    ```
-
-### Specify the most likely languages
-
-In some languages, one and the same word has the same spelling. For example, the English word <q>hand</q> is also written as <q>hand</q> in German, Swedish, and Dutch. If the text you transmit contains words like this, {{ translate-short-name }} may detect the source language incorrectly.
+Some words are spelled the same in different languages. For example, the English word <q>hand</q> is also written as <q>hand</q> in German, Swedish, and Dutch. If the text you transmit contains words like this, {{ translate-short-name }} may detect the wrong source language.
 
 To avoid mistakes, you can use the `languageCodeHints` field to specify which languages should be given priority when determining the language of the text:
 

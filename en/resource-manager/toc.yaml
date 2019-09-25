@@ -11,9 +11,11 @@ items:
         items:
           - name: Creating a cloud
             href: operations/cloud/create.md
+          - name: Rename a cloud
+            href: operations/cloud/update.md
           - name: Setting up access rights
             href: operations/cloud/set-access-bindings.md
-          - name: Switching clouds
+          - name: Switch clouds
             href: operations/cloud/switch-cloud.md
       - name: Folders
         items:
@@ -21,7 +23,7 @@ items:
             href: operations/folder/create.md
           - name: Updating a folder
             href: operations/folder/update.md
-          - name: Setting up access rights
+          - name: How to set up access rights
             href: operations/folder/set-access-bindings.md
           - name: Getting the folder ID
             href: operations/folder/get-id.md
@@ -31,7 +33,7 @@ items:
         href: concepts/resources-hierarchy.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Access management
+  - name: Access control
     href: security/index.md
   - name: Pricing policy
     href: pricing.md

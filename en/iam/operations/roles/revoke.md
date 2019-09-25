@@ -23,8 +23,11 @@ If you need to temporarily revoke all access rights from a user with a Yandex ac
 
   To revoke a role from a subject, delete the corresponding access binding for the appropriate resource:
 
-  1. See which users are assigned roles to the resource and what the roles are:
-`yc <SERVICE-NAME> <RESOURCE> list-access-bindings <RESOURCE-NAME>|<RESOURCE-ID>`
+  1. View roles and their assignees:
+
+      ```
+      yc <SERVICE-NAME> <RESOURCE> list-access-bindings <RESOURCE-NAME>|<RESOURCE-ID>
+      ```
 
       For example, see the access bindings for the `default` folder:
 
@@ -73,7 +76,7 @@ If you need to temporarily revoke all access rights from a user with a Yandex ac
       $ export FOLDER_ID=b1gvmob95yysaplct532
       $ export IAM_TOKEN=CggaATEVAgA...
       $ curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/${FOLDER_ID}:listAccessBindings"
-
+      
       {
        "accessBindings": [
         {

@@ -29,6 +29,12 @@ Billing accounts aren't used for managing resources in Yandex.Cloud and aren't p
 
 _A Yandex.Passport account_ is your Yandex or [Yandex.Connect]({{ link-yandex-connect }}) account. You need a Yandex.Passport account to manage resources from the [management console]({{ link-console-main }}).
 
+{% note info %}
+
+{% include [yandex-account-2fa-warning.md](../../_includes/iam/yandex-account-2fa-warning.md) %}
+
+{% endnote %}
+
 ### Service accounts {#sa}
 
 {% include [sa-def](../_includes_service/sa-def.md) %}
@@ -41,7 +47,7 @@ There are three different kinds of authorization keys in Yandex.Cloud:
 
 * [API keys](authorization/api-key.md): Used instead of IAM tokens for simplified authorization.
 * [Authorized keys](authorization/key.md): Used to obtain IAM tokens for service accounts.
-* [Static access keys](authorization/access-key.md) — Used in services with AWS-compatible APIs.
+* [Static access keys](authorization/access-key.md): Used in services with AWS-compatible APIs.
 
 These keys are currently only used for service accounts.
 

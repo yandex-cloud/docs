@@ -81,7 +81,9 @@ items:
         href: concepts/users/service-accounts.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Access management
+  - name: How to use Yandex.Cloud securely
+    href: best-practices/using-iam-securely.md
+  - name: Access control
     href: security/index.md
   - name: Pricing policy
     href: pricing.md

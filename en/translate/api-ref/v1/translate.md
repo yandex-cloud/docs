@@ -1,4 +1,4 @@
-# Text translation
+# How to translate text
 
 {% include [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md) %}
 

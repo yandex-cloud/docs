@@ -1,2 +1,2 @@
-The IAM token is valid for {{ iam-token-lifetime }}. After that period expires, get a new IAM token.
+IAM tokens are valid for {{ iam-token-lifetime }}. To keep your token [valid](../iam/concepts/authorization/iam-token.md#lifetime), request it more often (for example, once per hour).
 

@@ -1,4 +1,4 @@
-# Language detection
+# Detecting language
 
 {% include [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md) %}
 
