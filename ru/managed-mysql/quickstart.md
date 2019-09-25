@@ -16,7 +16,7 @@
    Если все сделано правильно, должен заработать запрос списка кластеров:
 
    ```bash
-   {{ yc-mmy-ch }} cluster list
+   {{ yc-mdb-my }} cluster list
    ```
 
 {% else %}

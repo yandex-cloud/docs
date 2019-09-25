@@ -16,7 +16,7 @@
    Если все сделано правильно, должен заработать запрос списка кластеров:
 
    ```bash
-   {{ yc-mpg-ch }} cluster list
+   {{ yc-mdb-pg }} cluster list
    ```
 
 {% else %}
