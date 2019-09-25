@@ -45,7 +45,7 @@ _Аккаунт Яндекс.Паспорта_ — ваш аккаунт на Я
 
 ### Федеративный аккаунт {#saml-federation}
 
-_Федеративный аккаунт_ — это аккаунт пользователя из SAML-федерации, например из Active Directory.
+_Федеративный аккаунт_ — это аккаунт пользователя из федерации удостоверений, например из Active Directory.
 
 {% include [about-saml-federations](../../_includes/iam/about-saml-federations.md) %}
 

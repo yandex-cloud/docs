@@ -16,7 +16,7 @@
 - [{#T}](sa/get-id.md)
 - [{#T}](sa/delete.md)
 
-## SAML-совместимые федерации
+## Федерации удостоверений
 
 - [{#T}](federations/integration-adfs.md)
 - [{#T}](federations/integration-gsuite.md)

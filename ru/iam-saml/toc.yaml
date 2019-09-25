@@ -31,7 +31,7 @@ items:
             href: operations/sa/get-id.md
           - name: Удаление сервисного аккаунта
             href: operations/sa/delete.md
-      - name: SAML-совместимые федерации
+      - name: Федерации удостоверений
         items:
           - name: Аутентификация с помощью Active Directory
             href: operations/federations/integration-adfs.md
@@ -87,8 +87,8 @@ items:
             href: concepts/authorization/access-key.md
       - name: Сервисные аккаунты
         href: concepts/users/service-accounts.md
-      - name: SAML-совместимые федерации
-        href: concepts/users/saml-federations.md
+      - name: SAML-совместимые федерации удостоверений
+        href: concepts/users/identity-federations.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Безопасное использование Яндекс.Облака
