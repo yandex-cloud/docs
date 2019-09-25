@@ -33,7 +33,7 @@
     Создайте триггер: 
 
     - `--name` — имя триггера.
-    - `--queue-arn` — уникальный идентификатор очереди. 
+    - `--queue` — уникальный идентификатор очереди. 
         
         Чтобы узнать уникальный идентификатор очереди:
         1. В [консоли управления]({{ link-console-main }}) откройте раздел **Message Queue**.
@@ -47,7 +47,7 @@
     ```
     $ yc serverless trigger create message-queue \
         --name test-trigger \
-        --queue-arn yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq \
+        --queue yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq \
         --queue-service-account-id bfbqqeo6jkpls2tse5o6 \
         --invoke-function-id b09e5lu91ta21vdrrgma \
         --invoke-function-service-account-id bfbqqeo6jkpls2tse5o6 \
@@ -74,16 +74,9 @@
 
 ## Проверьте результат {#check-result}
 
-Проверьте, что триггер работает корректно, в сервисе {{ message-queue-name }} или в {{ sf-name }}.
+Проверьте, что триггер работает корректно, в сервисе {{ sf-name }} или в {{ message-queue-name }}.
 
 {% list tabs %}
-
-- Message Queue
-
-    Проверьте, что количество сообщений в очереди уменьшается, проверив статистику очереди: 
-    1. Откройте раздел **Message Queue**.
-    1. Нажмите значок ![image](../../../_assets/vertical-ellipsis.svg) в строке очереди, для которой был создан триггер.
-    1. Перейдите в раздел **Статистика**. Обратите внимание на график **Сообщений в очереди**.
 
 - Functions
     
@@ -123,5 +116,12 @@
         2019-08-28 12:26:51     END RequestID: a5e4f3a3-9533-4eca-820c-82887258da46
         2019-08-28 12:26:51     REPORT RequestID: a5e4f3a3-9533-4eca-820c-82887258da46 Duration: 444.728 ms Billed Duration: 500 ms Memory Size: 128 MB Max Memory Used: 13 MB
         ```
+
+- Message Queue
+
+    Проверьте, что количество сообщений в очереди уменьшается, проверив статистику очереди: 
+    1. Откройте раздел **Message Queue**.
+    1. Нажмите значок ![image](../../../_assets/vertical-ellipsis.svg) в строке очереди, для которой был создан триггер.
+    1. Перейдите в раздел **Статистика**. Обратите внимание на график **Сообщений в очереди**.        
 
 {% endlist %}
