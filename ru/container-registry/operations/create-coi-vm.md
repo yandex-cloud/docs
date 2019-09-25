@@ -9,6 +9,10 @@ _Container Optimized Image_ — [образ](../../compute/concepts/image.md) в
  - Получать доступ к открытым сетевым портам Docker-контейнера без дополнительных настроек.
  - Обновлять запущенный Docker-контейнер с минимальным временем простоя.
 
+## Перед началом работы {#before-you-begin}
+
+Если нужный Docker-образ загружен в {{ container-registry-name }}, то создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) на используемый реестр. От его имени ВМ на базе Container Optimized Image будет скачивать из реестра Docker-образ.
+
 ## Создайте ВМ с Docker-контейнером на базе образа Container Optimized Image {#create-vm}
 
 1. Посмотрите описание команды CLI для создания ВМ на базе образа Container Optimized Image:
@@ -26,6 +30,7 @@ _Container Optimized Image_ — [образ](../../compute/concepts/image.md) в
     --name my-vm \
     --zone=ru-central1-b \
     --ssh-key ssh-key.pub \
+    --service-account-name my-robot \
     --public-ip \
     --container-name=my_app \
     --container-image=vm_ubuntu \
