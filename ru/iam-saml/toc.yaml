@@ -37,7 +37,7 @@ items:
             href: operations/federations/integration-adfs.md
           - name: Аутентификация с помощью G-Suite
             href: operations/federations/integration-gsuite.md
-          - name: Аутентификация с помощью SAML-федерации
+          - name: Аутентификация с помощью федерации удостоверений
             href: operations/federations/integration-common.md
       - name: Роли
         items:
