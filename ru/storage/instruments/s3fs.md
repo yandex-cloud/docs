@@ -8,6 +8,8 @@
 
 {% endnote %}
 
+Если у вас возникнут вопросы, обратитесь к [официальной документации](https://github.com/s3fs-fuse/s3fs-fuse/wiki) проекта, в частности к разделу [FAQ](https://github.com/s3fs-fuse/s3fs-fuse/wiki/FAQ), который содержит решения для многих проблем, возникающих при использовании s3fs.
+
 ## Подготовка к работе {#preparations}
 
 {% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
@@ -42,3 +44,4 @@ s3fs#<имя бакета> /mount/<путь к папке> fuse _netdev,allow_ot
 ```
 
 Описание всех параметров s3fs смотрите в [вики проекта](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Fuse-Over-Amazon) на GitHub.
+
