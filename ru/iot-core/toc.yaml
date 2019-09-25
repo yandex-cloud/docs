@@ -8,31 +8,41 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Отправить сообщение
+      - name: Отправка сообщения
         href: operations/publish.md
-      - name: Подписать устройство или реестр на получение сообщений
+      - name: Подписка устройства или реестра на получение сообщений
         href: operations/subscribe.md
       - name: Просмотр журнала подключений
         href: operations/logs.md
       - name: Реестр
         items:
-        - name: Получить информацию о реестре
+        - name: Получение информации о реестре
           href: operations/registry/registry-list.md
-        - name: Создать реестр
+        - name: Создание реестра
           href: operations/registry/registry-create.md
-        - name: Изменить реестр
+        - name: Изменение реестра
           href: operations/registry/registry-update.md
-        - name: Удалить реестр
+        - name: Удаление реестра
           href: operations/registry/registry-delete.md
       - name: Устройство
         items:
-          - name: Получить информацию об устройстве
+          - name: Управление алиасами топиков
+            items:
+              - name: Создание алиаса
+                href: operations/device/alias/alias-create.md
+              - name: Получение списка алиасов
+                href: operations/device/alias/alias-list.md
+              - name: Изменение алиаса
+                href: operations/device/alias/alias-update.md
+              - name: Удаление алиаса
+                href: operations/device/alias/alias-delete.md
+          - name: Получение информации об устройстве
             href: operations/device/device-list.md
-          - name: Создать устройство
+          - name: Создание устройства
             href: operations/device/device-create.md
-          - name: Изменить устройство
+          - name: Измениение устройства
             href: operations/device/device-update.md
-          - name: Удалить устройство
+          - name: Удаление устройства
             href: operations/device/device-delete.md
       - name: Сертификат
         items:

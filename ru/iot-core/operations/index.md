@@ -17,6 +17,13 @@
 - [{#T}](device/device-update.md)
 - [{#T}](device/device-delete.md)
 
+### Управление алиасами топиков {#alias}
+
+- [{#T}](device/alias/alias-create.md)
+- [{#T}](device/alias/alias-list.md)
+- [{#T}](device/alias/alias-update.md)
+- [{#T}](device/alias/alias-delete.md)
+
 ## Сертификаты {#certificates}
 
 - [{#T}](certificates/registry-certificates.md)
