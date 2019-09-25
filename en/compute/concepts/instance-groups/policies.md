@@ -10,11 +10,9 @@ When creating an instance group, you can choose the regions and availability zon
 
 A region is a specific geographic location where you can deploy instances. Each region consists of one or more zones. Only one region is currently available. [Learn more about the Cloud geography](../../../overview/concepts/geo-scope.md).
 
-Regions:
-
 | Region | Zones | Location |
 | ----- | ----- | ----- |
-| `ru-central1` | `ru-central1-a`<br/>`ru-central1-b`<br/>`ru-central1-c` | Vladimir, Ryazan, and Moscow regions. |
+| `ru-central1` | `ru-central1-a`<br/>`ru-central1-b`<br/>`ru-central1-c` | Vladimir, Moscow, and Ryazan regions. |
 
 You can't move instances to other availability zones, but you can [update a group](../../operations/instance-groups/update.md) with new zone values.
 
