@@ -1,8 +1,34 @@
 # Релизы YC CLI
 
-## Версия 0.40.0 (20.09.19) {#latest-release}
+## Версия 0.41.0 (25.09.19) {#latest-release}
 
 ### Изменения в сервисах Облака {#services}
+
+#### {{ container-registry-name }} {#container-registry}
+
+- Команда `yc compute instance create-with-container`.
+
+    Из флага `--create-boot-disk` удалена поддержка параметров `snapshot-*`.
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Команда `yc managed-kubernetes cluster create`.
+
+    Добавлены флаги для управления типом мастера: `--regional`, `--region` и `--master-location`.
+    
+- Команды `yc managed-kubernetes cluster create` и `yc managed-kubernetes cluster update`.
+    
+    Добавлены флаги для управления политикой обслуживания: `--auto-upgrade`, `--anytime-maintenance-window`, `--daily-maintenance-window` и `--weekly-maintenance-window`.
+    
+- Команда `yc managed-kubernetes node-groups update`.
+ 
+    Добавлены флаги для управления политикой обслуживания: `--auto-upgrade`, `--auto-repair`, `--anytime-maintenance-window`, `--daily-maintenance-window` и `--weekly-maintenance-window`.   
+     
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.40.0 (20.09.19) {#version0.40.0}
+
+#### Изменения в сервисах Облака {#services}
 
 #### {{ container-registry-name }} {#container-registry}
 
@@ -24,8 +50,6 @@
 - Команда `{{ yc-mdb-mg }} create clusters`.
 
     Для флага `--mongodb-version` изменено значение по умолчанию: с 3.6 на 4.0.
-    
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.39.0 (16.09.19) {#version0.39.0}
 
