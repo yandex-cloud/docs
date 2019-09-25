@@ -17,7 +17,7 @@
 
 Вид ограничения | Значение
 ----- | -----
-Максимальное количество vCPU для одной виртуальной машины | 32 и 64 для [платформ](../compute/concepts/vm-platforms.md) Intel Broadwell и Intel Cascade Lake соответственно
+Максимальное количество vCPU для одной виртуальной машины | 32 и 48 для [платформ](../compute/concepts/vm-platforms.md) Intel Broadwell и Intel Cascade Lake соответственно
 Максимальный объем виртуальной памяти для одной виртуальной машины | 256 ГБ и 384 ГБ для [платформ](../compute/concepts/vm-platforms.md) Intel Broadwell и Intel Cascade Lake соответственно
 Максимальное количество дисков, подключенных к одной виртуальной машине | 7
 
