@@ -41,20 +41,20 @@ A list of operations available to each role is given in the table below.
 
 | Operations | `member` | `owner` | `viewer` | `editor` | `admin` |
 | ----- | ----- | ----- | ----- | ----- | ----- |
-| Activate the trial period | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-| Activate the paid version | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-| Check expenses | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) |
-| Access usage details | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) |
-| Activate promo codes | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) |
-| Top up balance | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-| View billing account information | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) |
-| Change payer contacts | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-| Change billing details | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-| Change bank cards | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-| Change payment methods | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-| Assign roles to billing accounts | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) |
-| View and edit roles | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) |
-| Link clouds to billing accounts | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) |
+| Activate the trial period | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Activate the paid version | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Check expenses | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Access usage details | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Activate promo codes | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Top up balance | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| View billing account information | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Change payer contacts | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Change billing details | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Change bank cards | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Change payment methods | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Assign roles to billing accounts | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+| View and edit roles | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+| Link clouds to billing accounts | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 
 ## Adding users {#set-member-role}
 
