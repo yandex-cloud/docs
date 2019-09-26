@@ -24,7 +24,6 @@ When working with a {{ k8s }} cluster in the Yandex.Cloud infrastructure, the fo
 | Resource | Amount | Comment |
 | ---- | :---: | ---- |
 | Subnet | 2 | {{ k8s }} reserves IP address ranges to be used for pods and services. |
-| Route table | 1 | Used for routing traffic between pods inside a Kubernetes cluster. |
 | Public IP | N | N includes:</br> - **A single** public IP address for the NAT gateway.</br> - A public IP address assigned to **each** node in the group if you use the one-to-one NAT technology.</br> |
 
 ### Master {#master}
