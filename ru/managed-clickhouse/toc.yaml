@@ -58,6 +58,8 @@ items:
       href: concepts/backup.md
     - name: Репликация
       href: concepts/replication.md
+    - name: Словари
+      href: concepts/dictionaries.md
     - name: Шардирование
       href: concepts/sharding.md
     - name: Поддерживаемые клиенты
