@@ -4,7 +4,7 @@ CyberDuck — это графический клиент к облачным х�
 
 ## Подготовка к работе {#preparations}
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 ## Установка {#installation}
 
