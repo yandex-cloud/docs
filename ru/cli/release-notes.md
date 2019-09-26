@@ -1,8 +1,14 @@
 # Релизы YC CLI
 
-## Версия 0.41.0 (25.09.19) {#latest-release}
+## Версия 0.41.1 (26.09.19) {#latest-release}
 
-### Изменения в сервисах Облака {#services}
+- Небольшие исправления и обновления.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.41.0 (25.09.19) {#version0.40.0}
+
+#### Изменения в сервисах Облака {#services}
 
 #### {{ container-registry-name }} {#container-registry}
 
@@ -24,7 +30,6 @@
  
     Добавлены флаги для управления политикой обслуживания: `--auto-upgrade`, `--auto-repair`, `--anytime-maintenance-window`, `--daily-maintenance-window` и `--weekly-maintenance-window`.   
      
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.40.0 (20.09.19) {#version0.40.0}
 
