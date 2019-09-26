@@ -1,8 +1,36 @@
 # YC CLI Releases
 
-## Version 0.39.0 (16.09.19) {#latest-release}
+## Version 0.40.0 (20.09.19) {#latest-release}
 
 ### Changes to Yandex.Cloud services {#services}
+
+#### {{ container-registry-name }} {#container-registry}
+
+- Added a command to obtain detailed registry information: `yc container registry repository get`.
+
+- Command `yc container registry repository list`.
+
+    Added unique registry ID to the output.
+
+#### Managed database services {#managed-db}
+
+**All managed database services**
+
+- Command `yc <managed DB service name> create clusters`.
+
+    For `--*resource-preset` flags, added a default value: s2.micro.
+
+**{{ mmg-name }}**
+
+- Command `{{ yc-mdb-mg }} create clusters`.
+
+    For the `--mongodb-version` flag, changed the default value from 3.6 to 4.0.
+
+## Previous releases {#previous-releases}
+
+### Version 0.39.0 (16.09.19) {#version0.39.0}
+
+#### Changes to Yandex.Cloud services {#services}
 
 #### {{ container-registry-name }} {#container-registry}
 
@@ -17,8 +45,6 @@
 - Command `yc <managed database service name> users list`.
 
     The unique cluster ID is no longer displayed when viewing a list of users.
-    
-## Previous releases {#previous-releases}
 
 ### Version 0.38.0 (09.09.19) {#version0.38.0}
 
