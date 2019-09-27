@@ -22,6 +22,8 @@ items:
       stage: preview
     - name: Изменение настроек кластера и базы данных
       href: operations/update.md
+    - name: Подключение внешних словарей
+      href: operations/dictionaries.md
     - name: Изменение версии ClickHouse
       href: operations/cluster-version-update.md
     - name: Управление хостами ClickHouse
