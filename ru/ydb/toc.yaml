@@ -170,7 +170,7 @@ items:
       href: yql/tutorial/basic_aggregation.md
     - name: Дополнительные условия выборки
       href: yql/tutorial/conditional_values.md
-    - name: Соединения таблиц с помощью JOIN
+    - name: Объединение таблиц с помощью JOIN
       href: yql/tutorial/join_tables.md
     - name: Вставка и модификация данных с помощью REPLACE
       href: yql/tutorial/replace_into.md
@@ -182,8 +182,10 @@ items:
       href: yql/tutorial/update.md
     - name: Удаление данных
       href: yql/tutorial/delete.md
-    - name: Добавление новых колонок
+    - name: Добавление и удаление колонок
       href: yql/tutorial/alter_table.md
+    - name: Удаление таблицы
+      href: yql/tutorial/delete_table.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

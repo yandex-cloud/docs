@@ -1,10 +1,6 @@
 # Обновление данных с помощью UPDATE
 
-Задача: обновить данных в строках.
-
-[UPDATE](../reference/syntax/update.md) выбирает строки из таблицы согласно условию, указанному в предикате WHERE на начало транзакции и выполняет операцию UPSERT.
-
-UPDATE не может изменить значение первичного ключа.
+Обновите данные в таблице с помощью оператора [UPDATE](../reference/syntax/update.md).
 
 {% include [yql-reference-prerequisites](../../_includes/yql_tutorial_prerequisites.md) %}
 
@@ -19,7 +15,7 @@ WHERE
 
 COMMIT;
 
--- результат
+-- Посмотреть результат:
 SELECT * FROM episodes WHERE series_id = 2 AND season_id = 5;
 
 -- YDB не знает об изменениях, имевших место в начале транзакции,
@@ -44,7 +40,7 @@ SELECT * FROM $to_update;
 
 COMMIT;
 
--- результат
+-- Посмотреть результат:
 SELECT * FROM episodes WHERE series_id = 1 AND season_id = 1;
 
 COMMIT;

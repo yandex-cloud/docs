@@ -1,8 +1,6 @@
 # Удаление данных
 
-Задача: удалить данные из таблицы.
-
-[DELETE](../reference/syntax/delete.md) выбирает строки из таблицы согласно предикату WHERE и удаляет их.
+Удалите данные из таблицы с помощью оператора [DELETE](../reference/syntax/delete.md).
 
 {% include [yql-reference-prerequisites](../../_includes/yql_tutorial_prerequisites.md) %}
 
@@ -17,7 +15,7 @@ WHERE
 
 COMMIT;
 
--- результат
+-- Посмотреть результат:
 SELECT * FROM episodes WHERE series_id = 2 AND season_id = 5;
 
 -- YDB не знает об изменениях, имевших место в начале транзакции,
@@ -39,7 +37,7 @@ SELECT * FROM $to_delete;
 
 COMMIT;
 
--- результат
+-- Посмотреть результат:
 SELECT * FROM episodes WHERE series_id = 1 AND season_id = 1;
 
 COMMIT;
