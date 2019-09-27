@@ -3,3 +3,4 @@
 * [{#T}](terraform-quickstart.md)
 * [{#T}](packer-quickstart.md)
 * [{#T}](jenkins.md)
+* [{#T}](gitlab-containers.md)

@@ -53,6 +53,8 @@ items:
         href: infrastructure-management/packer-quickstart.md
       - name: Автоматизация сборки образов ВМ с помощью Jenkins
         href: infrastructure-management/jenkins.md
+      - name: Непрерывное развертывание контейнеризованных приложений с помощью GitLab
+        href: infrastructure-management/gitlab-containers.md
   - name: Windows в облаке
     items:
       - name: Обзор
