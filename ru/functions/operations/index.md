@@ -1,9 +1,10 @@
 # Все инструкции
 
+- [{#T}](function-public.md)
+
 ## Управление функцией {#manage-function}
 
 - [{#T}](function/function-create.md)
-- [{#T}](function/function-public.md)
 - [{#T}](function/function-update.md)
 - [{#T}](function/version-manage.md)
 - [{#T}](function/function-invoke.md)

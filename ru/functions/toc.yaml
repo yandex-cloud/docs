@@ -12,12 +12,12 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Управление правами доступа к функции
+        href: operations/function-public.md
       - name: Управление функцией
         items:
           - name: Создание функции
             href: operations/function/function-create.md
-          - name: Управление правами на запуск функции
-            href: operations/function/function-public.md
           - name: Управление версиями функции
             href: operations/function/version-manage.md
           - name: Вызов функции
