@@ -6,6 +6,8 @@ items:
     href: quickstart.md
   - name: Step-by-step instructions
     items:
+      - name: All instructions
+        href: operations/index.md
       - name: Configuring a VM as a NAT gateway
         href: operations/nat-instance.md
       - name: Connecting to a node over SSH

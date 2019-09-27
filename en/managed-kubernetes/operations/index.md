@@ -1,10 +1,9 @@
-# Все инструкции
+# All instructions
 
 - [{#T}](nat-instance.md)
 - [{#T}](node-connect-ssh.md)
-- [{#T}](create-load-balancer.md)
 
-## Работа с постоянными томами
+## Working with persistent volumes
 
 - [{#T}](volumes/dynamic-create-pv.md)
 - [{#T}](volumes/static-create-pv.md)
