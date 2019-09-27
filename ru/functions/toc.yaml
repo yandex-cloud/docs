@@ -24,6 +24,8 @@ items:
             href: operations/function/function-invoke.md
           - name: Изменение функции
             href: operations/function/function-update.md
+          - name: Просмотр графиков мониторинга
+            href: operations/function/function-monitoring.md
           - name: Просмотр журнала выполнения
             href: operations/function/function-logs.md
           - name: Удаление функции
@@ -56,6 +58,8 @@ items:
             href: concepts/runtime/execution-context.md
       - name: Триггер
         href: concepts/trigger.md
+      - name: Мониторинг
+        href: concepts/monitoring.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Сценарии использования
