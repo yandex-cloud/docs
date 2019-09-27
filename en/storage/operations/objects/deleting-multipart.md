@@ -17,4 +17,3 @@ You can upload an object in parts using [multipart upload](../../concepts/multip
   ```
 
 {% endlist %}
-

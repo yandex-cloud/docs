@@ -2,9 +2,14 @@
 editable: false
 ---
 
-# Правила тарификации для {{ MG }}
+# Правила тарификации для {{ mmg-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
+
+{% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
+
 
 ## Из чего складывается стоимость использования {{ mmg-short-name }} {#rules}
 
