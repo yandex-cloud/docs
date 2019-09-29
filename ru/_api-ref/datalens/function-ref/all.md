@@ -1,531 +1,567 @@
 # Все функции
 
-**[Остаток (%)](operator/OP_MOD/overview.md)**
 
-{% include notitle [Описание](operator/OP_MOD/short-description.md) %}
+## [Остаток (%)](OP_MOD.md)
 
+{% include notitle [Описание](OP_MOD/short-description.md) %}
 
-**[Умножение (*)](operator/OP_MULT/overview.md)**
 
-{% include notitle [Описание](operator/OP_MULT/short-description.md) %}
+## [Умножение (*)](OP_MULT.md)
 
+{% include notitle [Описание](OP_MULT/short-description.md) %}
 
-**[Сложение и конкатенация (+)](operator/OP_PLUS/overview.md)**
 
-{% include notitle [Описание](operator/OP_PLUS/short-description.md) %}
+## [Сложение и конкатенация (+)](OP_PLUS.md)
 
+{% include notitle [Описание](OP_PLUS/short-description.md) %}
 
-**[Вычитание (-)](operator/OP_MINUS/overview.md)**
 
-{% include notitle [Описание](operator/OP_MINUS/short-description.md) %}
+## [Вычитание (-)](OP_MINUS.md)
 
+{% include notitle [Описание](OP_MINUS/short-description.md) %}
 
-**[Деление (/)](operator/OP_DIV/overview.md)**
 
-{% include notitle [Описание](operator/OP_DIV/short-description.md) %}
+## [Деление (/)](OP_DIV.md)
 
+{% include notitle [Описание](OP_DIV/short-description.md) %}
 
-**[Сравнение](operator/OP_COMPARISON/overview.md)**
 
-{% include notitle [Описание](operator/OP_COMPARISON/short-description.md) %}
+## [Сравнение](OP_COMPARISON.md)
 
+{% include notitle [Описание](OP_COMPARISON/short-description.md) %}
 
-**[ABS](numeric/ABS/overview.md)**
 
-{% include notitle [Описание](numeric/ABS/short-description.md) %}
+## [Степень (^)](OP_POWER.md)
 
+{% include notitle [Описание](OP_POWER/short-description.md) %}
 
-**[ACOS](numeric/ACOS/overview.md)**
 
-{% include notitle [Описание](numeric/ACOS/short-description.md) %}
+## [CASE](CASE.md)
 
+{% include notitle [Описание](CASE/short-description.md) %}
 
-**[AND](operator/AND/overview.md)**
 
-{% include notitle [Описание](operator/AND/short-description.md) %}
+## [IF](IF.md)
 
+{% include notitle [Описание](IF/short-description.md) %}
 
-**[ASCII](string/ASCII/overview.md)**
 
-{% include notitle [Описание](string/ASCII/short-description.md) %}
+## [ABS](ABS.md)
 
+{% include notitle [Описание](ABS/short-description.md) %}
 
-**[ASIN](numeric/ASIN/overview.md)**
 
-{% include notitle [Описание](numeric/ASIN/short-description.md) %}
+## [ACOS](ACOS.md)
 
+{% include notitle [Описание](ACOS/short-description.md) %}
 
-**[ATAN](numeric/ATAN/overview.md)**
 
-{% include notitle [Описание](numeric/ATAN/short-description.md) %}
+## [AND](AND.md)
 
+{% include notitle [Описание](AND/short-description.md) %}
 
-**[ATAN2](numeric/ATAN2/overview.md)**
 
-{% include notitle [Описание](numeric/ATAN2/short-description.md) %}
+## [ASCII](ASCII.md)
 
+{% include notitle [Описание](ASCII/short-description.md) %}
 
-**[AVG](aggregation/AVG/overview.md)**
 
-{% include notitle [Описание](aggregation/AVG/short-description.md) %}
+## [ASIN](ASIN.md)
 
+{% include notitle [Описание](ASIN/short-description.md) %}
 
-**[AVG_IF](aggregation/AVG_IF/overview.md)**
 
-{% include notitle [Описание](aggregation/AVG_IF/short-description.md) %}
+## [ATAN](ATAN.md)
 
+{% include notitle [Описание](ATAN/short-description.md) %}
 
-**[BETWEEN](operator/BETWEEN/overview.md)**
 
-{% include notitle [Описание](operator/BETWEEN/short-description.md) %}
+## [ATAN2](ATAN2.md)
 
+{% include notitle [Описание](ATAN2/short-description.md) %}
 
-**[BOOL](type-conversion/BOOL/overview.md)**
 
-{% include notitle [Описание](type-conversion/BOOL/short-description.md) %}
+## [AVG](AVG.md)
 
+{% include notitle [Описание](AVG/short-description.md) %}
 
-**[CEILING](numeric/CEILING/overview.md)**
 
-{% include notitle [Описание](numeric/CEILING/short-description.md) %}
+## [AVG_IF](AVG_IF.md)
 
+{% include notitle [Описание](AVG_IF/short-description.md) %}
 
-**[CHAR](string/CHAR/overview.md)**
 
-{% include notitle [Описание](string/CHAR/short-description.md) %}
+## [BETWEEN](BETWEEN.md)
 
+{% include notitle [Описание](BETWEEN/short-description.md) %}
 
-**[CONCAT](string/CONCAT/overview.md)**
 
-{% include notitle [Описание](string/CONCAT/short-description.md) %}
+## [BOOL](BOOL.md)
 
+{% include notitle [Описание](BOOL/short-description.md) %}
 
-**[CONTAINS](string/CONTAINS/overview.md)**
 
-{% include notitle [Описание](string/CONTAINS/short-description.md) %}
+## [CEILING](CEILING.md)
 
+{% include notitle [Описание](CEILING/short-description.md) %}
 
-**[COS](numeric/COS/overview.md)**
 
-{% include notitle [Описание](numeric/COS/short-description.md) %}
+## [CHAR](CHAR.md)
 
+{% include notitle [Описание](CHAR/short-description.md) %}
 
-**[COT](numeric/COT/overview.md)**
 
-{% include notitle [Описание](numeric/COT/short-description.md) %}
+## [CONCAT](CONCAT.md)
 
+{% include notitle [Описание](CONCAT/short-description.md) %}
 
-**[COUNT](aggregation/COUNT/overview.md)**
 
-{% include notitle [Описание](aggregation/COUNT/short-description.md) %}
+## [CONTAINS](CONTAINS.md)
 
+{% include notitle [Описание](CONTAINS/short-description.md) %}
 
-**[COUNTD](aggregation/COUNTD/overview.md)**
 
-{% include notitle [Описание](aggregation/COUNTD/short-description.md) %}
+## [COS](COS.md)
 
+{% include notitle [Описание](COS/short-description.md) %}
 
-**[COUNTD_APPROX](aggregation/COUNTD_APPROX/overview.md)**
 
-{% include notitle [Описание](aggregation/COUNTD_APPROX/short-description.md) %}
+## [COT](COT.md)
 
+{% include notitle [Описание](COT/short-description.md) %}
 
-**[COUNTD_IF](aggregation/COUNTD_IF/overview.md)**
 
-{% include notitle [Описание](aggregation/COUNTD_IF/short-description.md) %}
+## [COUNT](COUNT.md)
 
+{% include notitle [Описание](COUNT/short-description.md) %}
 
-**[COUNT_IF](aggregation/COUNT_IF/overview.md)**
 
-{% include notitle [Описание](aggregation/COUNT_IF/short-description.md) %}
+## [COUNT_IF](COUNT_IF.md)
 
+{% include notitle [Описание](COUNT_IF/short-description.md) %}
 
-**[DATE](type-conversion/DATE/overview.md)**
 
-{% include notitle [Описание](type-conversion/DATE/short-description.md) %}
+## [COUNTD](COUNTD.md)
 
+{% include notitle [Описание](COUNTD/short-description.md) %}
 
-**[DATEADD](date/DATEADD/overview.md)**
 
-{% include notitle [Описание](date/DATEADD/short-description.md) %}
+## [COUNTD_APPROX](COUNTD_APPROX.md)
 
+{% include notitle [Описание](COUNTD_APPROX/short-description.md) %}
 
-**[DATEPART](date/DATEPART/overview.md)**
 
-{% include notitle [Описание](date/DATEPART/short-description.md) %}
+## [COUNTD_IF](COUNTD_IF.md)
 
+{% include notitle [Описание](COUNTD_IF/short-description.md) %}
 
-**[DATETIME](type-conversion/DATETIME/overview.md)**
 
-{% include notitle [Описание](type-conversion/DATETIME/short-description.md) %}
+## [DATE](DATE.md)
 
+{% include notitle [Описание](DATE/short-description.md) %}
 
-**[DATETRUNC](date/DATETRUNC/overview.md)**
 
-{% include notitle [Описание](date/DATETRUNC/short-description.md) %}
+## [DATE_PARSE](DATE_PARSE.md)
 
+{% include notitle [Описание](DATE_PARSE/short-description.md) %}
 
-**[DAY](date/DAY/overview.md)**
 
-{% include notitle [Описание](date/DAY/short-description.md) %}
+## [DATEADD](DATEADD.md)
 
+{% include notitle [Описание](DATEADD/short-description.md) %}
 
-**[DAYOFWEEK](date/DAYOFWEEK/overview.md)**
 
-{% include notitle [Описание](date/DAYOFWEEK/short-description.md) %}
+## [DATEPART](DATEPART.md)
 
+{% include notitle [Описание](DATEPART/short-description.md) %}
 
-**[DEGREES](numeric/DEGREES/overview.md)**
 
-{% include notitle [Описание](numeric/DEGREES/short-description.md) %}
+## [DATETIME](DATETIME.md)
 
+{% include notitle [Описание](DATETIME/short-description.md) %}
 
-**[DIV](numeric/DIV/overview.md)**
 
-{% include notitle [Описание](numeric/DIV/short-description.md) %}
+## [DATETIME_PARSE](DATETIME_PARSE.md)
 
+{% include notitle [Описание](DATETIME_PARSE/short-description.md) %}
 
-**[ENDSWITH](string/ENDSWITH/overview.md)**
 
-{% include notitle [Описание](string/ENDSWITH/short-description.md) %}
+## [DATETRUNC](DATETRUNC.md)
 
+{% include notitle [Описание](DATETRUNC/short-description.md) %}
 
-**[EXP](numeric/EXP/overview.md)**
 
-{% include notitle [Описание](numeric/EXP/short-description.md) %}
+## [DAY](DAY.md)
 
+{% include notitle [Описание](DAY/short-description.md) %}
 
-**[FIND](string/FIND/overview.md)**
 
-{% include notitle [Описание](string/FIND/short-description.md) %}
+## [DAYOFWEEK](DAYOFWEEK.md)
 
+{% include notitle [Описание](DAYOFWEEK/short-description.md) %}
 
-**[FLOAT](type-conversion/FLOAT/overview.md)**
 
-{% include notitle [Описание](type-conversion/FLOAT/short-description.md) %}
+## [DEGREES](DEGREES.md)
 
+{% include notitle [Описание](DEGREES/short-description.md) %}
 
-**[FLOOR](numeric/FLOOR/overview.md)**
 
-{% include notitle [Описание](numeric/FLOOR/short-description.md) %}
+## [DIV](DIV.md)
 
+{% include notitle [Описание](DIV/short-description.md) %}
 
-**[GREATEST](numeric/GREATEST/overview.md)**
 
-{% include notitle [Описание](numeric/GREATEST/short-description.md) %}
+## [ENDSWITH](ENDSWITH.md)
 
+{% include notitle [Описание](ENDSWITH/short-description.md) %}
 
-**[HOUR](date/HOUR/overview.md)**
 
-{% include notitle [Описание](date/HOUR/short-description.md) %}
+## [EXP](EXP.md)
 
+{% include notitle [Описание](EXP/short-description.md) %}
 
-**[IFNULL](logical/IFNULL/overview.md)**
 
-{% include notitle [Описание](logical/IFNULL/short-description.md) %}
+## [FIND](FIND.md)
 
+{% include notitle [Описание](FIND/short-description.md) %}
 
-**[IN](operator/IN/overview.md)**
 
-{% include notitle [Описание](operator/IN/short-description.md) %}
+## [FLOAT](FLOAT.md)
 
+{% include notitle [Описание](FLOAT/short-description.md) %}
 
-**[INT](type-conversion/INT/overview.md)**
 
-{% include notitle [Описание](type-conversion/INT/short-description.md) %}
+## [FLOOR](FLOOR.md)
 
+{% include notitle [Описание](FLOOR/short-description.md) %}
 
-**[IS FALSE](operator/ISFALSE/overview.md)**
 
-{% include notitle [Описание](operator/ISFALSE/short-description.md) %}
+## [GEOPOINT](GEOPOINT.md)
 
+{% include notitle [Описание](GEOPOINT/short-description.md) %}
 
-**[ISNULL](logical/ISNULL/overview.md)**
 
-{% include notitle [Описание](logical/ISNULL/short-description.md) %}
+## [GEOPOLYGON](GEOPOLYGON.md)
 
+{% include notitle [Описание](GEOPOLYGON/short-description.md) %}
 
-**[IS TRUE](operator/ISTRUE/overview.md)**
 
-{% include notitle [Описание](operator/ISTRUE/short-description.md) %}
+## [GREATEST](GREATEST.md)
 
+{% include notitle [Описание](GREATEST/short-description.md) %}
 
-**[LEAST](numeric/LEAST/overview.md)**
 
-{% include notitle [Описание](numeric/LEAST/short-description.md) %}
+## [HOUR](HOUR.md)
 
+{% include notitle [Описание](HOUR/short-description.md) %}
 
-**[LEFT](string/LEFT/overview.md)**
 
-{% include notitle [Описание](string/LEFT/short-description.md) %}
+## [ICONTAINS](ICONTAINS.md)
 
+{% include notitle [Описание](ICONTAINS/short-description.md) %}
 
-**[LEN](string/LEN/overview.md)**
 
-{% include notitle [Описание](string/LEN/short-description.md) %}
+## [IENDSWITH](IENDSWITH.md)
 
+{% include notitle [Описание](IENDSWITH/short-description.md) %}
 
-**[LIKE](operator/LIKE/overview.md)**
 
-{% include notitle [Описание](operator/LIKE/short-description.md) %}
+## [IFNULL](IFNULL.md)
 
+{% include notitle [Описание](IFNULL/short-description.md) %}
 
-**[LN](numeric/LN/overview.md)**
 
-{% include notitle [Описание](numeric/LN/short-description.md) %}
+## [IN](IN.md)
 
+{% include notitle [Описание](IN/short-description.md) %}
 
-**[LOG](numeric/LOG/overview.md)**
 
-{% include notitle [Описание](numeric/LOG/short-description.md) %}
+## [INT](INT.md)
 
+{% include notitle [Описание](INT/short-description.md) %}
 
-**[LOG10](numeric/LOG10/overview.md)**
 
-{% include notitle [Описание](numeric/LOG10/short-description.md) %}
+## [IS FALSE](ISFALSE.md)
 
+{% include notitle [Описание](ISFALSE/short-description.md) %}
 
-**[LOWER](string/LOWER/overview.md)**
 
-{% include notitle [Описание](string/LOWER/short-description.md) %}
+## [ISNULL](ISNULL.md)
 
+{% include notitle [Описание](ISNULL/short-description.md) %}
 
-**[LTRIM](string/LTRIM/overview.md)**
 
-{% include notitle [Описание](string/LTRIM/short-description.md) %}
+## [ISTARTSWITH](ISTARTSWITH.md)
 
+{% include notitle [Описание](ISTARTSWITH/short-description.md) %}
 
-**[MAX](aggregation/MAX/overview.md)**
 
-{% include notitle [Описание](aggregation/MAX/short-description.md) %}
+## [IS TRUE](ISTRUE.md)
 
+{% include notitle [Описание](ISTRUE/short-description.md) %}
 
-**[MEDIAN](aggregation/MEDIAN/overview.md)**
 
-{% include notitle [Описание](aggregation/MEDIAN/short-description.md) %}
+## [LEAST](LEAST.md)
 
+{% include notitle [Описание](LEAST/short-description.md) %}
 
-**[MIN](aggregation/MIN/overview.md)**
 
-{% include notitle [Описание](aggregation/MIN/short-description.md) %}
+## [LEFT](LEFT.md)
 
+{% include notitle [Описание](LEFT/short-description.md) %}
 
-**[MINUTE](date/MINUTE/overview.md)**
 
-{% include notitle [Описание](date/MINUTE/short-description.md) %}
+## [LEN](LEN.md)
 
+{% include notitle [Описание](LEN/short-description.md) %}
 
-**[MONTH](date/MONTH/overview.md)**
 
-{% include notitle [Описание](date/MONTH/short-description.md) %}
+## [LIKE](LIKE.md)
 
+{% include notitle [Описание](LIKE/short-description.md) %}
 
-**[Отрицание (-)](operator/OP_NEGATION/overview.md)**
 
-{% include notitle [Описание](operator/OP_NEGATION/short-description.md) %}
+## [LN](LN.md)
 
+{% include notitle [Описание](LN/short-description.md) %}
 
-**[NOT](operator/OP_NOT/overview.md)**
 
-{% include notitle [Описание](operator/OP_NOT/short-description.md) %}
+## [LOG](LOG.md)
 
+{% include notitle [Описание](LOG/short-description.md) %}
 
-**[NOW](date/NOW/overview.md)**
 
-{% include notitle [Описание](date/NOW/short-description.md) %}
+## [LOG10](LOG10.md)
 
+{% include notitle [Описание](LOG10/short-description.md) %}
 
-**[OR](operator/OR/overview.md)**
 
-{% include notitle [Описание](operator/OR/short-description.md) %}
+## [LOWER](LOWER.md)
 
+{% include notitle [Описание](LOWER/short-description.md) %}
 
-**[PI](numeric/PI/overview.md)**
 
-{% include notitle [Описание](numeric/PI/short-description.md) %}
+## [LTRIM](LTRIM.md)
 
+{% include notitle [Описание](LTRIM/short-description.md) %}
 
-**[POWER](numeric/POWER/overview.md)**
 
-{% include notitle [Описание](numeric/POWER/short-description.md) %}
+## [MAX](MAX.md)
 
+{% include notitle [Описание](MAX/short-description.md) %}
 
-**[RADIANS](numeric/RADIANS/overview.md)**
 
-{% include notitle [Описание](numeric/RADIANS/short-description.md) %}
+## [MEDIAN](MEDIAN.md)
 
+{% include notitle [Описание](MEDIAN/short-description.md) %}
 
-**[REGEXP_EXTRACT](string/REGEXP_EXTRACT/overview.md)**
 
-{% include notitle [Описание](string/REGEXP_EXTRACT/short-description.md) %}
+## [MIN](MIN.md)
 
+{% include notitle [Описание](MIN/short-description.md) %}
 
-**[REGEXP_EXTRACT_NTH](string/REGEXP_EXTRACT_NTH/overview.md)**
 
-{% include notitle [Описание](string/REGEXP_EXTRACT_NTH/short-description.md) %}
+## [MINUTE](MINUTE.md)
 
+{% include notitle [Описание](MINUTE/short-description.md) %}
 
-**[REGEXP_MATCH](string/REGEXP_MATCH/overview.md)**
 
-{% include notitle [Описание](string/REGEXP_MATCH/short-description.md) %}
+## [MONTH](MONTH.md)
 
+{% include notitle [Описание](MONTH/short-description.md) %}
 
-**[REGEXP_REPLACE](string/REGEXP_REPLACE/overview.md)**
 
-{% include notitle [Описание](string/REGEXP_REPLACE/short-description.md) %}
+## [Отрицание (-)](OP_NEGATION.md)
 
+{% include notitle [Описание](OP_NEGATION/short-description.md) %}
 
-**[REPLACE](string/REPLACE/overview.md)**
 
-{% include notitle [Описание](string/REPLACE/short-description.md) %}
+## [NOT](OP_NOT.md)
 
+{% include notitle [Описание](OP_NOT/short-description.md) %}
 
-**[RIGHT](string/RIGHT/overview.md)**
 
-{% include notitle [Описание](string/RIGHT/short-description.md) %}
+## [NOW](NOW.md)
 
+{% include notitle [Описание](NOW/short-description.md) %}
 
-**[ROUND](numeric/ROUND/overview.md)**
 
-{% include notitle [Описание](numeric/ROUND/short-description.md) %}
+## [OR](OR.md)
 
+{% include notitle [Описание](OR/short-description.md) %}
 
-**[RTRIM](string/RTRIM/overview.md)**
 
-{% include notitle [Описание](string/RTRIM/short-description.md) %}
+## [PI](PI.md)
 
+{% include notitle [Описание](PI/short-description.md) %}
 
-**[SECOND](date/SECOND/overview.md)**
 
-{% include notitle [Описание](date/SECOND/short-description.md) %}
+## [POWER](POWER.md)
 
+{% include notitle [Описание](POWER/short-description.md) %}
 
-**[SIGN](numeric/SIGN/overview.md)**
 
-{% include notitle [Описание](numeric/SIGN/short-description.md) %}
+## [RADIANS](RADIANS.md)
 
+{% include notitle [Описание](RADIANS/short-description.md) %}
 
-**[SIN](numeric/SIN/overview.md)**
 
-{% include notitle [Описание](numeric/SIN/short-description.md) %}
+## [REGEXP_EXTRACT](REGEXP_EXTRACT.md)
 
+{% include notitle [Описание](REGEXP_EXTRACT/short-description.md) %}
 
-**[SPACE](string/SPACE/overview.md)**
 
-{% include notitle [Описание](string/SPACE/short-description.md) %}
+## [REGEXP_EXTRACT_NTH](REGEXP_EXTRACT_NTH.md)
 
+{% include notitle [Описание](REGEXP_EXTRACT_NTH/short-description.md) %}
 
-**[SPLIT](string/SPLIT/overview.md)**
 
-{% include notitle [Описание](string/SPLIT/short-description.md) %}
+## [REGEXP_MATCH](REGEXP_MATCH.md)
 
+{% include notitle [Описание](REGEXP_MATCH/short-description.md) %}
 
-**[SQRT](numeric/SQRT/overview.md)**
 
-{% include notitle [Описание](numeric/SQRT/short-description.md) %}
+## [REGEXP_REPLACE](REGEXP_REPLACE.md)
 
+{% include notitle [Описание](REGEXP_REPLACE/short-description.md) %}
 
-**[SQUARE](numeric/SQUARE/overview.md)**
 
-{% include notitle [Описание](numeric/SQUARE/short-description.md) %}
+## [REPLACE](REPLACE.md)
 
+{% include notitle [Описание](REPLACE/short-description.md) %}
 
-**[STARTSWITH](string/STARTSWITH/overview.md)**
 
-{% include notitle [Описание](string/STARTSWITH/short-description.md) %}
+## [RIGHT](RIGHT.md)
 
+{% include notitle [Описание](RIGHT/short-description.md) %}
 
-**[STDEV](aggregation/STDEV/overview.md)**
 
-{% include notitle [Описание](aggregation/STDEV/short-description.md) %}
+## [ROUND](ROUND.md)
 
+{% include notitle [Описание](ROUND/short-description.md) %}
 
-**[STDEVP](aggregation/STDEVP/overview.md)**
 
-{% include notitle [Описание](aggregation/STDEVP/short-description.md) %}
+## [RTRIM](RTRIM.md)
 
+{% include notitle [Описание](RTRIM/short-description.md) %}
 
-**[STR](type-conversion/STR/overview.md)**
 
-{% include notitle [Описание](type-conversion/STR/short-description.md) %}
+## [SECOND](SECOND.md)
 
+{% include notitle [Описание](SECOND/short-description.md) %}
 
-**[SUBSTR](string/SUBSTR/overview.md)**
 
-{% include notitle [Описание](string/SUBSTR/short-description.md) %}
+## [SIGN](SIGN.md)
 
+{% include notitle [Описание](SIGN/short-description.md) %}
 
-**[SUM](aggregation/SUM/overview.md)**
 
-{% include notitle [Описание](aggregation/SUM/short-description.md) %}
+## [SIN](SIN.md)
 
+{% include notitle [Описание](SIN/short-description.md) %}
 
-**[SUM_IF](aggregation/SUM_IF/overview.md)**
 
-{% include notitle [Описание](aggregation/SUM_IF/short-description.md) %}
+## [SPACE](SPACE.md)
 
+{% include notitle [Описание](SPACE/short-description.md) %}
 
-**[TAN](numeric/TAN/overview.md)**
 
-{% include notitle [Описание](numeric/TAN/short-description.md) %}
+## [SPLIT](SPLIT.md)
 
+{% include notitle [Описание](SPLIT/short-description.md) %}
 
-**[TODAY](date/TODAY/overview.md)**
 
-{% include notitle [Описание](date/TODAY/short-description.md) %}
+## [SQRT](SQRT.md)
 
+{% include notitle [Описание](SQRT/short-description.md) %}
 
-**[TRIM](string/TRIM/overview.md)**
 
-{% include notitle [Описание](string/TRIM/short-description.md) %}
+## [SQUARE](SQUARE.md)
 
+{% include notitle [Описание](SQUARE/short-description.md) %}
 
-**[UPPER](string/UPPER/overview.md)**
 
-{% include notitle [Описание](string/UPPER/short-description.md) %}
+## [STARTSWITH](STARTSWITH.md)
 
+{% include notitle [Описание](STARTSWITH/short-description.md) %}
 
-**[UTF8](string/UTF8/overview.md)**
 
-{% include notitle [Описание](string/UTF8/short-description.md) %}
+## [STDEV](STDEV.md)
 
+{% include notitle [Описание](STDEV/short-description.md) %}
 
-**[VAR](aggregation/VAR/overview.md)**
 
-{% include notitle [Описание](aggregation/VAR/short-description.md) %}
+## [STDEVP](STDEVP.md)
 
+{% include notitle [Описание](STDEVP/short-description.md) %}
 
-**[VARP](aggregation/VARP/overview.md)**
 
-{% include notitle [Описание](aggregation/VARP/short-description.md) %}
+## [STR](STR.md)
 
+{% include notitle [Описание](STR/short-description.md) %}
 
-**[WEEK](date/WEEK/overview.md)**
 
-{% include notitle [Описание](date/WEEK/short-description.md) %}
+## [SUBSTR](SUBSTR.md)
 
+{% include notitle [Описание](SUBSTR/short-description.md) %}
 
-**[YEAR](date/YEAR/overview.md)**
 
-{% include notitle [Описание](date/YEAR/short-description.md) %}
+## [SUM](SUM.md)
 
+{% include notitle [Описание](SUM/short-description.md) %}
 
-**[ZN](logical/ZN/overview.md)**
 
-{% include notitle [Описание](logical/ZN/short-description.md) %}
+## [SUM_IF](SUM_IF.md)
 
+{% include notitle [Описание](SUM_IF/short-description.md) %}
 
-**[Степень (^)](operator/OP_POWER/overview.md)**
 
-{% include notitle [Описание](operator/OP_POWER/short-description.md) %}
+## [TAN](TAN.md)
 
+{% include notitle [Описание](TAN/short-description.md) %}
 
-**[CASE](logical/CASE/overview.md)**
 
-{% include notitle [Описание](logical/CASE/short-description.md) %}
+## [TODAY](TODAY.md)
 
+{% include notitle [Описание](TODAY/short-description.md) %}
 
-**[IF](logical/IF/overview.md)**
 
-{% include notitle [Описание](logical/IF/short-description.md) %}
+## [TRIM](TRIM.md)
+
+{% include notitle [Описание](TRIM/short-description.md) %}
+
+
+## [UPPER](UPPER.md)
+
+{% include notitle [Описание](UPPER/short-description.md) %}
+
+
+## [UTF8](UTF8.md)
+
+{% include notitle [Описание](UTF8/short-description.md) %}
+
+
+## [VAR](VAR.md)
+
+{% include notitle [Описание](VAR/short-description.md) %}
+
+
+## [VARP](VARP.md)
+
+{% include notitle [Описание](VARP/short-description.md) %}
+
+
+## [WEEK](WEEK.md)
+
+{% include notitle [Описание](WEEK/short-description.md) %}
+
+
+## [YEAR](YEAR.md)
+
+{% include notitle [Описание](YEAR/short-description.md) %}
+
+
+## [ZN](ZN.md)
+
+{% include notitle [Описание](ZN/short-description.md) %}
 
