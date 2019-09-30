@@ -3,6 +3,19 @@
 {% list tabs %}
 
 - Python
+
+  1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH:
+  
+      ```bash
+      $ ssh <имя_пользователя>@<публичный_IP-адрес_виртуальной машины>
+      ```  
+
+  1. Установите `pip3`:
+  
+      ```bash
+      sudo apt update
+      sudo apt install python3-pip
+      ```
   
   1. Установите [Yandex.Cloud Python SDK](https://github.com/yandex-cloud/python-sdk):
   
@@ -30,7 +43,7 @@
       ```
   
       * `SA_ENDPOINT` — эндпоинт IAM, установите значение `iam.api.cloud.yandex.net:443`
-      * `SA_PRIVATE_KEY_FILE` — путь к файлу с закрытым ключом
+      * `SA_PRIVATE_KEY_FILE` — локальный путь к файлу с закрытым авторизованным ключом
       * `SA_ID` — идентификатор сервисного аккаунта
       * `SA_ACCESS_KEY_ID` — идентификатор открытого авторизованного ключа
       * `YDB_SSL_ROOT_CERTIFICATES_FILE` — путь до файла с SSL-сертификатом
@@ -68,6 +81,12 @@
   ```
   
 - Go
+
+  1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH:
+  
+      ```bash
+      $ ssh <имя_пользователя>@<публичный_IP-адрес_виртуальной машины>
+      ```  
   
   1. Установите [YDB Go SDK](https://github.com/yandex-cloud/python-sdk):
   
