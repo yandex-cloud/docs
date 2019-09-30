@@ -1,25 +1,25 @@
-# Configuring a virtual machine as a NAT gateway
+# Configuring a virtual machine as a NAT instance
 
-Yandex.Cloud allows you to configure internet connections for multiple VMs via a NAT gateway. In this case, only one public IP address will be used: the one that will be assigned to the gateway.
+Yandex.Cloud allows you to configure internet connections for multiple VMs via a NAT instance. In this case, only one public IP address will be used: the one that will be assigned to the NAT instance.
 
 {% note important %}
 
-To ensure your NAT gateway functions properly, put it on a subnet without routing tables.
+To ensure your NAT instance functions properly, put it on a subnet without routing tables.
 
 {% endnote %}
 
 ## Before you start {#before-begin}
 
-Create a subnet for the NAT gateway.
+Create a subnet for the NAT instance.
 
 1. Create a [cloud network](../../vpc/operations/network-create.md) with any name, such as `nat-instance-network`.
-1. In the cloud network, create a [subnet](../../vpc/operations/subnet-create.md) for your NAT gateway with any name, such as `nat-subnet`. Do not assign any routing tables to it.
+1. In the cloud network, create a [subnet](../../vpc/operations/subnet-create.md) for your NAT instance with any name, such as `nat-subnet`. Do not assign any routing tables to it.
 
-## Create a NAT gateway {#create-nat-instance}
+## Create a NAT instance {#create-nat-instance}
 
-You can automatically create a NAT gateway via the YC CLI, or create a VM and configure it manually.
+You can automatically create a NAT instance via the YC CLI, or create a VM and configure it manually.
 
-### Creating a NAT gateway via the YC CLI from an image {#yc-create}
+### Creating a NAT instance via the YC CLI from an image {#yc-create}
 
 1. Create a virtual machine with the following parameters:
     - VM name: `nat-instance`.
@@ -53,8 +53,8 @@ You can automatically create a NAT gateway via the YC CLI, or create a VM and co
     ...
     ```
 
-1. Look up the internal IP address of the gateway.
-    1. In the {{ compute-name }} management console under **Virtual machines**, select the NAT gateway from the list of VMs. In the example, the VM is called `nat-instance`.
+1. Look up the internal IP address of the NAT instance.
+    1. In the {{ compute-name }} management console under **Virtual machines**, select the NAT instance from the list of VMs. In the example, the VM is called `nat-instance`.
     1. Click the line with the VM name to get its details.
     1. The internal IP address is listed under **Network**.
 
@@ -64,7 +64,7 @@ You can automatically create a NAT gateway via the YC CLI, or create a VM and co
 
 {% endlist %}
 
-### Manually creating and configuring a NAT gateway {#create}
+### Manually creating and configuring a NAT instance {#create}
 
 [Create](../../compute/quickstart/quick-create-linux.md) a VM to be used as an internet access gateway. The VM must have a public IP address to access the internet.
 

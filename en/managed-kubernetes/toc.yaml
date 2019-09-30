@@ -8,7 +8,7 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Configuring a VM as a NAT gateway
+      - name: Configuring a VM as a NAT instance
         href: operations/nat-instance.md
       - name: Connecting to a node over SSH
         href: operations/node-connect-ssh.md

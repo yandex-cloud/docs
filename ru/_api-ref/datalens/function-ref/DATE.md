@@ -1,32 +1,67 @@
-# DATE
-
-_Функции преобразования типов_
-
-#### Синтаксис
+# Функции даты и времени
 
 
-```
-DATE( expression )
-```
+## [DATEADD](DATEADD.md)
 
-#### Описание
-Переводит выражение `expression` в формат даты.
-
-Дата должна быть определена в формате `YYYY-MM-DD`.
-
-**Типы аргументов:**
-- `expression` — `Дата | Дата со временем | Число | Строка`
+{% include notitle [Описание](DATEADD/short-description.md) %}
 
 
-**Возвращаемый тип**: `Дата`
+## [DATEPART](DATEPART.md)
 
-#### Примеры
-
-```
-DATE("2019-01-23") = #2019-01-23#
-```
+{% include notitle [Описание](DATEPART/short-description.md) %}
 
 
-#### Поддержка источников данных
+## [DATETRUNC](DATETRUNC.md)
 
-`Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`
+{% include notitle [Описание](DATETRUNC/short-description.md) %}
+
+
+## [DAY](DAY.md)
+
+{% include notitle [Описание](DAY/short-description.md) %}
+
+
+## [DAYOFWEEK](DAYOFWEEK.md)
+
+{% include notitle [Описание](DAYOFWEEK/short-description.md) %}
+
+
+## [HOUR](HOUR.md)
+
+{% include notitle [Описание](HOUR/short-description.md) %}
+
+
+## [MINUTE](MINUTE.md)
+
+{% include notitle [Описание](MINUTE/short-description.md) %}
+
+
+## [MONTH](MONTH.md)
+
+{% include notitle [Описание](MONTH/short-description.md) %}
+
+
+## [NOW](NOW.md)
+
+{% include notitle [Описание](NOW/short-description.md) %}
+
+
+## [SECOND](SECOND.md)
+
+{% include notitle [Описание](SECOND/short-description.md) %}
+
+
+## [TODAY](TODAY.md)
+
+{% include notitle [Описание](TODAY/short-description.md) %}
+
+
+## [WEEK](WEEK.md)
+
+{% include notitle [Описание](WEEK/short-description.md) %}
+
+
+## [YEAR](YEAR.md)
+
+{% include notitle [Описание](YEAR/short-description.md) %}
+
