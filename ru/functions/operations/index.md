@@ -7,6 +7,7 @@
 - [{#T}](function/function-create.md)
 - [{#T}](function/function-update.md)
 - [{#T}](function/version-manage.md)
+- [{#T}](function/function-editor.md)
 - [{#T}](function/function-invoke.md)
 - [{#T}](function/function-logs.md)
 - [{#T}](function/function-delete.md)

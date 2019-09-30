@@ -19,6 +19,8 @@ items:
             href: operations/function/function-create.md
           - name: Управление версиями функции
             href: operations/function/version-manage.md
+          - name: Работа в редакторе кода
+            href: operations/function/function-editor.md
           - name: Вызов функции
             href: operations/function/function-invoke.md
           - name: Изменение функции

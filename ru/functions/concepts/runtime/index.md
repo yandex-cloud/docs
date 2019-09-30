@@ -22,6 +22,7 @@
 | Имя | Идентификатор |
 |----|----|
 |**Node.js** | |
+| Node.js 12 | `nodejs12` |
 | Node.js 10 | `nodejs10` |
 |**Python** | |
 | Python 3.7 | `python37` |

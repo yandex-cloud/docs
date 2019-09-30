@@ -4,7 +4,7 @@
 | ----- | ----- |
 | Number of functions per cloud | 10 |
 | Number of instances of a single function in each availability area | 10 |
-| Number of concurrent requests to all functions in each availability zone | 10 |
+| Number of concurrent invocations to all functions in each availability zone | 10 |
 | Total RAM for all running functions in each availability zone | 20 GB |
 
 #### Limits {#limits}
