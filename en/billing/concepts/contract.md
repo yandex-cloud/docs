@@ -12,7 +12,7 @@ The agreement number is displayed in the management console on the **Account dat
 
 {% note info %}
 
-Businesses may conclude an agreement that is signed by both parties. To do this, you must submit a request using the **Ask a question** form on the [Contact us](https://cloud.yandex.com/support) page. A Yandex.Cloud manager will contact you to discuss terms and conditions of signing the agreement.
+Businesses may conclude an agreement that is signed by both parties. To do this, you must submit a request using the **Contact sales** form on the [Contact us](https://cloud.yandex.com/support) page. A Yandex.Cloud manager will contact you to discuss terms and conditions of signing the agreement.
 
 {% endnote %}
 
