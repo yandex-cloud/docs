@@ -125,34 +125,4 @@
   > select_simple_transaction: 1 IT Crowd 2006-02-03
   ```
   
-- Java
-
-  1. Установите [JDK 11](https://www.oracle.com/technetwork/java/javase/downloads/5066655):
-  
-      ```bash
-      sudo apt-get update
-      sudo apt-get install openjdk-11-jdk
-      ```
-  
-  1. Скомпилируйте тестовое приложение, например, `basic_example_v1`:
-  
-       ```bash
-       git clone https://github.com/yandex-cloud/ydb-java-sdk
-       cd basic_example_v1
-       ./mvnw package
-       ```
-       
-  1. Запустите тестовое приложение `basic_example_v1`, указав параметры, полученные ранее:
-  
-      ```bash
-      ./mvnw -q exec:java -Dexec.args="<accountId> <keyId> <private_key_file_path> <endpoint> <database> <ssl_file_path>"
-      ```
-      
-      * `accountId` — идентификатор сервисного аккаунта
-      * `keyId` — идентификатор открытого авторизованного ключа
-      * `private_key_file_path` — локальный путь к файлу с закрытым авторизованным ключом
-      * `endpoint` — эндпоинд базы данных
-      * `database` — имя базы данных
-      * `ssl_file_path` — локальный путь к файлу с SSL-сертификатом
-  
 {% endlist %}

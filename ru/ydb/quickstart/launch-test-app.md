@@ -1,6 +1,6 @@
 # Запуск тестового приложения
 
-Подключитесь к базе данных и запустите тестовые приложения для [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk) или [Java](https://github.com/yandex-cloud/ydb-java-sdk) для знакомства с работой {{ ydb-short-name }} SDK.
+Подключитесь к базе данных и запустите тестовые приложения для [Python](https://github.com/yandex-cloud/ydb-python-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk) для знакомства с работой {{ ydb-short-name }} SDK.
 
 Подробный разбор кода тестовых приложений читайте в разделе [{#T}](../sdk/index.md).
 
