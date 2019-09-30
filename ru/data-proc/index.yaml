@@ -1,13 +1,10 @@
-# Заголовок и описание на странице
 title: "Yandex Data Proc"
 description:
-  - "<em>Сервис Data Proc находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a></em>."
-  - "Сервис помогает разворачивать кластеры Apache Hadoop<sup>®</sup> и Apache Spark в инфраструктуре Яндекс.Облака. Вы сами определяете размер кластера, мощность узлов и набор сервисов Apache<sup>®</sup> (Spark, HDFS, YARN, Hive, HBase, Oozie, Sqoop, Flume, Tez, Zeppelin)."
+  - "Сервис помогает разворачивать кластеры Apache Hadoop<sup>®</sup> и Apache Spark™ в инфраструктуре Яндекс.Облака. Вы сами определяете размер кластера, мощность узлов и набор сервисов Apache<sup>®</sup> (Spark™, HDFS, YARN, Hive, HBase®, Oozie™, Sqoop™, Flume™, Tez®, Zeppelin™)."
   - "Инфраструктура Яндекс.Облака <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
-# Мета-информация title, description, keywords и т.п.
+  - "Apache®, Apache Hadoop® и Apache Spark™ являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах."
 meta:
   title: "Yandex Data Proc"
-# Блок со ссылками
 links:
 #- title: "Начало работы"
 #  description: "Создайте первый кластер баз данных"

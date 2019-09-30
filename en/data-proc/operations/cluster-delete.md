@@ -1,6 +1,6 @@
 # Deleting clusters
 
-You can delete a cluster along with all the data stored in it. Note that data backups are not created automatically: if you want to save data for cluster recovery or future use, you can do that, for example, using [{{ objstorage-full-name }}](https://cloud.yandex.com/services/storage).
+You can delete a cluster along with all the data stored in it. Keep in mind that backups are not created automatically: if you want to save data for cluster recovery or later use, for example, use the [{{ objstorage-full-name }}](https://cloud.yandex.com/services/storage) service.
 
 {% list tabs %}
 
