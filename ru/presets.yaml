@@ -26,6 +26,7 @@ default:
   iot-full-name: Yandex IoT Core
   sf-full-name: Yandex Cloud Functions
   ydb-full-name: Yandex Database
+  interconnect-full-name: Yandex Cloud Interconnect
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -53,6 +54,7 @@ default:
   iot-name: Yandex IoT Core
   sf-name: Cloud Functions
   ydb-name: Yandex Database
+  interconnect-name: Cloud Interconnect
 
   # Короткие имена
   iam-short-name: IAM
