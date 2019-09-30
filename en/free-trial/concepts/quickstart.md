@@ -8,6 +8,12 @@ To use the free trial, sign up for Yandex.Cloud and create your first billing ac
 
 [Learn more about registering and creating billing accounts](../../billing/quickstart/index.md).
 
+{% note info %}
+
+Residents and non-residents of the Russian Federation can sign up for Yandex.Cloud. Non-residents of the Russian Federation can only register business accounts. The terms and conditions are available in the Billing [documentation](../../billing/qa/non-resident.md).
+
+{% endnote %}
+
 ## Getting started
 
 To start working with Yandex.Cloud:
