@@ -34,6 +34,8 @@ items:
         href: concepts/volume.md
       - name: Сервис
         href: concepts/service.md
+      - name: Релизные каналы и обновления
+        href: concepts/release-channels-and-updates.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
