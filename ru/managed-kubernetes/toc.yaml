@@ -1,6 +1,5 @@
 title: Yandex Managed Service for Kubernetes
 href: index.yaml
-stage: preview
 items:
   - name: Начало работы
     href: quickstart.md
