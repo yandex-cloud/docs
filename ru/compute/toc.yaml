@@ -153,6 +153,8 @@ items:
             href: concepts/preemptible-vm.md
           - name: Сеть на виртуальной машине
             href: concepts/network.md
+          - name: Динамическая миграция
+            href: concepts/live-migration.md
           - name: Статусы
             href: concepts/vm-statuses.md
           - name: Метаданные
