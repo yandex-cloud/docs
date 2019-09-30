@@ -63,3 +63,11 @@ items:
         href: windows/active-directory.md
       - name: Развертывание Microsoft Exchange
         href: windows/exchange.md
+  - name: Сетевая маршрутизация
+    items:
+      - name: Обзор
+        href: routing/index.md
+      - name: Маршрутизация с помощью NAT-инстанса
+        href: routing/nat-instance.md
+      - name: Создание VPN-туннеля
+        href: routing/ipsec-vpn.md

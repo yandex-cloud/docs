@@ -14,4 +14,5 @@ For more information about cloud networks, see:
 
 - [Cloud networks and subnets](network.md)
 - [Cloud resource addresses](address.md)
+- [Static routes](static-routes.md)
 

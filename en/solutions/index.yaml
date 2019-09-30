@@ -19,3 +19,6 @@ links:
 - title: "Infrastructure management"
   description: "Deploy cloud infrastructure with specialized tools"
   href: "infrastructure-management/"
+- title: "Network routing"
+  description: "Set up static routes and VPN to access cloud resources"
+  href: "routing/"

@@ -33,6 +33,11 @@ items:
             href: operations/set-dynamic-ip.md
           - name: Удалить статический публичный IP-адрес
             href: operations/address-delete.md
+      - name: Статическая маршрутизация
+        stage: new
+        items: 
+          - name: Создать статический маршрут
+            href: operations/static-route-create.md
       - name: Защита от DDoS-атак
         items:
           - name: Включить защиту от DDoS-атак
@@ -45,6 +50,8 @@ items:
         href: concepts/network.md
       - name: Адреса облачных ресурсов
         href: concepts/address.md
+      - name: Статические маршруты
+        href: concepts/static-routes.md
       - name: MTU и MSS
         href: concepts/mtu-mss.md
       - name: Квоты и лимиты

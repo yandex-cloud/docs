@@ -33,6 +33,11 @@ items:
             href: operations/set-dynamic-ip.md
           - name: Deleting a static public IP address
             href: operations/address-delete.md
+      - name: Static routes
+        stage: new
+        items:
+          - name: Creating a static route
+            href: operations/static-route-create.md
       - name: DDoS Protection
         items:
           - name: Enable protection from DDoS attacks
@@ -45,6 +50,8 @@ items:
         href: concepts/network.md
       - name: Cloud resource addresses
         href: concepts/address.md
+      - name: Static routes
+        href: concepts/static-routes.md
       - name: MTU and MSS
         href: concepts/mtu-mss.md
       - name: Quotas and limits
