@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Method scheduleVersionDestruction
-Schedules specified key version for destruction. Destruction can be cancelled.
+Schedules the specified key version for destruction.
  
-
+Scheduled destruction can be cancelled with the [cancelVersionDestruction](/docs/kms/api-ref/SymmetricKey/cancelVersionDestruction) method.
  
 ## HTTP request {#https-request}
 ```
@@ -16,14 +16,14 @@ POST https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}:scheduleVersionDestruc
  
 Parameter | Description
 --- | ---
-keyId | Required. The maximum string length in characters is 50.
+keyId | Required. ID of the key whose version should be scheduled for destruction.  The maximum string length in characters is 50.
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-versionId | Required. The maximum string length in characters is 50.
-pendingPeriod | The version will be destroyed after pending period has passed. Pending period defaults to 7 days
+versionId | Required. ID of the version to be destroyed.  The maximum string length in characters is 50.
+pendingPeriod | Time interval between the version destruction request and actual destruction. Default value: 7 days.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

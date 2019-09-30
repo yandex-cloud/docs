@@ -29,7 +29,8 @@ registryId | Required. The maximum string length in characters is 50.
   "name": "string",
   "description": "string",
   "labels": "object",
-  "status": "string"
+  "status": "string",
+  "logGroupId": "string"
 }
 ```
 
@@ -43,3 +44,4 @@ name | **string**<br>
 description | **string**<br>
 labels | **object**<br>
 status | **string**<br>
+logGroupId | **string**<br>

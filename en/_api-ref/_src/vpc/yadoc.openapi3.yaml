@@ -274,6 +274,40 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListNetworkOperationsResponse'
       x-y-navtitle: listOperations
+  /vpc/v1/networks/{networkId}:move:
+    post:
+      tags:
+      - Network
+      summary: Move network to another folder.
+      operationId: NetworkMove
+      parameters:
+      - name: networkId
+        in: path
+        description: |-
+          Required.
+          ID of the Network resource to move.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveNetworkRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: move
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/MoveNetworkMetadata'
+      x-y-operation-response: '[Network](/docs/vpc/api-ref/Network#representation)'
   /vpc/v1/subnets/{subnetId}:
     get:
       tags:
@@ -492,6 +526,40 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListSubnetOperationsResponse'
       x-y-navtitle: listOperations
+  /vpc/v1/subnets/{subnetId}:move:
+    post:
+      tags:
+      - Subnet
+      summary: Move subnet to another folder.
+      operationId: SubnetMove
+      parameters:
+      - name: subnetId
+        in: path
+        description: |-
+          Required.
+          ID of the Subnet resource to move.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveSubnetRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: move
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/MoveSubnetMetadata'
+      x-y-operation-response: '[Subnet](/docs/vpc/api-ref/Subnet#representation)'
 components:
   schemas:
     CreateNetworkMetadata:
@@ -716,6 +784,38 @@ components:
             for the [pageToken](/docs/vpc/api-ref/Subnet/list#query_params) query parameter
             in the next list request. Subsequent list requests will have their own
             [nextPageToken](/docs/vpc/api-ref/Subnet/list#responses) to continue paging through the results.
+          type: string
+    MoveNetworkMetadata:
+      type: object
+      properties:
+        networkId:
+          description: ID of the network that is being moved.
+          type: string
+    MoveNetworkRequest:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            Required.
+            ID of the destination folder.
+
+            The maximum string length in characters is 50.
+          type: string
+    MoveSubnetMetadata:
+      type: object
+      properties:
+        subnetId:
+          description: ID of the Subnet resource that is being moved.
+          type: string
+    MoveSubnetRequest:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            Required.
+            ID of the destination folder.
+
+            The maximum string length in characters is 50.
           type: string
     Network:
       description: A Network resource. For more information, see [Networks](/docs/vpc/concepts/network).

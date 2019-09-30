@@ -41,6 +41,8 @@ items:
         href: api-ref/Cluster/restore.md
       - name: start
         href: api-ref/Cluster/start.md
+      - name: startFailover
+        href: api-ref/Cluster/startFailover.md
       - name: stop
         href: api-ref/Cluster/stop.md
       - name: update

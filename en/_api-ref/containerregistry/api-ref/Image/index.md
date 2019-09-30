@@ -14,13 +14,19 @@ A set of methods for managing Image resources.
   "config": {
     "id": "string",
     "digest": "string",
-    "size": "string"
+    "size": "string",
+    "urls": [
+      "string"
+    ]
   },
   "layers": [
     {
       "id": "string",
       "digest": "string",
-      "size": "string"
+      "size": "string",
+      "urls": [
+        "string"
+      ]
     }
   ],
   "tags": [
@@ -40,10 +46,12 @@ config | **object**<br><p>Configuration of the Docker image.</p> <p>A Blob resou
 config.<br>id | **string**<br><p>Output only. ID of the blob.</p> 
 config.<br>digest | **string**<br><p>Content-addressable identifier of the blob.</p> 
 config.<br>size | **string** (int64)<br><p>Size of the blob, specified in bytes.</p> 
+config.<br>urls[] | **string**<br>
 layers[] | **object**<br><p>A Blob resource.</p> 
 layers[].<br>id | **string**<br><p>Output only. ID of the blob.</p> 
 layers[].<br>digest | **string**<br><p>Content-addressable identifier of the blob.</p> 
 layers[].<br>size | **string** (int64)<br><p>Size of the blob, specified in bytes.</p> 
+layers[].<br>urls[] | **string**<br>
 tags[] | **string**<br><p>Tags of the Docker image.</p> <p>Each tag is unique within the repository.</p> 
 createdAt | **string** (date-time)<br><p>Output only. Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 

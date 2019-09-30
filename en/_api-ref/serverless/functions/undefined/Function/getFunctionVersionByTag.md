@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method getFunctionVersionByTag
-
+Deprecated. Use GetVersionByTag.
  
 
  

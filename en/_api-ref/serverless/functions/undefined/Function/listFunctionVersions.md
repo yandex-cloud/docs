@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method listFunctionVersions
-
+Deprecated. Use ListVersions.
  
 
  

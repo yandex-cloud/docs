@@ -26,6 +26,7 @@ default:
   iot-full-name: Yandex IoT Core
   sf-full-name: Yandex Cloud Functions
   ydb-full-name: Yandex Database
+  kms-full-name: Yandex Key Management Service
   interconnect-full-name: Yandex Cloud Interconnect
 
   # Полные имена сервисов без Yandex
@@ -54,6 +55,7 @@ default:
   iot-name: Yandex IoT Core
   sf-name: Cloud Functions
   ydb-name: Yandex Database
+  kms-name: Key Management Service
   interconnect-name: Cloud Interconnect
 
   # Короткие имена
@@ -81,6 +83,7 @@ default:
   iot-short-name: Yandex IoT Core
   sf-short-name: Functions
   ydb-short-name: YDB
+  kms-short-name: KMS
 
   # Тарифы
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.

@@ -33,7 +33,8 @@ pageToken | The maximum string length in characters is 100.
       "name": "string",
       "description": "string",
       "labels": "object",
-      "status": "string"
+      "status": "string",
+      "logGroupId": "string"
     }
   ],
   "nextPageToken": "string"
@@ -51,4 +52,5 @@ registries[].<br>name | **string**<br>
 registries[].<br>description | **string**<br>
 registries[].<br>labels | **object**<br>
 registries[].<br>status | **string**<br>
+registries[].<br>logGroupId | **string**<br>
 nextPageToken | **string**<br>

@@ -46,11 +46,61 @@ filter | A filter expression that filters resources listed in the response. The 
         "masterAuth": {
           "clusterCaCertificate": "string"
         },
+        "versionInfo": {
+          "currentVersion": "string",
+          "newRevisionAvailable": true,
+          "newRevisionSummary": "string",
+          "versionDeprecated": true
+        },
+        "maintenancePolicy": {
+          "autoUpgrade": true,
+          "maintenanceWindow": {
+
+            // `clusters[].master.maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`
+            "anytime": {},
+            "dailyMaintenanceWindow": {
+              "startTime": {
+                "hours": "integer",
+                "minutes": "integer",
+                "seconds": "integer",
+                "nanos": "integer"
+              },
+              "duration": "string"
+            },
+            "weeklyMaintenanceWindow": {
+              "daysOfWeek": [
+                {
+                  "days": [
+                    "string"
+                  ],
+                  "startTime": {
+                    "hours": "integer",
+                    "minutes": "integer",
+                    "seconds": "integer",
+                    "nanos": "integer"
+                  },
+                  "duration": "string"
+                }
+              ]
+            },
+            // end of the list of possible fields`clusters[].master.maintenancePolicy.maintenanceWindow`
+
+          }
+        },
+
+        // `clusters[].master` includes only one of the fields `zonalMaster`, `regionalMaster`
         "zonalMaster": {
           "zoneId": "string",
           "internalV4Address": "string",
           "externalV4Address": "string"
-        }
+        },
+        "regionalMaster": {
+          "regionId": "string",
+          "internalV4Address": "string",
+          "externalV4Address": "string"
+        },
+        // end of the list of possible fields`clusters[].master`
+
       },
       "ipAllocationPolicy": {
         "clusterIpv4CidrBlock": "string",
@@ -58,6 +108,7 @@ filter | A filter expression that filters resources listed in the response. The 
       },
       "serviceAccountId": "string",
       "nodeServiceAccountId": "string",
+      "releaseChannel": "string",
       "gatewayIpv4Address": "string"
     }
   ],
@@ -85,14 +136,44 @@ clusters[].<br>master.<br>endpoints.<br>internalV4Endpoint | **string**<br><p>In
 clusters[].<br>master.<br>endpoints.<br>externalV4Endpoint | **string**<br><p>External endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud).</p> 
 clusters[].<br>master.<br>masterAuth | **object**<br>Master authentication parameters are used to establish trust between the master and a client.<br>
 clusters[].<br>master.<br>masterAuth.<br>clusterCaCertificate | **string**<br><p>PEM-encoded public certificate that is the root of trust for the Kubernetes cluster.</p> 
-clusters[].<br>master.<br>zonalMaster | **object**<br>Parameters of the availability zone for the master.<br>
+clusters[].<br>master.<br>versionInfo | **object**<br>
+clusters[].<br>master.<br>versionInfo.<br>currentVersion | **string**<br><p>Current kubernetes version, major.minor (e.g. 1.15).</p>
+clusters[].<br>master.<br>versionInfo.<br>newRevisionAvailable | **boolean** (boolean)<br><p>Newer revisions may include kubernetes patches (e.g 1.15.1 -&gt; 1.15.2) as well as some internal component updates - new features or bug fixes in yandex-specific components either on the master or nodes.</p>
+clusters[].<br>master.<br>versionInfo.<br>newRevisionSummary | **string**<br><p>Human readable description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false.</p>
+clusters[].<br>master.<br>versionInfo.<br>versionDeprecated | **boolean** (boolean)<br><p>The current version is on the deprecation schedule, component (master or node group) should be upgraded.</p>
+clusters[].<br>master.<br>maintenancePolicy | **object**<br>
+clusters[].<br>master.<br>maintenancePolicy.<br>autoUpgrade | **boolean** (boolean)<br>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow | **object**<br>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>anytime | **object** <br>`clusters[].master.maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`<br><br>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow | **object** <br>`clusters[].master.maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`<br><br>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime | **object**<br><p>Required.</p> <p>Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> and <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value &quot;24:00:00&quot; for scenarios like business closing time.</p>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>duration | **string**<br><p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`clusters[].master.maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`<br><br>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[] | **object**<br><p>Required. The number of elements must be in the range 1-7.</p>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>days[] | **string**<br><p>Represents a day of week.</p> <ul> <li>DAY_OF_WEEK_UNSPECIFIED: The unspecified day-of-week.</li> <li>MONDAY: The day-of-week of Monday.</li> <li>TUESDAY: The day-of-week of Tuesday.</li> <li>WEDNESDAY: The day-of-week of Wednesday.</li> <li>THURSDAY: The day-of-week of Thursday.</li> <li>FRIDAY: The day-of-week of Friday.</li> <li>SATURDAY: The day-of-week of Saturday.</li> <li>SUNDAY: The day-of-week of Sunday.</li> </ul>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime | **object**<br><p>Required.</p> <p>Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> and <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value &quot;24:00:00&quot; for scenarios like business closing time.</p>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p>
+clusters[].<br>master.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>duration | **string**<br><p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p>
+clusters[].<br>master.<br>zonalMaster | **object**<br>Parameters of the availability zone for the master. <br>`clusters[].master` includes only one of the fields `zonalMaster`, `regionalMaster`<br><br>
 clusters[].<br>master.<br>zonalMaster.<br>zoneId | **string**<br><p>ID of the availability zone where the master resides.</p> 
 clusters[].<br>master.<br>zonalMaster.<br>internalV4Address | **string**<br><p>An IPv4 internal network address that is assigned to the master.</p> 
 clusters[].<br>master.<br>zonalMaster.<br>externalV4Address | **string**<br><p>An IPv4 external network address that is assigned to the master.</p> 
+clusters[].<br>master.<br>regionalMaster | **object**<br>Parameters of the region for the master. <br>`clusters[].master` includes only one of the fields `zonalMaster`, `regionalMaster`<br><br>
+clusters[].<br>master.<br>regionalMaster.<br>regionId | **string**<br><p>ID of the region where the master resides.</p>
+clusters[].<br>master.<br>regionalMaster.<br>internalV4Address | **string**<br><p>An IPv4 internal network address that is assigned to the master.</p>
+clusters[].<br>master.<br>regionalMaster.<br>externalV4Address | **string**<br><p>An IPv4 external network address that is assigned to the master.</p>
 clusters[].<br>ipAllocationPolicy | **object**<br>Allocation policy for IP addresses of services and pods inside the Kubernetes cluster in different availability zones.<br>
 clusters[].<br>ipAllocationPolicy.<br>clusterIpv4CidrBlock | **string**<br><p>CIDR block. IP range for allocating pod addresses.</p> <p>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets.</p> 
 clusters[].<br>ipAllocationPolicy.<br>serviceIpv4CidrBlock | **string**<br><p>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from.</p> <p>It should not overlap with any subnet in the network the Kubernetes cluster located in.</p> 
 clusters[].<br>serviceAccountId | **string**<br><p>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster.</p> 
 clusters[].<br>nodeServiceAccountId | **string**<br><p>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.</p> 
+clusters[].<br>releaseChannel | **string**<br>
 clusters[].<br>gatewayIpv4Address | **string**<br><p>Gateway IPv4 address.</p> <p>The maximum string length in characters is 15.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-kubernetes/api-ref/Cluster/list#query_params">pageSize</a>, use the <a href="/docs/managed-kubernetes/api-ref/Cluster/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-kubernetes/api-ref/Cluster/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-kubernetes/api-ref/Cluster/list#responses">nextPageToken</a> to continue paging through the results.</p> 

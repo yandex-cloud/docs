@@ -43,6 +43,8 @@ clusterId | Required. ID of the ClickHouse cluster to create a user in. To get t
       "fallbackToStaleReplicasForDistributedQueries": true,
       "replicationAlterPartitionsSync": "integer",
       "distributedProductMode": "string",
+      "distributedAggregationMemoryEfficient": true,
+      "distributedDdlTaskTimeout": "integer",
       "compile": true,
       "minCountToCompile": "integer",
       "compileExpressions": true,
@@ -57,6 +59,10 @@ clusterId | Required. ID of the ClickHouse cluster to create a user in. To get t
       "mergeTreeMaxBytesToUseCache": "integer",
       "mergeTreeMinRowsForConcurrentRead": "integer",
       "mergeTreeMinBytesForConcurrentRead": "integer",
+      "maxBytesBeforeExternalGroupBy": "integer",
+      "maxBytesBeforeExternalSort": "integer",
+      "groupByTwoLevelThreshold": "integer",
+      "groupByTwoLevelThresholdBytes": "integer",
       "priority": "integer",
       "maxThreads": "integer",
       "maxMemoryUsage": "integer",
@@ -95,7 +101,9 @@ clusterId | Required. ID of the ClickHouse cluster to create a user in. To get t
       "inputFormatDefaultsForOmittedFields": true,
       "outputFormatJsonQuote_64BitIntegers": true,
       "outputFormatJsonQuoteDenormals": true,
-      "httpConnectTimeout": "integer",
+      "lowCardinalityAllowInNativeFormat": true,
+      "emptyResultForAggregationByEmptySet": true,
+      "httpConnectionTimeout": "integer",
       "httpReceiveTimeout": "integer",
       "httpSendTimeout": "integer",
       "enableHttpCompression": true,
@@ -128,13 +136,15 @@ userSpec.<br>settings.<br>maxReplicaDelayForDistributedQueries | **integer** (in
 userSpec.<br>settings.<br>fallbackToStaleReplicasForDistributedQueries | **boolean** (boolean)<br><p>See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries">ClickHouse documentation</a>.</p> 
 userSpec.<br>settings.<br>replicationAlterPartitionsSync | **integer** (int64)<br><p>See in-depth description in <a href="https://clickhouse.yandex/docs/en/query_language/alter/#synchronicity-of-alter-queries">ClickHouse documentation</a>.</p> <p>Acceptable values are 0 to 2, inclusive.</p> 
 userSpec.<br>settings.<br>distributedProductMode | **string**<br><p>See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/settings/#distributed-product-mode">ClickHouse documentation</a>.</p> 
+userSpec.<br>settings.<br>distributedAggregationMemoryEfficient | **boolean** (boolean)<br><p>Whether the memory-saving mode of distributed aggregation is enabled.</p>
+userSpec.<br>settings.<br>distributedDdlTaskTimeout | **integer** (int64)<br><p>Timeout for DDL queries, in milliseconds.</p>
 userSpec.<br>settings.<br>compile | **boolean** (boolean)<br><p>Whether query compilation is enabled. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/settings/#compile">ClickHouse documentation</a>.</p> 
 userSpec.<br>settings.<br>minCountToCompile | **integer** (int64)<br><p>The number of structurally identical queries before they are compiled. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/settings/#min-count-to-compile">ClickHouse documentation</a>.</p> <p>The minimum value is 0.</p> 
 userSpec.<br>settings.<br>compileExpressions | **boolean** (boolean)<br><p>Whether expression compilation is enabled.</p> 
 userSpec.<br>settings.<br>minCountToCompileExpression | **integer** (int64)<br><p>The number of identical expressions before they are compiled.</p> <p>The minimum value is 0.</p> 
 userSpec.<br>settings.<br>maxBlockSize | **integer** (int64)<br><p>See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/settings/#max-block-size">ClickHouse documentation</a>.</p> <p>Value must be greater than 0.</p> 
-userSpec.<br>settings.<br>minInsertBlockSizeRows | **integer** (int64)<br><p>Squash blocks passed to INSERT query to specified size in rows, if blocks are not big enough.</p> <p>Value must be greater than 0.</p> 
-userSpec.<br>settings.<br>minInsertBlockSizeBytes | **integer** (int64)<br><p>Squash blocks passed to INSERT query to specified size in bytes, if blocks are not big enough.</p> <p>Value must be greater than 0.</p> 
+userSpec.<br>settings.<br>minInsertBlockSizeRows | **integer** (int64)<br><p>Squash blocks passed to INSERT query to specified size in rows, if blocks are not big enough. If set to <code>0</code>, blocks will never be squashed.</p> <p>The minimum value is 0.</p>
+userSpec.<br>settings.<br>minInsertBlockSizeBytes | **integer** (int64)<br><p>Squash blocks passed to INSERT query to specified size in bytes, if blocks are not big enough.  If set to <code>0</code>, blocks will never be squashed.</p> <p>The minimum value is 0.</p>
 userSpec.<br>settings.<br>maxInsertBlockSize | **integer** (int64)<br><p>See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_insert_block_size">ClickHouse documentation</a>.</p> <p>Value must be greater than 0.</p> 
 userSpec.<br>settings.<br>minBytesToUseDirectIo | **integer** (int64)<br><p>See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-min_bytes_to_use_direct_io">ClickHouse documentation</a>.</p> <p>The minimum value is 0.</p> 
 userSpec.<br>settings.<br>useUncompressedCache | **boolean** (boolean)<br><p>See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/settings/#setting-use_uncompressed_cache">ClickHouse documentation</a>.</p> 
@@ -142,6 +152,10 @@ userSpec.<br>settings.<br>mergeTreeMaxRowsToUseCache | **integer** (int64)<br><p
 userSpec.<br>settings.<br>mergeTreeMaxBytesToUseCache | **integer** (int64)<br><p>The maximum request size in bytes to use the cache of uncompressed data. The cache is not used for requests larger than the specified value.</p> <p>Value must be greater than 0.</p> 
 userSpec.<br>settings.<br>mergeTreeMinRowsForConcurrentRead | **integer** (int64)<br><p>The minimum number of rows to be read from a file to enable concurrent read. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/settings/#setting-merge_tree_min_rows_for_concurrent_read">ClickHouse documentation</a>.</p> <p>Value must be greater than 0.</p> 
 userSpec.<br>settings.<br>mergeTreeMinBytesForConcurrentRead | **integer** (int64)<br><p>The minimum number of bytes to be read from a file to enable concurrent read.</p> <p>Value must be greater than 0.</p> 
+userSpec.<br>settings.<br>maxBytesBeforeExternalGroupBy | **integer** (int64)<br>
+userSpec.<br>settings.<br>maxBytesBeforeExternalSort | **integer** (int64)<br>
+userSpec.<br>settings.<br>groupByTwoLevelThreshold | **integer** (int64)<br>
+userSpec.<br>settings.<br>groupByTwoLevelThresholdBytes | **integer** (int64)<br>
 userSpec.<br>settings.<br>priority | **integer** (int64)<br><p>Priority of the query.</p> <p>The minimum value is 0.</p> 
 userSpec.<br>settings.<br>maxThreads | **integer** (int64)<br><p>See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-max_threads">ClickHouse documentation</a>.</p> <p>Value must be greater than 0.</p> 
 userSpec.<br>settings.<br>maxMemoryUsage | **integer** (int64)<br><p>See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/query_complexity/#settings_max_memory_usage">ClickHouse documentation</a>.</p> <p>The minimum value is 0.</p> 
@@ -180,7 +194,9 @@ userSpec.<br>settings.<br>inputFormatValuesInterpretExpressions | **boolean** (b
 userSpec.<br>settings.<br>inputFormatDefaultsForOmittedFields | **boolean** (boolean)<br><p>See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields">ClickHouse documentation</a>.</p> 
 userSpec.<br>settings.<br>outputFormatJsonQuote_64BitIntegers | **boolean** (boolean)<br><p>Whether quoting of 64-bit integers is enabled in JSON output format. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/settings/#session_settings-output_format_json_quote_64bit_integers">ClickHouse documentation</a>.</p> 
 userSpec.<br>settings.<br>outputFormatJsonQuoteDenormals | **boolean** (boolean)<br><p>Whether output of special floating-point values (<code>+nan</code>, <code>-nan</code>, <code>+inf</code> and <code>-inf</code>) is enabled in JSON output format.</p> 
-userSpec.<br>settings.<br>httpConnectTimeout | **integer** (int64)<br><p>HTTP connection timeout, in milliseconds.</p> 
+userSpec.<br>settings.<br>lowCardinalityAllowInNativeFormat | **boolean** (boolean)<br>
+userSpec.<br>settings.<br>emptyResultForAggregationByEmptySet | **boolean** (boolean)<br>
+userSpec.<br>settings.<br>httpConnectionTimeout | **integer** (int64)<br><p>HTTP connection timeout, in milliseconds.</p>
 userSpec.<br>settings.<br>httpReceiveTimeout | **integer** (int64)<br><p>HTTP receive timeout, in milliseconds.</p> 
 userSpec.<br>settings.<br>httpSendTimeout | **integer** (int64)<br><p>HTTP send timeout, in milliseconds.</p> 
 userSpec.<br>settings.<br>enableHttpCompression | **boolean** (boolean)<br><p>See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-enable_http_compression">ClickHouse documentation</a>.</p> 

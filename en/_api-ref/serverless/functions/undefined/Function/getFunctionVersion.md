@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method getFunctionVersion
-
+Deprecated. Use GetVersion.
  
 
  

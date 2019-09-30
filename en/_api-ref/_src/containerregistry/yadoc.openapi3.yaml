@@ -443,6 +443,35 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
       x-y-operation-response: Empty
+  /container-registry/v1/repositories/{repositoryId}:
+    get:
+      tags:
+      - Repository
+      summary: Returns the specified Repository resource.
+      description: To get the list of available Repository resources, make a [list](/docs/container-registry/api-ref/Repository/list)
+        request.
+      operationId: RepositoryGet
+      parameters:
+      - name: repositoryId
+        in: path
+        description: |-
+          Required.
+          ID of the Repository resource to return.
+
+          To get the repository ID use a [list](/docs/container-registry/api-ref/Repository/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Repository'
+      x-y-navtitle: get
   /container-registry/v1/repositories:
     get:
       tags:
@@ -676,6 +705,10 @@ components:
           description: Size of the blob, specified in bytes.
           type: string
           format: int64
+        urls:
+          type: array
+          items:
+            type: string
     CreateRegistryMetadata:
       type: object
       properties:
@@ -953,6 +986,9 @@ components:
             Name of the repository.
             The name is unique within the registry.
           type: string
+        id:
+          description: Output only. ID of the repository.
+          type: string
     SetAccessBindingsMetadata:
       type: object
       properties:
@@ -1134,6 +1170,10 @@ components:
           description: Size of the blob, specified in bytes.
           type: string
           format: int64
+        urls:
+          type: array
+          items:
+            type: string
     RegistryStatus_in_Registry_status:
       description: |-
         Output only. Status of the registry.

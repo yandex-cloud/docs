@@ -2,9 +2,9 @@
 editable: false
 ---
 
-# Yandex Cloud Functions Service
+# Yandex Serverless Functions Service
 Description not set.
 
 Resource | Description
 --- | ---
-[Function](Function/index.md) | 
+[Function](Function/index.md) |

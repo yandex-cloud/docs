@@ -1804,6 +1804,7 @@ components:
             description: MongoDB source for the dictionary.
           postgresqlSource:
             $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryPostgresqlSource'
+            description: PostgreSQL source for the dictionary.
     ClickhouseConfigExternalDictionaryClickhouseSource:
       type: object
       properties:
@@ -2009,36 +2010,41 @@ components:
         db:
           description: |-
             Required.
-            Required.
+            Name of the PostrgreSQL database.
           type: string
         table:
           description: |-
             Required.
-            Required.
+            Name of the table in the specified database to be used as the dictionary source.
           type: string
         hosts:
           description: |-
             Required.
-            Required.
+            Name of the PostrgreSQL host
 
             Must contain at least one element.
           type: array
           items:
             type: string
         port:
-          description: Acceptable values are 0 to 65535, inclusive.
+          description: |-
+            Port to use when connecting to the host.
+
+            Acceptable values are 0 to 65535, inclusive.
           type: string
           format: int64
         user:
           description: |-
             Required.
-            Required.
+            Name of the PostrgreSQL database user.
           type: string
         password:
+          description: Password of the PostrgreSQL database user.
           type: string
         invalidateQuery:
-          description: Query for checking the dictionary status and figuring out whether
-            the data should be reloaded.
+          description: |-
+            Query for checking the dictionary status, to pull only updated data.
+            For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
           type: string
         sslMode:
           $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryPostgresqlSourceSslMode_in_ClickhouseConfigExternalDictionaryPostgresqlSource_sslMode'
@@ -2213,6 +2219,21 @@ components:
           description: |-
             Period of time to keep blocks of hashes for.
             See detailed description in [ClickHouse sources](https://github.com/yandex/ClickHouse/blob/v18.1.0-stable/dbms/src/Storages/MergeTree/MergeTreeSettings.h#L64).
+          type: integer
+          format: int64
+        partsToDelayInsert:
+          type: integer
+          format: int64
+        partsToThrowInsert:
+          type: integer
+          format: int64
+        maxReplicatedMergesInQueue:
+          type: integer
+          format: int64
+        numberOfFreeEntriesInPoolToLowerMaxSizeOfMerge:
+          type: integer
+          format: int64
+        maxBytesToMergeAtMinSpaceInPool:
           type: integer
           format: int64
     ClickhouseConfigSet:
@@ -3418,6 +3439,15 @@ components:
           format: int64
         distributedProductMode:
           $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
+        distributedAggregationMemoryEfficient:
+          description: Whether the memory-saving mode of distributed aggregation is
+            enabled.
+          type: boolean
+          format: boolean
+        distributedDdlTaskTimeout:
+          description: Timeout for DDL queries, in milliseconds.
+          type: integer
+          format: int64
         compile:
           description: |-
             Whether query compilation is enabled.
@@ -3452,16 +3482,18 @@ components:
           format: int64
         minInsertBlockSizeRows:
           description: |-
-            Squash blocks passed to INSERT query to specified size in rows, if blocks are not big enough.
+            Squash blocks passed to INSERT query to specified size in rows, if blocks are not big enough. If set to `0`,
+            blocks will never be squashed.
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         minInsertBlockSizeBytes:
           description: |-
-            Squash blocks passed to INSERT query to specified size in bytes, if blocks are not big enough.
+            Squash blocks passed to INSERT query to specified size in bytes, if blocks are not big enough.  If set to `0`,
+            blocks will never be squashed.
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         maxInsertBlockSize:
@@ -3512,6 +3544,18 @@ components:
             The minimum number of bytes to be read from a file to enable concurrent read.
 
             Value must be greater than 0.
+          type: integer
+          format: int64
+        maxBytesBeforeExternalGroupBy:
+          type: integer
+          format: int64
+        maxBytesBeforeExternalSort:
+          type: integer
+          format: int64
+        groupByTwoLevelThreshold:
+          type: integer
+          format: int64
+        groupByTwoLevelThresholdBytes:
           type: integer
           format: int64
         priority:
@@ -3731,7 +3775,13 @@ components:
             `+inf` and `-inf`) is enabled in JSON output format.
           type: boolean
           format: boolean
-        httpConnectTimeout:
+        lowCardinalityAllowInNativeFormat:
+          type: boolean
+          format: boolean
+        emptyResultForAggregationByEmptySet:
+          type: boolean
+          format: boolean
+        httpConnectionTimeout:
           description: HTTP connection timeout, in milliseconds.
           type: integer
           format: int64
@@ -3878,6 +3928,21 @@ components:
             See detailed description in [ClickHouse sources](https://github.com/yandex/ClickHouse/blob/v18.1.0-stable/dbms/src/Storages/MergeTree/MergeTreeSettings.h#L64).
           type: integer
           format: int64
+        partsToDelayInsert:
+          type: integer
+          format: int64
+        partsToThrowInsert:
+          type: integer
+          format: int64
+        maxReplicatedMergesInQueue:
+          type: integer
+          format: int64
+        numberOfFreeEntriesInPoolToLowerMaxSizeOfMerge:
+          type: integer
+          format: int64
+        maxBytesToMergeAtMinSpaceInPool:
+          type: integer
+          format: int64
     ClickhouseConfigCompressionMethod_in_ClickhouseConfigCompression_method:
       description: |-
         Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`.
@@ -3915,6 +3980,9 @@ components:
       - CACHE
       - COMPLEX_KEY_CACHE
     ClickhouseConfigExternalDictionaryPostgresqlSourceSslMode_in_ClickhouseConfigExternalDictionaryPostgresqlSource_sslMode:
+      description: |-
+        Mode of SSL TCP/IP connection to the PostgreSQL host. There are six modes: `disable`, `allow`, `prefer` (default), `require`, `verify-ca`, `verify-full`.
+        For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
       type: string
       enum:
       - DISABLE
@@ -4713,6 +4781,7 @@ components:
             description: MongoDB source for the dictionary.
           postgresqlSource:
             $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryPostgresqlSource'
+            description: PostgreSQL source for the dictionary.
     ClusterEnvironment_in_CreateClusterRequest_environment:
       description: |-
         Required.
@@ -5231,6 +5300,15 @@ components:
           format: int64
         distributedProductMode:
           $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
+        distributedAggregationMemoryEfficient:
+          description: Whether the memory-saving mode of distributed aggregation is
+            enabled.
+          type: boolean
+          format: boolean
+        distributedDdlTaskTimeout:
+          description: Timeout for DDL queries, in milliseconds.
+          type: integer
+          format: int64
         compile:
           description: |-
             Whether query compilation is enabled.
@@ -5265,16 +5343,18 @@ components:
           format: int64
         minInsertBlockSizeRows:
           description: |-
-            Squash blocks passed to INSERT query to specified size in rows, if blocks are not big enough.
+            Squash blocks passed to INSERT query to specified size in rows, if blocks are not big enough. If set to `0`,
+            blocks will never be squashed.
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         minInsertBlockSizeBytes:
           description: |-
-            Squash blocks passed to INSERT query to specified size in bytes, if blocks are not big enough.
+            Squash blocks passed to INSERT query to specified size in bytes, if blocks are not big enough.  If set to `0`,
+            blocks will never be squashed.
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         maxInsertBlockSize:
@@ -5325,6 +5405,18 @@ components:
             The minimum number of bytes to be read from a file to enable concurrent read.
 
             Value must be greater than 0.
+          type: integer
+          format: int64
+        maxBytesBeforeExternalGroupBy:
+          type: integer
+          format: int64
+        maxBytesBeforeExternalSort:
+          type: integer
+          format: int64
+        groupByTwoLevelThreshold:
+          type: integer
+          format: int64
+        groupByTwoLevelThresholdBytes:
           type: integer
           format: int64
         priority:
@@ -5544,7 +5636,13 @@ components:
             `+inf` and `-inf`) is enabled in JSON output format.
           type: boolean
           format: boolean
-        httpConnectTimeout:
+        lowCardinalityAllowInNativeFormat:
+          type: boolean
+          format: boolean
+        emptyResultForAggregationByEmptySet:
+          type: boolean
+          format: boolean
+        httpConnectionTimeout:
           description: HTTP connection timeout, in milliseconds.
           type: integer
           format: int64
@@ -5664,6 +5762,15 @@ components:
           format: int64
         distributedProductMode:
           $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
+        distributedAggregationMemoryEfficient:
+          description: Whether the memory-saving mode of distributed aggregation is
+            enabled.
+          type: boolean
+          format: boolean
+        distributedDdlTaskTimeout:
+          description: Timeout for DDL queries, in milliseconds.
+          type: integer
+          format: int64
         compile:
           description: |-
             Whether query compilation is enabled.
@@ -5698,16 +5805,18 @@ components:
           format: int64
         minInsertBlockSizeRows:
           description: |-
-            Squash blocks passed to INSERT query to specified size in rows, if blocks are not big enough.
+            Squash blocks passed to INSERT query to specified size in rows, if blocks are not big enough. If set to `0`,
+            blocks will never be squashed.
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         minInsertBlockSizeBytes:
           description: |-
-            Squash blocks passed to INSERT query to specified size in bytes, if blocks are not big enough.
+            Squash blocks passed to INSERT query to specified size in bytes, if blocks are not big enough.  If set to `0`,
+            blocks will never be squashed.
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         maxInsertBlockSize:
@@ -5758,6 +5867,18 @@ components:
             The minimum number of bytes to be read from a file to enable concurrent read.
 
             Value must be greater than 0.
+          type: integer
+          format: int64
+        maxBytesBeforeExternalGroupBy:
+          type: integer
+          format: int64
+        maxBytesBeforeExternalSort:
+          type: integer
+          format: int64
+        groupByTwoLevelThreshold:
+          type: integer
+          format: int64
+        groupByTwoLevelThresholdBytes:
           type: integer
           format: int64
         priority:
@@ -5977,7 +6098,13 @@ components:
             `+inf` and `-inf`) is enabled in JSON output format.
           type: boolean
           format: boolean
-        httpConnectTimeout:
+        lowCardinalityAllowInNativeFormat:
+          type: boolean
+          format: boolean
+        emptyResultForAggregationByEmptySet:
+          type: boolean
+          format: boolean
+        httpConnectionTimeout:
           description: HTTP connection timeout, in milliseconds.
           type: integer
           format: int64
@@ -6148,6 +6275,15 @@ components:
           format: int64
         distributedProductMode:
           $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
+        distributedAggregationMemoryEfficient:
+          description: Whether the memory-saving mode of distributed aggregation is
+            enabled.
+          type: boolean
+          format: boolean
+        distributedDdlTaskTimeout:
+          description: Timeout for DDL queries, in milliseconds.
+          type: integer
+          format: int64
         compile:
           description: |-
             Whether query compilation is enabled.
@@ -6182,16 +6318,18 @@ components:
           format: int64
         minInsertBlockSizeRows:
           description: |-
-            Squash blocks passed to INSERT query to specified size in rows, if blocks are not big enough.
+            Squash blocks passed to INSERT query to specified size in rows, if blocks are not big enough. If set to `0`,
+            blocks will never be squashed.
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         minInsertBlockSizeBytes:
           description: |-
-            Squash blocks passed to INSERT query to specified size in bytes, if blocks are not big enough.
+            Squash blocks passed to INSERT query to specified size in bytes, if blocks are not big enough.  If set to `0`,
+            blocks will never be squashed.
 
-            Value must be greater than 0.
+            The minimum value is 0.
           type: integer
           format: int64
         maxInsertBlockSize:
@@ -6242,6 +6380,18 @@ components:
             The minimum number of bytes to be read from a file to enable concurrent read.
 
             Value must be greater than 0.
+          type: integer
+          format: int64
+        maxBytesBeforeExternalGroupBy:
+          type: integer
+          format: int64
+        maxBytesBeforeExternalSort:
+          type: integer
+          format: int64
+        groupByTwoLevelThreshold:
+          type: integer
+          format: int64
+        groupByTwoLevelThresholdBytes:
           type: integer
           format: int64
         priority:
@@ -6461,7 +6611,13 @@ components:
             `+inf` and `-inf`) is enabled in JSON output format.
           type: boolean
           format: boolean
-        httpConnectTimeout:
+        lowCardinalityAllowInNativeFormat:
+          type: boolean
+          format: boolean
+        emptyResultForAggregationByEmptySet:
+          type: boolean
+          format: boolean
+        httpConnectionTimeout:
           description: HTTP connection timeout, in milliseconds.
           type: integer
           format: int64

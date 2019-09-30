@@ -75,7 +75,49 @@ filter | A filter expression that filters resources listed in the response. Curr
         ]
       },
       "instanceGroupId": "string",
-      "nodeVersion": "string"
+      "nodeVersion": "string",
+      "versionInfo": {
+        "currentVersion": "string",
+        "newRevisionAvailable": true,
+        "newRevisionSummary": "string",
+        "versionDeprecated": true
+      },
+      "maintenancePolicy": {
+        "autoUpgrade": true,
+        "autoRepair": true,
+        "maintenanceWindow": {
+
+          // `nodeGroups[].maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`
+          "anytime": {},
+          "dailyMaintenanceWindow": {
+            "startTime": {
+              "hours": "integer",
+              "minutes": "integer",
+              "seconds": "integer",
+              "nanos": "integer"
+            },
+            "duration": "string"
+          },
+          "weeklyMaintenanceWindow": {
+            "daysOfWeek": [
+              {
+                "days": [
+                  "string"
+                ],
+                "startTime": {
+                  "hours": "integer",
+                  "minutes": "integer",
+                  "seconds": "integer",
+                  "nanos": "integer"
+                },
+                "duration": "string"
+              }
+            ]
+          },
+          // end of the list of possible fields`nodeGroups[].maintenancePolicy.maintenanceWindow`
+
+        }
+      }
     }
   ],
   "nextPageToken": "string"
@@ -116,5 +158,31 @@ nodeGroups[].<br>allocationPolicy.<br>locations[] | **object**<br><p>List of loc
 nodeGroups[].<br>allocationPolicy.<br>locations[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the nodes may reside.</p> 
 nodeGroups[].<br>allocationPolicy.<br>locations[].<br>subnetId | **string**<br><p>ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted.</p> 
 nodeGroups[].<br>instanceGroupId | **string**<br><p>ID of the managed instance group associated with this node group.</p> 
-nodeGroups[].<br>nodeVersion | **string**<br><p>Version of Kubernetes components that runs on the nodes.</p> 
+nodeGroups[].<br>nodeVersion | **string**<br><p>Version of Kubernetes components that runs on the nodes. Deprecated. Use version_info.current_version.</p>
+nodeGroups[].<br>versionInfo | **object**<br>
+nodeGroups[].<br>versionInfo.<br>currentVersion | **string**<br><p>Current kubernetes version, major.minor (e.g. 1.15).</p>
+nodeGroups[].<br>versionInfo.<br>newRevisionAvailable | **boolean** (boolean)<br><p>Newer revisions may include kubernetes patches (e.g 1.15.1 -&gt; 1.15.2) as well as some internal component updates - new features or bug fixes in yandex-specific components either on the master or nodes.</p>
+nodeGroups[].<br>versionInfo.<br>newRevisionSummary | **string**<br><p>Human readable description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false.</p>
+nodeGroups[].<br>versionInfo.<br>versionDeprecated | **boolean** (boolean)<br><p>The current version is on the deprecation schedule, component (master or node group) should be upgraded.</p>
+nodeGroups[].<br>maintenancePolicy | **object**<br>
+nodeGroups[].<br>maintenancePolicy.<br>autoUpgrade | **boolean** (boolean)<br>
+nodeGroups[].<br>maintenancePolicy.<br>autoRepair | **boolean** (boolean)<br>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow | **object**<br>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>anytime | **object** <br>`nodeGroups[].maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`<br><br>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow | **object** <br>`nodeGroups[].maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`<br><br>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime | **object**<br><p>Required.</p> <p>Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> and <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value &quot;24:00:00&quot; for scenarios like business closing time.</p>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>duration | **string**<br><p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`nodeGroups[].maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`<br><br>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[] | **object**<br><p>Required. The number of elements must be in the range 1-7.</p>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>days[] | **string**<br><p>Represents a day of week.</p> <ul> <li>DAY_OF_WEEK_UNSPECIFIED: The unspecified day-of-week.</li> <li>MONDAY: The day-of-week of Monday.</li> <li>TUESDAY: The day-of-week of Tuesday.</li> <li>WEDNESDAY: The day-of-week of Wednesday.</li> <li>THURSDAY: The day-of-week of Thursday.</li> <li>FRIDAY: The day-of-week of Friday.</li> <li>SATURDAY: The day-of-week of Saturday.</li> <li>SUNDAY: The day-of-week of Sunday.</li> </ul>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime | **object**<br><p>Required.</p> <p>Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> and <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value &quot;24:00:00&quot; for scenarios like business closing time.</p>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p>
+nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>duration | **string**<br><p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p>
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#query_params">pageSize</a>, use the <a href="/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#responses">nextPageToken</a> as the value for the <a href="/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#responses">nextPageToken</a> to continue paging through the results.</p> 

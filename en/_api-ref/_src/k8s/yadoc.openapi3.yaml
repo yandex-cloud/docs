@@ -496,6 +496,18 @@ paths:
       x-y-navtitle: listOperations
 components:
   schemas:
+    AnytimeMaintenanceWindow:
+      type: object
+      properties: {}
+    AvailableVersions:
+      type: object
+      properties:
+        releaseChannel:
+          $ref: '#/components/schemas/ReleaseChannel_in_AvailableVersions_releaseChannel'
+        versions:
+          type: array
+          items:
+            type: string
     Cluster:
       description: A Kubernetes cluster.
       type: object
@@ -550,6 +562,8 @@ components:
             description: Service account to be used by the worker nodes of the Kubernetes
               cluster to access Container Registry or to push node logs and metrics.
             type: string
+          releaseChannel:
+            $ref: '#/components/schemas/ReleaseChannel'
       - title: internet_gateway
         type: object
         maxProperties: 1
@@ -651,6 +665,8 @@ components:
               Required.
               Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.
             type: string
+          releaseChannel:
+            $ref: '#/components/schemas/ReleaseChannel'
       - title: internet_gateway
         type: object
         maxProperties: 1
@@ -704,6 +720,54 @@ components:
           $ref: '#/components/schemas/ScalePolicy_in_CreateNodeGroupRequest_scalePolicy'
         allocationPolicy:
           $ref: '#/components/schemas/NodeGroupAllocationPolicy_in_CreateNodeGroupRequest_allocationPolicy'
+        version:
+          type: string
+        maintenancePolicy:
+          $ref: '#/components/schemas/NodeGroupMaintenancePolicy_in_CreateNodeGroupRequest_maintenancePolicy'
+    DailyMaintenanceWindow:
+      type: object
+      properties:
+        startTime:
+          $ref: '#/components/schemas/TimeOfDay_in_DailyMaintenanceWindow_startTime'
+        duration:
+          description: Acceptable values are 3600 seconds to 86400 seconds, inclusive.
+          type: string
+    DayOfWeek:
+      description: |-
+        Represents a day of week.
+
+         - DAY_OF_WEEK_UNSPECIFIED: The unspecified day-of-week.
+         - MONDAY: The day-of-week of Monday.
+         - TUESDAY: The day-of-week of Tuesday.
+         - WEDNESDAY: The day-of-week of Wednesday.
+         - THURSDAY: The day-of-week of Thursday.
+         - FRIDAY: The day-of-week of Friday.
+         - SATURDAY: The day-of-week of Saturday.
+         - SUNDAY: The day-of-week of Sunday.
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    DaysOfWeekMaintenanceWindow:
+      type: object
+      properties:
+        days:
+          description: |-
+            Required.
+            The number of elements must be in the range 1-7.
+          type: array
+          items:
+            $ref: '#/components/schemas/DayOfWeek'
+        startTime:
+          $ref: '#/components/schemas/TimeOfDay_in_DaysOfWeekMaintenanceWindow_startTime'
+        duration:
+          description: Acceptable values are 3600 seconds to 86400 seconds, inclusive.
+          type: string
     DeleteClusterMetadata:
       type: object
       properties:
@@ -862,6 +926,26 @@ components:
             in the next list request. Each subsequent list request will have its own
             [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/list#responses) to continue paging through the results.
           type: string
+    ListVersionsResponse:
+      type: object
+      properties:
+        availableVersions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AvailableVersions'
+    MaintenanceWindow:
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          dailyMaintenanceWindow:
+            $ref: '#/components/schemas/DailyMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     Master:
       type: object
       allOf:
@@ -879,6 +963,10 @@ components:
             $ref: '#/components/schemas/MasterAuth'
             description: Master authentication parameters are used to establish trust
               between the master and a client.
+          versionInfo:
+            $ref: '#/components/schemas/VersionInfo'
+          maintenancePolicy:
+            $ref: '#/components/schemas/MasterMaintenancePolicy'
       - title: master_type
         type: object
         maxProperties: 1
@@ -886,6 +974,9 @@ components:
           zonalMaster:
             $ref: '#/components/schemas/ZonalMaster'
             description: Parameters of the availability zone for the master.
+          regionalMaster:
+            $ref: '#/components/schemas/RegionalMaster'
+            description: Parameters of the region for the master.
     MasterAuth:
       type: object
       properties:
@@ -904,9 +995,31 @@ components:
           description: External endpoint that can be used to access Kubernetes cluster
             API from the internet (outside of the cloud).
           type: string
+    MasterLocation:
+      type: object
+      properties:
+        zoneId:
+          description: Required.
+          type: string
+        internalV4AddressSpec:
+          $ref: '#/components/schemas/InternalAddressSpec_in_MasterLocation_internalV4AddressSpec'
+    MasterMaintenancePolicy:
+      type: object
+      properties:
+        autoUpgrade:
+          type: boolean
+          format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow'
     MasterSpec:
       type: object
       allOf:
+      - type: object
+        properties:
+          version:
+            type: string
+          maintenancePolicy:
+            $ref: '#/components/schemas/MasterMaintenancePolicy'
       - title: master_type
         type: object
         maxProperties: 1
@@ -914,6 +1027,15 @@ components:
           zonalMasterSpec:
             $ref: '#/components/schemas/ZonalMasterSpec'
             description: Specification of the master availability zone.
+          regionalMasterSpec:
+            $ref: '#/components/schemas/RegionalMasterSpec'
+    MasterUpdateSpec:
+      type: object
+      properties:
+        version:
+          $ref: '#/components/schemas/UpdateVersionSpec_in_MasterUpdateSpec_version'
+        maintenancePolicy:
+          $ref: '#/components/schemas/MasterMaintenancePolicy_in_MasterUpdateSpec_maintenancePolicy'
     NodeAddressSpec:
       type: object
       properties:
@@ -961,8 +1083,14 @@ components:
             group.
           type: string
         nodeVersion:
-          description: Version of Kubernetes components that runs on the nodes.
+          description: |-
+            Version of Kubernetes components that runs on the nodes.
+            Deprecated. Use version_info.current_version.
           type: string
+        versionInfo:
+          $ref: '#/components/schemas/VersionInfo_in_NodeGroup_versionInfo'
+        maintenancePolicy:
+          $ref: '#/components/schemas/NodeGroupMaintenancePolicy_in_NodeGroup_maintenancePolicy'
     NodeGroupAllocationPolicy:
       type: object
       properties:
@@ -984,6 +1112,17 @@ components:
           description: ID of the subnet. If a network chosen for the Kubernetes cluster
             has only one subnet in the specified zone, subnet ID may be omitted.
           type: string
+    NodeGroupMaintenancePolicy:
+      type: object
+      properties:
+        autoUpgrade:
+          type: boolean
+          format: boolean
+        autoRepair:
+          type: boolean
+          format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow'
     NodeGroupStatus:
       description: |2-
          - PROVISIONING: Node group is waiting for resources to be allocated.
@@ -1085,6 +1224,36 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    RegionalMaster:
+      type: object
+      properties:
+        regionId:
+          description: ID of the region where the master resides.
+          type: string
+        internalV4Address:
+          description: An IPv4 internal network address that is assigned to the master.
+          type: string
+        externalV4Address:
+          description: An IPv4 external network address that is assigned to the master.
+          type: string
+    RegionalMasterSpec:
+      type: object
+      properties:
+        regionId:
+          description: Required.
+          type: string
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/MasterLocation'
+        externalV4AddressSpec:
+          $ref: '#/components/schemas/ExternalAddressSpec_in_RegionalMasterSpec_externalV4AddressSpec'
+    ReleaseChannel:
+      type: string
+      enum:
+      - RAPID
+      - REGULAR
+      - STABLE
     ResourcesSpec:
       type: object
       properties:
@@ -1140,6 +1309,33 @@ components:
             For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
           type: boolean
           format: boolean
+    TimeOfDay:
+      description: |-
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+      type: object
+      properties:
+        hours:
+          description: |-
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
+          type: integer
+          format: int32
+        minutes:
+          description: Minutes of hour of day. Must be from 0 to 59.
+          type: integer
+          format: int32
+        seconds:
+          description: |-
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
+          type: integer
+          format: int32
+        nanos:
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+          type: integer
+          format: int32
     UpdateClusterMetadata:
       type: object
       properties:
@@ -1180,6 +1376,8 @@ components:
             type: object
             additionalProperties:
               type: string
+          masterSpec:
+            $ref: '#/components/schemas/MasterUpdateSpec'
           serviceAccountId:
             description: |-
               Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster.
@@ -1244,6 +1442,58 @@ components:
           $ref: '#/components/schemas/ScalePolicy_in_UpdateNodeGroupRequest_scalePolicy'
         allocationPolicy:
           $ref: '#/components/schemas/NodeGroupAllocationPolicy_in_UpdateNodeGroupRequest_allocationPolicy'
+        version:
+          $ref: '#/components/schemas/UpdateVersionSpec_in_UpdateNodeGroupRequest_version'
+        maintenancePolicy:
+          $ref: '#/components/schemas/NodeGroupMaintenancePolicy_in_UpdateNodeGroupRequest_maintenancePolicy'
+    UpdateVersionSpec:
+      type: object
+      allOf:
+      - title: specifier
+        type: object
+        maxProperties: 1
+        properties:
+          version:
+            description: Request update to a newer version of kubernetes (1.x -> 1.y).
+            type: string
+          latestRevision:
+            description: Request update to the latest revision for the current version.
+            type: boolean
+            format: boolean
+    VersionInfo:
+      type: object
+      properties:
+        currentVersion:
+          description: Current kubernetes version, major.minor (e.g. 1.15).
+          type: string
+        newRevisionAvailable:
+          description: |-
+            Newer revisions may include kubernetes patches (e.g 1.15.1 -> 1.15.2) as well
+            as some internal component updates - new features or bug fixes in yandex-specific
+            components either on the master or nodes.
+          type: boolean
+          format: boolean
+        newRevisionSummary:
+          description: |-
+            Human readable description of the changes to be applied when updating to the latest
+            revision. Empty if new_revision_available is false.
+          type: string
+        versionDeprecated:
+          description: |-
+            The current version is on the deprecation schedule, component (master or node group)
+            should be upgraded.
+          type: boolean
+          format: boolean
+    WeeklyMaintenanceWindow:
+      type: object
+      properties:
+        daysOfWeek:
+          description: |-
+            Required.
+            The number of elements must be in the range 1-7.
+          type: array
+          items:
+            $ref: '#/components/schemas/DaysOfWeekMaintenanceWindow'
     ZonalMaster:
       type: object
       properties:
@@ -1284,6 +1534,12 @@ components:
           type: array
           items:
             type: object
+    ReleaseChannel_in_AvailableVersions_releaseChannel:
+      type: string
+      enum:
+      - RAPID
+      - REGULAR
+      - STABLE
     NodeTemplate_in_CreateNodeGroupRequest_nodeTemplate:
       description: |-
         Required.
@@ -1333,6 +1589,120 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NodeGroupLocation'
+    NodeGroupMaintenancePolicy_in_CreateNodeGroupRequest_maintenancePolicy:
+      type: object
+      properties:
+        autoUpgrade:
+          type: boolean
+          format: boolean
+        autoRepair:
+          type: boolean
+          format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow'
+    TimeOfDay_in_DailyMaintenanceWindow_startTime:
+      description: |-
+        Required.
+
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+      type: object
+      properties:
+        hours:
+          description: |-
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
+          type: integer
+          format: int32
+        minutes:
+          description: Minutes of hour of day. Must be from 0 to 59.
+          type: integer
+          format: int32
+        seconds:
+          description: |-
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
+          type: integer
+          format: int32
+        nanos:
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+          type: integer
+          format: int32
+    TimeOfDay_in_DaysOfWeekMaintenanceWindow_startTime:
+      description: |-
+        Required.
+
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+      type: object
+      properties:
+        hours:
+          description: |-
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
+          type: integer
+          format: int32
+        minutes:
+          description: Minutes of hour of day. Must be from 0 to 59.
+          type: integer
+          format: int32
+        seconds:
+          description: |-
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
+          type: integer
+          format: int32
+        nanos:
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+          type: integer
+          format: int32
+    InternalAddressSpec_in_MasterLocation_internalV4AddressSpec:
+      description: |-
+        If not specified and there is a single subnet in specified zone, address
+        in this subnet will be allocated.
+      type: object
+      properties:
+        subnetId:
+          description: ID of the subnet. If no ID is specified, and there only one
+            subnet in specified zone, an address in this subnet will be allocated.
+          type: string
+    MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow:
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          dailyMaintenanceWindow:
+            $ref: '#/components/schemas/DailyMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+    UpdateVersionSpec_in_MasterUpdateSpec_version:
+      type: object
+      allOf:
+      - title: specifier
+        type: object
+        maxProperties: 1
+        properties:
+          version:
+            description: Request update to a newer version of kubernetes (1.x -> 1.y).
+            type: string
+          latestRevision:
+            description: Request update to the latest revision for the current version.
+            type: boolean
+            format: boolean
+    MasterMaintenancePolicy_in_MasterUpdateSpec_maintenancePolicy:
+      type: object
+      properties:
+        autoUpgrade:
+          type: boolean
+          format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow'
     OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec:
       description: One-to-one NAT configuration. Setting up one-to-one NAT ensures
         that public IP addresses are assigned to nodes, and therefore internet is
@@ -1408,6 +1778,54 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NodeGroupLocation'
+    VersionInfo_in_NodeGroup_versionInfo:
+      type: object
+      properties:
+        currentVersion:
+          description: Current kubernetes version, major.minor (e.g. 1.15).
+          type: string
+        newRevisionAvailable:
+          description: |-
+            Newer revisions may include kubernetes patches (e.g 1.15.1 -> 1.15.2) as well
+            as some internal component updates - new features or bug fixes in yandex-specific
+            components either on the master or nodes.
+          type: boolean
+          format: boolean
+        newRevisionSummary:
+          description: |-
+            Human readable description of the changes to be applied when updating to the latest
+            revision. Empty if new_revision_available is false.
+          type: string
+        versionDeprecated:
+          description: |-
+            The current version is on the deprecation schedule, component (master or node group)
+            should be upgraded.
+          type: boolean
+          format: boolean
+    NodeGroupMaintenancePolicy_in_NodeGroup_maintenancePolicy:
+      type: object
+      properties:
+        autoUpgrade:
+          type: boolean
+          format: boolean
+        autoRepair:
+          type: boolean
+          format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow'
+    MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow:
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          dailyMaintenanceWindow:
+            $ref: '#/components/schemas/DailyMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     ResourcesSpec_in_NodeTemplate_resourcesSpec:
       description: Computing resources of the node such as the amount of memory and
         number of cores.
@@ -1484,6 +1902,10 @@ components:
       enum:
       - IPV4
       - IPV6
+    ExternalAddressSpec_in_RegionalMasterSpec_externalV4AddressSpec:
+      description: Specify to allocate a static public IP for the master
+      type: object
+      properties: {}
     FieldMask_in_UpdateNodeGroupRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the node group are going to be updated.
@@ -1544,6 +1966,31 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NodeGroupLocation'
+    UpdateVersionSpec_in_UpdateNodeGroupRequest_version:
+      type: object
+      allOf:
+      - title: specifier
+        type: object
+        maxProperties: 1
+        properties:
+          version:
+            description: Request update to a newer version of kubernetes (1.x -> 1.y).
+            type: string
+          latestRevision:
+            description: Request update to the latest revision for the current version.
+            type: boolean
+            format: boolean
+    NodeGroupMaintenancePolicy_in_UpdateNodeGroupRequest_maintenancePolicy:
+      type: object
+      properties:
+        autoUpgrade:
+          type: boolean
+          format: boolean
+        autoRepair:
+          type: boolean
+          format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_NodeGroupMaintenancePolicy_maintenanceWindow'
     InternalAddressSpec_in_ZonalMasterSpec_internalV4AddressSpec:
       description: Specification of parameters for internal IPv4 networking.
       type: object
@@ -1561,3 +2008,4 @@ tags:
   description: A set of methods for managing Kubernetes cluster.
 - name: NodeGroup
   description: A set of methods for managing node groups.
+- name: Version

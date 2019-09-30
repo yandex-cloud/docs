@@ -877,6 +877,8 @@ components:
             type: string
         status:
           $ref: '#/components/schemas/RegistryStatus_in_Registry_status'
+        logGroupId:
+          type: string
     RegistryCertificate:
       type: object
       properties:

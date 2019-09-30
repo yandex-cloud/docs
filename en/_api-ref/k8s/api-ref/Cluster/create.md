@@ -22,13 +22,65 @@ POST https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters
   "labels": "object",
   "networkId": "string",
   "masterSpec": {
+    "version": "string",
+    "maintenancePolicy": {
+      "autoUpgrade": true,
+      "maintenanceWindow": {
+
+        // `masterSpec.maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`
+        "anytime": {},
+        "dailyMaintenanceWindow": {
+          "startTime": {
+            "hours": "integer",
+            "minutes": "integer",
+            "seconds": "integer",
+            "nanos": "integer"
+          },
+          "duration": "string"
+        },
+        "weeklyMaintenanceWindow": {
+          "daysOfWeek": [
+            {
+              "days": [
+                "string"
+              ],
+              "startTime": {
+                "hours": "integer",
+                "minutes": "integer",
+                "seconds": "integer",
+                "nanos": "integer"
+              },
+              "duration": "string"
+            }
+          ]
+        },
+        // end of the list of possible fields`masterSpec.maintenancePolicy.maintenanceWindow`
+
+      }
+    },
+
+    // `masterSpec` includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`
     "zonalMasterSpec": {
       "zoneId": "string",
       "internalV4AddressSpec": {
         "subnetId": "string"
       },
       "externalV4AddressSpec": {}
-    }
+    },
+    "regionalMasterSpec": {
+      "regionId": "string",
+      "locations": [
+        {
+          "zoneId": "string",
+          "internalV4AddressSpec": {
+            "subnetId": "string"
+          }
+        }
+      ],
+      "externalV4AddressSpec": {}
+    },
+    // end of the list of possible fields`masterSpec`
+
   },
   "ipAllocationPolicy": {
     "clusterIpv4CidrBlock": "string",
@@ -36,6 +88,7 @@ POST https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters
   },
   "serviceAccountId": "string",
   "nodeServiceAccountId": "string",
+  "releaseChannel": "string",
   "gatewayIpv4Address": "string"
 }
 ```
@@ -49,16 +102,45 @@ description | **string**<br><p>Description of the Kubernetes cluster.</p> <p>The
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
 networkId | **string**<br><p>Required. ID of the network.</p> 
 masterSpec | **object**<br>Required. IP allocation policy of the Kubernetes cluster.<br>
-masterSpec.<br>zonalMasterSpec | **object**<br>Specification of the master availability zone.<br>
+masterSpec.<br>version | **string**<br>
+masterSpec.<br>maintenancePolicy | **object**<br>
+masterSpec.<br>maintenancePolicy.<br>autoUpgrade | **boolean** (boolean)<br>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow | **object**<br>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>anytime | **object** <br>`masterSpec.maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`<br><br>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow | **object** <br>`masterSpec.maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`<br><br>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime | **object**<br><p>Required.</p> <p>Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> and <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value &quot;24:00:00&quot; for scenarios like business closing time.</p>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>startTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>dailyMaintenanceWindow.<br>duration | **string**<br><p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`masterSpec.maintenancePolicy.maintenanceWindow` includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`<br><br>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[] | **object**<br><p>Required. The number of elements must be in the range 1-7.</p>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>days[] | **string**<br><p>Represents a day of week.</p> <ul> <li>DAY_OF_WEEK_UNSPECIFIED: The unspecified day-of-week.</li> <li>MONDAY: The day-of-week of Monday.</li> <li>TUESDAY: The day-of-week of Tuesday.</li> <li>WEDNESDAY: The day-of-week of Wednesday.</li> <li>THURSDAY: The day-of-week of Thursday.</li> <li>FRIDAY: The day-of-week of Friday.</li> <li>SATURDAY: The day-of-week of Saturday.</li> <li>SUNDAY: The day-of-week of Sunday.</li> </ul>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime | **object**<br><p>Required.</p> <p>Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> and <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value &quot;24:00:00&quot; for scenarios like business closing time.</p>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p>
+masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>duration | **string**<br><p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p>
+masterSpec.<br>zonalMasterSpec | **object**<br>Specification of the master availability zone. <br>`masterSpec` includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`<br><br>
 masterSpec.<br>zonalMasterSpec.<br>zoneId | **string**<br><p>Required. ID of the availability zone.</p> 
 masterSpec.<br>zonalMasterSpec.<br>internalV4AddressSpec | **object**<br><p>Specification of parameters for internal IPv4 networking.</p> 
 masterSpec.<br>zonalMasterSpec.<br>internalV4AddressSpec.<br>subnetId | **string**<br><p>ID of the subnet. If no ID is specified, and there only one subnet in specified zone, an address in this subnet will be allocated.</p> 
 masterSpec.<br>zonalMasterSpec.<br>externalV4AddressSpec | **object**<br><p>Specification of parameters for external IPv4 networking.</p> 
+masterSpec.<br>regionalMasterSpec | **object** <br>`masterSpec` includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`<br><br>
+masterSpec.<br>regionalMasterSpec.<br>regionId | **string**<br><p>Required.</p>
+masterSpec.<br>regionalMasterSpec.<br>locations[] | **object**<br>
+masterSpec.<br>regionalMasterSpec.<br>locations[].<br>zoneId | **string**<br><p>Required.</p>
+masterSpec.<br>regionalMasterSpec.<br>locations[].<br>internalV4AddressSpec | **object**<br><p>If not specified and there is a single subnet in specified zone, address in this subnet will be allocated.</p>
+masterSpec.<br>regionalMasterSpec.<br>locations[].<br>internalV4AddressSpec.<br>subnetId | **string**<br><p>ID of the subnet. If no ID is specified, and there only one subnet in specified zone, an address in this subnet will be allocated.</p>
+masterSpec.<br>regionalMasterSpec.<br>externalV4AddressSpec | **object**<br><p>Specify to allocate a static public IP for the master</p>
 ipAllocationPolicy | **object**<br>IP allocation policy of the Kubernetes cluster.<br>
 ipAllocationPolicy.<br>clusterIpv4CidrBlock | **string**<br><p>CIDR block. IP range for allocating pod addresses.</p> <p>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets.</p> 
 ipAllocationPolicy.<br>serviceIpv4CidrBlock | **string**<br><p>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from.</p> <p>It should not overlap with any subnet in the network the Kubernetes cluster located in.</p> 
 serviceAccountId | **string**<br><p>Required. Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have <code>edit</code> role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides.</p> 
 nodeServiceAccountId | **string**<br><p>Required. Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.</p> 
+releaseChannel | **string**<br>
 gatewayIpv4Address | **string**<br><p>Gateway IPv4 address.</p> 
  
 ## Response {#responses}

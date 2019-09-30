@@ -38,12 +38,13 @@ filter |
 
         // `triggers[].rule` includes only one of the fields `messageQueue`, `iotMessage`
         "messageQueue": {
+          "queueId": "string",
           "serviceAccountId": "string",
           "batchSettings": {
             "size": "string",
             "cutoff": "string"
           },
-          "arn": "string",
+          "visibilityTimeout": "string",
           "invokeFunction": {
             "functionId": "string",
             "functionTag": "string",
@@ -85,11 +86,12 @@ triggers[].<br>description | **string**<br><p>Description of the trigger.</p>
 triggers[].<br>labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> 
 triggers[].<br>rule | **object**<br><p>Required. Defines trigger rule (is always consistent with type filed)</p> 
 triggers[].<br>rule.<br>messageQueue | **object** <br>`triggers[].rule` includes only one of the fields `messageQueue`, `iotMessage`<br><br>
+triggers[].<br>rule.<br>messageQueue.<br>queueId | **string**<br><p>ID of the queue.</p>
 triggers[].<br>rule.<br>messageQueue.<br>serviceAccountId | **string**<br><p>Required. SA which has read access to the queue.</p> <p>The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>batchSettings | **object**<br>Required. Batch settings for YMQ client.<br>
 triggers[].<br>rule.<br>messageQueue.<br>batchSettings.<br>size | **string** (int64)<br><p>Maximum batch size: trigger will send a batch if number of events exceeds this value.</p> <p>Acceptable values are 0 to 10, inclusive.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum batch size: trigger will send a batch if its lifetime exceeds this value.</p> 
-triggers[].<br>rule.<br>messageQueue.<br>arn | **string**<br><p>ARN stands for Amazon Resource ID. ARN is the only way to uniquely identify a queue in the YMQ. One is expected to use it as a reference to a queue when creating a trigger.</p> 
+triggers[].<br>rule.<br>messageQueue.<br>visibilityTimeout | **string**<br><p>Queue visibility timeout override.</p> <p>The maximum value is 43200 seconds.</p>
 triggers[].<br>rule.<br>messageQueue.<br>invokeFunction | **object**<br>
 triggers[].<br>rule.<br>messageQueue.<br>invokeFunction.<br>functionId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>invokeFunction.<br>functionTag | **string**<br>

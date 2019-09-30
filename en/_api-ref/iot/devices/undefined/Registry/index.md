@@ -13,7 +13,8 @@ editable: false
   "name": "string",
   "description": "string",
   "labels": "object",
-  "status": "string"
+  "status": "string",
+  "logGroupId": "string"
 }
 ```
  
@@ -26,6 +27,7 @@ name | **string**<br>
 description | **string**<br>
 labels | **object**<br>
 status | **string**<br>
+logGroupId | **string**<br>
 
 ## Methods {#methods}
 Method | Description

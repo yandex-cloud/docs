@@ -24,12 +24,13 @@ POST undefined/triggers/v1/triggers
 
     // `rule` includes only one of the fields `messageQueue`, `iotMessage`
     "messageQueue": {
+      "queueId": "string",
       "serviceAccountId": "string",
       "batchSettings": {
         "size": "string",
         "cutoff": "string"
       },
-      "arn": "string",
+      "visibilityTimeout": "string",
       "invokeFunction": {
         "functionId": "string",
         "functionTag": "string",
@@ -65,11 +66,12 @@ description | **string**<br><p>The maximum string length in characters is 256.</
 labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
 rule | **object**<br><p>Required.</p> 
 rule.<br>messageQueue | **object** <br>`rule` includes only one of the fields `messageQueue`, `iotMessage`<br><br>
+rule.<br>messageQueue.<br>queueId | **string**<br><p>ID of the queue.</p>
 rule.<br>messageQueue.<br>serviceAccountId | **string**<br><p>Required. SA which has read access to the queue.</p> <p>The maximum string length in characters is 50.</p> 
 rule.<br>messageQueue.<br>batchSettings | **object**<br>Required. Batch settings for YMQ client.<br>
 rule.<br>messageQueue.<br>batchSettings.<br>size | **string** (int64)<br><p>Maximum batch size: trigger will send a batch if number of events exceeds this value.</p> <p>Acceptable values are 0 to 10, inclusive.</p> 
 rule.<br>messageQueue.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum batch size: trigger will send a batch if its lifetime exceeds this value.</p> 
-rule.<br>messageQueue.<br>arn | **string**<br><p>ARN stands for Amazon Resource ID. ARN is the only way to uniquely identify a queue in the YMQ. One is expected to use it as a reference to a queue when creating a trigger.</p> 
+rule.<br>messageQueue.<br>visibilityTimeout | **string**<br><p>Queue visibility timeout override.</p> <p>The maximum value is 43200 seconds.</p>
 rule.<br>messageQueue.<br>invokeFunction | **object**<br>
 rule.<br>messageQueue.<br>invokeFunction.<br>functionId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
 rule.<br>messageQueue.<br>invokeFunction.<br>functionTag | **string**<br>

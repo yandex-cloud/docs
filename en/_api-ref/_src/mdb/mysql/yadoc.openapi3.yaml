@@ -1378,6 +1378,9 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfigSet5_7'
             description: Configuration of a MySQL 5.7 server.
+          mysqlConfig_8_0:
+            $ref: '#/components/schemas/MysqlConfigSet8_0'
+            description: Configuration of a MySQL 8.0 server.
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: Stable environment with a conservative update policy:
@@ -1432,6 +1435,7 @@ components:
               Version of MySQL used in the cluster.
               Possible values:
               * 5.7
+              * 8.0
             type: string
           resources:
             $ref: '#/components/schemas/Resources'
@@ -1449,6 +1453,8 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfig5_7'
             description: Configuration for a MySQL 5.7 cluster.
+          mysqlConfig_8_0:
+            $ref: '#/components/schemas/MysqlConfig8_0'
     CreateClusterMetadata:
       type: object
       properties:
@@ -2032,6 +2038,90 @@ components:
       - MYSQL40
       - ORACLE
       - POSTGRESQL
+    MysqlConfig8_0:
+      description: Options and structure of `MysqlConfig8_0` reflects MySQL 8.0 configuration
+        file
+      type: object
+      properties:
+        innodbBufferPoolSize:
+          description: |-
+            Size of the InnoDB buffer pool used for caching table and index data.
+
+            For details, see [MySQL documentation for the parameter](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
+
+            The minimum value is 5242880.
+          type: integer
+          format: int64
+        maxConnections:
+          description: |-
+            The maximum permitted number of simultaneous client connections.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
+
+            Acceptable values are 10 to 10000, inclusive.
+          type: integer
+          format: int64
+        longQueryTime:
+          description: |-
+            Time that it takes to process a query before it is considered slow.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
+          type: number
+          format: double
+        generalLog:
+          description: |-
+            Enable writing of general query log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_general_log).
+          type: boolean
+          format: boolean
+        auditLog:
+          description: |-
+            Enable writing of audit log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
+          type: boolean
+          format: boolean
+        sqlMode:
+          description: |-
+            Server SQL mode of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig8_0SQLMode'
+        maxAllowedPacket:
+          description: |-
+            The maximum size in bytes of one packet.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet).
+
+            Acceptable values are 1024 to 134217728, inclusive.
+          type: integer
+          format: int64
+    MysqlConfig8_0SQLMode:
+      type: string
+      enum:
+      - ALLOW_INVALID_DATES
+      - ANSI_QUOTES
+      - ERROR_FOR_DIVISION_BY_ZERO
+      - HIGH_NOT_PRECEDENCE
+      - IGNORE_SPACE
+      - NO_AUTO_VALUE_ON_ZERO
+      - NO_BACKSLASH_ESCAPES
+      - NO_ENGINE_SUBSTITUTION
+      - NO_UNSIGNED_SUBTRACTION
+      - NO_ZERO_DATE
+      - NO_ZERO_IN_DATE
+      - ONLY_FULL_GROUP_BY
+      - PAD_CHAR_TO_FULL_LENGTH
+      - PIPES_AS_CONCAT
+      - REAL_AS_FLOAT
+      - STRICT_ALL_TABLES
+      - STRICT_TRANS_TABLES
+      - TIME_TRUNCATE_FRACTIONAL
+      - ANSI
+      - TRADITIONAL
     MysqlConfigSet5_7:
       type: object
       properties:
@@ -2041,6 +2131,15 @@ components:
           $ref: '#/components/schemas/MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig'
+    MysqlConfigSet8_0:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MysqlConfig8_0_in_MysqlConfigSet8_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MysqlConfig8_0_in_MysqlConfigSet8_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MysqlConfig8_0_in_MysqlConfigSet8_0_defaultConfig'
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -2522,6 +2621,9 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfigSet5_7'
             description: Configuration of a MySQL 5.7 server.
+          mysqlConfig_8_0:
+            $ref: '#/components/schemas/MysqlConfigSet8_0'
+            description: Configuration of a MySQL 8.0 server.
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
@@ -2584,6 +2686,7 @@ components:
               Version of MySQL used in the cluster.
               Possible values:
               * 5.7
+              * 8.0
             type: string
           resources:
             $ref: '#/components/schemas/Resources'
@@ -2601,6 +2704,8 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfig5_7'
             description: Configuration for a MySQL 5.7 cluster.
+          mysqlConfig_8_0:
+            $ref: '#/components/schemas/MysqlConfig8_0'
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Required.
@@ -2897,6 +3002,196 @@ components:
             Acceptable values are 1024 to 134217728, inclusive.
           type: integer
           format: int64
+    MysqlConfig8_0_in_MysqlConfigSet8_0_effectiveConfig:
+      description: |-
+        Effective settings for a MySQL 8.0 cluster (a combination of settings defined
+        in userConfig and [default_config]).
+
+        Options and structure of `MysqlConfig8_0` reflects MySQL 8.0 configuration file
+      type: object
+      properties:
+        innodbBufferPoolSize:
+          description: |-
+            Size of the InnoDB buffer pool used for caching table and index data.
+
+            For details, see [MySQL documentation for the parameter](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
+
+            The minimum value is 5242880.
+          type: integer
+          format: int64
+        maxConnections:
+          description: |-
+            The maximum permitted number of simultaneous client connections.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
+
+            Acceptable values are 10 to 10000, inclusive.
+          type: integer
+          format: int64
+        longQueryTime:
+          description: |-
+            Time that it takes to process a query before it is considered slow.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
+          type: number
+          format: double
+        generalLog:
+          description: |-
+            Enable writing of general query log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_general_log).
+          type: boolean
+          format: boolean
+        auditLog:
+          description: |-
+            Enable writing of audit log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
+          type: boolean
+          format: boolean
+        sqlMode:
+          description: |-
+            Server SQL mode of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig8_0SQLMode'
+        maxAllowedPacket:
+          description: |-
+            The maximum size in bytes of one packet.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet).
+
+            Acceptable values are 1024 to 134217728, inclusive.
+          type: integer
+          format: int64
+    MysqlConfig8_0_in_MysqlConfigSet8_0_userConfig:
+      description: |-
+        User-defined settings for a MySQL 8.0 cluster.
+
+        Options and structure of `MysqlConfig8_0` reflects MySQL 8.0 configuration file
+      type: object
+      properties:
+        innodbBufferPoolSize:
+          description: |-
+            Size of the InnoDB buffer pool used for caching table and index data.
+
+            For details, see [MySQL documentation for the parameter](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
+
+            The minimum value is 5242880.
+          type: integer
+          format: int64
+        maxConnections:
+          description: |-
+            The maximum permitted number of simultaneous client connections.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
+
+            Acceptable values are 10 to 10000, inclusive.
+          type: integer
+          format: int64
+        longQueryTime:
+          description: |-
+            Time that it takes to process a query before it is considered slow.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
+          type: number
+          format: double
+        generalLog:
+          description: |-
+            Enable writing of general query log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_general_log).
+          type: boolean
+          format: boolean
+        auditLog:
+          description: |-
+            Enable writing of audit log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
+          type: boolean
+          format: boolean
+        sqlMode:
+          description: |-
+            Server SQL mode of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig8_0SQLMode'
+        maxAllowedPacket:
+          description: |-
+            The maximum size in bytes of one packet.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet).
+
+            Acceptable values are 1024 to 134217728, inclusive.
+          type: integer
+          format: int64
+    MysqlConfig8_0_in_MysqlConfigSet8_0_defaultConfig:
+      description: |-
+        Default configuration for a MySQL 8.0 cluster.
+
+        Options and structure of `MysqlConfig8_0` reflects MySQL 8.0 configuration file
+      type: object
+      properties:
+        innodbBufferPoolSize:
+          description: |-
+            Size of the InnoDB buffer pool used for caching table and index data.
+
+            For details, see [MySQL documentation for the parameter](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
+
+            The minimum value is 5242880.
+          type: integer
+          format: int64
+        maxConnections:
+          description: |-
+            The maximum permitted number of simultaneous client connections.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
+
+            Acceptable values are 10 to 10000, inclusive.
+          type: integer
+          format: int64
+        longQueryTime:
+          description: |-
+            Time that it takes to process a query before it is considered slow.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
+          type: number
+          format: double
+        generalLog:
+          description: |-
+            Enable writing of general query log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_general_log).
+          type: boolean
+          format: boolean
+        auditLog:
+          description: |-
+            Enable writing of audit log of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
+          type: boolean
+          format: boolean
+        sqlMode:
+          description: |-
+            Server SQL mode of MySQL.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig8_0SQLMode'
+        maxAllowedPacket:
+          description: |-
+            The maximum size in bytes of one packet.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet).
+
+            Acceptable values are 1024 to 134217728, inclusive.
+          type: integer
+          format: int64
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Deployment environment of the new MySQL cluster.
@@ -2920,6 +3215,7 @@ components:
               Version of MySQL used in the cluster.
               Possible values:
               * 5.7
+              * 8.0
             type: string
           resources:
             $ref: '#/components/schemas/Resources'
@@ -2937,6 +3233,8 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfig5_7'
             description: Configuration for a MySQL 5.7 cluster.
+          mysqlConfig_8_0:
+            $ref: '#/components/schemas/MysqlConfig8_0'
     Permission_in_RevokeUserPermissionRequest_permission:
       description: |-
         Required.
@@ -3000,6 +3298,7 @@ components:
               Version of MySQL used in the cluster.
               Possible values:
               * 5.7
+              * 8.0
             type: string
           resources:
             $ref: '#/components/schemas/Resources'
@@ -3017,6 +3316,8 @@ components:
           mysqlConfig_5_7:
             $ref: '#/components/schemas/MysqlConfig5_7'
             description: Configuration for a MySQL 5.7 cluster.
+          mysqlConfig_8_0:
+            $ref: '#/components/schemas/MysqlConfig8_0'
     FieldMask_in_UpdateUserRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the MySQL user should be updated.

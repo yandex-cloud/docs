@@ -423,6 +423,9 @@ components:
       allOf:
       - type: object
         properties:
+          queueId:
+            description: ID of the queue.
+            type: string
           serviceAccountId:
             description: |-
               Required.
@@ -435,15 +438,11 @@ components:
             description: |-
               Required.
               Batch settings for YMQ client.
-      - title: queue
-        type: object
-        maxProperties: 1
-        properties:
-          arn:
+          visibilityTimeout:
             description: |-
-              ARN stands for Amazon Resource ID. ARN is the only way to uniquely
-              identify a queue in the YMQ. One is expected to use it as a reference
-              to a queue when creating a trigger.
+              Queue visibility timeout override.
+
+              The maximum value is 43200 seconds.
             type: string
       - title: action
         type: object

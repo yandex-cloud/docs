@@ -252,6 +252,82 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateInstanceGroupMetadata'
       x-y-operation-response: '[InstanceGroup](/docs/compute/api-ref/InstanceGroup#representation)'
+  /compute/v1/instanceGroups/{instanceGroupId}:stop:
+    post:
+      tags:
+      - InstanceGroup
+      summary: |-
+        TODO DOC-REVIEW:
+        Stops the specified instance group.
+      operationId: InstanceGroupStop
+      parameters:
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the instance group to stop.
+          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: 'TODO DOC-REVIEW:'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StopInstanceGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: stop
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StopInstanceGroupMetadata'
+      x-y-operation-response: '[InstanceGroup](/docs/compute/api-ref/InstanceGroup#representation)'
+  /compute/v1/instanceGroups/{instanceGroupId}:start:
+    post:
+      tags:
+      - InstanceGroup
+      summary: |-
+        TODO DOC-REVIEW:
+        Starts the specified instance group.
+      operationId: InstanceGroupStart
+      parameters:
+      - name: instanceGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the instance group to start.
+          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: 'TODO DOC-REVIEW:'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartInstanceGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: start
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StartInstanceGroupMetadata'
+      x-y-operation-response: '[InstanceGroup](/docs/compute/api-ref/InstanceGroup#representation)'
   /compute/v1/instanceGroups/{instanceGroupId}/instances:
     get:
       tags:
@@ -774,6 +850,30 @@ components:
             made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
             To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
           type: string
+        status:
+          $ref: '#/components/schemas/InstanceGroupStatus_in_InstanceGroup_status'
+    InstanceGroupStatus:
+      description: |-
+        TODO DOC-REVIEW:
+
+         - STARTING: Instance group is being started and will become active soon.
+         - ACTIVE: Instance group is active.
+        In this state the group manages its instances and monitors their health,
+        creating, deleting, stopping, updating and starting instances as needed.
+        To stop the instance group, call [stop](/docs/compute/api-ref/InstanceGroup/stop).
+         - STOPPING: Instance group is being stopped.
+        Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.
+         - STOPPED: Instance group is stopped.
+        In this state the group cannot be updated and does not react to any changes made to its instances.
+        To start the instance group, call [start](/docs/compute/api-ref/InstanceGroup/start).
+         - DELETING: Instance group is being deleted.
+      type: string
+      enum:
+      - STARTING
+      - ACTIVE
+      - STOPPING
+      - STOPPED
+      - DELETING
     InstanceGroupView:
       description: |2-
          - BASIC: Doesn't include the metadata of the instance template in the server response.
@@ -1178,7 +1278,7 @@ components:
           description: |-
             The number of cores available to the instance.
 
-            Value must be one of 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 or 32.
+            Value must be one of 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 52, 56, 60 or 64.
           type: string
           format: int64
         coreFraction:
@@ -1206,6 +1306,50 @@ components:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
             description: Fixed scaling policy of the instance group.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+    ScalePolicyAutoScale:
+      type: object
+      properties:
+        minZoneSize:
+          description: |-
+            Lower limit for instance count in each zone.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        maxSize:
+          description: |-
+            Upper limit for total instance count (across all zones).
+            0 means maximum limit = 100.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        measurementDuration:
+          description: |-
+            Required.
+            Acceptable values are 60 seconds to 600 seconds, inclusive.
+          type: string
+        warmupDuration:
+          description: The maximum value is 600 seconds.
+          type: string
+        stabilizationDuration:
+          description: Acceptable values are 60 seconds to 1800 seconds, inclusive.
+          type: string
+        initialSize:
+          description: The minimum value is 1.
+          type: string
+          format: int64
+        cpuUtilizationRule:
+          $ref: '#/components/schemas/ScalePolicyCpuUtilizationRule_in_ScalePolicyAutoScale_cpuUtilizationRule'
+    ScalePolicyCpuUtilizationRule:
+      type: object
+      properties:
+        utilizationTarget:
+          description: Acceptable values are 10 to 100, inclusive.
+          type: number
+          format: double
     ScalePolicyFixedScale:
       type: object
       properties:
@@ -1226,6 +1370,28 @@ components:
             For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
           type: boolean
           format: boolean
+    StartInstanceGroupMetadata:
+      description: 'TODO DOC-REVIEW:'
+      type: object
+      properties:
+        instanceGroupId:
+          description: ID of the InstanceGroup resource that is being started.
+          type: string
+    StartInstanceGroupRequest:
+      description: 'TODO DOC-REVIEW:'
+      type: object
+      properties: {}
+    StopInstanceGroupMetadata:
+      description: 'TODO DOC-REVIEW:'
+      type: object
+      properties:
+        instanceGroupId:
+          description: ID of the InstanceGroup resource that is being stopped.
+          type: string
+    StopInstanceGroupRequest:
+      description: 'TODO DOC-REVIEW:'
+      type: object
+      properties: {}
     TargetGroupSpec:
       type: object
       properties:
@@ -1473,6 +1639,8 @@ components:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
             description: Fixed scaling policy of the instance group.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
     DeployPolicy_in_CreateInstanceGroupRequest_deployPolicy:
       description: |-
         Required.
@@ -1637,6 +1805,8 @@ components:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
             description: Fixed scaling policy of the instance group.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
     DeployPolicy_in_InstanceGroup_deployPolicy:
       description: Deployment policy of the instance group.
       type: object
@@ -1749,6 +1919,31 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HealthCheckSpec'
+    InstanceGroupStatus_in_InstanceGroup_status:
+      description: |-
+        TODO DOC-REVIEW:
+        Status of the instance group.
+
+        TODO DOC-REVIEW:
+
+         - STARTING: Instance group is being started and will become active soon.
+         - ACTIVE: Instance group is active.
+        In this state the group manages its instances and monitors their health,
+        creating, deleting, stopping, updating and starting instances as needed.
+        To stop the instance group, call [stop](/docs/compute/api-ref/InstanceGroup/stop).
+         - STOPPING: Instance group is being stopped.
+        Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.
+         - STOPPED: Instance group is stopped.
+        In this state the group cannot be updated and does not react to any changes made to its instances.
+        To start the instance group, call [start](/docs/compute/api-ref/InstanceGroup/start).
+         - DELETING: Instance group is being deleted.
+      type: string
+      enum:
+      - STARTING
+      - ACTIVE
+      - STOPPING
+      - STOPPED
+      - DELETING
     ResourcesSpec_in_InstanceTemplate_resourcesSpec:
       description: |-
         Required.
@@ -1766,7 +1961,7 @@ components:
           description: |-
             The number of cores available to the instance.
 
-            Value must be one of 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 or 32.
+            Value must be one of 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 52, 56, 60 or 64.
           type: string
           format: int64
         coreFraction:
@@ -1955,6 +2150,13 @@ components:
       properties:
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
+    ScalePolicyCpuUtilizationRule_in_ScalePolicyAutoScale_cpuUtilizationRule:
+      type: object
+      properties:
+        utilizationTarget:
+          description: Acceptable values are 10 to 100, inclusive.
+          type: number
+          format: double
     FieldMask_in_UpdateInstanceGroupRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the InstanceGroup resource are going to be updated.
@@ -2052,6 +2254,8 @@ components:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
             description: Fixed scaling policy of the instance group.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
     DeployPolicy_in_UpdateInstanceGroupRequest_deployPolicy:
       description: |-
         Required.

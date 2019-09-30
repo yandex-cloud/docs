@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method createFunctionVersion
-
+Deprecated. Use CreateVersion.
  
 
  

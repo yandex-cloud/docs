@@ -1,6 +1,6 @@
 openapi: "3.0"
 info:
-  title: Yandex Cloud Functions Service
+  title: Yandex Serverless Functions Service
   description: Description not set.
   version: v1
 paths:
@@ -131,6 +131,7 @@ paths:
     get:
       tags:
       - Function
+      summary: Deprecated. Use GetVersion.
       operationId: FunctionGetFunctionVersion
       parameters:
       - name: functionVersionId
@@ -151,6 +152,7 @@ paths:
     get:
       tags:
       - Function
+      summary: Deprecated. Use GetVersionByTag.
       operationId: FunctionGetFunctionVersionByTag
       parameters:
       - name: functionId
@@ -176,6 +178,7 @@ paths:
     get:
       tags:
       - Function
+      summary: Deprecated. Use ListVersions.
       operationId: FunctionListFunctionVersions
       parameters:
       - name: folderId
@@ -213,6 +216,7 @@ paths:
     post:
       tags:
       - Function
+      summary: Deprecated. Use CreateVersion.
       operationId: FunctionCreateFunctionVersion
       requestBody:
         content:
@@ -293,6 +297,7 @@ paths:
     get:
       tags:
       - Function
+      summary: Deprecated. Use ListTagHistory.
       operationId: FunctionListFunctionTagHistory
       parameters:
       - name: functionId
@@ -332,7 +337,7 @@ paths:
                 $ref: '#/components/schemas/ListFunctionTagHistoryResponse'
       x-y-navtitle: listFunctionTagHistory
   /functions/v1/runtimes:
-    post:
+    get:
       tags:
       - Function
       operationId: FunctionListRuntimes

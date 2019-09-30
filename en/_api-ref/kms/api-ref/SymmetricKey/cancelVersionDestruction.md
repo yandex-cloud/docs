@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method cancelVersionDestruction
-Cancels previously submitted version destruction request. If version was not destroyed yet.
+Cancels previously scheduled version destruction, if the version hasn't been destroyed yet.
  
 
  
@@ -16,13 +16,13 @@ POST https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}:cancelVersionDestructi
  
 Parameter | Description
 --- | ---
-keyId | Required. The maximum string length in characters is 50.
+keyId | Required. ID of the key to cancel a version's destruction for.  The maximum string length in characters is 50.
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-versionId | Required. The maximum string length in characters is 50.
+versionId | Required. ID of the version whose scheduled destruction should be cancelled.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-POST undefined/functions/v1/runtimes
+GET undefined/functions/v1/runtimes
 ```
  
 ## Response {#responses}

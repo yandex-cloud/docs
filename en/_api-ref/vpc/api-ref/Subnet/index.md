@@ -47,4 +47,5 @@ Method | Description
 [get](get.md) | Returns the specified Subnet resource.
 [list](list.md) | Retrieves the list of Subnet resources in the specified folder.
 [listOperations](listOperations.md) | List operations for the specified subnet.
+[move](move.md) | Move subnet to another folder.
 [update](update.md) | Updates the specified subnet. Method starts an asynchronous operation that can be cancelled while it is in progress.

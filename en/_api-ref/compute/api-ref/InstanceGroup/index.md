@@ -80,9 +80,24 @@ A set of methods for managing InstanceGroup resources.
     "serviceAccountId": "string"
   },
   "scalePolicy": {
+
+    // `scalePolicy` includes only one of the fields `fixedScale`, `autoScale`
     "fixedScale": {
       "size": "string"
-    }
+    },
+    "autoScale": {
+      "minZoneSize": "string",
+      "maxSize": "string",
+      "measurementDuration": "string",
+      "warmupDuration": "string",
+      "stabilizationDuration": "string",
+      "initialSize": "string",
+      "cpuUtilizationRule": {
+        "utilizationTarget": "number"
+      }
+    },
+    // end of the list of possible fields`scalePolicy`
+
   },
   "deployPolicy": {
     "maxUnavailable": "string",
@@ -136,7 +151,8 @@ A set of methods for managing InstanceGroup resources.
       }
     ]
   },
-  "serviceAccountId": "string"
+  "serviceAccountId": "string",
+  "status": "string"
 }
 ```
  
@@ -154,7 +170,7 @@ instanceTemplate.<br>labels | **object**<br><p>Resource labels as <code>key:valu
 instanceTemplate.<br>platformId | **string**<br><p>ID of the hardware platform configuration for the instance. Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see <a href="/docs/compute/concepts/vm-platforms">Platforms</a>.</p> 
 instanceTemplate.<br>resourcesSpec | **object**<br><p>Required. Computing resources of the instance such as the amount of memory and number of cores.</p> 
 instanceTemplate.<br>resourcesSpec.<br>memory | **string** (int64)<br><p>The amount of memory available to the instance, specified in bytes.</p> <p>The maximum value is 274877906944.</p> 
-instanceTemplate.<br>resourcesSpec.<br>cores | **string** (int64)<br><p>The number of cores available to the instance.</p> <p>Value must be one of 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 or 32.</p> 
+instanceTemplate.<br>resourcesSpec.<br>cores | **string** (int64)<br><p>The number of cores available to the instance.</p> <p>Value must be one of 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 52, 56, 60 or 64.</p>
 instanceTemplate.<br>resourcesSpec.<br>coreFraction | **string** (int64)<br><p>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core.</p> <p>Value must be one of 0, 5, 20, 50 or 100.</p> 
 instanceTemplate.<br>resourcesSpec.<br>gpus | **string** (int64)<br><p>The number of GPUs available to the instance.</p> <p>Value must be one of 0, 1, 2 or 4.</p> 
 instanceTemplate.<br>metadata | **object**<br><p>The metadata <code>key:value</code> pairs assigned to this instance template. This includes custom metadata and predefined keys.</p> <p>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see <a href="/docs/compute/concepts/vm-metadata">Metadata</a>.</p> <p>No more than 128 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 262144.</p> 
@@ -189,8 +205,17 @@ instanceTemplate.<br>schedulingPolicy | **object**<br><p>Scheduling policy for t
 instanceTemplate.<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
 instanceTemplate.<br>serviceAccountId | **string**<br><p>Service account ID for the instance.</p> 
 scalePolicy | **object**<br><p>Scaling policy of the instance group.</p> 
-scalePolicy.<br>fixedScale | **object**<br>
+scalePolicy.<br>fixedScale | **object** <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of instances in the instance group.</p> <p>Acceptable values are 1 to 100, inclusive.</p> 
+scalePolicy.<br>autoScale | **object** <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
+scalePolicy.<br>autoScale.<br>minZoneSize | **string** (int64)<br><p>Lower limit for instance count in each zone.</p> <p>Acceptable values are 0 to 100, inclusive.</p>
+scalePolicy.<br>autoScale.<br>maxSize | **string** (int64)<br><p>Upper limit for total instance count (across all zones). 0 means maximum limit = 100.</p> <p>Acceptable values are 0 to 100, inclusive.</p>
+scalePolicy.<br>autoScale.<br>measurementDuration | **string**<br><p>Required. Acceptable values are 60 seconds to 600 seconds, inclusive.</p>
+scalePolicy.<br>autoScale.<br>warmupDuration | **string**<br><p>The maximum value is 600 seconds.</p>
+scalePolicy.<br>autoScale.<br>stabilizationDuration | **string**<br><p>Acceptable values are 60 seconds to 1800 seconds, inclusive.</p>
+scalePolicy.<br>autoScale.<br>initialSize | **string** (int64)<br><p>The minimum value is 1.</p>
+scalePolicy.<br>autoScale.<br>cpuUtilizationRule | **object**<br>
+scalePolicy.<br>autoScale.<br>cpuUtilizationRule.<br>utilizationTarget | **number** (double)<br><p>Acceptable values are 10 to 100, inclusive.</p>
 deployPolicy | **object**<br><p>Deployment policy of the instance group.</p> 
 deployPolicy.<br>maxUnavailable | **string** (int64)<br><p>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If maxExpansion is not specified or set to zero, maxUnavailable must be set to a non-zero value.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 deployPolicy.<br>maxDeleting | **string** (int64)<br><p>The maximum number of instances that can be deleted at the same time.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
@@ -225,6 +250,7 @@ healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions | **object** <br>`health
 healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions.<br>port | **string** (int64)<br><p>Port to use for HTTP health checks.</p> <p>Acceptable values are 1 to 32767, inclusive.</p> 
 healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions.<br>path | **string**<br><p>URL path to set for health checking requests.</p> 
 serviceAccountId | **string**<br><p>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see <a href="/docs/iam/concepts/users/service-accounts">Service accounts</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 
+status | **string**<br><p>TODO DOC-REVIEW: Status of the instance group.</p> <p>TODO DOC-REVIEW:</p> <ul> <li>STARTING: Instance group is being started and will become active soon.</li> <li>ACTIVE: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call <a href="/docs/compute/api-ref/InstanceGroup/stop">stop</a>.</li> <li>STOPPING: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li> <li>STOPPED: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call <a href="/docs/compute/api-ref/InstanceGroup/start">start</a>.</li> <li>DELETING: Instance group is being deleted.</li> </ul>
 
 ## Methods {#methods}
 Method | Description
@@ -237,5 +263,7 @@ Method | Description
 [listInstances](listInstances.md) | Lists instances for the specified instance group.
 [listLogRecords](listLogRecords.md) | Lists logs for the specified instance group.
 [listOperations](listOperations.md) | Lists operations for the specified instance group.
+[start](start.md) | TODO DOC-REVIEW: Starts the specified instance group.
+[stop](stop.md) | TODO DOC-REVIEW: Stops the specified instance group.
 [update](update.md) | Updates the specified instance group. This method starts an operation that can be cancelled by another operation.
 [updateFromYaml](updateFromYaml.md) | Updates the specified instance group from a YAML file. This method starts an operation that can be cancelled by another operation.

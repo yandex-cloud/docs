@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method listFunctionTagHistory
-
+Deprecated. Use ListTagHistory.
  
 
  

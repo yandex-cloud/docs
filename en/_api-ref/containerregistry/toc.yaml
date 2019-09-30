@@ -35,6 +35,8 @@ items:
     items:
       - name: Overview
         href: api-ref/Repository/index.md
+      - name: get
+        href: api-ref/Repository/get.md
       - name: list
         href: api-ref/Repository/list.md
       - name: listAccessBindings

@@ -34,4 +34,5 @@ Method | Description
 [list](list.md) | Retrieves the list of Network resources in the specified folder.
 [listOperations](listOperations.md) | Lists operations for the specified network.
 [listSubnets](listSubnets.md) | Lists subnets from the specified network.
+[move](move.md) | Move network to another folder.
 [update](update.md) | Updates the specified network. Method starts an asynchronous operation that can be cancelled while it is in progress.
