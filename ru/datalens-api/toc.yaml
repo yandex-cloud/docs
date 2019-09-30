@@ -1,0 +1,28 @@
+title: "Yandex DataLens Partners API"
+stage: preview
+href: index.yaml
+items:
+  - name: Принцип работы
+    href: overview.md
+  - name: Аутентификация в API
+    href: authentication.md
+  - name: Справочник API
+    items:
+      - name: Обзор
+        href: api-ref/index.md
+      - name: Создание связи с клиентом
+        href: api-ref/link-client.md
+      - name: Удаление связи с клиентом
+        href: api-ref/unlink-client.md
+      - name: Информация о подключении
+        href: api-ref/get-connection-info.md
+      - name: Обновление таблицы
+        href: api-ref/update-table-info.md
+      - name: Запись данных
+        href: api-ref/write-data.md
+      - name: Удаление данных
+        href: api-ref/delete-data.md
+  - name: Квоты и лимиты
+    href: limits.md
+  - name: Правила тарификации
+    href: pricing.md
