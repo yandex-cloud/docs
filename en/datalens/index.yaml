@@ -1,0 +1,30 @@
+# Yandex DataLens
+title: "Yandex DataLens"
+description:
+  - "The DataLens service lets you visualize data for analysis."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex DataLens"
+  # Блок со ссылками
+links:
+- title: "Getting started"
+  description: "Getting started with DataLens"
+  href: "quickstart"
+- title: "Step-by-step instructions"
+  description: "Instructions on how to perform routine operations"
+  href: "operations/"
+- title: "Concepts"
+  description: "Learn about basic concepts and service functions"
+  href: "concepts/"
+- title: "Tutorials"
+  description: "Use DataLens to perform common tasks for visualizing data"
+  href: "solutions/"
+- title: "Quotas and limits"
+  description: "Technical and organizational limitations of the service"
+  href: "concepts/limits"
+- title: "Access management"
+  description: "Permissions required for using the service"
+  href: "security/"
+- title: "Pricing policy"
+  description: "Service pricing and cost calculations"
+  href: "pricing"

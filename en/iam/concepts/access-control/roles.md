@@ -74,3 +74,7 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 {% include [container-registry-puller](../../../_includes/roles-container-registry-puller.md)%}
 
 {% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md)%}
+
+### {{ datalens-name }} {#datalens-roles}
+
+{% include [datalens-instances-user](../../../_includes/roles-datalens-user.md)%}
