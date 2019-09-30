@@ -94,7 +94,7 @@ To authenticate from inside a VM on behalf of the linked service account:
   1. Connect to the VM via [SSH](../vm-connect/ssh.md) or [RDP](../vm-connect/rdp.md).
   1. Get the IAM token required for authentication.
 
-    * In GCP format, run:
+    * In Google Compute Engine format, run:
 
       ```bash
       $ curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
@@ -104,7 +104,7 @@ To authenticate from inside a VM on behalf of the linked service account:
 
       The IAM token will be returned in the `access_token` field of the response.
 
-    * To get the IAM token in EC2 format, run:
+    * To get the IAM token in Amazon EC2 format, run:
 
       ```bash
       $ curl http://169.254.169.254/latest/meta-data/iam/security-credentials/default/
