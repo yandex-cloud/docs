@@ -1,5 +1,4 @@
 title: "Yandex DataLens"
-stage: preview
 href: index.yaml
 items:
   - name: Начало работы
@@ -50,6 +49,8 @@ items:
             href: operations/dataset/create-field.md
           - name: Управление доступом к датасету
             href: operations/dataset/manage-access.md
+          - name: Управление доступом к строкам данных
+            href: operations/dataset/manage-row-level-security.md
       - name: Работа с чартами
         items:
           - name: Создание линейной диаграммы
@@ -64,6 +65,8 @@ items:
             href: operations/chart/create-table.md
           - name: Создание сводной таблицы
             href: operations/chart/create-pivot-table.md
+          - name: Публикация чарта
+            href: operations/chart/publish.md
           - name: Управление доступом к чарту
             href: operations/chart/manage-access.md
       - name: Работа с дашбордами
@@ -74,6 +77,8 @@ items:
             href: operations/dashboard/add-chart.md
           - name: Добавление селектора на дашборд
             href: operations/dashboard/add-selector.md
+          - name: Публикация дашборда
+            href: operations/dashboard/publish.md
           - name: Управление доступом к дашборду
             href: operations/dashboard/manage-access.md
       - name: Работа с правами доступа

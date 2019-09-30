@@ -122,6 +122,11 @@ Y  | Измерение или показатель по оси Y
 Цвета  | Измерение или показатель. Влияет на цвет точек
 Сортировка  | Показатель. Влияет на сортировку столбцов
 
+## Публикация чарта {#public-access}
+
+Вы можете открыть доступ к чарту для любого пользователя в интернете. Такой чарт становится публичным, любой пользователь может просмотреть его без аутентификации и авторизации.
+
+{% include [share-note](../../_includes/datalens/datalens-share-note.md) %}
 
 ## Управление доступом {#access-management}
 
@@ -134,6 +139,7 @@ Y  | Измерение или показатель по оси Y
 - [{#T}](../operations/chart/create-area-chart.md)
 - [{#T}](../operations/chart/create-bar-chart.md)
 - [{#T}](../operations/chart/create-pie-chart.md)
+- [{#T}](../operations/chart/publish.md)
 
 
 
