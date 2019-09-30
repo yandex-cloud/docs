@@ -11,7 +11,7 @@ In {{ sf-name }}, you're billed for the number of function invokes, computing re
 
 When billing computing resources (GB×hour), the memory allocated for the function and function execution time are taken into account:
 
-- The amount of memory specified when [creating a version](operations/version-manage.md#func-version-create), in GB.
+- The amount of memory specified when [creating a version](operations/function/version-manage.md#func-version-create), in GB.
 - The execution time for each function invoke in hours, rounded up to the nearest multiple of 100 ms.
 
 ### Function pricing in the event of errors {#error}
@@ -70,6 +70,8 @@ Where:
 
 {% endlist %}
 
+You are charged for an actual number of invokes. E.g., the cost of 1000 invokes will be `$0.000128`.
+
 ### Function execution time {#execution}
 
 {% list tabs %}
@@ -91,7 +93,3 @@ Where:
 ### Outgoing traffic {#prices-traffic}
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
-
-## Using triggers {#triggers}
-
-[Triggers](concepts/trigger.md) can be used free of charge. You can create and use triggers within the available [quotas and limits](../functions/concepts/limits.md).
