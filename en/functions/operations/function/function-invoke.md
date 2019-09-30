@@ -2,11 +2,11 @@
 
 {% note info %}
 
-To allow any user to invoke (call) a function, [make it public](function-public.md). For more information about access rights, see [{#T}](../security/index.md).
+To allow any user to invoke (call) a function, [make it public](../function-public.md). For more information about access rights, see [{#T}](../../security/index.md).
 
 {% endnote %}
 
-{% include [yc-function-list](../../_includes/functions/function-list.md) %}
+{% include [yc-function-list](../../../_includes/functions/function-list.md) %}
 
 As an example, we use the function described in [{#T}](version-manage.md#func-version-create).
 
@@ -64,5 +64,5 @@ As an example, we use the function described in [{#T}](version-manage.md#func-ve
 
 {% endlist %}
 
-For more information about the structure of functions called in different ways (HTTP or CLI), see [{#T}](../concepts/function-invoke.md).
+For more information about the structure of functions called in different ways (HTTP or CLI), see [{#T}](../../concepts/function-invoke.md).
 

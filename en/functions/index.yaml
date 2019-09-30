@@ -7,7 +7,7 @@ meta:
 links:
 - title: "Getting started"
   description: "Create your first function"
-  href: "quickstart"
+  href: "quickstart/"
 - title: "Step-by-step instructions"
   description: "Instructions on how to perform routine operations"
   href: "operations/"

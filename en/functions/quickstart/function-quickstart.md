@@ -1,6 +1,6 @@
-# Getting started
+# Creating and executing functions
 
-Create and execute [functions](concepts/function.md) which welcome the user. To do this, use Python and Node.js.
+Create and execute [functions](../concepts/function.md) which welcome the user. To do this, use Python and Node.js.
 
 - [Before you start](#before-begin)
 - [Create a function in Python](#python-func)
@@ -14,8 +14,8 @@ Create and execute [functions](concepts/function.md) which welcome the user. To 
 
 ## Before you start {#before-begin}
 
-1. [Create a folder](../resource-manager/operations/folder/create.md) in Yandex.Cloud.
-1. [Install the](../cli/quickstart.md) YC CLI.
+1. [Create a folder](../../resource-manager/operations/folder/create.md) in Yandex.Cloud.
+1. [Install the](../../cli/quickstart.md) YC CLI.
 
 ## Create a function in Python {#python-func}
 
@@ -31,7 +31,7 @@ Create and execute [functions](concepts/function.md) which welcome the user. To 
 
   1. Enter a function name.
 
-      {% include [name-format](../_includes/name-format.md) %}
+      {% include [name-format](../../_includes/name-format.md) %}
 
   1. Click **Create**.
 
@@ -83,7 +83,7 @@ To create the function version, you'll need a ZIP archive with the function code
 {% list tabs %}
 
 - Management console
-  1. Open **{{ sf-name }}** in the folder where you want to create the function [version](concepts/function.md#version).
+  1. Open **{{ sf-name }}** in the folder where you want to create the function [version](../concepts/function.md#version).
   1. Select the function to create the version for.
   1. Under **Latest version**, click **Create in editor**.
   1. Set the version parameters:
@@ -127,7 +127,7 @@ To create the function version, you'll need a ZIP archive with the function code
 
   1. Enter a function name.
 
-      {% include [name-format](../_includes/name-format.md) %}
+      {% include [name-format](../../_includes/name-format.md) %}
 
   1. Click **Create**.
 
@@ -214,7 +214,7 @@ To create the function version, you'll need a ZIP archive with the function code
 
 {% note info %}
 
-To allow any user to call your function, [make it public](operations/function-public.md). For more information about access rights, see [{#T}](security/index.md).
+To allow any user to call your function, [make it public](../operations/function-public.md). For more information about access rights, see [{#T}](../security/index.md).
 
 {% endnote %}
 
@@ -241,7 +241,7 @@ $ yc serverless function list
 
     {% endnote %}
 
-    You can view the function call link in the `http_invoke_url` parameter while [creating a function](operations/function-create.md).
+    You can view the function call link in the `http_invoke_url` parameter while [creating a function](../operations/function/function-create.md).
 
     Call the function as a regular HTTP request by inserting the function call link in the browser address bar. In this case, we use the example of a function written in [Python](#python-func):
 
@@ -280,6 +280,6 @@ $ yc serverless function list
 
 ## What's next {#what-is-next}
 
-- For more information about the structure of functions called in different ways (HTTP or CLI), see [{#T}](concepts/function-invoke.md).
-- Read about [service concepts](concepts/index.md).
-- For information about what you can do with functions and their versions, see our [step-by-step instructions](operations/index.md).
+- For more information about the structure of functions called in different ways (HTTP or CLI), see [{#T}](../concepts/function-invoke.md).
+- Read about [service concepts](../concepts/index.md).
+- For information about what you can do with functions and their versions, see our [step-by-step instructions](../operations/index.md).

@@ -12,13 +12,13 @@
 
     1. Enter a function name.
 
-        {% include [name-format](../../_includes/name-format.md) %}
+        {% include [name-format](../../../_includes/name-format.md) %}
 
     1. Click **Create**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
     Create a function:
 

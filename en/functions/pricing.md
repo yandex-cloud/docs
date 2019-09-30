@@ -92,3 +92,6 @@ Where:
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
 
+## Using triggers {#triggers}
+
+[Triggers](concepts/trigger.md) can be used free of charge. You can create and use triggers within the available [quotas and limits](../functions/concepts/limits.md).

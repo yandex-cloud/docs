@@ -2,7 +2,7 @@
 
 _A function_ is a set of [versions](#version).
 
-Once created, a function only contains metadata about itself, including name, description, and unique ID. To start using the function, you need to [create a version](../operations/version-manage.md#version-create). You can execute functions using the HTTP API or CLI.
+Once created, a function only contains metadata about itself, including name, description, and unique ID. To start using the function, you need to [create a version](../operations/function/version-manage.md#version-create). You can execute functions using the HTTP API or CLI.
 
 Before writing your functions, review the [programming model](#programming-model).
 
@@ -22,7 +22,7 @@ To create a version, you need a ZIP archive of the distribution package with the
 
     {% endnote %}
 
-For more information about how to create versions, see [{#T}](../operations/version-manage.md#version-create).
+For more information about how to create versions, see [{#T}](../operations/function/version-manage.md#version-create).
 
 ### Version tag {#tag}
 

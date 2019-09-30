@@ -2,7 +2,7 @@
 
 For function versioning, you need to know the name or unique ID of the function that the version belongs to.
 
-{% include [yc-function-list](../../_includes/functions/function-list.md) %}
+{% include [yc-function-list](../../../_includes/functions/function-list.md) %}
 
 With function versioning, you can:
 
@@ -14,13 +14,13 @@ With function versioning, you can:
 
 {% note info %}
 
-To ensure the integrity of version links, you can't update or delete function versions. For more information about resource relationships, see [{#T}](../concepts/function.md).
+To ensure the integrity of version links, you can't update or delete function versions. For more information about resource relationships, see [{#T}](../../concepts/function.md).
 
 {% endnote %}
 
 ## Creating a function version {#func-version-create}
 
-To create a [version](../concepts/function.md#version) of a function, you need a ZIP archive with the function and all required dependencies.
+To create a [version](../../concepts/function.md#version) of a function, you need a ZIP archive with the function and all required dependencies.
 
 ### Preparing a ZIP archive with the function code {#zip-archive}
 
@@ -50,7 +50,7 @@ To create a [version](../concepts/function.md#version) of a function, you need a
 When creating a version, set the following parameters:
 
 - _Runtime environment_: Provides additional libraries and environment variables that can be accessed from the function code. It corresponds to the programming language that your function is written in.
-- _Entry point_: The name of the function to be called as a handler. For more information about handlers, see [Programming model](../concepts/function.md#programming-model).
+- _Entry point_: The name of the function to be called as a handler. For more information about handlers, see [Programming model](../../concepts/function.md#programming-model).
 - _Timeout_: The maximum function execution time, after which the service will terminate its execution without waiting for a response. It includes the time of the first initialization when the function is first run.
 
 {% list tabs %}
@@ -72,7 +72,7 @@ When creating a version, set the following parameters:
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
   Create the function version:
 
@@ -101,7 +101,7 @@ When creating a version, set the following parameters:
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
     ```
     $ yc serverless function version list --function-name my-beta-function
@@ -126,7 +126,7 @@ When creating a version, set the following parameters:
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
     To access the version, use the `ID` or `TAGS` parameters from the [previous](version-manage.md#version-list) section.
 
@@ -176,7 +176,7 @@ When creating a version, set the following parameters:
 
 ## Managing version tags {#manage-tags}
 
-When creating a new version, it's assigned the default `$latest` [tag](../concepts/function.md#). You can [add](version-manage.md#set-tag) and [remove](version-manage.md#remove-tag) version tags.
+When creating a new version, it's assigned the default `$latest` [tag](../../concepts/function.md#). You can [add](version-manage.md#set-tag) and [remove](version-manage.md#remove-tag) version tags.
 
 To access the function version, use its unique ID. For information about how to find the unique version ID, see [Getting a list of function versions](version-manage.md#version-list).
 
@@ -186,7 +186,7 @@ To access the function version, use its unique ID. For information about how to 
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
     Add a version tag:
 
@@ -217,7 +217,7 @@ To access the function version, use its unique ID. For information about how to 
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
     Remove a version tag:
 

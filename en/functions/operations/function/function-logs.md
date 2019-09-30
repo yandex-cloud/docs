@@ -1,6 +1,6 @@
 # Viewing the execution log
 
-The execution log uses Coordinated Universal Time, [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
+The execution log uses Coordinated Universal Time, [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 When viewing the log, you can set a specific interval using the `--since` and `--until` flags. If no interval is specified when invoking a function, information for the last hour is displayed.
 
@@ -20,9 +20,9 @@ Allowed time formats:
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. {% include [yc-function-list](../../_includes/functions/function-list.md) %}
+    1. {% include [yc-function-list](../../../_includes/functions/function-list.md) %}
 
     1. View the function execution log:
 

@@ -2,7 +2,7 @@
 
 You can change the [name](function-update.md#update-name) and [description](function-update.md#update-description) of a function as well as [manage function labels](function-update.md#manage-label). To change the code or operation parameters of a function, [create a new version of the function](version-manage.md#version-create).
 
-{% include [yc-function-list](../../_includes/functions/function-list.md) %}
+{% include [yc-function-list](../../../_includes/functions/function-list.md) %}
 
 ## Changing the name of a function {#update-name}
 
@@ -10,7 +10,7 @@ You can change the [name](function-update.md#update-name) and [description](func
 
 - Management console
 
-    To change the name of a [function](../concepts/function.md):
+    To change the name of a [function](../../concepts/function.md):
     1. Open the **{{ sf-name }}** section in the folder where you want to update the function.
     1. Select the desired function from the list.
     1. In the window that opens, click **Edit**.
@@ -19,7 +19,7 @@ You can change the [name](function-update.md#update-name) and [description](func
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
     Change the function name:
 
@@ -44,7 +44,7 @@ You can change the [name](function-update.md#update-name) and [description](func
 
 - Management console
 
-    To change the name of a [function](../concepts/function.md):
+    To change the name of a [function](../../concepts/function.md):
     1. Open the **{{ sf-name }}** section in the folder where you want to update the function.
     1. Select the desired function from the list.
     1. In the window that opens, click **Edit**.
@@ -53,7 +53,7 @@ You can change the [name](function-update.md#update-name) and [description](func
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
     Update the function description:
 
@@ -87,7 +87,7 @@ You can perform the following actions with function labels:
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
     Add a label to a function:
 
@@ -114,7 +114,7 @@ You can perform the following actions with function labels:
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
     Update a function label:
 
@@ -146,7 +146,7 @@ You can perform the following actions with function labels:
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
     Delete a function label:
 
