@@ -87,7 +87,7 @@
       export SA_PRIVATE_KEY_FILE=/home/path/to/private.key
       export SA_ID=YOUR_SA_ID
       export SA_ACCESS_KEY_ID=YOUR_ACCESS_KEY_ID
-      export export YDB_SSL_ROOT_CERTIFICATES_FILE=~/.ydb/CA.pem
+      export YDB_SSL_ROOT_CERTIFICATES_FILE=~/.ydb/CA.pem
       ```
   
       * `SA_ENDPOINT` — эндпоинт IAM, установите значение `iam.api.cloud.yandex.net:443`
