@@ -1,11 +1,5 @@
 # Sharding
 
-{% if audience != "internal"%}{% note info %}
-
-The ability to use Redis Cluster is now at the [Preview stage](../../overview/concepts/launch-stages.md). Please contact [Yandex.Cloud support](https://cloud.yandex.com/support) to gain access to sharding features.
-
-{% endnote %}{% endif %}
-
 Sharding in {{mrd-name}} is implemented using [{{ RD }} Cluster](https://redis.io/topics/cluster-tutorial).
 
 ## Benefits of sharding {#advantages}

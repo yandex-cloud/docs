@@ -1,11 +1,5 @@
 # Managing cluster shards
 
-{% if audience != "internal"%}{% note info %}
-
-The ability to use Redis Cluster is now at the [Preview stage](../../overview/concepts/launch-stages.md). Please contact [Yandex.Cloud support](https://cloud.yandex.com/support) to gain access to sharding features.
-
-{% endnote %}{% endif %}
-
 You can add and remove cluster shards, request a list of shards in your cluster, and rebalance your cluster.
 
 {% note important %}
