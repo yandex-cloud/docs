@@ -70,6 +70,3 @@ Different MQTT quality of service (QoS) levels can be used during exchanges:
 - `QoS 0: At most once`. A message is sent no more than once and there is no guarantee of delivery.
 
 - `QoS 1: At least once`. This level guarantees that a message is delivered at least one time to the receiver. It is possible to get duplicate messages.
-
-- `QoS 2: Exactly once`. This level guarantees that a message is delivered only once with no duplicates. **Not supported at the [Preview](../../overview/concepts/launch-stages.md) stage.**
-

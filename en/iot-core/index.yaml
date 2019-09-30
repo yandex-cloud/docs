@@ -1,7 +1,6 @@
 # Yandex IoT Core
 title: "Yandex IoT Core"
 description:
-- "<em>Yandex IoT Core is currently in the <a href=\"/docs/overview/concepts/launch-stages\">Preview stage</a></em>."
 - "Yandex IoT Core is a cloud-based fail-safe MQTT broker that ensures secure two-way communication between devices and local or cloud resources."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
