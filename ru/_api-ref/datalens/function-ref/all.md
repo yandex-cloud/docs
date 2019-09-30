@@ -236,6 +236,11 @@
 {% include notitle [Описание](FLOOR/short-description.md) %}
 
 
+## [GEOCODE](GEOCODE.md)
+
+{% include notitle [Описание](GEOCODE/short-description.md) %}
+
+
 ## [GEOPOINT](GEOPOINT.md)
 
 {% include notitle [Описание](GEOPOINT/short-description.md) %}
