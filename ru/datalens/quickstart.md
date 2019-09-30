@@ -1,6 +1,6 @@
 # Как начать работать c {{ datalens-short-name }}
 
-На этапе превью доступ к {{ datalens-full-name }} выдается только командой Яндекс.Облака.
+Вы можете создать только один экземпляр {{ datalens-full-name }} в [каталоге Яндекс.Облака](../resource-manager/concepts/resources-hierarchy.md#folder).
 
 После того, как вы получили доступ:
 

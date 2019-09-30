@@ -10,6 +10,9 @@ default:
   managed-mysql-full-name: Yandex Managed Service for MySQL<sup>®</sup>
   managed-mongodb-full-name: Yandex Managed Service for MongoDB
 
+  # Короткие именя сервиса
+  marketplace-short-name: Marketplace
+
   # Роли
   permission-admin: Администрирование
   permission-write: Редактирование
