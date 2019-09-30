@@ -11,9 +11,9 @@ Intel Cascade Lake</br> (`standard-v2`) | [Intel Xeon Gold 6230](https://ark.int
 
 ## Платформы с GPU {#gpu-platforms}
 
-Платформа | Графический</br> ускоритель | Процессор | Макс. кол-во</br> GPU на 1 ВМ | Кол-во vCPU</br> на 1 GPU | Объем RAM</br> на 1 GPU |
+Платформа | Графический</br> ускоритель | Процессор | Характеристики |
 --- | --- | --- | --- | --- | ---
-Intel Broadwell with NVIDIA Tesla V100 </br> (`gpu-standard-v1`) | [NVIDIA Tesla V100](https://www.nvidia.com/ru-ru/data-center/tesla-v100/) | [Intel Xeon Processor E5-2660 v4](https://ark.intel.com/ru/products/91772/Intel-Xeon-Processor-E5-2660-v4-35M-Cache-2_00-GHz) | 4 | 8 | 96 ГБ |
+Intel Broadwell with </br> NVIDIA Tesla V100 </br> (`gpu-standard-v1`) | [NVIDIA Tesla V100](https://www.nvidia.com/ru-ru/data-center/tesla-v100/) | [Intel Xeon</br>Processor E5-2660 v4](https://ark.intel.com/ru/products/91772/Intel-Xeon-Processor-E5-2660-v4-35M-Cache-2_00-GHz) | **Макс. кол-во GPU на 1 ВМ**: 4 </br> **Кол-во vCPU на 1 GPU**: 8 </br> **Объем RAM на 1 GPU**: 96 ГБ
 
 ## Смотрите также
 

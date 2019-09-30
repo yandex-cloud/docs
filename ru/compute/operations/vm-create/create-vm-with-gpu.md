@@ -20,7 +20,7 @@
       $ yc compute instance create --help
       ```
 
-  1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на виртуальную машину.
+  1. Подготовьте [пару ключей](../vm-connect/ssh.md#creating-ssh-keys) (открытый и закрытый) для SSH-доступа на виртуальную машину.
   1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md).
 
       {% include [gpu-images](../../../_includes/gpu-images.md) %}

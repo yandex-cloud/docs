@@ -36,7 +36,7 @@
   
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
   
-  1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
   1. Остановите виртуальную машину:
   
       ```
@@ -77,7 +77,7 @@
   
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
   
-  1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
   1. Запустите виртуальную машину:
   
       ```
@@ -118,7 +118,7 @@
   
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
   
-  1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
   1. Перезапустите виртуальную машину:
   
       ```

@@ -97,6 +97,8 @@ items:
         items:
           - name: Загрузить свой образ
             href: operations/image-create/upload.md
+          - name: Установка NVIDIA драйверов
+            href: operations/image-create/install-nvidia-drivers.md
       - name: Управление образом
         items:
           - name: Удалить образ

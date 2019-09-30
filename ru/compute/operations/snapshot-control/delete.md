@@ -32,7 +32,7 @@
   
       {% include [compute-snapshot-list](../../_includes_service/compute-snapshot-list.md) %}
   
-  1. Выберите `ID` или `NAME` нужного снимка.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужного снимка.
   1. Удалите снимок:
   
       ```
