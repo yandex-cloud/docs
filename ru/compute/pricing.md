@@ -140,15 +140,6 @@ Windows Server для 5% vCPU | 0,6346 ₽
 Windows Server для 20%+ и 50%+ vCPU | 0,75 ₽
 Windows Server для 100% vCPU | 1,2691 ₽
 
-Списание средств для следующих ОС происходит единовременно за месяц вперед:
-
-ОС | Цена за 1 vCPU в месяц, вкл. НДС
------ | -----
-MS SQL Server Standard* | 5896,5 ₽
-MS SQL Server Enterprise* | 20163 ₽
-
-\* Лицензия предоставляется на группу из 2 vCPU, минимальное количество лицензируемых vCPU — 4 (2 группы).
-
 ### Диски, снимки и образы {#prices-storage}
 
 Тип  | Цена за ГБ в месяц,<br/>вкл. НДС
@@ -161,10 +152,3 @@ MS SQL Server Enterprise* | 20163 ₽
 ### Исходящий трафик {#prices-traffic}
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
-
-### Вспомогательные платформы {#platforms}
-
-Платформа | Цена
---- | ---
-Ziax Flow, за 1 ВМ в час | 34 ₽
-Loginom Platform, за 1 vCPU в час | 7 ₽
