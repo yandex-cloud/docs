@@ -11,11 +11,12 @@
       sudo pip3 install -e python-sdk/
       ```
   
-  1. Установите [YDB Python SDK](https://github.com/yandex-cloud/ydb-python-sdk):
+  1. Установите [YDB Python SDK](https://github.com/yandex-cloud/ydb-python-sdk) и библиотеку `iso8601`:
   
       ```bash
       git clone https://github.com/yandex-cloud/ydb-python-sdk.git
       sudo pip3 install -e ydb-python-sdk/
+      sudo pip3 install iso8601
       ```
   
   1. Установите переменные окружения, необходимые для аутентификации приложения:
