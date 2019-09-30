@@ -51,7 +51,7 @@ items:
         items:
           - name: Обзор
             href: concepts/runtime/index.md
-          - name: Переменные окружения
+          - name: Окружение
             href: concepts/runtime/environment-variables.md
           - name: Контекст выполнения
             href: concepts/runtime/execution-context.md
