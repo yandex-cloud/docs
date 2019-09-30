@@ -62,3 +62,9 @@
       [Инструкция получения статического ключа доступа](../../operations/sa/create-access-key.md).
 
 {% endlist %}
+
+### Аутентификация федеративного пользователя {#saml-federation}
+
+{% include [federated-user-auth](../../../_includes/iam/federated-user-auth.md) %}
+
+То, как выглядит процесс аутентификации для федеративного пользователя — зависит от настроек сервера IdP. Подробнее читайте в разделе [{#T}](../users/identity-federations.md)
