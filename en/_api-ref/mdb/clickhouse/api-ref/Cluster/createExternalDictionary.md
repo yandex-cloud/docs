@@ -212,14 +212,14 @@ externalDictionary.<br>mongodbSource.<br>port | **string** (int64)<br><p>Port to
 externalDictionary.<br>mongodbSource.<br>user | **string**<br><p>Required. Name of the MongoDB database user.</p> 
 externalDictionary.<br>mongodbSource.<br>password | **string**<br><p>Password of the MongoDB database user.</p> 
 externalDictionary.<br>postgresqlSource | **object**<br>PostgreSQL source for the dictionary. <br>`externalDictionary` includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`<br><br>
-externalDictionary.<br>postgresqlSource.<br>db | **string**<br><p>Required. Name of the PostrgreSQL database.</p>
-externalDictionary.<br>postgresqlSource.<br>table | **string**<br><p>Required. Name of the table in the specified database to be used as the dictionary source.</p>
-externalDictionary.<br>postgresqlSource.<br>hosts[] | **string**<br><p>Required. Name of the PostrgreSQL host</p> <p>Must contain at least one element.</p>
-externalDictionary.<br>postgresqlSource.<br>port | **string** (int64)<br><p>Port to use when connecting to the host.</p> <p>Acceptable values are 0 to 65535, inclusive.</p>
-externalDictionary.<br>postgresqlSource.<br>user | **string**<br><p>Required. Name of the PostrgreSQL database user.</p>
-externalDictionary.<br>postgresqlSource.<br>password | **string**<br><p>Password of the PostrgreSQL database user.</p>
-externalDictionary.<br>postgresqlSource.<br>invalidateQuery | **string**<br><p>Query for checking the dictionary status, to pull only updated data. For more details, see <a href="https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_lifetime/">ClickHouse documentation on dictionaries</a>.</p>
-externalDictionary.<br>postgresqlSource.<br>sslMode | **string**<br><p>Mode of SSL TCP/IP connection to the PostgreSQL host. There are six modes: <code>disable</code>, <code>allow</code>, <code>prefer</code> (default), <code>require</code>, <code>verify-ca</code>, <code>verify-full</code>. For more details, see <a href="https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS">PostgreSQL documentation</a>.</p>
+externalDictionary.<br>postgresqlSource.<br>db | **string**<br><p>Required. Name of the PostrgreSQL database.</p> 
+externalDictionary.<br>postgresqlSource.<br>table | **string**<br><p>Required. Name of the table in the specified database to be used as the dictionary source.</p> 
+externalDictionary.<br>postgresqlSource.<br>hosts[] | **string**<br><p>Required. Name of the PostrgreSQL host</p> <p>Must contain at least one element.</p> 
+externalDictionary.<br>postgresqlSource.<br>port | **string** (int64)<br><p>Port to use when connecting to the host.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
+externalDictionary.<br>postgresqlSource.<br>user | **string**<br><p>Required. Name of the PostrgreSQL database user.</p> 
+externalDictionary.<br>postgresqlSource.<br>password | **string**<br><p>Password of the PostrgreSQL database user.</p> 
+externalDictionary.<br>postgresqlSource.<br>invalidateQuery | **string**<br><p>Query for checking the dictionary status, to pull only updated data. For more details, see <a href="https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_lifetime/">ClickHouse documentation on dictionaries</a>.</p> 
+externalDictionary.<br>postgresqlSource.<br>sslMode | **string**<br><p>Mode of SSL TCP/IP connection to the PostgreSQL host. There are six modes: <code>disable</code>, <code>allow</code>, <code>prefer</code> (default), <code>require</code>, <code>verify-ca</code>, <code>verify-full</code>. For more details, see <a href="https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS">PostgreSQL documentation</a>.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

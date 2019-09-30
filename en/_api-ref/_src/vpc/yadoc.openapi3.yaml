@@ -308,6 +308,258 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/MoveNetworkMetadata'
       x-y-operation-response: '[Network](/docs/vpc/api-ref/Network#representation)'
+  /vpc/v1/routeTables/{routeTableId}:
+    get:
+      tags:
+      - RouteTable
+      summary: Returns the specified RouteTable resource.
+      description: To get the list of available RouteTable resources, make a [list](/docs/vpc/api-ref/RouteTable/list)
+        request.
+      operationId: RouteTableGet
+      parameters:
+      - name: routeTableId
+        in: path
+        description: |-
+          Required.
+          ID of the RouteTable resource to return.
+          To get the route table ID use a [list](/docs/vpc/api-ref/RouteTable/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteTable'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - RouteTable
+      summary: Deletes the specified route table.
+      operationId: RouteTableDelete
+      parameters:
+      - name: routeTableId
+        in: path
+        description: |-
+          Required.
+          ID of the route table to delete.
+          To get the route table ID use a [list](/docs/vpc/api-ref/RouteTable/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteRouteTableMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - RouteTable
+      summary: |-
+        Updates the specified route table.
+        Method starts an asynchronous operation that can be cancelled while it is in progress.
+      operationId: RouteTableUpdate
+      parameters:
+      - name: routeTableId
+        in: path
+        description: |-
+          Required.
+          ID of the RouteTable resource to update.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRouteTableRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateRouteTableMetadata'
+      x-y-operation-response: '[RouteTable](/docs/vpc/api-ref/RouteTable#representation)'
+  /vpc/v1/routeTables:
+    get:
+      tags:
+      - RouteTable
+      summary: Retrieves the list of RouteTable resources in the specified folder.
+      operationId: RouteTableList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder that the route table belongs to.
+          To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/vpc/api-ref/RouteTable/list#query_params),
+          the service returns a [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses)
+          that can be used to get the next page of results in subsequent list requests. Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/vpc/api-ref/RouteTable/list#query_params) to the
+          [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [RouteTable.name](/docs/vpc/api-ref/RouteTable#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRouteTablesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - RouteTable
+      summary: |-
+        Creates a route table in the specified folder and network.
+        Method starts an asynchronous operation that can be cancelled while it is in progress.
+      operationId: RouteTableCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRouteTableRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateRouteTableMetadata'
+      x-y-operation-response: '[RouteTable](/docs/vpc/api-ref/RouteTable#representation)'
+  /vpc/v1/routeTables/{routeTableId}/operations:
+    get:
+      tags:
+      - RouteTable
+      summary: List operations for the specified route table.
+      operationId: RouteTableListOperations
+      parameters:
+      - name: routeTableId
+        in: path
+        description: |-
+          Required.
+          ID of the RouteTable resource to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than [pageSize](/docs/vpc/api-ref/RouteTable/listOperations#query_params), the service returns a [nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests. Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/vpc/api-ref/RouteTable/listOperations#query_params) to the
+          [nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRouteTableOperationsResponse'
+      x-y-navtitle: listOperations
+  /vpc/v1/routeTables/{routeTableId}:move:
+    post:
+      tags:
+      - RouteTable
+      summary: Move route table to another folder.
+      operationId: RouteTableMove
+      parameters:
+      - name: routeTableId
+        in: path
+        description: |-
+          Required.
+          ID of the RouteTable resource to move.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveRouteTableRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: move
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/MoveRouteTableMetadata'
+      x-y-operation-response: '[RouteTable](/docs/vpc/api-ref/RouteTable#representation)'
   /vpc/v1/subnets/{subnetId}:
     get:
       tags:
@@ -604,6 +856,60 @@ components:
           type: object
           additionalProperties:
             type: string
+    CreateRouteTableMetadata:
+      type: object
+      properties:
+        routeTableId:
+          description: ID of the route table that is being created.
+          type: string
+    CreateRouteTableRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder that the route table belongs to.
+            To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of the route table.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the route table.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels, `` key:value `` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        networkId:
+          description: |-
+            Required.
+            ID of the network the route table belongs to.
+
+            The maximum string length in characters is 50.
+          type: string
+        staticRoutes:
+          description: List of static routes.
+          type: array
+          items:
+            $ref: '#/components/schemas/StaticRoute'
     CreateSubnetMetadata:
       type: object
       properties:
@@ -682,6 +988,12 @@ components:
         networkId:
           description: ID of the network that is being deleted.
           type: string
+    DeleteRouteTableMetadata:
+      type: object
+      properties:
+        routeTableId:
+          description: ID of the RouteTable resource that is being deleted.
+          type: string
     DeleteSubnetMetadata:
       type: object
       properties:
@@ -753,6 +1065,38 @@ components:
             in the next list request. Subsequent list requests will have their own
             [nextPageToken](/docs/vpc/api-ref/Network/list#responses) to continue paging through the results.
           type: string
+    ListRouteTableOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified RouteTable resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/vpc/api-ref/RouteTable/listOperations#query_params), use the [nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses) as the value
+            for the [pageToken](/docs/vpc/api-ref/RouteTable/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses) to continue paging through the results.
+          type: string
+    ListRouteTablesResponse:
+      type: object
+      properties:
+        routeTables:
+          description: List of RouteTable resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/RouteTable'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/vpc/api-ref/RouteTable/list#query_params), use
+            the [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses) as the value
+            for the [pageToken](/docs/vpc/api-ref/RouteTable/list#query_params) query parameter
+            in the next list request. Subsequent list requests will have their own
+            [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses) to continue paging through the results.
+          type: string
     ListSubnetOperationsResponse:
       type: object
       properties:
@@ -792,6 +1136,22 @@ components:
           description: ID of the network that is being moved.
           type: string
     MoveNetworkRequest:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            Required.
+            ID of the destination folder.
+
+            The maximum string length in characters is 50.
+          type: string
+    MoveRouteTableMetadata:
+      type: object
+      properties:
+        routeTableId:
+          description: ID of the RouteTable resource that is being moved.
+          type: string
+    MoveRouteTableRequest:
       type: object
       properties:
         destinationFolderId:
@@ -905,6 +1265,70 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    RouteTable:
+      description: A RouteTable resource. For more information, see [Static Routes](/docs/vpc/concepts/static-routes).
+      type: object
+      properties:
+        id:
+          description: ID of the route table.
+          type: string
+        folderId:
+          description: ID of the folder that the route table belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the route table. The name is unique within the project.
+            3-63 characters long.
+          type: string
+        description:
+          description: Optional description of the route table. 0-256 characters long.
+          type: string
+        labels:
+          description: Resource labels as `` key:value `` pairs. Мaximum of 64 per
+            resource.
+          type: object
+          additionalProperties:
+            type: string
+        networkId:
+          description: ID of the network the route table belongs to.
+          type: string
+        staticRoutes:
+          description: List of static routes.
+          type: array
+          items:
+            $ref: '#/components/schemas/StaticRoute'
+    StaticRoute:
+      description: A StaticRoute resource. For more information, see [Static Routes](/docs/vpc/concepts/static-routes).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          labels:
+            description: Resource labels as `` key:value `` pairs. Мaximum of 64 per
+              resource.
+            type: object
+            additionalProperties:
+              type: string
+      - title: destination
+        type: object
+        maxProperties: 1
+        properties:
+          destinationPrefix:
+            description: Destination subnet in CIDR notation
+            type: string
+      - title: next_hop
+        type: object
+        maxProperties: 1
+        properties:
+          nextHopAddress:
+            description: Next hop IP address
+            type: string
     Status:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -1011,6 +1435,47 @@ components:
           type: object
           additionalProperties:
             type: string
+    UpdateRouteTableMetadata:
+      type: object
+      properties:
+        routeTableId:
+          description: ID of the RouteTable resource that is being updated.
+          type: string
+    UpdateRouteTableRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateRouteTableRequest_updateMask'
+        name:
+          description: |-
+            Name of the route table.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the route table.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `` key:value `` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        staticRoutes:
+          description: List of static routes.
+          type: array
+          items:
+            $ref: '#/components/schemas/StaticRoute'
     UpdateSubnetMetadata:
       type: object
       properties:
@@ -1066,6 +1531,19 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    FieldMask_in_UpdateRouteTableRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the RouteTable resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
     FieldMask_in_UpdateSubnetRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the Subnet resource are going to be updated.
@@ -1082,5 +1560,7 @@ components:
 tags:
 - name: Network
   description: A set of methods for managing Network resources.
+- name: RouteTable
+  description: A set of methods for managing RouteTable resources.
 - name: Subnet
   description: A set of methods for managing Subnet resources.

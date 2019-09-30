@@ -1139,6 +1139,27 @@ components:
         description:
           description: Description of the role. 0-256 characters long.
           type: string
+    SamlUserAccount:
+      description: |-
+        A SAML federated user.
+        For more information, see [federations](/docs/iam/concepts/users/saml-federations).
+      type: object
+      properties:
+        federationId:
+          description: |-
+            Required.
+            ID of the federation that the federation belongs to.
+
+            The maximum string length in characters is 50.
+          type: string
+        nameId:
+          description: |-
+            Required.
+            Name Id of the SAML federated user.
+            The name is unique within the federation. 1-256 characters long.
+
+            The string length in characters must be 1-256.
+          type: string
     ServiceAccount:
       description: A ServiceAccount resource. For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
       type: object
@@ -1280,9 +1301,13 @@ components:
           yandexPassportUserAccount:
             $ref: '#/components/schemas/YandexPassportUserAccount'
             description: A YandexPassportUserAccount resource.
+          samlUserAccount:
+            $ref: '#/components/schemas/SamlUserAccount'
+            description: A SAML federated user.
     YandexPassportUserAccount:
-      description: A YandexPassportUserAccount resource. For more information, see
-        [Yandex.Passport account](/docs/iam/concepts/#passport).
+      description: |-
+        A YandexPassportUserAccount resource.
+        For more information, see [Yandex.Passport account](/docs/iam/concepts/#passport).
       type: object
       properties:
         login:

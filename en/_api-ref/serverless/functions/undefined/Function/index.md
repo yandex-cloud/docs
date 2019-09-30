@@ -35,17 +35,17 @@ status | **string**<br>
 Method | Description
 --- | ---
 [create](create.md) | 
-[createFunctionVersion](createFunctionVersion.md) | Deprecated. Use CreateVersion.
+[createVersion](createVersion.md) | 
 [delete](delete.md) | 
 [get](get.md) | 
-[getFunctionVersion](getFunctionVersion.md) | Deprecated. Use GetVersion.
-[getFunctionVersionByTag](getFunctionVersionByTag.md) | Deprecated. Use GetVersionByTag.
+[getVersion](getVersion.md) | 
+[getVersionByTag](getVersionByTag.md) | 
 [list](list.md) | 
 [listAccessBindings](listAccessBindings.md) | 
-[listFunctionTagHistory](listFunctionTagHistory.md) | Deprecated. Use ListTagHistory.
-[listFunctionVersions](listFunctionVersions.md) | Deprecated. Use ListVersions.
 [listOperations](listOperations.md) | 
 [listRuntimes](listRuntimes.md) | 
+[listTagHistory](listTagHistory.md) | 
+[listVersions](listVersions.md) | 
 [removeTag](removeTag.md) | 
 [setAccessBindings](setAccessBindings.md) | 
 [setTag](setTag.md) | 

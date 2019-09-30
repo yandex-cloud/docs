@@ -3,8 +3,7 @@ editable: false
 ---
 
 # Method delete
-Deletes the specified symmetric key. This action also automatically schedules
-the destruction of all of the key's versions in 72 hours.
+Deletes the symmetric key and schedule all its version for destruction
  
 
  
@@ -17,7 +16,7 @@ DELETE https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}
  
 Parameter | Description
 --- | ---
-keyId | Required. ID of the key to be deleted.  The maximum string length in characters is 50.
+keyId | Required. The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

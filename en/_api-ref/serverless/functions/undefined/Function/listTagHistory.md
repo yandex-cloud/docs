@@ -2,8 +2,8 @@
 editable: false
 ---
 
-# Method listFunctionTagHistory
-Deprecated. Use ListTagHistory.
+# Method listTagHistory
+
  
 
  

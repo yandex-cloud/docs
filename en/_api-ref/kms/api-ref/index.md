@@ -7,5 +7,5 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 Resource | Description
 --- | ---
-[SymmetricCrypto](SymmetricCrypto/index.md) | Set of methods that perform symmetric encryption and decryption.
-[SymmetricKey](SymmetricKey/index.md) | Set of methods for managing symmetric KMS keys.
+[SymmetricCrypto](SymmetricCrypto/index.md) | Service that performs symmetric encryption & decryption operations
+[SymmetricKey](SymmetricKey/index.md) | Symmetric key manipulation service

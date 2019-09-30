@@ -14,4 +14,8 @@ editable: false
 [ServiceAccount](ServiceAccount/index.md) | Набор методов для управления ресурсами ServiceAccount.
 [UserAccount](UserAccount/index.md) | Набор методов управления пользовательскими аккаунтами. Сейчас используется только для [аккаунтов Яндекс.Паспорта](/docs/iam/concepts/#passport).
 [YandexPassportUserAccount](YandexPassportUserAccount/index.md) | Набор методов для управления ресурсами YandexPassportUserAccount.
+[Certificate](Certificate/index.md) | Набор методов для управления сертификатами.
+
+[Federation](Federation/index.md) | Набор методов для управления ресурсами федерации.
+
 [AccessKey](AccessKey/index.md) | Набор методов управления ключами доступа.

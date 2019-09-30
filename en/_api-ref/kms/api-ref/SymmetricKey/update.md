@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method update
-Updates the specified symmetric key.
+Updates existing symmetric key
  
 
  
@@ -16,7 +16,7 @@ PATCH https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}
  
 Parameter | Description
 --- | ---
-keyId | Required. ID of the symmetric key to update. To get the ID of a symmetric key use a [list](/docs/kms/api-ref/SymmetricKey/list) request.  The maximum string length in characters is 50.
+keyId | Required. The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -35,12 +35,12 @@ keyId | Required. ID of the symmetric key to update. To get the ID of a symmetri
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>Required. Field mask that specifies which attributes of the symmetric key are going to be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p>
-name | **string**<br><p>New name for the symmetric key. The name must be unique within the folder.</p> <p>The maximum string length in characters is 100.</p>
-description | **string**<br><p>New description for the symmetric key.</p> <p>The maximum string length in characters is 1024.</p>
-status | **string**<br><p>New status for the symmetric key. Using the UpdateSymmetricKeyRequest you can only set ACTIVE or INACTIVE status.</p> <ul> <li>CREATING: The key is being created.</li> <li>ACTIVE: The key is active and can be used for encryption and decryption.</li> <li>INACTIVE: The key is inactive and unusable.</li> </ul>
+updateMask | **string**<br><p>Required.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+name | **string**<br><p>The maximum string length in characters is 100.</p> 
+description | **string**<br><p>The maximum string length in characters is 1024.</p> 
+status | **string**<br><p>possible key statuses</p> 
 labels | **object**<br><p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
-defaultAlgorithm | **string**<br><p>Supported symmetric encryption algorithms.</p> <ul> <li>AES_128: AES algorithm with 128-bit keys.</li> <li>AES_192: AES algorithm with 192-bit keys.</li> <li>AES_256: AES algorithm with 256-bit keys.</li> </ul>
+defaultAlgorithm | **string**<br><p>Supported symmetric encryption algorithms</p> 
 rotationPeriod | **string**<br>
  
 ## Response {#responses}

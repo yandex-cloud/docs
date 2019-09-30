@@ -7,28 +7,28 @@ items:
         href: undefined/Function/index.md
       - name: create
         href: undefined/Function/create.md
-      - name: createFunctionVersion
-        href: undefined/Function/createFunctionVersion.md
+      - name: createVersion
+        href: undefined/Function/createVersion.md
       - name: delete
         href: undefined/Function/delete.md
       - name: get
         href: undefined/Function/get.md
-      - name: getFunctionVersion
-        href: undefined/Function/getFunctionVersion.md
-      - name: getFunctionVersionByTag
-        href: undefined/Function/getFunctionVersionByTag.md
+      - name: getVersion
+        href: undefined/Function/getVersion.md
+      - name: getVersionByTag
+        href: undefined/Function/getVersionByTag.md
       - name: list
         href: undefined/Function/list.md
       - name: listAccessBindings
         href: undefined/Function/listAccessBindings.md
-      - name: listFunctionTagHistory
-        href: undefined/Function/listFunctionTagHistory.md
-      - name: listFunctionVersions
-        href: undefined/Function/listFunctionVersions.md
       - name: listOperations
         href: undefined/Function/listOperations.md
       - name: listRuntimes
         href: undefined/Function/listRuntimes.md
+      - name: listTagHistory
+        href: undefined/Function/listTagHistory.md
+      - name: listVersions
+        href: undefined/Function/listVersions.md
       - name: removeTag
         href: undefined/Function/removeTag.md
       - name: setAccessBindings

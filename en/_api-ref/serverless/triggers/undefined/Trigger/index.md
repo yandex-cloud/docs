@@ -60,12 +60,12 @@ description | **string**<br><p>Description of the trigger.</p>
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> 
 rule | **object**<br><p>Required. Defines trigger rule (is always consistent with type filed)</p> 
 rule.<br>messageQueue | **object** <br>`rule` includes only one of the fields `messageQueue`, `iotMessage`<br><br>
-rule.<br>messageQueue.<br>queueId | **string**<br><p>ID of the queue.</p>
+rule.<br>messageQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 rule.<br>messageQueue.<br>serviceAccountId | **string**<br><p>Required. SA which has read access to the queue.</p> <p>The maximum string length in characters is 50.</p> 
 rule.<br>messageQueue.<br>batchSettings | **object**<br>
 rule.<br>messageQueue.<br>batchSettings.<br>size | **string** (int64)<br><p>Maximum batch size: trigger will send a batch if number of events exceeds this value.</p> <p>Acceptable values are 0 to 10, inclusive.</p> 
 rule.<br>messageQueue.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum batch size: trigger will send a batch if its lifetime exceeds this value.</p> 
-rule.<br>messageQueue.<br>visibilityTimeout | **string**<br><p>Queue visibility timeout override.</p> <p>The maximum value is 43200 seconds.</p>
+rule.<br>messageQueue.<br>visibilityTimeout | **string**<br><p>Queue visibility timeout override.</p> <p>The maximum value is 43200 seconds.</p> 
 rule.<br>messageQueue.<br>invokeFunction | **object**<br>
 rule.<br>messageQueue.<br>invokeFunction.<br>functionId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
 rule.<br>messageQueue.<br>invokeFunction.<br>functionTag | **string**<br>

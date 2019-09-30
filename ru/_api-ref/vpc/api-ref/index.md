@@ -8,4 +8,5 @@ editable: false
 Ресурс | Описание
 --- | ---
 [Network](Network/index.md) | Набор методов для управления облачными сетями.
+[RouteTable](RouteTable/index.md) | Набор методов для управления таблицами маршрутизации.
 [Subnet](Subnet/index.md) | Набор методов для управления подсетями.

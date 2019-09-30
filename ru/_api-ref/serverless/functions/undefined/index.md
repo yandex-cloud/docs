@@ -7,4 +7,4 @@ Description not set.
 
 Ресурс | Описание
 --- | ---
-[Function](Function/index.md) |
+[Function](Function/index.md) | 

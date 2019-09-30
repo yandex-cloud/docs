@@ -15,7 +15,7 @@ A set of methods for managing Repository resources.
 Field | Description
 --- | ---
 name | **string**<br><p>Name of the repository. The name is unique within the registry.</p> 
-id | **string**<br><p>Output only. ID of the repository.</p>
+id | **string**<br><p>Output only. ID of the repository.</p> 
 
 ## Methods {#methods}
 Method | Description

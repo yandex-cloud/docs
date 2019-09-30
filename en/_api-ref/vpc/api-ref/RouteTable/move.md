@@ -2,60 +2,34 @@
 editable: false
 ---
 
-# Method createFunctionVersion
-Deprecated. Use CreateVersion.
+# Method move
+Move route table to another folder.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST undefined/functions/v1/versions
+POST https://vpc.api.cloud.yandex.net/vpc/v1/routeTables/{routeTableId}:move
 ```
+ 
+## Path parameters {#path_params}
+ 
+Parameter | Description
+--- | ---
+routeTableId | Required. ID of the RouteTable resource to move.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
 ```json 
 {
-  "functionId": "string",
-  "runtime": "string",
-  "description": "string",
-  "entrypoint": "string",
-  "resources": {
-    "memory": "string"
-  },
-  "executionTimeout": "string",
-  "serviceAccountId": "string",
-  "environment": "object",
-
-  //  includes only one of the fields `package`, `content`
-  "package": {
-    "bucketName": "string",
-    "objectName": "string",
-    "sha256": "string"
-  },
-  "content": "string",
-  // end of the list of possible fields
-
+  "destinationFolderId": "string"
 }
 ```
 
  
 Field | Description
 --- | ---
-functionId | **string**<br><p>Required.</p> 
-runtime | **string**<br><p>Required.</p> 
-description | **string**<br>
-entrypoint | **string**<br><p>Required.</p> 
-resources | **object**<br>Required.<br>
-resources.<br>memory | **string** (int64)<br><p>Acceptable values are 33554432 to 1073741824, inclusive.</p> 
-executionTimeout | **string**<br><p>Required.</p> 
-serviceAccountId | **string**<br>
-environment | **object**<br><p>Each key must match the regular expression <code>[a-zA-Z][a-zA-Z0-9_]*</code>. The maximum string length in characters for each value is 4096.</p> 
-package | **object** <br> includes only one of the fields `package`, `content`<br><br>
-package.<br>bucketName | **string**<br><p>Required.</p> 
-package.<br>objectName | **string**<br><p>Required.</p> 
-package.<br>sha256 | **string**<br>
-content | **string** (byte) <br> includes only one of the fields `package`, `content`<br><br><p>The maximum string length in characters is 52428800.</p> 
+destinationFolderId | **string**<br><p>Required. ID of the destination folder.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

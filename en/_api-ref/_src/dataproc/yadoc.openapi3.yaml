@@ -1167,6 +1167,9 @@ components:
 
             Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
+        serviceAccountId:
+          description: Identifier of the new service account for the cluster.
+          type: string
     UpdateSubclusterConfigSpec:
       type: object
       properties:

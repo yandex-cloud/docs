@@ -131,8 +131,7 @@ paths:
     get:
       tags:
       - Function
-      summary: Deprecated. Use GetVersion.
-      operationId: FunctionGetFunctionVersion
+      operationId: FunctionGetVersion
       parameters:
       - name: functionVersionId
         in: path
@@ -147,13 +146,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Version'
-      x-y-navtitle: getFunctionVersion
+      x-y-navtitle: getVersion
   /functions/v1/versions:byTag:
     get:
       tags:
       - Function
-      summary: Deprecated. Use GetVersionByTag.
-      operationId: FunctionGetFunctionVersionByTag
+      operationId: FunctionGetVersionByTag
       parameters:
       - name: functionId
         in: query
@@ -173,13 +171,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Version'
-      x-y-navtitle: getFunctionVersionByTag
+      x-y-navtitle: getVersionByTag
   /functions/v1/versions:
     get:
       tags:
       - Function
-      summary: Deprecated. Use ListVersions.
-      operationId: FunctionListFunctionVersions
+      operationId: FunctionListVersions
       parameters:
       - name: folderId
         in: query
@@ -212,12 +209,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListFunctionsVersionsResponse'
-      x-y-navtitle: listFunctionVersions
+      x-y-navtitle: listVersions
     post:
       tags:
       - Function
-      summary: Deprecated. Use CreateVersion.
-      operationId: FunctionCreateFunctionVersion
+      operationId: FunctionCreateVersion
       requestBody:
         content:
           application/json:
@@ -231,7 +227,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Operation'
-      x-y-navtitle: createFunctionVersion
+      x-y-navtitle: createVersion
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateFunctionVersionMetadata'
       x-y-operation-response: Version
@@ -297,8 +293,7 @@ paths:
     get:
       tags:
       - Function
-      summary: Deprecated. Use ListTagHistory.
-      operationId: FunctionListFunctionTagHistory
+      operationId: FunctionListTagHistory
       parameters:
       - name: functionId
         in: path
@@ -335,7 +330,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListFunctionTagHistoryResponse'
-      x-y-navtitle: listFunctionTagHistory
+      x-y-navtitle: listTagHistory
   /functions/v1/runtimes:
     get:
       tags:

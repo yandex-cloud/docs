@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Method get
-Returns the specified symmetric key.
+Retrieves symmetric key by ID
  
-To get the list of available symmetric keys, make a [list](/docs/kms/api-ref/SymmetricKey/list) request.
+
  
 ## HTTP request {#https-request}
 ```
@@ -16,7 +16,7 @@ GET https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}
  
 Parameter | Description
 --- | ---
-keyId | Required. ID of the symmetric key to return. To get the ID of a symmetric key use a [list](/docs/kms/api-ref/SymmetricKey/list) request.  The maximum string length in characters is 50.
+keyId | Required. The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -44,25 +44,25 @@ keyId | Required. ID of the symmetric key to return. To get the ID of a symmetri
   "rotationPeriod": "string"
 }
 ```
-A KMS key, that may contain several versions of the encryption material.
+Central resource, logical key. One key may have several versions.
  
 Field | Description
 --- | ---
-id | **string**<br><p>ID of the key.</p>
-folderId | **string**<br><p>ID of the folder that the key belongs to.</p>
-createdAt | **string** (date-time)<br><p>Time when the key was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p>
-name | **string**<br><p>Name of the key.</p>
-description | **string**<br><p>Description of the key.</p>
-labels | **object**<br><p>Custom labels for the KMS key as <code>key:value</code> pairs. Maximum 64 per key.</p>
-status | **string**<br><p>Current status of the key.</p> <ul> <li>CREATING: The key is being created.</li> <li>ACTIVE: The key is active and can be used for encryption and decryption.</li> <li>INACTIVE: The key is inactive and unusable.</li> </ul>
-primaryVersion | **object**<br><p>Primary version of the key, chosen as the default for all encrypt/decrypt operations, if no version ID was specified.</p> <p>KMS key version: metadata about actual cryptographic data.</p>
-primaryVersion.<br>id | **string**<br><p>ID of the key version.</p>
-primaryVersion.<br>keyId | **string**<br><p>ID of the KMS key that the version belongs to.</p>
-primaryVersion.<br>status | **string**<br><p>Status of the key version.</p> <p>Possible version status.</p> <ul> <li>ACTIVE: The version is active and can be used for encryption and decryption.</li> <li>SCHEDULED_FOR_DESTRUCTION: The version is scheduled for destruction, the time when it will be destroyed is specified in the destroyAt field.</li> <li>DESTROYED: The version is destroyed and cannot be recovered.</li> </ul>
-primaryVersion.<br>algorithm | **string**<br><p>Encryption algorithm used to generate the cryptographic data for the key version.</p> <p>Supported symmetric encryption algorithms.</p> <ul> <li>AES_128: AES algorithm with 128-bit keys.</li> <li>AES_192: AES algorithm with 192-bit keys.</li> <li>AES_256: AES algorithm with 256-bit keys.</li> </ul>
-primaryVersion.<br>createdAt | **string** (date-time)<br><p>Time when the key version was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p>
-primaryVersion.<br>primary | **boolean** (boolean)<br><p>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified.</p>
-primaryVersion.<br>destroyAt | **string** (date-time)<br><p>Time when the key version is going to be destroyed. Empty unless the status is <code>SCHEDULED_FOR_DESTRUCTION</code>.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p>
-defaultAlgorithm | **string**<br><p>Default algorithm to be used for generating a new version during key rotation.</p> <p>Supported symmetric encryption algorithms.</p> <ul> <li>AES_128: AES algorithm with 128-bit keys.</li> <li>AES_192: AES algorithm with 192-bit keys.</li> <li>AES_256: AES algorithm with 256-bit keys.</li> </ul>
-rotatedAt | **string** (date-time)<br><p>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p>
-rotationPeriod | **string**<br><p>Time period between automatic KMS key rotations.</p>
+id | **string**<br>
+folderId | **string**<br>
+createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br>
+description | **string**<br>
+labels | **object**<br>
+status | **string**<br><p>possible key statuses</p> 
+primaryVersion | **object**<br><p>primary version for the key - default choice for all encrypt/decrypt operations if exact version number was not given</p> <p>Symmetric Key Version resource Key version is the object that is linked to crypto-material used for real encryption/decryption</p> 
+primaryVersion.<br>id | **string**<br>
+primaryVersion.<br>keyId | **string**<br>
+primaryVersion.<br>status | **string**<br><p>possible version statuses</p> 
+primaryVersion.<br>algorithm | **string**<br><p>Supported symmetric encryption algorithms</p> 
+primaryVersion.<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+primaryVersion.<br>primary | **boolean** (boolean)<br>
+primaryVersion.<br>destroyAt | **string** (date-time)<br><p>time when this version will be destroyed, status should be SCHEDULED_FOR_DESTRUCTION</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+defaultAlgorithm | **string**<br><p>default version algorithm to be used for new version during next key rotation</p> <p>Supported symmetric encryption algorithms</p> 
+rotatedAt | **string** (date-time)<br><p>last time the key was rotated, i.e. the time last version was created; empty if key does not have versions yet</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+rotationPeriod | **string**<br><p>time interval next key version should be generated by KMS auto-rotation worker</p> 

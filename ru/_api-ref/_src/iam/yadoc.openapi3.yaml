@@ -1147,6 +1147,27 @@ components:
         description:
           description: Описание роли. Длина описания должна быть от 0 до 256 символов.
           type: string
+    SamlUserAccount:
+      description: |-
+        Пользователь федерации.
+        Подробнее см. в разделе [SAML-совместимые федерации](/docs/iam/concepts/users/saml-federations).
+      type: object
+      properties:
+        federationId:
+          description: |-
+            Обязательное поле.
+            Идентификатор федерации, которой принадлежит пользователь.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        nameId:
+          description: |-
+            Обязательное поле.
+            Идентификатор имени пользоваетля федерации.
+            Идентификатор имени должен быть уникальным в федерации. Длина 1-256 символов.
+
+            Длина строки в символах должна быть от 1 до 256.
+          type: string
     ServiceAccount:
       description: Ресурс ServiceAccount. Дополнительные сведения см. в разделе [Сервисные
         аккаунты](/docs/iam/concepts/users/service-accounts).
@@ -1288,9 +1309,13 @@ components:
           yandexPassportUserAccount:
             $ref: '#/components/schemas/YandexPassportUserAccount'
             description: Ресурс YandexPassportUserAccount.
+          samlUserAccount:
+            $ref: '#/components/schemas/SamlUserAccount'
+            description: Пользователь федерации.
     YandexPassportUserAccount:
-      description: Ресурс YandexPassportUserAccount. Подробнее см. в разделе [Аккаунт
-        Яндекс.Паспорта](/docs/iam/concepts/#passport).
+      description: |-
+        Ресурс YandexPassportUserAccount.
+        Подробнее см. в разделе [Аккаунт Яндекс.Паспорта](/docs/iam/concepts/#passport).
       type: object
       properties:
         login:

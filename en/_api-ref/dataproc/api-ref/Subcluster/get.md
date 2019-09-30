@@ -53,4 +53,4 @@ resources.<br>resourcePresetId | **string**<br><p>ID of the resource preset for 
 resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive.</li> </ul> 
 resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 subnetId | **string**<br><p>ID of using compute subnet for hosts in subcluster.</p> 
-hostsCount | **string** (int64)<br><p>Number of hosts in subcluster.</p>
+hostsCount | **string** (int64)<br><p>Number of hosts in subcluster.</p> 

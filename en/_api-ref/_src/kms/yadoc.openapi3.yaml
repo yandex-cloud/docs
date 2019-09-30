@@ -12,15 +12,13 @@ paths:
     post:
       tags:
       - SymmetricCrypto
-      summary: Encrypts given plaintext with the specified key.
+      summary: Encrypts given plaintext with specified key
       operationId: SymmetricCryptoEncrypt
       parameters:
       - name: keyId
         in: path
         description: |-
           Required.
-          ID of the KMS key to use for encryption.
-
           The maximum string length in characters is 50.
         required: true
         schema:
@@ -28,8 +26,7 @@ paths:
       - name: versionId
         in: query
         description: |-
-          ID of the key version to encrypt plaintext with.
-          Defaults to the primary version if not specified.
+          Version ID, defaults to primary version if not given
 
           The maximum string length in characters is 50.
         schema:
@@ -37,8 +34,7 @@ paths:
       - name: aadContext
         in: query
         description: |-
-          Additional authentication data, if necessary.
-          If specified, this data will be required for decryption with the SymmetricDecryptRequest.
+          Additional authenticated data, optional
 
           The maximum string length in characters is 8192.
         schema:
@@ -48,7 +44,7 @@ paths:
         in: query
         description: |-
           Required.
-          Text to be encrypted.
+          Plaintext to be encrypted
 
           The maximum string length in characters is 32768.
         schema:
@@ -66,15 +62,13 @@ paths:
     post:
       tags:
       - SymmetricCrypto
-      summary: Decrypts the given ciphertext with the specified key.
+      summary: Decrypts given ciphertext
       operationId: SymmetricCryptoDecrypt
       parameters:
       - name: keyId
         in: path
         description: |-
           Required.
-          ID of the KMS key to use for decryption.
-
           The maximum string length in characters is 50.
         required: true
         schema:
@@ -82,8 +76,7 @@ paths:
       - name: aadContext
         in: query
         description: |-
-          Additional authentication data, must be the same as was provided
-          in the corresponding SymmetricEncryptRequest.
+          Additional authenticated data, same as in corresponding EncryptRequest
 
           The maximum string length in characters is 8192.
         schema:
@@ -93,7 +86,7 @@ paths:
         in: query
         description: |-
           Required.
-          Encrypted text to be decrypted.
+          Encrypted text to be decrypted
         schema:
           type: string
           format: byte
@@ -109,14 +102,14 @@ paths:
     post:
       tags:
       - SymmetricCrypto
-      summary: Re-encrypts previously encrypted text with the specified key.
+      summary: Re-encrypts previously encrypted text with the new key
       operationId: SymmetricCryptoReEncrypt
       parameters:
       - name: keyId
         in: path
         description: |-
           Required.
-          ID of the new key to be used for encryption.
+          Target key id
 
           The maximum string length in characters is 50.
         required: true
@@ -125,8 +118,7 @@ paths:
       - name: versionId
         in: query
         description: |-
-          ID of the version of the new key to be used for encryption.
-          Defaults to the primary version if not specified.
+          Target key version id, optional, defaults to primary
 
           The maximum string length in characters is 50.
         schema:
@@ -134,7 +126,7 @@ paths:
       - name: aadContext
         in: query
         description: |-
-          Additional authentication data to be required for decryption.
+          Target additional authenticated data, optional
 
           The maximum string length in characters is 8192.
         schema:
@@ -144,7 +136,7 @@ paths:
         in: query
         description: |-
           Required.
-          ID of the key that the text is currently encrypted with. May be the same as for the new key.
+          Source key id, may be equal to target key id
 
           The maximum string length in characters is 50.
         schema:
@@ -152,7 +144,7 @@ paths:
       - name: sourceAadContext
         in: query
         description: |-
-          Authentication data provided with the initial encryption request.
+          Source add-context, may differ from target add-context
 
           The maximum string length in characters is 8192.
         schema:
@@ -162,7 +154,7 @@ paths:
         in: query
         description: |-
           Required.
-          Encrypted text to re-encrypt.
+          Encrypted text to re-encrypt
         schema:
           type: string
           format: byte
@@ -178,17 +170,14 @@ paths:
     post:
       tags:
       - SymmetricCrypto
-      summary: |-
-        Generates a new symmetric data encryption key and returns this data key
-        in plain text, and encrypted with the specified KMS key.
+      summary: Generates new symmetric DATA encryption key, encrypts it and returns
+        to the caller
       operationId: SymmetricCryptoGenerateDataKey
       parameters:
       - name: keyId
         in: path
         description: |-
           Required.
-          ID of the KMS key that the generated data key should be encrypted with.
-
           The maximum string length in characters is 50.
         required: true
         schema:
@@ -196,8 +185,7 @@ paths:
       - name: versionId
         in: query
         description: |-
-          ID of the key version to encrypt the data key with.
-          Defaults to the primary version if not specified.
+          Version ID, defaults to primary version if not given
 
           The maximum string length in characters is 50.
         schema:
@@ -205,8 +193,7 @@ paths:
       - name: aadContext
         in: query
         description: |-
-          Additional authentication data, if necessary.
-          If specified, this data will be required for decryption with the SymmetricDecryptRequest.
+          Additional authenticated data to be used by encryption algorithm (optional)
 
           The maximum string length in characters is 8192.
         schema:
@@ -214,14 +201,13 @@ paths:
           format: byte
       - name: dataKeySpec
         in: query
-        description: Encryption algorithm and key length for the data key.
+        description: Encryption algorithm create data key for
         schema:
           $ref: '#/components/schemas/SymmetricAlgorithm'
       - name: skipPlaintext
         in: query
-        description: |-
-          If `true`, the method won't return the data key in plain text.
-          Default value is `false`.
+        description: Plaintext for data key won't be returned if this parameter is
+          true
         schema:
           type: boolean
           format: boolean
@@ -237,37 +223,25 @@ paths:
     get:
       tags:
       - SymmetricKey
-      summary: Returns the list of symmetric keys in the specified folder.
+      summary: Retrieves the list of symmetric keys in specified folder
       operationId: SymmetricKeyList
       parameters:
       - name: folderId
         in: query
         description: |-
           Required.
-          ID of the folder to list symmetric keys in.
-
           The maximum string length in characters is 50.
         schema:
           type: string
       - name: pageSize
         in: query
-        description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/kms/api-ref/SymmetricKey/list#query_params), the service returns a [nextPageToken](/docs/kms/api-ref/SymmetricKey/list#responses)
-          that can be used to get the next page of results in subsequent list requests.
-          Default value: 100.
-
-          The maximum value is 1000.
+        description: The maximum value is 1000.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/kms/api-ref/SymmetricKey/list#query_params) to the
-          [nextPageToken](/docs/kms/api-ref/SymmetricKey/list#responses) returned by a previous list request.
-
-          The maximum string length in characters is 100.
+        description: The maximum string length in characters is 100.
         schema:
           type: string
       responses:
@@ -281,7 +255,7 @@ paths:
     post:
       tags:
       - SymmetricKey
-      summary: Creates a symmetric key in the specified folder.
+      summary: Creates symmetric key
       operationId: SymmetricKeyCreate
       requestBody:
         content:
@@ -304,18 +278,13 @@ paths:
     get:
       tags:
       - SymmetricKey
-      summary: Returns the specified symmetric key.
-      description: To get the list of available symmetric keys, make a [list](/docs/kms/api-ref/SymmetricKey/list)
-        request.
+      summary: Retrieves symmetric key by ID
       operationId: SymmetricKeyGet
       parameters:
       - name: keyId
         in: path
         description: |-
           Required.
-          ID of the symmetric key to return.
-          To get the ID of a symmetric key use a [list](/docs/kms/api-ref/SymmetricKey/list) request.
-
           The maximum string length in characters is 50.
         required: true
         schema:
@@ -331,17 +300,13 @@ paths:
     delete:
       tags:
       - SymmetricKey
-      summary: |-
-        Deletes the specified symmetric key. This action also automatically schedules
-        the destruction of all of the key's versions in 72 hours.
+      summary: Deletes the symmetric key and schedule all its version for destruction
       operationId: SymmetricKeyDelete
       parameters:
       - name: keyId
         in: path
         description: |-
           Required.
-          ID of the key to be deleted.
-
           The maximum string length in characters is 50.
         required: true
         schema:
@@ -360,16 +325,13 @@ paths:
     patch:
       tags:
       - SymmetricKey
-      summary: Updates the specified symmetric key.
+      summary: Updates existing symmetric key
       operationId: SymmetricKeyUpdate
       parameters:
       - name: keyId
         in: path
         description: |-
           Required.
-          ID of the symmetric key to update.
-          To get the ID of a symmetric key use a [list](/docs/kms/api-ref/SymmetricKey/list) request.
-
           The maximum string length in characters is 50.
         required: true
         schema:
@@ -395,39 +357,26 @@ paths:
     get:
       tags:
       - SymmetricKey
-      summary: Returns the list of versions that belong to the specified symmetric
-        key.
+      summary: Retrieves the list of versions that belongs to given key
       operationId: SymmetricKeyListVersions
       parameters:
       - name: keyId
         in: path
         description: |-
           Required.
-          ID of the symmetric key to list versions for.
-
           The maximum string length in characters is 50.
         required: true
         schema:
           type: string
       - name: pageSize
         in: query
-        description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/kms/api-ref/SymmetricKey/listVersions#query_params), the service returns a [nextPageToken](/docs/kms/api-ref/SymmetricKey/listVersions#responses)
-          that can be used to get the next page of results in subsequent list requests.
-          Default value: 100.
-
-          The maximum value is 1000.
+        description: The maximum value is 1000.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/kms/api-ref/SymmetricKey/listVersions#query_params) to the
-          [nextPageToken](/docs/kms/api-ref/SymmetricKey/listVersions#responses) returned by a previous list request.
-
-          The maximum string length in characters is 100.
+        description: The maximum string length in characters is 100.
         schema:
           type: string
       responses:
@@ -442,17 +391,14 @@ paths:
     post:
       tags:
       - SymmetricKey
-      summary: |-
-        Sets the primary version for the specified key. The primary version is used
-        by default for all encrypt/decrypt operations where no version ID is specified.
+      summary: Sets primary version for the specified key. Primary version will be
+        used by default for all encrypt/decrypt operations.
       operationId: SymmetricKeySetPrimaryVersion
       parameters:
       - name: keyId
         in: path
         description: |-
           Required.
-          ID of the key to set a primary version for.
-
           The maximum string length in characters is 50.
         required: true
         schema:
@@ -461,8 +407,6 @@ paths:
         in: query
         description: |-
           Required.
-          ID of the version that should become primary for the specified key.
-
           The maximum string length in characters is 50.
         schema:
           type: string
@@ -481,17 +425,14 @@ paths:
     post:
       tags:
       - SymmetricKey
-      summary: Schedules the specified key version for destruction.
-      description: Scheduled destruction can be cancelled with the [cancelVersionDestruction](/docs/kms/api-ref/SymmetricKey/cancelVersionDestruction)
-        method.
+      summary: Schedules specified key version for destruction. Destruction can be
+        cancelled.
       operationId: SymmetricKeyScheduleVersionDestruction
       parameters:
       - name: keyId
         in: path
         description: |-
           Required.
-          ID of the key whose version should be scheduled for destruction.
-
           The maximum string length in characters is 50.
         required: true
         schema:
@@ -500,16 +441,13 @@ paths:
         in: query
         description: |-
           Required.
-          ID of the version to be destroyed.
-
           The maximum string length in characters is 50.
         schema:
           type: string
       - name: pendingPeriod
         in: query
-        description: |-
-          Time interval between the version destruction request and actual destruction.
-          Default value: 7 days.
+        description: The version will be destroyed after pending period has passed.
+          Pending period defaults to 7 days
         schema:
           type: string
       responses:
@@ -527,16 +465,14 @@ paths:
     post:
       tags:
       - SymmetricKey
-      summary: Cancels previously scheduled version destruction, if the version hasn't
-        been destroyed yet.
+      summary: Cancels previously submitted version destruction request. If version
+        was not destroyed yet.
       operationId: SymmetricKeyCancelVersionDestruction
       parameters:
       - name: keyId
         in: path
         description: |-
           Required.
-          ID of the key to cancel a version's destruction for.
-
           The maximum string length in characters is 50.
         required: true
         schema:
@@ -545,8 +481,6 @@ paths:
         in: query
         description: |-
           Required.
-          ID of the version whose scheduled destruction should be cancelled.
-
           The maximum string length in characters is 50.
         schema:
           type: string
@@ -565,16 +499,13 @@ paths:
     post:
       tags:
       - SymmetricKey
-      summary: 'Rotates the specified key: creates a new key version and makes it
-        the primary version.'
+      summary: 'Rotates given key: creates new key version and makes it primary.'
       operationId: SymmetricKeyRotate
       parameters:
       - name: keyId
         in: path
         description: |-
           Required.
-          ID of the key to be rotated.
-
           The maximum string length in characters is 50.
         required: true
         schema:
@@ -601,8 +532,7 @@ paths:
         in: path
         description: |-
           Required.
-          ID of the symmetric key to get operations for.
-
+          ID of the key resource to get operations for
           To get the key ID, use a [list](/docs/kms/api-ref/SymmetricKey/list) request.
 
           The maximum string length in characters is 50.
@@ -644,19 +574,15 @@ components:
       type: object
       properties:
         keyId:
-          description: ID of the key whose version's destruction is being cancelled.
           type: string
         versionId:
-          description: ID of the version whose scheduled destruction is being cancelled.
           type: string
     CreateSymmetricKeyMetadata:
       type: object
       properties:
         keyId:
-          description: ID of the key being created.
           type: string
         primaryVersionId:
-          description: ID of the primary version of the key being created.
           type: string
     CreateSymmetricKeyRequest:
       type: object
@@ -664,29 +590,18 @@ components:
         folderId:
           description: |-
             Required.
-            ID of the folder to create a symmetric KMS key in.
-
             The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             Required.
-            Name of the key.
-            The name must be unique within the folder.
-
             The maximum string length in characters is 100.
           type: string
         description:
-          description: |-
-            Description of the key.
-
-            The maximum string length in characters is 1024.
+          description: The maximum string length in characters is 1024.
           type: string
         labels:
           description: |-
-            Custom labels for the key as `key:value` pairs. Maximum 64 per key.
-            For example, `"project": "mvp"` or `"source": "dictionary"`.
-
             No more than 64 per resource.
             The maximum string length in characters for each key is 63.
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
@@ -698,15 +613,13 @@ components:
         defaultAlgorithm:
           $ref: '#/components/schemas/SymmetricAlgorithm_in_CreateSymmetricKeyRequest_defaultAlgorithm'
         rotationPeriod:
-          description: |-
-            Interval between automatic rotations. To disable automatic rotation, don't include
-            this field in the creation request.
+          description: Period between two automatic rotations. Auto-rotation will
+            be disabled if no rotation_period is given.
           type: string
     DeleteSymmetricKeyMetadata:
       type: object
       properties:
         keyId:
-          description: ID of the key being deleted.
           type: string
     FieldMask:
       description: |-
@@ -723,21 +636,16 @@ components:
       type: object
       properties:
         keyId:
-          description: ID of the KMS key that was used to encrypt the generated data
-            key.
           type: string
         versionId:
-          description: ID of the key version that was used for encryption.
+          description: The key version used to encrypt data key
           type: string
         dataKeyPlaintext:
-          description: |-
-            Generated data key in plain text.
-            The field is empty, if the [skipPlaintext](/docs/kms/api-ref/SymmetricCrypto/generateDataKey#query_params) parameter
-            was set to `true`.
+          description: Data key in plaintext or empty
           type: string
           format: byte
         dataKeyCiphertext:
-          description: The encrypted data key.
+          description: Ciphered data key
           type: string
           format: byte
     ListSymmetricKeyOperationsResponse:
@@ -759,33 +667,19 @@ components:
       type: object
       properties:
         keyVersions:
-          description: List of versions for the specified symmetric key.
           type: array
           items:
             $ref: '#/components/schemas/SymmetricKeyVersion'
         nextPageToken:
-          description: |-
-            This token allows you to get the next page of results for list requests. If the number
-            of results is greater than the specified [pageSize](/docs/kms/api-ref/SymmetricKey/listVersions#query_params), use
-            the [nextPageToken](/docs/kms/api-ref/SymmetricKey/listVersions#responses) as the value for the [pageToken](/docs/kms/api-ref/SymmetricKey/listVersions#query_params) query parameter
-            in the next list request. Each subsequent list request will have its own
-            [nextPageToken](/docs/kms/api-ref/SymmetricKey/listVersions#responses) to continue paging through the results.
           type: string
     ListSymmetricKeysResponse:
       type: object
       properties:
         keys:
-          description: List of symmetric keys in the specified folder.
           type: array
           items:
             $ref: '#/components/schemas/SymmetricKey'
         nextPageToken:
-          description: |-
-            This token allows you to get the next page of results for list requests. If the number
-            of results is greater than the specified [pageSize](/docs/kms/api-ref/SymmetricKey/list#query_params), use
-            the [nextPageToken](/docs/kms/api-ref/SymmetricKey/list#responses) as the value for the [pageToken](/docs/kms/api-ref/SymmetricKey/list#query_params) query parameter
-            in the next list request. Each subsequent list request will have its own
-            [nextPageToken](/docs/kms/api-ref/SymmetricKey/list#responses) to continue paging through the results.
           type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
@@ -848,43 +742,30 @@ components:
       type: object
       properties:
         keyId:
-          description: ID of the key being rotated.
           type: string
         newPrimaryVersionId:
-          description: ID of the version generated as a result of key rotation.
           type: string
     ScheduleSymmetricKeyVersionDestructionMetadata:
       type: object
       properties:
         keyId:
-          description: ID of the key whose version is being scheduled for destruction.
           type: string
         versionId:
-          description: ID of the version that is being scheduled for destruction.
           type: string
         destroyAt:
-          description: |-
-            Time when the version is scheduled to be destroyed.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
           type: string
           format: date-time
     SetPrimarySymmetricKeyVersionMetadata:
       type: object
       properties:
         keyId:
-          description: ID of the key that the primary version if being changed for.
           type: string
         versionId:
-          description: ID of the version that is being made primary for the key.
           type: string
     SymmetricAlgorithm:
-      description: |-
-        Supported symmetric encryption algorithms.
-
-         - AES_128: AES algorithm with 128-bit keys.
-         - AES_192: AES algorithm with 192-bit keys.
-         - AES_256: AES algorithm with 256-bit keys.
+      description: Supported symmetric encryption algorithms
       type: string
       enum:
       - AES_128
@@ -894,62 +775,44 @@ components:
       type: object
       properties:
         keyId:
-          description: ID of the KMS key that was used for decryption.
           type: string
         versionId:
-          description: ID of the key version that was used for decryption.
+          description: The version was used for decryption
           type: string
         plaintext:
-          description: Resulting decrypted text.
+          description: Decrypted text
           type: string
           format: byte
     SymmetricEncryptResponse:
       type: object
       properties:
         keyId:
-          description: |-
-            Required.
-            ID of the KMS key that was used for encryption.
-
-            The maximum string length in characters is 50.
           type: string
         versionId:
-          description: |-
-            ID of the key version that was used for encryption.
-
-            The maximum string length in characters is 50.
+          description: The version was used for encryption
           type: string
         ciphertext:
-          description: Resulting encrypted text.
+          description: Encrypted text
           type: string
           format: byte
     SymmetricKey:
-      description: A KMS key, that may contain several versions of the encryption
-        material.
+      description: Central resource, logical key. One key may have several versions.
       type: object
       properties:
         id:
-          description: ID of the key.
           type: string
         folderId:
-          description: ID of the folder that the key belongs to.
           type: string
         createdAt:
-          description: |-
-            Time when the key was created.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
           type: string
           format: date-time
         name:
-          description: Name of the key.
           type: string
         description:
-          description: Description of the key.
           type: string
         labels:
-          description: Custom labels for the KMS key as `key:value` pairs. Maximum
-            64 per key.
           type: object
           additionalProperties:
             type: string
@@ -961,68 +824,53 @@ components:
           $ref: '#/components/schemas/SymmetricAlgorithm_in_SymmetricKey_defaultAlgorithm'
         rotatedAt:
           description: |-
-            Time of the last key rotation (time when the last version was created).
-            Empty if the key does not have versions yet.
+            last time the key was rotated, i.e. the time last version was created; empty if key does not have versions yet
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         rotationPeriod:
-          description: Time period between automatic KMS key rotations.
+          description: time interval next key version should be generated by KMS auto-rotation
+            worker
           type: string
     SymmetricKeyStatus:
-      description: |2-
-         - CREATING: The key is being created.
-         - ACTIVE: The key is active and can be used for encryption and decryption.
-         - INACTIVE: The key is inactive and unusable.
+      description: possible key statuses
       type: string
       enum:
       - CREATING
       - ACTIVE
       - INACTIVE
     SymmetricKeyVersion:
-      description: 'KMS key version: metadata about actual cryptographic data.'
+      description: |-
+        Symmetric Key Version resource
+        Key version is the object that is linked to crypto-material used for real encryption/decryption
       type: object
       properties:
         id:
-          description: ID of the key version.
           type: string
         keyId:
-          description: ID of the KMS key that the version belongs to.
           type: string
         status:
           $ref: '#/components/schemas/SymmetricKeyVersionStatus_in_SymmetricKeyVersion_status'
         algorithm:
           $ref: '#/components/schemas/SymmetricAlgorithm_in_SymmetricKeyVersion_algorithm'
         createdAt:
-          description: |-
-            Time when the key version was created.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
           type: string
           format: date-time
         primary:
-          description: |-
-            Indication of a primary version, that is to be used by default for all cryptographic
-            operations that don't have a key version explicitly specified.
           type: boolean
           format: boolean
         destroyAt:
           description: |-
-            Time when the key version is going to be destroyed. Empty unless the status
-            is `SCHEDULED_FOR_DESTRUCTION`.
+            time when this version will be destroyed, status should be SCHEDULED_FOR_DESTRUCTION
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     SymmetricKeyVersionStatus:
-      description: |-
-        Possible version status.
-
-         - ACTIVE: The version is active and can be used for encryption and decryption.
-         - SCHEDULED_FOR_DESTRUCTION: The version is scheduled for destruction, the time when it will be destroyed
-        is specified in the destroyAt field.
-         - DESTROYED: The version is destroyed and cannot be recovered.
+      description: possible version statuses
       type: string
       enum:
       - ACTIVE
@@ -1032,27 +880,25 @@ components:
       type: object
       properties:
         keyId:
-          description: ID of the key that the text is encrypted with now.
+          description: Target key id
           type: string
         versionId:
-          description: ID of key version that was used for encryption.
+          description: ID of target key version used for encryption
           type: string
         sourceKeyId:
-          description: ID of the key that the text was encrypted with previously.
+          description: Source key id
           type: string
         sourceVersionId:
-          description: ID of the key version that was used to decrypt the re-encrypted
-            text.
+          description: ID of source key version used for decryption
           type: string
         ciphertext:
-          description: Resulting re-encrypted text.
+          description: Re-encrypted text
           type: string
           format: byte
     UpdateSymmetricKeyMetadata:
       type: object
       properties:
         keyId:
-          description: ID of the key being updated.
           type: string
     UpdateSymmetricKeyRequest:
       type: object
@@ -1060,17 +906,10 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateSymmetricKeyRequest_updateMask'
         name:
-          description: |-
-            New name for the symmetric key.
-            The name must be unique within the folder.
-
-            The maximum string length in characters is 100.
+          description: The maximum string length in characters is 100.
           type: string
         description:
-          description: |-
-            New description for the symmetric key.
-
-            The maximum string length in characters is 1024.
+          description: The maximum string length in characters is 1024.
           type: string
         status:
           $ref: '#/components/schemas/SymmetricKeyStatus_in_UpdateSymmetricKeyRequest_status'
@@ -1106,25 +945,16 @@ components:
             type: object
     SymmetricAlgorithm_in_CreateSymmetricKeyRequest_defaultAlgorithm:
       description: |-
-        Encryption algorithm to be used for generating a new version with the next rotation.
+        Encryption algorithm to be taken for new version during next rotation
 
-        Supported symmetric encryption algorithms.
-
-         - AES_128: AES algorithm with 128-bit keys.
-         - AES_192: AES algorithm with 192-bit keys.
-         - AES_256: AES algorithm with 256-bit keys.
+        Supported symmetric encryption algorithms
       type: string
       enum:
       - AES_128
       - AES_192
       - AES_256
     SymmetricKeyStatus_in_SymmetricKey_status:
-      description: |-
-        Current status of the key.
-
-         - CREATING: The key is being created.
-         - ACTIVE: The key is active and can be used for encryption and decryption.
-         - INACTIVE: The key is inactive and unusable.
+      description: possible key statuses
       type: string
       enum:
       - CREATING
@@ -1132,81 +962,54 @@ components:
       - INACTIVE
     SymmetricKeyVersion_in_SymmetricKey_primaryVersion:
       description: |-
-        Primary version of the key, chosen as the default for all encrypt/decrypt operations,
-        if no version ID was specified.
+        primary version for the key - default choice for all encrypt/decrypt operations if exact version number was not given
 
-        KMS key version: metadata about actual cryptographic data.
+        Symmetric Key Version resource
+        Key version is the object that is linked to crypto-material used for real encryption/decryption
       type: object
       properties:
         id:
-          description: ID of the key version.
           type: string
         keyId:
-          description: ID of the KMS key that the version belongs to.
           type: string
         status:
           $ref: '#/components/schemas/SymmetricKeyVersionStatus_in_SymmetricKeyVersion_status'
         algorithm:
           $ref: '#/components/schemas/SymmetricAlgorithm_in_SymmetricKeyVersion_algorithm'
         createdAt:
-          description: |-
-            Time when the key version was created.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
           type: string
           format: date-time
         primary:
-          description: |-
-            Indication of a primary version, that is to be used by default for all cryptographic
-            operations that don't have a key version explicitly specified.
           type: boolean
           format: boolean
         destroyAt:
           description: |-
-            Time when the key version is going to be destroyed. Empty unless the status
-            is `SCHEDULED_FOR_DESTRUCTION`.
+            time when this version will be destroyed, status should be SCHEDULED_FOR_DESTRUCTION
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     SymmetricAlgorithm_in_SymmetricKey_defaultAlgorithm:
       description: |-
-        Default algorithm to be used for generating a new version during key rotation.
+        default version algorithm to be used for new version during next key rotation
 
-        Supported symmetric encryption algorithms.
-
-         - AES_128: AES algorithm with 128-bit keys.
-         - AES_192: AES algorithm with 192-bit keys.
-         - AES_256: AES algorithm with 256-bit keys.
+        Supported symmetric encryption algorithms
       type: string
       enum:
       - AES_128
       - AES_192
       - AES_256
     SymmetricKeyVersionStatus_in_SymmetricKeyVersion_status:
-      description: |-
-        Status of the key version.
-
-        Possible version status.
-
-         - ACTIVE: The version is active and can be used for encryption and decryption.
-         - SCHEDULED_FOR_DESTRUCTION: The version is scheduled for destruction, the time when it will be destroyed
-        is specified in the destroyAt field.
-         - DESTROYED: The version is destroyed and cannot be recovered.
+      description: possible version statuses
       type: string
       enum:
       - ACTIVE
       - SCHEDULED_FOR_DESTRUCTION
       - DESTROYED
     SymmetricAlgorithm_in_SymmetricKeyVersion_algorithm:
-      description: |-
-        Encryption algorithm used to generate the cryptographic data for the key version.
-
-        Supported symmetric encryption algorithms.
-
-         - AES_128: AES algorithm with 128-bit keys.
-         - AES_192: AES algorithm with 192-bit keys.
-         - AES_256: AES algorithm with 256-bit keys.
+      description: Supported symmetric encryption algorithms
       type: string
       enum:
       - AES_128
@@ -1215,7 +1018,6 @@ components:
     FieldMask_in_UpdateSymmetricKeyRequest_updateMask:
       description: |-
         Required.
-        Field mask that specifies which attributes of the symmetric key are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
@@ -1227,25 +1029,14 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     SymmetricKeyStatus_in_UpdateSymmetricKeyRequest_status:
-      description: |-
-        New status for the symmetric key.
-        Using the UpdateSymmetricKeyRequest you can only set ACTIVE or INACTIVE status.
-
-         - CREATING: The key is being created.
-         - ACTIVE: The key is active and can be used for encryption and decryption.
-         - INACTIVE: The key is inactive and unusable.
+      description: possible key statuses
       type: string
       enum:
       - CREATING
       - ACTIVE
       - INACTIVE
     SymmetricAlgorithm_in_UpdateSymmetricKeyRequest_defaultAlgorithm:
-      description: |-
-        Supported symmetric encryption algorithms.
-
-         - AES_128: AES algorithm with 128-bit keys.
-         - AES_192: AES algorithm with 192-bit keys.
-         - AES_256: AES algorithm with 256-bit keys.
+      description: Supported symmetric encryption algorithms
       type: string
       enum:
       - AES_128
@@ -1253,6 +1044,6 @@ components:
       - AES_256
 tags:
 - name: SymmetricCrypto
-  description: Set of methods that perform symmetric encryption and decryption.
+  description: Service that performs symmetric encryption & decryption operations
 - name: SymmetricKey
-  description: Set of methods for managing symmetric KMS keys.
+  description: Symmetric key manipulation service

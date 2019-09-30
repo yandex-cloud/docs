@@ -267,6 +267,220 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListNetworkOperationsResponse'
       x-y-navtitle: listOperations
+  /vpc/v1/routeTables/{routeTableId}:
+    get:
+      tags:
+      - RouteTable
+      summary: Возвращает указанную таблицу маршрутизации.
+      description: Чтобы получить список доступных таблиц маршрутизации, используйте
+        запрос [list](/docs/vpc/api-ref/RouteTable/list).
+      operationId: RouteTableGet
+      parameters:
+      - name: routeTableId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемой таблицы маршрутизации. Для получения идентификатора
+          таблицы маршрутизации используйте запрос [list](/docs/vpc/api-ref/RouteTable/list) .
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteTable'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - RouteTable
+      summary: Удаляет указанную таблицу маршрутизации.
+      operationId: RouteTableDelete
+      parameters:
+      - name: routeTableId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемой таблицы маршрутизации. Для получения идентификатора
+          таблицы маршрутизации используйте запрос [list](/docs/vpc/api-ref/RouteTable/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteRouteTableMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - RouteTable
+      summary: |-
+        Обновляет указанную таблицу маршрутизации. Метод запускает асинхронную операцию,
+        которую можно отменить перед тем, как она завершится.
+      operationId: RouteTableUpdate
+      parameters:
+      - name: routeTableId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор обновляемой таблицы маршрутизации.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRouteTableRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateRouteTableMetadata'
+      x-y-operation-response: '[RouteTable](/docs/vpc/api-ref/RouteTable#representation)'
+  /vpc/v1/routeTables:
+    get:
+      tags:
+      - RouteTable
+      summary: Возвращает список доступных таблиц маршрутизации в указанном каталоге.
+      operationId: RouteTableList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога, к которому принадлежит таблица маршрутизации. Чтобы
+          получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное количество результатов на странице ответа на запрос.
+          Если количество\nрезультатов больше чем [pageSize](/docs/vpc/api-ref/RouteTable/list#query_params)
+          , сервис вернет значение [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses),\nкоторое
+          можно использовать для получения следующей страницы. \nЗначение по умолчанию:
+          100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/vpc/api-ref/RouteTable/list#query_params) равным значению поля
+          [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [RouteTable.name](/docs/vpc/api-ref/RouteTable#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRouteTablesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - RouteTable
+      summary: |-
+        Создает таблицу маршрутизации в указанных каталоге и сети. Метод запускает
+        асинхронную операцию, которую можно отменить перед тем, как она завершится.
+      operationId: RouteTableCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRouteTableRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateRouteTableMetadata'
+      x-y-operation-response: '[RouteTable](/docs/vpc/api-ref/RouteTable#representation)'
+  /vpc/v1/routeTables/{routeTableId}/operations:
+    get:
+      tags:
+      - RouteTable
+      summary: Возвращает список операций для указанной таблицы маршрутизации.
+      operationId: RouteTableListOperations
+      parameters:
+      - name: routeTableId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор таблицы маршрутизации, для которой запрашивается список операций.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "Максимальное число возвращаемых результатов на странице. Если
+          количество\nрезультатов больше чем [pageSize](/docs/vpc/api-ref/RouteTable/listOperations#query_params)
+          , сервис вернет значение [nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses),\nкоторое
+          можно использовать для получения следующей страницы. \nЗначение по умолчанию:
+          100.\n\nМаксимальное значение — 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: "Токен страницы. Установите значение [pageToken](/docs/vpc/api-ref/RouteTable/listOperations#query_params)
+          равным значению поля\n[nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses)
+          предыдущего запроса, \nчтобы получить следующую страницу результатов.\n\nМаксимальная
+          длина строки в символах — 100."
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRouteTableOperationsResponse'
+      x-y-navtitle: listOperations
   /vpc/v1/subnets/{subnetId}:
     get:
       tags:
@@ -511,6 +725,59 @@ components:
           type: object
           additionalProperties:
             type: string
+    CreateRouteTableMetadata:
+      type: object
+      properties:
+        routeTableId:
+          description: Идентификатор создаваемой таблицы маршрутизации.
+          type: string
+    CreateRouteTableRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Обязательное поле.
+            Идентификатор каталога, к которому принадлежит таблица маршрутизации. Чтобы
+            получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list) .
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        name:
+          description: |-
+            Имя таблицы маршрутизации. Имя должно быть уникальным в каталоге.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Описание таблицы маршрутизации.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки ресурса в формате `` ключ:значение ``.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        networkId:
+          description: |-
+            Обязательное поле.
+            Идентификатор облачной сети, к которой принадлежит таблица маршрутизации.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        staticRoutes:
+          description: Список статических маршрутов в таблице маршрутизации.
+          type: array
+          items:
+            $ref: '#/components/schemas/StaticRoute'
     CreateSubnetMetadata:
       type: object
       properties:
@@ -589,6 +856,12 @@ components:
         networkId:
           description: Идентификатор удаляемой облачной сети.
           type: string
+    DeleteRouteTableMetadata:
+      type: object
+      properties:
+        routeTableId:
+          description: Идентификатор удаляемой таблицы маршрутизации.
+          type: string
     DeleteSubnetMetadata:
       type: object
       properties:
@@ -660,6 +933,36 @@ components:
             в следующем запросе списка ресурсов. Все последующие \nзапросы будут получать
             свои значения [nextPageToken](/docs/vpc/api-ref/Network/list#responses),
             для перебора страниц результатов."
+          type: string
+    ListRouteTableOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанной таблицы маршрутизации.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/vpc/api-ref/RouteTable/listOperations#query_params), используйте [nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/vpc/api-ref/RouteTable/listOperations#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#responses) для перебора страниц результатов.
+          type: string
+    ListRouteTablesResponse:
+      type: object
+      properties:
+        routeTables:
+          description: Список таблиц маршрутизации.
+          type: array
+          items:
+            $ref: '#/components/schemas/RouteTable'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/vpc/api-ref/RouteTable/list#query_params), используйте [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses) в качестве
+            значения параметра [pageToken](/docs/vpc/api-ref/RouteTable/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/vpc/api-ref/RouteTable/list#responses), для перебора страниц результатов.
           type: string
     ListSubnetOperationsResponse:
       type: object
@@ -793,6 +1096,67 @@ components:
               возвращает ресурс Operation, в описании метода приведена
               структура соответствующего ему поля `response`.
             type: object
+    RouteTable:
+      description: "Таблица маршрутизации. \nДополнительные сведения см. в разделе
+        [Статическая маршрутизация](/docs/vpc/concepts/static-routes)."
+      type: object
+      properties:
+        id:
+          description: Идентификатор таблицы маршрутизации.
+          type: string
+        folderId:
+          description: Идентификатор каталога, к которому принадлежит таблица маршрутизации.
+          type: string
+        createdAt:
+          description: |-
+            Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) .
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        name:
+          description: |-
+            Имя таблицы маршрутизации. Имя должно быть уникальным в каталоге. Длина имени должна
+            быть от 3 до 63 символов.
+          type: string
+        description:
+          description: Описание таблицы маршрутизации. Длина описания должна быть
+            от 0 до 256 символов.
+          type: string
+        labels:
+          description: Метки ресурса в формате `` ключ:значение ``. Максимум 64 метки
+            на ресурс.
+          type: object
+          additionalProperties:
+            type: string
+        networkId:
+          description: Идентификатор облачной сети, к которой принадлежит таблица
+            маршрутизации.
+          type: string
+        staticRoutes:
+          description: Список статических маршрутов в таблице маршрутизации.
+          type: array
+          items:
+            $ref: '#/components/schemas/StaticRoute'
+    StaticRoute:
+      description: Статический маршрут. Дополнительные сведения см. в разделе [Статическая
+        маршрутизация](/docs/vpc/concepts/static-routes).
+      type: object
+      allOf:
+      - title: destination
+        type: object
+        maxProperties: 1
+        properties:
+          destinationPrefix:
+            description: Подсеть назначения в нотации CIDR.
+            type: string
+      - title: next_hop
+        type: object
+        maxProperties: 1
+        properties:
+          nextHopAddress:
+            description: IP-адрес next hop.
+            type: string
     Status:
       description: Описание ошибки в случае сбоя или отмены операции.
       type: object
@@ -893,6 +1257,46 @@ components:
           type: object
           additionalProperties:
             type: string
+    UpdateRouteTableMetadata:
+      type: object
+      properties:
+        routeTableId:
+          description: Идентификатор обновляемой таблицы маршрутизации.
+          type: string
+    UpdateRouteTableRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateRouteTableRequest_updateMask'
+        name:
+          description: |-
+            Имя таблицы маршрутизации. Имя должно быть уникальным в каталоге.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Описание таблицы маршрутизации.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки ресурса в формате `` ключ:значение ``.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        staticRoutes:
+          description: Список статических маршрутов.
+          type: array
+          items:
+            $ref: '#/components/schemas/StaticRoute'
     UpdateSubnetMetadata:
       type: object
       properties:
@@ -947,6 +1351,19 @@ components:
         Для полей, указанных в запросе, будут использованы переданные значения.
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
+    FieldMask_in_UpdateRouteTableRequest_updateMask:
+      description: |-
+        Маска, определяющая, какие поля ресурса RouteTable будут обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
     FieldMask_in_UpdateSubnetRequest_updateMask:
       description: |-
         Маска, определяющая, какие поля ресурса Subnet будут обновлены.
@@ -963,5 +1380,7 @@ components:
 tags:
 - name: Network
   description: Набор методов для управления облачными сетями.
+- name: RouteTable
+  description: Набор методов для управления таблицами маршрутизации.
 - name: Subnet
   description: Набор методов для управления подсетями.

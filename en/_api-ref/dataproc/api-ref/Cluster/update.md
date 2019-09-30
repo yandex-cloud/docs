@@ -39,7 +39,8 @@ clusterId | ID of the Dataproc cluster. This ID is assigned by Dataproc at creat
       }
     ]
   },
-  "name": "string"
+  "name": "string",
+  "serviceAccountId": "string"
 }
 ```
 
@@ -59,6 +60,7 @@ configSpec.<br>subclustersSpec[].<br>resources.<br>diskTypeId | **string**<br><p
 configSpec.<br>subclustersSpec[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 configSpec.<br>subclustersSpec[].<br>hostsCount | **string** (int64)<br><p>Number of hosts in subcluster</p> <p>The minimum value is 1.</p> 
 name | **string**<br><p>Name of the Dataproc cluster. The name must be unique within the folder. The name must be 1-63 characters long and match the regular expression <code>^[a-z]([-a-z0-9]{,61}[a-z0-9])?$</code>. The name can’t be changed after the Dataproc cluster is created.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+serviceAccountId | **string**<br><p>Identifier of the new service account for the cluster.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -101,4 +103,4 @@ error | **object**<br>The error result of the operation in case of failure or ca
 error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
 error.<br>message | **string**<br><p>An error message.</p> 
 error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p>
+response | **object** <br> includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 

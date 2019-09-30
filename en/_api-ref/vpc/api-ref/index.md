@@ -8,4 +8,5 @@ This API reference is organized by resource. Actions are performed by sending HT
 Resource | Description
 --- | ---
 [Network](Network/index.md) | A set of methods for managing Network resources.
+[RouteTable](RouteTable/index.md) | A set of methods for managing RouteTable resources.
 [Subnet](Subnet/index.md) | A set of methods for managing Subnet resources.

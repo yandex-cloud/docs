@@ -21,6 +21,24 @@ items:
         href: api-ref/Network/move.md
       - name: update
         href: api-ref/Network/update.md
+  - name: RouteTable
+    items:
+      - name: Overview
+        href: api-ref/RouteTable/index.md
+      - name: create
+        href: api-ref/RouteTable/create.md
+      - name: delete
+        href: api-ref/RouteTable/delete.md
+      - name: get
+        href: api-ref/RouteTable/get.md
+      - name: list
+        href: api-ref/RouteTable/list.md
+      - name: listOperations
+        href: api-ref/RouteTable/listOperations.md
+      - name: move
+        href: api-ref/RouteTable/move.md
+      - name: update
+        href: api-ref/RouteTable/update.md
   - name: Subnet
     items:
       - name: Overview

@@ -2,22 +2,21 @@
 editable: false
 ---
 
-# Method getFunctionVersionByTag
-Deprecated. Use GetVersionByTag.
+# Method getVersion
+
  
 
  
 ## HTTP request {#https-request}
 ```
-GET undefined/functions/v1/versions:byTag
+GET undefined/functions/v1/versions/{functionVersionId}
 ```
  
-## Query parameters {#query_params}
+## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-functionId | Required.
-tag | Value must match the regular expression `` [a-z][-_0-9a-z]*|[$]latest ``.
+functionVersionId | Required.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

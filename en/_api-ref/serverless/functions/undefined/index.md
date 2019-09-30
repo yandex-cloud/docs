@@ -7,4 +7,4 @@ Description not set.
 
 Resource | Description
 --- | ---
-[Function](Function/index.md) |
+[Function](Function/index.md) | 
