@@ -32,12 +32,13 @@
       - Имя виртуальной машины.
 
           {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+          
       - [Зону доступности](../../../overview/concepts/geo-scope.md).
       - Идентификатор [платформы](../../concepts/vm-platforms.md), `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA Tesla V100.
       - [Количество vCPU](../../concepts/gpus.md).
       - [Размер RAM](../../concepts/gpus.md).
       - [Количество GPU](../../concepts/gpus.md).
-      - [Образ](../operations/images-with-pre-installed-software/get-list.md) операционной системы. `ubuntu-1604-lts-gpu` — образ Ubuntu 16.04.6 LTS c CUDA драйверами.
+      - [Образ](../images-with-pre-installed-software/get-list.md) операционной системы. `ubuntu-1604-lts-gpu` — образ Ubuntu 16.04.6 LTS c CUDA драйверами.
       - Публичный IP. Чтобы создать виртуальную машину без публичного IP, исключите опцию `nat-ip-version=ipv4`.
        
       Например:

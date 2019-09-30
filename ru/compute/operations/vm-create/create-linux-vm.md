@@ -30,10 +30,8 @@
   1.  Создайте виртуальную машину в каталоге по умолчанию. Укажите следующие параметры:
         
       - `name` — Имя виртуальной машины.
-    
-      {% include [name-format](../../name-format.md) %}
 
-      {% include [name-fqdn](../../compute/name-fqdn.md) %}
+      {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
     
       - `zone` — зона доступности.
       - `subnet-name` — подсеть.

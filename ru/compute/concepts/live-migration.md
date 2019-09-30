@@ -14,6 +14,6 @@
 
 {% note info %}
 
-Виртуальные машины с [GPU](../concepts/gpu.md) и [прерываемые](../concepts/preemptible-vm.md) виртуальные машины не могут быть динамически перемещены, они должны быть [остановлены](../operations/vm-control/vm-stop-and-start.md#stop) вручную.
+Виртуальные машины с [GPU](../concepts/gpus.md) и [прерываемые](../concepts/preemptible-vm.md) виртуальные машины не могут быть динамически перемещены, они должны быть [остановлены](../operations/vm-control/vm-stop-and-start.md#stop) вручную.
 
 {% endnote %}
