@@ -37,7 +37,7 @@ items:
       - name: VARP
         href: function-ref/VARP.md
   - name: Функции даты и времени
-    href: function-ref/date.md
+    href: function-ref/date-functions.md
     items:
       - name: DATEADD
         href: function-ref/DATEADD.md
