@@ -1,5 +1,7 @@
 # Изменение триггера
 
+{% include [triggers-preview](../../../_includes/functions/triggers-preview-stage.md) %}
+
 Вы можете изменить [имя](#update-name) или [описание](#update-description) триггера, а также [управлять метками триггера](#manage-label).
 
 {% include [yc-trigger-list](../../../_includes/functions/trigger-list.md) %}

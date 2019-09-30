@@ -1,5 +1,7 @@
 # Удаление триггера
 
+{% include [triggers-preview](../../../_includes/functions/triggers-preview-stage.md) %}
+
 {% include [yc-trigger-list](../../../_includes/functions/trigger-list.md) %}
 
 {% list tabs %}

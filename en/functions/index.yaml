@@ -1,7 +1,6 @@
 # Yandex Cloud Functions
 title: "Cloud Functions"
 description:
-  - "<em>The Cloud Functions service is currently at the <a href=\"/docs/overview/concepts/launch-stages\">Preview stage</a></em>."
   - "The Cloud Functions service lets you run your applications in a secure, fault-tolerant, and scalable environment without creating or maintaining VMs."
 meta:
   title: "Yandex Cloud Functions"

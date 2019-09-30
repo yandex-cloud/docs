@@ -1,5 +1,7 @@
 # Создание триггера
 
+{% include [triggers-preview](../../../_includes/functions/triggers-preview-stage.md) %}
+
 Создайте триггер для очереди сообщений сервиса {{ message-queue-full-name }} и обрабатывайте их с помощью функции {{ sf-name }}.
 
 {% note important %}

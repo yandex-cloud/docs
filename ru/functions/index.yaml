@@ -1,7 +1,6 @@
 # Yandex Cloud Functions
 title: "Cloud Functions"
 description:
-  - "<em>Сервис Cloud Functions находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a></em>."
   - "Сервис Cloud Functions позволяет запускать приложения в безопасном, отказоустойчивом и масштабируемом окружении без создания и обслуживания виртуальных машин."
 meta:
   title: "Yandex Cloud Functions"
