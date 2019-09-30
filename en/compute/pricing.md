@@ -175,29 +175,7 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 
 ### Operating systems {#prices-os}
 
-#### Prices before August 1, 2019
-
-{% list tabs %}
-
-- Prices in USD
-
-  | OS | Cost per vCPU per hour, without VAT
-  ----- | -----
-  | Linux for all core types | $0 |
-  | Windows Server for 5%+ of vCPU | $0.008135 |
-  | Windows Server for 20%+, 50%+, 100% vCPU | $0.016270 |
-
-- Prices in roubles
-
-  | OS | Cost per vCPU per hour, with VAT |
-  ----- | -----
-  | Linux for all core types | ₽0 |
-  | Windows Server for 5%+ of vCPU | ₽0.6346 |
-  | Windows Server for 20%+, 50%+, 100% vCPU | ₽1.2691 |
-
-{% endlist %}
-
-#### Prices after August 1, 2019
+#### Prices after August 1, 2019 {#aug-2019}
 
 {% list tabs %}
 
@@ -209,6 +187,15 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   | Windows Server for 5%+ of vCPU | $0.008135 |
   | Windows Server for 20%+ and 50%+ vCPU | $0.009615 |
   | Windows Server for 100% vCPU | $0.016270 |
+  
+  The following OSs are billed at the beginning of a month:
+  
+  | OS | Cost per vCPU per month, with VAT |
+   ----- | -----
+  | MS SQL Server Standard* | $75,59615
+  | MS SQL Server Enterprise* | $258,50001
+    
+   \* The license is given for a bunch of 2 vCPU cores, the minimal amount of the licensed vCPU cores — 4 (2 bunches).
 
 - Prices in roubles
 
@@ -218,6 +205,15 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   | Windows Server for 5%+ of vCPU | ₽0.6346 |
   | Windows Server for 20%+ and 50%+ vCPU | ₽0.75 |
   | Windows Server for 100% vCPU | ₽1.2691 |
+  
+  The following OSs are billed at the beginning of a month:
+  
+  | OS | Cost per vCPU per month, with VAT |
+  ----- | -----
+  | MS SQL Server Standard* | ₽5896.5
+  | MS SQL Server Enterprise* | ₽20163 
+  
+  \* The license is given for a bunch of 2 vCPU cores, the minimal amount of the licensed vCPU cores — 4 (2 bunches).
 
 {% endlist %}
 
@@ -250,3 +246,22 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
 
+### Additional platforms {#platforms}
+
+{% list tabs %}
+
+- Prices in USD
+
+    Platform | Price, without VAT
+    --- | ---
+    Ziax Flow, for 1 VM per hour | $0.435897
+    Loginom Platform, for 1 vCPU per hour | $0.089743
+
+- Prices in roubles
+
+    Platform | Price, with VAT
+    --- | ---
+    Ziax Flow, for 1 VM per hour | ₽34
+    Loginom Platform, for 1 vCPU per hour | ₽7
+
+{% endlist %}
