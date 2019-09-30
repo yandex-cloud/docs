@@ -29,6 +29,8 @@ items:
             href: operations/vm-create/create-from-user-image.md
           - name: Создать прерываемую ВМ
             href: operations/vm-create/create-preemptible-vm.md
+          - name: Создать ВМ c GPU
+            href: operations/vm-create/create-vm-with-gpu.md
       - name: DSVM
         items:
           - name: Обзор
@@ -149,6 +151,8 @@ items:
             href: concepts/vm-platforms.md
           - name: Уровни производительности vCPU
             href: concepts/performance-levels.md
+          - name: Графические ускорители (GPU)
+            href: concepts/gpus.md
           - name: Прерываемые виртуальные машины
             href: concepts/preemptible-vm.md
           - name: Сеть на виртуальной машине

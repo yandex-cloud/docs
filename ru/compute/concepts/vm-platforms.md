@@ -1,12 +1,22 @@
 # Платформы
 
-Выбор платформы гарантирует тип физического процессора в дата-центре и определяет набор допустимых конфигураций vCPU и RAM. Платформу необходимо выбирать при создании каждой виртуальной машины. Допустимые конфигурации vCPU и RAM см. в разделе [{#T}](performance-levels.md).
+{{ compute-full-name }} предоставляет различные виды физических процессоров. Выбор платформы гарантирует тип физического процессора в дата-центре и определяет набор допустимых конфигураций vCPU и RAM. Также, к виртуальной машине можно добавить графический ускоритель (GPU). Платформу необходимо выбирать при создании каждой виртуальной машины.
 
-Подробнее с тарифами на вычислительные ресурсы для разных платформ можно ознакомиться в разделе [{#T}](../pricing.md#prices).
+## Стандартные платформы {#standard-platforms}
 
-Доступные платформы:
-
-Платформа | Процессор | Макс. кол-во ядер (vCPU)</br> в виртуальной машине | Базовая тактовая</br> частота процессора, ГГц
+Платформа | Процессор | Макс. кол-во ядер (vCPU)</br> на виртуальной машине | Базовая тактовая</br> частота процессора, ГГц
 --- | --- | --- | ---
 Intel Broadwell</br> (`standard-v1`) | [Intel Xeon Processor E5-2660 v4](https://ark.intel.com/ru/products/91772/Intel-Xeon-Processor-E5-2660-v4-35M-Cache-2_00-GHz) | 32 | 2.00
 Intel Cascade Lake</br> (`standard-v2`) | [Intel Xeon Gold 6230](https://ark.intel.com/content/www/ru/ru/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 64 | 2.10
+
+## Платформы с GPU {#gpu-platforms}
+
+Платформа | Графический</br> ускоритель | Процессор | Макс. кол-во</br> GPU на 1 ВМ | Кол-во vCPU</br> на 1 GPU | Объем RAM</br> на 1 GPU |
+--- | --- | --- | --- | --- | ---
+Intel Broadwell with NVIDIA Tesla V100 </br> (`gpu-standard-v1`) | [NVIDIA Tesla V100](https://www.nvidia.com/ru-ru/data-center/tesla-v100/) | [Intel Xeon Processor E5-2660 v4](https://ark.intel.com/ru/products/91772/Intel-Xeon-Processor-E5-2660-v4-35M-Cache-2_00-GHz) | 4 | 8 | 96 ГБ |
+
+## Смотрите также
+
+* [Допустимые конфигурации vCPU и RAM](performance-levels.md).
+* [Допустимые конфигурации GPU, vCPU и RAM](gpus.md#config).
+* [Тарифы на вычислительные ресурсы для разных платформ](../pricing.md#prices).

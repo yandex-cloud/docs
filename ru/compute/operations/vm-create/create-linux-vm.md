@@ -27,31 +27,29 @@
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
 
-  1.  Создайте виртуальную машину в каталоге по умолчанию:
+  1.  Создайте виртуальную машину в каталоге по умолчанию. Укажите следующие параметры:
+        
+      - `name` — Имя виртуальной машины.
+    
+      {% include [name-format](../../name-format.md) %}
+
+      {% include [name-fqdn](../../compute/name-fqdn.md) %}
+    
+      - `zone` — зона доступности.
+      - `subnet-name` — подсеть.
+      - `image-family` — операционная система.
+      - Публичный IP. Чтобы создать виртуальную машину без публичного IP, исключите опцию `nat-ip-version=ipv4`.
 
       ```
       $ yc compute instance create \
           --name first-instance \
           --zone ru-central1-a \
-          --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
+          --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
           --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
           --ssh-key ~/.ssh/id_rsa.pub
       ```
-
-      Данная команда создаст виртуальную машину со следующими характеристиками:
-
-      - С именем `first-instance`.
-      - С OC CentOS 7.
-      - В зоне доступности `ru-central1-a`.
-      - В подсети `default-a`.
-      - С публичным IP.
-
-      На машине будет создан пользователь `yc-user` с публичным ключом из файла `~/.ssh/id_rsa.pub`. Чтобы создать виртуальную машину без публичного IP, исключите опцию `nat-ip-version=ipv4`.
-
-      {% include [name-format](../../../_includes/name-format.md) %}
-
-      {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
-
+ 
+      Будет создана виртуальная машина `first-instance`.
 - API
 
   Воспользуйтесь методом [Create](../../api-ref/Instance/create.md) для ресурса `Instance`.
