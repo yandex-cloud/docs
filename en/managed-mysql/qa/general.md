@@ -79,7 +79,7 @@ Maintenance in {{ mmy-short-name }} implies:
 
 #### Which version of {{ MY }} does {{ mmy-short-name }} use? {#dbms-version}
 
-{{ mmy-short-name }} supports {{ MY }} 5.7.
+{{ mmy-short-name }} supports {{ MY }} 5.7 and 8.
 
 #### What happens when a new DBMS version is released? {#new-version}
 
