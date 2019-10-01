@@ -10,6 +10,10 @@ It's integrated with the Yandex.Cloud platform, which allows you to:
 - Access Docker container open network ports without any additional configuration.
 - Update running Docker containers with minimum downtime.
 
+## Before you start {#before-you-begin}
+
+If the required Docker image is pushed to {{ container-registry-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the registry in use. A VM with a Container Optimized Image pulls the Docker image from the registry on behalf of this account.
+
 ## Create a VM with a Docker container from a Container Optimized Image {#create-vm}
 
 1. View a description of the CLI command to create a VM from a Container Optimized Image:
@@ -27,6 +31,7 @@ It's integrated with the Yandex.Cloud platform, which allows you to:
     --name my-vm \
     --zone=ru-central1-b \
     --ssh-key ssh-key.pub \
+    --service-account-name my-robot \
     --public-ip \
     --container-name=my_app \
     --container-image=vm_ubuntu \

@@ -1,8 +1,38 @@
 # YC CLI Releases
 
-## Version 0.40.0 (20.09.19) {#latest-release}
+## Version 0.41.1 (26.09.19) {#latest-release}
 
-### Changes to Yandex.Cloud services {#services}
+- Minor fixes and updates.
+
+## Previous releases {#previous-releases}
+
+### Version 0.41.0 (25.09.19) {#version0.41.0}
+
+#### Changes to Yandex.Cloud services {#services}
+
+#### {{ container-registry-name }} {#container-registry}
+
+- Command `yc compute instance create-with-container`.
+
+    The `--create-boot-disk` flag no longer supports `snapshot-*` parameters.
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Command `yc managed-kubernetes cluster create`.
+
+    Added flags to control the master type: `--regional`, `--region`, and `--master-location`.
+
+- Commands `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update`.
+
+    Added flags to manage the maintenance policy: `--auto-upgrade`, `--anytime-maintenance-window`, `--daily-maintenance-window`, and `--weekly-maintenance-window`.
+
+- Command `yc managed-kubernetes node-groups update`.
+
+    Added flags to manage the maintenance policy: `--auto-upgrade`, `--auto-repair`, `--anytime-maintenance-window`, `--daily-maintenance-window`, and `--weekly-maintenance-window`.
+
+### Version 0.40.0 (20.09.19) {#version0.40.0}
+
+#### Changes to Yandex.Cloud services {#services}
 
 #### {{ container-registry-name }} {#container-registry}
 
@@ -25,8 +55,6 @@
 - Command `{{ yc-mdb-mg }} create clusters`.
 
     For the `--mongodb-version` flag, changed the default value from 3.6 to 4.0.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.39.0 (16.09.19) {#version0.39.0}
 

@@ -28,10 +28,23 @@ When working with a {{ k8s }} cluster in the Yandex.Cloud infrastructure, the fo
 
 ### Master {#master}
 
-_A master_ is a node that manages a {{ k8s }} cluster.
+_Masters_ are components that manage {{ k8s }} clusters.
 
-The master runs {{ k8s }} control processes that include the {{ k8s }} API server, scheduler, and main resource controllers. The master's lifecycle is managed by the service when creating or deleting a {{ k8s }} cluster. The master is responsible for global solutions that are run on all {{ k8s }} cluster nodes. These include scheduling workloads (such as containerized applications), managing the lifecycle of workloads, and scaling.
+They run {{ k8s }} control processes that include the {{ k8s }} API server, scheduler, and main resource controllers. The master lifecycle is managed by the service when creating or deleting a {{ k8s }} cluster. The master is responsible for global solutions that are run on all {{ k8s }} cluster nodes. These include scheduling workloads (such as containerized applications), managing the lifecycle of workloads, and scaling.
 
+There are two types of masters that differ by their location in [availability zones](../../overview/concepts/geo-scope.md):
+
+- _Zonal_: A master created in a subnet in one availability zone.
+
+- _Regional_: A master created and distributed in three subnets in each availability zone. If a zone becomes unavailable, the regional master remains functional.
+
+    {% note important %}
+    
+    - Regional masters are only supported when they're [created in subnets](../../vpc/operations/subnet-create.md) with ranges `172.16.0.0/12` and `192.168.0.0/16`.
+    - The internal IP address of a regional master is only available within a single {{ vpc-full-name }} cloud network.
+
+    {% endnote %}
+    
 ### Node group {#node-group}
 
 _A node group_ is a group of VMs with the same configuration in a {{ k8s }} cluster that is running the user's containers.
