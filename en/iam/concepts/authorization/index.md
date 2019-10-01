@@ -48,7 +48,7 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
   * Using an [IAM token](iam-token.md).
 
-      This is the recommended authentication method, but IAM tokens have a short [lifetime](iam-token.md#lifetime). That's why this is a good method for applications that automatically request an IAM token.
+      This is the recommended authentication method, but IAM tokens have a short [lifetime](iam-token.md#lifetime). Therefore, such a method is good for applications that will request the IAM token automatically.
       * [Instructions for how to get an IAM token](../../operations/iam-token/create-for-sa.md).
       * [How to get an IAM token from inside the VM](../../../compute/operations/vm-connect/auth-inside-vm.md).
 
@@ -63,4 +63,10 @@ Before authorization, a user must get authenticated, meaning they must log in un
       [Instructions for how to get a static access key](../../operations/sa/create-access-key.md).
 
 {% endlist %}
+
+### Federated user authentication {#saml-federation}
+
+{% include [federated-user-auth](../../../_includes/iam/federated-user-auth.md) %}
+
+The authentication process for a federated user depends on the IdP server settings. For more information, see [{#T}](../users/identity-federations.md)
 

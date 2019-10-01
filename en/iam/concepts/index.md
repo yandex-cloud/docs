@@ -17,7 +17,7 @@ Before performing an operation with a certain resource (such as creating a VM), 
 
 ## Accounts {#accounts}
 
-Users performing operations with resources are identified via [Yandex.Passport accounts](#passport) and [service accounts](#sa).
+To identify users performing operations with resources, use [Yandex.Passport accounts](#passport), [service accounts](#sa), or [federated accounts](#saml-federation).
 
 {% note info %}
 
@@ -40,6 +40,12 @@ _A Yandex.Passport account_ is your Yandex or [Yandex.Connect]({{ link-yandex-co
 {% include [sa-def](../_includes_service/sa-def.md) %}
 
 By using service accounts you can flexibly configure access rights to resources for programs you have written. For more information, see [{#T}](users/service-accounts.md).
+
+### Federated account {#saml-federation}
+
+_A federated account_ is a user account from an identity federation, like Active Directory.
+
+{% include [about-saml-federations](../../_includes/iam/about-saml-federations.md) %}
 
 ## Authorization keys {#keys}
 
