@@ -20,7 +20,7 @@
   
   2. Чтобы получить идентификатор облака, откройте [страницу обзора облака](https://yc.yandex-team.ru/?section=info). Чтобы переключиться на другое облако или каталог, раскройте выпадающий список в шапке справа (работает поиск по имени):
   
-     ![image](../_assets/internal/mdb/cloud-select.png)
+     ![image](../_assets/mdb/cloud-select.png)
 
 - CLI
 
