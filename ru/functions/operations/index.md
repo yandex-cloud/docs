@@ -17,6 +17,7 @@
 ## Управление триггером {#manage-trigger}
 
 - [{#T}](trigger/trigger-list.md)
-- [{#T}](trigger/trigger-create.md)
+- [{#T}](trigger/ymq-trigger-create.md)
+- [{#T}](trigger/iot-core-trigger-create.md)
 - [{#T}](trigger/trigger-update.md)
 - [{#T}](trigger/trigger-delete.md)

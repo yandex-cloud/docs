@@ -1,8 +1,6 @@
-# Создание триггера
+{% include [triggers-preview](triggers-preview-stage.md) %}
 
-{% include [triggers-preview](../../../_includes/functions/triggers-preview-stage.md) %}
-
-Создайте триггер для очереди сообщений сервиса {{ message-queue-full-name }} и обрабатывайте их с помощью функции {{ sf-name }}.
+Создайте триггер для [очереди сообщений](../../message-queue/concepts/queue.md) сервиса {{ message-queue-full-name }} и обрабатывайте их с помощью [функции](../../functions/concepts/function.md) {{ sf-name }}.
 
 {% note important %}
 
@@ -14,32 +12,32 @@
 ## Перед началом {#before-begin}
 
 Для создания триггера вам понадобятся: 
-1. Сервисные аккаунты с правами на чтение из очереди сообщений и вызов функции. Вы можете использовать один и тот же сервисный аккаунт для обеих операций. Если у вас нет сервисных аккаунтов, [создайте их](../../../iam/operations/sa/create.md).
-1. [Очередь сообщений](../../../message-queue/concepts/queue.md), из которой триггер будет забирать сообщения. Если у вас еще нет очереди, [создайте ее](../../../message-queue/operations/message-queue-new-queue.md).
-1. [Функция](../../concepts/function.md), которой триггер будет передавать сообщения на обработку. Если у вас еще нет функции:
-    - [Создайте функцию](../function/function-create.md).
-    - [Создайте версию функции](../../operations/function/version-manage.md#func-version-create).
+1. Сервисные аккаунты с правами на чтение из очереди сообщений и вызов функции. Вы можете использовать один и тот же сервисный аккаунт для обеих операций. Если у вас нет сервисных аккаунтов, [создайте их](../../iam/operations/sa/create.md).
+1. [Очередь сообщений](../../message-queue/concepts/queue.md), из которой триггер будет забирать сообщения. Если у вас еще нет очереди, [создайте ее](../../message-queue/operations/message-queue-new-queue.md).
+1. [Функция](../../functions/concepts/function.md), которой триггер будет передавать сообщения на обработку. Если у вас еще нет функции:
+    - [Создайте функцию](../../functions/operations/function/function-create.md).
+    - [Создайте версию функции и загрузите в нее код функции](../../functions/operations/function/version-manage.md#func-version-create).
 
 ## Создайте триггер {#trigger-create}
 
-Создайте триггер, который будет забирать сообщения из {{ message-queue-name }} и передавать их в функцию {{ sf-name }} для дальнейшей обработки.
+Создайте триггер для очереди сообщений.
 
 {% list tabs %}
 
 - CLI
 
-    {% include [cli-install](../../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
     
-    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
     Создайте триггер: 
 
     - `--name` — имя триггера.
-    - `--queue` — уникальный идентификатор очереди. 
+    - `--queue-arn` — уникальный идентификатор очереди. 
         
         Чтобы узнать уникальный идентификатор очереди:
         1. В [консоли управления]({{ link-console-main }}) откройте раздел **Message Queue**.
-        1. Нажмите значок ![image](../../../_assets/vertical-ellipsis.svg) в строке очереди, для которой вы хотите создать триггер.
+        1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке очереди, для которой вы хотите создать триггер.
         1. На странице **Обзор**  из блока **Общая информация** скопируйте уникальный идентификатор очереди из поля **ARN**.
     - `--invoke-function-id` — уникальный идентификатор функции. 
     - `--queue-service-account-name` — сервисный аккаунт с правами на чтение сообщений из очереди.
@@ -49,7 +47,7 @@
     ```
     $ yc serverless trigger create message-queue \
         --name test-trigger \
-        --queue yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq \
+        --queue-arn yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq \
         --queue-service-account-id bfbqqeo6jkpls2tse5o6 \
         --invoke-function-id b09e5lu91ta21vdrrgma \
         --invoke-function-service-account-id bfbqqeo6jkpls2tse5o6 \
@@ -76,7 +74,7 @@
 
 ## Проверьте результат {#check-result}
 
-Проверьте, что триггер работает корректно, в сервисе {{ sf-name }} или в {{ message-queue-name }}.
+Проверьте, что триггер работает корректно: в сервисе {{ message-queue-name }} будет видно, что сообщения забираются из очереди, а в {{ sf-name }} — что функция была запущена.
 
 {% list tabs %}
 
@@ -123,7 +121,7 @@
 
     Проверьте, что количество сообщений в очереди уменьшается, проверив статистику очереди: 
     1. Откройте раздел **Message Queue**.
-    1. Нажмите значок ![image](../../../_assets/vertical-ellipsis.svg) в строке очереди, для которой был создан триггер.
-    1. Перейдите в раздел **Статистика**. Обратите внимание на график **Сообщений в очереди**.        
+    1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке очереди, для которой был создан триггер.
+    1. Перейдите в раздел **Статистика**. Обратите внимание на график **Сообщений в очереди**.
 
 {% endlist %}

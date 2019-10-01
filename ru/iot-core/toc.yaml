@@ -13,6 +13,8 @@ items:
         href: operations/subscribe.md
       - name: Просмотр журнала подключений
         href: operations/logs.md
+      - name: Создание триггера для топика
+        href: operations/trigger-create.md
       - name: Реестр
         items:
         - name: Получение информации о реестре

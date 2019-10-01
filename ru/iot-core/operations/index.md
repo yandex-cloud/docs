@@ -2,6 +2,8 @@
 
 - [{#T}](publish.md)
 - [{#T}](subscribe.md)
+- [{#T}](logs.md)
+- [{#T}](trigger-create.md)
 
 ## Реестр {#registry}
 

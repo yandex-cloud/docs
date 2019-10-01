@@ -5,8 +5,10 @@ items:
     items:
       - name: Создание и выполнение функции
         href: quickstart/function-quickstart.md
-      - name: Создание триггера для очереди сообщений
+      - name: Создание триггера для Message Queue
         href: quickstart/ymq-trigger-quickstart.md
+      - name: Создание триггера для IoT Core
+        href: quickstart/iot-core-trigger-quickstart.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -37,8 +39,10 @@ items:
         items:
           - name: Получение информации о триггере
             href: operations/trigger/trigger-list.md
-          - name: Создание триггера
-            href: operations/trigger/trigger-create.md
+          - name: Создание триггера для Message Queue
+            href: operations/trigger/ymq-trigger-create.md
+          - name: Создание триггера для IoT Core
+            href: operations/trigger/iot-core-trigger-create.md
           - name: Изменение триггера
             href: operations/trigger/trigger-update.md
           - name: Удаление триггера
