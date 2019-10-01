@@ -1,8 +1,8 @@
 # Запуск и управление приложениями для Spark и PySpark
 
-Следуя этой инструкции вы рассчитаете статистику по воздушному трафику США за 2018-й год по данным с сайта [transtats.bts.gov](https://transtats.bts.gov/). Набор данных подготовлен в формате [Parquet](https://parquet.apache.org/) в публичном бакете {{ storage-full-name }} с именем `yc-mdb-examples`.
+Следуя этой инструкции вы рассчитаете статистику по воздушному трафику США за 2018-й год по данным с сайта [transtats.bts.gov](https://transtats.bts.gov/). Набор данных подготовлен в формате [Parquet](https://parquet.apache.org/) в публичном бакете {{ objstorage-full-name }} с именем `yc-mdb-examples`.
 
-Для работы с {{ storage-name }} рекомендуется [настроить S3cmd](../../storage/instruments/s3cmd.md).
+Для работы с {{ objstorage-name }} рекомендуется [настроить S3cmd](../../storage/instruments/s3cmd.md).
 
 Список файлов можно получить с помощью команды:
 

@@ -1,6 +1,6 @@
-# Использование {{ storage-full-name }} в {{ dataproc-name }}
+# Использование {{ objstorage-full-name }} в {{ dataproc-name }}
 
-В этом разделе рассмотрены различные способы доступа к объектам из бакетов {{ storage-name }} с кластеров {{ dataproc-name }}.
+В этом разделе рассмотрены различные способы доступа к объектам из бакетов {{ objstorage-name }} с кластеров {{ dataproc-name }}.
 
 {% note info %}
 
@@ -11,16 +11,16 @@
 
 ## DistCp
 
-Для копирования файлов из {{storage-name}} в HDFS рекомендуется использовать утилиту [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), которая предназначена для копирования данных как внутри кластера, так и между кластерами и внешними хранилищами.
+Для копирования файлов из {{objstorage-name}} в HDFS рекомендуется использовать утилиту [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), которая предназначена для копирования данных как внутри кластера, так и между кластерами и внешними хранилищами.
 
-Для аутентификации в {{storage-name}} можно использовать два подхода:
+Для аутентификации в {{objstorage-name}} можно использовать два подхода:
 
 1. Использовать [CredentialProvider](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CredentialProviderAPI.html) для S3A клиентов.
 1. Передавать параметры `access key` и `secret key` при запуске задачи.
 
 ### Копирование с использованием CredentialProvider и S3/S3A
 
-Чтобы воспользоваться провайдером для хранения секретов, разместите эти секреты в компонентах, которым нужен доступ к {{storage-name}}. Для этого можно воспользоваться JCEKS (Java Cryptography Extension KeyStore): в примере вы создадите файл с секретами, который затем разместите в HDFS.
+Чтобы воспользоваться провайдером для хранения секретов, разместите эти секреты в компонентах, которым нужен доступ к {{objstorage-name}}. Для этого можно воспользоваться JCEKS (Java Cryptography Extension KeyStore): в примере вы создадите файл с секретами, который затем разместите в HDFS.
 
 1. Укажите `access key` и `secret key`, например:
 
@@ -34,7 +34,7 @@
     hdfs dfs -put /home/jack/yc.jceks /user/root/
     ```
 
-1. Копируйте файл из {{storage-name}} непосредственно в HDFS:
+1. Копируйте файл из {{objstorage-name}} непосредственно в HDFS:
 
     ```bash
     hadoop distcp -D fs.s3a.bucket.dataproc-examples.endpoint=storage.yandexcloud.net \
@@ -73,7 +73,7 @@ s3a://<bucket_name>/<path>/ \
 hdfs://<hdfs_server>/<path_in_hdfs>/ 
 ```
 
-Например, для {{storage-name}}:
+Например, для {{objstorage-name}}:
 
 ```bash
 hadoop distcp -D fs.s3a.bucket.dataproc-examples.endpoint=storage.yandexcloud.net \
@@ -86,7 +86,7 @@ hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/s
 
 ## Использование s3fs
 
-`s3fs` позволяет монтировать бакеты {{storage-name}} посредством Fuse. Более подробно о ее использовании можно узнать на странице [s3fs](../../storage/instruments/s3fs.md)
+`s3fs` позволяет монтировать бакеты {{objstorage-name}} посредством Fuse. Более подробно о ее использовании можно узнать на странице [s3fs](../../storage/instruments/s3fs.md)
 
 ## Использование S3 из Spark
 
@@ -120,7 +120,7 @@ hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/s
 
   Выберите способ доступа:
   
-  * Доступ к объектам {{storage-name}} c использование JCEKS:
+  * Доступ к объектам {{objstorage-name}} c использование JCEKS:
   
     ```python
     sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "storage.yandexcloud.net")
@@ -134,7 +134,7 @@ hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/s
     sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key","<секрет бакета>")
     ```
   
-  Получив доступ, вы можете читать файл напрямую из {{storage-name}}:
+  Получив доступ, вы можете читать файл напрямую из {{objstorage-name}}:
   
   ```python
   sql = SQLContext(sc)
