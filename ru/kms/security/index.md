@@ -28,10 +28,13 @@
 
 Действие | Методы | Необходимые роли
 ----- | ----- | -----
+**KMS** | | 
 Получение информации о ключах и версиях | `get`, `list`, `listVersions` | `viewer` на каталог с ключами
-[Создание](../operations/key.md#create) и [изменение](../operations/key.md#update) ключей | `create`, `update` | `editor` на каталог
+[Создание](../operations/key.md#create) и [изменение](../operations/key.md#update) ключа | `create`, `update` | `editor` на каталог с ключом
+Операции шифрования и расшифровки | `encrypt`, `decrypt`, `reencrypt`, `generatedatakey` | `editor` на каталог с ключом
 [Ротация ключа](../operations/key.md#rotate) и [смена основной версии](../operations/version.md#make-primary) | `rotate`, `setPrimaryVersion` | `admin` на каталог с ключом
-[Удаление ключей](../operations/key.md#delete) и [удаление версий](../operations/version.md#delete)| `delete` | `admin` на каталог с ключами
+[Удаление ключей](../operations/key.md#delete) и [удаление версий](../operations/version.md#delete)| `delete`, `scheduleVersionDestruction`, `cancelVersionDestruction` | `admin` на каталог с ключами
+**IAM** | |
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на каталог или облако
 
 #### Что дальше

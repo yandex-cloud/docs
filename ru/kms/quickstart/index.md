@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Сервис доступен только по заявке: чтобы запросить доступ, заполните форму на странице ???
+Сервис доступен только по заявке: чтобы запросить доступ, заполните [заявку](https://cloud.yandex.ru/services/kms#request-access).
 
 {% endnote %}
 
@@ -17,7 +17,7 @@
 1. [На странице биллинга](https://console.cloud.yandex.ru/billing) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
 1. Убедитесь, что в нужном облаке у вас есть роль `owner` или `editor`.
 1. {% include [cli-install](../../_includes/cli-install.md) %}
-1. Скачайте скрипты с командами обращения к API сервиса: kms-encrypt.sh, kms-decrypt.sh, kms-client.sh (TODO пушнуть в examples)
+1. Скачайте скрипты с командами обращения к API сервиса: [kms-encrypt.sh, kms-decrypt.sh, kms-client.sh](https://github.com/yandex-cloud/examples/tree/master/kms/quickstart).
 1. Установите утилиту [jq](https://stedolan.github.io/jq/download/), которая используется в скриптах для работы с JSON-ответом сервиса.
 
 
@@ -41,7 +41,7 @@
 Зашифруйте текст:
 
 1. Скопируйте идентификатор (ID) созданного ключа из консоли управления.
-1. Перейдите в каталог со скриптами kms-encrypt.sh, kms-decrypt.sh и kms-client.sh.
+1. Перейдите в каталог со скриптами `kms-encrypt.sh`, `kms-decrypt.sh` и `kms-client.sh`.
 1. Выполните команду шифрования (`"foo=bar"` — это [аутентификационная строка](../concepts/encryption.md#aad), дополнительная проверка при расшифровке):
    ```bash
    $ echo "Запуск состоится 42 мартобря." > plaintext.txt
@@ -55,7 +55,7 @@
 Для расшифровки нужно иметь доступ к ключу {{ kms-short-name }}, и знать аутентификационную строку, если она была задана при шифровании.
 
 1. Скопируйте идентификатор (ID) нужного ключа из консоли управления.
-1. Перейдите в каталог со скриптами kms-encrypt.sh, kms-decrypt.sh и kms-client.sh.
+1. Перейдите в каталог со скриптами `kms-encrypt.sh`, `kms-decrypt.sh` и `kms-client.sh`.
 1. Выполните команду расшифровки (расшифрованный текст будет выведен в терминале):
    ```bash
    $ ./kms-decrypt.sh <ID вашего ключа> "foo=bar" `cat ciphertext.txt` | base64 -D

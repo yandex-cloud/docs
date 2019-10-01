@@ -1,6 +1,6 @@
 title: "Yandex Key Management Service"
 href: index.yaml
-stage: new
+stage: preview
 items:
   - name: Начало работы
     href: quickstart/index.md
