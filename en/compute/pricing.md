@@ -197,6 +197,27 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
 
 {% endlist %}
 
+Write-off of funds for the following products is performed once at the moment of the VM launch, at the rate of one calendar month in advance, regardless of the time of the actual VM operation time:
+
+{% list tabs %}
+
+- Prices in USD
+
+  Product | Cost per vCPU per month, without VAT 
+  ----- | -----
+  MS SQL Server Standard* | $75,59615
+  MS SQL Server Enterprise* | $258,50001
+
+- Prices in roubles
+
+  Product | Cost per vCPU per month, with VAT 
+  ----- | -----
+  MS SQL Server Standard* | ₽5896.5
+  MS SQL Server Enterprise* | ₽20163 
+
+{% endlist %}
+    
+\* The product is given for a bunch of 2 vCPU cores, the minimal amount of the vCPU cores — 4 (2 bunches).
 
 ### Disks, snapshots, and images {#prices-storage}
 
