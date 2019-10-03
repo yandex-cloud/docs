@@ -33,7 +33,7 @@ The cost to write the first 87000 values is `₽0.609`, which is also rounded to
 
 - Prices in roubles
 
-  | Service | Price per 1 million values,<br>including VAT |
+  | Service | Price per 1 million values,<br>with VAT |
   | ----- | ----- |
   | Writing custom metric values via the API<br/>(≤50 million values) | ₽7.00 |
   | Writing custom metric values via the API<br/>(>50 million values) | ₽4.00 |

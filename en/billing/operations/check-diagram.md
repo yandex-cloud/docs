@@ -2,7 +2,7 @@
 
 On the **Overview** page, you can view general statistics for your Yandex.Cloud service usage:
 
-- **Consumption** chart:  shows the volume of services used in the current and previous months. In rubles, including VAT.
+- **Consumption** chart:  shows the volume of services used in the current and previous months. In rubles, with VAT.
 - **Services** bar chart: shows how resource usage was distributed among services. Expressed as percentages of the total number of services used.
 
 The chart data is updated once an hour.

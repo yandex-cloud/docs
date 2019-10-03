@@ -42,7 +42,7 @@ Yes. The minimum payment amount is shown at the time of payment in the **Top up 
 
 Yes.
 
-If you pay for resources with a bank card in a foreign currency, the equivalent amount in rubles, including VAT, is debited from the bank card. Additional bank fees for the currency conversion might be debited or credited a day or two later.
+If you pay for resources with a bank card in a foreign currency, the equivalent amount in rubles, with VAT, is debited from the bank card. Additional bank fees for the currency conversion might be debited or credited a day or two later.
 
 #### I linked a bank card to my billing account. When will money be debited from it? {#unlink-card}
 

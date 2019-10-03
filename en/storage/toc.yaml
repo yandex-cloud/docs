@@ -209,7 +209,7 @@ items:
             href: s3/api-ref/common-response-headers.md
           - name: Responses
             href: s3/api-ref/response-codes.md
-  - name: Access control
+  - name: Access management
     href: security/index.md
   - name: Pricing policy
     items:

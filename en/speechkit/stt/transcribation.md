@@ -2,31 +2,43 @@
 
 Long audio fragment recognition can be used for multi-channel audio files up to {{ stt-long-fileSize }}.
 
-Long audio fragment recognition is somewhat cheaper than other [recognition methods](index.md#stt-ways), but it is not suitable for online speech recognition as it has a longer response time. For more information about pricing, see [{#T}](../pricing.md).
+Long audio fragment recognition is somewhat cheaper than other [recognition methods](./index.md#stt-ways), but it's not suitable for online speech recognition due to its longer response time. For more information about pricing, see [{#T}](../pricing.md).
+
+{% note info %}
+
+For now, you can only recognize long audio in Russian.
+
+{% endnote %}
 
 ## Before getting started
 
 1. A recognition request should be sent on behalf of a [service account](../../iam/concepts/users/service-accounts.md). If you don't have a service account yet, [create one](../../iam/operations/sa/create.md).
 
-1. Make sure the service account has access to the folder where it was created. If you want to use a different folder for authorization, you need to specify the folder ID in your request.
+1. Make sure the service account has access to the folder where it was created.
 
-1. [Get an IAM token](../../iam/operations/iam-token/create-for-sa.md) for your service account.
+1. [Get an IAM token](../../iam/operations/iam-token/create-for-sa.md) or [API key](../../iam/operations/api-key/create.md) for your service account. In our examples, an IAM token is used for authentication.
+
+    To use an API key, pass it in the `Authorization` header in the following format:
+
+    ```
+    Authorization: Api-Key <API key>
+    ```
 
 1. Upload an audio file to {{ objstorage-full-name }} and get a link to the uploaded file:
 
     1. If you don't have a bucket in {{ objstorage-name }}, [create](../../storage/operations/buckets/create.md) one.
 
-    1. [Upload an audio file](../../storage/operations/objects/upload.md) to your bucket. In {{ objstorage-name }} terms, uploaded files are called _objects_.
+    1. [Upload an audio file](../../storage/operations/objects/upload.md) to your bucket. In {{ objstorage-name }}, uploaded files are called _objects_.
 
     1. [Get a link](../../storage/operations/objects/link-for-download.md) to the uploaded file. Use this link in your audio recognition request.
 
-        The link to the downloaded file has the following format:
+        The link to the uploaded file has the following format:
 
         ```
-        https://{{ s3-storage-host }}/<bucket-name>/<path-to-file>
+        https://{{ s3-storage-host }}/<bucket name>/<file path>
         ```
 
-        The link will contain additional query parameters (after `?`) for buckets with restricted access. You do not need to pass these parameters in {{ speechkit-name }} as they are ignored.
+        The link will contain additional query parameters (after `?`) for buckets with restricted access. You don't need to pass these parameters in {{ speechkit-name }} since they just get ignored.
 
 ## Send a file for recognition
 
@@ -59,13 +71,14 @@ POST https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
 
 | Parameter | Description |
 | ----- | ----- |
-| config | **object**<br>Field with the recognition settings and folder ID. |
+| config | **object**<br>Field with the recognition settings. |
 | config.<br>specification | **object**<br>Recognition settings. |
-| config.<br>specification.<br>languageCode | **string**<br>The language to use for recognition.<br/>Acceptable values:<ul><li>`ru-RU` (by default) — Russian.</li><li>`en-US` — English.</li><li>`tr-TR` — Turkish.</li></ul> |
+| config.<br>specification.<br>languageCode | **string**<br>The language that recognition will be performed for.<br/>Only Russian is currently supported (`ru-RU`). |
 | config.<br>specification.<br>profanityFilter | **boolean**<br>The profanity filter.<br/>Acceptable values:<ul><li>`true` — Exclude profanity from recognition results.</li><li>`false` (by default) — Do not exclude profanity from recognition results.</li></ul> |
-| config.<br>specification.<br>audioEncoding | **string**<br>[The format](formats.md) of the submitted audio.<br/>Acceptable values:<ul><li>`LINEAR16_PCM` — [LPCM with no WAV header](formats.md#lpcm).</li><li>`OGG_OPUS` (by default) — [OggOpus](formats.md#oggopus) format.</li></ul> |
+| config.<br>specification.<br>audioEncoding | **string**<br>[The format](formats.md) of the submitted audio.<br/>Acceptable values:<ul><li>`LINEAR16_PCM` — [LPCM with no WAV header](formats.md#lpcm).</li><li>`OGG_OPUS` (default) — [OggOpus](formats.md#oggopus) format.</li></ul> |
 | config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>The sampling frequency of the submitted audio.<br/>Required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default) — Sampling rate of 48 kHz.</li><li>`16000` — Sampling rate of 16 kHz.</li><li>`8000` — Sampling rate of 8 kHz.</li></ul> |
-| config.<br>specification.<br>audioChannelCount | **integer** (int64)<br>The number of channels in [LPCM](formats.md#lpcm) files. By default, `1`.<br>Do not use this field for [OggOpus](formats.md#oggopus) files. |
+| config.<br>specification.<br>audioChannelCount | **integer** (int64)<br>The number of channels in [LPCM](formats.md#lpcm) files. By default, `1`.<br>Don't use this field for [OggOpus](formats.md#oggopus) files. |
+| config.<br>specification.<br>raw_results | **boolean** <br>The flag that indicates how to write numbers. `true` — In words. `false` (default) — In figures. |
 | audio.<br>uri | **string**<br>The URI of the audio file for recognition. Supports only links to files stored in [Yandex Object Storage](/docs/storage/). |
 
 ### Response
@@ -112,15 +125,16 @@ Once the recognition is complete, the `done` field will be set to `true` and the
 
 Each result in the `chunks[]` list contains the following fields:
 
-* `alternatives[]` — List of alternative recognition results. Each alternative contains the following fields:
-    * `words[]` — List of recognized words.
-      * `startTime` — Time stamp of the beginning of the word in the recording.
-      * `endTime` — Time stamp of the end of the word.
-      * `word` — Recognized word. Recognized numbers are written in words (for example, `twelve` rather than `12`).
-      * `confidence` — Recognition accuracy. Currently the service always returns `1`, which is equivalent to 100%.
-    * `text` — Entire recognized text.
-    * `confidence` — Recognition accuracy. Currently the service always returns `1`, which is equivalent to 100%.
-* `channelTag` — Audio channel that recognition was performed for.
+* `alternatives[]`: List of alternative recognition results. Each alternative contains the following fields:
+    * `words[]`: List of recognized words.
+      * `startTime`: Time stamp of the beginning of the word in the recording. An error of 1-2 seconds is possible.
+      * `endTime`: Time stamp of the end of the word. An error of 1-2 seconds is possible.
+      * `word`: Recognized word. Recognized numbers are written in words (for example, `twelve` rather than `12`).
+      * `confidence`: Recognition accuracy. Currently the service always returns `1`, which is the same as 100%.
+    * `text`: Full recognized text.
+      By default, numbers are written in figures. To output the entire text in words, specify `true` in the `raw_results` field.
+    * `confidence`: Recognition accuracy. Currently the service always returns `1`, which is the same as 100%.
+* `channelTag`: Audio channel that recognition was performed for.
 
 ```json
 {
@@ -169,7 +183,7 @@ Each result in the `chunks[]` list contains the following fields:
 
 ### Recognize Russian speech in OggOpus format {#examples_ogg}
 
-To recognize speech in the [OggOpus](formats.md#oggopus) format, just specify the recognition language in the configuration's `languageCode` field. If no language is specified, the service will use Russian.
+To recognize speech in [OggOpus](formats.md#oggopus) format, just specify the recognition language in the `languageCode` field of the configuration.
 
 Enter the link to the uploaded audio file in the `uri` field.
 
@@ -240,7 +254,7 @@ Enter the link to the uploaded audio file in the `uri` field.
 
 ### Recognize speech in LPCM format {#examples_lpcm}
 
-To recognize speech in the [LPCM](formats.md#lpcm) format, specify in the recognition settings the file sampling frequency and the number of audio channels in it. Set the recognition language in the `languageCode` field. If no language is specified, the service will use Russian.
+To recognize speech in [LPCM](formats.md#lpcm) format, specify the file sampling frequency and the number of audio channels in the recognition settings. Set the recognition language in the `languageCode` field.
 
 1. Create a request body and save it to a file (for example, `body.json`):
 

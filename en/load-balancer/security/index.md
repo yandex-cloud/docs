@@ -1,4 +1,4 @@
-# Access control
+# Access management
 
 In this section, you'll learn:
 

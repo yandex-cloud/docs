@@ -50,7 +50,7 @@ items:
         href: api-ref/v1/response.md
   - name: Quotas and limits
     href: concepts/limits.md
-  - name: Access control
+  - name: Access management
     href: security/index.md
   - name: Pricing policy
     items:
