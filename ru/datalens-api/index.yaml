@@ -14,7 +14,7 @@ links:
   href: "overview"
 - title: "Справочник API"
   description: "Описание методов HTTP API"
-  href: "limits"
+  href: "api-ref/"
 - title: "Аутентификация в API"
   description: "Узнайте, как начать пользоваться API"
   href: "authentication"
