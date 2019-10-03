@@ -4,7 +4,7 @@ description:
 - "Сервис Managed Service for Kubernetes предоставляет окружение для удобного управления контейнеризованными приложениями с помощью Kubernetes в инфраструктуре Яндекс.Облака."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
-  title: "Managed Kubernetes"
+  title: "Managed Service for Kubernetes"
 # Блок со ссылками
 links:
 - title: "Начало работы"

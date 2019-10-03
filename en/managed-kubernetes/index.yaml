@@ -4,7 +4,7 @@ description:
   - "Managed Service for Kubernetes provides an environment for easy management of containerized applications using Kubernetes based on the Yandex.Cloud infrastructure."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
-  title: "Managed Kubernetes"
+  title: "Managed Service for Kubernetes"
 # Блок со ссылками
 links:
 - title: "Getting started"
