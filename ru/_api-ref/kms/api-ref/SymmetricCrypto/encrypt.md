@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-POST https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}:encrypt
+POST https://kms.yandex/kms/v1/keys/{keyId}:encrypt
 ```
  
 ## Path-параметры {#path_params}

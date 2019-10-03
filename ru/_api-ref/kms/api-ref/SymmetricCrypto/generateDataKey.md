@@ -10,7 +10,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-POST https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}:generateDataKey
+POST https://kms.yandex/kms/v1/keys/{keyId}:generateDataKey
 ```
  
 ## Path-параметры {#path_params}
