@@ -104,7 +104,7 @@
       $ yc vpc network list
       ```
 
-      Если ни одной сети в каталоге нет, [создайте нужные сети](../../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
+      Если ни одной сети нет, [создайте ее](../../../vpc/operations/network-create.md).
 
   1. Выберите один из [публичных образов](../images-with-pre-installed-software/get-list.md) (например, CentOS 7).
 
@@ -247,7 +247,7 @@
       - С OC CentOS 7.
       - В сети `default-net`.
       - В зоне доступности `ru-central1-a`.
-      - С одним ядром и RAM 4 ГБ.
+      - С одним vCPU и 4 ГБ RAM.
       - С сетевым HDD-диском объемом 32 ГБ.
       - С целевой группой `first-target-group`.
 
