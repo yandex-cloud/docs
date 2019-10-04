@@ -41,7 +41,7 @@ items:
             href: operations/device/device-list.md
           - name: Создание устройства
             href: operations/device/device-create.md
-          - name: Измениение устройства
+          - name: Изменение устройства
             href: operations/device/device-update.md
           - name: Удаление устройства
             href: operations/device/device-delete.md
