@@ -7,8 +7,6 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Настройка виртуальной машины в качестве NAT-инстанса
-        href: operations/nat-instance.md
       - name: Подключение к узлу по SSH
         href: operations/node-connect-ssh.md
       - name: Обеспечение доступа к приложению, запущенному в кластере Kubernetes

@@ -7,8 +7,6 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Configuring a VM as a NAT instance
-        href: operations/nat-instance.md
       - name: Connecting to a node over SSH
         href: operations/node-connect-ssh.md
       - name: Working with persistent volumes
@@ -27,6 +25,8 @@ items:
         href: concepts/volume.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Release channels and updates
+        href: concepts/release-channels-and-updates.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

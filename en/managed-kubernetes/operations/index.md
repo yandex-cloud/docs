@@ -1,6 +1,5 @@
 # All instructions
 
-- [{#T}](nat-instance.md)
 - [{#T}](node-connect-ssh.md)
 
 ## Working with persistent volumes

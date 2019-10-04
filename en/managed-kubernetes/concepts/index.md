@@ -15,7 +15,7 @@ The service fully controls the master and monitors the status and health of a no
 {{ k8s }} node groups require internet access to download images and components.
 Internet access can be provided in the following ways:
 - By assigning each node in the group a [public IP address](../../vpc/concepts/address.md#public-addresses).
-- [By configuring a VM as a NAT instance](../operations/nat-instance.md). In this case, only one public IP address will be used: the one that is assigned to the gateway.
+- [By configuring a VM as a NAT instance](../../solutions/routing/nat-instance.md).
 
 {% endnote %}
 

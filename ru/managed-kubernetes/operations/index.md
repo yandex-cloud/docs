@@ -1,6 +1,5 @@
 # Все инструкции
 
-- [{#T}](nat-instance.md)
 - [{#T}](node-connect-ssh.md)
 - [{#T}](create-load-balancer.md)
 

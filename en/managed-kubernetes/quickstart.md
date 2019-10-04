@@ -42,7 +42,6 @@ To create a {{ k8s }} cluster:
 1. Under **Cluster network settings**:
     - Specify the **cluster CIDR** — a range of IP addresses for allocating pod addresses.
     - Specify the **service CIDR** — a range of IP addresses for allocating service addresses.
-    - (optional) Specify the **Gateway address**: if you don't want to create nodes with public IPs, [configure a VM as a NAT instance](operations/nat-instance.md) and enter the internal IP address of this VM here.
 1. Click **Create cluster**.
 
 ## Add credentials to the kubectl configuration file {#add-conf}
