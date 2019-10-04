@@ -8,6 +8,12 @@
 
 {% include [oauth-token-lifetime](../../../_includes/oauth-token-lifetime.md) %}
 
+{% note alert %}
+
+Если кто-то мог узнать ваш OAuth-токен, [отзовите его](https://yandex.ru/dev/oauth/doc/dg/reference/token-invalidate-docpage/) и запросите новый.
+
+{% endnote %}
+
 ## Сервисы и утилиты, поддерживающие аутентификацию c OAuth-токеном {#supported-services}
 
 Эти сервисы и утилиты могут запрашивать IAM-токен автоматически, поэтому для аутентификации можно указывать только OAuth-токен:
