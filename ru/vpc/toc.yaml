@@ -38,6 +38,8 @@ items:
         items: 
           - name: Создать статический маршрут
             href: operations/static-route-create.md
+          - name: Включить NAT в интернет
+            href: operations/enable-nat.md
       - name: Защита от DDoS-атак
         items:
           - name: Включить защиту от DDoS-атак
