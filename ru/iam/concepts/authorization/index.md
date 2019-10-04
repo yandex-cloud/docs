@@ -52,6 +52,7 @@
 
       * [Инструкция получения IAM-токена](../../operations/iam-token/create-for-sa.md).
       * [Получение IAM-токена изнутри виртуальной машины](../../../compute/operations/vm-connect/auth-inside-vm.md).
+      * [Получение IAM-токена в функции в сервисе {{ sf-name }}](../../../functions/operations/function-sa.md).
   * С помощью [API-ключей](api-key).
 
       {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}
