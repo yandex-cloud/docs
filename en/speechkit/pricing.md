@@ -25,6 +25,12 @@ These rules apply to short audio recognition [by request](stt/request.md) and [i
 
 Billable unit — a 15-second segment of single-channel audio. Shorter segments are rounded up (1 second becomes 15 seconds).
 
+{% note important %}
+
+In [streaming mode](stt/streaming.md), billing begins when a [message with recognition settings](stt/streaming.md#specification-msg) is sent. Even if you don't send any audio after this message, it's treated as 1 consumed billable unit.
+
+{% endnote %}
+
 **Examples:**
 
 - 1 audio fragment that is 37 seconds is billed as 45 seconds.
