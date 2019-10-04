@@ -1,4 +1,4 @@
-Чтобы сделать запрос [SELECT](../../ydb/yql/reference/syntax/select.md) по вторичному индексу, используйте конструкцию:
+Чтобы сделать запрос [`SELECT`](../../ydb/yql/reference/syntax/select.md) по вторичному индексу, используйте конструкцию:
 
 ```sql
 SELECT * 
@@ -16,7 +16,7 @@ SELECT *
       WHERE views >= someValue
   ```
 
-* Сделать [JOIN](../../ydb/yql/reference/syntax/join.md) таблиц `series` и `users` c заданным полем `userName` по индексам `users_index` и `name_index` соответственно:
+* Сделать [`JOIN`](../../ydb/yql/reference/syntax/join.md) таблиц `series` и `users` c заданным полем `userName` по индексам `users_index` и `name_index` соответственно:
 
   ```sql
   SELECT t1.series_id, t1.title
