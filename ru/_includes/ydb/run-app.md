@@ -91,11 +91,7 @@
   1. Установите [YDB Go SDK](https://github.com/yandex-cloud/python-sdk):
   
       ```bash
-      export GOPATH=$HOME/go
-      mkdir -p $GOPATH/src/github.com/yandex-cloud/ydb-go-sdk
-      cd $GOPATH/src/github.com/yandex-cloud/ydb-go-sdk
-      git clone https://github.com/yandex-cloud/ydb-go-sdk.git
-      cd $GOPATH
+      go get -u github.com/yandex-cloud/ydb-go-sdk
       go get github.com/dgrijalva/jwt-go
       ```
   
@@ -106,26 +102,23 @@
       export SA_PRIVATE_KEY_FILE=/home/path/to/private.key
       export SA_ID=YOUR_SA_ID
       export SA_ACCESS_KEY_ID=YOUR_ACCESS_KEY_ID
-      export YDB_SSL_ROOT_CERTIFICATES_FILE=~/.ydb/CA.pem
       ```
   
       * `SA_ENDPOINT` — эндпоинт IAM, установите значение `iam.api.cloud.yandex.net:443`
       * `SA_PRIVATE_KEY_FILE` — локальный путь к файлу с закрытым авторизованным ключом
       * `SA_ID` — идентификатор сервисного аккаунта
       * `SA_ACCESS_KEY_ID` — идентификатор открытого авторизованного ключа
-      * `YDB_SSL_ROOT_CERTIFICATES_FILE` — путь до файла с SSL-сертификатом
   
   1. Скомпилируйте тестовое приложение `basic_example_v1`:
   
       ```bash
-      cd $GOPATH
       go build github.com/yandex-cloud/ydb-go-sdk/example/basic_example_v1/
       ```
   
-  1. Запустите тестовое приложение `basic_example_v1`, указав в качестве параметров запуска значения эндпоинта и идентификатора базы, полученные ранее:
+  1. Запустите тестовое приложение `basic_example_v1`, указав в качестве параметров запуска значения эндпоинта и идентификатора базы полученные ранее, а также путь к сохраненному SSL-сертификату:
   
       ```bash
-      ./basic_example_v1 -endpoint endpoint -database database
+      ./basic_example_v1 -endpoint endpoint -database database -root-ca ~/.ydb/CA.pem -tls
       ```
   
   Результат выполнения приложения:
