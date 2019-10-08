@@ -15,6 +15,12 @@
 
 Если вы не нашли ответа в документации:
 
-- С несрочными вопросами по настройке и эксплуатации MDB внутри Яндекса пишите в рассылку [mdb-support@](mailto:mdb-support@yandex-team.ru) или в [очередь MDBSUPPORT](https://st.yandex-team.ru/MDBSUPPORT).
+- С несрочными вопросами по настройке и эксплуатации MDB внутри Яндекса рисуйте задачи в [очередь MDBSUPPORT](https://st.yandex-team.ru/MDBSUPPORT).
 - Для заказа или дозаказа квоты [используйте Dispenser](../managed-postgresql/quotas.md).
-- Со срочными вопросами пишите в [чат mdb-support](https://t.me/joinchat/AAAAAEDje_JvGnMnVZxVvA), если там нет реакции — обзванивайте по порядку ответственных [отсюда](https://a.yandex-team.ru/arc/trunk/arcadia/cloud/mdb/juggler-config/configs/mdb_resps.yml).
+- Со срочными вопросами пишите в [чат mdb-support](https://t.me/joinchat/AAAAAEDje_JvGnMnVZxVvA), если там нет реакции — обзванивайте по порядку дежурных, которых показывает [бот Yandex.Cloud Duty](https://t.me/ycloud_duty_bot) по следующим командам:
+
+  - `/duty mdb-clickhouse`
+  - `/duty mdb-mongodb`
+  - `/duty mdb-mysql`
+  - `/duty mdb-redis`
+  - `/duty mdb-postgresql`
