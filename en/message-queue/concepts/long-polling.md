@@ -4,7 +4,7 @@ The Long Polling technique is implemented to optimize the use of {{ message-queu
 
 ## Using Long Polling {#set-up-long-polling}
 
-You can use Long Polling by setting a non-zero value for the `WaitTimeSeconds` parameter of the `ReceiveMessage` method. This parameter determines how long a client will wait for messages to arrive in an empty queue. An empty response is returned to the client only after this time has passed.
+You can use Long Polling by setting a non-zero value for the `WaitTimeSeconds` parameter of the `ReceiveMessage` method. This parameter determines how long a client will wait for messages to arrive in an empty queue. An empty response is returned to the client only after this time has passed. Maximum value for `WaitTimeSeconds` is 20 seconds.
 
 In response to `ReceiveMessage`, at least one of the messages from the queue is returned. The maximum number of messages to return is limited by the `MaxNumberOfMessages` parameter.
 

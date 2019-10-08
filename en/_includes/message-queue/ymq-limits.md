@@ -41,4 +41,5 @@
 | Minimum message size | 1 byte |
 | Maximum message visibility timeout | 12 hours |
 | Minimum message visibility timeout | 0 seconds |
+| Maximum  clients [waiting time](../../message-queue/concepts/long-polling.md) to wait for the message from an empty queue (`WaitTimeSeconds` parameter) | 20 seconds |
 
