@@ -22,6 +22,8 @@ items:
         href: operations/schema.md
       - name: Чтение и запись данных
         href: operations/crud.md
+      - name: Работа со вторичными индексами
+        href: operations/indexes.md
   - name: Работа с SDK
     href: sdk/index.md
   - name: Концепции

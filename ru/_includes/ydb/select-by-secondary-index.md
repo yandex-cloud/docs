@@ -1,4 +1,4 @@
-Чтобы сделать запрос [`SELECT`](../../ydb/yql/reference/syntax/select.md) по вторичному индексу, используйте конструкцию:
+Чтобы сделать запрос `SELECT` по вторичному индексу, используйте конструкцию:
 
 ```sql
 SELECT * 
@@ -8,7 +8,7 @@ SELECT *
 
 **Примеры**
 
-* Выбрать все поля из таблицы `series` по индексу `views_index` с условием `views >= someValue`:
+* Выбрать все поля из [таблицы](../../ydb/yql/reference/syntax/create_table.md#si-add) `series` по индексу `views_index` с условием `views >= someValue`:
 
   ```sql
   SELECT series_id, title, info, release_date, views, uploaded_user_id
