@@ -1,4 +1,4 @@
-title: "Solution tutorials"
+title: "Solutions"
 href: index.yaml
 items:
   - name: Web service
@@ -13,7 +13,7 @@ items:
       href: web/dns-load-balancer.md
     - name: Joomla-based website with PostgreSQL
       href: web/joomla-postgresql.md
-    - name: WordPress-based website
+    - name: WordPress website
       href: web/wordpress.md
   - name: Data archive
     items:
@@ -21,6 +21,8 @@ items:
       href: archive/index.md
     - name: Single-node file server
       href: archive/single-node-file-server.md
+    - name: Configuring an SFTP server on Centos 7
+      href: archive/backup-and-archive-to-sftp.md
     - name: Backup to Object Storage via Acronis Backup
       href: archive/object-storage-acronis.md
     - name: Backup to Object Storage via CloudBerry Desktop Backup
@@ -35,11 +37,19 @@ items:
       href: testing/ci-for-snapshots.md
   - name: Performing infrastructure management
     items:
-    - name: Overview
-      href: infrastructure-management/index.md
-    - name: Getting started with Terraform
-      href: infrastructure-management/terraform-quickstart.md
-    - name: Getting started with Packer
-      href: infrastructure-management/packer-quickstart.md
-    - name: Automating image builds using Jenkins and Packer
-      href: infrastructure-management/jenkins.md
+      - name: Overview
+        href: infrastructure-management/index.md
+      - name: Getting started with Terraform
+        href: infrastructure-management/terraform-quickstart.md
+      - name: Getting started with Packer
+        href: infrastructure-management/packer-quickstart.md
+      - name: VM images building automation using Jenkins
+        href: infrastructure-management/jenkins.md
+  - name: Network routing
+    items:
+      - name: Overview
+        href: routing/index.md
+      - name: Routing through a NAT instance
+        href: routing/nat-instance.md
+      - name: Creating a VPN tunnel
+        href: routing/ipsec-vpn.md

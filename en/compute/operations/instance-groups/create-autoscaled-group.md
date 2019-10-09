@@ -1,18 +1,18 @@
-# Create a fixed-size instance group
+# Creating an automatically scaled instance group
 
-You can create a group with a fixed number of instances. The group size is set manually. For more information, see [{#T}](../../concepts/instance-groups/scale.md#fixed-scale).
+You can create an automatically scaled group of identical instances. The size of this group will be managed automatically. For more information, see [{#T}](../../concepts/instance-groups/scale.md#auto-scale).
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 
-To create a fixed-size instance group:
+To create an automatically scaled instance group
 
 {% list tabs %}
 
 - Management console
 
-  {% include [create-fixed-group-via-concole.md](../../../_includes/instance-groups/create-fixed-group-via-concole.md) %}
+  {% include [create-autoscaled-group-via-concole.md](../../../_includes/instance-groups/create-autoscaled-group-via-concole.md) %}
 
 - CLI
 
@@ -45,7 +45,7 @@ To create a fixed-size instance group:
       - General information about the group:
 
           ```
-          name: first-fixed-group
+          name: first-autoscaled-group
           service_account_id: <ID>
           description: "This instance group was created from YAML config"
           ```
@@ -100,8 +100,14 @@ To create a fixed-size instance group:
               max_unavailable: 1
               max_expansion: 0
           scale_policy:
-              fixed_scale:
-                  size: 3
+              auto_scale:
+                  initial_size: 5
+                  max_size: 15
+                  min_zone_size: 3
+                  measurement_duration: 30
+                  warmup_duration: 60
+                  cooldown_duration: 120
+                  cpu_utilization_rule: 0.75
           allocation_policy:
               zones:
                   - zone_id: ru-central1-a
@@ -118,7 +124,7 @@ To create a fixed-size instance group:
           Full code for the `specification.yaml` file:
 
           ```
-          name: first-fixed-group
+          name: first-autoscaled-group
           service_account_id: ajed6ilf11qg839dcl1e
           description: "This instance group was created from YAML config"
           instance_template:
@@ -139,8 +145,15 @@ To create a fixed-size instance group:
               max_unavailable: 1
               max_expansion: 0
           scale_policy:
-              fixed_scale:
-                  size: 3
+              auto_scale:
+                  initial_size: 5
+                  max_size: 15
+                  min_zone_size: 3
+                  measurement_duration: 30
+                  warmup_duration: 60
+                  cooldown_duration: 120
+                  cpu_utilization_rule:
+                      utilization_target: 75
           allocation_policy:
               zones:
                   - zone_id: ru-central1-a
@@ -152,8 +165,8 @@ To create a fixed-size instance group:
       $ {{ yc-compute-ig }} create --file specification.yaml
       ```
 
-      This command creates a group of three similar instances with the following characteristics:
-      - Named `first-fixed-group`.
+      This command creates an automatically scaled instance group with the following characteristics:
+      - Named `first-autoscaled-group`.
       - Running CentOS 7.
       - In the `default-net` network.
       - In the `ru-central1-a` availability zone.
@@ -162,7 +175,7 @@ To create a fixed-size instance group:
 
 - API
 
-  Use the [create](../../api-ref/InstanceGroup/create.md) API method.
+  Use the [create](../../api-ref/InstanceGroup/create.md).
 
 {% endlist %}
 

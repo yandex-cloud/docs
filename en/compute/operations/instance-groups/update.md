@@ -3,7 +3,7 @@
 After creating an instance group, you can:
 
 - [Change its name and description](#change-name).
-- [Change the computing resources](#change-compute-resources).
+- [Change its computing resources](#change-compute-resources).
 - [Increase the disk size](#change-disk-size).
 
 ## Changing the name and description {#change-name}
@@ -13,7 +13,6 @@ To change the name and description of an instance group:
 {% list tabs %}
 
 - Management console
-
   1. Open the folder page in the management console.
   1. Select **{{ compute-full-name }}**.
   1. On the **Virtual machines** page, go to the **Instance groups** tab.
@@ -38,31 +37,31 @@ To change the name and description of an instance group:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Select the `ID` or `NAME` of the necessary group (for example, `first-instance-group`).
+  1. Select the `ID` or `NAME` of the group (for example, `first-fixed-group`).
 
-  1. Specify the appropriate name and description in the YAML file that was used to create the group (for example, `template.yaml`). If the YAML file wasn't saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
+  1. Specify the name and description in the YAML file that was used to create the group (for example, `specification.yaml`). If the YAML file wasn't saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
 
   1. Update the instance group in the default folder:
 
       ```
-      $ {{ yc-compute-ig }} update --name first-instance-group --file template.yaml
+      $ {{ yc-compute-ig }} update --name first-fixed-group --file specification.yaml
       ```
 
      {{ ig-name }} starts the operation to update the instance group.
 
 - API
 
-  You can change the group name and description using the [update](../../../_api-ref/compute/api-ref/InstanceGroup/update.md) API method.
+  You can change the group name and description using the [update](../../api-ref/InstanceGroup/update.md) method.
 
-  To request a list of available groups, use the [listInstances](../../../_api-ref/compute/api-ref/InstanceGroup/listInstances.md) method.
+  To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
 
 {% endlist %}
 
-## Changing computing resources {#change-compute-resources}
+## To change computing resources {#change-compute-resources}
 
 After creating an instance group, you can change:
 
-- The core usage type (partial or full).
+- The guaranteed vCPU share.
 - The number of vCPUs and amount of RAM.
 
 To change the computing resources of an instance group:
@@ -70,7 +69,6 @@ To change the computing resources of an instance group:
 {% list tabs %}
 
 - Management console
-
   1. Open the folder page in the management console.
   1. Select **{{ compute-full-name }}**.
   1. On the **Virtual machines** page, go to the **Instance groups** tab.
@@ -95,34 +93,33 @@ To change the computing resources of an instance group:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Select the `ID` or `NAME` of the necessary group (for example, `first-instance-group`).
+  1. Select the `ID` or `NAME` of the group (for example, `first-fixed-group`).
 
-  1. Specify the necessary instance parameters in the `resources_spec` key in the YAML file that was used to create the group (for example, `template.yaml`). If the YAML file wasn't saved, [get information](get-info.md) about the instance group and create a new file. For more information, see the section [{#T}](create-fixed-group.md).
+  1. Specify the necessary instance parameters in the `resources_spec` key in the YAML file that was used to create the group (for example, `specification.yaml`). If the YAML file wasn't saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
 
   1. Update the instance group in the default folder:
 
       ```
-      $ {{ yc-compute-ig }} update --name first-instance-group --file template.yaml
+      $ {{ yc-compute-ig }} update --name first-fixed-group --file specification.yaml
       ```
 
      {{ ig-name }} starts the operation to update the instance group.
 
 - API
 
-  You can change the computing resources using the [update](../../../_api-ref/compute/api-ref/InstanceGroup/update.md) API method.
+  You can change the computing resources using the [update](../../api-ref/InstanceGroup/update.md).
 
-  To request a list of available groups, use the [listInstances](../../../_api-ref/compute/api-ref/InstanceGroup/listInstances.md) method.
+  To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md).
 
 {% endlist %}
 
-## Increasing the disk size {#change-disk-size}
+## Increase disk size {#change-disk-size}
 
 To increase the disk size of an instance group:
 
 {% list tabs %}
 
 - Management console
-
   1. Open the folder page in the management console.
   1. Select **{{ compute-full-name }}**.
   1. On the **Virtual machines** page, go to the **Instance groups** tab.
@@ -147,23 +144,23 @@ To increase the disk size of an instance group:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Select the `ID` or `NAME` of the necessary group (for example, `first-instance-group`).
+  1. Select the `ID` or `NAME` of the group (for example, `first-fixed-group`).
 
-  1. Specify the required storage size in the `boot_disk_spec` key in the YAML file that was used to create the group (for example, `template.yaml`). If the YAML file wasn't saved, [get information](get-info.md) about the instance group and create a new file. For more information, see the section [{#T}](create-fixed-group.md).
+  1. Specify the required storage size in the `boot_disk_spec` key in the YAML file that was used to create the group (for example, `specification.yaml`). If the YAML file wasn't saved, [get information](get-info.md) about the instance group and create a new file. For more information, see [{#T}](create-fixed-group.md).
 
   1. Update the instance group in the default folder:
 
       ```
-      $ {{ yc-compute-ig }} update --name first-instance-group --file template.yaml
+      $ {{ yc-compute-ig }} update --name first-fixed-group --file specification.yaml
       ```
 
      {{ ig-name }} starts the operation to update the instance group.
 
 - API
 
-  You can change the disk size using the [update](../../../_api-ref/compute/api-ref/InstanceGroup/update.md) API method.
+  You can change the disk size using the [update](../../api-ref/InstanceGroup/update.md) method.
 
-  To request a list of available groups, use the [listInstances](../../../_api-ref/compute/api-ref/InstanceGroup/listInstances.md) method.
+  To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md) method.
 
 {% endlist %}
 

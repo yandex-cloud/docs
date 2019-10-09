@@ -2,7 +2,7 @@
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
-## Restoring clusters from backups: {#restore}
+## Restoring clusters from backups {#restore}
 
 When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
 
@@ -97,7 +97,7 @@ For a new cluster, you should set all the parameters that are required at creati
       - With the `mynewmy` name.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
-      - With one `{{ host-class }}` class host in the  `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
+      - With a single `{{ host-class }}` class host in the  `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
       - With SSD network storage of 20 GB.
 

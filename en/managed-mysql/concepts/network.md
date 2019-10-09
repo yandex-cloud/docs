@@ -22,7 +22,7 @@ All the clusters are created within the `_PGAASINTERNALNETS_` network macro. To 
 
 {% if audience != "internal" %}
 
-You can use the FQDN to access the host within a single cloud network. Read more in the [documentation for {{ vpc-full-name }}](../../vpc/).
+You can use the FQDN to access the host within a single cloud network. Read more in the [{{ vpc-full-name }} documentation](../../vpc/).
 
 ## Public access to a host
 

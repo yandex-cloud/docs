@@ -1,19 +1,21 @@
 # Step-by-step instructions for the component {{ ig-name }}
 
-## Creating an instance group
+{% include [sa.md](../../../_includes/instance-groups/sa.md) %}
+
+## Creating instance groups
 
 - [{#T}](create-fixed-group.md)
 - [{#T}](create-with-balancer.md)
 
-## Getting information about an instance group
+## Getting information about instance groups
 
 - [{#T}](get-list.md)
 - [{#T}](get-info.md)
 - [{#T}](get-list-instances.md)
 
-## Managing an instance group
+## Managing instance groups
 
 - [{#T}](update.md)
 - [{#T}](delete.md)
-- [{#T}](recover.md)
+- [{#T}](enable-autohealing.md)
 

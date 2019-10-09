@@ -13,6 +13,12 @@ The number of hosts that can be created together with a {{ MY }} cluster depends
 
 By default, {{ mmy-short-name }} limits the maximum number of connections to each {{ MY }} cluster host to ` 200 x <number of vCPUs on host>`. For example, for a host of the [s1.micro class](../concepts/instance-types.md) the `max_connections` default parameter value is 400.
 
+{% note info %}
+
+If database storage is 95% full, the cluster switches to read-only mode. Increase the storage size in advance.
+
+{% endnote %}
+
 ## How to create a cluster {{ MY }} {#create-cluster}
 
 {% list tabs %}
@@ -28,8 +34,8 @@ By default, {{ mmy-short-name }} limits the maximum number of connections to eac
   1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the Cloud.
 
   1. Select the environment where you want to create the cluster (you cannot change the environment after cluster creation):
-      - <q>production</q> — for stable versions of your apps.
-      - <q>prestable</q> — for testing, including the {{ mmy-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner in it, but this may cause backward incompatible changes.
+      - <q>production</q> — For stable versions of your apps.
+      - <q>prestable</q> — For testing, including the {{ mmy-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner in it, but this may cause backward incompatible changes.
 
   1. Select the DBMS version.
 

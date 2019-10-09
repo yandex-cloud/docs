@@ -2,11 +2,11 @@
 
 When creating a group, you need to describe an _instance template_, which is the basic instance configuration that will be used for deploying all the instances in the group.
 
-The template description and [policy](policies.md) description are passed to the CLI in a YAML file when creating or updating an instance group, via the `--file` flag. This is convenient for passing values consisting of multiple strings. For more information, see [{#T}](../../operations/instance-groups/create-fixed-group.md).
+The template description and [policy](policies.md) description are passed to the CLI in a YAML file when creating or updating an instance group with the `--file` flag. This is convenient for passing values consisting of multiple strings. For more information, see [{#T}](../../operations/instance-groups/create-fixed-group.md).
 
 ## Computing resources {#types}
 
-When describing a template, you specify the computing resources to allocate to each instance: the number and guaranteed performance of processor cores (vCPUs) and the amount of RAM. You can choose the amount of computing resources that is appropriate for the expected load. For more information, see [{#T}](../performance-levels.md).
+When describing a template, you specify the computing resources to allocate to each instance: the number and guaranteed performance of processor cores (vCPUs) and the amount of RAM. You can choose the computing resources that are appropriate for the expected load. For more information, see [{#T}](../performance-levels.md).
 
 ## Disks {#disks}
 
@@ -16,7 +16,14 @@ You can also attach additional disks to each instance. You can create an additio
 
 ## Network {#network}
 
-When creating a group, you should specify settings for the network interface connected to each instance: select the network that the instance will be connected to. You can also configure a public IP address. This allows the instance to interact with other services over the internet. For more information, see [{#T}](../network.md).
+When creating a group, you can:
+
+- Set the network for the group itself.
+- Set subnets for each instance in the group.
+
+You can create a group without specifying any subnets for its instances if the availability zone selected for each instance contains exactly one subnet for the specified network.
+
+You can also configure a public IP address for each instance. This allows the instance to interact with other services over the internet. For more information, see [{#T}](../network.md).
 
 ## Template description in a YAML file {#instance-template}
 
@@ -35,13 +42,13 @@ instance_template:
     boot_disk_spec:
         mode: READ_WRITE
         disk_spec:
-            image_id: fdvcl0b1no2hjb423igi
+            image_id: fdvk34al8k5nltb58shr
             type_id: network-hdd
             size: 34359738368
     secondary_disk_specs:
         mode: READ_WRITE
         disk_spec:
-            image_id: fdvcl0b1no2hjb423igi
+            image_id: fdvk34al8k5nltb58shr
             type_id: network-hdd
             size: 34359738368
     network_interface_specs:
@@ -56,6 +63,8 @@ instance_template:
 ...
 ```
 
+{% include [default-unit-size](../../../_includes/instance-groups/default-unit-size.md) %}
+
 Keys (the table lists keys that directly define the base instance's configuration):
 
 | Key | Value |
@@ -66,11 +75,11 @@ Keys (the table lists keys that directly define the base instance's configuratio
 | `core_fraction` | Base CPU performance. The value must be 0, 5, or 100. |
 | `mode` | Disk access mode. </br> - `READ_ONLY`: read-only access. </br>- `READ_WRITE`: read/write access. |
 | `image_id` | ID of the image that will be used for disk creation. |
-| `type_id` | ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.diskTypes](../../../_api-ref/compute/api-ref/DiskType/list.md) request. |
+| `type_id` | ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.diskTypes](../../api-ref/DiskType/list.md) request. |
 | `size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB). |
 | `network_id` | ID of the network. |
 | `subnet_ids` | IDs of cloud subnets. |
 | `ip_version` | IP version for the public IP address. |
 
-For information about technical restrictions of the {{ ig-name }} component, see [{#T}](../limits.md).
+For information about the technical restrictions of {{ ig-name }}, see [{#T}](../limits.md).
 

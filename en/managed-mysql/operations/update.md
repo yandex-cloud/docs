@@ -4,9 +4,9 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-ssd`).
+* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
 
-* [Configure the {{ MY }} servers](#change-mysql-config).
+* [Configure the servers](#change-mysql-config) {{ MY }}.
 
 ## Changing the host class {#change-resource-preset}
 
@@ -93,7 +93,7 @@ After creating a cluster, you can:
       $ {{ yc-mdb-my }} cluster update --help
       ```
 
-  2. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
+  2. Make sure the cloud's quota is sufficient to increase the storage size: open the [Квоты]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
 
   3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
@@ -119,17 +119,17 @@ After creating a cluster, you can:
            --disk-size <storage size in GB>
       ```
 
-      If all these conditions are met, {{ mmy-short-name }} launches the operation to increase storage space.
+      If all these conditions are met, {{ mmy-short-name }}  launches the operation to increase storage space.
 
 - API
 
   You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.resources.diskSize`.
 
-  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
+  Make sure the cloud's quota is sufficient to increase the storage size: open the [Квоты]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
 
 {% endlist %}
 
-## Changing {{ MY }} settings {#change-mysql-config}
+## Changing settings {{ MY }} {#change-mysql-config}
 
 You can change the DBMS settings of the hosts in your cluster. All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
 

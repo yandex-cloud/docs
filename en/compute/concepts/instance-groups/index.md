@@ -1,15 +1,35 @@
-# Relationship between service resources
+# Concepts {{ ig-name }}
 
-The main entity used by the {{ ig-name }} component of {{ compute-full-name }} is an _instance group_.
+{{ ig-name }} is a {{ compute-name }} component that lets you create and manage instance groups.
+{{ ig-name }} automatically identifies and corrects unhealthy instances in a group to ensure their optimal performance.
 
-Each group consists of one or more instances of the same type. Group instances may reside in different availability zones and regions. [Learn more about the Cloud geography](../../../overview/concepts/geo-scope.md).
+{% note important %}
+
+All operations in {{ ig-name }} must be performed on behalf of a service account. For more information, see [{#T}](access.md).
+
+{% endnote %}
+
+Each group consists of one or more instances of the same type. Group instances may reside in different availability zones and regions. Learn more about [Yandex.Cloud geography](../../../overview/concepts/geo-scope.md).
+
+![Instance groups](../../../_assets/instance-groups/ig.svg)
+
+Use {{ ig-name }} to:
+
+- Simultaneously [update](configuration-update.md) all instances in a group.
+
+- Integrate with [{{ load-balancer-full-name }}](../../../load-balancer/concepts/index.md) and evenly distribute workloads across instances.
+
+- Create [automatically scaled](scale.md#auto-scale) instance groups.
+
+- Automatically [recover](autohealing.md) an instance if the application fails.
+
+- Maintain the performance of application services in a reliable environment with multi-zone features instead of allocating resources for each zone.
 
 When creating a group, describe the following:
 
-- [{#T}](instance-template.md): specify the required number of vCPUs and amount of RAM.
-- [{#T}](policies.md): specify the type of the new group, availability zones, and deployment parameters.
+- [The template](instance-template.md) for deploying group instances.
 
-The template will be used to deploy all instances in the group. For a list of available group types, see [{#T}](scale.md).
+- [{#T}](policies.md) for scaling, deployment, and allocation.
 
-The instance group created in the folder can be accessed by all instances connected to the same cloud network. [Learn more about networking](../../../vpc/).
+Instance groups created in the folder can be accessed by all instances connected to the same cloud network. [Learn more about networking](../../../vpc/).
 

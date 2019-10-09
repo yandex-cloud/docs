@@ -1,0 +1,7 @@
+To start working with Yandex.Cloud:
+
+1. Log in to the [management console](https://console.cloud.yandex.ru). If you aren't registered, go to the management console and follow the instructions.
+1. [On the billing page](https://console.cloud.yandex.ru/billing), make sure you linked a [payment account](../../billing/concepts/billing-account.md), and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a payment account, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. If you don't have a folder, [create one](../../resource-manager/operations/folder/create.md).
+1. If you don't have an SSH key pair yet, [create one](../../compute/operations/vm-connect/ssh#creating-ssh-keys).
+

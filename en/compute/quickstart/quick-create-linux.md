@@ -4,8 +4,6 @@
 
 ## Create your first VM
 
-To create a VM:
-
 {% include [create-instance-via-concole-linux](../_includes_service/create-instance-via-concole-linux.md) %}
 
 {% include [ip-fqdn-connection](../../_includes/ip-fqdn-connection.md) %}
