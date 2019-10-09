@@ -37,7 +37,7 @@ items:
     - name: Транзакции
       href: concepts/transactions.md
     - name: Вторичные индексы
-      href: concepts/secondary_index.md
+      href: concepts/secondary-indexes.md
     - name: Термины и определения
       href: concepts/databases.md
   - name: Управление доступом
