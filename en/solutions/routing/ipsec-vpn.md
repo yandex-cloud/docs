@@ -183,9 +183,9 @@ To make sure the tunnel between gateways is established, run the following comma
 ```
 $ sudo ipsec status
 Security Associations (1 up, 0 connecting):
- hq-to-cloud[3]: ESTABLISHED 29 minutes ago, 10.10.10.26[130.193.33.12]...1.1.1.1[1.1.1.1]
+ hq-to-cloud[3]: ESTABLISHED 29 minutes ago, 10.128.0.26[130.193.33.12]...192.168.0.23[1.1.1.1]
  hq-to-cloud{3}:  INSTALLED, TUNNEL, reqid 3, ESP in UDP SPIs: c7fa371d_i ce8b91ad_o
- hq-to-cloud{3}:   10.10.10.0/24 === 192.168.0.0/24
+ hq-to-cloud{3}:   10.128.0.0/24 === 192.168.0.0/24
 ```
 
 The `ESTABLISHED` status means that a tunnel between gateways was created.
