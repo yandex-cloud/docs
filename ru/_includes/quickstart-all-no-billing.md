@@ -22,6 +22,6 @@
   - [Перевести текст в {{ translate-name }}](../translate/quickstart.md).
   - [Анализировать изображение с помощью компьютерного зрения в {{ vision-name }}](../vision/quickstart.md).
 - Прочее:
-  - [Создать кластер {{ k8s }](../managed-kubernetes/quickstart.md).
+  - [Создать кластер {{ k8s }}](../managed-kubernetes/quickstart.md).
   - [Настроить обмен сообщениями между приложениями в {{ message-queue-name }}](../message-queue/quickstart.md).
   - [Визуализировать данные в {{ datalens-name }}](../datalens/).
