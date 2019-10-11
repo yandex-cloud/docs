@@ -18,8 +18,8 @@ If a disk is created from a snapshot or image, the disk information contains the
 
 In Yandex.Cloud, there are two types of disks:
 
-- Network SSD (`network-ssd`) — A fast network drive. Network block storage on an SSD.
-- Network HDD (`network-hdd`) — A standard network drive. Network block storage on an HDD.
+- Network SSD (`network-ssd`): A fast network drive. Network block storage on an SSD.
+- Network HDD (`network-hdd`): A standard network drive. Network block storage on an HDD.
 
 The availability zone affects which types of disks you can create.
 
@@ -33,7 +33,7 @@ VMs require one boot disk. Additional disks can also be attached.
 
 When selecting a disk to attach to a VM, you can specify whether the disk should be deleted along with the VM. You can choose this option when creating a VM, updating it, or attaching a new disk to it.
 
-If previously created disks are attached to the VM, they will be detached when the VM is deleted. Disk data is preserved and the disk can be attached to other VMs in the future.
+If previously created disks are attached to the VM, they are detached when the VM is deleted. Disk data is preserved and the disk can be attached to other VMs in the future.
 
 If you want to delete a disk with a VM, specify this option during one of the following operations: when creating the VM, updating it, or attaching the disk to it. The disk will be deleted when you delete the VM.
 
@@ -44,11 +44,13 @@ If you want to delete a disk with a VM, specify this option during one of the fo
 
 ## Backups {#backup}
 
-Each disk is automatically replicated in its availability zone.
+Each disk is accessible and replicated within a specific availability zone.
 
-As an additional backup, you can also create disk snapshots. Snapshots are automatically replicated to multiple availability zones. This lets you change the availability zone without losing any data.
+You can back up disks as [snapshots](snapshot.md). Snapshots are replicated across every availability zone, which lets you transfer disks between zones.
 
-If you often have to create a disk from its backup, you can create an image of the disk to speed up recovery. An example would be if you create a boot disk for your OS and want to install it on other VMs. Images are also automatically replicated to multiple availability zones.
+Restoring a particular disk state can become a routine operation, for example, if you want to attach the same boot disk to every new VM. You can upload an [image](image.md) of the disk to {{ compute-name }}. Disk are created faster from images than from snapshots. Images are also automatically replicated to multiple availability zones.
+
+For general advice on backing up and restoring virtual machines, see [{#T}](backups.md).
 
 ## Read and write operations {#rw}
 
@@ -67,7 +69,7 @@ For more information about maximum possible IOPS and bandwidth values, see [Quot
 
 ### Disk performance {#performance}
 
-To achieve the maximum possible IOPS, we recommend performing reads and writes that are 4 KB and less. Comparing to HDDs, SSDs have much higher IOPS for read operations, and lower operation latency values.
+To achieve maximum IOPS, we recommend performing read and write operations that are 4 KB and less. Network SSDs have much higher IOPS for read operations and process requests faster than HDDs.
 
 To achieve the maximum possible bandwidth, we recommend performing 4 MB reads and writes.
 
