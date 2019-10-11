@@ -11,9 +11,30 @@
  * [Аутентифицируйтесь в {{ container-registry-short-name }}](#auth)
 * [Настройте автоматическое развертывание {{ k8s }} ресурсов из CI](#k8s-apply)
 
-## Перед началом работы {#before-begin}
+Если созданные ВМ и кластер больше не нужны, [удалите их](#clear-out).
+
+## Подготовьте облако к работе {#before-begin}
+
+Перед тем, как разворачивать приложения, нужно зарегистрироваться в Облаке и создать платежный аккаунт:
+
+{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака](https://console.cloud.yandex.ru/cloud).
+ 
+ [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+[Создайте](../../vpc/operations/network-create.md) облачную сеть и подсеть в выбранной зоне доступности.
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки инфраструктуры входят:
+
+* плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование динамического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* плата за использование мастера {{ k8s }} (см. [тарифы {{ managed-k8s-full-name }}](../../managed-kubernetes/pricing.md)).
+
 ### Создайте виртуальную машину из образа GitLab {#create-gitlab}
-Запустите GitLab на виртуальной машине с публичным IP адресом:
+Запустите GitLab на виртуальной машине с публичным IP-адресом:
 
 {% include [create-gitlab](../../_includes/gitlab/create.md) %}
 
@@ -34,6 +55,13 @@
 {% include [docker-build-gitlab](../../_includes/gitlab/docker-build.md) %}
 
 {% include [kubectl-apply-gitlab](../../_includes/gitlab/kubectl-apply.md) %}
+
+### Удалите созданные ресурсы {#clear-out}
+
+Если вам больше не нужны развернутые приложения и кластер:
+
+* [Удалите созданные ВМ](../../compute/operations/vm-control/vm-delete).
+* Удалите кластер {{ k8s }}.
 
 #### См. также {#see-also}
 * [{#T}](../../solutions/testing/ci-for-snapshots.md)
