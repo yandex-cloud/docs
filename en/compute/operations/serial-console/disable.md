@@ -12,7 +12,7 @@ To disable access to the serial console, set the `serial-port-enable` parameter 
 
     {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-1. Select the `ID` or `NAME` of the VM you need (for example, `first-instance`).
+1. Select the `ID` or `NAME` of the VM (for example, `first-instance`).
 
 1. Set the `serial-port-enable=0` parameter in the VM metadata:
 
@@ -23,3 +23,4 @@ To disable access to the serial console, set the `serial-port-enable` parameter 
     ```
 
     This command will start the operation to deactivate the serial console on the VM named `first-instance`.
+

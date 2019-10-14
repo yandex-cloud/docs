@@ -62,7 +62,7 @@ To create an instance group with a load balancer:
 
       - Click **Add**.
 
-  1. In the **During creation and update, it is allowed** section, specify:
+  1. Under **Allow when creating and updating**, specify:
 
       - The number of instances that can be additionally allocated in order to expand the group size.
 

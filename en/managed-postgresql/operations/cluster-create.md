@@ -2,6 +2,12 @@
 
 A {{ PG }} cluster is one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, synchronously duplicates changes in the primary replica, and does it asynchronously in all the others.
 
+{% note info %}
+
+If database storage is 95% full, the cluster switches to read-only mode. Plan and increase the required storage size in advance.
+
+{% endnote %}
+
 {% if audience != "internal" %}
 
 The number of hosts that can be created together with a {{ PG }} cluster depends on the storage option selected:
@@ -31,10 +37,15 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
   1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the Cloud.
 
   1. Select the environment where you want to create the cluster (you cannot change the environment after cluster creation):
-      - <q>production</q> — for stable versions of your apps.
-      - <q>prestable</q> — for testing, including the {{ mpg-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner in it, but this may cause backward incompatible changes.
+      - <q>production</q> — For stable versions of your apps.
+      - <q>prestable</q> — For testing, including the {{ mpg-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner in it, but this may cause backward incompatible changes.
 
   1. Select the DBMS version.
+     {% note info %}
+
+     When using the version `10-1c` ({{ PG }} 10 for 1C), to comfortably host 50 users it is recommended to select the host class `s2.medium`, for 30 users and less it's likely that the class `s2.small` is going to be enough.
+
+     {% endnote %}
 
   1. Select the host class that will define the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
 
@@ -47,6 +58,8 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
       - Database name. The DB name must be unique within the folder and contain only Latin letters, numbers, and underscores.
       - The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
       - User's password (from 8 to 128 characters).
+
+      For the database that is created with the cluster character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](databases.md#add-the db) with the right settings.
 
   1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ PG }} cluster, you can set at least three hosts). If you open the **Advanced settings** section, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
@@ -85,7 +98,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
          --network-name <network name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
          --resource-preset <host class> \
-         --user name=<username>,password=<user password> \
+         --user name=<user name>,password=<user password> \
          --database name=<database name>,owner=<database owner name> \
          --disk-size <storage size in GB>
       ```
@@ -101,7 +114,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
          --network-id {{ network-name }} \
          --host zone-id=<availability zone> \
          --resource-preset <host class> \
-         --user name=<username>,password=<user password> \
+         --user name=<user name>,password=<user password> \
          --database name=<database name>,owner=<database owner name> \
          --disk-size <storage size in GB>
       ```

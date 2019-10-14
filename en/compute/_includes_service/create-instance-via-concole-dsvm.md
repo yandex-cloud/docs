@@ -1,6 +1,6 @@
 Creating an instance from a public DSVM image
 
-1. In the [management console](https://console.cloud.yandex.ru), select a folder to create a VM in.
+1. In the [management console](https://console.cloud.yandex.com), select a folder to create a VM in.
 1. In the list of services, select {{ compute-name }}.
 1. Click **Create VM**.
 1. In the **Basic parameters** section:

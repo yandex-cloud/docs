@@ -29,6 +29,8 @@ items:
             href: operations/vm-create/create-from-user-image.md
           - name: Creating a preemptible instance
             href: operations/vm-create/create-preemptible-vm.md
+          - name: Creating a VM with a GPU
+            href: operations/vm-create/create-vm-with-gpu.md
       - name: DSVM
         items:
           - name: Overview
@@ -95,6 +97,8 @@ items:
         items:
           - name: Uploading your image
             href: operations/image-create/upload.md
+          - name: Installing NVIDIA drivers
+            href: operations/image-create/install-nvidia-drivers.md
       - name: Managing images
         items:
           - name: Removing an image
@@ -149,10 +153,14 @@ items:
             href: concepts/vm-platforms.md
           - name: vCPU performance levels
             href: concepts/performance-levels.md
+          - name: Graphics accelerators (GPUs)
+            href: concepts/gpus.md
           - name: Preemptible VMs
             href: concepts/preemptible-vm.md
           - name: Network on a VM
             href: concepts/network.md
+          - name: Live migration
+            href: concepts/live-migration.md
           - name: Statuses
             href: concepts/vm-statuses.md
           - name: Metadata

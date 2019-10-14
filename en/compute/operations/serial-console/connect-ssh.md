@@ -1,10 +1,10 @@
 # Connecting to a VM's serial console via SSH
 
-After [enabling access](index.md), you can connect to the serial console to work with the VM. Before connecting to the serial console, carefully read the section [{#T}](#security).
+After [enabling access](index.md), you can connect to the serial console to work with the VM. Before connecting to the serial console, carefully read the [{#T}](#security).
 
 ## Security {#security}
 
-{% note warning %}
+{% note important %}
 
 Serial console access is not secure, so enabling it might allow hackers to access your VM. [Disable](disable.md) access after you finish working with the serial console.
 
@@ -40,11 +40,11 @@ Check the specified files often. Download these files only via HTTPS after verif
 
 {% note info %}
 
-How the serial console works depends on the operating system settings. {{ compute-full-name }} provides a communication channel between the user and the COM port on the VM, but it does not guarantee that the console will work correctly on the operating system.
+How the serial console works depends on the operating system settings. {{ compute-full-name }} provides a communication channel between the user and COM port on the VM, but it doesn't guarantee that the console works properly on the operating system.
 
 {% endnote %}
 
-To connect to the VM, you must use its ID. To get the ID, read [{#T}](../vm-info/get-info.md).
+To connect to the VM, you must use its ID. For more information about how to get the ID of a VM, see [{#T}](../vm-info/get-info.md).
 
 Connection command example:
 
@@ -58,7 +58,7 @@ Example with `yc-user` and the virtual machine with the ID `fhm0b28lgfp4tkoa3jl6
 $ ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_rsa fhm0b28lgfp4tkoa3jl6.yc-user@serialssh.cloud.yandex.net
 ```
 
-The  `yc-user` user is generated automatically when the VM is being created. For more information, see [{#T}](../vm-create/create-linux-vm.md).
+The  `yc-user` user is generated automatically when the VM is being created. Learn more in [{#T}](../vm-create/create-linux-vm.md).
 
 #### Troubleshooting
 
@@ -74,3 +74,4 @@ To disconnect from the serial console:
 
 1. Press `Enter`.
 1. Enter the following characters in order: `~.`.
+
