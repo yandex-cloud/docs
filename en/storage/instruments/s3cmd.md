@@ -59,11 +59,17 @@ Keep in mind that S3cmd treats {{ objstorage-name }} as a hierarchical file syst
 
 ## Examples of operations {#s3cmd-examples}
 
+### List buckets
+
+```bash
+s3cmd ls
+```
+
 ### Create a bucket
 
-   ```bash
-   s3cmd  mb s3://bucket
-   ```
+```bash
+s3cmd  mb s3://bucket
+```
 
 {% note info %}
 

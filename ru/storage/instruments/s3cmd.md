@@ -54,11 +54,17 @@ website_endpoint = http://%(bucket)s.{{ s3-web-host }}
 
 ## Примеры операций {#s3cmd-examples}
 
+### Получить список бакетов
+
+```bash
+s3cmd ls
+```
+
 ### Создать бакет
 
-   ```bash
-   s3cmd  mb s3://bucket
-   ```
+```bash
+s3cmd mb s3://bucket
+```
 
 {% note info %}
 
