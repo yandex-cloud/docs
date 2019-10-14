@@ -71,7 +71,7 @@ To create an automatically scaled instance group
                   disk_spec:
                       image_id: fdvk34al8k5nltb58shr
                       type_id: network-hdd
-                      size: 34359738368
+                      size: 32g
               network_interface_specs:
                   - network_id: c64mknqgnd8avp6edhbt
                     primary_v4_address_spec: {}
@@ -137,7 +137,7 @@ To create an automatically scaled instance group
                   disk_spec:
                       image_id: fdvk34al8k5nltb58shr
                       type_id: network-hdd
-                      size: 34359738368
+                      size: 32g
               network_interface_specs:
                   - network_id: c64mknqgnd8avp6edhbt
                     primary_v4_address_spec: {}
