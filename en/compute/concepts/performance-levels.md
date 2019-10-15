@@ -21,7 +21,7 @@ Minimum and maximum configurations for:
     | Configuration | vCPU | RAM, GB |
     | --- | --- | --- | --- |
     | Min | 2 | 0.5 |
-    | Max | 48 | 384 |
+    | Max | 64 | 384 |
 
 Available configurations of computing resources:
 
@@ -40,7 +40,7 @@ Available configurations of computing resources:
     | 5% | 2, 4 | 0.25, 0.5, 1, 1.5, 2 |
     | 20% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
     | 50% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
-    | 100% | 2, 4, 6, 8, 10, 12, 14,</br> 16, 20, 24, 28, 32, 36,</br> 40, 44, 48 | 1, 2, 3, 4, 5, 6, 7, 8 |
+    | 100% | 2, 4, 6, 8, 10, 12, 14,</br> 16, 20, 24, 28, 32, 36,</br> 40, 44, 48, 52, 56, 64 | 1, 2, 3, 4, 5, 6, 7, 8 |
 
 
 
