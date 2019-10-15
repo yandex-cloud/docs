@@ -25,12 +25,12 @@ If you have an active billing account, you can create or select a folder to run 
 
 The cost of NAT instance support includes:
 
-* A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
+* A fee for continuously running VMs (see [pricing {{ compute-full-name }}](../../compute/pricing.md)).
 * A fee for using a dynamic external IP address (see [pricing {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Create a network, subnet, and test VM {#before-begin}
 
-1. Create a [cloud network](../../vpc/operations/network-create. md) with any name, such as `my-vpc`.
+1. Create a [cloud network](../../vpc/operations/network-create.md) with any name, such as `my-vpc`.
 1. In the cloud network, create a [subnet](../../vpc/operations/subnet-create.md) for your NAT instance with any name, such as `nat-subnet`. Don't assign any routing tables to it.
 1. Create another subnet in the cloud network, such as `private-subnet`.
 1. Create a test [VM](../../compute/operations/vm-create/create-linux-vm.md) without a public IP and connect it to the `private-subnet` subnet.
