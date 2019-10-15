@@ -64,7 +64,7 @@ To create a fixed-size instance group:
           instance_template:
               platform_id: standard-v1
               resources_spec:
-                  memory: 4294967296
+                  memory: 4g
                   cores: 1
               boot_disk_spec:
                   mode: READ_WRITE
@@ -124,7 +124,7 @@ To create a fixed-size instance group:
           instance_template:
               platform_id: standard-v1
               resources_spec:
-                  memory: 4294967296
+                  memory: 4g
                   cores: 1
               boot_disk_spec:
                   mode: READ_WRITE

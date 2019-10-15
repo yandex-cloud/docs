@@ -136,7 +136,7 @@ To create an instance group with a load balancer:
           instance_template:
               platform_id: standard-v1
               resources_spec:
-                  memory: 4294967296
+                  memory: 4g
                   cores: 1
               boot_disk_spec:
                   mode: READ_WRITE
@@ -211,7 +211,7 @@ To create an instance group with a load balancer:
           instance_template:
               platform_id: standard-v1
               resources_spec:
-                  memory: 4294967296
+                  memory: 4g
                   cores: 1
               boot_disk_spec:
                   mode: READ_WRITE
