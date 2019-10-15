@@ -1,42 +1,62 @@
 # Creating an IPSec VPN tunnel
 
-To access Yandex.Cloud virtual machines over a VPN, you can set up a VPN gateway. This scenario describes how to configure a VPN gateway for sending traffic from Yandex.Cloud virtual machines to an IPSec VPN tunnel using the [strongSwan](https://www.strongswan.org/) daemon.
+This scenario describes how to configure an IPSec instance to route traffic from Yandex.Cloud VMs to an IPSec VPN tunnel using the [strongSwan](https://www.strongswan.org/) daemon.
 
 In the example, we set up a tunnel between two VPN gateways. To test the tunnel, you need to configure gateways on both sides of it. You can do this using a different network in Yandex.Cloud or your local network.
 
 To set up a VPN tunnel:
 
-1. [Create and configure a VPN gateway VM](#create-ipsec-instance).
+1. [Before you start](#before-begin).
+1. [Create and configure an IPSec instance](#create-ipsec-instance).
 1. [Configure IPsec](#create-ipsec-instance).
 1. [Set up static routing in the cloud network](#configure-static-route).
 1. [Configure IPSec on the second gateway](#configure-another-gateway).
-1. [Check the VPN tunnel](#test-vpn).
+1. [Test the VPN tunnel](#test-vpn).
+
+If you no longer need the IPSec instance, [delete it](#clear-out).
 
 ## Before you start {#before-begin}
 
+Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
+
+{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+
+If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+
+[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Required paid resources {#paid-resources}
+
+The cost of IPSec VPN infrastructure support includes:
+
+* A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
+* A fee for using a dynamic external IP address (see [pricing {{ vpc-full-name }}](../../vpc/pricing.md)).
+
+## Create networks and subnets {#before-begin}
+
 To connect cloud resources to the internet, make sure you have [networks](../../vpc/operations/network-create.md) and [subnets](../../vpc/operations/subnet-create.md).
 
-## 1. Create an IPSec gateway {#create-ipsec-instance}
+## Create an IPSec instance {#create-ipsec-instance}
 
-Create a virtual machine in Yandex.Cloud that will serve as a gateway for an IPSec tunnel.
+Create a VM in Yandex.Cloud to serve as a gateway for an IPSec tunnel.
 
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
 
 1. Enter a name for the VM, for example, `ipsec-instance`.
 
-1. Select the subnet availability zone to connect the VPN gateway to and where the test VM is already located.
+1. Select the subnet availability zone to connect the IPSec instance to and where the test VM is already located.
 
-1. Under **Public images**, click **Select** and choose the **IPSec gateway** image.
+1. Under **Public images**, click **Select** and choose the **IPSec instance** image.
 
 1. In the **Network settings** section, choose the required network and subnet and assign a public IP to the VM either by selecting it from the list or automatically.
 
-   Only use static public IP addresses [from the list](https://cloud.yandex.ru/docs/vpc/operations/get-static-ip) or [make](https://cloud.yandex.ru/docs/vpc/operations/set-static-ip) the VM IP address static. Dynamic IP addresses may change after the VM reboots and the tunnel will no longer work.
+   Only use static public IP addresses [from the list](https://cloud.yandex.com/docs/vpc/operations/get-static-ip) or [make](https://cloud.yandex.com/docs/vpc/operations/set-static-ip) the IP address static. Dynamic IP addresses may change after the VM reboots and the tunnel will no longer work.
 
 1. In the **Access** field, enter the login and SSH key to access the VM.
 
 1. Click **Create VM**.
 
-## 2. Configure IPSec {#configure-ipsec}
+## Configure IPSec {#configure-ipsec}
 
 Configure a gateway with a public IP address and subnet that will establish an IPSec connection with the remote gateway.
 
@@ -64,8 +84,8 @@ In the example below, the public IP address of the gateway is `130.193.32.25`. B
    ```
 
 1. Enter the following parameters for the test connection:
-   * `leftid`  — The public IP address of the gateway.
-   * `leftsubnet`  — The CIDR of the subnet that the gateway is connected to.
+   * `leftid` — The public IP address of the IPSec instance.
+   * `leftsubnet` — The CIDR of the subnet that the IPSec instance is connected to.
    * `right`  — Enter the public IP address of the gateway at the other end of the VPN tunnel.
    * `rightsubnet`  — Enter the CIDR of the subnet that the VPN gateway is connected to at the other end of the tunnel.
    * In the `ike` and `esp` parameters, enter the encryption algorithms that are supported on the remote gateway. For a list of supported encryption algorithms, see [IKEv1](https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites) and [IKEv2](https://wiki.strongswan.org/projects/strongswan/wiki/IKEv2CipherSuites) on the strongSwan website.
@@ -108,9 +128,9 @@ In the example below, the public IP address of the gateway is `130.193.32.25`. B
 
 ## 3. Set up static routing {#configure-static-route}
 
-Set up routing between the gateway and previously created VM with no public IP address:
+Set up routing between the IPSec instance and previously created VM with no public IP address:
 
-Create a routing table and add to it [static routes](../../vpc/concepts/static-routes.md):
+Create a route table and add [static routes](../../vpc/concepts/static-routes.md):
 
 1. Open the **Virtual Private Cloud** section in the folder where you want to create a static route.
 
@@ -141,7 +161,7 @@ You can also use the created route for other subnets in the same network.
 
 ## 4. Configure IPSec on a different gateway {#configure-another-gateway}
 
-For the VPN tunnel to work, you need to set up another IPSec gateway. You can create another cloud network with a subnet in your folder and create a gateway from an image, or use a machine in your local network as a gateway.
+For the VPN tunnel to work, you need to set up another IPSec gateway. You can create another cloud network with a subnet in your folder and create an IPSec instance from an image, or use a machine in your local network as a gateway.
 
 1. Configure strongSwan the same as the first IPSec gateway, but swap IP addresses and subnets in the `/etc/ipsec.conf` file:
 
@@ -167,7 +187,7 @@ For the VPN tunnel to work, you need to set up another IPSec gateway. You can cr
 1. In `/etc/ipsec.secrets`, enter the swapped gateway IP addresses followed by your password :
 
    ```
-   1.1.1.1 130.193.32.25 : PSK "<password>"
+   1.1.1.1 130.193.32.25 : PSK ""
    ```
 
 1. Restart strongSwan:
@@ -176,16 +196,16 @@ For the VPN tunnel to work, you need to set up another IPSec gateway. You can cr
    $ systemctl restart strongswan
    ```
 
-## 5. Check that the IPSec tunnel is working {#test-vpn}
+## 5. Test the IPSec tunnel {#test-vpn}
 
 To make sure the tunnel between gateways is established, run the following command on either gateway:
 
 ```
 $ sudo ipsec status
 Security Associations (1 up, 0 connecting):
- hq-to-cloud[3]: ESTABLISHED 29 minutes ago, 10.128.0.26[130.193.33.12]...192.168.0.23[1.1.1.1]
+ hq-to-cloud[3]: ESTABLISHED 29 minutes ago, 10.10.10.26[130.193.33.12]...1.1.1.1[1.1.1.1]
  hq-to-cloud{3}:  INSTALLED, TUNNEL, reqid 3, ESP in UDP SPIs: c7fa371d_i ce8b91ad_o
- hq-to-cloud{3}:   10.128.0.0/24 === 192.168.0.0/24
+ hq-to-cloud{3}:   10.10.10.0/24 === 192.168.0.0/24
 ```
 
 The `ESTABLISHED` status means that a tunnel between gateways was created.
@@ -205,4 +225,8 @@ $ systemctl status strongswan
 ```
 
 To view strongSwan logs, use the command `journalctl -u strongswan`. The logs contain information about connections.
+
+## Delete the created resources {#clear-out}
+
+If you no longer need the IPSec instance, [delete](../../compute/operations/vm-control/vm-delete.md) the `ipsec-instance` VM.
 

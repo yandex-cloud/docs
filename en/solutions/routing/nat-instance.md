@@ -1,37 +1,57 @@
 # Routing through a NAT instance
 
-Yandex.Cloud allows you to configure internet connections for multiple VMs via a NAT instance using static routing. In this case, only one public IP address will be used: the one that is assigned to the NAT instance.
+Yandex.Cloud lets you configure internet connections for multiple VMs via a NAT instance using static routing. In this case, only one public IP address is used: the one assigned to the VM.
 
-To set up routing through the NAT instance:
+To set up routing through a NAT instance:
 
-1. [Create and configure a NAT instance VM](#create-nat-instance).
-2. [Set up static routing in the cloud network](#configure-static-route).
-3. [Test the NAT instance](#test-nat-instance).
+1. [Before you start](#before-begin).
+1. [Create and configure a NAT instance](#create-nat-instance).
+1. [Set up static routing in the cloud network](#configure-static-route).
+1. [Test the NAT instance](#test-nat-instance).
+
+If you no longer need the NAT instance, [delete it](#clear-out).
 
 ## Before you start {#before-begin}
 
-1. Create a [virtual network](../../vpc/operations/network-create.md) with any name, for example `my-vpc`.
-1. Create a [subnet](../../vpc/operations/subnet-create.md) for NAT-instance with any name, for example `public-subnet`. Do not associate any route tables with this subnet.
-1. Create one more subnet in the new network, for example `private-subnet`.
-1. Create a [virtual machine](../../compute/operations/vm-create/create-linux-vm.md) without public IP address and connect it to the `private-subnet` subnet.
+Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
 
-## 1. Create a NAT instance {#create-nat-instance}
+{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
 
-Create a VM to be used as a NAT instance.
+If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+
+[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Required paid resources {#paid-resources}
+
+The cost of NAT instance support includes:
+
+* A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
+* A fee for using a dynamic external IP address (see [pricing {{ vpc-full-name }}](../../vpc/pricing.md)).
+
+## Create a network, subnet, and test VM {#before-begin}
+
+1. Create a [cloud network](../../vpc/operations/network-create. md) with any name, such as `my-vpc`.
+1. In the cloud network, create a [subnet](../../vpc/operations/subnet-create.md) for your NAT instance with any name, such as `nat-subnet`. Don't assign any routing tables to it.
+1. Create another subnet in the cloud network, such as `private-subnet`.
+1. Create a test [VM](../../compute/operations/vm-create/create-linux-vm.md) without a public IP and connect it to the `private-subnet` subnet.
+
+## Create a NAT instance {#create-nat-instance}
+
+Create a VM to use for internet access.
 
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
 1. Enter a name for the VM, for example, `nat-instance`.
-1. Select the availability zone of the `public-subnet` subnet.
+1. Select the availability zone where the `public-subnet ` subnet is located.
 1. Under **Public images**, click **Select** and choose the **NAT instance** image.
-1. Under **Network settings**, choose the required network and subnet and assign a public IP to the VM either by selecting it from the list or automatically.
+1. Under **Network settings**, choose the required network and subnet and assign a public IP to the NAT instance either automatically or by selecting it from the list.
 1. In the **Access** field, enter the login and SSH key to access the VM.
 1. Click **Create VM**.
 
-## 2. Set up static routing {#configure-static-route}
+## Set up static routing {#configure-static-route}
 
-Set up routing between the NAT instance and previously created VM with no public IP address:
+Set up routing between the NAT instance and test VM.
 
-Create a route table and add [static routes](../../vpc/concepts/static-routes.md):
+Create a route table and add to it a [static route](../../vpc/concepts/static-routes.md):
 
 1. Open the **Virtual Private Cloud** section in the folder where you want to create a static route.
 
@@ -39,7 +59,7 @@ Create a route table and add [static routes](../../vpc/concepts/static-routes.md
 
 1. Click ![image](../../_assets/plus.svg)**Create route table**.
 
-1. Enter a name for the route table, for example, `nat-instance-route`.
+1. Enter a name for the route table, such as `nat-instance-route`.
 
    {% include [name-format](../../_includes/name-format.md) %}
 
@@ -51,16 +71,16 @@ Create a route table and add [static routes](../../vpc/concepts/static-routes.md
 
 1. Click **Create route table**.
 
-To use static routes, link the route table to a subnet. In our example it will be `private-subnet`. To do this:
+To use static routes, link the route table to the subnet where the VMs are located (in the example, it's `private-subnet`). To do this:
 
-1. In the line with the desired subnet, click ![image](../../_assets/options.svg).
+1. On the line with the test VM, click ![image](../../_assets/options.svg).
 1. In the menu that opens, select **Link route table**.
 1. In the window that opens, select the `nat-instance-route` table from the list.
 1. Click **Link**.
 
-You can also use the created route for other subnets in the same network.
+You can also use the created route for other subnets in the same network, except for the subnet where the NAT instance is located.
 
-## 3. Test the NAT instance {#test-nat-instance}
+## Test the NAT instance {#test-nat-instance}
 
 1. Connect to the NAT instance via `SSH`:
 
@@ -81,4 +101,8 @@ You can also use the created route for other subnets in the same network.
    ```
 
    If it returns the public IP address of the NAT instance, everything is correct.
+
+## Delete the created resources {#clear-out}
+
+If you no longer need the NAT instance, [delete](../../compute/operations/vm-control/vm-delete.md) the `nat-instance` VM.
 
