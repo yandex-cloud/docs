@@ -3,5 +3,9 @@ href: index.yaml
 items:
   - name: Порядок оказания технической поддержки
     href: overview.md
+  - name: Оповещения от Яндекс.Облака
+    href: notify.md
+  - name: Запросы данных
+    href: request.md
   - name: Вопросы и ответы
     href: qa.md
