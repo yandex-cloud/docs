@@ -45,6 +45,14 @@ items:
         href: infrastructure-management/packer-quickstart.md
       - name: VM images building automation using Jenkins
         href: infrastructure-management/jenkins.md
+  - name: Windows in Yandex.Cloud
+    items:
+      - name: Overview
+        href: windows/index.md
+      - name: Deploying Active Directory
+        href: windows/active-directory.md
+      - name: Deploying Microsoft Exchange
+        href: windows/exchange.md
   - name: Network routing
     items:
       - name: Overview
