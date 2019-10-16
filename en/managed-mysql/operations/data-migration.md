@@ -32,7 +32,7 @@ You can create a database dump using `mysqldump`, which is described in detail i
                 > ~/db_dump.sql
     ```
 
-   If the source server uses InnoDB tables, use the `-- single-transaction` option to guarantee data consistency. For MyISAM tables, there's no point in using this option because transactions are not supported. You should also consider the following flags:
+   If the source server uses InnoDB tables, use the `--single-transaction` option to guarantee data consistency. For MyISAM tables, there's no point in using this option because transactions are not supported. You should also consider the following flags:
    * `--events` — If there are recurring events in your database.
    * `--routines` — If your database contains functions and stored procedures.
 

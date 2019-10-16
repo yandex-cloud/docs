@@ -37,7 +37,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       ```
       $ {{ yc-mdb-my }} backup list
-      
+
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -156,7 +156,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ {{ yc-mdb-mg }} backup list
-  
+
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
   +----------+----------------------+----------------------+----------------------+
@@ -201,7 +201,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - CLI
 
-  To set the backup start time, use the `-- backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
+  To set the backup start time, use the `--backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
 
   ```
   $ yc {{ yc-mdb-mg }} cluster create \
@@ -210,7 +210,7 @@ For a new cluster, you should set all the parameters that are required at creati
      --network-name <network name> \
      --host zone-id=<availability zone>,subnet-id=<subnet ID> \
      --mongodb-version <database version> \
-     --backup-window-start 10:25:00  
+     --backup-window-start 10:25:00
   ```
 
   To change the backup start time in an existing cluster, use the  `update` command:

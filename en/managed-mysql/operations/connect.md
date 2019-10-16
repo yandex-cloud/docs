@@ -39,7 +39,7 @@ $ mysql --host=<host FQDN>
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
-If you don't need to encrypt traffic within the virtual network when connecting to the database, you can connect to the database without an SSL connection. This is only possible if the host is not publicly accessible. Otherwise, the server always requires an SSL connection. If you connect to the database without public access from a  {{ compute-name }} virtual machine, then pass parameter `-- ssl-mode` with the `DISABLED` value:
+If you don't need to encrypt traffic within the virtual network when connecting to the database, you can connect to the database without an SSL connection. This is only possible if the host is not publicly accessible. Otherwise, the server always requires an SSL connection. If you connect to the database without public access from a  {{ compute-name }} virtual machine, then pass parameter `--ssl-mode` with the `DISABLED` value:
 
 ```bash
 $ mysql --host=<host FQDN>
