@@ -53,8 +53,8 @@
         --cafile rootCA.crt \
         --cert registry-cert.pem \
         --key registry-key.pem \
-        -t '$devices/<ID первого устройства/events' \
-        -t '$devices/<ID второго устройства/events' \
+        -t '$devices/<ID первого устройства>/events' \
+        -t '$devices/<ID второго устройства>/events' \
         -q 1
         ```
     - Подпишите реестр на все устройства, добавленные в него:
@@ -100,7 +100,7 @@
         --cafile rootCA.crt \
         --cert device-cert.pem \
         --key device-key.pem \
-        -t '$devices/<ID устройства/commands' \
+        -t '$devices/<ID устройства>/commands' \
         -q 1
         ```
     - Подпишите устройство на команды для всех устройств:
