@@ -97,6 +97,8 @@ items:
         items:
         - name: CyberDuck
           href: instruments/cyberduck.md
+        - name: WinSCP
+          href: instruments/winscp.md
       - name: SDK
         items:
         - name: AWS SDK для Java

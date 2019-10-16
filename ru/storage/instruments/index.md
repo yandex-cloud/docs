@@ -10,6 +10,7 @@
 - Файловые браузеры
     
     - [Cyberduck](cyberduck.md)
+    - [WinSCP](winscp.md)
 
 - SDK
 
