@@ -8,7 +8,7 @@
 
 ## Installation {#installation}
 
-To install S3cmd, follow the [instructions](https://github.com/s3tools/s3cmd/blob/master/INSTALL) in the project repository.
+To learn how to download and install S3cmd, see the [Download](https://s3tools.org/download) section on the official website of the project.
 
 ## Configuration {#setup}
 
@@ -77,7 +77,7 @@ When creating a bucket, follow the [naming conventions](../concepts/bucket.md#na
 
 {% endnote %}
 
-### Uploading an object
+### Upload an object
 
 ```
 s3cmd put local_file s3://bucket/object
