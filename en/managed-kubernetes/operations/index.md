@@ -1,6 +1,7 @@
 # All instructions
 
 - [{#T}](node-connect-ssh.md)
+- [{#T}](create-load-balancer.md)
 
 ## Working with persistent volumes
 

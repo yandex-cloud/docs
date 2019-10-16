@@ -9,6 +9,8 @@ items:
         href: operations/index.md
       - name: Connecting to a node over SSH
         href: operations/node-connect-ssh.md
+      - name: Granting access to an app running in a Kubernetes cluster
+        href: operations/create-load-balancer.md
       - name: Working with persistent volumes
         items:
           - name: Dynamic volume provisioning
@@ -17,16 +19,22 @@ items:
             href: operations/volumes/static-create-pv.md
           - name: Managing storage classes
             href: operations/volumes/manage-storage-class.md
+  - name: Solutions
+    items:
+      - name: Working with Kubernetes using GitLab
+        href: solutions/gitlab.md
   - name: Concepts
     items:
       - name: Relationship between service resources
         href: concepts/index.md
       - name: Volumes
         href: concepts/volume.md
-      - name: Quotas and limits
-        href: concepts/limits.md
+      - name: Service
+        href: concepts/service.md
       - name: Release channels and updates
         href: concepts/release-channels-and-updates.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
