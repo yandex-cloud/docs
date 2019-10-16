@@ -35,7 +35,7 @@ _Классификация изображений сейчас находитс
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "features": [{
-                "type": "classification",
+                "type": "CLASSIFICATION",
                 "classificationConfig": {
                     "model": "quality"
                 }
