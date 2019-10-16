@@ -1,12 +1,14 @@
 # s3fs
 
-[s3fs](https://github.com/s3fs-fuse/s3fs-fuse) is a utility that allows Linux and macOS to mount an {{ objstorage-name }} bucket via [FUSE](https://en.wikipedia.org/wiki/Fuse_ESB).
+[s3fs](https://github.com/s3fs-fuse/s3fs-fuse) is a utility that lets Linux and macOS mount an {{ objstorage-name }} bucket via [FUSE](https://en.wikipedia.org/wiki/Fuse_ESB).
 
 {% note info %}
 
 We recommend using s3fs version 1.84 or higher.
 
 {% endnote %}
+
+If you have any questions, see the [official documentation](https://github.com/s3fs-fuse/s3fs-fuse/wiki), in particular, [FAQ](https://github.com/s3fs-fuse/s3fs-fuse/wiki/FAQ). There you can learn how to fix problems that occur when using s3fs.
 
 ## Before you start {#preparations}
 
@@ -16,7 +18,7 @@ We recommend using s3fs version 1.84 or higher.
 
 To install s3fs, follow the [instructions](https://github.com/s3fs-fuse/s3fs-fuse#installation) in the project repository.
 
-## Setup {#setup}
+## Configuration {#setup}
 
 To configure s3fs, save the key ID and secret key to a `~/.passwd-s3fs` file in the format `<key ID>:<secret key>` and restrict access to the `~/.passwd-s3fs` file like this:
 
