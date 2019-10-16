@@ -19,10 +19,6 @@ items:
             href: operations/volumes/static-create-pv.md
           - name: Managing storage classes
             href: operations/volumes/manage-storage-class.md
-  - name: Solutions
-    items:
-      - name: Working with Kubernetes using GitLab
-        href: solutions/gitlab.md
   - name: Concepts
     items:
       - name: Relationship between service resources
