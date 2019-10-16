@@ -74,6 +74,7 @@ items:
     include:
       repo: docs
       path: ru/_api-ref/containerregistry/toc.yaml
-  # - name: Вопросы и ответы
-  #   href: qa/index.md
-
+  - name: Решение проблем
+    href: error/index.md
+  - name: Вопросы и ответы
+    href: qa/index.md
