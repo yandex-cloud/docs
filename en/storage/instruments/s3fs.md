@@ -8,11 +8,11 @@ We recommend using s3fs version 1.84 or higher.
 
 {% endnote %}
 
-If you have any questions, see the [official documentation](https://github.com/s3fs-fuse/s3fs-fuse/wiki), in particular, [FAQ](https://github.com/s3fs-fuse/s3fs-fuse/wiki/FAQ). There you can learn how to fix problems that occur when using s3fs.
+If you have any questions, see the [official documentation](https://github.com/s3fs-fuse/s3fs-fuse/wiki) of the project, in particular, [FAQ](https://github.com/s3fs-fuse/s3fs-fuse/wiki/FAQ). There you can learn how to fix problems that occur when using s3fs.
 
 ## Before you start {#preparations}
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 ## Installation {#installation}
 

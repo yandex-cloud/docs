@@ -4,7 +4,7 @@
 
 To use the API:
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 To access the HTTP API directly, you need static key authentication, which is supported by the tools listed in [{#T}](../instruments/index.md).
 

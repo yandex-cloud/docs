@@ -9,11 +9,11 @@ To work with {{ objstorage-full-name }} via the AWS CLI, you can use the followi
 
 ## Before you start {#preparations}
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 ## Installation {#installation}
 
-To install the AWS CLI, follow the [guidelines](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) on the developer's website.
+{% include [install-aws-cli](../../_includes/aws-tools/install-aws-cli.md) %}
 
 ## Configuration {#setup}
 

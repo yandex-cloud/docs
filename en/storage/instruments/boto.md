@@ -4,11 +4,11 @@
 
 ## Before you start {#preparations}
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 ## Installation {#installation}
 
-To install boto, use the instructions in the developer's repository: [boto3](https://github.com/boto/boto3/blob/develop/README.rst#quick-start), [boto](https://github.com/boto/boto#installation).
+{% include [install-boto](../../_includes/aws-tools/install-boto.md)%}
 
 ## Configuration {#setup}
 
