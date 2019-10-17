@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Функция находится на стадии [Preview](../../overview/concepts/launch-stages.md) и может быть предоставлена по запросу в техническую поддержку.
+Функция находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 {% endnote %}
 
