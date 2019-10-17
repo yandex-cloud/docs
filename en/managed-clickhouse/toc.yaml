@@ -22,6 +22,8 @@ items:
       stage: preview
     - name: Changing cluster and database settings
       href: operations/update.md
+    - name: Connecting external dictionaries
+      href: operations/dictionaries.md
     - name: Changing ClickHouse versions
       href: operations/cluster-version-update.md
     - name: Managing ClickHouse hosts
@@ -34,11 +36,11 @@ items:
       href: operations/cluster-users.md
     - name: Managing backups
       href: operations/cluster-backups.md
-    - name: Managing shards
+    - name: How to manage shards
       href: operations/shards.md
     - name: Deleting clusters
       href: operations/cluster-delete.md
-  - name: Tutorials
+  - name: Solutions
     items:
       - name: Sharding tables
         href: tutorials/sharding.md
@@ -48,7 +50,7 @@ items:
       href: concepts/index.md
     - name: Host classes
       href: concepts/instance-types.md
-    - name: DB network and clusters
+    - name: Network in Yandex Managed Service for ClickHouse
       href: concepts/network.md
     - name: Quotas and limits
       href: concepts/limits.md
@@ -58,6 +60,8 @@ items:
       href: concepts/backup.md
     - name: Replication
       href: concepts/replication.md
+    - name: Dictionaries
+      href: concepts/dictionaries.md
     - name: Sharding
       href: concepts/sharding.md
     - name: Supported clients
@@ -66,7 +70,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     items:
-      - name: Current rules
+      - name: Current pricing policy
         href: pricing.md
       - name: Archive
         items:
