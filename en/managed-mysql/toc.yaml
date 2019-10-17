@@ -13,6 +13,8 @@ items:
         href: operations/cluster-create.md
       - name: Connecting to databases
         href: operations/connect.md
+      - name: Stopping and starting clusters
+        href: operations/cluster-stop.md
       - name: Changing clusters
         href: operations/update.md
       - name: How to manage MySQL hosts

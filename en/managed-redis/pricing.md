@@ -1,9 +1,11 @@
 ---
 editable: false
 ---
-# Pricing for {{ RD }}
+# Pricing for {{ mrd-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
 ## What goes into the cost of using {{ mrd-short-name }} {#rules}
 

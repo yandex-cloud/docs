@@ -13,13 +13,10 @@ items:
       href: operations/cluster-create.md
     - name: Connecting to databases
       href: operations/connect.md
-    - name: Adding data to the database
-      href: operations/insert.md
-    - name: Migrating ClickHouse data
-      href: operations/data-migration.md
+    - name: Stopping and starting clusters
+      href: operations/cluster-stop.md
     - name: SQL queries in the management console
       href: operations/web-sql-query.md
-      stage: preview
     - name: Changing cluster and database settings
       href: operations/update.md
     - name: Connecting external dictionaries
@@ -42,6 +39,10 @@ items:
       href: operations/cluster-delete.md
   - name: Solutions
     items:
+      - name: Adding data to the database
+        href: operations/insert.md
+      - name: Migrating ClickHouse data
+        href: operations/data-migration.md
       - name: Sharding tables
         href: tutorials/sharding.md
   - name: Concepts

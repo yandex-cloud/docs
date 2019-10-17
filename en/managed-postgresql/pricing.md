@@ -5,6 +5,10 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
+
+{% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
+
 ## What goes into the cost of using {{ mpg-short-name }} {#rules}
 
 The cost of {{ mpg-name }} usage is based on:

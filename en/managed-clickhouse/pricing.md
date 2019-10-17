@@ -6,6 +6,10 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
+
+{% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
+
 ## What goes into the cost of using {{ mch-short-name }} {#rules}
 
 The cost of {{ mch-name }} usage is based on:
@@ -14,7 +18,7 @@ The cost of {{ mch-name }} usage is based on:
 
 * [The host class](concepts/instance-types.md) selected for the cluster.
 
-* The number of database hosts in clusters (including ZooKeeper hosts for {{ CH }} clusters).
+* The number of database hosts in clusters (including {{ ZK }} hosts for {{ CH }} clusters).
 
 * Settings and number of backups.
 
