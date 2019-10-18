@@ -49,6 +49,8 @@ items:
         href: infrastructure-management/index.md
       - name: Начало работы с Terraform
         href: infrastructure-management/terraform-quickstart.md
+      - name: Хранение состояний Terraform в Object Storage
+        href: infrastructure-management/terraform-state-storage.md
       - name: Начало работы с Packer
         href: infrastructure-management/packer-quickstart.md
       - name: Автоматизация сборки образов ВМ с помощью Jenkins

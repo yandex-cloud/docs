@@ -7,7 +7,7 @@ Terraform позволяет быстро создать облачную инф
 Чтобы установить, настроить Terraform и создать первую конфигурацию:
 
 1. [Установите Terraform](#install-terraform)
-1. [Настройте Terraform ](#configure-terraform)
+1. [Создайте файл конфигурации Terraform](#configure-terraform)
 1. [Настройте провайдер](#configure-provider)
 1. [Подготовьте план инфраструктуры](#prepare-plan)
 1. [Создайте ресурсы](#create-resources)
@@ -32,50 +32,15 @@ Terraform позволяет быстро создать облачную инф
 
 ## Установите Terraform {#install-terraform}
 
-Установите Terraform:
+{% include [terraform_install](../_solutions_includes/terraform-install.md) %}
 
-{% list tabs %}
+## Создайте файл конфигурации Terraform {#configure-terraform}
 
-- macOS
-
-  Установите Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh):
-
-  ```
-  $ brew install terraform
-  ```
-
-- Windows/Linux
-
-  Скачайте дистрибутив Terraform и установите его по [инструкции](https://www.terraform.io/intro/getting-started/install.html).
-
-{% endlist %}
-
-## Настройте Terraform {#configure-terraform}
-
-Создайте в любом месте новую директорию с произвольным названием, например `yandex-cloud-terraform` — в ней будут храниться конфигурационные файлы и сохраненные состояния Terraform и инфраструктуры.
-
-Чтобы создать ресурсы в Яндекс.Облаке с помощью Terraform, создайте в новой директории конфигурационный файл в формате `.tf`, например, `example.tf`.
+{% include [terraform-configure](../_solutions_includes/terraform-configure.md) %}
 
 ## Настройте провайдер {#configure-provider}
 
-В начале конфигурационного файла необходимо задать настройки провайдера.
-
-~~~
-provider "yandex" {
-  token     = "OAuth_token"
-  cloud_id  = "cloud-id"
-  folder_id = "folder-id"
-  zone      = "ru-central1-a"
-}
-~~~
-
-* `provider` — название провайдера.
-* `token` — OAuth токен для доступа к Яндекс.Облаку.
-* `cloud_id` — идентификатор облака, с которым ведется работа.
-* `folder_id` — идентификатор каталога, в котором Terraform создаст облачные ресурсы.
-* `zone` — зона доступности, в которой по умолчанию будут создаваться все облачные ресурсы.
-
-После настройки сохраните файл и выполните команду `terraform init` в папке с конфигурационным файлом. Эта команда инициализирует провайдеров, указанных в файлах `.tf` в поле `provider` и позволяет работать с ресурсами и источниками данных провайдера.
+{% include [terraform-configure-provider](../_solutions_includes/terraform-configure-provider.md) %}
 
 ## Подготовьте план инфраструктуры {#prepare-plan}
 
