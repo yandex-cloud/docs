@@ -16,6 +16,7 @@
 
 - [{#T}](dataset/create.md)
 - [{#T}](dataset/create-field.md)
+- [{#T}](dataset/materialize.md)
 - [{#T}](dataset/manage-row-level-security.md)
 - [{#T}](dataset/manage-access.md)
 

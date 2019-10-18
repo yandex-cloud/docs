@@ -3,7 +3,5 @@
 {% include [share-note](../../../_includes/datalens/datalens-share-note.md) %}
 
 Чтобы опубликовать чарт:
-1. Откройте чарт.
-1. В верхней части нажмите значок ![image](../../../_assets/datalens/share.svg).
-1. В появившемся окне включите опцию **Доступ по ссылке**. {{ datalens-short-name }} автоматически предоставит доступ для связанных объектов.
-1. Нажмите **Применить**.
+
+{% include [datalens-public-chart](../../../_includes/datalens/operations/datalens-public-chart.md) %}

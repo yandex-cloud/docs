@@ -23,3 +23,6 @@ default:
   datalens-full-name: Yandex DataLens
   datalens-name: DataLens
   datalens-short-name: DataLens
+
+  # Feature names
+  datalens-public: DataLens Public
