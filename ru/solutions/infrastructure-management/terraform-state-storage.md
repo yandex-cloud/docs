@@ -227,54 +227,54 @@ terraform {
 1. Создайте директорию `remote-state`.
 1. Перейдите в созданную директорию и создайте конфигурацию `remote-state.tf`:
 
-  ```
-  provider "yandex" {
-    token     = "<OAuth или статический ключ сервисного аккаунта>"
-    cloud_id  = "cloud-id"
-    folder_id = "folder-id"
-    zone      = "ru-central1-a"
-  }
+   ```
+   provider "yandex" {
+     token     = "<OAuth или статический ключ сервисного аккаунта>"
+     cloud_id  = "cloud-id"
+     folder_id = "folder-id"
+     zone      = "ru-central1-a"
+   }
 
-  data "terraform_remote_state" "vpc" {
-    backend = "s3"
-    config = {
-      endpoint   = "storage.yandexcloud.net"
-      bucket     = "<имя бакета>"
-      region     = "us-east-1"
-      key        = "<путь к файлу состояния в бакете>/<имя файла состояния>.tfstate"
-      access_key = "<идентификатор статического ключа>"
-      secret_key = "<секретный ключ>"
+   data "terraform_remote_state" "vpc" {
+     backend = "s3"
+     config = {
+       endpoint   = "storage.yandexcloud.net"
+       bucket     = "<имя бакета>"
+       region     = "us-east-1"
+       key        = "<путь к файлу состояния в бакете>/<имя файла состояния>.tfstate"
+       access_key = "<идентификатор статического ключа>"
+       secret_key = "<секретный ключ>"
 
-      skip_region_validation      = true
-      skip_credentials_validation = true
-    }
-  }
+       skip_region_validation      = true
+       skip_credentials_validation = true
+     }
+   }
 
-  resource "yandex_compute_instance" "vm-3" {
-    name = "terraform3"
+   resource "yandex_compute_instance" "vm-3" {
+     name = "terraform3"
 
-    resources {
-      cores  = 1
-      memory = 2
-    }
+     resources {
+       cores  = 1
+       memory = 2
+     }
 
-    boot_disk {
-      initialize_params {
-        image_id = "fd87va5cc00gaq2f5qfb"
-      }
-    }
+     boot_disk {
+       initialize_params {
+         image_id = "fd87va5cc00gaq2f5qfb"
+       }
+     }
 
-    network_interface {
-      subnet_id = data.terraform_remote_state.vpc.outputs.subnet-1
-      nat       = true
-    }
+     network_interface {
+       subnet_id = data.terraform_remote_state.vpc.outputs.subnet-1
+       nat       = true
+     }
 
-    metadata = {
-      ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
-    }
-  }
+     metadata = {
+       ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
+     }
+   }
 
-  ```
+   ```
   
 1. Выполните команду `terraform init`. 
 1. Выполните команду `terraform plan`. В терминале должен отобразиться план создания одной виртуальной машины.
