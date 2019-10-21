@@ -217,7 +217,7 @@ Detailed description of how to transfer data using different flags and arguments
 - `-d, --data`: Data is passed as an argument.
 
     ```
-    yc serverless function invoke b09bhaokchn9pnbrlseb -d '{"queryStringParameters": "name"}'
+    yc serverless function invoke b09bhaokchn9pnbrlseb -d '{"queryStringParameters": {"parameter_name": "parameter_value"}}'
     ```
 
 - `--data-file`: Data is read from a file.

@@ -218,7 +218,7 @@ Flags:
 - `-d, --data` — данные передаются как аргумент.
 
     ```
-    yc serverless function invoke b09bhaokchn9pnbrlseb -d '{"queryStringParameters": "name"}'
+    yc serverless function invoke b09bhaokchn9pnbrlseb -d '{"queryStringParameters": {"parameter_name": "parameter_value"}}'
     ```
 
 - `--data-file` — данные читаются из файла.
