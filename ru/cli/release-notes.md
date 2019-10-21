@@ -1,10 +1,38 @@
 # Релизы YC CLI
 
-## Версия 0.41.1 (26.09.19) {#latest-release}
+## Версия 0.42.0 (21.10.19) {#latest-release}
 
-- Небольшие исправления и обновления.
+### Изменения в сервисах Облака {#services}
+
+#### {{ compute-name }} {#compute}
+
+* Добавлены команды `yc compute instance-group start`, `yc compute instance-group stop` для запуска и остановки группы виртуальных машин.
+
+#### {{ container-registry-name }} {#container-registry}
+
+* Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
+   
+   Для значений "always", "never", "on-failure" флага `--container-restart-policy` добавлено альтернативное написание: "Always", "Never", "OnFailure".
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Команда `yc managed-kubernetes cluster create`.
+
+    Удален флаг `--default-gateway-v4-address`.
+
+#### Изменения в сервисах управляемых баз данных {#managed-db}
+
+**{{ mpg-name }}**
+
+* Команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore`.
+
+   Для флага `--postgresql-version string` добавлено значение `10_1с` для создания кластера {{ PG }} версии 10-1с.
 
 ## Предыдущие релизы {#previous-releases}
+
+### Версия 0.41.1 (26.09.19) {#version0.41.1}
+
+- Небольшие исправления и обновления.
 
 ### Версия 0.41.0 (25.09.19) {#version0.41.0}
 
