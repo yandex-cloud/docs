@@ -67,3 +67,25 @@ In this case, only 4 GB of filtered traffic are billed: 2 GB that DDoS Protectio
 
 The service is provided when technically possible. Yandex Cloud Interconnect prices are provided upon request and are subject to the technical characteristics of the connection to Yandex.Cloud.
 
+### Outgoing traffic {#prices-traffic}
+
+Outgoing traffic from Yandex.Cloud resources is billed for the relevant service. Prices for outgoing traffic are the same for every service.
+
+The minimum charging unit is 1 MB.
+
+{% list tabs %}
+
+- Prices in USD
+  | Resource category | Cost of 1 GB, without VAT |
+  | ----- | -----
+  | Outgoing traffic, <10 GB | $0 |
+  | Outgoing traffic, >10 GB | $0.012307 |
+  
+- Prices in roubles
+  | Resource category | Cost of 1 GB, with VAT |
+  | ----- | -----
+  | Outgoing traffic, <10 GB | ₽0 |
+  | Outgoing traffic, >10 GB | ₽0.9600 |
+  
+{% endlist %}
+
