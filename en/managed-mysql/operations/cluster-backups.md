@@ -125,13 +125,13 @@ For a new cluster, you should set all the parameters that are required at creati
   1. View a description of the CLI create {{ MG }} backup command:
 
       ```
-      $ {{ yc-mdb-mg }} cluster backup --help
+      $ {{ yc-mdb-my }} cluster backup --help
       ```
 
   1. Request creation of a backup specifying the cluster name or ID:
 
       ```
-      $ {{ yc-mdb-mg }} cluster backup my-mg-cluster
+      $ {{ yc-mdb-my }} cluster backup <cluster ID>
       ```
 
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
@@ -155,7 +155,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To get a list of {{ MG }} cluster backups available in the default folder, run the command:
 
   ```
-  $ {{ yc-mdb-mg }} backup list
+  $ {{ yc-mdb-my }} backup list
 
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -184,7 +184,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To get information about a {{ MG }} cluster backup, run the command:
 
   ```
-  $ yc {{ yc-mdb-mg }} backup get <backup ID>
+  $ yc {{ yc-mdb-my }} backup get <backup ID>
   ```
 
   The backup ID can be retrieved with the [list of backups](#list-backups) .
@@ -204,7 +204,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To set the backup start time, use the `--backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
 
   ```
-  $ yc {{ yc-mdb-mg }} cluster create \
+  $ yc {{ yc-mdb-my }} cluster create \
      --name <cluster name> \
      --environment <prestable or production> \
      --network-name <network name> \
@@ -216,7 +216,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To change the backup start time in an existing cluster, use the  `update` command:
 
   ```
-  $ yc {{ yc-mdb-mg }} cluster update \
+  $ yc {{ yc-mdb-my }} cluster update \
      --name <cluster name> \
      --backup-window-start 11:25:00
   ```
