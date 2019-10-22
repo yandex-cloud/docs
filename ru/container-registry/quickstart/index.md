@@ -3,6 +3,7 @@
 В этой инструкции вы создадите свой первый [реестр](../concepts/registry.md) и попробуете управлять [Docker-образами](../concepts/docker-image.md).
 
 ## Подготовка к работе
+
 Для создания реестра вам понадобится каталог в Яндекс.Облаке. Если каталога еще нет, перед созданием реестра необходимо
 создать новый каталог:
 
@@ -10,7 +11,6 @@
 {% include [create-folder](../../_includes/create-folder.md) %}
 
 Также вам понадобятся [Yandex CLI](../../cli/quickstart.md) и [Docker](https://docs.docker.com/install/).
-
 
 ## Создание реестра и базовые операции с Docker-образом
 
@@ -26,18 +26,27 @@
     created_at: "2018-12-25T12:24:56.286Z"
     ```
 
-    Полученный `id` далее будет использоваться для обращения к созданному реестру.
+    Полученный `ID` далее будет использоваться для обращения к созданному реестру.
 
-1. Пройдите аутентификацию в {{ container-registry-short-name }} командой `docker login` с помощью OAuth-токена,
-получить его можно по [ссылке]({{ link-cloud-oauth }}).
+1. Аутентифицируйтесь в {{ container-registry-short-name }} с помощью [Docker Credential helper](../operations/authentication.md#cred-helper):
 
-    ```
-    $ docker login \
-    --username oauth \ # тип используемого токена
-    --password <OAuth-токен> \
-    cr.yandex
-    ```
-
+    1. Сконфигурируйте Docker для использования `docker-credential-yc`:
+    
+        ```
+        $ yc container registry configure-docker
+        Credential helper is configured in '/home/<user>/.docker/config.json'
+        ```
+    
+        При конфигурации сохраняется информация о текущем профиле пользователя.
+    
+    1. Проверьте, что Docker сконфигурирован.
+    
+        В конфигурационном файле `/home/<user>/.docker/config.json` должна появиться строка:
+    
+        ```
+        "cr.yandex": "yc"
+        ```
+        
 1. Скачайте Docker-образ из репозитория [Docker Hub](https://hub.docker.com):
 
     ```
@@ -47,7 +56,7 @@
 1. Присвойте Docker-образу тег:
 
     ```
-    $ docker tag <ID образа> \
+    $ docker tag <ID Docker-образа> \
     cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
     ```
 

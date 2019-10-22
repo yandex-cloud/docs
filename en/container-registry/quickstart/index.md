@@ -24,16 +24,26 @@ You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https:
     created_at: "2018-12-25T12:24:56.286Z"
     ```
 
-    You will need the received `id` to access the created registry.
+    You will need the received `ID` to access the created registry.
 
-1. Log in to {{ container-registry-short-name }} by running the `docker login` command with an OAuth token. You can get a token at this [link]({{ link-cloud-oauth }}).
+1. Authenticate to {{ container-registry-short-name }} using a [Docker Credential helper](../operations/authentication.md#cred-helper):
 
-    ```
-    $ docker login \
-    --username oauth \ # type of token used
-    --password <OAuth token> \
-    cr.yandex
-    ```
+    1. Configure Docker to use `docker-credential-yc`:
+    
+        ```
+        $ yc container registry configure-docker
+        Credential helper is configured in '/home/<user>/.docker/config.json'
+        ```
+    
+        During setup, information about the current user profile is saved.
+    
+    1. Make sure that Docker is configured.
+    
+        The `/home/<user>/.docker/config.json` file must contain the following line:
+    
+        ```
+        "cr.yandex": "yc"
+        ```
 
 1. Pull a Docker image from the [Docker Hub](https://hub.docker.com) repository:
 
@@ -44,7 +54,7 @@ You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https:
 1. Assign a tag to the Docker image:
 
     ```
-    $ docker tag <image ID> \
+    $ docker tag <Docker image ID> \
     cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
     ```
 
