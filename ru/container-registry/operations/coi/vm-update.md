@@ -49,7 +49,7 @@
         --container-env=KEY1=VAL1,KEY2=VAL2 \
         --remove-container-env=KEY3 \
         --container-stdin=false \
-        --container-restart-policy=never
+        --container-restart-policy=Never
         done (2s)
         id: epdbf646ge5qgutfvh43
         folder_id: b1g88tflru0ek1omtsu0
