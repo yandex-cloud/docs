@@ -12,9 +12,15 @@ Live migration doesn't change any VM settings. The real-time migration process m
 * Changes in the OS configuration.
 * Security updates.
 
-{% note info %}
+## Limitations {#limitations}
 
-Live migration isn't available for VMs with a [GPU](../concepts/gpus.md) or [preemptible](../concepts/preemptible-vm.md) VMs. They need to be [stopped](../operations/vm-control/vm-stop-and-start.md#stop) to be migrated.
+The following types of virtual machines cannot be live migrated:
 
-{% endnote %}
+* The VMs with [GPU](../concepts/gpus.md)*.
+* The [preemptible](../concepts/preemptible-vm.md)* VMs.
+* The {{ sf-name }} VMs.
+* The managed databases VMs with the local SSD-disks.
+* The VMs with the obsolete QEMU version.
+* The non-deallocated VMs.
 
+\* Will be live migrated after [manual stop](../operations/vm-control/vm-stop-and-start.md#stop).
