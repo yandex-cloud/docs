@@ -2,7 +2,7 @@
 
 {% if audience != "internal" %}
 
-{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
+Внутри Яндекс.Облака подключиться к кластеру БД можно только с виртуальной машины, подключенной к той же подсети, что и кластер.
 
 {% endif %}
 
