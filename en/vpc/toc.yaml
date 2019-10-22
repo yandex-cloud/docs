@@ -59,7 +59,6 @@ items:
   - name: DDoS Protection
     href: ddos-protection/index.md
   - name: Cloud Interconnect
-    stage: preview
     href: interconnect/index.md
   - name: Access management
     href: security/index.md
