@@ -142,7 +142,7 @@
    curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
    ```
 
-1. Сделайте скаченный runner-а исполняемым, чтобы его можно было запустить:
+1. Сделайте скаченный runner исполняемым, чтобы его можно было запустить:
    ```bash
    chmod +x /usr/local/bin/gitlab-runner
    ```
