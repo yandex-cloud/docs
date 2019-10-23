@@ -53,10 +53,10 @@ items:
           href: concepts/registry.md
         - name: Репозиторий
           href: concepts/repository.md
-        - name: Квоты и лимиты
-          href: concepts/limits.md
         - name: Образ Container Optimized Image
           href: concepts/coi.md
+        - name: Квоты и лимиты
+          href: concepts/limits.md
   - name: Сценарии использования
     items:
       - name: Запуск Docker-образа на виртуальной машине

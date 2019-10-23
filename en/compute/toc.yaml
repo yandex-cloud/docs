@@ -121,6 +121,8 @@ items:
             href: operations/instance-groups/create-with-balancer.md
           - name: Creating an automatically scaled instance group
             href: operations/instance-groups/create-autoscaled-group.md
+          - name: Creating an instance group with a Container Optimized Image
+            href: operations/instance-groups/create-with-coi
       - name: Getting information about instance groups
         items:
           - name: Getting a list of groups

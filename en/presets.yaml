@@ -199,6 +199,9 @@ default:
   # Serverless Functions specific
   sf-url: https://functions.yandexcloud.net
 
+  # Container Registry specific
+  coi: Container Optimized Image
+
   # links
   link-console-billing: https://console.cloud.yandex.com/billing
   link-console-main: https://console.cloud.yandex.com/

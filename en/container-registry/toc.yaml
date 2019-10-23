@@ -10,9 +10,15 @@ items:
         href: operations/index.md
       - name: Authentication in Yandex Container Registry
         href: operations/authentication.md
-      - name: Creating a VM with Container Optimized Image
-        href: operations/create-coi-vm.md
-      - name: Docker image
+      - name: Working with Container Optimized Image
+        items:
+          - name: Creating a VM with a Container Optimized Image
+            href: operations/coi/vm-create.md
+          - name: Updating a VM with a Container Optimized Image
+            href: operations/coi/vm-update.md
+          - name: Creating an instance group with a Container Optimized Image
+            href: operations/coi/ig-create.md
+      - name: Managing Docker image
         items:
           - name: Getting information about available Docker images
             href: operations/docker-image/docker-image-list.md
@@ -24,7 +30,7 @@ items:
             href: operations/docker-image/docker-image-pull.md
           - name: Deleting a Docker image from a registry
             href: operations/docker-image/docker-image-delete.md
-      - name: Registry
+      - name: Managing registry
         items:
           - name: Getting information about existing registries
             href: operations/registry/registry-list.md
@@ -34,7 +40,7 @@ items:
             href: operations/registry/registry-update.md
           - name: Deleting a registry
             href: operations/registry/registry-delete.md
-      - name: Repository
+      - name: Managing repository
         items:
           - name: Getting a list of repositories in a registry
             href: operations/repository/repository-list.md
@@ -48,6 +54,8 @@ items:
           href: concepts/registry.md
         - name: Repository
           href: concepts/repository.md
+        - name: Image Container Optimized Image
+          href: concepts/coi.md
         - name: Quotas and limits
           href: concepts/limits.md
   - name: Tutorials
