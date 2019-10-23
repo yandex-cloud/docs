@@ -1,9 +1,17 @@
 # Repository
 
-_A repository_ is a set that contains the original Docker image and all its versions.
+_A repository_ is a set of Docker images with the same name. Repositories usually contain several versions of the same Docker image. Tags and digests are used to work with versions inside the repository. For more information, see [Docker image](docker-image.md).
 
-A repository is defined by the `<registry ID>/<image name>` combination.
+A repository is defined by the `<registry ID>/<Docker image name>` combination.
 
-Tags and digests are used to work with Docker image versions inside the repository. For more information, see the section
-[Docker image](docker-image.md).
+- In Docker CLI commands, you must use the full name that includes the {{ container-registry-short-name }} address:
+    
+    ```
+    $ docker push cr.yandex/<registry ID>/<Docker image name>
+    ```
+- In YC CLI commands, use the repository name without the {{ container-registry-short-name }} address:
+    
+    ```
+    $ yc container image list --repository-name=<registry ID>/<Docker image name>
+    ```
 
