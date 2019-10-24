@@ -5,7 +5,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of using {{ sf-name }}
+## What goes into the cost of using {{ sf-name }} {#rules}
 
 In {{ sf-name }}, you're billed for the number of function invokes, computing resources allocated for the function, and outgoing traffic.
 
@@ -14,15 +14,11 @@ When billing computing resources (GB×hour), the memory allocated for the functi
 - The amount of memory specified when [creating a version](operations/function/version-manage.md#func-version-create), in GB.
 - The execution time for each function invoke in hours, rounded up to the nearest multiple of 100 ms.
 
-### Function pricing in the event of errors {#error}
+{% note important %}
 
-{{ sf-name }} returns the results of function execution with the status code. The following status codes are billed:
+You're charged for all [function invokes](concepts/function-invoke.md) that were used to launch your code.
 
-- `200 OK`: Successful function execution.
-- `502 BadGateway`: Incorrect function code or format of the returning JSON response.
-- `504 Gateway Timeout`: Exceeded maximum function execution time before timeout.
-
-You aren't charged for function invokes that result in [other status codes](concepts/function-invoke.md#http-state). For more information about function invokes and status codes, see [{#T}](concepts/function-invoke.md).
+{% endnote %}
 
 ### Example of cost calculation {#price-example}
 
