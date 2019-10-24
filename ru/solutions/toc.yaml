@@ -9,7 +9,9 @@ items:
       href: web/static.md
     - name: Cайт на LAMP- или LEMP-стеке
       href: web/lamp-lemp.md
-    - name: Отказоустойчивый сайт с балансировкой нагрузки
+    - name: Отказоустойчивый сайт с балансировкой нагрузки через Yandex Load Balancer
+      href: web/load-balancer-website.md
+    - name: Отказоустойчивый сайт с использованием DNS-балансировки
       href: web/dns-load-balancer.md
     - name: Сайт на базе Joomla с БД PostgreSQL
       href: web/joomla-postgresql.md
