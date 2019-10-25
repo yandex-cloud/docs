@@ -1,10 +1,10 @@
-# Sharding {{ MG }} collections
-
-{% note info %}
+# Sharding collections {{ MG }}
 
 Sharding in {{ mmg-name }} is available for clusters running {{ MG }} version 4.0 or higher. If your cluster is deployed with version 3.6, you can [update it](../operations/cluster-version-update.md).
 
-{% endnote %}
+Please note that when you shard a {{ MG }} cluster, mongos and mongocfg service hosts are automatically created and [billed](../pricing.md) separately from the main DBMS hosts.
+
+{% include [irreversible-sharding-note.md](../../_includes/mdb/irreversible-sharding-note.md) %}
 
 It makes sense to shard collections when splitting data into shards significantly helps improve DBMS performance or data availability. To increase availability, each shard should consist of 3 or more database hosts.
 
@@ -16,7 +16,7 @@ You should use sharding if:
 * Collections with non-uniform contents. For example, data can be clearly classified as frequently queried and rarely queried.
 * Collections requiring high read and write speeds. Sharding helps distribute workloads among hosts to bypass technical limitations.
 
-For more information about sharding, see [{#T}](../concepts/sharding.md).
+For more information about the sharding concept, see [{#T}](../concepts/sharding.md).
 
 ## How to enable collection sharding {#enable}
 
