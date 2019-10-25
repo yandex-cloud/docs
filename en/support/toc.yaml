@@ -1,7 +1,11 @@
-title: "Technical Support"
+title: "Technical support"
 href: index.yaml
 items:
   - name: Requesting technical support
     href: overview.md
+  - name: Notifications from Yandex.Cloud
+    href: notify.md
+  - name: Data requests
+    href: request.md
   - name: Questions and answers
     href: qa.md

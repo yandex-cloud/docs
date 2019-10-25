@@ -4,13 +4,21 @@
 
 For the internal MDB service, the [web interface]({{console-link}}) is deployed where you can manually create a database cluster. For more about quotas and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
 
-## Access to DB clusters
+## Access to DB clusters {#access}
 
-[Request access](https://puncher.yandex-team.ru/) to the `_PGAASINTERNALNETS_` macro so you can connect to the created clusters. To access ClickHouse hosts, you need access to ports 8443 (HTTPS) and 9440 (native TLS-enabled protocol).
+The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/tasks?id=5cb878a6d5626d264a13ff8a) and [for developers](https://puncher.yandex-team.ru/tasks?id=5d0254aad89cb03fee5006d4).
 
-{% endif %}
+If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ CH }} hosts, you need access to ports 8443 (HTTPS) and 9440 (native TLS-enabled protocol).
 
-{% if audience != "internal" %}
+{% include [cli-setup](../_includes/mdb/internal/cli-setup.md) %}
+
+   If you did everything correctly, the list clusters query should now work:
+
+   ```bash
+   {{ yc-mdb-ch }} cluster list
+   ```
+
+{% else %}
 
 To use the service, create a cluster and connect to a DBMS:
 
@@ -22,114 +30,9 @@ To use the service, create a cluster and connect to a DBMS:
 
     1. To connect to a DB cluster from inside the Cloud, create a VM in the same network as the DB cluster (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md))
 
-    2. To enable connection to a cluster over the internet, request external IP addresses for hosts when creating the cluster.
+    2. To connect to a cluster from the internet, request public access to the hosts when creating the cluster and adding new hosts.
 
 1. In the management console, select the folder where you want to create a DB cluster.
-
-{% endif %}
-
-{% if audience == "internal" %}
-
-1. In the [management console](https://yc.yandex-team.ru), select the folder where you want to create a DB cluster.
-
-{% endif %}
-
-1. Click **Create resource** and select **Cluster{{ CH }}**.
-
-1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
-
-1. When the cluster is ready, its status on the {{ mch-name }} dashboard will change to **RUNNING**.
-
-1. To connect to the DB server, you need an SSL certificate. Download it:
-
-    {% if audience != "internal" %}
-
-    ```bash
-    $ wget "https://{{ s3-storage-host }}{{ pem-path }}"
-    ```
-
-    {% else %}
-
-    ```bash
-    $ wget "https://{{ pem-path }}"
-    ```
-
-    {% endif %}
-
-1. Send a request specifying the path to the received SSL certificate, database attributes, and the request text in urlencoded format:
-
-    ```
-    $ curl --cacert <path to the SSL certificate> \
-         -H "X-ClickHouse-User: <DB username>" \
-         -H "X-ClickHouse-Key: <DB user password>" \
-         'https://<host address>:8443/?database=<DB name>&query=SELECT%20now ()'
-    ```
-
-{% if audience == "internal" %}
-
-## CLI setup {#setup}
-
-To work with MDB, you need to use the external Yandex.Cloud CLI:
-
-1. [Install the CLI](../cli/index.md).
-1. [Get an OAuth token](https://oauth.yandex-team.ru/authorize?response_type=token&client_id=8cdb2f6a0dca48398c6880312ee2f78d) for authorization.
-
-  {% note important %}
-
-  Use this link to get the token: the CLI output contains a link to the external MDB application.
-
-  {% endnote %}
-
-1. Initialize the CLI profile:
-
-   ```bash
-   $ yc init --endpoint gw.db.yandex-team.ru:443
-   Welcome! This command will take you through the configuration process.
-   Please go to https://oauth.yandex...
-   
-   Please enter the OAuth token: <OAuth token obtained>
-   ```
-
-1. Select a cloud from the [list of available clouds](../mdb/access.md):
-
-   ```bash
-    Please select cloud to use:
-     [1] mdb-junk-cloud (id = foorkhlv2jt6khpv69ik)
-     [2] ...
-   
-    Please enter your numeric choice: 1
-    Your current cloud has been set to 'mdb-junk-cloud' (id = foorkhlv2jt6khpv69ik).
-   ```
-
-1. Select your folder (ABC service) from the list.
-
-   If the folder you need isn't on the list, enter the ID of an existing folder to switch to the folder you need later.
-
-    ```bash
-    Please choose folder to use:
-     [1] mdb-junk (id = b1go5vsme2m9353j40o5)
-     [2] ...
-    Please enter your numeric choice: 1
-    Your current folder has been set to 'mdb-junk' (id = mdb-junk).
-    ```
-
-1. Disable the default zone selection:
-
-    ```bash
-    Do you want to configure a default Compute zone? [Y/n] n
-    ```
-
-1. If you need to switch the CLI profile to a different folder, [find the folder ID](../mdb/access.md#find-id) and then run the command:
-
-   ```bash
-   yc config set folder-id <folder ID>
-   ```
-
-   If you did everything correctly, the list clusters query should now work:
-
-   ```bash
-   {{ yc-mdb-ch }} cluster list
-   ```
 
 {% endif %}
 

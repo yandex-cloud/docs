@@ -1,10 +1,18 @@
 # Connecting to a database in a cluster {{ PG }}
 
+You can connect to {{ mpg-short-name }} cluster hosts:
+
 {% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 
-## Authentication
+{% note info %}
 
-{{ PG }}clusters in {{ mpg-short-name }} only support encrypted connections, which is why an SSL certificate is required to connect to them. You can prepare all the necessary authentication data as follows:
+If public access is only configured for certain hosts in your cluster, automatic master change may make the master unavailable over the internet.
+
+{% endnote %}
+
+## Configuring an SSL certificate
+
+{{ PG }} hosts with public access only support connections with an SSL certificate. You can prepare a certificate as follows:
 
 {% if audience != "internal" %}
 
@@ -24,21 +32,39 @@ $ chmod 0600 ~/.postgresql/root.crt
 
 {% endif %}
 
-Read about using certificates with `libpq` in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
-
 ## Connection string
 
-Now you can connect to the database using the `psql` command:
-
-```bash
-psql "host=<DB host FQDN> \
-      port=6432 \
-      sslmode=verify-full \
-      dbname=<DB name> \
-      user=<DB user name>"
-```
+Connect to the database using the command `psql`.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
+
+{% list tabs %}
+
+- SSL
+
+  {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
+
+  ```bash
+  $ psql "host=<DB host FQDN> \
+          port=6432 \
+          sslmode=verify-full \
+          dbname=<DB name> \
+          user=<DB user name>"
+  ```
+
+- Without SSL
+
+  If you don't need to encrypt traffic within the virtual network when connecting to the database, you can connect to the database without an SSL connection. Pass the `sslmode` parameter with the `disable` value:
+
+  ```bash
+  $ psql "host=<DB host FQDN> \
+          port=6432 \
+          sslmode=disable \
+          dbname=<DB name> \
+          user=<DB user name>"
+  ```
+
+{% endlist%}
 
 ## Automatic master host selection
 
@@ -65,7 +91,7 @@ You can find the addresses of all the hosts in the DB cluster on the appropriate
 
 ### With a driver that supports only one host
 
-If your database connection driver doesn't allow passing multiple hosts in the connection string (for example, [pgx in Go](https://github.com/jackc/pgx)), you can connect to a special host like `c-<cluster ID>.rw.{{ dns-zone }}`.
+If your database connection driver doesn't allow passing multiple hosts in the connection string (for example,[pgx in Go](https://github.com/jackc/pgx)), you can connect to a special host like `c-<cluster ID>.rw.{{ dns-zone }}`.
 
 {% if audience == "internal" %}{% note info %}
 

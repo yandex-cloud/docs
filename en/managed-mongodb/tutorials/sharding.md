@@ -6,6 +6,10 @@ Please note that when you shard a {{ MG }} cluster, mongos and mongocfg service 
 
 {% include [irreversible-sharding-note.md](../../_includes/mdb/irreversible-sharding-note.md) %}
 
+Please note that when you shard a {{ mmg-name }} cluster, mongos and mongocfg service hosts are automatically created and [billed](../pricing.md) separately from the main DBMS hosts.
+
+{% include [irreversible-sharding-note.md](../../_includes/mdb/irreversible-sharding-note.md) %}
+
 It makes sense to shard collections when splitting data into shards significantly helps improve DBMS performance or data availability. To increase availability, each shard should consist of 3 or more database hosts.
 
 Ease of use and actual performance improvements depend strongly on the sharding key you choose: make sure that the data of the collection is logically distributed across shards and isn't linked to data in different shards.

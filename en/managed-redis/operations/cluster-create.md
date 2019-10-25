@@ -23,8 +23,8 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the Cloud.
 
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
-      - <q>production</q>: for stable versions of your apps.
-      - <q>prestable</q>: for testing, including the {{ mrd-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner, but this may cause backward incompatible changes.
+      - <q>production</q>: For stable versions of your apps.
+      - <q>prestable</q>: For testing, including the {{ mrd-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner, but this may cause backward incompatible changes.
 
   1. Select the DBMS version.
 
@@ -38,7 +38,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
   1. Under **Host class**:
 
-      - Select the host type: it determines the [performance](../../compute/concepts/performance-levels.md) level of the processor cores. **High-memory** hosts allow full core usage, whereas **burstable** hosts only a portion.
+      - Select the host type: it determines the [performance](../../compute/concepts/performance-levels) level of the processor cores. **High-memory** hosts allow full core usage, whereas **burstable** hosts only a portion.
 
       - Select the amount of RAM for the host.
 

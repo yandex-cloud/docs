@@ -2,7 +2,7 @@
 
 #### How do I contact technical support? {#support-channels}
 
-You can contact technical support on the [Support]({{ link-console-support }}) page in the management console.
+You can contact technical support from [Support]({{ link-console-support }}) in the management console.
 
 #### How do I contact technical support if I can't log in to the management console? {#requesting-support-without-ui}
 
@@ -13,6 +13,11 @@ If you successfully logged in to your Yandex account but you can't connect to th
 #### What types of issues and cases can be solved by technical support? {#support-cases-types}
 
 Depending on your service plan, you can contact support for various issues. For more information about service plans, see [{#T}](overview.md).
+
+Regardless of your service plan, you can request the following from technical support:
+
+* [Service logs](request.md#logs) related to your Yandex.Cloud resources and actions.
+* [Your personal data](request.md#personal) stored by Yandex.
 
 #### How quickly does technical support respond to requests? {#reaction-time}
 
@@ -34,7 +39,7 @@ To get help with architecture-related tasks, use the feedback form on the manage
 
 #### What third-party software is covered by Yandex.Cloud technical support? {#supported-third-party-sw}
 
-Technical support includes troubleshooting third-party software that is used in conjunction with the cloud infrastructure and limited assistance in solving identified problems. Technical support engineers can help you with the installation, basic setup, and troubleshooting of the following software:
+Technical support includes troubleshooting third-party software that is used in conjunction with the cloud infrastructure and limited assistance in solving identified problems. Technical support engineers can help you with the installation, basic setup, and diagnostics of the following software:
 
 - Operating systems running on Yandex.Cloud VM instances that were created using public images provided by Yandex.Cloud.
 - Databases created in [{{ mpg-full-name }}](../managed-postgresql/), [{{ mch-full-name }}](../managed-clickhouse/), and [{{ mmg-full-name }}](../managed-mongodb/).
