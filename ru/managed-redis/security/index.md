@@ -6,7 +6,7 @@
 
 {% note info %}
 
-Подробнее о наследовании ролей читайте в разделе [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-full-name }}.
+Подробнее о наследовании ролей читайте в {% if audience != "internal"%} разделе [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-full-name }} {% else %} [документации сервиса {{ resmgr-full-name }}](https://cloud.yandex.ru/docs/resource-manager/concepts/resources-hierarchy#access-rights-inheritance) {% endif %}.
 
 {% endnote %}
 

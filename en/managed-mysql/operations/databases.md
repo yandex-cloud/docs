@@ -19,7 +19,7 @@ You can add and remove databases, as well as view information about them.
   To get a list of databases in a cluster, run the command:
 
   ```
-  $ yc managed-mysql database list
+  $ {{ yc-mdb-my }} database list
        --cluster-name=<cluster name>
   ```
 
@@ -52,13 +52,13 @@ The number of databases in a cluster is unlimited.
   1. See the description of the CLI's create database command:
 
      ```
-     $ yc managed-mysql database create --help
+     $ {{ yc-mdb-my }} database create --help
      ```
 
   1. Run the create database command:
 
      ```
-     $ yc managed-mysql database create <database name> --cluster-name <cluster name>
+     $ {{ yc-mdb-my }} database create <database name> --cluster-name <cluster name>
      ```
 
      {{ mmy-short-name }} runs the create database operation.
@@ -85,10 +85,16 @@ The number of databases in a cluster is unlimited.
   To delete a database, run the command:
 
   ```
-  $ yc managed-mysql database delete <database name> --cluster-name <cluster name>
+  $ {{ yc-mdb-my }} database delete <database name> --cluster-name <cluster name>
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 {% endlist %}
+
+{% note important %}
+
+Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted is restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
+
+{% endnote %}
 

@@ -2,7 +2,7 @@
 
 {% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}
 
-Для привязки облака к платежному аккаунту пользователь должен одновременно обладать следуюшими ролями: 
+Для привязки облака к платежному аккаунту пользователь должен одновременно обладать следующими ролями: 
 - [resource-manager.clouds.owner](../../iam/concepts/access-control/roles.md#owner) на облаке; 
 - `billing.accounts.owner` или `editor` в платежном аккаунте. Подробнее о ролях читай в разделе [Управление доступом](../security/index.md#role-list).
 

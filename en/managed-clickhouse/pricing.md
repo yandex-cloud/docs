@@ -6,6 +6,10 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
+
+{% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
+
 ## What goes into the cost of using {{ mch-short-name }} {#rules}
 
 The cost of {{ mch-name }} usage is based on:
@@ -14,7 +18,7 @@ The cost of {{ mch-name }} usage is based on:
 
 * [The host class](concepts/instance-types.md) selected for the cluster.
 
-* The number of database hosts in clusters (including ZooKeeper hosts for {{ CH }} clusters).
+* The number of database hosts in clusters (including {{ ZK }} hosts for {{ CH }} clusters).
 
 * Settings and number of backups.
 
@@ -57,7 +61,7 @@ You can choose the host class for {{ CH }} and ZooKeeper hosts (as appropriate f
 
 For example, let's say you create a {{ CH }} cluster with 3 `s1.micro` class hosts, but didn't specify the class of the ZooKeeper hosts. {{ mch-short-name }} automatically creates 3 `s1.nano` class ZooKeeper hosts.
 
-The hourly price will be calculated using the rates below (including VAT): `3 × ₽5.5119 + 3 × ₽1.7492 = ₽21.78`.
+The hourly price will be calculated using the rates below (with VAT): `3 × ₽5.5119 + 3 × ₽1.7492 = ₽21.78`.
 
 ## Pricing {#prices}
 

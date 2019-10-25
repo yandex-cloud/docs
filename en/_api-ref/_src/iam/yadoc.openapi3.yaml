@@ -1,0 +1,1483 @@
+openapi: "3.0"
+info:
+  title: Yandex IAM API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://iam.api.cloud.yandex.net
+paths:
+  /iam/v1/apiKeys:
+    get:
+      tags:
+      - ApiKey
+      summary: Retrieves the list of API keys for the specified service account.
+      operationId: ApiKeyList
+      parameters:
+      - name: serviceAccountId
+        in: query
+        description: |-
+          ID of the service account to list API keys for.
+          To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
+          If not specified, it defaults to the subject that made the request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/iam/api-ref/ApiKey/list#query_params),
+          the service returns a [nextPageToken](/docs/iam/api-ref/ApiKey/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/ApiKey/list#query_params)
+          to the [nextPageToken](/docs/iam/api-ref/ApiKey/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListApiKeysResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - ApiKey
+      summary: Creates an API key for the specified service account.
+      operationId: ApiKeyCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateApiKeyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateApiKeyResponse'
+      x-y-navtitle: create
+  /iam/v1/apiKeys/{apiKeyId}:
+    get:
+      tags:
+      - ApiKey
+      summary: Returns the specified API key.
+      description: To get the list of available API keys, make a [list](/docs/iam/api-ref/ApiKey/list)
+        request.
+      operationId: ApiKeyGet
+      parameters:
+      - name: apiKeyId
+        in: path
+        description: |-
+          Required.
+          ID of the API key to return.
+          To get the API key ID, use a [list](/docs/iam/api-ref/ApiKey/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiKey'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - ApiKey
+      summary: Deletes the specified API key.
+      operationId: ApiKeyDelete
+      parameters:
+      - name: apiKeyId
+        in: path
+        description: |-
+          Required.
+          ID of the API key to delete.
+          To get the API key ID, use a [list](/docs/iam/api-ref/ApiKey/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Empty'
+      x-y-navtitle: delete
+  /iam/v1/tokens:
+    post:
+      tags:
+      - IamToken
+      summary: Creates an IAM token for the specified identity.
+      operationId: IamTokenCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateIamTokenRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateIamTokenResponse'
+      x-y-navtitle: create
+  /iam/v1/keys/{keyId}:
+    get:
+      tags:
+      - Key
+      summary: Returns the specified Key resource.
+      description: To get the list of available Key resources, make a [list](/docs/iam/api-ref/Key/list)
+        request.
+      operationId: KeyGet
+      parameters:
+      - name: keyId
+        in: path
+        description: |-
+          Required.
+          ID of the Key resource to return.
+          To get the ID use a [list](/docs/iam/api-ref/Key/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: Output format of the key.
+        schema:
+          $ref: '#/components/schemas/KeyFormat'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Key'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Key
+      summary: Deletes the specified key pair.
+      operationId: KeyDelete
+      parameters:
+      - name: keyId
+        in: path
+        description: |-
+          Required.
+          ID of the key to delete.
+          To get key ID use a [list](/docs/iam/api-ref/Key/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Empty'
+      x-y-navtitle: delete
+  /iam/v1/keys:
+    get:
+      tags:
+      - Key
+      summary: Retrieves the list of Key resources for the specified service account.
+      operationId: KeyList
+      parameters:
+      - name: format
+        in: query
+        description: Output format of the key.
+        schema:
+          $ref: '#/components/schemas/KeyFormat'
+      - name: serviceAccountId
+        in: query
+        description: |-
+          ID of the service account to list key pairs for.
+          To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
+          If not specified, it defaults to the subject that made the request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/iam/api-ref/Key/list#query_params),
+          the service returns a [nextPageToken](/docs/iam/api-ref/Key/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/Key/list#query_params) to the
+          [nextPageToken](/docs/iam/api-ref/Key/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListKeysResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Key
+      summary: Creates a key pair for the specified service account.
+      operationId: KeyCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateKeyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateKeyResponse'
+      x-y-navtitle: create
+  /iam/v1/roles/{roleId}:
+    get:
+      tags:
+      - Role
+      summary: Returns the specified Role resource.
+      description: To get the list of available Role resources, use a [list](/docs/iam/api-ref/Role/list)
+        request.
+      operationId: RoleGet
+      parameters:
+      - name: roleId
+        in: path
+        description: |-
+          Required.
+          ID of the Role resource to return.
+          To get the role ID, use a [list](/docs/iam/api-ref/Role/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+      x-y-navtitle: get
+  /iam/v1/roles:
+    get:
+      tags:
+      - Role
+      summary: Retrieves the list of Role resources.
+      operationId: RoleList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/iam/api-ref/Role/list#query_params),
+          the service returns a [nextPageToken](/docs/iam/api-ref/Role/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/Role/list#query_params)
+          to the [nextPageToken](/docs/iam/api-ref/Role/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRolesResponse'
+      x-y-navtitle: list
+  /iam/v1/serviceAccounts/{serviceAccountId}:
+    get:
+      tags:
+      - ServiceAccount
+      summary: Returns the specified ServiceAccount resource.
+      description: To get the list of available ServiceAccount resources, use a [list](/docs/iam/api-ref/ServiceAccount/list)
+        request.
+      operationId: ServiceAccountGet
+      parameters:
+      - name: serviceAccountId
+        in: path
+        description: |-
+          Required.
+          ID of the ServiceAccount resource to return.
+          To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceAccount'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - ServiceAccount
+      summary: Deletes the specified service account.
+      operationId: ServiceAccountDelete
+      parameters:
+      - name: serviceAccountId
+        in: path
+        description: |-
+          Required.
+          ID of the service account to delete.
+          To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteServiceAccountMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - ServiceAccount
+      summary: Updates the specified service account.
+      operationId: ServiceAccountUpdate
+      parameters:
+      - name: serviceAccountId
+        in: path
+        description: |-
+          Required.
+          ID of the ServiceAccount resource to update.
+          To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateServiceAccountRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateServiceAccountMetadata'
+      x-y-operation-response: '[ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation)'
+  /iam/v1/serviceAccounts:
+    get:
+      tags:
+      - ServiceAccount
+      summary: Retrieves the list of ServiceAccount resources in the specified folder.
+      operationId: ServiceAccountList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list service accounts in.
+          To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/iam/api-ref/ServiceAccount/list#query_params),
+          the service returns a [nextPageToken](/docs/iam/api-ref/ServiceAccount/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/ServiceAccount/list#query_params)
+          to the [nextPageToken](/docs/iam/api-ref/ServiceAccount/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on the [ServiceAccount.name](/docs/iam/api-ref/ServiceAccount#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListServiceAccountsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - ServiceAccount
+      summary: Creates a service account in the specified folder.
+      operationId: ServiceAccountCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateServiceAccountRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateServiceAccountMetadata'
+      x-y-operation-response: '[ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation)'
+  /iam/v1/serviceAccounts/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - ServiceAccount
+      summary: Lists access bindings for the specified service account.
+      operationId: ServiceAccountListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /iam/v1/serviceAccounts/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - ServiceAccount
+      summary: Sets access bindings for the service account.
+      operationId: ServiceAccountSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /iam/v1/serviceAccounts/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - ServiceAccount
+      summary: Updates access bindings for the specified service account.
+      operationId: ServiceAccountUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /iam/v1/serviceAccounts/{serviceAccountId}/operations:
+    get:
+      tags:
+      - ServiceAccount
+      summary: Lists operations for the specified service account.
+      operationId: ServiceAccountListOperations
+      parameters:
+      - name: serviceAccountId
+        in: path
+        description: |-
+          Required.
+          ID of the ServiceAccount resource to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/iam/api-ref/ServiceAccount/listOperations#query_params), the service returns a [nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/ServiceAccount/listOperations#query_params)
+          to the [nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListServiceAccountOperationsResponse'
+      x-y-navtitle: listOperations
+  /iam/v1/userAccounts/{userAccountId}:
+    get:
+      tags:
+      - UserAccount
+      summary: Returns the specified UserAccount resource.
+      operationId: UserAccountGet
+      parameters:
+      - name: userAccountId
+        in: path
+        description: |-
+          Required.
+          ID of the UserAccount resource to return.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserAccount'
+      x-y-navtitle: get
+  /iam/v1/yandexPassportUserAccounts:byLogin:
+    get:
+      tags:
+      - YandexPassportUserAccount
+      summary: Returns the specified YandexPassportUserAccount resource.
+      operationId: YandexPassportUserAccountGetByLogin
+      parameters:
+      - name: login
+        in: query
+        description: |-
+          Required.
+          Login of the YandexPassportUserAccount resource to return.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserAccount'
+      x-y-navtitle: getByLogin
+components:
+  schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    ApiKey:
+      description: An ApiKey resource.
+      type: object
+      properties:
+        id:
+          description: ID of the API Key.
+          type: string
+        serviceAccountId:
+          description: ID of the service account that the API key belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        description:
+          description: Description of the API key. 0-256 characters long.
+          type: string
+    CreateApiKeyRequest:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            ID of the service account to create an API key for.
+            To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
+            If not specified, it defaults to the subject that made the request.
+
+            The maximum string length in characters is 50.
+          type: string
+        description:
+          description: |-
+            Description of the API key.
+
+            The maximum string length in characters is 256.
+          type: string
+    CreateApiKeyResponse:
+      type: object
+      properties:
+        apiKey:
+          $ref: '#/components/schemas/ApiKey_in_CreateApiKeyResponse_apiKey'
+        secret:
+          description: Secret part of the API key. This secret key you may use in
+            the requests for authentication.
+          type: string
+    CreateIamTokenRequest:
+      type: object
+      allOf:
+      - title: identity
+        type: object
+        maxProperties: 1
+        properties:
+          yandexPassportOauthToken:
+            description: |-
+              OAuth token for a Yandex.Passport account.
+              For more information, see [OAuth token](/docs/iam/concepts/authorization/oauth-token).
+            type: string
+          jwt:
+            description: |-
+              JSON Web Token (JWT) for a service account.
+              For more information, see [Get IAM token for a service account](/docs/iam/operations/iam-token/create-for-sa).
+            type: string
+    CreateIamTokenResponse:
+      type: object
+      properties:
+        iamToken:
+          description: |-
+            IAM token for the specified identity.
+
+            You should pass the token in the `Authorization` header for any further API requests.
+            For example, `Authorization: Bearer [iam_token]`.
+          type: string
+        expiresAt:
+          description: |-
+            IAM token expiration time.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    CreateKeyRequest:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            ID of the service account to create a key pair for.
+            To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
+            If not specified, it defaults to the subject that made the request.
+
+            The maximum string length in characters is 50.
+          type: string
+        description:
+          description: |-
+            Description of the key pair.
+
+            The maximum string length in characters is 256.
+          type: string
+        format:
+          $ref: '#/components/schemas/KeyFormat_in_CreateKeyRequest_format'
+        keyAlgorithm:
+          $ref: '#/components/schemas/KeyAlgorithm_in_CreateKeyRequest_keyAlgorithm'
+    CreateKeyResponse:
+      type: object
+      properties:
+        key:
+          $ref: '#/components/schemas/Key_in_CreateKeyResponse_key'
+        privateKey:
+          description: |-
+            A private key of the Key resource.
+            This key must be stored securely.
+          type: string
+    CreateServiceAccountMetadata:
+      type: object
+      properties:
+        serviceAccountId:
+          description: ID of the service account that is being created.
+          type: string
+    CreateServiceAccountRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create a service account in.
+            To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Required.
+            Name of the service account.
+            The name must be unique within the cloud.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the service account.
+
+            The maximum string length in characters is 256.
+          type: string
+    DeleteServiceAccountMetadata:
+      type: object
+      properties:
+        serviceAccountId:
+          description: ID of the service account that is being deleted.
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    Key:
+      description: A Key resource. For more information, see [Authorized keys](/docs/iam/concepts/authorization/key).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the Key resource.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          description:
+            description: Description of the Key resource. 0-256 characters long.
+            type: string
+          keyAlgorithm:
+            $ref: '#/components/schemas/KeyAlgorithm'
+            description: An algorithm used to generate a key pair of the Key resource.
+          publicKey:
+            description: A public key of the Key resource.
+            type: string
+      - title: subject
+        type: object
+        maxProperties: 1
+        properties:
+          userAccountId:
+            description: ID of the user account that the Key resource belongs to.
+            type: string
+          serviceAccountId:
+            description: ID of the service account that the Key resource belongs to.
+            type: string
+    KeyAlgorithm:
+      description: |2-
+         - RSA_2048: RSA with a 2048-bit key size. Default value.
+         - RSA_4096: RSA with a 4096-bit key size.
+      type: string
+      enum:
+      - RSA_2048
+      - RSA_4096
+    KeyFormat:
+      description: ' - PEM_FILE: Privacy-Enhanced Mail (PEM) format. Default value.'
+      type: string
+      enum:
+      - PEM_FILE
+      default: PEM_FILE
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than pageSize, use
+            the nextPageToken as the value
+            for the pageToken query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
+    ListApiKeysResponse:
+      type: object
+      properties:
+        apiKeys:
+          description: List of API keys.
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiKey'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/iam/api-ref/ApiKey/list#query_params), use
+            the [nextPageToken](/docs/iam/api-ref/ApiKey/list#responses) as the value
+            for the [pageToken](/docs/iam/api-ref/ApiKey/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/iam/api-ref/ApiKey/list#responses) to continue paging through the results.
+          type: string
+    ListKeysResponse:
+      type: object
+      properties:
+        keys:
+          description: List of Key resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/Key'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/iam/api-ref/Key/list#query_params), use
+            the [nextPageToken](/docs/iam/api-ref/Key/list#responses) as the value
+            for the [pageToken](/docs/iam/api-ref/Key/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/iam/api-ref/Key/list#responses) to continue paging through the results.
+          type: string
+    ListRolesResponse:
+      type: object
+      properties:
+        roles:
+          description: List of Role resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/iam/api-ref/Role/list#query_params), use
+            the [nextPageToken](/docs/iam/api-ref/Role/list#responses) as the value
+            for the [pageToken](/docs/iam/api-ref/Role/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/iam/api-ref/Role/list#responses) to continue paging through the results.
+          type: string
+    ListServiceAccountOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified service account.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/iam/api-ref/ServiceAccount/listOperations#query_params), use the [nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#responses) as the value
+            for the [pageToken](/docs/iam/api-ref/ServiceAccount/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#responses) to continue paging through the results.
+          type: string
+    ListServiceAccountsResponse:
+      type: object
+      properties:
+        serviceAccounts:
+          description: List of ServiceAccount resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceAccount'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/iam/api-ref/ServiceAccount/list#query_params), use
+            the [nextPageToken](/docs/iam/api-ref/ServiceAccount/list#responses) as the value
+            for the [pageToken](/docs/iam/api-ref/ServiceAccount/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/iam/api-ref/ServiceAccount/list#responses) to continue paging through the results.
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    Role:
+      description: A Role resource. For more information, see [Roles](/docs/iam/concepts/access-control/roles).
+      type: object
+      properties:
+        id:
+          description: ID of the role.
+          type: string
+        description:
+          description: Description of the role. 0-256 characters long.
+          type: string
+    SamlUserAccount:
+      description: |-
+        A SAML federated user.
+        For more information, see [federations](/docs/iam/concepts/users/saml-federations).
+      type: object
+      properties:
+        federationId:
+          description: |-
+            Required.
+            ID of the federation that the federation belongs to.
+
+            The maximum string length in characters is 50.
+          type: string
+        nameId:
+          description: |-
+            Required.
+            Name Id of the SAML federated user.
+            The name is unique within the federation. 1-256 characters long.
+
+            The string length in characters must be 1-256.
+          type: string
+    ServiceAccount:
+      description: A ServiceAccount resource. For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
+      type: object
+      properties:
+        id:
+          description: ID of the service account.
+          type: string
+        folderId:
+          description: ID of the folder that the service account belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: |-
+            Name of the service account.
+            The name is unique within the cloud. 3-63 characters long.
+          type: string
+        description:
+          description: Description of the service account. 0-256 characters long.
+          type: string
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being set.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Required.
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    Status:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the type is `system`.
+
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the type is `userAccount` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `system`: System group. This type represents several accounts with a common system identifier.
+            * `userAccount`: An user account (for example, "alice.the.girl@yandex.ru"). This type represents the [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+          type: string
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being updated.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Required.
+            Updates to access bindings.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateServiceAccountMetadata:
+      type: object
+      properties:
+        serviceAccountId:
+          description: ID of the ServiceAccount resource that is being updated.
+          type: string
+    UpdateServiceAccountRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateServiceAccountRequest_updateMask'
+        name:
+          description: |-
+            Required.
+            Name of the service account.
+            The name must be unique within the cloud.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the service account.
+
+            The maximum string length in characters is 256.
+          type: string
+    UserAccount:
+      description: Currently represents only [Yandex.Passport account](/docs/iam/concepts/#passport).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the user account.
+            type: string
+      - title: user_account
+        type: object
+        maxProperties: 1
+        properties:
+          yandexPassportUserAccount:
+            $ref: '#/components/schemas/YandexPassportUserAccount'
+            description: A YandexPassportUserAccount resource.
+          samlUserAccount:
+            $ref: '#/components/schemas/SamlUserAccount'
+            description: A SAML federated user.
+    YandexPassportUserAccount:
+      description: |-
+        A YandexPassportUserAccount resource.
+        For more information, see [Yandex.Passport account](/docs/iam/concepts/#passport).
+      type: object
+      properties:
+        login:
+          description: Login of the Yandex.Passport user account.
+          type: string
+        defaultEmail:
+          description: Default email of the Yandex.Passport user account.
+          type: string
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Required.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the type is `system`.
+
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the type is `userAccount` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `system`: System group. This type represents several accounts with a common system identifier.
+            * `userAccount`: An user account (for example, "alice.the.girl@yandex.ru"). This type represents the [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Required.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    ApiKey_in_CreateApiKeyResponse_apiKey:
+      description: |-
+        ApiKey resource.
+
+        An ApiKey resource.
+      type: object
+      properties:
+        id:
+          description: ID of the API Key.
+          type: string
+        serviceAccountId:
+          description: ID of the service account that the API key belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        description:
+          description: Description of the API key. 0-256 characters long.
+          type: string
+    KeyFormat_in_CreateKeyRequest_format:
+      description: |-
+        Output format of the key.
+
+         - PEM_FILE: Privacy-Enhanced Mail (PEM) format. Default value.
+      type: string
+      enum:
+      - PEM_FILE
+      default: PEM_FILE
+    KeyAlgorithm_in_CreateKeyRequest_keyAlgorithm:
+      description: |-
+        An algorithm used to generate a key pair of the Key resource.
+
+         - RSA_2048: RSA with a 2048-bit key size. Default value.
+         - RSA_4096: RSA with a 4096-bit key size.
+      type: string
+      enum:
+      - RSA_2048
+      - RSA_4096
+    Key_in_CreateKeyResponse_key:
+      description: |-
+        Key resource.
+
+        A Key resource. For more information, see [Authorized keys](/docs/iam/concepts/authorization/key).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the Key resource.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          description:
+            description: Description of the Key resource. 0-256 characters long.
+            type: string
+          keyAlgorithm:
+            $ref: '#/components/schemas/KeyAlgorithm'
+            description: An algorithm used to generate a key pair of the Key resource.
+          publicKey:
+            description: A public key of the Key resource.
+            type: string
+      - title: subject
+        type: object
+        maxProperties: 1
+        properties:
+          userAccountId:
+            description: ID of the user account that the Key resource belongs to.
+            type: string
+          serviceAccountId:
+            description: ID of the service account that the Key resource belongs to.
+            type: string
+    FieldMask_in_UpdateServiceAccountRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the ServiceAccount resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+tags:
+- name: ApiKey
+  description: A set of methods for managing API keys.
+- name: IamToken
+  description: A set of methods for managing IAM tokens.
+- name: Key
+  description: A set of methods for managing Key resources.
+- name: Role
+  description: A set of methods for managing Role resources.
+- name: ServiceAccount
+  description: A set of methods for managing ServiceAccount resources.
+- name: UserAccount
+  description: A set of methods for managing user accounts. Currently applicable only
+    for [Yandex.Passport accounts](/docs/iam/concepts/#passport).
+- name: YandexPassportUserAccount
+  description: A set of methods for managing YandexPassportUserAccount resources.

@@ -9,7 +9,7 @@
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-Сейчас роль можно назначить на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Эти роли будут действовать и на вложенные ресурсы.
+Вы можете назначить роль на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или [реестр](../concepts/registry.md). Эти роли будут действовать и на вложенные ресурсы.
 
 ## Какие роли действуют в сервисе {#roles-list}
 
@@ -36,17 +36,18 @@
 Действие | Методы | Необходимые роли
 ----- | ----- | -----
 **Просмотр информации** | |
-Получение информации о [реестрах](../operations/registry/registry-list.md), [Docker](../operations/docker-image/docker-image-list.md)-образах и [репозиториях](../operations/repository/repository-list.md) | `get`, `list` | `container-registry.images.puller` на каталог с указанными ресурсами
-[Скачивание Docker-образа из реестра](../operations/docker-image/docker-image-pull.md) | — | `container-registry.images.puller`<br>на каталог с указанным реестром
+Получение списка [реестров](../operations/registry/registry-list.md)| `list` | `container-registry.images.puller` на каталог
+Получение информации о реестрах, [Docker-образах](../operations/docker-image/docker-image-list.md) и [репозиториях](../operations/repository/repository-list.md) | `get`, `list` | `container-registry.images.puller` на реестр с указанным ресурсом
+[Скачивание Docker-образа из реестра](../operations/docker-image/docker-image-pull.md) | — | `container-registry.images.puller`<br>на указанный реестр
 **Управление ресурсами** | |
 [Создание реестров в каталоге](../operations/registry/registry-create.md) | `create` | `editor` на каталог
-[Изменение](../operations/registry/registry-update.md) и [удаление](../operations/registry/registry-delete.md) реестров | `update`, `delete` | `editor` на каталог с реестром
-[Создание Docker-образов](../operations/docker-image/docker-image-create.md) c использованием базовых Docker-образов из реестра | — | `container-registry.images.puller`<br>на каталог с указанным реестром
+[Изменение](../operations/registry/registry-update.md) и [удаление](../operations/registry/registry-delete.md) реестров | `update`, `delete` | `editor` на указанный реестр
+[Создание Docker-образов](../operations/docker-image/docker-image-create.md) c использованием базовых Docker-образов из реестра | — | `container-registry.images.puller`<br>на указанный реестр
 [Создание Docker-образов](../operations/docker-image/docker-image-create.md) без использования базовых Docker-образов из реестра| — | Не требует ролей
-[Загрузка Docker-образов в реестр](../operations/docker-image/docker-image-push.md) | — | `container-registry.images.pusher`<br>на каталог с указанным реестром
-[Удаление Docker-образов](../operations/docker-image/docker-image-delete.md) | `delete` | `editor` на каталог с Docker-образом
+[Загрузка Docker-образов в реестр](../operations/docker-image/docker-image-push.md) | — | `container-registry.images.pusher`<br>на указанный реестр
+[Удаление Docker-образов](../operations/docker-image/docker-image-delete.md) | `delete` | `editor` на реестр с Docker-образом
 **Управление доступом к ресурсам** | |
-[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
+[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог, облако или реестр | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
 
 #### Что дальше
 

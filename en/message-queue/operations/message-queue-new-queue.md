@@ -12,7 +12,7 @@ To create a new message queue:
   
   1. Enter a name for the queue.
   
-     {% include [name](../../_includes/ymq-name.md) %}
+     {% include [name](../../_includes/message-queue/ymq-name.md) %}
   
   1. Select the queue type: **Standard** or **FIFO**.
   

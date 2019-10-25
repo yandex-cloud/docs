@@ -1,5 +1,15 @@
 # Getting started with {{ mrd-short-name }}
 
+{% if audience == "internal" %}
+
+For the internal MDB service, the [web interface]({{console-link}}) is deployed where you can manually create a database cluster. For more about quotas and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
+
+## Access to DB clusters
+
+[Request access](https://puncher.yandex-team.ru/) to the `_PGAASINTERNALNETS_` macro so you can connect to the created clusters. To connect to PostgreSQL clusters, you need access to ports 26379 (Sentinel) and 6379 (Redis).
+
+{% else %}
+
 To use the service, create a cluster and virtual machine to access the server from:
 
 1. All you need to create a database cluster is a folder in Yandex.Cloud that you are allowed to access. If you already have a folder in Yandex.Cloud, open the page of that folder in the management console. If there is no folder yet, create one:
@@ -7,6 +17,8 @@ To use the service, create a cluster and virtual machine to access the server fr
     {% include [create-folder](../_includes/create-folder.md) %}
 
 1. Create a VM (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)) that you will use for accessing the DB cluster.
+
+{% endif %}
 
 Quickly create a cluster and test your connection to it:
 

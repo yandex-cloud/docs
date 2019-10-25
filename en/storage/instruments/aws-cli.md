@@ -9,11 +9,11 @@ To work with {{ objstorage-full-name }} via the AWS CLI, you can use the followi
 
 ## Before you start {#preparations}
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 ## Installation {#installation}
 
-To install the AWS CLI, follow the [guidelines](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) on the developer's website.
+{% include [install-aws-cli](../../_includes/aws-tools/install-aws-cli.md) %}
 
 ## Configuration {#setup}
 
@@ -61,7 +61,7 @@ When using the AWS CLI to work with {{ objstorage-name }}, keep the following in
 - When using macOS, in some cases you need to run the command:
 
     ```
-    export PYTHONPATH=/Library/Python/2.7/site-packages; aws --endpoint-url=https://storage.yandexcloud.net s3 ls
+    export PYTHONPATH=/Library/Python/2.7/site-packages; aws --endpoint-url=https://{{ s3-storage-host }} s3 ls
     ```
 
 ## Examples of operations {#aws-cli-examples}
@@ -69,7 +69,7 @@ When using the AWS CLI to work with {{ objstorage-name }}, keep the following in
 ### Create a bucket
 
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net s3 mb s3://bucket-name
+   aws --endpoint-url=https://{{ s3-storage-host }} s3 mb s3://bucket-name
    ```
 
 {% note info %}
@@ -85,27 +85,27 @@ You can upload objects using one of the following methods:
 - Upload all objects from a local directory:
 
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 cp --recursive local_files/ s3://bucket-name/path_style_prefix/
    ```
 - Upload objects specified in the `--include` filter and skip objects specified in the `--exclude` filter:
 
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 cp --recursive --exclude "*" --include "*.log" \
        local_files/ s3://bucket-name/path_style_prefix/
    ```
 - Upload objects one by one, running the following command for each object:
 
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 cp testfile.txt s3://bucket-name/path_style_prefix/textfile.txt
    ```
 
 ### Getting a list of objects
 
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 ls --recursive s3://bucket-name
    ```
 
@@ -116,27 +116,27 @@ You can delete objects using one of the following methods:
 - Delete all objects with the specified prefix:
 
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 rm s3://bucket-name/path_style_prefix/ --recursive
    ```
 - Delete objects specified in the `--include` filter and skip objects specified in the `--exclude` filter:
 
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 rm s3://bucket-name/path_style_prefix/ --recursive \
        --exclude "*" --include "*.log"
    ```
 - Delete objects one by one, running the following command for each object:
 
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 rm s3://bucket-name/path_style_prefix/textfile.txt
    ```
 
 ### Retrieve an object
 
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 cp s3://bucket-name/textfile.txt textfile.txt
    ```
 

@@ -1,0 +1,67 @@
+title: Yandex Cloud Functions
+href: index.yaml
+items:
+  - name: Getting started
+    items:
+      - name: Creating and executing functions
+        href: quickstart/function-quickstart.md
+      - name: Creating a trigger for a message queue
+        href: quickstart/ymq-trigger-quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Managing rights to run functions
+        href: operations/function-public.md
+      - name: Managing functions
+        items:
+          - name: Creating a function
+            href: operations/function/function-create.md
+          - name: Managing function versions
+            href: operations/function/version-manage.md
+          - name: Invoking a function
+            href: operations/function/function-invoke.md
+          - name: Updating a function
+            href: operations/function/function-update.md
+          - name: Viewing the execution log
+            href: operations/function/function-logs.md
+          - name: Deleting a function
+            href: operations/function/function-delete.md
+      - name: Managing triggers
+        items:
+          - name: Getting information about a trigger
+            href: operations/trigger/trigger-list.md
+          - name: Creating a trigger
+            href: operations/trigger/trigger-create.md
+          - name: Updating a trigger
+            href: operations/trigger/trigger-update.md
+          - name: Deleting a trigger
+            href: operations/trigger/trigger-delete.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Functions
+        href: concepts/function.md
+      - name: Invoking a function
+        href: concepts/function-invoke.md
+      - name: Runtime environment
+        items:
+          - name: Overview
+            href: concepts/runtime/index.md
+          - name: Environment variables
+            href: concepts/runtime/environment-variables.md
+          - name: Execution context
+            href: concepts/runtime/execution-context.md
+      - name: Trigger
+        href: concepts/trigger.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Tutorials
+    items:
+      - name: Creating skills for Alice
+        href: solutions/alice-skill.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: Access management
+    href: security/index.md

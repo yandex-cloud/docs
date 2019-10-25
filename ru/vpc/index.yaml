@@ -1,6 +1,9 @@
 # Yandex Virtual Private Cloud
 title: "Yandex Virtual Private Cloud"
-description: "Yandex Virtual Private Cloud — сервис для управления облачными сетями."
+description: 
+  - "Yandex Virtual Private Cloud служит для управления облачными сетями и связи облачных ресурсов между собой и с интернетом. Virtual Private Cloud позволяет создавать <a href=\"https://cloud.yandex.ru/docs/vpc/concepts/network#network\">сети</a>, <a href=\"https://cloud.yandex.ru/docs/vpc/concepts/network#subnet\">подсети</a> в зонах доступности Яндекс.Облака, назначать облачным ресурсам внутренние и публичные <a href=\"https://cloud.yandex.ru/docs/vpc/concepts/address\">IP-адреса</a>, а также предоставляет возможность защиты от DDoS-атак с помощью компонента <a href=\"https://cloud.yandex.ru/docs/vpc/ddos-protection/\">DDoS-Protection.</a>"
+  - "Инфраструктура Яндекс.Облака <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
+  - "Для сервиса действует <a href=\"https://yandex.ru/legal/cloud_sla\">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href=\"https://yandex.ru/legal/cloud_sla_yvpc\">Уровень обслуживания Yandex Virtual Private Cloud</a>."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Virtual Private Cloud"

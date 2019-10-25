@@ -7,13 +7,13 @@
 - AWS CLI
 
   ```bash
-  aws --endpoint-url=https://storage.yandexcloud.net s3api abort-multipart-upload --bucket <bucket-name> --key <key> --upload-id <number>
+  aws --endpoint-url=https://{{ s3-storage-host }} s3api abort-multipart-upload --bucket <bucket-name> --key <key> --upload-id <number>
   ```
 
   Если вы не знаете идентификатор загрузки (`number`), найдите его в списке загрузок.
 
   ```bash
-  aws --endpoint-url=https://storage.yandexcloud.net s3api list-multipart-uploads --bucket <bucket-name>
+  aws --endpoint-url=https://{{ s3-storage-host }} s3api list-multipart-uploads --bucket <bucket-name>
   ```
 
 {% endlist %}

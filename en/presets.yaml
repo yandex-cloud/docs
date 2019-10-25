@@ -22,6 +22,9 @@ default:
   datalens-full-name: Yandex DataLens
   managed-k8s-full-name: Yandex Managed Service for Kubernetes
   iot-full-name: Yandex IoT Core
+  sf-full-name: Yandex Cloud Functions
+  ydb-full-name: Yandex Database
+  interconnect-full-name: Yandex Cloud Interconnect
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -47,6 +50,9 @@ default:
   datalens-name: DataLens
   managed-k8s-name: Managed Service for Kubernetes
   iot-name: Yandex IoT Core
+  sf-name: Cloud Functions
+  ydb-name: Yandex Database
+  interconnect-name: Cloud Interconnect
 
   # Короткие имена
   iam-short-name: IAM
@@ -71,10 +77,17 @@ default:
   datalens-short-name: DataLens
   managed-k8s-short-name: Managed Service for Kubernetes
   iot-short-name: Yandex IoT Core
+  sf-short-name: Functions
+  ydb-short-name: YDB
+
   # Тарифы
   price-per-hour-count-per-second: The price is indicated for 1 hour of use. Charging per second.
 
   # Роли
+  roles-cr-puller: container-registry.images.puller
+  roles-cr-pusher: container-registry.images.pusher
+  roles-datalens-instances-user: datalens.instances.user
+  roles-functions-ivoker: serverless.functions.invoker
   roles-image-user: compute.images.user
   roles-cloud-owner: resource-manager.clouds.owner
   roles-cloud-member: resource-manager.clouds.member
@@ -101,15 +114,21 @@ default:
   yc-compute: yc compute
   yc-compute-instance: yc compute instance
 
+  # IAM specific
+  iam-token-lifetime: 12 hours
+
   # MDB specific
   pem-path: '/cloud-certs/CA.pem'
   dns-zone: mdb.yandexcloud.net
   network-name: default
+  host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63
+  disk-type-example: network-ssd
   PG: PostgreSQL
   CH: ClickHouse
   MG: MongoDB
   MY: MySQL
   RD: Redis
+  ZK: ZooKeeper
   zone-id: ru-central1-c
   host-class: s1.nano
 
@@ -158,12 +177,16 @@ default:
 
   # SpeechKit specific
   stt-short-fileSize: 1 MB
-  stt-short-audioLength: 1 minute
+  stt-short-audioLength: 30 seconds
   stt-short-channelsCount: 1
   stt-long-fileSize: 1 GB
   stt-long-resultsStorageTime: 3 days
   stt-streaming-fileSize: 10 MB
   stt-streaming-audioLength: 5 minutes
+
+  # YDB specific
+  yql-full-name: Yandex Query Language
+  yql-short-name: YQL
 
   # K8s specific
   k8s: Kubernetes
@@ -172,6 +195,12 @@ default:
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   mqtt-broker-address: mqtt.cloud.yandex.net
   mqtt-broker-port: 8883
+
+  # Serverless Functions specific
+  sf-url: https://functions.yandexcloud.net
+
+  # Container Registry specific
+  coi: Container Optimized Image
 
   # links
   link-console-billing: https://console.cloud.yandex.com/billing

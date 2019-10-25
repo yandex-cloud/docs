@@ -19,7 +19,7 @@ You can add and remove users, as well as manage their individual settings.
   To get a list of cluster users, run the command:
 
   ```
-  $ yc managed-clickhouse user list
+  $ {{ yc-mdb-ch }} user list
        --cluster-name=<cluster name>
   ```
 
@@ -46,7 +46,7 @@ You can add and remove users, as well as manage their individual settings.
   To create a user in a cluster, run the command:
 
   ```
-  $ yc managed-clickhouse user create <username>
+  $ {{ yc-mdb-ch }} user create <username>
        --cluster-name=<cluster name>
        --password=<DB user password>
        --permissions=<list of DBs the user can access>
@@ -76,7 +76,7 @@ You can add and remove users, as well as manage their individual settings.
   To change the user's password or the list of databases available to the user, run:
 
   ```
-  $ yc managed-clickhouse user update <username>
+  $ {{ yc-mdb-ch }} user update <username>
        --cluster-name=<cluster name>
        --password=<DB user password>
        --permissions=<list of DBs the user can access>
@@ -104,7 +104,7 @@ You can add and remove users, as well as manage their individual settings.
   To remove a user, run:
 
   ```
-  $ yc managed-clickhouse user delete <username>
+  $ {{ yc-mdb-ch }} user delete <username>
        --cluster-name=<cluster name>
   ```
 

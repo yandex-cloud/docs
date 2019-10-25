@@ -9,11 +9,11 @@
 
 ## Подготовка к работе {#preparations}
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 ## Установка {#installation}
 
-Для установки AWS CLI воспользуйтесь [инструкцией](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) на сайте разработчика.
+{% include [install-aws-cli](../../_includes/aws-tools/install-aws-cli.md) %}
 
 ## Настройка {#setup}
 
@@ -55,7 +55,7 @@
 - При запуске команды `aws` для работы с {{ objstorage-name }} обязателен параметр `--endpoint-url`, поскольку по умолчанию клиент настроен на работу с серверами Amazon.
 - При работе в macOS, в некоторых случаях требуется запуск вида:
     ```
-    export PYTHONPATH=/Library/Python/2.7/site-packages; aws --endpoint-url=https://storage.yandexcloud.net s3 ls
+    export PYTHONPATH=/Library/Python/2.7/site-packages; aws --endpoint-url=https://{{ s3-storage-host }} s3 ls
     ```
 
 
@@ -64,7 +64,7 @@
 ### Создать бакет
 
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net s3 mb s3://bucket-name
+   aws --endpoint-url=https://{{ s3-storage-host }} s3 mb s3://bucket-name
    ```
 
 {% note info %}
@@ -79,25 +79,25 @@
 
 - Загрузить все объекты из локальной директории:
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 cp --recursive local_files/ s3://bucket-name/path_style_prefix/
    ```
 - Загрузить объекты, описанные в фильтре `--include`, и пропустить объекты, описанные в фильтре`--exclude`:
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 cp --recursive --exclude "*" --include "*.log" \
        local_files/ s3://bucket-name/path_style_prefix/
    ```
 - Загрузить объекты по одному, запуская для каждого объекта команду следующего вида:
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 cp testfile.txt s3://bucket-name/path_style_prefix/textfile.txt
    ```
 
 ### Получить список объектов
 
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 ls --recursive s3://bucket-name
    ```
 
@@ -107,25 +107,25 @@
 
 - Удалить все объекты с заданным префиксом.
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 rm s3://bucket-name/path_style_prefix/ --recursive
    ```
 - Удалить объекты, описанные в фильтре `--include`, и пропустить объекты, описанные в фильтре`--exclude`:
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 rm s3://bucket-name/path_style_prefix/ --recursive \
        --exclude "*" --include "*.log"
    ```
 - Удалить объекты по одному, запуская для каждого объекта команду следующего вида:
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 rm s3://bucket-name/path_style_prefix/textfile.txt
    ```
 
 ### Получить объект
 
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net \
+   aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 cp s3://bucket-name/textfile.txt textfile.txt
    ```
 

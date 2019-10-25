@@ -36,13 +36,13 @@
   1. Посмотрите описание команды CLI для восстановления кластера {{ MG }}:
   
       ```
-      $ yc managed-mongodb cluster restore --help
+      $ {{ yc-mdb-mg }} cluster restore --help
       ```
   
   1. Получите список доступных резервных копий {{ MG }}-кластеров:
   
       ```
-      $ yc managed-mongodb backup list
+      $ {{ yc-mdb-mg }} backup list
       
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -54,28 +54,57 @@
   
   1. Запросите создание кластера из резервной копии:
   
+      {% if audience == "internal" %}
+  
       ```
-      $ yc managed-mongodb cluster restore \
+      $ {{ yc-mdb-mg }} cluster restore \
            --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
            --name mynewmg \
            --environment=PRODUCTION \
-           --network-name default \
+           --network-id {{ network-name }} \
+           --host type=clickhouse,zone-id={{ zone-id }} \
+           --mongod-disk-size 20 \
+           --mongod-disk-type network-ssd \
+           --mongod-resource-preset {{ host-class }}
+      ```
+  
+      {% else %}
+  
+      ```
+      $ {{ yc-mdb-mg }} cluster restore \
+           --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
+           --name mynewmg \
+           --environment=PRODUCTION \
+           --network-name {{ network-name }} \
            --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
            --mongod-disk-size 20 \
            --mongod-disk-type network-ssd \
            --mongod-resource-preset s1.nano
       ```
+      
+      {% endif %}
   
       В результате будет создан {{ MG }}-кластер со следующими характеристиками:
       
+      {% if audience == "internal" %}
       
+      - С именем `mynewmg`.
+      - В окружении `PRODUCTION`.
+      - С одним хостом класса `{{ host-class }}` в зоне доступности `{{ zone-id }}`.
+      - С базами данных и пользователями из резервной копии.
+      - С сетевым SSD-хранилищем объемом 20 ГБ.
       
+      {% endif %}
+      
+      {% if audience != "internal" %}
       - С именем `mynewmg`.
       - В окружении `PRODUCTION`.
       - В сети `{{ network-name }}`.
       - С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `{{ zone-id }}`.
       - С базами данных и пользователями из резервной копии.
       - С сетевым SSD-хранилищем объемом 20 ГБ.
+      
+      {% endif %}
   
 {% endlist %}
 
@@ -103,13 +132,13 @@
   1. Посмотрите описание команды CLI для создания резервной копии {{ MG }}:
   
       ```
-      $ yc managed-mongodb cluster backup --help
+      $ {{ yc-mdb-mg }} cluster backup --help
       ```
   
   1. Запросите создание резервной копии, указав имя или идентификатор кластера:
   
       ```
-      $ yc managed-mongodb cluster backup my-mg-cluster
+      $ {{ yc-mdb-mg }} cluster backup my-mg-cluster
       ```
   
       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
@@ -136,7 +165,7 @@
   Чтобы получить список резервных копий кластеров {{ MG }}, доступных в каталоге по умолчанию, выполните команду:
   
   ```
-  $ yc managed-mongodb backup list
+  $ {{ yc-mdb-mg }} backup list
   
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -168,7 +197,7 @@
   Чтобы получить данные о резервной копии кластера {{ MG }}, выполните команду:
   
   ```
-  $ yc yc managed-mongodb backup get <идентификатор резервной копии>
+  $ yc {{ yc-mdb-mg }} backup get <идентификатор резервной копии>
   ```
   
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).

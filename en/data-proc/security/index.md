@@ -34,8 +34,7 @@ You can assign primitive roles to any resource in any service.
 
 #### {{ roles-viewer }} {#viewer}
 
-Users with the `{{ roles-viewer }}` role can connect to hosts in the
-{{ dataproc-name }} cluster if its SSH keys are linked to this cluster.
+Users with the `{{ roles-viewer }}` role can connect to hosts in the {{ dataproc-name }} cluster if its SSH keys are linked to this cluster.
 
 #### {{ roles-editor }} {#editor}
 

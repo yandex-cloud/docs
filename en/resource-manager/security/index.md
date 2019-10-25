@@ -1,48 +1,55 @@
 # Access management
 
-Yandex.Cloud users can only perform operations on resources that are permitted under the roles assigned to them. If the user has no roles assigned, all operations are forbidden.
+In this section, you'll learn:
 
-To allow access to {{ resmgr-full-name }} resources (clouds and folders), assign applicable roles to the user from the list below. The roles assigned to the parent resource are inherited by nested resources.
+* [What resources you can assign the](#resources) role to.
+* [What roles exist in the service](#roles-list).
+* [What roles are required](#required-roles) for particular actions.
 
-{% note info %}
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-For more information about role inheritance, see [{#T}](../concepts/resources-hierarchy.md#access-rights-inheritance).
+## What resources you can assign roles to. {#resources}
 
-{% endnote %}
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Assigning roles
+## What roles exist in the service {#roles-list}
 
-To assign a user a role:
+The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
 
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
+![image](service-roles-hierarchy.svg)
 
-## Roles
+Active roles in the service:
 
-The list below shows all roles that are considered when verifying access rights in the {{ resmgr-short-name }} service.
+* Service roles:
+    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* Primitive roles:
+    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-### Service roles
+## What roles do I need {#required-roles}
 
-_Service roles_ are roles that allow access to the resources of a particular service.
+The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+| Action | Methods | Required roles |
+| ----- | ----- | ----- |
+| **View data** |  |
+| View information about any resource | `get`, `list` | `viewer` for this resource |
+| **Manage resources** |  |
+| [Create a cloud](../operations/cloud/create.md) |  | no roles needed, only authentication |
+| [Update a cloud](../operations/cloud/update.md) | `update` | `editor` for the cloud |
+| [Create a folder in the cloud](../operations/folder/create.md) | `create` | `editor` for the cloud |
+| [Update a folder](../operations/folder/update.md) | `update` | `editor` for the folder |
+| **Manage resource access** |  |
+| [Add a new user to the cloud](../../iam/operations/users/create.md) | `setAccessBindings` | `admin` for the cloud |
+| [Make a new user the owner of the cloud](../operations/cloud/set-access-bindings.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` for the cloud |
+| [Grant roles](../../iam/operations/roles/grant.md), [revoke roles](../../iam/operations/roles/revoke.md), and view roles granted for the resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource |
 
-### Primitive roles
+#### What's next
 
-You can assign primitive roles to any resource in any service.
-
-#### {{ roles-viewer }}
-
-Users with the `{{ roles-viewer }}` role can view information about resources. For example, they can view a list of folders in the cloud and get information about a folder.
-
-#### {{ roles-editor }}
-
-Users with the `{{ roles-editor }}` role can manage any resource, such as creating a folder.
-
-The `{{ roles-editor }}` role also includes all `{{ roles-viewer }}` role permissions.
-
-#### {{ roles-admin }}
-
-Users with the `{{ roles-admin }}` role can manage resource access rights, such as allowing other users to create folders or view their details.
-
-The `{{ roles-admin }}` role also includes all `{{ roles-editor }}` role permissions.
+* [How to assign a role](../../iam/operations/roles/grant.md).
+* [How to revoke a role](../../iam/operations/roles/revoke.md).
+* [Read more about access management in Yandex.Cloud](../../iam/concepts/access-control/index.md).
+* [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 

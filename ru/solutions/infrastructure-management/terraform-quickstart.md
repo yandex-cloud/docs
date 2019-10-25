@@ -7,60 +7,42 @@ Terraform позволяет быстро создать облачную инф
 Чтобы установить, настроить Terraform и создать первую конфигурацию:
 
 1. [Установите Terraform](#install-terraform)
-1. [Настройте Terraform ](#configure-terraform)
+1. [Создайте файл конфигурации Terraform](#configure-terraform)
 1. [Настройте провайдер](#configure-provider)
 1. [Подготовьте план инфраструктуры](#prepare-plan)
 1. [Создайте ресурсы](#create-resources)
 1. [Удалите ресурсы](#delete-resources)
 
-## 1. Установите Terraform {#install-terraform}
+## Подготовьте облако к работе {#before-begin}
 
-Установите Terraform:
+Перед тем, как разворачивать инфраструктуру, нужно зарегистрироваться в Облаке и создать платежный аккаунт:
 
-{% list tabs %}
+{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
 
-- macOS
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака](https://console.cloud.yandex.ru/cloud).
+ 
+ [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-  Установите Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh):
+### Необходимые платные ресурсы {#paid-resources}
 
-  ```
-  $ brew install terraform
-  ```
+В стоимость поддержки созданных с помощью Terraform ресурсов входят:
 
-- Windows/Linux
+* плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование динамических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
-  Скачайте дистрибутив Terraform и установите его по [инструкции](https://www.terraform.io/intro/getting-started/install.html).
+## Установите Terraform {#install-terraform}
 
-{% endlist %}
+{% include [terraform_install](../_solutions_includes/terraform-install.md) %}
 
-## 2. Настройте Terraform {#configure-terraform}
+## Создайте файл конфигурации Terraform {#configure-terraform}
 
-Создайте в любом месте новую директорию с произвольным названием, например `yandex-cloud-terraform` — в ней будут храниться конфигурационные файлы и сохраненные состояния Terraform и инфраструктуры.
+{% include [terraform-configure](../_solutions_includes/terraform-configure.md) %}
 
-Чтобы создать ресурсы в Яндекс.Облаке с помощью Terraform, создайте в новой директории конфигурационный файл в формате `.tf`, например, `example.tf`.
+## Настройте провайдер {#configure-provider}
 
-## 3. Настройте провайдер {#configure-provider}
+{% include [terraform-configure-provider](../_solutions_includes/terraform-configure-provider.md) %}
 
-В начале конфигурационного файла необходимо задать настройки провайдера.
-
-~~~
-provider "yandex" {
-  token     = "OAuth_token"
-  cloud_id  = "cloud-id"
-  folder_id = "folder-id"
-  zone      = "ru-central1-a"
-}
-~~~
-
-* `provider` — название провайдера.
-* `token` — OAuth токен для доступа к Яндекс.Облаку.
-* `cloud_id` — идентификатор облака, с которым ведется работа.
-* `folder_id` — идентификатор каталога, в котором Terraform создаст облачные ресурсы.
-* `zone` — зона доступности, в которой по умолчанию будут создаваться все облачные ресурсы.
-
-После настройки сохраните файл и выполните команду `terraform init` в папке с конфигурационным файлом. Эта команда инициализирует провайдеров, указанных в файлах `.tf` в поле `provider` и позволяет работать с ресурсами и источниками данных провайдера.
-
-## 4. Подготовьте план инфраструктуры {#prepare-plan}
+## Подготовьте план инфраструктуры {#prepare-plan}
 
 С помощью Terraform в Яндекс.Облаке можно создавать облачные ресурсы всех типов: виртуальные машины, диски, образы и т.д. Подробную информацию о ресурсах, создающихся с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
 
@@ -157,7 +139,7 @@ output "external_ip_address_vm_2" {
 }
 ~~~
 
-## 5. Создайте ресурсы {#create-resources}
+## Создайте ресурсы {#create-resources}
 
 После подготовки конфигурации выполните команду `terraform plan`. Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. Это проверочный этап: ресурсы не будут созданы.
 
@@ -169,6 +151,6 @@ output "external_ip_address_vm_2" {
 
 Если в конфигурации нет ошибок, выполните команду `terraform apply`. Terraform запросит подтверждение создания ресурсов: введите в терминал слово `yes` и нажмите Enter. После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-## 6. Удалите ресурсы {#delete-resources}
+## Удалите ресурсы {#delete-resources}
 
 Все созданные с помощью Terraform ресурсы можно удалить с помощью команды `terraform destroy`. После выполнения команды в терминале отобразится список ресурсов, которые будут удалены. Для подтверждения введите слово `yes` и нажмите Enter.

@@ -21,7 +21,7 @@
   Чтобы получить список баз данных в кластере, выполните команду:
 
   ```
-  $ yc managed-clickhouse database list
+  $ {{ yc-mdb-ch }} database list
        --cluster-name=<имя кластера>
   ```
 
@@ -58,7 +58,7 @@
   Выполните команду создания БД, задав имя новой базы:
 
   ```
-  $ yc managed-clickhouse database create <имя базы данных>
+  $ {{ yc-mdb-ch }} database create <имя базы данных>
       --cluster-name <имя кластера>
   ```
 
@@ -93,7 +93,7 @@
   Чтобы удалить базу данных, выполните команду:
 
   ```
-  $ yc managed-clickhouse database delete <имя базы данных>
+  $ {{ yc-mdb-ch }} database delete <имя базы данных>
        --cluster-name=<имя кластера>
   ```
 

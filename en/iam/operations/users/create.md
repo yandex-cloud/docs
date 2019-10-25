@@ -10,5 +10,11 @@
 
 {% endlist %}
 
+{% note info %}
+
+{% include [yandex-account-2fa-warning.md](../../../_includes/iam/yandex-account-2fa-warning.md) %}
+
+{% endnote %}
+
 Now you can [grant user roles](../roles/grant.md) for the cloud or folder.
 

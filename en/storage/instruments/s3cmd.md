@@ -4,11 +4,11 @@
 
 ## Before you start {#preparations}
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 ## Installation {#installation}
 
-To install S3cmd, follow the [instructions](https://github.com/s3tools/s3cmd/blob/master/INSTALL) in the project repository.
+To learn how to download and install S3cmd, see the [Download](https://s3tools.org/download) section on the official website of the project.
 
 ## Configuration {#setup}
 
@@ -41,8 +41,8 @@ The `s3cmd --configure` command saves the settings to a `~/.s3cfg` file in the f
 access_key = id
 secret_key = secretKey
 bucket_location = ru-central1
-host_base = storage.yandexcloud.net
-host_bucket = %(bucket)s.storage.yandexcloud.net
+host_base = {{ s3-storage-host }}
+host_bucket = %(bucket)s.{{ s3-storage-host }}
 ```
 
 If necessary, you can change these settings directly in the file. You can also specify settings when launching the client by using the appropriate parameters.
@@ -50,7 +50,7 @@ If necessary, you can change these settings directly in the file. You can also s
 For the static website hosting control commands to work correctly, manually add the following parameter to the configuration file:
 
 ```
-website_endpoint = http://%(bucket)s.website.yandexcloud.net
+website_endpoint = http://%(bucket)s.{{ s3-web-host }}
 ```
 
 ## Specifics {#specifics}
@@ -59,11 +59,17 @@ Keep in mind that S3cmd treats {{ objstorage-name }} as a hierarchical file syst
 
 ## Examples of operations {#s3cmd-examples}
 
+### List buckets
+
+```bash
+s3cmd ls
+```
+
 ### Create a bucket
 
-   ```bash
-   s3cmd  mb s3://bucket
-   ```
+```bash
+s3cmd  mb s3://bucket
+```
 
 {% note info %}
 
@@ -71,7 +77,7 @@ When creating a bucket, follow the [naming conventions](../concepts/bucket.md#na
 
 {% endnote %}
 
-### Uploading an object
+### Upload an object
 
 ```
 s3cmd put local_file s3://bucket/object

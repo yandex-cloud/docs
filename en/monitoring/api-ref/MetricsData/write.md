@@ -45,16 +45,16 @@ service | <p>Required. ID of the service that the metric belongs to. Use <code>s
 
 Field | Description
 --- | ---
-ts | **string** (int64)<br><p>Common timestamp for all metrics.</p> 
+ts | **string** (date-time)<br><p>Common timestamp for all metrics in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 labels | **object**<br><p>Common labels for all metrics as <code>key:value</code> pairs.</p> 
 metrics[] | **object**<br><p>List of metrics.</p> 
 metrics[].<br>name | **string**<br><p>Required. Name of the metric.</p> 
 metrics[].<br>labels | **object**<br><p>Metric labels as  <code>key:value</code> pairs.</p> 
 metrics[].<br>type | **string**<br><p>Type of the metric. The default value is <code>DGAUGE</code>.</p> <ul> <li>DGAUGE: Gauge with fractional values.</li> <li>IGAUGE: Gauge with integer values.</li> <li>COUNTER: Counter.</li> <li>RATE: Rate.</li> </ul> 
-metrics[].<br>ts | **string** (int64)<br><p>Time point in the <code>timestamp</code> format. If it is not specified, the current time is used.</p> 
+metrics[].<br>ts | **string** (date-time)<br><p>Time point in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. If it is not specified, the current time is used.</p> 
 metrics[].<br>value | **number** (double)<br><p>Required. Metric value in the time point.</p> 
 metrics[].<br>timeseries[] | **object**<br><p>List of several points.</p> 
-metrics[].<br>timeseries[].<br>ts | **string** (int64)<br><p>Time point in the <code>timestamp</code> format.</p> 
+metrics[].<br>timeseries[].<br>ts | **string** (date-time)<br><p>Time point in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 metrics[].<br>timeseries[].<br>value | **number** (double)<br><p>Metric value.</p>
  
 ## Response {#responses}

@@ -4,11 +4,11 @@
 
 ## Before you start {#preparations}
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 ## Installation {#installation}
 
-To install boto, use the instructions in the developer's repository: [boto3](https://github.com/boto/boto3/blob/develop/README.rst#quick-start), [boto](https://github.com/boto/boto#installation).
+{% include [install-boto](../../_includes/aws-tools/install-boto.md)%}
 
 ## Configuration {#setup}
 
@@ -27,7 +27,7 @@ To install boto, use the instructions in the developer's repository: [boto3](htt
   session = boto3.session.Session()
   s3 = session.client(
       service_name='s3',
-      endpoint_url='https://storage.yandexcloud.net'
+      endpoint_url='https://{{ s3-storage-host }}'
   )
   
   # Create a new bucket
@@ -65,7 +65,7 @@ To install boto, use the instructions in the developer's repository: [boto3](htt
   from boto.s3.connection import S3Connection
   os.environ['S3_USE_SIGV4'] = 'True'
   conn = S3Connection(
-      host='storage.api.cloud.yandex.net'
+      host='{{ s3-storage-host }}'
   )
   conn.auth_region_name = 'ru-central1'
   

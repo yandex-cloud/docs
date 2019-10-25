@@ -2,12 +2,22 @@
 
 A {{ MY }} cluster is one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, synchronously duplicates changes in the primary replica, and does it asynchronously in all the others.
 
+{% if audience != "internal" %}
+
 The number of hosts that can be created together with a {{ MY }} cluster depends on the storage option selected:
 
   - When using network drives, you can request any number of hosts (from one to the limits of the current [quota](../concepts/limits.md)).
   - When using SSDs, you can create at least three replicas along with the cluster (a minimum of three replicas is required to ensure fault tolerance). If the [available folder resources](../concepts/limits.md) are still sufficient after creating a cluster, you can add extra replicas.
 
+{% endif %}
+
 By default, {{ mmy-short-name }} limits the maximum number of connections to each {{ MY }} cluster host to ` 200 x <number of vCPUs on host>`. For example, for a host of the [s1.micro class](../concepts/instance-types.md) the `max_connections` default parameter value is 400.
+
+{% note info %}
+
+If database storage is 95% full, the cluster switches to read-only mode. Increase the storage size in advance.
+
+{% endnote %}
 
 ## How to create a cluster {{ MY }} {#create-cluster}
 
@@ -24,8 +34,8 @@ By default, {{ mmy-short-name }} limits the maximum number of connections to eac
   1. Enter the cluster name in the **Cluster name** field. The cluster name must be unique within the Cloud.
 
   1. Select the environment where you want to create the cluster (you cannot change the environment after cluster creation):
-      - <q>production</q> — for stable versions of your apps.
-      - <q>prestable</q> — for testing, including the {{ mmy-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner in it, but this may cause backward incompatible changes.
+      - <q>production</q> — For stable versions of your apps.
+      - <q>prestable</q> — For testing, including the {{ mmy-short-name }} service itself. The prestable environment is updated more often, which means that known problems are fixed sooner in it, but this may cause backward incompatible changes.
 
   1. Select the DBMS version.
 
@@ -63,13 +73,13 @@ By default, {{ mmy-short-name }} limits the maximum number of connections to eac
   1. See the description of the CLI's create cluster command:
 
       ```
-      $ yc managed-mysql cluster create --help
+      $ {{ yc-mdb-my }} cluster create --help
       ```
 
   1. Specify the cluster parameters in the create command:
 
      ```
-     $ yc managed-mysql cluster create \
+     $ {{ yc-mdb-my }} cluster create \
         --name <cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \

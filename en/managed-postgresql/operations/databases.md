@@ -19,7 +19,7 @@ You can add and remove databases, as well as view information about them.
   To get a list of databases in a cluster, run the command:
 
   ```
-  $ yc managed-postgresql database list
+  $ {{ yc-mdb-pg }} database list
        --cluster-name=<cluster name>
   ```
 
@@ -33,33 +33,30 @@ You can add and remove databases, as well as view information about them.
 
 ## Creating a database {#add-db}
 
-The number of databases in a cluster is unlimited.
+You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
-{% note important %}
+By default, databases are created with the `LC_COLLATE=C` and `LC_CTYPE=C` encoding settings. This allows {{ PG }} to run queries with string data types more efficiently, but may sometimes work counter-intuitively (for example, with Cyrillic). These settings are covered in more detail in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/locale.html).
 
-By default, databases are created with string collation and sorting settings: `LC_COLLATE=C` and `LC_CTYPE=C`.
-This allows {{ PG }} to more effectively execute queries with string data, but it can
-work subtly (for example, with Cyrillic).
+{% note alert %}
 
-These settings are covered in more detail in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/collation.html).
+The LC_COLLATE and LC_CTYPE settings of a database cannot be changed after its creation.
 
 {% endnote %}
 
-The LC_COLLATE and LC_CTYPE settings of a database cannot be changed after its creation.
-To create a database with the necessary values for these settings, use such flags as `--lc-collate`
-и `--lc-type` in the `yc managed-postgresql database create` CLI command.
-
-Once the database is created, you can specify the collation and order sorting settings for columns when creating and changingtables. Learn more in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-createtable.html).
+You can configure character collation and sorting settings for columns when you create and edit
+specific tables. Learn more in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-createtable.html).
 
 {% list tabs %}
 
 - Management console
+
+  To create a database:
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need.
   1. If the owner of the new database still doesn't exist, [add the user](cluster-users.md#adduser).
   1. Select the **Databases** tab.
   1. Click **Add**.
-  1. Enter the database name and select its owner.
+  1. Enter the database name, select its owner, and configure the character set.
 
 - CLI
 
@@ -72,24 +69,26 @@ Once the database is created, you can specify the collation and order sorting se
   1. See the description of the CLI's create database command:
 
      ```
-     $ yc managed-postgresql database create --help
+     $ {{ yc-mdb-pg }} database create --help
      ```
 
   1. Request a list of cluster users to select the owner of the new database:
 
      ```
-     $ yc managed-postgresql user list
+     $ {{ yc-mdb-pg }} user list
           --cluster-name <cluster name>
      ```
 
      If the required user is not in the list, [create it](cluster-users.md#adduser).
 
-  1. Run the create database command:
+  1. Run the create database command. If needed, specify the character collation and sorting settings (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
 
      ```
-     $ yc managed-postgresql database create <database name>
+     $ {{ yc-mdb-pg }} database create <database name>
           --cluster-name <cluster name>
           --owner <username of the DB owner>
+          --lc-collate ru_RU.UTF8
+          --lc-type ru_RU.UTF8
      ```
 
      {{ mpg-short-name }} runs the create database operation.
@@ -120,7 +119,7 @@ Once the database is created, you can specify the collation and order sorting se
   To delete a database, run the command:
 
   ```
-  $ yc managed-postgresql database delete <database name>
+  $ {{ yc-mdb-pg }} database delete <database name>
        --cluster-name=<cluster name>
   ```
 
@@ -131,4 +130,10 @@ Once the database is created, you can specify the collation and order sorting se
   You can delete a database using the [delete](../api-ref/Database/delete.md) method.
 
 {% endlist %}
+
+{% note important %}
+
+Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted is restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
+
+{% endnote %}
 

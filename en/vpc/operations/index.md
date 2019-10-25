@@ -17,4 +17,6 @@
 - [{#T}](set-dynamic-ip.md)
 - [{#T}](address-delete.md)
 
+## Static routes
 
+- [#T](static-route-create.md)

@@ -17,7 +17,7 @@
   Задайте нужные режимы SQL в значении параметра `--set`, например:
   
   ```bash
-  $ yc managed-mysql cluster update-config
+  $ {{ yc-mdb-my }} cluster update-config
        --cluster-name=<имя кластера>
        --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
   ```
@@ -39,10 +39,10 @@
 
 ```sql
 ALTER DATABASE dbname CHARACTER SET = 'utf8mb4' COLLATE = 'utf8mb4_unicode_ci';
-``` 
+```
 
 Чтобы настройки изменились не только для самой базы данных, но и для таблиц в ней, сконвертируйте таблицы с теми же настройками:
 
 ```sql
 ALTER TABLE dbname.tablename CONVERT TO CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci';
-``` 
+```

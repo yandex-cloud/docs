@@ -32,13 +32,13 @@
   1. Посмотрите описание команды CLI для восстановления кластера {{ MY }}:
   
       ```
-      $ yc managed-mysql cluster restore --help
+      $ {{ yc-mdb-my }} cluster restore --help
       ```
   
   1. Получите список доступных резервных копий {{ MY }}-кластеров:
   
       ```
-      $ yc managed-mysql backup list
+      $ {{ yc-mdb-my }} backup list
       
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -52,22 +52,51 @@
   
   1. Запросите создание кластера из резервной копии:
   
+      {% if audience == "internal" %}
+  
       ```
-      $ yc managed-mysql cluster restore \
+      $ {{ yc-mdb-my }} cluster restore \
              --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
              --time 2018-11-02T10:09:38Z \
              --name mynewmy \
              --environment=PRODUCTION \
-             --network-name default \
-             --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
+             --network-id {{ network-name }} \
+             --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
              --disk-size 20 \
              --disk-type network-ssd \
-             --resource-preset s1.nano
+             --resource-preset {{ host-class }}
       ```
+  
+      {% else %}
+  
+      ```
+      $ {{ yc-mdb-my }} cluster restore \
+             --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
+             --time 2018-11-02T10:09:38Z \
+             --name mynewmy \
+             --environment=PRODUCTION \
+             --network-name {{ network-name }} \
+             --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
+             --disk-size 20 \
+             --disk-type network-ssd \
+             --resource-preset {{ host-class }}
+      ```
+      
+      {% endif %}
   
       В результате будет создан {{ MY }}-кластер со следующими характеристиками:
       
+      {% if audience == "internal" %}
       
+      - С именем `mynewmy`.
+      - В окружении `PRODUCTION`.
+      - С одним хостом класса `{{ host-class }}` в зоне доступности `{{ zone-id }}`.
+      - С базами данных и пользователями из резервной копии.
+      - С сетевым SSD-хранилищем объемом 20 ГБ.
+      
+      {% endif %}
+      
+      {% if audience != "internal" %}
       
       - С именем `mynewmy`.
       - В окружении `PRODUCTION`.
@@ -75,6 +104,8 @@
       - С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `{{ zone-id }}`.
       - С базами данных и пользователями из резервной копии.
       - С сетевым SSD-хранилищем объемом 20 ГБ.
+      
+      {% endif %}
   
 {% endlist %}
 
@@ -100,13 +131,13 @@
   1. Посмотрите описание команды CLI для создания резервной копии {{ MG }}:
   
       ```
-      $ yc managed-mongodb cluster backup --help
+      $ {{ yc-mdb-my }} cluster backup --help
       ```
   
   1. Запросите создание резервной копии, указав имя или идентификатор кластера:
   
       ```
-      $ yc managed-mongodb cluster backup my-mg-cluster
+      $ {{ yc-mdb-my }} cluster backup <имя кластера>
       ```
   
       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
@@ -132,7 +163,7 @@
   Чтобы получить список резервных копий кластеров {{ MG }}, доступных в каталоге по умолчанию, выполните команду:
   
   ```
-  $ yc managed-mongodb backup list
+  $ {{ yc-mdb-my }} backup list
   
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -163,7 +194,7 @@
   Чтобы получить данные о резервной копии кластера {{ MG }}, выполните команду:
   
   ```
-  $ yc yc managed-mongodb backup get <идентификатор резервной копии>
+  $ yc {{ yc-mdb-my }} backup get <идентификатор резервной копии>
   ```
 
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -184,7 +215,7 @@
   Чтобы задать время начала резервного копирования, используйте флаг `--backup-window-start`. Время задается в формате ``ЧЧ:ММ:СС``.
 
   ```
-  $ yc yc managed-mongodb cluster create \
+  $ yc {{ yc-mdb-my }} cluster create \
      --name <имя кластера> \
      --environment <окружение, prestable или production> \
      --network-name <имя сети> \
@@ -196,7 +227,7 @@
   Изменить время начала резервного копирования в существующем кластере можно с помощью команды `update`:
 
   ```
-  $ yc yc managed-mongodb cluster update \
+  $ yc {{ yc-mdb-my }} cluster update \
      --name <имя кластера> \
      --backup-window-start 11:25:00
   ```

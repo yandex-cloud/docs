@@ -16,6 +16,8 @@
 
 - [{#T}](dataset/create.md)
 - [{#T}](dataset/create-field.md)
+- [{#T}](dataset/materialize.md)
+- [{#T}](dataset/manage-row-level-security.md)
 - [{#T}](dataset/manage-access.md)
 
 ## Создание и настройка чартов
@@ -26,6 +28,7 @@
 - [{#T}](chart/create-pie-chart.md)
 - [{#T}](chart/create-table.md)
 - [{#T}](chart/create-pivot-table.md)
+- [{#T}](chart/publish.md)
 - [{#T}](chart/manage-access.md)
 
 ## Работа с дашбордами
@@ -33,4 +36,5 @@
 - [{#T}](dashboard/create.md)
 - [{#T}](dashboard/add-chart.md)
 - [{#T}](dashboard/add-selector.md)
+- [{#T}](dashboard/publish.md)
 - [{#T}](dashboard/manage-access.md)

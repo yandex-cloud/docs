@@ -1,0 +1,1000 @@
+openapi: "3.0"
+info:
+  title: Yandex IoT Devices Service
+  description: Description not set.
+  version: v1
+paths:
+  /iot-devices/v1/devices/{deviceId}:
+    get:
+      tags:
+      - Device
+      operationId: DeviceGet
+      parameters:
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Device
+      operationId: DeviceDelete
+      parameters:
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteDeviceMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Device
+      operationId: DeviceUpdate
+      parameters:
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDeviceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateDeviceMetadata'
+      x-y-operation-response: '[Device](/Device#representation)'
+  /iot-devices/v1/devices:
+    get:
+      tags:
+      - Device
+      operationId: DeviceList
+      parameters:
+      - name: registryId
+        in: query
+        description: The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: folderId
+        in: query
+        description: The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDevicesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Device
+      operationId: DeviceCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDeviceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateDeviceMetadata'
+      x-y-operation-response: '[Device](/Device#representation)'
+  /iot-devices/v1/devices/{deviceId}/certificates:
+    get:
+      tags:
+      - Device
+      operationId: DeviceListCertificates
+      parameters:
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDeviceCertificatesResponse'
+      x-y-navtitle: listCertificates
+    post:
+      tags:
+      - Device
+      operationId: DeviceAddCertificate
+      parameters:
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDeviceCertificateRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addCertificate
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddDeviceCertificateMetadata'
+      x-y-operation-response: DeviceCertificate
+  /iot-devices/v1/devices/{deviceId}/certificates/{fingerprint}:
+    delete:
+      tags:
+      - Device
+      operationId: DeviceDeleteCertificate
+      parameters:
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: fingerprint
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deleteCertificate
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteDeviceCertificateMetadata'
+      x-y-operation-response: Empty
+  /iot-devices/v1/devices/{deviceId}/operations:
+    get:
+      tags:
+      - Device
+      operationId: DeviceListOperations
+      parameters:
+      - name: deviceId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDeviceOperationsResponse'
+      x-y-navtitle: listOperations
+  /iot-devices/v1/registries/{registryId}:
+    get:
+      tags:
+      - Registry
+      operationId: RegistryGet
+      parameters:
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Registry'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Registry
+      operationId: RegistryDelete
+      parameters:
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteRegistryMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Registry
+      operationId: RegistryUpdate
+      parameters:
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRegistryRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateRegistryMetadata'
+      x-y-operation-response: '[Registry](/Registry#representation)'
+  /iot-devices/v1/registries:
+    get:
+      tags:
+      - Registry
+      operationId: RegistryList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRegistriesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Registry
+      operationId: RegistryCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRegistryRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateRegistryMetadata'
+      x-y-operation-response: '[Registry](/Registry#representation)'
+  /iot-devices/v1/registries/{registryId}/certificates:
+    get:
+      tags:
+      - Registry
+      operationId: RegistryListCertificates
+      parameters:
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRegistryCertificatesResponse'
+      x-y-navtitle: listCertificates
+    post:
+      tags:
+      - Registry
+      operationId: RegistryAddCertificate
+      parameters:
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddRegistryCertificateRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addCertificate
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddRegistryCertificateMetadata'
+      x-y-operation-response: RegistryCertificate
+    delete:
+      tags:
+      - Registry
+      operationId: RegistryDeleteCertificate
+      parameters:
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: fingerprint
+        in: query
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deleteCertificate
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteRegistryCertificateMetadata'
+      x-y-operation-response: Empty
+  /iot-devices/v1/registries/{registryId}:listDeviceTopicAliases:
+    get:
+      tags:
+      - Registry
+      operationId: RegistryListDeviceTopicAliases
+      parameters:
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDeviceTopicAliasesResponse'
+      x-y-navtitle: listDeviceTopicAliases
+  /iot-devices/v1/registries/{registryId}/operations:
+    get:
+      tags:
+      - Registry
+      operationId: RegistryListOperations
+      parameters:
+      - name: registryId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRegistryOperationsResponse'
+      x-y-navtitle: listOperations
+components:
+  schemas:
+    AddDeviceCertificateMetadata:
+      type: object
+      properties:
+        deviceId:
+          type: string
+        fingerprint:
+          type: string
+    AddDeviceCertificateRequest:
+      type: object
+      properties:
+        certificateData:
+          type: string
+    AddRegistryCertificateMetadata:
+      type: object
+      properties:
+        registryId:
+          type: string
+        fingerprint:
+          type: string
+    AddRegistryCertificateRequest:
+      type: object
+      properties:
+        certificateData:
+          type: string
+    CreateDeviceMetadata:
+      type: object
+      properties:
+        deviceId:
+          type: string
+    CreateDeviceRequest:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+        certificates:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateDeviceRequestCertificate'
+        topicAliases:
+          description: map from alias to canonical topic name prefix, e.g. my/custom/alias
+            -> $device/{id}/events
+          type: object
+          additionalProperties:
+            type: string
+    CreateDeviceRequestCertificate:
+      type: object
+      properties:
+        certificateData:
+          type: string
+    CreateRegistryMetadata:
+      type: object
+      properties:
+        registryId:
+          type: string
+    CreateRegistryRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        certificates:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateRegistryRequestCertificate'
+    CreateRegistryRequestCertificate:
+      type: object
+      properties:
+        certificateData:
+          type: string
+    DeleteDeviceCertificateMetadata:
+      type: object
+      properties:
+        deviceId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        fingerprint:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+    DeleteDeviceMetadata:
+      type: object
+      properties:
+        deviceId:
+          type: string
+    DeleteRegistryCertificateMetadata:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        fingerprint:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+    DeleteRegistryMetadata:
+      type: object
+      properties:
+        registryId:
+          type: string
+    Device:
+      type: object
+      properties:
+        id:
+          type: string
+        registryId:
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        topicAliases:
+          description: map from alias to canonical topic name prefix, e.g. my/custom/alias
+            -> $device/abcdef/events
+          type: object
+          additionalProperties:
+            type: string
+    DeviceAlias:
+      type: object
+      properties:
+        deviceId:
+          type: string
+        topicPrefix:
+          description: prefix of canonical topic name to be aliased, e.g. $devices/abcdef
+          type: string
+        alias:
+          type: string
+    DeviceCertificate:
+      type: object
+      properties:
+        deviceId:
+          type: string
+        fingerprint:
+          type: string
+        certificateData:
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ListDeviceCertificatesResponse:
+      type: object
+      properties:
+        certificates:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceCertificate'
+    ListDeviceOperationsResponse:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          type: string
+    ListDeviceTopicAliasesResponse:
+      type: object
+      properties:
+        aliases:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceAlias'
+        nextPageToken:
+          type: string
+    ListDevicesResponse:
+      type: object
+      properties:
+        devices:
+          type: array
+          items:
+            $ref: '#/components/schemas/Device'
+        nextPageToken:
+          type: string
+    ListRegistriesResponse:
+      type: object
+      properties:
+        registries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Registry'
+        nextPageToken:
+          type: string
+    ListRegistryCertificatesResponse:
+      type: object
+      properties:
+        certificates:
+          type: array
+          items:
+            $ref: '#/components/schemas/RegistryCertificate'
+    ListRegistryOperationsResponse:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    Registry:
+      type: object
+      properties:
+        id:
+          type: string
+        folderId:
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        status:
+          $ref: '#/components/schemas/RegistryStatus_in_Registry_status'
+        logGroupId:
+          type: string
+    RegistryCertificate:
+      type: object
+      properties:
+        registryId:
+          type: string
+        fingerprint:
+          type: string
+        certificateData:
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+    RegistryStatus:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
+    UpdateDeviceMetadata:
+      type: object
+      properties:
+        deviceId:
+          type: string
+    UpdateDeviceRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateDeviceRequest_updateMask'
+        name:
+          description: |-
+            The maximum string length in characters is 50.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+        topicAliases:
+          description: map from alias to canonical topic name prefix, e.g. my/custom/alias
+            -> $device/abcdef/events
+          type: object
+          additionalProperties:
+            type: string
+    UpdateRegistryMetadata:
+      type: object
+      properties:
+        registryId:
+          type: string
+    UpdateRegistryRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateRegistryRequest_updateMask'
+        name:
+          description: |-
+            The maximum string length in characters is 50.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    RegistryStatus_in_Registry_status:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
+    FieldMask_in_UpdateDeviceRequest_updateMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    FieldMask_in_UpdateRegistryRequest_updateMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+tags:
+- name: Device
+- name: Registry

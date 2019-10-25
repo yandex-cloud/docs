@@ -1,0 +1,19 @@
+items:
+  - name: Overview
+    href: undefined/index.md
+  - name: Trigger
+    items:
+      - name: Overview
+        href: undefined/Trigger/index.md
+      - name: create
+        href: undefined/Trigger/create.md
+      - name: delete
+        href: undefined/Trigger/delete.md
+      - name: get
+        href: undefined/Trigger/get.md
+      - name: list
+        href: undefined/Trigger/list.md
+      - name: listOperations
+        href: undefined/Trigger/listOperations.md
+      - name: update
+        href: undefined/Trigger/update.md

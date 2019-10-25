@@ -23,7 +23,7 @@ Backups of deleted clusters are stored for seven days.
   To delete a cluster, run the command:
 
   ```
-  $ yc managed-redis cluster delete <cluster name or ID>
+  $ {{ yc-mdb-rd }} cluster delete <cluster name or ID>
   ```
 
   The cluster name and ID can be requested with a [list of clusters in the folder](cluster-list.md).

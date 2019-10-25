@@ -1,0 +1,1 @@
+[`mdb.dataproc.agent`](../../../../iam/concepts/access-control/roles.md#mdb-dataproc-agent) — позволяет сервисному аккаунту, привязанному к кластеру {{ dataproc-name }}, сообщать сервису о состоянии каждого хоста в кластере.

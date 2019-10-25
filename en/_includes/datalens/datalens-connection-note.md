@@ -1,6 +1,6 @@
 {% note important %}
 
-When connecting to an external data source (which is not a Yandex.Cloud resource), grant access to the source for the following ranges of IP addresses of the DataLens service:
+When connecting to an external data source (which is not a Yandex.Cloud resource), grant access to the source for the following ranges of DataLens IP addresses:
 
 - `77.88.39.88/29`
 - `93.158.158.96/29`

@@ -1,0 +1,49 @@
+items:
+  - name: Overview
+    href: undefined/index.md
+  - name: Device
+    items:
+      - name: Overview
+        href: undefined/Device/index.md
+      - name: addCertificate
+        href: undefined/Device/addCertificate.md
+      - name: create
+        href: undefined/Device/create.md
+      - name: delete
+        href: undefined/Device/delete.md
+      - name: deleteCertificate
+        href: undefined/Device/deleteCertificate.md
+      - name: get
+        href: undefined/Device/get.md
+      - name: list
+        href: undefined/Device/list.md
+      - name: listCertificates
+        href: undefined/Device/listCertificates.md
+      - name: listOperations
+        href: undefined/Device/listOperations.md
+      - name: update
+        href: undefined/Device/update.md
+  - name: Registry
+    items:
+      - name: Overview
+        href: undefined/Registry/index.md
+      - name: addCertificate
+        href: undefined/Registry/addCertificate.md
+      - name: create
+        href: undefined/Registry/create.md
+      - name: delete
+        href: undefined/Registry/delete.md
+      - name: deleteCertificate
+        href: undefined/Registry/deleteCertificate.md
+      - name: get
+        href: undefined/Registry/get.md
+      - name: list
+        href: undefined/Registry/list.md
+      - name: listCertificates
+        href: undefined/Registry/listCertificates.md
+      - name: listDeviceTopicAliases
+        href: undefined/Registry/listDeviceTopicAliases.md
+      - name: listOperations
+        href: undefined/Registry/listOperations.md
+      - name: update
+        href: undefined/Registry/update.md

@@ -1,0 +1,23 @@
+title: "Кабинет партнера Marketplace"
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Создать тариф
+        href: operations/create-tariff.md
+      - name: Создать новый продукт
+        href: operations/create-product.md
+      - name: Изменить информацию о продукте
+        href: operations/change-product.md
+      - name: Создать новую версию продукта
+        href: operations/create-new-version.md
+  - name: Концепции
+    items:
+      - name: Продукт
+        href: concepts/product.md
+      - name: Тариф
+        href: concepts/tariff.md

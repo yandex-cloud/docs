@@ -1,0 +1,168 @@
+openapi: "3.0"
+info:
+  title: Yandex Locator API
+  description: Сервис не оперирует ресурсами. Все методы сервиса представлены на странице
+    [Locator](Locator/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://locator.api.cloud.yandex.net
+paths:
+  /locator/v1/getLocation:
+    post:
+      tags:
+      - Locator
+      summary: |-
+        Возвращает местоположение и радиус точности на основе информации об IP-адресе,
+        вышках сотовой связи и точках доступа Wi-Fi, которые доступны мобильному устройству.
+      operationId: LocatorGetLocation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationResponse'
+      x-y-navtitle: getLocation
+components:
+  schemas:
+    CellInfo:
+      type: object
+      properties:
+        mobileCountryCode:
+          description: |-
+            Обязательное поле.
+            Mobile Country Code ([MCC](https://en.wikipedia.org/wiki/Mobile_country_code)).
+
+            Допустимые значения — от 1 до 999 включительно.
+          type: string
+          format: int64
+        mobileNetworkCode:
+          description: |-
+            Обязательное поле.
+            Mobile Network Code сотовой вышки:
+
+            * Для сетей GSM и WCDMA — [MNC](https://en.wikipedia.org/wiki/Mobile_country_code).
+            * Для CDMA — System ID (SID).
+
+            Значение должно быть больше 0.
+          type: string
+          format: int64
+        cellId:
+          description: |-
+            Обязательное поле.
+            Уникальный идентификатор соты:
+
+            * Для GSM — Cell ID ([CID](https://en.wikipedia.org/wiki/Cell_ID)).
+            * Для CDMA — Base Station ID (BID).
+            * Для WCDMA — UTRAN Cell ID, который является объединением [Radio Network Controller](https://en.wikipedia.org/wiki/Radio_Network_Controller) ID и Cell ID. Указание только значения Cell ID в сетях WCDMA может возвращать неточные результаты.
+
+            Значение должно быть больше 0.
+          type: string
+          format: int64
+        locationAreaCode:
+          description: |-
+            Обязательное поле.
+            * Для GSM и WCDMA — Location Area Code ([LAC](https://en.wikipedia.org/wiki/Mobility_management#Location_area)).
+            * Для CDMA — Network ID (NID).
+            * Для LTE — [Tracking Area Code](https://en.wikipedia.org/wiki/Mobility_management#Tracking_area).
+
+            Значение должно быть больше 0.
+          type: string
+          format: int64
+        signalStrength:
+          description: |-
+            Обязательное поле.
+            Текущая сила сигнала в дБм.
+
+            Значение должно быть меньше 0.
+          type: string
+          format: int64
+    Location:
+      type: object
+      properties:
+        latitude:
+          description: Предполагаемая широта в градусах, значение от -90 до 90.
+          type: number
+          format: double
+        longitude:
+          description: Предполагаемая долгота в градусах, значение от -180 до 180.
+          type: number
+          format: double
+        precision:
+          description: |-
+            Предполагаемая погрешность расположения в метрах. Представляет собой радиус
+            окружности вокруг местоположения.
+          type: number
+          format: double
+    LocationNotFound:
+      type: object
+      properties:
+        message:
+          description: Сообщение с причиной.
+          type: string
+    LocationRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Идентификатор папки, к которой у вас есть доступ. Требуется для авторизации с
+            пользовательским аккаунтом (см. ресурс [UserAccount](/docs/iam/api-ref/UserAccount#representation) ). Не используйте это поле,
+            если вы делаете запрос от имени сервисного аккаунта.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        cellTowers:
+          description: Массив сотовых вышек, видимых устройству.
+          type: array
+          items:
+            $ref: '#/components/schemas/CellInfo'
+        wifiAccessPoints:
+          description: Массив точек доступа WiFi, видимых устройству.
+          type: array
+          items:
+            $ref: '#/components/schemas/WifiInfo'
+        ip:
+          description: IP-адрес в формате IPv4 или IPv6.
+          type: string
+    LocationResponse:
+      type: object
+      allOf:
+      - title: response
+        type: object
+        maxProperties: 1
+        properties:
+          location:
+            $ref: '#/components/schemas/Location'
+            description: Примерное местоположение пользователя.
+          locationNotFound:
+            $ref: '#/components/schemas/LocationNotFound'
+            description: Описание ошибки, если местоположение пользователя не определено.
+    WifiInfo:
+      type: object
+      properties:
+        bssid:
+          description: |-
+            Обязательное поле.
+            MAC-адрес точки доступа WiFi. Обычно он называется BSS, BSSID или MAC-адресом.
+
+            Значение - 12 шестнадцатеричных цифр без разделителей `:` (двоеточие).
+
+            Значение должно соответствовать регулярному выражению `` [0-9a-fA-F]{12} ``.
+          type: string
+        signalStrength:
+          description: |-
+            Обязательное поле.
+            Текущая сила сигнала в дБм.
+
+            Значение должно быть меньше 0.
+          type: string
+          format: int64
+tags:
+- name: Locator
+  description: Набор методов для сервиса Yandex Locator.

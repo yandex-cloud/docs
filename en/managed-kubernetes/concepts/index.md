@@ -15,7 +15,7 @@ The service fully controls the master and monitors the status and health of a no
 {{ k8s }} node groups require internet access to download images and components.
 Internet access can be provided in the following ways:
 - By assigning each node in the group a [public IP address](../../vpc/concepts/address.md#public-addresses).
-- [By configuring a VM as a NAT gateway](../operations/nat-instance.md). In this case, only one public IP address will be used: the one that is assigned to the gateway.
+- [By configuring a VM as a NAT instance](../../solutions/routing/nat-instance.md).
 
 {% endnote %}
 
@@ -24,15 +24,27 @@ When working with a {{ k8s }} cluster in the Yandex.Cloud infrastructure, the fo
 | Resource | Amount | Comment |
 | ---- | :---: | ---- |
 | Subnet | 2 | {{ k8s }} reserves IP address ranges to be used for pods and services. |
-| Route table | 1 | Used for routing traffic between pods inside a Kubernetes cluster. |
-| Public IP | N | N includes:</br> - **A single** public IP address for the NAT gateway.</br> - A public IP address assigned to **each** node in the group if you use the one-to-one NAT technology.</br> |
+| Public IP | N | N includes:</br> - **A single** public IP address for the NAT instance.</br> - A public IP address assigned to **each** node in the group if you use the one-to-one NAT technology.</br> |
 
 ### Master {#master}
 
-_A master_ is a node that manages a {{ k8s }} cluster.
+_Masters_ are components that manage {{ k8s }} clusters.
 
-The master runs {{ k8s }} control processes that include the {{ k8s }} API server, scheduler, and main resource controllers. The master's lifecycle is managed by the service when creating or deleting a {{ k8s }} cluster. The master is responsible for global solutions that are run on all {{ k8s }} cluster nodes. These include scheduling workloads (such as containerized applications), managing the lifecycle of workloads, and scaling.
+They run {{ k8s }} control processes that include the {{ k8s }} API server, scheduler, and main resource controllers. The master lifecycle is managed by the service when creating or deleting a {{ k8s }} cluster. The master is responsible for global solutions that are run on all {{ k8s }} cluster nodes. These include scheduling workloads (such as containerized applications), managing the lifecycle of workloads, and scaling.
 
+There are two types of masters that differ by their location in [availability zones](../../overview/concepts/geo-scope.md):
+
+- _Zonal_: A master created in a subnet in one availability zone.
+
+- _Regional_: A master created and distributed in three subnets in each availability zone. If a zone becomes unavailable, the regional master remains functional.
+
+    {% note important %}
+    
+    - Regional masters are only supported when they're [created in subnets](../../vpc/operations/subnet-create.md) with ranges `172.16.0.0/12` and `192.168.0.0/16`.
+    - The internal IP address of a regional master is only available within a single {{ vpc-full-name }} cloud network.
+
+    {% endnote %}
+    
 ### Node group {#node-group}
 
 _A node group_ is a group of VMs with the same configuration in a {{ k8s }} cluster that is running the user's containers.

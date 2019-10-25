@@ -1,0 +1,4674 @@
+openapi: "3.0"
+info:
+  title: Yandex Managed Service for MongoDB API
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов.
+    Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://mdb.api.cloud.yandex.net
+paths:
+  /managed-mongodb/v1/backups/{backupId}:
+    get:
+      tags:
+      - Backup
+      summary: Возвращает указанную резервную копию MongoDB.
+      description: Чтобы получить список доступных резервных копий MongoDB, выполните
+        запрос [list](/docs/managed-mongodb/api-ref/Backup/list).
+      operationId: BackupGet
+      parameters:
+      - name: backupId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор резервной копии, сведения о которой запрашиваются. Чтобы получить
+          идентификатор резервной копии, используйте запрос [listBackups](/docs/managed-mongodb/api-ref/Cluster/listBackups).
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Backup'
+      x-y-navtitle: get
+  /managed-mongodb/v1/backups:
+    get:
+      tags:
+      - Backup
+      summary: Возвращает список резервных копий, доступных в указанном каталоге.
+      operationId: BackupList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для вывода списка резервных копий. Чтобы получить
+          идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Backup/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-mongodb/api-ref/Backup/list#responses), которое
+          можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/managed-mongodb/api-ref/Backup/list#query_params) равным значению поля
+          [nextPageToken](/docs/managed-mongodb/api-ref/Backup/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBackupsResponse'
+      x-y-navtitle: list
+  /managed-mongodb/v1/clusters/{clusterId}:
+    get:
+      tags:
+      - Cluster
+      summary: Возвращает указанный ресурс Cluster для MongoDB.
+      description: Чтобы получить список доступных кластеров MongoDB, отправьте запрос
+        [list](/docs/managed-mongodb/api-ref/Cluster/list).
+      operationId: ClusterGet
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого ресурса Cluster для MongoDB. Чтобы получить идентификатор
+          кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cluster'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Cluster
+      summary: Удаляет указанный кластер MongoDB.
+      operationId: ClusterDelete
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, который следует удалить. Чтобы получить идентификатор
+          кластера MongoDB, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteClusterMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Cluster
+      summary: Изменяет указанный кластер MongoDB.
+      operationId: ClusterUpdate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор изменяемого ресурса Cluster для MongoDB. Чтобы получить идентификатор
+          кластера MongoDB, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-mongodb/api-ref/Cluster#representation)'
+  /managed-mongodb/v1/clusters:
+    get:
+      tags:
+      - Cluster
+      summary: Получает список ресурсов Cluster для MongoDB, принадлежащих указанному
+        каталогу.
+      operationId: ClusterList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для вывода списка кластеров MongoDB. Чтобы получить
+          идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Cluster/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/list#responses), которое
+          можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/managed-mongodb/api-ref/Cluster/list#query_params) равным значению поля
+          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрацию можно использовать только с полем [Cluster.name](/docs/managed-mongodb/api-ref/Cluster#representation).
+          2. Оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Должен содержать от 1 до 63 символов и соответствовать регулярному выражению `^[a-zA-Z0-9_-]+$`.
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClustersResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Cluster
+      summary: Создает кластер MongoDB в указанном каталоге.
+      operationId: ClusterCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-mongodb/api-ref/Cluster#representation)'
+  /managed-mongodb/v1/clusters/{clusterId}:start:
+    post:
+      tags:
+      - Cluster
+      summary: Запускает указанный кластер MongoDB.
+      operationId: ClusterStart
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, который следует запустить.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: start
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StartClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-mongodb/api-ref/Cluster#representation)'
+  /managed-mongodb/v1/clusters/{clusterId}:stop:
+    post:
+      tags:
+      - Cluster
+      summary: Останавливает указанный кластер MongoDB.
+      operationId: ClusterStop
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, который следует остановить.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: stop
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StopClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-mongodb/api-ref/Cluster#representation)'
+  /managed-mongodb/v1/clusters/{clusterId}:move:
+    post:
+      tags:
+      - Cluster
+      summary: Перемещает кластер MongoDB в указанный каталог.
+      operationId: ClusterMove
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, который следует переместить.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: move
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/MoveClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-mongodb/api-ref/Cluster#representation)'
+  /managed-mongodb/v1/clusters/{clusterId}:backup:
+    post:
+      tags:
+      - Cluster
+      summary: Создает резервную копию для указанного кластера MongoDB.
+      operationId: ClusterBackup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, для которого следует создать резервную копию. Чтобы
+          получить идентификатор кластера MongoDB, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: backup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/BackupClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-mongodb/api-ref/Cluster#representation)'
+  /managed-mongodb/v1/clusters:restore:
+    post:
+      tags:
+      - Cluster
+      summary: Создает новый кластер MongoDB с использованием указанной резервной
+        копии.
+      operationId: ClusterRestore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestoreClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: restore
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RestoreClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-mongodb/api-ref/Cluster#representation)'
+  /managed-mongodb/v1/clusters/{clusterId}:logs:
+    get:
+      tags:
+      - Cluster
+      summary: |-
+        Получает логи для указанного кластера MongoDB. Логи подробно описаны в разделе
+        [Logs](/docs/yandex-mdb-guide/concepts/logs) руководства разработчика.
+      operationId: ClusterListLogs
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, для которого следует запросить логи. Чтобы получить
+          идентификатор кластера MongoDB, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: |-
+          Столбцы из таблицы логов для запроса. Если столбцы не указаны, записи логов
+          возвращаются целиком.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: serviceType
+        in: query
+        description: Тип сервиса, для которого следует запросить логи.
+        schema:
+          $ref: '#/components/schemas/ListClusterLogsRequestServiceType'
+      - name: fromTime
+        in: query
+        description: |-
+          Начало периода, для которого следует запросить логи, в формате
+          [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+          Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          Конец периода, для которого следует запросить логи, в формате
+          [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+          Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+        schema:
+          type: string
+          format: date-time
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Cluster/listLogs#query_params), сервис вернет значение [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listLogs#responses),
+          которое можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/managed-mongodb/api-ref/Cluster/listLogs#query_params) равным значению поля
+          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listLogs#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterLogsResponse'
+      x-y-navtitle: listLogs
+  /managed-mongodb/v1/clusters/{clusterId}/operations:
+    get:
+      tags:
+      - Cluster
+      summary: Получает список ресурсов Operation для указанного кластера.
+      operationId: ClusterListOperations
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса Cluster для MongoDB, для которого запрашивается список операций.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Cluster/listOperations#query_params), сервис вернет значение [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listOperations#responses),
+          которое можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/managed-mongodb/api-ref/Cluster/listOperations#query_params) равным значению поля
+          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterOperationsResponse'
+      x-y-navtitle: listOperations
+  /managed-mongodb/v1/clusters/{clusterId}/backups:
+    get:
+      tags:
+      - Cluster
+      summary: Получает список доступных резервных копий для указанного кластера MongoDB.
+      operationId: ClusterListBackups
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB. Чтобы получить идентификатор кластера MongoDB,
+          используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Cluster/listBackups#query_params), сервис вернет значение [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listBackups#responses),
+          которое можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/managed-mongodb/api-ref/Cluster/listBackups#query_params) равным значению поля
+          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listBackups#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterBackupsResponse'
+      x-y-navtitle: listBackups
+  /managed-mongodb/v1/clusters/{clusterId}/hosts:
+    get:
+      tags:
+      - Cluster
+      summary: Получает список хостов для указанного кластера.
+      operationId: ClusterListHosts
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB. Чтобы получить идентификатор кластера MongoDB,
+          используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Cluster/listHosts#query_params), сервис вернет значение [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listHosts#responses),
+          которое можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/managed-mongodb/api-ref/Cluster/listHosts#query_params) равным значению поля
+          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listHosts#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterHostsResponse'
+      x-y-navtitle: listHosts
+  /managed-mongodb/v1/clusters/{clusterId}/hosts:batchCreate:
+    post:
+      tags:
+      - Cluster
+      summary: Создает новые хосты для кластера.
+      operationId: ClusterAddHosts
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, для которого следует добавить хосты. Чтобы получить
+          идентификатор кластера MongoDB, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddClusterHostsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addHosts
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddClusterHostsMetadata'
+      x-y-operation-response: Empty
+  /managed-mongodb/v1/clusters/{clusterId}/hosts:batchDelete:
+    post:
+      tags:
+      - Cluster
+      summary: Удаляет указанные хосты кластера.
+      operationId: ClusterDeleteHosts
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, из которого следует удалить хосты. Чтобы получить
+          идентификатор кластера MongoDB, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteClusterHostsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deleteHosts
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteClusterHostsMetadata'
+      x-y-operation-response: Empty
+  /managed-mongodb/v1/clusters/{clusterId}:enableSharding:
+    post:
+      tags:
+      - Cluster
+      summary: |-
+        Включает шардирование для кластера: создает 3 хоста mongocfg и 2 хоста mongos, которые
+        необходимы чтобы добавлять и использовать шарды в кластере.
+      operationId: ClusterEnableSharding
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, для которого нужно включить шардирование.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnableClusterShardingRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: enableSharding
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/EnableClusterShardingMetadata'
+      x-y-operation-response: Empty
+  /managed-mongodb/v1/clusters/{clusterId}/shards/{shardName}:
+    get:
+      tags:
+      - Cluster
+      summary: Возвращает указанный шард.
+      operationId: ClusterGetShard
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор MongoDB-кластера, которому принадлежит шард. Чтобы получить
+          идентификатор кластера, используйте запрос [List].
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: shardName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя запрашиваемого шарда MongoDB. Чтобы получить имя шарда, используйте запрос [ListShards].
+
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shard'
+      x-y-navtitle: getShard
+    delete:
+      tags:
+      - Cluster
+      summary: Удаляет указанный шард.
+      operationId: ClusterDeleteShard
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, в котором следует удалить шард. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: shardName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя шарда MongoDB, который следует удалить. Чтобы получить имя шарда, используйте запрос
+          [ListShards].
+
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deleteShard
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteClusterShardMetadata'
+      x-y-operation-response: Empty
+  /managed-mongodb/v1/clusters/{clusterId}/shards:
+    get:
+      tags:
+      - Cluster
+      summary: Получает список шардов.
+      operationId: ClusterListShards
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, для которого следует вернуть список баз данных. Чтобы
+          получить идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Cluster/listShards#query_params), сервис вернет значение [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#responses),
+          которое можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#query_params) равным значению поля
+          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterShardsResponse'
+      x-y-navtitle: listShards
+    post:
+      tags:
+      - Cluster
+      summary: Создает новый шард.
+      operationId: ClusterAddShard
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, в который нужно добавить шард. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddClusterShardRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addShard
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddClusterShardMetadata'
+      x-y-operation-response: Shard
+  /managed-mongodb/v1/clusters/{clusterId}/databases/{databaseName}:
+    get:
+      tags:
+      - Database
+      summary: Возвращает указанный ресурс Database для MongoDB.
+      description: Чтобы получить список доступных ресурсов Database для MongoDB,
+        отправьте запрос [list](/docs/managed-mongodb/api-ref/Database/list).
+      operationId: DatabaseGet
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, к которому принадлежит база данных. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: databaseName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя запрашиваемой базы данных MongoDB. Чтобы получить имя базы данных, используйте
+          запрос [List].
+
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Database'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Database
+      summary: Удаляет указанную базу данных MongoDB.
+      operationId: DatabaseDelete
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, в котором следует удалить базу данных. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: databaseName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя удаляемой базы данных. Чтобы получить имя базы данных, используйте запрос
+          [list](/docs/managed-mongodb/api-ref/Database/list).
+
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteDatabaseMetadata'
+      x-y-operation-response: Empty
+  /managed-mongodb/v1/clusters/{clusterId}/databases:
+    get:
+      tags:
+      - Database
+      summary: Получает список ресурсов Database для указанного кластера MongoDB.
+      operationId: DatabaseList
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, для которого следует вернуть список баз данных. Чтобы
+          получить идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Database/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-mongodb/api-ref/Database/list#responses), которое
+          можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/managed-mongodb/api-ref/Database/list#query_params) равным значению поля
+          [nextPageToken](/docs/managed-mongodb/api-ref/Database/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDatabasesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Database
+      summary: Создает новую базу данных MongoDB в указанном кластере.
+      operationId: DatabaseCreate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, в котором следует создать базу данных. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDatabaseRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateDatabaseMetadata'
+      x-y-operation-response: '[Database](/docs/managed-mongodb/api-ref/Database#representation)'
+  /managed-mongodb/v1/resourcePresets/{resourcePresetId}:
+    get:
+      tags:
+      - ResourcePreset
+      summary: Возвращает указанный ресурс ResourcePreset.
+      description: Чтобы получить список доступных ресурсов ResourcePreset, используйте
+        запрос [list](/docs/managed-mongodb/api-ref/ResourcePreset/list).
+      operationId: ResourcePresetGet
+      parameters:
+      - name: resourcePresetId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор набора ресурсов, данные о котором запрашиваются. Чтобы получить
+          идентификатор набора ресурсов, используйте запрос [list](/docs/managed-mongodb/api-ref/ResourcePreset/list).
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourcePreset'
+      x-y-navtitle: get
+  /managed-mongodb/v1/resourcePresets:
+    get:
+      tags:
+      - ResourcePreset
+      summary: Получает список доступных ресурсов ResourcePreset.
+      operationId: ResourcePresetList
+      parameters:
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/ResourcePreset/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-mongodb/api-ref/ResourcePreset/list#responses),
+          которое можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/managed-mongodb/api-ref/ResourcePreset/list#query_params) равным значению поля
+          [nextPageToken](/docs/managed-mongodb/api-ref/ResourcePreset/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListResourcePresetsResponse'
+      x-y-navtitle: list
+  /managed-mongodb/v1/clusters/{clusterId}/users/{userName}:
+    get:
+      tags:
+      - User
+      summary: Возвращает указанный ресурс User для MongoDB.
+      description: Чтобы получить список доступных ресурсов User для MongoDB, отправьте
+        запрос [list](/docs/managed-mongodb/api-ref/User/list).
+      operationId: UserGet
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, к которому принадлежит пользователь. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя запрашиваемого ресурса User для MongoDB. Чтобы получить имя пользователя, используйте
+          запрос [list](/docs/managed-mongodb/api-ref/User/list).
+
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - User
+      summary: Удаляет указанного пользователя MongoDB.
+      operationId: UserDelete
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, к которому принадлежит пользователь. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя удаляемого пользователя. Чтобы получить имя пользователя, используйте запрос
+          [list](/docs/managed-mongodb/api-ref/User/list).
+
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteUserMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - User
+      summary: Изменяет указанного пользователя MongoDB.
+      operationId: UserUpdate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, к которому принадлежит пользователь. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя пользователя, которого следует изменить. Чтобы получить имя пользователя,
+          используйте запрос [list](/docs/managed-mongodb/api-ref/User/list).
+
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateUserMetadata'
+      x-y-operation-response: '[User](/docs/managed-mongodb/api-ref/User#representation)'
+  /managed-mongodb/v1/clusters/{clusterId}/users:
+    get:
+      tags:
+      - User
+      summary: Получает список ресурсов User для указанного кластера MongoDB.
+      operationId: UserList
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера, для которого нужно получить список пользователей MongoDB.
+          Чтобы получить идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/User/list#query_params), сервис вернет значение [nextPageToken](/docs/managed-mongodb/api-ref/User/list#responses), которое
+          можно использовать для получения следующей страницы.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/managed-mongodb/api-ref/User/list#query_params) равным значению поля [nextPageToken](/docs/managed-mongodb/api-ref/User/list#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListUsersResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - User
+      summary: Создает пользователя MongoDB в указанном кластере.
+      operationId: UserCreate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, для которого следует создать пользователя. Чтобы
+          получить идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateUserMetadata'
+      x-y-operation-response: '[User](/docs/managed-mongodb/api-ref/User#representation)'
+  /managed-mongodb/v1/clusters/{clusterId}/users/{userName}:grantPermission:
+    post:
+      tags:
+      - User
+      summary: Предоставляет разрешение указанному пользователю MongoDB.
+      operationId: UserGrantPermission
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, к которому принадлежит пользователь. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя пользователя, которому следует предоставить разрешение. Чтобы получить имя
+          пользователя, используйте запрос [list](/docs/managed-mongodb/api-ref/User/list).
+
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrantUserPermissionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: grantPermission
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/GrantUserPermissionMetadata'
+      x-y-operation-response: '[User](/docs/managed-mongodb/api-ref/User#representation)'
+  /managed-mongodb/v1/clusters/{clusterId}/users/{userName}:revokePermission:
+    post:
+      tags:
+      - User
+      summary: Отзывает разрешение у указанного пользователя MongoDB.
+      operationId: UserRevokePermission
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера MongoDB, к которому принадлежит пользователь. Чтобы получить
+          идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя пользователя, у которого следует отозвать разрешение. Чтобы получить имя
+          пользователя, используйте запрос [list](/docs/managed-mongodb/api-ref/User/list).
+
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevokeUserPermissionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: revokePermission
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RevokeUserPermissionMetadata'
+      x-y-operation-response: '[User](/docs/managed-mongodb/api-ref/User#representation)'
+components:
+  schemas:
+    AddClusterHostsMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера MongoDB, в который добавляются хосты.
+          type: string
+        hostNames:
+          description: Имена хостов, добавляемых в кластер.
+          type: array
+          items:
+            type: string
+    AddClusterHostsRequest:
+      type: object
+      properties:
+        hostSpecs:
+          description: |-
+            Обязательное поле.
+            Конфигурации для хостов MongoDB, которые должны быть добавлены в кластер.
+
+            Должен содержать хотя бы один элемент.
+          type: array
+          items:
+            $ref: '#/components/schemas/HostSpec'
+    AddClusterShardMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера MongoDB, в который добавляется шард.
+          type: string
+        shardName:
+          description: Имя добавляемого шарда.
+          type: string
+    AddClusterShardRequest:
+      type: object
+      properties:
+        shardName:
+          description: |-
+            Обязательное поле.
+            Имя создаваемого шарда MongoDB.
+
+            Максимальная длина строки в символах — 63.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+          type: string
+        hostSpecs:
+          description: |-
+            Обязательное поле.
+            Конфигурации для хостов mongod, которые будут созданы вместе с шардом.
+
+            Должен содержать хотя бы один элемент.
+          type: array
+          items:
+            $ref: '#/components/schemas/HostSpec'
+    Backup:
+      description: Резервная копия MongoDB. Подробнее см. в разделе [Developer's Guide](/docs/managed-mongodb/concepts).
+      type: object
+      properties:
+        id:
+          description: Идентификатор резервной копии.
+          type: string
+        folderId:
+          description: Идентификатор каталога, которому принадлежит резервная копия.
+          type: string
+        createdAt:
+          description: |-
+            Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) (т. е. когда операция резервного
+            копирования была завершена).
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        sourceClusterId:
+          description: Идентификатор кластера MongoDB, для которого была создана резервная
+            копия.
+          type: string
+        startedAt:
+          description: |-
+            Время запуска операции резервного копирования.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        sourceShardNames:
+          description: Имена шардов, которые использовались при создании резервной
+            копии.
+          type: array
+          items:
+            type: string
+    BackupClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера MongoDB, для которого выполняется резервное
+            копирование.
+          type: string
+    Cluster:
+      description: Управляемый кластер MongoDB. Подробнее см. в [документации](/docs/managed-mongodb/concepts).
+      type: object
+      properties:
+        id:
+          description: Идентификатор кластера MongoDB. Этот идентификатор генерирует
+            MDB при создании.
+          type: string
+        folderId:
+          description: Идентификатор каталога, которому принадлежит кластер MongoDB.
+          type: string
+        createdAt:
+          description: |-
+            Время создания в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) .
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        name:
+          description: Имя кластера MongoDB. Имя уникально в рамках каталога. Длина
+            1-63 символов.
+          type: string
+        description:
+          description: Описание кластера MongoDB. Длина описания должна быть от 0
+            до 256 символов.
+          type: string
+        labels:
+          description: Пользовательские метки для кластера MongoDB как пары `` key:value
+            ``. Максимум 64 на ресурс.
+          type: object
+          additionalProperties:
+            type: string
+        environment:
+          $ref: '#/components/schemas/ClusterEnvironment_in_Cluster_environment'
+        monitoring:
+          description: Описание систем мониторинга, относящихся к данному кластеру
+            MongoDB.
+          type: array
+          items:
+            $ref: '#/components/schemas/Monitoring'
+        config:
+          $ref: '#/components/schemas/ClusterConfig_in_Cluster_config'
+        networkId:
+          description: Идентификатор сети, к которой принадлежит кластер.
+          type: string
+        health:
+          $ref: '#/components/schemas/ClusterHealth_in_Cluster_health'
+        status:
+          $ref: '#/components/schemas/ClusterStatus_in_Cluster_status'
+        sharded:
+          description: Указывает текущее состояние шардирования кластера.
+          type: boolean
+          format: boolean
+    ClusterConfig:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          version:
+            description: Версия серверного программного обеспечения MongoDB.
+            type: string
+          featureCompatibilityVersion:
+            description: |-
+              Функционально совместимая версия MongoDB. Подробнее в [документации MongoDB](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+
+              Возможные значения:
+              * 3.6 — сохранить совместимость данных с версией 3.6. После установки этого параметра данные не будут совместимы с версией 3.4 или ниже.
+              * 4.0 — сохранить совместимость данных с версией 4.0. После установки этого параметра данные не будут совместимы с версией 3.6 или ниже.
+            type: string
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
+      - title: mongodb
+        type: object
+        maxProperties: 1
+        properties:
+          mongodb_3_6:
+            $ref: '#/components/schemas/Mongodb3_6'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              3.6.
+          mongodb_4_0:
+            $ref: '#/components/schemas/Mongodb4_0'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              4.0.
+    ClusterEnvironment:
+      description: |-
+        Среда развертывания.
+
+         - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного
+        обслуживания применяются только срочные исправления.
+         - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются
+        независимо от обратной совместимости.
+      type: string
+      enum:
+      - PRODUCTION
+      - PRESTABLE
+    ClusterHealth:
+      description: |2-
+         - HEALTH_UNKNOWN: Состояние кластера неизвестно ([Host.health] для каждого хоста в кластере — UNKNOWN).
+         - ALIVE: Кластер работает нормально ([Host.health] для каждого хоста в кластере — ALIVE).
+         - DEAD: Кластер не работает ([Host.health] для каждого узла в кластере — DEAD).
+         - DEGRADED: Кластер работает неоптимально ([Host.health] по крайней мере для одного узла в кластере
+        не ALIVE).
+      type: string
+      enum:
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
+      default: HEALTH_UNKNOWN
+    ClusterStatus:
+      description: |2-
+         - STATUS_UNKNOWN: Состояние кластера неизвестно.
+         - CREATING: Кластер создается.
+         - RUNNING: Кластер работает нормально.
+         - ERROR: На кластере произошла ошибка, блокирующая работу.
+         - UPDATING: Кластер изменяется.
+         - STOPPING: Кластер останавливается.
+         - STOPPED: Кластер остановлен.
+         - STARTING: Кластер запускается.
+      type: string
+      enum:
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
+      default: STATUS_UNKNOWN
+    ConfigSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          version:
+            description: |-
+              Версия MongoDB, используемая в кластере. Возможные значения:
+              * 3.6.
+              * 4.0
+            type: string
+          featureCompatibilityVersion:
+            description: |-
+              Функционально совместимая версия MongoDB. Подробнее в [MongoDB
+              documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+
+              Возможные значения:
+              * 3.6 — сохранить совместимость данных с версией 3.6. После установки этого параметра данные не будут совместимы с версией 3.4 или ниже.
+              * 4.0 — сохранить совместимость данных с версией 4.0. После установки этого параметра данные не будут совместимы с версией 3.6 или ниже.
+            type: string
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
+      - title: mongodb_spec
+        type: object
+        maxProperties: 1
+        properties:
+          mongodbSpec_3_6:
+            $ref: '#/components/schemas/MongodbSpec3_6'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              3.6.
+          mongodbSpec_4_0:
+            $ref: '#/components/schemas/MongodbSpec4_0'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              4.0.
+    CreateClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор создаваемого кластера MongoDB.
+          type: string
+    CreateClusterRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Обязательное поле.
+            Идентификатор каталога, в котором нужно создать кластер MongoDB.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        name:
+          description: |-
+            Обязательное поле.
+            Имя кластера MongoDB. Имя должно быть уникальным в каталоге.
+
+            Максимальная длина строки в символах — 63.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+          type: string
+        description:
+          description: |-
+            Описание кластера MongoDB.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Пользовательские метки для кластера MongoDB как `` key:value `` pairs. Maximum 64 per resource.
+            For example, `project": "mvp" или "source": "dictionary".
+
+            Не более 64 на ресурс.
+            Максимальная длина строки в символах для каждого ключа — 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        environment:
+          $ref: '#/components/schemas/ClusterEnvironment_in_CreateClusterRequest_environment'
+        configSpec:
+          $ref: '#/components/schemas/ConfigSpec_in_CreateClusterRequest_configSpec'
+        databaseSpecs:
+          description: |-
+            Обязательное поле.
+            Описания баз данных, которые нужно создать в кластере MongoDB.
+
+            Должен содержать хотя бы один элемент.
+          type: array
+          items:
+            $ref: '#/components/schemas/DatabaseSpec'
+        userSpecs:
+          description: |-
+            Обязательное поле.
+            Описания пользователей базы данных, которых нужно создать в кластере MongoDB.
+
+            Должен содержать хотя бы один элемент.
+          type: array
+          items:
+            $ref: '#/components/schemas/UserSpec'
+        hostSpecs:
+          description: |-
+            Обязательное поле.
+            Конфигурации для отдельных хостов, которые должны быть созданы для кластера MongoDB.
+
+            Должен содержать хотя бы один элемент.
+          type: array
+          items:
+            $ref: '#/components/schemas/HostSpec'
+        networkId:
+          description: |-
+            Обязательное поле.
+            Идентификатор сети, в которой нужно создать кластер.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+    CreateDatabaseMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера MongoDB, в котором создается база данных.
+          type: string
+        databaseName:
+          description: Имя создаваемой базы данных MongoDB.
+          type: string
+    CreateDatabaseRequest:
+      type: object
+      properties:
+        databaseSpec:
+          $ref: '#/components/schemas/DatabaseSpec_in_CreateDatabaseRequest_databaseSpec'
+    CreateUserMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера MongoDB, в котором создается пользователь.
+          type: string
+        userName:
+          description: Имя создаваемого пользователя.
+          type: string
+    CreateUserRequest:
+      type: object
+      properties:
+        userSpec:
+          $ref: '#/components/schemas/UserSpec_in_CreateUserRequest_userSpec'
+    Database:
+      description: Ресурс Database для MongoDB. Подробнее см. в разделе [Developer's
+        Guide](/docs/managed-mongodb/concepts).
+      type: object
+      properties:
+        name:
+          description: Имя базы данных.
+          type: string
+        clusterId:
+          description: Идентификатор кластера MongoDB, к которому принадлежит база
+            данных.
+          type: string
+    DatabaseSpec:
+      type: object
+      properties:
+        name:
+          description: |-
+            Обязательное поле.
+            Имя базы данных MongoDB. Длина 1-63 символов.
+
+            Максимальная длина строки в символах — 63.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]{1,63} ``.
+          type: string
+    DeleteClusterHostsMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера MongoDB, из которого следует удалить
+            хосты.
+          type: string
+        hostNames:
+          description: Имена удаляемых хостов.
+          type: array
+          items:
+            type: string
+    DeleteClusterHostsRequest:
+      type: object
+      properties:
+        hostNames:
+          description: |-
+            Обязательное поле.
+            Имена хостов, которые следует удалить.
+
+            Должен содержать хотя бы один элемент.
+            Максимальная длина строки в символах для каждого значения — 253.
+          type: array
+          items:
+            type: string
+    DeleteClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор удаляемого кластера MongoDB.
+          type: string
+    DeleteClusterShardMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера MongoDB, в котором удаляется шард.
+          type: string
+        shardName:
+          description: Имя удаляемого шарда.
+          type: string
+    DeleteDatabaseMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера MongoDB, в котором удаляется база данных.
+          type: string
+        databaseName:
+          description: Имя удаляемой базы данных MongoDB.
+          type: string
+    DeleteUserMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера MongoDB, к которому принадлежит пользователь.
+          type: string
+        userName:
+          description: Имя удаляемого пользователя.
+          type: string
+    Empty:
+      description: Пустой JSON объект `` {} ``.
+      type: object
+      maxProperties: 0
+    EnableClusterShardingMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера MongoDB, для которого включается шардирование.
+          type: string
+    EnableClusterShardingRequest:
+      type: object
+      properties:
+        mongocfg:
+          $ref: '#/components/schemas/EnableClusterShardingRequestMongoCfg_in_EnableClusterShardingRequest_mongocfg'
+        mongos:
+          $ref: '#/components/schemas/EnableClusterShardingRequestMongos_in_EnableClusterShardingRequest_mongos'
+        hostSpecs:
+          description: |-
+            Обязательное поле.
+            Конфигурации для хостов mongos и mongocfg.
+
+            Должен содержать хотя бы один элемент.
+          type: array
+          items:
+            $ref: '#/components/schemas/HostSpec'
+    EnableClusterShardingRequestMongoCfg:
+      type: object
+      properties:
+        resources:
+          $ref: '#/components/schemas/Resources_in_EnableClusterShardingRequestMongoCfg_resources'
+    EnableClusterShardingRequestMongos:
+      type: object
+      properties:
+        resources:
+          $ref: '#/components/schemas/Resources_in_EnableClusterShardingRequestMongos_resources'
+    FieldMask:
+      description: |-
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    GrantUserPermissionMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            Идентификатор кластера MongoDB, к которому принадлежит пользователь. Чтобы получить
+            идентификатор кластера, используйте запрос [list](/docs/managed-mongodb/api-ref/Cluster/list).
+          type: string
+        userName:
+          description: Имя пользователя, которому предоставляется разрешение.
+          type: string
+    GrantUserPermissionRequest:
+      type: object
+      properties:
+        permission:
+          $ref: '#/components/schemas/Permission_in_GrantUserPermissionRequest_permission'
+    Host:
+      type: object
+      properties:
+        name:
+          description: |-
+            Имя хоста MongoDB. Имя хоста назначается MDB во время создания и не может быть изменено.
+            Длина 1-63 символов.
+
+            Имя уникально для всех существующих хостов MDB в Яндекс.Облаке, так как оно определяет
+            полное доменное имя (FQDN) хоста.
+          type: string
+        clusterId:
+          description: Идентификатор хоста MongoDB. Этот идентификатор генерирует
+            MDB при создании.
+          type: string
+        zoneId:
+          description: Идентификатор зоны доступности, в которой находится хост MongoDB.
+          type: string
+        resources:
+          $ref: '#/components/schemas/Resources_in_Host_resources'
+        role:
+          $ref: '#/components/schemas/HostRole_in_Host_role'
+        health:
+          $ref: '#/components/schemas/HostHealth_in_Host_health'
+        services:
+          description: Сервисы, предоставляемые хостом.
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
+        subnetId:
+          description: Идентификатор подсети, к которой принадлежит хост.
+          type: string
+        assignPublicIp:
+          description: Флаг, показывающий статус публичного IP-адреса для этого хоста.
+          type: boolean
+          format: boolean
+        shardName:
+          description: Шард, которому принадлежит этот этот хост.
+          type: string
+        type:
+          $ref: '#/components/schemas/HostType_in_Host_type'
+    HostHealth:
+      description: |2-
+         - HEALTH_UNKNOWN: Состояние хоста неизвестно.
+         - ALIVE: Хозяин выполняет все свои функции нормально.
+         - DEAD: Хост не работает и не может выполнять свои основные функции.
+         - DEGRADED: Хост деградировал, и может выполнять только некоторые из своих основных функций.
+      type: string
+      enum:
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
+      default: HEALTH_UNKNOWN
+    HostRole:
+      description: |2-
+         - ROLE_UNKNOWN: Роль хоста в кластере неизвестна.
+         - PRIMARY: Хост является основным сервером MongoDB в кластере.
+         - SECONDARY: Хост является вторичным сервером MongoDB в кластере.
+      type: string
+      enum:
+      - ROLE_UNKNOWN
+      - PRIMARY
+      - SECONDARY
+      default: ROLE_UNKNOWN
+    HostSpec:
+      type: object
+      properties:
+        zoneId:
+          description: |-
+            Идентификатор зоны доступности, в которой находится хост. Чтобы получить список
+            доступных зон, используйте запрос [list](/docs/compute/api-ref/Zone/list).
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        subnetId:
+          description: |-
+            Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть
+            частью сети, к которой принадлежит кластер. Идентификатор сети устанавливается в
+            поле [Cluster.networkId](/docs/managed-mongodb/api-ref/Cluster#representation).
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        assignPublicIp:
+          description: |-
+            Должен ли хост получить публичный IP-адрес при создании.
+
+            После создания узла этот параметр изменить нельзя. Чтобы удалить назначенный
+            публичный IP-адрес или назначить публичный IP уже созданному хосту, пересоздайте хост
+            с нужным значением поля assignPublicIp.
+
+            Возможные значения:
+            * false — не назначать хосту публичный IP-адрес.
+            * true — у хоста должен быть публичный IP-адрес.
+          type: boolean
+          format: boolean
+        type:
+          $ref: '#/components/schemas/HostType_in_HostSpec_type'
+        shardName:
+          description: |-
+            Имя шарда, которому принадлежит хост.
+
+            Максимальная длина строки в символах — 63.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+          type: string
+    HostType:
+      description: |2-
+         - MONGOD: Хост mongod.
+         - MONGOS: Хост mongos.
+         - MONGOCFG: Хост mongocfg.
+      type: string
+      enum:
+      - MONGOD
+      - MONGOS
+      - MONGOCFG
+    ListBackupsResponse:
+      type: object
+      properties:
+        backups:
+          description: Список резервных копий.
+          type: array
+          items:
+            $ref: '#/components/schemas/Backup'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Backup/list#query_params), используйте [nextPageToken](/docs/managed-mongodb/api-ref/Backup/list#responses) в качестве значения
+            параметра [pageToken](/docs/managed-mongodb/api-ref/Backup/list#query_params) в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения [nextPageToken](/docs/managed-mongodb/api-ref/Backup/list#responses) для перебора страниц результатов.
+          type: string
+    ListClusterBackupsResponse:
+      type: object
+      properties:
+        backups:
+          description: Список ресурсов Backup для MongoDB.
+          type: array
+          items:
+            $ref: '#/components/schemas/Backup'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Cluster/listBackups#query_params), используйте [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listBackups#responses) в качестве
+            значения параметра [pageToken](/docs/managed-mongodb/api-ref/Cluster/listBackups#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listBackups#responses) для перебора страниц
+            результатов.
+          type: string
+    ListClusterHostsResponse:
+      type: object
+      properties:
+        hosts:
+          description: Список ресурсов Host.
+          type: array
+          items:
+            $ref: '#/components/schemas/Host'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Cluster/listHosts#query_params), используйте [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listHosts#responses) в качестве
+            значения параметра [pageToken](/docs/managed-mongodb/api-ref/Cluster/listHosts#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listHosts#responses) для перебора страниц
+            результатов.
+          type: string
+    ListClusterLogsRequestServiceType:
+      description: ' - MONGOD: Логи работы MongoDB.'
+      type: string
+      enum:
+      - MONGOD
+    ListClusterLogsResponse:
+      type: object
+      properties:
+        logs:
+          description: Запрошенные записи логов.
+          type: array
+          items:
+            $ref: '#/components/schemas/LogRecord'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Cluster/listLogs#query_params), используйте [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listLogs#responses) в качестве
+            значения параметра [pageToken](/docs/managed-mongodb/api-ref/Cluster/listLogs#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listLogs#responses) для перебора страниц
+            результатов.
+          type: string
+    ListClusterOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список ресурсов Operation для указанного кластера MongoDB.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Cluster/listOperations#query_params), используйте [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/managed-mongodb/api-ref/Cluster/listOperations#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listOperations#responses) для перебора страниц
+            результатов.
+          type: string
+    ListClusterShardsResponse:
+      type: object
+      properties:
+        shards:
+          description: Список шардов MongoDB.
+          type: array
+          items:
+            $ref: '#/components/schemas/Shard'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Cluster/listShards#query_params), используйте [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#responses) в качестве
+            значения параметра [pageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#responses) для перебора страниц
+            результатов.
+          type: string
+    ListClustersResponse:
+      type: object
+      properties:
+        clusters:
+          description: Список ресурсов Cluster для MongoDB.
+          type: array
+          items:
+            $ref: '#/components/schemas/Cluster'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Cluster/list#query_params), используйте [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/list#responses) в качестве значения
+            параметра [pageToken](/docs/managed-mongodb/api-ref/Cluster/list#query_params) в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/list#responses) для перебора страниц результатов.
+          type: string
+    ListDatabasesResponse:
+      type: object
+      properties:
+        databases:
+          description: Список баз данных MongoDB.
+          type: array
+          items:
+            $ref: '#/components/schemas/Database'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/Database/list#query_params), используйте [nextPageToken](/docs/managed-mongodb/api-ref/Database/list#responses) в качестве значения
+            параметра [pageToken](/docs/managed-mongodb/api-ref/Database/list#query_params) в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения [nextPageToken](/docs/managed-mongodb/api-ref/Database/list#responses) для перебора страниц результатов.
+          type: string
+    ListResourcePresetsResponse:
+      type: object
+      properties:
+        resourcePresets:
+          description: Список ресурсов ResourcePreset.
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourcePreset'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/ResourcePreset/list#query_params), используйте [nextPageToken](/docs/managed-mongodb/api-ref/ResourcePreset/list#responses) в качестве
+            значения параметра [pageToken](/docs/managed-mongodb/api-ref/ResourcePreset/list#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/managed-mongodb/api-ref/ResourcePreset/list#responses) для перебора страниц
+            результатов.
+          type: string
+    ListUsersResponse:
+      type: object
+      properties:
+        users:
+          description: Список ресурсов User для MongoDB.
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/managed-mongodb/api-ref/User/list#query_params), используйте [nextPageToken](/docs/managed-mongodb/api-ref/User/list#responses) в качестве значения
+            параметра [pageToken](/docs/managed-mongodb/api-ref/User/list#query_params) в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения [nextPageToken](/docs/managed-mongodb/api-ref/User/list#responses) для перебора страниц результатов.
+          type: string
+    LogRecord:
+      type: object
+      properties:
+        timestamp:
+          description: |-
+            Отметка времени для записи журнала в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) текстовом формате.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        message:
+          description: Содержание записи журнала.
+          type: object
+          additionalProperties:
+            type: string
+    MongoCfgConfig3_6:
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig3_6Storage_in_MongoCfgConfig3_6_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig3_6OperationProfiling_in_MongoCfgConfig3_6_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig3_6Network_in_MongoCfgConfig3_6_net'
+    MongoCfgConfig3_6Network:
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            Максимальное количество входящих подключений.
+
+            Допустимые значения — от 10 до 16384 включительно.
+          type: integer
+          format: int64
+    MongoCfgConfig3_6OperationProfiling:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongoCfgConfig3_6OperationProfilingMode_in_MongoCfgConfig3_6OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            Порог времени для медленных операций, в миллисекундах. Операции, которые
+            выполняются дольше этого порога, считаются медленными и обрабатываются
+            профайлером, работающим в режиме SLOW_OP. Подробнее см. в [MongoDB
+            documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+    MongoCfgConfig3_6OperationProfilingMode:
+      description: |2-
+         - OFF: Профайлер выключен и не собирает никакие данные. Это уровень профилирования по
+        умолчанию.
+         - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
+        slowOpThreshold.
+         - ALL: Профайлер собирает данные для всех операций.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongoCfgConfig3_6Storage:
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongoCfgConfig3_6StorageWiredTiger_in_MongoCfgConfig3_6Storage_wiredTiger'
+    MongoCfgConfig3_6StorageWiredTiger:
+      description: Конфигурация механизма хранения WiredTiger.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongoCfgConfig3_6StorageWiredTigerEngineConfig_in_MongoCfgConfig3_6StorageWiredTiger_engineConfig'
+    MongoCfgConfig3_6StorageWiredTigerEngineConfig:
+      type: object
+      properties:
+        cacheSizeGb:
+          description: |-
+            Максимальный размер внутреннего кэша, который WiredTiger будет использовать для всех
+            данных.
+          type: number
+          format: double
+    MongoCfgConfig4_0:
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig4_0Storage_in_MongoCfgConfig4_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig4_0OperationProfiling_in_MongoCfgConfig4_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig4_0Network_in_MongoCfgConfig4_0_net'
+    MongoCfgConfig4_0Network:
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            Максимальное количество одновременных подключений, которые принимает mongocfg.
+
+            Допустимые значения — от 10 до 16384 включительно.
+          type: integer
+          format: int64
+    MongoCfgConfig4_0OperationProfiling:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongoCfgConfig4_0OperationProfilingMode_in_MongoCfgConfig4_0OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            Порог времени для медленных операций, в миллисекундах. Операции, которые
+            выполняются дольше этого порога, считаются медленными и обрабатываются
+            профайлером, работающим в режиме SLOW_OP. Подробнее см. в [MongoDB
+            documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+    MongoCfgConfig4_0OperationProfilingMode:
+      description: |2-
+         - OFF: Профайлер выключен и не собирает никакие данные.
+         - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
+        slowOpThreshold.
+         - ALL: Профайлер собирает данные для всех операций.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongoCfgConfig4_0Storage:
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongoCfgConfig4_0StorageWiredTiger_in_MongoCfgConfig4_0Storage_wiredTiger'
+    MongoCfgConfig4_0StorageWiredTiger:
+      description: Конфигурация механизма хранения WiredTiger.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_0StorageWiredTigerEngineConfig_in_MongoCfgConfig4_0StorageWiredTiger_engineConfig'
+    MongoCfgConfig4_0StorageWiredTigerEngineConfig:
+      type: object
+      properties:
+        cacheSizeGb:
+          description: |-
+            Максимальный размер внутреннего кэша, который WiredTiger будет использовать для всех
+            данных.
+          type: number
+          format: double
+    MongoCfgConfigSet3_6:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_defaultConfig'
+    MongoCfgConfigSet4_0:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_defaultConfig'
+    MongodConfig3_6:
+      description: |-
+        Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
+        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig3_6Storage_in_MongodConfig3_6_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig3_6OperationProfiling_in_MongodConfig3_6_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig3_6Network_in_MongodConfig3_6_net'
+    MongodConfig3_6Network:
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            Максимальное количество одновременных подключений, которые принимает mongod.
+
+            Допустимые значения — от 10 до 16384 включительно.
+          type: integer
+          format: int64
+    MongodConfig3_6OperationProfiling:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongodConfig3_6OperationProfilingMode_in_MongodConfig3_6OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            Порог времени для медленных операций, в миллисекундах. Операции, которые
+            выполняются дольше этого порога, считаются медленными и обрабатываются
+            профайлером, работающим в режиме SLOW_OP.
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+    MongodConfig3_6OperationProfilingMode:
+      description: |2-
+         - OFF: Профайлер выключен и не собирает никакие данные.
+         - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
+        slowOpThreshold.
+         - ALL: Профайлер собирает данные для всех операций.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongodConfig3_6Storage:
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongodConfig3_6StorageWiredTiger_in_MongodConfig3_6Storage_wiredTiger'
+        journal:
+          $ref: '#/components/schemas/MongodConfig3_6StorageJournal_in_MongodConfig3_6Storage_journal'
+    MongodConfig3_6StorageJournal:
+      type: object
+      properties:
+        enabled:
+          description: |-
+            Включен ли журнал. Возможные значения:
+            * true (по умолчанию) — журнал включен.
+            * false — журнал отключен.
+          type: boolean
+          format: boolean
+        commitInterval:
+          description: |-
+            Максимальный интервал между операциями в журнале, в миллисекундах. По умолчанию:
+            100.
+
+            Допустимые значения — от 1 до 500 включительно.
+          type: integer
+          format: int64
+    MongodConfig3_6StorageWiredTiger:
+      description: Конфигурация механизма хранения WiredTiger.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongodConfig3_6StorageWiredTigerEngineConfig_in_MongodConfig3_6StorageWiredTiger_engineConfig'
+        collectionConfig:
+          $ref: '#/components/schemas/MongodConfig3_6StorageWiredTigerCollectionConfig_in_MongodConfig3_6StorageWiredTiger_collectionConfig'
+    MongodConfig3_6StorageWiredTigerCollectionConfig:
+      type: object
+      properties:
+        blockCompressor:
+          $ref: '#/components/schemas/MongodConfig3_6StorageWiredTigerCollectionConfigCompressor_in_MongodConfig3_6StorageWiredTigerCollectionConfig_blockCompressor'
+    MongodConfig3_6StorageWiredTigerCollectionConfigCompressor:
+      description: |2-
+         - NONE: Без сжатия.
+         - SNAPPY: Сжатие [Snappy](https://docs.mongodb.com/v3.6/reference/glossary/#term-snappy).
+         - ZLIB: Сжатие [zlib](https://docs.mongodb.com/v3.6/reference/glossary/#term-zlib).
+      type: string
+      enum:
+      - NONE
+      - SNAPPY
+      - ZLIB
+    MongodConfig3_6StorageWiredTigerEngineConfig:
+      type: object
+      properties:
+        cacheSizeGb:
+          description: |-
+            Максимальный размер внутреннего кэша, который WiredTiger будет использовать для всех
+            данных.
+          type: number
+          format: double
+    MongodConfig4_0:
+      description: |-
+        Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
+        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig4_0Storage_in_MongodConfig4_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig4_0OperationProfiling_in_MongodConfig4_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig4_0Network_in_MongodConfig4_0_net'
+    MongodConfig4_0Network:
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            Максимальное количество одновременных подключений, которые принимает mongod.
+
+            Допустимые значения — от 10 до 16384 включительно.
+          type: integer
+          format: int64
+    MongodConfig4_0OperationProfiling:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongodConfig4_0OperationProfilingMode_in_MongodConfig4_0OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            Порог времени для медленных операций, в миллисекундах. Операции, которые
+            выполняются дольше этого порога, считаются медленными и обрабатываются
+            профайлером, работающим в режиме SLOW_OP.
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+    MongodConfig4_0OperationProfilingMode:
+      description: |2-
+         - OFF: Профайлер выключен и не собирает никакие данные.
+         - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
+        slowOpThreshold.
+         - ALL: Профайлер собирает данные для всех операций.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongodConfig4_0Storage:
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongodConfig4_0StorageWiredTiger_in_MongodConfig4_0Storage_wiredTiger'
+        journal:
+          $ref: '#/components/schemas/MongodConfig4_0StorageJournal_in_MongodConfig4_0Storage_journal'
+    MongodConfig4_0StorageJournal:
+      type: object
+      properties:
+        commitInterval:
+          description: |-
+            Максимальный интервал между операциями в журнале, в миллисекундах. По умолчанию:
+            100.
+
+            Допустимые значения — от 1 до 500 включительно.
+          type: integer
+          format: int64
+    MongodConfig4_0StorageWiredTiger:
+      description: Конфигурация механизма хранения WiredTiger.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongodConfig4_0StorageWiredTigerEngineConfig_in_MongodConfig4_0StorageWiredTiger_engineConfig'
+        collectionConfig:
+          $ref: '#/components/schemas/MongodConfig4_0StorageWiredTigerCollectionConfig_in_MongodConfig4_0StorageWiredTiger_collectionConfig'
+    MongodConfig4_0StorageWiredTigerCollectionConfig:
+      type: object
+      properties:
+        blockCompressor:
+          $ref: '#/components/schemas/MongodConfig4_0StorageWiredTigerCollectionConfigCompressor_in_MongodConfig4_0StorageWiredTigerCollectionConfig_blockCompressor'
+    MongodConfig4_0StorageWiredTigerCollectionConfigCompressor:
+      description: |2-
+         - NONE: Без сжатия.
+         - SNAPPY: Сжатие [Snappy](https://docs.mongodb.com/v4.0/reference/glossary/#term-snappy).
+         - ZLIB: Сжатие [zlib](https://docs.mongodb.com/v4.0/reference/glossary/#term-zlib).
+      type: string
+      enum:
+      - NONE
+      - SNAPPY
+      - ZLIB
+    MongodConfig4_0StorageWiredTigerEngineConfig:
+      type: object
+      properties:
+        cacheSizeGb:
+          description: |-
+            Максимальный размер внутреннего кэша, который WiredTiger будет использовать для всех
+            данных.
+          type: number
+          format: double
+    MongodConfigSet3_6:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongodConfig3_6_in_MongodConfigSet3_6_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongodConfig3_6_in_MongodConfigSet3_6_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongodConfig3_6_in_MongodConfigSet3_6_defaultConfig'
+    MongodConfigSet4_0:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongodConfig4_0_in_MongodConfigSet4_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongodConfig4_0_in_MongodConfigSet4_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongodConfig4_0_in_MongodConfigSet4_0_defaultConfig'
+    Mongodb3_6:
+      type: object
+      properties:
+        mongod:
+          $ref: '#/components/schemas/Mongodb3_6Mongod_in_Mongodb3_6_mongod'
+        mongocfg:
+          $ref: '#/components/schemas/Mongodb3_6MongoCfg_in_Mongodb3_6_mongocfg'
+        mongos:
+          $ref: '#/components/schemas/Mongodb3_6Mongos_in_Mongodb3_6_mongos'
+    Mongodb3_6MongoCfg:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfigSet3_6_in_Mongodb3_6MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb3_6MongoCfg_resources'
+    Mongodb3_6Mongod:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfigSet3_6_in_Mongodb3_6Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb3_6Mongod_resources'
+    Mongodb3_6Mongos:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfigSet3_6_in_Mongodb3_6Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb3_6Mongos_resources'
+    Mongodb4_0:
+      type: object
+      properties:
+        mongod:
+          $ref: '#/components/schemas/Mongodb4_0Mongod_in_Mongodb4_0_mongod'
+        mongocfg:
+          $ref: '#/components/schemas/Mongodb4_0MongoCfg_in_Mongodb4_0_mongocfg'
+        mongos:
+          $ref: '#/components/schemas/Mongodb4_0Mongos_in_Mongodb4_0_mongos'
+    Mongodb4_0MongoCfg:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfigSet4_0_in_Mongodb4_0MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_0MongoCfg_resources'
+    Mongodb4_0Mongod:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfigSet4_0_in_Mongodb4_0Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_0Mongod_resources'
+    Mongodb4_0Mongos:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfigSet4_0_in_Mongodb4_0Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_0Mongos_resources'
+    MongodbSpec3_6:
+      type: object
+      properties:
+        mongod:
+          $ref: '#/components/schemas/MongodbSpec3_6Mongod_in_MongodbSpec3_6_mongod'
+        mongocfg:
+          $ref: '#/components/schemas/MongodbSpec3_6MongoCfg_in_MongodbSpec3_6_mongocfg'
+        mongos:
+          $ref: '#/components/schemas/MongodbSpec3_6Mongos_in_MongodbSpec3_6_mongos'
+    MongodbSpec3_6MongoCfg:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfig3_6_in_MongodbSpec3_6MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec3_6MongoCfg_resources'
+    MongodbSpec3_6Mongod:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfig3_6_in_MongodbSpec3_6Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec3_6Mongod_resources'
+    MongodbSpec3_6Mongos:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfig3_6_in_MongodbSpec3_6Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec3_6Mongos_resources'
+    MongodbSpec4_0:
+      type: object
+      properties:
+        mongod:
+          $ref: '#/components/schemas/MongodbSpec4_0Mongod_in_MongodbSpec4_0_mongod'
+        mongocfg:
+          $ref: '#/components/schemas/MongodbSpec4_0MongoCfg_in_MongodbSpec4_0_mongocfg'
+        mongos:
+          $ref: '#/components/schemas/MongodbSpec4_0Mongos_in_MongodbSpec4_0_mongos'
+    MongodbSpec4_0MongoCfg:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongodbSpec4_0MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_0MongoCfg_resources'
+    MongodbSpec4_0Mongod:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfig4_0_in_MongodbSpec4_0Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_0Mongod_resources'
+    MongodbSpec4_0Mongos:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfig4_0_in_MongodbSpec4_0Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_0Mongos_resources'
+    MongosConfig3_6:
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig3_6Network_in_MongosConfig3_6_net'
+    MongosConfig3_6Network:
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            Максимальное количество входящих подключений.
+
+            Допустимые значения — от 10 до 16384 включительно.
+          type: integer
+          format: int64
+    MongosConfig4_0:
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig4_0Network_in_MongosConfig4_0_net'
+    MongosConfig4_0Network:
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            Максимальное количество одновременных подключений, которые принимает mongos.
+
+            Допустимые значения — от 10 до 16384 включительно.
+          type: integer
+          format: int64
+    MongosConfigSet3_6:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongosConfig3_6_in_MongosConfigSet3_6_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongosConfig3_6_in_MongosConfigSet3_6_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongosConfig3_6_in_MongosConfigSet3_6_defaultConfig'
+    MongosConfigSet4_0:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongosConfig4_0_in_MongosConfigSet4_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongosConfig4_0_in_MongosConfigSet4_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongosConfig4_0_in_MongosConfigSet4_0_defaultConfig'
+    Monitoring:
+      description: Система мониторинга.
+      type: object
+      properties:
+        name:
+          description: Название системы мониторинга.
+          type: string
+        description:
+          description: Описание системы мониторинга.
+          type: string
+        link:
+          description: Ссылка на графики системы мониторинга для данного кластера
+            MongoDB.
+          type: string
+    MoveClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор перемещаемого кластера MongoDB.
+          type: string
+        sourceFolderId:
+          description: Идентификатор исходного каталога.
+          type: string
+        destinationFolderId:
+          description: Идентификатор каталога назначения.
+          type: string
+    MoveClusterRequest:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            Обязательное поле.
+            Идентификатор каталога, в который следует переместить кластер.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+    Operation:
+      description: |-
+        Ресурс Operation. Дополнительные сведения см. в разделе
+        [Объект Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
+    Permission:
+      type: object
+      properties:
+        databaseName:
+          description: Имя базы данных, к которой предоставляет доступ разрешение.
+          type: string
+        roles:
+          description: Роли MongoDB базы данных databaseName, которые предоставляет
+            разрешение.
+          type: array
+          items:
+            type: string
+    ResourcePreset:
+      description: Описание конфигурации ресурсов.
+      type: object
+      properties:
+        id:
+          description: Идентификатор конфигурации ресурсов.
+          type: string
+        zoneIds:
+          description: Идентификаторы зон доступности, в которых доступен данный набор
+            ресурсов.
+          type: array
+          items:
+            type: string
+        cores:
+          description: Количество ядер CPU для хоста MongoDB, созданного с данным
+            набором ресурсов.
+          type: string
+          format: int64
+        memory:
+          description: |-
+            Объем оперативной памяти для хоста MongoDB, созданного с данным набором ресурсов, в
+            байтах.
+          type: string
+          format: int64
+    Resources:
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    RestoreClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор нового кластера MongoDB, создаваемого из резервной
+            копии.
+          type: string
+        backupId:
+          description: Идентификатор резервной копии, используемой для создания кластера.
+          type: string
+    RestoreClusterRequest:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            Обязательное поле.
+            Идентификатор резервной копии, из которой следует создать кластер. Чтобы получить
+            идентификатор резервной копии, используйте запрос [listBackups](/docs/managed-mongodb/api-ref/Cluster/listBackups).
+          type: string
+        name:
+          description: |-
+            Обязательное поле.
+            Имя нового кластера MongoDB. Имя должно быть уникальным в каталоге.
+
+            Максимальная длина строки в символах — 63.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+          type: string
+        description:
+          description: |-
+            Описание нового кластера MongoDB.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Пользовательские метки для кластера MongoDB как "` key:value `` пары. Максимум 64 на ресурс.
+            Например, "project": "mvp" или "source": "dictionary".
+
+            Не более 64 на ресурс.
+            Максимальная длина строки в символах для каждого ключа — 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        environment:
+          $ref: '#/components/schemas/ClusterEnvironment_in_RestoreClusterRequest_environment'
+        configSpec:
+          $ref: '#/components/schemas/ConfigSpec_in_RestoreClusterRequest_configSpec'
+        hostSpecs:
+          description: |-
+            Обязательное поле.
+            Конфигурации для хостов MongoDB, которые должны быть созданы для кластера, создаваемого
+            из резервной копии.
+
+            Должен содержать хотя бы один элемент.
+          type: array
+          items:
+            $ref: '#/components/schemas/HostSpec'
+        networkId:
+          description: |-
+            Обязательное поле.
+            Идентификатор сети, в которой нужно создать кластер MongoDB.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+    RevokeUserPermissionMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера MongoDB, к которому принадлежит пользователь.
+          type: string
+        userName:
+          description: Имя пользователя, чье разрешение отзывается.
+          type: string
+    RevokeUserPermissionRequest:
+      type: object
+      properties:
+        databaseName:
+          description: |-
+            Обязательное поле.
+            Имя базы данных, к которой пользователь должен потерять доступ.
+
+            Максимальная длина строки в символах — 63.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+          type: string
+    Service:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ServiceType_in_Service_type'
+        health:
+          $ref: '#/components/schemas/ServiceHealth_in_Service_health'
+    ServiceHealth:
+      description: |2-
+         - HEALTH_UNKNOWN: Работоспособность сервера неизвестна.
+         - ALIVE: Сервер работает нормально.
+         - DEAD: Сервер отключен или не отвечает.
+      type: string
+      enum:
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      default: HEALTH_UNKNOWN
+    ServiceType:
+      description: |2-
+         - MONGOD: На хосте работает демон mongod.
+         - MONGOS: На хосте работает демон mongos.
+         - MONGOCFG: На хосте работает сервер конфигураций MongoDB.
+      type: string
+      enum:
+      - MONGOD
+      - MONGOS
+      - MONGOCFG
+    Shard:
+      type: object
+      properties:
+        name:
+          description: Имя шарда.
+          type: string
+        clusterId:
+          description: Идентификатор кластера, к которому принадлежит шард.
+          type: string
+    StartClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера MongoDB.
+          type: string
+    StopClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера MongoDB.
+          type: string
+    TimeOfDay:
+      description: |-
+        Описывает время суток. Дата и часовой пояс либо не имеют значения, либо указаны другим
+        образом. API может разрешить високосные секунды. Связанные типы: [google.type.Date][google.type.Date] и
+        `google.protobuf.Timestamp`.
+      type: object
+      properties:
+        hours:
+          description: |-
+            Час в 24-часовом формате. Допустимые значения — от 0 до 23. API может разрешить значение
+            "24:00:00" для таких сценариев, как время закрытия заведения.
+          type: integer
+          format: int32
+        minutes:
+          description: Минута часа. Допустимые значения — от 0 до 59.
+          type: integer
+          format: int32
+        seconds:
+          description: |-
+            Секунда минуты. Обычно допустимые значения — от 0 до 59. API может разрешить значение 60,
+            если поддерживаются високосные секунды.
+          type: integer
+          format: int32
+        nanos:
+          description: Доли секунды, в наносекундах. Допустимые значения — от 0 до
+            999 999 999.
+          type: integer
+          format: int32
+    UpdateClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор изменяемого ресурса Cluster для MongoDB.
+          type: string
+    UpdateClusterRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateClusterRequest_updateMask'
+        description:
+          description: |-
+            Новое описание кластера MongoDB.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Пользовательские метки для кластера MongoDB как "` key:value `` pairs. Maximum 64 per resource.
+            For example, `project": "mvp" или "source": "dictionary".
+
+            Новый набор меток полностью заменит старый. Чтобы добавить метку, запросите текущий
+            набор меток с помощью метода [get](/docs/managed-mongodb/api-ref/Cluster/get), затем отправьте запрос [update](/docs/managed-mongodb/api-ref/Cluster/update),
+            добавив новую метку в этот набор.
+
+            Не более 64 на ресурс.
+            Максимальная длина строки в символах для каждого ключа — 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        configSpec:
+          $ref: '#/components/schemas/ConfigSpec_in_UpdateClusterRequest_configSpec'
+    UpdateUserMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера MongoDB, к которому принадлежит пользователь.
+          type: string
+        userName:
+          description: Имя изменяемого пользователя.
+          type: string
+    UpdateUserRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateUserRequest_updateMask'
+        password:
+          description: |-
+            Новый пароль для пользователя.
+
+            Длина строки в символах должна быть от 8 до 128.
+          type: string
+        permissions:
+          description: Новый набор разрешений для пользователя.
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+    User:
+      description: Ресурс User для MongoDB. Подробнее см. в разделе [Developer's Guide](/docs/managed-mongodb/concepts).
+      type: object
+      properties:
+        name:
+          description: Имя пользователя базы данных MongoDB.
+          type: string
+        clusterId:
+          description: Идентификатор кластера MongoDB, к которому принадлежит пользователь.
+          type: string
+        permissions:
+          description: Набор разрешений, предоставленных пользователю.
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+    UserSpec:
+      type: object
+      properties:
+        name:
+          description: |-
+            Обязательное поле.
+            Имя пользователя базы данных MongoDB.
+
+            Максимальная длина строки в символах — 63.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+          type: string
+        password:
+          description: |-
+            Обязательное поле.
+            Пароль пользователя MongoDB.
+
+            Длина строки в символах должна быть от 8 до 128.
+          type: string
+        permissions:
+          description: Набор разрешений, которые следует предоставить пользователю.
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+    rpcStatus:
+      description: Описание ошибки в случае сбоя или отмены операции.
+      type: object
+      properties:
+        code:
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: Текст ошибки.
+          type: string
+        details:
+          description: Список сообщений с подробными сведениями об ошибке.
+          type: array
+          items:
+            type: object
+    ClusterEnvironment_in_Cluster_environment:
+      description: |-
+        Среда развертывания кластера MongoDB.
+
+        Среда развертывания.
+
+         - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного
+        обслуживания применяются только срочные исправления.
+         - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются
+        независимо от обратной совместимости.
+      type: string
+      enum:
+      - PRODUCTION
+      - PRESTABLE
+    ClusterConfig_in_Cluster_config:
+      description: Конфигурация кластера MongoDB.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          version:
+            description: Версия серверного программного обеспечения MongoDB.
+            type: string
+          featureCompatibilityVersion:
+            description: |-
+              Функционально совместимая версия MongoDB. Подробнее в [документации MongoDB](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+
+              Возможные значения:
+              * 3.6 — сохранить совместимость данных с версией 3.6. После установки этого параметра данные не будут совместимы с версией 3.4 или ниже.
+              * 4.0 — сохранить совместимость данных с версией 4.0. После установки этого параметра данные не будут совместимы с версией 3.6 или ниже.
+            type: string
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
+      - title: mongodb
+        type: object
+        maxProperties: 1
+        properties:
+          mongodb_3_6:
+            $ref: '#/components/schemas/Mongodb3_6'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              3.6.
+          mongodb_4_0:
+            $ref: '#/components/schemas/Mongodb4_0'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              4.0.
+    ClusterHealth_in_Cluster_health:
+      description: |-
+        Агрегированная работоспособность кластера.
+
+         - HEALTH_UNKNOWN: Состояние кластера неизвестно ([Host.health] для каждого хоста в кластере — UNKNOWN).
+         - ALIVE: Кластер работает нормально ([Host.health] для каждого хоста в кластере — ALIVE).
+         - DEAD: Кластер не работает ([Host.health] для каждого узла в кластере — DEAD).
+         - DEGRADED: Кластер работает неоптимально ([Host.health] по крайней мере для одного узла в кластере
+        не ALIVE).
+      type: string
+      enum:
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
+      default: HEALTH_UNKNOWN
+    ClusterStatus_in_Cluster_status:
+      description: |-
+        Текущее состояние кластера.
+
+         - STATUS_UNKNOWN: Состояние кластера неизвестно.
+         - CREATING: Кластер создается.
+         - RUNNING: Кластер работает нормально.
+         - ERROR: На кластере произошла ошибка, блокирующая работу.
+         - UPDATING: Кластер изменяется.
+         - STOPPING: Кластер останавливается.
+         - STOPPED: Кластер остановлен.
+         - STARTING: Кластер запускается.
+      type: string
+      enum:
+      - STATUS_UNKNOWN
+      - CREATING
+      - RUNNING
+      - ERROR
+      - UPDATING
+      - STOPPING
+      - STOPPED
+      - STARTING
+      default: STATUS_UNKNOWN
+    ClusterEnvironment_in_CreateClusterRequest_environment:
+      description: |-
+        Обязательное поле.
+        Среда развертывания кластера MongoDB.
+
+        Среда развертывания.
+
+         - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного
+        обслуживания применяются только срочные исправления.
+         - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются
+        независимо от обратной совместимости.
+      type: string
+      enum:
+      - PRODUCTION
+      - PRESTABLE
+    ConfigSpec_in_CreateClusterRequest_configSpec:
+      description: |-
+        Обязательное поле.
+        Конфигурация и ресурсы для хостов, которые должны быть созданы для кластера MongoDB.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          version:
+            description: |-
+              Версия MongoDB, используемая в кластере. Возможные значения:
+              * 3.6.
+              * 4.0
+            type: string
+          featureCompatibilityVersion:
+            description: |-
+              Функционально совместимая версия MongoDB. Подробнее в [MongoDB
+              documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+
+              Возможные значения:
+              * 3.6 — сохранить совместимость данных с версией 3.6. После установки этого параметра данные не будут совместимы с версией 3.4 или ниже.
+              * 4.0 — сохранить совместимость данных с версией 4.0. После установки этого параметра данные не будут совместимы с версией 3.6 или ниже.
+            type: string
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
+      - title: mongodb_spec
+        type: object
+        maxProperties: 1
+        properties:
+          mongodbSpec_3_6:
+            $ref: '#/components/schemas/MongodbSpec3_6'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              3.6.
+          mongodbSpec_4_0:
+            $ref: '#/components/schemas/MongodbSpec4_0'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              4.0.
+    DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
+      description: |-
+        Обязательное поле.
+        Конфигурация создаваемой базы данных.
+      type: object
+      properties:
+        name:
+          description: |-
+            Обязательное поле.
+            Имя базы данных MongoDB. Длина 1-63 символов.
+
+            Максимальная длина строки в символах — 63.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]{1,63} ``.
+          type: string
+    UserSpec_in_CreateUserRequest_userSpec:
+      description: Свойства создаваемого пользователя.
+      type: object
+      properties:
+        name:
+          description: |-
+            Обязательное поле.
+            Имя пользователя базы данных MongoDB.
+
+            Максимальная длина строки в символах — 63.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_]* ``.
+          type: string
+        password:
+          description: |-
+            Обязательное поле.
+            Пароль пользователя MongoDB.
+
+            Длина строки в символах должна быть от 8 до 128.
+          type: string
+        permissions:
+          description: Набор разрешений, которые следует предоставить пользователю.
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+    EnableClusterShardingRequestMongoCfg_in_EnableClusterShardingRequest_mongocfg:
+      description: |-
+        Обязательное поле.
+        Спецификация mongocfg для шардирования.
+      type: object
+      properties:
+        resources:
+          $ref: '#/components/schemas/Resources_in_EnableClusterShardingRequestMongoCfg_resources'
+    EnableClusterShardingRequestMongos_in_EnableClusterShardingRequest_mongos:
+      description: |-
+        Обязательное поле.
+        Спецификация mongos для шардирования.
+      type: object
+      properties:
+        resources:
+          $ref: '#/components/schemas/Resources_in_EnableClusterShardingRequestMongos_resources'
+    Resources_in_EnableClusterShardingRequestMongoCfg_resources:
+      description: |-
+        Обязательное поле.
+        Ресурсы для хостов mongocfg.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    Resources_in_EnableClusterShardingRequestMongos_resources:
+      description: |-
+        Обязательное поле.
+        Ресурсы для хостов mongos.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    Permission_in_GrantUserPermissionRequest_permission:
+      description: |-
+        Обязательное поле.
+        Разрешение, которое должно быть предоставлено указанному пользователю.
+      type: object
+      properties:
+        databaseName:
+          description: Имя базы данных, к которой предоставляет доступ разрешение.
+          type: string
+        roles:
+          description: Роли MongoDB базы данных databaseName, которые предоставляет
+            разрешение.
+          type: array
+          items:
+            type: string
+    Resources_in_Host_resources:
+      description: Ресурсы, выделенные хосту MongoDB.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    HostRole_in_Host_role:
+      description: |-
+        Роль хоста в кластере.
+
+         - ROLE_UNKNOWN: Роль хоста в кластере неизвестна.
+         - PRIMARY: Хост является основным сервером MongoDB в кластере.
+         - SECONDARY: Хост является вторичным сервером MongoDB в кластере.
+      type: string
+      enum:
+      - ROLE_UNKNOWN
+      - PRIMARY
+      - SECONDARY
+      default: ROLE_UNKNOWN
+    HostHealth_in_Host_health:
+      description: |-
+        Код работоспособности хоста.
+
+         - HEALTH_UNKNOWN: Состояние хоста неизвестно.
+         - ALIVE: Хозяин выполняет все свои функции нормально.
+         - DEAD: Хост не работает и не может выполнять свои основные функции.
+         - DEGRADED: Хост деградировал, и может выполнять только некоторые из своих основных функций.
+      type: string
+      enum:
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      - DEGRADED
+      default: HEALTH_UNKNOWN
+    HostType_in_Host_type:
+      description: |-
+        Тип хоста
+
+         - MONGOD: Хост mongod.
+         - MONGOS: Хост mongos.
+         - MONGOCFG: Хост mongocfg.
+      type: string
+      enum:
+      - MONGOD
+      - MONGOS
+      - MONGOCFG
+    HostType_in_HostSpec_type:
+      description: |-
+        Тип развертываемого хоста.
+
+         - MONGOD: Хост mongod.
+         - MONGOS: Хост mongos.
+         - MONGOCFG: Хост mongocfg.
+      type: string
+      enum:
+      - MONGOD
+      - MONGOS
+      - MONGOCFG
+    MongoCfgConfig3_6Storage_in_MongoCfgConfig3_6_storage:
+      description: '`storage` section of mongocfg configuration.'
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongoCfgConfig3_6StorageWiredTiger_in_MongoCfgConfig3_6Storage_wiredTiger'
+    MongoCfgConfig3_6OperationProfiling_in_MongoCfgConfig3_6_operationProfiling:
+      description: '`operationProfiling` section of mongocfg configuration.'
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongoCfgConfig3_6OperationProfilingMode_in_MongoCfgConfig3_6OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            Порог времени для медленных операций, в миллисекундах. Операции, которые
+            выполняются дольше этого порога, считаются медленными и обрабатываются
+            профайлером, работающим в режиме SLOW_OP. Подробнее см. в [MongoDB
+            documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+    MongoCfgConfig3_6Network_in_MongoCfgConfig3_6_net:
+      description: '`net` section of mongocfg configuration.'
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            Максимальное количество входящих подключений.
+
+            Допустимые значения — от 10 до 16384 включительно.
+          type: integer
+          format: int64
+    MongoCfgConfig3_6OperationProfilingMode_in_MongoCfgConfig3_6OperationProfiling_mode:
+      description: |-
+        Уровень профилирования операций. Подробнее см. в [MongoDB
+        documentation](https://docs.mongodb.com/v3.6/tutorial/manage-the-database-profiler/).
+
+         - OFF: Профайлер выключен и не собирает никакие данные. Это уровень профилирования по
+        умолчанию.
+         - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
+        slowOpThreshold.
+         - ALL: Профайлер собирает данные для всех операций.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongoCfgConfig3_6StorageWiredTiger_in_MongoCfgConfig3_6Storage_wiredTiger:
+      description: |-
+        Конфигурация механизма хранения WiredTiger.
+
+        Конфигурация механизма хранения WiredTiger.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongoCfgConfig3_6StorageWiredTigerEngineConfig_in_MongoCfgConfig3_6StorageWiredTiger_engineConfig'
+    MongoCfgConfig3_6StorageWiredTigerEngineConfig_in_MongoCfgConfig3_6StorageWiredTiger_engineConfig:
+      description: Конфигурация для механизма хранения WiredTiger.
+      type: object
+      properties:
+        cacheSizeGb:
+          description: |-
+            Максимальный размер внутреннего кэша, который WiredTiger будет использовать для всех
+            данных.
+          type: number
+          format: double
+    MongoCfgConfig4_0Storage_in_MongoCfgConfig4_0_storage:
+      description: '`storage` section of mongocfg configuration.'
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongoCfgConfig4_0StorageWiredTiger_in_MongoCfgConfig4_0Storage_wiredTiger'
+    MongoCfgConfig4_0OperationProfiling_in_MongoCfgConfig4_0_operationProfiling:
+      description: '`operationProfiling` section of mongocfg configuration.'
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongoCfgConfig4_0OperationProfilingMode_in_MongoCfgConfig4_0OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            Порог времени для медленных операций, в миллисекундах. Операции, которые
+            выполняются дольше этого порога, считаются медленными и обрабатываются
+            профайлером, работающим в режиме SLOW_OP. Подробнее см. в [MongoDB
+            documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+    MongoCfgConfig4_0Network_in_MongoCfgConfig4_0_net:
+      description: '`net` section of mongocfg configuration.'
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            Максимальное количество одновременных подключений, которые принимает mongocfg.
+
+            Допустимые значения — от 10 до 16384 включительно.
+          type: integer
+          format: int64
+    MongoCfgConfig4_0OperationProfilingMode_in_MongoCfgConfig4_0OperationProfiling_mode:
+      description: |-
+        Режим, который определяет критерии для профилирования операций.
+
+         - OFF: Профайлер выключен и не собирает никакие данные.
+         - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
+        slowOpThreshold.
+         - ALL: Профайлер собирает данные для всех операций.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongoCfgConfig4_0StorageWiredTiger_in_MongoCfgConfig4_0Storage_wiredTiger:
+      description: |-
+        Конфигурация механизма хранения WiredTiger.
+
+        Конфигурация механизма хранения WiredTiger.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_0StorageWiredTigerEngineConfig_in_MongoCfgConfig4_0StorageWiredTiger_engineConfig'
+    MongoCfgConfig4_0StorageWiredTigerEngineConfig_in_MongoCfgConfig4_0StorageWiredTiger_engineConfig:
+      description: Конфигурация для механизма хранения WiredTiger.
+      type: object
+      properties:
+        cacheSizeGb:
+          description: |-
+            Максимальный размер внутреннего кэша, который WiredTiger будет использовать для всех
+            данных.
+          type: number
+          format: double
+    MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_effectiveConfig:
+      description: |-
+        Действующие параметры mongocfg для кластера MongoDB 3.6 (сочетание параметров, определенных
+        в userConfig и [default_config]).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig3_6Storage_in_MongoCfgConfig3_6_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig3_6OperationProfiling_in_MongoCfgConfig3_6_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig3_6Network_in_MongoCfgConfig3_6_net'
+    MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_userConfig:
+      description: Пользовательские настройки mongocfg для кластера MongoDB 3.6.
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig3_6Storage_in_MongoCfgConfig3_6_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig3_6OperationProfiling_in_MongoCfgConfig3_6_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig3_6Network_in_MongoCfgConfig3_6_net'
+    MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_defaultConfig:
+      description: Конфигурация mongocfg по умолчанию для кластера MongoDB 3.6.
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig3_6Storage_in_MongoCfgConfig3_6_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig3_6OperationProfiling_in_MongoCfgConfig3_6_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig3_6Network_in_MongoCfgConfig3_6_net'
+    MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_effectiveConfig:
+      description: |-
+        Действующие параметры mongocfg для кластера MongoDB 4.0 (сочетание параметров, определенных
+        в userConfig и [default_config]).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig4_0Storage_in_MongoCfgConfig4_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig4_0OperationProfiling_in_MongoCfgConfig4_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig4_0Network_in_MongoCfgConfig4_0_net'
+    MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_userConfig:
+      description: Пользовательские настройки mongocfg для кластера MongoDB 4.0.
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig4_0Storage_in_MongoCfgConfig4_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig4_0OperationProfiling_in_MongoCfgConfig4_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig4_0Network_in_MongoCfgConfig4_0_net'
+    MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_defaultConfig:
+      description: Конфигурация mongocfg по умолчанию для кластера MongoDB 4.0.
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig4_0Storage_in_MongoCfgConfig4_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig4_0OperationProfiling_in_MongoCfgConfig4_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig4_0Network_in_MongoCfgConfig4_0_net'
+    MongodConfig3_6Storage_in_MongodConfig3_6_storage:
+      description: Секция `storage` конфигурации mongod.
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongodConfig3_6StorageWiredTiger_in_MongodConfig3_6Storage_wiredTiger'
+        journal:
+          $ref: '#/components/schemas/MongodConfig3_6StorageJournal_in_MongodConfig3_6Storage_journal'
+    MongodConfig3_6OperationProfiling_in_MongodConfig3_6_operationProfiling:
+      description: Секция `operationProfiling` конфигурации mongod.
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongodConfig3_6OperationProfilingMode_in_MongodConfig3_6OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            Порог времени для медленных операций, в миллисекундах. Операции, которые
+            выполняются дольше этого порога, считаются медленными и обрабатываются
+            профайлером, работающим в режиме SLOW_OP.
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+    MongodConfig3_6Network_in_MongodConfig3_6_net:
+      description: Секция `net` конфигурации mongod.
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            Максимальное количество одновременных подключений, которые принимает mongod.
+
+            Допустимые значения — от 10 до 16384 включительно.
+          type: integer
+          format: int64
+    MongodConfig3_6OperationProfilingMode_in_MongodConfig3_6OperationProfiling_mode:
+      description: |-
+        Режим, который определяет критерии для профилирования операций.
+
+         - OFF: Профайлер выключен и не собирает никакие данные.
+         - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
+        slowOpThreshold.
+         - ALL: Профайлер собирает данные для всех операций.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongodConfig3_6StorageWiredTiger_in_MongodConfig3_6Storage_wiredTiger:
+      description: |-
+        Конфигурация механизма хранения WiredTiger.
+
+        Конфигурация механизма хранения WiredTiger.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongodConfig3_6StorageWiredTigerEngineConfig_in_MongodConfig3_6StorageWiredTiger_engineConfig'
+        collectionConfig:
+          $ref: '#/components/schemas/MongodConfig3_6StorageWiredTigerCollectionConfig_in_MongodConfig3_6StorageWiredTiger_collectionConfig'
+    MongodConfig3_6StorageJournal_in_MongodConfig3_6Storage_journal:
+      description: Конфигурация [journal](https://docs.mongodb.com/v3.6/reference/glossary/#term-journal)
+        MongoDB.
+      type: object
+      properties:
+        enabled:
+          description: |-
+            Включен ли журнал. Возможные значения:
+            * true (по умолчанию) — журнал включен.
+            * false — журнал отключен.
+          type: boolean
+          format: boolean
+        commitInterval:
+          description: |-
+            Максимальный интервал между операциями в журнале, в миллисекундах. По умолчанию:
+            100.
+
+            Допустимые значения — от 1 до 500 включительно.
+          type: integer
+          format: int64
+    MongodConfig3_6StorageWiredTigerEngineConfig_in_MongodConfig3_6StorageWiredTiger_engineConfig:
+      description: Конфигурация для механизма хранения WiredTiger.
+      type: object
+      properties:
+        cacheSizeGb:
+          description: |-
+            Максимальный размер внутреннего кэша, который WiredTiger будет использовать для всех
+            данных.
+          type: number
+          format: double
+    MongodConfig3_6StorageWiredTigerCollectionConfig_in_MongodConfig3_6StorageWiredTiger_collectionConfig:
+      description: Конфигурация коллекций для механизма хранения WiredTiger.
+      type: object
+      properties:
+        blockCompressor:
+          $ref: '#/components/schemas/MongodConfig3_6StorageWiredTigerCollectionConfigCompressor_in_MongodConfig3_6StorageWiredTigerCollectionConfig_blockCompressor'
+    MongodConfig3_6StorageWiredTigerCollectionConfigCompressor_in_MongodConfig3_6StorageWiredTigerCollectionConfig_blockCompressor:
+      description: |-
+        Тип сжатия по умолчанию, который следует использовать для данных коллекции.
+
+         - NONE: Без сжатия.
+         - SNAPPY: Сжатие [Snappy](https://docs.mongodb.com/v3.6/reference/glossary/#term-snappy).
+         - ZLIB: Сжатие [zlib](https://docs.mongodb.com/v3.6/reference/glossary/#term-zlib).
+      type: string
+      enum:
+      - NONE
+      - SNAPPY
+      - ZLIB
+    MongodConfig4_0Storage_in_MongodConfig4_0_storage:
+      description: '`storage` section of mongod configuration.'
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongodConfig4_0StorageWiredTiger_in_MongodConfig4_0Storage_wiredTiger'
+        journal:
+          $ref: '#/components/schemas/MongodConfig4_0StorageJournal_in_MongodConfig4_0Storage_journal'
+    MongodConfig4_0OperationProfiling_in_MongodConfig4_0_operationProfiling:
+      description: '`operationProfiling` section of mongod configuration.'
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongodConfig4_0OperationProfilingMode_in_MongodConfig4_0OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            Порог времени для медленных операций, в миллисекундах. Операции, которые
+            выполняются дольше этого порога, считаются медленными и обрабатываются
+            профайлером, работающим в режиме SLOW_OP.
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+    MongodConfig4_0Network_in_MongodConfig4_0_net:
+      description: '`net` section of mongod configuration.'
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            Максимальное количество одновременных подключений, которые принимает mongod.
+
+            Допустимые значения — от 10 до 16384 включительно.
+          type: integer
+          format: int64
+    MongodConfig4_0OperationProfilingMode_in_MongodConfig4_0OperationProfiling_mode:
+      description: |-
+        Режим, который определяет критерии для профилирования операций.
+
+         - OFF: Профайлер выключен и не собирает никакие данные.
+         - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
+        slowOpThreshold.
+         - ALL: Профайлер собирает данные для всех операций.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongodConfig4_0StorageWiredTiger_in_MongodConfig4_0Storage_wiredTiger:
+      description: |-
+        Конфигурация механизма хранения WiredTiger.
+
+        Конфигурация механизма хранения WiredTiger.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongodConfig4_0StorageWiredTigerEngineConfig_in_MongodConfig4_0StorageWiredTiger_engineConfig'
+        collectionConfig:
+          $ref: '#/components/schemas/MongodConfig4_0StorageWiredTigerCollectionConfig_in_MongodConfig4_0StorageWiredTiger_collectionConfig'
+    MongodConfig4_0StorageJournal_in_MongodConfig4_0Storage_journal:
+      description: Конфигурация [journal](https://docs.mongodb.com/v4.0/reference/glossary/#term-journal)
+        MongoDB.
+      type: object
+      properties:
+        commitInterval:
+          description: |-
+            Максимальный интервал между операциями в журнале, в миллисекундах. По умолчанию:
+            100.
+
+            Допустимые значения — от 1 до 500 включительно.
+          type: integer
+          format: int64
+    MongodConfig4_0StorageWiredTigerEngineConfig_in_MongodConfig4_0StorageWiredTiger_engineConfig:
+      description: Конфигурация для механизма хранения WiredTiger.
+      type: object
+      properties:
+        cacheSizeGb:
+          description: |-
+            Максимальный размер внутреннего кэша, который WiredTiger будет использовать для всех
+            данных.
+          type: number
+          format: double
+    MongodConfig4_0StorageWiredTigerCollectionConfig_in_MongodConfig4_0StorageWiredTiger_collectionConfig:
+      description: Конфигурация коллекций для механизма хранения WiredTiger.
+      type: object
+      properties:
+        blockCompressor:
+          $ref: '#/components/schemas/MongodConfig4_0StorageWiredTigerCollectionConfigCompressor_in_MongodConfig4_0StorageWiredTigerCollectionConfig_blockCompressor'
+    MongodConfig4_0StorageWiredTigerCollectionConfigCompressor_in_MongodConfig4_0StorageWiredTigerCollectionConfig_blockCompressor:
+      description: |-
+        Тип сжатия по умолчанию, который следует использовать для данных коллекции.
+
+         - NONE: Без сжатия.
+         - SNAPPY: Сжатие [Snappy](https://docs.mongodb.com/v4.0/reference/glossary/#term-snappy).
+         - ZLIB: Сжатие [zlib](https://docs.mongodb.com/v4.0/reference/glossary/#term-zlib).
+      type: string
+      enum:
+      - NONE
+      - SNAPPY
+      - ZLIB
+    MongodConfig3_6_in_MongodConfigSet3_6_effectiveConfig:
+      description: |-
+        Действующие параметры для кластера MongoDB 3.6 (сочетание параметров, определенных в
+        userConfig и [default_config]).
+
+        Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
+        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig3_6Storage_in_MongodConfig3_6_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig3_6OperationProfiling_in_MongodConfig3_6_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig3_6Network_in_MongodConfig3_6_net'
+    MongodConfig3_6_in_MongodConfigSet3_6_userConfig:
+      description: |-
+        Пользовательские настройки mongod для кластера MongoDB 3.6.
+
+        Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
+        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig3_6Storage_in_MongodConfig3_6_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig3_6OperationProfiling_in_MongodConfig3_6_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig3_6Network_in_MongodConfig3_6_net'
+    MongodConfig3_6_in_MongodConfigSet3_6_defaultConfig:
+      description: |-
+        Конфигурация mongod по умолчанию для кластера MongoDB 3.6.
+
+        Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
+        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig3_6Storage_in_MongodConfig3_6_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig3_6OperationProfiling_in_MongodConfig3_6_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig3_6Network_in_MongodConfig3_6_net'
+    MongodConfig4_0_in_MongodConfigSet4_0_effectiveConfig:
+      description: |-
+        Действующие параметры для кластера MongoDB 4.0 (сочетание параметров, определенных в
+        userConfig и [default_config]).
+
+        Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
+        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig4_0Storage_in_MongodConfig4_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig4_0OperationProfiling_in_MongodConfig4_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig4_0Network_in_MongodConfig4_0_net'
+    MongodConfig4_0_in_MongodConfigSet4_0_userConfig:
+      description: |-
+        Пользовательские настройки mongod для кластера MongoDB 4.0.
+
+        Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
+        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig4_0Storage_in_MongodConfig4_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig4_0OperationProfiling_in_MongodConfig4_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig4_0Network_in_MongodConfig4_0_net'
+    MongodConfig4_0_in_MongodConfigSet4_0_defaultConfig:
+      description: |-
+        Конфигурация mongod по умолчанию для кластера MongoDB 4.0.
+
+        Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
+        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig4_0Storage_in_MongodConfig4_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig4_0OperationProfiling_in_MongodConfig4_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig4_0Network_in_MongodConfig4_0_net'
+    Mongodb3_6Mongod_in_Mongodb3_6_mongod:
+      description: Конфигурация и распределение ресурсов для mongod в кластере MongoDB
+        3.6.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfigSet3_6_in_Mongodb3_6Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb3_6Mongod_resources'
+    Mongodb3_6MongoCfg_in_Mongodb3_6_mongocfg:
+      description: Конфигурация и распределение ресурсов mongocfg для кластера MongoDB
+        3.6.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfigSet3_6_in_Mongodb3_6MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb3_6MongoCfg_resources'
+    Mongodb3_6Mongos_in_Mongodb3_6_mongos:
+      description: Конфигурация и распределение ресурсов mongos для кластера MongoDB
+        3.6.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfigSet3_6_in_Mongodb3_6Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb3_6Mongos_resources'
+    MongoCfgConfigSet3_6_in_Mongodb3_6MongoCfg_config:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_defaultConfig'
+    Resources_in_Mongodb3_6MongoCfg_resources:
+      description: Ресурсы, выделенные хостам mongocfg.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    MongodConfigSet3_6_in_Mongodb3_6Mongod_config:
+      description: Конфигурация для хостов mongod 3.6.
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongodConfig3_6_in_MongodConfigSet3_6_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongodConfig3_6_in_MongodConfigSet3_6_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongodConfig3_6_in_MongodConfigSet3_6_defaultConfig'
+    Resources_in_Mongodb3_6Mongod_resources:
+      description: Ресурсы, выделенные хостам MongoDB.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    MongosConfigSet3_6_in_Mongodb3_6Mongos_config:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongosConfig3_6_in_MongosConfigSet3_6_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongosConfig3_6_in_MongosConfigSet3_6_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongosConfig3_6_in_MongosConfigSet3_6_defaultConfig'
+    Resources_in_Mongodb3_6Mongos_resources:
+      description: Ресурсы, выделенные хостам mongocfg.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    Mongodb4_0Mongod_in_Mongodb4_0_mongod:
+      description: Конфигурация и распределение ресурсов для mongod в кластере MongoDB
+        4.0.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfigSet4_0_in_Mongodb4_0Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_0Mongod_resources'
+    Mongodb4_0MongoCfg_in_Mongodb4_0_mongocfg:
+      description: Конфигурация и распределение ресурсов mongocfg для кластера MongoDB
+        4.0.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfigSet4_0_in_Mongodb4_0MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_0MongoCfg_resources'
+    Mongodb4_0Mongos_in_Mongodb4_0_mongos:
+      description: Конфигурация и распределение ресурсов mongos для кластера MongoDB
+        4.0.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfigSet4_0_in_Mongodb4_0Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_0Mongos_resources'
+    MongoCfgConfigSet4_0_in_Mongodb4_0MongoCfg_config:
+      description: Конфигурация для хостов mongocfg 4.0.
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_defaultConfig'
+    Resources_in_Mongodb4_0MongoCfg_resources:
+      description: Ресурсы, выделенные хостам mongocfg.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    MongodConfigSet4_0_in_Mongodb4_0Mongod_config:
+      description: Конфигурация для хостов mongod 4.0.
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongodConfig4_0_in_MongodConfigSet4_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongodConfig4_0_in_MongodConfigSet4_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongodConfig4_0_in_MongodConfigSet4_0_defaultConfig'
+    Resources_in_Mongodb4_0Mongod_resources:
+      description: Ресурсы, выделенные хостам mongod.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    MongosConfigSet4_0_in_Mongodb4_0Mongos_config:
+      description: Конфигурация для хостов mongos 4.0.
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongosConfig4_0_in_MongosConfigSet4_0_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongosConfig4_0_in_MongosConfigSet4_0_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongosConfig4_0_in_MongosConfigSet4_0_defaultConfig'
+    Resources_in_Mongodb4_0Mongos_resources:
+      description: Ресурсы, выделенные хостам mongos.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    MongodbSpec3_6Mongod_in_MongodbSpec3_6_mongod:
+      description: Конфигурация и выделенные ресурсы для хостов mongod 3.6.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfig3_6_in_MongodbSpec3_6Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec3_6Mongod_resources'
+    MongodbSpec3_6MongoCfg_in_MongodbSpec3_6_mongocfg:
+      description: Конфигурация и выделенные ресурсы для хостов mongocfg 3.6.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfig3_6_in_MongodbSpec3_6MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec3_6MongoCfg_resources'
+    MongodbSpec3_6Mongos_in_MongodbSpec3_6_mongos:
+      description: Конфигурация и выделенные ресурсы для хостов mongos 3.6.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfig3_6_in_MongodbSpec3_6Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec3_6Mongos_resources'
+    MongoCfgConfig3_6_in_MongodbSpec3_6MongoCfg_config:
+      description: Конфигурация для хостов mongocfg 3.6.
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig3_6Storage_in_MongoCfgConfig3_6_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig3_6OperationProfiling_in_MongoCfgConfig3_6_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig3_6Network_in_MongoCfgConfig3_6_net'
+    Resources_in_MongodbSpec3_6MongoCfg_resources:
+      description: Ресурсы, выделенные для каждого хоста mongocfg.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    MongodConfig3_6_in_MongodbSpec3_6Mongod_config:
+      description: |-
+        Конфигурация для хостов mongod 3.6.
+
+        Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
+        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig3_6Storage_in_MongodConfig3_6_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig3_6OperationProfiling_in_MongodConfig3_6_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig3_6Network_in_MongodConfig3_6_net'
+    Resources_in_MongodbSpec3_6Mongod_resources:
+      description: Ресурсы, выделенные каждому хосту mongod.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    MongosConfig3_6_in_MongodbSpec3_6Mongos_config:
+      description: Конфигурация для хостов mongos 3.6.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig3_6Network_in_MongosConfig3_6_net'
+    Resources_in_MongodbSpec3_6Mongos_resources:
+      description: Ресурсы, выделенные для каждого хоста mongos.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    MongodbSpec4_0Mongod_in_MongodbSpec4_0_mongod:
+      description: Конфигурация и выделенные ресурсы для хостов mongod 4.0.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfig4_0_in_MongodbSpec4_0Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_0Mongod_resources'
+    MongodbSpec4_0MongoCfg_in_MongodbSpec4_0_mongocfg:
+      description: Конфигурация и выделенные ресурсы для хостов mongocfg 4.0.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongodbSpec4_0MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_0MongoCfg_resources'
+    MongodbSpec4_0Mongos_in_MongodbSpec4_0_mongos:
+      description: Конфигурация и выделенные ресурсы для хостов mongos 4.0.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfig4_0_in_MongodbSpec4_0Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_0Mongos_resources'
+    MongoCfgConfig4_0_in_MongodbSpec4_0MongoCfg_config:
+      description: Конфигурация для хостов mongocfg 4.0.
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig4_0Storage_in_MongoCfgConfig4_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig4_0OperationProfiling_in_MongoCfgConfig4_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig4_0Network_in_MongoCfgConfig4_0_net'
+    Resources_in_MongodbSpec4_0MongoCfg_resources:
+      description: Ресурсы, выделенные для каждого хоста mongocfg.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    MongodConfig4_0_in_MongodbSpec4_0Mongod_config:
+      description: |-
+        Конфигурация для хостов mongod 4.0.
+
+        Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
+        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig4_0Storage_in_MongodConfig4_0_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig4_0OperationProfiling_in_MongodConfig4_0_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig4_0Network_in_MongodConfig4_0_net'
+    Resources_in_MongodbSpec4_0Mongod_resources:
+      description: Ресурсы, выделенные каждому хосту mongod.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    MongosConfig4_0_in_MongodbSpec4_0Mongos_config:
+      description: Конфигурация для хостов mongos 4.0.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig4_0Network_in_MongosConfig4_0_net'
+    Resources_in_MongodbSpec4_0Mongos_resources:
+      description: Ресурсы, выделенные для каждого хоста mongos.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
+            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Объем хранилища, доступного хосту, в байтах.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Тип хранилища для хоста. Возможные значения:
+            * network-hdd — сетевой HDD-диск;
+            * network-ssd — сетевой SSD-диск;
+            * local-ssd — локальное SSD-хранилище.
+          type: string
+    MongosConfig3_6Network_in_MongosConfig3_6_net:
+      description: Сетевые настройки для mongos.
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            Максимальное количество входящих подключений.
+
+            Допустимые значения — от 10 до 16384 включительно.
+          type: integer
+          format: int64
+    MongosConfig4_0Network_in_MongosConfig4_0_net:
+      description: Сетевые настройки для mongos.
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            Максимальное количество одновременных подключений, которые принимает mongos.
+
+            Допустимые значения — от 10 до 16384 включительно.
+          type: integer
+          format: int64
+    MongosConfig3_6_in_MongosConfigSet3_6_effectiveConfig:
+      description: |-
+        Действующие параметры для кластера MongoDB 3.6 (сочетание параметров, определенных в
+        userConfig и [default_config]).
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig3_6Network_in_MongosConfig3_6_net'
+    MongosConfig3_6_in_MongosConfigSet3_6_userConfig:
+      description: Пользовательские настройки для кластера MongoDB 3.6.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig3_6Network_in_MongosConfig3_6_net'
+    MongosConfig3_6_in_MongosConfigSet3_6_defaultConfig:
+      description: Конфигурация по умолчанию для кластера MongoDB 3.6.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig3_6Network_in_MongosConfig3_6_net'
+    MongosConfig4_0_in_MongosConfigSet4_0_effectiveConfig:
+      description: |-
+        Действующие параметры mongos для кластера MongoDB 4.0 (комбинация параметров, определенных
+        в userConfig и [default_config]).
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig4_0Network_in_MongosConfig4_0_net'
+    MongosConfig4_0_in_MongosConfigSet4_0_userConfig:
+      description: Пользовательские настройки mongos для кластера MongoDB 4.0.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig4_0Network_in_MongosConfig4_0_net'
+    MongosConfig4_0_in_MongosConfigSet4_0_defaultConfig:
+      description: Конфигурация mongos по умолчанию для кластера MongoDB 4.0.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig4_0Network_in_MongosConfig4_0_net'
+    ClusterEnvironment_in_RestoreClusterRequest_environment:
+      description: |-
+        Обязательное поле.
+        Среда развертывания для нового кластера MongoDB.
+
+        Среда развертывания.
+
+         - PRODUCTION: Стабильная среда с осторожной политикой обновления: во время регулярного
+        обслуживания применяются только срочные исправления.
+         - PRESTABLE: Среда с более агрессивной политикой обновления: новые версии развертываются
+        независимо от обратной совместимости.
+      type: string
+      enum:
+      - PRODUCTION
+      - PRESTABLE
+    ConfigSpec_in_RestoreClusterRequest_configSpec:
+      description: |-
+        Обязательное поле.
+        Конфигурация для создаваемого кластера MongoDB.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          version:
+            description: |-
+              Версия MongoDB, используемая в кластере. Возможные значения:
+              * 3.6.
+              * 4.0
+            type: string
+          featureCompatibilityVersion:
+            description: |-
+              Функционально совместимая версия MongoDB. Подробнее в [MongoDB
+              documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+
+              Возможные значения:
+              * 3.6 — сохранить совместимость данных с версией 3.6. После установки этого параметра данные не будут совместимы с версией 3.4 или ниже.
+              * 4.0 — сохранить совместимость данных с версией 4.0. После установки этого параметра данные не будут совместимы с версией 3.6 или ниже.
+            type: string
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
+      - title: mongodb_spec
+        type: object
+        maxProperties: 1
+        properties:
+          mongodbSpec_3_6:
+            $ref: '#/components/schemas/MongodbSpec3_6'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              3.6.
+          mongodbSpec_4_0:
+            $ref: '#/components/schemas/MongodbSpec4_0'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              4.0.
+    ServiceType_in_Service_type:
+      description: |-
+        Тип сервиса, предоставляемого хостом.
+
+         - MONGOD: На хосте работает демон mongod.
+         - MONGOS: На хосте работает демон mongos.
+         - MONGOCFG: На хосте работает сервер конфигураций MongoDB.
+      type: string
+      enum:
+      - MONGOD
+      - MONGOS
+      - MONGOCFG
+    ServiceHealth_in_Service_health:
+      description: |-
+        Код состояния доступности сервера.
+
+         - HEALTH_UNKNOWN: Работоспособность сервера неизвестна.
+         - ALIVE: Сервер работает нормально.
+         - DEAD: Сервер отключен или не отвечает.
+      type: string
+      enum:
+      - HEALTH_UNKNOWN
+      - ALIVE
+      - DEAD
+      default: HEALTH_UNKNOWN
+    FieldMask_in_UpdateClusterRequest_updateMask:
+      description: |-
+        Маска, которая указывает, какие поля ресурса Cluster для MongoDB должны быть изменены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    ConfigSpec_in_UpdateClusterRequest_configSpec:
+      description: Новая конфигурация и ресурсы для хостов кластера.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          version:
+            description: |-
+              Версия MongoDB, используемая в кластере. Возможные значения:
+              * 3.6.
+              * 4.0
+            type: string
+          featureCompatibilityVersion:
+            description: |-
+              Функционально совместимая версия MongoDB. Подробнее в [MongoDB
+              documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+
+              Возможные значения:
+              * 3.6 — сохранить совместимость данных с версией 3.6. После установки этого параметра данные не будут совместимы с версией 3.4 или ниже.
+              * 4.0 — сохранить совместимость данных с версией 4.0. После установки этого параметра данные не будут совместимы с версией 3.6 или ниже.
+            type: string
+          backupWindowStart:
+            $ref: '#/components/schemas/TimeOfDay'
+            description: Время запуска ежедневного резервного копирования, в часовом
+              поясе UTC.
+      - title: mongodb_spec
+        type: object
+        maxProperties: 1
+        properties:
+          mongodbSpec_3_6:
+            $ref: '#/components/schemas/MongodbSpec3_6'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              3.6.
+          mongodbSpec_4_0:
+            $ref: '#/components/schemas/MongodbSpec4_0'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              4.0.
+    FieldMask_in_UpdateUserRequest_updateMask:
+      description: |-
+        Маска, которая указывает, какие поля ресурса User для MongoDB должны быть обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+tags:
+- name: Backup
+  description: Набор методов для управления ресурсами Backup для MongoDB.
+- name: Cluster
+  description: Набор методов для управления ресурсами Cluster для MongoDB.
+- name: Database
+  description: Набор методов для управления ресурсами Database для MongoDB.
+- name: ResourcePreset
+  description: Набор методов для управления ресурсами ResourcePreset.
+- name: User
+  description: Набор методов для управления ресурсами User для MongoDB.

@@ -2,25 +2,7 @@ title: "Yandex Object Storage"
 href: index.yaml
 items:
   - name: Getting started
-    items:
-    - name: Creating a bucket
-      href: quickstart.md
-    - name: Configuring tools
-      items:
-        - name: Supported tools
-          href: instruments/index.md
-        - name: AWS CLI
-          href: instruments/aws-cli.md
-        - name: AWS SDK for Java
-          href: instruments/aws-sdk-java.md
-        - name: boto
-          href: instruments/boto.md
-        - name: CyberDuck
-          href: instruments/cyberduck.md
-        - name: S3cmd
-          href: instruments/s3cmd.md
-        - name: s3fs
-          href: instruments/s3fs.md
+    href: quickstart.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -49,7 +31,7 @@ items:
             href: operations/objects/link-for-download.md
           - name: Deleting an object
             href: operations/objects/delete.md
-          - name: Deleting partially uploaded objects
+          - name: Deleting a partially uploaded object
             href: operations/objects/deleting-multipart.md
           - name: Editing an object ACL
             href: operations/objects/edit-acl.md
@@ -71,6 +53,8 @@ items:
         href: concepts/presigned-post-forms.md
       - name: Storage class
         href: concepts/storage-class.md
+      - name: Backups
+        href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Static website hosting
@@ -99,6 +83,30 @@ items:
         href: lifecycles/configuration.md
       - name: Configuring in the management console
         href: lifecycles/setup.md
+  - name: Tools
+    items:
+      - name: All tools
+        href: instruments/index.md
+      - name: Console clients
+        items:
+        - name: AWS CLI
+          href: instruments/aws-cli.md
+        - name: S3cmd
+          href: instruments/s3cmd.md
+      - name: File browsers
+        items:
+        - name: CyberDuck
+          href: instruments/cyberduck.md
+      - name: SDK
+        items:
+        - name: AWS SDK for Java
+          href: instruments/aws-sdk-java.md
+        - name: Python SDK (boto)
+          href: instruments/boto.md
+      - name: FUSE
+        items:
+        - name: s3fs
+          href: instruments/s3fs.md
   - name: HTTP API compatible with Amazon S3
     items:
       - name: How to use the API
@@ -209,7 +217,7 @@ items:
             href: s3/api-ref/common-response-headers.md
           - name: Responses
             href: s3/api-ref/response-codes.md
-  - name: Access control
+  - name: Access management
     href: security/index.md
   - name: Pricing policy
     items:

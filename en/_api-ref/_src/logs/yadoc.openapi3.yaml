@@ -1,0 +1,107 @@
+openapi: "3.0"
+info:
+  title: Yandex Log Events Service
+  description: Description not set.
+  version: v1
+paths:
+  /logs/v1/events/{logGroupId}/{streamName}:
+    get:
+      tags:
+      - LogEvent
+      operationId: LogEventRead
+      parameters:
+      - name: logGroupId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      - name: streamName
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: criteria.since
+        in: query
+        description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          format.
+        schema:
+          type: string
+          format: date-time
+      - name: criteria.until
+        in: query
+        description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          format.
+        schema:
+          type: string
+          format: date-time
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadLogEventsResponse'
+      x-y-navtitle: read
+components:
+  schemas:
+    Criteria:
+      type: object
+      properties:
+        since:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        until:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+    LogEvent:
+      type: object
+      properties:
+        logGroupId:
+          type: string
+        streamName:
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        message:
+          type: string
+        ingestedAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        savedAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+    ReadLogEventsResponse:
+      type: object
+      properties:
+        logEvents:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogEvent'
+        nextPageToken:
+          type: string
+        previousPageToken:
+          type: string
+tags:
+- name: LogEvent

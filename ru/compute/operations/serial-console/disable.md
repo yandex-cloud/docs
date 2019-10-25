@@ -12,7 +12,7 @@
 
     {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
+1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
 
 1. Установите в метаданных виртуальной машины параметр `serial-port-enable=0`:
 

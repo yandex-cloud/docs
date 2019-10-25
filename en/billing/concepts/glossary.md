@@ -11,7 +11,7 @@ Report
 <br/>See the section [Report](act.md).
 
 Grant
-: A discount given to a business or individual for using any Yandex.Cloud services. The discount is applied to the total cost of services consumed, including VAT.
+: A discount given to a business or individual for using any Yandex.Cloud services. The discount is applied to the total cost of services consumed, with VAT.
 <br/>See the section [Grant](bonus-account.md).
 
 Usage details

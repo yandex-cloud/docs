@@ -4,7 +4,7 @@ To grant access to a resource, assign a [role](../../../iam/concepts/access-cont
 
 ## Assign a role to a user {#access-to-user}
 
-This section describes how to assign a role for a user's account on Yandex. The examples below show how to assign a role to a [service account](#access-to-sa) or [all users at once](#access-to-all).
+This section describes how to assign a role to a user with a Yandex account. The examples below show how to assign roles to a [service account](#access-to-sa), [federated user](#access-to-federated-user), and [all users at once](#access-to-all).
 
 {% list tabs %}
 
@@ -34,7 +34,7 @@ This section describes how to assign a role for a user's account on Yandex. The 
       * `<RESOURCE-NAME>` is the name of the resource. You can specify a resource by its name or ID.
       * `<RESOURCE-ID>` is the resource ID.
       * `<ROLE-ID>` is the role ID, for example `{{ roles-cloud-owner }}`.
-      * `<USER-ACCOUNT-ID>` is the identifier of the user account assigned the role.
+      * `<USER-ACCOUNT-ID>` is the ID of the user account assigned the role.
 
       For example, assign the `viewer` role for the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
 
@@ -196,6 +196,22 @@ This section describes how to assign a role for a user's account on Yandex. The 
 ### Resource access for a service account {#access-to-sa}
 
 {% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-sa.md) %}
+
+### Resource access for a federated user {#access-to-federated-user}
+
+Currently, [a federated user](../../concepts/users/identity-federations.md) can only be assigned a role from the management console.
+
+{% list tabs %}
+
+- Management console
+
+  The role assignment procedure is the same as for a user with a Yandex account. The user's federation name is shown next to the username.
+
+  In the management console, you can only assign a role for a cloud or folder:
+
+  {% include [grant-role-console](../../../_includes/grant-role-console.md) %}
+
+{% endlist %}
 
 ### Access to a resource for all users {#access-to-all}
 

@@ -1,0 +1,70 @@
+openapi: "3.0"
+info:
+  title: Endpoints
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: Version not set.
+paths:
+  /endpoints/{apiEndpointId}:
+    get:
+      tags:
+      - ApiEndpoint
+      operationId: ApiEndpointGet
+      parameters:
+      - name: apiEndpointId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiEndpoint'
+      x-y-navtitle: get
+  /endpoints:
+    get:
+      tags:
+      - ApiEndpoint
+      operationId: ApiEndpointList
+      parameters:
+      - name: pageSize
+        in: query
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListApiEndpointsResponse'
+      x-y-navtitle: list
+components:
+  schemas:
+    ApiEndpoint:
+      type: object
+      properties:
+        id:
+          type: string
+        address:
+          type: string
+    ListApiEndpointsResponse:
+      type: object
+      properties:
+        endpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiEndpoint'
+        nextPageToken:
+          type: string
+tags:
+- name: ApiEndpoint

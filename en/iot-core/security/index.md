@@ -2,11 +2,11 @@
 
 Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden.
 
-To allow access to Yandex IoT Core resources (registries and devices), assign users applicable roles from the list below. Roles can currently only be assigned to parent resources (folder or cloud), whose roles are inherited by nested resources.
+To allow access to {{ iot-short-name }} resources (registries and devices), assign users applicable roles from the list below. Roles can currently only be assigned to parent resources (folder or cloud), whose roles are inherited by nested resources.
 
 {% note info %}
 
-For more information about role inheritance, see [#T](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the Yandex Resource Manager documentation.
+For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
 
 {% endnote %}
 
@@ -18,7 +18,7 @@ To assign a role to a user:
 
 ## Roles
 
-The list below shows all roles that are considered when verifying access rights in the Yandex IoT Core service.
+The list below shows all roles that are considered when verifying access rights in the {{ iot-short-name }} service.
 
 ### Service roles
 
@@ -30,19 +30,19 @@ _Service roles_ are roles that allow access to the resources of a particular ser
 
 You can assign primitive roles to any resource in any service.
 
-#### viewer
+#### {{ roles-viewer }}
 
-A user with the `viewer` role can view information about resources, for example, a list of devices and their certificates.
+A user with the `{{ roles-viewer }}` role can view information about resources, for example, a list of devices and their certificates.
 
-#### editor
+#### {{ roles-editor }}
 
-A user with the `editor` role can manage devices, for example, create registries and devices or add and delete certificates.
+A user with the `{{ roles-editor }}` role can manage devices, for example, create registries and devices or add and delete certificates.
 
-The `editor` role also includes all the permissions of the `viewer` role.
+The `{{ roles-editor }}` role also includes all the permissions of the `{{ roles-viewer }}` role.
 
-#### admin
+#### {{ roles-admin }}
 
-A user with the `admin` role can manage access rights to resources, for example, allow other users to view devices.
+A user with the `{{ roles-admin }}` role can manage access rights to resources, for example, allow other users to view devices.
 
-The `admin` role includes all permissions of the role of `editor`.
+The `{{ roles-admin }}` role includes all permissions of the role of `{{ roles-editor }}`.
 

@@ -29,18 +29,18 @@
   1. Посмотрите описание команды CLI для удаления группы виртуальных машин:
   
       ```
-      $ yc compute instance-group delete --help
+      $ {{ yc-compute-ig }} delete --help
       ```
   
   1. Получите список групп виртуальных машин в каталоге по умолчанию:
   
       {% include [instance-group-list](../../../_includes/instance-groups/instance-group-list.md) %}
   
-  1. Выберите `ID` или `NAME` нужной группы, например `first-fixed-group`.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной группы, например `first-fixed-group`.
   1. Удалите группу виртуальных машин:
   
       ```
-      $ yc compute instance-group delete --name first-fixed-group
+      $ {{ yc-compute-ig }} delete --name first-fixed-group
       ```
   
       {{ ig-name }} запустит операцию удаления группы виртуальных машин.

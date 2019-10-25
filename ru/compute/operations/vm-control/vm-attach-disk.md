@@ -26,13 +26,13 @@
   
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
   
-  1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
 
   1. Получите список дисков в каталоге по умолчанию:
   
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
   
-  1. Выберите `ID` или `NAME` нужного диска, например `first-disk`. Посмотреть список подключенных к виртуальной машине дисков можно с помощью команды:
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужного диска, например `first-disk`. Посмотреть список подключенных к виртуальной машине дисков можно с помощью команды:
   
       ```
       $ yc compute instance get --full first-instance

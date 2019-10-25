@@ -34,18 +34,18 @@
   1. Посмотрите описание команды CLI для изменения диска:
 
       ```
-      $ yc compute disk update --help
+      $ {{ yc-compute }} disk update --help
       ```
 
   1. Запросите список доступных дисков:
 
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
-  1. Выберите `ID` или `NAME` нужного диска, например `first-disk`.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужного диска, например `first-disk`.
   1. Укажите нужное имя и описание в команде изменения диска:
 
       ```
-      $ yc compute disk update first-disk \
+      $ {{ yc-compute }} disk update first-disk \
           --new-name updated-disk \
           --description "Updated disk via CLI"
       ```
@@ -94,7 +94,7 @@
   1. Посмотрите описание команды CLI для изменения диска:
 
       ```
-      $ yc compute disk update --help
+      $ {{ yc-compute }} disk update --help
       ```
 
   1. Запросите список доступных дисков:
@@ -104,14 +104,14 @@
   1. Остановите виртуальную машину, диск которой нужно обновить. Для этого выберите `ID` нужной машины:
 
       ```
-      $ yc compute instance stop --id a7lcvu28njbhnkcteb5n
+      $ {{ yc-compute }} instance stop --id a7lcvu28njbhnkcteb5n
       ```
 
-  1. Выберите `ID` или `NAME` нужного диска, например `first-disk`.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужного диска, например `first-disk`.
   1. Укажите нужный размер (например, 32 ГБ) в команде изменения диска:
 
       ```
-      $ yc compute disk update first-disk \
+      $ {{ yc-compute }} disk update first-disk \
           --size 32
       ```
 
@@ -120,7 +120,7 @@
   1. Запустите виртуальную машину:
 
       ```
-      $ yc compute instance start --id a7lcvu28njbhnkcteb5n
+      $ {{ yc-compute }} instance start --id a7lcvu28njbhnkcteb5n
       ```
 
 - API

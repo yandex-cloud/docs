@@ -35,13 +35,13 @@
   1. Посмотрите описание команды CLI для восстановления кластера {{ PG }}:
   
       ```
-      $ yc managed-postgresql cluster restore --help
+      $ {{ yc-mdb-pg }} cluster restore --help
       ```
   
   1. Получите список доступных резервных копий {{ PG }}-кластеров:
   
       ```
-      $ yc managed-postgresql backup list
+      $ {{ yc-mdb-pg }} backup list
   
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -56,24 +56,24 @@
   1. Запросите создание кластера из резервной копии:
   
       ```bash
-      $ yc managed-postgresql cluster restore \
+      $ {{ yc-mdb-pg }} cluster restore \
              --backup-id c9qlk4v13uq79r9cgcku:base_000000010000000000000002 \
              --time 2018-11-02T10:09:38Z \
              --name mynewpg \
              --environment=PRODUCTION \
-             --network-name default \
-             --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
+             --network-name {{ network-name }} \
+             --host {{ host-net-example }} \
              --disk-size 20 \
-             --disk-type network-ssd \
-             --resource-preset s1.nano
+             --disk-type {{ disk-type-example }} \
+             --resource-preset {{ host-class }}
       ```
   
       В результате будет создан {{ PG }}-кластер со следующими характеристиками:
   
       - С именем `mynewpg`.
       - В окружении `PRODUCTION`.
-      - В сети `{{ network-name }}`.
-      - С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch63` , в зоне доступности `{{ zone-id }}`.
+      {% if audience != "internal" %} - В сети `{{ network-name }}`. {% endif %}
+      - С одним хостом класса `{{ host-class }}` {% if audience != "internal" %} в подсети `b0rcctk2rvtr8efcch63` {% endif %} , в зоне доступности `{{ zone-id }}`.
       - С базами данных и пользователями из резервной копии.
       - С сетевым SSD-хранилищем объемом 20 ГБ.
   
@@ -101,12 +101,12 @@
   1. Посмотрите описание команды CLI для создания резервной копии {{ PG }}:
   
       ```
-      $ yc managed-postgresql cluster backup --help
+      $ {{ yc-mdb-pg }} cluster backup --help
       ```
   1. Запросите создание резервной копии, указав имя или идентификатор кластера:
   
       ```
-      $ yc managed-postgresql cluster backup my-pg-cluster
+      $ {{ yc-mdb-pg }} cluster backup my-pg-cluster
       ```
   
       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
@@ -132,7 +132,7 @@
   Чтобы получить список резервных копий кластеров {{ PG }}, доступных в каталоге по умолчанию, выполните команду:
   
   ```
-  $ yc managed-postgresql backup list
+  $ {{ yc-mdb-pg }} backup list
   
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -163,7 +163,7 @@
   Чтобы получить данные о резервной копии кластера {{ PG }}, выполните команду:
   
   ```
-  $ yc managed-postgresql backup get <идентификатор резервной копии>
+  $ {{ yc-mdb-pg }} backup get <идентификатор резервной копии>
   ```
   
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -183,7 +183,7 @@
   Чтобы задать время начала резервного копирования, используйте флаг `--backup-window-start`. Время задается в формате ``ЧЧ:ММ:СС``.
 
   ```bash
-  $ yc managed-postgresql cluster create \
+  $ {{ yc-mdb-pg }} cluster create \
      --name <имя кластера> \
      --environment <окружение, prestable или production> \
      --network-name <имя сети> \
@@ -198,7 +198,7 @@
   Изменить время начала резервного копирования в существующем кластере можно с помощью команды `update`:
 
   ```
-  $ yc yc managed-postgresql cluster update \
+  $ yc {{ yc-mdb-pg }} cluster update \
      --name <имя кластера> \
      --backup-window-start 11:25:00
   ```

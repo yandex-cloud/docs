@@ -1,0 +1,1 @@
+**TODO:** Если вы одновременно хорошо знакомы и с ClickHouse и с YQL, то напишите, пожалуйста, о наиболее значимых с вашей точки зрения отличиях [вот сюда](https://a.yandex-team.ru/arc/edit/trunk/arcadia/yql/docs/differences_from/clickhouse.md).

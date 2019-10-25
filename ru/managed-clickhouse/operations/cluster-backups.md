@@ -31,13 +31,13 @@
   1. Посмотрите описание команды CLI для создания резервной копии {{ CH }}:
   
       ```
-      $ yc managed-clickhouse cluster backup --help
+      $ {{ yc-mdb-ch }} cluster backup --help
       ```
   
   1. Запросите создание резервной копии, указав имя или идентификатор кластера:
   
       ```
-      $ yc managed-clickhouse cluster backup my-ch-cluster
+      $ {{ yc-mdb-ch }} cluster backup my-ch-cluster
       ```
   
       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
@@ -71,13 +71,13 @@
   1. Посмотрите описание команды CLI для восстановления кластера {{ CH }}:
   
       ```
-      $ yc managed-clickhouse cluster restore --help
+      $ {{ yc-mdb-ch }} cluster restore --help
       ```
   
   1. Получите список доступных резервных копий {{ CH }}-кластеров:
   
       ```
-      $ yc managed-clickhouse backup list
+      $ {{ yc-mdb-ch }} backup list
   
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -89,26 +89,56 @@
   
   1. Запросите создание кластера из резервной копии:
   
+      {% if audience == "internal" %}
+  
       ```
-      $ yc managed-clickhouse cluster restore \
+      $ {{ yc-mdb-ch }} cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
              --name mynewch \
              --environment=PRODUCTION \
-             --network-name default \
-             --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
+             --network-id ' ' \
+             --host type=clickhouse,zone-id={{ zone-id }} \
+             --clickhouse-disk-size 20 \
+             --clickhouse-disk-type local-ssd \
+             --clickhouse-resource-preset {{ host-class }}
+      ```
+  
+      {% else %}
+  
+      ```
+      $ {{ yc-mdb-ch }} cluster restore \
+             --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
+             --name mynewch \
+             --environment=PRODUCTION \
+             --network-name {{ network-name }} \
+             --host type=clickhouse,zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
              --clickhouse-disk-size 20 \
              --clickhouse-disk-type network-ssd \
-             --clickhouse-resource-preset s1.nano
+             --clickhouse-resource-preset {{ host-class }}
       ```
+      
+      {% endif %}
   
       В результате будет создан {{ CH }}-кластер со следующими характеристиками:
 
+      {% if audience != "internal" %}
+        
       - С именем `mynewch`.
       - В окружении `PRODUCTION`.
       - В сети `{{ network-name }}`.
       - С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `{{ zone-id }}`. 
       - С базами данных и пользователями из резервной копии.
       - С сетевым SSD-хранилищем объемом 20 ГБ.
+      
+      {% else %}
+      
+      - С именем `mynewch`.
+      - В окружении `PRODUCTION`.
+      - С одним хостом класса `{{ host-class }}` в зоне доступности `{{ zone-id }}`.
+      - С базами данных и пользователями из резервной копии.
+      - С сетевым SSD-хранилищем объемом 20 ГБ.
+      
+      {% endif %}
   
 {% endlist %}
 
@@ -131,7 +161,7 @@
   Чтобы получить список резервных копий кластеров {{ CH }}, доступных в каталоге по умолчанию, выполните команду:
   
   ```
-  $ yc managed-clickhouse backup list
+  $ {{ yc-mdb-ch }} backup list
   
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -163,7 +193,7 @@
   Чтобы получить данные о резервной копии кластера {{ CH }}, выполните команду:
   
   ```
-  $ yc yc managed-clickhouse backup get <идентификатор резервной копии>
+  $ yc {{ yc-mdb-ch }} backup get <идентификатор резервной копии>
   ```
   
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -183,7 +213,7 @@
   Чтобы задать время начала резервного копирования, используйте флаг `--backup-window-start`. Время задается в формате ``ЧЧ:ММ:СС``.
 
   ```
-  $ yc yc managed-clickhouse cluster create \
+  $ yc {{ yc-mdb-ch }} cluster create \
         --name <имя кластера> \
         --environment <окружение, prestable или production> \
         --network-name <имя сети> \
@@ -199,7 +229,7 @@
   Изменить время начала резервного копирования в существующем кластере можно с помощью команды `update`:
 
   ```
-  $ yc yc managed-clickhouse cluster update \
+  $ yc {{ yc-mdb-ch }} cluster update \
      --name <имя кластера> \
      --backup-window-start 11:25:00
   ```

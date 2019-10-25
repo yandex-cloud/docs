@@ -31,6 +31,6 @@ Upload `cors.json` to a bucket named `shared-bucket`:
 
 ```
 aws s3api put-bucket-cors --bucket shared-bucket --cors-configuration file://cors.json \
-    --endpoint-url=https://storage.yandexcloud.net
+    --endpoint-url=https://{{ s3-storage-host }}
 ```
 

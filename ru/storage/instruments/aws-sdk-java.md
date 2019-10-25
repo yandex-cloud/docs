@@ -4,18 +4,11 @@
 
 ## Подготовка к работе {#preparations}
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 ## Установка {#installation}
 
-Для установки AWS SDK для JAVA воспользуйтесь [инструкцией](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-install.html) на сайте производителя.
-
-{% note info %}
-
-Установите SDK версии не ниже 1.11.336.
-
-{% endnote %}
-
+{% include [install-java-sdk](../../_includes/aws-tools/install-java-sdk.md)%}
 
 ## Настройка {#setup}
 
@@ -42,7 +35,7 @@ AmazonS3 s3 = AmazonS3ClientBuilder.standard()
     .withCredentials(new AWSStaticCredentialsProvider(credentials))
     .withEndpointConfiguration(
         new AmazonS3ClientBuilder.EndpointConfiguration(
-            "storage.yandexcloud.net","ru-central1"
+            "{{ s3-storage-host }}","ru-central1"
         )
     )
     .build();

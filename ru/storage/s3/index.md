@@ -4,7 +4,7 @@
 
 Чтобы воспользоваться API:
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [{#T}](../instruments/index.md).
 
@@ -14,7 +14,7 @@
 
 ```
 {GET|HEAD|PUT|DELETE} /<bucket>/<key> HTTP/1.1
-Host: storage.yandexcloud.net
+Host: {{ s3-storage-host }}
 Content-Length: length
 Date: date
 Authorization: authorization string (AWS Signature Version 4)
@@ -26,7 +26,7 @@ Request_body
 
 ```
 {GET|HEAD|PUT|DELETE} /<key>} HTTP/1.1
-Host: <bucket>.storage.yandexcloud.net
+Host: <bucket>.{{ s3-storage-host }}
 ...
 ```
 

@@ -1,0 +1,101 @@
+items:
+  - name: Обзор
+    href: api-ref/index.md
+  - name: Backup
+    items:
+      - name: Обзор
+        href: api-ref/Backup/index.md
+      - name: get
+        href: api-ref/Backup/get.md
+      - name: list
+        href: api-ref/Backup/list.md
+  - name: Cluster
+    items:
+      - name: Обзор
+        href: api-ref/Cluster/index.md
+      - name: addHosts
+        href: api-ref/Cluster/addHosts.md
+      - name: addShard
+        href: api-ref/Cluster/addShard.md
+      - name: backup
+        href: api-ref/Cluster/backup.md
+      - name: create
+        href: api-ref/Cluster/create.md
+      - name: delete
+        href: api-ref/Cluster/delete.md
+      - name: deleteHosts
+        href: api-ref/Cluster/deleteHosts.md
+      - name: deleteShard
+        href: api-ref/Cluster/deleteShard.md
+      - name: enableSharding
+        href: api-ref/Cluster/enableSharding.md
+      - name: get
+        href: api-ref/Cluster/get.md
+      - name: getShard
+        href: api-ref/Cluster/getShard.md
+      - name: list
+        href: api-ref/Cluster/list.md
+      - name: listBackups
+        href: api-ref/Cluster/listBackups.md
+      - name: listHosts
+        href: api-ref/Cluster/listHosts.md
+      - name: listLogs
+        href: api-ref/Cluster/listLogs.md
+      - name: listOperations
+        href: api-ref/Cluster/listOperations.md
+      - name: listShards
+        href: api-ref/Cluster/listShards.md
+      - name: move
+        href: api-ref/Cluster/move.md
+      - name: restore
+        href: api-ref/Cluster/restore.md
+      - name: start
+        href: api-ref/Cluster/start.md
+      - name: stop
+        href: api-ref/Cluster/stop.md
+      - name: update
+        href: api-ref/Cluster/update.md
+  - name: Database
+    items:
+      - name: Обзор
+        href: api-ref/Database/index.md
+      - name: create
+        href: api-ref/Database/create.md
+      - name: delete
+        href: api-ref/Database/delete.md
+      - name: get
+        href: api-ref/Database/get.md
+      - name: list
+        href: api-ref/Database/list.md
+  - name: ResourcePreset
+    items:
+      - name: Обзор
+        href: api-ref/ResourcePreset/index.md
+      - name: get
+        href: api-ref/ResourcePreset/get.md
+      - name: list
+        href: api-ref/ResourcePreset/list.md
+  - name: User
+    items:
+      - name: Обзор
+        href: api-ref/User/index.md
+      - name: create
+        href: api-ref/User/create.md
+      - name: delete
+        href: api-ref/User/delete.md
+      - name: get
+        href: api-ref/User/get.md
+      - name: grantPermission
+        href: api-ref/User/grantPermission.md
+      - name: list
+        href: api-ref/User/list.md
+      - name: revokePermission
+        href: api-ref/User/revokePermission.md
+      - name: update
+        href: api-ref/User/update.md
+  - name: Operation
+    items:
+      - name: Обзор
+        href: api-ref/Operation/index.md
+      - name: get
+        href: api-ref/Operation/get.md

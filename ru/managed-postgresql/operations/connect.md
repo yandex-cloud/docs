@@ -1,31 +1,73 @@
 # Подключение к базе данных в кластере {{ PG }}
 
-{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
+К хостам кластера {{ mpg-short-name }} можно подключиться:
 
-## Аутентификация
+{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %} 
 
-{{ PG }}-кластеры {{ mpg-short-name }} поддерживают только шифрованные соединения. Поэтому для подключения к такому кластеру необходим SSL-сертификат. Подготовить все нужные аутентификационные данные можно так:
+{% note info %}
+
+Если публичный доступ в вашем кластере настроен только для некоторых хостов, автоматическая смена мастера может привести к тому, что вы не сможете подключиться к мастеру из интернета.
+
+{% endnote %}
+
+
+## Настройка SSL-сертификата
+
+{{ PG }}-хосты с публичным доступом поддерживают только соединения с SSL-сертификатом. Подготовить сертификат можно так:
+
+{% if audience != "internal" %}
 
 ```bash
 $ mkdir ~/.postgresql
-$ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/CA.pem
+$ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt
+$ chmod 0600 ~/.postgresql/root.crt
 ```
 
-О том, как использовать сертификат с помощью `libpq`, читайте в [документации {{ PG }}](https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
+{% else %}
+
+```bash
+$ mkdir ~/.postgresql
+$ wget "{{ pem-path }}" -O ~/.postgresql/root.crt
+$ chmod 0600 ~/.postgresql/root.crt
+```
+
+{% endif %}
+
 
 ## Строка подключения
 
-Теперь вы можете подключиться к БД с помощью команды `psql`:
-
-```bash
-psql "host=<FQDN хоста БД> \
-      port=6432 \
-      sslmode=verify-full \
-      dbname=<имя базы данных> \
-      user=<имя пользователя базы данных>"
-```
+Подключиться к БД с помощью команды `psql`.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
+
+{% list tabs %}
+
+- SSL
+
+  {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
+
+  ```bash
+  $ psql "host=<FQDN хоста БД> \
+          port=6432 \
+          sslmode=verify-full \
+          dbname=<имя базы данных> \
+          user=<имя пользователя базы данных>"
+  ```
+  
+- Без SSL
+
+  Если вам не нужно шифровать трафик внутри виртуальной сети при подключении к БД, то можно подключаться к базе без SSL-соединения. Передайте параметр `sslmode` со значением `disable`:
+  
+  ```bash
+  $ psql "host=<FQDN хоста БД> \
+          port=6432 \
+          sslmode=disable \
+          dbname=<имя базы данных> \
+          user=<имя пользователя базы данных>"
+  ```
+
+{% endlist%}
+
 
 ## Автоматический выбор хоста-мастера
 
@@ -57,15 +99,21 @@ psql "host=<FQDN хоста 1>,<FQDN хоста 2>,<FQDN хоста 3> \
 Если ваш драйвер для подключения к базе данных не позволяет передавать несколько хостов в строке подключения (например,
 [pgx в Go](https://github.com/jackc/pgx)), вы можете подключаться на специальный хост вида `c-<идентификатор кластера>.rw.{{ dns-zone }}`.
 
+{% if audience == "internal" %}
+{% note info %}
+
+Также есть специальный хост для наименее отставшей рабочей реплики: `c-<идентификатор кластера>.ro.{{ dns-zone }}`.
+
+{% endnote %}
+
+{% endif %}
 
 Это доменное имя всегда указывает на текущий мастер в кластере. Например, для кластера с идентификатором `c9qash3nb1v9ulc8j9nm` к мастеру можно подключиться так:
 
 ```bash
-$ psql "host=c-c9qash3nb1v9ulc8j9nm.rw.mdb.yandexcloud.net \
+$ psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
       port=6432 \
       sslmode=verify-full \
       dbname=<имя базы данных> \
       user=<имя пользователя базы данных>"
 ```
-
-

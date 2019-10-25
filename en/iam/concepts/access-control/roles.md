@@ -26,7 +26,7 @@ For example, the `{{ roles-viewer }}` role lets you perform the following operat
 
 #### {{ roles-editor }} {#editor}
 
-The `{{ roles-editor }}` role grants permissions to perform any operation to management the resource, except assigning roles to other users. The `{{ roles-editor }}` role includes all permissions granted by the `{{ roles-viewer }}` role.
+The `{{ roles-editor }}` role grants permissions to perform any operation related to resource management, except assigning roles to other users. The `{{ roles-editor }}` role includes all permissions granted by the `{{ roles-viewer }}` role.
 
 For example, the `{{ roles-editor }}` role lets you perform the following operations:
 
@@ -74,3 +74,7 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 {% include [container-registry-puller](../../../_includes/roles-container-registry-puller.md)%}
 
 {% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md)%}
+
+### {{ datalens-name }} {#datalens-roles}
+
+{% include [datalens-instances-user](../../../_includes/roles-datalens-user.md)%}

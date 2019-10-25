@@ -4,13 +4,13 @@ CyberDuck is a GUI-based cloud storage client for Mac and Windows that is availa
 
 ## Before you start {#preparations}
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 ## Installation {#installation}
 
 To install CyberDuck, go to the [manufacturer's website](https://cyberduck.io) and download the required distribution.
 
-## Connection {#connection}
+## Connections {#connection}
 
 Create a connection with the following parameters:
 
@@ -21,7 +21,7 @@ Create a connection with the following parameters:
 
 {% note info %}
 
-CyberDuck works with {{ objstorage-name }} like a hierarchical file system. This means that keys for objects uploaded via CyberDuck will look like a file path. For example, `prefix/subprefix/picture.jpg`.
+CyberDuck treats {{ objstorage-name }} as a hierarchical file system. This means that keys for objects uploaded via CyberDuck will look like a file path. For example, `prefix/subprefix/picture.jpg`.
 
 {% endnote %}
 

@@ -59,8 +59,7 @@
 
     Виртуальная машина должна находиться в той же сети и зоне доступности, что хост-мастер кластера {{ MY }}. Кроме того, виртуальной машине должен быть присвоен внешний IP-адрес, чтобы вы могли загрузить дамп извне Облака.
 
-2. Установите клиент {{ MY }} и дополнительные утилиты для работы с СУБД:
-Для Debian/Ubuntu утилиты `mysqldump` и `mysql` поставляются в пакете [`mysql-client`](https://packages.ubuntu.com/search?keywords=mysql-client), его установка:
+2. Установите клиент {{ MY }} и дополнительные утилиты для работы с СУБД. Для Debian/Ubuntu утилиты `mysqldump` и `mysql` поставляются в пакете [`mysql-client`](https://packages.ubuntu.com/search?keywords=mysql-client), его установка:
 
    ```
    $ sudo apt-get install mysql-client

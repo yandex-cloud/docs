@@ -19,7 +19,7 @@ SDKs for various programming languages and other tools for AWS S3 have methods f
 ## General pre-signed URL format {#presigned-url-preview}
 
 ```
-https://storage.yandexcloud.net/<bucket name>/<object key>?
+https://{{ s3-storage-host }}/<bucket name>/<object key>?
      X-Amz-Algorithm=AWS4-HMAC-SHA256
     &X-Amz-Expires=<time interval in seconds>
     &X-Amz-SignedHeaders=<list of headers separated by ";">
@@ -122,7 +122,7 @@ You can also add any of the request headers to the list. The more headers you si
 Example:
 
 ```
-host:storage.yandexcloud.net
+host:{{ s3-storage-host }}
 x-amz-date:20190801T000000Z
 ```
 
@@ -157,7 +157,7 @@ Let's compose a pre-signed URL to download the `object-for-share.txt` object tha
     GET
     /example-bucket/object-for-share.txt
     X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host
-    host:storage.yandexcloud.net
+    host:{{ s3-storage-host }}
     
     host
     UNSIGNED-PAYLOAD
@@ -189,7 +189,7 @@ Let's compose a pre-signed URL to download the `object-for-share.txt` object tha
 - Pre-signed URL:
 
     ```
-    https://storage.yandexcloud.net/example-bucket/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96
+    https://{{ s3-storage-host }}/example-bucket/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96
     ```
 
 ## Examples of getting pre-signed links in tools {{ objstorage-name }}

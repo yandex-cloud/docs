@@ -4,7 +4,7 @@
 
 To use the API:
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 To access the HTTP API directly, you need static key authentication, which is supported by the tools listed in [{#T}](../instruments/index.md).
 
@@ -14,7 +14,7 @@ For a list of supported Amazon S3 HTTP API methods, see the [API reference](api-
 
 ```
 {GET|HEAD|PUT|DELETE} /<bucket>/<key> HTTP/1.1
-Host: storage.yandexcloud.net
+Host: {{ s3-storage-host }}
 Content-Length: length
 Date: date
 Authorization: authorization string (AWS Signature Version 4)
@@ -26,7 +26,7 @@ The name of the bucket can be specified as part of the host name. In this case, 
 
 ```
 {GET|HEAD|PUT|DELETE} /<key>} HTTP/1.1
-Host: <bucket>.storage.yandexcloud.net
+Host: <bucket>.{{ s3-storage-host }}
 ...
 ```
 

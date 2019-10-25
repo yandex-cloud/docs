@@ -8,7 +8,7 @@ At the Preview stage, you cannot assign a public IP to a cluster host. To connec
 
 When you create a host in a subcluster, {{ dataproc-name }} generates a fully qualified domain name (FQDN) and IP address for it. You can use them to access the host within a single cloud network.
 
-The host IP address may change during operation, its FQDN is always the same.
+The host IP address may change during operation, its FQDN doesn't.
 
 {% note important %}
 

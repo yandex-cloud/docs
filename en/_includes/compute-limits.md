@@ -6,19 +6,27 @@
 | Total number of vCPUs for all VMs per cloud | 8 |
 | Total virtual memory for all VMs per cloud | 64 GB |
 | Total number of disks per cloud | 32 |
-| Total disk storage capacity per cloud | 200 GB |
+| Total SSD storage capacity per cloud | 50 GB |
+| Total HDD storage capacity per cloud | 200 GB |
 | Total number of disk snapshots per cloud | 32 |
 | Total storage capacity of all disk snapshots per cloud | 400 GB |
 | Number of images per cloud | 8 |
 | Number of instance groups per cloud | 10 |
+| Total number of GPUs for all VMs per cloud* | 0 |
+| Number of concurrent [operations](../api-design-guide/concepts/operation.md) per cloud | 15 |
+
+\* To create a VM with a GPU, contact [technical support](https://cloud.yandex.com/support).
 
 #### VM limits {#limits-vm}
 
 | Type of limit | Value |
 | ----- | ----- |
-| Maximum number of vCPUs per VM | 32 and 48 for Intel Broadwell and Intel Cascade Lake [limits](#limits-vm), respectively |
+| Maximum number of vCPUs per VM | 32 and 64 for Intel Broadwell and Intel Cascade Lake [platforms](../compute/concepts/vm-platforms.md), respectively |
 | Maximum virtual memory per VM | 256 GB and 384 GB for Intel Broadwell and Intel Cascade Lake [platforms](../compute/concepts/vm-platforms.md), respectively |
-| Maximum number of disks connected to a single VM | 6 |
+| Maximum number of disks connected to a single VM | 7 |
+| Maximum number of GPUs connected to a single VM | 4 |
+| Maximum number of vCPUs for VMs with GPUs | 32 |
+| Maximum RAM for VMs with GPUs | 384 |
 
 #### Disk limits {#limits-disks}
 
@@ -60,7 +68,7 @@
 
 ##### * {#max_iops}
 
-To achieve maximum IOPS, we recommend performing reads and writes that are 4 KB and less.
+To achieve maximum IOPS, we recommend performing read and write operations that are 4 KB and less.
 
 ##### ** {#max_bandwidth}
 

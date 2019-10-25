@@ -36,7 +36,7 @@
   
       {% include [compute-image-list](../../../_includes/compute/image-list.md) %}
   
-  1. Выберите `ID` или `NAME` нужного образа.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужного образа.
   1. Удалите образ:
   
       ```

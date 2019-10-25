@@ -1,0 +1,238 @@
+openapi: "3.0"
+info:
+  title: Yandex IAM API
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов.
+    Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://iam.api.cloud.yandex.net
+paths:
+  /iam/aws-compatibility/v1/accessKeys:
+    get:
+      tags:
+      - AccessKey
+      summary: Возвращает список ключей доступа для указанного сервисного аккаунта.
+      operationId: AccessKeyList
+      parameters:
+      - name: serviceAccountId
+        in: query
+        description: |-
+          Идентификатор сервисного аккаунта, для которого запрашивается список ключей
+          доступа. Чтобы получить идентификатор сервисного аккаунта, используйте запрос
+          [list](/docs/iam/api-ref/ServiceAccount/list). Если параметр не указан, то используется идентификатор
+          субъекта, который сделал запрос.
+
+          Максимальная длина строки в символах — 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/iam/api-ref/AccessKey/list#query_params), сервис вернет значение [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses),
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/AccessKey/list#query_params) равным значению поля
+          [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessKeysResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - AccessKey
+      summary: Создает ключ доступа для указанного сервисного аккаунта.
+      operationId: AccessKeyCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAccessKeyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateAccessKeyResponse'
+      x-y-navtitle: create
+  /iam/aws-compatibility/v1/accessKeys/{accessKeyId}:
+    get:
+      tags:
+      - AccessKey
+      summary: Возвращает указанный ключ доступа.
+      description: Чтобы получить список доступных ключей доступа, используйте запрос
+        [list](/docs/iam/api-ref/AccessKey/list).
+      operationId: AccessKeyGet
+      parameters:
+      - name: accessKeyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор запрашиваемого ресурса AccessKey. Чтобы получить идентификатор ключа
+          доступа, используйте запрос [list](/docs/iam/api-ref/AccessKey/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessKey'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - AccessKey
+      summary: Удаляет указанный ключ доступа.
+      operationId: AccessKeyDelete
+      parameters:
+      - name: accessKeyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор удаляемого ключа доступа. Чтобы получить идентификатор ключа
+          доступа, используйте запрос [list](/docs/iam/api-ref/AccessKey/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Empty'
+      x-y-navtitle: delete
+components:
+  schemas:
+    AccessKey:
+      description: Ключ доступа. Дополнительные сведения см. в разделе [AWS-совместимые
+        ключи доступа](/docs/iam/concepts/authorization/access-key).
+      type: object
+      properties:
+        id:
+          description: |-
+            Идентификатор ресурса AccessKey. Он используется для управления идентификатором ключа
+            доступа и секретным ключом доступа.
+          type: string
+        serviceAccountId:
+          description: Идентификатор сервисного аккаунта, которому принадлежит ключ
+            доступа.
+          type: string
+        createdAt:
+          description: |-
+            Время создания.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        description:
+          description: Описание ключа доступа. Длина описания должна быть от 0 до
+            256 символов.
+          type: string
+        keyId:
+          description: Идентификатор ключа доступа. Ключ совместим с сервисами AWS.
+          type: string
+    CreateAccessKeyRequest:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            Идентификатор сервисного аккаунта для создания ключа доступа. Чтобы получить
+            идентификатор сервисного аккаунта, используйте запрос [list](/docs/iam/api-ref/ServiceAccount/list).
+            Если параметр не указан, то используется идентификатор субъекта, который сделал
+            запрос.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        description:
+          description: |-
+            Описание ключа доступа.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+    CreateAccessKeyResponse:
+      type: object
+      properties:
+        accessKey:
+          $ref: '#/components/schemas/AccessKey_in_CreateAccessKeyResponse_accessKey'
+        secret:
+          description: Секретный ключ доступа. Ключ совместим с сервисами AWS.
+          type: string
+    Empty:
+      description: Пустой JSON объект `` {} ``.
+      type: object
+      maxProperties: 0
+    ListAccessKeysResponse:
+      type: object
+      properties:
+        accessKeys:
+          description: Список ключей доступа.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessKey'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/iam/api-ref/AccessKey/list#query_params), используйте [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses) в качестве значения
+            параметра [pageToken](/docs/iam/api-ref/AccessKey/list#query_params) в следующем запросе списка ресурсов. Все последующие
+            запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses) для перебора страниц результатов.
+          type: string
+    AccessKey_in_CreateAccessKeyResponse_accessKey:
+      description: |-
+        Ресурс AccessKey.
+
+        Ключ доступа. Дополнительные сведения см. в разделе [AWS-совместимые ключи доступа](/docs/iam/concepts/authorization/access-key).
+      type: object
+      properties:
+        id:
+          description: |-
+            Идентификатор ресурса AccessKey. Он используется для управления идентификатором ключа
+            доступа и секретным ключом доступа.
+          type: string
+        serviceAccountId:
+          description: Идентификатор сервисного аккаунта, которому принадлежит ключ
+            доступа.
+          type: string
+        createdAt:
+          description: |-
+            Время создания.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        description:
+          description: Описание ключа доступа. Длина описания должна быть от 0 до
+            256 символов.
+          type: string
+        keyId:
+          description: Идентификатор ключа доступа. Ключ совместим с сервисами AWS.
+          type: string
+tags:
+- name: AccessKey
+  description: Набор методов управления ключами доступа.

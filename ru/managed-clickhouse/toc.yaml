@@ -13,15 +13,14 @@ items:
       href: operations/cluster-create.md
     - name: Подключение к базе данных
       href: operations/connect.md
-    - name: Добавление данных в БД
-      href: operations/insert.md
-    - name: Миграция данных ClickHouse
-      href: operations/data-migration.md
+    - name: Остановка и запуск кластера
+      href: operations/cluster-stop.md
     - name: SQL-запросы в консоли управления
       href: operations/web-sql-query.md
-      stage: preview
     - name: Изменение настроек кластера и базы данных
       href: operations/update.md
+    - name: Подключение внешних словарей
+      href: operations/dictionaries.md
     - name: Изменение версии ClickHouse
       href: operations/cluster-version-update.md
     - name: Управление хостами ClickHouse
@@ -40,6 +39,10 @@ items:
       href: operations/cluster-delete.md
   - name: Сценарии использования
     items:
+      - name: Добавление данных в БД
+        href: operations/insert.md
+      - name: Миграция данных ClickHouse
+        href: operations/data-migration.md
       - name: Шардирование таблиц
         href: tutorials/sharding.md
   - name: Концепции
@@ -58,6 +61,8 @@ items:
       href: concepts/backup.md
     - name: Репликация
       href: concepts/replication.md
+    - name: Словари
+      href: concepts/dictionaries.md
     - name: Шардирование
       href: concepts/sharding.md
     - name: Поддерживаемые клиенты

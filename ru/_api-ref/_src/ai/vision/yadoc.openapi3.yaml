@@ -1,0 +1,401 @@
+openapi: "3.0"
+info:
+  title: Yandex Vision API
+  description: Сервис не оперирует ресурсами. Все методы сервиса представлены на странице
+    [Vision](Vision/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://vision.api.cloud.yandex.net
+paths:
+  /vision/v1/batchAnalyze:
+    post:
+      tags:
+      - Vision
+      summary: Анализирует набор изображений и возвращает результаты с аннотациями.
+      operationId: VisionBatchAnalyze
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchAnalyzeRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchAnalyzeResponse'
+      x-y-navtitle: batchAnalyze
+components:
+  schemas:
+    AnalyzeResult:
+      type: object
+      properties:
+        results:
+          description: |-
+            Результаты для каждой запрошенной возможности для анализа. Результаты имеют тот же
+            порядок, что и указанные возможности в запросе.
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureResult'
+        error:
+          $ref: '#/components/schemas/Status_in_AnalyzeResult_error'
+    AnalyzeSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          features:
+            description: |-
+              Обязательное поле.
+              Запрошенные возможности для анализа.
+
+              Максимальное количество запрошенных возможностей для одного файла - 8.
+
+              Количество элементов должно находиться в диапазоне от 1 до 8.
+            type: array
+            items:
+              $ref: '#/components/schemas/Feature'
+          mimeType:
+            description: |-
+              [MIME-тип](https://en.wikipedia.org/wiki/Media_type) контента (например, `` application/pdf ``).
+
+              Максимальная длина строки в символах — 255.
+            type: string
+      - title: source
+        type: object
+        maxProperties: 1
+        properties:
+          content:
+            description: |-
+              Содержимое изображения, представленное в виде потока байтов. Примечание: как и во
+              всех полях с байтами, в protobuf используется чистое двоичное представление, тогда как
+              в JSON-представлении используется base64.
+
+              Максимальная длина строки в символах — 1048576.
+            type: string
+            format: byte
+    BatchAnalyzeRequest:
+      type: object
+      properties:
+        analyzeSpecs:
+          description: |-
+            Обязательное поле.
+            Список спецификаций. Каждая спецификация содержит файл для анализа и возможности
+            для анализа.
+
+            Ограничения
+            * Поддерживаемые форматы файлов: JPEG, PNG.
+            * Максимальный размер файла: 1 МБ.
+            * Размер изображения не должен превышать 20 мегапикселей (длина x ширина).
+
+            Количество элементов должно находиться в диапазоне от 1 до 8.
+          type: array
+          items:
+            $ref: '#/components/schemas/AnalyzeSpec'
+        folderId:
+          description: |-
+            Идентификатор каталога, к которому у вас есть доступ. Требуется для авторизации с
+            пользовательским аккаунтом (см. ресурс [UserAccount](/docs/iam/api-ref/UserAccount#representation) ). Не используйте это поле,
+            если вы делаете запрос от имени сервисного аккаунта.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+    BatchAnalyzeResponse:
+      type: object
+      properties:
+        results:
+          description: Результаты запроса. Результаты имеют тот же порядок, что и
+            спецификации в запросе.
+          type: array
+          items:
+            $ref: '#/components/schemas/AnalyzeResult'
+    Block:
+      type: object
+      properties:
+        boundingBox:
+          $ref: '#/components/schemas/Polygon_in_Block_boundingBox'
+        lines:
+          description: Распознанные строки в этом блоке.
+          type: array
+          items:
+            $ref: '#/components/schemas/Line'
+    ClassAnnotation:
+      type: object
+      properties:
+        properties:
+          description: |-
+            Признаки, извлеченные указанной моделью.
+
+            Например, если вы попросите оценить качество изображения, сервис может вернуть
+            такие признаки, как `good` и `bad`.
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    Face:
+      type: object
+      properties:
+        boundingBox:
+          $ref: '#/components/schemas/Polygon_in_Face_boundingBox'
+    FaceAnnotation:
+      type: object
+      properties:
+        faces:
+          description: Массив обнаруженных лиц для указанного изображения.
+          type: array
+          items:
+            $ref: '#/components/schemas/Face'
+    Feature:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          type:
+            $ref: '#/components/schemas/FeatureType'
+            description: Тип запрашиваемой возможности для анализа.
+      - title: config
+        type: object
+        maxProperties: 1
+        properties:
+          classificationConfig:
+            $ref: '#/components/schemas/FeatureClassificationConfig'
+            description: Обязательно для типа `CLASSIFICATION`. Задает конфигурацию
+              для классификации.
+          textDetectionConfig:
+            $ref: '#/components/schemas/FeatureTextDetectionConfig'
+            description: Обязательно для типа `TEXT_DETECTION`. Задает конфигурацию
+              для распознавания текста (OCR).
+    FeatureClassificationConfig:
+      type: object
+      properties:
+        model:
+          description: |-
+            Модель для анализа изображений.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+    FeatureResult:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: |-
+              Возвращает информацию об ошибке, если ошибка произошла при выполнении анализа для
+              указанной возможности.
+      - title: feature
+        type: object
+        maxProperties: 1
+        properties:
+          textDetection:
+            $ref: '#/components/schemas/TextAnnotation'
+            description: Результат распознавания текста (OCR).
+          classification:
+            $ref: '#/components/schemas/ClassAnnotation'
+            description: Результат классификации.
+          faceDetection:
+            $ref: '#/components/schemas/FaceAnnotation'
+            description: Результат обнаружения лиц.
+    FeatureTextDetectionConfig:
+      type: object
+      properties:
+        languageCodes:
+          description: |-
+            Обязательное поле.
+            Список языков для распознавания текста. Указывается в формате [ISO
+            639-1](https://en.wikipedia.org/wiki/ISO_639-1) (например, `` ru ``).
+
+            Количество элементов должно находиться в диапазоне от 1 до 8.
+            Максимальная длина строки в символах для каждого значения — 3.
+          type: array
+          items:
+            type: string
+        model:
+          description: |-
+            Не используйте это поле, пользовательские модели пока не поддерживаются.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+    FeatureType:
+      description: |2-
+         - TEXT_DETECTION: Распознавание текста (OCR).
+         - CLASSIFICATION: Возможность Классификация.
+         - FACE_DETECTION: Возможность Обнаружение лиц.
+      type: string
+      enum:
+      - TEXT_DETECTION
+      - CLASSIFICATION
+      - FACE_DETECTION
+    Line:
+      type: object
+      properties:
+        boundingBox:
+          $ref: '#/components/schemas/Polygon_in_Line_boundingBox'
+        words:
+          description: Распознанные слова в этой строке.
+          type: array
+          items:
+            $ref: '#/components/schemas/Word'
+        confidence:
+          description: Достоверность результатов OCR для строки. Диапазон [0, 1].
+          type: number
+          format: double
+    Page:
+      type: object
+      properties:
+        width:
+          description: Ширина страницы в пикселях.
+          type: string
+          format: int64
+        height:
+          description: Высота страницы в пикселях.
+          type: string
+          format: int64
+        blocks:
+          description: Распознанные блоки текста на этой странице.
+          type: array
+          items:
+            $ref: '#/components/schemas/Block'
+    Polygon:
+      type: object
+      properties:
+        vertices:
+          description: Вершины обрамляющей фигуры.
+          type: array
+          items:
+            $ref: '#/components/schemas/Vertex'
+    Property:
+      type: object
+      properties:
+        name:
+          description: Имя признака.
+          type: string
+        probability:
+          description: Вероятность для признака, от 0 до 1.
+          type: number
+          format: double
+    Status:
+      description: Описание ошибки в случае сбоя или отмены операции.
+      type: object
+      properties:
+        code:
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: Текст ошибки.
+          type: string
+        details:
+          description: Список сообщений с подробными сведениями об ошибке.
+          type: array
+          items:
+            type: object
+    TextAnnotation:
+      type: object
+      properties:
+        pages:
+          description: |-
+            Страницы распознанного файла.
+
+            Для JPEG и PNG файлов содержит только 1 страницу.
+          type: array
+          items:
+            $ref: '#/components/schemas/Page'
+    Vertex:
+      type: object
+      properties:
+        x:
+          description: Координата по оси X в пикселях.
+          type: string
+          format: int64
+        "y":
+          description: Координата по оси Y в пикселях.
+          type: string
+          format: int64
+    Word:
+      type: object
+      properties:
+        boundingBox:
+          $ref: '#/components/schemas/Polygon_in_Word_boundingBox'
+        text:
+          description: Распознанное слово.
+          type: string
+        confidence:
+          description: Достоверность результатов OCR для слова. Диапазон [0, 1].
+          type: number
+          format: double
+        languages:
+          description: Список распознанных языков и достоверность распознавания.
+          type: array
+          items:
+            $ref: '#/components/schemas/WordDetectedLanguage'
+    WordDetectedLanguage:
+      type: object
+      properties:
+        languageCode:
+          description: Код распознанного языка.
+          type: string
+        confidence:
+          description: Достоверность распознанного языка. Диапазон [0, 1].
+          type: number
+          format: double
+    Status_in_AnalyzeResult_error:
+      description: |-
+        Возвращает информацию об ошибке, если ошибка произошла при обработке файла.
+
+        Описание ошибки в случае сбоя или отмены операции.
+      type: object
+      properties:
+        code:
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: Текст ошибки.
+          type: string
+        details:
+          description: Список сообщений с подробными сведениями об ошибке.
+          type: array
+          items:
+            type: object
+    Polygon_in_Block_boundingBox:
+      description: Область на странице, где находится блок текста.
+      type: object
+      properties:
+        vertices:
+          description: Вершины обрамляющей фигуры.
+          type: array
+          items:
+            $ref: '#/components/schemas/Vertex'
+    Polygon_in_Face_boundingBox:
+      description: Область на изображении, где находится лицо.
+      type: object
+      properties:
+        vertices:
+          description: Вершины обрамляющей фигуры.
+          type: array
+          items:
+            $ref: '#/components/schemas/Vertex'
+    Polygon_in_Line_boundingBox:
+      description: Область на странице, где расположена строка.
+      type: object
+      properties:
+        vertices:
+          description: Вершины обрамляющей фигуры.
+          type: array
+          items:
+            $ref: '#/components/schemas/Vertex'
+    Polygon_in_Word_boundingBox:
+      description: Область на странице, где расположена строка.
+      type: object
+      properties:
+        vertices:
+          description: Вершины обрамляющей фигуры.
+          type: array
+          items:
+            $ref: '#/components/schemas/Vertex'
+tags:
+- name: Vision
+  description: Набор методов для сервиса Yandex Vision.

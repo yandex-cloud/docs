@@ -1,0 +1,9 @@
+items:
+  - name: Обзор
+    href: api-ref/index.md
+  - name: Stt
+    items:
+      - name: Обзор
+        href: api-ref/Stt/index.md
+      - name: longRunningRecognize
+        href: api-ref/Stt/longRunningRecognize.md

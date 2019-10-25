@@ -9,13 +9,13 @@ items:
         href: quickstart/quick-create-linux.md
       - name: Creating a Windows VM
         href: quickstart/quick-create-windows.md
-      - name: Getting started with Instance Groups
+      - name: Creating instance groups
         href: quickstart/ig.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Creating a VM
+      - name: Creating VMs
         items:
           - name: Creating a Linux VM
             href: operations/vm-create/create-linux-vm.md
@@ -27,13 +27,15 @@ items:
             href: operations/vm-create/create-from-snapshots.md
           - name: Creating a VM from a custom image
             href: operations/vm-create/create-from-user-image.md
-          - name: Creating a preemptible VM
+          - name: Creating a preemptible instance
             href: operations/vm-create/create-preemptible-vm.md
+          - name: Creating a VM with a GPU
+            href: operations/vm-create/create-vm-with-gpu.md
       - name: DSVM
         items:
           - name: Overview
             href: operations/dsvm/index.md
-          - name: Creating a VM and connecting to it
+          - name: Creating an instance and connecting to it
             href: operations/dsvm/quickstart.md
       - name: Images with pre-installed software
         items:
@@ -49,9 +51,9 @@ items:
         items:
           - name: Getting basic information and metadata
             href: operations/vm-info/get-info.md
-          - name: Getting serial port output
+          - name: Viewing serial port output
             href: operations/vm-info/get-serial-port-output.md
-      - name: Performing VM management
+      - name: Managing VMs
         items:
           - name: Stopping and starting a VM
             href: operations/vm-control/vm-stop-and-start.md
@@ -69,53 +71,59 @@ items:
             href: operations/vm-control/vm-update-resources.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
-      - name: Working on a VM
+      - name: Working on VMs
         items:
           - name: Connecting to a VM via SSH
             href: operations/vm-connect/ssh.md
           - name: Connecting to a VM via RDP
             href: operations/vm-connect/rdp.md
-          - name: Working with Yandex.Cloud from inside a VM
+          - name: Working with Yandex.Cloud from inside an instance
             href: operations/vm-connect/auth-inside-vm.md
-      - name: Creating a new disk
+      - name: Creating new disks
         items:
           - name: Creating an empty disk
             href: operations/disk-create/empty.md
-      - name: Performing disk management
+      - name: Disk management
         items:
           - name: Creating a disk snapshot
             href: operations/disk-control/create-snapshot.md
-          - name: Changing a disk
+          - name: Updating a disk
             href: operations/disk-control/update.md
           - name: Deleting a disk
             href: operations/disk-control/delete.md
           - name: Deleting a disk snapshot
             href: operations/snapshot-control/delete.md
-      - name: Creating a new image
+      - name: Creating new images
         items:
           - name: Uploading your image
             href: operations/image-create/upload.md
-      - name: Image management
+          - name: Installing NVIDIA drivers
+            href: operations/image-create/install-nvidia-drivers.md
+      - name: Managing images
         items:
-          - name: Deleting an image
+          - name: Removing an image
             href: operations/image-control/delete.md
-      - name: Serial console management
+      - name: Managing the serial console
         items:
           - name: Getting started
             href: operations/serial-console/index.md
-          - name: Connecting to a VM's serial console via SSH
+          - name: Connecting to a serial console via SSH
             href: operations/serial-console/connect-ssh.md
-          - name: Connecting to a VM's serial console via CLI
+          - name: Connecting to a serial console via the CLI
             href: operations/serial-console/connect-cli.md
-          - name: Disable access to serial console
+          - name: Disabling access to the serial console
             href: operations/serial-console/disable.md
-      - name: Creating an instance group
+      - name: Creating instance groups
         items:
           - name: Create a fixed-size instance group
             href: operations/instance-groups/create-fixed-group.md
           - name: Create a fixed-size instance group with a load balancer
             href: operations/instance-groups/create-with-balancer.md
-      - name: Getting information about an instance group
+          - name: Creating an automatically scaled instance group
+            href: operations/instance-groups/create-autoscaled-group.md
+          - name: Creating an instance group with a Container Optimized Image
+            href: operations/instance-groups/create-with-coi
+      - name: Getting information about instance groups
         items:
           - name: Getting a list of groups
             href: operations/instance-groups/get-list.md
@@ -123,14 +131,18 @@ items:
             href: operations/instance-groups/get-info.md
           - name: Getting a list of instances in a group
             href: operations/instance-groups/get-list-instances.md
-      - name: Managing an instance group
+      - name: Managing instance groups
         items:
           - name: Update a group
             href: operations/instance-groups/update.md
           - name: Delete a group
             href: operations/instance-groups/delete.md
-          - name: Set up autohealing for virtual machines
+          - name: Setting up automatic recovery for instances
             href: operations/instance-groups/enable-autohealing.md
+  - name: Scenarios
+    items:
+      - name: Configuring NTP time synchronization
+        href: solutions/ntp.md
   - name: Concepts
     items:
       - name: Relationship between resources
@@ -141,12 +153,16 @@ items:
             href: concepts/vm.md
           - name: Platforms
             href: concepts/vm-platforms.md
-          - name: Levels of core performance
+          - name: vCPU performance levels
             href: concepts/performance-levels.md
+          - name: Graphics accelerators (GPUs)
+            href: concepts/gpus.md
           - name: Preemptible VMs
             href: concepts/preemptible-vm.md
           - name: Network on a VM
             href: concepts/network.md
+          - name: Live migration
+            href: concepts/live-migration.md
           - name: Statuses
             href: concepts/vm-statuses.md
           - name: Metadata
@@ -171,27 +187,29 @@ items:
             href: concepts/instance-groups/policies.md
           - name: Scaling types
             href: concepts/instance-groups/scale.md
-          - name: Autohealing
+          - name: Automatic recovery
             href: concepts/instance-groups/autohealing.md
           - name: Configuration update
             href: concepts/instance-groups/configuration-update.md
-          - name: VM statuses
+          - name: Instance statuses
             href: concepts/instance-groups/vm-statuses.md
+      - name: Backups
+        href: concepts/backups.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     items:
-      - name: Current policy
+      - name: Current pricing policy
         href: pricing.md
       - name: Archive
         items:
-        - name: Prices before January 1, 2019
+        - name: Before January 1, 2019
           href: pricing-archive/pricing-01012019.md
-        - name: Prices from January 1 through March 1, 2019
+        - name: From January 1 to March 1, 2019
           href: pricing-archive/pricing-01032019.md
-        - name: Prices from March 1 through May 1, 2019
+        - name: From March 1 to May 1, 2019
           href: pricing-archive/pricing-30042019.md
   - name: Compute API reference
     items:
@@ -210,5 +228,5 @@ items:
         href: qa/disks.md
       - name: Licensing
         href: qa/licensing.md
-      - name: All questions on a single page
+      - name: All questions on the same page
         href: qa/all.md

@@ -50,7 +50,11 @@ How ZooKeeper hosts are managed:
 
 * {{ mch-short-name }} does not enable you to connect to ZopKeeper servers and configure them. However, you can change the resources allocated to ZooKeeper hosts by changing the host class.
 
+{% if audience != "internal" %}
+
 * If you didn't specify any subnets for the ZooKeeper hosts, {{ mch-short-name }} automatically distributes them among the subnets of the network that the {{ CH }} cluster is connected to.
+
+{% endif %}
 
 For more information about using ZooKeeper to manage replication in {{ CH }}, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/ru/operations/table_engines/replication/).
 

@@ -24,18 +24,18 @@
   1. Посмотрите описание команды CLI для получения информации о группе виртуальных машин:
   
       ```
-      $ yc compute instance-group get --help
+      $ {{ yc-compute-ig }} get --help
       ```
   
   1. Получите список групп виртуальных машин в каталоге по умолчанию:
   
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
   
-  1. Выберите `ID` или `NAME` нужной группы, например `first-fixed-group`.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной группы, например `first-fixed-group`.
   1. Получите информацию о группе виртуальных машин:
   
       ```
-      $ yc compute instance-group get --name first-fixed-group
+      $ {{ yc-compute-ig }} get --name first-fixed-group
       ```
   
 - API

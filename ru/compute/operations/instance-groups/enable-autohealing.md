@@ -49,14 +49,14 @@
   1. Посмотрите описание команды CLI для изменения группы:
   
      ```
-     $ yc compute instance-group update --help
+     $ {{ yc-compute-ig }} update --help
      ```
   
   1. Получите список групп виртуальных машин в каталоге по умолчанию:
   
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
   
-  1. Выберите `ID` или `NAME` нужной группы, например `first-fixed-group`.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной группы, например `first-fixed-group`.
   
   1. Получите [информацию](get-info.md) о группе виртуальных машин.
   
@@ -100,7 +100,7 @@
   1. Обновите группу виртуальных машин в каталоге по умолчанию:
   
       ```
-      $ yc compute instance-group update --name first-group --file group.yaml
+      $ {{ yc-compute-ig }} update --name first-group --file group.yaml
       ```
   
      {{ ig-name }} запустит операцию изменения группы виртуальных машин.

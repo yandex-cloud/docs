@@ -31,19 +31,19 @@
   1. Посмотрите описание команды CLI для изменения группы:
 
      ```
-     $ yc compute instance-group update --help
+     $ {{ yc-compute-ig }} update --help
      ```
 
   1. Получите список групп виртуальных машин в каталоге по умолчанию:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Выберите `ID` или `NAME` нужной группы, например `first-fixed-group`.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной группы, например `first-fixed-group`.
   1. Укажите нужное имя и описание в YAML-файле, по которому создавалась группа, например `specification.yaml`. Если YAML-файл не сохранился, [получите информацию](get-info.md) о группе виртуальных машин и создайте новый. Подробнее читайте в разделе [{#T}](create-fixed-group.md).
   1. Обновите группу виртуальных машин в каталоге по умолчанию:
 
       ```
-      $ yc compute instance-group update --name first-fixed-group --file specification.yaml
+      $ {{ yc-compute-ig }} update --name first-fixed-group --file specification.yaml
       ```
 
      {{ ig-name }} запустит операцию изменения группы виртуальных машин.
@@ -86,19 +86,19 @@
   1. Посмотрите описание команды CLI для изменения группы:
 
      ```
-     $ yc compute instance-group update --help
+     $ {{ yc-compute-ig }} update --help
      ```
 
   1. Получите список групп виртуальных машин в каталоге по умолчанию:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Выберите `ID` или `NAME` нужной группы, например `first-fixed-group`.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной группы, например `first-fixed-group`.
   1. Укажите нужные параметры виртуальной машины в YAML-файле (ключ `resources_spec`), по которому создавалась группа, например `specification.yaml`. Если YAML-файл не сохранился, [получите информацию](get-info.md) о группе виртуальных машин и создайте новый. Подробнее читайте в разделе [{#T}](create-fixed-group.md).
   1. Обновите группу виртуальных машин в каталоге по умолчанию:
 
       ```
-      $ yc compute instance-group update --name first-fixed-group --file specification.yaml
+      $ {{ yc-compute-ig }} update --name first-fixed-group --file specification.yaml
       ```
 
      {{ ig-name }} запустит операцию изменения группы виртуальных машин.
@@ -136,19 +136,19 @@
   1. Посмотрите описание команды CLI для изменения группы:
 
      ```
-     $ yc compute instance-group update --help
+     $ {{ yc-compute-ig }} update --help
      ```
 
   1. Получите список групп виртуальных машин в каталоге по умолчанию:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Выберите `ID` или `NAME` нужной группы, например `first-fixed-group`.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной группы, например `first-fixed-group`.
   1. Укажите нужный размер хранилища в YAML-файле (ключ `boot_disk_spec`), по которому создавалась группа, например `specification.yaml`. Если YAML-файл не сохранился, [получите информацию](get-info.md) о группе виртуальных машин и создайте новый. Подробнее читайте в разделе [{#T}](create-fixed-group.md).
   1. Обновите группу виртуальных машин в каталоге по умолчанию:
 
       ```
-      $ yc compute instance-group update --name first-fixed-group --file specification.yaml
+      $ {{ yc-compute-ig }} update --name first-fixed-group --file specification.yaml
       ```
 
      {{ ig-name }} запустит операцию изменения группы виртуальных машин.

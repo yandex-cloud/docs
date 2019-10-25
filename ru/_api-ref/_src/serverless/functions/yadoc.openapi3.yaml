@@ -1,0 +1,757 @@
+openapi: "3.0"
+info:
+  title: Yandex Serverless Functions Service
+  description: Description not set.
+  version: v1alpha
+paths:
+  /functions/v1alpha/functions/{functionId}:
+    get:
+      tags:
+      - Function
+      operationId: FunctionGet
+      parameters:
+      - name: functionId
+        in: path
+        description: Обязательное поле.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Function'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Function
+      operationId: FunctionDelete
+      parameters:
+      - name: functionId
+        in: path
+        description: Обязательное поле.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteFunctionMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Function
+      operationId: FunctionUpdate
+      parameters:
+      - name: functionId
+        in: path
+        description: Обязательное поле.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFunctionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateFunctionMetadata'
+      x-y-operation-response: '[Function](/Function#representation)'
+  /functions/v1alpha/functions:
+    get:
+      tags:
+      - Function
+      operationId: FunctionList
+      parameters:
+      - name: folderId
+        in: query
+        description: Обязательное поле.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: filter
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFunctionsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Function
+      operationId: FunctionCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFunctionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateFunctionMetadata'
+      x-y-operation-response: '[Function](/Function#representation)'
+  /functions/v1alpha/versions/{functionVersionId}:
+    get:
+      tags:
+      - Function
+      operationId: FunctionGetFunctionVersion
+      parameters:
+      - name: functionVersionId
+        in: path
+        description: Обязательное поле.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Version'
+      x-y-navtitle: getFunctionVersion
+  /functions/v1alpha/versions:byTag:
+    get:
+      tags:
+      - Function
+      operationId: FunctionGetFunctionVersionByTag
+      parameters:
+      - name: functionId
+        in: query
+        description: Обязательное поле.
+        schema:
+          type: string
+      - name: tag
+        in: query
+        description: Значение должно соответствовать регулярному выражению `` [a-z][-_0-9a-z]*|[$]latest
+          ``.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Version'
+      x-y-navtitle: getFunctionVersionByTag
+  /functions/v1alpha/versions:
+    get:
+      tags:
+      - Function
+      operationId: FunctionListFunctionVersions
+      parameters:
+      - name: folderId
+        in: query
+        schema:
+          type: string
+      - name: functionId
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFunctionsVersionsResponse'
+      x-y-navtitle: listFunctionVersions
+    post:
+      tags:
+      - Function
+      operationId: FunctionCreateFunctionVersion
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFunctionVersionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: createFunctionVersion
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateFunctionVersionMetadata'
+      x-y-operation-response: Version
+  /functions/v1alpha/versions/{functionVersionId}:setTag:
+    post:
+      tags:
+      - Function
+      operationId: FunctionSetTag
+      parameters:
+      - name: functionVersionId
+        in: path
+        description: Обязательное поле.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetFunctionTagRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setTag
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetFunctionTagMetadata'
+      x-y-operation-response: Version
+  /functions/v1alpha/versions/{functionVersionId}:removeTag:
+    post:
+      tags:
+      - Function
+      operationId: FunctionRemoveTag
+      parameters:
+      - name: functionVersionId
+        in: path
+        description: Обязательное поле.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveFunctionTagRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: removeTag
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RemoveFunctionTagMetadata'
+      x-y-operation-response: Version
+  /functions/v1alpha/functions/{functionId}:tagHistory:
+    get:
+      tags:
+      - Function
+      operationId: FunctionListFunctionTagHistory
+      parameters:
+      - name: functionId
+        in: path
+        description: Обязательное поле.
+        required: true
+        schema:
+          type: string
+      - name: tag
+        in: query
+        description: Значение должно соответствовать регулярному выражению `` [a-z][-_0-9a-z]*|[$]latest
+          ``.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFunctionTagHistoryResponse'
+      x-y-navtitle: listFunctionTagHistory
+  /functions/v1alpha/runtimes:
+    post:
+      tags:
+      - Function
+      operationId: FunctionListRuntimes
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRuntimesResponse'
+      x-y-navtitle: listRuntimes
+  /functions/v1alpha/functions/{functionId}/operations:
+    get:
+      tags:
+      - Function
+      operationId: FunctionListOperations
+      parameters:
+      - name: functionId
+        in: path
+        description: Обязательное поле.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFunctionOperationsResponse'
+      x-y-navtitle: listOperations
+components:
+  schemas:
+    CreateFunctionMetadata:
+      type: object
+      properties:
+        functionId:
+          type: string
+    CreateFunctionRequest:
+      type: object
+      properties:
+        folderId:
+          description: Обязательное поле.
+          type: string
+        name:
+          description: Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+            ``.
+          type: string
+        description:
+          description: Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    CreateFunctionVersionMetadata:
+      type: object
+      properties:
+        functionVersionId:
+          type: string
+    CreateFunctionVersionRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          functionId:
+            description: Обязательное поле.
+            type: string
+          runtime:
+            description: Обязательное поле.
+            type: string
+          description:
+            type: string
+          entrypoint:
+            description: Обязательное поле.
+            type: string
+          resources:
+            $ref: '#/components/schemas/Resources'
+            description: Обязательное поле.
+          executionTimeout:
+            description: Обязательное поле.
+            type: string
+      - title: package_source
+        type: object
+        maxProperties: 1
+        properties:
+          package:
+            $ref: '#/components/schemas/Package'
+    DeleteFunctionMetadata:
+      type: object
+      properties:
+        functionId:
+          type: string
+    Empty:
+      description: Пустой JSON объект `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    Function:
+      type: object
+      properties:
+        id:
+          type: string
+        folderId:
+          type: string
+        createdAt:
+          description: Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    ListFunctionOperationsResponse:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          type: string
+    ListFunctionTagHistoryResponse:
+      type: object
+      properties:
+        functionTagHistoryRecord:
+          type: array
+          items:
+            $ref: '#/components/schemas/ListFunctionTagHistoryResponseFunctionTagHistoryRecord'
+        nextPageToken:
+          type: string
+    ListFunctionTagHistoryResponseFunctionTagHistoryRecord:
+      type: object
+      properties:
+        functionId:
+          type: string
+        functionVersionId:
+          type: string
+        tag:
+          type: string
+        effectiveFrom:
+          description: Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        effectiveTo:
+          description: Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+    ListFunctionsResponse:
+      type: object
+      properties:
+        functions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Function'
+        nextPageToken:
+          type: string
+    ListFunctionsVersionsResponse:
+      type: object
+      properties:
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Version'
+        nextPageToken:
+          type: string
+    ListRuntimesResponse:
+      type: object
+      properties:
+        runtimes:
+          type: array
+          items:
+            type: string
+    Operation:
+      description: |-
+        Ресурс Operation. Дополнительные сведения см. в разделе
+        [Объект Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
+    Package:
+      type: object
+      properties:
+        bucketName:
+          description: Обязательное поле.
+          type: string
+        objectName:
+          description: Обязательное поле.
+          type: string
+        sha256:
+          type: string
+    RemoveFunctionTagMetadata:
+      type: object
+      properties:
+        functionVersionId:
+          type: string
+    RemoveFunctionTagRequest:
+      type: object
+      properties:
+        tag:
+          description: Значение должно соответствовать регулярному выражению `` [a-z][-_0-9a-z]*
+            ``.
+          type: string
+    Resources:
+      type: object
+      properties:
+        memory:
+          description: Допустимые значения — от 33554432 до 1073741824 включительно.
+          type: string
+          format: int64
+    SetFunctionTagMetadata:
+      type: object
+      properties:
+        functionVersionId:
+          type: string
+    SetFunctionTagRequest:
+      type: object
+      properties:
+        tag:
+          description: Значение должно соответствовать регулярному выражению `` [a-z][-_0-9a-z]*
+            ``.
+          type: string
+    UpdateFunctionMetadata:
+      type: object
+      properties:
+        functionId:
+          type: string
+    UpdateFunctionRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateFunctionRequest_updateMask'
+        name:
+          description: Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+            ``.
+          type: string
+        description:
+          description: Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    Version:
+      type: object
+      properties:
+        id:
+          type: string
+        functionId:
+          type: string
+        description:
+          type: string
+        createdAt:
+          description: Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        runtime:
+          type: string
+        entrypoint:
+          type: string
+        resources:
+          $ref: '#/components/schemas/Resources_in_Version_resources'
+        executionTimeout:
+          type: string
+        imageSize:
+          type: string
+          format: int64
+        status:
+          $ref: '#/components/schemas/VersionStatus_in_Version_status'
+        tags:
+          type: array
+          items:
+            type: string
+    VersionStatus:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+    rpcStatus:
+      description: Описание ошибки в случае сбоя или отмены операции.
+      type: object
+      properties:
+        code:
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: Текст ошибки.
+          type: string
+        details:
+          description: Список сообщений с подробными сведениями об ошибке.
+          type: array
+          items:
+            type: object
+    FieldMask_in_UpdateFunctionRequest_updateMask:
+      description: |-
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    Resources_in_Version_resources:
+      type: object
+      properties:
+        memory:
+          description: Допустимые значения — от 33554432 до 1073741824 включительно.
+          type: string
+          format: int64
+    VersionStatus_in_Version_status:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+tags:
+- name: Function

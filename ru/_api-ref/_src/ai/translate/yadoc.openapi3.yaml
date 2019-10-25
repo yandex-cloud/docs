@@ -1,0 +1,281 @@
+openapi: "3.0"
+info:
+  title: Yandex Translation API v2
+  description: Сервис не оперирует ресурсами. Все методы сервиса представлены на странице
+    [Translation](Translation/).
+  version: v2
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://translate.api.cloud.yandex.net
+paths:
+  /translate/v2/translate:
+    post:
+      tags:
+      - Translation
+      summary: Переводит текст на указанный язык.
+      operationId: TranslationTranslate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TranslateRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TranslateResponse'
+      x-y-navtitle: translate
+  /translate/v2/detect:
+    post:
+      tags:
+      - Translation
+      summary: Определяет язык текста.
+      operationId: TranslationDetectLanguage
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetectLanguageRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetectLanguageResponse'
+      x-y-navtitle: detectLanguage
+  /translate/v2/languages:
+    post:
+      tags:
+      - Translation
+      summary: Получает список поддерживаемых языков.
+      operationId: TranslationListLanguages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListLanguagesRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListLanguagesResponse'
+      x-y-navtitle: listLanguages
+components:
+  schemas:
+    DetectLanguageRequest:
+      type: object
+      properties:
+        text:
+          description: |-
+            Обязательное поле.
+            Текст, язык которого требуется определить.
+
+            Максимальная длина строки в символах — 1000.
+          type: string
+        languageCodeHints:
+          description: |-
+            Список наиболее вероятных языков. Этим языкам будет отдаваться предпочтение при
+            определении языка текста. Указывается в формате [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1)
+            (например, `` ru ``).
+
+            Чтобы получить список поддерживаемых языков, используйте запрос [listLanguages](/docs/translate/api-ref/Translation/listLanguages).
+
+            Максимальное количество элементов — 10.
+            Максимальная длина строки в символах для каждого значения — 3.
+          type: array
+          items:
+            type: string
+        folderId:
+          description: |-
+            Идентификатор каталога, к которому у вас есть доступ. Требуется для авторизации с
+            пользовательским аккаунтом (см. ресурс [UserAccount](/docs/iam/api-ref/UserAccount#representation) ). Не используйте это поле,
+            если вы делаете запрос от имени сервисного аккаунта.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+    DetectLanguageResponse:
+      type: object
+      properties:
+        languageCode:
+          description: |-
+            Язык текста в формате [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) (например, `` ru ``).
+
+            Чтобы получить название языка, используйте запрос [listLanguages](/docs/translate/api-ref/Translation/listLanguages).
+          type: string
+    GlossaryData:
+      type: object
+      properties:
+        glossaryPairs:
+          description: |-
+            Обязательное поле.
+            Массив текстовых пар.
+
+            Максимальная общая длина всех исходных текстов 10000 символов.
+            Максимальная общая длина всех переведенных текстов 10000 символов.
+
+            Количество элементов должно находиться в диапазоне от 1 до 50.
+          type: array
+          items:
+            $ref: '#/components/schemas/GlossaryPair'
+    GlossaryPair:
+      type: object
+      properties:
+        sourceText:
+          description: |-
+            Обязательное поле.
+            Текст на языке оригинала.
+          type: string
+        translatedText:
+          description: |-
+            Обязательное поле.
+            Текст на языке перевода.
+          type: string
+    Language:
+      type: object
+      properties:
+        code:
+          description: Код языка. Указывается в формате [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1)
+            (например, `` en ``).
+          type: string
+        name:
+          description: Название языка (например, `` English ``).
+          type: string
+    ListLanguagesRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Идентификатор каталога, к которому у вас есть доступ. Требуется для авторизации с
+            пользовательским аккаунтом (см. ресурс [UserAccount](/docs/iam/api-ref/UserAccount#representation) ). Не используйте это поле,
+            если вы делаете запрос от имени сервисного аккаунта.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+    ListLanguagesResponse:
+      type: object
+      properties:
+        languages:
+          description: Список поддерживаемых языков.
+          type: array
+          items:
+            $ref: '#/components/schemas/Language'
+    TranslateGlossaryConfig:
+      type: object
+      allOf:
+      - title: glossary_source
+        type: object
+        maxProperties: 1
+        properties:
+          glossaryData:
+            $ref: '#/components/schemas/GlossaryData'
+            description: |-
+              Передать содержимое глоссария в запросе. В настоящее время поддерживается только
+              этот способ передачи глоссария.
+    TranslateRequest:
+      type: object
+      properties:
+        sourceLanguageCode:
+          description: |-
+            Язык, на котором написан исходный текст. Указывается в формате [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) (например, `` ru ``).
+
+            Обязательно при переводе с глоссарием.
+
+            Максимальная длина строки в символах — 3.
+          type: string
+        targetLanguageCode:
+          description: |-
+            Обязательное поле.
+            Язык, на который переводится текст. Указывается в формате [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) (например, `` en ``).
+
+            Максимальная длина строки в символах — 3.
+          type: string
+        format:
+          $ref: '#/components/schemas/TranslateRequestFormat_in_TranslateRequest_format'
+        texts:
+          description: |-
+            Обязательное поле.
+            Массив строк для перевода. Максимальная общая длина всех строк составляет 10000
+            символов.
+
+            Должен содержать хотя бы один элемент.
+          type: array
+          items:
+            type: string
+        folderId:
+          description: |-
+            Идентификатор каталога, к которому у вас есть доступ. Требуется для авторизации с
+            пользовательским аккаунтом (см. ресурс [UserAccount](/docs/iam/api-ref/UserAccount#representation) ). Не используйте это поле,
+            если вы делаете запрос от имени сервисного аккаунта.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        model:
+          description: |-
+            Не используйте это поле, пользовательские модели пока не поддерживаются.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        glossaryConfig:
+          $ref: '#/components/schemas/TranslateGlossaryConfig_in_TranslateRequest_glossaryConfig'
+    TranslateRequestFormat:
+      description: |2-
+         - PLAIN_TEXT: Текст без разметки. Значение по умолчанию.
+         - HTML: Текст в формате HTML.
+      type: string
+      enum:
+      - PLAIN_TEXT
+      - HTML
+    TranslateResponse:
+      type: object
+      properties:
+        translations:
+          description: Массив переводов.
+          type: array
+          items:
+            $ref: '#/components/schemas/TranslatedText'
+    TranslatedText:
+      type: object
+      properties:
+        text:
+          description: Переведенный текст.
+          type: string
+        detectedLanguageCode:
+          description: |-
+            Код языка исходного текста.
+            Указывается в формате [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) (например, `` en ``).
+          type: string
+    TranslateRequestFormat_in_TranslateRequest_format:
+      description: |-
+        Формат текста.
+
+         - PLAIN_TEXT: Текст без разметки. Значение по умолчанию.
+         - HTML: Текст в формате HTML.
+      type: string
+      enum:
+      - PLAIN_TEXT
+      - HTML
+    TranslateGlossaryConfig_in_TranslateRequest_glossaryConfig:
+      description: |-
+        Глоссарий для применения при переводе. Дополнительные сведения см. в разделе
+        [Glossaries](/docs/translate/concepts/glossary).
+      type: object
+      allOf:
+      - title: glossary_source
+        type: object
+        maxProperties: 1
+        properties:
+          glossaryData:
+            $ref: '#/components/schemas/GlossaryData'
+            description: |-
+              Передать содержимое глоссария в запросе. В настоящее время поддерживается только
+              этот способ передачи глоссария.
+tags:
+- name: Translation
+  description: Набор методов для сервиса Yandex Translate.

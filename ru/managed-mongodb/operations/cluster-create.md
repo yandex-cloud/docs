@@ -2,10 +2,14 @@
 
 {{ MG }}-кластер — это один или несколько хостов базы данных, между которыми можно настроить репликацию. Репликация работает по умолчанию в любом кластере из более чем 1 хоста (первичный хост принимает запросы на запись и асинхронно дублирует изменения на вторичных хостах).
 
+{% if audience != "internal" %}
+
 Количество хостов, которые можно создать вместе с {{ MG }}-кластером, зависит от выбранного варианта хранилища:
 
   - При использовании сетевых дисков вы можете запросить любое количество хостов (от 1 до пределов текущей [квоты](../concepts/limits.md)). 
   - При использовании SSD-дисков вместе с кластером можно создать не меньше 3 реплик (минимум 3 реплики необходимо, чтобы обеспечить отказоустойчивость). Если после создания кластера [доступных ресурсов каталога](../concepts/limits.md) останется достаточно, вы можете добавить дополнительные реплики.
+
+{% endif %}
 
 {% list tabs %}
 
@@ -38,6 +42,7 @@
   
   Чтобы создать кластер:
   
+  {% if audience != "internal" %}
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
   
      ```
@@ -46,16 +51,20 @@
   
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
   
+  {% endif %}
+  
   1. Посмотрите описание команды CLI для создания кластера:
   
       ```
-      $ yc managed-mongodb cluster create --help
+      $ {{ yc-mdb-mg }} cluster create --help
       ```
       
   1. Укажите параметры кластера в команде создания (в примере приведены только обязательные флаги):
   
+      {% if audience != "internal" %}
+      
       ```
-      $ yc managed-mongodb cluster create \
+      $ {{ yc-mdb-mg }} cluster create \
          --name <имя кластера> \
          --environment=<окружение, prestable или production> \
          --network-name <имя сети> \
@@ -69,6 +78,23 @@
       
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
   
+      {% else %}
+      
+      ```
+      $ {{ yc-mdb-mg }} cluster create \
+         --name <имя кластера> \
+         --environment=<окружение, prestable или production> \
+         --network-id {{ network-name }} \
+         --host zone-id=<зона доступности> \
+         --mongod-resource-preset <класс хоста> \
+         --user name=<имя пользователя>,password=<пароль пользователя> \
+         --database name=<имя базы данных>,owner=<имя владельца БД> \
+         --mongod-disk-type local-ssd \
+         --mongod-disk-size <размер хранилища в гигабайтах>
+      ```
+      
+      {% endif %}
+  
 {% endlist %}
 
 
@@ -80,6 +106,8 @@
 
 Допустим, нужно создать {{ MG }}-кластер со следующими характеристиками:
 
+{% if audience != "internal" %}
+
 - С именем `mymg`.
 - В окружении `production`.
 - В сети `{{ network-name }}`.
@@ -88,17 +116,47 @@
 - С одним пользователем, `user1`, с паролем `user1user1`.
 - С одной базой данных, `db1`.
 
+{% else %}
+
+- С именем `mymg`.
+- В окружении `PRODUCTION`.
+- С одним хостом класса `{{ host-class }}` в зоне доступности `{{ zone-id }}`.
+- С SSD-хранилищем объемом 20 ГБ.
+- С одним пользователем, `user1`, с паролем `user1user1`.
+- С одной базой данных, `db1`.
+
+{% endif %}
+
 Запустите следующую команду:
 
+{% if audience != "internal" %}
+
 ```
-$ yc managed-mongodb cluster create \
+$ {{ yc-mdb-mg }} cluster create \
      --name mymg \
      --environment production \
-     --network-name default \
-     --mongod-resource-preset s1.nano \
-     --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
+     --network-name {{ network-name }} \
+     --mongod-resource-preset {{ host-class }} \
+     --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
      --mongod-disk-size 20 \
      --mongod-disk-type network-ssd \
      --user name=user1,password=user1user1 \
      --database name=db1
 ```
+
+{% else %}
+
+```
+$ {{ yc-mdb-mg }} cluster create \
+     --name mymg \
+     --environment production \
+     --network-id {{ network-name }} \
+     --mongod-resource-preset {{ host-class }} \
+     --host zone-id={{ zone-id }} \
+     --mongod-disk-size 20 \
+     --mongod-disk-type local-ssd \
+     --user name=user1,password=user1user1 \
+     --database name=db1
+```
+
+{% endif %}

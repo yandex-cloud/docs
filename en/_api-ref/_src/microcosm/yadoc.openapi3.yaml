@@ -1,0 +1,2026 @@
+openapi: "3.0"
+info:
+  title: Yandex Microcosm Service
+  description: Description not set.
+  version: v1
+paths:
+  /microcosm/v1/deployments/{deploymentId}:
+    get:
+      tags:
+      - Deployment
+      operationId: DeploymentGet
+      parameters:
+      - name: deploymentId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deployment'
+      x-y-navtitle: get
+  /microcosm/v1/deployments:
+    post:
+      tags:
+      - Deployment
+      summary: Starts a new [Deployment](/Deployment#representation) of the specified
+        [Infrastructure](/Infrastructure#representation).
+      operationId: DeploymentCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDeploymentRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateDeploymentMetadata'
+      x-y-operation-response: '[Deployment](/Deployment#representation)'
+  /microcosm/v1/deployments:validate:
+    post:
+      tags:
+      - Deployment
+      summary: Checks that given CreateDeploymentRequest is valid
+      operationId: DeploymentValidate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDeploymentRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Empty'
+      x-y-navtitle: validate
+  /microcosm/v1/deployments/{deploymentId}:stop:
+    post:
+      tags:
+      - Deployment
+      summary: Gracefully stops the specified [Deployment](/Deployment#representation).
+      operationId: DeploymentStop
+      parameters:
+      - name: deploymentId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: stop
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StopDeploymentMetadata'
+      x-y-operation-response: Empty
+  /microcosm/v1/deployments/{deploymentId}/operations:
+    get:
+      tags:
+      - Deployment
+      operationId: DeploymentListOperations
+      parameters:
+      - name: deploymentId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDeploymentOperationsResponse'
+      x-y-navtitle: listOperations
+  /microcosm/v1/deploymentTemplates/{deploymentTemplateId}:
+    get:
+      tags:
+      - DeploymentTemplate
+      operationId: DeploymentTemplateGet
+      parameters:
+      - name: deploymentTemplateId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentTemplate'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - DeploymentTemplate
+      summary: Deletes [DeploymentTemplate](/DeploymentTemplate#representation).
+      operationId: DeploymentTemplateDelete
+      parameters:
+      - name: deploymentTemplateId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteDeploymentTemplateMetadata'
+      x-y-operation-response: Empty
+  /microcosm/v1/deploymentTemplates:
+    post:
+      tags:
+      - DeploymentTemplate
+      summary: Creates a new [DeploymentTemplate](/DeploymentTemplate#representation).
+      operationId: DeploymentTemplateCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDeploymentTemplateRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateDeploymentTemplateMetadata'
+      x-y-operation-response: '[DeploymentTemplate](/DeploymentTemplate#representation)'
+  /microcosm/v1/deploymentTemplates/tags:
+    post:
+      tags:
+      - DeploymentTemplate
+      summary: Set specified tag to [DeploymentTemplate](/DeploymentTemplate#representation)
+        and remove from another DeploymentTemplate if it used.
+      operationId: DeploymentTemplateSetTag
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetTagRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setTag
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetTagMetadata'
+      x-y-operation-response: '[DeploymentTemplate](/DeploymentTemplate#representation)'
+  /microcosm/v1/deploymentTemplates/{deploymentTemplateId}/operations:
+    get:
+      tags:
+      - DeploymentTemplate
+      operationId: DeploymentTemplateListOperations
+      parameters:
+      - name: deploymentTemplateId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDeploymentTemplateOperationsResponse'
+      x-y-navtitle: listOperations
+  /microcosm/v1/infrastructures/{infrastructureId}:
+    get:
+      tags:
+      - Infrastructure
+      operationId: InfrastructureGet
+      parameters:
+      - name: infrastructureId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Infrastructure'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Infrastructure
+      summary: Deletes an EMPTY [Infrastructure](/Infrastructure#representation).
+      operationId: InfrastructureDelete
+      parameters:
+      - name: infrastructureId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteInfrastructureMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Infrastructure
+      summary: Update [Infrastructure](/Infrastructure#representation).
+      operationId: InfrastructureUpdate
+      parameters:
+      - name: infrastructureId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateInfrastructureRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateInfrastructureMetadata'
+      x-y-operation-response: '[Infrastructure](/Infrastructure#representation)'
+  /microcosm/v1/infrastructures:
+    get:
+      tags:
+      - Infrastructure
+      operationId: InfrastructureList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListInfrastructuresResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Infrastructure
+      summary: Creates a new, empty [Infrastructure](/Infrastructure#representation).
+      operationId: InfrastructureCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateInfrastructureRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateInfrastructureMetadata'
+      x-y-operation-response: '[Infrastructure](/Infrastructure#representation)'
+  /microcosm/v1/infrastructures/{infrastructureId}/deployments:
+    get:
+      tags:
+      - Infrastructure
+      operationId: InfrastructureListDeployments
+      parameters:
+      - name: infrastructureId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDeploymentsResponse'
+      x-y-navtitle: listDeployments
+  /microcosm/v1/infrastructures/{infrastructureId}/resources:
+    get:
+      tags:
+      - Infrastructure
+      operationId: InfrastructureListResources
+      parameters:
+      - name: infrastructureId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListResourcesResponse'
+      x-y-navtitle: listResources
+  /microcosm/v1/infrastructures/{infrastructureId}/operations:
+    get:
+      tags:
+      - Infrastructure
+      operationId: InfrastructureListOperations
+      parameters:
+      - name: infrastructureId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListInfrastructureOperationsResponse'
+      x-y-navtitle: listOperations
+  /microcosm/v1/infrastructureTemplates/{infrastructureTemplateId}:
+    get:
+      tags:
+      - InfrastructureTemplate
+      operationId: InfrastructureTemplateGet
+      parameters:
+      - name: infrastructureTemplateId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfrastructureTemplate'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - InfrastructureTemplate
+      summary: Deletes an EMPTY [InfrastructureTemplate](/InfrastructureTemplate#representation).
+      operationId: InfrastructureTemplateDelete
+      parameters:
+      - name: infrastructureTemplateId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteInfrastructureTemplateMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - InfrastructureTemplate
+      summary: Update [InfrastructureTemplate](/InfrastructureTemplate#representation).
+      operationId: InfrastructureTemplateUpdate
+      parameters:
+      - name: infrastructureTemplateId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateInfrastructureTemplateRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateInfrastructureTemplateMetadata'
+      x-y-operation-response: '[InfrastructureTemplate](/InfrastructureTemplate#representation)'
+  /microcosm/v1/infrastructureTemplates:
+    get:
+      tags:
+      - InfrastructureTemplate
+      operationId: InfrastructureTemplateList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListInfrastructureTemplatesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - InfrastructureTemplate
+      summary: Creates a new, empty [InfrastructureTemplate](/InfrastructureTemplate#representation).
+      operationId: InfrastructureTemplateCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateInfrastructureTemplateRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateInfrastructureTemplateMetadata'
+      x-y-operation-response: '[InfrastructureTemplate](/InfrastructureTemplate#representation)'
+  /microcosm/v1/infrastructureTemplates/{infrastructureTemplateId}/deployments:
+    get:
+      tags:
+      - InfrastructureTemplate
+      operationId: InfrastructureTemplateListDeploymentTemplates
+      parameters:
+      - name: infrastructureTemplateId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDeploymentTemplatesResponse'
+      x-y-navtitle: listDeploymentTemplates
+  /microcosm/v1/infrastructureTemplates/{infrastructureTemplateId}/operations:
+    get:
+      tags:
+      - InfrastructureTemplate
+      operationId: InfrastructureTemplateListOperations
+      parameters:
+      - name: infrastructureTemplateId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListInfrastructureTemplateOperationsResponse'
+      x-y-navtitle: listOperations
+components:
+  schemas:
+    AllocationPolicy:
+      type: object
+      properties:
+        minSize:
+          description: lower limit for sum of instances in all zones.
+          type: string
+        maxSize:
+          description: |-
+            upper limit for sum of instances in all zones.
+            0 means maximum limit = 1000.
+          type: string
+        zones:
+          description: |-
+            Required.
+            The number of elements must be in the range 1-3.
+          type: array
+          items:
+            $ref: '#/components/schemas/AllocationPolicyZone'
+    AllocationPolicyZone:
+      type: object
+      properties:
+        zoneId:
+          description: Required.
+          type: string
+        minSize:
+          description: Optional bound for min number of instances in the zone.
+          type: string
+        maxSize:
+          description: |-
+            Optional bound for max number of instances in the zone.
+            0 means maximum limit = 1000.
+          type: string
+    AttachedDiskSpecDiskSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          name:
+            type: string
+          description:
+            type: string
+          typeId:
+            type: string
+          size:
+            type: string
+      - title: source_oneof
+        type: object
+        maxProperties: 1
+        properties:
+          imageId:
+            type: string
+          snapshotId:
+            type: string
+    CreateDeploymentMetadata:
+      type: object
+      properties:
+        deploymentId:
+          type: string
+    CreateDeploymentRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          infrastructureId:
+            description: |-
+              Required.
+              The maximum string length in characters is 50.
+            type: string
+      - title: source
+        type: object
+        maxProperties: 1
+        properties:
+          deploymentSpec:
+            $ref: '#/components/schemas/DeploymentSpec'
+          deploymentYaml:
+            description: The maximum string length in characters is 262144.
+            type: string
+          deploymentTemplateId:
+            description: The maximum string length in characters is 50.
+            type: string
+          deploymentTemplateTag:
+            description: The maximum string length in characters is 32.
+            type: string
+    CreateDeploymentTemplateMetadata:
+      type: object
+      properties:
+        deploymentTemplateId:
+          type: string
+    CreateDeploymentTemplateRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          infrastructureTemplateId:
+            description: |-
+              Required.
+              The maximum string length in characters is 50.
+            type: string
+          version:
+            description: |-
+              Required.
+              The maximum string length in characters is 32.
+            type: string
+          tags:
+            description: |-
+              The maximum number of elements is 32.
+              The maximum string length in characters for each value is 32.
+            type: array
+            items:
+              type: string
+          upgradableFrom:
+            description: |-
+              The maximum number of elements is 32.
+              The maximum string length in characters for each value is 32.
+            type: array
+            items:
+              type: string
+      - title: source
+        type: object
+        maxProperties: 1
+        properties:
+          deploymentSpec:
+            $ref: '#/components/schemas/DeploymentSpec'
+          deploymentYaml:
+            type: string
+    CreateInfrastructureMetadata:
+      type: object
+      properties:
+        infrastructureId:
+          type: string
+    CreateInfrastructureRequest:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        folderId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        variables:
+          description: |-
+            No more than 128 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 262144.
+          type: object
+          additionalProperties:
+            type: string
+        infrastructureTemplateId:
+          description: The maximum string length in characters is 50.
+          type: string
+    CreateInfrastructureTemplateMetadata:
+      type: object
+      properties:
+        infrastructureTemplateId:
+          type: string
+    CreateInfrastructureTemplateRequest:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        folderId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    DeleteDeploymentTemplateMetadata:
+      type: object
+      properties:
+        deploymentTemplateId:
+          type: string
+    DeleteInfrastructureMetadata:
+      type: object
+      properties:
+        infrastructureId:
+          type: string
+    DeleteInfrastructureTemplateMetadata:
+      type: object
+      properties:
+        infrastructureTemplateId:
+          type: string
+    DeployPolicy:
+      type: object
+      properties:
+        maxUnavailable:
+          description: |-
+            How many instances can be unavailable at the same time during update process.
+            If expansion is not specified or set to zero, max_unavailable must be set to non-zero value.
+          type: string
+        maxDeleting:
+          description: |-
+            How many instances can be in DELETING state at the same time during update process.
+            0 means unlimited
+          type: string
+        maxCreating:
+          description: |-
+            How many instances can be in DEPLOYING state at the same time during update process.
+            0 means unlimited
+          type: string
+        expansion:
+          description: |-
+            How many temporary instances can be created during update process.
+            If max_unavailable is not specified or set to zero, expansion must be set to non-zero value.
+          type: string
+        zoneByZone:
+          description: |-
+            Experimental. Internal use only!
+            True - next zone is deployed strictly after previous zone is completely deployed.
+            False - all zones are deployed at the same time.
+          type: string
+        startingDuration:
+          description: |-
+            Just deployed instance will be in STARTING state at leaast this time.
+            It may last longer if a health-check present and not healthy at the end of this duration.
+          type: string
+    Deployment:
+      type: object
+      properties:
+        deploymentId:
+          type: string
+        infrastructureId:
+          type: string
+        deploymentNumber:
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/DeploymentStatus_in_Deployment_status'
+        deploymentSpec:
+          $ref: '#/components/schemas/DeploymentSpec_in_Deployment_deploymentSpec'
+        deploymentYaml:
+          type: string
+        deploymentTemplateId:
+          type: string
+    DeploymentSpec:
+      type: object
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSpec'
+        variables:
+          type: array
+          items:
+            $ref: '#/components/schemas/Variable'
+    DeploymentStatus:
+      type: string
+      enum:
+      - DEPLOYING
+      - DEPLOYED
+      - STOPPING
+      - STOPPED
+      - FAILING
+      - FAILED
+    DeploymentTemplate:
+      type: object
+      properties:
+        deploymentTemplateId:
+          type: string
+        infrastructureTemaplateId:
+          type: string
+        version:
+          type: string
+        upgradableFrom:
+          type: array
+          items:
+            type: string
+        tags:
+          type: array
+          items:
+            type: string
+        deploymentSpec:
+          $ref: '#/components/schemas/DeploymentSpec_in_DeploymentTemplate_deploymentSpec'
+        deploymentYaml:
+          type: string
+    Disk:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          name:
+            type: string
+          description:
+            type: string
+          typeId:
+            description: Required.
+            type: string
+          zoneId:
+            type: string
+          size:
+            description: Required.
+            type: string
+          labels:
+            description: |-
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+      - title: source
+        type: object
+        maxProperties: 1
+        properties:
+          sourceImageId:
+            type: string
+          sourceSnapshotId:
+            type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    Image:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          name:
+            type: string
+          description:
+            description: The maximum string length in characters is 256.
+            type: string
+          family:
+            type: string
+          minDiskSize:
+            type: string
+          labels:
+            description: |-
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+      - title: source
+        type: object
+        maxProperties: 1
+        properties:
+          sourceDiskId:
+            type: string
+          sourceSnapshotId:
+            type: string
+          sourceUri:
+            type: string
+    Infrastructure:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        folderId:
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/InfrastructureStatus_in_Infrastructure_status'
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        variables:
+          type: object
+          additionalProperties:
+            type: string
+        infrastructureTemplateId:
+          type: string
+    InfrastructureStatus:
+      type: string
+      enum:
+      - EMPTY
+      - DEPLOYING
+      - IN_SYNC
+      - OUT_OF_SYNC
+    InfrastructureTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        folderId:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    Instance:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        zoneId:
+          description: Required.
+          type: string
+        platformId:
+          description: Required.
+          type: string
+        resources:
+          $ref: '#/components/schemas/v1ResourcesSpec_in_Instance_resources'
+        metadata:
+          description: |-
+            No more than 128 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 262144.
+          type: object
+          additionalProperties:
+            type: string
+        bootDisk:
+          $ref: '#/components/schemas/v1AttachedDiskSpec_in_Instance_bootDisk'
+        secondaryDisks:
+          description: The maximum number of elements is 3.
+          type: array
+          items:
+            $ref: '#/components/schemas/v1AttachedDiskSpec'
+        networkInterfaceSpecs:
+          description: The maximum number of elements is 3.
+          type: array
+          items:
+            $ref: '#/components/schemas/v1NetworkInterfaceSpec'
+        warmupPeriod:
+          description: The maximum string length in characters is 10.
+          type: string
+        hostname:
+          type: string
+    InstanceGroup:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            The maximum string length in characters is 100.
+          type: string
+        description:
+          description: The maximum string length in characters is 10000.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        instanceTemplate:
+          $ref: '#/components/schemas/InstanceTemplate_in_InstanceGroup_instanceTemplate'
+        scalePolicy:
+          $ref: '#/components/schemas/ScalePolicy_in_InstanceGroup_scalePolicy'
+        deployPolicy:
+          $ref: '#/components/schemas/DeployPolicy_in_InstanceGroup_deployPolicy'
+        allocationPolicy:
+          $ref: '#/components/schemas/AllocationPolicy_in_InstanceGroup_allocationPolicy'
+    InstanceTemplate:
+      type: object
+      properties:
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        platformId:
+          type: string
+        resourcesSpec:
+          $ref: '#/components/schemas/instancegroupResourcesSpec_in_InstanceTemplate_resourcesSpec'
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+        bootDiskSpec:
+          $ref: '#/components/schemas/instancegroupAttachedDiskSpec_in_InstanceTemplate_bootDiskSpec'
+        secondaryDiskSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/instancegroupAttachedDiskSpec'
+        networkInterfaceSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/instancegroupNetworkInterfaceSpec'
+    ListDeploymentOperationsResponse:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          type: string
+    ListDeploymentTemplateOperationsResponse:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          type: string
+    ListDeploymentTemplatesResponse:
+      type: object
+      properties:
+        deploymentTemplates:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeploymentTemplate'
+        nextPageToken:
+          type: string
+    ListDeploymentsResponse:
+      type: object
+      properties:
+        deployments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Deployment'
+        nextPageToken:
+          type: string
+    ListInfrastructureOperationsResponse:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          type: string
+    ListInfrastructureTemplateOperationsResponse:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          type: string
+    ListInfrastructureTemplatesResponse:
+      type: object
+      properties:
+        infrastructureTemplates:
+          type: array
+          items:
+            $ref: '#/components/schemas/InfrastructureTemplate'
+        nextPageToken:
+          type: string
+    ListInfrastructuresResponse:
+      type: object
+      properties:
+        infrastructures:
+          type: array
+          items:
+            $ref: '#/components/schemas/Infrastructure'
+        nextPageToken:
+          type: string
+    ListResourcesResponse:
+      type: object
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ManagedResource'
+        nextPageToken:
+          type: string
+    ManagedResource:
+      type: object
+      properties:
+        infrastructureId:
+          type: string
+        deploymentId:
+          type: string
+        deploymentNumber:
+          type: string
+        resourceSpecName:
+          type: string
+        resourceId:
+          type: string
+        type:
+          $ref: '#/components/schemas/ResourceType_in_ManagedResource_type'
+        status:
+          $ref: '#/components/schemas/ManagedResourceStatus_in_ManagedResource_status'
+    ManagedResourceStatus:
+      type: string
+      enum:
+      - PENDING
+      - DEPLOYING
+      - IN_SYNC
+      - OUT_OF_SYNC
+      - DELETING
+      - FAILED
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    ResourceSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          name:
+            description: Required.
+            type: string
+          dependsOn:
+            type: array
+            items:
+              type: string
+      - title: resource
+        type: object
+        maxProperties: 1
+        properties:
+          computeV1Instance:
+            $ref: '#/components/schemas/Instance'
+          computeV1Disk:
+            $ref: '#/components/schemas/Disk'
+          computeV1Image:
+            $ref: '#/components/schemas/Image'
+          computeV1InstanceGroup:
+            $ref: '#/components/schemas/InstanceGroup'
+    ResourceType:
+      type: string
+      enum:
+      - COMPUTE_INSTANCE
+      - COMPUTE_DISK
+      - COMPUTE_IMAGE
+      - MICROCOSM_INSTANCE_GROUP
+    ScalePolicy:
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+    ScalePolicyAutoScale:
+      type: object
+      properties:
+        scope:
+          $ref: '#/components/schemas/ScalePolicyScope_in_ScalePolicyAutoScale_scope'
+        measurementDuration:
+          description: Required.
+          type: string
+        warmupDuration:
+          type: string
+        cooldownDuration:
+          type: string
+        initialSize:
+          description: Required.
+          type: string
+        cpuUtilizationRule:
+          $ref: '#/components/schemas/ScalePolicyCpuUtilizationRule_in_ScalePolicyAutoScale_cpuUtilizationRule'
+    ScalePolicyCpuUtilizationRule:
+      type: object
+      properties:
+        utilizationTarget:
+          description: Required.
+          type: string
+    ScalePolicyFixedScale:
+      type: object
+      properties:
+        size:
+          description: Required.
+          type: string
+    ScalePolicyScope:
+      description: |2-
+         - ZONE: Autoscaling works for each zone independently, allocation_policy zones/regions weights can be violated.
+         - REGION: Autoscaling works for each region independently, allocation_policy regions weights can be violated, zones' weights are preserved.
+      type: string
+      enum:
+      - ZONE
+      - REGION
+    SetTagMetadata:
+      type: object
+      properties:
+        deploymentTemplateId:
+          type: string
+    SetTagRequest:
+      type: object
+      properties:
+        deploymentTemplateId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        tag:
+          description: Required.
+          type: string
+    StopDeploymentMetadata:
+      type: object
+      properties:
+        deploymentId:
+          type: string
+    UpdateInfrastructureMetadata:
+      type: object
+      properties:
+        infrastructureId:
+          type: string
+    UpdateInfrastructureRequest:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        variables:
+          description: |-
+            No more than 128 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 262144.
+          type: object
+          additionalProperties:
+            type: string
+    UpdateInfrastructureTemplateMetadata:
+      type: object
+      properties:
+        infrastructureTemplateId:
+          type: string
+    UpdateInfrastructureTemplateRequest:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        folderId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    Variable:
+      type: object
+      properties:
+        name:
+          description: Required.
+          type: string
+        defaultValue:
+          description: The string length in characters must be less than 1000.
+          type: string
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+    instancegroupAttachedDiskSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          mode:
+            $ref: '#/components/schemas/instancegroupAttachedDiskSpecMode'
+            description: Required.
+          deviceName:
+            type: string
+          autoDelete:
+            type: boolean
+            format: boolean
+      - title: disk_oneof
+        type: object
+        maxProperties: 1
+        properties:
+          diskSpec:
+            $ref: '#/components/schemas/AttachedDiskSpecDiskSpec'
+          diskId:
+            type: string
+    instancegroupAttachedDiskSpecMode:
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    instancegroupIpVersion:
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    instancegroupNetworkInterfaceSpec:
+      type: object
+      properties:
+        subnetId:
+          type: string
+        primaryV4AddressSpec:
+          $ref: '#/components/schemas/instancegroupPrimaryAddressSpec_in_instancegroupNetworkInterfaceSpec_primaryV4AddressSpec'
+        primaryV6AddressSpec:
+          $ref: '#/components/schemas/instancegroupPrimaryAddressSpec_in_instancegroupNetworkInterfaceSpec_primaryV6AddressSpec'
+    instancegroupOneToOneNatSpec:
+      type: object
+      properties:
+        ipVersion:
+          $ref: '#/components/schemas/instancegroupIpVersion_in_instancegroupOneToOneNatSpec_ipVersion'
+    instancegroupPrimaryAddressSpec:
+      type: object
+      properties:
+        address:
+          type: string
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/instancegroupOneToOneNatSpec_in_instancegroupPrimaryAddressSpec_oneToOneNatSpec'
+    instancegroupResourcesSpec:
+      type: object
+      properties:
+        memory:
+          type: string
+        cores:
+          type: string
+        coreFraction:
+          type: string
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    v1AttachedDiskSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          mode:
+            $ref: '#/components/schemas/v1AttachedDiskSpecMode'
+            description: Required.
+          deviceName:
+            type: string
+          autoDelete:
+            type: boolean
+            format: boolean
+      - title: disk
+        type: object
+        maxProperties: 1
+        properties:
+          diskSpec:
+            $ref: '#/components/schemas/Disk'
+          diskId:
+            type: string
+    v1AttachedDiskSpecMode:
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    v1IpVersion:
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    v1NetworkInterfaceSpec:
+      type: object
+      properties:
+        subnetId:
+          type: string
+        primaryV4AddressSpec:
+          $ref: '#/components/schemas/v1PrimaryAddressSpec_in_v1NetworkInterfaceSpec_primaryV4AddressSpec'
+    v1OneToOneNatSpec:
+      type: object
+      properties:
+        name:
+          type: string
+        ipVersion:
+          $ref: '#/components/schemas/v1IpVersion_in_v1OneToOneNatSpec_ipVersion'
+    v1PrimaryAddressSpec:
+      type: object
+      properties:
+        address:
+          type: string
+        ipVersion:
+          $ref: '#/components/schemas/v1IpVersion_in_v1PrimaryAddressSpec_ipVersion'
+        natSpec:
+          $ref: '#/components/schemas/v1OneToOneNatSpec_in_v1PrimaryAddressSpec_natSpec'
+    v1ResourcesSpec:
+      type: object
+      properties:
+        memory:
+          description: Required.
+          type: string
+        cores:
+          description: Required.
+          type: string
+    DeploymentStatus_in_Deployment_status:
+      type: string
+      enum:
+      - DEPLOYING
+      - DEPLOYED
+      - STOPPING
+      - STOPPED
+      - FAILING
+      - FAILED
+    DeploymentSpec_in_Deployment_deploymentSpec:
+      type: object
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSpec'
+        variables:
+          type: array
+          items:
+            $ref: '#/components/schemas/Variable'
+    DeploymentSpec_in_DeploymentTemplate_deploymentSpec:
+      type: object
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceSpec'
+        variables:
+          type: array
+          items:
+            $ref: '#/components/schemas/Variable'
+    InfrastructureStatus_in_Infrastructure_status:
+      type: string
+      enum:
+      - EMPTY
+      - DEPLOYING
+      - IN_SYNC
+      - OUT_OF_SYNC
+    v1ResourcesSpec_in_Instance_resources:
+      description: Required.
+      type: object
+      properties:
+        memory:
+          description: Required.
+          type: string
+        cores:
+          description: Required.
+          type: string
+    v1AttachedDiskSpec_in_Instance_bootDisk:
+      description: Required.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          mode:
+            $ref: '#/components/schemas/v1AttachedDiskSpecMode'
+            description: Required.
+          deviceName:
+            type: string
+          autoDelete:
+            type: boolean
+            format: boolean
+      - title: disk
+        type: object
+        maxProperties: 1
+        properties:
+          diskSpec:
+            $ref: '#/components/schemas/Disk'
+          diskId:
+            type: string
+    InstanceTemplate_in_InstanceGroup_instanceTemplate:
+      description: Required.
+      type: object
+      properties:
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        platformId:
+          type: string
+        resourcesSpec:
+          $ref: '#/components/schemas/instancegroupResourcesSpec_in_InstanceTemplate_resourcesSpec'
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+        bootDiskSpec:
+          $ref: '#/components/schemas/instancegroupAttachedDiskSpec_in_InstanceTemplate_bootDiskSpec'
+        secondaryDiskSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/instancegroupAttachedDiskSpec'
+        networkInterfaceSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/instancegroupNetworkInterfaceSpec'
+    ScalePolicy_in_InstanceGroup_scalePolicy:
+      description: Required.
+      type: object
+      allOf:
+      - title: scale_type
+        type: object
+        maxProperties: 1
+        properties:
+          fixedScale:
+            $ref: '#/components/schemas/ScalePolicyFixedScale'
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+    DeployPolicy_in_InstanceGroup_deployPolicy:
+      description: Required.
+      type: object
+      properties:
+        maxUnavailable:
+          description: |-
+            How many instances can be unavailable at the same time during update process.
+            If expansion is not specified or set to zero, max_unavailable must be set to non-zero value.
+          type: string
+        maxDeleting:
+          description: |-
+            How many instances can be in DELETING state at the same time during update process.
+            0 means unlimited
+          type: string
+        maxCreating:
+          description: |-
+            How many instances can be in DEPLOYING state at the same time during update process.
+            0 means unlimited
+          type: string
+        expansion:
+          description: |-
+            How many temporary instances can be created during update process.
+            If max_unavailable is not specified or set to zero, expansion must be set to non-zero value.
+          type: string
+        zoneByZone:
+          description: |-
+            Experimental. Internal use only!
+            True - next zone is deployed strictly after previous zone is completely deployed.
+            False - all zones are deployed at the same time.
+          type: string
+        startingDuration:
+          description: |-
+            Just deployed instance will be in STARTING state at leaast this time.
+            It may last longer if a health-check present and not healthy at the end of this duration.
+          type: string
+    AllocationPolicy_in_InstanceGroup_allocationPolicy:
+      description: Required.
+      type: object
+      properties:
+        minSize:
+          description: lower limit for sum of instances in all zones.
+          type: string
+        maxSize:
+          description: |-
+            upper limit for sum of instances in all zones.
+            0 means maximum limit = 1000.
+          type: string
+        zones:
+          description: |-
+            Required.
+            The number of elements must be in the range 1-3.
+          type: array
+          items:
+            $ref: '#/components/schemas/AllocationPolicyZone'
+    instancegroupResourcesSpec_in_InstanceTemplate_resourcesSpec:
+      type: object
+      properties:
+        memory:
+          type: string
+        cores:
+          type: string
+        coreFraction:
+          type: string
+    instancegroupAttachedDiskSpec_in_InstanceTemplate_bootDiskSpec:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          mode:
+            $ref: '#/components/schemas/instancegroupAttachedDiskSpecMode'
+            description: Required.
+          deviceName:
+            type: string
+          autoDelete:
+            type: boolean
+            format: boolean
+      - title: disk_oneof
+        type: object
+        maxProperties: 1
+        properties:
+          diskSpec:
+            $ref: '#/components/schemas/AttachedDiskSpecDiskSpec'
+          diskId:
+            type: string
+    ResourceType_in_ManagedResource_type:
+      type: string
+      enum:
+      - COMPUTE_INSTANCE
+      - COMPUTE_DISK
+      - COMPUTE_IMAGE
+      - MICROCOSM_INSTANCE_GROUP
+    ManagedResourceStatus_in_ManagedResource_status:
+      type: string
+      enum:
+      - PENDING
+      - DEPLOYING
+      - IN_SYNC
+      - OUT_OF_SYNC
+      - DELETING
+      - FAILED
+    ScalePolicyScope_in_ScalePolicyAutoScale_scope:
+      description: |-
+        Required.
+
+         - ZONE: Autoscaling works for each zone independently, allocation_policy zones/regions weights can be violated.
+         - REGION: Autoscaling works for each region independently, allocation_policy regions weights can be violated, zones' weights are preserved.
+      type: string
+      enum:
+      - ZONE
+      - REGION
+    ScalePolicyCpuUtilizationRule_in_ScalePolicyAutoScale_cpuUtilizationRule:
+      type: object
+      properties:
+        utilizationTarget:
+          description: Required.
+          type: string
+    instancegroupPrimaryAddressSpec_in_instancegroupNetworkInterfaceSpec_primaryV4AddressSpec:
+      type: object
+      properties:
+        address:
+          type: string
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/instancegroupOneToOneNatSpec_in_instancegroupPrimaryAddressSpec_oneToOneNatSpec'
+    instancegroupPrimaryAddressSpec_in_instancegroupNetworkInterfaceSpec_primaryV6AddressSpec:
+      type: object
+      properties:
+        address:
+          type: string
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/instancegroupOneToOneNatSpec_in_instancegroupPrimaryAddressSpec_oneToOneNatSpec'
+    instancegroupIpVersion_in_instancegroupOneToOneNatSpec_ipVersion:
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    instancegroupOneToOneNatSpec_in_instancegroupPrimaryAddressSpec_oneToOneNatSpec:
+      type: object
+      properties:
+        ipVersion:
+          $ref: '#/components/schemas/instancegroupIpVersion_in_instancegroupOneToOneNatSpec_ipVersion'
+    v1PrimaryAddressSpec_in_v1NetworkInterfaceSpec_primaryV4AddressSpec:
+      type: object
+      properties:
+        address:
+          type: string
+        ipVersion:
+          $ref: '#/components/schemas/v1IpVersion_in_v1PrimaryAddressSpec_ipVersion'
+        natSpec:
+          $ref: '#/components/schemas/v1OneToOneNatSpec_in_v1PrimaryAddressSpec_natSpec'
+    v1IpVersion_in_v1OneToOneNatSpec_ipVersion:
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    v1IpVersion_in_v1PrimaryAddressSpec_ipVersion:
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    v1OneToOneNatSpec_in_v1PrimaryAddressSpec_natSpec:
+      type: object
+      properties:
+        name:
+          type: string
+        ipVersion:
+          $ref: '#/components/schemas/v1IpVersion_in_v1OneToOneNatSpec_ipVersion'
+tags:
+- name: Deployment
+- name: DeploymentTemplate
+- name: Infrastructure
+- name: InfrastructureTemplate

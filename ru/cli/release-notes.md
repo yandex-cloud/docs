@@ -1,15 +1,125 @@
 # Релизы YC CLI
 
-## Версия 0.37.0 (06.09.19) {#latest-release}
+## Версия 0.42.0 (21.10.19) {#latest-release}
 
-### Изменения в CLI {#cli}
+### Изменения в сервисах Облака {#services}
+
+#### {{ compute-name }} {#compute}
+
+* Добавлены команды `yc compute instance-group start`, `yc compute instance-group stop` для запуска и остановки группы виртуальных машин.
+
+#### {{ container-registry-name }} {#container-registry}
+
+* Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
+   
+   Для значений "always", "never", "on-failure" флага `--container-restart-policy` добавлено альтернативное написание: "Always", "Never", "OnFailure".
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Команда `yc managed-kubernetes cluster create`.
+
+    Удален флаг `--default-gateway-v4-address`.
+
+#### Изменения в сервисах управляемых баз данных {#managed-db}
+
+**{{ mpg-name }}**
+
+* Команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore`.
+
+   Для флага `--postgresql-version string` добавлено значение `10_1с` для создания кластера {{ PG }} версии 10-1с.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.41.1 (26.09.19) {#version0.41.1}
+
+- Небольшие исправления и обновления.
+
+### Версия 0.41.0 (25.09.19) {#version0.41.0}
+
+#### Изменения в сервисах Облака {#services}
+
+#### {{ container-registry-name }} {#container-registry}
+
+- Команда `yc compute instance create-with-container`.
+
+    Из флага `--create-boot-disk` удалена поддержка параметров `snapshot-*`.
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Команда `yc managed-kubernetes cluster create`.
+
+    Добавлены флаги для управления типом мастера: `--regional`, `--region` и `--master-location`.
+    
+- Команды `yc managed-kubernetes cluster create` и `yc managed-kubernetes cluster update`.
+    
+    Добавлены флаги для управления политикой обслуживания: `--auto-upgrade`, `--anytime-maintenance-window`, `--daily-maintenance-window` и `--weekly-maintenance-window`.
+    
+- Команда `yc managed-kubernetes node-groups update`.
+ 
+    Добавлены флаги для управления политикой обслуживания: `--auto-upgrade`, `--auto-repair`, `--anytime-maintenance-window`, `--daily-maintenance-window` и `--weekly-maintenance-window`.   
+     
+
+### Версия 0.40.0 (20.09.19) {#version0.40.0}
+
+#### Изменения в сервисах Облака {#services}
+
+#### {{ container-registry-name }} {#container-registry}
+
+- Добавлена команда для получения подробной информации о реестре: `yc container registry repository get`,
+- Команда `yc container registry repository list`.
+
+    Добавлен вывод уникального идентификатора реестра.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**Все сервисы управляемых БД**
+
+- Команда `yc <имя сервиса управляемой БД> create clusters`.
+
+    Для флагов `--*resource-preset` добавлено значение по умолчанию: s2.micro.
+
+**{{ mmg-name }}**
+
+- Команда `{{ yc-mdb-mg }} create clusters`.
+
+    Для флага `--mongodb-version` изменено значение по умолчанию: с 3.6 на 4.0.
+
+### Версия 0.39.0 (16.09.19) {#version0.39.0}
+
+#### Изменения в сервисах Облака {#services}
+
+#### {{ container-registry-name }} {#container-registry}
+
+- Команда `yc container registry`.
+    
+    Добавлена возможность устанавливать и просматривать список ролей для реестра Docker-образов: `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`. 
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**Все сервисы управляемых БД**
+
+- Команда `yc <имя сервиса управляемой БД> users list`.
+
+    При просмотре списка пользователей больше не отображается уникальный идентификатор кластера.
+
+### Версия 0.38.0 (09.09.19) {#version0.38.0}
+
+#### Изменения в CLI {#cli}
+
+**Улучшено**
+
+- Улучшен вывод полей при просмотре списка API-ключей.
+
+### Версия 0.37.0 (06.09.19) {#version0.37.0}
+
+#### Изменения в CLI {#cli}
 
 **Улучшено**
 
 - Добавлена проверка доступности эндпоинтов API {{ iam-short-name }}, {{ resmgr-short-name }}, {{ compute-short-name }}. Если эндпоинт недоступен, выдается ошибка.
 - Добавлено отображение деталей ошибок. 
 
-### Изменения в сервисах Облака {#services}
+#### Изменения в сервисах Облака {#services}
 
 #### {{ container-registry-name }} {#container-registry}
 
@@ -48,8 +158,6 @@
 
     Добавлена возможность указать логин и задать права доступа для пользователя с помощью флагов `--login` и `--grants`.
 
-## Предыдущие релизы {#previous-releases}
-
 ### Версия 0.36.0 (27.08.19) {#version0.36.0}
 
 #### Изменения в сервисах Облака {#services}
@@ -68,7 +176,7 @@
 
 **Все сервисы управляемых БД**
 
-- Команда `yc <имя базы данных> cluster create`.
+- Команда `yc <имя сервиса управляемой БД> cluster create`.
 
     Переименованы типы дисков по умолчанию: `network-nvme` на `network-ssd`, `local-nvme` на `local-ssd`.
 
@@ -226,11 +334,11 @@
 
 **Все сервисы управляемых БД**
 
-- Команда `yc <имя базы данных> cluster get`.
+- Команда `yc <имя сервиса управляемой БД> cluster get`.
 
     Улучшен вывод информации о кластере.
 
-- Команда `yc <имя базы данных> cluster create`.
+- Команда `yc <имя сервиса управляемой БД> cluster create`.
 
     Добавлен флаг `--backup-window-start`, позволяющий при создании кластера настроить время его ежедневного резервного копирования.
 

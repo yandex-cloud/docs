@@ -1,0 +1,174 @@
+# Чтение и запись данных
+
+{% if audience == "internal" %}
+
+Запросы могут быть отправлены для выполнения в YDB следующими способами:
+
+* из приложения, написанного с использованием YDB SDK для [C++](start_cpp.md), [Java](start_java.md), [Python](start_python.md);
+* при помощи [YQL](https://yql.yandex-team.ru/) интерфейса;
+* с помощью встроенного в [консоль управления](https://ydb.yandex-team.ru) YQL Kit.
+
+Для выполнения инструкций языка YQL в этом разделе будет использоваться встроенный в [веб-интерфейс](https://ydb.yandex-team.ru) YQL Kit.
+
+![Open YQL Kit](../_assets/db_ui_open_yql_kit.png)
+
+{% note info %}
+
+Туториал по работе с данными YDB при помощи [YQL](https://yql.yandex-team.ru/docs/ydb/) можно пройти в [консоли управления](https://yql.yandex-team.ru/Tutorial/ydb_01_Create_demo_tables).
+
+{% endnote %}
+
+{% else if audience == external %}
+
+Запросы могут быть отправлены для выполнения в YDB следующими способами:
+
+* из консоли управления;
+* из приложения, написанного с использованием YDB SDK для [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk).
+
+Для выполнения запросов в этом разделе будет использоваться консоль управления.
+
+{% endif %}
+
+## Предварительные требования {#prerequisite}
+
+Для выполнения запросов понадобится создать [базу данных](create_manage_database.md) и [схему](schema.md).
+
+## Вставьте и измените данные {#change-data}
+
+Для вставки данных в {{ ydb-short-name }} используются инструкции [REPLACE](../yql/reference/syntax/replace_into.md), [UPSERT](../yql/reference/syntax/upsert_into.md) и [INSERT](../yql/reference/syntax/insert_into.md).
+
+При выполнении инструкций REPLACE и UPSERT осуществляется слепая запись. При выполениии инструкции INSERT перед операцией записи выполняется операция чтения данных. Это позволяет убедиться, что уникальность первичного ключа будет соблюдена.
+
+Использование инструкций REPLACE и UPSERT предпочтительно при операциях записи и изменения данных.
+
+Одним запросом REPLACE, UPSERT или INSERT можно вставить в таблицу несколько строк.
+
+{% note important %}
+
+В консоль управления YQL включена PRAGMA AutoCommit. Это означает, что после каждого запроса автоматически будет выполняться COMMIT. Например, если вы введете несколько выражений (как показано в примере ниже) и выполните запрос, после запроса автоматически будет выполнен СOMMIT.
+
+```sql
+REPLACE INTO episodes (series_id, season_id, episode_id, title) VALUES (1, 1, 1, "Yesterday's Jam");
+REPLACE INTO episodes (series_id, season_id, episode_id, title) VALUES (1, 1, 2, "Calamity Jen");
+```
+
+{% endnote %}
+
+### REPLACE {#replace}
+
+После создания таблиц ```series```, ```seasons``` и ```episodes``` можно вставить данные в таблицу с помощью инструкции [REPLACE](../yql/reference/syntax/replace_into.md). Базовый синтаксис:
+
+```sql
+REPLACE INTO имя_таблицы (список_столбцов) VALUES (список_добавляемых_значений);
+```
+
+Инструкция REPLACE используется для добавления новой или изменения существущей строки по заданному значению первичного ключа. Если строка с указанным значением первичного ключа не существует, она будет создана. Если строка уже существует, значения колонок существующей строки будут заменены новыми значениями. *При этом значения колонок не участвующих в операции устанавливаются в значения по умолчанию.* В этом заключается единственное отличие от инструкции UPSERT.
+
+{% note info %}
+
+При выполнении запроса осуществляется слепая запись. Для операций записи или изменения данных рекомендуется использовать инструкции REPLACE или UPSERT.
+
+{% endnote %}
+
+Данные, добавленные с помощью следующего примера кода, будут использоваться далее в этом разделе.
+
+{% include notitle [replace-into-3-columns](../../_includes/ydb/queries/replace-into-3-columns.md) %}
+
+### UPSERT {#upsert}
+
+Инструкция [UPSERT](../yql/reference/syntax/upsert_into.md) используется для добавления новой или изменения существущей строки по заданному значению первичного ключа. Если строка с указанным значением первичного ключа не существует, она будет создана. Если строка уже существует, значения колонок существующей строки будут заменены новыми значениями. *При этом значения колонок не участвующих в операции не изменяют свои значения. В этом заключается единственное отличие от инструкции REPLACE.*
+
+{% note info %}
+
+При выполнении запроса осуществляется слепая запись. Для записи рекомендуется использовать инструкции REPLACE или UPSERT.
+
+{% endnote %}
+
+Код приведенный ниже вставит в таблицу ```episodes``` одну строчку с данными.
+
+{% include notitle [upsert-into-3-columns](../../_includes/ydb/queries/upsert-into-3-columns.md) %}
+
+### INSERT {#insert}
+
+Инструкция INSERT используется для вставки одной или нескольких строк. При попытке вставить строку в таблицу с уже существующим значением первичного ключа, {{ ydb-short-name }} вернёт ошибку с сообщением ```Transaction rolled back due to constraint violation: insert_pk.```.
+
+{% note info %}
+
+При выполнении операции INSERT перед записью осуществляется чтение данных. Это делает ее менее эффективной, чем операции REPLACE и UPSERT. Для записи рекомендуется использовать операции REPLACE или UPSERT.
+
+{% endnote %}
+
+Код приведенный ниже вставит в таблицу ```episodes``` одну строчку с данными.
+
+{% include notitle [insert-into-3-columns](../../_includes/ydb/queries/insert-into-3-columns.md) %}
+
+### UPDATE {#update}
+
+Инструкция [UPDATE](../yql/reference/syntax/update.md) изменяет значения колонок для строк таблицы, отфильтрованных по предикату из условия WHERE. Базовый синтаксис:
+
+```sql
+UPDATE имя_таблицы SET имя_столбца1=новое_значение_столбца1, ... ,имя_столбцаN=новое_значение_столбцаN WHERE условия_для_фильтра_строк;
+```
+
+Значения первичного ключа в рамках инструкции UPDATE не могут быть изменены. Введите и выполните следующую инструкцию UPDATE, чтобы изменить значение столбца ```title``` для эпизода с значениями столбцов ```series_id = 2```, ```season_id = 1```и ```episode_id = 3``` со значения "Test Episode" на значение "Test Episode Updated".
+
+{% include notitle [update-3-columns](../../_includes/ydb/queries/update-3-columns.md) %}
+
+### DELETE {#delete}
+
+Инструкция DELETE удаляет строки таблицы, отфильтрованные по предикату из условия WHERE. Код приведенный ниже удалит из таблицы ```episodes``` эпизод со следующими значениями столбцов ```series_id = 2```, ```season_id = 1```, и ```episode_id = 3```.
+
+{% include notitle [delete-from-3-columns](../../_includes/ydb/queries/delete-from-3-columns.md) %}
+
+## Запросите данные при помощи SELECT {#select}
+
+Для чтения данных в таблице используется инструкция [SELECT](../yql/reference/syntax/select.md).
+
+Чтобы запросить данные из таблицы ```series```, выполните код представленный ниже.
+
+{% include notitle [select-from-3-columns](../../_includes/ydb/queries/select-from-3-columns.md) %}
+
+{% if audience == "internal" %}
+
+В интерфейсе отобразится результат выполнения запроса:
+
+![Select from table](../_assets/ydb_example_select_table.png)
+
+{% endif %}
+
+Чтобы выбрать все столбцы в таблице, можно использовать звездочку. Для того, чтобы получить значения всех столбцов из таблицы ```series```,
+выполните код представленный ниже.
+
+{% include notitle [select-all](../../_includes/ydb/queries/select-all.md) %}
+
+{% note info %}
+
+Подробнее о том, как запросить данные по вторичному индексу, читайте в разделе [{#T}](../yql/reference/syntax/select.md#si-select).
+
+{% endnote %}
+
+## Сделайте параметризированный запрос {#param-queries}
+
+Использование параметризованных запросов может улучшить производительность за счет сокращения частоты выполнения компиляции и перекомпиляции запросов.
+
+**Пример**
+
+```sql
+DECLARE $seriesId AS Uint64;
+DECLARE $seasonId AS Uint64;
+
+$seriesId = 1;
+$seasonId = 2;
+
+SELECT sa.title AS season_title, sr.title AS series_title
+FROM seasons AS sa
+INNER JOIN series AS sr
+ON sa.series_id = sr.series_id
+WHERE sa.series_id = $seriesId AND sa.season_id = $seasonId;
+```
+
+{% note info %}
+
+YDB использует механизм [оптимистичных блокировок](https://en.wikipedia.org/wiki/Optimistic_concurrency_control). Для того, чтобы блокировки транзакций реже инвалидировались с ошибкой `Transaction locks invalidated` следует использовать короткие транзакции.
+
+{% endnote %}

@@ -1,18 +1,32 @@
-title: "Yandex Translate"
+title: "Yandex.Translate"
 href: index.yaml
 items:
+  - name: Getting started
+    href: quickstart.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Translate text
+      - name: How to translate text
         href: operations/translate.md
-      - name: Detect the language of the text
+      - name: How to improve the accuracy of translations
+        href: operations/better-quality.md
+      - name: Detecting language
         href: operations/detect.md
-  - name: Authentication in the API
-    href: api-ref/authentication.md
+      - name: Getting a list of supported languages
+        href: operations/list.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Glossaries
+        href: concepts/glossary.md
+      - name: Glossary support
+        href: concepts/glossary-supported-pairs.md
   - name: API reference
     items:
+    - name: Authentication in the API
+      href: api-ref/authentication.md
     - name: v2
       items:
       - name: Handling errors
@@ -26,9 +40,9 @@ items:
       items:
       - name: Overview
         href: api-ref/v1/index.md
-      - name: Text translation
+      - name: How to translate text
         href: api-ref/v1/translate.md
-      - name: Language detection
+      - name: Detecting language
         href: api-ref/v1/detect.md
       - name: List of supported languages
         href: api-ref/v1/languages.md
@@ -40,7 +54,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     items:
-      - name: Current policy
+      - name: Current pricing policy
         href: pricing.md
       - name: Archive
         items:
