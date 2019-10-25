@@ -1,5 +1,6 @@
 title: "Yandex IoT Core"
 href: index.yaml
+stage: preview
 items:
   - name: Getting started
     href: quickstart.md
@@ -11,19 +12,31 @@ items:
         href: operations/publish.md
       - name: Subscribing a device or registry to receive messages
         href: operations/subscribe.md
-      - name: Registry
+      - name: Viewing the connection log
+        href: operations/logs.md
+      - name: Registries
         items:
-          - name: Getting information about a registry
-            href: operations/registry/registry-list.md
-          - name: Creating a registry
-            href: operations/registry/registry-create.md
-          - name: Updating a registry
-            href: operations/registry/registry-update.md
-          - name: Deleting a registry
-            href: operations/registry/registry-delete.md
-      - name: Device
+        - name: Getting information about registries
+          href: operations/registry/registry-list.md
+        - name: Creating a registry
+          href: operations/registry/registry-create.md
+        - name: Updating a registry
+          href: operations/registry/registry-update.md
+        - name: Deleting a registry
+          href: operations/registry/registry-delete.md
+      - name: Devices
         items:
-          - name: Getting information about a device
+          - name: Managing topic aliases
+            items:
+              - name: Creating an alias
+                href: operations/device/alias/alias-create.md
+              - name: Getting a list of aliases
+                href: operations/device/alias/alias-list.md
+              - name: Updating an alias
+                href: operations/device/alias/alias-update.md
+              - name: Deleting an alias
+                href: operations/device/alias/alias-delete.md
+          - name: Getting information about devices
             href: operations/device/device-list.md
           - name: Creating a device
             href: operations/device/device-create.md
@@ -31,7 +44,7 @@ items:
             href: operations/device/device-update.md
           - name: Deleting a device
             href: operations/device/device-delete.md
-      - name: Certificate
+      - name: Certificates
         items:
           - name: Managing registry certificates
             href: operations/certificates/registry-certificates.md
@@ -39,14 +52,22 @@ items:
             href: operations/certificates/device-certificates.md
   - name: Concepts
     items:
-      - name: Relationship between service resources
-        href: concepts/index.md
-      - name: Quotas and limits
-        href: concepts/limits.md
-  #  - name: Сценарии использования
-  #    items:
-  #      - name: Запуск Docker-образа на виртуальной машине
-  #        href: scenario/index.md
+        - name: Relationship between service resources
+          href: concepts/index.md
+        - name: MQTT broker connection parameters
+          href: concepts/mqtt-properties.md
+        - name: Topic
+          href: concepts/topic.md
+        - name: Quotas and limits
+          href: concepts/limits.md
+  - name: Tutorials
+    items:
+      - name: Working with Mosquitto
+        items:
+          - name: Sending messages
+            href: solutions/mosquitto/mosquitto-publish.md
+          - name: Subscribing a device or registry to receive messages
+            href: solutions/mosquitto/mosquitto-subscribe.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

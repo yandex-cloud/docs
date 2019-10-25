@@ -17,6 +17,13 @@
 - [{#T}](device/device-update.md)
 - [{#T}](device/device-delete.md)
 
+### Managing topic aliases {#alias}
+
+- [{#T}](device/alias/alias-create.md)
+- [{#T}](device/alias/alias-list.md)
+- [{#T}](device/alias/alias-update.md)
+- [{#T}](device/alias/alias-delete.md)
+
 ## Certificates {#certificates}
 
 - [{#T}](certificates/registry-certificates.md)

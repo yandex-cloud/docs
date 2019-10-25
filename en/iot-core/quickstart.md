@@ -99,34 +99,14 @@ For devices and registries to interact, you must have X.509 certificates:
     created_at: "2019-05-27T13:45:23.306Z"
     ```
 
-## Connecting to the MQTT broker {#connect-mqtt-broker}
 
-The registry and device are ready for use. Connect to the MQTT broker using the following data:
+## Configure message exchange between devices and registers {#exchange}
 
-- **Broker address:** `{{ mqtt-broker-address }}`
-- **Broker port:** `{{ mqtt-broker-port }}`
-- **Protocol:** `TLSv1.2`
+Learn how to:
+- [Sending messages](operations/publish.md).
+- [Subscribing a device or registry to receive messages](operations/subscribe.md).
 
-To enable data exchange, use the following [topics](concepts/index.md#interactions):
+## What's next {#what-is-next}
 
-- Device topics:
-    - `$devices/<device ID>/events` — a topic for telemetry data. The device can write data to this topic and the registry can read data from it.
-    - `$devices/<device ID>/commands` — a topic for commands. The registry can write data to this topic and the device can read data from it.
-
-- Registry topics:
-    - `$registries/<registry ID>/events` — a topic for telemetry data. The device can write data to this topic and the registry can read data from it.
-    - `$registries/<registry ID>/commands` — a topic for commands. The registry can write data to this topic and the device can read data from it.
-
-You can get the ID of a device when creating it or using the following command:
-
-```
-$ yc iot device list --registry-name my-registry
-+----------------------+-----------+
-|          ID          |   NAME    |
-+----------------------+-----------+
-| b912an77oqaeijolmlgm | my-device |
-+----------------------+-----------+
-```
-
-For more information about device data exchanges, see [Device interactions](concepts/index.md#interactions).
-
+- Read about [service concepts](concepts/index.md).
+- See how to [work with registries and devices](operations/index.md).

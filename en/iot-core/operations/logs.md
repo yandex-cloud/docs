@@ -1,23 +1,23 @@
-# Просмотр журнала подключений
+# Viewing the connection log
 
-Журнал содержит информацию о подключении и отключении устройств, а также о возникающих ошибках. Вы можете посмотреть журналы подключений [устройства](#device) и [реестра](#registry). 
+The log contains information about connecting/disconnecting devices and errors. You can view connection logs for a [device](#device) and [registry](#registry).
 
-## Посмотрите журнал подключений устройства {#device}
+## View the device connection log {#device}
 
-В журнале подключений устройства отображаются операции, которые проведены с сертификатом этого устройства.
+The device connection log contains information about operations performed with the device certificate.
 
-Для обращения к [устройству](../concepts/index.md#device) используйте его идентификатор или имя. Как узнать идентификатор или имя устройства, читайте в разделе [{#T}](device/device-list.md).
+To access a [device](../concepts/index.md#device), use its ID or name. For information about how to get the device ID or name, see [{#T}](device/device-list.md)
 
 {% list tabs %}
 
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
-  Посмотрите журнал подключений устройства: 
-  
+
+  View the device connection log:
+
   ```
   $ yc iot devices logs my-device
   
@@ -34,25 +34,25 @@
   2019-09-19 18:53:04     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c3255281c", address: "77.88.15.128:53220", clientID: "YCCmdLine"
   2019-09-19 18:53:04     disconnected: client disconnected
   ```
-  
+
 {% endlist %}
 
-## Посмотрите журнал подключений реестра {#registry}
+## View the registry connection log {#registry}
 
-В журнале подключений реестра отображаются операции, которые проведены с сертификатом этого реестра. Операции устройств, принадлежащих этому реестру, не попадают в данный журнал.
+The registry connection log contains information about operations performed with the registry certificate. Operations of devices that belong to this registry are not included in this log.
 
-Для обращения к [реестру](../concepts/index.md#registry) используйте его идентификатор или имя. Как узнать идентификатор или имя реестра, читайте в разделе [{#T}](registry/registry-list.md).
+To access a [registry](../concepts/index.md#registry), use its ID or name. For information about how to get the registry ID or name, see [{#T}](registry/registry-list.md)
 
 {% list tabs %}
 
 - CLI
-  
+
   {% include [cli-install](../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
-  Посмотрите журнал подключений реестра: 
-  
+
+  View the registry connection log:
+
   ```
   $ yc iot registry logs my-registry
   
@@ -65,6 +65,6 @@
   2019-09-19 18:52:58     connected, cert: "94ea0421199ec70f1f3d359a1c167a81de4cf6ec", address: "77.88.15.128:53209", clientID: "YCCmdLine"
   2019-09-19 18:53:32     disconnected: client disconnected
   ```
-  
+
 {% endlist %}
 
