@@ -2,7 +2,7 @@
 
 Using these instructions, you will create your first [registry](../concepts/registry.md) and try managing [Docker images](../concepts/docker-image.md).
 
-## Before you start
+## Before you start {#before-you-begin}
 
 To create a registry, you will need a folder in Yandex.Cloud. If you don't have any folders yet, create a new folder before creating a registry:
 
@@ -10,7 +10,7 @@ To create a registry, you will need a folder in Yandex.Cloud. If you don't have 
 
 You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https://docs.docker.com/install/).
 
-## Creating a registry and performing basic operations on Docker images
+## Creating a registry and performing basic operations on Docker images {#registry-create}
 
 1. Create a registry in {{ container-registry-short-name }}:
 
@@ -72,7 +72,7 @@ You will also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https:
     cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
     ```
 
-#### See also
+#### See also {#see-also}
 
 * [Creating a registry](../operations/registry/registry-create.md)
 * [Authentication in {{ container-registry-short-name }}](../operations/authentication.md)
