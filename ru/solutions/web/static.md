@@ -109,7 +109,7 @@
 Чтобы проверить работу сайта, откройте в браузере адрес 
 
 ```
-http://www.example.com.{{ s3-web-host }}`
+http://www.example.com.website.yandexcloud.net`
 ```
 
 

@@ -11,7 +11,7 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
   1. Run at a command prompt:
 
      ```
-     $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+     $ curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
      ```
 
      The script will install the CLI and add the executable file path to the environment variable `PATH`.
@@ -31,7 +31,7 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
   1. Run at a command prompt:
 
       ```
-      $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+      $ curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
       ```
 
       The script will install the CLI and add the executable file path to the environment variable `PATH`.
@@ -63,7 +63,7 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
       1. Run the command:
 
           ```
-          iex (New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}')
+          iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1')
           ```
 
       1. The installation script will ask whether to add the path to `yc` to the PATH variable:
@@ -79,7 +79,7 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
       1. Run the command:
 
           ```
-          @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
+          @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
           ```
 
       1. The installation script will ask whether to add the path to `yc` to the PATH variable:
@@ -101,7 +101,7 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
   1. Enter your OAuth token when prompted by the command.
 
      ```
-     Please go to {{ link-cloud-oauth }}
+     Please go to https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
       in order to obtain OAuth token.
 
      Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
@@ -126,7 +126,7 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
   1. Select the default availability zone for the {{ compute-full-name }} service:
 
      ```
-     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
+     Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
      Which zone do you want to use as a profile default?
       [1] ru-central1-a
       [2] ru-central1-b

@@ -1,14 +1,6 @@
 # String UDF
 
-{% if audience == "internal" %}
-
-Функции для работы со строками Unicode на основе библиотек `util/string/` и `TString` из Аркадии:
-
-{% else if audience == "external" %}
-
 Функции для работы со строками Unicode на основе библиотек `util/string/` и `TString`:
-
-{% endif %}
 
 **Список функций**
 

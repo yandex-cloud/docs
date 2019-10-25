@@ -2,14 +2,10 @@
 
 A {{ MY }} cluster is one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, synchronously duplicates changes in the primary replica, and does it asynchronously in all the others.
 
-{% if audience != "internal" %}
-
 The number of hosts that can be created together with a {{ MY }} cluster depends on the storage option selected:
 
   - When using network drives, you can request any number of hosts (from one to the limits of the current [quota](../concepts/limits.md)).
   - When using SSDs, you can create at least three replicas along with the cluster (a minimum of three replicas is required to ensure fault tolerance). If the [available folder resources](../concepts/limits.md) are still sufficient after creating a cluster, you can add extra replicas.
-
-{% endif %}
 
 By default, {{ mmy-short-name }} limits the maximum number of connections to each {{ MY }} cluster host to ` 200 x <number of vCPUs on host>`. For example, for a host of the [s1.micro class](../concepts/instance-types.md) the `max_connections` default parameter value is 400.
 
@@ -73,13 +69,13 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
   1. See the description of the CLI's create cluster command:
 
       ```
-      $ {{ yc-mdb-my }} cluster create --help
+      $ yc managed-mysql cluster create --help
       ```
 
   1. Specify the cluster parameters in the create command:
 
      ```
-     $ {{ yc-mdb-my }} cluster create \
+     $ yc managed-mysql cluster create \
         --name <cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \

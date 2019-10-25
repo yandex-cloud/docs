@@ -21,7 +21,7 @@
   Чтобы получить список баз данных в кластере, выполните команду:
 
   ```
-  $ {{ yc-mdb-mg }} database list
+  $ yc managed-mongodb database list
        --cluster-name=<имя кластера>
   ```
 
@@ -65,7 +65,7 @@
   Выполните команду создания БД, задав имя новой базы:
 
   ```
-  $ {{ yc-mdb-mg }} database create <имя базы данных>
+  $ yc managed-mongodb database create <имя базы данных>
       --cluster-name <имя кластера>
   ```
 
@@ -101,7 +101,7 @@
   Чтобы удалить базу данных, выполните команду:
 
   ```
-  $ {{ yc-mdb-mg }} database delete <имя базы данных>
+  $ yc managed-mongodb database delete <имя базы данных>
        --cluster-name=<имя кластера>
   ```
 

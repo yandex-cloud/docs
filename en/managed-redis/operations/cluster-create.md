@@ -51,19 +51,19 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   1. See the description of the CLI's create cluster command:
 
       ```
-      $ {{ yc-mdb-rd }} cluster create --help
+      $ yc managed-redis cluster create --help
       ```
 
   1. View available host classes:
 
      ```
-     $ {{ yc-mdb-rd }} resource-preset list
+     $ yc managed-redis resource-preset list
      ```
 
   1. Specify the cluster parameters in the create command (only some of the supported flags are given in the example):
 
       ```bash
-      $ {{ yc-mdb-rd }} cluster create \
+      $ yc managed-redis cluster create \
          --name <cluster name> \
          --environment <prestable or production> \
          --network-name <network name> \
@@ -96,7 +96,7 @@ Let's say we need to create a {{ RD }} cluster with the following characteristic
 Run the command:
 
 ```
-$ {{ yc-mdb-rd }} cluster create \
+$ yc managed-redis cluster create \
      --name myredis \
      --environment production \
      --network-name default \

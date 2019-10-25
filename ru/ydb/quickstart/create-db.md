@@ -14,32 +14,4 @@
 
 ## Создайте базу данных {#control-plane}
 
-{% if audience == "internal" %}
-
-1. Чтобы создать базу данных, перейдите в [консоль управления](https://ydb.yandex-team.ru).
-
-    {% include [iam](../../_includes/iam/owner-warning.md) %}
-
-1. Нажмите кнопку **Create database**.
-
-    ![Create database](../_assets/db_ui_create_database_button.png)
-
-1. В поле **Cluster** выберите кластер *ydb-ru*.
-
-    Остальные поля будут заполнены автоматически, в том числе будет автоматически выбран аккаунт *home*, создана директория с вашим именем пользователя и база данных с именем *mydb*.
-
-    Пример создания новой базы данных:
-
-    ![Create new database](../_assets/db_ui_create_home_database.png)
-
-1. Нажмите кнопку **Create**.
-
-    Появится страница с сообщением об успешном создании базы данных.
-
-    ![New database entrance](../_assets/db_ui_entrance_home_database.png)
-
-{% else if audience == "external" %}
-
 {% include [create-db-via-console](../../_includes/ydb/create-db-via-console.md) %}
-
-{% endif %}

@@ -1,6 +1,0 @@
-title: "Yandex Managed Database Services"
-items:
-  - name: MDB, он же DBaaS, он же PGaaS
-    href: index.md
-  - name: Доступ к базам данных
-    href: access.md

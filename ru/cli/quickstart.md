@@ -1,20 +1,6 @@
 # Начало работы с интерфейсом командной строки
 
-{% if audience != "internal" %}
-
 _Интерфейс командной строки Яндекс.Облака (CLI)_ — скачиваемое программное обеспечение для управления вашими облачными ресурсами через командную строку.
-
-{% else %}
-
-Внутри Яндекса CLI (command-line interface) Яндекс.Облака позволяет использовать:
-
-- Managed Service for ClickHouse
-- Managed Service for MongoDB
-- Managed Service for MySQL
-- Managed Service for Redis
-- Managed Service for PostgreSQL
-
-{% endif %}
 
 ## Установка {#install}
 
@@ -25,7 +11,7 @@ _Интерфейс командной строки Яндекс.Облака (C
 
   1. Выполните в командной строке:
      ```
-     $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+     $ curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
      ```
      Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
 
@@ -45,7 +31,7 @@ _Интерфейс командной строки Яндекс.Облака (C
 
   1. Выполните в командной строке:
       ```
-      $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+      $ curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
       ```
       Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
   1. Перезапустите командную оболочку, чтобы перезагрузить переменные окружения.
@@ -86,7 +72,7 @@ _Интерфейс командной строки Яндекс.Облака (C
       1. Выполните команду:
 
           ```
-          iex (New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}')
+          iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1')
           ```
 
       1. Скрипт установки спросит, нужно ли добавить путь до `yc` в переменную PATH:
@@ -102,7 +88,7 @@ _Интерфейс командной строки Яндекс.Облака (C
       1. Выполните команду:
 
           ```
-          @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
+          @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
           ```
 
       1. Скрипт установки спросит, нужно ли добавить путь до `yc` в переменную PATH:
@@ -121,22 +107,11 @@ _Интерфейс командной строки Яндекс.Облака (C
 ## Инициализация {#initialize}
 
 
-{% if audience == "internal" %}
-
-О том, как правильно инициализировать CLI, читайте в документации соответствующего сервиса:
-
-- [Managed Service for {{ CH }}](../managed-clickhouse/quickstart.md#setup)
-- [Managed Service for {{ MG }}](../managed-mongodb/quickstart.md#setup)
-- [Managed Service for {{ RD }}](../managed-redis/quickstart.md#setup)
-- [Managed Service for {{ PG }}](../managed-postgresql/quickstart.md#setup)
-
-{% else %}
-
-  1. Получите OAuth-токен в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке]({{ link-cloud-oauth }}) и нажмите **Разрешить**.
+1. Получите OAuth-токен в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке]({{ link-cloud-oauth }}) и нажмите **Разрешить**.
   1. Запустите команду `yc init`, чтобы выполнить настройку вашего профиля CLI.
   1. По запросу команды введите свой OAuth токен.
      ```
-     Please go to {{ link-cloud-oauth }}
+     Please go to https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
       in order to obtain OAuth token.
 
      Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
@@ -158,7 +133,7 @@ _Интерфейс командной строки Яндекс.Облака (C
      ```
   1. Выберите зону доступности по умолчанию для сервиса {{ compute-full-name }}:
      ```
-     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
+     Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
      Which zone do you want to use as a profile default?
       [1] ru-central1-a
       [2] ru-central1-b
@@ -255,4 +230,3 @@ _Интерфейс командной строки Яндекс.Облака (C
    $ yc vpc subnet delete my-yc-subnet-b
    $ yc vpc network delete my-yc-network
    ```
-{% endif %}

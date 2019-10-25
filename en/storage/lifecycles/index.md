@@ -36,6 +36,6 @@ This allows you to manage lifecycle configurations using [tools](../instruments/
     aws s3api put-bucket-lifecycle-configuration \
         --bucket backup-bucket \
         --lifecycle-configuration file://lifecycles.json \
-        --endpoint-url=https://{{ s3-storage-host }}
+        --endpoint-url=https://storage.yandexcloud.net
     ```
 

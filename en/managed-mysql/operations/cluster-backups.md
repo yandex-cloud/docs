@@ -30,13 +30,13 @@ For a new cluster, you should set all the parameters that are required at creati
   1. View the description of the CLI's restore cluster command {{ MY }}:
 
       ```
-      $ {{ yc-mdb-my }} cluster restore --help
+      $ yc managed-mysql cluster restore --help
       ```
 
   1. Getting a list of available {{ MY }} cluster backups:
 
       ```
-      $ {{ yc-mdb-my }} backup list
+      $ yc managed-mysql backup list
 
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -50,58 +50,29 @@ For a new cluster, you should set all the parameters that are required at creati
 
   1. Request creation of a cluster from a backup:
 
-      {% if audience == "internal" %}
-
       ```
-      $ {{ yc-mdb-my }} cluster restore \
+      $ yc managed-mysql cluster restore \
              --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
              --time 2018-11-02T10:09:38Z \
              --name mynewmy \
              --environment=PRODUCTION \
-             --network-id {{ network-name }} \
-             --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
+             --network-name default \
+             --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
              --disk-size 20 \
              --disk-type network-ssd \
-             --resource-preset {{ host-class }}
+             --resource-preset s1.nano
       ```
-
-      {% else %}
-
-      ```
-      $ {{ yc-mdb-my }} cluster restore \
-             --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
-             --time 2018-11-02T10:09:38Z \
-             --name mynewmy \
-             --environment=PRODUCTION \
-             --network-name {{ network-name }} \
-             --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
-             --disk-size 20 \
-             --disk-type network-ssd \
-             --resource-preset {{ host-class }}
-      ```
-
-      {% endif %}
 
       This results in a new {{ MY }} cluster with the following characteristics:
 
-      {% if audience == "internal" %}
-      - With the `mynewmy` name.
-      - In the `PRODUCTION` environment.
-      - With one `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
-      - With the databases and users from the backup.
-      - With SSD network storage of 20 GB.
+      
 
-      {% endif %}
-
-      {% if audience != "internal" %}
       - With the `mynewmy` name.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the  `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
       - With SSD network storage of 20 GB.
-
-      {% endif %}
 
 {% endlist %}
 
@@ -125,13 +96,13 @@ For a new cluster, you should set all the parameters that are required at creati
   1. View a description of the CLI create {{ MG }} backup command:
 
       ```
-      $ {{ yc-mdb-my }} cluster backup --help
+      $ yc managed-mysql cluster backup --help
       ```
 
   1. Request creation of a backup specifying the cluster name or ID:
 
       ```
-      $ {{ yc-mdb-my }} cluster backup <cluster ID>
+      $ yc managed-mysql cluster backup <cluster ID>
       ```
 
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
@@ -155,7 +126,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To get a list of {{ MG }} cluster backups available in the default folder, run the command:
 
   ```
-  $ {{ yc-mdb-my }} backup list
+  $ yc managed-mysql backup list
 
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -184,7 +155,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To get information about a {{ MG }} cluster backup, run the command:
 
   ```
-  $ yc {{ yc-mdb-my }} backup get <backup ID>
+  $ yc yc managed-mysql backup get <backup ID>
   ```
 
   The backup ID can be retrieved with the [list of backups](#list-backups) .
@@ -204,7 +175,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To set the backup start time, use the `--backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
 
   ```
-  $ yc {{ yc-mdb-my }} cluster create \
+  $ yc yc managed-mysql cluster create \
      --name <cluster name> \
      --environment <prestable or production> \
      --network-name <network name> \
@@ -216,7 +187,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To change the backup start time in an existing cluster, use the  `update` command:
 
   ```
-  $ yc {{ yc-mdb-my }} cluster update \
+  $ yc yc managed-mysql cluster update \
      --name <cluster name> \
      --backup-window-start 11:25:00
   ```

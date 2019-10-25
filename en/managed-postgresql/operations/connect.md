@@ -6,23 +6,11 @@
 
 {{ PG }}clusters in {{ mpg-short-name }} only support encrypted connections, which is why an SSL certificate is required to connect to them. You can prepare all the necessary authentication data as follows:
 
-{% if audience != "internal" %}
-
 ```bash
 $ mkdir ~/.postgresql
-$ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt
+$ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/root.crt
 $ chmod 0600 ~/.postgresql/root.crt
 ```
-
-{% else %}
-
-```bash
-$ mkdir ~/.postgresql
-$ wget "{{ pem-path }}" -O ~/.postgresql/root.crt
-$ chmod 0600 ~/.postgresql/root.crt
-```
-
-{% endif %}
 
 Read about using certificates with `libpq` in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
 
@@ -67,18 +55,11 @@ You can find the addresses of all the hosts in the DB cluster on the appropriate
 
 If your database connection driver doesn't allow passing multiple hosts in the connection string (for example, [pgx in Go](https://github.com/jackc/pgx)), you can connect to a special host like `c-<cluster ID>.rw.{{ dns-zone }}`.
 
-{% if audience == "internal" %}{% note info %}
-
-There is also a special host for the least lagged working replica: `c-<cluster ID>.ro.{{ dns-zone }}`.
-
-{% endnote %}
-
-{% endif %}
 
 This domain name always indicates the current master in the cluster. For example, you can connect to the master of the cluster with the `c9qash3nb1v9ulc8j9nm` ID as follows:
 
 ```bash
-$ psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
+$ psql "host=c-c9qash3nb1v9ulc8j9nm.rw.mdb.yandexcloud.net \
       port=6432 \
       sslmode=verify-full \
       dbname=<DB name> \

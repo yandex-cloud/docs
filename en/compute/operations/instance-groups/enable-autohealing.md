@@ -49,7 +49,7 @@ To enable automatic recovery when updating an instance group:
   1. See the description of the CLI's update group command:
 
      ```
-     $ {{ yc-compute-ig }} update --help
+     $ yc compute instance-group update --help
      ```
 
   1. Get a list of instance groups in the default folder:
@@ -100,7 +100,7 @@ To enable automatic recovery when updating an instance group:
   1. Update the instance group in the default folder:
 
       ```
-      $ {{ yc-compute-ig }} update --name first-group --file group.yaml
+      $ yc compute instance-group update --name first-group --file group.yaml
       ```
 
      {{ ig-name }} starts the operation to update the instance group.

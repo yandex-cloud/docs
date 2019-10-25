@@ -30,7 +30,7 @@ To change the name and description of an instance group:
   1. See the description of the CLI's update group command:
 
      ```
-     $ {{ yc-compute-ig }} update --help
+     $ yc compute instance-group update --help
      ```
 
   1. Get a list of instance groups in the default folder:
@@ -44,7 +44,7 @@ To change the name and description of an instance group:
   1. Update the instance group in the default folder:
 
       ```
-      $ {{ yc-compute-ig }} update --name first-fixed-group --file specification.yaml
+      $ yc compute instance-group update --name first-fixed-group --file specification.yaml
       ```
 
      {{ ig-name }} starts the operation to update the instance group.
@@ -86,7 +86,7 @@ To change the computing resources of an instance group:
   1. See the description of the CLI's update group command:
 
      ```
-     $ {{ yc-compute-ig }} update --help
+     $ yc compute instance-group update --help
      ```
 
   1. Get a list of instance groups in the default folder:
@@ -100,7 +100,7 @@ To change the computing resources of an instance group:
   1. Update the instance group in the default folder:
 
       ```
-      $ {{ yc-compute-ig }} update --name first-fixed-group --file specification.yaml
+      $ yc compute instance-group update --name first-fixed-group --file specification.yaml
       ```
 
      {{ ig-name }} starts the operation to update the instance group.
@@ -137,7 +137,7 @@ To increase the disk size of an instance group:
   1. See the description of the CLI's update group command:
 
      ```
-     $ {{ yc-compute-ig }} update --help
+     $ yc compute instance-group update --help
      ```
 
   1. Get a list of instance groups in the default folder:
@@ -151,7 +151,7 @@ To increase the disk size of an instance group:
   1. Update the instance group in the default folder:
 
       ```
-      $ {{ yc-compute-ig }} update --name first-fixed-group --file specification.yaml
+      $ yc compute instance-group update --name first-fixed-group --file specification.yaml
       ```
 
      {{ ig-name }} starts the operation to update the instance group.

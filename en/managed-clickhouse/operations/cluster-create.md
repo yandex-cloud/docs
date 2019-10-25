@@ -4,11 +4,9 @@ A {{ CH }} cluster is one or more database hosts that replication can be configu
 
 {% note important %}
 
-When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster of 3 ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the [resource quotas]({{ link-console-quotas }}) used by the cloud{% if audience != "internal" %} , и в расчете стоимости кластера {% endif %}. Read more about replication for [{{ CH }}](../concepts/replication.md#clickhouse).
+When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster of 3 ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the [resource quotas]({{ link-console-quotas }}) used by the cloud, и в расчете стоимости кластера. Read more about replication for [{{ CH }}](../concepts/replication.md#clickhouse).
 
 {% endnote %}
-
-{% if audience != "internal" %}
 
 The number of hosts that can be created together with a {{ CH }} cluster depends on the storage option selected:
 
@@ -16,15 +14,13 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
 * When using SSDs, you can create at least two replicas along with the cluster (a minimum of two replicas is required to ensure fault tolerance). If the [available folder resources](../concepts/limits.md) are still sufficient after creating a cluster, you can add extra replicas.
 
-{% endif %}
-
 {% list tabs %}
 
 - Management console
 
   1. In the management console, select the folder where you want to create a DB cluster.
 
-  1. {% if audience != "internal" %} Выберите сервис **{{ mch-name }}**. {% endif %}
+  1. Выберите сервис **{{ mch-name }}**.
 
   1. Click **Create cluster**.
 
@@ -38,10 +34,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
   1. In the **Storage size** section:
 
-      {% if audience != "internal" %}
       - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
-
-      {% endif %}
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. In the **Database** section, specify DB attributes:
@@ -61,8 +54,6 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
   To create a cluster:
 
-  {% if audience != "internal" %}
-
   1. Check whether the folder has any subnets for the cluster hosts:
 
      ```
@@ -71,20 +62,16 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-  {% endif %}
-
   1. See the description of the CLI's create cluster command:
 
       ```
-      $ {{ yc-mdb-ch }} cluster create --help
+      $ yc managed-clickhouse cluster create --help
       ```
 
   1. Specify the cluster parameters in the create command (the example shows only mandatory flags):
 
-     {% if audience != "internal" %}
-
      ```
-     $ {{ yc-mdb-ch }} cluster create \
+     $ yc managed-clickhouse cluster create \
         --name <cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \
@@ -98,23 +85,6 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
-      {% else %}
-
-     ```
-     $ {{ yc-mdb-ch }} cluster create \
-        --name <cluster name> \
-        --environment <prestable or production> \
-        --network-id ' ' \
-        --host type=<clickhouse or zookeeper>,zone-id=<availability zone> \
-        --resource-preset <host class> \
-        --clickhouse-disk-type local-ssd \
-        --clickhouse-disk-size <storage size in GB> \
-        --user name=<username>,password=<user password> \
-        --database name=<DB name>
-     ```
-
-      {% endif %}
-
 {% endlist %}
 
 ## Examples
@@ -125,8 +95,6 @@ To create a cluster with a single host, you should pass a single parameter, `--h
 
 Let's say we need to create a {{ CH }} cluster with the following characteristics:
 
-{% if audience != "internal" %}
-
 - Named `mych`.
 - In the `production` environment.
 - In the `default` network.
@@ -135,23 +103,10 @@ Let's say we need to create a {{ CH }} cluster with the following characteristic
 - With one user (`user1`) with the password `user1user1`.
 - With one `db1` database.
 
-{% else %}
-
-- Named `mych`.
-- In the `production` environment.
-- With one `{{host-class}}` class ClickHouse host in the `{{zone-id}}` availability zone.
-- With 20 GB of SSD storage.
-- With one user (`user1`) with the password `user1user1`.
-- With one `db1` database.
-
-{% endif %}
-
 Run the command:
 
-{% if audience != "internal" %}
-
 ```
-$ {{ yc-mdb-ch }} cluster create \
+$ yc managed-clickhouse cluster create \
      --name mych \
      --environment=production \
      --network-name default \
@@ -162,20 +117,4 @@ $ {{ yc-mdb-ch }} cluster create \
      --user name=user1,password=user1user1 \
      --database name=db1
 ```
-
-{% else %}
-
-```
-$ {{ yc-mdb-ch }} cluster create \
-     --name mych \
-     --environment=production \
-     --clickhouse-resource-preset s2.nano \
-     --host type=clickhouse,zone-id=man \
-     --clickhouse-disk-size 20 \
-     --clickhouse-disk-type local-ssd \
-     --user name=user1,password=user1user1 \
-     --database name=db1
-```
-
-{% endif %}
 

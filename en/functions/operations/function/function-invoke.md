@@ -23,7 +23,7 @@ As an example, we use the function described in [{#T}](version-manage.md#func-ve
     Call the function as a regular HTTP request, such as by entering the function call link in your browser address bar. Call link format:
 
     ```
-    {{ sf-url }}/<function ID>
+    https://functions.yandexcloud.net/<function ID>
     ```
 
     The function call link is also shown in the `http_invoke_url` parameter when [creating a function](function-create.md).
@@ -31,7 +31,7 @@ As an example, we use the function described in [{#T}](version-manage.md#func-ve
     - Example of function call with no additional parameters:
 
         ```
-        {{ sf-url }}/b09bhaokchn9pnbrlseb
+        https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
         ```
 
         The response depends on the function you call. In this case, it will be as follows:
@@ -43,7 +43,7 @@ As an example, we use the function described in [{#T}](version-manage.md#func-ve
     - Example of function call with the `name` parameter added to the URL:
 
         ```
-        {{ sf-url }}/b09bhaokchn9pnbrlseb?name=<user name>
+        https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb?name=<user name>
         ```
 
         The following response appears on the page:

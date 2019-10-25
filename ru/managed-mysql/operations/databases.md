@@ -20,7 +20,7 @@
   Чтобы получить список баз данных в кластере, выполните команду:
 
   ```
-  $ {{ yc-mdb-my }} database list
+  $ yc managed-mysql database list
        --cluster-name=<имя кластера>
   ```
 
@@ -54,13 +54,13 @@
   1. Посмотрите описание команды CLI для создания БД:
 
      ```
-     $ {{ yc-mdb-my }} database create --help
+     $ yc managed-mysql database create --help
      ```
 
   1. Выполните команду создания БД:
 
      ```
-     $ {{ yc-mdb-my }} database create <имя базы данных> --cluster-name <имя кластера>
+     $ yc managed-mysql database create <имя базы данных> --cluster-name <имя кластера>
      ```
 
      {{ mmy-short-name }} запустит операцию создания базы данных.
@@ -88,7 +88,7 @@
   Чтобы удалить базу данных, выполните команду:
 
   ```
-  $ {{ yc-mdb-my }} database delete <имя базы данных> --cluster-name <имя кластера>
+  $ yc managed-mysql database delete <имя базы данных> --cluster-name <имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).

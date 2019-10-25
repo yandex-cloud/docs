@@ -274,15 +274,7 @@ SELECT
 * Защита на границах вызова UDF от передачи некорректных значений;
 * Дополнительные уточнения на уровне типов возвращаемых колонок.
 
-{% if audience == "internal" %}
-
-Поддерживаемые веб-интерфейсом mime-type и одноименные метки ([пример](https://yql.yandex-team.ru/Operations/WwwjZTa9vP89o89j9Qzd43CwTo-z297_nePqwHS70fM=)):
-
-{% else if audience == "external" %}
-
 Поддерживаемые веб-интерфейсом mime-type и одноименные метки:
-
-{% endif %}
 
 * image/jpeg
 * image/png
@@ -340,52 +332,6 @@ SELECT AsTagged(
 );
 ```
 
-{% if audience == "internal" %}
-
-## TablePath {#tablepath}
-
-Доступ к текущему имени таблицы, что бывает востребованно при использовании [CONCAT](../syntax/select.md#concat), [RANGE](../syntax/select.md#range) и других подобных механизмов.
-
-Аргументов нет. Возвращает строку c полным путём, либо пустую строку и warning при использовании в неподдерживаем контексте (например, при работе с подзапросом или диапазоном из 1000+ таблиц).
-
-**Примеры**
-
-```sql
-SELECT TablePath() FROM CONCAT(table_a, table_b);
-```
-## TableName {#tablename}
-
-Получить имя таблицы из пути к таблице. Путь можно получить через функцию [TablePath](#tablepath), или в виде колонки `Path` при использовании табличной функции [FOLDER](../syntax/select.md#folder).
-
-Необязательные аргументы:
-
-* путь к таблице, по умолчанию используется `TablePath()` (также см. его ограничения);
-* указание системы ("yt"), по правилам которой выделяется имя таблицы. Указание системы нужно только в том случае, если с помощью [USE](../syntax/select.md#use) не указан текущий кластер.
-
-**Примеры**
-
-```sql
-USE hahn;
-SELECT TableName() FROM CONCAT(table_a, table_b);
-```
-
-```sql
-SELECT TableName(Path, "yt") FROM hahn.FOLDER(folder_name);
-```
-
-## TableRecord {#tablerecord}
-
-Доступ к текущему порядковому номеру строки в исходной физической таблице, **начиная с 1** (зависит от реализации хранения).
-
-Аргументов нет. При использовании в сочетании с [CONCAT](../syntax/select.md#concat), [RANGE](../syntax/select.md#range) и другими подобными механизмами нумерация начинается заново для каждой таблицы на входе. В случае использования в некорректном контексте возвращает 0.
-
-**Примеры**
-
-```sql
-SELECT TableRecord() FROM my_table;
-```
-
-{% endif %}
 
 ## TableRow {#tablerow}
 
@@ -396,87 +342,6 @@ SELECT TableRecord() FROM my_table;
 ```sql
 SELECT TableRow() FROM my_table;
 ```
-{% if audience == "internal" %}
-
-## FileContent и FilePath
-
-Как [консольный](../interfaces/cli.md), так и [веб](../interfaces/web.md)-интерфейсы позволяют «прикладывать» к запросу произвольные именованные файлы. С помощью этих функций можно по имени приложенного файла получить его содержимое или путь в «песочнице» и в дальнейшем использовать в запросе произвольным образом.
-
-Аргумент `FileContent` и `FilePath` — строка c алиасом.
-
-**Примеры**
-
-```sql
-SELECT "Content of "
-  || FilePath("my_file.txt")
-  || ":\n"
-  || FileContent("my_file.txt");
-```
-## FolderPath {#folderpath}
-
-Получение пути до корня директории с несколькими «приложенными» файлами с указанным общим префиксом.
-
-Аргумент — строка c префиксом среди алиасов.
-
-Также см. [PRAGMA File](../syntax/pragma.md#file) и [PRAGMA Folder](../syntax/pragma.md#folder).
-
-**Примеры**
-
-```sql
-PRAGMA File("foo/1.txt", "http://url/to/somewhere");
-PRAGMA File("foo/2.txt", "http://url/to/somewhere/else");
-PRAGMA File("bar/3.txt", "http://url/to/some/other/place");
-
-SELECT FolderPath("foo"); -- в директории по возвращённому пути будут
-                          -- находиться файлы 1.txt и 2.txt, скачанные по указанным выше ссылкам
-```
-
-## ParseFile {#parsefile}
-
-Получить из приложенного текстового файла список значений. Может использоваться в сочетании с [IN](../syntax/expressions.md#in) и прикладыванием файла по URL(инструкции по прикладыванию файлов для [веб-интерфейса](../interfaces/web.md#attach) и [клиента](../interfaces/cli.md#attach)).
-
-Поддерживается только один формат файла — по одному значению на строку. Для чего-то более сложного прямо сейчас придется написать небольшую UDF на [Python](../udf/python.md) или [Javascript](../udf/javascript.md), либо попросить на [yql@](https://ml.yandex-team.ru/lists/yql) добавить нужный формат, если он широко распространен.
-
-Два обязательных аргумента:
-
-1. Тип ячейки списка: поддерживаются только строки и числовые типы;
-2. Имя приложенного файла.
-
-{% note info %}
-
-Возвращаемое значние — ленивый список. Для многократного использования его нужно обернуть в функцию [ListCollect](list.md#listcollect)
-
-{% endnote %}
-
-**Примеры**
-
-```sql
-SELECT ListLength(ParseFile("String", "my_file.txt"));
-```
-
-```sql
-SELECT * FROM my_table
-WHERE int_column IN ParseFile("Int64", "my_file.txt"));
-```
-
-## WeakField {#weakfield}
-
-Вытаскивает колонку таблицы из строгой схемы, если она там есть, либо из полей `_other` и [_rest](https://wiki.yandex-team.ru/logfeller/schema/yt/#osobennostirabotysosxematizirovannymitablicami). В случае отсутствия значения возвращается `NULL`.
-
-Синтаксис: `WeakField([<table>.]<field>, "<type>"[, <default_value>])`.
-
-Значение по умолчанию используется только в случае отсутствия колонки в схеме данных. Чтобы подставить значение по умолчанию в любом случае можно воспользоваться [COALESCE](#coalesce).
-
-**Примеры**
-
-```sql
-SELECT
-    WeakField(my_column, "String", "no value"),
-    WeakField(my_table.other_column, "Int64")
-FROM my_table;
-```
-
-{% endif %}
 
 ## Ensure, EnsureType и EnsureConvertibleTo {#ensure}
 
@@ -522,51 +387,6 @@ SELECT EnsureConvertibleTo(
 ) AS value FROM my_table;
 ```
 
-{% if audience == "internal" %}
-
-## EvaluateExpr и EvaluateAtom {#evaluate}
-
-Возможность выполнить выражение до начала основного расчета и подставить его результат в запрос как литерал (константу). Во многих контекстах, где в стандартном SQL ожидалась бы только константа (например, в именах таблиц, количестве строк в [LIMIT](../syntax/select.md#limit) и т.п.) этот функционал активируется неявным образом автоматически.
-
-EvaluateExpr может использоваться в тех местах, где грамматикой уже ожидается выражение. Например, с его помощью можно:
-
-* округлить текущее время до дней, недель или месяцев и подставить в запрос, что затем позволит корректно работать [кешированию запросов](../syntax/pragma.md#querycachemode)), хотя обычно использование `YQL::Now()` его полностью отключает;
-* сделать тяжелое вычисление с небольшим результатом один раз на запрос вместо одного раза на каждую джобу.
-
-`EvaluateAtom позволяет` динамически менять те части запроса, где обычно ожидалась бы только константа.
-
-Единственный аргумент у обоих функций — само выражение для вычисление и подстановки.
-
-Ограничения:
-
-* выражение не должно приводить к запуску MapReduce операций;
-* данный функционал полностью заблокирован в YQL over YDB.
-
-**Примеры**
-
-```sql
-$now = CurrentUtcTimestamp();
-SELECT EvaluateExpr(
-    DateTime::DateStartOfWeek(
-        CAST($now AS Date)
-    )
-);
-```
-
-```sql
-USE hahn;
-
-$folder_path = AsList("home", "yql", "tutorial");
-$table = "users";
-$order = EvaluateAtom(ListConcat(AsList("a", "g", "e")));
-$full_path = String::JoinFromList(ListExtend($folder_path, AsList($table)), "/");
-$limit = 2 + 2;
-
-SELECT * FROM $full_path
-ORDER BY YQL::Member(TableRow(), $order) DESC
-LIMIT $limit;
-```
-{% endif %}
 
 ## Создание литералов простых типов на основе строкового литерала {#data-type-literals}
 
@@ -769,19 +589,3 @@ FROM my_table;
 
 Позволяет отличить промежуточный итог от `NULL` в исходных данных при агрегации. Подробнее см. в документации по [ROLLUP, CUBE и GROUPING SETS](../syntax/group_by.md#rollup).
 
-{% if audience == "internal" %}
-
-## YQL:: {#yql}
-
-Ассортимент существующих встроенных в YQL функций намного шире перечисленного выше, но многие из них предназначены прежде всего для внутреннего использования или для некоторых особых случаев.
-
-Полный список внутренних функций находится в [документации к s-expressions](../s_expressions/functions.md), альтернативному внутреннему синтаксису YQL. Любую из перечисленных там функций можно вызвать и из SQL синтаксиса, добавив к её имени префикс `YQL::`. Без префикса они или не доступны из SQL синтаксиса или имеют право вести себя по-другому.
-
-**Примеры**
-
-```  yql
-SELECT
-  YQL::Concat("a", "b"); -- в реальности так писать не рекомендуется,
-                         -- так как это аналог SELECT "a" || "b";
-```
-{% endif %}

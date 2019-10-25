@@ -190,26 +190,8 @@ FROM my_table;
 2. Функции для обработки элементов, на**Примеры**
     * [Лямбда функция](../syntax/expressions.md#lambda);
     * `Module::Function` - С++ UDF;
-{% if audience == "internal" %}    * `"foo"` — функция из поддерживаемых s-expressions, например `">"` или `"ToString"`;{% endif %}
-{% if audience == "internal" %}    * Python UDF, JavaScript UDF или любое другое вызываемое значение;{% endif %}
 3. Опциональные дополнительные аргументы, которые будут переданы указанной во втором аргументе функции.
 
-{% if audience == "internal" %}
-
-Некоторые функции из s-expressions ожидают в качестве дополнительного аргумента атом. В SQL-синтаксисе его проще всего создать с помощью встроенной функции `AsAtom`.
-
-**Примеры**
-
-```sql
-$callable = Python::test("(Int64)->Bool", "def test(i): return i % 2");
-SELECT
-    ListMap(list_column, ($x) -> { RETURN $x > 2; }),
-    ListFlatMap(list_column, My::Udf, 0),
-    ListFilter(list_column, $callable)
-FROM my_table;
-```
-
-{% endif %}
 
 ## ListUniq {#listuniq}
 

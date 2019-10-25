@@ -8,15 +8,11 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
 {% endnote %}
 
-{% if audience != "internal" %}
-
 The number of hosts that can be created with a {{ PG }} cluster depends on the storage option selected:
 
 * When using network drives, you can request any number of hosts (from one to the current [quota](../concepts/limits.md) limit).
 
 * When using SSDs, you can create at least three replicas along with the cluster (a minimum of three replicas is required to ensure fault tolerance). If the [available folder resources](../concepts/limits.md) are still sufficient after creating a cluster, you can add extra replicas.
-
-{% endif %}
 
 By default, {{ mpg-short-name }} limits the maximum number of connections to each {{ PG }} cluster host. This maximum is calculated as follows: `200 × <number of vCPUs per host>`. For example, for a [s1.micro class](../concepts/instance-types.md) cluster, the `max_connections` default parameter value is 400 and can't be increased.
 
@@ -51,7 +47,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   1. Under **Storage size**:
 
-      {% if audience != "internal" %} - Выберите тип хранилища — более гибкое сетевое (**network-hdd** или **network-ssd**) или более быстрое локальное SSD-хранилище (**local-ssd**). Размер локального хранилища можно менять только с шагом 100 ГБ. {% endif %}
+      - Выберите тип хранилища — более гибкое сетевое (**network-hdd** или **network-ssd**) или более быстрое локальное SSD-хранилище (**local-ssd**). Размер локального хранилища можно менять только с шагом 100 ГБ.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
@@ -73,26 +69,24 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
   To create a cluster:
 
-  {% if audience != "internal" %} 1. Check whether the folder has any subnets for the cluster hosts:
+  1. Check whether the folder has any subnets for the cluster hosts:
 
      ```
      $ yc vpc subnet list
      ```
 
-     If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}. {% endif %}
+     If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
   1. View a description of the CLI's create cluster command:
 
       ```
-      $ {{ yc-mdb-pg }} cluster create --help
+      $ yc managed-postgresql cluster create --help
       ```
 
   1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
 
-      {% if audience != "internal" %}
-
       ```bash
-      $ {{ yc-mdb-pg }} cluster create \
+      $ yc managed-postgresql cluster create \
          --name <cluster name> \
          --environment <prestable or production> \
          --network-name <network name> \
@@ -105,22 +99,6 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
-      {% else %}
-
-      ```bash
-      $ {{ yc-mdb-pg }} cluster create \
-         --name <cluster name> \
-         --environment <prestable or production> \
-         --network-id {{ network-name }} \
-         --host zone-id=<availability zone> \
-         --resource-preset <host class> \
-         --user name=<username>,password=<user password> \
-         --database name=<database name>,owner=<database owner name> \
-         --disk-size <storage size in GB>
-      ```
-
-      {% endif %}
-
 {% endlist %}
 
 ## Examples
@@ -131,8 +109,6 @@ To create a cluster with a single host, you should pass a single parameter, `--h
 
 Let's say we need to create a {{ PG }} cluster with the following characteristics:
 
-{% if audience != "internal" %}
-
 - Named `mypg`.
 - In the `production` environment.
 - In the `default` network.
@@ -141,23 +117,10 @@ Let's say we need to create a {{ PG }} cluster with the following characteristic
 - With one user (`user1`) with the password `user1user1`.
 - With one `db1` database owned by the user `user1`.
 
-{% else %}
-
-- Named `mypg`.
-- In the `production` environment.
-- With a single `db1.micro` class host in the `man` availability zone.
-- With 20 GB of SSD storage.
-- With one user (`user1`) with the password `user1user1`.
-- With one `db1` database owned by the user `user1`.
-
-{% endif %}
-
 Run the command:
 
-{% if audience != "internal" %}
-
 ```
-$ {{ yc-mdb-pg }} cluster create \
+$ yc managed-postgresql cluster create \
      --name mypg \
      --environment production \
      --network-name default \
@@ -168,21 +131,4 @@ $ {{ yc-mdb-pg }} cluster create \
      --user name=user1,password=user1user1 \
      --database name=db1,owner=user1
 ```
-
-{% else %}
-
-```
-$ {{ yc-mdb-pg }} cluster create \
-     --name mypg \
-     --environment production \
-     --network-id ' ' \
-     --host zone-id=man \
-     --resource-preset db1.micro \
-     --disk-type local-ssd \
-     --disk-size 20 \
-     --user name=user1,password=user1user1 \
-     --database name=db1,owner=user1
-```
-
-{% endif %}
 

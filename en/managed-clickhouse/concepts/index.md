@@ -10,11 +10,7 @@ Each cluster consists of one or more _database hosts_, which are virtual machine
 
 When creating a cluster or shard, specify the _host class_, which is a template of virtual machine characteristics for the hosts deployed. For a list of available host classes and their characteristics, see [{#T}](instance-types.md).
 
-{% if audience != "internal" %}
-
 A database cluster created in a folder can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/).
-
-{% endif %}
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 

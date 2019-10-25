@@ -32,7 +32,7 @@ If you want to have multiple domain names supported for your website, for instan
 2. Set up an alias for the bucket through your provider.
 
     ```
-    www.example.com CNAME www.example.com.{{ s3-web-host }}
+    www.example.com CNAME www.example.com.website.yandexcloud.net
     ```
 3. Set up a redirect from the `example.com` domain to the `www.example.com` domain on the provider side.
 

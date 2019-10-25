@@ -21,7 +21,7 @@
   Чтобы получить список баз данных в кластере, выполните команду:
 
   ```
-  $ {{ yc-mdb-rd }} host list
+  $ yc managed-redis host list
        --cluster-name=<имя кластера>
 
   +---------------------------------+----------------------+--------+---------------+
@@ -90,13 +90,13 @@
   1. Посмотрите описание команды CLI для добавления хостов:
 
      ```
-     $ {{ yc-mdb-rd }} host add --help
+     $ yc managed-redis host add --help
      ```
 
   1. Выполните команду добавления хоста:
 
      ```
-     $ {{ yc-mdb-rd }} host add
+     $ yc managed-redis host add
           --cluster-name <имя кластера>
           --host zone-id=<зона доступности>,subnet-id=<ID подсети>
      ```
@@ -140,7 +140,7 @@
   Чтобы удалить хост из кластера, выполните команду:
 
   ```
-  $ {{ yc-mdb-rd }} host delete <имя хоста>
+  $ yc managed-redis host delete <имя хоста>
        --cluster-name=<имя кластера>
   ```
 

@@ -17,7 +17,7 @@
   Задайте нужные режимы SQL в значении параметра `--set`, например:
   
   ```bash
-  $ {{ yc-mdb-my }} cluster update-config
+  $ yc managed-mysql cluster update-config
        --cluster-name=<имя кластера>
        --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
   ```

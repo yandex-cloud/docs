@@ -21,7 +21,7 @@ You can add and remove cluster hosts and manage {{ PG }} settings for individual
   To get a list of databases in a cluster, run the command:
 
   ```
-  $ {{ yc-mdb-pg }} host list
+  $ yc managed-postgresql host list
        --cluster-name=<cluster name>
   
   +----------------------------+--------------+---------+--------+---------------+
@@ -51,8 +51,6 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
   1. Click **Add host**.
 
-  {% if audience != "internal" %}
-
   1. Specify the host parameters:
 
       * Availability zone.
@@ -65,8 +63,6 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
       * Select the **Public access** option if the host must be accessible from outside the Cloud.
 
-  {% endif %}
-
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -74,8 +70,6 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To add a host to the cluster:
-
-  {% if audience != "internal" %}
 
   1. Request a list of cluster subnets to select one for the new host:
 
@@ -94,41 +88,23 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
      If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
-  {% endif %}
-
   1. See the description of the CLI command for adding a host:
 
      ```
-     $ {{ yc-mdb-pg }} host add --help
+     $ yc managed-postgresql host add --help
      ```
 
   1. Run the add host command:
 
-     {% if audience != "internal" %}
-
      ```
-     $ {{ yc-mdb-pg }} host add
+     $ yc managed-postgresql host add
           --cluster-name <cluster name>
           --host zone-id=<availability zone>,subnet-id=<subnet ID>
      ```
 
-     {% else %}
-
-     ```
-     $ {{ yc-mdb-pg }} host add
-          --cluster-name <cluster name>
-          --host zone-id=<availability zone>
-     ```
-
-     {% endif %}
-
      {{ mpg-short-name }} will run the add host operation.
 
-     {% if audience != "internal" %}
-
      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mpg-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
-
-     {% endif %}
 
 - API
 
@@ -155,7 +131,7 @@ For each host in a {{ PG }} cluster, you can change:
   To change the parameters of the {{ PG }} host, run the command:
 
   ```
-  $ {{ yc-mdb-pg }} host update <host name>
+  $ yc managed-postgresql host update <host name>
        --cluster-name <cluster name>
        --replication-source <source host's name
        --priority <replica's priority
@@ -194,7 +170,7 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
   To remove a host from the cluster, run:
 
   ```
-  $ {{ yc-mdb-pg }} host delete <hostname>
+  $ yc managed-postgresql host delete <hostname>
        --cluster-name=<cluster name>
   ```
 

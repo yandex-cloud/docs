@@ -10,13 +10,13 @@ To host a website:
 After you configure the bucket for hosting, the website becomes accessible at:
 
 ```
-http(s)://<bucket name>.{{ s3-web-host }}
+http(s)://<bucket name>.website.yandexcloud.net
 ```
 
 or
 
 ```
-http(s)://{{ s3-web-host }}/<bucket name>
+http(s)://website.yandexcloud.net/<bucket name>
 ```
 
 {% note info %}
@@ -44,7 +44,7 @@ In this case:
     For instance, for the `www.example.com` domain, the following record should be added:
 
     ```
-    www.example.com CNAME www.example.com.{{ s3-web-host }}
+    www.example.com CNAME www.example.com.website.yandexcloud.net
     ```
 
 {% note info %}

@@ -39,11 +39,6 @@ FROM my_table
 WINDOW w AS ();
 ```
 
-{% if audience == "internal" %}
-
-[Пример операции](https://yql.yandex-team.ru/Operations/WmBLikeUGe7ks4bOu_B5TS1gctsF7EgRNztKCMY0IKs)
-
-{% endif %}
 
 ## FIRST_VALUE / LAST_VALUE {#first-last-value}
 

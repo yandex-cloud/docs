@@ -27,7 +27,7 @@ To add new hosts to a single-host cluster, first [add the {{ ZK }} hosts ](zk-ho
   To get a list of hosts in a cluster, run the command:
 
   ```
-  $ {{ yc-mdb-ch }} host list
+  $ yc managed-clickhouse host list
        --cluster-name=<cluster name>
   
   +----------------------------+--------------+---------+--------+---------------+
@@ -57,8 +57,6 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
   1. Click **Add host**.
 
-  {% if audience != "internal" %}
-
   1. Specify the host parameters:
 
       * Availability zone.
@@ -67,8 +65,6 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
       * Select the **Public access** option if the host must be accessible from outside the Cloud.
 
-  {% endif %}
-
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -76,8 +72,6 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To add a host to the cluster:
-
-  {% if audience != "internal" %}
 
   1. Request a list of cluster subnets to select one for the new host:
 
@@ -96,37 +90,23 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
       If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
-  {% endif %}
-
   1. See the description of the CLI command for adding a host:
 
      ```
-     $ {{ yc-mdb-ch }} host add --help
+     $ yc managed-clickhouse host add --help
      ```
 
   1. Run the add host command:
 
-     {% if audience != "internal" %}
-
      ```
-     $ {{ yc-mdb-ch }} host add
+     $ yc managed-clickhouse host add
           --cluster-name <cluster name>
           --host zone-id=<availability zone>,subnet-id=<subnet ID>
      ```
 
-     {% else %}
-
-     ```
-     $ {{ yc-mdb-ch }} host add
-          --cluster-name <cluster name>
-          --host zone-id=<availability zone>
-     ```
-
-     {% endif %}
-
      {{ mch-short-name }} will run the add host operation.
 
-     {% if audience != "internal" %} The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. {% endif %} You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -157,7 +137,7 @@ You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
   To remove a host from the cluster, run:
 
   ```
-  $ {{ yc-mdb-ch }} host delete <hostname>
+  $ yc managed-clickhouse host delete <hostname>
        --cluster-name=<cluster name>
   ```
 

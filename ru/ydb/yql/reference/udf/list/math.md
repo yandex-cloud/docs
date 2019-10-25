@@ -1,14 +1,6 @@
 # Math UDF
 
-{% if audience == "internal" %}
-
-Набор обёрток вокруг функций из библиотеки libm, а также из util в Аркадии.
-
-{% else if audience == "external" %}
-
 Набор обёрток вокруг функций из библиотеки libm.
-
-{% endif %}
 
 ## Константы {#constants}
 

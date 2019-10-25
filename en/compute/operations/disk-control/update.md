@@ -34,7 +34,7 @@ After you create a disk, you can:
   1. View the description of the CLI's disk change command:
 
       ```
-      $ {{ yc-compute }} disk update --help
+      $ yc compute disk update --help
       ```
 
   1. Request a list of available disks:
@@ -46,7 +46,7 @@ After you create a disk, you can:
   1. Specify the name and description in the disk change command:
 
       ```
-      $ {{ yc-compute }} disk update first-disk \
+      $ yc compute disk update first-disk \
           --new-name updated-disk \
           --description "Updated disk via CLI"
       ```
@@ -102,7 +102,7 @@ Disk size can be increased only if the disk is not connected to a running VM. To
   1. View the description of the CLI's disk change command:
 
       ```
-      $ {{ yc-compute }} disk update --help
+      $ yc compute disk update --help
       ```
 
   1. Request a list of available disks:
@@ -112,7 +112,7 @@ Disk size can be increased only if the disk is not connected to a running VM. To
   1. Stop the VM with the disk you want to update. To do this, select the `ID` of the VM:
 
       ```
-      $ {{ yc-compute }} instance stop --id a7lcvu28njbhnkcteb5n
+      $ yc compute instance stop --id a7lcvu28njbhnkcteb5n
       ```
 
   1. Select the `ID` or `NAME` of the required disk (for example, `first-disk`).
@@ -120,7 +120,7 @@ Disk size can be increased only if the disk is not connected to a running VM. To
   1. Specify the size (for example, 32 GB) in the disk change command:
 
       ```
-      $ {{ yc-compute }} disk update first-disk \
+      $ yc compute disk update first-disk \
           --size 32
       ```
 
@@ -129,7 +129,7 @@ Disk size can be increased only if the disk is not connected to a running VM. To
   1. Start the VM:
 
       ```
-      $ {{ yc-compute }} instance start --id a7lcvu28njbhnkcteb5n
+      $ yc compute instance start --id a7lcvu28njbhnkcteb5n
       ```
 
 - API

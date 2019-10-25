@@ -16,23 +16,11 @@
 
 {{ MG }}-хосты с публичным доступом поддерживают только соединения с SSL-сертификатом. Подготовить сертификат можно так:
 
-{% if audience != "internal" %}
-
 ```bash
 $ mkdir ~/.mongodb
-$ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/CA.pem
+$ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mongodb/CA.pem
 $ chmod 0600 ~/.mongodb/CA.pem
 ```
-
-{% else %}
-
-```bash
-$ mkdir ~/.mongodb
-$ wget "{{ pem-path }}" -O ~/.mongodb/CA.pem
-$ chmod 0600 ~/.mongodb/CA.pem
-```
-
-{% endif %}
 
 ## Строка подключения
 

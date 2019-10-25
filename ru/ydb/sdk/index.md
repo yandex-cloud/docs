@@ -7,21 +7,9 @@
 * Для [Python](https://github.com/yandex-cloud/ydb-python-sdk/tree/master/kikimr/public/sdk/python/examples/basic_example_v1)
 * Для [Go](https://github.com/yandex-cloud/ydb-go-sdk/tree/master/example/basic_example_v1)
 * Для [Java](https://github.com/yandex-cloud/ydb-java-sdk/tree/master/examples/src/main/java/com/yandex/ydb/examples/basic_example_v1)
-{% if audience == "internal" %}
-* Для [C++](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/python/examples/basic_example)
-{% endif %}
 
 Чтобы запустить приложение, необходимо подключиться к базе данных. Подробнее читайте в разделе [{#T}](../quickstart/launch-test-app.md).
 
-{% if audience == "internal" %}
-
-{% note info %}
-
-Для аутентификации в YDB тестовое приложение использует токен из переменной окружения __YDB_TOKEN__.
-
-{% endnote %}
-
-{% endif %}
 
 После запуска и выполнения `basic_example_v1` в консоли отобразится следующий результат:
 

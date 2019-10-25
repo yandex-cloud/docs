@@ -50,7 +50,7 @@
 Чтобы получить информацию о шарде, выполните команду:
 
 ```
-$ {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя кластера>
+$ yc managed-redis shards get <имя шарда> --cluster-name <имя кластера>
 ```
 
 Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
@@ -127,7 +127,7 @@ $ {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя клас
   Чтобы удалить шард из кластера, выполните команду:
 
   ```
-  $ {{ yc-mdb-rd }} shards delete <имя шарда>
+  $ yc managed-redis shards delete <имя шарда>
        --cluster-name=<имя кластера>
   ```
 

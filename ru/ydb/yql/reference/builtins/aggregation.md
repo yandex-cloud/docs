@@ -373,36 +373,6 @@ FROM my_table;
 
 В случае, если передано два аргумента, смысл второго аргумента определяется по его типу (целочисленный литерал — ограничение на число корзин, в противном случае — вес).
 
-{% if audience == "internal" %}
-
-### Алгоритмы
-
-* [Оригинальный whitepaper](http://jmlr.org/papers/volume11/ben-haim10a/ben-haim10a.pdf);
-* [Используемая библиотека с реализацией в Аркадии](https://a.yandex-team.ru/arc/trunk/arcadia/library/histogram/adaptive).
-
-Доступны разные модификации алгоритма:
-
-```sql
-AdaptiveDistanceHistogram
-AdaptiveWeightHistogram
-AdaptiveWardHistogram
-BlockWeightHistogram
-BlockWardHistogram
-```
-
-По умолчанию `HISTOGRAM` является синонимом к `AdaptiveWardHistogram`. Обе функции эквивалентны и взаимозаменимы во всех контекстах.
-
-Алгоритмы Distance, Weight и Ward отличаются формулами объединения двух точек в одну, см. реализацию: <https://a.yandex-team.ru/arc/trunk/arcadia/library/histogram/adaptive/common.cpp>
-
-Чем отличается Adaptive и Block:
-<blockquote>Contrary to adaptive histogram, block histogram doesn't rebuild bins after the addition of each point. Instead, it accumulates points and in case the amount of points overflows specified limits, it shrinks all the points at once to produce histogram. Indeed, there exist two limits and two shrinkage operations:
-
-1. FastGreedyShrink is fast but coarse. It is used to shrink from upper limit to intermediate limit (override FastGreedyShrink to set specific behaviour).
-2. SlowShrink is slow, but produces finer histogram. It shrinks from the intermediate limit to the actual number of bins in a manner similar to that in adaptive histogram (set CalcQuality in constuctor)
-While FastGreedyShrink is used most of the time, SlowShrink is mostly used for histogram finalization
-</blockquote>
-
-{% endif %}
 
 ### Если нужна точная гистограмма
 

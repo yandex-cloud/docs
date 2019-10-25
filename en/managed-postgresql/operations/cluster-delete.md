@@ -18,7 +18,7 @@
   To delete a cluster, run the command:
 
   ```
-  $ {{ yc-mdb-pg }} cluster delete <cluster name or ID>
+  $ yc managed-postgresql cluster delete <cluster name or ID>
   ```
 
   The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).

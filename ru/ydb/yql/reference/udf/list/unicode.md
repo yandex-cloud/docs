@@ -1,14 +1,6 @@
 # Unicode UDF
 
-{% if audience == "internal" %}
-
-Функции для работы со строками Unicode на основе библиотек `util/charset/` и `library/unicode/` из Аркадии.
-
-{% else if audience == "external" %}
-
 Функции для работы со строками Unicode на основе библиотек `util/charset/` и `library/unicode/`.
-
-{% endif %}
 
 **Список функций**
 

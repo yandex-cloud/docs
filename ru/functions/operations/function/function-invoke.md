@@ -39,7 +39,7 @@
     Вызовите функцию как обычный HTTP-запрос, например, введите в адресной строке вашего браузера ссылку для вызова функции. Формат ссылки вызова:
 
     ```
-    {{ sf-url }}/<ID функции>
+    https://functions.yandexcloud.net/<ID функции>
     ```
 
     Также ссылка для вызова функции отображается в параметре `http_invoke_url` при [создании функции](function-create.md).
@@ -49,7 +49,7 @@
     - Пример вызова функции без дополнительных параметров:
 
         ```
-        {{ sf-url }}/b09bhaokchn9pnbrlseb
+        https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
         ```
 
         Ответ зависит от вашей функции, в данном случае он будет таким:
@@ -61,7 +61,7 @@
     - Пример вызова функции с добавлением в URL параметра `name`:
 
         ```
-        {{ sf-url }}/b09bhaokchn9pnbrlseb?name=<имя пользователя>
+        https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb?name=<имя пользователя>
         ```
 
         На странице появится следующий ответ:
@@ -72,7 +72,7 @@
     - Пример вызова определенной версии функции с добавлением в URL параметра `tag`:
       
         ```
-        {{ sf-url }}/b09bhaokchn9pnbrlseb?tag=<тег версии>
+        https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb?tag=<тег версии>
         ```
             
 - CLI

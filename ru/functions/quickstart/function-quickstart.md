@@ -243,7 +243,7 @@ $ yc serverless function list
     Вызовите функцию как обычный HTTP-запрос, вставив ссылку в адресную строку браузера. В данном случае используется пример функции на [Python](#python-func):
 
     ```
-    {{ sf-url }}/b09bhaokchn9pnbrlseb
+    https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
     ```
 
     На странице появится ответ:
@@ -255,7 +255,7 @@ $ yc serverless function list
     При вызове функции вы можете добавлять в URL параметры. В качестве примера добавьте параметр `name`:
 
     ```
-    {{ sf-url }}/b09bhaokchn9pnbrlseb?name=Username
+    https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb?name=Username
     ```
 
     На странице появится следующий ответ:

@@ -10,13 +10,13 @@
 После настройки бакета для хостинга сайт становится доступен по адресу:
 
 ```
-http(s)://<имя_бакета>.{{ s3-web-host }}
+http(s)://<имя_бакета>.website.yandexcloud.net
 ```
 
 или
 
 ```
-http(s)://{{ s3-web-host }}/<имя_бакета>
+http(s)://website.yandexcloud.net/<имя_бакета>
 ```
 
 {% note info %}
@@ -44,7 +44,7 @@ http(s)://{{ s3-web-host }}/<имя_бакета>
     Например, для домена `www.example.com` необходимо добавить запись
 
     ```
-    www.example.com CNAME www.example.com.{{ s3-web-host }}
+    www.example.com CNAME www.example.com.website.yandexcloud.net
     ```
 
 {% note info %}

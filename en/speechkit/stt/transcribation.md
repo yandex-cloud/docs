@@ -35,7 +35,7 @@ For now, you can only recognize long audio in Russian.
         The link to the uploaded file has the following format:
 
         ```
-        https://{{ s3-storage-host }}/<bucket name>/<file path>
+        https://storage.yandexcloud.net/<bucket name>/<file path>
         ```
 
         The link will contain additional query parameters (after `?`) for buckets with restricted access. You don't need to pass these parameters in {{ speechkit-name }} since they just get ignored.

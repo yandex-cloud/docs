@@ -18,7 +18,7 @@
   To delete a cluster, run the command:
 
   ```
-  $ {{ yc-mdb-mg }} cluster delete <cluster name or ID>
+  $ yc managed-mongodb cluster delete <cluster name or ID>
   ```
 
   The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).

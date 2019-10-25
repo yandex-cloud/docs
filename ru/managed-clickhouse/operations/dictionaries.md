@@ -93,14 +93,14 @@
   1. Посмотрите описание команды CLI для добавления словарей:
     
      ```
-     $ {{ yc-mdb-ch }} cluster add-external-dictionary --help
+     $ yc managed-clickhouse cluster add-external-dictionary --help
      ```   
   
   1. Выполните команду добавления словаря. Пример команды для {{ PG }} словаря: 
    
      ```
-     $ {{ yc-mdb-ch }} cluster add-external-dictionary \
-        --name <имя кластера {{ CH }}> \
+     $ yc managed-clickhouse cluster add-external-dictionary \
+        --name <имя кластера ClickHouse> \
         --dict-name <имя словаря> \
         --structure-id <имя ключевого столбца> \
         --structure-attribute name=<имя столбца данных>,type=<тип данных>,null-value=<значение для пустого элемента>,expression=<выражение>,hierarchical=<true|false>,injective=<true|false> \
@@ -136,12 +136,12 @@
   1. Посмотрите описание команды CLI для получения детальной информации о кластере:
   
   ```
-  $ {{ yc-mdb-ch }} cluster get --help
+  $ yc managed-clickhouse cluster get --help
   ```
   
   1. Выполните команду:
   ```
-  $ {{ yc-mdb-ch }} cluster get <имя кластера>
+  $ yc managed-clickhouse cluster get <имя кластера>
   ```
   Подключенные словари отображаются в блоке ```dictionaries:``` результата выполнения команды.
 
@@ -172,12 +172,12 @@
   1. Посмотрите описание команды CLI для удаления словаря:
   
   ```
-  $ {{ yc-mdb-ch }} cluster remove-external-dictionary --help
+  $ yc managed-clickhouse cluster remove-external-dictionary --help
   ```
   
   1. Удалите словарь с помощью команды:
   ```
-  $ {{ yc-mdb-ch }} cluster remove-external-dictionary \
+  $ yc managed-clickhouse cluster remove-external-dictionary \
     --name <имя кластера> \
     --dict-name <имя словаря> \
   ```

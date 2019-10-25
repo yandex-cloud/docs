@@ -15,23 +15,11 @@
 
 {{ PG }}-хосты с публичным доступом поддерживают только соединения с SSL-сертификатом. Подготовить сертификат можно так:
 
-{% if audience != "internal" %}
-
 ```bash
 $ mkdir ~/.postgresql
-$ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt
+$ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/root.crt
 $ chmod 0600 ~/.postgresql/root.crt
 ```
-
-{% else %}
-
-```bash
-$ mkdir ~/.postgresql
-$ wget "{{ pem-path }}" -O ~/.postgresql/root.crt
-$ chmod 0600 ~/.postgresql/root.crt
-```
-
-{% endif %}
 
 
 ## Строка подключения
@@ -99,19 +87,11 @@ psql "host=<FQDN хоста 1>,<FQDN хоста 2>,<FQDN хоста 3> \
 Если ваш драйвер для подключения к базе данных не позволяет передавать несколько хостов в строке подключения (например,
 [pgx в Go](https://github.com/jackc/pgx)), вы можете подключаться на специальный хост вида `c-<идентификатор кластера>.rw.{{ dns-zone }}`.
 
-{% if audience == "internal" %}
-{% note info %}
-
-Также есть специальный хост для наименее отставшей рабочей реплики: `c-<идентификатор кластера>.ro.{{ dns-zone }}`.
-
-{% endnote %}
-
-{% endif %}
 
 Это доменное имя всегда указывает на текущий мастер в кластере. Например, для кластера с идентификатором `c9qash3nb1v9ulc8j9nm` к мастеру можно подключиться так:
 
 ```bash
-$ psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
+$ psql "host=c-c9qash3nb1v9ulc8j9nm.rw.mdb.yandexcloud.net \
       port=6432 \
       sslmode=verify-full \
       dbname=<имя базы данных> \

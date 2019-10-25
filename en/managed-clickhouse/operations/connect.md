@@ -1,10 +1,6 @@
 # Connecting to a database in a cluster {{ CH }}
 
-{% if audience != "internal" %}
-
 {% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
-
-{% endif %}
 
 A {{ CH }} cluster can be accessed using the [command-line client](https://clickhouse.yandex/docs/ru/interfaces/cli/) (port 9440) or [HTTP interface](https://clickhouse.yandex/docs/ru/interfaces/http_interface/) (port 8443). All connections to DB clusters are encrypted.
 
@@ -12,19 +8,9 @@ A {{ CH }} cluster can be accessed using the [command-line client](https://click
 
 To use an encrypted connection, you should get an SSL certificate:
 
-{% if audience != "internal" %}
-
 ```bash
-wget "https://{{ s3-storage-host }}{{ pem-path }}"
+wget "https://storage.yandexcloud.net/cloud-certs/CA.pem"
 ```
-
-{% else %}
-
-```bash
-wget "{{ pem-path }}"
-```
-
-{% endif %}
 
 ## How to connect via {{ CH }} CLI {#cli}
 

@@ -4,15 +4,7 @@
 
 ## Веб-интерфейс {#ui}
 
-{% if audience == "internal" %}
-
-Начать работать с YQL можно в [веб-интерфейсе](https://yql.yandex-team.ru/Tutorial/ydb_01_Create_demo_tables) после создания базы данных. В разделе [{#T}](../../quickstart/examples-yql.md) описаны базовые операции с данными.
-
-{% else if audience == "external" %}
-
 Начать работать с YQL можно в консоли управления после создания базы данных. В разделе [{#T}](../../operations/crud.md) описаны базовые операции с данными.
-
-{% endif %}
 
 ## Туториал для начинающих {#tutorials}
 

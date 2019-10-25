@@ -8,23 +8,11 @@ To connect to {{ mmg-name }} cluster hosts, specify port 27018.
 
 {{ MG }} clusters in {{ mmg-short-name }} only support encrypted connections, which is why an SSL certificate is required to connect to them. You can prepare all the necessary authentication data as follows:
 
-{% if audience != "internal" %}
-
 ```bash
 $ mkdir ~/.mongodb
-$ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/CA.pem
+$ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mongodb/CA.pem
 $ chmod 0600 ~/.mongodb/CA.pem
 ```
-
-{% else %}
-
-```bash
-$ mkdir ~/.mongodb
-$ wget "{{ pem-path }}" -O ~/.mongodb/CA.pem
-$ chmod 0600 ~/.mongodb/CA.pem
-```
-
-{% endif %}
 
 ## Connection string
 

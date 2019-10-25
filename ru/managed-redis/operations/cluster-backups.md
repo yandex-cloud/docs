@@ -34,13 +34,13 @@
   1. Посмотрите описание команды CLI для восстановления кластера {{ RD }}:
   
       ```
-      $ {{ yc-mdb-rd }} cluster restore --help
+      $ yc managed-redis cluster restore --help
       ```
   
   2. Получите список доступных резервных копий {{ RD }}-кластеров:
   
       ```
-      $ {{ yc-mdb-rd }} backup list
+      $ yc managed-redis backup list
   
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -53,7 +53,7 @@
   1. Запросите создание кластера из резервной копии:
   
       ```
-      $ {{ yc-mdb-rd }} cluster restore \
+      $ yc managed-redis cluster restore \
            --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
            --name mynewrd \
            --environment=PRODUCTION \
@@ -97,13 +97,13 @@
   1. Посмотрите описание команды CLI для создания резервной копии {{ MG }}:
   
       ```
-      $ {{ yc-mdb-rd }} cluster backup --help
+      $ yc managed-redis cluster backup --help
       ```
   
   2. Запросите создание резервной копии, указав имя или идентификатор кластера:
   
       ```
-      $ {{ yc-mdb-rd }} cluster backup my-rd-cluster
+      $ yc managed-redis cluster backup my-rd-cluster
       ```
   
       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
@@ -130,7 +130,7 @@
   Чтобы получить список резервных копий кластеров {{ MG }}, доступных в каталоге по умолчанию, выполните команду:
   
   ```
-  $ {{ yc-mdb-rd }} backup list
+  $ yc managed-redis backup list
   
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -162,7 +162,7 @@
   Чтобы получить данные о резервной копии кластера {{ RD }}, выполните команду:
   
   ```
-  $ yc {{ yc-mdb-rd }} backup get <идентификатор резервной копии>
+  $ yc yc managed-redis backup get <идентификатор резервной копии>
   ```
 
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -182,7 +182,7 @@
   Чтобы задать время начала резервного копирования, используйте флаг `--backup-window-start`. Время задается в формате ``ЧЧ:ММ:СС``.
 
   ```
-  $ yc {{ yc-mdb-rd }} cluster create \
+  $ yc yc managed-redis cluster create \
      --name <имя кластера> \
      --environment <окружение, prestable или production> \
      --network-name <имя сети> \
@@ -193,7 +193,7 @@
   Изменить время начала резервного копирования в существующем кластере можно с помощью команды `update`:
 
   ```
-  $ yc {{ yc-mdb-rd }} cluster update \
+  $ yc yc managed-redis cluster update \
      --name <имя кластера> \
      --backup-window-start 11:25:00
   ```

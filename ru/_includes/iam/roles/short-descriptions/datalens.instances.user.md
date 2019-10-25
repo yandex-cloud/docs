@@ -1,1 +1,0 @@
-[`datalens.instances.user`](../../../../iam/concepts/access-control/roles.md#datalens-instances-user) — предоставляет доступ к сервису {{ datalens-name }}. Данная роль не позволяет выполнять операции с другими ресурсами Яндекс.Облака.

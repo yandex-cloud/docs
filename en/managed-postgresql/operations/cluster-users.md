@@ -19,7 +19,7 @@ You can add and remove users, as well as manage their individual settings.
   To get a list of cluster users, run the command:
 
   ```
-  $ {{ yc-mdb-pg }} user list
+  $ yc managed-postgresql user list
        --cluster-name=<cluster name>
   ```
 
@@ -50,7 +50,7 @@ When adding a user, {{ mpg-short-name }} reserves 50 connections to the {{ PG }}
   To create a user in a cluster, run the command:
 
   ```
-  $ {{ yc-mdb-pg }} user create <username>
+  $ yc managed-postgresql user create <username>
        --cluster-name=<cluster name>
        --password=<DB user password>
        --permissions=<list of DBs the user can access>
@@ -87,7 +87,7 @@ For the user, you can change:
   To change the user's password or the list of databases available to the user, run:
 
   ```
-  $ {{ yc-mdb-pg }} user update <username>
+  $ yc managed-postgresql user update <username>
        --cluster-name=<cluster name>
        --password=<DB user password>
        --permissions=<list of DBs the user can access>
@@ -116,7 +116,7 @@ For the user, you can change:
   To remove a user, run:
 
   ```
-  $ {{ yc-mdb-pg }} user delete <username>
+  $ yc managed-postgresql user delete <username>
        --cluster-name=<cluster name>
   ```
 

@@ -6,17 +6,8 @@
 
 * ```Url::Normalize(String) -> String?```
 
-{% if audience == "internal" %}
-
-Нормализует URL рекомендованным Веб-роботом способом: приводит hostname в нижний регистр, выкидывает фрагмент и т.п.
-Результат нормализации зависит только от самого URL. В процессе нормализации НЕ выполняются операции, зависящие от внешних данных: приведение по дублям, зеркалам и т.п.
-
-{% else if audience == "external" %}
-
 Нормализует URL следующим образом: приводит hostname в нижний регистр, выкидывает фрагмент и т.п.
 Результат нормализации зависит только от самого URL. В процессе нормализации **НЕ** выполняются операции, зависящие от внешних данных: приведение по дублям, зеркалам и т.п.
-
-{% endif %}
 
 Возвращаемое значение:
 
@@ -34,15 +25,7 @@ SELECT Url::Normalize("http://ya.ru#foo");      -- "http://ya.ru/"
 
 * ```Url::NormalizeWithDefaultHttpScheme(String?) -> String?```
 
-{% if audience == "internal" %}
-
-Выполняет нормализацию с помощью метода [NUrlNorm::NormalizeUrl](https://a.yandex-team.ru/arc/trunk/arcadia/kernel/urlnorm/normalize.cpp?rev=2910843#L46). В отличие от `Url::Normalize`, подставляет схему ```http://``` в случае, если схемы нет.
-
-{% else if audience == "external" %}
-
 Выполняет нормализацию с помощью метода ```NUrlNorm::NormalizeUrl```. В отличие от `Url::Normalize`, подставляет схему ```http://``` в случае, если схемы нет.
-
-{% endif %}
 
 Возвращаемое значение:
 
@@ -172,26 +155,3 @@ SELECT Url::CutWWW("www.yandex.ru");           -- "yandex.ru"
 * ```Url::ForcePunycodeToHostName(String{Flag:AutoMap}) -> String```
 * ```Url::CanBePunycodeHostName(String{Flag:AutoMap}) -> Bool```
 
-{% if audience == "internal" %}
-
-Подробнее см. [комментарии в используемой библиотеке](https://a.yandex-team.ru/arc/trunk/arcadia/library/unicode/punycode/punycode.h).
-
-**Примеры**
-
-```sql
-SELECT Url::PunycodeToHostName("xn--d1acpjx3f.xn--p1ai"); -- "яндекс.рф"
-```
-
-#### IsAllowedByRobotsTxt
-
-**Список функций**
-
-```sql
-Url::IsAllowedByRobotsTxt(
-  String{Flag:AutoMap}, -- URL
-  String?, -- бинарное представление robots.txt в формате https://a.yandex-team.ru/arc/trunk/arcadia/library/robots_txt
-  Uint32 -- идентификатор робота из https://a.yandex-team.ru/arc/trunk/arcadia/library/robots_txt/robotstxtcfg.h?rev=3514373#L14
-) -> Bool
-```
-
-{% endif %}

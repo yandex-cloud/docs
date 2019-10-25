@@ -15,23 +15,11 @@
 
 {{ MY }}-хосты с публичным доступом поддерживают только соединения с SSL-сертификатом. Подготовить сертификат можно так:
 
-{% if audience != "internal" %}
-
 ```bash
 $ mkdir ~/.mysql
-$ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
+$ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mysql/root.crt
 $ chmod 0600 ~/.mysql/root.crt
 ```
-
-{% else %}
-
-```bash
-$ mkdir ~/.mysql
-$ wget "{{ pem-path }}" -O ~/.mysql/root.crt
-$ chmod 0600 ~/.mysql/root.crt
-```
-
-{% endif %}
 
 
 ## Строка подключения
@@ -75,7 +63,7 @@ $ chmod 0600 ~/.mysql/root.crt
 На текущий мастер в кластере всегда указывает хост вида `c-<идентификатор кластера>.rw.{{ dns-zone }}`. Например, для кластера с идентификатором `c9qash3nb1v9ulc8j9nm` к мастеру можно подключиться так:
 
 ```bash
-$ mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }}
+$ mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.mdb.yandexcloud.net
         --port=3306
         --ssl-ca=~/.mysql/root.crt
         --ssl-mode=REQUIRED
