@@ -8,7 +8,7 @@
 1. Нажмите кнопку **Add {{ k8s }} cluster**.
 1. В открывшемся окне нажмите **Add existing cluster**.
 1. В поле **{{ k8s }} cluster name** введите имя кластера.
-1. В поле **API URL** введите адрес узла [мастера](../../managed-{{ k8s }}/concepts/index.md#master). Узнайте его с помощью команды:
+1. В поле **API URL** введите адрес узла [мастера](../../managed-kubernetes/concepts/index.md#master). Узнайте его с помощью команды:
 
     {% list tabs %}
     
