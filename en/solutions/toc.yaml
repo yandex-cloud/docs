@@ -15,6 +15,10 @@ items:
       href: web/joomla-postgresql.md
     - name: WordPress website
       href: web/wordpress.md
+  - name: Online shops
+    items:
+      - name: OpenCart online shop
+        href: internet-store/opencart.md
   - name: Data archive
     items:
     - name: Overview
