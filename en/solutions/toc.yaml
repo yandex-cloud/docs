@@ -45,6 +45,8 @@ items:
         href: infrastructure-management/packer-quickstart.md
       - name: VM images building automation using Jenkins
         href: infrastructure-management/jenkins.md
+      - name: Continuous deployment of containerized applications using GitLab
+        href: infrastructure-management/gitlab-containers.md
   - name: Windows in Yandex.Cloud
     items:
       - name: Overview

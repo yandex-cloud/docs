@@ -28,14 +28,12 @@
         ```
         $ export REGISTRY_ID=crpc9qeoft236r8tfalm
         ```
-
 1. Соберите Docker-образ Ubuntu из [примера](../operations/docker-image/docker-image-create.md):
     
     ```
     $ docker build . \
     -t cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```
-    
 1. Аутентифицируйтесь в реестре от своего имени:
     
     ```
@@ -44,14 +42,12 @@
     --password ${OAUTH} \
     cr.yandex
     ```
-    
 1. Загрузите собранный Docker-образ в Yandex Cloud Registry:
     
     ```
     $ docker push \
     cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```
-    
 1. Зайдите по SSH на виртуальную машину и пройдите аутентификацию от имени сервисного аккаунта, привязанного к этой машине:
     
     ```
@@ -60,14 +56,12 @@
     --password ${IAM} \
     cr.yandex
     ```
-    
 1. Скачайте Docker-образ на виртуальную машину:
 
     ```
     $ ssh ${INSTANCE_ID} \
     docker pull cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```
-    
 1. Запустите Docker-образ на виртуальной машине:
 
     ```

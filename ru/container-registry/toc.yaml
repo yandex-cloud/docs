@@ -59,8 +59,10 @@ items:
           href: concepts/limits.md
   - name: Сценарии использования
     items:
-      - name: Запуск Docker-образа на виртуальной машине
+      - name: Все сценарии
         href: solutions/index.md
+      - name: Запуск Docker-образа на виртуальной машине
+        href: solutions/run-docker-on-vm.md
       - name: Работа с Container Registry из GitLab
         href: solutions/gitlab.md
   - name: Управление доступом
