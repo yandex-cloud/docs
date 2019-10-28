@@ -1,0 +1,33 @@
+title: "Yandex Key Management Service"
+href: index.yaml
+stage: preview
+items:
+  - name: Getting started
+    href: quickstart/index.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Keys
+        href: operations/key.md
+      - name: Key version
+        href: operations/version.md
+  - name: Concepts
+    items:
+        - name: Overview
+          href: concepts/index.md
+        - name: Applicable cryptographic concepts
+          href: concepts/encryption.md
+        - name: Quotas and limits
+          href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+    include:
+      repo: docs
+      path: en/_api-ref/kms/toc.yaml
