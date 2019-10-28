@@ -34,7 +34,7 @@ To use the service, create a cluster and connect to a DBMS:
 
 {% endif %}
 
-1. In [консоли управления]({{ link-console-main }}), select the folder where you want to create a cluster.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
 
 1. Select **{{ mmg-name }}**.
 
