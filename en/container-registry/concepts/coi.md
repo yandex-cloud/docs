@@ -13,7 +13,7 @@ Learn more about working with a {{ coi }} in [{#T}](../operations/coi/vm-create.
 ## Docker image {#docker-image}
 
 When creating a VM with a {{ coi }}, you can specify the Docker image to use to launch a Docker container.
-This image can be pushed to both the public Docker image registry and the {{ container-registry-name }}. If you access the Docker image via the {{ container-registry-name }}, the service account linked to the VM will be used.
+This Docker image can be pulled from both the public Docker image registry and the {{ container-registry-name }}. If you access the Docker image via the {{ container-registry-name }}, the service account linked to the VM will be used.
 
 Examples of Docker image names for different registries:
 
