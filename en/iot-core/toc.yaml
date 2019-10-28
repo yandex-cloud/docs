@@ -14,6 +14,8 @@ items:
         href: operations/subscribe.md
       - name: Viewing the connection log
         href: operations/logs.md
+      - name: Creating a trigger for a topic
+        href: operations/trigger-create.md
       - name: Registries
         items:
         - name: Getting information about registries

@@ -128,3 +128,10 @@ When exchanging messages, {{ iot-name }} supports the following quality of servi
 
 For more information about {{ iot-name }} service limits, see [{#T}](limits.md).
 
+### Triggers for topics {#trigger}
+
+_Triggers_ are conditions that automatically launch a specific function when met.
+
+{% include [iot-core](../../_includes/functions/iot-core-trigger-description.md) %}
+
+Read more about triggers in the [documentation {{ sf-name }}](../../functions/concepts/trigger.md).

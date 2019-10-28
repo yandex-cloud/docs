@@ -5,12 +5,16 @@ items:
     items:
       - name: Creating and executing functions
         href: quickstart/function-quickstart.md
-      - name: Creating a trigger for a message queue
+      - name: Creating a trigger for Message Queue
         href: quickstart/ymq-trigger-quickstart.md
+      - name: Creating a trigger for Yandex IoT Core
+        href: quickstart/iot-core-trigger-quickstart.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
         href: operations/index.md
+      - name: Using functions to get an IAM token for a service account
+        href: operations/function-sa.md
       - name: Managing rights to run functions
         href: operations/function-public.md
       - name: Managing functions
@@ -19,10 +23,14 @@ items:
             href: operations/function/function-create.md
           - name: Managing function versions
             href: operations/function/version-manage.md
+          - name: Working in the code editor
+            href: operations/function/function-editor.md
           - name: Invoking a function
             href: operations/function/function-invoke.md
           - name: Updating a function
             href: operations/function/function-update.md
+          - name: View monitoring charts
+            href: operations/function/function-monitoring.md
           - name: Viewing the execution log
             href: operations/function/function-logs.md
           - name: Deleting a function
@@ -31,8 +39,10 @@ items:
         items:
           - name: Getting information about a trigger
             href: operations/trigger/trigger-list.md
-          - name: Creating a trigger
-            href: operations/trigger/trigger-create.md
+          - name: Creating a trigger for Message Queue
+            href: operations/trigger/ymq-trigger-create.md
+          - name: Creating a trigger for Yandex IoT Core
+            href: operations/trigger/iot-core-trigger-create.md
           - name: Updating a trigger
             href: operations/trigger/trigger-update.md
           - name: Deleting a trigger

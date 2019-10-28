@@ -12,7 +12,7 @@
 
 Для создания триггера вам понадобятся: 
 1. Сервисный аккаунт с правами на вызов функции. Если у вас нет сервисного аккаунта, [создайте его](../../iam/operations/sa/create.md).
-1. [Реестр](../../iot-core/concepts/index.md#registry) или [устройство](../../iot-core/concepts/index.md#device), из топиков которых триггер будет забирать копии сообщений. Если у вас их еще нет:
+1. [Реестр](../../iot-core/concepts/index.md#registry) или [устройство](../../iot-core/concepts/index.md#device), из топиков которых триггер будет принимать копии сообщений. Если у вас их еще нет:
     - [Создайте реестр](../../iot-core/operations/registry/registry-create.md).
     - [Создайте устройство](../../iot-core/operations/device/device-create.md).
 1. [Функция](../../functions/concepts/function.md), которой триггер будет передавать сообщения на обработку. Если у вас еще нет функции: 
