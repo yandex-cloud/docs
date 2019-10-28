@@ -1,14 +1,27 @@
-# Getting started with Linux VMs
+# Creating a Linux VM
 
-{% include [before-begin](../../_includes/before-begin.md) %}
+Create a Linux [virtual machine](../concepts/vm.md) using {{ compute-name }} in the Yandex.Cloud management console and connect to it.
 
-## Create your first VM
+## Before you start {#before-begin}
+
+{% include [before-you-begin-linux](../../_includes/compute/before-you-begin-linux.md) %}
+
+## Creating VMs {#create-vm}
 
 {% include [create-instance-via-concole-linux](../_includes_service/create-instance-via-concole-linux.md) %}
 
-{% include [ip-fqdn-connection](../../_includes/ip-fqdn-connection.md) %}
+## Connecting to VMs {#connect-to-vm}
 
-## Connect to a Linux VM via SSH
+{% include notitle [vm-connect-ssh](../operations/vm-connect/ssh.md#vm-connect) %}
 
-{% include [vm-connect-ssh](../../_includes/vm-connect-ssh.md) %}
+## Delete VMs {#delete-vm}
+
+If you no longer plan to use a virtual machine, [delete it](../operations/vm-control/vm-delete.md).
+
+## What's next
+
+- Watch [tutorials for creating web services in Yandex.Cloud](../../solutions/web/).
+- Learn [how to use VMs](../operations/).
+- Learn [how to create a VM with a GPU](../operations/vm-create/create-vm-with-gpu.md).
+- Read [answers to frequently asked questions](../qa/general.md).
 

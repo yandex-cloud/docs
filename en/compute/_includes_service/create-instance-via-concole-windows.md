@@ -1,6 +1,6 @@
 To create a VM:
 
-1. In the [management console](https://console.cloud.yandex.com), select a folder to create a VM in.
+1. In the [management console](https://console.cloud.yandex.ru), select a folder to create a VM in.
 
 1. In the list of services, select {{ compute-name }}.
 
@@ -14,9 +14,9 @@ To create a VM:
 
         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-    - Select [availability zone](../../overview/concepts/geo-scope.md) to locate the VM in.
+    - Select the [availability zone](../../overview/concepts/geo-scope.md) to locate the VM in.
 
-    - (optional) Select or create a [service account](../../iam/concepts/index.md#sa). By using a service account, you can flexibly configure access rights for your resources.
+    - (optional) Select or create a [service account](../../iam/concepts/index.md#sa). By using a service account you can flexibly configure access rights for your resources.
 
 1. In the **Public images** section:
     - Select **Windows**.

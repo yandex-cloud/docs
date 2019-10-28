@@ -1,6 +1,6 @@
 Creating an instance from a public DSVM image
 
-1. In the [management console](https://console.cloud.yandex.com), select a folder to create a VM in.
+1. In the [management console](https://console.cloud.yandex.ru), select a folder to create a VM in.
 1. In the list of services, select {{ compute-name }}.
 1. Click **Create VM**.
 1. In the **Basic parameters** section:
@@ -12,7 +12,7 @@ Creating an instance from a public DSVM image
 
     - (optional) Select or create a [service account](../../iam/concepts/index.md#sa). By using a service account, you can flexibly configure access rights for your resources.
 
-    - Select [availability zone](../../overview/concepts/geo-scope.md) to locate the VM in.
+    - Select the [availability zone](../../overview/concepts/geo-scope.md) to locate the VM in.
 1. In the **Public images** section, click **Choose** and select a DSVM [image](../operations/images-with-pre-installed-software/get-list.md).
 1. (optional) If you want to add additional disks to the instance, [select them](../operations/vm-create/create-from-disks.md) in the **Disks** section.
 1. Under **Computing resources**:
@@ -29,8 +29,7 @@ Creating an instance from a public DSVM image
     - (optional) If necessary, enable [DDoS protection](../../vpc/ddos-protection/).
 1. In the **Access** section, specify the data required to access the VM:
     - Enter the username in the **Login** field.
-    - In the **SSH key** field, paste the contents of the [public key file](../../compute/quickstart/quick-create-linux.md#create-ssh).
-- (optional) If necessary, enable access to the [serial console](../operations/index.md#serial-console).
+    - In the **SSH key** field, paste the contents of the [public key file](./../compute/quickstart/quick-create-linux.md#create-ssh).- (optional) If necessary, enable access to the [serial console](../operations/index.md#serial-console).
 1. Click **Create VM**.
 
 The virtual machine appears in the list. When a VM is being created, it is assigned an [IP address](../../vpc/concepts/address) and [hostname](../../vpc/concepts/address#imya-hosta-(fqdn)) (FQDN).
