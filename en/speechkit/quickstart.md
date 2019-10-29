@@ -1,8 +1,10 @@
 # Getting started with {{ speechkit-short-name }}
 
+If you want to see how the service synthesizes or recognizes speech, use the demo on the [service page](https://cloud.yandex.ru/services/speechkit#demo).
+
 In this section, you'll learn how to use the {{ speechkit-short-name }} API. First you will create an audio file from text and then try to recognize the audio.
 
-## Before getting started {#before-begin}
+## Before you start {#before-begin}
 
 {% include [ai-before-beginning](../_includes/ai-before-beginning.md) %}
 
@@ -31,7 +33,7 @@ $ curl -X POST \
 
 The synthesized speech will be written to the `speech.ogg` file in the directory that you executed this command from.
 
-By default, audio is created in the [OggOpus](https://wiki.xiph.org/OggOpus) format. You can listen to the created file in a browser like [Yandex Browser](https://browser.yandex.com) or [Mozilla Firefox](http://www.mozilla.org).
+By default, audio is created in the [OggOpus](https://wiki.xiph.org/OggOpus) format. You can listen to the created file in a browser like [Yandex Browser](https://browser.yandex.ru) or [Mozilla Firefox](http://www.mozilla.org).
 
 [Read more about the format of a speech synthesis request](tts/request.md).
 

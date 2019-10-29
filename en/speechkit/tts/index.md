@@ -1,26 +1,72 @@
 # Speech synthesis
 
-_Speech synthesis (Text-to-speech, TTS) )_ is the process of generating speech from typed text. SpeechKit can convert any texts in several languages into speech. You can choose the voice type (male or female) and tone.
+_Speech synthesis_ in {{ speechkit-name }} lets you convert any text to speech in multiple languages. You can choose the voice and manage speech parameters.
+
+A highlight of Yandex speech technology is that we do not stitch fragments of real speech together, but train our acoustic model on the speaker's voice. We do this using neural networks. This creates smooth speech with natural intonation for any text.
 
 ## Languages {#langs}
 
-- Russian
-- English
-- Turkish
+You can synthesize speech in three languages:
 
-## Quality of speech synthesis {#accuracy}
+- Russian (`ru-RU`).
+- English (`en-US`).
+- Turkish (`tr-TR`).
 
-The quality of synthesized speech is characterized by its similarity to a human voice and its capacity to convey emotion through intonation.
+Keep in mind that if you select Russian and synthesize text in English, it will still be spoken with an accent. For example, [try synthesizing](https://cloud.yandex.ru/services/speechkit#demo) the phrase <q>Let me speak from my heart!</q> by selecting Russian in the language settings.
 
-A highlight of Yandex speech technology is that we do not stitch fragments of real speech together, but train our acoustic model on the speaker's voice. To do this, we use a statistical approach based on recurrent neural networks. This method of speech synthesis may result in a somewhat artificial speech tone. However, the speech sounds smooth and has a natural intonation.
+## Voices and speech quality {#voices}
 
-The statistical approach also allows us to change the parameters of existing voices. So you can choose the intonation to pronounce your text.
+Each voice corresponds to a model trained on the speaker's speech pattern, so the voice determines the tone, main language, and gender of the speaker (male or female). [List of available voices](voices.md).
+
+To use the preferred voice and maintain speech quality:
+
+* Specify the recommended [speech settings](#settings).
+* Track the [quality of the text you transmit](#text-quality).
+* Try [premium voices](#premium) for communicating with clients.
+
+### Speech settings {#settings}
+
+The quality of speech and voice depend on the speech settings:
+
+* Language: Each voice was created for a specific language that the speaker spoke. To get the desired quality, use a voice from the [list](voices.md) whose main language is the one selected.
+
+    If you don't choose the main language, the speech quality will be worse and the voice used may not be the one you specified.
+
+* Emotions: Voices that support emotions (see the [list](voices.md)). Only voices where the model was trained on the speaker's utterances with different intonations support emotions: cheerful, irritated, and neutral.
+
+    For other languages, the emotional tone slightly affects intonation, such as by making the pitch slightly higher or lower.
+
+* Speech rate: If the speech is too fast or too slow, it sounds unnatural. However, this can be useful in commercials where every second of air time counts.
+
+### Quality of transmitted text {#text-quality}
+
+Reasons why other voices may be used for speech:
+
+* Long text without punctuation marks. For better quality, insert periods and commas.
+* Specific sentences on a complex topic.
+* Many occurrences of words from other languages.
+
+### Premium voices {#premium}
+
+[Some voices](voices.md#premium) were trained using our new technology. Speech synthesized using the new technology sounds more natural.
+
+Key differences:
+
+* Understanding of context. Before starting speech synthesis, the service evaluates the entire text and not individual sentences. This allows for intonation that is more typical of human speech.
+* Attention to detail. The new technology takes much more detail of the speaker's original voice into account. This allows for a much clearer voice that is richer in detail and avoids various distortions typical in [standard voices](voices.md#standard).
+
+{% note important %}
+
+The new technology currently only supports voices for Russian. Choosing a different language affects the speech quality.
+
+{% endnote %}
 
 ## SSML support {#ssml}
 
 To get more control over speech synthesis, you can use [Speech Synthesis Markup Language](https://en.wikipedia.org/wiki/Speech_Synthesis_Markup_Language) (SSML). This is an XML-based markup language that lets you set the duration of pauses, the pronunciation of individual sounds, and much more. For more information about supported tags and how to use them, see [{#T}](ssml.md).
 
-#### See also
+#### What's next
 
+* Try speech synthesis using the demo on the [service page](https://cloud.yandex.ru/services/speechkit#demo).
 * [{#T}](request.md)
 
