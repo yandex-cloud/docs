@@ -1,10 +1,38 @@
 # YC CLI Releases
 
-## Version 0.41.1 (26.09.19) {#latest-release}
+## Version 0.42.0 (21.10.19) {#latest-release}
 
-- Minor fixes and updates.
+### Changes to Yandex.Cloud services {#services}
+
+#### {{ compute-name }} {#compute}
+
+* Added commands `yc compute instance-group start` and `yc compute instance-group stop` for starting and stopping instance groups.
+
+#### {{ container-registry-name }} {#container-registry}
+
+* Commands `yc compute instance create-with-container` and `yc compute instance update-container`
+
+   Added alternative spellings for `--container-restart-policy` flag values "always"," never", and "on-failure": "Always", "Never", "OnFailure".
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Command `yc managed-kubernetes cluster create`
+
+    Deleted the `--default-gateway-v4-address` flag.
+
+#### Changes in managed database services {#managed-db}
+
+**{{ mpg-name }}**
+
+* Commands `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore`
+
+   Added the value `10_1s` for the `-- postgresql-version string` flag to create {{ PG }} cluster version 10-1C.
 
 ## Previous releases {#previous-releases}
+
+### Version 0.41.1 (26.09.19) {#version0.41.1}
+
+- Minor fixes and updates.
 
 ### Version 0.41.0 (25.09.19) {#version0.41.0}
 
@@ -12,21 +40,21 @@
 
 #### {{ container-registry-name }} {#container-registry}
 
-- Command `yc compute instance create-with-container`.
+- Command `yc compute instance create-with-container`
 
     The `--create-boot-disk` flag no longer supports `snapshot-*` parameters.
 
 #### {{ managed-k8s-name }} {#k8s}
 
-- Command `yc managed-kubernetes cluster create`.
+- Command `yc managed-kubernetes cluster create`
 
     Added flags to control the master type: `--regional`, `--region`, and `--master-location`.
 
-- Commands `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update`.
+- Commands `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update`
 
     Added flags to manage the maintenance policy: `--auto-upgrade`, `--anytime-maintenance-window`, `--daily-maintenance-window`, and `--weekly-maintenance-window`.
 
-- Command `yc managed-kubernetes node-groups update`.
+- Command `yc managed-kubernetes node-groups update`
 
     Added flags to manage the maintenance policy: `--auto-upgrade`, `--auto-repair`, `--anytime-maintenance-window`, `--daily-maintenance-window`, and `--weekly-maintenance-window`.
 
@@ -38,7 +66,7 @@
 
 - Added a command to obtain detailed registry information: `yc container registry repository get`.
 
-- Command `yc container registry repository list`.
+- Command `yc container registry repository list`
 
     Added unique registry ID to the output.
 
@@ -46,13 +74,13 @@
 
 **All managed database services**
 
-- Command `yc <managed DB service name> create clusters`.
+- Command `yc <managed DB service name> create clusters`
 
     For `--*resource-preset` flags, added a default value: s2.micro.
 
 **{{ mmg-name }}**
 
-- Command `{{ yc-mdb-mg }} create clusters`.
+- Command `{{ yc-mdb-mg }} create clusters`
 
     For the `--mongodb-version` flag, changed the default value from 3.6 to 4.0.
 
@@ -62,7 +90,7 @@
 
 #### {{ container-registry-name }} {#container-registry}
 
-- Command `yc container registry`.
+- Command `yc container registry`
 
     Added the ability to set and view a list of roles for the Docker image registry: `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
 
@@ -70,7 +98,7 @@
 
 **All managed database services**
 
-- Command `yc <managed database service name> users list`.
+- Command `yc <managed DB service name> users list`
 
     The unique cluster ID is no longer displayed when viewing a list of users.
 
@@ -106,11 +134,11 @@
 
 #### {{ managed-k8s-name }} {#k8s}
 
-- Command `yc managed-kubernetes cluster update`.
+- Command `yc managed-kubernetes cluster update`
 
     Added `--node-service-account-id` and `--node-service-account-name` flags to add or change service accounts for nodes in an existing {{ k8s }} cluster.
 
-- Command `yc managed-kubernetes node-group update`.
+- Command `yc managed-kubernetes node-group update`
 
     Added flags to edit existing node group parameters: `--metadata`, `--metadata-from-file`, `--platform-id`, `--memory`, `--cores`, `--core-fraction`, `--disk-type`, `--disk-size`, and `--preemptible`.
 
@@ -122,7 +150,7 @@
 
 **{{ mpg-name }}**
 
-- Command `{{ yc-mdb-pg }} cluster update`.
+- Command `{{ yc-mdb-pg }} cluster update`
 
     Added the `--connection-pool-discard` flag for disabling the connection pooler.
 
@@ -136,7 +164,7 @@
 
 #### {{ resmgr-name }} {#resmgr}
 
-- Command `yc resource-manager cloud update`.
+- Command `yc resource-manager cloud update`
 
     Added the ability to rename clouds.
 
@@ -148,11 +176,11 @@
 
 **All managed database services**
 
-- Command `yc <managed database service name> cluster create`.
+- Command `yc <managed DB service name> cluster create`
 
-    Renamed default disk types: `network-ssd` is now `network-ssd` and `local-ssd` is now `local-ssd`.
-    
-### Version 0.35.0 (09.08.19) {#version0.35.1}
+    Renamed default disk types: `network-nvme` is now `network-ssd` and `local-nvme` is now `local-ssd`.
+
+### Version 0.35.0 (09.08.19) {#version0.35.0}
 
 #### Changes to the CLI {#cli}
 
@@ -166,9 +194,9 @@
 
 **{{ mpg-name }}**
 
-- Command `{{ yc-mdb-pg }} cluster create`.
+- Command `{{ yc-mdb-pg }} cluster create`
 
-    Added the following parameters to the `--user` flag: `permission`, `conn-limit`, `default-transaction-isolation`, `lock-timeout`, `log-min-duration-statement`, `synchronous-commit`, `temp-file-limit`, `log-statement`.
+    Added the following parameters to the `--user` flag: `permission`, `conn-limit`, `default-transaction-isolation`, `lock-timeout`, `log-min-duration-statement`, `synchronous-commit`, `temp-file-limit`, and `log-statement`.
 
 ### Version 0.34.0 (26.07.19) {#version0.34.0}
 
@@ -178,22 +206,22 @@
 
 **{{ mrd-name }}**
 
-- Command `{{ yc-mdb-rd }} shards`.
+- Command `{{ yc-mdb-rd }} shards`
 
     Added shard support for Redis clusters.
 
 **{{ mch-name }}**
 
-- Command `{{ yc-mdb-ch }} cluster add-external-dictionary`.
+- Command `{{ yc-mdb-ch }} cluster add-external-dictionary`
 
     Added PostgreSQL dictionary support. Flags for working with dictionaries: `--postgresql-source`, `--postgresql-source-hosts`, and `--postgresql-invalidate-query`.
 
 **{{ mmy-name }}**
 
-- Command `{{ mmy-name }} cluster update-config --set`.
+- Command `{{ mmy-name }} cluster update-config --set`
 
     Added the ability to globally set the SQL mode using `sql_mode`.
-    
+
 ### Version 0.33.0 (19.07.19) {#version0.33.0}
 
 #### Changes to the CLI {#cli}
@@ -208,7 +236,7 @@
 
 **{{ mpg-name }}**
 
-- Commands `{{ yc-mdb-pg }} user create` and `{{ yc-mdb-pg }} user update`.
+- Commands `{{ yc-mdb-pg }} user create` and `{{ yc-mdb-pg }} user update`
 
     Added ability to set user parameters with flags such as `--lock_timeout` and `--log_min_duration_statement`.
 
@@ -218,7 +246,7 @@
 
 **Improved**
 
-- Commands for displaying lists of `yc <service> <resource> list` elements.
+- Commands for displaying a list of elements `yc   list`
 
    The maximum number of elements to output has been increased from 100 to 1000.
 
@@ -228,7 +256,7 @@
 
 **{{ mmg-name }}**
 
-- Commands `{{ yc-mdb-mg }} cluster update` and `{{ yc-mdb-mg }} cluster update-config`.
+- Commands `{{ yc-mdb-mg }} cluster update` and `{{ yc-mdb-mg }} cluster update-config`
 
     In [sharded](../managed-mongodb/concepts/sharding.md) clusters, you can now change `mongos` and `mongocfg` component parameters.
 
@@ -252,7 +280,7 @@
 
 #### {{ load-balancer-name }} {#load-balancer}
 
-- Commands `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update`.
+- Commands `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update`
 
     For the `--listener` flag, you can now set the `target-port` parameter, which lets you configure NAT so that target resources receive traffic on a port other than `listener`.
 
@@ -260,7 +288,7 @@
 
 **{{ mch-name }}**
 
-- Commands `{{ yc-mdb-ch }} user create` and `{{ yc-mdb-ch }} user update`.
+- Commands `{{ yc-mdb-ch }} user create` and `{{ yc-mdb-ch }} user update`
 
     Added the `--settings` flag that lets you pass user settings.
 
@@ -270,17 +298,17 @@
 
 #### {{ compute-name }} {#compute}
 
-- Command `yc compute instance update`.
+- Command `yc compute instance update`
 
     Added the `--service-account-id` and `--service-account-name` flags, which let you add and change service accounts for existing virtual machines.
 
-- Command `yc compute instance create`.
+- Command `yc compute instance create`
 
     Changed the default number of cores used when creating a virtual machine with the Intel Cascade Lake platform (`standard-v2`). It's now `cores: 2`.
 
 #### {{ managed-k8s-name }} {#k8s}
 
-- Command `yc managed-kubernetes cluster update`.
+- Command `yc managed-kubernetes cluster update`
 
     Added the `--default-gateway-v4-address` flag that lets you update the gateway address for an existing {{ k8s }} cluster.
 
@@ -298,7 +326,7 @@
 
 #### {{ compute-name }} {#compute-cloud}
 
-- Command `yc compute instance create`.
+- Command `yc compute instance create`
 
     Added the `--gpus` flag, which lets you specify the number of GPUs in a virtual machine.
 
@@ -306,21 +334,21 @@
 
 **All managed database services**
 
-- Command `yc <managed database service name> cluster get`.
+- Command `yc <managed DB service name> cluster get`
 
     Improved cluster information printout.
 
-- Command `yc <managed database service name> cluster create`.
+- Command `yc <managed DB service name> cluster create`
 
     Added the `--backup-window-start` flag, which lets you set the daily cluster backup time when creating a cluster.
 
 **{{ mch-name }}**
 
-- Command `{{ yc-mdb-ch }} cluster add-zooker`.
+- Command `{{ yc-mdb-ch }} cluster add-zooker`
 
     Added the ability to add ZooKeeper hosts.
 
-- Command `{{ yc-mdb-ch }} shards add`.
+- Command `{{ yc-mdb-ch }} shards add`
 
     Changed the logic of creating shards:
     - If the `--host` flag is not specified, the shard parameters are copied from the old shard.
