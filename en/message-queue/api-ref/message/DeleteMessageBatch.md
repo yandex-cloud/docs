@@ -24,7 +24,7 @@ The result of changing each message's visibility timeout is reported individuall
 
 ### DeleteMessageBatch errors {#errors}
 
-For a list of errors that are common to all methods, see the section [{#T}](../common-errors.md).
+For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
 | HTTP code | Error ID | Description |
 | ----- | ----- | ----- |
@@ -45,9 +45,9 @@ Action=DeleteMessageBatch
 &DeleteMessageBatchRequestEntry.2.ReceiptHandle=EAEgq5vvhogtKAI
 ```
 
-For more information about forming requests, see [General format of an API request](../index.md#api-request).
+For more information about forming requests, see [General API request format](../index.md#api-request).
 
-## Sample response {#response-example}
+## Response example {#response-example}
 
 ```xml
 <DeleteMessageBatchResponse>

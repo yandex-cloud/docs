@@ -1,34 +1,34 @@
-# Пример использования {{ message-queue-full-name }} на JMS
+# Example of using {{ message-queue-full-name }} on JMS
 
-[JMS](https://www.oracle.com/technetwork/java/jms/index.html) — это API для передачи сообщений между компонентами приложений. С помощью AWS SQS Java Messaging Library можно использовать {{ message-queue-name }} для отправки и получения сообщений через JMS. 
+[JMS](https://www.oracle.com/technetwork/java/jms/index.html) is an API for sending messages between application components. With the AWS SQS Java Messaging Library, you can use {{ message-queue-name }} to send and receive messages via JMS.
 
-## Установка {#install}
+## Installation {#install}
 
-Установите SDK для Java [по инструкции](https://docs.aws.amazon.com/en_us/sdk-for-java/v1/developer-guide/setup-install.html) на официальном сайте.
+Install the SDK for Java [by following the instructions](https://docs.aws.amazon.com/en_us/sdk-for-java/v1/developer-guide/setup-install.html) on the official website.
 
-## Подготовка к работе {#prepare}
+## Before you start {#prepare}
 
 {% include [mq-http-api-preps](../_includes_service/mq-http-api-preps-sdk.md)%}
 
-Задайте переменные окружения:
+Set the environment variables:
 
 ```
-$ export AWS_ACCESS_KEY_ID="<идентификатор ключа доступа>"
-$ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
+$ export AWS_ACCESS_KEY_ID="<access key ID>"
+$ export AWS_SECRET_ACCESS_KEY="<secret key>"
 ```
 
-Создайте очередь в сервисе {{ message-queue-name }} и подготовьте ее URL.
+Create a queue in {{ message-queue-name }} and prepare its URL.
 
-## Пример {#sample}
+## Example {#sample}
 
-В этом примере: 
+In this example:
 
-1. Устанавливается соединение с {{ message-queue-name }}. 
-1. Создается очередь сообщений.
-1. В очередь передается сообщение с текстом `test message`.
-1. Сообщение считывается из очереди и отображается в терминале.
+1. A connection with {{ message-queue-name }} is established.
+1. A message queue is created.
+1. A message with the text `test message` is sent to the queue.
+1. The message is read from the queue and displayed in the terminal.
 
-О возможностях, не продемонстрированных в примере, читайте в документации на [сайте AWS SQS Java Messaging Library](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-java-message-service-jms-client.html).
+To read about the features not covered by the example, see the documentation on the [AWS SQS Java Messaging Library website](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-java-message-service-jms-client.html).
 
 ```java
 package ru.yandex.cloud.message_queue;
@@ -84,3 +84,4 @@ public class App
     }
 }
 ```
+

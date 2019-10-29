@@ -29,7 +29,7 @@ When receiving messages from a FIFO queue, only one message will be accepted fro
 | `QueueUrl` | **string** | Yes | URL of the queue where the message is placed. |
 | `ReceiveRequestAttemptId` | **string** | No | ID for a repeated attempt to receive messages from a FIFO queue. For more information, see [Deduplication](../../concepts/deduplication.md#request-attempts). |
 | `VisibilityTimeout` | **string** | No | [Visibility timeout](../../concepts/visibility-timeout.md) of the message to receive. |
-| `WaitTimeSeconds` | **string** | No | The number of seconds to wait for messages in the queue.  If a message is available, the call returns sooner than `WaitTimeSeconds`. If no messages are available and the `WaitTimeSeconds` expires, the call returns successfully with an empty list of messages. |
+| `WaitTimeSeconds` | **string** | No | The number of seconds to wait for messages in the queue. If a message is available, the call returns sooner than `WaitTimeSeconds`. If no messages are available and the `WaitTimeSeconds` expires, the call returns successfully with an empty list of messages. |
 
 #### Attributes {#attributes}
 
@@ -61,7 +61,7 @@ Attribute.N.Value (attribute value)
 
 ### ReceiveMessage errors {#errors}
 
-For a list of errors that are common to all methods, see the section [{#T}](../common-errors.md).
+For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
 | HTTP code | Error ID | Description |
 | ----- | ----- | ----- |
@@ -78,9 +78,9 @@ Action=ReceiveMessage
 &VisibilityTimeout=15
 ```
 
-For more information about forming requests, see [General format of an API request](../index.md#api-request).
+For more information about forming requests, see [General API request format](../index.md#api-request).
 
-## Sample response {#response-example}
+## Response example {#response-example}
 
 ```xml
 <ReceiveMessageResponse>

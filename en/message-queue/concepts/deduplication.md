@@ -12,7 +12,7 @@ The `MessageDeduplicationId` parameter is available to the message consumer and 
 
 If a message is sent successfully but the response acknowledging its receipt is lost, Message Queue will not detect a duplicate if a message with the same ID arrives after the deduplication window.
 
-## Content-based deduplication  {#content-based-deduplication}
+## Content-based deduplication {#content-based-deduplication}
 
 Content-based deduplication can be enabled on a queue. Messages sent to such a queue without a deduplication ID will be assigned one automatically. The ID is generated using an SHA-256 hash of the message body.
 

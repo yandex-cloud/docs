@@ -5,9 +5,9 @@ To send a message to a queue:
 {% list tabs %}
 
 - AWS CLI
-  
+
   Run the following command in the terminal:
-  
+
   ```
   $ aws sqs send-message --message-body "Hello World!" \
               --endpoint https://message-queue.api.cloud.yandex.net/ \
@@ -17,6 +17,6 @@ To send a message to a queue:
       "MessageId": "765ff4d2-fa4bc83-6cfcc68e-21a49"
   }
   ```
-  
+
 {% endlist %}
 

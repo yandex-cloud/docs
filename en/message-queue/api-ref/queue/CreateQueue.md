@@ -8,9 +8,9 @@ By default, a standard queue is created. To create a [FIFO queue](../../concepts
 
 You cannot change the type of a created queue from standard to FIFO. To change the type, either create a new queue, or delete the old one and re-create it as a FIFO queue.
 
-{% endnote %}
-
 If a queue is re-created with the same name, it will be assigned a new `QueueUrl` different from the old one.
+
+{% endnote %}
 
 If you deleted a queue, you can create another queue with the same name after 60 seconds.
 
@@ -29,7 +29,7 @@ Always store the queue URL in the system in exactly the same form in which it is
 | Parameter | Type | Required parameter | Description |
 | ----- | ----- | ----- | ----- |
 | `QueueName` | **string** | Yes | Queue name. The maximum length is 80 characters. You can use numbers, letters, underscores, and hyphens in the name. The name of a FIFO queue must end with the `.fifo` suffix. |
-| `Attributes.N.*` | [list of](#attributes) | No | List of queue attributes. |
+| `Attributes.N.*` | [list of attributes](#attributes) | No | List of queue attributes. |
 
 #### Attributes {#attributes}
 
@@ -42,10 +42,11 @@ Attribute.N.Value (attribute value)
 
 | Attribute | Type | Description |
 | ----- | ----- | ----- |
-| `DelaySeconds` | **integer** |  The number of seconds to delay the message from being available for processing. Valid values: from 0 to 900 seconds (15 minutes). Default: 0. |
-| `MaximumMessageSize` | **integer** | Maximum message size in bytes. Valid values: from 1024 bytes (1 KB) up to 262144 bytes (256 KB). Default: 262144 (256 KB). |
-| `MessageRetentionPeriod` | **integer** | The length of time in seconds to retain a message. Valid values: from 60 seconds (1 minute) up to 1209600 seconds (14 days). Default: 345600 (4 days). |
+| `DelaySeconds` | **integer** | Number of seconds to [delay the message from being available for processing](../../concepts/delay-queues.md#delay-queues). Valid values: from 0 to 900 seconds (15 minutes). Default: 0. |
+| `MaximumMessageSize` | **integer** | Maximum message size in bytes. Valid values: from 1024 bytes (1 KB) to 262144 bytes (256 KB). Default: 262144 (256 KB). |
+| `MessageRetentionPeriod` | **integer** | The length of time in seconds to retain a message. Valid values: from 60 seconds (1 minute) to 1209600 seconds (14 days). Default: 345600 (4 days). |
 | `ReceiveMessageWaitTimeSeconds` | **integer** | Wait time for the [ReceiveMessage](../message/ReceiveMessage) method, in seconds. Valid values: from 0 to 20 seconds. Default: 0. |
+| `RedrivePolicy` | **string** | Message redrive policy in [Dead Letter Queue](../../concepts/dlq.md). The source queue and DLQ must be the same type: for FIFO queues, the DLQ must also be a FIFO queue. It includes two parameters: <ul><li>`deadLetterTargetArn` is the ARN queue messages are redriven to. You can get the queue's ARN by calling the [GetQueueAttributes](GetQueueAttributes.md) method.</li><li>`maxReceiveCount` is the maximum number of attempts to read a message from the queue before redriving it to the DLQ. When the `ReceiveCount` value for the message exceeds the value of `maxReceiveCount`, the message is moved to the DLQ.</li></ul> |
 | `VisibilityTimeout` | **integer** | [Visibility timeout](../../concepts/visibility-timeout.md) for messages in a queue, specified in seconds. Valid values: from 0 to 43000 seconds. Default: 30. |
 
 #### FIFO queue attributes {#fifo-path-parameters}
@@ -59,7 +60,6 @@ Attribute.N.Value (attribute value)
 
 | Attribute | Type | Description |
 | ----- | ----- | ----- |
-| `RedrivePolicy` | **string** | Not supported in Yandex Message Queue. |
 | `KmsMasterKeyId` | **string** | Not supported in Yandex Message Queue. |
 | `KmsDataKeyReusePeriodSeconds` | **string** | Not supported in Yandex Message Queue. |
 
@@ -73,7 +73,7 @@ Attribute.N.Value (attribute value)
 
 ### CreateQueue errors {#errors}
 
-For a list of errors that are common to all methods, see the section [{#T}](../common-errors.md).
+For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
 | HTTP | Error code | Description |
 | ----- | ----- | ----- |
@@ -90,9 +90,9 @@ Action=CreateQueue
 &Attribute.1.Value=30
 ```
 
-For more information about forming requests, see [General format of an API request](../index.md#api-request).
+For more information about forming requests, see [General API request format](../index.md#api-request).
 
-## Sample response {#response-example}
+## Response example {#response-example}
 
 ```xml
 <CreateQueueResponse>

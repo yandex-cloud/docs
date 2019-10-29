@@ -1,31 +1,31 @@
-# Пример использования {{ message-queue-full-name }} на Node.js
+# Example of using {{ message-queue-full-name }} on Node.js
 
-[Node.js](https://nodejs.org/en/) – среда для запуска JavaScript-приложений. С помощью AWS SDK для JavaScript в Node.js можно управлять очередями сообщений в {{ message-queue-name }}, отправлять и принимать сообщения.
+[Node.js](https://nodejs.org/en/) is an environment for running JavaScript applications. Using the AWS SDK for JavaScript, you can manage {{ message-queue-name }} message queues and send and receive messages in Node.js.
 
-## Установка {#install}
+## Installation {#install}
 
-Установите AWS SDK для JavaScript в Node.js [по инструкции](https://aws.amazon.com/ru/sdk-for-node-js/) на официальном сайте.
+Install the AWS SDK for JavaScript in Node.js [by following the instructions](https://aws.amazon.com/en/sdk-for-node-js/) on the official site.
 
-## Подготовка к работе {#prepare}
+## Before you start {#prepare}
 
 {% include [mq-http-api-preps](../_includes_service/mq-http-api-preps-sdk.md)%}
 
-Задайте переменные окружения:
+Set the environment variables:
 
 ```
-$ export AWS_ACCESS_KEY_ID="<идентификатор ключа доступа>"
-$ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
+$ export AWS_ACCESS_KEY_ID="<access key ID>"
+$ export AWS_SECRET_ACCESS_KEY="<secret key>"
 ```
 
-## Пример {#sample}
+## Example {#sample}
 
-В этом примере:
+In this example:
 
-1. Устанавливается соединение с {{ message-queue-name }}. 
-1. Создается очередь сообщений с именем `ymq_example_nodejs_sdk`.
-1. В очередь передается сообщение с текстом `test message`.
-1. Сообщение считывается из очереди и отображается в терминале.
-1. Удаляется созданная очередь сообщений.
+1. A connection with {{ message-queue-name }} is established.
+1. A message queue is created with the name `ymq_example_nodejs_sdk`.
+1. A message with the text `test message` is sent to the queue.
+1. The message is read from the queue and displayed in the terminal.
+1. The message queue is deleted.
 
 ```javascript
 var AWS = require('aws-sdk');
@@ -100,3 +100,4 @@ async function main() {
 
 main()
 ```
+

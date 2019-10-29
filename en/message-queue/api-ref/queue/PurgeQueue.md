@@ -28,7 +28,7 @@ The response does not contain any fields.
 
 ### PurgeQueue errors {#errors}
 
-For a list of errors that are common to all methods, see the section [{#T}](../common-errors.md).
+For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
 | HTTP code | Error ID | Description |
 | ----- | ----- | ----- |
@@ -43,9 +43,9 @@ Action=PurgeQueue
 &QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
 ```
 
-For more information about forming requests, see [General format of an API request](../index.md#api-request).
+For more information about forming requests, see [General API request format](../index.md#api-request).
 
-## Sample response {#response-example}
+## Response example {#response-example}
 
 ```xml
 <PurgeQueueResponse>

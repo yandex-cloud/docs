@@ -6,7 +6,7 @@ Example: there is a message with a visibility timeout of 5 minutes. After 3 minu
 
 If you attempt to set the visibility timeout to a value greater than the maximum time left, Message Queue returns an error.
 
-The timeout value set for a message using `ChangeMessageVisibility` is not saved in memory forever.  If you don't delete a message after it is received, the visibility timeout for the message reverts to the original timeout value the next time the message is received.
+The timeout value set for a message using `ChangeMessageVisibility` is not saved in memory forever. If you don't delete a message after it is received, the visibility timeout for the message reverts to the original timeout value the next time the message is received.
 
 For more information about message visibility, see [Messages](../../concepts/message.md) and [Visibility timeout](../../concepts/visibility-timeout.md).
 
@@ -28,7 +28,7 @@ The response does not contain any fields.
 
 ### ChangeMessageVisibility errors {#errors}
 
-For a list of errors that are common to all methods, see the section [{#T}](../common-errors.md).
+For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
 | HTTP code | Error ID | Description |
 | ----- | ----- | ----- |
@@ -45,9 +45,9 @@ Action=ChangeMessageVisibility
 &VisibilityTimeout=35
 ```
 
-For more information about forming requests, see [General format of an API request](../index.md#api-request).
+For more information about forming requests, see [General API request format](../index.md#api-request).
 
-## Sample response {#response-example}
+## Response example {#response-example}
 
 ```xml
 <ChangeMessageVisibilityResponse>
