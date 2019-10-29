@@ -24,7 +24,7 @@ items:
         href: tts/index.md
       - name: Описание метода API
         href: tts/request.md
-      - name: Список голосов и рекомендуемые настройки
+      - name: Список голосов
         href: tts/voices.md
       - name: Использование SSML
         href: tts/ssml.md
