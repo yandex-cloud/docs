@@ -45,6 +45,8 @@ items:
         href: infrastructure-management/index.md
       - name: Getting started with Terraform
         href: infrastructure-management/terraform-quickstart.md
+      - name: Uploading Terraform states to Object Storage
+        href: infrastructure-management/terraform-state-storage.md
       - name: Getting started with Packer
         href: infrastructure-management/packer-quickstart.md
       - name: VM images building automation using Jenkins
