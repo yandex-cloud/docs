@@ -2,7 +2,6 @@
 
 - [{#T}](function-sa.md)
 - [{#T}](function-public.md)
-- [{#T}](function-sa.md)
 
 ## Управление функцией {#manage-function}
 

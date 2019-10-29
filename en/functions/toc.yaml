@@ -59,7 +59,7 @@ items:
         items:
           - name: Overview
             href: concepts/runtime/index.md
-          - name: Environment variables
+          - name: Environment
             href: concepts/runtime/environment-variables.md
           - name: Execution context
             href: concepts/runtime/execution-context.md
