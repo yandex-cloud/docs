@@ -1,11 +1,6 @@
 # Host classes
 
-The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match.
-
-For {{ mrd-name }}, the host classes are determined by the CPU power and RAM size:
-
-* For small amounts of data and low load, you can create clusters with a low performance guarantee (`b1`), same as for virtual machines with a [guaranteed vCPU share under 100%](../../compute/concepts/performance-levels.md).
-* For high-load or performance-intensive systems, use standard hosts (`hm1`).
+The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
 {% note info %}
 
@@ -61,24 +56,29 @@ The hard disk space available to the host should be at least two times more than
 
 {% else %}
 
-| Host class name | Number of CPUs | RAM, GB |
+Configuration types:
+
+* **b1, b2**: Configurations with a [guaranteed vCPU share](../../compute/concepts/performance-levels.md) below 100%. Those host classes are intended for test loads. We don't recommend using them for production solutions.
+* **hm1, hm2**: Standard configurations for {{ RD }}.
+
+| Host class name | RAM, GB | Disk size, GB |
 | ----- | ----- | ----- |
-| b1.nano | `burstable` | 2 |
-| b1.small | `burstable` | 4 |
-| hm1.nano | `high-memory` | 8 |
-| hm1.micro | `high-memory` | 12 |
-| hm1.small | `high-memory` | 16 |
-| hm1.medium | `high-memory` | 24 |
-| hm1.large | `high-memory` | 32 |
-| hm1.xlarge | `high-memory` | 48 |
-| hm1.2xlarge | `high-memory` | 64 |
-| hm1.3xlarge | `high-memory` | 80 |
-| hm1.4xlarge | `high-memory` | 96 |
-| hm1.5xlarge | `high-memory` | 128 |
-| hm1.6xlarge | `high-memory` | 160 |
-| hm1.7xlarge | `high-memory` | 192 |
-| hm1.8xlarge | `high-memory` | 224 |
-| hm1.9xlarge | `high-memory` | 256 |
+| b1.nano | 2 | 4 - 16 |
+| b1.small | 4 | 8 - 32 |
+| hm1.nano | 8 | 16 - 64 |
+| hm1.micro | 12 | 24 - 96 |
+| hm1.small | 16 | 32 - 128 |
+| hm1.medium | 24 | 48 - 192 |
+| hm1.large | 32 | 64 - 256 |
+| hm1.xlarge | 48 | 96 - 384 |
+| hm1.2xlarge | 64 | 128 - 512 |
+| hm1.3xlarge | 80 | 160 - 640 |
+| hm1.4xlarge | 96 | 192 - 768 |
+| hm1.5xlarge | 128 | 256 - 1024 |
+| hm1.6xlarge | 160 | 320 - 1280 |
+| hm1.7xlarge | 192 | 384 - 1536 |
+| hm1.8xlarge | 224 | 448 - 1792 |
+| hm1.9xlarge | 256 | 512 - 2048 |
 
 {% endif %}
 

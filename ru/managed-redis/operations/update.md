@@ -156,7 +156,7 @@
   
      ```
      $ {{ yc-mdb-ch }} cluster update <имя кластера>
-          ---disk-size <размер диска в ГБ>
+          --disk-size <размер диска в ГБ>
      ```
      
      {% note info %}
