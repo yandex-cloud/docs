@@ -240,8 +240,8 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
               { "text", "Hello World" },
               { "lang", "en-US" },
               { "folderId", folderId },
-              { 'format': 'lpcm' },
-              { 'sampleRateHertz': 48000 }
+              { "format", "lpcm" },
+              { "sampleRateHertz", "48000" }
             };
             var content = new FormUrlEncodedContent(values);
             var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
