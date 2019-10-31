@@ -1,8 +1,8 @@
 # Instance template
 
-When creating a group, you need to describe an _instance template_, which is the basic instance configuration that will be used for deploying all the instances in the group.
+When creating a group, you need to describe an _instance template_, which is the basic instance configuration used for deploying all the instances in the group.
 
-The template description and [policy](policies.md) description are passed to the CLI in a YAML file when creating or updating an instance group with the `--file` flag. This is convenient for passing values consisting of multiple strings. For more information, see [{#T}](../../operations/instance-groups/create-fixed-group.md).
+The template description and [policy](policies.md) description are passed to the CLI in a YAML file when creating or updating an instance group with the `--file` flag. This is convenient for passing values that consist of multiple strings. For more information, see [{#T}](../../operations/instance-groups/create-fixed-group.md).
 
 ## Computing resources {#types}
 
@@ -10,9 +10,15 @@ When describing a template, you specify the computing resources to allocate to e
 
 ## Disks {#disks}
 
-At least one disk must be attached to each instance, that is, a boot disk. Each boot disk is created automatically and attached to only one instance when creating an instance group.
+At least one disk must be attached to each instance: the boot disk. Each boot disk is created automatically and attached to only one instance when creating an instance group.
 
-You can also attach additional disks to each instance. You can create an additional disk along with an instance group. The new disk can be empty, or you can restore it from a snapshot or image. It is only possible to attach or detach additional disks when creating or updating a group. For more information, see [{#T}](../disk.md).
+You can also attach additional disks to each instance. You can create an additional disk along with an instance group. The new disk can be empty, or you can restore it from a snapshot or image. You can only attach or detach additional disks when creating or updating a group. For more information, see [{#T}](../disk.md).
+
+{% note alert %}
+
+When you delete a VM, its disks are deleted from the group. VMs can be deleted during the [scaling](scale.md) and [automatic recovery](autohealing.md) process.
+
+{% endnote %}
 
 ## Network {#network}
 
