@@ -189,6 +189,56 @@ yc iam create-token
   }
   ```
 
+- C#
+
+  Пример создания JWT с использованием [jose-jwt](https://www.nuget.org/packages/jose-jwt/).
+
+  ```c#
+  using System;
+  using System.Collections.Generic;
+  using System.IO;
+  using System.Security.Cryptography;
+  using Jose;
+  using Org.BouncyCastle.Crypto.Parameters;
+  using Org.BouncyCastle.OpenSsl;
+  using Org.BouncyCastle.Security;
+  
+  class Program
+  {
+      static void Main(string[] args)
+      {
+          var serviceAccountId = "ajepg0mjt06siua65usm";
+          var keyId = "lfkoe35hsk58aks301nl";
+          var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+  
+          var headers = new Dictionary<string, object>()
+          {
+              { "kid", keyId }
+          };
+  
+          var payload = new Dictionary<string, object>()
+          {
+              { "aud", "https://iam.api.cloud.yandex.net/iam/v1/tokens" },
+              { "iss", serviceAccountId },
+              { "iat", now },
+              { "exp", now + 3600 }
+          };
+              
+          RsaPrivateCrtKeyParameters privateKeyParams;
+          using (var pemStream = File.OpenText("private.pem"))
+          {
+              privateKeyParams = new PemReader(pemStream).ReadObject() as RsaPrivateCrtKeyParameters;
+          }
+  
+          using (var rsa = new RSACryptoServiceProvider())
+          {
+              rsa.ImportParameters(DotNetUtilities.ToRSAParameters(privateKeyParams));
+              string encodedToken = Jose.JWT.Encode(payload, rsa, JwsAlgorithm.PS256, headers);
+          }
+      }
+  }
+  ```
+
 - Go
 
   Пример создания JWT с использованием [jwt-go](https://github.com/dgrijalva/jwt-go):
