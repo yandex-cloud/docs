@@ -25,7 +25,7 @@ You can also assign a role to a parent resource that [access rights are inherite
 
 {% note important %}
 
-Changing access rights usually takes up to 5 seconds. If you still don't have access after a role is assigned, try running the operation again.
+It usually takes 5 seconds or less to update access rights. If the role was assigned to you, but still you don't have access, try repeating the operation.
 
 For example, you were given the right to create folders in the cloud and you were able to create one folder, but couldn't create another one. This is because the access rights have not yet been updated on the server where the second create folder operation was performed. Try creating the folder again.
 

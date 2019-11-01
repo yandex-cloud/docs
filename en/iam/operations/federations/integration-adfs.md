@@ -1,13 +1,13 @@
 # Authentication using Active Directory
 
-If you have an [identity federation](../../concepts/users/identity-federations.md), you can use [Active Directory Federation Services](https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services) (ADFS) to authenticate in the cloud.
+If you have an [identity federation](../../concepts/users/identity-federations.md), you can use [Active Directory Federation Services](https://docs.microsoft.com/ru-ru/windows-server/identity/active-directory-federation-services) (ADFS) to authenticate in the cloud.
 
 To set up authentication:
 
 1. [Create an identity federation in the cloud](#create-federation).
 1. [Add certificates to the federation](#add-certificate).
 1. [Get a console login link](#get-link).
-1. [Configure authentication on the ADFS server](#configure-sso).
+1. [Configure authentication on the AD FS server](#configure-sso).
 1. [Add users to the cloud](#add-users).
 1. [Test the authentication process](#test-auth).
 
@@ -27,7 +27,7 @@ To use the instructions in this section, you need:​
 
     {% endnote %}
 
-1. A valid certificate for signing in the ADFS service. If you don't have a valid SSL certificate, get one.
+1. A valid certificate that is used for signing in the ADFS service. If you don't have a valid SSL certificate, get one.
 
     The subject name in the certificate must contain the FQDN of the Identity Provider (IdP) server, for example, `fs.contoso.com`, to prevent the browser from blocking the authentication page.
 
@@ -103,7 +103,7 @@ To set up authentication on the ADFS server:
 
 ADFS requires a _relying party trust_ for each Service Provider (SP) that uses ADFS for authentication.
 
-Create a relying party trust for your federation created in the cloud:
+Create a relying party trust for the federation you created in the cloud:
 
 1. Log in to your ADFS server and open **Server Manager**.
 
@@ -115,7 +115,7 @@ Create a relying party trust for your federation created in the cloud:
 
 1. Select **Enter data about the relying party manually** and click **Next**.
 
-1. Specify a name for the relying party trust being created, like <q>Yandex.Cloud</q>, and click **Next**.
+1. Enter a name, like <q>Yandex.Cloud</q>, and click **Next**.
 
 1. In the next step, you are asked to specify a certificate for signing tokens. This step is optional, so click **Next**.
 
@@ -127,7 +127,7 @@ Create a relying party trust for your federation created in the cloud:
 
 1. On the next page, you can choose who can authenticate using this federation. By default, the **Permit for everyone** policy is selected enabling access for all users.
 
-    You can choose a different policy. For example, to grant access to a specific group of users, select **Permit specific group** and click on the word `<parameter>` to select the groups to allow access to.
+    You can choose a different policy. For example, to grant access to a specific group of users, select **Permit specific group** and click on the word `<parameter>` to select the groups to allow access to. [Read more about access control policies](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-in-ad-fs).
 
     ![image](../../../_assets/iam/federations/specify-access-policy-ad.png)
 
@@ -155,7 +155,7 @@ To configure mapping of user data to SAML message elements:
 
     1. In the **Attribute Store** field, click `Active Directory`.
 
-    1. Configure what to pass as the `NameID`. For this, add a line to the **Mapping of LDAP attributes** list:
+    1. Specify the attribute to be passed as `NameID`. For this, add a line to the **Mapping of LDAP attributes** list:
 
         Under **LDAP Attribute**, select `User-Principal-Name` or `E-Mail Addresses`.
 

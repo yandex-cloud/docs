@@ -8,6 +8,12 @@ You can get an OAuth token to work with Yandex.Cloud by sending a [request]({{ l
 
 {% include [oauth-token-lifetime](../../../_includes/oauth-token-lifetime.md) %}
 
+{% note alert %}
+
+If someone might have discovered your OAuth token, [revoke it](https://yandex.ru/dev/oauth/doc/dg/reference/token-invalidate-docpage/) and request a new one.
+
+{% endnote %}
+
 ## Services and utilities that support OAuth token authentication {#supported-services}
 
 These services and utilities can request an IAM token automatically, so you can only specify an OAuth token for authentication:

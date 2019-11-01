@@ -8,20 +8,7 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
 
 - Management console
 
-  1. Select a folder.
-
-  2. Go to the **Service accounts** tab.
-
-  3. Click **Create service account**.
-
-  4. Enter the name of the service account.
-
-  5. You can immediately assign the service account a [role](../../concepts/access-control/roles.md) for the folder where it is created.
-To do this, click **Add role** and select a role.
-
-      To assign a role for another resource, use the CLI or API by following the instructions [{#T}](assign-role-for-sa.md).
-
-  6. Click **Add**.
+  {% include [create-sa-via-console](../../../_includes/iam/create-sa-via-console.md) %}
 
 - CLI
 
