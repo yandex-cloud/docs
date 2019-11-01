@@ -37,7 +37,7 @@
         Выполните команду:
         
         ```
-        export CLUSTER_ID=catb3ppsdsh7vajr216f
+        CLUSTER_ID=catb3ppsdsh7vajr216f
         ```
     
     - PowerShell
@@ -135,7 +135,7 @@
     - Записывает содержимое токена в переменную `SA_TOKEN`.
     
     ```
-    export SA_TOKEN=$(kubectl -n kube-system get secret $(kubectl -n kube-system get secret | \
+    SA_TOKEN=$(kubectl -n kube-system get secret $(kubectl -n kube-system get secret | \
         grep admin-user | \
         awk '{print $1}') -o json | \
         jq -r .data.token | \
@@ -175,7 +175,7 @@
     - Записывает IP-адрес в переменную `MASTER_ENDPOINT`.
     
     ```
-    export MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
+    MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
         --format json | \
         jq -r .master.endpoints.external_v4_endpoint)
     ```
