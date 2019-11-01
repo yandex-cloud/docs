@@ -16,9 +16,22 @@ _A registry_ is a set of devices that are logically related to each other. Regis
 
 ## MQTT broker {#mqtt-broker}
 
-_The MQTT broker_ is the central node for exchanging MQTT messages between devices and registries. Data is only exchanged through the broker. It's responsible for receiving and processing messages and controls their delivery to clients (devices or registries) to ensure the necessary [QoS](../concepts/topic.md#qos).
-
-For information about MQTT broker connection parameters, see [{#T}](mqtt-properties.md).
+_The MQTT broker_ is the central node for exchanging MQTT messages between devices and registries. Data is only exchanged through the broker. It's responsible for receiving and processing messages and controls their delivery to clients (devices or registries) to ensure the necessary [QoS](#qos).
 
 Inside the service, devices and registries exchange data and commands as messages with specific [topics](topic.md).
 
+{% note important %}
+
+No additional settings are required for working with the MQTT broker integrated in the YC CLI (`yc iot mqtt --help`). If you use third-party libraries or applications (such as Mosquitto) as an MQTT broker, use the [MQTT broker connection parameters](mqtt-properties.md).
+
+{% endnote %}
+
+## QoS levels {#qos}
+
+When exchanging messages, {{ iot-name }} supports the following quality of service (QoS) levels for MQTT:
+
+- `QoS 0: At most once`. A message is sent no more than once and there is no guarantee of delivery.
+
+- `QoS 1: At least once`. This level guarantees that a message is delivered to a client at least once. There is a chance of receiving duplicate messages.
+
+For more information about {{ iot-name }} service limits, see [{#T}](limits.md).

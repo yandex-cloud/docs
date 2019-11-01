@@ -118,16 +118,6 @@ You can use `#` after `+` to substitute the rest of a topic or subtopic:
 - `$devices/+/#` — Subscribe to all existing topics from all devices in the registry. Same as the `$devices/#` filter.
 - `$devices/+/events/#` — Subscribe to all topics with telemetry data from all devices in the registry.
 
-## QoS levels {#qos}
-
-When exchanging messages, {{ iot-name }} supports the following quality of service (QoS) levels for MQTT:
-
-- `QoS 0: At most once`. A message is sent no more than once and there is no guarantee of delivery.
-
-- `QoS 1: At least once`. This level guarantees that a message is delivered to a client at least once. There is a chance of receiving duplicate messages.
-
-For more information about {{ iot-name }} service limits, see [{#T}](limits.md).
-
 ### Triggers for topics {#trigger}
 
 _Triggers_ are conditions that automatically launch a specific function when met.
