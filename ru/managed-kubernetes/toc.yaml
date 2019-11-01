@@ -9,6 +9,8 @@ items:
         href: operations/index.md
       - name: Подключение к узлу по SSH
         href: operations/node-connect-ssh.md
+      - name: Создание файла конфигурации
+        href: operations/create-static-conf.md
       - name: Обеспечение доступа к приложению, запущенному в кластере Kubernetes
         href: operations/create-load-balancer.md
       - name: Работа с постоянными томами
