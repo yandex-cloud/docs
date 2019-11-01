@@ -111,7 +111,7 @@ scale_policy:
         min_zone_size: 3
         measurement_duration: 30
         warmup_duration: 60
-        cooldown_duration: 120
+        stabilization_duration: 120
         cpu_utilization_rule:
             utilization_target: 75
 ```
@@ -121,13 +121,14 @@ Keys:
 | Key | Value |
 | ----- | ----- |
 | `auto_scale` | An automatically scaled instance group. |
-| `initial_size`* | Initial number of instances in the group. Each group may contain a maximum of 100 instances. |
-| `max_size` | Maximum number of instances per instance group. |
+| `initial_size`* | Initial number of instances in the group. The maximum value is 1000. |
+| `max_size` | Maximum number of instances per instance group. The maximum value is 1000. |
 | `min_zone_size` | The minimum number of instances per availability zone. |
-| `measurement_duration`* | Time in seconds allotted for averaging metrics based on CPU load. If the average load at the end of the interval is higher than `cpu_utilization_rule.utilization_target`, {{ ig-name }} increases the number of instances in the group. |
-| `warmup_duration`* | The warmup time of the instance, in seconds. During this time, traffic is sent to the instance, but CPU load metrics aren't considered. |
-| `cooldown_duration`* | Minimum amount of time, in seconds, allotted for load monitoring before {{ ig-name }} can reduce the number of instances in the group. During this time, the group doesn't decrease, even if the average load drops below the `cpu_utilization_rule.utilization_target` value. |
-| `cpu_utilization_rule`* | Target CPU performance level. |
+| `measurement_duration`* | Time in seconds allotted for averaging metrics based on CPU load. If the average load at the end of the interval is higher than `cpu_utilization_rule.utilization_target`, {{ ig-name }} increases the number of instances in the group. Acceptable values are 60 secons to 600 seconds, inclusive. |
+| `warmup_duration`* | The warmup time of the instance, in seconds. During this time, traffic is sent to the instance, but CPU load metrics aren't considered. The maximum value is 600 seconds. |
+| `stabilization_duration`* | Minimum amount of time, in seconds, allotted for load monitoring before {{ ig-name }} can reduce the number of instances in the group. During this time, the group doesn't decrease, even if the average load drops below the `cpu_utilization_rule.utilization_target` value. Acceptable values are 60 secons to 1800 seconds, inclusive. |
+| `cpu_utilization_rule`* | Defines the CPU utilization level that allows scaling based on average CPU utilization of the instance group. |
+| `utilization_target`* | The target CPU utilization level that {{ ig-name }} should maintain.<br>If the average CPU utilization is below the target utilization level, {{ ig-name }} scales down the number of instances until it reaches the `minZoneSize` value in all availability zones.<br>If the average CPU utilization is above the target utilization level, the service scales up until it reaches the `maxSize` value.<br>Acceptable values are 10 to 100, inclusive.|
 
 \* Required field.
 
