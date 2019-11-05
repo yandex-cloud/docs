@@ -8,32 +8,28 @@ This section provides a list of voices available in the service and their charac
 
 * Voice gender: male or female.
 
-* Information about whether emotions are fully supported for this language.
-
-    If they're not, we don't recommend using emotions: the intonation will change slightly, but the voice may change when synthesizing individual sentences.
-
 [Learn more about choosing a voice and speech quality](./index.md#voices).
 
 ## Standard voices {#standard}
 
-| Voice | Main language | Gender | Emotion support |
-| ---- | ---- | ---- | ---- |
-| oksana | ru-RU | F | ![-](../../_assets/common/no.svg) |
-| jane | ru-RU | F | ![+](../../_assets/common/yes.svg) |
-| omazh | ru-RU | F | ![+](../../_assets/common/yes.svg) |
-| zahar | ru-RU | M | ![-](../../_assets/common/no.svg) |
-| ermil | ru-RU | M | ![-](../../_assets/common/no.svg) |
-| silaerkan | tr-TR | F | ![-](../../_assets/common/no.svg) |
-| erkanyavas | tr-TR | M | ![-](../../_assets/common/no.svg) |
-| alyss | en-US | F | ![-](../../_assets/common/no.svg) |
-| nick | en-US | M | ![-](../../_assets/common/no.svg) |
+| Voice | Main language | Gender |
+| ---- | ---- | ---- |
+| oksana | ru-RU | F |
+| jane | ru-RU | F |
+| omazh | ru-RU | F |
+| zahar | ru-RU | M |
+| ermil | ru-RU | M |
+| silaerkan | tr-TR | F |
+| erkanyavas | tr-TR | M |
+| alyss | en-US | F |
+| nick | en-US | M |
 
 ## Premium voices {#premium}
 
-List of [premium voices](./index.md#premium) that use new speech synthesis technology. Speech synthesized using the new technology sounds more natural.
+List of [premium voices](./index.md#premium) using new speech synthesis technology. Speech synthesized using the new technology sounds more natural.
 
-| Voice | Main language | Gender | Emotion support |
-| ---- | ---- | ---- | ---- |
-| alena | ru-RU | F | ![-](../../_assets/common/no.svg) |
-| filipp | ru-RU | M | ![-](../../_assets/common/no.svg) |
+| Voice | Main language | Gender |
+| ---- | ---- | ---- |
+| alena | ru-RU | F |
+| filipp | ru-RU | M |
 

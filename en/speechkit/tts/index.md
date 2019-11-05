@@ -12,7 +12,7 @@ You can synthesize speech in three languages:
 - English (`en-US`).
 - Turkish (`tr-TR`).
 
-Keep in mind that if you select Russian and synthesize text in English, it will still be spoken with an accent. For example, [try synthesizing](https://cloud.yandex.ru/services/speechkit#demo) the phrase <q>Let me speak from my heart!</q> by selecting Russian in the language settings.
+Keep in mind that if you select Russian and synthesize text in English, it will still be spoken, but with an accent. For example, [try synthesizing](https://cloud.yandex.com/services/speechkit#demo) the phrase <q>Let me speak from my heart!</q> by selecting Russian in the language settings.
 
 ## Voices and speech quality {#voices}
 
@@ -32,15 +32,21 @@ The quality of speech and voice depend on the speech settings:
 
     If you don't choose the main language, the speech quality will be worse and the voice used may not be the one you specified.
 
-* Emotions: Voices that support emotions (see the [list](voices.md)). Only voices where the model was trained on the speaker's utterances with different intonations support emotions: cheerful, irritated, and neutral.
-
-    For other languages, the emotional tone slightly affects intonation, such as by making the pitch slightly higher or lower.
-
 * Speech rate: If the speech is too fast or too slow, it sounds unnatural. However, this can be useful in commercials where every second of air time counts.
+
+    {% note alert %}
+
+    Changing speed is temporarily unavailable for [premium voices](voices.md#premium).
+
+    {% endnote %}
+
+* Emotional tone is supported only for Russian (`ru-RU`) with `jane` or `omazh`. Don't use this parameter with other voices or languages, as the speech generated for individual phrases may be different from your settings.
+
+    For these voices, a neural network was trained on three different datasets where the speaker spoke samples with different intonations: cheerful, irritated, and neutral. We don't plan to support tones for other voices now. For premium voices, the tone is selected automatically.
 
 ### Quality of transmitted text {#text-quality}
 
-Reasons why other voices may be used for speech:
+Reasons why other voices may be used:
 
 * Long text without punctuation marks. For better quality, insert periods and commas.
 * Specific sentences on a complex topic.
@@ -52,8 +58,8 @@ Reasons why other voices may be used for speech:
 
 Key differences:
 
-* Understanding of context. Before starting speech synthesis, the service evaluates the entire text and not individual sentences. This allows for intonation that is more typical of human speech.
-* Attention to detail. The new technology takes much more detail of the speaker's original voice into account. This allows for a much clearer voice that is richer in detail and avoids various distortions typical in [standard voices](voices.md#standard).
+* Understanding of context. Before starting speech synthesis, the premium voice engine evaluates the whole text rather than individual sentences. This allows for intonation that is more typical of human speech.
+* Attention to detail. By using deep neural networks for premium voice synthesis, we make a much deeper analysis of the original voice. This lets us generate a much clearer voice that is richer in detail and avoids various distortions typical in [standard voices](voices.md#standard).
 
 {% note important %}
 
