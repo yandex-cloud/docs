@@ -2,7 +2,7 @@
 
 Long audio fragment recognition can be used for multi-channel audio files up to {{ stt-long-fileSize }}.
 
-Long audio fragment recognition is somewhat cheaper than other [recognition methods](./index.md#stt-ways), but it's not suitable for online speech recognition due to its longer response time. For more information about pricing, see [{#T}](../pricing.md).
+Long audio fragment recognition is somewhat cheaper than other [recognition methods](./index.md#stt-ways). However, it's not suitable for online speech recognition due to its longer response time. For more information about pricing, see [{#T}](../pricing.md).
 
 {% note info %}
 
@@ -10,7 +10,7 @@ For now, you can only recognize long audio in Russian.
 
 {% endnote %}
 
-## Before getting started
+## Before you start
 
 1. A recognition request should be sent on behalf of a [service account](../../iam/concepts/users/service-accounts.md). If you don't have a service account yet, [create one](../../iam/operations/sa/create.md).
 
@@ -131,8 +131,7 @@ Each result in the `chunks[]` list contains the following fields:
       * `endTime`: Time stamp of the end of the word. An error of 1-2 seconds is possible.
       * `word`: Recognized word. Recognized numbers are written in words (for example, `twelve` rather than `12`).
       * `confidence`: Recognition accuracy. Currently the service always returns `1`, which is the same as 100%.
-    * `text`: Full recognized text.
-      By default, numbers are written in figures. To output the entire text in words, specify `true` in the `raw_results` field.
+    * `text`: Full recognized text. By default, numbers are written in figures. To output the entire text in words, specify `true` in the `raw_results` field.
     * `confidence`: Recognition accuracy. Currently the service always returns `1`, which is the same as 100%.
 * `channelTag`: Audio channel that recognition was performed for.
 
@@ -185,72 +184,145 @@ Each result in the `chunks[]` list contains the following fields:
 
 To recognize speech in [OggOpus](formats.md#oggopus) format, just specify the recognition language in the `languageCode` field of the configuration.
 
-Enter the link to the uploaded audio file in the `uri` field.
+{% list tabs %}
 
-1. Create a request body and save it to a file (for example, `body.json`):
+- cURL
 
-    ```json
-    {
-        "config": {
-            "specification": {
-                "languageCode": "ru-RU"
-            }
-        },
-        "audio": {
-            "uri": "https://storage.yandexcloud.net/speechkit/speech.ogg"
-        }
-    }
-    ```
+  1. Create a request body and save it to a file (such as `body.json`). Enter the link to the audio file in {{ objstorage-name }} in the `uri` field:
 
-1. Send a recognition request:
-
-    ```bash
-    $ export IAM_TOKEN=CggaATEVAgA...
-    $ curl -X POST \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d @body.json \
-        https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
-
-    {
-        "done": false,
-        "id": "e03sup6d5h1qr574ht99",
-        "createdAt": "2019-04-21T22:49:29Z",
-        "createdBy": "ajes08feato88ehbbhqq",
-        "modifiedAt": "2019-04-21T22:49:29Z"
-    }
-    ```
-
-    Save the recognition operation ID that you received in the response.
-
-1. Wait a while for the recognition to complete. It takes about 10 seconds to recognize 1 minute of a single-channel audio file.
-
-1. Send a request to [get information about the operation](../../api-design-guide/concepts/operation.md#monitoring):
-
-    ```bash
-    $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-        https://operation.api.cloud.yandex.net/operations/e03sup6d5h1qr574ht99
-
-    {
-    "done": true, "response": {
-     "@type": "type.googleapis.com/yandex.cloud.ai.stt.v2.LongRunningRecognitionResponse",
-     "chunks": [
+      ```json
       {
-       "alternatives": [
-        {
-         "text": "your number is 212-85-06",
-         "confidence": 1
-        }
-       ],
-       "channelTag": "1"
+          "config": {
+              "specification": {
+                  "languageCode": "ru-RU"
+              }
+          },
+          "audio": {
+              "uri": "https://storage.yandexcloud.net/speechkit/speech.ogg"
+          }
       }
-     ]
-    },
-    "id": "e03sup6d5h1qr574ht99",
-    "createdAt": "2019-04-21T22:49:29Z",
-    "createdBy": "ajes08feato88ehbbhqq",
-    "modifiedAt": "2019-04-21T22:49:36Z"
-    }
-    ```
+      ```
+
+  1. Send a recognition request:
+
+      ```bash
+      $ export IAM_TOKEN=CggaATEVAgA...
+      $ curl -X POST \
+          -H "Authorization: Bearer ${IAM_TOKEN}" \
+          -d @body.json \
+          https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
+
+      {
+          "done": false,
+          "id": "e03sup6d5h1qr574ht99",
+          "createdAt": "2019-04-21T22:49:29Z",
+          "createdBy": "ajes08feato88ehbbhqq",
+          "modifiedAt": "2019-04-21T22:49:29Z"
+      }
+      ```
+
+      Save the recognition operation ID that you receive in the response.
+
+  1. Wait a while for the recognition to complete. It takes about 10 seconds to recognize 1 minute of a single-channel audio file.
+
+  1. Send a request to [get information about the operation](../../api-design-guide/concepts/operation.md#monitoring):
+
+      ```bash
+      $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+          https://operation.api.cloud.yandex.net/operations/e03sup6d5h1qr574ht99
+
+      {
+       "done": true,
+       "response": {
+        "@type": "type.googleapis.com/yandex.cloud.ai.stt.v2.LongRunningRecognitionResponse",
+        "chunks": [
+         {
+          "alternatives": [
+           {
+            "text": "your number is 212-85-06",
+            "confidence": 1
+           }
+          ],
+          "channelTag": "1"
+         }
+        ]
+       },
+       "id": "e03sup6d5h1qr574ht99",
+       "createdAt": "2019-04-21T22:49:29Z",
+       "createdBy": "ajes08feato88ehbbhqq",
+       "modifiedAt": "2019-04-21T22:49:36Z"
+      }
+      ```
+
+- Python
+
+  1. [Create an API key](../../iam/operations/api-key/create.md) for authentication in this example. To use an IAM token for authentication, correct the header in the `header` variable: replace `Api-Key` with `Bearer` and add the code used to [get an IAM token](../../iam/operations/iam-token/create-for-sa.md) instead of the API key.
+
+  1. Create a Python file (such as `test.py`) and add the following code to it:
+
+      ```python
+      # -*- coding: utf-8 -*-
+
+      import requests
+      import time
+      import json
+
+      # Specify your API key and the link to the audio file in Object Storage.
+      key = '<API key>'
+      filelink = 'https://storage.yandexcloud.net/speechkit/speech.ogg'
+
+      POST = "https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize"
+
+      body ={
+          "config": {
+              "specification": {
+                  "languageCode": "ru-RU"
+              }
+          },
+          "audio": {
+              "uri": filelink
+          }
+      }
+
+      # If you want to use an IAM token for authentication, replace Api-Key with Bearer.
+      header = {'Authorization': 'Api-Key {}'.format(key)}
+
+      # Send a recognition request.
+      req = requests.post(POST, headers=header, json=body)
+      data = req.json()
+      print(data)
+
+      id = data['id']
+
+      # Request the operation status on the server until recognition is complete.
+      while True:
+
+          time.sleep(1)
+
+          GET = "https://operation.api.cloud.yandex.net/operations/{id}"
+          req = requests.get(GET.format(id=id), headers=header)
+          req = req.json()
+
+          if req['done']: break
+          print("Not ready")
+
+      # Show the full server response in JSON format.
+      print("Response:")
+      print(json.dumps(req, ensure_ascii=False, indent=2))
+
+      # Show only text from recognition results.
+      print("Text chunks:")
+      for chunk in req['response']['chunks']:
+          print(chunk['alternatives'][0]['text'])
+      ```
+
+  1. Run the created file:
+
+      ```bash
+      $ python test.py
+      ```
+
+{% endlist %}
 
 ### Recognize speech in LPCM format {#examples_lpcm}
 
@@ -292,7 +364,7 @@ To recognize speech in [LPCM](formats.md#lpcm) format, specify the file sampling
     }
     ```
 
-    Save the recognition operation ID that you received in the response.
+    Save the recognition operation ID that you receive in the response.
 
 1. Wait a while for the recognition to complete. It takes about 10 seconds to recognize 1 minute of a single-channel audio file.
 
