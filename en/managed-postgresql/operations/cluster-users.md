@@ -29,6 +29,14 @@ You can add and remove users, as well as manage their individual settings.
 
 ## Add a user {#adduser}
 
+Once created, the user only gets the `CONNECT` privilege and can't perform any database operations. To give the user access to the database, [grant](grant.md) them the required privileges or roles.
+
+{% note info %}
+
+The user assigned as database owner when creating the DB gets the `OWNER` privilege. It lets them make changes to the DB.
+
+{% endnote %}
+
 When adding a user, {{ mpg-short-name }} reserves 50 connections to the {{ PG }} cluster (the `connlimit` parameter) by default. The minimum number of connections per user is 10.
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
@@ -65,9 +73,11 @@ When adding a user, {{ mpg-short-name }} reserves 50 connections to the {{ PG }}
 
 For the user, you can change:
 
-- Name and password.
-- List of databases the user can access.
-- Limitation on the number of DB connections.
+- Their name and password.
+- The list of databases the user can access.
+- The limit on the number of database connections and other settings specific to {{ PG }}.
+
+For information setting up user privileges and roles, see [{#T}](grant.md).
 
 {% list tabs %}
 

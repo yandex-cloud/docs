@@ -70,7 +70,7 @@ All supported extensions are listed here:
 - [chkpass](https://www.postgresql.org/docs/current/static/chkpass.html)
 - [citext](https://www.postgresql.org/docs/current/static/citext.html)
 - [cube](https://www.postgresql.org/docs/current/static/cube.html)
-- [dblink](https://www.postgresql.org/docs/current/static/dblink.html)
+- [dblink](https://www.postgresql.org/docs/current/static/dblink.html) (requires the `owner` or [mdb_admin](../concepts/roles.md#mdb-admin) role).
 - [dict_int](https://www.postgresql.org/docs/current/static/dict-int.html)
 - [dict_xsyn](https://www.postgresql.org/docs/current/static/dict-xsyn.html)
 - [earthdistance](https://www.postgresql.org/docs/current/static/earthdistance.html)
@@ -83,8 +83,8 @@ All supported extensions are listed here:
 - [ltree](https://www.postgresql.org/docs/current/static/ltree.html)
 - [moddatetime](https://www.postgresql.org/docs/current/static/contrib-spi.html#id-1.11.7.46.9)
 - [pg_partman](https://github.com/pgpartman/pg_partman)
-- [pg_repack](http://reorg.github.io/pg_repack/)
-- [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache)
+- [pg_repack](http://reorg.github.io/pg_repack/) (requires the `owner` or [mdb_admin](../concepts/roles.md#mdb-admin) role).
+- [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) (some functions require the `owner` or [mdb_admin](../concepts/roles.md#mdb-admin) role).
 - [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html)
 - [pg_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html)
 - [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html)
@@ -93,7 +93,7 @@ All supported extensions are listed here:
 - [postgis](https://postgis.net/docs/)
 - [postgis_tiger_geocoder](https://postgis.net/docs/postgis_installation.html#loading_extras_tiger_geocoder)
 - [postgis_topology](https://postgis.net/docs/Topology.html)
-- [postgres_fdw](https://www.postgresql.org/docs/current/static/postgres-fdw.html)
+- [postgres_fdw](https://www.postgresql.org/docs/current/static/postgres-fdw.html) (requires the`owner` or [mdb_admin](../concepts/roles.md#mdb-admin) role).
 - [seg](https://www.postgresql.org/docs/current/static/seg.html)
 - [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html)
 - [timetravel](https://www.postgresql.org/docs/current/static/contrib-spi.html#id-1.11.7.46.6)
