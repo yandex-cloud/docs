@@ -365,7 +365,7 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
 
 - Bash
 
-    1. Создайте файл, например `speech.xml`, и напишите в нем текст в формате SSML:
+    1. Создайте файл, например `text.xml`, и напишите в нем текст в формате SSML:
 
         {% include [ssml-example](../../_includes/speechkit/ssml-example.md) %}
 

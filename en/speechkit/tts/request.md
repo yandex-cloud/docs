@@ -361,7 +361,7 @@ The text is synthesized and recorded as an audio file. By default, data in the a
 
 - Bash
 
-    1. Create a file (for example, `speech.xml`) and enter text in SSML format:
+    1. Create a file (for example, `text.xml`) and enter text in SSML format:
 
         {% include [ssml-example](../../_includes/speechkit/ssml-example.md) %}
 
