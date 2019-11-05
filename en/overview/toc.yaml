@@ -13,8 +13,12 @@ items:
     href: concepts/quotas-limits.md
   - name: API
     href: api.md
-  - name: Security bulletin
-    href: security-bulletins/index.md
+  - name: Security and compliance
+    items:
+      - name: Security bulletin
+        href: security-bulletins/index.md
+      - name: Penetration tests
+        href: compliance/pentest.md
   - name: Deleting user data
     href: concepts/data-deletion.md
   - name: SLA
