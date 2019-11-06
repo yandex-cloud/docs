@@ -140,8 +140,6 @@ items:
         href: yql/reference/udf/list/string.md
       - name: Unicode
         href: yql/reference/udf/list/unicode.md
-      - name: Json
-        href: yql/reference/udf/list/json.md
       - name: Datetime
         href: yql/reference/udf/list/datetime.md
       - name: Url
