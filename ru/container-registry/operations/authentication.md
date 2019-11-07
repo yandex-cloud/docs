@@ -173,7 +173,7 @@ Docker Engine может хранить учетные данные пользо
 $ yc container registry configure-docker --profile <имя профиля>
 ```
 
-Подробнее о профилях YC CLI читайте в разделе [Профили](../../cli/concepts/profile.md).
+Подробнее об управлении профилями YC CLI читайте в [пошаговых инструкциях](../../cli/operations/index.md#profile).
 
 #### Не использовать Credential helper {#ch-not-use}
 

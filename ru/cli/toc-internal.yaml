@@ -15,7 +15,7 @@ items:
         href: concepts/mode.md
   - name: Релизы CLI
     href: release-notes.md
-  - name: Произошла ошибка?
+  - name: Решение проблем
     href: error.md
   - name: Справочник CLI
     items:

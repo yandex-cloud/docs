@@ -15,7 +15,7 @@ items:
         href: concepts/mode.md
   - name: CLI releases
     href: release-notes.md
-  - name: Did an error occur?
+  - name: Troubleshooting
     href: error.md
   - name: CLI reference
     items:
