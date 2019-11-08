@@ -47,6 +47,8 @@ items:
         items:
           - name: Назначение роли
             href: operations/roles/grant.md
+          - name: Просмотр назначенных ролей
+            href: operations/roles/get-assigned-roles.md
           - name: Отзыв роли
             href: operations/roles/revoke.md
       - name: IAM-токены
@@ -75,6 +77,9 @@ items:
             href: concepts/access-control/roles.md
           - name: Системные группы
             href: concepts/access-control/system-group.md
+          - name: Ресурсы, на которые можно назначать роли
+            href: concepts/access-control/resources-with-access-control.md
+
       - name: Авторизация
         items:
           - name: Обзор
