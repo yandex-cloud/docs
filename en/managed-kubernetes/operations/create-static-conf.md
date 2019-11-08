@@ -38,7 +38,7 @@ To access a {{ k8s }} cluster, use its unique ID. Save it to a variable and use 
         Run the command:
 
         ```
-        export CLUSTER_ID=catb3ppsdsh7vajr216f
+        CLUSTER_ID=catb3ppsdsh7vajr216f
         ```
 
     - PowerShell
@@ -137,7 +137,7 @@ The token is required for `ServiceAccount` authentication in the {{ k8s }} clust
     - Saves the token contents to the `SA_TOKEN` variable.
 
     ```
-    export SA_TOKEN=$(kubectl -n kube-system get secret $(kubectl -n kube-system get secret | \
+    SA_TOKEN=$(kubectl -n kube-system get secret $(kubectl -n kube-system get secret | \
         grep admin-user | \
         awk '{print $1}') -o json | \
         jq -r .data.token | \
@@ -178,7 +178,7 @@ Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for fu
     - Saves the IP address to the `MASTER_ENDPOINT` variable.
 
     ```
-    export MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
+    MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
         --format json | \
         jq -r .master.endpoints.external_v4_endpoint)
     ```
