@@ -9,6 +9,8 @@ items:
       href: web/static.md
     - name: Website on LAMP or LEMP stack
       href: web/lamp-lemp.md
+    - name: Fault-tolerant website with load balancing by Yandex Load Balancer
+      href: web/load-balancer-website.md
     - name: Fault tolerant website with load balancing
       href: web/dns-load-balancer.md
     - name: Joomla-based website with PostgreSQL

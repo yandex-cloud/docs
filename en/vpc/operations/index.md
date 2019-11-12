@@ -20,3 +20,4 @@
 ## Static routes
 
 - [#T](static-route-create.md)
+- [#T](enable-nat.md)

@@ -202,4 +202,4 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за развернутые серверы, достаточно [удалить](../../compute/operations/vm-control/vm-delete.md) созданные виртуальные машины `dns-lb-tutorial-web-ru-central1-a` и `dns-lb-tutorial-web-ru-central1-b` и [балансировщик](../../load-balancer/operations/) `lb-tutorial-web`. 
+Чтобы перестать платить за развернутые серверы, достаточно [удалить](../../compute/operations/vm-control/vm-delete.md) созданные виртуальные машины `dns-lb-tutorial-web-ru-central1-a` и `dns-lb-tutorial-web-ru-central1-b` и [балансировщик](../../load-balancer/operations/load-balancer-delete) `lb-tutorial-web`. 

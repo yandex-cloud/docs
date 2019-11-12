@@ -10,24 +10,18 @@ You can automatically create a cloud network and subnets in all availability zon
 
 ## Before you start {#before-begin}
 
-1. Log in to or register in the [management console](https://console.cloud.yandex.ru). If you aren't registered, go to the management console and follow the instructions.
-1. [On the billing page](https://console.cloud.yandex.ru/billing), make sure you linked a [billing account](../billing/concepts/billing-account.md) and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. Log in to or register in the [management console](https://console.cloud.yandex.com). If you aren't registered, go to the management console and follow the instructions.
+1. [On the billing page](https://console.cloud.yandex.com/billing), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you don't have a folder yet, [create one](../resource-manager/operations/folder/create.md). When creating a folder, you can create a default virtual network with subnets in all availability zones.
 
 ## Create a cloud network {#create-network}
 
 To create a cloud network:
 
-1. In the [management console](https://console.cloud.yandex.ru), select a folder to create your cloud network in.
-
-1. From the list of services, select {{ vpc-name }}.
-
+1. In the [management console](https://console.cloud.yandex.com), select a folder to create your cloud network in.
+1. In the list of services, select **{{ vpc-name }}**.
 1. Click **Create network**.
-
-1. Enter a network name, like `test-network`. Naming requirements:
-
-   {% include [name-format](../_includes/name-format.md) %}
-
+1. Enter a network name, like `test-network`.
 1. Click **Create network**.
 
 ## Create a subnet {#create-subnet}
@@ -35,17 +29,10 @@ To create a cloud network:
 Create a subnet where cloud resources will be assigned [internal IP addresses](concepts/address.md#internal-addresses):
 
 1. Click on the name of the cloud network created.
-
 1. Click **Add subnet**.
-
-1. Enter a subnet name, like `test-subnet-1`. Naming requirements:
-
-   {% include [name-format](../_includes/name-format.md) %}
-
+1. Enter a subnet name, like `test-subnet-1`.
 1. Select an availability zone from the drop-down list. Any zone from the list will be fine for the first subnet.
-
 1. Enter the subnet CIDR: its IP address and mask (for example, `10.10.0.0/24`). For more information about subnet IP address ranges, see [Cloud networks and subnets](concepts/network.md).
-
 1. Click **Create subnet**.
 
 ## Reserve a static public IP address {#reserve-address}
@@ -58,15 +45,14 @@ You're charged for the reserved static public IP address even if it's not assign
 
 {% endnote %}
 
-To reserve an address:
+To reserve an IP address:
 
-1. From the list of services, select {{ vpc-name }}.
+1. In the list of services, select **{{ vpc-name }}**.
 1. Go to **IP addresses**.
 1. Click **Reserve address**.
 1. Select the availability zone where you created the subnet in the previous step.
+1. Select **DDoS protection** if you want to [safeguard your cloud resources from DDoS attacks](ddos-protection/index.md).
 1. In the window that opens, click **Reserve**.
-
-Select the reserved address when [creating a new VM](../compute/operations/vm-create/create-linux-vm.md) to be able to connect to it from the internet.
 
 ## Delete a subnet and static public IP address {#delete-resources}
 
@@ -76,6 +62,5 @@ If the reserved address isn't assigned to any resource, you can [delete it](oper
 
 ## What's next {#whats-next}
 
-- Find out how to [protect your cloud resources from DDoS attacks](ddos-protection/index.md).
-- [Create a new VM](../compute/operations/vm-create/create-linux-vm.md), connect it to a subnet, and assign it a reserved public IP address.
+[Create a new VM](../compute/operations/vm-create/create-linux-vm.md), connect it to a subnet, and assign it a reserved public IP address.
 
