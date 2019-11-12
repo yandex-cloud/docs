@@ -126,7 +126,7 @@ clusters[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> 
 clusters[].<br>name | **string**<br><p>Name of the Kubernetes cluster.</p> 
 clusters[].<br>description | **string**<br><p>Description of the Kubernetes cluster. 0-256 characters long.</p> 
 clusters[].<br>labels | **object**<br><p>Resource labels as <code>key:value</code> pairs. Мaximum of 64 per resource.</p> 
-clusters[].<br>status | **string**<br>Status of the Kubernetes cluster.<br><ul> <li>PROVISIONING: Kubernetes cluster is waiting for resources to be allocated.</li> <li>RUNNING: Kubernetes cluster is running.</li> <li>RECONCILING: Kubernetes cluster is being reconciled.</li> <li>STOPPING: Kubernetes cluster is being stopped.</li> <li>STOPPED: Kubernetes cluster stopped.</li> <li>DELETING: Kubernetes cluster is being deleted.</li> </ul> 
+clusters[].<br>status | **string**<br>Status of the Kubernetes cluster.<br><ul> <li>PROVISIONING: Kubernetes cluster is waiting for resources to be allocated.</li> <li>RUNNING: Kubernetes cluster is running.</li> <li>RECONCILING: Kubernetes cluster is being reconciled.</li> <li>STOPPING: Kubernetes cluster is being stopped.</li> <li>STOPPED: Kubernetes cluster stopped.</li> <li>DELETING: Kubernetes cluster is being deleted.</li> <li>STARTING: Kubernetes cluster is being started.</li> </ul> 
 clusters[].<br>health | **string**<br>Health of the Kubernetes cluster.<br><ul> <li>HEALTHY: Kubernetes cluster is alive and well.</li> <li>UNHEALTHY: Kubernetes cluster is inoperable.</li> </ul> 
 clusters[].<br>networkId | **string**<br><p>ID of the network the Kubernetes cluster belongs to.</p> 
 clusters[].<br>master | **object**<br>Properties of the master for the Kubernetes cluster.<br>

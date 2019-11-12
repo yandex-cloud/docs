@@ -102,7 +102,15 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instanceGroups
       "initialSize": "string",
       "cpuUtilizationRule": {
         "utilizationTarget": "number"
-      }
+      },
+      "customRules": [
+        {
+          "ruleType": "string",
+          "metricType": "string",
+          "metricName": "string",
+          "target": "number"
+        }
+      ]
     },
     // end of the list of possible fields`scalePolicy`
 
@@ -200,18 +208,23 @@ instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToO
 instanceTemplate.<br>schedulingPolicy | **object**<br><p>Scheduling policy for the instance.</p> 
 instanceTemplate.<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
 instanceTemplate.<br>serviceAccountId | **string**<br><p>Service account ID for the instance.</p> 
-scalePolicy | **object**<br><p>Required. Scaling policy of the instance group.</p> 
-scalePolicy.<br>fixedScale | **object**<br>Fixed scaling policy of the instance group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
+scalePolicy | **object**<br><p>Required. <a href="/docs/compute/concepts/instance-groups/scale">Scaling policy</a> of the instance group.</p> 
+scalePolicy.<br>fixedScale | **object**<br>[Manual scaling policy](/docs/compute/concepts/instance-groups/scale#fixed-policy) of the instance group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of instances in the instance group.</p> <p>Acceptable values are 1 to 100, inclusive.</p> 
-scalePolicy.<br>autoScale | **object** <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
+scalePolicy.<br>autoScale | **object**<br>[Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
 scalePolicy.<br>autoScale.<br>minZoneSize | **string** (int64)<br><p>Lower limit for instance count in each zone.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 scalePolicy.<br>autoScale.<br>maxSize | **string** (int64)<br><p>Upper limit for total instance count (across all zones). 0 means maximum limit = 100.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-scalePolicy.<br>autoScale.<br>measurementDuration | **string**<br><p>Required. Acceptable values are 60 seconds to 600 seconds, inclusive.</p> 
-scalePolicy.<br>autoScale.<br>warmupDuration | **string**<br><p>The maximum value is 600 seconds.</p> 
-scalePolicy.<br>autoScale.<br>stabilizationDuration | **string**<br><p>Acceptable values are 60 seconds to 1800 seconds, inclusive.</p> 
-scalePolicy.<br>autoScale.<br>initialSize | **string** (int64)<br><p>The minimum value is 1.</p> 
-scalePolicy.<br>autoScale.<br>cpuUtilizationRule | **object**<br>
-scalePolicy.<br>autoScale.<br>cpuUtilizationRule.<br>utilizationTarget | **number** (double)<br><p>Acceptable values are 10 to 100, inclusive.</p> 
+scalePolicy.<br>autoScale.<br>measurementDuration | **string**<br><p>Required. Time in seconds allotted for averaging metrics.</p> <p>Acceptable values are 60 seconds to 600 seconds, inclusive.</p> 
+scalePolicy.<br>autoScale.<br>warmupDuration | **string**<br><p>The warmup time of the instance, in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected.</p> <p>The maximum value is 600 seconds.</p> 
+scalePolicy.<br>autoScale.<br>stabilizationDuration | **string**<br><p>Minimum amount of time, in seconds, allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size is not decreased, even if the new metric values indicate that it should be.</p> <p>Acceptable values are 60 seconds to 1800 seconds, inclusive.</p> 
+scalePolicy.<br>autoScale.<br>initialSize | **string** (int64)<br><p>Target group size.</p> <p>The minimum value is 1.</p> 
+scalePolicy.<br>autoScale.<br>cpuUtilizationRule | **object**<br><p>Defines an autoscaling rule based on average CPU utilization of the instance group.</p> 
+scalePolicy.<br>autoScale.<br>cpuUtilizationRule.<br>utilizationTarget | **number** (double)<br><p>The target CPU utilization level. Instance Groups maintains this level for each availability zone.</p> <p>Acceptable values are 10 to 100, inclusive.</p> 
+scalePolicy.<br>autoScale.<br>customRules[] | **object**<br><p>Defines an autoscaling rule based on a <a href="/docs/monitoring/operations/metric/add">custom metric</a> from Yandex Monitoring.</p> <p>The maximum number of elements is 1.</p> 
+scalePolicy.<br>autoScale.<br>customRules[].<br>ruleType | **string**<br><p>Required. Rule type of the custom metric. This field affects which label from the custom metric must be used: <code>zone_id</code> or <code>instance_id</code>.</p> <ul> <li>UTILIZATION: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for all groups' instances in one availability zone. Metric with this type must have the <code>instance_id</code> label.</li> <li>WORKLOAD: This type means that the metric applies to all groups' instances in one availability zone. Metric with this type must have the <code>zone_id</code> label.</li> </ul> 
+scalePolicy.<br>autoScale.<br>customRules[].<br>metricType | **string**<br><p>Required. Type of the custom metric. This field affects how Instance Group calculates an average metric value.</p> <ul> <li>GAUGE: This type is used for metrics that shows the metric value at a certain point in time. For example, requests per second to the server on an instance.</li> </ul> <p>Instance Groups will calculate the average metric value for the period specified in the measurementDuration field.</p> <ul> <li>COUNTER: This type is used for metrics that monotonically increase over time. For example, the total number of requests to the server on an instance.</li> </ul> <p>Instance Groups will calculate the average value increase for the period specified in the measurementDuration field.</p> 
+scalePolicy.<br>autoScale.<br>customRules[].<br>metricName | **string**<br><p>Required. Name of a custom metric in Yandex Monitoring that should be used for scaling.</p> <p>Value must match the regular expression <code>[a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]&lt;&gt;-]{0,198}</code>.</p> 
+scalePolicy.<br>autoScale.<br>customRules[].<br>target | **number** (double)<br><p>Target value for specified custom metric. Instance Groups maintains this level for each availability zone.</p> <p>Value must be greater than 0.</p> 
 deployPolicy | **object**<br><p>Required. Deployment policy of the instance group.</p> 
 deployPolicy.<br>maxUnavailable | **string** (int64)<br><p>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If maxExpansion is not specified or set to zero, maxUnavailable must be set to a non-zero value.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 deployPolicy.<br>maxDeleting | **string** (int64)<br><p>The maximum number of instances that can be deleted at the same time.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 

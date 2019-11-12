@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method create
-Creates symmetric key
+Creates a symmetric KMS key in the specified folder.
  
 
  
@@ -28,12 +28,12 @@ POST https://kms.api.cloud.yandex.net/kms/v1/keys
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Required. The maximum string length in characters is 100.</p> 
-description | **string**<br><p>The maximum string length in characters is 1024.</p> 
-labels | **object**<br><p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
-defaultAlgorithm | **string**<br><p>Encryption algorithm to be taken for new version during next rotation</p> <p>Supported symmetric encryption algorithms</p> 
-rotationPeriod | **string**<br><p>Period between two automatic rotations. Auto-rotation will be disabled if no rotation_period is given.</p> 
+folderId | **string**<br><p>Required. ID of the folder to create a symmetric KMS key in.</p> <p>The maximum string length in characters is 50.</p> 
+name | **string**<br><p>Name of the key.</p> <p>The maximum string length in characters is 100.</p> 
+description | **string**<br><p>Description of the key.</p> <p>The maximum string length in characters is 1024.</p> 
+labels | **object**<br><p>Custom labels for the symmetric KMS key as <code>key:value</code> pairs. Maximum 64 per key. For example, <code>&quot;project&quot;: &quot;mvp&quot;</code> or <code>&quot;source&quot;: &quot;dictionary&quot;</code>.</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
+defaultAlgorithm | **string**<br><p>Encryption algorithm to be used with a new key version, generated with the next rotation.</p> <p>Supported symmetric encryption algorithms.</p> <ul> <li>AES_128: AES algorithm with 128-bit keys.</li> <li>AES_192: AES algorithm with 192-bit keys.</li> <li>AES_256: AES algorithm with 256-bit keys.</li> </ul> 
+rotationPeriod | **string**<br><p>Interval between automatic rotations. To disable automatic rotation, don't include this field in the creation request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

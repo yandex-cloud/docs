@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method reEncrypt
-Re-encrypts previously encrypted text with the new key
+Re-encrypts a ciphertext with the specified KMS key.
  
 
  
@@ -16,17 +16,28 @@ POST https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}:reEncrypt
  
 Parameter | Description
 --- | ---
-keyId | Required. Target key id  The maximum string length in characters is 50.
+keyId | Required. ID of the new key to be used for encryption.  The maximum string length in characters is 50.
  
-## Query parameters {#query_params}
+## Body parameters {#body_params}
  
-Parameter | Description
+```json 
+{
+  "versionId": "string",
+  "aadContext": "string",
+  "sourceKeyId": "string",
+  "sourceAadContext": "string",
+  "ciphertext": "string"
+}
+```
+
+ 
+Field | Description
 --- | ---
-versionId | Target key version id, optional, defaults to primary  The maximum string length in characters is 50.
-aadContext | Target additional authenticated data, optional  The maximum string length in characters is 8192.
-sourceKeyId | Required. Source key id, may be equal to target key id  The maximum string length in characters is 50.
-sourceAadContext | Source add-context, may differ from target add-context  The maximum string length in characters is 8192.
-ciphertext | Required. Encrypted text to re-encrypt
+versionId | **string**<br><p>ID of the version of the new key to be used for encryption. Defaults to the primary version if not specified.</p> <p>The maximum string length in characters is 50.</p> 
+aadContext | **string** (byte)<br><p>Additional authenticated data to be required for decryption. Should be encoded with base64.</p> <p>The maximum string length in characters is 8192.</p> 
+sourceKeyId | **string**<br><p>Required. ID of the key that the ciphertext is currently encrypted with. May be the same as for the new key.</p> <p>The maximum string length in characters is 50.</p> 
+sourceAadContext | **string** (byte)<br><p>Additional authenticated data provided with the initial encryption request. Should be encoded with base64.</p> <p>The maximum string length in characters is 8192.</p> 
+ciphertext | **string** (byte)<br><p>Required. Ciphertext to re-encrypt. Should be encoded with base64.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -44,8 +55,8 @@ ciphertext | Required. Encrypted text to re-encrypt
  
 Field | Description
 --- | ---
-keyId | **string**<br><p>Target key id</p> 
-versionId | **string**<br><p>ID of target key version used for encryption</p> 
-sourceKeyId | **string**<br><p>Source key id</p> 
-sourceVersionId | **string**<br><p>ID of source key version used for decryption</p> 
-ciphertext | **string** (byte)<br><p>Re-encrypted text</p> 
+keyId | **string**<br><p>ID of the key that the ciphertext is encrypted with now.</p> 
+versionId | **string**<br><p>ID of key version that was used for encryption.</p> 
+sourceKeyId | **string**<br><p>ID of the key that the ciphertext was encrypted with previously.</p> 
+sourceVersionId | **string**<br><p>ID of the key version that was used to decrypt the re-encrypted ciphertext.</p> 
+ciphertext | **string** (byte)<br><p>Resulting re-encrypted ciphertext.</p> 

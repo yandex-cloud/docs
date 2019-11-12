@@ -3,7 +3,8 @@ editable: false
 ---
 
 # Method rotate
-Rotates given key: creates new key version and makes it primary.
+Rotates the specified key: creates a new key version and makes it the primary version.
+The old version remains available for decryption of ciphertext encrypted with it.
  
 
  
@@ -16,7 +17,7 @@ POST https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}:rotate
  
 Parameter | Description
 --- | ---
-keyId | Required. The maximum string length in characters is 50.
+keyId | Required. ID of the key to be rotated.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

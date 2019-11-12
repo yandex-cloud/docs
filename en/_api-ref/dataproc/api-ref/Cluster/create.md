@@ -46,7 +46,8 @@ POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters
     ]
   },
   "zoneId": "string",
-  "serviceAccountId": "string"
+  "serviceAccountId": "string",
+  "bucket": "string"
 }
 ```
 
@@ -74,6 +75,7 @@ configSpec.<br>subclustersSpec[].<br>subnetId | **string**<br><p>Required. ID of
 configSpec.<br>subclustersSpec[].<br>hostsCount | **string** (int64)<br><p>Required. Number of hosts in subcluster</p> <p>The minimum value is 1.</p> 
 zoneId | **string**<br><p>Required. ID of the availability zone.</p> <p>The maximum string length in characters is 50.</p> 
 serviceAccountId | **string**<br><p>Required. ID of the service account for Dataproc manager agent</p> 
+bucket | **string**<br><p>Name of object storage bucket for Dataproc jobs.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -596,6 +596,9 @@ components:
         serviceAccountId:
           description: ID of service account for Dataproc manager agent.
           type: string
+        bucket:
+          description: Object storage bucket name for Dataproc jobs.
+          type: string
     ClusterConfig:
       type: object
       properties:
@@ -698,6 +701,9 @@ components:
           description: |-
             Required.
             ID of the service account for Dataproc manager agent
+          type: string
+        bucket:
+          description: Name of object storage bucket for Dataproc jobs.
           type: string
     CreateSubclusterConfigSpec:
       type: object
@@ -1169,6 +1175,9 @@ components:
           type: string
         serviceAccountId:
           description: Identifier of the new service account for the cluster.
+          type: string
+        bucket:
+          description: Name of the new object storage bucket for Dataproc jobs.
           type: string
     UpdateSubclusterConfigSpec:
       type: object

@@ -134,7 +134,7 @@ nodeGroups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p
 nodeGroups[].<br>name | **string**<br><p>Name of the node group. The name is unique within the folder.</p> 
 nodeGroups[].<br>description | **string**<br><p>Description of the node group. 0-256 characters long.</p> 
 nodeGroups[].<br>labels | **object**<br><p>Resource labels as <code>key:value</code> pairs. Мaximum of 64 per resource.</p> 
-nodeGroups[].<br>status | **string**<br><p>Status of the node group.</p> <ul> <li>PROVISIONING: Node group is waiting for resources to be allocated.</li> <li>RUNNING: Node group is running.</li> <li>RECONCILING: Node group is waiting for some work to be done, such as upgrading node software.</li> <li>STOPPING: Node group is being stopped.</li> <li>STOPPED: Node group stopped.</li> <li>DELETING: Node group is being deleted.</li> </ul> 
+nodeGroups[].<br>status | **string**<br><p>Status of the node group.</p> <ul> <li>PROVISIONING: Node group is waiting for resources to be allocated.</li> <li>RUNNING: Node group is running.</li> <li>RECONCILING: Node group is waiting for some work to be done, such as upgrading node software.</li> <li>STOPPING: Node group is being stopped.</li> <li>STOPPED: Node group stopped.</li> <li>DELETING: Node group is being deleted.</li> <li>STARTING: Node group is being started.</li> </ul> 
 nodeGroups[].<br>nodeTemplate | **object**<br><p>Node template that specifies parameters of the compute instances for the node group.</p> 
 nodeGroups[].<br>nodeTemplate.<br>platformId | **string**<br><p>ID of the hardware platform configuration for the node.</p> 
 nodeGroups[].<br>nodeTemplate.<br>resourcesSpec | **object**<br><p>Computing resources of the node such as the amount of memory and number of cores.</p> 

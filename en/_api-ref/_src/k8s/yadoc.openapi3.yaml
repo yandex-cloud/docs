@@ -590,6 +590,7 @@ components:
          - STOPPING: Kubernetes cluster is being stopped.
          - STOPPED: Kubernetes cluster stopped.
          - DELETING: Kubernetes cluster is being deleted.
+         - STARTING: Kubernetes cluster is being started.
       type: string
       enum:
       - PROVISIONING
@@ -598,6 +599,7 @@ components:
       - STOPPING
       - STOPPED
       - DELETING
+      - STARTING
     CreateClusterMetadata:
       type: object
       properties:
@@ -724,6 +726,10 @@ components:
           type: string
         maintenancePolicy:
           $ref: '#/components/schemas/NodeGroupMaintenancePolicy_in_CreateNodeGroupRequest_maintenancePolicy'
+        allowedUnsafeSysctls:
+          type: array
+          items:
+            type: string
     DailyMaintenanceWindow:
       type: object
       properties:
@@ -1131,6 +1137,7 @@ components:
          - STOPPING: Node group is being stopped.
          - STOPPED: Node group stopped.
          - DELETING: Node group is being deleted.
+         - STARTING: Node group is being started.
       type: string
       enum:
       - PROVISIONING
@@ -1139,6 +1146,7 @@ components:
       - STOPPING
       - STOPPED
       - DELETING
+      - STARTING
     NodeTemplate:
       type: object
       properties:
@@ -1309,6 +1317,16 @@ components:
             For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
           type: boolean
           format: boolean
+    StartClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          type: string
+    StopClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          type: string
     TimeOfDay:
       description: |-
         Represents a time of day. The date and time zone are either not significant
@@ -1446,6 +1464,10 @@ components:
           $ref: '#/components/schemas/UpdateVersionSpec_in_UpdateNodeGroupRequest_version'
         maintenancePolicy:
           $ref: '#/components/schemas/NodeGroupMaintenancePolicy_in_UpdateNodeGroupRequest_maintenancePolicy'
+        allowedUnsafeSysctls:
+          type: array
+          items:
+            type: string
     UpdateVersionSpec:
       type: object
       allOf:
@@ -1722,6 +1744,7 @@ components:
          - STOPPING: Node group is being stopped.
          - STOPPED: Node group stopped.
          - DELETING: Node group is being deleted.
+         - STARTING: Node group is being started.
       type: string
       enum:
       - PROVISIONING
@@ -1730,6 +1753,7 @@ components:
       - STOPPING
       - STOPPED
       - DELETING
+      - STARTING
     NodeTemplate_in_NodeGroup_nodeTemplate:
       description: Node template that specifies parameters of the compute instances
         for the node group.

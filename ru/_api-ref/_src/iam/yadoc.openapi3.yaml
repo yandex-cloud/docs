@@ -182,7 +182,7 @@ paths:
     delete:
       tags:
       - Key
-      summary: Удаляет указанную пару ключей.
+      summary: Удаляет указанный ресурс Key.
       operationId: KeyDelete
       parameters:
       - name: keyId
@@ -202,8 +202,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Empty'
+                $ref: '#/components/schemas/Operation'
       x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteKeyMetadata'
+      x-y-operation-response: Empty
   /iam/v1/keys:
     get:
       tags:
@@ -275,6 +278,52 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreateKeyResponse'
       x-y-navtitle: create
+  /iam/v1/keys/{keyId}/operations:
+    get:
+      tags:
+      - Key
+      summary: Возвращает список операций для указанного ресурса Key.
+      operationId: KeyListOperations
+      parameters:
+      - name: keyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ресурса Key, для которого требуется получть список операций.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/iam/api-ref/Key/listOperations#query_params), сервис вернет значение [nextPageToken](/docs/iam/api-ref/Key/listOperations#responses),
+          которое можно использовать для получения следующей страницы.
+          Значение по умолчанию: 100.
+
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/Key/listOperations#query_params) равным значению поля [nextPageToken](/docs/iam/api-ref/Key/listOperations#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListKeyOperationsResponse'
+      x-y-navtitle: listOperations
   /iam/v1/roles/{roleId}:
     get:
       tags:
@@ -903,6 +952,12 @@ components:
 
             Максимальная длина строки в символах — 256.
           type: string
+    DeleteKeyMetadata:
+      type: object
+      properties:
+        keyId:
+          description: Идентификатор удаляемого ключа.
+          type: string
     DeleteServiceAccountMetadata:
       type: object
       properties:
@@ -1006,6 +1061,22 @@ components:
             результатов больше чем [pageSize](/docs/iam/api-ref/ApiKey/list#query_params), используйте [nextPageToken](/docs/iam/api-ref/ApiKey/list#responses) в качестве значения
             параметра [pageToken](/docs/iam/api-ref/ApiKey/list#query_params) в следующем запросе списка ресурсов. Все последующие
             запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/ApiKey/list#responses) для перебора страниц результатов.
+          type: string
+    ListKeyOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанного ресурса Key.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/iam/api-ref/Key/listOperations#query_params), используйте [nextPageToken](/docs/iam/api-ref/Key/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/iam/api-ref/Key/listOperations#query_params) в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/Key/listOperations#responses) для перебора страниц
+            результатов.
           type: string
     ListKeysResponse:
       type: object

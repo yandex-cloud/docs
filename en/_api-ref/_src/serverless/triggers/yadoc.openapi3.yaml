@@ -457,10 +457,33 @@ components:
         type: object
         maxProperties: 1
         properties:
+          timer:
+            $ref: '#/components/schemas/TriggerTimer'
           messageQueue:
             $ref: '#/components/schemas/TriggerMessageQueue'
           iotMessage:
             $ref: '#/components/schemas/TriggerIoTMessage'
+    TriggerTimer:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          cronExpression:
+            description: |-
+              Required.
+              Format: Minutes Hours Day-of-Month Month Day-of-week (Year)
+              * ("all values") - to select all values within a field.
+              ? ("no specific value") - placeholder for "any": you can't specify the Day-of-Month and Day-of-Week fields in the same cron expression, so if you specify a value in one of the fields, you must use a "?" in the other.
+              see http://man7.org/linux/man-pages/man5/crontab.5.html
+
+              The maximum string length in characters is 100.
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionOnce'
     UpdateTriggerMetadata:
       type: object
       properties:
@@ -497,6 +520,8 @@ components:
         type: object
         maxProperties: 1
         properties:
+          timer:
+            $ref: '#/components/schemas/TriggerTimer'
           messageQueue:
             $ref: '#/components/schemas/TriggerMessageQueue'
           iotMessage:
@@ -527,6 +552,8 @@ components:
         type: object
         maxProperties: 1
         properties:
+          timer:
+            $ref: '#/components/schemas/TriggerTimer'
           messageQueue:
             $ref: '#/components/schemas/TriggerMessageQueue'
           iotMessage:

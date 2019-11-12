@@ -196,7 +196,8 @@ clusterId | Required. ID of the ClickHouse Cluster resource to return. To get th
           "maxTableSizeToDrop": "integer",
           "maxPartitionSizeToDrop": "integer",
           "builtinDictionariesReloadInterval": "integer",
-          "timezone": "string"
+          "timezone": "string",
+          "geobaseUri": "string"
         },
         "userConfig": {
           "logLevel": "string",
@@ -353,7 +354,8 @@ clusterId | Required. ID of the ClickHouse Cluster resource to return. To get th
           "maxTableSizeToDrop": "integer",
           "maxPartitionSizeToDrop": "integer",
           "builtinDictionariesReloadInterval": "integer",
-          "timezone": "string"
+          "timezone": "string",
+          "geobaseUri": "string"
         },
         "defaultConfig": {
           "logLevel": "string",
@@ -510,7 +512,8 @@ clusterId | Required. ID of the ClickHouse Cluster resource to return. To get th
           "maxTableSizeToDrop": "integer",
           "maxPartitionSizeToDrop": "integer",
           "builtinDictionariesReloadInterval": "integer",
-          "timezone": "string"
+          "timezone": "string",
+          "geobaseUri": "string"
         }
       },
       "resources": {
@@ -673,8 +676,9 @@ config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>uncompressedCacheSize |
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>markCacheSize | **integer** (int64)<br><p>Approximate size (in bytes) of the cache of &quot;marks&quot; used by MergeTree tables. See details in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#mark_cache_size">ClickHouse documentation</a>.</p> <p>Value must be greater than 5368709120.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>maxTableSizeToDrop | **integer** (int64)<br><p>Maximum size of the table that can be deleted using a DROP query. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_table_size_to_drop">ClickHouse documentation</a>.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>maxPartitionSizeToDrop | **integer** (int64)<br><p>Maximum size of the partition that can be deleted using a DROP query. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_partition_size_to_drop">ClickHouse documentation</a>.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>builtinDictionariesReloadInterval | **integer** (int64)<br><p>Time interval for reloading built-in dictionaries. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval">ClickHouse documentation</a>.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>builtinDictionariesReloadInterval | **integer** (int64)<br><p>The setting is deprecated and has no effect.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>timezone | **string**<br><p>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone">ClickHouse documentation</a>.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>geobaseUri | **string**<br>
 config.<br>clickhouse.<br>config.<br>userConfig | **object**<br><p>User-defined settings for a ClickHouse cluster.</p> <p>ClickHouse configuration options. Detailed description for each set of options is available in <a href="https://clickhouse.yandex/docs/ru/operations/server_settings/settings/">ClickHouse documentation</a>.</p> <p>Any options not listed here are not supported.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>logLevel | **string**<br><p>Logging level for the ClickHouse cluster.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree | **object**<br><p>Settings for the MergeTree engine. See description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#merge_tree">ClickHouse documentation</a>.</p> <p>Options specific to the MergeTree table engine.</p> 
@@ -786,8 +790,9 @@ config.<br>clickhouse.<br>config.<br>userConfig.<br>uncompressedCacheSize | **in
 config.<br>clickhouse.<br>config.<br>userConfig.<br>markCacheSize | **integer** (int64)<br><p>Approximate size (in bytes) of the cache of &quot;marks&quot; used by MergeTree tables. See details in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#mark_cache_size">ClickHouse documentation</a>.</p> <p>Value must be greater than 5368709120.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>maxTableSizeToDrop | **integer** (int64)<br><p>Maximum size of the table that can be deleted using a DROP query. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_table_size_to_drop">ClickHouse documentation</a>.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>maxPartitionSizeToDrop | **integer** (int64)<br><p>Maximum size of the partition that can be deleted using a DROP query. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_partition_size_to_drop">ClickHouse documentation</a>.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>builtinDictionariesReloadInterval | **integer** (int64)<br><p>Time interval for reloading built-in dictionaries. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval">ClickHouse documentation</a>.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>builtinDictionariesReloadInterval | **integer** (int64)<br><p>The setting is deprecated and has no effect.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>timezone | **string**<br><p>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone">ClickHouse documentation</a>.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>geobaseUri | **string**<br>
 config.<br>clickhouse.<br>config.<br>defaultConfig | **object**<br><p>Default configuration for a ClickHouse cluster.</p> <p>ClickHouse configuration options. Detailed description for each set of options is available in <a href="https://clickhouse.yandex/docs/ru/operations/server_settings/settings/">ClickHouse documentation</a>.</p> <p>Any options not listed here are not supported.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>logLevel | **string**<br><p>Logging level for the ClickHouse cluster.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree | **object**<br><p>Settings for the MergeTree engine. See description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#merge_tree">ClickHouse documentation</a>.</p> <p>Options specific to the MergeTree table engine.</p> 
@@ -899,8 +904,9 @@ config.<br>clickhouse.<br>config.<br>defaultConfig.<br>uncompressedCacheSize | *
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>markCacheSize | **integer** (int64)<br><p>Approximate size (in bytes) of the cache of &quot;marks&quot; used by MergeTree tables. See details in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#mark_cache_size">ClickHouse documentation</a>.</p> <p>Value must be greater than 5368709120.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>maxTableSizeToDrop | **integer** (int64)<br><p>Maximum size of the table that can be deleted using a DROP query. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_table_size_to_drop">ClickHouse documentation</a>.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>maxPartitionSizeToDrop | **integer** (int64)<br><p>Maximum size of the partition that can be deleted using a DROP query. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_partition_size_to_drop">ClickHouse documentation</a>.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>builtinDictionariesReloadInterval | **integer** (int64)<br><p>Time interval for reloading built-in dictionaries. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval">ClickHouse documentation</a>.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>builtinDictionariesReloadInterval | **integer** (int64)<br><p>The setting is deprecated and has no effect.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>timezone | **string**<br><p>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone">ClickHouse documentation</a>.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>geobaseUri | **string**<br>
 config.<br>clickhouse.<br>resources | **object**<br><p>Resources allocated to ClickHouse hosts.</p> 
 config.<br>clickhouse.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-clickhouse/concepts/instance-types">documentation</a></p> 
 config.<br>clickhouse.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 

@@ -1151,6 +1151,320 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateDatabaseMetadata'
       x-y-operation-response: '[Database](/docs/managed-clickhouse/api-ref/Database#representation)'
+  /managed-clickhouse/v1/clusters/{clusterId}/formatSchemas/{formatSchemaName}:
+    get:
+      tags:
+      - FormatSchema
+      operationId: FormatSchemaGet
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: formatSchemaName
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormatSchema'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - FormatSchema
+      operationId: FormatSchemaDelete
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: formatSchemaName
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteFormatSchemaMetadata'
+      x-y-operation-response: Empty
+  /managed-clickhouse/v1/clusters/{clusterId}/formatSchemas:
+    get:
+      tags:
+      - FormatSchema
+      operationId: FormatSchemaList
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFormatSchemasResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - FormatSchema
+      operationId: FormatSchemaCreate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFormatSchemaRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateFormatSchemaMetadata'
+      x-y-operation-response: '[FormatSchema](/docs/managed-clickhouse/api-ref/FormatSchema#representation)'
+    patch:
+      tags:
+      - FormatSchema
+      operationId: FormatSchemaUpdate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFormatSchemaRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateFormatSchemaMetadata'
+      x-y-operation-response: '[FormatSchema](/docs/managed-clickhouse/api-ref/FormatSchema#representation)'
+  /managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}:
+    get:
+      tags:
+      - MlModel
+      operationId: MlModelGet
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: mlModelName
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MlModel'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - MlModel
+      operationId: MlModelDelete
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: mlModelName
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteMlModelMetadata'
+      x-y-operation-response: Empty
+  /managed-clickhouse/v1/clusters/{clusterId}/mlModels:
+    get:
+      tags:
+      - MlModel
+      operationId: MlModelList
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListMlModelsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - MlModel
+      operationId: MlModelCreate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMlModelRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateMlModelMetadata'
+      x-y-operation-response: '[MlModel](/docs/managed-clickhouse/api-ref/MlModel#representation)'
+    patch:
+      tags:
+      - MlModel
+      operationId: MlModelUpdate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMlModelRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateMlModelMetadata'
+      x-y-operation-response: '[MlModel](/docs/managed-clickhouse/api-ref/MlModel#representation)'
   /managed-clickhouse/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
@@ -1717,15 +2031,16 @@ components:
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
-          description: |-
-            Time interval for reloading built-in dictionaries.
-            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
+          description: The setting is deprecated and has no effect.
+          deprecated: true
           type: integer
           format: int64
         timezone:
           description: |-
             The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier.
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone).
+          type: string
+        geobaseUri:
           type: string
     ClickhouseConfigCompression:
       type: object
@@ -2509,6 +2824,48 @@ components:
       properties:
         databaseSpec:
           $ref: '#/components/schemas/DatabaseSpec_in_CreateDatabaseRequest_databaseSpec'
+    CreateFormatSchemaMetadata:
+      type: object
+      properties:
+        clusterId:
+          type: string
+        formatSchemaName:
+          type: string
+    CreateFormatSchemaRequest:
+      type: object
+      properties:
+        formatSchemaName:
+          description: |-
+            Required.
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        type:
+          $ref: '#/components/schemas/FormatSchemaType_in_CreateFormatSchemaRequest_type'
+        uri:
+          description: Required.
+          type: string
+    CreateMlModelMetadata:
+      type: object
+      properties:
+        clusterId:
+          type: string
+        mlModelName:
+          type: string
+    CreateMlModelRequest:
+      type: object
+      properties:
+        mlModelName:
+          description: |-
+            Required.
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        type:
+          $ref: '#/components/schemas/MlModelType_in_CreateMlModelRequest_type'
+        uri:
+          description: Required.
+          type: string
     CreateUserMetadata:
       type: object
       properties:
@@ -2605,6 +2962,20 @@ components:
         databaseName:
           description: Name of the ClickHouse database that is being deleted.
           type: string
+    DeleteFormatSchemaMetadata:
+      type: object
+      properties:
+        clusterId:
+          type: string
+        formatSchemaName:
+          type: string
+    DeleteMlModelMetadata:
+      type: object
+      properties:
+        clusterId:
+          type: string
+        mlModelName:
+          type: string
     DeleteUserMetadata:
       type: object
       properties:
@@ -2629,6 +3000,22 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    FormatSchema:
+      type: object
+      properties:
+        name:
+          type: string
+        clusterId:
+          type: string
+        type:
+          $ref: '#/components/schemas/FormatSchemaType_in_FormatSchema_type'
+        uri:
+          type: string
+    FormatSchemaType:
+      type: string
+      enum:
+      - FORMAT_SCHEMA_TYPE_PROTOBUF
+      - FORMAT_SCHEMA_TYPE_CAPNPROTO
     GrantUserPermissionMetadata:
       type: object
       properties:
@@ -2865,6 +3252,24 @@ components:
             for the [pageToken](/docs/managed-clickhouse/api-ref/Database/list#query_params) parameter in the next list request. Each subsequent
             list request will have its own [nextPageToken](/docs/managed-clickhouse/api-ref/Database/list#responses) to continue paging through the results.
           type: string
+    ListFormatSchemasResponse:
+      type: object
+      properties:
+        formatSchemas:
+          type: array
+          items:
+            $ref: '#/components/schemas/FormatSchema'
+        nextPageToken:
+          type: string
+    ListMlModelsResponse:
+      type: object
+      properties:
+        mlModels:
+          type: array
+          items:
+            $ref: '#/components/schemas/MlModel'
+        nextPageToken:
+          type: string
     ListResourcePresetsResponse:
       type: object
       properties:
@@ -2910,6 +3315,21 @@ components:
           type: object
           additionalProperties:
             type: string
+    MlModel:
+      type: object
+      properties:
+        name:
+          type: string
+        clusterId:
+          type: string
+        type:
+          $ref: '#/components/schemas/MlModelType_in_MlModel_type'
+        uri:
+          type: string
+    MlModelType:
+      type: string
+      enum:
+      - ML_MODEL_TYPE_CATBOOST
     Monitoring:
       description: Monitoring system metadata.
       type: object
@@ -3306,6 +3726,46 @@ components:
           $ref: '#/components/schemas/FieldMask_in_UpdateClusterShardRequest_updateMask'
         configSpec:
           $ref: '#/components/schemas/ShardConfigSpec_in_UpdateClusterShardRequest_configSpec'
+    UpdateFormatSchemaMetadata:
+      type: object
+      properties:
+        clusterId:
+          type: string
+        formatSchemaName:
+          type: string
+    UpdateFormatSchemaRequest:
+      type: object
+      properties:
+        formatSchemaName:
+          description: |-
+            Required.
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateFormatSchemaRequest_updateMask'
+        uri:
+          type: string
+    UpdateMlModelMetadata:
+      type: object
+      properties:
+        clusterId:
+          type: string
+        mlModelName:
+          type: string
+    UpdateMlModelRequest:
+      type: object
+      properties:
+        mlModeName:
+          description: |-
+            Required.
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateMlModelRequest_updateMask'
+        uri:
+          type: string
     UpdateUserMetadata:
       type: object
       properties:
@@ -4172,15 +4632,16 @@ components:
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
-          description: |-
-            Time interval for reloading built-in dictionaries.
-            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
+          description: The setting is deprecated and has no effect.
+          deprecated: true
           type: integer
           format: int64
         timezone:
           description: |-
             The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier.
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone).
+          type: string
+        geobaseUri:
           type: string
     ClickhouseConfig_in_ClickhouseConfigSet_userConfig:
       description: |-
@@ -4263,15 +4724,16 @@ components:
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
-          description: |-
-            Time interval for reloading built-in dictionaries.
-            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
+          description: The setting is deprecated and has no effect.
+          deprecated: true
           type: integer
           format: int64
         timezone:
           description: |-
             The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier.
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone).
+          type: string
+        geobaseUri:
           type: string
     ClickhouseConfig_in_ClickhouseConfigSet_defaultConfig:
       description: |-
@@ -4354,15 +4816,16 @@ components:
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
-          description: |-
-            Time interval for reloading built-in dictionaries.
-            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
+          description: The setting is deprecated and has no effect.
+          deprecated: true
           type: integer
           format: int64
         timezone:
           description: |-
             The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier.
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone).
+          type: string
+        geobaseUri:
           type: string
     ClusterEnvironment_in_Cluster_environment:
       description: |-
@@ -4674,15 +5137,16 @@ components:
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
-          description: |-
-            Time interval for reloading built-in dictionaries.
-            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
+          description: The setting is deprecated and has no effect.
+          deprecated: true
           type: integer
           format: int64
         timezone:
           description: |-
             The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier.
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone).
+          type: string
+        geobaseUri:
           type: string
     Resources_in_ConfigSpecClickhouse_resources:
       description: Resources allocated to ClickHouse hosts.
@@ -4828,6 +5292,17 @@ components:
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
+    FormatSchemaType_in_CreateFormatSchemaRequest_type:
+      description: Required.
+      type: string
+      enum:
+      - FORMAT_SCHEMA_TYPE_PROTOBUF
+      - FORMAT_SCHEMA_TYPE_CAPNPROTO
+    MlModelType_in_CreateMlModelRequest_type:
+      description: Required.
+      type: string
+      enum:
+      - ML_MODEL_TYPE_CATBOOST
     UserSpec_in_CreateUserRequest_userSpec:
       description: |-
         Required.
@@ -4856,6 +5331,11 @@ components:
             $ref: '#/components/schemas/Permission'
         settings:
           $ref: '#/components/schemas/UserSettings_in_UserSpec_settings'
+    FormatSchemaType_in_FormatSchema_type:
+      type: string
+      enum:
+      - FORMAT_SCHEMA_TYPE_PROTOBUF
+      - FORMAT_SCHEMA_TYPE_CAPNPROTO
     Permission_in_GrantUserPermissionRequest_permission:
       description: Permission that should be granted to the specified user.
       type: object
@@ -4920,6 +5400,10 @@ components:
       enum:
       - CLICKHOUSE
       - ZOOKEEPER
+    MlModelType_in_MlModel_type:
+      type: string
+      enum:
+      - ML_MODEL_TYPE_CATBOOST
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Required.
@@ -5121,15 +5605,16 @@ components:
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
-          description: |-
-            Time interval for reloading built-in dictionaries.
-            See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
+          description: The setting is deprecated and has no effect.
+          deprecated: true
           type: integer
           format: int64
         timezone:
           description: |-
             The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier.
             See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone).
+          type: string
+        geobaseUri:
           type: string
     Resources_in_ShardConfigSpecClickhouse_resources:
       description: Computational resources for the shard.
@@ -5199,6 +5684,28 @@ components:
       properties:
         clickhouse:
           $ref: '#/components/schemas/ShardConfigSpecClickhouse_in_ShardConfigSpec_clickhouse'
+    FieldMask_in_UpdateFormatSchemaRequest_updateMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    FieldMask_in_UpdateMlModelRequest_updateMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
     FieldMask_in_UpdateUserRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the ClickHouse user should be updated.
@@ -6656,6 +7163,8 @@ tags:
   description: A set of methods for managing ClickHouse clusters.
 - name: Database
   description: A set of methods for managing ClickHouse Database resources.
+- name: FormatSchema
+- name: MlModel
 - name: ResourcePreset
   description: A set of methods for managing ResourcePreset resources.
 - name: User

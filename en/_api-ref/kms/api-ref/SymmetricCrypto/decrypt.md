@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method decrypt
-Decrypts given ciphertext
+Decrypts the given ciphertext with the specified key.
  
 
  
@@ -16,14 +16,22 @@ POST https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}:decrypt
  
 Parameter | Description
 --- | ---
-keyId | Required. The maximum string length in characters is 50.
+keyId | Required. ID of the symmetric KMS key to use for decryption.  The maximum string length in characters is 50.
  
-## Query parameters {#query_params}
+## Body parameters {#body_params}
  
-Parameter | Description
+```json 
+{
+  "aadContext": "string",
+  "ciphertext": "string"
+}
+```
+
+ 
+Field | Description
 --- | ---
-aadContext | Additional authenticated data, same as in corresponding EncryptRequest  The maximum string length in characters is 8192.
-ciphertext | Required. Encrypted text to be decrypted
+aadContext | **string** (byte)<br><p>Additional authenticated data, must be the same as was provided in the corresponding SymmetricEncryptRequest. Should be encoded with base64.</p> <p>The maximum string length in characters is 8192.</p> 
+ciphertext | **string** (byte)<br><p>Required. Ciphertext to be decrypted. Should be encoded with base64.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -39,6 +47,6 @@ ciphertext | Required. Encrypted text to be decrypted
  
 Field | Description
 --- | ---
-keyId | **string**<br>
-versionId | **string**<br><p>The version was used for decryption</p> 
-plaintext | **string** (byte)<br><p>Decrypted text</p> 
+keyId | **string**<br><p>ID of the symmetric KMS key that was used for decryption.</p> 
+versionId | **string**<br><p>ID of the key version that was used for decryption.</p> 
+plaintext | **string** (byte)<br><p>Decrypted plaintext.</p> 

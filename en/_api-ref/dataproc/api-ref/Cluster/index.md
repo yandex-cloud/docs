@@ -35,7 +35,8 @@ A set of methods for managing Dataproc clusters.
   "health": "string",
   "status": "string",
   "zoneId": "string",
-  "serviceAccountId": "string"
+  "serviceAccountId": "string",
+  "bucket": "string"
 }
 ```
  
@@ -61,6 +62,7 @@ health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN
 status | **string**<br><p>Cluster status.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
 zoneId | **string**<br><p>ID of the availability zone.</p> 
 serviceAccountId | **string**<br><p>ID of service account for Dataproc manager agent.</p> 
+bucket | **string**<br><p>Object storage bucket name for Dataproc jobs.</p> 
 
 ## Methods {#methods}
 Method | Description

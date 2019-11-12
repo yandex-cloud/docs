@@ -40,7 +40,8 @@ clusterId | ID of the Dataproc cluster. This ID is assigned by Dataproc at creat
     ]
   },
   "name": "string",
-  "serviceAccountId": "string"
+  "serviceAccountId": "string",
+  "bucket": "string"
 }
 ```
 
@@ -61,6 +62,7 @@ configSpec.<br>subclustersSpec[].<br>resources.<br>diskSize | **string** (int64)
 configSpec.<br>subclustersSpec[].<br>hostsCount | **string** (int64)<br><p>Number of hosts in subcluster</p> <p>The minimum value is 1.</p> 
 name | **string**<br><p>Name of the Dataproc cluster. The name must be unique within the folder. The name must be 1-63 characters long and match the regular expression <code>^[a-z]([-a-z0-9]{,61}[a-z0-9])?$</code>. The name can’t be changed after the Dataproc cluster is created.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
 serviceAccountId | **string**<br><p>Identifier of the new service account for the cluster.</p> 
+bucket | **string**<br><p>Name of the new object storage bucket for Dataproc jobs.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -1999,6 +1999,14 @@ components:
             Допустимые значения — от 1024 до 134217728 включительно.
           type: integer
           format: int64
+        defaultAuthenticationPlugin:
+          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
+    MysqlConfig5_7AuthPlugin:
+      type: string
+      enum:
+      - MYSQL_NATIVE_PASSWORD
+      - CACHING_SHA2_PASSWORD
+      - SHA256_PASSWORD
     MysqlConfig5_7SQLMode:
       type: string
       enum:
@@ -2712,6 +2720,12 @@ components:
       - DEAD
       - DEGRADED
       default: HEALTH_UNKNOWN
+    MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin:
+      type: string
+      enum:
+      - MYSQL_NATIVE_PASSWORD
+      - CACHING_SHA2_PASSWORD
+      - SHA256_PASSWORD
     MysqlConfig5_7_in_MysqlConfigSet5_7_effectiveConfig:
       description: |-
         Действующие параметры для кластера MySQL 5.7 (сочетание параметров, определенных в
@@ -2778,6 +2792,8 @@ components:
             Допустимые значения — от 1024 до 134217728 включительно.
           type: integer
           format: int64
+        defaultAuthenticationPlugin:
+          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
     MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig:
       description: |-
         Пользовательские настройки для кластера MySQL 5.7.
@@ -2843,6 +2859,8 @@ components:
             Допустимые значения — от 1024 до 134217728 включительно.
           type: integer
           format: int64
+        defaultAuthenticationPlugin:
+          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
     MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig:
       description: |-
         Конфигурация по умолчанию для кластера MySQL 5.7.
@@ -2908,6 +2926,8 @@ components:
             Допустимые значения — от 1024 до 134217728 включительно.
           type: integer
           format: int64
+        defaultAuthenticationPlugin:
+          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Среда развертывания для нового кластера MySQL.

@@ -3,7 +3,6 @@ editable: false
 ---
 
 # Method stop
-TODO DOC-REVIEW:
 Stops the specified instance group.
  
 
@@ -17,14 +16,14 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGro
  
 Parameter | Description
 --- | ---
-instanceGroupId | Required. ID of the instance group to stop. To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.  The maximum string length in characters is 50.
+instanceGroupId | Required. ID of the instance group to stop. To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
 ```json 
 {}
 ```
-TODO DOC-REVIEW:
+
  
 Field | Description
 --- | ---

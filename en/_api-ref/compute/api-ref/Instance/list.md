@@ -83,7 +83,10 @@ filter | A filter expression that filters resources listed in the response. The 
       "schedulingPolicy": {
         "preemptible": true
       },
-      "serviceAccountId": "string"
+      "serviceAccountId": "string",
+      "networkSettings": {
+        "type": "string"
+      }
     }
   ],
   "nextPageToken": "string"
@@ -137,4 +140,6 @@ instances[].<br>fqdn | **string**<br><p>A domain name of the instance. FQDN is d
 instances[].<br>schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
 instances[].<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for short-lived compute instances. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible VMs</a>.</p> 
 instances[].<br>serviceAccountId | **string**<br><p>ID of the service account to use for <a href="/docs/compute/operations/vm-connect/auth-inside-vm">authentication inside the instance</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 
+instances[].<br>networkSettings | **object**<br><p>Network settings.</p> 
+instances[].<br>networkSettings.<br>type | **string**<br><p>Network type.</p> <ul> <li>STANDARD: Standard network.</li> <li>SOFTWARE_ACCELERATED: Software accelerated network.</li> <li>HARDWARE_ACCELERATED: Hardware accelerated network (not available yet, reserved for future use).</li> </ul> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/Instance/list#query_params">pageSize</a>, use the <a href="/docs/compute/api-ref/Instance/list#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/Instance/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/Instance/list#responses">nextPageToken</a> to continue paging through the results.</p> 

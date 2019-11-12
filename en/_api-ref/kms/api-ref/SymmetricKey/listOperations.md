@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method listOperations
-Lists operations for the specified symmetric key.
+Lists operations for the specified symmetric KMS key.
  
 
  
@@ -16,7 +16,7 @@ GET https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}/operations
  
 Parameter | Description
 --- | ---
-keyId | Required. ID of the key resource to get operations for To get the key ID, use a [list](/docs/kms/api-ref/SymmetricKey/list) request.  The maximum string length in characters is 50.
+keyId | Required. ID of the symmetric KMS key to get operations for.  To get the key ID, use a [list](/docs/kms/api-ref/SymmetricKey/list) request.  The maximum string length in characters is 50.
  
 ## Query parameters {#query_params}
  

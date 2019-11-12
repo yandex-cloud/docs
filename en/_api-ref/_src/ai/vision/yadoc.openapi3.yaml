@@ -72,7 +72,7 @@ components:
               Image content, represented as a stream of bytes.
               Note: As with all bytes fields, protobuffers use a pure binary representation, whereas JSON representations use base64.
 
-              The maximum string length in characters is 1048576.
+              The maximum string length in characters is 10485760.
             type: string
             format: byte
     BatchAnalyzeRequest:

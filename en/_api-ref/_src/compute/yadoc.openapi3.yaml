@@ -1670,7 +1670,7 @@ components:
             The total size of all keys and values must be less than 512 KB.
 
             Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance.
-            The only restriction placed on values is that their size must be 256 KB or less.
+            The values must be 256 KB or less.
 
             For example, you may use the metadata in order to provide your public SSH key to the instance.
             For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
@@ -1715,6 +1715,8 @@ components:
             ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm).
             To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
           type: string
+        networkSettings:
+          $ref: '#/components/schemas/NetworkSettings_in_CreateInstanceRequest_networkSettings'
     CreateSnapshotMetadata:
       type: object
       properties:
@@ -2079,6 +2081,8 @@ components:
             ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm).
             To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
           type: string
+        networkSettings:
+          $ref: '#/components/schemas/NetworkSettings_in_Instance_networkSettings'
     InstanceStatus:
       description: |2-
          - PROVISIONING: Instance is waiting for resources to be allocated.
@@ -2314,6 +2318,21 @@ components:
           $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec'
         primaryV6AddressSpec:
           $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec'
+    NetworkSettings:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/NetworkSettingsType_in_NetworkSettings_type'
+    NetworkSettingsType:
+      description: |2-
+         - STANDARD: Standard network.
+         - SOFTWARE_ACCELERATED: Software accelerated network.
+         - HARDWARE_ACCELERATED: Hardware accelerated network (not available yet, reserved for future use).
+      type: string
+      enum:
+      - STANDARD
+      - SOFTWARE_ACCELERATED
+      - HARDWARE_ACCELERATED
     OneToOneNat:
       type: object
       properties:
@@ -2731,7 +2750,7 @@ components:
             Existing set of `metadata` is completely replaced by the provided set.
 
             Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance.
-            The only restriction placed on values is that their size must be 256 KB or less.
+            The values must be 256 KB or less.
 
             For example, you may use the metadata in order to provide your public SSH key to the instance.
             For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
@@ -2743,6 +2762,8 @@ components:
             ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm).
             To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
           type: string
+        networkSettings:
+          $ref: '#/components/schemas/NetworkSettings_in_UpdateInstanceRequest_networkSettings'
     UpdateSnapshotMetadata:
       type: object
       properties:
@@ -2954,6 +2975,12 @@ components:
             see [Preemptible VMs](/docs/compute/concepts/preemptible-vm).
           type: boolean
           format: boolean
+    NetworkSettings_in_CreateInstanceRequest_networkSettings:
+      description: Network settings.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/NetworkSettingsType_in_NetworkSettings_type'
     ImageStatus_in_Image_status:
       description: |-
         Current status of the image.
@@ -3054,6 +3081,12 @@ components:
             see [Preemptible VMs](/docs/compute/concepts/preemptible-vm).
           type: boolean
           format: boolean
+    NetworkSettings_in_Instance_networkSettings:
+      description: Network settings.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/NetworkSettingsType_in_NetworkSettings_type'
     PrimaryAddress_in_NetworkInterface_primaryV4Address:
       description: Primary IPv4 address that is assigned to the instance for this
         network interface.
@@ -3100,6 +3133,18 @@ components:
           type: string
         oneToOneNatSpec:
           $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
+    NetworkSettingsType_in_NetworkSettings_type:
+      description: |-
+        Network type.
+
+         - STANDARD: Standard network.
+         - SOFTWARE_ACCELERATED: Software accelerated network.
+         - HARDWARE_ACCELERATED: Hardware accelerated network (not available yet, reserved for future use).
+      type: string
+      enum:
+      - STANDARD
+      - SOFTWARE_ACCELERATED
+      - HARDWARE_ACCELERATED
     IpVersion_in_OneToOneNat_ipVersion:
       description: |-
         IP version for the external IP address.
@@ -3244,6 +3289,12 @@ components:
             Value must be one of 0, 1, 2 or 4.
           type: string
           format: int64
+    NetworkSettings_in_UpdateInstanceRequest_networkSettings:
+      description: Network settings.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/NetworkSettingsType_in_NetworkSettings_type'
     FieldMask_in_UpdateSnapshotRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the Snapshot resource are going to be updated.

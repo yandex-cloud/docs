@@ -31,6 +31,8 @@ items:
         href: api-ref/Key/get.md
       - name: list
         href: api-ref/Key/list.md
+      - name: listOperations
+        href: api-ref/Key/listOperations.md
   - name: Role
     items:
       - name: Обзор

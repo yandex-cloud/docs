@@ -52,7 +52,8 @@ clusterId | Required. ID of the MySQL cluster to update. To get the MySQL cluste
       "sqlMode": [
         "string"
       ],
-      "maxAllowedPacket": "integer"
+      "maxAllowedPacket": "integer",
+      "defaultAuthenticationPlugin": "string"
     },
     "mysqlConfig_8_0": {
       "innodbBufferPoolSize": "integer",
@@ -63,7 +64,8 @@ clusterId | Required. ID of the MySQL cluster to update. To get the MySQL cluste
       "sqlMode": [
         "string"
       ],
-      "maxAllowedPacket": "integer"
+      "maxAllowedPacket": "integer",
+      "defaultAuthenticationPlugin": "string"
     },
     // end of the list of possible fields`configSpec`
 
@@ -99,6 +101,7 @@ configSpec.<br>mysqlConfig_5_7.<br>generalLog | **boolean** (boolean)<br><p>Enab
 configSpec.<br>mysqlConfig_5_7.<br>auditLog | **boolean** (boolean)<br><p>Enable writing of audit log of MySQL.</p> <p>For details, see <a href="https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log">MySQL documentation for the variable</a>.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>sqlMode[] | **string**<br><p>Server SQL mode of MySQL.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting">MySQL documentation for the variable</a>.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>maxAllowedPacket | **integer** (int64)<br><p>The maximum size in bytes of one packet.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 1024 to 134217728, inclusive.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>defaultAuthenticationPlugin | **string**<br>
 configSpec.<br>mysqlConfig_8_0 | **object** <br>`configSpec` includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`<br><br><p>Options and structure of <code>MysqlConfig8_0</code> reflects MySQL 8.0 configuration file</p> 
 configSpec.<br>mysqlConfig_8_0.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation for the parameter</a>.</p> <p>The minimum value is 5242880.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 10 to 10000, inclusive.</p> 
@@ -107,6 +110,7 @@ configSpec.<br>mysqlConfig_8_0.<br>generalLog | **boolean** (boolean)<br><p>Enab
 configSpec.<br>mysqlConfig_8_0.<br>auditLog | **boolean** (boolean)<br><p>Enable writing of audit log of MySQL.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables">MySQL documentation for the variable</a>.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>sqlMode[] | **string**<br><p>Server SQL mode of MySQL.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting">MySQL documentation for the variable</a>.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>maxAllowedPacket | **integer** (int64)<br><p>The maximum size in bytes of one packet.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 1024 to 134217728, inclusive.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>defaultAuthenticationPlugin | **string**<br>
 name | **string**<br><p>New name for the cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
  
 ## Response {#responses}

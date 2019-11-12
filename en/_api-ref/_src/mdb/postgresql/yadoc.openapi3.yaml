@@ -1481,6 +1481,9 @@ components:
           postgresqlConfig_11:
             $ref: '#/components/schemas/PostgresqlConfigSet11'
             description: Configuration of a PostgreSQL 11 server.
+          postgresqlConfig_12:
+            $ref: '#/components/schemas/PostgresqlConfigSet12'
+            description: Configuration of a PostgreSQL 12 server.
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: Stable environment with a conservative update policy:
@@ -1544,6 +1547,9 @@ components:
           postgresqlConfig_11:
             $ref: '#/components/schemas/PostgresqlHostConfig11'
             description: Configuration for a host with PostgreSQL 11 server deployed.
+          postgresqlConfig_12:
+            $ref: '#/components/schemas/PostgresqlHostConfig12'
+            description: Configuration for a host with PostgreSQL 12 server deployed.
     ConfigSpec:
       type: object
       allOf:
@@ -1557,6 +1563,7 @@ components:
               * 10
               * 10_1c
               * 11
+              * 12
             type: string
           poolerConfig:
             $ref: '#/components/schemas/ConnectionPoolerConfig'
@@ -1591,6 +1598,9 @@ components:
           postgresqlConfig_11:
             $ref: '#/components/schemas/PostgresqlConfig11'
             description: Configuration for a PostgreSQL 11 cluster.
+          postgresqlConfig_12:
+            $ref: '#/components/schemas/PostgresqlConfig12'
+            description: Configuration for a PostgreSQL 12 cluster.
     ConnectionPoolerConfig:
       type: object
       properties:
@@ -1944,6 +1954,9 @@ components:
           postgresqlConfig_11:
             $ref: '#/components/schemas/PostgresqlHostConfig11'
             description: Configuration for a host with PostgreSQL 11 server deployed.
+          postgresqlConfig_12:
+            $ref: '#/components/schemas/PostgresqlHostConfig12'
+            description: Configuration for a host with PostgreSQL 12 server deployed.
     HostHealth:
       description: |2-
          - HEALTH_UNKNOWN: Health of the host is unknown.
@@ -2579,6 +2592,54 @@ components:
           format: boolean
         timezone:
           type: string
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig10SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig10PgHintPlanDebugPrint_in_PostgresqlConfig10_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig10LogLevel_in_PostgresqlConfig10_pgHintPlanMessageLevel'
     PostgresqlConfig10BackslashQuote:
       type: string
       enum:
@@ -2630,6 +2691,18 @@ components:
       - LOG_STATEMENT_DDL
       - LOG_STATEMENT_MOD
       - LOG_STATEMENT_ALL
+    PostgresqlConfig10PgHintPlanDebugPrint:
+      type: string
+      enum:
+      - PG_HINT_PLAN_DEBUG_PRINT_OFF
+      - PG_HINT_PLAN_DEBUG_PRINT_ON
+      - PG_HINT_PLAN_DEBUG_PRINT_DETAILED
+      - PG_HINT_PLAN_DEBUG_PRINT_VERBOSE
+    PostgresqlConfig10SharedPreloadLibraries:
+      type: string
+      enum:
+      - SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN
+      - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
     PostgresqlConfig10SynchronousCommit:
       type: string
       enum:
@@ -2958,6 +3031,54 @@ components:
           format: boolean
         timezone:
           type: string
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig10_1CSharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig10_1CPgHintPlanDebugPrint_in_PostgresqlConfig10_1C_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig10_1CLogLevel_in_PostgresqlConfig10_1C_pgHintPlanMessageLevel'
     PostgresqlConfig10_1CBackslashQuote:
       type: string
       enum:
@@ -3009,6 +3130,18 @@ components:
       - LOG_STATEMENT_DDL
       - LOG_STATEMENT_MOD
       - LOG_STATEMENT_ALL
+    PostgresqlConfig10_1CPgHintPlanDebugPrint:
+      type: string
+      enum:
+      - PG_HINT_PLAN_DEBUG_PRINT_OFF
+      - PG_HINT_PLAN_DEBUG_PRINT_ON
+      - PG_HINT_PLAN_DEBUG_PRINT_DETAILED
+      - PG_HINT_PLAN_DEBUG_PRINT_VERBOSE
+    PostgresqlConfig10_1CSharedPreloadLibraries:
+      type: string
+      enum:
+      - SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN
+      - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
     PostgresqlConfig10_1CSynchronousCommit:
       type: string
       enum:
@@ -3363,6 +3496,54 @@ components:
           description: Acceptable values are 0 to 10000000000, inclusive.
           type: number
           format: double
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig11SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig11PgHintPlanDebugPrint_in_PostgresqlConfig11_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig11LogLevel_in_PostgresqlConfig11_pgHintPlanMessageLevel'
     PostgresqlConfig11BackslashQuote:
       type: string
       enum:
@@ -3414,6 +3595,18 @@ components:
       - LOG_STATEMENT_DDL
       - LOG_STATEMENT_MOD
       - LOG_STATEMENT_ALL
+    PostgresqlConfig11PgHintPlanDebugPrint:
+      type: string
+      enum:
+      - PG_HINT_PLAN_DEBUG_PRINT_OFF
+      - PG_HINT_PLAN_DEBUG_PRINT_ON
+      - PG_HINT_PLAN_DEBUG_PRINT_DETAILED
+      - PG_HINT_PLAN_DEBUG_PRINT_VERBOSE
+    PostgresqlConfig11SharedPreloadLibraries:
+      type: string
+      enum:
+      - SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN
+      - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
     PostgresqlConfig11SynchronousCommit:
       type: string
       enum:
@@ -3440,6 +3633,483 @@ components:
       - XML_BINARY_BASE64
       - XML_BINARY_HEX
     PostgresqlConfig11XmlOption:
+      type: string
+      enum:
+      - XML_OPTION_DOCUMENT
+      - XML_OPTION_CONTENT
+    PostgresqlConfig12:
+      description: |-
+        Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+        parameters which detailed description is available in
+        [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
+      type: object
+      properties:
+        maxConnections:
+          type: integer
+          format: int64
+        sharedBuffers:
+          type: integer
+          format: int64
+        tempBuffers:
+          type: integer
+          format: int64
+        maxPreparedTransactions:
+          type: integer
+          format: int64
+        workMem:
+          type: integer
+          format: int64
+        maintenanceWorkMem:
+          type: integer
+          format: int64
+        autovacuumWorkMem:
+          type: integer
+          format: int64
+        tempFileLimit:
+          type: integer
+          format: int64
+        vacuumCostDelay:
+          type: integer
+          format: int64
+        vacuumCostPageHit:
+          type: integer
+          format: int64
+        vacuumCostPageMiss:
+          type: integer
+          format: int64
+        vacuumCostPageDirty:
+          type: integer
+          format: int64
+        vacuumCostLimit:
+          type: integer
+          format: int64
+        bgwriterDelay:
+          description: Acceptable values are 10 to 10000, inclusive.
+          type: integer
+          format: int64
+        bgwriterLruMaxpages:
+          type: integer
+          format: int64
+        bgwriterLruMultiplier:
+          type: number
+          format: double
+        bgwriterFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        backendFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        oldSnapshotThreshold:
+          description: Acceptable values are -1 to 86400000, inclusive.
+          type: integer
+          format: int64
+        walLevel:
+          $ref: '#/components/schemas/PostgresqlConfig12WalLevel_in_PostgresqlConfig12_walLevel'
+        synchronousCommit:
+          $ref: '#/components/schemas/PostgresqlConfig12SynchronousCommit_in_PostgresqlConfig12_synchronousCommit'
+        checkpointTimeout:
+          description: Acceptable values are 30000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        checkpointCompletionTarget:
+          type: number
+          format: double
+        checkpointFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        maxWalSize:
+          type: integer
+          format: int64
+        minWalSize:
+          type: integer
+          format: int64
+        maxStandbyStreamingDelay:
+          type: integer
+          format: int64
+        defaultStatisticsTarget:
+          type: integer
+          format: int64
+        constraintExclusion:
+          $ref: '#/components/schemas/PostgresqlConfig12ConstraintExclusion_in_PostgresqlConfig12_constraintExclusion'
+        cursorTupleFraction:
+          type: number
+          format: double
+        fromCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        joinCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        forceParallelMode:
+          $ref: '#/components/schemas/PostgresqlConfig12ForceParallelMode_in_PostgresqlConfig12_forceParallelMode'
+        clientMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_clientMinMessages'
+        logMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_logMinMessages'
+        logMinErrorStatement:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_logMinErrorStatement'
+        logMinDurationStatement:
+          type: integer
+          format: int64
+        logCheckpoints:
+          type: boolean
+          format: boolean
+        logConnections:
+          type: boolean
+          format: boolean
+        logDisconnections:
+          type: boolean
+          format: boolean
+        logDuration:
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          $ref: '#/components/schemas/PostgresqlConfig12LogErrorVerbosity_in_PostgresqlConfig12_logErrorVerbosity'
+        logLockWaits:
+          type: boolean
+          format: boolean
+        logStatement:
+          $ref: '#/components/schemas/PostgresqlConfig12LogStatement_in_PostgresqlConfig12_logStatement'
+        logTempFiles:
+          type: integer
+          format: int64
+        searchPath:
+          type: string
+        rowSecurity:
+          type: boolean
+          format: boolean
+        defaultTransactionIsolation:
+          $ref: '#/components/schemas/PostgresqlConfig12TransactionIsolation_in_PostgresqlConfig12_defaultTransactionIsolation'
+        statementTimeout:
+          type: integer
+          format: int64
+        lockTimeout:
+          type: integer
+          format: int64
+        idleInTransactionSessionTimeout:
+          type: integer
+          format: int64
+        byteaOutput:
+          $ref: '#/components/schemas/PostgresqlConfig12ByteaOutput_in_PostgresqlConfig12_byteaOutput'
+        xmlbinary:
+          $ref: '#/components/schemas/PostgresqlConfig12XmlBinary_in_PostgresqlConfig12_xmlbinary'
+        xmloption:
+          $ref: '#/components/schemas/PostgresqlConfig12XmlOption_in_PostgresqlConfig12_xmloption'
+        ginPendingListLimit:
+          type: integer
+          format: int64
+        deadlockTimeout:
+          type: integer
+          format: int64
+        maxLocksPerTransaction:
+          type: integer
+          format: int64
+        maxPredLocksPerTransaction:
+          type: integer
+          format: int64
+        arrayNulls:
+          type: boolean
+          format: boolean
+        backslashQuote:
+          $ref: '#/components/schemas/PostgresqlConfig12BackslashQuote_in_PostgresqlConfig12_backslashQuote'
+        defaultWithOids:
+          type: boolean
+          format: boolean
+        escapeStringWarning:
+          type: boolean
+          format: boolean
+        loCompatPrivileges:
+          type: boolean
+          format: boolean
+        operatorPrecedenceWarning:
+          type: boolean
+          format: boolean
+        quoteAllIdentifiers:
+          type: boolean
+          format: boolean
+        standardConformingStrings:
+          type: boolean
+          format: boolean
+        synchronizeSeqscans:
+          type: boolean
+          format: boolean
+        transformNullEquals:
+          type: boolean
+          format: boolean
+        exitOnError:
+          type: boolean
+          format: boolean
+        seqPageCost:
+          type: number
+          format: double
+        randomPageCost:
+          type: number
+          format: double
+        autovacuumMaxWorkers:
+          description: Acceptable values are 1 to 32, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostDelay:
+          description: Acceptable values are -1 to 100, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostLimit:
+          description: Acceptable values are -1 to 10000, inclusive.
+          type: integer
+          format: int64
+        autovacuumNaptime:
+          description: Acceptable values are 1000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        archiveTimeout:
+          description: Acceptable values are 10000 to 600000, inclusive.
+          type: integer
+          format: int64
+        trackActivityQuerySize:
+          description: Acceptable values are 100 to 102400, inclusive.
+          type: integer
+          format: int64
+        enableBitmapscan:
+          type: boolean
+          format: boolean
+        enableHashagg:
+          type: boolean
+          format: boolean
+        enableHashjoin:
+          type: boolean
+          format: boolean
+        enableIndexscan:
+          type: boolean
+          format: boolean
+        enableIndexonlyscan:
+          type: boolean
+          format: boolean
+        enableMaterial:
+          type: boolean
+          format: boolean
+        enableMergejoin:
+          type: boolean
+          format: boolean
+        enableNestloop:
+          type: boolean
+          format: boolean
+        enableSeqscan:
+          type: boolean
+          format: boolean
+        enableSort:
+          type: boolean
+          format: boolean
+        enableTidscan:
+          type: boolean
+          format: boolean
+        maxWorkerProcesses:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkers:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkersPerGather:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
+        enableParallelAppend:
+          type: boolean
+          format: boolean
+        enableParallelHash:
+          type: boolean
+          format: boolean
+        enablePartitionPruning:
+          type: boolean
+          format: boolean
+        enablePartitionwiseAggregate:
+          type: boolean
+          format: boolean
+        enablePartitionwiseJoin:
+          type: boolean
+          format: boolean
+        jit:
+          type: boolean
+          format: boolean
+        maxParallelMaintenanceWorkers:
+          description: The minimum value is 0.
+          type: integer
+          format: int64
+        parallelLeaderParticipation:
+          type: boolean
+          format: boolean
+        vacuumCleanupIndexScaleFactor:
+          description: Acceptable values are 0 to 10000000000, inclusive.
+          type: number
+          format: double
+        logTransactionSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        planCacheMode:
+          $ref: '#/components/schemas/PostgresqlConfig12PlanCacheMode_in_PostgresqlConfig12_planCacheMode'
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig12SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig12PgHintPlanDebugPrint_in_PostgresqlConfig12_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_pgHintPlanMessageLevel'
+    PostgresqlConfig12BackslashQuote:
+      type: string
+      enum:
+      - BACKSLASH_QUOTE
+      - BACKSLASH_QUOTE_ON
+      - BACKSLASH_QUOTE_OFF
+      - BACKSLASH_QUOTE_SAFE_ENCODING
+    PostgresqlConfig12ByteaOutput:
+      type: string
+      enum:
+      - BYTEA_OUTPUT_HEX
+      - BYTEA_OUTPUT_ESCAPED
+    PostgresqlConfig12ConstraintExclusion:
+      type: string
+      enum:
+      - CONSTRAINT_EXCLUSION_ON
+      - CONSTRAINT_EXCLUSION_OFF
+      - CONSTRAINT_EXCLUSION_PARTITION
+    PostgresqlConfig12ForceParallelMode:
+      type: string
+      enum:
+      - FORCE_PARALLEL_MODE_ON
+      - FORCE_PARALLEL_MODE_OFF
+      - FORCE_PARALLEL_MODE_REGRESS
+    PostgresqlConfig12LogErrorVerbosity:
+      type: string
+      enum:
+      - LOG_ERROR_VERBOSITY_TERSE
+      - LOG_ERROR_VERBOSITY_DEFAULT
+      - LOG_ERROR_VERBOSITY_VERBOSE
+    PostgresqlConfig12LogLevel:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlConfig12LogStatement:
+      type: string
+      enum:
+      - LOG_STATEMENT_NONE
+      - LOG_STATEMENT_DDL
+      - LOG_STATEMENT_MOD
+      - LOG_STATEMENT_ALL
+    PostgresqlConfig12PgHintPlanDebugPrint:
+      type: string
+      enum:
+      - PG_HINT_PLAN_DEBUG_PRINT_OFF
+      - PG_HINT_PLAN_DEBUG_PRINT_ON
+      - PG_HINT_PLAN_DEBUG_PRINT_DETAILED
+      - PG_HINT_PLAN_DEBUG_PRINT_VERBOSE
+    PostgresqlConfig12PlanCacheMode:
+      type: string
+      enum:
+      - PLAN_CACHE_MODE_AUTO
+      - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
+      - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
+    PostgresqlConfig12SharedPreloadLibraries:
+      type: string
+      enum:
+      - SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN
+      - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
+    PostgresqlConfig12SynchronousCommit:
+      type: string
+      enum:
+      - SYNCHRONOUS_COMMIT_ON
+      - SYNCHRONOUS_COMMIT_OFF
+      - SYNCHRONOUS_COMMIT_LOCAL
+      - SYNCHRONOUS_COMMIT_REMOTE_WRITE
+      - SYNCHRONOUS_COMMIT_REMOTE_APPLY
+    PostgresqlConfig12TransactionIsolation:
+      type: string
+      enum:
+      - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+      - TRANSACTION_ISOLATION_READ_COMMITTED
+      - TRANSACTION_ISOLATION_REPEATABLE_READ
+      - TRANSACTION_ISOLATION_SERIALIZABLE
+    PostgresqlConfig12WalLevel:
+      type: string
+      enum:
+      - WAL_LEVEL_REPLICA
+      - WAL_LEVEL_LOGICAL
+    PostgresqlConfig12XmlBinary:
+      type: string
+      enum:
+      - XML_BINARY_BASE64
+      - XML_BINARY_HEX
+    PostgresqlConfig12XmlOption:
       type: string
       enum:
       - XML_OPTION_DOCUMENT
@@ -3688,6 +4358,14 @@ components:
           description: Acceptable values are 100 to 102400, inclusive.
           type: integer
           format: int64
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
     PostgresqlConfig9_6BackslashQuote:
       type: string
       enum:
@@ -3796,6 +4474,15 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig11_in_PostgresqlConfigSet11_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/PostgresqlConfig11_in_PostgresqlConfigSet11_defaultConfig'
+    PostgresqlConfigSet12:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/PostgresqlConfig12_in_PostgresqlConfigSet12_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/PostgresqlConfig12_in_PostgresqlConfigSet12_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/PostgresqlConfig12_in_PostgresqlConfigSet12_defaultConfig'
     PostgresqlConfigSet9_6:
       type: object
       properties:
@@ -4002,6 +4689,14 @@ components:
           format: int64
         timezone:
           type: string
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
     PostgresqlHostConfig10BackslashQuote:
       type: string
       enum:
@@ -4267,6 +4962,14 @@ components:
           format: int64
         timezone:
           type: string
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
     PostgresqlHostConfig10_1CBackslashQuote:
       type: string
       enum:
@@ -4529,6 +5232,14 @@ components:
           format: int64
         timezone:
           type: string
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
     PostgresqlHostConfig11BackslashQuote:
       type: string
       enum:
@@ -4593,6 +5304,276 @@ components:
       - XML_BINARY_BASE64
       - XML_BINARY_HEX
     PostgresqlHostConfig11XmlOption:
+      type: string
+      enum:
+      - XML_OPTION_DOCUMENT
+      - XML_OPTION_CONTENT
+    PostgresqlHostConfig12:
+      description: |-
+        Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+        parameters which detailed description is available in
+        [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
+      type: object
+      properties:
+        recoveryMinApplyDelay:
+          type: integer
+          format: int64
+        sharedBuffers:
+          type: integer
+          format: int64
+        tempBuffers:
+          type: integer
+          format: int64
+        workMem:
+          type: integer
+          format: int64
+        tempFileLimit:
+          type: integer
+          format: int64
+        backendFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        oldSnapshotThreshold:
+          description: Acceptable values are -1 to 86400, inclusive.
+          type: integer
+          format: int64
+        maxStandbyStreamingDelay:
+          type: integer
+          format: int64
+        constraintExclusion:
+          $ref: '#/components/schemas/PostgresqlHostConfig12ConstraintExclusion_in_PostgresqlHostConfig12_constraintExclusion'
+        cursorTupleFraction:
+          type: number
+          format: double
+        fromCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        joinCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        forceParallelMode:
+          $ref: '#/components/schemas/PostgresqlHostConfig12ForceParallelMode_in_PostgresqlHostConfig12_forceParallelMode'
+        clientMinMessages:
+          $ref: '#/components/schemas/PostgresqlHostConfig12LogLevel_in_PostgresqlHostConfig12_clientMinMessages'
+        logMinMessages:
+          $ref: '#/components/schemas/PostgresqlHostConfig12LogLevel_in_PostgresqlHostConfig12_logMinMessages'
+        logMinErrorStatement:
+          $ref: '#/components/schemas/PostgresqlHostConfig12LogLevel_in_PostgresqlHostConfig12_logMinErrorStatement'
+        logMinDurationStatement:
+          type: integer
+          format: int64
+        logCheckpoints:
+          type: boolean
+          format: boolean
+        logConnections:
+          type: boolean
+          format: boolean
+        logDisconnections:
+          type: boolean
+          format: boolean
+        logDuration:
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          $ref: '#/components/schemas/PostgresqlHostConfig12LogErrorVerbosity_in_PostgresqlHostConfig12_logErrorVerbosity'
+        logLockWaits:
+          type: boolean
+          format: boolean
+        logStatement:
+          $ref: '#/components/schemas/PostgresqlHostConfig12LogStatement_in_PostgresqlHostConfig12_logStatement'
+        logTempFiles:
+          type: integer
+          format: int64
+        searchPath:
+          type: string
+        rowSecurity:
+          type: boolean
+          format: boolean
+        defaultTransactionIsolation:
+          $ref: '#/components/schemas/PostgresqlHostConfig12TransactionIsolation_in_PostgresqlHostConfig12_defaultTransactionIsolation'
+        statementTimeout:
+          type: integer
+          format: int64
+        lockTimeout:
+          type: integer
+          format: int64
+        idleInTransactionSessionTimeout:
+          type: integer
+          format: int64
+        byteaOutput:
+          $ref: '#/components/schemas/PostgresqlHostConfig12ByteaOutput_in_PostgresqlHostConfig12_byteaOutput'
+        xmlbinary:
+          $ref: '#/components/schemas/PostgresqlHostConfig12XmlBinary_in_PostgresqlHostConfig12_xmlbinary'
+        xmloption:
+          $ref: '#/components/schemas/PostgresqlHostConfig12XmlOption_in_PostgresqlHostConfig12_xmloption'
+        ginPendingListLimit:
+          type: integer
+          format: int64
+        deadlockTimeout:
+          type: integer
+          format: int64
+        maxLocksPerTransaction:
+          type: integer
+          format: int64
+        maxPredLocksPerTransaction:
+          type: integer
+          format: int64
+        arrayNulls:
+          type: boolean
+          format: boolean
+        backslashQuote:
+          $ref: '#/components/schemas/PostgresqlHostConfig12BackslashQuote_in_PostgresqlHostConfig12_backslashQuote'
+        defaultWithOids:
+          type: boolean
+          format: boolean
+        escapeStringWarning:
+          type: boolean
+          format: boolean
+        loCompatPrivileges:
+          type: boolean
+          format: boolean
+        operatorPrecedenceWarning:
+          type: boolean
+          format: boolean
+        quoteAllIdentifiers:
+          type: boolean
+          format: boolean
+        standardConformingStrings:
+          type: boolean
+          format: boolean
+        synchronizeSeqscans:
+          type: boolean
+          format: boolean
+        transformNullEquals:
+          type: boolean
+          format: boolean
+        exitOnError:
+          type: boolean
+          format: boolean
+        seqPageCost:
+          type: number
+          format: double
+        randomPageCost:
+          type: number
+          format: double
+        enableBitmapscan:
+          type: boolean
+          format: boolean
+        enableHashagg:
+          type: boolean
+          format: boolean
+        enableHashjoin:
+          type: boolean
+          format: boolean
+        enableIndexscan:
+          type: boolean
+          format: boolean
+        enableIndexonlyscan:
+          type: boolean
+          format: boolean
+        enableMaterial:
+          type: boolean
+          format: boolean
+        enableMergejoin:
+          type: boolean
+          format: boolean
+        enableNestloop:
+          type: boolean
+          format: boolean
+        enableSeqscan:
+          type: boolean
+          format: boolean
+        enableSort:
+          type: boolean
+          format: boolean
+        enableTidscan:
+          type: boolean
+          format: boolean
+        maxParallelWorkers:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkersPerGather:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        timezone:
+          type: string
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+    PostgresqlHostConfig12BackslashQuote:
+      type: string
+      enum:
+      - BACKSLASH_QUOTE
+      - BACKSLASH_QUOTE_ON
+      - BACKSLASH_QUOTE_OFF
+      - BACKSLASH_QUOTE_SAFE_ENCODING
+    PostgresqlHostConfig12ByteaOutput:
+      type: string
+      enum:
+      - BYTEA_OUTPUT_HEX
+      - BYTEA_OUTPUT_ESCAPED
+    PostgresqlHostConfig12ConstraintExclusion:
+      type: string
+      enum:
+      - CONSTRAINT_EXCLUSION_ON
+      - CONSTRAINT_EXCLUSION_OFF
+      - CONSTRAINT_EXCLUSION_PARTITION
+    PostgresqlHostConfig12ForceParallelMode:
+      type: string
+      enum:
+      - FORCE_PARALLEL_MODE_ON
+      - FORCE_PARALLEL_MODE_OFF
+      - FORCE_PARALLEL_MODE_REGRESS
+    PostgresqlHostConfig12LogErrorVerbosity:
+      type: string
+      enum:
+      - LOG_ERROR_VERBOSITY_TERSE
+      - LOG_ERROR_VERBOSITY_DEFAULT
+      - LOG_ERROR_VERBOSITY_VERBOSE
+    PostgresqlHostConfig12LogLevel:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlHostConfig12LogStatement:
+      type: string
+      enum:
+      - LOG_STATEMENT_NONE
+      - LOG_STATEMENT_DDL
+      - LOG_STATEMENT_MOD
+      - LOG_STATEMENT_ALL
+    PostgresqlHostConfig12TransactionIsolation:
+      type: string
+      enum:
+      - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+      - TRANSACTION_ISOLATION_READ_COMMITTED
+      - TRANSACTION_ISOLATION_REPEATABLE_READ
+      - TRANSACTION_ISOLATION_SERIALIZABLE
+    PostgresqlHostConfig12XmlBinary:
+      type: string
+      enum:
+      - XML_BINARY_BASE64
+      - XML_BINARY_HEX
+    PostgresqlHostConfig12XmlOption:
       type: string
       enum:
       - XML_OPTION_DOCUMENT
@@ -4755,6 +5736,14 @@ components:
           description: This option has been removed in PostgreSQL 10.
           type: boolean
           format: boolean
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
     PostgresqlHostConfig9_6BackslashQuote:
       type: string
       enum:
@@ -5411,6 +6400,9 @@ components:
           postgresqlConfig_11:
             $ref: '#/components/schemas/PostgresqlConfigSet11'
             description: Configuration of a PostgreSQL 11 server.
+          postgresqlConfig_12:
+            $ref: '#/components/schemas/PostgresqlConfigSet12'
+            description: Configuration of a PostgreSQL 12 server.
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
@@ -5491,6 +6483,7 @@ components:
               * 10
               * 10_1c
               * 11
+              * 12
             type: string
           poolerConfig:
             $ref: '#/components/schemas/ConnectionPoolerConfig'
@@ -5525,6 +6518,9 @@ components:
           postgresqlConfig_11:
             $ref: '#/components/schemas/PostgresqlConfig11'
             description: Configuration for a PostgreSQL 11 cluster.
+          postgresqlConfig_12:
+            $ref: '#/components/schemas/PostgresqlConfig12'
+            description: Configuration for a PostgreSQL 12 cluster.
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Required.
@@ -5693,6 +6689,9 @@ components:
           postgresqlConfig_11:
             $ref: '#/components/schemas/PostgresqlHostConfig11'
             description: Configuration for a host with PostgreSQL 11 server deployed.
+          postgresqlConfig_12:
+            $ref: '#/components/schemas/PostgresqlHostConfig12'
+            description: Configuration for a host with PostgreSQL 12 server deployed.
     HostReplicaType_in_Host_replicaType:
       type: string
       enum:
@@ -5720,6 +6719,9 @@ components:
           postgresqlConfig_11:
             $ref: '#/components/schemas/PostgresqlHostConfig11'
             description: Configuration for a host with PostgreSQL 11 server deployed.
+          postgresqlConfig_12:
+            $ref: '#/components/schemas/PostgresqlHostConfig12'
+            description: Configuration for a host with PostgreSQL 12 server deployed.
     PostgresqlConfig10WalLevel_in_PostgresqlConfig10_walLevel:
       type: string
       enum:
@@ -5829,6 +6831,27 @@ components:
       - BACKSLASH_QUOTE_ON
       - BACKSLASH_QUOTE_OFF
       - BACKSLASH_QUOTE_SAFE_ENCODING
+    PostgresqlConfig10PgHintPlanDebugPrint_in_PostgresqlConfig10_pgHintPlanDebugPrint:
+      type: string
+      enum:
+      - PG_HINT_PLAN_DEBUG_PRINT_OFF
+      - PG_HINT_PLAN_DEBUG_PRINT_ON
+      - PG_HINT_PLAN_DEBUG_PRINT_DETAILED
+      - PG_HINT_PLAN_DEBUG_PRINT_VERBOSE
+    PostgresqlConfig10LogLevel_in_PostgresqlConfig10_pgHintPlanMessageLevel:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
     PostgresqlConfig10_1CWalLevel_in_PostgresqlConfig10_1C_walLevel:
       type: string
       enum:
@@ -5938,6 +6961,27 @@ components:
       - BACKSLASH_QUOTE_ON
       - BACKSLASH_QUOTE_OFF
       - BACKSLASH_QUOTE_SAFE_ENCODING
+    PostgresqlConfig10_1CPgHintPlanDebugPrint_in_PostgresqlConfig10_1C_pgHintPlanDebugPrint:
+      type: string
+      enum:
+      - PG_HINT_PLAN_DEBUG_PRINT_OFF
+      - PG_HINT_PLAN_DEBUG_PRINT_ON
+      - PG_HINT_PLAN_DEBUG_PRINT_DETAILED
+      - PG_HINT_PLAN_DEBUG_PRINT_VERBOSE
+    PostgresqlConfig10_1CLogLevel_in_PostgresqlConfig10_1C_pgHintPlanMessageLevel:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
     PostgresqlConfig11WalLevel_in_PostgresqlConfig11_walLevel:
       type: string
       enum:
@@ -6047,6 +7091,163 @@ components:
       - BACKSLASH_QUOTE_ON
       - BACKSLASH_QUOTE_OFF
       - BACKSLASH_QUOTE_SAFE_ENCODING
+    PostgresqlConfig11PgHintPlanDebugPrint_in_PostgresqlConfig11_pgHintPlanDebugPrint:
+      type: string
+      enum:
+      - PG_HINT_PLAN_DEBUG_PRINT_OFF
+      - PG_HINT_PLAN_DEBUG_PRINT_ON
+      - PG_HINT_PLAN_DEBUG_PRINT_DETAILED
+      - PG_HINT_PLAN_DEBUG_PRINT_VERBOSE
+    PostgresqlConfig11LogLevel_in_PostgresqlConfig11_pgHintPlanMessageLevel:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlConfig12WalLevel_in_PostgresqlConfig12_walLevel:
+      type: string
+      enum:
+      - WAL_LEVEL_REPLICA
+      - WAL_LEVEL_LOGICAL
+    PostgresqlConfig12SynchronousCommit_in_PostgresqlConfig12_synchronousCommit:
+      type: string
+      enum:
+      - SYNCHRONOUS_COMMIT_ON
+      - SYNCHRONOUS_COMMIT_OFF
+      - SYNCHRONOUS_COMMIT_LOCAL
+      - SYNCHRONOUS_COMMIT_REMOTE_WRITE
+      - SYNCHRONOUS_COMMIT_REMOTE_APPLY
+    PostgresqlConfig12ConstraintExclusion_in_PostgresqlConfig12_constraintExclusion:
+      type: string
+      enum:
+      - CONSTRAINT_EXCLUSION_ON
+      - CONSTRAINT_EXCLUSION_OFF
+      - CONSTRAINT_EXCLUSION_PARTITION
+    PostgresqlConfig12ForceParallelMode_in_PostgresqlConfig12_forceParallelMode:
+      type: string
+      enum:
+      - FORCE_PARALLEL_MODE_ON
+      - FORCE_PARALLEL_MODE_OFF
+      - FORCE_PARALLEL_MODE_REGRESS
+    PostgresqlConfig12LogLevel_in_PostgresqlConfig12_clientMinMessages:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlConfig12LogLevel_in_PostgresqlConfig12_logMinMessages:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlConfig12LogLevel_in_PostgresqlConfig12_logMinErrorStatement:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlConfig12LogErrorVerbosity_in_PostgresqlConfig12_logErrorVerbosity:
+      type: string
+      enum:
+      - LOG_ERROR_VERBOSITY_TERSE
+      - LOG_ERROR_VERBOSITY_DEFAULT
+      - LOG_ERROR_VERBOSITY_VERBOSE
+    PostgresqlConfig12LogStatement_in_PostgresqlConfig12_logStatement:
+      type: string
+      enum:
+      - LOG_STATEMENT_NONE
+      - LOG_STATEMENT_DDL
+      - LOG_STATEMENT_MOD
+      - LOG_STATEMENT_ALL
+    PostgresqlConfig12TransactionIsolation_in_PostgresqlConfig12_defaultTransactionIsolation:
+      type: string
+      enum:
+      - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+      - TRANSACTION_ISOLATION_READ_COMMITTED
+      - TRANSACTION_ISOLATION_REPEATABLE_READ
+      - TRANSACTION_ISOLATION_SERIALIZABLE
+    PostgresqlConfig12ByteaOutput_in_PostgresqlConfig12_byteaOutput:
+      type: string
+      enum:
+      - BYTEA_OUTPUT_HEX
+      - BYTEA_OUTPUT_ESCAPED
+    PostgresqlConfig12XmlBinary_in_PostgresqlConfig12_xmlbinary:
+      type: string
+      enum:
+      - XML_BINARY_BASE64
+      - XML_BINARY_HEX
+    PostgresqlConfig12XmlOption_in_PostgresqlConfig12_xmloption:
+      type: string
+      enum:
+      - XML_OPTION_DOCUMENT
+      - XML_OPTION_CONTENT
+    PostgresqlConfig12BackslashQuote_in_PostgresqlConfig12_backslashQuote:
+      type: string
+      enum:
+      - BACKSLASH_QUOTE
+      - BACKSLASH_QUOTE_ON
+      - BACKSLASH_QUOTE_OFF
+      - BACKSLASH_QUOTE_SAFE_ENCODING
+    PostgresqlConfig12PlanCacheMode_in_PostgresqlConfig12_planCacheMode:
+      type: string
+      enum:
+      - PLAN_CACHE_MODE_AUTO
+      - PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN
+      - PLAN_CACHE_MODE_FORCE_GENERIC_PLAN
+    PostgresqlConfig12PgHintPlanDebugPrint_in_PostgresqlConfig12_pgHintPlanDebugPrint:
+      type: string
+      enum:
+      - PG_HINT_PLAN_DEBUG_PRINT_OFF
+      - PG_HINT_PLAN_DEBUG_PRINT_ON
+      - PG_HINT_PLAN_DEBUG_PRINT_DETAILED
+      - PG_HINT_PLAN_DEBUG_PRINT_VERBOSE
+    PostgresqlConfig12LogLevel_in_PostgresqlConfig12_pgHintPlanMessageLevel:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
     PostgresqlConfig9_6WalLevel_in_PostgresqlConfig9_6_walLevel:
       type: string
       enum:
@@ -6458,6 +7659,54 @@ components:
           format: boolean
         timezone:
           type: string
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig10SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig10PgHintPlanDebugPrint_in_PostgresqlConfig10_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig10LogLevel_in_PostgresqlConfig10_pgHintPlanMessageLevel'
     PostgresqlConfig10_in_PostgresqlConfigSet10_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 10 cluster.
@@ -6758,6 +8007,54 @@ components:
           format: boolean
         timezone:
           type: string
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig10SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig10PgHintPlanDebugPrint_in_PostgresqlConfig10_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig10LogLevel_in_PostgresqlConfig10_pgHintPlanMessageLevel'
     PostgresqlConfig10_in_PostgresqlConfigSet10_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 10 cluster.
@@ -7058,6 +8355,54 @@ components:
           format: boolean
         timezone:
           type: string
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig10SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig10PgHintPlanDebugPrint_in_PostgresqlConfig10_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig10LogLevel_in_PostgresqlConfig10_pgHintPlanMessageLevel'
     PostgresqlConfig10_1C_in_PostgresqlConfigSet10_1C_effectiveConfig:
       description: |-
         Required.
@@ -7360,6 +8705,54 @@ components:
           format: boolean
         timezone:
           type: string
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig10_1CSharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig10_1CPgHintPlanDebugPrint_in_PostgresqlConfig10_1C_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig10_1CLogLevel_in_PostgresqlConfig10_1C_pgHintPlanMessageLevel'
     PostgresqlConfig10_1C_in_PostgresqlConfigSet10_1C_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 10 1C cluster.
@@ -7660,6 +9053,54 @@ components:
           format: boolean
         timezone:
           type: string
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig10_1CSharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig10_1CPgHintPlanDebugPrint_in_PostgresqlConfig10_1C_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig10_1CLogLevel_in_PostgresqlConfig10_1C_pgHintPlanMessageLevel'
     PostgresqlConfig10_1C_in_PostgresqlConfigSet10_1C_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 10 1C cluster.
@@ -7960,6 +9401,54 @@ components:
           format: boolean
         timezone:
           type: string
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig10_1CSharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig10_1CPgHintPlanDebugPrint_in_PostgresqlConfig10_1C_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig10_1CLogLevel_in_PostgresqlConfig10_1C_pgHintPlanMessageLevel'
     PostgresqlConfig11_in_PostgresqlConfigSet11_effectiveConfig:
       description: |-
         Effective settings for a PostgreSQL 11 cluster (a combination of settings defined
@@ -8287,6 +9776,54 @@ components:
           description: Acceptable values are 0 to 10000000000, inclusive.
           type: number
           format: double
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig11SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig11PgHintPlanDebugPrint_in_PostgresqlConfig11_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig11LogLevel_in_PostgresqlConfig11_pgHintPlanMessageLevel'
     PostgresqlConfig11_in_PostgresqlConfigSet11_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 11 cluster.
@@ -8613,6 +10150,54 @@ components:
           description: Acceptable values are 0 to 10000000000, inclusive.
           type: number
           format: double
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig11SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig11PgHintPlanDebugPrint_in_PostgresqlConfig11_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig11LogLevel_in_PostgresqlConfig11_pgHintPlanMessageLevel'
     PostgresqlConfig11_in_PostgresqlConfigSet11_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 11 cluster.
@@ -8939,6 +10524,1195 @@ components:
           description: Acceptable values are 0 to 10000000000, inclusive.
           type: number
           format: double
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig11SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig11PgHintPlanDebugPrint_in_PostgresqlConfig11_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig11LogLevel_in_PostgresqlConfig11_pgHintPlanMessageLevel'
+    PostgresqlConfig12_in_PostgresqlConfigSet12_effectiveConfig:
+      description: |-
+        Effective settings for a PostgreSQL 12 cluster (a combination of settings defined
+        in userConfig and [default_config]).
+
+        Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+        parameters which detailed description is available in
+        [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
+      type: object
+      properties:
+        maxConnections:
+          type: integer
+          format: int64
+        sharedBuffers:
+          type: integer
+          format: int64
+        tempBuffers:
+          type: integer
+          format: int64
+        maxPreparedTransactions:
+          type: integer
+          format: int64
+        workMem:
+          type: integer
+          format: int64
+        maintenanceWorkMem:
+          type: integer
+          format: int64
+        autovacuumWorkMem:
+          type: integer
+          format: int64
+        tempFileLimit:
+          type: integer
+          format: int64
+        vacuumCostDelay:
+          type: integer
+          format: int64
+        vacuumCostPageHit:
+          type: integer
+          format: int64
+        vacuumCostPageMiss:
+          type: integer
+          format: int64
+        vacuumCostPageDirty:
+          type: integer
+          format: int64
+        vacuumCostLimit:
+          type: integer
+          format: int64
+        bgwriterDelay:
+          description: Acceptable values are 10 to 10000, inclusive.
+          type: integer
+          format: int64
+        bgwriterLruMaxpages:
+          type: integer
+          format: int64
+        bgwriterLruMultiplier:
+          type: number
+          format: double
+        bgwriterFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        backendFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        oldSnapshotThreshold:
+          description: Acceptable values are -1 to 86400000, inclusive.
+          type: integer
+          format: int64
+        walLevel:
+          $ref: '#/components/schemas/PostgresqlConfig12WalLevel_in_PostgresqlConfig12_walLevel'
+        synchronousCommit:
+          $ref: '#/components/schemas/PostgresqlConfig12SynchronousCommit_in_PostgresqlConfig12_synchronousCommit'
+        checkpointTimeout:
+          description: Acceptable values are 30000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        checkpointCompletionTarget:
+          type: number
+          format: double
+        checkpointFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        maxWalSize:
+          type: integer
+          format: int64
+        minWalSize:
+          type: integer
+          format: int64
+        maxStandbyStreamingDelay:
+          type: integer
+          format: int64
+        defaultStatisticsTarget:
+          type: integer
+          format: int64
+        constraintExclusion:
+          $ref: '#/components/schemas/PostgresqlConfig12ConstraintExclusion_in_PostgresqlConfig12_constraintExclusion'
+        cursorTupleFraction:
+          type: number
+          format: double
+        fromCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        joinCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        forceParallelMode:
+          $ref: '#/components/schemas/PostgresqlConfig12ForceParallelMode_in_PostgresqlConfig12_forceParallelMode'
+        clientMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_clientMinMessages'
+        logMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_logMinMessages'
+        logMinErrorStatement:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_logMinErrorStatement'
+        logMinDurationStatement:
+          type: integer
+          format: int64
+        logCheckpoints:
+          type: boolean
+          format: boolean
+        logConnections:
+          type: boolean
+          format: boolean
+        logDisconnections:
+          type: boolean
+          format: boolean
+        logDuration:
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          $ref: '#/components/schemas/PostgresqlConfig12LogErrorVerbosity_in_PostgresqlConfig12_logErrorVerbosity'
+        logLockWaits:
+          type: boolean
+          format: boolean
+        logStatement:
+          $ref: '#/components/schemas/PostgresqlConfig12LogStatement_in_PostgresqlConfig12_logStatement'
+        logTempFiles:
+          type: integer
+          format: int64
+        searchPath:
+          type: string
+        rowSecurity:
+          type: boolean
+          format: boolean
+        defaultTransactionIsolation:
+          $ref: '#/components/schemas/PostgresqlConfig12TransactionIsolation_in_PostgresqlConfig12_defaultTransactionIsolation'
+        statementTimeout:
+          type: integer
+          format: int64
+        lockTimeout:
+          type: integer
+          format: int64
+        idleInTransactionSessionTimeout:
+          type: integer
+          format: int64
+        byteaOutput:
+          $ref: '#/components/schemas/PostgresqlConfig12ByteaOutput_in_PostgresqlConfig12_byteaOutput'
+        xmlbinary:
+          $ref: '#/components/schemas/PostgresqlConfig12XmlBinary_in_PostgresqlConfig12_xmlbinary'
+        xmloption:
+          $ref: '#/components/schemas/PostgresqlConfig12XmlOption_in_PostgresqlConfig12_xmloption'
+        ginPendingListLimit:
+          type: integer
+          format: int64
+        deadlockTimeout:
+          type: integer
+          format: int64
+        maxLocksPerTransaction:
+          type: integer
+          format: int64
+        maxPredLocksPerTransaction:
+          type: integer
+          format: int64
+        arrayNulls:
+          type: boolean
+          format: boolean
+        backslashQuote:
+          $ref: '#/components/schemas/PostgresqlConfig12BackslashQuote_in_PostgresqlConfig12_backslashQuote'
+        defaultWithOids:
+          type: boolean
+          format: boolean
+        escapeStringWarning:
+          type: boolean
+          format: boolean
+        loCompatPrivileges:
+          type: boolean
+          format: boolean
+        operatorPrecedenceWarning:
+          type: boolean
+          format: boolean
+        quoteAllIdentifiers:
+          type: boolean
+          format: boolean
+        standardConformingStrings:
+          type: boolean
+          format: boolean
+        synchronizeSeqscans:
+          type: boolean
+          format: boolean
+        transformNullEquals:
+          type: boolean
+          format: boolean
+        exitOnError:
+          type: boolean
+          format: boolean
+        seqPageCost:
+          type: number
+          format: double
+        randomPageCost:
+          type: number
+          format: double
+        autovacuumMaxWorkers:
+          description: Acceptable values are 1 to 32, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostDelay:
+          description: Acceptable values are -1 to 100, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostLimit:
+          description: Acceptable values are -1 to 10000, inclusive.
+          type: integer
+          format: int64
+        autovacuumNaptime:
+          description: Acceptable values are 1000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        archiveTimeout:
+          description: Acceptable values are 10000 to 600000, inclusive.
+          type: integer
+          format: int64
+        trackActivityQuerySize:
+          description: Acceptable values are 100 to 102400, inclusive.
+          type: integer
+          format: int64
+        enableBitmapscan:
+          type: boolean
+          format: boolean
+        enableHashagg:
+          type: boolean
+          format: boolean
+        enableHashjoin:
+          type: boolean
+          format: boolean
+        enableIndexscan:
+          type: boolean
+          format: boolean
+        enableIndexonlyscan:
+          type: boolean
+          format: boolean
+        enableMaterial:
+          type: boolean
+          format: boolean
+        enableMergejoin:
+          type: boolean
+          format: boolean
+        enableNestloop:
+          type: boolean
+          format: boolean
+        enableSeqscan:
+          type: boolean
+          format: boolean
+        enableSort:
+          type: boolean
+          format: boolean
+        enableTidscan:
+          type: boolean
+          format: boolean
+        maxWorkerProcesses:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkers:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkersPerGather:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
+        enableParallelAppend:
+          type: boolean
+          format: boolean
+        enableParallelHash:
+          type: boolean
+          format: boolean
+        enablePartitionPruning:
+          type: boolean
+          format: boolean
+        enablePartitionwiseAggregate:
+          type: boolean
+          format: boolean
+        enablePartitionwiseJoin:
+          type: boolean
+          format: boolean
+        jit:
+          type: boolean
+          format: boolean
+        maxParallelMaintenanceWorkers:
+          description: The minimum value is 0.
+          type: integer
+          format: int64
+        parallelLeaderParticipation:
+          type: boolean
+          format: boolean
+        vacuumCleanupIndexScaleFactor:
+          description: Acceptable values are 0 to 10000000000, inclusive.
+          type: number
+          format: double
+        logTransactionSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        planCacheMode:
+          $ref: '#/components/schemas/PostgresqlConfig12PlanCacheMode_in_PostgresqlConfig12_planCacheMode'
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig12SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig12PgHintPlanDebugPrint_in_PostgresqlConfig12_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_pgHintPlanMessageLevel'
+    PostgresqlConfig12_in_PostgresqlConfigSet12_userConfig:
+      description: |-
+        User-defined settings for a PostgreSQL 12 cluster.
+
+        Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+        parameters which detailed description is available in
+        [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
+      type: object
+      properties:
+        maxConnections:
+          type: integer
+          format: int64
+        sharedBuffers:
+          type: integer
+          format: int64
+        tempBuffers:
+          type: integer
+          format: int64
+        maxPreparedTransactions:
+          type: integer
+          format: int64
+        workMem:
+          type: integer
+          format: int64
+        maintenanceWorkMem:
+          type: integer
+          format: int64
+        autovacuumWorkMem:
+          type: integer
+          format: int64
+        tempFileLimit:
+          type: integer
+          format: int64
+        vacuumCostDelay:
+          type: integer
+          format: int64
+        vacuumCostPageHit:
+          type: integer
+          format: int64
+        vacuumCostPageMiss:
+          type: integer
+          format: int64
+        vacuumCostPageDirty:
+          type: integer
+          format: int64
+        vacuumCostLimit:
+          type: integer
+          format: int64
+        bgwriterDelay:
+          description: Acceptable values are 10 to 10000, inclusive.
+          type: integer
+          format: int64
+        bgwriterLruMaxpages:
+          type: integer
+          format: int64
+        bgwriterLruMultiplier:
+          type: number
+          format: double
+        bgwriterFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        backendFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        oldSnapshotThreshold:
+          description: Acceptable values are -1 to 86400000, inclusive.
+          type: integer
+          format: int64
+        walLevel:
+          $ref: '#/components/schemas/PostgresqlConfig12WalLevel_in_PostgresqlConfig12_walLevel'
+        synchronousCommit:
+          $ref: '#/components/schemas/PostgresqlConfig12SynchronousCommit_in_PostgresqlConfig12_synchronousCommit'
+        checkpointTimeout:
+          description: Acceptable values are 30000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        checkpointCompletionTarget:
+          type: number
+          format: double
+        checkpointFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        maxWalSize:
+          type: integer
+          format: int64
+        minWalSize:
+          type: integer
+          format: int64
+        maxStandbyStreamingDelay:
+          type: integer
+          format: int64
+        defaultStatisticsTarget:
+          type: integer
+          format: int64
+        constraintExclusion:
+          $ref: '#/components/schemas/PostgresqlConfig12ConstraintExclusion_in_PostgresqlConfig12_constraintExclusion'
+        cursorTupleFraction:
+          type: number
+          format: double
+        fromCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        joinCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        forceParallelMode:
+          $ref: '#/components/schemas/PostgresqlConfig12ForceParallelMode_in_PostgresqlConfig12_forceParallelMode'
+        clientMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_clientMinMessages'
+        logMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_logMinMessages'
+        logMinErrorStatement:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_logMinErrorStatement'
+        logMinDurationStatement:
+          type: integer
+          format: int64
+        logCheckpoints:
+          type: boolean
+          format: boolean
+        logConnections:
+          type: boolean
+          format: boolean
+        logDisconnections:
+          type: boolean
+          format: boolean
+        logDuration:
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          $ref: '#/components/schemas/PostgresqlConfig12LogErrorVerbosity_in_PostgresqlConfig12_logErrorVerbosity'
+        logLockWaits:
+          type: boolean
+          format: boolean
+        logStatement:
+          $ref: '#/components/schemas/PostgresqlConfig12LogStatement_in_PostgresqlConfig12_logStatement'
+        logTempFiles:
+          type: integer
+          format: int64
+        searchPath:
+          type: string
+        rowSecurity:
+          type: boolean
+          format: boolean
+        defaultTransactionIsolation:
+          $ref: '#/components/schemas/PostgresqlConfig12TransactionIsolation_in_PostgresqlConfig12_defaultTransactionIsolation'
+        statementTimeout:
+          type: integer
+          format: int64
+        lockTimeout:
+          type: integer
+          format: int64
+        idleInTransactionSessionTimeout:
+          type: integer
+          format: int64
+        byteaOutput:
+          $ref: '#/components/schemas/PostgresqlConfig12ByteaOutput_in_PostgresqlConfig12_byteaOutput'
+        xmlbinary:
+          $ref: '#/components/schemas/PostgresqlConfig12XmlBinary_in_PostgresqlConfig12_xmlbinary'
+        xmloption:
+          $ref: '#/components/schemas/PostgresqlConfig12XmlOption_in_PostgresqlConfig12_xmloption'
+        ginPendingListLimit:
+          type: integer
+          format: int64
+        deadlockTimeout:
+          type: integer
+          format: int64
+        maxLocksPerTransaction:
+          type: integer
+          format: int64
+        maxPredLocksPerTransaction:
+          type: integer
+          format: int64
+        arrayNulls:
+          type: boolean
+          format: boolean
+        backslashQuote:
+          $ref: '#/components/schemas/PostgresqlConfig12BackslashQuote_in_PostgresqlConfig12_backslashQuote'
+        defaultWithOids:
+          type: boolean
+          format: boolean
+        escapeStringWarning:
+          type: boolean
+          format: boolean
+        loCompatPrivileges:
+          type: boolean
+          format: boolean
+        operatorPrecedenceWarning:
+          type: boolean
+          format: boolean
+        quoteAllIdentifiers:
+          type: boolean
+          format: boolean
+        standardConformingStrings:
+          type: boolean
+          format: boolean
+        synchronizeSeqscans:
+          type: boolean
+          format: boolean
+        transformNullEquals:
+          type: boolean
+          format: boolean
+        exitOnError:
+          type: boolean
+          format: boolean
+        seqPageCost:
+          type: number
+          format: double
+        randomPageCost:
+          type: number
+          format: double
+        autovacuumMaxWorkers:
+          description: Acceptable values are 1 to 32, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostDelay:
+          description: Acceptable values are -1 to 100, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostLimit:
+          description: Acceptable values are -1 to 10000, inclusive.
+          type: integer
+          format: int64
+        autovacuumNaptime:
+          description: Acceptable values are 1000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        archiveTimeout:
+          description: Acceptable values are 10000 to 600000, inclusive.
+          type: integer
+          format: int64
+        trackActivityQuerySize:
+          description: Acceptable values are 100 to 102400, inclusive.
+          type: integer
+          format: int64
+        enableBitmapscan:
+          type: boolean
+          format: boolean
+        enableHashagg:
+          type: boolean
+          format: boolean
+        enableHashjoin:
+          type: boolean
+          format: boolean
+        enableIndexscan:
+          type: boolean
+          format: boolean
+        enableIndexonlyscan:
+          type: boolean
+          format: boolean
+        enableMaterial:
+          type: boolean
+          format: boolean
+        enableMergejoin:
+          type: boolean
+          format: boolean
+        enableNestloop:
+          type: boolean
+          format: boolean
+        enableSeqscan:
+          type: boolean
+          format: boolean
+        enableSort:
+          type: boolean
+          format: boolean
+        enableTidscan:
+          type: boolean
+          format: boolean
+        maxWorkerProcesses:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkers:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkersPerGather:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
+        enableParallelAppend:
+          type: boolean
+          format: boolean
+        enableParallelHash:
+          type: boolean
+          format: boolean
+        enablePartitionPruning:
+          type: boolean
+          format: boolean
+        enablePartitionwiseAggregate:
+          type: boolean
+          format: boolean
+        enablePartitionwiseJoin:
+          type: boolean
+          format: boolean
+        jit:
+          type: boolean
+          format: boolean
+        maxParallelMaintenanceWorkers:
+          description: The minimum value is 0.
+          type: integer
+          format: int64
+        parallelLeaderParticipation:
+          type: boolean
+          format: boolean
+        vacuumCleanupIndexScaleFactor:
+          description: Acceptable values are 0 to 10000000000, inclusive.
+          type: number
+          format: double
+        logTransactionSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        planCacheMode:
+          $ref: '#/components/schemas/PostgresqlConfig12PlanCacheMode_in_PostgresqlConfig12_planCacheMode'
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig12SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig12PgHintPlanDebugPrint_in_PostgresqlConfig12_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_pgHintPlanMessageLevel'
+    PostgresqlConfig12_in_PostgresqlConfigSet12_defaultConfig:
+      description: |-
+        Default configuration for a PostgreSQL 12 cluster.
+
+        Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
+        parameters which detailed description is available in
+        [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
+      type: object
+      properties:
+        maxConnections:
+          type: integer
+          format: int64
+        sharedBuffers:
+          type: integer
+          format: int64
+        tempBuffers:
+          type: integer
+          format: int64
+        maxPreparedTransactions:
+          type: integer
+          format: int64
+        workMem:
+          type: integer
+          format: int64
+        maintenanceWorkMem:
+          type: integer
+          format: int64
+        autovacuumWorkMem:
+          type: integer
+          format: int64
+        tempFileLimit:
+          type: integer
+          format: int64
+        vacuumCostDelay:
+          type: integer
+          format: int64
+        vacuumCostPageHit:
+          type: integer
+          format: int64
+        vacuumCostPageMiss:
+          type: integer
+          format: int64
+        vacuumCostPageDirty:
+          type: integer
+          format: int64
+        vacuumCostLimit:
+          type: integer
+          format: int64
+        bgwriterDelay:
+          description: Acceptable values are 10 to 10000, inclusive.
+          type: integer
+          format: int64
+        bgwriterLruMaxpages:
+          type: integer
+          format: int64
+        bgwriterLruMultiplier:
+          type: number
+          format: double
+        bgwriterFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        backendFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        oldSnapshotThreshold:
+          description: Acceptable values are -1 to 86400000, inclusive.
+          type: integer
+          format: int64
+        walLevel:
+          $ref: '#/components/schemas/PostgresqlConfig12WalLevel_in_PostgresqlConfig12_walLevel'
+        synchronousCommit:
+          $ref: '#/components/schemas/PostgresqlConfig12SynchronousCommit_in_PostgresqlConfig12_synchronousCommit'
+        checkpointTimeout:
+          description: Acceptable values are 30000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        checkpointCompletionTarget:
+          type: number
+          format: double
+        checkpointFlushAfter:
+          description: Acceptable values are 0 to 2048, inclusive.
+          type: integer
+          format: int64
+        maxWalSize:
+          type: integer
+          format: int64
+        minWalSize:
+          type: integer
+          format: int64
+        maxStandbyStreamingDelay:
+          type: integer
+          format: int64
+        defaultStatisticsTarget:
+          type: integer
+          format: int64
+        constraintExclusion:
+          $ref: '#/components/schemas/PostgresqlConfig12ConstraintExclusion_in_PostgresqlConfig12_constraintExclusion'
+        cursorTupleFraction:
+          type: number
+          format: double
+        fromCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        joinCollapseLimit:
+          description: Acceptable values are 1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        forceParallelMode:
+          $ref: '#/components/schemas/PostgresqlConfig12ForceParallelMode_in_PostgresqlConfig12_forceParallelMode'
+        clientMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_clientMinMessages'
+        logMinMessages:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_logMinMessages'
+        logMinErrorStatement:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_logMinErrorStatement'
+        logMinDurationStatement:
+          type: integer
+          format: int64
+        logCheckpoints:
+          type: boolean
+          format: boolean
+        logConnections:
+          type: boolean
+          format: boolean
+        logDisconnections:
+          type: boolean
+          format: boolean
+        logDuration:
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          $ref: '#/components/schemas/PostgresqlConfig12LogErrorVerbosity_in_PostgresqlConfig12_logErrorVerbosity'
+        logLockWaits:
+          type: boolean
+          format: boolean
+        logStatement:
+          $ref: '#/components/schemas/PostgresqlConfig12LogStatement_in_PostgresqlConfig12_logStatement'
+        logTempFiles:
+          type: integer
+          format: int64
+        searchPath:
+          type: string
+        rowSecurity:
+          type: boolean
+          format: boolean
+        defaultTransactionIsolation:
+          $ref: '#/components/schemas/PostgresqlConfig12TransactionIsolation_in_PostgresqlConfig12_defaultTransactionIsolation'
+        statementTimeout:
+          type: integer
+          format: int64
+        lockTimeout:
+          type: integer
+          format: int64
+        idleInTransactionSessionTimeout:
+          type: integer
+          format: int64
+        byteaOutput:
+          $ref: '#/components/schemas/PostgresqlConfig12ByteaOutput_in_PostgresqlConfig12_byteaOutput'
+        xmlbinary:
+          $ref: '#/components/schemas/PostgresqlConfig12XmlBinary_in_PostgresqlConfig12_xmlbinary'
+        xmloption:
+          $ref: '#/components/schemas/PostgresqlConfig12XmlOption_in_PostgresqlConfig12_xmloption'
+        ginPendingListLimit:
+          type: integer
+          format: int64
+        deadlockTimeout:
+          type: integer
+          format: int64
+        maxLocksPerTransaction:
+          type: integer
+          format: int64
+        maxPredLocksPerTransaction:
+          type: integer
+          format: int64
+        arrayNulls:
+          type: boolean
+          format: boolean
+        backslashQuote:
+          $ref: '#/components/schemas/PostgresqlConfig12BackslashQuote_in_PostgresqlConfig12_backslashQuote'
+        defaultWithOids:
+          type: boolean
+          format: boolean
+        escapeStringWarning:
+          type: boolean
+          format: boolean
+        loCompatPrivileges:
+          type: boolean
+          format: boolean
+        operatorPrecedenceWarning:
+          type: boolean
+          format: boolean
+        quoteAllIdentifiers:
+          type: boolean
+          format: boolean
+        standardConformingStrings:
+          type: boolean
+          format: boolean
+        synchronizeSeqscans:
+          type: boolean
+          format: boolean
+        transformNullEquals:
+          type: boolean
+          format: boolean
+        exitOnError:
+          type: boolean
+          format: boolean
+        seqPageCost:
+          type: number
+          format: double
+        randomPageCost:
+          type: number
+          format: double
+        autovacuumMaxWorkers:
+          description: Acceptable values are 1 to 32, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostDelay:
+          description: Acceptable values are -1 to 100, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumCostLimit:
+          description: Acceptable values are -1 to 10000, inclusive.
+          type: integer
+          format: int64
+        autovacuumNaptime:
+          description: Acceptable values are 1000 to 86400000, inclusive.
+          type: integer
+          format: int64
+        archiveTimeout:
+          description: Acceptable values are 10000 to 600000, inclusive.
+          type: integer
+          format: int64
+        trackActivityQuerySize:
+          description: Acceptable values are 100 to 102400, inclusive.
+          type: integer
+          format: int64
+        enableBitmapscan:
+          type: boolean
+          format: boolean
+        enableHashagg:
+          type: boolean
+          format: boolean
+        enableHashjoin:
+          type: boolean
+          format: boolean
+        enableIndexscan:
+          type: boolean
+          format: boolean
+        enableIndexonlyscan:
+          type: boolean
+          format: boolean
+        enableMaterial:
+          type: boolean
+          format: boolean
+        enableMergejoin:
+          type: boolean
+          format: boolean
+        enableNestloop:
+          type: boolean
+          format: boolean
+        enableSeqscan:
+          type: boolean
+          format: boolean
+        enableSort:
+          type: boolean
+          format: boolean
+        enableTidscan:
+          type: boolean
+          format: boolean
+        maxWorkerProcesses:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkers:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        maxParallelWorkersPerGather:
+          description: Acceptable values are 0 to 1024, inclusive.
+          type: integer
+          format: int64
+        autovacuumVacuumScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        autovacuumAnalyzeScaleFactor:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        defaultTransactionReadOnly:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
+        enableParallelAppend:
+          type: boolean
+          format: boolean
+        enableParallelHash:
+          type: boolean
+          format: boolean
+        enablePartitionPruning:
+          type: boolean
+          format: boolean
+        enablePartitionwiseAggregate:
+          type: boolean
+          format: boolean
+        enablePartitionwiseJoin:
+          type: boolean
+          format: boolean
+        jit:
+          type: boolean
+          format: boolean
+        maxParallelMaintenanceWorkers:
+          description: The minimum value is 0.
+          type: integer
+          format: int64
+        parallelLeaderParticipation:
+          type: boolean
+          format: boolean
+        vacuumCleanupIndexScaleFactor:
+          description: Acceptable values are 0 to 10000000000, inclusive.
+          type: number
+          format: double
+        logTransactionSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        planCacheMode:
+          $ref: '#/components/schemas/PostgresqlConfig12PlanCacheMode_in_PostgresqlConfig12_planCacheMode'
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
+        sharedPreloadLibraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostgresqlConfig12SharedPreloadLibraries'
+        autoExplainLogMinDuration:
+          description: Acceptable values are -1 to 2147483647, inclusive.
+          type: integer
+          format: int64
+        autoExplainLogAnalyze:
+          type: boolean
+          format: boolean
+        autoExplainLogBuffers:
+          type: boolean
+          format: boolean
+        autoExplainLogTiming:
+          type: boolean
+          format: boolean
+        autoExplainLogTriggers:
+          type: boolean
+          format: boolean
+        autoExplainLogVerbose:
+          type: boolean
+          format: boolean
+        autoExplainLogNestedStatements:
+          type: boolean
+          format: boolean
+        autoExplainSampleRate:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgHintPlanEnableHint:
+          type: boolean
+          format: boolean
+        pgHintPlanEnableHintTable:
+          type: boolean
+          format: boolean
+        pgHintPlanDebugPrint:
+          $ref: '#/components/schemas/PostgresqlConfig12PgHintPlanDebugPrint_in_PostgresqlConfig12_pgHintPlanDebugPrint'
+        pgHintPlanMessageLevel:
+          $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_pgHintPlanMessageLevel'
     PostgresqlConfig9_6_in_PostgresqlConfigSet9_6_effectiveConfig:
       description: |-
         Required.
@@ -9187,6 +11961,14 @@ components:
           description: Acceptable values are 100 to 102400, inclusive.
           type: integer
           format: int64
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
     PostgresqlConfig9_6_in_PostgresqlConfigSet9_6_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 9.6 cluster.
@@ -9433,6 +12215,14 @@ components:
           description: Acceptable values are 100 to 102400, inclusive.
           type: integer
           format: int64
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
+          type: integer
+          format: int64
     PostgresqlConfig9_6_in_PostgresqlConfigSet9_6_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 9.6 cluster.
@@ -9677,6 +12467,14 @@ components:
           format: int64
         trackActivityQuerySize:
           description: Acceptable values are 100 to 102400, inclusive.
+          type: integer
+          format: int64
+        effectiveIoConcurrency:
+          description: Acceptable values are 0 to 1000, inclusive.
+          type: integer
+          format: int64
+        effectiveCacheSize:
+          description: Acceptable values are 0 to 549755813888, inclusive.
           type: integer
           format: int64
     PostgresqlHostConfig10ConstraintExclusion_in_PostgresqlHostConfig10_constraintExclusion:
@@ -9967,6 +12765,102 @@ components:
       - BACKSLASH_QUOTE_ON
       - BACKSLASH_QUOTE_OFF
       - BACKSLASH_QUOTE_SAFE_ENCODING
+    PostgresqlHostConfig12ConstraintExclusion_in_PostgresqlHostConfig12_constraintExclusion:
+      type: string
+      enum:
+      - CONSTRAINT_EXCLUSION_ON
+      - CONSTRAINT_EXCLUSION_OFF
+      - CONSTRAINT_EXCLUSION_PARTITION
+    PostgresqlHostConfig12ForceParallelMode_in_PostgresqlHostConfig12_forceParallelMode:
+      type: string
+      enum:
+      - FORCE_PARALLEL_MODE_ON
+      - FORCE_PARALLEL_MODE_OFF
+      - FORCE_PARALLEL_MODE_REGRESS
+    PostgresqlHostConfig12LogLevel_in_PostgresqlHostConfig12_clientMinMessages:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlHostConfig12LogLevel_in_PostgresqlHostConfig12_logMinMessages:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlHostConfig12LogLevel_in_PostgresqlHostConfig12_logMinErrorStatement:
+      type: string
+      enum:
+      - LOG_LEVEL_DEBUG5
+      - LOG_LEVEL_DEBUG4
+      - LOG_LEVEL_DEBUG3
+      - LOG_LEVEL_DEBUG2
+      - LOG_LEVEL_DEBUG1
+      - LOG_LEVEL_LOG
+      - LOG_LEVEL_NOTICE
+      - LOG_LEVEL_WARNING
+      - LOG_LEVEL_ERROR
+      - LOG_LEVEL_FATAL
+      - LOG_LEVEL_PANIC
+    PostgresqlHostConfig12LogErrorVerbosity_in_PostgresqlHostConfig12_logErrorVerbosity:
+      type: string
+      enum:
+      - LOG_ERROR_VERBOSITY_TERSE
+      - LOG_ERROR_VERBOSITY_DEFAULT
+      - LOG_ERROR_VERBOSITY_VERBOSE
+    PostgresqlHostConfig12LogStatement_in_PostgresqlHostConfig12_logStatement:
+      type: string
+      enum:
+      - LOG_STATEMENT_NONE
+      - LOG_STATEMENT_DDL
+      - LOG_STATEMENT_MOD
+      - LOG_STATEMENT_ALL
+    PostgresqlHostConfig12TransactionIsolation_in_PostgresqlHostConfig12_defaultTransactionIsolation:
+      type: string
+      enum:
+      - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+      - TRANSACTION_ISOLATION_READ_COMMITTED
+      - TRANSACTION_ISOLATION_REPEATABLE_READ
+      - TRANSACTION_ISOLATION_SERIALIZABLE
+    PostgresqlHostConfig12ByteaOutput_in_PostgresqlHostConfig12_byteaOutput:
+      type: string
+      enum:
+      - BYTEA_OUTPUT_HEX
+      - BYTEA_OUTPUT_ESCAPED
+    PostgresqlHostConfig12XmlBinary_in_PostgresqlHostConfig12_xmlbinary:
+      type: string
+      enum:
+      - XML_BINARY_BASE64
+      - XML_BINARY_HEX
+    PostgresqlHostConfig12XmlOption_in_PostgresqlHostConfig12_xmloption:
+      type: string
+      enum:
+      - XML_OPTION_DOCUMENT
+      - XML_OPTION_CONTENT
+    PostgresqlHostConfig12BackslashQuote_in_PostgresqlHostConfig12_backslashQuote:
+      type: string
+      enum:
+      - BACKSLASH_QUOTE
+      - BACKSLASH_QUOTE_ON
+      - BACKSLASH_QUOTE_OFF
+      - BACKSLASH_QUOTE_SAFE_ENCODING
     PostgresqlHostConfig9_6ConstraintExclusion_in_PostgresqlHostConfig9_6_constraintExclusion:
       type: string
       enum:
@@ -10089,6 +12983,7 @@ components:
               * 10
               * 10_1c
               * 11
+              * 12
             type: string
           poolerConfig:
             $ref: '#/components/schemas/ConnectionPoolerConfig'
@@ -10123,6 +13018,9 @@ components:
           postgresqlConfig_11:
             $ref: '#/components/schemas/PostgresqlConfig11'
             description: Configuration for a PostgreSQL 11 cluster.
+          postgresqlConfig_12:
+            $ref: '#/components/schemas/PostgresqlConfig12'
+            description: Configuration for a PostgreSQL 12 cluster.
     ServiceType_in_Service_type:
       description: |-
         Type of the service provided by the host.
@@ -10173,6 +13071,7 @@ components:
               * 10
               * 10_1c
               * 11
+              * 12
             type: string
           poolerConfig:
             $ref: '#/components/schemas/ConnectionPoolerConfig'
@@ -10207,6 +13106,9 @@ components:
           postgresqlConfig_11:
             $ref: '#/components/schemas/PostgresqlConfig11'
             description: Configuration for a PostgreSQL 11 cluster.
+          postgresqlConfig_12:
+            $ref: '#/components/schemas/PostgresqlConfig12'
+            description: Configuration for a PostgreSQL 12 cluster.
     FieldMask_in_UpdateDatabaseRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the Database resource should be updated.
@@ -10240,6 +13142,9 @@ components:
           postgresqlConfig_11:
             $ref: '#/components/schemas/PostgresqlHostConfig11'
             description: Configuration for a host with PostgreSQL 11 server deployed.
+          postgresqlConfig_12:
+            $ref: '#/components/schemas/PostgresqlHostConfig12'
+            description: Configuration for a host with PostgreSQL 12 server deployed.
     FieldMask_in_UpdateUserRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the PostgreSQL User resource should be updated.

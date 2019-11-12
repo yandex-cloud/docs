@@ -3,7 +3,8 @@ editable: false
 ---
 
 # Method setPrimaryVersion
-Sets primary version for the specified key. Primary version will be used by default for all encrypt/decrypt operations.
+Sets the primary version for the specified key. The primary version is used
+by default for all encrypt/decrypt operations where no version ID is specified.
  
 
  
@@ -16,13 +17,20 @@ POST https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}:setPrimaryVersion
  
 Parameter | Description
 --- | ---
-keyId | Required. The maximum string length in characters is 50.
+keyId | Required. ID of the key to set a primary version for.  The maximum string length in characters is 50.
  
-## Query parameters {#query_params}
+## Body parameters {#body_params}
  
-Parameter | Description
+```json 
+{
+  "versionId": "string"
+}
+```
+
+ 
+Field | Description
 --- | ---
-versionId | Required. The maximum string length in characters is 50.
+versionId | **string**<br><p>Required. ID of the version that should become primary for the specified key.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -1633,7 +1633,7 @@ components:
     ClickhouseConfig:
       description: |-
         Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек
-        доступно в [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
 
         Любые настройки, не перечисленные здесь, не поддерживаются.
       type: object
@@ -1644,22 +1644,22 @@ components:
           $ref: '#/components/schemas/ClickhouseConfigMergeTree_in_ClickhouseConfig_mergeTree'
         compression:
           description: |-
-            Параметры сжатия для кластера ClickHouse. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression).
+            Параметры сжатия для кластера ClickHouse. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#compression).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigCompression'
         dictionaries:
           description: |-
-            Конфигурация внешних словарей для кластера ClickHouse. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts/).
+            Конфигурация внешних словарей для кластера ClickHouse. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts/).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigExternalDictionary'
         graphiteRollup:
           description: |-
-            Настройки для прореживания данных Graphite. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup).
+            Настройки для прореживания данных Graphite. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server_settings-graphite_rollup).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
@@ -1686,14 +1686,14 @@ components:
         uncompressedCacheSize:
           description: |-
             Размер кэша (в байтах) для несжатых данных, используемых таблицами MergeTree. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#uncompressed_cache_size).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
           type: integer
           format: int64
         markCacheSize:
           description: |-
             Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в
-            [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#mark_cache_size).
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
 
             Значение должно быть больше 5368709120.
           type: integer
@@ -1701,28 +1701,28 @@ components:
         maxTableSizeToDrop:
           description: |-
             Максимальный размер таблицы, которую можно удалить с помощью запроса DROP. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_table_size_to_drop).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
           type: integer
           format: int64
         maxPartitionSizeToDrop:
           description: |-
             Максимальный размер раздела, который можно удалить с помощью запроса DROP. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_partition_size_to_drop).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
           description: |-
             Интервал времени для перезагрузки встроенных словарей. См. подробное описание в
-            [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
           type: integer
           format: int64
         timezone:
           description: |-
             Часовой пояс сервера, используемый в преобразованиях полей DateTime. Указывается как
-            идентификатор IANA. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone).
+            идентификатор IANA. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
           type: string
     ClickhouseConfigCompression:
       type: object
@@ -1964,8 +1964,7 @@ components:
         invalidateQuery:
           description: |-
             Запрос на проверку состояния словаря, который позволит извлекать только
-            обновленные данные. Дополнительные сведения см. в [ClickHouse documentation on
-            dictionaries](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+            обновленные данные. Дополнительные сведения см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_lifetime/).
           type: string
     ClickhouseConfigExternalDictionaryMysqlSourceReplica:
       type: object
@@ -2077,8 +2076,8 @@ components:
         attributes:
           description: |-
             Обязательное поле.
-            Описание полей, доступных для запросов к базе данных. Подробнее см. в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_structure/#attributes).
+            Описание полей, доступных для запросов к базе данных. Подробнее см. в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_structure/#attributes).
 
             Должен содержать хотя бы один элемент.
           type: array
@@ -3718,8 +3717,8 @@ components:
       - ERROR
     ClickhouseConfigMergeTree_in_ClickhouseConfig_mergeTree:
       description: |-
-        Параметры движка MergeTree. См. описание в [ClickHouse
-        documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#merge_tree).
+        Параметры движка MergeTree. См. описание в [документации
+        Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#merge_tree).
 
         Настройки движка таблицы MergeTree.
       type: object
@@ -3831,8 +3830,8 @@ components:
     ClickhouseConfigExternalDictionaryStructureAttribute_in_ClickhouseConfigExternalDictionaryStructure_rangeMin:
       description: |-
         Поле, содержащее начало диапазона для словарей, которые хранятся в памяти
-        способом`RANGE_HASHED`. Подробнее см.[ClickHouse
-        documentation](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_layout/#range-hashed)
+        способом`RANGE_HASHED`. Подробнее см.[документации
+        Clickhouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_layout/#range-hashed)
       type: object
       properties:
         name:
@@ -3864,8 +3863,8 @@ components:
     ClickhouseConfigExternalDictionaryStructureAttribute_in_ClickhouseConfigExternalDictionaryStructure_rangeMax:
       description: |-
         Поле, содержащее конец диапазона для словарей, которые хранятся в памяти
-        способом`RANGE_HASHED`. Подробнее см.[ClickHouse
-        documentation](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_layout/#range-hashed)
+        способом`RANGE_HASHED`. Подробнее см.[документации
+        Clickhouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_layout/#range-hashed)
       type: object
       properties:
         name:
@@ -3901,7 +3900,7 @@ components:
         userConfig и [default_config]).
 
         Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек
-        доступно в [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
 
         Любые настройки, не перечисленные здесь, не поддерживаются.
       type: object
@@ -3912,22 +3911,22 @@ components:
           $ref: '#/components/schemas/ClickhouseConfigMergeTree_in_ClickhouseConfig_mergeTree'
         compression:
           description: |-
-            Параметры сжатия для кластера ClickHouse. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression).
+            Параметры сжатия для кластера ClickHouse. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#compression).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigCompression'
         dictionaries:
           description: |-
-            Конфигурация внешних словарей для кластера ClickHouse. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts/).
+            Конфигурация внешних словарей для кластера ClickHouse. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts/).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigExternalDictionary'
         graphiteRollup:
           description: |-
-            Настройки для прореживания данных Graphite. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup).
+            Настройки для прореживания данных Graphite. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server_settings-graphite_rollup).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
@@ -3954,14 +3953,14 @@ components:
         uncompressedCacheSize:
           description: |-
             Размер кэша (в байтах) для несжатых данных, используемых таблицами MergeTree. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#uncompressed_cache_size).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
           type: integer
           format: int64
         markCacheSize:
           description: |-
             Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в
-            [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#mark_cache_size).
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
 
             Значение должно быть больше 5368709120.
           type: integer
@@ -3969,35 +3968,35 @@ components:
         maxTableSizeToDrop:
           description: |-
             Максимальный размер таблицы, которую можно удалить с помощью запроса DROP. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_table_size_to_drop).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
           type: integer
           format: int64
         maxPartitionSizeToDrop:
           description: |-
             Максимальный размер раздела, который можно удалить с помощью запроса DROP. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_partition_size_to_drop).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
           description: |-
             Интервал времени для перезагрузки встроенных словарей. См. подробное описание в
-            [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
           type: integer
           format: int64
         timezone:
           description: |-
             Часовой пояс сервера, используемый в преобразованиях полей DateTime. Указывается как
-            идентификатор IANA. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone).
+            идентификатор IANA. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
           type: string
     ClickhouseConfig_in_ClickhouseConfigSet_userConfig:
       description: |-
         Пользовательские настройки для кластера ClickHouse.
 
         Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек
-        доступно в [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
 
         Любые настройки, не перечисленные здесь, не поддерживаются.
       type: object
@@ -4008,22 +4007,22 @@ components:
           $ref: '#/components/schemas/ClickhouseConfigMergeTree_in_ClickhouseConfig_mergeTree'
         compression:
           description: |-
-            Параметры сжатия для кластера ClickHouse. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression).
+            Параметры сжатия для кластера ClickHouse. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#compression).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigCompression'
         dictionaries:
           description: |-
-            Конфигурация внешних словарей для кластера ClickHouse. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts/).
+            Конфигурация внешних словарей для кластера ClickHouse. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts/).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigExternalDictionary'
         graphiteRollup:
           description: |-
-            Настройки для прореживания данных Graphite. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup).
+            Настройки для прореживания данных Graphite. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server_settings-graphite_rollup).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
@@ -4050,14 +4049,14 @@ components:
         uncompressedCacheSize:
           description: |-
             Размер кэша (в байтах) для несжатых данных, используемых таблицами MergeTree. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#uncompressed_cache_size).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
           type: integer
           format: int64
         markCacheSize:
           description: |-
             Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в
-            [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#mark_cache_size).
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
 
             Значение должно быть больше 5368709120.
           type: integer
@@ -4065,35 +4064,35 @@ components:
         maxTableSizeToDrop:
           description: |-
             Максимальный размер таблицы, которую можно удалить с помощью запроса DROP. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_table_size_to_drop).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
           type: integer
           format: int64
         maxPartitionSizeToDrop:
           description: |-
             Максимальный размер раздела, который можно удалить с помощью запроса DROP. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_partition_size_to_drop).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
           description: |-
             Интервал времени для перезагрузки встроенных словарей. См. подробное описание в
-            [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
           type: integer
           format: int64
         timezone:
           description: |-
             Часовой пояс сервера, используемый в преобразованиях полей DateTime. Указывается как
-            идентификатор IANA. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone).
+            идентификатор IANA. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
           type: string
     ClickhouseConfig_in_ClickhouseConfigSet_defaultConfig:
       description: |-
         Конфигурация по умолчанию для кластера ClickHouse.
 
         Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек
-        доступно в [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
 
         Любые настройки, не перечисленные здесь, не поддерживаются.
       type: object
@@ -4104,22 +4103,22 @@ components:
           $ref: '#/components/schemas/ClickhouseConfigMergeTree_in_ClickhouseConfig_mergeTree'
         compression:
           description: |-
-            Параметры сжатия для кластера ClickHouse. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression).
+            Параметры сжатия для кластера ClickHouse. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#compression).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigCompression'
         dictionaries:
           description: |-
-            Конфигурация внешних словарей для кластера ClickHouse. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts/).
+            Конфигурация внешних словарей для кластера ClickHouse. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts/).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigExternalDictionary'
         graphiteRollup:
           description: |-
-            Настройки для прореживания данных Graphite. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup).
+            Настройки для прореживания данных Graphite. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server_settings-graphite_rollup).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
@@ -4146,14 +4145,14 @@ components:
         uncompressedCacheSize:
           description: |-
             Размер кэша (в байтах) для несжатых данных, используемых таблицами MergeTree. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#uncompressed_cache_size).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
           type: integer
           format: int64
         markCacheSize:
           description: |-
             Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в
-            [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#mark_cache_size).
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
 
             Значение должно быть больше 5368709120.
           type: integer
@@ -4161,28 +4160,28 @@ components:
         maxTableSizeToDrop:
           description: |-
             Максимальный размер таблицы, которую можно удалить с помощью запроса DROP. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_table_size_to_drop).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
           type: integer
           format: int64
         maxPartitionSizeToDrop:
           description: |-
             Максимальный размер раздела, который можно удалить с помощью запроса DROP. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_partition_size_to_drop).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
           description: |-
             Интервал времени для перезагрузки встроенных словарей. См. подробное описание в
-            [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
           type: integer
           format: int64
         timezone:
           description: |-
             Часовой пояс сервера, используемый в преобразованиях полей DateTime. Указывается как
-            идентификатор IANA. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone).
+            идентификатор IANA. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
           type: string
     ClusterEnvironment_in_Cluster_environment:
       description: |-
@@ -4393,7 +4392,7 @@ components:
         Конфигурация для сервера ClickHouse.
 
         Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек
-        доступно в [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
 
         Любые настройки, не перечисленные здесь, не поддерживаются.
       type: object
@@ -4404,22 +4403,22 @@ components:
           $ref: '#/components/schemas/ClickhouseConfigMergeTree_in_ClickhouseConfig_mergeTree'
         compression:
           description: |-
-            Параметры сжатия для кластера ClickHouse. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression).
+            Параметры сжатия для кластера ClickHouse. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#compression).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigCompression'
         dictionaries:
           description: |-
-            Конфигурация внешних словарей для кластера ClickHouse. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts/).
+            Конфигурация внешних словарей для кластера ClickHouse. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts/).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigExternalDictionary'
         graphiteRollup:
           description: |-
-            Настройки для прореживания данных Graphite. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup).
+            Настройки для прореживания данных Graphite. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server_settings-graphite_rollup).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
@@ -4446,14 +4445,14 @@ components:
         uncompressedCacheSize:
           description: |-
             Размер кэша (в байтах) для несжатых данных, используемых таблицами MergeTree. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#uncompressed_cache_size).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
           type: integer
           format: int64
         markCacheSize:
           description: |-
             Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в
-            [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#mark_cache_size).
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
 
             Значение должно быть больше 5368709120.
           type: integer
@@ -4461,28 +4460,28 @@ components:
         maxTableSizeToDrop:
           description: |-
             Максимальный размер таблицы, которую можно удалить с помощью запроса DROP. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_table_size_to_drop).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
           type: integer
           format: int64
         maxPartitionSizeToDrop:
           description: |-
             Максимальный размер раздела, который можно удалить с помощью запроса DROP. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_partition_size_to_drop).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
           description: |-
             Интервал времени для перезагрузки встроенных словарей. См. подробное описание в
-            [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
           type: integer
           format: int64
         timezone:
           description: |-
             Часовой пояс сервера, используемый в преобразованиях полей DateTime. Указывается как
-            идентификатор IANA. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone).
+            идентификатор IANA. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
           type: string
     Resources_in_ConfigSpecClickhouse_resources:
       description: Ресурсы, выделенные хостам ClickHouse.
@@ -4836,7 +4835,7 @@ components:
         Настройки ClickHouse для шарда.
 
         Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек
-        доступно в [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
 
         Любые настройки, не перечисленные здесь, не поддерживаются.
       type: object
@@ -4847,22 +4846,22 @@ components:
           $ref: '#/components/schemas/ClickhouseConfigMergeTree_in_ClickhouseConfig_mergeTree'
         compression:
           description: |-
-            Параметры сжатия для кластера ClickHouse. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression).
+            Параметры сжатия для кластера ClickHouse. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#compression).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigCompression'
         dictionaries:
           description: |-
-            Конфигурация внешних словарей для кластера ClickHouse. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts/).
+            Конфигурация внешних словарей для кластера ClickHouse. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts/).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigExternalDictionary'
         graphiteRollup:
           description: |-
-            Настройки для прореживания данных Graphite. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup).
+            Настройки для прореживания данных Graphite. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server_settings-graphite_rollup).
           type: array
           items:
             $ref: '#/components/schemas/ClickhouseConfigGraphiteRollup'
@@ -4889,14 +4888,14 @@ components:
         uncompressedCacheSize:
           description: |-
             Размер кэша (в байтах) для несжатых данных, используемых таблицами MergeTree. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#uncompressed_cache_size).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
           type: integer
           format: int64
         markCacheSize:
           description: |-
             Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в
-            [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#mark_cache_size).
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
 
             Значение должно быть больше 5368709120.
           type: integer
@@ -4904,28 +4903,28 @@ components:
         maxTableSizeToDrop:
           description: |-
             Максимальный размер таблицы, которую можно удалить с помощью запроса DROP. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_table_size_to_drop).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
           type: integer
           format: int64
         maxPartitionSizeToDrop:
           description: |-
             Максимальный размер раздела, который можно удалить с помощью запроса DROP. См.
-            подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_partition_size_to_drop).
+            подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
           description: |-
             Интервал времени для перезагрузки встроенных словарей. См. подробное описание в
-            [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#builtin_dictionaries_reload_interval).
           type: integer
           format: int64
         timezone:
           description: |-
             Часовой пояс сервера, используемый в преобразованиях полей DateTime. Указывается как
-            идентификатор IANA. См. подробное описание в [ClickHouse
-            documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone).
+            идентификатор IANA. См. подробное описание в [документации
+            Clickhouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
           type: string
     Resources_in_ShardConfigSpecClickhouse_resources:
       description: Вычислительные ресурсы для шарда.

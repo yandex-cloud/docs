@@ -22,7 +22,7 @@ paths:
         description: |-
           Required.
           ID of the InstanceGroup resource to return.
-          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+          To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -53,7 +53,7 @@ paths:
         description: |-
           Required.
           ID of the instance group to delete.
-          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+          To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -83,7 +83,7 @@ paths:
         description: |-
           Required.
           ID of the instance group to update.
-          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+          To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -229,7 +229,7 @@ paths:
         description: |-
           Required.
           ID of the instance group to update.
-          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+          To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -256,9 +256,7 @@ paths:
     post:
       tags:
       - InstanceGroup
-      summary: |-
-        TODO DOC-REVIEW:
-        Stops the specified instance group.
+      summary: Stops the specified instance group.
       operationId: InstanceGroupStop
       parameters:
       - name: instanceGroupId
@@ -266,14 +264,13 @@ paths:
         description: |-
           Required.
           ID of the instance group to stop.
-          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+          To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.
 
           The maximum string length in characters is 50.
         required: true
         schema:
           type: string
       requestBody:
-        description: 'TODO DOC-REVIEW:'
         content:
           application/json:
             schema:
@@ -294,9 +291,7 @@ paths:
     post:
       tags:
       - InstanceGroup
-      summary: |-
-        TODO DOC-REVIEW:
-        Starts the specified instance group.
+      summary: Starts the specified instance group.
       operationId: InstanceGroupStart
       parameters:
       - name: instanceGroupId
@@ -304,14 +299,13 @@ paths:
         description: |-
           Required.
           ID of the instance group to start.
-          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+          To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.
 
           The maximum string length in characters is 50.
         required: true
         schema:
           type: string
       requestBody:
-        description: 'TODO DOC-REVIEW:'
         content:
           application/json:
             schema:
@@ -340,7 +334,7 @@ paths:
         description: |-
           Required.
           ID of the InstanceGroup resource to list instances for.
-          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+          To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -452,7 +446,7 @@ paths:
         description: |-
           Required.
           ID of the InstanceGroup resource to list logs for.
-          To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+          To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.
         required: true
         schema:
           type: string
@@ -662,7 +656,7 @@ components:
         instanceGroupId:
           description: |-
             ID of the instance group that is being deleted.
-            To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+            To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.
           type: string
     DeployPolicy:
       type: object
@@ -853,9 +847,7 @@ components:
         status:
           $ref: '#/components/schemas/InstanceGroupStatus_in_InstanceGroup_status'
     InstanceGroupStatus:
-      description: |-
-        TODO DOC-REVIEW:
-
+      description: |2-
          - STARTING: Instance group is being started and will become active soon.
          - ACTIVE: Instance group is active.
         In this state the group manages its instances and monitors their health,
@@ -1305,9 +1297,12 @@ components:
         properties:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
-            description: Fixed scaling policy of the instance group.
+            description: '[Manual scaling policy](/docs/compute/concepts/instance-groups/scale#fixed-policy)
+              of the instance group.'
           autoScale:
             $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: '[Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale)
+              of the instance group.'
     ScalePolicyAutoScale:
       type: object
       properties:
@@ -1329,27 +1324,102 @@ components:
         measurementDuration:
           description: |-
             Required.
+            Time in seconds allotted for averaging metrics.
+
             Acceptable values are 60 seconds to 600 seconds, inclusive.
           type: string
         warmupDuration:
-          description: The maximum value is 600 seconds.
+          description: |-
+            The warmup time of the instance, in seconds. During this time,
+            traffic is sent to the instance, but instance metrics are not collected.
+
+            The maximum value is 600 seconds.
           type: string
         stabilizationDuration:
-          description: Acceptable values are 60 seconds to 1800 seconds, inclusive.
+          description: |-
+            Minimum amount of time, in seconds, allotted for monitoring before
+            Instance Groups can reduce the number of instances in the group.
+            During this time, the group size is not decreased, even if the new metric values
+            indicate that it should be.
+
+            Acceptable values are 60 seconds to 1800 seconds, inclusive.
           type: string
         initialSize:
-          description: The minimum value is 1.
+          description: |-
+            Target group size.
+
+            The minimum value is 1.
           type: string
           format: int64
         cpuUtilizationRule:
           $ref: '#/components/schemas/ScalePolicyCpuUtilizationRule_in_ScalePolicyAutoScale_cpuUtilizationRule'
+        customRules:
+          description: |-
+            Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring.
+
+            The maximum number of elements is 1.
+          type: array
+          items:
+            $ref: '#/components/schemas/ScalePolicyCustomRule'
     ScalePolicyCpuUtilizationRule:
       type: object
       properties:
         utilizationTarget:
-          description: Acceptable values are 10 to 100, inclusive.
+          description: |-
+            The target CPU utilization level. Instance Groups maintains this level for each availability zone.
+
+            Acceptable values are 10 to 100, inclusive.
           type: number
           format: double
+    ScalePolicyCustomRule:
+      type: object
+      properties:
+        ruleType:
+          $ref: '#/components/schemas/ScalePolicyCustomRuleRuleType_in_ScalePolicyCustomRule_ruleType'
+        metricType:
+          $ref: '#/components/schemas/ScalePolicyCustomRuleMetricType_in_ScalePolicyCustomRule_metricType'
+        metricName:
+          description: |-
+            Required.
+            Name of a custom metric in Yandex Monitoring that should be used for scaling.
+
+            Value must match the regular expression `` [a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]<>-]{0,198} ``.
+          type: string
+        target:
+          description: |-
+            Target value for specified custom metric. Instance Groups maintains this level for each availability zone.
+
+            Value must be greater than 0.
+          type: number
+          format: double
+    ScalePolicyCustomRuleMetricType:
+      description: |2-
+         - GAUGE: This type is used for metrics that shows the metric value at a certain point in time.
+        For example, requests per second to the server on an instance.
+
+        Instance Groups will calculate the average metric value for the period
+        specified in the measurementDuration field.
+         - COUNTER: This type is used for metrics that monotonically increase over time.
+        For example, the total number of requests to the server on an instance.
+
+        Instance Groups will calculate the average value increase for the period
+        specified in the measurementDuration field.
+      type: string
+      enum:
+      - GAUGE
+      - COUNTER
+    ScalePolicyCustomRuleRuleType:
+      description: |2-
+         - UTILIZATION: This type means that the metric applies to one instance.
+        First, Instance Groups calculates the average metric value for each instance,
+        then averages the values for all groups' instances in one availability zone.
+        Metric with this type must have the `instance_id` label.
+         - WORKLOAD: This type means that the metric applies to all groups' instances in one availability zone.
+        Metric with this type must have the `zone_id` label.
+      type: string
+      enum:
+      - UTILIZATION
+      - WORKLOAD
     ScalePolicyFixedScale:
       type: object
       properties:
@@ -1371,25 +1441,21 @@ components:
           type: boolean
           format: boolean
     StartInstanceGroupMetadata:
-      description: 'TODO DOC-REVIEW:'
       type: object
       properties:
         instanceGroupId:
           description: ID of the InstanceGroup resource that is being started.
           type: string
     StartInstanceGroupRequest:
-      description: 'TODO DOC-REVIEW:'
       type: object
       properties: {}
     StopInstanceGroupMetadata:
-      description: 'TODO DOC-REVIEW:'
       type: object
       properties:
         instanceGroupId:
           description: ID of the InstanceGroup resource that is being stopped.
           type: string
     StopInstanceGroupRequest:
-      description: 'TODO DOC-REVIEW:'
       type: object
       properties: {}
     TargetGroupSpec:
@@ -1435,7 +1501,7 @@ components:
         instanceGroupId:
           description: |-
             ID of the InstanceGroup resource that is being updated.
-            To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+            To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.
           type: string
     UpdateInstanceGroupRequest:
       type: object
@@ -1629,7 +1695,7 @@ components:
     ScalePolicy_in_CreateInstanceGroupRequest_scalePolicy:
       description: |-
         Required.
-        Scaling policy of the instance group.
+        [Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group.
       type: object
       allOf:
       - title: scale_type
@@ -1638,9 +1704,12 @@ components:
         properties:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
-            description: Fixed scaling policy of the instance group.
+            description: '[Manual scaling policy](/docs/compute/concepts/instance-groups/scale#fixed-policy)
+              of the instance group.'
           autoScale:
             $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: '[Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale)
+              of the instance group.'
     DeployPolicy_in_CreateInstanceGroupRequest_deployPolicy:
       description: |-
         Required.
@@ -1795,7 +1864,8 @@ components:
           description: Service account ID for the instance.
           type: string
     ScalePolicy_in_InstanceGroup_scalePolicy:
-      description: Scaling policy of the instance group.
+      description: '[Scaling policy](/docs/compute/concepts/instance-groups/scale)
+        of the instance group.'
       type: object
       allOf:
       - title: scale_type
@@ -1804,9 +1874,12 @@ components:
         properties:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
-            description: Fixed scaling policy of the instance group.
+            description: '[Manual scaling policy](/docs/compute/concepts/instance-groups/scale#fixed-policy)
+              of the instance group.'
           autoScale:
             $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: '[Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale)
+              of the instance group.'
     DeployPolicy_in_InstanceGroup_deployPolicy:
       description: Deployment policy of the instance group.
       type: object
@@ -1921,10 +1994,7 @@ components:
             $ref: '#/components/schemas/HealthCheckSpec'
     InstanceGroupStatus_in_InstanceGroup_status:
       description: |-
-        TODO DOC-REVIEW:
         Status of the instance group.
-
-        TODO DOC-REVIEW:
 
          - STARTING: Instance group is being started and will become active soon.
          - ACTIVE: Instance group is active.
@@ -2151,12 +2221,52 @@ components:
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
     ScalePolicyCpuUtilizationRule_in_ScalePolicyAutoScale_cpuUtilizationRule:
+      description: Defines an autoscaling rule based on average CPU utilization of
+        the instance group.
       type: object
       properties:
         utilizationTarget:
-          description: Acceptable values are 10 to 100, inclusive.
+          description: |-
+            The target CPU utilization level. Instance Groups maintains this level for each availability zone.
+
+            Acceptable values are 10 to 100, inclusive.
           type: number
           format: double
+    ScalePolicyCustomRuleRuleType_in_ScalePolicyCustomRule_ruleType:
+      description: |-
+        Required.
+        Rule type of the custom metric. This field affects which label from
+        the custom metric must be used: `zone_id` or `instance_id`.
+
+         - UTILIZATION: This type means that the metric applies to one instance.
+        First, Instance Groups calculates the average metric value for each instance,
+        then averages the values for all groups' instances in one availability zone.
+        Metric with this type must have the `instance_id` label.
+         - WORKLOAD: This type means that the metric applies to all groups' instances in one availability zone.
+        Metric with this type must have the `zone_id` label.
+      type: string
+      enum:
+      - UTILIZATION
+      - WORKLOAD
+    ScalePolicyCustomRuleMetricType_in_ScalePolicyCustomRule_metricType:
+      description: |-
+        Required.
+        Type of the custom metric. This field affects how Instance Group calculates an average metric value.
+
+         - GAUGE: This type is used for metrics that shows the metric value at a certain point in time.
+        For example, requests per second to the server on an instance.
+
+        Instance Groups will calculate the average metric value for the period
+        specified in the measurementDuration field.
+         - COUNTER: This type is used for metrics that monotonically increase over time.
+        For example, the total number of requests to the server on an instance.
+
+        Instance Groups will calculate the average value increase for the period
+        specified in the measurementDuration field.
+      type: string
+      enum:
+      - GAUGE
+      - COUNTER
     FieldMask_in_UpdateInstanceGroupRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the InstanceGroup resource are going to be updated.
@@ -2244,7 +2354,7 @@ components:
     ScalePolicy_in_UpdateInstanceGroupRequest_scalePolicy:
       description: |-
         Required.
-        Scaling policy of the instance group.
+        [Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group.
       type: object
       allOf:
       - title: scale_type
@@ -2253,9 +2363,12 @@ components:
         properties:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
-            description: Fixed scaling policy of the instance group.
+            description: '[Manual scaling policy](/docs/compute/concepts/instance-groups/scale#fixed-policy)
+              of the instance group.'
           autoScale:
             $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: '[Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale)
+              of the instance group.'
     DeployPolicy_in_UpdateInstanceGroupRequest_deployPolicy:
       description: |-
         Required.

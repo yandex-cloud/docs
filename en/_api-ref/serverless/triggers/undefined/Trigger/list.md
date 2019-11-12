@@ -36,7 +36,15 @@ filter |
       "labels": "object",
       "rule": {
 
-        // `triggers[].rule` includes only one of the fields `messageQueue`, `iotMessage`
+        // `triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`
+        "timer": {
+          "cronExpression": "string",
+          "invokeFunction": {
+            "functionId": "string",
+            "functionTag": "string",
+            "serviceAccountId": "string"
+          }
+        },
         "messageQueue": {
           "queueId": "string",
           "serviceAccountId": "string",
@@ -85,7 +93,13 @@ triggers[].<br>name | **string**<br><p>Required. Name of the trigger.</p>
 triggers[].<br>description | **string**<br><p>Description of the trigger.</p> 
 triggers[].<br>labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> 
 triggers[].<br>rule | **object**<br><p>Required. Defines trigger rule (is always consistent with type filed)</p> 
-triggers[].<br>rule.<br>messageQueue | **object** <br>`triggers[].rule` includes only one of the fields `messageQueue`, `iotMessage`<br><br>
+triggers[].<br>rule.<br>timer | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`<br><br>
+triggers[].<br>rule.<br>timer.<br>cronExpression | **string**<br><p>Required. Format: Minutes Hours Day-of-Month Month Day-of-week (Year)</p> <ul> <li>(&quot;all values&quot;) - to select all values within a field. ? (&quot;no specific value&quot;) - placeholder for &quot;any&quot;: you can't specify the Day-of-Month and Day-of-Week fields in the same cron expression, so if you specify a value in one of the fields, you must use a &quot;?&quot; in the other. see http://man7.org/linux/man-pages/man5/crontab.5.html</li> </ul> <p>The maximum string length in characters is 100.</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunction | **object**<br>
+triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>functionId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
+triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>functionTag | **string**<br>
+triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>SA which should be used to call a function, optional.</p> 
+triggers[].<br>rule.<br>messageQueue | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`<br><br>
 triggers[].<br>rule.<br>messageQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>serviceAccountId | **string**<br><p>Required. SA which has read access to the queue.</p> <p>The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>batchSettings | **object**<br>Required. Batch settings for YMQ client.<br>
@@ -96,7 +110,7 @@ triggers[].<br>rule.<br>messageQueue.<br>invokeFunction | **object**<br>
 triggers[].<br>rule.<br>messageQueue.<br>invokeFunction.<br>functionId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>invokeFunction.<br>functionTag | **string**<br>
 triggers[].<br>rule.<br>messageQueue.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>SA which should be used to call a function, optional.</p> 
-triggers[].<br>rule.<br>iotMessage | **object** <br>`triggers[].rule` includes only one of the fields `messageQueue`, `iotMessage`<br><br>
+triggers[].<br>rule.<br>iotMessage | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`<br><br>
 triggers[].<br>rule.<br>iotMessage.<br>registryId | **string**<br><p>Required.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>deviceId | **string**<br>
 triggers[].<br>rule.<br>iotMessage.<br>mqttTopic | **string**<br>

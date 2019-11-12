@@ -3,9 +3,11 @@ editable: false
 ---
 
 # Method delete
-Deletes the symmetric key and schedule all its version for destruction
+Deletes the specified symmetric KMS key. This action also automatically schedules
+the destruction of all of the key's versions in 72 hours.
  
-
+The key and its versions appear absent in [get](/docs/kms/api-ref/SymmetricKey/get) and [list](/docs/kms/api-ref/SymmetricKey/list)
+requests, but can be restored within 72 hours with a request to tech support.
  
 ## HTTP request {#https-request}
 ```
@@ -16,7 +18,7 @@ DELETE https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}
  
 Parameter | Description
 --- | ---
-keyId | Required. The maximum string length in characters is 50.
+keyId | Required. ID of the key to be deleted.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

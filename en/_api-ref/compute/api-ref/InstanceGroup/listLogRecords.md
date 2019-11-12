@@ -16,7 +16,7 @@ GET https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGrou
  
 Parameter | Description
 --- | ---
-instanceGroupId | Required. ID of the InstanceGroup resource to list logs for. To get the instance group ID, use an [list](/docs/compute/api-ref/InstanceGroup/list) request.
+instanceGroupId | Required. ID of the InstanceGroup resource to list logs for. To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.
  
 ## Query parameters {#query_params}
  

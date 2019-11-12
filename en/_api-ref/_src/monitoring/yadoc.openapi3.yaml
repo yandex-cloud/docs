@@ -381,6 +381,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MetricData'
+    Status:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
     Timeseries:
       type: object
       properties:
@@ -431,9 +447,8 @@ components:
           description: Number of successfully written metrics.
           type: string
           format: int64
-        errorMessage:
-          description: Error message if the writing failed.
-          type: string
+        partialFailureError:
+          $ref: '#/components/schemas/Status_in_WriteMetricsDataResponse_partialFailureError'
     Downsampling_in_DataQuery_downsampling:
       description: |-
         Required.
@@ -523,6 +538,25 @@ components:
           items:
             type: string
             format: int64
+    Status_in_WriteMetricsDataResponse_partialFailureError:
+      description: |-
+        Error message if the writing failed.
+
+        The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
 tags:
 - name: MetricsData
   description: A set of methods for managing metric data.

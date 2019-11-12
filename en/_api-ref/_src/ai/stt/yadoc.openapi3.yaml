@@ -181,6 +181,12 @@ components:
           items:
             $ref: '#/components/schemas/SpeechRecognitionAlternative'
         final:
+          description: This flag shows that the received chunk contains a part of
+            the recognized text that won't be changed.
+          type: boolean
+          format: boolean
+        endOfUtterance:
+          description: This flag shows that the received chunk is the end of an utterance.
           type: boolean
           format: boolean
     SpeechRecognitionResult:
@@ -216,9 +222,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SpeechRecognitionChunk'
-        endOfSingleUtterance:
-          type: boolean
-          format: boolean
     WordInfo:
       type: object
       properties:

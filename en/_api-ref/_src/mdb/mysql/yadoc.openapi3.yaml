@@ -2006,6 +2006,14 @@ components:
             Acceptable values are 1024 to 134217728, inclusive.
           type: integer
           format: int64
+        defaultAuthenticationPlugin:
+          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
+    MysqlConfig5_7AuthPlugin:
+      type: string
+      enum:
+      - MYSQL_NATIVE_PASSWORD
+      - CACHING_SHA2_PASSWORD
+      - SHA256_PASSWORD
     MysqlConfig5_7SQLMode:
       type: string
       enum:
@@ -2099,6 +2107,14 @@ components:
             Acceptable values are 1024 to 134217728, inclusive.
           type: integer
           format: int64
+        defaultAuthenticationPlugin:
+          $ref: '#/components/schemas/MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin'
+    MysqlConfig8_0AuthPlugin:
+      type: string
+      enum:
+      - MYSQL_NATIVE_PASSWORD
+      - CACHING_SHA2_PASSWORD
+      - SHA256_PASSWORD
     MysqlConfig8_0SQLMode:
       type: string
       enum:
@@ -2812,6 +2828,18 @@ components:
       - DEAD
       - DEGRADED
       default: HEALTH_UNKNOWN
+    MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin:
+      type: string
+      enum:
+      - MYSQL_NATIVE_PASSWORD
+      - CACHING_SHA2_PASSWORD
+      - SHA256_PASSWORD
+    MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin:
+      type: string
+      enum:
+      - MYSQL_NATIVE_PASSWORD
+      - CACHING_SHA2_PASSWORD
+      - SHA256_PASSWORD
     MysqlConfig5_7_in_MysqlConfigSet5_7_effectiveConfig:
       description: |-
         Effective settings for a MySQL 5.7 cluster (a combination of settings defined
@@ -2876,6 +2904,8 @@ components:
             Acceptable values are 1024 to 134217728, inclusive.
           type: integer
           format: int64
+        defaultAuthenticationPlugin:
+          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
     MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig:
       description: |-
         User-defined settings for a MySQL 5.7 cluster.
@@ -2939,6 +2969,8 @@ components:
             Acceptable values are 1024 to 134217728, inclusive.
           type: integer
           format: int64
+        defaultAuthenticationPlugin:
+          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
     MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig:
       description: |-
         Default configuration for a MySQL 5.7 cluster.
@@ -3002,6 +3034,8 @@ components:
             Acceptable values are 1024 to 134217728, inclusive.
           type: integer
           format: int64
+        defaultAuthenticationPlugin:
+          $ref: '#/components/schemas/MysqlConfig5_7AuthPlugin_in_MysqlConfig5_7_defaultAuthenticationPlugin'
     MysqlConfig8_0_in_MysqlConfigSet8_0_effectiveConfig:
       description: |-
         Effective settings for a MySQL 8.0 cluster (a combination of settings defined
@@ -3066,6 +3100,8 @@ components:
             Acceptable values are 1024 to 134217728, inclusive.
           type: integer
           format: int64
+        defaultAuthenticationPlugin:
+          $ref: '#/components/schemas/MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin'
     MysqlConfig8_0_in_MysqlConfigSet8_0_userConfig:
       description: |-
         User-defined settings for a MySQL 8.0 cluster.
@@ -3129,6 +3165,8 @@ components:
             Acceptable values are 1024 to 134217728, inclusive.
           type: integer
           format: int64
+        defaultAuthenticationPlugin:
+          $ref: '#/components/schemas/MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin'
     MysqlConfig8_0_in_MysqlConfigSet8_0_defaultConfig:
       description: |-
         Default configuration for a MySQL 8.0 cluster.
@@ -3192,6 +3230,8 @@ components:
             Acceptable values are 1024 to 134217728, inclusive.
           type: integer
           format: int64
+        defaultAuthenticationPlugin:
+          $ref: '#/components/schemas/MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin'
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Deployment environment of the new MySQL cluster.

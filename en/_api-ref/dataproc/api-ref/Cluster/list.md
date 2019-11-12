@@ -56,7 +56,8 @@ filter | String that describes a display filter.  The maximum string length in c
       "health": "string",
       "status": "string",
       "zoneId": "string",
-      "serviceAccountId": "string"
+      "serviceAccountId": "string",
+      "bucket": "string"
     }
   ],
   "nextPageToken": "string"
@@ -87,4 +88,5 @@ clusters[].<br>health | **string**<br><p>Aggregated cluster health.</p> <ul> <li
 clusters[].<br>status | **string**<br><p>Cluster status.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
 clusters[].<br>zoneId | **string**<br><p>ID of the availability zone.</p> 
 clusters[].<br>serviceAccountId | **string**<br><p>ID of service account for Dataproc manager agent.</p> 
+clusters[].<br>bucket | **string**<br><p>Object storage bucket name for Dataproc jobs.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for ListClusters requests, if the number of results is larger than <code>page_size</code> specified in the request. To get the next page, specify the value of <code>next_page_token</code> as a value for the <code>page_token</code> parameter in the next ListClusters request. Subsequent ListClusters requests will have their own <code>next_page_token</code> to continue paging through the results.</p> 

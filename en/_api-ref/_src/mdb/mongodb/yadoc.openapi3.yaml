@@ -1515,15 +1515,17 @@ components:
       - type: object
         properties:
           version:
-            description: Version of MongoDB server software.
+            description: 'Version of MongoDB server software. Possible values: `3.6`,
+              `4.0`, `4.2`.'
             type: string
           featureCompatibilityVersion:
             description: |-
               MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
               Possible values:
-              * 3.6 — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower.
-              * 4.0 — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower.
+              * `3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower.
+              * `4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower.
+              * `4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower.
             type: string
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
@@ -1541,6 +1543,9 @@ components:
           mongodb_4_0:
             $ref: '#/components/schemas/Mongodb4_0'
             description: Configuration and resource allocation for a MongoDB 4.0 cluster.
+          mongodb_4_2:
+            $ref: '#/components/schemas/Mongodb4_2'
+            description: Configuration and resource allocation for a MongoDB 4.2 cluster.
     ClusterEnvironment:
       description: |-
         Deployment environment.
@@ -1593,19 +1598,17 @@ components:
       - type: object
         properties:
           version:
-            description: |-
-              Version of MongoDB used in the cluster.
-              Possible values:
-              * 3.6
-              * 4.0
+            description: 'Version of MongoDB used in the cluster. Possible values:
+              `3.6`, `4.0`, `4.2`.'
             type: string
           featureCompatibilityVersion:
             description: |-
               MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
               Possible values:
-              * 3.6 — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older.
-              * 4.0 — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older.
+              * `3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older.
+              * `4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older.
+              * `4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.
             type: string
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
@@ -1623,6 +1626,9 @@ components:
           mongodbSpec_4_0:
             $ref: '#/components/schemas/MongodbSpec4_0'
             description: Configuration and resource allocation for a MongoDB 4.0 cluster.
+          mongodbSpec_4_2:
+            $ref: '#/components/schemas/MongodbSpec4_2'
+            description: Configuration and resource allocation for a MongoDB 4.2 cluster.
     CreateClusterMetadata:
       type: object
       properties:
@@ -2282,6 +2288,68 @@ components:
             use for all data.
           type: number
           format: double
+    MongoCfgConfig4_2:
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig4_2Storage_in_MongoCfgConfig4_2_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig4_2OperationProfiling_in_MongoCfgConfig4_2_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig4_2Network_in_MongoCfgConfig4_2_net'
+    MongoCfgConfig4_2Network:
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongocfg will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongoCfgConfig4_2OperationProfiling:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongoCfgConfig4_2OperationProfilingMode_in_MongoCfgConfig4_2OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            The slow operation time threshold, in milliseconds. Operations that run
+            for longer than this threshold are considered slow, and are processed by the profiler
+            running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+    MongoCfgConfig4_2OperationProfilingMode:
+      description: |2-
+         - OFF: The profiler is off and does not collect any data.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - ALL: The profiler collects data for all operations.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongoCfgConfig4_2Storage:
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongoCfgConfig4_2StorageWiredTiger_in_MongoCfgConfig4_2Storage_wiredTiger'
+    MongoCfgConfig4_2StorageWiredTiger:
+      description: Configuration of WiredTiger storage engine.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_2StorageWiredTigerEngineConfig_in_MongoCfgConfig4_2StorageWiredTiger_engineConfig'
+    MongoCfgConfig4_2StorageWiredTigerEngineConfig:
+      type: object
+      properties:
+        cacheSizeGb:
+          description: The maximum size of the internal cache that WiredTiger will
+            use for all data.
+          type: number
+          format: double
     MongoCfgConfigSet3_6:
       type: object
       properties:
@@ -2300,6 +2368,15 @@ components:
           $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_defaultConfig'
+    MongoCfgConfigSet4_2:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_2_in_MongoCfgConfigSet4_2_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_2_in_MongoCfgConfigSet4_2_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_2_in_MongoCfgConfigSet4_2_defaultConfig'
     MongodConfig3_6:
       description: |-
         Configuration of a mongod daemon. Supported options are a limited subset of all
@@ -2498,6 +2575,101 @@ components:
             use for all data.
           type: number
           format: double
+    MongodConfig4_2:
+      description: |-
+        Configuration of a mongod daemon. Supported options are a limited subset of all
+        options described in [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig4_2Storage_in_MongodConfig4_2_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig4_2OperationProfiling_in_MongodConfig4_2_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig4_2Network_in_MongodConfig4_2_net'
+    MongodConfig4_2Network:
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongod will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongodConfig4_2OperationProfiling:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongodConfig4_2OperationProfilingMode_in_MongodConfig4_2OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            The slow operation time threshold, in milliseconds. Operations that run
+            for longer than this threshold are considered slow, and are processed by the profiler
+            running in the SLOW_OP mode.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+    MongodConfig4_2OperationProfilingMode:
+      description: |2-
+         - OFF: The profiler is off and does not collect any data.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - ALL: The profiler collects data for all operations.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongodConfig4_2Storage:
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongodConfig4_2StorageWiredTiger_in_MongodConfig4_2Storage_wiredTiger'
+        journal:
+          $ref: '#/components/schemas/MongodConfig4_2StorageJournal_in_MongodConfig4_2Storage_journal'
+    MongodConfig4_2StorageJournal:
+      type: object
+      properties:
+        commitInterval:
+          description: |-
+            Commit interval between journal operations, in milliseconds.
+            Default: 100.
+
+            Acceptable values are 1 to 500, inclusive.
+          type: integer
+          format: int64
+    MongodConfig4_2StorageWiredTiger:
+      description: Configuration of WiredTiger storage engine.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongodConfig4_2StorageWiredTigerEngineConfig_in_MongodConfig4_2StorageWiredTiger_engineConfig'
+        collectionConfig:
+          $ref: '#/components/schemas/MongodConfig4_2StorageWiredTigerCollectionConfig_in_MongodConfig4_2StorageWiredTiger_collectionConfig'
+    MongodConfig4_2StorageWiredTigerCollectionConfig:
+      type: object
+      properties:
+        blockCompressor:
+          $ref: '#/components/schemas/MongodConfig4_2StorageWiredTigerCollectionConfigCompressor_in_MongodConfig4_2StorageWiredTigerCollectionConfig_blockCompressor'
+    MongodConfig4_2StorageWiredTigerCollectionConfigCompressor:
+      description: |2-
+         - NONE: No compression.
+         - SNAPPY: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
+         - ZLIB: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
+      type: string
+      enum:
+      - NONE
+      - SNAPPY
+      - ZLIB
+    MongodConfig4_2StorageWiredTigerEngineConfig:
+      type: object
+      properties:
+        cacheSizeGb:
+          description: The maximum size of the internal cache that WiredTiger will
+            use for all data.
+          type: number
+          format: double
     MongodConfigSet3_6:
       type: object
       properties:
@@ -2516,6 +2688,15 @@ components:
           $ref: '#/components/schemas/MongodConfig4_0_in_MongodConfigSet4_0_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/MongodConfig4_0_in_MongodConfigSet4_0_defaultConfig'
+    MongodConfigSet4_2:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongodConfig4_2_in_MongodConfigSet4_2_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongodConfig4_2_in_MongodConfigSet4_2_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongodConfig4_2_in_MongodConfigSet4_2_defaultConfig'
     Mongodb3_6:
       type: object
       properties:
@@ -2576,6 +2757,36 @@ components:
           $ref: '#/components/schemas/MongosConfigSet4_0_in_Mongodb4_0Mongos_config'
         resources:
           $ref: '#/components/schemas/Resources_in_Mongodb4_0Mongos_resources'
+    Mongodb4_2:
+      type: object
+      properties:
+        mongod:
+          $ref: '#/components/schemas/Mongodb4_2Mongod_in_Mongodb4_2_mongod'
+        mongocfg:
+          $ref: '#/components/schemas/Mongodb4_2MongoCfg_in_Mongodb4_2_mongocfg'
+        mongos:
+          $ref: '#/components/schemas/Mongodb4_2Mongos_in_Mongodb4_2_mongos'
+    Mongodb4_2MongoCfg:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfigSet4_2_in_Mongodb4_2MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_2MongoCfg_resources'
+    Mongodb4_2Mongod:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfigSet4_2_in_Mongodb4_2Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_2Mongod_resources'
+    Mongodb4_2Mongos:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfigSet4_2_in_Mongodb4_2Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_2Mongos_resources'
     MongodbSpec3_6:
       type: object
       properties:
@@ -2636,6 +2847,36 @@ components:
           $ref: '#/components/schemas/MongosConfig4_0_in_MongodbSpec4_0Mongos_config'
         resources:
           $ref: '#/components/schemas/Resources_in_MongodbSpec4_0Mongos_resources'
+    MongodbSpec4_2:
+      type: object
+      properties:
+        mongod:
+          $ref: '#/components/schemas/MongodbSpec4_2Mongod_in_MongodbSpec4_2_mongod'
+        mongocfg:
+          $ref: '#/components/schemas/MongodbSpec4_2MongoCfg_in_MongodbSpec4_2_mongocfg'
+        mongos:
+          $ref: '#/components/schemas/MongodbSpec4_2Mongos_in_MongodbSpec4_2_mongos'
+    MongodbSpec4_2MongoCfg:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfig4_2_in_MongodbSpec4_2MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_2MongoCfg_resources'
+    MongodbSpec4_2Mongod:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfig4_2_in_MongodbSpec4_2Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_2Mongod_resources'
+    MongodbSpec4_2Mongos:
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfig4_2_in_MongodbSpec4_2Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_2Mongos_resources'
     MongosConfig3_6:
       type: object
       properties:
@@ -2666,6 +2907,21 @@ components:
             Acceptable values are 10 to 16384, inclusive.
           type: integer
           format: int64
+    MongosConfig4_2:
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig4_2Network_in_MongosConfig4_2_net'
+    MongosConfig4_2Network:
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongos will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
     MongosConfigSet3_6:
       type: object
       properties:
@@ -2684,6 +2940,15 @@ components:
           $ref: '#/components/schemas/MongosConfig4_0_in_MongosConfigSet4_0_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/MongosConfig4_0_in_MongosConfigSet4_0_defaultConfig'
+    MongosConfigSet4_2:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongosConfig4_2_in_MongosConfigSet4_2_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongosConfig4_2_in_MongosConfigSet4_2_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongosConfig4_2_in_MongosConfigSet4_2_defaultConfig'
     Monitoring:
       description: Monitoring system.
       type: object
@@ -3134,15 +3399,17 @@ components:
       - type: object
         properties:
           version:
-            description: Version of MongoDB server software.
+            description: 'Version of MongoDB server software. Possible values: `3.6`,
+              `4.0`, `4.2`.'
             type: string
           featureCompatibilityVersion:
             description: |-
               MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
               Possible values:
-              * 3.6 — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower.
-              * 4.0 — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower.
+              * `3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower.
+              * `4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower.
+              * `4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower.
             type: string
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
@@ -3160,6 +3427,9 @@ components:
           mongodb_4_0:
             $ref: '#/components/schemas/Mongodb4_0'
             description: Configuration and resource allocation for a MongoDB 4.0 cluster.
+          mongodb_4_2:
+            $ref: '#/components/schemas/Mongodb4_2'
+            description: Configuration and resource allocation for a MongoDB 4.2 cluster.
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
@@ -3222,19 +3492,17 @@ components:
       - type: object
         properties:
           version:
-            description: |-
-              Version of MongoDB used in the cluster.
-              Possible values:
-              * 3.6
-              * 4.0
+            description: 'Version of MongoDB used in the cluster. Possible values:
+              `3.6`, `4.0`, `4.2`.'
             type: string
           featureCompatibilityVersion:
             description: |-
               MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
               Possible values:
-              * 3.6 — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older.
-              * 4.0 — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older.
+              * `3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older.
+              * `4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older.
+              * `4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.
             type: string
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
@@ -3252,6 +3520,9 @@ components:
           mongodbSpec_4_0:
             $ref: '#/components/schemas/MongodbSpec4_0'
             description: Configuration and resource allocation for a MongoDB 4.0 cluster.
+          mongodbSpec_4_2:
+            $ref: '#/components/schemas/MongodbSpec4_2'
+            description: Configuration and resource allocation for a MongoDB 4.2 cluster.
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Required.
@@ -3565,6 +3836,68 @@ components:
             use for all data.
           type: number
           format: double
+    MongoCfgConfig4_2Storage_in_MongoCfgConfig4_2_storage:
+      description: '`storage` section of mongocfg configuration.'
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongoCfgConfig4_2StorageWiredTiger_in_MongoCfgConfig4_2Storage_wiredTiger'
+    MongoCfgConfig4_2OperationProfiling_in_MongoCfgConfig4_2_operationProfiling:
+      description: '`operationProfiling` section of mongocfg configuration.'
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongoCfgConfig4_2OperationProfilingMode_in_MongoCfgConfig4_2OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            The slow operation time threshold, in milliseconds. Operations that run
+            for longer than this threshold are considered slow, and are processed by the profiler
+            running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+    MongoCfgConfig4_2Network_in_MongoCfgConfig4_2_net:
+      description: '`net` section of mongocfg configuration.'
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongocfg will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongoCfgConfig4_2OperationProfilingMode_in_MongoCfgConfig4_2OperationProfiling_mode:
+      description: |-
+        Mode which specifies operations that should be profiled.
+
+         - OFF: The profiler is off and does not collect any data.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - ALL: The profiler collects data for all operations.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongoCfgConfig4_2StorageWiredTiger_in_MongoCfgConfig4_2Storage_wiredTiger:
+      description: |-
+        Configuration of the WiredTiger storage engine.
+
+        Configuration of WiredTiger storage engine.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_2StorageWiredTigerEngineConfig_in_MongoCfgConfig4_2StorageWiredTiger_engineConfig'
+    MongoCfgConfig4_2StorageWiredTigerEngineConfig_in_MongoCfgConfig4_2StorageWiredTiger_engineConfig:
+      description: Engine configuration for WiredTiger.
+      type: object
+      properties:
+        cacheSizeGb:
+          description: The maximum size of the internal cache that WiredTiger will
+            use for all data.
+          type: number
+          format: double
     MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_effectiveConfig:
       description: |-
         Effective mongocfg settings for a MongoDB 3.6 cluster (a combination of settings defined
@@ -3629,6 +3962,38 @@ components:
           $ref: '#/components/schemas/MongoCfgConfig4_0OperationProfiling_in_MongoCfgConfig4_0_operationProfiling'
         net:
           $ref: '#/components/schemas/MongoCfgConfig4_0Network_in_MongoCfgConfig4_0_net'
+    MongoCfgConfig4_2_in_MongoCfgConfigSet4_2_effectiveConfig:
+      description: |-
+        Effective mongocfg settings for a MongoDB 4.2 cluster (a combination of settings defined
+        in userConfig and [default_config]).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig4_2Storage_in_MongoCfgConfig4_2_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig4_2OperationProfiling_in_MongoCfgConfig4_2_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig4_2Network_in_MongoCfgConfig4_2_net'
+    MongoCfgConfig4_2_in_MongoCfgConfigSet4_2_userConfig:
+      description: User-defined mongocfg settings for a MongoDB 4.2 cluster.
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig4_2Storage_in_MongoCfgConfig4_2_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig4_2OperationProfiling_in_MongoCfgConfig4_2_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig4_2Network_in_MongoCfgConfig4_2_net'
+    MongoCfgConfig4_2_in_MongoCfgConfigSet4_2_defaultConfig:
+      description: Default mongocfg configuration for a MongoDB 4.2 cluster.
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig4_2Storage_in_MongoCfgConfig4_2_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig4_2OperationProfiling_in_MongoCfgConfig4_2_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig4_2Network_in_MongoCfgConfig4_2_net'
     MongodConfig3_6Storage_in_MongodConfig3_6_storage:
       description: '`storage` section of mongod configuration.'
       type: object
@@ -3829,6 +4194,102 @@ components:
       - NONE
       - SNAPPY
       - ZLIB
+    MongodConfig4_2Storage_in_MongodConfig4_2_storage:
+      description: '`storage` section of mongod configuration.'
+      type: object
+      properties:
+        wiredTiger:
+          $ref: '#/components/schemas/MongodConfig4_2StorageWiredTiger_in_MongodConfig4_2Storage_wiredTiger'
+        journal:
+          $ref: '#/components/schemas/MongodConfig4_2StorageJournal_in_MongodConfig4_2Storage_journal'
+    MongodConfig4_2OperationProfiling_in_MongodConfig4_2_operationProfiling:
+      description: '`operationProfiling` section of mongod configuration.'
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/MongodConfig4_2OperationProfilingMode_in_MongodConfig4_2OperationProfiling_mode'
+        slowOpThreshold:
+          description: |-
+            The slow operation time threshold, in milliseconds. Operations that run
+            for longer than this threshold are considered slow, and are processed by the profiler
+            running in the SLOW_OP mode.
+
+            Value must be greater than 0.
+          type: integer
+          format: int64
+    MongodConfig4_2Network_in_MongodConfig4_2_net:
+      description: '`net` section of mongod configuration.'
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongod will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongodConfig4_2OperationProfilingMode_in_MongodConfig4_2OperationProfiling_mode:
+      description: |-
+        Mode which specifies operations that should be profiled.
+
+         - OFF: The profiler is off and does not collect any data.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - ALL: The profiler collects data for all operations.
+      type: string
+      enum:
+      - "OFF"
+      - SLOW_OP
+      - ALL
+    MongodConfig4_2StorageWiredTiger_in_MongodConfig4_2Storage_wiredTiger:
+      description: |-
+        Configuration of the WiredTiger storage engine.
+
+        Configuration of WiredTiger storage engine.
+      type: object
+      properties:
+        engineConfig:
+          $ref: '#/components/schemas/MongodConfig4_2StorageWiredTigerEngineConfig_in_MongodConfig4_2StorageWiredTiger_engineConfig'
+        collectionConfig:
+          $ref: '#/components/schemas/MongodConfig4_2StorageWiredTigerCollectionConfig_in_MongodConfig4_2StorageWiredTiger_collectionConfig'
+    MongodConfig4_2StorageJournal_in_MongodConfig4_2Storage_journal:
+      description: Configuration of the MongoDB [journal](https://docs.mongodb.com/v4.2/reference/glossary/#term-journal).
+      type: object
+      properties:
+        commitInterval:
+          description: |-
+            Commit interval between journal operations, in milliseconds.
+            Default: 100.
+
+            Acceptable values are 1 to 500, inclusive.
+          type: integer
+          format: int64
+    MongodConfig4_2StorageWiredTigerEngineConfig_in_MongodConfig4_2StorageWiredTiger_engineConfig:
+      description: Engine configuration for WiredTiger.
+      type: object
+      properties:
+        cacheSizeGb:
+          description: The maximum size of the internal cache that WiredTiger will
+            use for all data.
+          type: number
+          format: double
+    MongodConfig4_2StorageWiredTigerCollectionConfig_in_MongodConfig4_2StorageWiredTiger_collectionConfig:
+      description: Collection configuration for WiredTiger.
+      type: object
+      properties:
+        blockCompressor:
+          $ref: '#/components/schemas/MongodConfig4_2StorageWiredTigerCollectionConfigCompressor_in_MongodConfig4_2StorageWiredTigerCollectionConfig_blockCompressor'
+    MongodConfig4_2StorageWiredTigerCollectionConfigCompressor_in_MongodConfig4_2StorageWiredTigerCollectionConfig_blockCompressor:
+      description: |-
+        Default type of compression to use for collection data.
+
+         - NONE: No compression.
+         - SNAPPY: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
+         - ZLIB: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
+      type: string
+      enum:
+      - NONE
+      - SNAPPY
+      - ZLIB
     MongodConfig3_6_in_MongodConfigSet3_6_effectiveConfig:
       description: |-
         Effective mongod settings for a MongoDB 3.6 cluster (a combination of settings defined
@@ -3915,6 +4376,49 @@ components:
           $ref: '#/components/schemas/MongodConfig4_0OperationProfiling_in_MongodConfig4_0_operationProfiling'
         net:
           $ref: '#/components/schemas/MongodConfig4_0Network_in_MongodConfig4_0_net'
+    MongodConfig4_2_in_MongodConfigSet4_2_effectiveConfig:
+      description: |-
+        Effective mongod settings for a MongoDB 4.2 cluster (a combination of settings defined
+        in userConfig and [default_config]).
+
+        Configuration of a mongod daemon. Supported options are a limited subset of all
+        options described in [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig4_2Storage_in_MongodConfig4_2_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig4_2OperationProfiling_in_MongodConfig4_2_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig4_2Network_in_MongodConfig4_2_net'
+    MongodConfig4_2_in_MongodConfigSet4_2_userConfig:
+      description: |-
+        User-defined mongod settings for a MongoDB 4.2 cluster.
+
+        Configuration of a mongod daemon. Supported options are a limited subset of all
+        options described in [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig4_2Storage_in_MongodConfig4_2_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig4_2OperationProfiling_in_MongodConfig4_2_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig4_2Network_in_MongodConfig4_2_net'
+    MongodConfig4_2_in_MongodConfigSet4_2_defaultConfig:
+      description: |-
+        Default mongod configuration for a MongoDB 4.2 cluster.
+
+        Configuration of a mongod daemon. Supported options are a limited subset of all
+        options described in [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig4_2Storage_in_MongodConfig4_2_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig4_2OperationProfiling_in_MongodConfig4_2_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig4_2Network_in_MongodConfig4_2_net'
     Mongodb3_6Mongod_in_Mongodb3_6_mongod:
       description: Configuration and resource allocation for mongod in a MongoDB 3.6
         cluster.
@@ -4133,6 +4637,126 @@ components:
         defaultConfig:
           $ref: '#/components/schemas/MongosConfig4_0_in_MongosConfigSet4_0_defaultConfig'
     Resources_in_Mongodb4_0Mongos_resources:
+      description: Resources allocated to mongos hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd — network HDD drive,
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
+          type: string
+    Mongodb4_2Mongod_in_Mongodb4_2_mongod:
+      description: Configuration and resource allocation for mongod in a MongoDB 4.2
+        cluster.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfigSet4_2_in_Mongodb4_2Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_2Mongod_resources'
+    Mongodb4_2MongoCfg_in_Mongodb4_2_mongocfg:
+      description: Configuration and resource allocation for mongocfg in a MongoDB
+        4.2 cluster.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfigSet4_2_in_Mongodb4_2MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_2MongoCfg_resources'
+    Mongodb4_2Mongos_in_Mongodb4_2_mongos:
+      description: Configuration and resource allocation for mongos in a MongoDB 4.2
+        cluster.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfigSet4_2_in_Mongodb4_2Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_Mongodb4_2Mongos_resources'
+    MongoCfgConfigSet4_2_in_Mongodb4_2MongoCfg_config:
+      description: Configuration for mongocfg 4.2 hosts.
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_2_in_MongoCfgConfigSet4_2_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_2_in_MongoCfgConfigSet4_2_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongoCfgConfig4_2_in_MongoCfgConfigSet4_2_defaultConfig'
+    Resources_in_Mongodb4_2MongoCfg_resources:
+      description: Resources allocated to mongocfg hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd — network HDD drive,
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
+          type: string
+    MongodConfigSet4_2_in_Mongodb4_2Mongod_config:
+      description: Configuration for mongod 4.2 hosts.
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongodConfig4_2_in_MongodConfigSet4_2_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongodConfig4_2_in_MongodConfigSet4_2_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongodConfig4_2_in_MongodConfigSet4_2_defaultConfig'
+    Resources_in_Mongodb4_2Mongod_resources:
+      description: Resources allocated to mongod hosts.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd — network HDD drive,
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
+          type: string
+    MongosConfigSet4_2_in_Mongodb4_2Mongos_config:
+      description: Configuration for mongos 4.2 hosts.
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/MongosConfig4_2_in_MongosConfigSet4_2_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/MongosConfig4_2_in_MongosConfigSet4_2_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/MongosConfig4_2_in_MongosConfigSet4_2_defaultConfig'
+    Resources_in_Mongodb4_2Mongos_resources:
       description: Resources allocated to mongos hosts.
       type: object
       properties:
@@ -4387,6 +5011,123 @@ components:
             * network-ssd — network SSD drive,
             * local-ssd — local SSD storage.
           type: string
+    MongodbSpec4_2Mongod_in_MongodbSpec4_2_mongod:
+      description: Configuration and resource allocation for mongod 4.2 hosts.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongodConfig4_2_in_MongodbSpec4_2Mongod_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_2Mongod_resources'
+    MongodbSpec4_2MongoCfg_in_MongodbSpec4_2_mongocfg:
+      description: Configuration and resource allocation for mongocfg 4.2 hosts.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongoCfgConfig4_2_in_MongodbSpec4_2MongoCfg_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_2MongoCfg_resources'
+    MongodbSpec4_2Mongos_in_MongodbSpec4_2_mongos:
+      description: Configuration and resource allocation for mongos 4.2 hosts.
+      type: object
+      properties:
+        config:
+          $ref: '#/components/schemas/MongosConfig4_2_in_MongodbSpec4_2Mongos_config'
+        resources:
+          $ref: '#/components/schemas/Resources_in_MongodbSpec4_2Mongos_resources'
+    MongoCfgConfig4_2_in_MongodbSpec4_2MongoCfg_config:
+      description: Configuration for mongocfg 4.2 hosts.
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongoCfgConfig4_2Storage_in_MongoCfgConfig4_2_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongoCfgConfig4_2OperationProfiling_in_MongoCfgConfig4_2_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongoCfgConfig4_2Network_in_MongoCfgConfig4_2_net'
+    Resources_in_MongodbSpec4_2MongoCfg_resources:
+      description: Resources allocated to each mongocfg host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd — network HDD drive,
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
+          type: string
+    MongodConfig4_2_in_MongodbSpec4_2Mongod_config:
+      description: |-
+        Configuration for mongod 4.2 hosts.
+
+        Configuration of a mongod daemon. Supported options are a limited subset of all
+        options described in [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/).
+      type: object
+      properties:
+        storage:
+          $ref: '#/components/schemas/MongodConfig4_2Storage_in_MongodConfig4_2_storage'
+        operationProfiling:
+          $ref: '#/components/schemas/MongodConfig4_2OperationProfiling_in_MongodConfig4_2_operationProfiling'
+        net:
+          $ref: '#/components/schemas/MongodConfig4_2Network_in_MongodConfig4_2_net'
+    Resources_in_MongodbSpec4_2Mongod_resources:
+      description: Resources allocated to each mongod host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd — network HDD drive,
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
+          type: string
+    MongosConfig4_2_in_MongodbSpec4_2Mongos_config:
+      description: Configuration for mongos 4.2 hosts.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig4_2Network_in_MongosConfig4_2_net'
+    Resources_in_MongodbSpec4_2Mongos_resources:
+      description: Resources allocated to each mongos host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources available to a host (CPU, memory etc.).
+            All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage available to a host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: |-
+            Type of the storage environment for the host.
+            Possible values:
+            * network-hdd — network HDD drive,
+            * network-ssd — network SSD drive,
+            * local-ssd — local SSD storage.
+          type: string
     MongosConfig3_6Network_in_MongosConfig3_6_net:
       description: Network settings for mongos.
       type: object
@@ -4399,6 +5140,17 @@ components:
           type: integer
           format: int64
     MongosConfig4_0Network_in_MongosConfig4_0_net:
+      description: Network settings for mongos.
+      type: object
+      properties:
+        maxIncomingConnections:
+          description: |-
+            The maximum number of simultaneous connections that mongos will accept.
+
+            Acceptable values are 10 to 16384, inclusive.
+          type: integer
+          format: int64
+    MongosConfig4_2Network_in_MongosConfig4_2_net:
       description: Network settings for mongos.
       type: object
       properties:
@@ -4449,6 +5201,26 @@ components:
       properties:
         net:
           $ref: '#/components/schemas/MongosConfig4_0Network_in_MongosConfig4_0_net'
+    MongosConfig4_2_in_MongosConfigSet4_2_effectiveConfig:
+      description: |-
+        Effective mongos settings for a MongoDB 4.2 cluster (a combination of settings defined
+        in userConfig and [default_config]).
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig4_2Network_in_MongosConfig4_2_net'
+    MongosConfig4_2_in_MongosConfigSet4_2_userConfig:
+      description: User-defined mongos settings for a MongoDB 4.2 cluster.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig4_2Network_in_MongosConfig4_2_net'
+    MongosConfig4_2_in_MongosConfigSet4_2_defaultConfig:
+      description: Default mongos configuration for a MongoDB 4.2 cluster.
+      type: object
+      properties:
+        net:
+          $ref: '#/components/schemas/MongosConfig4_2Network_in_MongosConfig4_2_net'
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Required.
@@ -4473,19 +5245,17 @@ components:
       - type: object
         properties:
           version:
-            description: |-
-              Version of MongoDB used in the cluster.
-              Possible values:
-              * 3.6
-              * 4.0
+            description: 'Version of MongoDB used in the cluster. Possible values:
+              `3.6`, `4.0`, `4.2`.'
             type: string
           featureCompatibilityVersion:
             description: |-
               MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
               Possible values:
-              * 3.6 — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older.
-              * 4.0 — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older.
+              * `3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older.
+              * `4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older.
+              * `4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.
             type: string
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
@@ -4503,6 +5273,9 @@ components:
           mongodbSpec_4_0:
             $ref: '#/components/schemas/MongodbSpec4_0'
             description: Configuration and resource allocation for a MongoDB 4.0 cluster.
+          mongodbSpec_4_2:
+            $ref: '#/components/schemas/MongodbSpec4_2'
+            description: Configuration and resource allocation for a MongoDB 4.2 cluster.
     ServiceType_in_Service_type:
       description: |-
         Type of the service provided by the host.
@@ -4548,19 +5321,17 @@ components:
       - type: object
         properties:
           version:
-            description: |-
-              Version of MongoDB used in the cluster.
-              Possible values:
-              * 3.6
-              * 4.0
+            description: 'Version of MongoDB used in the cluster. Possible values:
+              `3.6`, `4.0`, `4.2`.'
             type: string
           featureCompatibilityVersion:
             description: |-
               MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
               Possible values:
-              * 3.6 — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older.
-              * 4.0 — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older.
+              * `3.6` — persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older.
+              * `4.0` — persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older.
+              * `4.2` — persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.
             type: string
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
@@ -4578,6 +5349,9 @@ components:
           mongodbSpec_4_0:
             $ref: '#/components/schemas/MongodbSpec4_0'
             description: Configuration and resource allocation for a MongoDB 4.0 cluster.
+          mongodbSpec_4_2:
+            $ref: '#/components/schemas/MongodbSpec4_2'
+            description: Configuration and resource allocation for a MongoDB 4.2 cluster.
     FieldMask_in_UpdateUserRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the MongoDB User resource should be updated.

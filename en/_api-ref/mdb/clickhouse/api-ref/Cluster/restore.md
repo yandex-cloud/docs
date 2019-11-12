@@ -179,7 +179,8 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore
         "maxTableSizeToDrop": "integer",
         "maxPartitionSizeToDrop": "integer",
         "builtinDictionariesReloadInterval": "integer",
-        "timezone": "string"
+        "timezone": "string",
+        "geobaseUri": "string"
       },
       "resources": {
         "resourcePresetId": "string",
@@ -341,8 +342,9 @@ configSpec.<br>clickhouse.<br>config.<br>uncompressedCacheSize | **integer** (in
 configSpec.<br>clickhouse.<br>config.<br>markCacheSize | **integer** (int64)<br><p>Approximate size (in bytes) of the cache of &quot;marks&quot; used by MergeTree tables. See details in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#mark_cache_size">ClickHouse documentation</a>.</p> <p>Value must be greater than 5368709120.</p> 
 configSpec.<br>clickhouse.<br>config.<br>maxTableSizeToDrop | **integer** (int64)<br><p>Maximum size of the table that can be deleted using a DROP query. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_table_size_to_drop">ClickHouse documentation</a>.</p> 
 configSpec.<br>clickhouse.<br>config.<br>maxPartitionSizeToDrop | **integer** (int64)<br><p>Maximum size of the partition that can be deleted using a DROP query. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max_partition_size_to_drop">ClickHouse documentation</a>.</p> 
-configSpec.<br>clickhouse.<br>config.<br>builtinDictionariesReloadInterval | **integer** (int64)<br><p>Time interval for reloading built-in dictionaries. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#builtin_dictionaries_reload_interval">ClickHouse documentation</a>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>builtinDictionariesReloadInterval | **integer** (int64)<br><p>The setting is deprecated and has no effect.</p> 
 configSpec.<br>clickhouse.<br>config.<br>timezone | **string**<br><p>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/server_settings/settings/#timezone">ClickHouse documentation</a>.</p> 
+configSpec.<br>clickhouse.<br>config.<br>geobaseUri | **string**<br>
 configSpec.<br>clickhouse.<br>resources | **object**<br><p>Resources allocated to ClickHouse hosts.</p> 
 configSpec.<br>clickhouse.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-clickhouse/concepts/instance-types">documentation</a></p> 
 configSpec.<br>clickhouse.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
