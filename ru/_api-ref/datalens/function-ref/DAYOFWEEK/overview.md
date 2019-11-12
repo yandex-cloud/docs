@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # DAYOFWEEK
 
 _Функции даты и времени_

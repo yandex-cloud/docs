@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # ENDSWITH
 
 _Строковые функции_

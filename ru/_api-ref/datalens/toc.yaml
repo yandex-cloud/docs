@@ -2,8 +2,9 @@ items:
   - name: Все функции
     href: function-ref/all.md
   - name: Агрегатные функции
-    href: function-ref/aggregation.md
     items:
+      - name: Обзор
+        href: function-ref/aggregation-functions.md
       - name: AVG
         href: function-ref/AVG.md
       - name: AVG_IF
@@ -24,6 +25,10 @@ items:
         href: function-ref/MEDIAN.md
       - name: MIN
         href: function-ref/MIN.md
+      - name: QUANTILE
+        href: function-ref/QUANTILE.md
+      - name: QUANTILE_APPROX
+        href: function-ref/QUANTILE_APPROX.md
       - name: STDEV
         href: function-ref/STDEV.md
       - name: STDEVP
@@ -37,8 +42,9 @@ items:
       - name: VARP
         href: function-ref/VARP.md
   - name: Функции даты и времени
-    href: function-ref/date-functions.md
     items:
+      - name: Обзор
+        href: function-ref/date-functions.md
       - name: DATEADD
         href: function-ref/DATEADD.md
       - name: DATEPART
@@ -66,13 +72,15 @@ items:
       - name: YEAR
         href: function-ref/YEAR.md
   - name: Географические функции
-    href: function-ref/geographical.md
     items:
+      - name: Обзор
+        href: function-ref/geographical-functions.md
       - name: GEOCODE
         href: function-ref/GEOCODE.md
   - name: Логические функции
-    href: function-ref/logical.md
     items:
+      - name: Обзор
+        href: function-ref/logical-functions.md
       - name: CASE
         href: function-ref/CASE.md
       - name: IF
@@ -84,8 +92,9 @@ items:
       - name: ZN
         href: function-ref/ZN.md
   - name: Математические функции
-    href: function-ref/numeric.md
     items:
+      - name: Обзор
+        href: function-ref/numeric-functions.md
       - name: ABS
         href: function-ref/ABS.md
       - name: ACOS
@@ -139,8 +148,9 @@ items:
       - name: TAN
         href: function-ref/TAN.md
   - name: Операторы
-    href: function-ref/operator.md
     items:
+      - name: Обзор
+        href: function-ref/operator-functions.md
       - name: AND
         href: function-ref/AND.md
       - name: BETWEEN
@@ -174,8 +184,9 @@ items:
       - name: Умножение (*)
         href: function-ref/OP_MULT.md
   - name: Строковые функции
-    href: function-ref/string.md
     items:
+      - name: Обзор
+        href: function-ref/string-functions.md
       - name: ASCII
         href: function-ref/ASCII.md
       - name: CHAR
@@ -231,8 +242,9 @@ items:
       - name: UTF8
         href: function-ref/UTF8.md
   - name: Функции преобразования типов
-    href: function-ref/type-conversion.md
     items:
+      - name: Обзор
+        href: function-ref/type-conversion-functions.md
       - name: BOOL
         href: function-ref/BOOL.md
       - name: DATE

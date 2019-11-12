@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # IS FALSE
 
 _Операторы_

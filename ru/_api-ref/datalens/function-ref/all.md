@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Все функции
 
 
@@ -404,6 +408,16 @@
 ## [POWER](POWER.md)
 
 {% include notitle [Описание](POWER/short-description.md) %}
+
+
+## [QUANTILE](QUANTILE.md)
+
+{% include notitle [Описание](QUANTILE/short-description.md) %}
+
+
+## [QUANTILE_APPROX](QUANTILE_APPROX.md)
+
+{% include notitle [Описание](QUANTILE_APPROX/short-description.md) %}
 
 
 ## [RADIANS](RADIANS.md)

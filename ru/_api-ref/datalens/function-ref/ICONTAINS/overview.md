@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # ICONTAINS
 
 _Строковые функции_

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # IFNULL
 
 _Логические функции_

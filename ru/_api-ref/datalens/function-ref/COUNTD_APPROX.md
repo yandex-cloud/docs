@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # COUNTD_APPROX
 
 _Агрегатные функции_

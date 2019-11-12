@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # GREATEST
 
 _Математические функции_

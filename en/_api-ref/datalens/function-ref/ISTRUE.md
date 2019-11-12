@@ -1,0 +1,60 @@
+---
+editable: false
+---
+
+# IS TRUE
+
+_Operators_
+
+#### Syntax
+
+
+```
+value IS [ NOT ] TRUE
+```
+
+#### Description
+Checks whether the value of `value` is true (`TRUE`).
+
+The `value IS NOT TRUE` option returns the opposite value.
+
+**Argument types:**
+- `value` — `Any`
+
+
+**Return type**: `Boolean`
+
+#### Examples
+
+```
+"qwerty" IS TRUE = TRUE
+```
+
+```
+123 IS TRUE = TRUE
+```
+
+```
+TRUE IS TRUE = TRUE
+```
+
+```
+FALSE IS TRUE = FALSE
+```
+
+```
+FALSE IS NOT TRUE = TRUE
+```
+
+```
+#2019-03-05# IS TRUE = TRUE
+```
+
+```
+#2019-03-05 01:02:03# IS TRUE = TRUE
+```
+
+
+#### Data source support
+
+`Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`

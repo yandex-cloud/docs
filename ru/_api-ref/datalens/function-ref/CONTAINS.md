@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # CONTAINS
 
 _Строковые функции_

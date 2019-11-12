@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # REGEXP_EXTRACT_NTH
 
 _Строковые функции_

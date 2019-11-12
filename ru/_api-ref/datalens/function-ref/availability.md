@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Поддержка функций
 
 Ниже приведена информация о поддержке функций различными источниками.
@@ -85,6 +89,8 @@
 | [OR](OR.md)                                 | X                                 | X                        | X                           | X                           | X                           | X                        | X                   | X                      | X                                                |                    |
 | [PI](PI.md)                                 | X                                 | X                        | X                           | X                           | X                           | X                        | X                   | X                      | X                                                |                    |
 | [POWER](POWER.md)                           | X                                 | X                        | X                           | X                           | X                           | X                        | X                   | X                      | X                                                |                    |
+| [QUANTILE](QUANTILE.md)                     | X                                 | X                        | X                           | X                           | X                           |                          |                     |                        |                                                  |                    |
+| [QUANTILE_APPROX](QUANTILE_APPROX.md)       | X                                 | X                        | X                           | X                           | X                           |                          |                     |                        |                                                  |                    |
 | [RADIANS](RADIANS.md)                       | X                                 | X                        | X                           | X                           | X                           | X                        | X                   | X                      | X                                                |                    |
 | [REGEXP_EXTRACT](REGEXP_EXTRACT.md)         | X                                 | X                        | X                           | X                           | X                           | X                        |                     | X                      |                                                  |                    |
 | [REGEXP_EXTRACT_NTH](REGEXP_EXTRACT_NTH.md) | X                                 | X                        | X                           | X                           | X                           | X                        |                     | X                      |                                                  |                    |

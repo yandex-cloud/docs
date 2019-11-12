@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # NOT
 
 _Операторы_

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # REGEXP_REPLACE
 
 _Строковые функции_

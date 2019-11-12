@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # DATETIME_PARSE
 
 _Функции преобразования типов_

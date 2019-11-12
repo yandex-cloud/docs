@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # AND
 
 _Операторы_

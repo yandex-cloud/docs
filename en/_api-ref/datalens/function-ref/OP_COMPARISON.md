@@ -1,0 +1,59 @@
+---
+editable: false
+---
+
+# Comparison
+
+_Operators_
+
+#### Syntax
+
+Version 1:
+```
+value_1 = value_2
+```
+Version 2:
+```
+value_1 != value_2
+```
+Version 3:
+```
+value_1 < value_2
+```
+Version 4:
+```
+value_1 <= value_2
+```
+Version 5:
+```
+value_1 > value_2
+```
+Version 6:
+```
+value_1 => value_2
+```
+
+#### Description
+Compares the value `value_1` with the value `value_2`.
+
+**Argument types:**
+- `value_1` — `Any`
+- `value_2` — `Any`
+
+
+**Return type**: `Boolean`
+
+#### Examples
+
+```
+1 = 1 = TRUE
+```
+
+```
+7 > 2 > 1 = TRUE
+```
+
+
+#### Data source support
+
+`Materialized Dataset`, `ClickHouse 1.1`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`

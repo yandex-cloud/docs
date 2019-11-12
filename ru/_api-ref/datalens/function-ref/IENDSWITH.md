@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # IENDSWITH
 
 _Строковые функции_

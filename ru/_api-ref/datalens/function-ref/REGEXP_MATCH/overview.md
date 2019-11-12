@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # REGEXP_MATCH
 
 _Строковые функции_

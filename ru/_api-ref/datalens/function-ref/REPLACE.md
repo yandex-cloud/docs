@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # REPLACE
 
 _Строковые функции_

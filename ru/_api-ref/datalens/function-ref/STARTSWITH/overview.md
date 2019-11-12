@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # STARTSWITH
 
 _Строковые функции_

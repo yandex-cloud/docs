@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # REGEXP_EXTRACT
 
 _Строковые функции_

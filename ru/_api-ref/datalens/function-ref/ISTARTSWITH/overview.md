@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # ISTARTSWITH
 
 _Строковые функции_

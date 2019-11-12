@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # BETWEEN
 
 _Операторы_

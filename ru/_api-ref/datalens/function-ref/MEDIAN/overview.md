@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # MEDIAN
 
 _Агрегатные функции_

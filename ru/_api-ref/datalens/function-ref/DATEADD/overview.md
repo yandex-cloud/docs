@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # DATEADD
 
 _Функции даты и времени_

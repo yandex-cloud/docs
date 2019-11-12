@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # STDEVP
 
 _Агрегатные функции_

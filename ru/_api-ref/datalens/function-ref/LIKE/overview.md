@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # LIKE
 
 _Операторы_

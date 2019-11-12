@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # CONCAT
 
 _Строковые функции_
