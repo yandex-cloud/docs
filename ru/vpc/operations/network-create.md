@@ -5,42 +5,42 @@
 {% list tabs %}
 
 - Консоль управления
-  
+
   Чтобы создать [облачную сеть](../concepts/network.md):
   1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать облачную сеть.
   1. Нажмите кнопку **Создать сеть.**
   1. Задайте имя сети.
-  
+
       {% include [name-format](../../_includes/name-format.md) %}
-  
+
   1. Нажмите кнопку **Создать сеть**.
-  
+
 - CLI
-  
-  Если у вас еще нет интерфейса командной строки Яндекс.Облака, [установите его](https://cloud.yandex.ru/docs/cli/quickstart#install).
-  
+
+  {% include [include](../../_includes/cli-install.md) %}
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   Чтобы создать [облачную сеть](../concepts/network.md):
   1. Посмотрите описание команды CLI для создания облачной сети:
-  
+
       ```
       $ yc vpc network create --help
       ```
-  
+
   1. Создайте облачную сеть в каталоге по умолчанию:
-  
+
       ```
       $ yc vpc network create --name test-network-1 \
           --description "My test network"
       ```
-  
+
       {% include [name-format](../../_includes/name-format.md) %}
-  
+
       Флаги `--name` и `--description` необязательные — можно создать сеть без имени и описания и обращаться к ней по идентификатору.
-  
+
   1. Получите список всех облачных сетей в каталоге по умолчанию:
-  
+
       ```
       $ yc vpc network list
       +----------------------+----------------+
@@ -50,9 +50,9 @@
       | enplom7a98s1t0lhass8 | default        |
       +----------------------+----------------+
       ```
-  
+
       Получите тот же список c большим количеством деталей в формате YAML:
-  
+
       ```
       $ yc vpc network list --format yaml
       - id: enpiuvhhd4t80k4n80i8
@@ -66,7 +66,7 @@
         name: default
         description: Auto-created default network
       ```
-  
+
 {% endlist %}
 
 ## Примеры {#examples}
@@ -76,11 +76,11 @@
 {% list tabs %}
 
 - CLI
-  
+
   ```
   $ yc vpc network create --name test-network-1 \
     --description "My test network" \
     --folder-id b1gnbfd11bq5g5vnjgr4
   ```
-  
+
 {% endlist %}
