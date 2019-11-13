@@ -199,4 +199,4 @@ items:
       - name: Все вопросы на одной странице
         href: faq.md
   - name: Публичные материалы
-    href: public-talks.md
+    href: public_talks.md
