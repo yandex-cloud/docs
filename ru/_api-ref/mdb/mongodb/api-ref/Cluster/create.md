@@ -31,7 +31,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters
       "nanos": "integer"
     },
 
-    // `configSpec` включает только одно из полей `mongodbSpec_3_6`, `mongodbSpec_4_0`
+    // `configSpec` включает только одно из полей `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`
     "mongodbSpec_3_6": {
       "mongod": {
         "config": {
@@ -165,6 +165,72 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters
         }
       }
     },
+    "mongodbSpec_4_2": {
+      "mongod": {
+        "config": {
+          "storage": {
+            "wiredTiger": {
+              "engineConfig": {
+                "cacheSizeGb": "number"
+              },
+              "collectionConfig": {
+                "blockCompressor": "string"
+              }
+            },
+            "journal": {
+              "commitInterval": "integer"
+            }
+          },
+          "operationProfiling": {
+            "mode": "string",
+            "slowOpThreshold": "integer"
+          },
+          "net": {
+            "maxIncomingConnections": "integer"
+          }
+        },
+        "resources": {
+          "resourcePresetId": "string",
+          "diskSize": "string",
+          "diskTypeId": "string"
+        }
+      },
+      "mongocfg": {
+        "config": {
+          "storage": {
+            "wiredTiger": {
+              "engineConfig": {
+                "cacheSizeGb": "number"
+              }
+            }
+          },
+          "operationProfiling": {
+            "mode": "string",
+            "slowOpThreshold": "integer"
+          },
+          "net": {
+            "maxIncomingConnections": "integer"
+          }
+        },
+        "resources": {
+          "resourcePresetId": "string",
+          "diskSize": "string",
+          "diskTypeId": "string"
+        }
+      },
+      "mongos": {
+        "config": {
+          "net": {
+            "maxIncomingConnections": "integer"
+          }
+        },
+        "resources": {
+          "resourcePresetId": "string",
+          "diskSize": "string",
+          "diskTypeId": "string"
+        }
+      }
+    },
     // конец списка возможных полей`configSpec`
 
   },
@@ -216,7 +282,7 @@ configSpec.<br>backupWindowStart.<br>hours | **integer** (int32)<br><p>Час в
 configSpec.<br>backupWindowStart.<br>minutes | **integer** (int32)<br><p>Минута часа. Допустимые значения — от 0 до 59.</p> 
 configSpec.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Секунда минуты. Обычно допустимые значения — от 0 до 59. API может разрешить значение 60, если поддерживаются високосные секунды.</p> 
 configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Доли секунды, в наносекундах. Допустимые значения — от 0 до 999 999 999.</p> 
-configSpec.<br>mongodbSpec_3_6 | **object**<br>Конфигурация и распределение ресурсов для кластера MongoDB 3.6. <br>`configSpec` включает только одно из полей `mongodbSpec_3_6`, `mongodbSpec_4_0`<br><br>
+configSpec.<br>mongodbSpec_3_6 | **object**<br>Конфигурация и распределение ресурсов для кластера MongoDB 3.6. <br>`configSpec` включает только одно из полей `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`<br><br>
 configSpec.<br>mongodbSpec_3_6.<br>mongod | **object**<br><p>Конфигурация и выделенные ресурсы для хостов mongod 3.6.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongod.<br>config | **object**<br><p>Конфигурация для хостов mongod 3.6.</p> <p>Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством всех опций, описанных в <a href="https://docs.mongodb.com/v3.6/reference/configuration-options/">MongoDB documentation</a>.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongod.<br>config.<br>storage | **object**<br><p>Секция <code>storage</code> конфигурации mongod.</p> 
@@ -260,7 +326,7 @@ configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>resources | **object**<br><p>Ре�
 configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
-configSpec.<br>mongodbSpec_4_0 | **object**<br>Конфигурация и распределение ресурсов для кластера MongoDB 4.0. <br>`configSpec` включает только одно из полей `mongodbSpec_3_6`, `mongodbSpec_4_0`<br><br>
+configSpec.<br>mongodbSpec_4_0 | **object**<br>Конфигурация и распределение ресурсов для кластера MongoDB 4.2. <br>`configSpec` включает только одно из полей `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`<br><br>
 configSpec.<br>mongodbSpec_4_0.<br>mongod | **object**<br><p>Конфигурация и выделенные ресурсы для хостов mongod 4.0.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongod.<br>config | **object**<br><p>Конфигурация для хостов mongod 4.0.</p> <p>Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством всех опций, описанных в <a href="https://docs.mongodb.com/v4.0/reference/configuration-options/">MongoDB documentation</a>.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongod.<br>config.<br>storage | **object**<br><p><code>storage</code> section of mongod configuration.</p> 
@@ -303,6 +369,49 @@ configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>resources | **object**<br><p>Ре�
 configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
+configSpec.<br>mongodbSpec_4_2 | **object**<br>Конфигурация и распределение ресурсов для кластера MongoDB 4.0. <br>`configSpec` включает только одно из полей `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`<br><br>
+configSpec.<br>mongodbSpec_4_2.<br>mongod | **object**<br><p>Конфигурация и выделенные ресурсы для хостов mongod 4.0.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config | **object**<br><p>Конфигурация для хостов mongod 4.0.</p> <p>Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством всех опций, описанных в <a href="https://docs.mongodb.com/v4.0/reference/configuration-options/">MongoDB documentation</a>.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage | **object**<br><p><code>storage</code> section of mongod configuration.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage.<br>wiredTiger | **object**<br><p>Конфигурация механизма хранения WiredTiger.</p> <p>Конфигурация механизма хранения WiredTiger.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>engineConfig | **object**<br><p>Конфигурация для механизма хранения WiredTiger.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>engineConfig.<br>cacheSizeGb | **number** (double)<br><p>Максимальный размер внутреннего кэша, который WiredTiger будет использовать для всех данных.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig | **object**<br><p>Конфигурация коллекций для механизма хранения WiredTiger.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage.<br>wiredTiger.<br>collectionConfig.<br>blockCompressor | **string**<br><p>Тип сжатия по умолчанию, который следует использовать для данных коллекции.</p> <ul> <li>NONE: Без сжатия.</li> <li>SNAPPY: Сжатие <a href="https://docs.mongodb.com/v4.0/reference/glossary/#term-snappy">Snappy</a>.</li> <li>ZLIB: Сжатие <a href="https://docs.mongodb.com/v4.0/reference/glossary/#term-zlib">zlib</a>.</li> </ul> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage.<br>journal | **object**<br><p>Конфигурация <a href="https://docs.mongodb.com/v4.0/reference/glossary/#term-journal">journal</a> MongoDB.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>storage.<br>journal.<br>commitInterval | **integer** (int64)<br><p>Максимальный интервал между операциями в журнале, в миллисекундах. По умолчанию: 100.</p> <p>Допустимые значения — от 1 до 500 включительно.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>operationProfiling | **object**<br><p><code>operationProfiling</code> section of mongod configuration.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>operationProfiling.<br>mode | **string**<br><p>Режим, который определяет критерии для профилирования операций.</p> <ul> <li>OFF: Профайлер выключен и не собирает никакие данные.</li> <li>SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение slowOpThreshold.</li> <li>ALL: Профайлер собирает данные для всех операций.</li> </ul> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>operationProfiling.<br>slowOpThreshold | **integer** (int64)<br><p>Порог времени для медленных операций, в миллисекундах. Операции, которые выполняются дольше этого порога, считаются медленными и обрабатываются профайлером, работающим в режиме SLOW_OP.</p> <p>Значение должно быть больше 0.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>net | **object**<br><p><code>net</code> section of mongod configuration.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>Максимальное количество одновременных подключений, которые принимает mongod.</p> <p>Допустимые значения — от 10 до 16384 включительно.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>resources | **object**<br><p>Ресурсы, выделенные каждому хосту mongod.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg | **object**<br><p>Конфигурация и выделенные ресурсы для хостов mongocfg 4.0.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>config | **object**<br><p>Конфигурация для хостов mongocfg 4.0.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>config.<br>storage | **object**<br><p><code>storage</code> section of mongocfg configuration.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>config.<br>storage.<br>wiredTiger | **object**<br><p>Конфигурация механизма хранения WiredTiger.</p> <p>Конфигурация механизма хранения WiredTiger.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>config.<br>storage.<br>wiredTiger.<br>engineConfig | **object**<br><p>Конфигурация для механизма хранения WiredTiger.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>config.<br>storage.<br>wiredTiger.<br>engineConfig.<br>cacheSizeGb | **number** (double)<br><p>Максимальный размер внутреннего кэша, который WiredTiger будет использовать для всех данных.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>config.<br>operationProfiling | **object**<br><p><code>operationProfiling</code> section of mongocfg configuration.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>config.<br>operationProfiling.<br>mode | **string**<br><p>Режим, который определяет критерии для профилирования операций.</p> <ul> <li>OFF: Профайлер выключен и не собирает никакие данные.</li> <li>SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение slowOpThreshold.</li> <li>ALL: Профайлер собирает данные для всех операций.</li> </ul> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>config.<br>operationProfiling.<br>slowOpThreshold | **integer** (int64)<br><p>Порог времени для медленных операций, в миллисекундах. Операции, которые выполняются дольше этого порога, считаются медленными и обрабатываются профайлером, работающим в режиме SLOW_OP. Подробнее см. в <a href="https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs">MongoDB documentation</a>.</p> <p>Значение должно быть больше 0.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>config.<br>net | **object**<br><p><code>net</code> section of mongocfg configuration.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>Максимальное количество одновременных подключений, которые принимает mongocfg.</p> <p>Допустимые значения — от 10 до 16384 включительно.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>resources | **object**<br><p>Ресурсы, выделенные для каждого хоста mongocfg.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
+configSpec.<br>mongodbSpec_4_2.<br>mongos | **object**<br><p>Конфигурация и выделенные ресурсы для хостов mongos 4.0.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>config | **object**<br><p>Конфигурация для хостов mongos 4.0.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>config.<br>net | **object**<br><p>Сетевые настройки для mongos.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>config.<br>net.<br>maxIncomingConnections | **integer** (int64)<br><p>Максимальное количество одновременных подключений, которые принимает mongos.</p> <p>Допустимые значения — от 10 до 16384 включительно.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources | **object**<br><p>Ресурсы, выделенные для каждого хоста mongos.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
+configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
 databaseSpecs[] | **object**<br><p>Обязательное поле. Описания баз данных, которые нужно создать в кластере MongoDB.</p> <p>Должен содержать хотя бы один элемент.</p> 
 databaseSpecs[].<br>name | **string**<br><p>Обязательное поле. Имя базы данных MongoDB. Длина 1-63 символов.</p> <p>Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_-]{1,63}</code>.</p> 
 userSpecs[] | **object**<br><p>Обязательное поле. Описания пользователей базы данных, которых нужно создать в кластере MongoDB.</p> <p>Должен содержать хотя бы один элемент.</p> 

@@ -2267,7 +2267,7 @@ components:
     PostgresqlConfig10:
       description: |-
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL documentation](https://www.postgresql.org/docs/10/runtime-config.html).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/10/runtime-config.html).
       type: object
       properties:
         maxConnections:
@@ -5293,7 +5293,7 @@ components:
         userConfig и [default_config]).
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL documentation](https://www.postgresql.org/docs/10/runtime-config.html).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/10/runtime-config.html).
       type: object
       properties:
         maxConnections:
@@ -5579,7 +5579,7 @@ components:
         Пользовательские настройки для кластера PostgreSQL 10.
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL documentation](https://www.postgresql.org/docs/10/runtime-config.html).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/10/runtime-config.html).
       type: object
       properties:
         maxConnections:
@@ -5865,7 +5865,7 @@ components:
         Конфигурация по умолчанию для кластера PostgreSQL 10.
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL documentation](https://www.postgresql.org/docs/10/runtime-config.html).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/10/runtime-config.html).
       type: object
       properties:
         maxConnections:

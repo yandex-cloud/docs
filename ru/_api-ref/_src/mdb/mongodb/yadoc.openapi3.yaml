@@ -1586,6 +1586,10 @@ components:
             $ref: '#/components/schemas/Mongodb4_0'
             description: Конфигурация и распределение ресурсов для кластера MongoDB
               4.0.
+          mongodb_4_2:
+            $ref: '#/components/schemas/Mongodb4_0'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              4.2.
     ClusterEnvironment:
       description: |-
         Среда развертывания.
@@ -1667,6 +1671,10 @@ components:
             $ref: '#/components/schemas/MongodbSpec4_0'
             description: Конфигурация и распределение ресурсов для кластера MongoDB
               4.0.
+          mongodbSpec_4_2:
+            $ref: '#/components/schemas/MongodbSpec4_0'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              4.2.
     CreateClusterMetadata:
       type: object
       properties:
@@ -3234,6 +3242,10 @@ components:
             $ref: '#/components/schemas/Mongodb4_0'
             description: Конфигурация и распределение ресурсов для кластера MongoDB
               4.0.
+          mongodb_4_2:
+            $ref: '#/components/schemas/Mongodb4_0'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              4.2.
     ClusterHealth_in_Cluster_health:
       description: |-
         Агрегированная работоспособность кластера.
@@ -3325,6 +3337,10 @@ components:
             $ref: '#/components/schemas/MongodbSpec4_0'
             description: Конфигурация и распределение ресурсов для кластера MongoDB
               4.0.
+          mongodbSpec_4_2:
+            $ref: '#/components/schemas/MongodbSpec4_0'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              4.2.
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Обязательное поле.
@@ -4571,6 +4587,10 @@ components:
             $ref: '#/components/schemas/MongodbSpec4_0'
             description: Конфигурация и распределение ресурсов для кластера MongoDB
               4.0.
+          mongodbSpec_4_2:
+            $ref: '#/components/schemas/MongodbSpec4_0'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              4.2.
     ServiceType_in_Service_type:
       description: |-
         Тип сервиса, предоставляемого хостом.
@@ -4644,6 +4664,10 @@ components:
             $ref: '#/components/schemas/MongodbSpec4_0'
             description: Конфигурация и распределение ресурсов для кластера MongoDB
               4.0.
+          mongodbSpec_4_2:
+            $ref: '#/components/schemas/MongodbSpec4_0'
+            description: Конфигурация и распределение ресурсов для кластера MongoDB
+              4.2.
     FieldMask_in_UpdateUserRequest_updateMask:
       description: |-
         Маска, которая указывает, какие поля ресурса User для MongoDB должны быть обновлены.
