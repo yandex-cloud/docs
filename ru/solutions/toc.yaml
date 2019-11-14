@@ -53,6 +53,8 @@ items:
       href: testing/index.md
     - name: Создание тестовых ВМ через GitLab CI
       href: testing/ci-for-snapshots.md
+    - name: Разработка и тестирование через GitLab CI
+      href: testing/gitlab.md
     - name: Высокопроизводительные вычисления (HPC) на прерываемых виртуальных машинах
       href: testing/hpc-on-preemptible.md
   - name: Управление инфраструктурой
