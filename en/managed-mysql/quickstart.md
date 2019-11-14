@@ -37,7 +37,7 @@ Follow the instructions below to quickly create a cluster and test your connecti
             --port=3306
             --ssl-ca=~/.mysql/root.crt
             --ssl-mode=REQUIRED
-            --user=<name of the database user>
+            --user=<name of database user>
             --password <DB name>
     ```
 

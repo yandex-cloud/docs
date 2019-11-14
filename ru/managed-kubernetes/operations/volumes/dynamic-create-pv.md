@@ -1,5 +1,7 @@
 # Динамическая подготовка тома
 
+{% include [note-about-version](../../../_includes/managed-kubernetes/note-about-version.md) %}
+
 Создайте под с динамически подготовленным [томом](../../concepts/volume.md):
 1. [Создайте объект PersistentVolumeClaim](#create-pvc).
 1. [Создайте под](#create-pod).

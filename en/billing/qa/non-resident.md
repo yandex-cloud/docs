@@ -4,7 +4,7 @@
 
 Yes, but only if your legal status is a business.
 
-To become a customer, submit a request using the **Ask a question** form on the [Contact us](https://cloud.yandex.com/support) page. A Yandex.Cloud manager will contact you to discuss the terms and conditions of signing the agreement.
+To become a customer, submit a request using the **Contact sales** form on the [Contact us](https://cloud.yandex.com/support) page. A Yandex.Cloud manager will contact you to discuss the terms and conditions of signing the agreement.
 
 #### Residents of what countries do you work with? {#countries}
 

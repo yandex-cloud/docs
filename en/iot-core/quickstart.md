@@ -17,7 +17,7 @@ To get started, you will need:
 
 1. A command line interface: [Yandex CLI](../cli/quickstart.md).
 
-1. A certificate from the certificate authority (CA): https://storage.yandexcloud.net/mqtt/rootCA.crt.
+1. A certificate from the certificate authority (CA): {{ ca-address }}.
 
 1. [Registry and device certificates](quickstart.md#create-ca).
 
@@ -103,8 +103,8 @@ For devices and registries to interact, you must have X.509 certificates:
 
 The registry and device are ready for use. Connect to the MQTT broker using the following data:
 
-- **Broker address:** `mqtt.cloud.yandex.net`
-- **Broker port:** `8883`
+- **Broker address:** `{{ mqtt-broker-address }}`
+- **Broker port:** `{{ mqtt-broker-port }}`
 - **Protocol:** `TLSv1.2`
 
 To enable data exchange, use the following [topics](concepts/index.md#interactions):
@@ -114,8 +114,8 @@ To enable data exchange, use the following [topics](concepts/index.md#interactio
     - `$devices/<device ID>/commands` — a topic for commands. The registry can write data to this topic and the device can read data from it.
 
 - Registry topics:
-    - `$registry/<registry ID>/events` — a topic for telemetry data. The device can write data to this topic and the registry can read data from it.
-    - `$registry/<registry ID>/commands` — a topic for commands. The registry can write data to this topic and the device can read data from it.
+    - `$registries/<registry ID>/events` — a topic for telemetry data. The device can write data to this topic and the registry can read data from it.
+    - `$registries/<registry ID>/commands` — a topic for commands. The registry can write data to this topic and the device can read data from it.
 
 You can get the ID of a device when creating it or using the following command:
 

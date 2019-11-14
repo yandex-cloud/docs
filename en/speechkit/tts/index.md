@@ -16,6 +16,10 @@ A highlight of Yandex speech technology is that we do not stitch fragments of re
 
 The statistical approach also allows us to change the parameters of existing voices. So you can choose the intonation to pronounce your text.
 
+## SSML support {#ssml}
+
+To get more control over speech synthesis, you can use [Speech Synthesis Markup Language](https://en.wikipedia.org/wiki/Speech_Synthesis_Markup_Language) (SSML). This is an XML-based markup language that lets you set the duration of pauses, the pronunciation of individual sounds, and much more. For more information about supported tags and how to use them, see [{#T}](ssml.md).
+
 #### See also
 
 * [{#T}](request.md)

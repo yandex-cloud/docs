@@ -18,17 +18,17 @@ Before you enable serial console access on a VM:
 
 1. Create a text file (for example, `sshkeys.txt`) and specify the following:
 
-    ```txt
-    <user name>:<user's public SSH key
-    ```
+   ```txt
+   <user name>:<user's public SSH key
+   ```
 
-    Example of a text file for `yc-user`:
+   Example of a text file for `yc-user`:
 
-    ```txt
-    yc-user:ssh-rsa AAAAB3Nza......OjbSMRX yc-user@example.com
-    ```
+   ```txt
+   yc-user:ssh-rsa AAAAB3Nza......OjbSMRX yc-user@example.com
+   ```
 
-    By default, a user's SSH keys are stored in the `~/.ssh` directory of this user. You can get a public key by running `cat ~/.ssh/<public key name>.pub`.
+   By default, a user's SSH keys are stored in the `~/.ssh` directory of this user. You can get a public key by running `cat ~/.ssh/<public key name>.pub`.
 
 ## Enabling the console when creating a VM from a public image {#turn-on-for-new-instance}
 
@@ -42,7 +42,7 @@ To enable access to the serial console when creating a VM, set the `serial-port-
 
 - Linux
 
-  1. View the description of the CLI's create VM command:
+  1. View the description of the CLI command for creating a VM:
 
      ```bash
      $ yc compute instance create --help
@@ -75,7 +75,7 @@ To enable access to the serial console when creating a VM, set the `serial-port-
 
 - Windows
 
-  1. View the description of the CLI's create VM command:
+  1. View the description of the CLI command for creating a VM:
 
      ```
      $ yc compute instance create --help
@@ -119,17 +119,17 @@ To enable access to the serial console when editing the VM settings, set the `se
 
     {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-1. Select the `ID` or `NAME` of the VM you need (for example, `first-instance`).
+1. Select the `ID` or `NAME` of the VM (for example, `first-instance`).
 
 1. Set `serial-port-enable=1` in the VM metadata:
 
-    ```
-    $ yc compute instance add-metadata \
-        --name first-instance \
-        --metadata serial-port-enable=1
-    ```
+   ```
+   $ yc compute instance add-metadata \
+       --name first-instance \
+       --metadata serial-port-enable=1
+   ```
 
-    This command will start activating the serial console on the machine named `first-instance`.
+   This command will start activating the serial console on the machine named `first-instance`.
 
 ## Configuring a VM for serial port access {#configuration}
 
@@ -140,7 +140,7 @@ For the serial console to be available from the operating system, the OS must be
 
 ### Linux {#linux-configuration}
 
-To connect to the Linux serial console, make sure that [SSH password authentication is disabled](#ssh-pass-off), and if necessary, [set a password](#create-pass) for the desired OS user.
+To connect to the Linux serial console, make sure that [SSH password authentication is disabled](#ssh-pass-off) and, if necessary, [set a password](#create-pass) for the appropriate OS user.
 
 #### Disable SSH password authentication {#ssh-pass-off}
 
@@ -151,12 +151,14 @@ If you use your own image, make sure that SSH access with your username and pass
 To disable SSH password authentication:
 
 1. Open the configuration file on the SSH server (`/etc/ssh/sshd_config` by default). Only a superuser has read and write access to the file.
+
 1. Set the `PasswordAuthentication` option to `no`.
+
 1. Restart the SSH server:
 
-  ```
-  $ sudo systemctl restart ssh
-  ```
+   ```
+   $ sudo systemctl restart ssh
+   ```
 
 #### Create a password for a Linux user {#create-pass}
 
@@ -172,25 +174,25 @@ To create a local password, use the CLI.
 
   {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-1. Select the `ID` or `NAME` of the VM you need (for example, `first-instance`).
+1. Select the `ID` or `NAME` of the VM (for example, `first-instance`).
 
 1. Get the VM's public IP address.
 
-  ```
-  $ yc compute instance get first-instance
-  ```
+   ```
+   $ yc compute instance get first-instance
+   ```
 
-  In the command output, find the address of the VM in the `one_to_one_nat` section:
+   In the command output, find the address of the VM in the `one_to_one_nat` section:
 
-  ```
-  ...
-  one_to_one_nat:
-      address: <public IP address>
-      ip_version: IPV4
-  ...
-  ```
+   ```
+   ...
+   one_to_one_nat:
+       address: <public IP address>
+       ip_version: IPV4
+   ...
+   ```
 
-  If there is no public IP address, [update the VM](../vm-control/vm-update.md) by additionally specifying the `--public-ip` flag.
+   If there is no public IP address, [update the VM](../vm-control/vm-update.md) by additionally specifying the `--public-ip` flag.
 
 1. Connect to the VM. For more information, see [{#T}](../vm-connect/ssh.md#vm-connect).
 
@@ -210,7 +212,15 @@ To create a local password, use the CLI.
 
 ### Windows {#windows-configuration}
 
-An equivalent of the serial console in Windows is the Speicial Administration Console (SAC). To connect, you need to make the appropriate changes to the operating system registry:
+An equivalent of the serial console in Windows is the Speicial Administration Console (SAC).
+
+{% note info %}
+
+If you created your VM after February 22, 2019, you don't need to configure anything else: the SAC is enabled by default.
+
+{% endnote %}
+
+If you created it before February 22, 2019, you need to update the Windows registry to connect to the SAC:
 
 1. [Connect to the VM over RDP](../vm-connect/rdp.md).
 
@@ -219,7 +229,7 @@ An equivalent of the serial console in Windows is the Speicial Administration Co
    ```
    $ bcdedit /ems "{current}" on
    The operation completed successfully.
-
+   
    $ bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200
    The operation completed successfully.
    ```

@@ -1,8 +1,8 @@
 # Getting started with {{ speechkit-short-name }}
 
-In this section, you will learn how to use the {{ speechkit-short-name }} API. First you will create an audio file from text and then try to recognize the audio.
+In this section, you'll learn how to use the {{ speechkit-short-name }} API. First you will create an audio file from text and then try to recognize the audio.
 
-## Before you start {#before-begin}
+## Before getting started {#before-begin}
 
 {% include [ai-before-beginning](../_includes/ai-before-beginning.md) %}
 
@@ -31,13 +31,13 @@ $ curl -X POST \
 
 The synthesized speech will be written to the `speech.ogg` file in the directory that you executed this command from.
 
-By default, audio is created in the [OggOpus](https://wiki.xiph.org/OggOpus) format. You can listen to the created file in a browser like [Yandex Browser](https://browser.yandex.ru) or [Mozilla Firefox](http://www.mozilla.org).
+By default, audio is created in the [OggOpus](https://wiki.xiph.org/OggOpus) format. You can listen to the created file in a browser like [Yandex Browser](https://browser.yandex.com) or [Mozilla Firefox](http://www.mozilla.org).
 
 [Read more about the format of a speech synthesis request](tts/request.md).
 
 ## Speech recognition
 
-The service can recognize speech in [three different ways](stt/index.md#stt-ways). This section describes [recognition of short audio files](stt/request.md).
+The service can recognize speech [three different ways](stt/index.md#stt-ways). This section describes [recognition of short audio files](stt/request.md).
 
 Pass the binary content of your audio file in the [request](stt/request.md) message body. In the Query parameters, specify the recognition language (`lang`) and the folder ID (`folderId`). The service responds with the recognized text:
 

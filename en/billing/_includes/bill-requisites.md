@@ -11,8 +11,8 @@
     | Name of the product, work, or service | Information about the services rendered |
     | Total | Total amount for all lines of the payment invoice, excluding VAT, in rubles |
     | Total VAT % | The amount of accrued taxes for all lines of the payment invoice, in rubles |
-    | Total amount payable | The total amount for all lines of the payment invoice, including VAT, in rubles |
-    | Due and payable | The total amount for all lines of the payment invoice, including VAT, in rubles |
+    | Total amount payable | The total amount for all lines of the payment invoice, with VAT, in rubles |
+    | Due and payable | The total amount for all lines of the payment invoice, with VAT, in rubles |
 
 - For non-residents of Russia
 

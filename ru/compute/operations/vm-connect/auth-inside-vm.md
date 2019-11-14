@@ -102,7 +102,7 @@
   1. Подключитесь к виртуальной машине [по SSH](../vm-connect/ssh.md) или [по RDP](../vm-connect/rdp.md).
   1. Получите IAM-токен из метаданных в одном из форматов:
 
-       * **GCP**:
+       * **Google Compute Engine**:
          ```bash
          $ curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
 
@@ -110,7 +110,7 @@
          ```
          IAM-токен будет указан в ответе в поле `access_token`. Оставшееся время жизни IAM-токена указано в поле `expires_in`.
 
-       * **EC2**:
+       * **Amazon EC2**:
          ```bash
          $ curl http://169.254.169.254/latest/meta-data/iam/security-credentials/default/
 

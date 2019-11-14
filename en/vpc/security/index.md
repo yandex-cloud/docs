@@ -1,54 +1,54 @@
 # Access management
 
-Yandex.Cloud users can only perform operations on resources that are allowed by the roles assigned to them. If the user has no roles assigned, all operations are forbidden.
+In this section, you'll learn:
 
-To allow access to resources in the {{ vpc-full-name }} service, assign the required roles to the user from the list below. At this time, a role can only be assigned to a parent resource (folder or cloud), and the roles are inherited by nested resources.
+* [What resources you can assign the](#resources) role to.
+* [What roles exist in the service](#roles-list).
+* [What roles are required](#required-roles) for particular actions.
 
-{% note info %}
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-For more information about role inheritance, see the section [Inheritance of access rights](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-name }} documentation.
+## What resources you can assign roles to. {#resources}
 
-{% endnote %}
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Assigning roles
+## What roles exist in the service {#roles-list}
 
-To manage cloud networks, the user must have the appropriate permissions in the cloud and folders where operations will be performed.
+The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
 
-To grant the user permissions:
+![image](service-roles-hierarchy.svg)
 
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
+Active roles in the service:
 
-## Roles
+* Service roles:
+    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* Primitive roles:
+    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-The list below shows all roles that are considered when verifying access rights in the {{ service-name }} service.
+## What roles do I need {#required-roles}
 
-### Service roles
+The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
 
-Service roles are roles that allow access to the resources of a particular service. When {{ service-name }} resource access rights are checked, {{ resmgr-name }} service roles are taken into account.
+| Action | Methods | Required roles |
+| ----- | ----- | ----- |
+| **View data** |  |
+| View information about any resource | `get`, `list`, `listOperations` | `viewer` for this resource |
+| List subnets in the network | `listSubnets` | `viewer` for the network |
+| **Manage resources** |  |
+| [Create networks in a folder](../operations/network-create.md) | `create` | `editor` for the folder |
+| [Update](../operations/network-update.md) and [delete networks](../operations/network-delete.md) | `update`, `delete` | `editor` for the network |
+| [Create subnets in a folder](../operations/subnet-create.md) | `create` | `editor` for the folder and network |
+| [Update](../operations/subnet-update.md) and [delete subnets](../operations/subnet-delete.md) | `update`, `delete` | `editor` for the folder |
+| **Manage resource access** |  |
+| [Assign a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view roles granted for the resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource |
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+#### What's next
 
-### Primitive roles
-
-You can assign primitive roles to any resource in any service.
-
-#### {{ roles-viewer }}
-
-A user with the `{{ roles-viewer }}` can view lists of cloud networks and subnets.
-
-#### {{ roles-editor }}
-
-A user with the `{{ roles-editor }}` can perform any operations on cloud networks and subnets: create, delete, and update them.
-
-In addition, the `{{ roles-editor }}` role includes all permissions of the `{{ roles-viewer }}` role.
-
-#### {{ roles-admin }}
-
-A user with the `{{ roles-admin }}` can manage access rights to resources, for example, allow other users to create cloud networks and subnets or view information about them.
-
-In addition, the `{{ roles-admin }}` role includes all permissions of the role of `{{ roles-editor }}`.
-
-## See also
-
-[Hierarchy of Yandex.Cloud resources](../../resource-manager/concepts/resources-hierarchy.md)
+* [How to assign a role](../../iam/operations/roles/grant.md).
+* [How to revoke a role](../../iam/operations/roles/revoke.md).
+* [Read more about access management in Yandex.Cloud](../../iam/concepts/access-control/index.md).
+* [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 

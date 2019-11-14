@@ -4,8 +4,6 @@
 
 ## Create your first VM
 
-To create a VM:
-
 {% include [create-instance-via-concole-windows](../_includes_service/create-instance-via-concole-windows.md) %}
 
 {% include [initialization-windows-vm](../../_includes/initialization-windows-vm.md) %}

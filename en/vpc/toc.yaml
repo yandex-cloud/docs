@@ -33,8 +33,12 @@ items:
             href: operations/set-dynamic-ip.md
           - name: Deleting a static public IP address
             href: operations/address-delete.md
-      - name: DDoS Protection
+      - name: Static routes
         stage: new
+        items:
+          - name: Creating a static route
+            href: operations/static-route-create.md
+      - name: DDoS Protection
         items:
           - name: Enable protection from DDoS attacks
             href: operations/enable-ddos-protection.md
@@ -46,13 +50,16 @@ items:
         href: concepts/network.md
       - name: Cloud resource addresses
         href: concepts/address.md
+      - name: Static routes
+        href: concepts/static-routes.md
       - name: MTU and MSS
         href: concepts/mtu-mss.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: DDoS Protection
-    stage: new
     href: ddos-protection/index.md
+  - name: Cloud Interconnect
+    href: interconnect/index.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

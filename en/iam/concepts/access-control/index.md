@@ -1,6 +1,6 @@
 # How access management in Yandex.Cloud works
 
-On this page, you can find out how to manage resource access and how {{ iam-short-name }} checks access rights to them.
+Here you can learn how to manage access to your resources and how {{ iam-short-name }} checks access rights for the resources.
 
 ## How are access rights verified?
 
@@ -25,7 +25,7 @@ You can also assign a role to a parent resource that [access rights are inherite
 
 {% note important %}
 
-Changing access rights usually takes 30 seconds or less, but it may take up to 5 minutes.
+Changing access rights usually takes up to 5 seconds. If you still don't have access after a role is assigned, try running the operation again.
 
 For example, you were given the right to create folders in the cloud and you were able to create one folder, but couldn't create another one. This is because the access rights have not yet been updated on the server where the second create folder operation was performed. Try creating the folder again.
 
@@ -43,7 +43,7 @@ Resource roles can be assigned by users with the [administrator](roles.md#admin)
 
 Each role consists of a set of permissions that describe operations that can be performed with the resource. A user can assign a role with only those permissions which are available to themselves. For example, only the user with the [cloud owner](roles.md#owner) role can assign this same role. The administrator role is not enough for this.
 
-To find out what roles exist and what permissions they include, see [{#T}](roles.md).
+To find out what roles exist and the permissions they include, see [{#T}](roles.md).
 
 ### Subjects that roles are assigned to {#subject}
 
@@ -67,7 +67,7 @@ Each binding is a single assignment of a role to a subject. To assign a user mul
 
 If a resource has child resources, all permissions from the parent resource will be inherited by the child resources. For example, if you assign a user a role for a folder where a VM instance resides, all permissions of this role will also apply to the instance.
 
-If a child resource is also assigned some roles, a list of permissions for this resource will be combined with a list of permissions for its parent resource.
+If a child resource is also assigned some roles, a list of permissions for this resource will be combined with a list of permissions for its parent resource. You can't limit the list of permissions inherited from the parent resource.
 
 #### See also
 

@@ -18,7 +18,7 @@ The amount charged is calculated using the formula:
   {% list tabs %}
 
 - Example 1
-  
+
   <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
   <br/>The balance has not been topped up during the entire reporting period (0 rubles).
   <br/>The grant amount is 1,000 rubles.
@@ -26,18 +26,18 @@ The amount charged is calculated using the formula:
   <br/>In the middle of the reporting period, the established credit limit has been reached and the amount for resources consumed is 3,000 rubles.
   <br/>Total amount: 3000 - (0 + 0 + 1000) = 2000 (rubles).
   <br/>In the middle of the reporting period, 2,000 rubles will be debited from the linked bank card. A payment receipt will also be generated for 2,000 rubles.
-  
+
 - Example 2
-  
+
   <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
   <br/>The balance has not been topped up during the entire reporting period (0 rubles).
   <br/>The grant amount is 1,000 rubles.
   <br/>At the end of the reporting period, the amount for consumed resources is 800 rubles.
   <br/>The grant amount at the end of the reporting period is 200 rubles. The personal account balance has not changed.
   <br/>At the beginning of the next reporting month, no funds will be debited from the linked bank card. No payment receipt will be generated.
-  
+
 - Example 3
-  
+
   <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
   <br/>The balance has not been topped up during the entire reporting period (0 rubles).
   <br/>The grant amount is 1,000 rubles.
@@ -45,7 +45,7 @@ The amount charged is calculated using the formula:
   <br/>At the end of the reporting period, the amount for consumed resources is 2,300 rubles. The credit limit has not been reached and the grant has been fully spent.
   <br/>Total amount: 2300 - (0 + 0 + 1000) = 1300 (rubles).
   <br/>At the beginning of the next reporting period, 1,300 rubles will be debited from the linked bank card. A payment receipt will also be generated for 1,300 rubles.
-  
+
   {% endlist %}
 
 ## Payment receipt details {#parameters}
@@ -60,7 +60,7 @@ The amount charged is calculated using the formula:
 | Service name | Information about the services provided. |
 | VAT | Tax rate. |
 | VAT amount | The amount of taxes paid for all lines of the receipt. |
-| Total | The amount, in rubles, the receipt was generated for, including VAT. |
+| Total | The amount, in rubles, the receipt was generated for, with VAT. |
 | Payment method | Settlement type and payment method. |
 | CR No. | Registration number of the cash register. |
 | FMD No. | Number of the fiscal memory device. |

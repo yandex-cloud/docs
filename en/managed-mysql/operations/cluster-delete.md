@@ -1,10 +1,6 @@
 # Deleting clusters
 
-{% note important %}
-
-You cannot restore a DB cluster that has been deleted, because all the cluster's backups are removed with it.
-
-{% endnote %}
+{% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
 {% list tabs %}
 

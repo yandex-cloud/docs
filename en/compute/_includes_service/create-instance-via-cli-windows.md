@@ -1,4 +1,4 @@
-1. See the description of the CLI's create VM command:
+1. View the description of the CLI's create VM command:
 
     ```
     $ yc compute instance create --help
@@ -8,7 +8,7 @@
 
     {% include [standard-images](../../_includes/standard-images.md) %}
 
-1. Create a YAML file (for example, `metadata.yaml`) and provide the following information::
+1. Create a YAML file (for example, `metadata.yaml`) and specify the following:
 
     ```yaml
     #ps1
@@ -30,8 +30,8 @@
     - Named `second-instance`.
     - With the Windows Server 2016 OS.
     - In the `ru-central1-a` availability zone.
-    - With the `Administrator` user.
-    - With a public IP.
+    - With the `administrator` user.
+    - With a public IP address.
 
     To create a VM without a public IP, remove the `--public-ip` flag.
 
@@ -41,11 +41,7 @@
 
         The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters.
 
-        {% note info %}
-
-        The virtual machine name is used for generating the FQDN, which cannot be changed later. If the FQDN is important to you, choose an appropriate name for the virtual machine at the creation stage. For more information about generating FQDN names, see the section [{#T}](../concepts/network.md#hostname).
-
-        {% endnote %}
+        {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
     - The administrator password in the `metadata.yaml` file. A password is required for accessing the VM via RDP.
 

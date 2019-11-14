@@ -1,4 +1,4 @@
-# Access control
+# Access management
 
 ## Billing access {#billing}
 
@@ -41,27 +41,27 @@ A list of operations available to each role is given in the table below.
 
 | Operations | `member` | `owner` | `viewer` | `editor` | `admin` |
 | ----- | ----- | ----- | ----- | ----- | ----- |
-| Activate the trial period | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-| Activate the paid version | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-| Check expenses | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) |
-| Access usage details | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) |
-| Activate promo codes | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) |
-| Top up balance | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-| View billing account information | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) |
-| Change payer contacts | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-| Change billing details | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-| Change bank cards | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-| Change payment methods | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-| Assign roles to billing accounts | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) |
-| View and edit roles | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) |
-| Link clouds to billing accounts | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) |
+| Activate the trial period | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Activate the paid version | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Check expenses | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Access usage details | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Activate promo codes | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Top up balance | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| View billing account information | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Change payer contacts | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Change billing details | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Change bank cards | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Change payment methods | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+| Assign roles to billing accounts | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+| View and edit roles | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+| Link clouds to billing accounts | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 
 ## Adding users {#set-member-role}
 
 The billing account owner can add any Yandex.Cloud user to the **Users** list. To add a user:
 
 1. In the [management console](https://console.cloud.yandex.ru/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
-1. Go to **Access control**.
+1. Go to **Access management**.
 1. Click **Add user**.
 1. Enter a Yandex.Passport or Yandex.Connect username. <br/>Usernames that match the search are displayed in the list. Select the appropriate one.
 1. Click **Add**.
@@ -73,7 +73,7 @@ The user with the specified username is assigned the `billing.accounts.member` r
 The owner can grant billing account access to any user who was added to the list and granted the `billing.accounts.member` role. To do this:
 
 1. In the [management console](https://console.cloud.yandex.ru/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
-1. Go to **Access control**.
+1. Go to **Access management**.
 1. Find the user in the list.
 1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure roles**.
 1. Click **Assign role**.
@@ -84,7 +84,7 @@ The owner can grant billing account access to any user who was added to the list
 The billing account owner can revoke roles from users on the list at any time. To do this:
 
 1. In the [management console](https://console.cloud.yandex.ru/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
-1. Go to **Access control**.
+1. Go to **Access management**.
 1. Find the user in the list.
 1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure roles**.
 1. Click ![image](../../_assets/cross.svg) next to the role you want to revoke. The role is revoked.

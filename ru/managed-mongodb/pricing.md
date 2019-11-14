@@ -2,9 +2,14 @@
 editable: false
 ---
 
-# Правила тарификации для {{ MG }}
+# Правила тарификации для {{ mmg-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
+
+{% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
+
 
 ## Из чего складывается стоимость использования {{ mmg-short-name }} {#rules}
 
@@ -35,7 +40,7 @@ editable: false
 
 * Объем хранилища, выделенный для кластеров БД.
 
-    * Хранилище на быстрых локальных дисках (NVMe) можно заказывать только для кластеров более чем с 3 хостами, с шагом 100 ГБ.
+    * Хранилище на быстрых локальных дисках (`local-ssd`) можно заказывать только для кластеров более чем с 3 хостами, с шагом 100 ГБ.
 
 
 * Объем, занимаемый резервными копиями баз данных сверх заданного хранилища для кластера.

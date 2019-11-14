@@ -1,6 +1,5 @@
 title: "Yandex Container Registry"
 href: index.yaml
-stage: new
 items:
   - name: Начало работы
     href: quickstart/index.md
@@ -10,9 +9,15 @@ items:
         href: operations/index.md
       - name: Аутентифицироваться в Container Registry
         href: operations/authentication.md
-      - name: Создать ВМ с Container Optimized Image
-        href: operations/create-coi-vm.md
-      - name: Docker-образ
+      - name: Работа с Container Optimized Image
+        items:
+          - name: Создать ВМ с Container Optimized Image
+            href: operations/coi/vm-create.md
+          - name: Изменить ВМ с Container Optimized Image
+            href: operations/coi/vm-update.md
+          - name: Создать группу ВМ с Container Optimized Image
+            href: operations/coi/ig-create.md
+      - name: Управление Docker-образом
         items:
           - name: Получить информацию об имеющихся Docker-образах
             href: operations/docker-image/docker-image-list.md
@@ -24,7 +29,7 @@ items:
             href: operations/docker-image/docker-image-pull.md
           - name: Удалить Docker-образ из реестра
             href: operations/docker-image/docker-image-delete.md
-      - name: Реестр
+      - name: Управление реестром
         items:
           - name: Получить информацию об имеющихся реестрах
             href: operations/registry/registry-list.md
@@ -34,7 +39,7 @@ items:
             href: operations/registry/registry-update.md
           - name: Удалить реестр
             href: operations/registry/registry-delete.md
-      - name: Репозиторий
+      - name: Управление репозиторием
         items:
           - name: Получить список репозиториев в реестре
             href: operations/repository/repository-list.md
@@ -48,12 +53,16 @@ items:
           href: concepts/registry.md
         - name: Репозиторий
           href: concepts/repository.md
+        - name: Образ Container Optimized Image
+          href: concepts/coi.md
         - name: Квоты и лимиты
           href: concepts/limits.md
   - name: Сценарии использования
     items:
       - name: Запуск Docker-образа на виртуальной машине
-        href: scenario/index.md
+        href: solutions/index.md
+      - name: Работа с Container Registry из GitLab
+        href: solutions/gitlab.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -65,6 +74,7 @@ items:
     include:
       repo: docs
       path: ru/_api-ref/containerregistry/toc.yaml
-  # - name: Вопросы и ответы
-  #   href: qa/index.md
-
+  - name: Решение проблем
+    href: error/index.md
+  - name: Вопросы и ответы
+    href: qa/index.md

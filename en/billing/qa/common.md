@@ -8,6 +8,10 @@ Yes. For more information, see the section [How to create a VM instance](../../c
 
 In Yandex.Cloud, each service has its own SLA. You can learn more about SLAs in the section [Legal documents](https://yandex.ru/legal/cloud_sla/?lang=en).
 
+#### Where can I find bank details of Yandex.Cloud LLC? {#requisites}
+
+You can find bank details in the document [Account card «Yandex.Cloud» LLC](https://storage.yandexcloud.net/doc-files/Yandex.Cloud_requisites.pdf), as well as in the section [Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en) (point **18. Yandex Details**).
+
 #### How do I contact technical support? {#support}
 
 You can contact technical support using one of these methods:

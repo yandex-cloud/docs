@@ -22,7 +22,7 @@
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
   1. Измените параметры виртуальной машины, например, переименуйте машину:
 
       ```
@@ -67,7 +67,7 @@
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
   1. Измените имя и описание виртуальной машины:
 
       ```
@@ -102,7 +102,7 @@
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Выберите `ID` или `NAME` нужной машины, например `first-instance`.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
   1. Получите информацию о виртуальной машине вместе с метаданными. Все пользовательские метаданные определены в ключе `user-data`.
 
       ```

@@ -4,6 +4,8 @@ You can create a group with a fixed number of instances. The group size is set m
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
+{% include [sa.md](../../../_includes/instance-groups/sa.md) %}
+
 To create a fixed-size instance group:
 
 {% list tabs %}
@@ -30,21 +32,22 @@ To create a fixed-size instance group:
       $ yc vpc network list
       ```
 
-      If there aren't any, [create the necessary networks](../../../vpc/operations/subnet-create.md) in the {{ vpc-short-name }} service.
+      If there aren't any, [create the necessary networks](../../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
   1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) (for example, CentOS 7).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
-  1. Create a YAML file with any name (for example, `template.yaml`).
+  1. Create a YAML file with any name (for example, `specification.yaml`).
 
-  1. In the created file, specify:
+  1. In the created file, indicate the following:
 
       - General information about the group:
 
           ```
-          name: first-instance-group
-          description: "This instance group was created from yaml config"
+          name: first-fixed-group
+          service_account_id: <ID>
+          description: "This instance group was created from YAML config"
           ```
 
           Keys:
@@ -52,26 +55,29 @@ To create a fixed-size instance group:
           | Key | Value |
           | ----- | ----- |
           | `name` | A name for the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters. |
+          | `service_account_id` | ID of the service account. |
           | `description` | A description of the instance group. |
 
-      - [The instance template](../../concepts/instance-groups/instance-template.md):
+      - [Instance template](../../concepts/instance-groups/instance-template.md):
 
           ```
           instance_template:
               platform_id: standard-v1
               resources_spec:
-                  memory: 4294967296
+                  memory: 4g
                   cores: 1
               boot_disk_spec:
                   mode: READ_WRITE
                   disk_spec:
-                      image_id: fdvcl0b1no2hjb423igi
+                      image_id: fdvk34al8k5nltb58shr
                       type_id: network-hdd
-                      size: 34359738368
+                      size: 32g
               network_interface_specs:
                   - network_id: c64mknqgnd8avp6edhbt
-                      primary_v4_address_spec: {}
+                    primary_v4_address_spec: {}
           ```
+
+          {% include [default-unit-size](../../../_includes/instance-groups/default-unit-size.md) %}
 
           Keys (the table contains the keys that directly define the instance parameters):
 
@@ -87,7 +93,7 @@ To create a fixed-size instance group:
           | `network_id` | The `default-net` ID. |
           | `primary_v4_address_spec` | IPv4 specification. Only IPv4 is currently available. You can allow public access to group instances by specifying the IP version for the public IP address. For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template). |
 
-      - [Policies](../../concepts/instance-groups/policies.md):
+      - [The policies](../../concepts/instance-groups/policies.md):
 
           ```
           deploy_policy:
@@ -109,25 +115,26 @@ To create a fixed-size instance group:
           | `scale_policy` | Scaling policy for instances in the group. |
           | `allocation_policy` | Policy for allocating instances across zones and regions. |
 
-          Full code for the `template.yaml` file:
+          Full code for the `specification.yaml` file:
 
           ```
-          name: first-instance-group
-          description: "This instance group was created from yaml config"
+          name: first-fixed-group
+          service_account_id: ajed6ilf11qg839dcl1e
+          description: "This instance group was created from YAML config"
           instance_template:
               platform_id: standard-v1
               resources_spec:
-                  memory: 4294967296
+                  memory: 4g
                   cores: 1
               boot_disk_spec:
                   mode: READ_WRITE
                   disk_spec:
-                      image_id: fdvcl0b1no2hjb423igi
+                      image_id: fdvk34al8k5nltb58shr
                       type_id: network-hdd
-                      size: 34359738368
+                      size: 32g
               network_interface_specs:
                   - network_id: c64mknqgnd8avp6edhbt
-                      primary_v4_address_spec: {}
+                    primary_v4_address_spec: {}
           deploy_policy:
               max_unavailable: 1
               max_expansion: 0
@@ -142,12 +149,12 @@ To create a fixed-size instance group:
   1. Create an instance group in the default folder:
 
       ```
-      $ yc compute instance-group create --file template.yaml
+      $ yc compute instance-group create --file specification.yaml
       ```
 
       This command creates a group of three similar instances with the following characteristics:
-      - Named `first-instance-group`.
-      - Running on CentOS 7.
+      - Named `first-fixed-group`.
+      - Running CentOS 7.
       - In the `default-net` network.
       - In the `ru-central1-a` availability zone.
       - With a single core and 4 GB RAM.
@@ -155,8 +162,7 @@ To create a fixed-size instance group:
 
 - API
 
-  Use the [create](../../../_api-ref/compute/api-ref/InstanceGroup/create.md) API method.
-
+  Use the [create](../../api-ref/InstanceGroup/create.md) API method.
 
 {% endlist %}
 

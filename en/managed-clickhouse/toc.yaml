@@ -13,15 +13,14 @@ items:
       href: operations/cluster-create.md
     - name: Connecting to databases
       href: operations/connect.md
-    - name: Adding data to the database
-      href: operations/insert.md
-    - name: Migrating ClickHouse data
-      href: operations/data-migration.md
+    - name: Stopping and starting clusters
+      href: operations/cluster-stop.md
     - name: SQL queries in the management console
       href: operations/web-sql-query.md
-      stage: preview
     - name: Changing cluster and database settings
       href: operations/update.md
+    - name: Connecting external dictionaries
+      href: operations/dictionaries.md
     - name: Changing ClickHouse versions
       href: operations/cluster-version-update.md
     - name: Managing ClickHouse hosts
@@ -34,12 +33,16 @@ items:
       href: operations/cluster-users.md
     - name: Managing backups
       href: operations/cluster-backups.md
-    - name: Managing shards
+    - name: How to manage shards
       href: operations/shards.md
     - name: Deleting clusters
       href: operations/cluster-delete.md
-  - name: Tutorials
+  - name: Solutions
     items:
+      - name: Adding data to the database
+        href: operations/insert.md
+      - name: Migrating ClickHouse data
+        href: operations/data-migration.md
       - name: Sharding tables
         href: tutorials/sharding.md
   - name: Concepts
@@ -48,7 +51,7 @@ items:
       href: concepts/index.md
     - name: Host classes
       href: concepts/instance-types.md
-    - name: DB network and clusters
+    - name: Network in Yandex Managed Service for ClickHouse
       href: concepts/network.md
     - name: Quotas and limits
       href: concepts/limits.md
@@ -58,6 +61,8 @@ items:
       href: concepts/backup.md
     - name: Replication
       href: concepts/replication.md
+    - name: Dictionaries
+      href: concepts/dictionaries.md
     - name: Sharding
       href: concepts/sharding.md
     - name: Supported clients
@@ -66,7 +71,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     items:
-      - name: Current rules
+      - name: Current pricing policy
         href: pricing.md
       - name: Archive
         items:
@@ -80,7 +85,7 @@ items:
       href: api-ref/authentication.md
     include:
       repo: docs
-      path: ru/_api-ref/mdb/clickhouse/toc.yaml
+      path: en/_api-ref/mdb/clickhouse/toc.yaml
   - name: Questions and answers
     items:
     - name: General questions

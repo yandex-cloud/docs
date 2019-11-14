@@ -1,7 +1,6 @@
 # Yandex DataLens
 title: "Yandex DataLens"
 description:
-  - "<em>Сервис DataLens находится на стадии <a href=\"/docs/overview/concepts/launch-stages\">Preview</a></em>."
   - "Сервис DataLens позволяет визуализировать данные для анализа."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:

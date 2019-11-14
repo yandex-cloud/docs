@@ -1,9 +1,11 @@
 ---
 editable: false
 ---
-# Pricing for {{ RD }}
+# Pricing for {{ mrd-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
 ## What goes into the cost of using {{ mrd-short-name }} {#rules}
 
@@ -74,7 +76,7 @@ The data in the **Per 1 GB RAM** tab is given for reference purposes: the table 
 
 - Prices in roubles
 
-  Prices are indicated including VAT.
+  Prices are indicated with VAT.
 
   Host class | Rate for 1 host per hour | Price per 1 GB RAM per hour
   ----- | ----- | ----- | -----

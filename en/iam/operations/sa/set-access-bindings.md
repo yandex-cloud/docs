@@ -142,7 +142,7 @@ You can't set service account access rights via the management console. You can 
   1. Make sure the resource doesn't have any roles that you don't want to lose:
 
       ```
-      $ yc iam service-account list-access-binding my-robot
+      $ yc iam service-account list-access-bindings my-robot
       ```
   2. For example, assign a role to multiple users:
 

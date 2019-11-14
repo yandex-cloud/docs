@@ -89,7 +89,8 @@ HTTP | Код ошибки| Описание
 409 | `OperationAborted` | Конфликтующие условные операции.
 411 | `MissingContentLength` | Добавьте `Content-Length` в заголовки.
 412 | `Precondition Failed` | Не выполнено одно из указанных в запросе условий.
-416 | `InvalidRange` | Неправильный диапазон в заголовке Range.
+416 | `InvalidRange` | Неправильный диапазон в заголовке `Range`.
+429 | `TooManyRequests` | Слишком много запросов к {{ objstorage-name }}. Снизьте частоту обращений.
 500 | `InternalError` | Внутренняя ошибка {{ objstorage-name }}. Повторите запрос.
 501 | `NotImplemented` | Переданный заголовок не обрабатывается {{ objstorage-name }}.
 503 | `ServiceUnavailable` | {{ objstorage-name }} недоступен.<br/>Уменьшите частоту ваших запросов.

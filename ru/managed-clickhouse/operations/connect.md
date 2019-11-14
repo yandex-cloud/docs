@@ -1,6 +1,6 @@
 # Подключение к базе данных в кластере {{ CH }}
 
-{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
+Внутри Яндекс.Облака подключиться к кластеру БД можно только с виртуальной машины, подключенной к той же подсети, что и кластер.
 
 К кластеру {{ CH }} можно подключиться как с помощью [клиента командной строки](https://clickhouse.yandex/docs/ru/interfaces/cli/) (порт 9440), так и по [HTTP-интерфейсу](https://clickhouse.yandex/docs/ru/interfaces/http_interface/) (порт 8443). Все соединения с кластерами БД шифруются.
 

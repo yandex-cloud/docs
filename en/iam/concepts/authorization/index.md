@@ -46,9 +46,11 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
   There are three ways to perform operations on behalf of a service account:
 
-  * Using an [IAM token](iam-token.md). This is the recommended authentication method. However, please note that the IAM token validity is limited. Therefore, this method is suitable for developing applications that will request the IAM token automatically.
-    * [Instructions for how to get an IAM token](../../operations/iam-token/create-for-sa.md).
-    * [How to get an IAM token from inside the VM](../../../compute/operations/vm-connect/auth-inside-vm.md).
+  * Using an [IAM token](iam-token.md).
+
+      This is the recommended authentication method, but IAM tokens have a short [lifetime](iam-token.md#lifetime). Therefore, such a method is good for applications that will request the IAM token automatically.
+      * [Instructions for how to get an IAM token](../../operations/iam-token/create-for-sa.md).
+      * [How to get an IAM token from inside the VM](../../../compute/operations/vm-connect/auth-inside-vm.md).
 
   * Using [API keys](api-key).
 
@@ -61,4 +63,10 @@ Before authorization, a user must get authenticated, meaning they must log in un
       [Instructions for how to get a static access key](../../operations/sa/create-access-key.md).
 
 {% endlist %}
+
+### Federated user authentication {#saml-federation}
+
+{% include [federated-user-auth](../../../_includes/iam/federated-user-auth.md) %}
+
+The authentication process for a federated user depends on the IdP server settings. For more information, see [{#T}](../users/identity-federations.md)
 

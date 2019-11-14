@@ -4,11 +4,11 @@
 
 ## Before you start {#preparations}
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 ## Installation {#installation}
 
-To install S3cmd, follow the [instructions](https://github.com/s3tools/s3cmd/blob/master/INSTALL) in the project repository.
+To learn how to download and install S3cmd, see the [Download](https://s3tools.org/download) section on the official website of the project.
 
 ## Configuration {#setup}
 
@@ -59,11 +59,17 @@ Keep in mind that S3cmd treats {{ objstorage-name }} as a hierarchical file syst
 
 ## Examples of operations {#s3cmd-examples}
 
+### List buckets
+
+```bash
+s3cmd ls
+```
+
 ### Create a bucket
 
-   ```bash
-   s3cmd  mb s3://bucket
-   ```
+```bash
+s3cmd  mb s3://bucket
+```
 
 {% note info %}
 
@@ -71,7 +77,7 @@ When creating a bucket, follow the [naming conventions](../concepts/bucket.md#na
 
 {% endnote %}
 
-### Uploading an object
+### Upload an object
 
 ```
 s3cmd put local_file s3://bucket/object

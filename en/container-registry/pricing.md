@@ -18,6 +18,12 @@ The cost of {{ container-registry-name }} usage is based on:
 
 Storage usage is measured in GB per month. The volume of data stored during a month is the average value over the month based on per-second data. The minimum pricing unit is 1 hour of storing 1 MB of data.
 
+{% note important %}
+
+If multiple Docker images in the same registry use the same layers, reused layers aren't subject to repeat billing for storage. The uniqueness of a layer is determined by its [digest](concepts/docker-image.md#version).
+
+{% endnote %}
+
 ## Prices {#prices}
 
 ### Data storage {#prices-storage}

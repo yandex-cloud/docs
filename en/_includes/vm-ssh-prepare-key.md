@@ -1,5 +1,3 @@
-## Creating an SSH key pair
-
 Prepare the keys for use with your virtual machines. To do this:
 
 {% list tabs %}

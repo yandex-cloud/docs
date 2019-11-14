@@ -1,6 +1,6 @@
 # Backups
 
-{{ mch-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. Если суммарный объем данных и резервных копий превышает объем хранилища, превышение [тарифицируется](../pricing.md).
+{{ mch-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. If the total amount of data and backups exceed the storage size, the price [increases](../pricing.md).
 
 An automatic backup of all cluster data is created once a day. For each subsequent automatic backup, only the difference from the previous one is stored, which saves storage space. You can't disable automatic backups, and you can't change the period for storing automatic backups (seven days) at this time.
 

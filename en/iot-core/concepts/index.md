@@ -2,7 +2,7 @@
 
 The main elements of the service are [devices](index.md#device) and [registries](index.md#registry). They can exchange various data and commands.
 
-Data is exchanged via [MQTT](https://mqtt.org) version 3.1.1. This simplified network protocol for device communication is based on the publisher/subscriber pattern. Registries and devices also interact using X.509 certificates. You can manage certificates from the [Yandex CLI](../../cli/quickstart.md) and API Yandex IoT Core.
+Data is exchanged via [MQTT](https://mqtt.org) version 3.1.1. This simplified network protocol for device communication is based on the publisher/subscriber pattern. Registries and devices also interact using X.509 certificates. You can manage certificates from the [Yandex CLI](../../cli/quickstart.md) and API {{ iot-name }}.
 
 ## Device {#device}
 
@@ -40,11 +40,11 @@ The service supports two types of topics:
 
 - Registry topics:
 
-    - `$registry/<registry ID>/events` — a topic for receiving telemetry data.
+    - `$registries/<registry ID>/events` — a topic for receiving telemetry data.
 
         The device can write data to this topic and the registry can read data from it. The registry subscribed to this topic will not know which device sent the data, because the topic doesn't contain a unique device ID.
 
-    - `$registry/<registry ID>/commands` — a topic for sending commands.
+    - `$registries/<registry ID>/commands` — a topic for sending commands.
 
         The registry can write data to this topic and the device can read data from it. The registry sends commands for all devices to this topic.
 
@@ -62,14 +62,11 @@ The table below describes actions that devices and registries can perform using 
 | ---- | ---- | ---- |
 | `$devices/<device ID>/events` | Sends telemetry data. | Receives telemetry data. <br/>The device is known. |
 | `$devices/<device ID>/commands` | Receives commands. | Sends commands to a specific device. |
-| `$registry/<registry ID>/events` | Sends telemetry data. | Receives telemetry data from all devices in the registry.<br/>The device is unknown. |
-| `$registry/<registry ID>/commands` | Receives commands. | Sends commands to all devices in the registry. |
+| `$registries/<registry ID>/events` | Sends telemetry data. | Receives telemetry data from all devices in the registry.<br/>The device is unknown. |
+| `$registries/<registry ID>/commands` | Receives commands. | Sends commands to all devices in the registry. |
 
 Different MQTT quality of service (QoS) levels can be used during exchanges:
 
 - `QoS 0: At most once`. A message is sent no more than once and there is no guarantee of delivery.
 
 - `QoS 1: At least once`. This level guarantees that a message is delivered at least one time to the receiver. It is possible to get duplicate messages.
-
-- `QoS 2: Exactly once`. This level guarantees that a message is delivered only once with no duplicates. **Not supported at the [Preview](../../overview/concepts/launch-stages.md) stage.**
-

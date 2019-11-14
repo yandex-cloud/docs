@@ -16,6 +16,12 @@
 - [{#T}](sa/get-id.md)
 - [{#T}](sa/delete.md)
 
+## Identity federations
+
+- [{#T}](federations/integration-adfs.md)
+- [{#T}](federations/integration-gsuite.md)
+- [{#T}](federations/integration-common.md)
+
 ## Roles
 
 - [{#T}](roles/grant.md)

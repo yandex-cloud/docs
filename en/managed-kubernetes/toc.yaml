@@ -1,15 +1,16 @@
 title: Yandex Managed Service for Kubernetes
 href: index.yaml
-stage: preview
 items:
   - name: Getting started
     href: quickstart.md
   - name: Step-by-step instructions
     items:
-      - name: Configuring a VM as a NAT gateway
-        href: operations/nat-instance.md
+      - name: All instructions
+        href: operations/index.md
       - name: Connecting to a node over SSH
         href: operations/node-connect-ssh.md
+      - name: Granting access to an app running in a Kubernetes cluster
+        href: operations/create-load-balancer.md
       - name: Working with persistent volumes
         items:
           - name: Dynamic volume provisioning
@@ -24,6 +25,10 @@ items:
         href: concepts/index.md
       - name: Volumes
         href: concepts/volume.md
+      - name: Service
+        href: concepts/service.md
+      - name: Release channels and updates
+        href: concepts/release-channels-and-updates.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

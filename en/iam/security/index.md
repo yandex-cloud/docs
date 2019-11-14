@@ -2,7 +2,7 @@
 
 In this section, you'll learn:
 
-* [What resources you can assign roles to](#resources).
+* [What resources you can assign the](#resources) role to.
 * [What roles exist in the service](#roles-list).
 * [What roles are required](#required-roles) for particular actions.
 
@@ -45,8 +45,9 @@ The table below lists the roles needed to perform a given action. You can always
 | [View service account data](../operations/sa/get-id.md) | `get`, `list`, `listOperations` | `iam.serviceAccounts.user` or `viewer` for the service account |
 | View information about any resource | `get`, `list` | `viewer` for this resource |
 | **Manage resources** |  |
-| [Create](../operations/sa/create.md), [update](../operations/sa/update.md), and [delete](../operations/sa/delete.md) service accounts | `create`, `update`, `delete` | `editor` role for the folder where the service account is created |
-| Create, update, and delete keys for a service account | `create`, `update`, `delete` | `editor` for the service account |
+| [Create](../operations/sa/create.md) service accounts in the folder | `create` | `editor` for the folder |
+| [Update](../operations/sa/update.md) and [delete](../operations/sa/delete.md) service accounts | `update`, `delete` | `editor` for the service account |
+| Create and delete keys for a service account | `create`, `delete` | `editor` for the service account |
 | **Manage resource access** |  |
 | [Add a new user to the cloud](../operations/users/create.md) | `setAccessBindings` | `admin` for the cloud |
 | [Make a new cloud owner user](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` for the cloud |

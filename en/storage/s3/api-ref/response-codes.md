@@ -88,6 +88,7 @@ In case of an error, {{ objstorage-name }} returns a message with the appropriat
 | 411 | `MissingContentLength` | Add `Content-Length` to the headers. |
 | 412 | `Precondition Failed` | One of the conditions specified in the request is not met. |
 | 416 | `InvalidRange` | Invalid range in the Range header. |
+| 429 | `TooManyRequests` | Too many requests to {{ objstorage-name }}. Reduce the requesting frequency.
 | 500 | `InternalError` | {{ objstorage-name }} internal error. Repeat the request. |
 | 501 | `NotImplemented` | The passed header is not handled by {{ objstorage-name }}. |
 | 503 | `ServiceUnavailable` | {{ objstorage-name }} is not available.<br/>Reduce your request rate. |

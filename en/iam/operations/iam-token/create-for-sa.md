@@ -26,7 +26,7 @@ You can use the profile you created to perform CLI operations under your service
 
 {% endnote %}
 
-## Get an IAM token using a JWT {#via-jwt}
+## Get an IAM token using JWT {#via-jwt}
 
 To get an IAM token, create a [JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT) and exchange it for an IAM token.
 
@@ -121,20 +121,20 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   ```python
   import time
   import jwt
-
+  
   service_account_id = "ajepg0mjt06siua65usm"
   key_id = "lfkoe35hsk58aks301nl" # The ID of the Key resource belonging to the service account.
-
+  
   with open("private.pem", 'r') as private:
     private_key = private.read() # Reading the private key from the file.
-
+  
   now = int(time.time())
   payload = {
           'aud': 'https://iam.api.cloud.yandex.net/iam/v1/tokens',
           'iss': service_account_id,
           'iat': now,
           'exp': now + 360}
-
+  
   # JWT generation.
   encoded_token = jwt.encode(
       payload,
@@ -152,29 +152,29 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   import io.jsonwebtoken.SignatureAlgorithm;
   import org.bouncycastle.util.io.pem.PemObject;
   import org.bouncycastle.util.io.pem.PemReader;
-
+  
   import java.io.FileReader;
   import java.security.KeyFactory;
   import java.security.PrivateKey;
   import java.security.spec.PKCS8EncodedKeySpec;
   import java.time.Instant;
   import java.util.Date;
-
+  
   public class JwtTest {
       public static void main(String[] args) throws Exception {
           PemObject privateKeyPem;
           try (PemReader reader = new PemReader(new FileReader("private.pem"))) {
               privateKeyPem = reader.readPemObject();
           }
-
+  
           KeyFactory keyFactory = KeyFactory.getInstance("RSA");
           PrivateKey privateKey = keyFactory.generatePrivate(new PKCS8EncodedKeySpec(privateKeyPem.getContent()));
-
+  
           String serviceAccountId = "ajepg0mjt06siua65usm";
           String keyId = "lfkoe35hsk58aks301nl";
-
+  
           Instant now = Instant.now();
-
+  
           // JWT generation.
           String encodedToken = Jwts.builder()
                   .setHeaderParam("kid", keyId)
@@ -197,16 +197,16 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   	"crypto/rsa"
   	"io/ioutil"
   	"time"
-
+  
   	"github.com/dgrijalva/jwt-go"
   )
-
+  
   const (
   	keyID            = "lfkoe35hsk58aks301nl"
   	serviceAccountID = "ajepg0mjt06siua65usm"
   	keyFile          = "private.pem"
   )
-
+  
   // JWT generation.
   func signedToken() string {
   	issuedAt := time.Now()
@@ -217,7 +217,7 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   		Audience:  "https://iam.api.cloud.yandex.net/iam/v1/tokens",
   	})
   	token.Header["kid"] = keyID
-
+  
   	privateKey := loadPrivateKey()
   	signed, err := token.SignedString(privateKey)
   	if err != nil {
@@ -225,7 +225,7 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   	}
   	return signed
   }
-
+  
   // By default, the Go RSA-PSS algorithm uses PSSSaltLengthAuto,
   // but https://tools.ietf.org/html/rfc7518#section-3.5 says that
   // the size of the salt value should be the same size as the hash function output.
@@ -237,7 +237,7 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   		SaltLength: rsa.PSSSaltLengthEqualsHash,
   	},
   }
-
+  
   func loadPrivateKey() *rsa.PrivateKey {
   	data, err := ioutil.ReadFile(keyFile)
   	if err != nil {
@@ -258,18 +258,18 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   ```js
   var jose = require('node-jose');
   var fs = require('fs');
-
+  
   var key = fs.readFileSync(require.resolve('private.pem'));
-
+  
   var serviceAccountId = 'ajepg0mjt06siua65usm';
   var keyId = 'lfkoe35hsk58aks301nl';
   var now = Math.floor(new Date().getTime() / 1000);
-
+  
   var payload = { aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
                   iss: serviceAccountId,
                   iat: now,
                   exp: now + 3600 }
-
+  
   jose.JWK.asKey(key, 'pem', { kid: keyId, alg: 'PS256' })
       .then(function(result) {
           jose.JWS.createSign({ format: 'compact' }, result)
@@ -292,45 +292,45 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   use Jose\Component\Signature\JWSBuilder;
   use Jose\Component\Signature\Algorithm\PS256;
   use Jose\Component\Signature\Serializer\CompactSerializer;
-
+  
   $service_account_id = 'ajepg0mjt06siua65usm';
   $key_id = 'lfkoe35hsk58aks301nl';
-
+  
   $jsonConverter = new StandardConverter();
   $algorithmManager = AlgorithmManager::create([
       new PS256()
   ]);
-
+  
   $jwsBuilder = new JWSBuilder($jsonConverter, $algorithmManager);
-
+  
   $now = time();
-
+  
   $claims = [
       'aud' => 'https://iam.api.cloud.yandex.net/iam/v1/tokens',
       'iss' => $service_account_id,
       'iat' => $now,
       'exp' => $now + 360
   ];
-
+  
   $header = [
       'alg' => 'PS256',
       'typ' => 'JWT',
       'kid' => $key_id
   ];
-
+  
   $key = JWKFactory::createFromKeyFile('private.pem');
-
+  
   $payload = $jsonConverter->encode($claims);
-
+  
   // Signature creation.
   $jws = $jwsBuilder
       ->create()
       ->withPayload($payload)
       ->addSignature($key, $header)
       ->build();
-
+  
   $serializer = new CompactSerializer($jsonConverter);
-
+  
   // JWT generation.
   $token = $serializer->serialize($jws);
   ```
@@ -343,14 +343,14 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   #include <chrono>
   #include <fstream>
   #include <iterator>
-
+  
   #include "jwt-cpp/jwt.h"
-
+  
   int main(int argc, char *argv[])
   {
       std::ifstream priv_key_file("private.pem");
       std::ifstream pub_key_file("public.pem");
-
+  
       auto now = std::chrono::system_clock::now();
       auto expires_at = now + std::chrono::hours(1);
       auto serviceAccountId = "ajepg0mjt06siua65usm";
@@ -360,7 +360,7 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
       auto algorithm = jwt::algorithm::ps256(
           std::string(std::istreambuf_iterator<char>{pub_key_file}, {}),
           std::string(std::istreambuf_iterator<char>{priv_key_file}, {}));
-
+  
       // JWT generation.
       auto encoded_token = jwt::create()
           .set_key_id(keyId)
@@ -370,6 +370,40 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
           .set_expires_at(expires_at)
           .sign(algorithm);
   }
+  ```
+
+- Ruby
+
+  Example of creating a JWT using [ruby-jwt](https://github.com/jwt/ruby-jwt).
+
+  ```ruby
+  require 'jwt'
+  
+  privateKey = OpenSSL::PKey::RSA.new(File.read('private.pem'))
+  
+  issuedAt = Time.now.to_i
+  expirationTime = issuedAt + 360
+  
+  serviceAccountId = "ajefnghf8o71512u5o8d"
+  
+  # ID of the Key resource that belongs to the service account.
+  keyId = "ajecsls45da39r33kngg"
+  
+  headers = { kid: keyId }
+  payload = {
+      typ: 'JWT',
+      aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+      iss: serviceAccountId,
+      iat: issuedAt,
+      exp: expirationTime,
+      data: 'data' }
+  
+  # JWT generation.
+  token = JWT.encode(
+      payload,
+      privateKey,
+      'PS256',
+      headers)
   ```
 
 {% endlist %}
@@ -411,7 +445,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
   	"net/http"
   	"strings"
   )
-
+  
   func getIAMToken() string {
   	jot := signedToken()
   	fmt.Println(jot)

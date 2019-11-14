@@ -9,9 +9,9 @@ editable: false
 
 ## What goes into the cost of using {{ translate-short-name }} {#rules}
 
-### Use of text translation and language detection {#rules-translate-detect}
+### Translation and language detection {#rules-translate-detect}
 
-The cost for using Yandex Translate is calculated based on the total number of characters that were sent in requests for text translation and language detection during a calendar month (the Reporting Period).
+The cost for using Yandex.Translate is calculated based on the total number of characters that were sent in requests for text translation and language detection during a calendar month (the Reporting Period).
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 

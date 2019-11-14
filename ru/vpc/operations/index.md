@@ -16,3 +16,8 @@
 - [{#T}](set-static-ip.md)
 - [{#T}](address-delete.md)
 - [{#T}](set-dynamic-ip.md)
+
+## Маршрутизация
+
+- [{#T}](static-route-create.md)
+- [{#T}](enable-nat.md)

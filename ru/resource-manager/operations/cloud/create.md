@@ -21,3 +21,10 @@
 При создании облака вы автоматически получите роль [владельца](../../concepts/resources-hierarchy.md#owner) в этом облаке.
 
 {% endnote %}
+
+#### См. также
+
+* [{#T}](update.md)
+* [{#T}](set-access-bindings.md)
+* [{#T}](switch-cloud.md)
+* [{#T}](../folder/create.md)

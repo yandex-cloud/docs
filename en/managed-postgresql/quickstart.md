@@ -24,7 +24,8 @@ To use the service, create a cluster and connect to a DBMS:
 
     ```bash
     $ mkdir ~/.postgresql
-    $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/CA.pem
+    $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/root.crt
+    $ chmod 0600 ~/.postgresql/root.crt
     ```
 
 1. You can connect to the database using the `psql` command (for more information, see [{#T}](operations/connect.md)):

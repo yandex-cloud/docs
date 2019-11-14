@@ -58,7 +58,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 
 ### {{ message-queue-full-name }} {#mq}
 
-{% include [ymq-limits.md](../../_includes/ymq-limits.md) %}
+{% include [ymq-limits.md](../../_includes/message-queue/ymq-limits.md) %}
 
 ### {{ speechkit-full-name }} {#speechkit}
 

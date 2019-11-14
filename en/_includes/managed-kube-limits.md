@@ -10,8 +10,3 @@
 | Maximum number of nodes per cloud | 20 |
 | Maximum number of node groups per Kubernetes cluster | 6 |
 | Maximum number of nodes per Kubernetes cluster | 10 |
-
-#### Other restrictions {#other-restrictions}
-
-Different Kubernetes clusters and node groups belonging to different Kubernetes clusters can't reside in the same subnet.
-
