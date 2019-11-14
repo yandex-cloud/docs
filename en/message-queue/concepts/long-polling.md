@@ -1,10 +1,10 @@
 # Long Polling
 
-The Long Polling technique is implemented to optimize the use of {{ message-queue-full-name }} by reducing the number of [ReceiveMessage](../api-ref/message/ReceiveMessage.md) requests sent to empty queues. Instead of making repeated requests, {{ message-queue-full-name }} allows consumers to wait for messages to arrive in a queue and read them immediately. In addition, a longer poll time allows Long Polling to avoid false empty responses.
+The Long Polling technique is implemented to optimize the use of {{ message-queue-full-name }} by reducing the number of [ReceiveMessage](../api-ref/message/ReceiveMessage.md) requests sent to empty queues. Instead of making repeated requests, {{ message-queue-full-name }} lets consumers wait for messages to arrive in a queue and read them immediately. In addition, a longer poll time allows Long Polling to avoid false empty responses.
 
-## Using Long Polling {#set-up-long-polling}
+## Usage {#set-up-long-polling}
 
-You can use Long Polling by setting a non-zero value for the `WaitTimeSeconds` parameter of the `ReceiveMessage` method. This parameter determines how long a client will wait for messages to arrive in an empty queue. An empty response is returned to the client only after this time has passed. Maximum value for `WaitTimeSeconds` is 20 seconds.
+You can use Long Polling by setting a non-zero value for the `WaitTimeSeconds` parameter of the `ReceiveMessage` method. This parameter determines how long a client will wait for messages to arrive in an empty queue. An empty response is returned to the client only after this time has passed. The maximum `WaitTimeSeconds` value is 20 seconds.
 
 In response to `ReceiveMessage`, at least one of the messages from the queue is returned. The maximum number of messages to return is limited by the `MaxNumberOfMessages` parameter.
 

@@ -175,7 +175,7 @@ host;x-amz-date
     AWS4-HMAC-SHA256
     20190801T000000Z
     20190801/ru-central1/s3/aws4_request
-    eyJjb25kaXRpb25zIj4a54dc650c8942174ae0a9121cf58aae0d04M5OjM2WiJ9
+    2d2b4efefa9072d90a646afbc0fbaef4618c81396b216969ddfc2869db5aa356
     ```
 
 - Подписывающий ключ:
@@ -190,13 +190,13 @@ host;x-amz-date
 - Подпись:
 
     ```
-    4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96
+    56bdf53a1f10c078c2b4fb5a26cefa670b3ea796567d85489135cf33e77783f0
     ```
 
 - Подписанный URL:
 
     ```
-    https://storage.yandexcloud.net/example-bucket/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96
+    https://storage.yandexcloud.net/example-bucket/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=56bdf53a1f10c078c2b4fb5a26cefa670b3ea796567d85489135cf33e77783f0
     ```
 
 ## Примеры получения подписанной ссылки в инструментах {{ objstorage-name }}

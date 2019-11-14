@@ -40,8 +40,7 @@ There are two types of masters that differ by their location in [availability zo
 
     {% note important %}
     
-    - Regional masters are only supported when they're [created in subnets](../../vpc/operations/subnet-create.md) with ranges `172.16.0.0/12` and `192.168.0.0/16`.
-    - The internal IP address of a regional master is only available within a single {{ vpc-full-name }} cloud network.
+    The internal IP address of a regional master is only available within a single {{ vpc-full-name }} cloud network.
 
     {% endnote %}
     

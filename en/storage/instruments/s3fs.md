@@ -8,7 +8,9 @@ We recommend using s3fs version 1.84 or higher.
 
 {% endnote %}
 
-If you have any questions, see the [official documentation](https://github.com/s3fs-fuse/s3fs-fuse/wiki) of the project, in particular, [FAQ](https://github.com/s3fs-fuse/s3fs-fuse/wiki/FAQ). There you can learn how to fix problems that occur when using s3fs.
+If you have any questions, see the [official documentation](https://github.com/s3fs-fuse/s3fs-fuse/wiki), in particular, [FAQ](https://github.com/s3fs-fuse/s3fs-fuse/wiki/FAQ). There you can learn how to fix problems that occur when using s3fs.
+
+s3fs performance depends on the speed of your local disk. Use high-speed disks, especially if you store a lot of small files (several hundred kilobytes each or smaller). To increase s3fs performance, you can enable caching (use the key `--use_cache <directory>`). As the s3fs cache can grow indefinitely, please make sure to clear it regularly. Learn more in the [s3fs documentation](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Fuse-Over-Amazon#details).
 
 ## Before you start {#preparations}
 

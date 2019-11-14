@@ -47,7 +47,7 @@
    - В разделе **Дополнительно** поставьте галочку **Прерываемая**.
 
    Для решения текущих вычислительных задач укажите конфигурацию:
-    * **Платформа** - Intel Cascade Lake.
+    * **Платформа** — Intel Cascade Lake.
     * **Гарантированная доля vCPU** — 100%.
     * **vCPU** — 4.
     * **RAM** — 4 ГБ.
@@ -143,8 +143,8 @@
 1. Проверьте, что директория была успешно смонтирована:
    ```bash
    df -h
-      Filesystem      		    Size  Used Avail Use% Mounted on
-      master-node:/home/<username>/shared  49G   15G   32G  32% /home/<username>/shared
+      Filesystem                           Size  Used Avail Use% Mounted on
+      master-node:/home/<username>/shared  49G   15G   32G  32%  /home/<username>/shared
    ```
 
 

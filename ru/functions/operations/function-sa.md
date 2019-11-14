@@ -19,8 +19,8 @@
         };
     };
     ```
-2. [Создайте версию функции](../operations/function/version-manage.md#version-create), используя файл `index.js`.
-3. [Выполните функцию](../operations/function/function-invoke.md).
+1. [Создайте версию функции](../operations/function/version-manage.md#version-create), используя файл `index.js`.
+1. [Выполните функцию](../operations/function/function-invoke.md).
 
     Ответ функции будет выглядеть следующим образом:
 

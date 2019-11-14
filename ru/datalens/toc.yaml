@@ -17,6 +17,8 @@ items:
         href: solutions/data-from-metrica-logsapi-visualization.md
       - name: Публикация в DataLens Public диаграммы с картой на основе CSV-файла
         href: solutions/data-from-csv-to-public-visualization.md
+      - name: Визуализация данных из AppMetrica
+        href: solutions/data-from-appmetrica-visualization.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

@@ -9,10 +9,8 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is an ope
 {% list tabs %}
 
 - Management console
-  1. Go to the folder that the service account belongs to.
-  2. Go to the **Service accounts** tab.
-  3. Click ![image](../../../_assets/options.svg) next to the service account and select **Delete service account**.
-  4. Confirm deletion.
+
+  {% include [delete-sa-via-console](../../../_includes/iam/delete-sa-via-console.md) %}
 
 - CLI
 

@@ -12,7 +12,7 @@ Method for getting a list of queues in your folder. The maximum number of queues
 
 ## Response {#response}
 
-For a list of possible responses, see [{#T}](../common-errors.md).
+For the list of possible responses, see [{#T}](../common-errors.md).
 
 ### Successful response fields {#response-parameters}
 
@@ -22,7 +22,7 @@ For a list of possible responses, see [{#T}](../common-errors.md).
 
 ### ListQueues errors {#errors}
 
-The method does not return any specific errors. For a list of errors that are common to all methods, see the section [{#T}](../common-errors.md).
+The method does not return any specific errors. For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
 ## Sample request {#request-example}
 
@@ -32,9 +32,9 @@ Action=ListQueues
 &QueueNamePrefix=test
 ```
 
-For more information about forming requests, see [General format of an API request](../index.md#api-request).
+For more information about forming requests, see [General API request format](../index.md#api-request).
 
-## Sample response {#request-example}
+## Response example {#request-example}
 
 ```xml
 <ListQueuesResponse>

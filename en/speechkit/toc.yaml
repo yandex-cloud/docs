@@ -24,6 +24,8 @@ items:
         href: tts/index.md
       - name: API method description
         href: tts/request.md
+      - name: List of voices
+        href: tts/voices.md
       - name: Using SSML
         href: tts/ssml.md
       - name: List of supported SSML phonemes

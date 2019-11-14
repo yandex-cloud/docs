@@ -128,22 +128,22 @@ Example of an SAML message:
 
 When setting up the message:
 
-* In the `InResponseTo` attributes, specify the ID from the SAML authentication request that Yandex.Cloud send.
+* In the `InResponseTo` attribute of the  `Response` and `SubjectConfirmationData` elements, specify the ID from the SAML authentication request that Yandex.Cloud sent.
 
-* Enter the [console login link](#get-link) in the following properties:
+* Enter the [console login link](#get-link) in the following elements:
   * In the `Destination` attribute of `Response`.
   * In the `Recipient` attribute of  `SubjectConfimirationData`.
   * In `Audience`.
 
-* Specify a unique user ID in the `NameID` property. We recommend using the User Principal Name (UPN) or email address.
+* Specify a unique user ID in the `NameID` element. We recommend using the User Principal Name (UPN) or email address.
 
-* Specify the link to the IdP page in the `Issuer` properties. The user was forwarded to this page for authentication).
+* Specify the link to the IdP page in the `Issuer` element. The user was forwarded to this page for authentication).
 
-* Enter a signed message in `SignatureValue` and the certificate it was signed with in `KeyInfo`.
+* Enter a signed message in the `SignatureValue` element and the certificate it was signed with in the `KeyInfo` element.
 
-* Note that Yandex.Cloud validates that the response was received in the interval specified in the `Conditions` or `SubjectConfimirationsData` property attributes.
+* Note that Yandex.Cloud validates that the response was received in the interval specified in the attributes of the `Conditions` or `SubjectConfimirationsData` element.
 
-* For the user to be able to contact Yandex.Cloud technical support from the [management console](https://console.cloud.yandex.com/support), pass their email address and name in the `AttributeStatement` property. Email, first name, and last name are passed in separate `Attribute` properties, which can also accept the first and last name together, for example:
+* For the user to be able to contact Yandex.Cloud technical support from the [management console](https://console.cloud.yandex.com/support), pass their email address and name in the `AttributeStatement` element. Email, first name, and last name are passed in separate `Attribute` elements. You can also pass the first name and last name together, for example:
 
     ```
     <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">

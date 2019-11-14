@@ -23,7 +23,7 @@ The response does not contain any fields.
 
 ### DeleteMessage errors {#errors}
 
-For a list of possible responses, see [{#T}](../common-errors.md).
+For the list of possible responses, see [{#T}](../common-errors.md).
 
 | HTTP code | Error ID | Description |
 | ----- | ----- | ----- |
@@ -39,9 +39,9 @@ Action=DeleteMessage
 &ReceiptHandle=EAEggPjXhogtKAA
 ```
 
-For more information about forming requests, see [General format of an API request](../index.md#api-request).
+For more information about forming requests, see [General API request format](../index.md#api-request).
 
-## Sample response {#response-example}
+## Response example {#response-example}
 
 ```xml
 <DeleteMessageResponse>

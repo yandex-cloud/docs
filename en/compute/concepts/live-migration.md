@@ -6,21 +6,21 @@ Live migration doesn't change any VM settings. The real-time migration process m
 
 {{ compute-short-name }} starts live migration in the following cases:
 
-* Scheduled technical maintenance and hardware upgrades.
+* Scheduled hardware maintenance and upgrades.
 * Unscheduled maintenance in the event of failed hardware, including CPUs, NICs, and power supply units.
 * OS, BIOS, and firmware updates.
 * Changes in the OS configuration.
 * Security updates.
 
-## Limitations {#limitations}
+## Restrictions {#limitations}
 
-The following types of virtual machines cannot be live migrated:
+The following types of virtual machines can't be moved:
 
-* The VMs with [GPU](../concepts/gpus.md)*.
-* The [preemptible](../concepts/preemptible-vm.md)* VMs.
-* The {{ sf-name }} VMs.
-* The managed databases VMs with the local SSD-disks.
-* The VMs with the obsolete QEMU version.
-* The non-deallocated VMs.
+* Virtual machines with [GPUs](../concepts/gpus.md)*.
+* [Preemptible](../concepts/preemptible-vm.md) virtual machines*.
+* {{ sf-name }} virtual machines.
+* Managed DBMS virtual machines with SSDs.
+* Virtual machines running on an older version of QEMU.
+* Virtual machines with migration disabled.
 
-\* Will be live migrated after [manual stop](../operations/vm-control/vm-stop-and-start.md#stop).
+\* These VMs are dynamically moved after a [manual stop](../operations/vm-control/vm-stop-and-start.md#stop).

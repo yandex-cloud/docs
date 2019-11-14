@@ -15,14 +15,14 @@ You can authenticate as a user or service account. Read about [authentication me
 You can authenticate:
 
 - As a user:
-    - [Using an OAuth token](#oauth) (the validity period is **one year**).
-    - [Using an IAM token](#iam) (the validity period is **12 hours**).
+    - [Using an OAuth token](#oauth) (lifetime is **one year**).
+    - [Using an IAM token](#iam) (lifetime is no longer than **{{ iam-token-lifetime }}**).
 - As a service account:
-    - [Using authorized keys](#sa-json) (does not expire).
-    - [Using an IAM token](#sa-iam) (the validity period is **12 hours**).
-- [Using a credentials store via a Docker Credential helper ](#cred-helper).
+    - [Using authorized keys](#sa-json) (no expiration).
+    - [Using an IAM token](#sa-iam) (lifetime is no longer than **{{ iam-token-lifetime }}**).
+- [Using a credentials store via a Docker Credential helper](#cred-helper).
 
-The authentication coomand looks like this:
+The authentication command looks like this:
 
 ```
 $ docker login \
@@ -31,7 +31,7 @@ $ docker login \
          cr.yandex
 ```
 
-- Pass the token type in `<token type>` to the `username` parameter. Acceptable values: `oauth`, `iam`, or `json_key`.
+- Pass the token type in `<token type>` for the `username` parameter. Acceptable values: `oauth`, `iam`, or `json_key`.
 - Pass the token itself to the `password` parameter.
 - After specifying all the parameters, set `cr.yandex` as the address for authentication. Otherwise, the request will be sent to the default service, [Docker Hub](https://hub.docker.com).
 
@@ -41,11 +41,11 @@ $ docker login \
 
 {% note info %}
 
-The validity period of an OAuth token is one year. Then you need to [get a new OAuth token](https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) and authenticate again.
+{% include [oauth-token-lifetime](../../_includes/oauth-token-lifetime.md) %}
 
 {% endnote %}
 
-1. If you don't have an OAuth token, get one at this [link](https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
+1. If you don't have an OAuth token, get one via [link]({{ link-cloud-oauth }}).
 
 1. Run the command:
 
@@ -60,15 +60,11 @@ The validity period of an OAuth token is one year. Then you need to [get a new O
 
 {% note info %}
 
-The validity period of an IAM token is 12 hours. Then you need to get a new IAM token and authenticate again.
+{% include [iam-token-note](../../_includes/iam/iam-token-note.md) %}
 
 {% endnote %}
 
-1. If you don't have an IAM token yet, run the following command to get one:
-
-    ```
-    $ yc iam create-token
-    ```
+1. [Get an IAM token](../../iam/operations/iam-token/create.md).
 
 1. Run the command:
 
@@ -108,43 +104,21 @@ Using a [service account](../../iam/concepts/users/service-accounts.md), your pr
     --username json_key \
     --password-stdin \
     cr.yandex
-
+    
     Login Succeeded
     ```
-    - The `cat key.json` command writes the contents of the key file to the input stream.
+    - The `cat key.json` command writes the contents of the key file to the output stream.
     - The `--password-stdin` flag allows the password to be read from the input stream.
 
 ### Authentication using an IAM token {#sa-iam}
 
 {% note info %}
 
-The validity period of an IAM token is 12 hours. Then you need to get a new IAM token and authenticate again.
+{% include [iam-token-note](../../_includes/iam/iam-token-note.md) %}
 
 {% endnote %}
 
-1. Get [authorized keys](../../iam/concepts/users/service-accounts.md#sa-key) for your service account:
-
-    ```
-    $ yc iam key create --service-account-name default-sa -o key.json
-    id: aje8a87g4e...
-    service_account_id: aje3932acd...
-    created_at: "2019-05-31T16:56:47Z"
-    key_algorithm: RSA_2048
-    ```
-
-1. Add the authorized key file to your CLI profile:
-
-   ```
-   $ yc config set service-account-key key.json
-   ```
-
-   When the `service-account-key` parameter is set, the `token` parameter is reset to zero. For more information about parameters, see [CLI configuration](../../cli/concepts/core-properties.md).
-
-1. Get an IAM token:
-
-    ```
-    $ yc iam create-token
-    ```
+1. [Get an IAM token](../../iam/operations/iam-token/create.md).
 
 1. Run the command:
 
@@ -157,11 +131,17 @@ The validity period of an IAM token is 12 hours. Then you need to get a new IAM 
 
 ## Authenticate using a Docker Credential helper {#cred-helper}
 
-The Docker Engine can keep user credentials in an external credentials store. This is more secure than storing credentials in the Docker configuration file. To use a credentials store, you need an external [Docker Credential helper program](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
+The Docker Engine can keep user credentials in an external credentials store. This is more secure than storing credentials in the Docker configuration file. To use a credentials store, you need an external [Docker Credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
 
-Yandex.Cloud uses `docker-credential-yc` as a Docker Credential helper. It stores user credentials and allows using Docker without running the `docker login` command. This authentication method supports operations on behalf of a user and service account. To work with `docker-credential-yc`, you need the Yandex.Cloud command-line interface: [YC CLI](../../cli/quickstart.md).
+Yandex.Cloud uses `docker-credential-yc` as a Docker Credential helper. It stores user credentials and lets you use private Yandex.Cloud registries without running the `docker login` command. This authentication method supports operations on behalf of a user and service account. To work with `docker-credential-yc`, you need the Yandex.Cloud command-line interface: [YC CLI](../../cli/quickstart.md).
 
 ### Configuring a Credential helper {#ch-setting}
+
+{% note important %}
+
+You don't need to install the `docker-credential-yc` separately: just install the YC CLI and configure the Credential helper following the description below.
+
+{% endnote %}
 
 1. If you don't have a YC CLI profile yet, [create one](../../cli/quickstart.md#initialize).
 

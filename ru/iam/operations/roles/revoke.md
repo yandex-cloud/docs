@@ -25,20 +25,8 @@
   Чтобы отозвать роль у субъекта, удалите соответствующую привязку прав доступа для соответствующего ресурса:
 
   1. Посмотрите, кому и какие роли назначены на ресурс:
-      ```
-      yc <SERVICE-NAME> <RESOURCE> list-access-bindings <RESOURCE-NAME>|<RESOURCE-ID>
-      ```
 
-      Например, посмотрите привязки прав доступа на каталог `default`:
-      ```
-      $  yc resource-manager folder list-access-bindings default
-      +---------------------+----------------+----------------------+
-      |       ROLE ID       |  SUBJECT TYPE  |      SUBJECT ID      |
-      +---------------------+----------------+----------------------+
-      | editor              | serviceAccount | ajepg0mjas06siuj5usm |
-      | viewer              | userAccount    | aje6o61dvog2h6g9a33s |
-      +---------------------+----------------+----------------------+
-      ```
+    {% include [include](../../../_includes/iam/list-access-bindings-via-cli.md) %}
   1. Чтобы удалить привязку прав доступа, выполните команду:
 
       ```
@@ -46,13 +34,7 @@
           --role <ROLE-ID> \
           --subject <SUBJECT-TYPE>:<SUBJECT-ID>
       ```
-
       где:
-
-      * `<SERVICE-NAME>` — имя сервиса, которому принадлежит ресурс, например `resource-manager`.
-      * `<RESOURCE>` — категория ресурса, например `folder`.
-      * `<RESOURCE-NAME>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
-      * `<RESOURCE-ID>` — идентификатор ресурса.
       * `<ROLE-ID>` — идентификатор роли, которую надо отозвать, например `{{ roles-cloud-owner }}`.
       * `<SUBJECT-TYPE>` — тип [субъекта](../../concepts/access-control/index.md#subject), у которого отзывается роль.
       * `<SUBJECT-ID>` — идентификатор субъекта.
@@ -67,29 +49,10 @@
 
 - API
 
-  Чтобы отозвать роль у субъекта на ресурс, удалите соответствующую привязку прав доступа. Например, отзовите у пользователя роль на каталог `b1gvmob95yysaplct532`:
+  Чтобы отозвать роль у субъекта на ресурс, удалите соответствующую привязку прав доступа:
 
-  1. Посмотрите, кому и какие роли назначены на ресурс с помощью метода `listAccessBindings`:
-
-      ```
-      $ export FOLDER_ID=b1gvmob95yysaplct532
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/${FOLDER_ID}:listAccessBindings"
-
-      {
-       "accessBindings": [
-        {
-         "subject": {
-          "id": "ajei8n54hmfhuk5nog0g",
-          "type": "userAccount"
-         },
-         "roleId": "editor"
-        }
-       ]
-      }
-      ```
-
-  1. Сформируйте тело запроса, например в файле `body.json`. В теле запроса укажите, какую привязку прав доступа необходимо удалить.
+  1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
+  1. Сформируйте тело запроса, например в файле `body.json`. В теле запроса укажите, какую привязку прав доступа необходимо удалить. Например, отзовите у пользователя `ajei8n54hmfhuk5nog0g` роль `editor`:
 
       **body.json:**
       ```json

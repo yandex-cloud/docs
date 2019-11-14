@@ -25,7 +25,7 @@ $ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 
 1. Устанавливается соединение с {{ message-queue-name }}. 
 1. Создается очередь сообщений.
-1. В очередь передается сообщение с текстом `test-message`.
+1. В очередь передается сообщение с текстом `test message`.
 1. Сообщение считывается из очереди и отображается в терминале.
 
 О возможностях, не продемонстрированных в примере, читайте в документации на [сайте AWS SQS Java Messaging Library](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-java-message-service-jms-client.html).

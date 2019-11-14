@@ -117,8 +117,8 @@
 ## Настройте обмен сообщениями между устройствами и реестрами {#exchange}
 
 Узнайте, как: 
-- [{#T}](operations/publish.md).
-- [{#T}](operations/subscribe.md).
+- [Отправить сообщение](operations/publish.md).
+- [Подписать устройство или реестр на получение сообщений](operations/subscribe.md).
 
 ## Что дальше {#what-is-next}
 

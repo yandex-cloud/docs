@@ -2,7 +2,6 @@
 
 - [{#T}](function-sa.md)
 - [{#T}](function-public.md)
-- [{#T}](function-sa.md)
 
 ## Управление функцией {#manage-function}
 
@@ -11,6 +10,7 @@
 - [{#T}](function/version-manage.md)
 - [{#T}](function/function-editor.md)
 - [{#T}](function/function-invoke.md)
+- [{#T}](function/function-monitoring.md)
 - [{#T}](function/function-logs.md)
 - [{#T}](function/function-delete.md)
 

@@ -8,7 +8,7 @@ To use the service, create a cluster and connect to a DBMS:
 
 1. You can connect to DB clusters from both inside and outside of the Cloud:
    1. To connect to a DB cluster from inside the Cloud, create a VM in the same network as the DB cluster (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md))
-   1. To enable connection to a cluster over the internet, request external IP addresses for hosts when creating the cluster.
+   1. To connect to a cluster from the internet, request public access to the hosts when creating the cluster.
 
 1. In the management console, select the folder where you want to create a DB cluster.
 
@@ -35,6 +35,6 @@ To use the service, create a cluster and connect to a DBMS:
           port=6432 \
           sslmode=verify-full \
           dbname=<DB name> \
-          user=<DB username>"
+          user=<DB user name>"
     ```
 

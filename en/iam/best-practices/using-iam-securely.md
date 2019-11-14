@@ -2,7 +2,7 @@
 
 This section provides recommendations for using {{ iam-short-name }} features to ensure the secure operation of Yandex.Cloud services.
 
-## Don't grant unnecessary access rights
+## Don't grant unnecessary access rights {#restrict-access}
 
 For critical resources:
 
@@ -20,7 +20,7 @@ For critical resources:
 
     Administrators can revoke one another's access rights, while owners can revoke the owner role from one another. These roles also include all the permissions under the `editor` role — they let you create, edit, and delete resources.
 
-## Protect your Yandex account
+## Protect your Yandex account {#safe-your-account}
 
 * {% include [yandex-account-2fa-warning.md](../../_includes/iam/yandex-account-2fa-warning.md) %}
 
@@ -30,7 +30,7 @@ For critical resources:
 
 * Avoid using your OAuth token for authentication if you can use an IAM token. OAuth tokens are valid for 1 year while IAM tokens are valid for {{ iam-token-lifetime }}. If your token is compromised, the hacker has limited time to use it.
 
-## Use service accounts
+## Use service accounts {#use-sa}
 
 Use [service accounts](../concepts/users/service-accounts.md) to automate work with Yandex.Cloud. We recommend doing the following:
 

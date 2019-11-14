@@ -17,7 +17,7 @@ items:
             href: operations/buckets/limit-max-volume.md
           - name: Allowing public access to a bucket
             href: operations/buckets/bucket-availability.md
-          - name: Editing a bucket's ACL
+          - name: Editing a bucket ACL
             href: operations/buckets/edit-acl.md
       - name: Objects
         items:
@@ -97,6 +97,8 @@ items:
         items:
         - name: CyberDuck
           href: instruments/cyberduck.md
+        - name: WinSCP
+          href: instruments/winscp.md
       - name: SDK
         items:
         - name: AWS SDK for Java
@@ -107,7 +109,7 @@ items:
         items:
         - name: s3fs
           href: instruments/s3fs.md
-  - name: HTTP API compatible with Amazon S3
+  - name: HTTP API, compatible with Amazon S3
     items:
       - name: How to use the API
         href: s3/index.md
@@ -151,7 +153,7 @@ items:
                 href: s3/api-ref/object/options.md
           - name: Multipart upload
             items:
-              - name: General procedure for multipart upload
+              - name: General multipart upload procedure
                 href: s3/api-ref/multipart.md
               - name: startUpload
                 href: s3/api-ref/multipart/startupload.md
@@ -227,5 +229,7 @@ items:
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
+          - name: From January 1 to March 1, 2019
+            href: pricing-archive/pricing-01032019.md
   - name: Questions and answers
     href: qa.md

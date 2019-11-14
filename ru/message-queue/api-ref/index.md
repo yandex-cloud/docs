@@ -21,7 +21,7 @@ Request parameters
 Все запросы должны содержать стандартные заголовки:
 
 * `Content-Type` — `application/x-www-form-urlencoded`.
-* `Authorization` — Подпись запроса согласно раздела [Authenticating Requests](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-api-request-authentication.html) документации Amazon SQS. При использовании [SDK или консольного клиента](../instruments/index.md) запрос и подпись запроса формируются автоматически, вам необходимо только передавать параметры запроса.
+* `Authorization` — Подпись запроса согласно разделу [Authenticating Requests](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-api-request-authentication.html) документации Amazon SQS. При использовании [SDK или консольного клиента](../instruments/index.md) запрос и подпись запроса формируются автоматически, вам необходимо только передавать параметры запроса.
 
 ### Параметры запроса
 

@@ -60,8 +60,12 @@ items:
           href: concepts/limits.md
   - name: Tutorials
     items:
-      - name: Running a Docker image on a VM
+      - name: All tutorials
         href: solutions/index.md
+      - name: Running a Docker image on a VM
+        href: solutions/run-docker-on-vm.md
+      - name: Working with Container Registry in GitLab
+        href: solutions/gitlab.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

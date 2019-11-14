@@ -1,7 +1,10 @@
 # Yandex Load Balancer
 title: "Yandex Message Queue"
-description: 
-- "Yandex Message Queue is a service for managing message queues."
+description:
+  - "Yandex Message Queue is a universal, scalable solution to enable messaging between applications. You can use popular tools to work with the service: the service API is compatible with the Amazon SQS API."
+  - "Yandex Message Queue helps you:"
+  - "<ul><li>Enable communication between individual applications in your system.</li> <li>Scale a system relying on data exchange between individual applications.</li> <li>Increase the fault tolerance of data exchange if an application fails.</li> <li>Free up resources for processing urgent requests by delegating incoming message processing to relevant applications.</li></ul>"
+  - "The service is subject to the <a href=\"https://yandex.ru/legal/cloud_sla\">Service Level Agreement</a>. The service level is defined in the <a href=\"https://yandex.ru/legal/cloud_sla_ymq\">Yandex Managed Databases Services Level</a>."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Message Queue"
@@ -19,12 +22,9 @@ links:
 - title: "Quotas and limits"
   description: "Technical and organizational limitations of the service"
   href: "concepts/limits"
-# - title: "Рекомендации по работе с сервисом"
-#   description: "Советы по настройке балансировки трафика"
-#   href: "best-practices"
-- title: "Identity and access management"
-  description: "Set up access rights to work with the service"
+- title: "Access management"
+  description: "Configure access rights to work with the service"
   href: "security/index"
-# - title: "Правила тарификации"
-#   description: "Цены и правила расчета стоимости услуг сервиса"
-#   href: "pricing"
+- title: "Pricing policy"
+  description: "Service pricing and cost calculations"
+  href: "pricing"

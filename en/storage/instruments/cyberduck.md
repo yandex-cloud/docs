@@ -16,12 +16,12 @@ Create a connection with the following parameters:
 
   - Connection type: `Amazon S3`.
   - Server and port: `{{ s3-storage-host }}:443`.
-  - Access Key ID: the `id` that you received when generating the static key.
-  - Password: the `secretKey` that you received when generating the static key.
+  - Access Key ID: The `ID` that you received when generating the static key.
+  - Password: The `secretKey` that you received when generating the static key.
 
 {% note info %}
 
-CyberDuck treats {{ objstorage-name }} as a hierarchical file system. This means that keys for objects uploaded via CyberDuck will look like a file path. For example, `prefix/subprefix/picture.jpg`.
+CyberDuck treats {{ objstorage-name }} like a hierarchical file system. This means that keys for objects uploaded via CyberDuck look like file paths. For example, `prefix/subprefix/picture.jpg`.
 
 {% endnote %}
 

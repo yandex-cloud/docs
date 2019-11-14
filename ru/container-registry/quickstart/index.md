@@ -2,17 +2,16 @@
 
 В этой инструкции вы создадите свой первый [реестр](../concepts/registry.md) и попробуете управлять [Docker-образами](../concepts/docker-image.md).
 
-## Подготовка к работе
+## Подготовка к работе {#before-you-begin}
 
 Для создания реестра вам понадобится каталог в Яндекс.Облаке. Если каталога еще нет, перед созданием реестра необходимо
 создать новый каталог:
-
 
 {% include [create-folder](../../_includes/create-folder.md) %}
 
 Также вам понадобятся [Yandex CLI](../../cli/quickstart.md) и [Docker](https://docs.docker.com/install/).
 
-## Создание реестра и базовые операции с Docker-образом
+## Создание реестра и базовые операции с Docker-образом {#registry-create}
 
 1. Создайте реестр в {{ container-registry-short-name }}:
 
@@ -74,7 +73,7 @@
     cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
     ```
 
-#### Смотрите также
+#### Смотрите также {#see-also}
 
 - [Создание реестра](../operations/registry/registry-create.md)
 - [Аутентификация в {{ container-registry-short-name }}](../operations/authentication.md)

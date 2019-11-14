@@ -1,0 +1,7 @@
+title: "Биллинг с детализацией по каталогам"
+stage: tech-preview
+href: index.yaml
+editable: false
+items:
+- name: Получение детализации расходов по каталогам
+  href: get-folder-report.md

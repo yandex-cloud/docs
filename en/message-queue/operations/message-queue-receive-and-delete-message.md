@@ -5,9 +5,9 @@ After messages are received and processed, they should be deleted from a queue:
 {% list tabs %}
 
 - AWS CLI
-  
+
   Run the following command in the terminal:
-  
+
   ```
   $ aws sqs receive-message \
               --endpoint https://message-queue.api.cloud.yandex.net/ \
@@ -28,15 +28,15 @@ After messages are received and processed, they should be deleted from a queue:
       ]
   }
   ```
-  
+
   To delete a message, use the `receipt-handle` parameter value of the received message. Run the following command in the terminal:
-  
+
   ```
   $ aws sqs receive-message \
               --endpoint https://message-queue.api.cloud.yandex.net/ \
               --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
               --receipt-handle EAEggbjIg_8sKAM
   ```
-  
+
 {% endlist %}
 

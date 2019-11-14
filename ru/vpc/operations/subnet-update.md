@@ -5,19 +5,19 @@
 {% list tabs %}
 
 - CLI
-  
-  Если у вас еще нет интерфейса командной строки Яндекс.Облака, [установите его](../../cli/quickstart#install).
-  
+
+  {% include [include](../../_includes/cli-install.md) %}
+
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
+
   1. Посмотрите описание команды CLI для обновления параметров подсети:
-  
+
       ```
       $ yc vpc subnet update --help
       ```
-  
+
   1. Получите список всех подсетей в каталоге по умолчанию:
-  
+
       ```
       $ yc vpc subnet list
       +----------------------+-----------------------+----------------------+
@@ -28,10 +28,10 @@
       ...
       +----------------------+-----------------------+----------------------+
       ```
-  
+
   1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной подсети.
   1. Измените параметры подсети, например:
-  
+
       ```
       $ yc vpc subnet update e2l2prrbkbimvjuuhht2 \
           --new-name test-subnet-renamed \
@@ -56,9 +56,9 @@
 
 {% list tabs %}
 - CLI
-  
+
   Можно изменять подсеть, используя ее имя вместо идентификатора:
-  
+
   ```
   $ yc vpc subnet update test-subnet-1 \
       --new-name test-subnet-renamed \
@@ -75,9 +75,9 @@
   v4_cidr_blocks:
   - 192.168.0.0/24
   ```
-  
+
   Идентификатор и имя подсети можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
-  
+
   ```
   $ yc vpc network update --id enpavfmgapumnl7cqin8 \
   --new-name test-network-renamed \

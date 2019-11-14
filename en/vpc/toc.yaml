@@ -38,6 +38,8 @@ items:
         items:
           - name: Creating a static route
             href: operations/static-route-create.md
+          - name: Enabling NAT to the internet
+            href: operations/enable-nat.md
       - name: DDoS Protection
         items:
           - name: Enable protection from DDoS attacks

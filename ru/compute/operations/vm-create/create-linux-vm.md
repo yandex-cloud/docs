@@ -8,7 +8,7 @@
 
 - Консоль управления
 
-  {% include [create-instance-via-concole-linux](../../_includes_service/create-instance-via-concole-linux.md) %}
+  {% include [create-instance-via-console-linux](../../_includes_service/create-instance-via-console-linux.md) %}
 
 - CLI
 
@@ -28,11 +28,11 @@
       {% include [standard-images](../../../_includes/standard-images.md) %}
 
   1.  Создайте виртуальную машину в каталоге по умолчанию. Укажите следующие параметры:
-        
+
       - `name` — Имя виртуальной машины.
 
       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
-    
+
       - `zone` — зона доступности.
       - `subnet-name` — подсеть.
       - `image-family` — операционная система.
@@ -46,7 +46,7 @@
           --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
           --ssh-key ~/.ssh/id_rsa.pub
       ```
- 
+
       Будет создана виртуальная машина `first-instance`.
 - API
 

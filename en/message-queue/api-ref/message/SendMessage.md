@@ -8,7 +8,7 @@ Method for delivering a message to the specified queue. A message can include on
 
 | Parameter | Type | Required parameter | Description |
 | ----- | ----- | ----- | ----- |
-| `DelaySeconds` | **integer** | No | The number of seconds to delay the message from being available for processing. Valid values: from 0 to 900. If not specified, it defaults to the queue's parameter value. The parameter does not apply to messages sent to a FIFO queue: in this case, the queue's parameter is used. |
+| `DelaySeconds` | **integer** | No | The number of seconds to [delay the message from being available for processing](../../concepts/delay-queues.md#delay-messages). Valid values: from 0 to 900. If not specified, it defaults to the queue's parameter value. The parameter does not apply to messages sent to a FIFO queue: in this case, the queue's parameter is used. |
 | `MessageAttributeName.N`<br/>`MessageAttributeValue.N` | **array** | No | Array of names and corresponding values of your custom message attributes. See the [Message](../data-types/Message.md) data type. |
 | `QueueUrl` | **string** | Yes | URL of the queue where the message is placed. |
 | `MessageBody` | **string** | Yes | Body of the message to send. The maximum size is 256 KB. A message can include XML, JSON, and unformatted text. The following Unicode characters are supported: <ul><li>`#x9`</li> <li>`#xA`</li> <li>`#xD`</li> <li>`from #x20 to #xD7FF`</li> <li>`from #xE000 to #xFFFD`</li> <li>`from #x10000 to #x10FFFF`</li></ul> |
@@ -33,7 +33,7 @@ Method for delivering a message to the specified queue. A message can include on
 
 ### SendMessage errors {#errors}
 
-For a list of errors that are common to all methods, see the section [{#T}](../common-errors.md).
+For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
 | HTTP code | Error ID | Description |
 | ----- | ----- | ----- |
@@ -49,9 +49,9 @@ Action=SendMessage
 &MessageBody=Hello+world
 ```
 
-For more information about forming requests, see [General format of an API request](../index.md#api-request).
+For more information about forming requests, see [General API request format](../index.md#api-request).
 
-## Sample response {#response-example}
+## Response example {#response-example}
 
 ```xml
 <SendMessageResponse>

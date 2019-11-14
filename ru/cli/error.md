@@ -1,8 +1,8 @@
-# Произошла ошибка?
+# Решение проблем
 
 Если во время выполнения операции возникла ошибка, CLI отобразит соответствующее сообщение.
 
-### Пример сообщения об ошибке
+### Пример сообщения об ошибке {#sample}
 
 ```
 $ yc compute instance create --name my-inst3 --metadata user-data="#ps1\nnet user Administrator 123q
@@ -19,7 +19,7 @@ Use server-request-id, client-request-id, client-trace-id for investigation of i
 If you are going to ask for help of cloud support, please send the following trace file: C:\Users\username\yandex-cloud\logs\yc_compute_instance_create-2019-02-18T12-26-39.897.txt
 ```
 
-### Что делать?
+### Что делать? {#what-to-do}
 
 Чтобы помочь нашим специалистам быстрее решить вашу проблему, из сообщения об ошибке:
 

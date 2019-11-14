@@ -7,11 +7,11 @@ To use the service, create a cluster and connect to a DBMS:
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-2. Create a VM (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)) that you will use for accessing the DB cluster. If you plan to connect to the database from outside the Cloud, request external IP addresses for hosts when creating a cluster.
+2. Create a VM (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)) that you will use for accessing the DB cluster. If you plan to connect to the database from outside Yandex.Cloud, request external IP addresses for hosts when creating a cluster.
    1. To connect to a DB cluster from inside the Cloud, create a VM in the same network as the DB cluster (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md))
-   1. To enable connection to a cluster over the internet, request external IP addresses for hosts when creating the cluster.
+   1. To connect to a cluster from the internet, request public access to the hosts when creating the cluster.
 
-1. In [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
 
 1. Select **{{ mmg-name }}**.
 
@@ -36,7 +36,7 @@ To use the service, create a cluster and connect to a DBMS:
             --sslCAFile ~/.mongodb/CA.pem \
             --ipv6 \
             --host 'rs01/<address of host 1>:27018,<address of host 2>:27018,<address of host N>:27018' \
-            -u <username> \
+            -u <user name> \
             -p <user password> \
             <DB name>
     ```

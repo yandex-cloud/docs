@@ -3,10 +3,20 @@ href: index.yaml
 items:
   - name: Getting started
     items:
-    - name: Quickstart
+    - name: Quick start
       href: quickstart.md
-    - name: Tools for working with Yandex Message Queue
+    - name: Supported tools
       href: instruments/index.md
+    - name: Code samples
+      items:
+        - name: Node.js
+          href: instruments/node.md
+        - name: PHP
+          href: instruments/php.md
+        - name: JMS
+          href: instruments/jms.md
+        - name: Laravel
+          href: instruments/laravel.md
   - name: Step-by-step instructions
     items:
       - name: Overview
@@ -35,7 +45,7 @@ items:
         href: concepts/long-polling.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
-      - name: Delayed message delivery in a queue
+      - name: Delay queues
         href: concepts/delay-queues.md
       - name: Quotas and limits
         href: concepts/limits.md

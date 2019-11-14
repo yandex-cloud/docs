@@ -1,10 +1,18 @@
 # Connecting to a database in a cluster {{ MY }}
 
+You can connect to {{ mmy-short-name }} cluster hosts:
+
 {% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 
-## Authentication
+{% note info %}
 
-{{ MY }} clusters in {{ mmy-short-name }} with public access only support encrypted connections, which is why an SSL certificate is required to connect to them. You can prepare all the necessary authentication data as follows:
+If public access is only configured for certain hosts in your cluster, automatic master change may make the master unavailable over the internet.
+
+{% endnote %}
+
+## Configuring an SSL certificate
+
+{{ MY }}hosts with public access only support connections with an SSL certificate. You can prepare a certificate as follows:
 
 ```bash
 $ mkdir ~/.mysql
@@ -14,34 +22,42 @@ $ chmod 0600 ~/.mysql/root.crt
 
 ## Connection string
 
-Now you can connect to the database using the `mysql` command:
-
-```bash
-$ mysql --host=<host FQDN>
-        --port=3306
-        --ssl-ca=~/.mysql/root.crt
-        --ssl-mode=REQUIRED
-        --user=<name of database user>
-        --password <DB name>
-```
+Connect to the database using the command `mysql`.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
-If you don't need to encrypt traffic within the virtual network when connecting to the database, you can connect to the database without an SSL connection. This is only possible if the host is not publicly accessible. Otherwise, the server always requires an SSL connection. If you connect to the database without public access from a  {{ compute-name }} virtual machine, then pass parameter `--ssl-mode` with the `DISABLED` value:
+{% list tabs %}
 
-```bash
-$ mysql --host=<host FQDN>
-        --port=3306
-        --ssl-mode=DISABLED
-        --user=<name of database user>
-        --password <DB name>
-```
+- SSL
+
+  {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
+
+  ```bash
+  $ mysql --host=<host FQDN>
+          --port=3306
+          --ssl-ca=~/.mysql/root.crt
+          --ssl-mode=REQUIRED
+          --user=<name of database user>
+          --password <DB name>
+  ```
+
+- Without SSL
+
+  If you don't need to encrypt traffic within the virtual network when connecting to the database, you can connect to the database without an SSL connection. Pass the `--ssl-mode` parameter with the `DISABLED` value:
+
+  ```bash
+  $ mysql --host=<host FQDN>
+          --port=3306
+          --ssl-mode=DISABLED
+          --user=<name of database user>
+          --password <DB name>
+  ```
+
+{% endlist%}
 
 ## Connecting to the master
 
-Hosts will always identify the current master as `c-<cluster ID>.rw.{{ dns-zone }}`.
-
-For example, you can connect to the master of the cluster with the `c9qash3nb1v9ulc8j9nm` ID as follows:
+Hosts will always identify the current master as `c-<cluster ID>.rw.{{ dns-zone }}`. For example, you can connect to the master of the cluster with the `c9qash3nb1v9ulc8j9nm` ID as follows:
 
 ```bash
 $ mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.mdb.yandexcloud.net

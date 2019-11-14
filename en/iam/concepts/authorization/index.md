@@ -4,9 +4,13 @@ When a user does something with a resource in Yandex.Cloud, IAM checks whether t
 
 Users get permissions along with resource roles. For more information about how roles are assigned and how the list of permissions is checked, see [{#T}](../access-control/index.md).
 
-## Authentication in Yandex.Cloud
+## Authentication in Yandex.Cloud {#authentication}
 
-Before authorization, a user must get authenticated, meaning they must log in under their account. Authentication is performed in different ways, depending on the type of account and the interface used.
+Before authorization, a user must get authenticated, meaning they must log in under their account. Authentication is performed in different ways depending on the type of account and the interface used:
+
+* [Authentication with a Yandex.Passport account](#passport)
+* [Service account authentication](#sa)
+* [Federated user authentication](#saml-federation)
 
 ### Authentication with a Yandex.Passport account {#passport}
 
@@ -51,6 +55,7 @@ Before authorization, a user must get authenticated, meaning they must log in un
       This is the recommended authentication method, but IAM tokens have a short [lifetime](iam-token.md#lifetime). Therefore, such a method is good for applications that will request the IAM token automatically.
       * [Instructions for how to get an IAM token](../../operations/iam-token/create-for-sa.md).
       * [How to get an IAM token from inside the VM](../../../compute/operations/vm-connect/auth-inside-vm.md).
+      * [Getting an IAM token from within a function in {{ sf-name }}](../../../functions/operations/function-sa.md).
 
   * Using [API keys](api-key).
 

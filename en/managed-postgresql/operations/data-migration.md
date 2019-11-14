@@ -20,11 +20,11 @@ In {{ mpg-name }} clusters, subscriptions can be used by the database owner (a u
 Migration stages:
 
 1. [Configure the source server](#source-setup).
-2. [Export the database schema on the source](#source-schema-export).
-3. [Create a destination cluster and restore the database schema](#restore-schema).
-4. [Create a {{ PG }} publication and subscription](#create-publication-subscription).
-6. [Move the {{ PG }} sequence after replication](#transfer-sequences).
-7. [Disable replication and transfer the load](#transfer-load).
+1. [Export the database schema on the source](#source-schema-export).
+1. [Create a destination cluster and restore the database schema](#restore-schema).
+1. [Create a publication and subscription {{ PG }}](#create-publication-subscription).
+1. [Move the {{ PG }} sequence after replication](#transfer-sequences).
+1. [Disable replication and transfer the load](#transfer-load).
 
 ### Configure the data source server {#source-setup}
 
@@ -37,7 +37,6 @@ Migration stages:
       ```ini
       ssl = on                   # on, off
       ```
-
    1. Change the logging level for [Write Ahead Log (WAL)](https://www.postgresql.org/docs/current/static/wal-intro.html) to add the information needed for logical replication. To do this, set the value of the [wal_level](https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-SETTINGS) as `logical`.
 
       The setting can be changed in `postgresql.conf`. Find the line with the `wal_level` setting, comment it out if necessary, and set the value as `logical`:
@@ -45,7 +44,6 @@ Migration stages:
       ```ini
       wal_level = logical                    # minimal, replica, or logical
       ```
-
 1. Configure host authentication on the source. To do this, add the cluster hosts in Yandex.Cloud to the file `pg_hba.conf` (on Debian and Ubuntu distributions, the default path is `/etc/postgresql/10/main/pg_hba.conf`).
 
    For this the lines that will allow incoming connections to the database from the specified hosts should be added.
@@ -56,26 +54,22 @@ Migration stages:
      hostssl         all            all             <host addres>      md5
      hostssl    replication         all             <host address>      md5
      ```
-
    * If you don't use SSL:
 
      ```txt
      host         all            all             <host address>      md5
      host    replication         all             <host address>      md5
      ```
-
 1. If the source server has a firewall, allow incoming connections from the {{ mpg-name }} cluster hosts. For example, for Ubuntu 18:
 
    ```bash
    sudo ufw allow from <host address> to any port 5432
    ```
-
 1. Restart the database server to apply all these settings:
 
    ```bash
    sudo systemctl restart postgresql
    ```
-
 1. Check the {{ PG }} status after restarting:
 
    ```bash
@@ -94,7 +88,7 @@ This command excludes all data associated with privileges and roles in order to 
 
 ### Create a {{ mpg-name }} cluster and restore the database schema {#restore-schema}
 
-If you don't have a {{ PG }} cluster in Yandex.Cloud, [create one](cluster-create.md). When creating a cluster, specify the same database name that's on the source server.
+If you don't have a {{ PG }} cluster in Yandex.Cloud, [create one {{ mpg-name }}](cluster-create.md). When creating a cluster, specify the same database name that's on the source server.
 
 Restore the schema in the new cluster:
 
@@ -114,7 +108,7 @@ For logical replication to work, you need to define a publication (a group of lo
 
    {% note info %}
 
-   You need superuser rights to create publications to all tables, but not to transfer the selected tables. For more information about creating publications, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-createpublication.html).
+   You need superuser rights to create publications to all tables, but not to transfer the selected tables. For more information about creating publications, see the [{{ PG }} documentation]( https://www.postgresql.org/docs/current/sql-createpublication.html).
 
    {% endnote %}
 
@@ -124,8 +118,7 @@ For logical replication to work, you need to define a publication (a group of lo
    CREATE PUBLICATION p_data_migration FOR ALL TABLES;
    ```
 
-1. On the {{ mpg-name }} cluster host, create a subscription with a connection string to the publication. For more information about creating
-subscriptions, see the [{{ PG }} documentation](https://www.postgresql.org/docs/10/sql-createsubscription.html).
+1. On the {{ mpg-name }} cluster host, create a subscription with a connection string to the publication. For more information about creating subscriptions, see the [{{ PG }} documentation](https://www.postgresql.org/docs/10/sql-createsubscription.html).
 
    Request with SSL enabled:
 
@@ -158,7 +151,7 @@ To fully complete synchronization between the source and the destination, disabl
            --data-only -t '*.*_seq' > /tmp/seq-data.sql
    ```
 
-   Pay attention to the pattern used: if the database you're migrating has sequences that don't match the `*.*_seq` pattern, you have to enter a different pattern to upload them. For more information about patterns, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-PATTERNS).
+   Pay attention to the pattern used: if the database you're migrating has sequences that don't match the `*.*_seq` pattern, you have to enter a different pattern to upload them. For more information about patterns, see the [{{ PG }} documentation]( https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-PATTERNS).
 
 1. Restore sequences on the {{ mpg-name }} host:
 
@@ -181,6 +174,12 @@ Afterwards, the load can be transferred to the receiving server. Since transferr
 
 To migrate data from an existing {{ PG }} database to {{ mpg-name }}, use `pg_dump` and `pg_restore`: create a dump of a working database and restore it to the Yandex.Cloud {{ PG }} cluster.
 
+{% note info %}
+
+To use `pg-restore`, you may need to expand the `pg_repack` database.
+
+{% endnote %}
+
 Before trying to import your data, check whether the DBMS versions of the existing database and your cluster in Yandex.Cloud match. If not, you won't be able to restore the created dump. To migrate from version 10 to 11, you can use [logical replication](#logical_replication).
 
 Migration stages:
@@ -199,13 +198,11 @@ Use [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) to create
     ```
     $ pg_dump -h <DBMS server address> -U <username> -Fd -d <DB name> -f ~/db_dump
     ```
-
 2. To speed up the process, you can start dumping with multiple processor cores. To do this, set the `-j` flag with the number equal to the number of cores available to the DBMS:
 
     ```
     $ pg_dump -h <DBMS server address> -U <username> -j 4 -Fd -d <database name> ~/db_dump
     ```
-
 3. Archive the dump:
 
     ```
@@ -228,7 +225,6 @@ To prepare the virtual machine to restore the dump:
 1. In the management console, [create a new virtual machine](../../compute/operations/vm-create/create-linux-vm.md) from the Ubuntu 18.04 image. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
 
     The virtual machine must be in the same network and availability zone as the {{ PG }} cluster. Additionally, the VM must be assigned an external IP address so that you can load the dump from outside Yandex.Cloud.
-
 2. Install the {{ PG }} client and additional utilities for working with the DBMS:
 
     ```
@@ -238,13 +234,11 @@ To prepare the virtual machine to restore the dump:
     
     $ sudo apt install postgresql-client-11 # For PostgreSQL 11
     ```
-
 3. Move the DB dump to the VM. For example, you can use `scp`:
 
     ```
     scp ~/db_dump.tar.gz <VM username>@<VM public address>:/tmp/db_dump.tar.gz
     ```
-
 4. Unpack the dump:
 
     ```
@@ -253,7 +247,7 @@ To prepare the virtual machine to restore the dump:
 
 ### Create a cluster {{ mpg-name }} {#create-cluster}
 
-Make sure that the computing power and storage size of the cluster are appropriate for the environment,where the existing databases are deployed, and [create a cluster](cluster-create.md).
+Make sure that the computing power and storage size of the cluster are appropriate for the environment where the existing databases are deployed, and [create a cluster](cluster-create.md).
 
 ### Restore data in the new environment {#restore}
 
@@ -261,7 +255,7 @@ Use the [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html)
 
 The version of `pg_restore` must match the `pg_dump` version, and the major version must be at least as high as on the DB where the dump is deployed. For example,`pg_restore 10` should be used with PostgreSQL 10, but if you need to deploy the dump for PostgreSQL 11, use `pg_restore 11` instead.
 
-Best practice is to restore data with the `--single-transaction` flag to avoid an inconsistent state of the database if an error occurs:
+If you only need to restore a single schema, add the `-n <schema name>` flag (without it, the command only runs on behalf of the database owner). Best practice is to restore data with the `--single-transaction` flag to avoid an inconsistent state of the database if an error occurs:
 
 ```
 pg_restore -Fd \
@@ -274,8 +268,6 @@ pg_restore -Fd \
            --single-transaction \
            --no-privileges
 ```
-
-If you only need to restore a single schema, add the `-n <schema name>` flag.
 
 Fore more information about `pg_restore`, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/app-pgrestore.html).
 

@@ -11,9 +11,11 @@ items:
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
+      - name: Changing cluster and database settings
+        href: operations/update.md
       - name: Connecting to databases
         href: operations/connect.md
-      - name: Stopping and starting clusters
+      - name: Stop and start the cluster
         href: operations/cluster-stop.md
       - name: Managing hosts in a cluster
         href: operations/hosts.md

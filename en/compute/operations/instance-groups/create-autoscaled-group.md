@@ -106,7 +106,7 @@ To create an automatically scaled instance group
                   min_zone_size: 3
                   measurement_duration: 30
                   warmup_duration: 60
-                  cooldown_duration: 120
+                  stabilization_duration: 120
                   cpu_utilization_rule: 0.75
           allocation_policy:
               zones:
@@ -151,7 +151,7 @@ To create an automatically scaled instance group
                   min_zone_size: 3
                   measurement_duration: 30
                   warmup_duration: 60
-                  cooldown_duration: 120
+                  stabilization_duration: 120
                   cpu_utilization_rule:
                       utilization_target: 75
           allocation_policy:

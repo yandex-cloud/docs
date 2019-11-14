@@ -1,0 +1,7 @@
+title: "Безопасность облачной платформы Яндекс.Облако"
+stage: tech-preview
+href: index.yaml
+editable: false
+items:
+  - name: Безопасность облачной платформы Яндекс.Облако
+    href: whitepaper.md

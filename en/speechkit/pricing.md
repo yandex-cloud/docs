@@ -11,7 +11,7 @@ editable: false
 
 ### Using speech synthesis {#rules-tts}
 
-The cost of using the SpeechKit API for speech synthesis is calculated based on the total number of characters sent to generate speech from text in a calendar month ([Reporting period](https://cloud.yandex.com/docs/billing/concepts/glossary)).
+The cost of using the SpeechKit API for speech synthesis is calculated based on the voice used and the total number of characters sent to generate speech from text in a calendar month ([Reporting period](../billing/concepts/glossary#period)).
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
@@ -69,13 +69,15 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio with
 
   | Service | Rate for 1 million characters, without VAT |
   | ----- | ----- |
-  | Speech synthesis | $2.346805 |
+  | Speech synthesis using [standard voices](tts/voices.md#standard) | $2.346805 |
+  | Speech synthesis using [premium voices](tts/voices.md#premium) | $15,384615 |
 
 - Prices in roubles
 
   | Service | Rate per 1 million characters,<br/>with VAT |
   | ----- | ----- |
-  | Speech synthesis | ₽183.0508 |
+  | Speech synthesis using [standard voices](tts/voices.md#standard) | ₽183.0508 |
+  | Speech synthesis using [premium voices](tts/voices.md#premium) | ₽1200 |
 
 {% endlist %}
 

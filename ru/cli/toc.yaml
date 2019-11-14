@@ -3,19 +3,41 @@ href: index.yaml
 items:
   - name: Начало работы с CLI
     href: quickstart.md
-  - name: Принципы работы c CLI
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Установка CLI
+        href: operations/install-cli.md
+      - name: Аутентификация
+        items:
+          - name: Аутентификация от имени пользователя
+            href: operations/authentication/user.md
+          - name: Аутентификация от имени сервисного аккаунта
+            href: operations/authentication/service-account.md
+      - name: Управление профилем
+        items:
+          - name: Создание профиля
+            href: operations/profile/profile-create.md
+          - name: Управление параметрами профиля
+            href: operations/profile/manage-properties.md
+          - name: Получение информации о профиле
+            href: operations/profile/profile-list.md
+          - name: Активация профиля
+            href: operations/profile/profile-activate.md
+          - name: Удаление профиля
+            href: operations/profile/profile-delete.md
+  - name: Концепции
     items:
       - name: Запуск команд
         href: concepts/index.md
       - name: Конфигурация CLI
         href: concepts/core-properties.md
-      - name: Профили
-        href: concepts/profile.md
       - name: Синхронный и асинхронный режимы выполнения команд
         href: concepts/mode.md
   - name: Релизы CLI
     href: release-notes.md
-  - name: Произошла ошибка?
+  - name: Решение проблем
     href: error.md
   - name: Справочник CLI
     items:

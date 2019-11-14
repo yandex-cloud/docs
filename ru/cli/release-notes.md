@@ -1,8 +1,46 @@
 # Релизы YC CLI
 
-## Версия 0.42.0 (21.10.19) {#latest-release}
+## Версия 0.43.1 (14.11.19) {#latest-release} 
 
-### Изменения в сервисах Облака {#services}
+### Изменения в CLI {#cli}
+
+**Исправлено**
+
+- Для Windows Subsystem for Linux (WSL) при авторизации в CLI с помощью [SAML-совместимых федераций удостоверений](../iam/concepts/users/identity-federations.md) теперь корректно происходит переход в браузер.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.43.0 (11.11.19) {#version0.43.0}
+
+#### Изменения в CLI {#cli}
+
+* Добавлена возможность авторизации в CLI с помощью [SAML-совместимых федераций удостоверений](../iam/concepts/users/identity-federations.md).
+
+    Для этого выполните команду `yc init --federation-id=<FEDERATION_ID>`, после чего можно использовать CLI для работы от имени пользователя этой федерации.
+
+#### Изменения в сервисах Облака {#services}
+
+#### {{ sf-name }} {#serverless-functions}
+
+* Добавлена команда `yc serverless trigger create timer` для вызова функций по таймеру.
+
+#### {{ compute-name }} {#compute}
+
+* Добавлены подробности в лог и в текст об ошибке при [авторизации изнутри виртуальной машины](../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) (с помощью IAM-токена из метаданных).
+
+#### Изменения в сервисах управляемых баз данных {#managed-db}
+
+**{{ mpg-name }}**
+
+* Добавлена поддержка создания баз {{ PG }} версии 12.
+
+**{{ mmg-name }}**
+
+* Добавлена поддержка создания кластера с версией {{ MG }} 4.2.
+
+### Версия 0.42.0 (21.10.19) {#version0.42.0}
+
+#### Изменения в сервисах Облака {#services}
 
 #### {{ compute-name }} {#compute}
 
@@ -11,7 +49,7 @@
 #### {{ container-registry-name }} {#container-registry}
 
 * Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
-   
+
    Для значений "always", "never", "on-failure" флага `--container-restart-policy` добавлено альтернативное написание: "Always", "Never", "OnFailure".
 
 #### {{ managed-k8s-name }} {#k8s}
@@ -27,8 +65,6 @@
 * Команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore`.
 
    Для флага `--postgresql-version string` добавлено значение `10_1с` для создания кластера {{ PG }} версии 10-1с.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.41.1 (26.09.19) {#version0.41.1}
 
@@ -49,15 +85,15 @@
 - Команда `yc managed-kubernetes cluster create`.
 
     Добавлены флаги для управления типом мастера: `--regional`, `--region` и `--master-location`.
-    
+
 - Команды `yc managed-kubernetes cluster create` и `yc managed-kubernetes cluster update`.
-    
+
     Добавлены флаги для управления политикой обслуживания: `--auto-upgrade`, `--anytime-maintenance-window`, `--daily-maintenance-window` и `--weekly-maintenance-window`.
-    
+
 - Команда `yc managed-kubernetes node-groups update`.
- 
-    Добавлены флаги для управления политикой обслуживания: `--auto-upgrade`, `--auto-repair`, `--anytime-maintenance-window`, `--daily-maintenance-window` и `--weekly-maintenance-window`.   
-     
+
+    Добавлены флаги для управления политикой обслуживания: `--auto-upgrade`, `--auto-repair`, `--anytime-maintenance-window`, `--daily-maintenance-window` и `--weekly-maintenance-window`.
+
 
 ### Версия 0.40.0 (20.09.19) {#version0.40.0}
 
@@ -91,8 +127,8 @@
 #### {{ container-registry-name }} {#container-registry}
 
 - Команда `yc container registry`.
-    
-    Добавлена возможность устанавливать и просматривать список ролей для реестра Docker-образов: `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`. 
+
+    Добавлена возможность устанавливать и просматривать список ролей для реестра Docker-образов: `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`.
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -117,14 +153,14 @@
 **Улучшено**
 
 - Добавлена проверка доступности эндпоинтов API {{ iam-short-name }}, {{ resmgr-short-name }}, {{ compute-short-name }}. Если эндпоинт недоступен, выдается ошибка.
-- Добавлено отображение деталей ошибок. 
+- Добавлено отображение деталей ошибок.
 
 #### Изменения в сервисах Облака {#services}
 
 #### {{ container-registry-name }} {#container-registry}
 
 **Улучшено**
- 
+
 - Добавлена поддержка ОС Windows для работы с Docker Credential helper.
 - Добавлена подробная ошибка при использовании `docker login` одновременно с Docker Credential helper.
 
@@ -137,7 +173,7 @@
 - Команда `yc managed-kubernetes cluster update`.
 
     Добавлены флаги `--node-service-account-id` и `--node-service-account-name`, позволяющие добавить или изменить сервисный аккаунт для узлов у существующего кластера {{ k8s }}.
-    
+
 - Команда `yc managed-kubernetes node-group update`.
 
     Добавлены флаги для изменения параметров существующей группы узлов: `--metadata`, `--metadata-from-file`, `--platform-id`, `--memory`, `--cores`, `--core-fraction`, `--disk-type`, `--disk-size`, `--preemptible`.
@@ -153,8 +189,8 @@
 - Команда `{{ yc-mdb-pg }} cluster update`.
 
     Добавлен флаг `--connection-pool-discard` для отключения менеджера подключений.
-    
-- Команды `{{ yc-mdb-pg }} user create` и `yc managed-postgresql user update`. 
+
+- Команды `{{ yc-mdb-pg }} user create` и `yc managed-postgresql user update`.
 
     Добавлена возможность указать логин и задать права доступа для пользователя с помощью флагов `--login` и `--grants`.
 
@@ -209,7 +245,7 @@
 - Команда `{{ yc-mdb-rd }} shards`.
 
     Добавлена поддержка шардов для Redis-кластеров.
-    
+
 **{{ mch-name }}**
 
 - Команда `{{ yc-mdb-ch }} cluster add-external-dictionary`.
@@ -220,7 +256,7 @@
 
 - Команда `{{ mmy-name }} cluster update-config --set`
 
-    Добавлена возможность глобально задать режим SQL с помощью параметра `sql_mode`. 
+    Добавлена возможность глобально задать режим SQL с помощью параметра `sql_mode`.
 
 ### Версия 0.33.0 (19.07.19) {#version0.33.0}
 
@@ -242,7 +278,7 @@
 
 ### Версия 0.32.0 (05.07.19) {#version0.32.0}
 
-#### Изменения в CLI {#cli} 
+#### Изменения в CLI {#cli}
 
 **Улучшено**
 
@@ -262,14 +298,14 @@
 
 ### Версия 0.31.0 (01.07.19) {#version0.31.0}
 
-#### Изменения в CLI {#cli} 
+#### Изменения в CLI {#cli}
 
 **Улучшено**
 
 - При использовании CLI на виртуальной машине, запущенной от имени сервисного аккаунта, по умолчанию CLI будет авторизовываться от имени этого сервисного аккаунта.
 
 **Исправлено**
-    
+
 - Попытка получить ресурс, указав его уникальный идентификатор, завершалась с ошибкой, если в конфигурации CLI не был задан параметр `folder-id`.
 
 - Попытка получить каталог, указав его уникальный идентификатор, завершалась с ошибкой, если у пользователя не было роли `viewer` на каталог в Облаке.
@@ -280,7 +316,7 @@
 
 #### {{ load-balancer-name }} {#load-balancer}
 
-- Команды `yc load-balancer network-load-balancer create` и `yc load-balancer network-load-balancer update`. 
+- Команды `yc load-balancer network-load-balancer create` и `yc load-balancer network-load-balancer update`.
 
     Для флага `--listener`  появилась возможность задать параметр `target-port`, позволяющий настроить NAT так, чтобы целевые ресурсы принимали трафик на порту, отличном от порта `listener`.
 
@@ -288,7 +324,7 @@
 
 **{{ mch-name }}**
 
-- Команды `{{ yc-mdb-ch }} user create` и `{{ yc-mdb-ch }} user update`. 
+- Команды `{{ yc-mdb-ch }} user create` и `{{ yc-mdb-ch }} user update`.
 
     Добавлен флаг `--settings`, позволяющий задать пользовательские настройки.
 

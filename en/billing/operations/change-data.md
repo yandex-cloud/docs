@@ -1,8 +1,19 @@
 # Change your billing account data
 
-Billing account data can only be changed by the account owner.
+Billing account data can only be changed by the account owner. For more information, see [Access management](../security/index.md).
 
 The procedure for changing account details depends on the type of changes.
+
+## Change billing account name {#change-name}
+
+You can rename billing account both on the main page of the management console and in Billing:
+
+1. In [management console]({{ link-console-billing }}), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. Select an account on the **List of accounts** page.
+1. Go to the **Overview** page.
+1. Click ![image](../../_assets/horizontal-ellipsis.svg) and choose **Rename** in the upper block opposite the account name. 
+1. Enter the new name. 
+1. Click **Rename**.
 
 ## Change payer contact information {#change-address}
 

@@ -2,7 +2,11 @@ title: "Yandex Identity and Access Management"
 href: index.yaml
 items:
   - name: Getting started
-    href: quickstart.md
+    items:
+      - name: How to manage access to resources
+        href: quickstart.md
+      - name: How to work with service accounts
+        href: quickstart-sa.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -37,7 +41,7 @@ items:
             href: operations/federations/integration-adfs.md
           - name: Authentication using G Suite
             href: operations/federations/integration-gsuite.md
-          - name: Authentication using an SAML federation
+          - name: Authentication using an identity federation
             href: operations/federations/integration-common.md
       - name: Roles
         items:

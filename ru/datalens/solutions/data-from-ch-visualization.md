@@ -214,7 +214,7 @@
 
         ![image](../../_assets/datalens/solution-02/30-date-to-year.png)
 
-1. Добавьте в таблицу категогорию и подкатегорию продуктов. Для этого из раздела **Измерения** перетащите поля **ProductCategory** и **ProductSubcategory** в секцию **Строки**.
+1. Добавьте в таблицу категорию и подкатегорию продуктов. Для этого из раздела **Измерения** перетащите поля **ProductCategory** и **ProductSubcategory** в секцию **Строки**.
 
     ![image](../../_assets/datalens/solution-02/31-pivot2.png)
 

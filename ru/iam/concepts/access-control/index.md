@@ -2,7 +2,7 @@
 
 На этой странице можно узнать, как управлять доступом к ресурсам, и как {{ iam-short-name }} проверяет права доступа к ним.
 
-## Как проверяются права доступа?
+## Как проверяются права доступа? {#access-verifying}
 
 Все операции в Яндекс.Облаке предварительно отправляются на проверку в {{ iam-short-name }}, например:
 
@@ -15,7 +15,7 @@
 
 ![checkPermissions.png](../../../_assets/checkPermissions.png)
 
-## Как вы управляете доступом?
+## Как вы управляете доступом? {#how-do-i-perform-access-management}
 
 Управление доступом в Яндекс.Облаке построено на политике [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC). Чтобы предоставить доступ к ресурсу, вы указываете, кому и какие [роли](roles.md) назначены на ресурс.
 
@@ -33,9 +33,9 @@
 
 ### Ресурсы, на которые можно назначать роли {#resource}
 
-Сейчас вы можете назначить роль [на облако](../../../resource-manager/operations/cloud/set-access-bindings.md), [каталог](../../../resource-manager/operations/folder/set-access-bindings.md) или [сервисный аккаунт](../../operations/sa/set-access-bindings.md).
+Сейчас вы можете назначать роли [на облако](../../../resource-manager/operations/cloud/set-access-bindings.md), [каталог](../../../resource-manager/operations/folder/set-access-bindings.md) и другие ресурсы из [списка](resources-with-access-control.md).
 
-Если вам необходимо предоставить доступ к другому ресурсу, например к виртуальной машине, назначьте роль на ресурс, от которого наследуются права доступа к виртуальной машине, например [на каталог](../../../resource-manager/operations/folder/set-access-bindings.md).
+Если вам необходимо предоставить доступ к ресурсу, которого нет в списке, например к виртуальной машине, назначьте роль на родительский ресурс, от которого [наследуются](#inheritance) права доступа. У виртуальных машин права доступа наследуются от каталога.
 
 ### Роль {#role}
 

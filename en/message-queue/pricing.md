@@ -1,34 +1,22 @@
 ---
 editable: false
 ---
-# Pricing policy for {{ message-queue-name }}
+# Pricing for {{ message-queue-name }}
 
-## What goes into the cost of using Message Queue
+## What goes into the cost of using Yandex Message Queue
 
-When using Yandex Message Queue, you are charged for the requests to [standard](concepts/queue.md#standard-queues) and [FIFO](concepts/queue.md#fifo-queues) queues and the amount of outgoing traffic.
+{{ message-queue-name }} charges for the number of requests to [standard queues](concepts/queue.md#standard-queues) and [FIFO queues](concepts/queue.md#fifo-queues), as well as for outgoing traffic.
 
 ### Requests to queues
 
-{% list tabs %}
+| Service | Price per 1 million requests, <br>with VAT |
+| ----- | ----- |
+| Requests to standard queues | 30.48 ₽ |
+| Requests to FIFO queues | 38.22 ₽ |
 
-- Prices in USD
-  
-  | Service | Rate for 1 mil. requests, without VAT |
-  | ----- | ----- |
-  | Requests to standard queues | $0,390769 |
-  | Requests to FIFO queues | $0,490000 |
-  
-- Prices in roubles
-  
-  Service | Rate for 1 mil. requests, with VAT
-  ----- | -----
-  Requests to standard queues | ₽30.48
-  Requests to FIFO queues | ₽38.22
-  
-{% endlist %}
+Payment is made for the actual number of requests. For example, the cost per thousand requests is `₽0.03048`.
 
-You are charged for an actual number of requests. E.g., the cost of 1000 requests to standard queue will be `$0,000390769`.
-
-Every 64 KB of request data are charged as a separate request. E.g., a request with a 63 KB size will be charged as one request, and a request with a 65 KB (64 + 1) size will be charged as two requests.
+For pricing purposes, every 64 KB of request data is considered a separate request. For example, a 63 KB request is charged as one request, while a 65 KB request is charged as two requests (64 + 1).
 
 {% include [pricing-egress-traffic.md](../_includes/pricing/pricing-egress-traffic.md) %}
+

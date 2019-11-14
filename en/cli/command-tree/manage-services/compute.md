@@ -39,7 +39,7 @@ Syntax:
     - `get` — show information about the specified image.
     - `list` — [list images](../../../compute/operations/images-with-pre-installed-software/get-list.md).
     - `get-latest-from-family` — show information about the latest image that is part of an image family.
-    - `create` — [create an image]../../../compute/operations/image-create/upload#2.-sozdajte-obraz-v-compute-cloud.md).
+    - `create` — [create an image](../../../compute/operations/image-create/upload#2.-sozdajte-obraz-v-compute-cloud.md).
     - `update` — update the specified image.
     - `delete` — delete the specified image.
     - `list-operations` — list operations for the specified image.
