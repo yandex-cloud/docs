@@ -94,7 +94,7 @@ Use the `<s>` tag to add a pause between sentences. A pause after a sentence is 
 
 ```xml
 <speak>
-  <s>First sentence<s/>
+  <s>First sentence</s>
   <s>Second sentence</s>
 </speak>
 ```
