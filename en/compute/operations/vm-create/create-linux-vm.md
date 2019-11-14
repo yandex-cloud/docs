@@ -8,7 +8,7 @@ To create a VM:
 
 - Management console
 
-  {% include [create-instance-via-concole-linux](../../_includes_service/create-instance-via-concole-linux.md) %}
+  {% include [create-instance-via-console-linux](../../_includes_service/create-instance-via-console-linux.md) %}
 
 - CLI
 

@@ -8,7 +8,7 @@ Cоздайте [виртуальную машину](../../concepts/vm.md) DSVM
 
 ## Создать виртуальную машину из публичного образа DSVM {#create-dsvm}
 
-{% include [create-instance-via-concole-dsvm](../../_includes_service/create-instance-via-concole-dsvm.md) %}
+{% include [create-instance-via-console-dsvm](../../_includes_service/create-instance-via-console-dsvm.md) %}
 
 ## Подключиться к виртуальной машине по протоколу SSH {#first-login}
 

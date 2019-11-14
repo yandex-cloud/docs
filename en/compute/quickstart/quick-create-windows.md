@@ -10,7 +10,7 @@ Create a Windows [virtual machine](../concepts/vm.md) using {{ compute-short-nam
 
 ## Creating VMs {#create-vm}
 
-{% include [create-instance-via-concole-windows](../_includes_service/create-instance-via-concole-windows.md) %}
+{% include [create-instance-via-console-windows](../_includes_service/create-instance-via-console-windows.md) %}
 
 {% include [initialization-windows-vm](../../_includes/initialization-windows-vm.md) %}
 
@@ -22,7 +22,7 @@ Create a Windows [virtual machine](../concepts/vm.md) using {{ compute-short-nam
 
 If you no longer plan to use a virtual machine, [delete it](../operations/vm-control/vm-delete.md).
 
-## What's next
+## What's next {#what-is-next}
 
 - Watch [tutorials for creating web services in Yandex.Cloud](../../solutions/web/).
 - Learn [how to create a VM with a GPU](../operations/vm-create/create-vm-with-gpu.md).

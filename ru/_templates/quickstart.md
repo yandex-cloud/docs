@@ -28,7 +28,7 @@
 
 ## Создайте виртуальную машину {#create-vm}
 
-{% include [create-instance-via-concole-linux](../_includes_service/create-instance-via-concole-linux.md) %}
+{% include [create-instance-via-console-linux](../_includes_service/create-instance-via-console-linux.md) %}
 
 ## Подключитесь к виртуальной машине {#connect-to-vm}
 

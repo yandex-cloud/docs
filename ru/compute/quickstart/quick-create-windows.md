@@ -10,7 +10,7 @@ Cоздайте [виртуальную машину](../concepts/vm.md) Windows
 
 ## Создайте виртуальную машину {#create-vm}
 
-{% include [create-instance-via-concole-windows](../_includes_service/create-instance-via-concole-windows.md) %}
+{% include [create-instance-via-console-windows](../_includes_service/create-instance-via-console-windows.md) %}
 
 {% include [initialization-windows-vm](../../_includes/initialization-windows-vm.md) %}
 
@@ -22,8 +22,8 @@ Cоздайте [виртуальную машину](../concepts/vm.md) Windows
 
 Если вы больше не планируете работать с созданной виртуальной машиной, [удалите ее](../operations/vm-control/vm-delete.md).
 
-## Что дальше
-              
+## Что дальше {#what-is-next}
+
 - Посмотрите [Сценарии создания веб-сервисов в Яндекс.Облаке](../../solutions/web/).
 - Узнайте, [как создать виртуальную машину с GPU](../operations/vm-create/create-vm-with-gpu.md).
 - Узнайте, [как работать с виртуальными машинами](../operations/).

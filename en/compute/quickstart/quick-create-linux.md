@@ -8,7 +8,7 @@ Create a Linux [virtual machine](../concepts/vm.md) using {{ compute-name }} in 
 
 ## Creating VMs {#create-vm}
 
-{% include [create-instance-via-concole-linux](../_includes_service/create-instance-via-concole-linux.md) %}
+{% include [create-instance-via-console-linux](../_includes_service/create-instance-via-console-linux.md) %}
 
 ## Connecting to VMs {#connect-to-vm}
 
@@ -18,7 +18,7 @@ Create a Linux [virtual machine](../concepts/vm.md) using {{ compute-name }} in 
 
 If you no longer plan to use a virtual machine, [delete it](../operations/vm-control/vm-delete.md).
 
-## What's next
+## What's next {#what-is-next}
 
 - Watch [tutorials for creating web services in Yandex.Cloud](../../solutions/web/).
 - Learn [how to use VMs](../operations/).
