@@ -1,4 +1,6 @@
-# Static volume provisioning
+# Static volume provisioning
+
+{% include [note-about-version](../../../_includes/managed-kubernetes/note-about-version.md) %}
 
 Create a pod with a statically provisioned [volume](../../concepts/volume.md):
 

@@ -38,7 +38,7 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "features": [{
-                "type": "classification",
+                "type": "CLASSIFICATION",
                 "classificationConfig": {
                     "model": "moderation"
                 }

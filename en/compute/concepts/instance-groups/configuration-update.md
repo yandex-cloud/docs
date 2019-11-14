@@ -23,11 +23,8 @@ deploy-policy:
 ...
 ```
 
-The group will be updated as follows:
 
-![Rolling update](../../../_assets/instance-groups/rolling-update.gif)
-
-## Update with the allocation of additional resources {#max-expansion}
+## Update with additional resources allocated {#max-expansion}
 
 Update by creating instances with a new configuration. As you add instances with a new configuration to the group, those with the old configuration are deleted.
 
@@ -41,8 +38,3 @@ deploy-policy:
     ...
 ...
 ```
-
-The group will be updated as follows:
-
-![Blue-green deployment](../../../_assets/instance-groups/blue-green.gif)
-

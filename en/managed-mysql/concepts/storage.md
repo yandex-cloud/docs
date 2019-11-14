@@ -4,9 +4,10 @@
 
 {% include [storage-type.md](../../_includes/mdb/storage-type.md) %}
 
-{% note info %}
+## Local storage features
 
-Local storage does not provide fault tolerance: if a local disk fails, data is permanently lost. Therefore, when creating a new {{ mmy-name }} cluster using local storage, a 3-host fail-safe configuration is automatically set up.
+Local storage doesn't provide fault tolerance for data storage and affects the overall pricing for the cluster:
 
-{% endnote %}
+* Local storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mmy-name }} cluster using local storage, a 3-host fail-safe configuration is automatically set up.
+* You are charged for a cluster with local storage even if it's stopped. Read more in the [pricing policy](../pricing.md).
 

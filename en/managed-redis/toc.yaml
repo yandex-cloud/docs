@@ -13,8 +13,12 @@ items:
         href: operations/cluster-create.md
       - name: Connecting to databases
         href: operations/connect.md
+      - name: Stopping and starting clusters
+        href: operations/cluster-stop.md
       - name: Managing hosts in a cluster
         href: operations/hosts.md
+      - name: How to manage shards
+        href: operations/shards.md
       - name: Managing backups
         href: operations/cluster-backups.md
       - name: Changing the master
@@ -29,8 +33,8 @@ items:
       href: concepts/instance-types.md
     - name: Network in Managed Service for Redis
       href: concepts/network.md
-    - name: Service quotas and limits
-      href: concepts/limits.md
+    - name: Sharding
+      href: concepts/sharding.md
     - name: Backups
       href: concepts/backup.md
     - name: Replication and fault tolerance
@@ -39,6 +43,8 @@ items:
       href: concepts/supported-clients.md
     - name: Limitations of Managed Service for Redis
       href: concepts/supported-features.md
+    - name: Service quotas and limits
+      href: concepts/limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

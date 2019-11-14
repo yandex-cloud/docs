@@ -11,10 +11,16 @@ items:
         href: operations/cluster-list.md
       - name: Создание кластера
         href: operations/cluster-create.md
+      - name: Изменение настроек кластера и базы данных
+        href: operations/update.md
       - name: Подключение к базе данных
         href: operations/connect.md
+      - name: Остановка и запуск кластера
+        href: operations/cluster-stop.md
       - name: Управление хостами кластера
         href: operations/hosts.md
+      - name: Управление шардами
+        href: operations/shards.md
       - name: Управление резервными копиями
         href: operations/cluster-backups.md
       - name: Сменить мастер
@@ -29,6 +35,8 @@ items:
       href: concepts/instance-types.md
     - name: Сеть в Managed Service for Redis
       href: concepts/network.md
+    - name: Шардирование
+      href: concepts/sharding.md
     - name: Резервные копии
       href: concepts/backup.md
     - name: Репликация и отказоустойчивость

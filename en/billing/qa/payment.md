@@ -42,7 +42,7 @@ Yes. The minimum payment amount is shown at the time of payment in the **Top up 
 
 Yes.
 
-If you pay for resources with a bank card in a foreign currency, the equivalent amount in rubles, including VAT, is debited from the bank card. Additional bank fees for the currency conversion might be debited or credited a day or two later.
+If you pay for resources with a bank card in a foreign currency, the equivalent amount in rubles, with VAT, is debited from the bank card. Additional bank fees for the currency conversion might be debited or credited a day or two later.
 
 #### I linked a bank card to my billing account. When will money be debited from it? {#unlink-card}
 
@@ -73,7 +73,7 @@ You can learn more about the terms of the agreement in the section [Yandex.Legal
 
 #### Can a signed agreement be finalized? {#contract}
 
-Businesses may conclude an agreement that is signed by both parties. To do this, you must submit a request using the **Ask a question** form on the [Contact us](https://cloud.yandex.com/support) page. A Yandex.Cloud manager will contact you to discuss terms and conditions of signing the agreement.
+Businesses may conclude an agreement that is signed by both parties. To do this, you must submit a request using the **Contact sales** form on the [Contact us](https://cloud.yandex.com/support) page. A Yandex.Cloud manager will contact you to discuss terms and conditions of signing the agreement.
 
 #### How is resource consumption charged?  {#tariffs}
 

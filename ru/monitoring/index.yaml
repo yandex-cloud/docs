@@ -1,8 +1,8 @@
 # Yandex Monitoring
 title: "Yandex Monitoring"
 description:
-  - "<em>Cервис Yandex Monitoring находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a></em>."
   - "Yandex Monitoring позволяет собирать и хранить метрики, а также отображать их в виде графиков на дашбордах."
+  - "Для сервиса действует <a href=\"https://yandex.ru/legal/cloud_sla\">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href=\"https://yandex.ru/legal/cloud_sla_ym\">Уровень обслуживания Yandex Monitoring</a>."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Monitoring"

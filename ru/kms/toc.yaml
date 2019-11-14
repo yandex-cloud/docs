@@ -1,0 +1,35 @@
+title: "Yandex Key Management Service"
+href: index.yaml
+stage: preview
+items:
+  - name: Начало работы
+    href: quickstart/index.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Ключ
+        href: operations/key.md
+      - name: Версия ключа
+        href: operations/version.md
+  - name: Концепции
+    items:
+        - name: Обзор
+          href: concepts/index.md
+        - name: Применимые понятия криптографии
+          href: concepts/encryption.md
+        - name: Квоты и лимиты
+          href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+    include:
+      repo: docs
+      path: ru/_api-ref/kms/toc.yaml
+  # - name: Вопросы и ответы
+  #   href: qa/index.md

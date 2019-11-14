@@ -1,6 +1,6 @@
 # Short audio recognition
 
-Short audio recognition ensures fast response times and is suitable for small single-channel audio fragments.
+Short audio recognition ensures fast response time and is suitable for single-channel audio of small length.
 
 If you want to recognize speech over the same connection, use [streaming mode](streaming.md). In streaming mode, you can get intermediate recognition results.
 
@@ -8,9 +8,9 @@ If you want to recognize speech over the same connection, use [streaming mode](s
 
 The audio you send must meet the following requirements:
 
-1. Maximum file size — {{ stt-short—fileSize }}.
-1. Maximum length — {{ stt-short-audioLength }}.
-1. Maximum number of audio channels — {{ stt-short-channelsCount }}.
+1. Maximum file size: {{ stt-short-fileSize }}.
+1. Maximum length: {{ stt-short-audioLength }}.
+1. Maximum number of audio channels: {{ stt-short-channelsCount }}.
 
 If your file is larger, longer, or has more audio channels, use [long audio recognition](transcribation.md).
 
@@ -26,12 +26,12 @@ Use the `"Transfer-Encoding: chunked"` header for data streaming.
 
 | Parameter | Description |
 | ----- | ----- |
-| `lang` | The language for speech recognition.<br/>Acceptable values:<ul><li>`ru-RU` (default) — Russian.</li><li>`en-US` — English.</li><li>`tr-TR` — Turkish.</li></ul> |
-| `topic` | The language model to be used for recognition.<br/>The closer the model is matched, the better the recognition result. You can only specify one model per request.<br/>[Acceptable values](../stt/models.md) depend on the selected language. Default parameter value: `general`. |
-| `profanityFilter` | This parameter controls the profanity filter in recognized speech.<br>Acceptable values:<ul><li>`false` (default) — Profanity is not excluded from recognition results.</li><li>`true` — Profanity is excluded from recognition results.</li></ul> |
-| `format` | [The format ](formats.md) of the submitted audio.<br/>Acceptable values:<ul><li>`lpcm` — [LPCM with no WAV header](formats.md#lpcm).</li><li>`oggopus` (by default) — [OggOpus](formats.md#oggopus).</li></ul> |
-| `sampleRateHertz` | The sampling frequency of the submitted audio.<br/>Used if `format` is set to `lpcm`. Acceptable values:<ul><li>`48000` (default) — Sampling rate of 48 kHz.</li><li>`16000` — Sampling rate of 16 kHz.</li><li>`8000` — Sampling rate of 8 kHz.</li></ul> |
-| `folderId` | <p>ID of the folder that you have access to. Required for authorization with a user account (see the <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
+| lang | **string**<br>The language to use for recognition.<br/>Acceptable values:<ul><li>`ru-RU` (by default) — Russian.</li><li>`en-US` — English.</li><li>`tr-TR` — Turkish.</li></ul> |
+| topic | **string**<br>The language model to be used for recognition.<br/>The closer the model is matched, the better the recognition result. You can only specify one model per request.<br/>[Acceptable values](../stt/models.md) depend on the selected language. Default value: `general`. |
+| profanityFilter | **boolean**<br>This parameter controls the profanity filter in recognized speech.<br>Acceptable values:<ul><li>`false` (default) — Profanities aren't excluded from recognition results.</li><li>`true` — Profanities are excluded from recognition results.</li></ul> |
+| format | **string**<br>[The format](formats.md) of the submitted audio.<br/>Acceptable values:<ul><li>`lpcm` — [LPCM with no WAV header](formats.md#lpcm).</li><li>`oggopus` (default) — [OggOpus](formats.md#oggopus).</li></ul> |
+| sampleRateHertz | **string**<br>The sampling frequency of the submitted audio.<br/>Used if `format` is set to `lpcm`. Acceptable values:<ul><li>`48000` (default) — Sampling rate of 48 kHz.</li><li>`16000` — Sampling rate of 16 kHz.</li><li>`8000` — Sampling rate of 8 kHz.</li></ul> |
+| folderId | **string**<br><p>ID of the folder that you have access to. Required for authorization with a user account (see the <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
 
 ### Parameters in the request body {#body_params}
 
@@ -56,7 +56,7 @@ To recognize speech in Russian, send an audio fragment (for example, [speech.ogg
 {% list tabs %}
 
 - POST request
-  
+
   ```httpget
   POST /speech/v1/stt:recognize?topic=general&lang=ru-RU&folderId={folder ID} HTTP/1.1
   Host: stt.api.cloud.yandex.net
@@ -64,9 +64,9 @@ To recognize speech in Russian, send an audio fragment (for example, [speech.ogg
   
   ... (binary content of an audio file)
   ```
-  
+
 - cURL
-  
+
   ```httpget
   $ export FOLDER_ID=b1gvmob95yysaplct532
   $ export IAM_TOKEN=CggaATEVAgA...
@@ -76,9 +76,9 @@ To recognize speech in Russian, send an audio fragment (for example, [speech.ogg
        --data-binary "@speech.ogg" \
        "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?topic=general&folderId=${FOLDER_ID}"
   ```
-  
+
 - Python
-  
+
   ```python
   import urllib.request
   import json
@@ -104,9 +104,9 @@ To recognize speech in Russian, send an audio fragment (for example, [speech.ogg
   if decodedData.get("error_code") is None:
       print(decodedData.get("result"))
   ```
-  
+
 - PHP
-  
+
   ```php
   <?php
   
@@ -139,10 +139,10 @@ To recognize speech in Russian, send an audio fragment (for example, [speech.ogg
   
   fclose($file);
   ```
-  
+
 {% endlist %}
 
-### Sample response {#response_examples}
+### Response example {#response_examples}
 
 ```
 HTTP/1.1 200 OK

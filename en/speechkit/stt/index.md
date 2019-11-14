@@ -14,7 +14,9 @@ There are three recognition methods:
 
 1. [Recognition of short audio fragments](request.md). This is suitable for recognizing small single-channel audio fragments.
 1. [Streaming mode](streaming.md) for short audio recognition. This allows you to send audio fragments and get results, including intermediate recognition results, over a single connection.
-1. [Recognition of long audio fragments](transcribation.md). This allows you to recognize long multi-channel audio recordings, but the response may be slower.
+1. [Recognition of long audio fragments](transcribation.md). This lets you recognize long multi-channel audio recordings, but the response may be slower.
+
+    For now, you can only recognize long audio in Russian.
 
 ## Recognition process {#process}
 
@@ -42,6 +44,6 @@ The accuracy of speech recognition is also affected by:
 * [{#T}](request.md)
 * [{#T}](streaming.md)
 * [{#T}](transcribation.md)
-* [Yandex speech technologies (a post on Habrahabr, in Russian)](https://habrahabr.ru/company/yandex/blog/243813/)
+* [Yandex speech technologies (post on Habrahabr, in Russian)](https://habrahabr.ru/company/yandex/blog/243813/)
 * [Under the hood of Yandex.SpeechKit (a post on Habrahabr, in Russian)](https://habrahabr.ru/company/yandex/blog/198556/)
 

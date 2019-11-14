@@ -1,15 +1,97 @@
 # YC CLI Releases
 
-## Version 0.37.0 (06.09.19) {#latest-release}
+## Version 0.41.1 (26.09.19) {#latest-release}
 
-### Changes to the CLI {#cli}
+- Minor fixes and updates.
+
+## Previous releases {#previous-releases}
+
+### Version 0.41.0 (25.09.19) {#version0.41.0}
+
+#### Changes to Yandex.Cloud services {#services}
+
+#### {{ container-registry-name }} {#container-registry}
+
+- Command `yc compute instance create-with-container`.
+
+    The `--create-boot-disk` flag no longer supports `snapshot-*` parameters.
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Command `yc managed-kubernetes cluster create`.
+
+    Added flags to control the master type: `--regional`, `--region`, and `--master-location`.
+
+- Commands `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update`.
+
+    Added flags to manage the maintenance policy: `--auto-upgrade`, `--anytime-maintenance-window`, `--daily-maintenance-window`, and `--weekly-maintenance-window`.
+
+- Command `yc managed-kubernetes node-groups update`.
+
+    Added flags to manage the maintenance policy: `--auto-upgrade`, `--auto-repair`, `--anytime-maintenance-window`, `--daily-maintenance-window`, and `--weekly-maintenance-window`.
+
+### Version 0.40.0 (20.09.19) {#version0.40.0}
+
+#### Changes to Yandex.Cloud services {#services}
+
+#### {{ container-registry-name }} {#container-registry}
+
+- Added a command to obtain detailed registry information: `yc container registry repository get`.
+
+- Command `yc container registry repository list`.
+
+    Added unique registry ID to the output.
+
+#### Managed database services {#managed-db}
+
+**All managed database services**
+
+- Command `yc <managed DB service name> create clusters`.
+
+    For `--*resource-preset` flags, added a default value: s2.micro.
+
+**{{ mmg-name }}**
+
+- Command `{{ yc-mdb-mg }} create clusters`.
+
+    For the `--mongodb-version` flag, changed the default value from 3.6 to 4.0.
+
+### Version 0.39.0 (16.09.19) {#version0.39.0}
+
+#### Changes to Yandex.Cloud services {#services}
+
+#### {{ container-registry-name }} {#container-registry}
+
+- Command `yc container registry`.
+
+    Added the ability to set and view a list of roles for the Docker image registry: `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
+
+#### Managed database services {#managed-db}
+
+**All managed database services**
+
+- Command `yc <managed database service name> users list`.
+
+    The unique cluster ID is no longer displayed when viewing a list of users.
+
+### Version 0.38.0 (09.09.19) {#version0.38.0}
+
+#### Changes to the CLI {#cli}
+
+**Improved**
+
+- Improved output of fields when viewing a list of API keys.
+
+### Version 0.37.0 (06.09.19) {#version0.37.0}
+
+#### Changes to the CLI {#cli}
 
 **Improved**
 
 - Added API endpoint availability checks for {{ iam-short-name }}, {{ resmgr-short-name }}, and {{ compute-short-name }}. If an endpoint is unavailable, an error is returned.
 - Added detailed error messages.
 
-### Changes to Yandex.Cloud services {#services}
+#### Changes to Yandex.Cloud services {#services}
 
 #### {{ container-registry-name }} {#container-registry}
 
@@ -48,8 +130,6 @@
 
     Added ability to specify a user's login and set their access rights using the`--login` and `--grants` flags.
 
-## Previous releases {#previous-releases}
-
 ### Version 0.36.0 (27.08.19) {#version0.36.0}
 
 #### Changes to Yandex.Cloud services {#services}
@@ -68,7 +148,7 @@
 
 **All managed database services**
 
-- Command `yc <database name> cluster create`.
+- Command `yc <managed database service name> cluster create`.
 
     Renamed default disk types: `network-ssd` is now `network-ssd` and `local-ssd` is now `local-ssd`.
     
@@ -226,11 +306,11 @@
 
 **All managed database services**
 
-- Command `yc <database name> cluster get`.
+- Command `yc <managed database service name> cluster get`.
 
     Improved cluster information printout.
 
-- Command `yc <database name> cluster create`.
+- Command `yc <managed database service name> cluster create`.
 
     Added the `--backup-window-start` flag, which lets you set the daily cluster backup time when creating a cluster.
 

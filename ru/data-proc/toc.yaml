@@ -1,9 +1,15 @@
 title: "Yandex Data Proc"
-stage: preview
+stage: new
 href: index.yaml
 items:
-#  - name: Начало работы
-#    href: quickstart.md
+  - name: Сценарии использования
+    items:
+      - name: Настройка сети для кластеров Data Proc
+        href: solutions/configure-network.md
+      - name: Запуск Spark-приложений
+        href: solutions/run-spark-job.md
+      - name: Копирование файлов из Yandex Object Storage
+        href: solutions/copy-files-from-s3.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

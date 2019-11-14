@@ -13,6 +13,8 @@ items:
       href: operations/cluster-create.md
     - name: Connecting to databases
       href: operations/connect.md
+    - name: Stopping and starting clusters
+      href: operations/cluster-stop.md
     - name: Changing cluster and database settings
       href: operations/update.md
     - name: MongoDB version upgrade
@@ -23,13 +25,13 @@ items:
       href: operations/cluster-users.md
     - name: Managing backups
       href: operations/cluster-backups.md
-    - name: Managing shards
+    - name: How to manage shards
       href: operations/shards.md
     - name: Deleting clusters
       href: operations/cluster-delete.md
-    - name: Migrating data to Managed Service for MongoDB
+    - name: Database migration to the Cloud
       href: operations/data-migration.md
-  - name: Tutorials
+  - name: Solutions
     items:
     - name: Sharding collections
       href: tutorials/sharding.md
@@ -57,7 +59,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     items:
-      - name: Current rules
+      - name: Current pricing policy
         href: pricing.md
       - name: Archive
         items:

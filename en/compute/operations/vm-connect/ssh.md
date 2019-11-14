@@ -108,7 +108,7 @@ You can add SSH keys for another user of the VM. To do this, create a new user a
 1. Add the new user's public key to the `authorized_keys` file:
 
    ```
-   $ echo "ssh-rsa <public_key>" > /home/testuser/.ssh/authorized_keys
+   $ echo "<public_key>" > /home/testuser/.ssh/authorized_keys
    ```
 
 1. Disconnect from the VM.

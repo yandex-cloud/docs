@@ -31,6 +31,14 @@ items:
             href: operations/sa/get-id.md
           - name: Deleting service accounts
             href: operations/sa/delete.md
+      - name: Identity federations
+        items:
+          - name: Authentication using Active Directory
+            href: operations/federations/integration-adfs.md
+          - name: Authentication using G Suite
+            href: operations/federations/integration-gsuite.md
+          - name: Authentication using an SAML federation
+            href: operations/federations/integration-common.md
       - name: Roles
         items:
           - name: Assigning roles
@@ -79,8 +87,12 @@ items:
             href: concepts/authorization/access-key.md
       - name: Service accounts
         href: concepts/users/service-accounts.md
+      - name: SAML-compatible identity federations
+        href: concepts/users/identity-federations.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: How to use Yandex.Cloud securely
+    href: best-practices/using-iam-securely.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

@@ -10,7 +10,7 @@
 
 {% note important %}
 
-Потоковый режим предназначен для распознавания аудио в режиме реального времени. Если вам надо отправить уже записанное аудио, воспользуйтесь [другими способами](index.md#stt-ways).
+Потоковый режим предназначен для распознавания аудио в режиме реального времени. Если вам надо отправить уже записанное аудио, воспользуйтесь [другими способами](./index.md#stt-ways).
 
 {% endnote %}
 
@@ -133,7 +133,7 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
       ```bash
       $ cd cloudapi
       $ mkdir output
-      $ python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=output --grpc_python_out=output google/api/http.proto google/api/annotations.proto yandex/api/operation.proto google/rpc/status.proto yandex/cloud/operation/operation.proto yandex/cloud/ai/stt/v2/stt_service.proto
+      $ python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=output --grpc_python_out=output google/api/http.proto google/api/annotations.proto yandex/cloud/api/operation.proto google/rpc/status.proto yandex/cloud/operation/operation.proto yandex/cloud/ai/stt/v2/stt_service.proto
       ```
 
       В результате в директории `output` будут созданы файлы с интерфейсом клиента: `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
@@ -310,16 +310,15 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
           console.log('Start chunk: ');
           response.chunks[0].alternatives.forEach((alternative) => {
               console.log('alternative: ', alternative.text)
-          });
+          };)
           console.log('Is final: ', Boolean(response.chunks[0].final));
           console.log('');
-      });
+      })
 
-      call.on('error', (response) => {
+ call.on('error', (response) => {
           // Обрабатываем ошибки
           console.log(response);
-      });
-      ```
+      })      ```
   1. Задайте переменные `FOLDER_ID` и `IAM_TOKEN`, которые используются в скрипте, и выполните созданный файл. В аргументах укажите путь к аудиофайлу:
 
       ```bash

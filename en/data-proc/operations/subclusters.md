@@ -22,7 +22,7 @@ Each cluster may have only 1 `MASTERNODE` subcluster, which is why you can't cre
 
 ## Adding a subcluster {#add-subcluster}
 
-The number of hosts in {{ dataproc-name }} clusters is limited by [quotas]({{ link-console-quotas }}) for the number of vCPUs and the amount of RAM that VMs in your cloud can use. To view the resources available, go to the [Quotas]({{ link-console-quotas }}) section and find **Compute Cloud**.
+The number of hosts in {{ dataproc-name }} clusters is limited [quotas]({{ link-console-quotas }}) by the number of vCPUs and the amount of RAM that VMs in your cloud can use. To view the resources available, go to the [Quotas]({{ link-console-quotas }}) section and find **Compute Cloud**.
 
 To add a subcluster:
 

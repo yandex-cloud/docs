@@ -12,7 +12,7 @@
 1. In the **Instance template** section, click **Add**:
     - Select the required public [image](../../compute/operations/images-with-pre-installed-software/get-list.md).
     - In the **Disks** section:
-        - Select the [disk type](../../compute/concepts/disk.md#disks_types) (HDD or NVME).
+        - Select the [disk type](../../compute/concepts/disk.md#disks_types).
 
         - Specify the disk size.
 

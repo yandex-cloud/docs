@@ -1,6 +1,5 @@
 title: Yandex Managed Service for Kubernetes
 href: index.yaml
-stage: preview
 items:
   - name: Начало работы
     href: quickstart.md
@@ -8,10 +7,10 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Настройка виртуальной машины в качестве NAT-шлюза
-        href: operations/nat-instance.md
       - name: Подключение к узлу по SSH
         href: operations/node-connect-ssh.md
+      - name: Обеспечение доступа к приложению, запущенному в кластере Kubernetes
+        href: operations/create-load-balancer.md
       - name: Работа с постоянными томами
         items:
           - name: Динамическая подготовка тома
@@ -20,12 +19,20 @@ items:
             href: operations/volumes/static-create-pv.md
           - name: Управление классами хранилищ
             href: operations/volumes/manage-storage-class.md
+  - name: Сценарии использования
+    items:
+      - name: Работа с Kubernetes из GitLab
+        href: solutions/gitlab.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
-      - name: Тома
+      - name: Том
         href: concepts/volume.md
+      - name: Сервис
+        href: concepts/service.md
+      - name: Релизные каналы и обновления
+        href: concepts/release-channels-and-updates.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

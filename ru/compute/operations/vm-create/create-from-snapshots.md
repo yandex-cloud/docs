@@ -59,7 +59,7 @@
 
       {% include [compute-snapshot-list](../../_includes_service/compute-snapshot-list.md) %}
 
-  1. Выберите `ID` или `NAME` нужных снимков.
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужных снимков.
   1. Создайте виртуальную машину в каталоге по умолчанию:
 
       ```

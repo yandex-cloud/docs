@@ -100,13 +100,13 @@
   1. Посмотрите описание команды CLI для создания резервной копии {{ MG }}:
   
       ```
-      $ yc managed-mongodb cluster backup --help
+      $ yc managed-mysql cluster backup --help
       ```
   
   1. Запросите создание резервной копии, указав имя или идентификатор кластера:
   
       ```
-      $ yc managed-mongodb cluster backup my-mg-cluster
+      $ yc managed-mysql cluster backup <имя кластера>
       ```
   
       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
@@ -132,7 +132,7 @@
   Чтобы получить список резервных копий кластеров {{ MG }}, доступных в каталоге по умолчанию, выполните команду:
   
   ```
-  $ yc managed-mongodb backup list
+  $ yc managed-mysql backup list
   
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -163,7 +163,7 @@
   Чтобы получить данные о резервной копии кластера {{ MG }}, выполните команду:
   
   ```
-  $ yc yc managed-mongodb backup get <идентификатор резервной копии>
+  $ yc yc managed-mysql backup get <идентификатор резервной копии>
   ```
 
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -184,7 +184,7 @@
   Чтобы задать время начала резервного копирования, используйте флаг `--backup-window-start`. Время задается в формате ``ЧЧ:ММ:СС``.
 
   ```
-  $ yc yc managed-mongodb cluster create \
+  $ yc yc managed-mysql cluster create \
      --name <имя кластера> \
      --environment <окружение, prestable или production> \
      --network-name <имя сети> \
@@ -196,7 +196,7 @@
   Изменить время начала резервного копирования в существующем кластере можно с помощью команды `update`:
 
   ```
-  $ yc yc managed-mongodb cluster update \
+  $ yc yc managed-mysql cluster update \
      --name <имя кластера> \
      --backup-window-start 11:25:00
   ```

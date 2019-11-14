@@ -20,7 +20,7 @@ Use one of the following to set or change the values of the CLI configuration pa
 
 - Global flags: they only define parameters once when a command is called. Global flags are available for any command at any nesting level.
 
-For a full list of available configuration parameters, see [CLI configuration](core-propreties.md).
+For a full list of available configuration parameters, see [CLI configuration](core-properties.md).
 
 ## Synchronous/asynchronous command execution
 

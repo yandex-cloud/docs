@@ -4,13 +4,17 @@
 
 {% note info %}
 
-Рекомендуется использовать s3fs с версией не ниже 1.84.
+Рекомендуется использовать s3fs версии не ниже 1.84.
 
 {% endnote %}
 
+Если у вас возникнут вопросы, обратитесь к [официальной документации](https://github.com/s3fs-fuse/s3fs-fuse/wiki) проекта, в частности к разделу [FAQ](https://github.com/s3fs-fuse/s3fs-fuse/wiki/FAQ), который содержит решения для многих проблем, возникающих при использовании s3fs.
+
+Производительность s3fs зависит от производительности локального диска. Используйте высокопроизводительные диски, особенно если вы храните много маленьких (сотни килобайт и меньше) файлов. Производительность s3fs можно увеличить, включив кэширование (ключ `--use_cashe <directory>`). Кэш s3fs растет неограниченно и вам необходимо позаботиться о его регулярной очистке. Подробности читайте в [документации s3fs](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Fuse-Over-Amazon#details).
+
 ## Подготовка к работе {#preparations}
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 ## Установка {#installation}
 
@@ -42,3 +46,4 @@ s3fs#<имя бакета> /mount/<путь к папке> fuse _netdev,allow_ot
 ```
 
 Описание всех параметров s3fs смотрите в [вики проекта](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Fuse-Over-Amazon) на GitHub.
+

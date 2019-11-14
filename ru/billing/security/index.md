@@ -44,20 +44,20 @@
 
 Операции | `member` | `owner` | `viewer` | `editor` | `admin` |
 ----- | ----- | ----- | ----- | ----- | ----- 
-Активация пробного периода | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-Активация платной версии| ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | 
-Проверка расходов | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) |
-Доступ к детализации | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) |
-Активация промокодов | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) |
-Пополнение лицевого счета | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | 
-Просмотр данных платежного аккаунта | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) |
-Изменение контактов плательщика | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-Изменение платежных реквизитов | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-Изменение банковской карты | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-Изменение способа оплаты | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) |
-Выдача ролей на платежный аккаунт | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | 
-Просмотр и редактирование ролей | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | 
-Привязка облаков к платежному аккаунту | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/no-access.png) | ![image](../_assets/have-access.png) | ![image](../_assets/have-access.png) |
+Активация пробного периода | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+Активация платной версии| ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | 
+Проверка расходов | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+Доступ к детализации | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+Активация промокодов | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+Пополнение лицевого счета | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | 
+Просмотр данных платежного аккаунта | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+Изменение контактов плательщика | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+Изменение платежных реквизитов | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+Изменение банковской карты | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+Изменение способа оплаты | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
+Выдача ролей на платежный аккаунт | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | 
+Просмотр и редактирование ролей | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | 
+Привязка облаков к платежному аккаунту | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 
 
 

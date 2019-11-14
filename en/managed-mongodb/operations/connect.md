@@ -1,12 +1,8 @@
 # Connecting to a database in a cluster {{ MG }}
 
-In Yandex.Cloud, you can connect to a DB cluster only from a VM that has an address in the the Yandex.Cloud subnet.
-
-{% note info %}
+{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 
 To connect to {{ mmg-name }} cluster hosts, specify port 27018.
-
-{% endnote %}
 
 ## Authentication
 
@@ -26,7 +22,7 @@ Now you can connect to the database using the `mongo` command by listing all the
 $ mongo --norc \
         --ssl \
         --sslCAFile ~/.mongodb/CA.pem \
-        --host 'rs01/<address of host 1>:27018,<address of host 2>:27018,<address of host N>:27018' \
+        --host 'rs01/<host 1 FQDN>:27018,<host 2 FQDN>:27018,<host N FQDN>:27018' \
         -u <username> \
         -p <user password> \
         <DB name>
@@ -34,5 +30,5 @@ $ mongo --norc \
 
 Write requests will be automatically sent to the cluster's primary host.
 
-You can find the addresses of all the hosts in the DB cluster on the appropriate cluster page in the management console.
+{% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 

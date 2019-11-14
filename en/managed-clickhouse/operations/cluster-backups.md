@@ -78,7 +78,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       ```
       $ yc managed-clickhouse backup list
-      
+
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -132,7 +132,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ yc managed-clickhouse backup list
-  
+
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
   +----------+----------------------+----------------------+----------------------+
@@ -179,7 +179,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - CLI
 
-  To set the backup start time, use the `-- backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
+  To set the backup start time, use the `--backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
 
   ```
   $ yc yc managed-clickhouse cluster create \

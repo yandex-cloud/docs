@@ -8,9 +8,9 @@ The service can recognize audio in the following formats:
 
 Audio features in this format:
 
-* Sampling — 8, 16 or 48 kHz, depending on the `sampleRateHertz` parameter value.
-* Bit depth — 16-bit.
-* Byte order — reversed (little-endian).
+* Sampling: 8, 16, or 48 kHz, depending on the `sampleRateHertz` value.
+* Bit depth: 16-bit.
+* Byte order: Reversed (little-endian).
 * Audio data is stored as signed integers.
 
 #### OggOpus

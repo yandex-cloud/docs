@@ -1,6 +1,6 @@
 # Monitoring resource usage during the trial period
 
-At the beginning of the trial period, a grant is credited to your billing account for at least 4000&nbsp;rubles that expires in 60 days.
+{% include [grant-amount](../_includes/grant-amount.md) %}
 
 You can use the grant to pay for Yandex.Cloud services. [The grant terms of use](usage-grant.md) differ for individual and business accounts.
 

@@ -1,0 +1,48 @@
+# Изменение устройства
+
+Вы можете изменить [имя](device-update.md#update-name) или [описание](device-update.md#update-description) устройства.
+
+Для обращения к устройству используйте его уникальный идентификатор или имя. Как узнать уникальный идентификатор или имя устройства, читайте в разделе [{#T}](device-list.md).
+
+## Изменить имя устройства {#update-name}
+
+{% list tabs %}
+
+- CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  Измените имя устройтва:
+
+  ```
+  $ yc iot device update my-device --new-name test-device
+
+  id: b9135goeh1uc1s2i07nm
+  registry_id: b91ki3851hab9m0l68je
+  created_at: "2019-05-28T16:08:30.938Z"
+  name: test-device
+  ```
+
+{% endlist %}
+
+## Изменить описание устройства {#update-description}
+
+{% list tabs %}
+
+- CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  Измените описание устройтва:
+
+  ```
+  $ yc iot device update my-device --description "My first device."
+
+  id: b9135goeh1uc1s2i07nm
+  registry_id: b91ki3851hab9m0l68je
+  created_at: "2019-05-28T16:08:30.938Z"
+  name: my-device
+  description: My first device.
+  ```
+
+{% endlist %}

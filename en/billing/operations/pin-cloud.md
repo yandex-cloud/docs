@@ -5,7 +5,7 @@
 To link a cloud to a billing account, the user must have the following roles:
 
 - [resource-manager.clouds.owner](../../iam/concepts/access-control/roles.md#owner) in the cloud.
-- `billing.accounts.owner` or `editor` in the billing account. Read more about roles in [Access control](../security/index.md#role-list).
+- `billing.accounts.owner` or `editor` in the billing account. Read more about roles in [Access management](../security/index.md#role-list).
 
 To link a new cloud:
 

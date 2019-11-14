@@ -2,25 +2,7 @@ title: "Yandex Object Storage"
 href: index.yaml
 items:
   - name: Начало работы
-    items:
-    - name: Создание бакета
-      href: quickstart.md
-    - name: Настройка инструментов
-      items:
-        - name: Поддерживаемые инструменты
-          href: instruments/index.md
-        - name: AWS CLI
-          href: instruments/aws-cli.md
-        - name: AWS SDK для Java
-          href: instruments/aws-sdk-java.md
-        - name: boto
-          href: instruments/boto.md
-        - name: CyberDuck
-          href: instruments/cyberduck.md
-        - name: S3cmd
-          href: instruments/s3cmd.md
-        - name: s3fs
-          href: instruments/s3fs.md
+    href: quickstart.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -101,6 +83,32 @@ items:
         href: lifecycles/configuration.md
       - name: Настройка в консоли управления
         href: lifecycles/setup.md
+  - name: Инструменты
+    items:
+      - name: Все инструменты
+        href: instruments/index.md
+      - name: Консольные клиенты
+        items:
+        - name: AWS CLI
+          href: instruments/aws-cli.md
+        - name: S3cmd
+          href: instruments/s3cmd.md
+      - name: Файловые браузеры
+        items:
+        - name: CyberDuck
+          href: instruments/cyberduck.md
+        - name: WinSCP
+          href: instruments/winscp.md
+      - name: SDK
+        items:
+        - name: AWS SDK для Java
+          href: instruments/aws-sdk-java.md
+        - name: Python SDK (boto)
+          href: instruments/boto.md
+      - name: FUSE
+        items:
+        - name: s3fs
+          href: instruments/s3fs.md
   - name: HTTP API, совместимый с Amazon S3
     items:
       - name: Как пользоваться API

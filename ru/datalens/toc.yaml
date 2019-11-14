@@ -1,5 +1,4 @@
 title: "Yandex DataLens"
-stage: preview
 href: index.yaml
 items:
   - name: Начало работы
@@ -11,9 +10,13 @@ items:
       - name: Визуализация данных из CSV-файла
         href: solutions/data-from-csv-visualization.md
       - name: Визуализация данных из базы данных ClickHouse
-        href: solutions/data-from-db-visualization.md
+        href: solutions/data-from-ch-visualization.md
       - name: Визуализация данных из Metriсa
         href: solutions/data-from-metrica-visualization.md
+      - name: Визуализация данных из Metriсa Logs API
+        href: solutions/data-from-metrica-logsapi-visualization.md
+      - name: Публикация в DataLens Public диаграммы с картой на основе CSV-файла
+        href: solutions/data-from-csv-to-public-visualization.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -44,8 +47,12 @@ items:
             href: operations/dataset/create.md
           - name: Создание поля данных
             href: operations/dataset/create-field.md
+          - name: Материализация датасета
+            href: operations/dataset/materialize.md
           - name: Управление доступом к датасету
             href: operations/dataset/manage-access.md
+          - name: Управление доступом к строкам данных
+            href: operations/dataset/manage-row-level-security.md
       - name: Работа с чартами
         items:
           - name: Создание линейной диаграммы
@@ -60,6 +67,8 @@ items:
             href: operations/chart/create-table.md
           - name: Создание сводной таблицы
             href: operations/chart/create-pivot-table.md
+          - name: Публикация чарта
+            href: operations/chart/publish.md
           - name: Управление доступом к чарту
             href: operations/chart/manage-access.md
       - name: Работа с дашбордами
@@ -70,6 +79,8 @@ items:
             href: operations/dashboard/add-chart.md
           - name: Добавление селектора на дашборд
             href: operations/dashboard/add-selector.md
+          - name: Публикация дашборда
+            href: operations/dashboard/publish.md
           - name: Управление доступом к дашборду
             href: operations/dashboard/manage-access.md
       - name: Работа с правами доступа
@@ -92,6 +103,8 @@ items:
         href: concepts/chart.md
       - name: Дашборд
         href: concepts/dashboard.md
+      - name: DataLens Public
+        href: concepts/datalens-public.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

@@ -60,7 +60,7 @@ Created databases are not available to cluster users by default. To allow a user
   Run the create database command and set the name of the new database:
 
   ```
-  $ yc managed-mongodb  database create <database name>
+  $ yc managed-mongodb database create <database name>
       --cluster-name <cluster name>
   ```
 
@@ -105,4 +105,10 @@ Created databases are not available to cluster users by default. To allow a user
   You can delete a database using the [delete](../api-ref/Database/delete.md) method.
 
 {% endlist %}
+
+{% note important %}
+
+Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted is restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
+
+{% endnote %}
 

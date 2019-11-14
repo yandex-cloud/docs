@@ -13,13 +13,15 @@ items:
       href: operations/cluster-create.md
     - name: Connecting to databases
       href: operations/connect.md
+    - name: Stopping and starting clusters
+      href: operations/cluster-stop.md
     - name: Changing cluster and database settings
       href: operations/update.md
     - name: Managing PostgreSQL hosts
       href: operations/hosts.md
     - name: Database management
       href: operations/databases.md
-    - name: Managing PostgreSQL extensions
+    - name: How to manage PostgreSQL extensions
       href: operations/cluster-extensions.md
     - name: Managing database users
       href: operations/cluster-users.md
@@ -51,7 +53,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     items:
-      - name: Current rules
+      - name: Current pricing policy
         href: pricing.md
       - name: Archive
         items:

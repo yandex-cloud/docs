@@ -1,5 +1,7 @@
 # Статическая подготовка тома
 
+{% include [note-about-version](../../../_includes/managed-kubernetes/note-about-version.md) %}
+
 Создайте под со статически подготовленным [томом](../../concepts/volume.md): 
 1. [Создайте объект PersistentVolume](#create-pv).
 1. [Создайте объект PersistentVolumeClaim](#create-claim).

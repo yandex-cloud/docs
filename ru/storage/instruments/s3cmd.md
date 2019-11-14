@@ -4,11 +4,11 @@
 
 ## Подготовка к работе {#preparations}
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 ## Установка {#installation}
 
-Для установки S3cmd воспользуйтесь [инструкцией](https://github.com/s3tools/s3cmd/blob/master/INSTALL) в репозитории проекта.
+Чтобы узнать как скачать и установить S3cmd, ознакомьтесь с разделом [Download](https://s3tools.org/download) на официальном сайте проекта.
 
 ## Настройка {#setup}
 

@@ -1,0 +1,28 @@
+# Yandex Cloud Functions
+title: "Cloud Functions"
+description:
+  - "Сервис Cloud Functions позволяет запускать приложения в безопасном, отказоустойчивом и масштабируемом окружении без создания и обслуживания виртуальных машин."
+meta:
+  title: "Yandex Cloud Functions"
+links:
+- title: "Начало работы"
+  description: "Создайте первую функцию"
+  href: "quickstart/"
+- title: "Пошаговые инструкции"
+  description: "Инструкции по выполнению рутинных операций"
+  href: "operations/"
+- title: "Концепции"
+  description: "Концепции и общее устройство сервиса"
+  href: "concepts/"
+- title: "Среда выполнения"
+  description: "Какие среды выполнения поддерживает сервис"
+  href: "concepts/runtime/"
+- title: "Квоты и лимиты"
+  description: "Технические и организационные ограничения сервиса"
+  href: "concepts/limits"
+- title: "Управление доступом"
+  description: "Какие права доступа нужны для работы с сервисом"
+  href: "security/"
+- title: "Правила тарификации"
+  description: "Цены и правила расчета стоимости услуг сервиса"
+  href: "pricing"

@@ -5,11 +5,11 @@
 
 ## Подготовка к работе {#preparations}
 
-{% include [storage-s3-http-api-preps](../_includes_service/storage-s3-http-api-preps.md) %}
+{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 ## Установка {#installation}
 
-Для установки boto воспользуйтесь инструкциями в репозитории разработчика: [boto3](https://github.com/boto/boto3/blob/develop/README.rst#quick-start), [boto](https://github.com/boto/boto#installation).
+{% include [install-boto](../../_includes/aws-tools/install-boto.md)%}
 
 ## Настройка {#setup}
 
@@ -67,7 +67,7 @@
   from boto.s3.connection import S3Connection
   os.environ['S3_USE_SIGV4'] = 'True'
   conn = S3Connection(
-      host='storage.api.cloud.yandex.net'
+      host='storage.yandexcloud.net'
   )
   conn.auth_region_name = 'ru-central1'
   

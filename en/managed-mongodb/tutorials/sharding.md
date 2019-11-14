@@ -20,7 +20,7 @@ For more information about sharding, see [{#T}](../concepts/sharding.md).
 
 ## How to enable collection sharding {#enable}
 
-1. Open a {{ mmg-name }} cluster page in [консоли управления]({{ link-console-main }}).
+1. Open a {{ mmg-name }} cluster page in the [management console]({{ link-console-main }}).
 
 1. Go to the **Shards** tab and click **Enable**.
 

@@ -1,31 +1,61 @@
 # Подключение к базе данных в кластере {{ PG }}
 
-{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
+К хостам кластера {{ mpg-short-name }} можно подключиться:
 
-## Аутентификация
+{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %} 
 
-{{ PG }}-кластеры {{ mpg-short-name }} поддерживают только шифрованные соединения. Поэтому для подключения к такому кластеру необходим SSL-сертификат. Подготовить все нужные аутентификационные данные можно так:
+{% note info %}
+
+Если публичный доступ в вашем кластере настроен только для некоторых хостов, автоматическая смена мастера может привести к тому, что вы не сможете подключиться к мастеру из интернета.
+
+{% endnote %}
+
+
+## Настройка SSL-сертификата
+
+{{ PG }}-хосты с публичным доступом поддерживают только соединения с SSL-сертификатом. Подготовить сертификат можно так:
 
 ```bash
 $ mkdir ~/.postgresql
-$ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/CA.pem
+$ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/root.crt
+$ chmod 0600 ~/.postgresql/root.crt
 ```
 
-О том, как использовать сертификат с помощью `libpq`, читайте в [документации {{ PG }}](https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
 
 ## Строка подключения
 
-Теперь вы можете подключиться к БД с помощью команды `psql`:
-
-```bash
-psql "host=<FQDN хоста БД> \
-      port=6432 \
-      sslmode=verify-full \
-      dbname=<имя базы данных> \
-      user=<имя пользователя базы данных>"
-```
+Подключиться к БД с помощью команды `psql`.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
+
+{% list tabs %}
+
+- SSL
+
+  {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
+
+  ```bash
+  $ psql "host=<FQDN хоста БД> \
+          port=6432 \
+          sslmode=verify-full \
+          dbname=<имя базы данных> \
+          user=<имя пользователя базы данных>"
+  ```
+  
+- Без SSL
+
+  Если вам не нужно шифровать трафик внутри виртуальной сети при подключении к БД, то можно подключаться к базе без SSL-соединения. Передайте параметр `sslmode` со значением `disable`:
+  
+  ```bash
+  $ psql "host=<FQDN хоста БД> \
+          port=6432 \
+          sslmode=disable \
+          dbname=<имя базы данных> \
+          user=<имя пользователя базы данных>"
+  ```
+
+{% endlist%}
+
 
 ## Автоматический выбор хоста-мастера
 
@@ -67,5 +97,3 @@ $ psql "host=c-c9qash3nb1v9ulc8j9nm.rw.mdb.yandexcloud.net \
       dbname=<имя базы данных> \
       user=<имя пользователя базы данных>"
 ```
-
-

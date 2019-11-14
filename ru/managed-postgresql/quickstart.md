@@ -9,7 +9,7 @@
 1. Подключаться к кластерам БД можно как изнутри, так и извне Облака:
 
    1. Чтобы подключаться изнутри Облака, создайте виртуальную машину в той же сети, что и кластер БД (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md))
-   1. Чтобы подключаться к кластеру через интернет, запросите внешние IP-адреса для хостов при создании кластера.
+   1. Чтобы подключаться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
 
 1. В консоли управления выберите каталог, в котором нужно создать кластер БД.
 
@@ -25,7 +25,8 @@
 
     ```bash
     $ mkdir ~/.postgresql
-    $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/CA.pem
+    $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/root.crt
+    $ chmod 0600 ~/.postgresql/root.crt
     ```
 
 1. К БД можно подключиться командой `psql` (подробнее — в разделе [{#T}](operations/connect.md)):

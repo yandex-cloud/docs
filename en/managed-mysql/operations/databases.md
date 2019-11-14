@@ -92,3 +92,9 @@ The number of databases in a cluster is unlimited.
 
 {% endlist %}
 
+{% note important %}
+
+Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted is restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
+
+{% endnote %}
+

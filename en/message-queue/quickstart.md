@@ -48,7 +48,7 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
   
      1. Specify the queue name: `sample-queue`.
   
-        {% include [name](../_includes/ymq-name.md) %}
+        {% include [name](../_includes/message-queue/ymq-name.md) %}
   
      1. Select the **Standard** type. Do not change other settings.
   

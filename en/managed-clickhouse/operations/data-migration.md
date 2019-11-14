@@ -249,11 +249,11 @@ fc=$(cat ./cp-task.xml)
 
 {% note important %}
 
-If you didn't create the folders that you specified in the `-- base-dir` flag or for saving logs, `clickhouse-copier` might not start.
+If you didn't create the folders that you specified in the `--base-dir` flag or for saving logs, `clickhouse-copier` might not start.
 
 {% endnote %}
 
-You can launch copier using the following command (to run it in daemon mode,add a `-- daemon` flag):
+You can launch copier using the following command (to run it in daemon mode,add a `--daemon` flag):
 
 ```bash
 $ clickhouse-copier

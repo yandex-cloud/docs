@@ -9,13 +9,13 @@ editable: false
 
 ## What goes into the cost of using {{ speechkit-short-name }} {#rules}
 
-### Speech synthesis use {#rules-tts}
+### Using speech synthesis {#rules-tts}
 
 The cost of using the SpeechKit API for speech synthesis is calculated based on the total number of characters sent to generate speech from text in a calendar month ([Reporting period](https://cloud.yandex.com/docs/billing/concepts/glossary)).
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
-### Speech recognition use {#rules-stt}
+### Using speech recognition {#rules-stt}
 
 The final cost depends on the duration of the recognized audio. Cost is calculated for a calendar month ([Reporting period](https://cloud.yandex.com/docs/billing/concepts/glossary)).
 
@@ -24,6 +24,12 @@ The final cost depends on the duration of the recognized audio. Cost is calculat
 These rules apply to short audio recognition [by request](stt/request.md) and [in streaming mode](stt/streaming.md).
 
 Billable unit — a 15-second segment of single-channel audio. Shorter segments are rounded up (1 second becomes 15 seconds).
+
+{% note important %}
+
+In [streaming mode](stt/streaming.md), billing begins when a [message with recognition settings](stt/streaming.md#specification-msg) is sent. Even if you don't send any audio after this message, it's treated as 1 consumed billable unit.
+
+{% endnote %}
 
 **Examples:**
 
@@ -35,13 +41,13 @@ Billable unit — a 15-second segment of single-channel audio. Shorter segments 
 
     **Explanation:** the length of each audio is rounded up to 15 seconds. Total: 2 segments, 15 seconds each.
 
-#### Long audio recognition {#rules-stt-long}
+#### Recognition of long audio fragments {#rules-stt-long}
 
 These rules apply to [long audio recognition](stt/transcribation.md).
 
 Billable unit — 1 second of two-channel audio. Shorter segments are rounded up. The number of channels is rounded up to an even number.
 
-The minimum billable amount is 15 seconds for every pair of channels. Audio that is shorter is billed as 15 seconds.
+The minimum billable amount is 15 seconds for every pair of channels. Audio with a shorter duration is billed as 15 seconds.
 
 **Examples of rounding audio length:**
 
@@ -53,7 +59,7 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio that
 | 15.5 seconds | 2 | 16 |
 | 15.5 seconds | 4 | 32 |
 
-## Prices {#prices}
+## Pricing {#prices}
 
 ### Speech synthesis {#prices-tts}
 

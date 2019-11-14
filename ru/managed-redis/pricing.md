@@ -2,9 +2,12 @@
 editable: false
 ---
 
-# Правила тарификации для {{ RD }}
+# Правила тарификации для {{ mrd-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
+
 
 ## Из чего складывается стоимость использования {{ mrd-short-name }} {#rules}
 

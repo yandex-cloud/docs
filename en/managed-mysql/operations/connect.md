@@ -1,10 +1,10 @@
-# Connecting to a database in a {{ MY }} cluster
+# Connecting to a database in a cluster {{ MY }}
 
-You can connect to a DB cluster from a Yandex.Cloud VM only if this VM belongs to the same cloud network.
+{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 
 ## Authentication
 
-{{ mmy-short-name }} clusters with public access only support encrypted connections, which is why an SSL certificate is required to connect to them. You can prepare all the necessary authentication data as follows:
+{{ MY }} clusters in {{ mmy-short-name }} with public access only support encrypted connections, which is why an SSL certificate is required to connect to them. You can prepare all the necessary authentication data as follows:
 
 ```bash
 $ mkdir ~/.mysql
@@ -17,23 +17,23 @@ $ chmod 0600 ~/.mysql/root.crt
 Now you can connect to the database using the `mysql` command:
 
 ```bash
-$ mysql --host=<host address>
+$ mysql --host=<host FQDN>
         --port=3306
         --ssl-ca=~/.mysql/root.crt
         --ssl-mode=REQUIRED
-        --user=<name of the database user>
+        --user=<name of database user>
         --password <DB name>
 ```
 
-You can find the addresses of all the hosts in the DB cluster on the appropriate cluster page in the management console.
+{% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
-If you don't need to encrypt traffic within the virtual network when connecting to the database, you can connect to the database without an SSL connection. This is only possible if the host is not publicly accessible. Otherwise, the server always requires an SSL connection. If you connect to the database without public access from a  {{ compute-name }} virtual machine, then pass parameter `-- ssl-mode` with the `DISABLED` value:
+If you don't need to encrypt traffic within the virtual network when connecting to the database, you can connect to the database without an SSL connection. This is only possible if the host is not publicly accessible. Otherwise, the server always requires an SSL connection. If you connect to the database without public access from a  {{ compute-name }} virtual machine, then pass parameter `--ssl-mode` with the `DISABLED` value:
 
 ```bash
-$ mysql --host=<host address>
+$ mysql --host=<host FQDN>
         --port=3306
         --ssl-mode=DISABLED
-        --user=<name of the database user>
+        --user=<name of database user>
         --password <DB name>
 ```
 
@@ -48,7 +48,7 @@ $ mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.mdb.yandexcloud.net
         --port=3306
         --ssl-ca=~/.mysql/root.crt
         --ssl-mode=REQUIRED
-        --user=<name of the database user>
+        --user=<name of database user>
         --password <DB name>
 ```
 

@@ -4,7 +4,8 @@
 
 * [С помощью CLI](#via-cli) — самый простой способ.
 * [С помощью JSON Web Token](#via-jwt). Этот способ подойдет для автоматизации работы через API.
-* [С помощью виртуальной машины](../../../compute/operations/vm-connect/auth-inside-vm.md) в сервисе {{ compute-name }}. Этот способ удобен, если ваше приложение запущено на виртуальной машине Яндекс.Облака. Подробнее в [документации](../../../compute/operations/vm-connect/auth-inside-vm.md) сервиса {{ compute-name }}.
+* [С помощью виртуальной машины](../../../compute/operations/vm-connect/auth-inside-vm.md) в сервисе {{ compute-name }}. Этот способ удобен, если ваше приложение запущено на виртуальной машине Яндекс.Облака.
+* [С помощью функции](../../../functions/operations/function-sa.md) в сервисе {{ sf-name }}. Этот способ подойдет для получения IAM-токен из кода вашей функции.
 
 {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
 

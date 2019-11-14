@@ -55,3 +55,34 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
 {% endlist %}
 
+## Viewing a list of operations in a cluster {#list-operations}
+
+{% include [list-operations-about](../../_includes/mdb/list-operations-about.md) %}
+
+{% list tabs %}
+
+- Management console
+  1. Go to the folder page and select **{{ mmy-name }}**.
+  1. Click on the name of the cluster you need.
+  1. Go to the **Operations** tab.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To get a list of operations, run the command:
+
+  ```
+  $ yc managed-mysql cluster list-operations <cluster name or ID>
+  ```
+
+  The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
+
+- API
+
+  To get a list of operations, use the [listOperations](../api-ref/Cluster/listOperations.md) method.
+
+{% endlist %}
+
