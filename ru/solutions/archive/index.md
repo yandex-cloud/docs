@@ -5,4 +5,5 @@
 * [{#T}](object-storage-acronis.md)
 * [{#T}](object-storage-cloudberry.md)
 * [{#T}](object-storage-duplicati.md)
+* [{#T}](backup-with-bacula.md)
 * [{#T}](archive-from-vision-to-object-storage.md)
