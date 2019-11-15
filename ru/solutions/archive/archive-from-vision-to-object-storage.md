@@ -269,7 +269,7 @@
         curl -X POST --silent \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAMTOKEN}" \
-        -d @body.json \
+        -d '@body.json' \
         https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze > output.json
 
         # Получите название картинки для дальнейшей подстановки.

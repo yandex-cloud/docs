@@ -63,7 +63,7 @@
     $ curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d @body.json \
+        -d '@body.json' \
         https://locator.api.cloud.yandex.net/locator/v1/getLocation
     ```
 

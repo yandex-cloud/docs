@@ -203,7 +203,7 @@ operationId | Идентификатор операции, полученный 
       $ export IAM_TOKEN=CggaATEVAgA...
       $ curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d @body.json \
+          -d '@body.json' \
           https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
 
       {
@@ -339,7 +339,7 @@ operationId | Идентификатор операции, полученный 
     $ export IAM_TOKEN=CggaATEVAgA...
     $ curl -X POST \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d @body.json \
+        -d '@body.json' \
         https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
 
     {

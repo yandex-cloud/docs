@@ -85,7 +85,7 @@ For example, you can recognize images in Hebrew, Arabic, and English:
     $ curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d @body.json \
+        -d '@body.json' \
         https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze > output.json
     ```
 

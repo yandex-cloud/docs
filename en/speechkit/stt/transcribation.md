@@ -209,7 +209,7 @@ To recognize speech in [OggOpus](formats.md#oggopus) format, just specify the re
       $ export IAM_TOKEN=CggaATEVAgA...
       $ curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d @body.json \
+          -d '@body.json' \
           https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
 
       {
@@ -352,7 +352,7 @@ To recognize speech in [LPCM](formats.md#lpcm) format, specify the file sampling
     $ export IAM_TOKEN=CggaATEVAgA...
     $ curl -X POST \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d @body.json \
+        -d '@body.json' \
         https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
 
     {
