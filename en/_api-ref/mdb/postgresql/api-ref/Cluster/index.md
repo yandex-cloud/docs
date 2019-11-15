@@ -1763,7 +1763,7 @@ config | **object**<br><p>Configuration of the PostgreSQL cluster.</p>
 config.<br>version | **string**<br><p>Version of PostgreSQL server software.</p> 
 config.<br>poolerConfig | **object**<br>
 config.<br>poolerConfig.<br>poolingMode | **string**<br><p>Mode that the connection pooler is working in. See descriptions of all modes in the <a href="https://pgbouncer.github.io/usage">documentation for PgBouncer</a>.</p> <ul> <li>SESSION: Session pooling mode.</li> <li>TRANSACTION: Transaction pooling mode.</li> <li>STATEMENT: Statement pooling mode.</li> </ul> 
-config.<br>poolerConfig.<br>poolDiscard | **boolean** (boolean)<br><p>Setting pool_discard in Odyssey; server_reset_query_always in PgBouncer</p> 
+config.<br>poolerConfig.<br>poolDiscard | **boolean** (boolean)<br><p>Setting <code>server_reset_query_always</code> parameter in PgBouncer.</p> 
 config.<br>resources | **object**<br>
 config.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-postgresql/concepts/instance-types">documentation</a>.</p> 
 config.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 

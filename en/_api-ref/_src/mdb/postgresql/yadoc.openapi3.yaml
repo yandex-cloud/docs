@@ -1558,12 +1558,7 @@ components:
           version:
             description: |-
               Version of PostgreSQL used in the cluster.
-              Possible values:
-              * 9.6
-              * 10
-              * 10_1c
-              * 11
-              * 12
+              Possible values: `9.6`, `10`, `10_1c`, `11`, `12`.
             type: string
           poolerConfig:
             $ref: '#/components/schemas/ConnectionPoolerConfig'
@@ -1607,8 +1602,7 @@ components:
         poolingMode:
           $ref: '#/components/schemas/ConnectionPoolerConfigPoolingMode_in_ConnectionPoolerConfig_poolingMode'
         poolDiscard:
-          description: Setting pool_discard in Odyssey; server_reset_query_always
-            in PgBouncer
+          description: Setting `server_reset_query_always` parameter in PgBouncer.
           type: boolean
           format: boolean
     ConnectionPoolerConfigPoolingMode:
@@ -6478,12 +6472,7 @@ components:
           version:
             description: |-
               Version of PostgreSQL used in the cluster.
-              Possible values:
-              * 9.6
-              * 10
-              * 10_1c
-              * 11
-              * 12
+              Possible values: `9.6`, `10`, `10_1c`, `11`, `12`.
             type: string
           poolerConfig:
             $ref: '#/components/schemas/ConnectionPoolerConfig'
@@ -12978,12 +12967,7 @@ components:
           version:
             description: |-
               Version of PostgreSQL used in the cluster.
-              Possible values:
-              * 9.6
-              * 10
-              * 10_1c
-              * 11
-              * 12
+              Possible values: `9.6`, `10`, `10_1c`, `11`, `12`.
             type: string
           poolerConfig:
             $ref: '#/components/schemas/ConnectionPoolerConfig'
@@ -13066,12 +13050,7 @@ components:
           version:
             description: |-
               Version of PostgreSQL used in the cluster.
-              Possible values:
-              * 9.6
-              * 10
-              * 10_1c
-              * 11
-              * 12
+              Possible values: `9.6`, `10`, `10_1c`, `11`, `12`.
             type: string
           poolerConfig:
             $ref: '#/components/schemas/ConnectionPoolerConfig'

@@ -23,6 +23,16 @@ items:
         href: api-ref/Cluster/stop.md
       - name: update
         href: api-ref/Cluster/update.md
+  - name: Job
+    items:
+      - name: Overview
+        href: api-ref/Job/index.md
+      - name: create
+        href: api-ref/Job/create.md
+      - name: get
+        href: api-ref/Job/get.md
+      - name: list
+        href: api-ref/Job/list.md
   - name: Subcluster
     items:
       - name: Overview

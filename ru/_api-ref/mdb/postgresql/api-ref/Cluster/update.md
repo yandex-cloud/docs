@@ -28,7 +28,8 @@ clusterId | Обязательное поле. Идентификатор изм
   "configSpec": {
     "version": "string",
     "poolerConfig": {
-      "poolingMode": "string"
+      "poolingMode": "string",
+      "poolDiscard": true
     },
     "resources": {
       "resourcePresetId": "string",
@@ -42,8 +43,11 @@ clusterId | Обязательное поле. Идентификатор изм
       "seconds": "integer",
       "nanos": "integer"
     },
+    "access": {
+      "dataLens": true
+    },
 
-    // `configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`, `postgresqlConfig_11`
+    // `configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`
     "postgresqlConfig_9_6": {
       "maxConnections": "integer",
       "sharedBuffers": "integer",
@@ -124,6 +128,121 @@ clusterId | Обязательное поле. Идентификатор изм
       "autovacuumNaptime": "integer",
       "archiveTimeout": "integer",
       "trackActivityQuerySize": "integer"
+    },
+    "postgresqlConfig_10_1C": {
+      "maxConnections": "integer",
+      "sharedBuffers": "integer",
+      "tempBuffers": "integer",
+      "maxPreparedTransactions": "integer",
+      "workMem": "integer",
+      "maintenanceWorkMem": "integer",
+      "replacementSortTuples": "integer",
+      "autovacuumWorkMem": "integer",
+      "tempFileLimit": "integer",
+      "vacuumCostDelay": "integer",
+      "vacuumCostPageHit": "integer",
+      "vacuumCostPageMiss": "integer",
+      "vacuumCostPageDirty": "integer",
+      "vacuumCostLimit": "integer",
+      "bgwriterDelay": "integer",
+      "bgwriterLruMaxpages": "integer",
+      "bgwriterLruMultiplier": "number",
+      "bgwriterFlushAfter": "integer",
+      "backendFlushAfter": "integer",
+      "oldSnapshotThreshold": "integer",
+      "walLevel": "string",
+      "synchronousCommit": "string",
+      "checkpointTimeout": "integer",
+      "checkpointCompletionTarget": "number",
+      "checkpointFlushAfter": "integer",
+      "maxWalSize": "integer",
+      "minWalSize": "integer",
+      "maxStandbyStreamingDelay": "integer",
+      "defaultStatisticsTarget": "integer",
+      "constraintExclusion": "string",
+      "cursorTupleFraction": "number",
+      "fromCollapseLimit": "integer",
+      "joinCollapseLimit": "integer",
+      "forceParallelMode": "string",
+      "clientMinMessages": "string",
+      "logMinMessages": "string",
+      "logMinErrorStatement": "string",
+      "logMinDurationStatement": "integer",
+      "logCheckpoints": true,
+      "logConnections": true,
+      "logDisconnections": true,
+      "logDuration": true,
+      "logErrorVerbosity": "string",
+      "logLockWaits": true,
+      "logStatement": "string",
+      "logTempFiles": "integer",
+      "searchPath": "string",
+      "rowSecurity": true,
+      "defaultTransactionIsolation": "string",
+      "statementTimeout": "integer",
+      "lockTimeout": "integer",
+      "idleInTransactionSessionTimeout": "integer",
+      "byteaOutput": "string",
+      "xmlbinary": "string",
+      "xmloption": "string",
+      "ginPendingListLimit": "integer",
+      "deadlockTimeout": "integer",
+      "maxLocksPerTransaction": "integer",
+      "maxPredLocksPerTransaction": "integer",
+      "arrayNulls": true,
+      "backslashQuote": "string",
+      "defaultWithOids": true,
+      "escapeStringWarning": true,
+      "loCompatPrivileges": true,
+      "operatorPrecedenceWarning": true,
+      "quoteAllIdentifiers": true,
+      "standardConformingStrings": true,
+      "synchronizeSeqscans": true,
+      "transformNullEquals": true,
+      "exitOnError": true,
+      "seqPageCost": "number",
+      "randomPageCost": "number",
+      "autovacuumMaxWorkers": "integer",
+      "autovacuumVacuumCostDelay": "integer",
+      "autovacuumVacuumCostLimit": "integer",
+      "autovacuumNaptime": "integer",
+      "archiveTimeout": "integer",
+      "trackActivityQuerySize": "integer",
+      "enableBitmapscan": true,
+      "enableHashagg": true,
+      "enableHashjoin": true,
+      "enableIndexscan": true,
+      "enableIndexonlyscan": true,
+      "enableMaterial": true,
+      "enableMergejoin": true,
+      "enableNestloop": true,
+      "enableSeqscan": true,
+      "enableSort": true,
+      "enableTidscan": true,
+      "maxWorkerProcesses": "integer",
+      "maxParallelWorkers": "integer",
+      "maxParallelWorkersPerGather": "integer",
+      "autovacuumVacuumScaleFactor": "number",
+      "autovacuumAnalyzeScaleFactor": "number",
+      "defaultTransactionReadOnly": true,
+      "timezone": "string",
+      "effectiveIoConcurrency": "integer",
+      "effectiveCacheSize": "integer",
+      "sharedPreloadLibraries": [
+        "string"
+      ],
+      "autoExplainLogMinDuration": "integer",
+      "autoExplainLogAnalyze": true,
+      "autoExplainLogBuffers": true,
+      "autoExplainLogTiming": true,
+      "autoExplainLogTriggers": true,
+      "autoExplainLogVerbose": true,
+      "autoExplainLogNestedStatements": true,
+      "autoExplainSampleRate": "number",
+      "pgHintPlanEnableHint": true,
+      "pgHintPlanEnableHintTable": true,
+      "pgHintPlanDebugPrint": "string",
+      "pgHintPlanMessageLevel": "string"
     },
     "postgresqlConfig_10": {
       "maxConnections": "integer",
@@ -312,6 +431,131 @@ clusterId | Обязательное поле. Идентификатор изм
       "maxParallelWorkers": "integer",
       "maxParallelWorkersPerGather": "integer"
     },
+    "postgresqlConfig_12": {
+      "maxConnections": "integer",
+      "sharedBuffers": "integer",
+      "tempBuffers": "integer",
+      "maxPreparedTransactions": "integer",
+      "workMem": "integer",
+      "maintenanceWorkMem": "integer",
+      "autovacuumWorkMem": "integer",
+      "tempFileLimit": "integer",
+      "vacuumCostDelay": "integer",
+      "vacuumCostPageHit": "integer",
+      "vacuumCostPageMiss": "integer",
+      "vacuumCostPageDirty": "integer",
+      "vacuumCostLimit": "integer",
+      "bgwriterDelay": "integer",
+      "bgwriterLruMaxpages": "integer",
+      "bgwriterLruMultiplier": "number",
+      "bgwriterFlushAfter": "integer",
+      "backendFlushAfter": "integer",
+      "oldSnapshotThreshold": "integer",
+      "walLevel": "string",
+      "synchronousCommit": "string",
+      "checkpointTimeout": "integer",
+      "checkpointCompletionTarget": "number",
+      "checkpointFlushAfter": "integer",
+      "maxWalSize": "integer",
+      "minWalSize": "integer",
+      "maxStandbyStreamingDelay": "integer",
+      "defaultStatisticsTarget": "integer",
+      "constraintExclusion": "string",
+      "cursorTupleFraction": "number",
+      "fromCollapseLimit": "integer",
+      "joinCollapseLimit": "integer",
+      "forceParallelMode": "string",
+      "clientMinMessages": "string",
+      "logMinMessages": "string",
+      "logMinErrorStatement": "string",
+      "logMinDurationStatement": "integer",
+      "logCheckpoints": true,
+      "logConnections": true,
+      "logDisconnections": true,
+      "logDuration": true,
+      "logErrorVerbosity": "string",
+      "logLockWaits": true,
+      "logStatement": "string",
+      "logTempFiles": "integer",
+      "searchPath": "string",
+      "rowSecurity": true,
+      "defaultTransactionIsolation": "string",
+      "statementTimeout": "integer",
+      "lockTimeout": "integer",
+      "idleInTransactionSessionTimeout": "integer",
+      "byteaOutput": "string",
+      "xmlbinary": "string",
+      "xmloption": "string",
+      "ginPendingListLimit": "integer",
+      "deadlockTimeout": "integer",
+      "maxLocksPerTransaction": "integer",
+      "maxPredLocksPerTransaction": "integer",
+      "arrayNulls": true,
+      "backslashQuote": "string",
+      "defaultWithOids": true,
+      "escapeStringWarning": true,
+      "loCompatPrivileges": true,
+      "operatorPrecedenceWarning": true,
+      "quoteAllIdentifiers": true,
+      "standardConformingStrings": true,
+      "synchronizeSeqscans": true,
+      "transformNullEquals": true,
+      "exitOnError": true,
+      "seqPageCost": "number",
+      "randomPageCost": "number",
+      "autovacuumMaxWorkers": "integer",
+      "autovacuumVacuumCostDelay": "integer",
+      "autovacuumVacuumCostLimit": "integer",
+      "autovacuumNaptime": "integer",
+      "archiveTimeout": "integer",
+      "trackActivityQuerySize": "integer",
+      "enableBitmapscan": true,
+      "enableHashagg": true,
+      "enableHashjoin": true,
+      "enableIndexscan": true,
+      "enableIndexonlyscan": true,
+      "enableMaterial": true,
+      "enableMergejoin": true,
+      "enableNestloop": true,
+      "enableSeqscan": true,
+      "enableSort": true,
+      "enableTidscan": true,
+      "maxWorkerProcesses": "integer",
+      "maxParallelWorkers": "integer",
+      "maxParallelWorkersPerGather": "integer",
+      "autovacuumVacuumScaleFactor": "number",
+      "autovacuumAnalyzeScaleFactor": "number",
+      "defaultTransactionReadOnly": true,
+      "timezone": "string",
+      "enableParallelAppend": true,
+      "enableParallelHash": true,
+      "enablePartitionPruning": true,
+      "enablePartitionwiseAggregate": true,
+      "enablePartitionwiseJoin": true,
+      "jit": true,
+      "maxParallelMaintenanceWorkers": "integer",
+      "parallelLeaderParticipation": true,
+      "vacuumCleanupIndexScaleFactor": "number",
+      "logTransactionSampleRate": "number",
+      "planCacheMode": "string",
+      "effectiveIoConcurrency": "integer",
+      "effectiveCacheSize": "integer",
+      "sharedPreloadLibraries": [
+        "string"
+      ],
+      "autoExplainLogMinDuration": "integer",
+      "autoExplainLogAnalyze": true,
+      "autoExplainLogBuffers": true,
+      "autoExplainLogTiming": true,
+      "autoExplainLogTriggers": true,
+      "autoExplainLogVerbose": true,
+      "autoExplainLogNestedStatements": true,
+      "autoExplainSampleRate": "number",
+      "pgHintPlanEnableHint": true,
+      "pgHintPlanEnableHintTable": true,
+      "pgHintPlanDebugPrint": "string",
+      "pgHintPlanMessageLevel": "string"
+    },
     // конец списка возможных полей`configSpec`
 
   },
@@ -324,13 +568,14 @@ clusterId | Обязательное поле. Идентификатор изм
 --- | ---
 updateMask | **string**<br><p>Маска, которая указывает, какие поля ресурса Cluster для PostgreSQL должны быть изменены.</p> <p>Имена всех обновляемых полей, разделенные запятыми. Только значения указанных полей будут изменены. Остальные останутся нетронутыми. Если поле указано в параметре <code>updateMask</code> и в запросе не было отправлено значение для этого поля, значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.</p> <p>Если в запросе не передается <code>updateMask</code>, значения всех полей будут обновлены. Для полей, указанных в запросе, будут использованы переданные значения. Значения остальных полей будут сброшены на значения по умолчанию.</p> 
 description | **string**<br><p>Новое описание кластера PostgreSQL.</p> <p>Максимальная длина строки в символах — 256.</p> 
-labels | **object**<br><p>Пользовательские метки для кластера PostgreSQL как &quot;<code>key:value `` pairs. Maximum 64 per resource. For example,</code>project&quot;: &quot;mvp&quot; или &quot;source&quot;: &quot;dictionary&quot;.</p> <p>Новый набор меток полностью заменит старый. Чтобы добавить метку, запросите текущий набор меток с помощью метода <a href="/docs/managed-postgresql/api-ref/Cluster/get">get</a>, затем отправьте запрос <a href="/docs/managed-postgresql/api-ref/Cluster/update">update</a>, добавив новую метку в этот набор.</p> <p>Не более 64 на ресурс. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению <code>[a-z][-_0-9a-z]*</code>. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению <code>[-_0-9a-z]*</code>.</p> 
+labels | **object**<br><p>Пользовательские метки для кластера PostgreSQL в виде пар <code>key:value</code>. Не больше 64 меток на ресурс. Например, &quot;project&quot;: &quot;mvp&quot; или &quot;source&quot;: &quot;dictionary&quot;.</p> <p>Новый набор меток полностью заменит старый. Чтобы добавить метку, запросите текущий набор меток с помощью метода <a href="/docs/managed-postgresql/api-ref/Cluster/get">get</a>, затем отправьте запрос <a href="/docs/managed-postgresql/api-ref/Cluster/update">update</a>, добавив новую метку в этот набор.</p> <p>Не более 64 на ресурс. Максимальная длина строки в символах для каждого ключа — 63. Каждый ключ должен соответствовать регулярному выражению <code>[a-z][-_0-9a-z]*</code>. Максимальная длина строки в символах для каждого значения — 63. Каждое значение должно соответствовать регулярному выражению <code>[-_0-9a-z]*</code>.</p> 
 configSpec | **object**<br><p>Новая конфигурация и ресурсы для хостов кластера.</p> 
-configSpec.<br>version | **string**<br><p>Версия PostgreSQL, используемая в кластере. Возможные значения:</p> <ul> <li>9.6</li> <li>10;</li> <li>11</li> </ul> 
+configSpec.<br>version | **string**<br><p>Версия PostgreSQL, используемая в кластере. Возможные значения <code>9.6</code>, <code>10</code>, <code>10_1c</code>, <code>11</code>, <code>12</code>.</p> 
 configSpec.<br>poolerConfig | **object**<br>Конфигурация менеджера соединений.<br>
-configSpec.<br>poolerConfig.<br>poolingMode | **string**<br><p>Режим, в котором работает менеджер подключений. См. описание всех режимов в <a href="https://pgbouncer.github.io/usage">documentation for PgBouncer</a>.</p> <ul> <li>SESSION: Сессионный режим управления подключениями.</li> <li>TRANSACTION: Транзакционный режим управления подключениями.</li> <li>STATEMENT: Операторный режим управления подключениями.</li> </ul> 
+configSpec.<br>poolerConfig.<br>poolingMode | **string**<br><p>Режим, в котором работает менеджер подключений. См. описание всех режимов в <a href="https://pgbouncer.github.io/usage">документации PgBouncer</a>.</p> <ul> <li>SESSION: Сессионный режим управления подключениями.</li> <li>TRANSACTION: Транзакционный режим управления подключениями.</li> <li>STATEMENT: Операторный режим управления подключениями.</li> </ul> 
+configSpec.<br>poolerConfig.<br>poolDiscard | **boolean** (boolean)<br><p>Установка параметра <code>server_reset_query_always</code> в PgBouncer.</p> 
 configSpec.<br>resources | **object**<br>Ресурсы, выделенные хостам PostgreSQL.<br>
-configSpec.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-postgresql/concepts/instance-types">documentation</a>.</p> 
+configSpec.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-postgresql/concepts/instance-types">документации</a>.</p> 
 configSpec.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
 configSpec.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
 configSpec.<br>autofailover | **boolean** (boolean)<br><p>Параметр конфигурации, который включает / отключает автоматическое переключение мастера в кластере.</p> 
@@ -339,7 +584,9 @@ configSpec.<br>backupWindowStart.<br>hours | **integer** (int32)<br><p>Час в
 configSpec.<br>backupWindowStart.<br>minutes | **integer** (int32)<br><p>Минута часа. Допустимые значения — от 0 до 59.</p> 
 configSpec.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Секунда минуты. Обычно допустимые значения — от 0 до 59. API может разрешить значение 60, если поддерживаются високосные секунды.</p> 
 configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Доли секунды, в наносекундах. Допустимые значения — от 0 до 999 999 999.</p> 
-configSpec.<br>postgresqlConfig_9_6 | **object**<br>Конфигурация для кластера PostgreSQL 9.6. <br>`configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`, `postgresqlConfig_11`<br><br><p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config">PostgreSQL documentation</a>.</p> 
+configSpec.<br>access | **object**<br>Политика доступа к БД<br>
+configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Разрешить доступ для DataLens</p> 
+configSpec.<br>postgresqlConfig_9_6 | **object**<br>Конфигурация для кластера PostgreSQL 9.6. <br>`configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`<br><br><p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config">документации PostgreSQL</a>.</p> 
 configSpec.<br>postgresqlConfig_9_6.<br>maxConnections | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>sharedBuffers | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_9_6.<br>tempBuffers | **integer** (int64)<br>
@@ -419,7 +666,119 @@ configSpec.<br>postgresqlConfig_9_6.<br>autovacuumVacuumCostLimit | **integer** 
 configSpec.<br>postgresqlConfig_9_6.<br>autovacuumNaptime | **integer** (int64)<br><p>Допустимые значения — от 1000 до 86400000 включительно.</p> 
 configSpec.<br>postgresqlConfig_9_6.<br>archiveTimeout | **integer** (int64)<br><p>Допустимые значения — от 10000 до 600000 включительно.</p> 
 configSpec.<br>postgresqlConfig_9_6.<br>trackActivityQuerySize | **integer** (int64)<br><p>Допустимые значения — от 100 до 102400 включительно.</p> 
-configSpec.<br>postgresqlConfig_10 | **object**<br>Конфигурация для кластера PostgreSQL 10. <br>`configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`, `postgresqlConfig_11`<br><br><p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
+configSpec.<br>postgresqlConfig_10_1C | **object**<br>Конфигурация для кластера PostgreSQL 10. <br>`configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`<br><br><p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>maxConnections | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>sharedBuffers | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>tempBuffers | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>maxPreparedTransactions | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>workMem | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>maintenanceWorkMem | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>replacementSortTuples | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>autovacuumWorkMem | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>tempFileLimit | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>vacuumCostDelay | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>vacuumCostPageHit | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>vacuumCostPageMiss | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>vacuumCostPageDirty | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>vacuumCostLimit | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>bgwriterDelay | **integer** (int64)<br><p>Допустимые значения — от 10 до 10000 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>bgwriterLruMaxpages | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>bgwriterLruMultiplier | **number** (double)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Допустимые значения — от -1 до 86400000 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>walLevel | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>synchronousCommit | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>checkpointTimeout | **integer** (int64)<br><p>Допустимые значения — от 30000 до 86400000 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>checkpointCompletionTarget | **number** (double)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>checkpointFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>maxWalSize | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>minWalSize | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>defaultStatisticsTarget | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>constraintExclusion | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>cursorTupleFraction | **number** (double)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>fromCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>joinCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>forceParallelMode | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>clientMinMessages | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>logMinMessages | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>logMinErrorStatement | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>logMinDurationStatement | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>logCheckpoints | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>logConnections | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>logDisconnections | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>logDuration | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>logErrorVerbosity | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>logLockWaits | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>logStatement | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>logTempFiles | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>searchPath | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>rowSecurity | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>defaultTransactionIsolation | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>statementTimeout | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>lockTimeout | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>byteaOutput | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>xmlbinary | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>xmloption | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>ginPendingListLimit | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>deadlockTimeout | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>maxLocksPerTransaction | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>arrayNulls | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>backslashQuote | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>defaultWithOids | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>escapeStringWarning | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>loCompatPrivileges | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>standardConformingStrings | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>synchronizeSeqscans | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>transformNullEquals | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>exitOnError | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>seqPageCost | **number** (double)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>randomPageCost | **number** (double)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>autovacuumMaxWorkers | **integer** (int64)<br><p>Допустимые значения — от 1 до 32 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>autovacuumVacuumCostDelay | **integer** (int64)<br><p>Допустимые значения — от -1 до 100 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>autovacuumVacuumCostLimit | **integer** (int64)<br><p>Допустимые значения — от -1 до 10000 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>autovacuumNaptime | **integer** (int64)<br><p>Допустимые значения — от 1000 до 86400000 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>archiveTimeout | **integer** (int64)<br><p>Допустимые значения — от 10000 до 600000 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>trackActivityQuerySize | **integer** (int64)<br><p>Допустимые значения — от 100 до 102400 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>enableBitmapscan | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>enableHashagg | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>enableHashjoin | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>enableIndexscan | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>enableIndexonlyscan | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>enableMaterial | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>enableMergejoin | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>enableNestloop | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>enableSeqscan | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>enableSort | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>enableTidscan | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>autovacuumVacuumScaleFactor | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>autovacuumAnalyzeScaleFactor | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>defaultTransactionReadOnly | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>timezone | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Допустимые значения — от 0 до 1000 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Допустимые значения — от 0 до 549755813888 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>sharedPreloadLibraries[] | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>autoExplainLogMinDuration | **integer** (int64)<br><p>Допустимые значения — от -1 до 2147483647 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>autoExplainLogAnalyze | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>autoExplainLogBuffers | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>autoExplainLogTiming | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>autoExplainLogTriggers | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>autoExplainLogVerbose | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>autoExplainLogNestedStatements | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>autoExplainSampleRate | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+configSpec.<br>postgresqlConfig_10_1C.<br>pgHintPlanEnableHint | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>pgHintPlanDebugPrint | **string**<br>
+configSpec.<br>postgresqlConfig_10_1C.<br>pgHintPlanMessageLevel | **string**<br>
+configSpec.<br>postgresqlConfig_10 | **object**<br>Конфигурация для кластера PostgreSQL 10. <br>`configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`<br><br><p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
 configSpec.<br>postgresqlConfig_10.<br>maxConnections | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>sharedBuffers | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_10.<br>tempBuffers | **integer** (int64)<br>
@@ -512,7 +871,7 @@ configSpec.<br>postgresqlConfig_10.<br>enableTidscan | **boolean** (boolean)<br>
 configSpec.<br>postgresqlConfig_10.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 configSpec.<br>postgresqlConfig_10.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 configSpec.<br>postgresqlConfig_10.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
-configSpec.<br>postgresqlConfig_11 | **object**<br>Конфигурация для кластера PostgreSQL 11. <br>`configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10`, `postgresqlConfig_11`<br><br><p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
+configSpec.<br>postgresqlConfig_11 | **object**<br>Конфигурация для кластера PostgreSQL 11. <br>`configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`<br><br><p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 configSpec.<br>postgresqlConfig_11.<br>maxConnections | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_11.<br>sharedBuffers | **integer** (int64)<br>
 configSpec.<br>postgresqlConfig_11.<br>tempBuffers | **integer** (int64)<br>
@@ -604,6 +963,128 @@ configSpec.<br>postgresqlConfig_11.<br>enableTidscan | **boolean** (boolean)<br>
 configSpec.<br>postgresqlConfig_11.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 configSpec.<br>postgresqlConfig_11.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 configSpec.<br>postgresqlConfig_11.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+configSpec.<br>postgresqlConfig_12 | **object**<br>Конфигурация для кластера PostgreSQL 12. <br>`configSpec` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`<br><br><p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+configSpec.<br>postgresqlConfig_12.<br>maxConnections | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>sharedBuffers | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>tempBuffers | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>maxPreparedTransactions | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>workMem | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>maintenanceWorkMem | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>autovacuumWorkMem | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>tempFileLimit | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>vacuumCostDelay | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>vacuumCostPageHit | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>vacuumCostPageMiss | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>vacuumCostPageDirty | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>vacuumCostLimit | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>bgwriterDelay | **integer** (int64)<br><p>Допустимые значения — от 10 до 10000 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>bgwriterLruMaxpages | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>bgwriterLruMultiplier | **number** (double)<br>
+configSpec.<br>postgresqlConfig_12.<br>bgwriterFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>backendFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Допустимые значения — от -1 до 86400000 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>walLevel | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>synchronousCommit | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>checkpointTimeout | **integer** (int64)<br><p>Допустимые значения — от 30000 до 86400000 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>checkpointCompletionTarget | **number** (double)<br>
+configSpec.<br>postgresqlConfig_12.<br>checkpointFlushAfter | **integer** (int64)<br><p>Допустимые значения — от 0 до 2048 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>maxWalSize | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>minWalSize | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>defaultStatisticsTarget | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>constraintExclusion | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>cursorTupleFraction | **number** (double)<br>
+configSpec.<br>postgresqlConfig_12.<br>fromCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>joinCollapseLimit | **integer** (int64)<br><p>Допустимые значения — от 1 до 2147483647 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>forceParallelMode | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>clientMinMessages | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>logMinMessages | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>logMinErrorStatement | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>logMinDurationStatement | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>logCheckpoints | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>logConnections | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>logDisconnections | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>logDuration | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>logErrorVerbosity | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>logLockWaits | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>logStatement | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>logTempFiles | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>searchPath | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>rowSecurity | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>defaultTransactionIsolation | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>statementTimeout | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>lockTimeout | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>byteaOutput | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>xmlbinary | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>xmloption | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>ginPendingListLimit | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>deadlockTimeout | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>maxLocksPerTransaction | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
+configSpec.<br>postgresqlConfig_12.<br>arrayNulls | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>backslashQuote | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>defaultWithOids | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>escapeStringWarning | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>loCompatPrivileges | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>standardConformingStrings | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>synchronizeSeqscans | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>transformNullEquals | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>exitOnError | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>seqPageCost | **number** (double)<br>
+configSpec.<br>postgresqlConfig_12.<br>randomPageCost | **number** (double)<br>
+configSpec.<br>postgresqlConfig_12.<br>autovacuumMaxWorkers | **integer** (int64)<br><p>Допустимые значения — от 1 до 32 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>autovacuumVacuumCostDelay | **integer** (int64)<br><p>Допустимые значения — от -1 до 100 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>autovacuumVacuumCostLimit | **integer** (int64)<br><p>Допустимые значения — от -1 до 10000 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>autovacuumNaptime | **integer** (int64)<br><p>Допустимые значения — от 1000 до 86400000 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>archiveTimeout | **integer** (int64)<br><p>Допустимые значения — от 10000 до 600000 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>trackActivityQuerySize | **integer** (int64)<br><p>Допустимые значения — от 100 до 102400 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>enableBitmapscan | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>enableHashagg | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>enableHashjoin | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>enableIndexscan | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>enableIndexonlyscan | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>enableMaterial | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>enableMergejoin | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>enableNestloop | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>enableSeqscan | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>enableSort | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>enableTidscan | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>maxWorkerProcesses | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>autovacuumVacuumScaleFactor | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>autovacuumAnalyzeScaleFactor | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>defaultTransactionReadOnly | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>timezone | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>enableParallelAppend | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>enableParallelHash | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>enablePartitionPruning | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>enablePartitionwiseAggregate | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>enablePartitionwiseJoin | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>jit | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>maxParallelMaintenanceWorkers | **integer** (int64)<br><p>Минимальное значение — 0.</p> 
+configSpec.<br>postgresqlConfig_12.<br>parallelLeaderParticipation | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>vacuumCleanupIndexScaleFactor | **number** (double)<br><p>Допустимые значения — от 0 до 10000000000 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>logTransactionSampleRate | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>planCacheMode | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Допустимые значения — от 0 до 1000 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>effectiveCacheSize | **integer** (int64)<br><p>Допустимые значения — от 0 до 549755813888 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>sharedPreloadLibraries[] | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>autoExplainLogMinDuration | **integer** (int64)<br><p>Допустимые значения — от -1 до 2147483647 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>autoExplainLogAnalyze | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>autoExplainLogBuffers | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>autoExplainLogTiming | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>autoExplainLogTriggers | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>autoExplainLogVerbose | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>autoExplainLogNestedStatements | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>autoExplainSampleRate | **number** (double)<br><p>Допустимые значения — от 0 до 1 включительно.</p> 
+configSpec.<br>postgresqlConfig_12.<br>pgHintPlanEnableHint | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
+configSpec.<br>postgresqlConfig_12.<br>pgHintPlanDebugPrint | **string**<br>
+configSpec.<br>postgresqlConfig_12.<br>pgHintPlanMessageLevel | **string**<br>
 name | **string**<br><p>Новое имя кластера.</p> <p>Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_-]*</code>.</p> 
  
 ## Ответ {#responses}

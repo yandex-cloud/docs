@@ -328,6 +328,122 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterHostsResponse'
       x-y-navtitle: listHosts
+  /dataproc/v1/clusters/{clusterId}/jobs:
+    get:
+      tags:
+      - Job
+      summary: Retrieves a list of jobs for Dataproc cluster.
+      operationId: JobList
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required. ID of the cluster to list Dataproc jobs of.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "The maximum number of results per page that should be returned.
+          If the number of available\r\nresults is larger than `page_size`, the service
+          returns a `next_page_token` that can be used\r\nto get the next page of
+          results in subsequent ListJobs requests.\r\nAcceptable values are 0 to 1000,
+          inclusive. Default value: 100.\n\nThe maximum value is 1000."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: "Page token. Set `page_token` to the `next_page_token` returned
+          by a previous ListJobs\r\nrequest to get the next page of results.\n\nThe
+          maximum string length in characters is 100."
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          String that describes a display filter.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListJobsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Job
+      summary: Creates a job for Dataproc cluster.
+      operationId: JobCreate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required. ID of the cluster to create Dataproc job in.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateJobRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateJobMetadata'
+      x-y-operation-response: '[Job](/docs/data-proc/api-ref/Job#representation)'
+  /dataproc/v1/clusters/{clusterId}/jobs/{jobId}:
+    get:
+      tags:
+      - Job
+      summary: Returns the specified Dataproc cluster.
+      operationId: JobGet
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the Dataproc cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: jobId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the Dataproc job to return.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+      x-y-navtitle: get
   /dataproc/v1/clusters/{clusterId}/subclusters/{subclusterId}:
     get:
       tags:
@@ -705,6 +821,45 @@ components:
         bucket:
           description: Name of object storage bucket for Dataproc jobs.
           type: string
+    CreateJobMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            Required.
+            ID of the Dataproc cluster.
+
+            The maximum string length in characters is 50.
+          type: string
+        jobId:
+          description: |-
+            ID of the Dataproc job.
+
+            The maximum string length in characters is 50.
+          type: string
+    CreateJobRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          name:
+            description: |-
+              Optional. Name of the job.
+
+              Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            type: string
+      - title: job_spec
+        type: object
+        maxProperties: 1
+        properties:
+          mapreduceJob:
+            $ref: '#/components/schemas/MapreduceJob'
+          sparkJob:
+            $ref: '#/components/schemas/SparkJob'
+          pysparkJob:
+            $ref: '#/components/schemas/PysparkJob'
+          hiveJob:
+            $ref: '#/components/schemas/HiveJob'
     CreateSubclusterConfigSpec:
       type: object
       properties:
@@ -868,6 +1023,41 @@ components:
       - DEAD
       - DEGRADED
       default: HEALTH_UNKNOWN
+    HiveJob:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          properties:
+            description: A mapping of property names to values, used to configure
+              Hive.
+            type: object
+            additionalProperties:
+              type: string
+          continueOnFailure:
+            description: Whether to continue executing queries if a query fails.
+            type: boolean
+            format: boolean
+          scriptVariables:
+            description: Mapping of query variable names to values.
+            type: object
+            additionalProperties:
+              type: string
+          jarFileUris:
+            description: Jar file URIs to add to the CLASSPATHs of the Hive driver
+              and tasks.
+            type: array
+            items:
+              type: string
+      - title: query_type
+        type: object
+        maxProperties: 1
+        properties:
+          queryFileUri:
+            description: URI of the script that contains Hive queries.
+            type: string
+          queryList:
+            $ref: '#/components/schemas/QueryList'
     Host:
       description: |-
         A Dataproc Host resource. For more information, see
@@ -892,6 +1082,67 @@ components:
           type: string
         role:
           $ref: '#/components/schemas/Role_in_Host_role'
+    Job:
+      description: Dataproc job.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: |-
+              Required. Unique ID of the Dataproc job.
+              This ID is assigned by MDB in the process of creating Dataproc job.
+            type: string
+          clusterId:
+            description: Required. Unique ID of the Dataproc cluster.
+            type: string
+          createdAt:
+            description: |-
+              The time when the Dataproc job was created.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          startedAt:
+            description: |-
+              The time when the Dataproc job was started.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          finishedAt:
+            description: |-
+              The time when the Dataproc job was finished.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          name:
+            description: Name of the Dataproc job.
+            type: string
+          status:
+            $ref: '#/components/schemas/JobStatus'
+            description: Status.
+      - title: job_spec
+        type: object
+        maxProperties: 1
+        properties:
+          mapreduceJob:
+            $ref: '#/components/schemas/MapreduceJob'
+          sparkJob:
+            $ref: '#/components/schemas/SparkJob'
+          pysparkJob:
+            $ref: '#/components/schemas/PysparkJob'
+          hiveJob:
+            $ref: '#/components/schemas/HiveJob'
+    JobStatus:
+      type: string
+      enum:
+      - PROVISIONING
+      - PENDING
+      - RUNNING
+      - ERROR
+      - DONE
     ListClusterHostsResponse:
       type: object
       properties:
@@ -939,6 +1190,22 @@ components:
             the `page_token` parameter in the next ListClusters request. Subsequent ListClusters
             requests will have their own `next_page_token` to continue paging through the results.
           type: string
+    ListJobsResponse:
+      type: object
+      properties:
+        jobs:
+          description: Requested list of Dataproc jobs.
+          type: array
+          items:
+            $ref: '#/components/schemas/Job'
+        nextPageToken:
+          description: "This token allows you to get the next page of results for
+            ListJobs requests,\r\nif the number of results is larger than `page_size`
+            specified in the request.\r\nTo get the next page, specify the value of
+            `next_page_token` as a value for\r\nthe `page_token` parameter in the
+            next ListClusters request. Subsequent ListClusters\r\nrequests will have
+            their own `next_page_token` to continue paging through the results."
+          type: string
     ListSubclustersResponse:
       type: object
       properties:
@@ -955,6 +1222,49 @@ components:
             the `page_token` parameter in the next ListClusters request. Subsequent ListClusters
             requests will have their own `next_page_token` to continue paging through the results.
           type: string
+    MapreduceJob:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          args:
+            description: Optional arguments to the driver.
+            type: array
+            items:
+              type: string
+          jarFileUris:
+            description: URIs of file to run.
+            type: array
+            items:
+              type: string
+          fileUris:
+            description: URIs of files to be copied to the working directory of Dataproc
+              drivers and distributed tasks.
+            type: array
+            items:
+              type: string
+          archiveUris:
+            description: URIs of archives to be extracted in the working directory
+              of Dataproc drivers and tasks.
+            type: array
+            items:
+              type: string
+          properties:
+            description: A mapping of property names to values, used to configure
+              Dataproc.
+            type: object
+            additionalProperties:
+              type: string
+      - title: driver
+        type: object
+        maxProperties: 1
+        properties:
+          mainJarFileUri:
+            description: The HCFS URI of the jar file containing the main class.
+            type: string
+          mainClass:
+            description: The name of the driver's main class.
+            type: string
     Monitoring:
       description: Monitoring system.
       type: object
@@ -1025,6 +1335,53 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    PysparkJob:
+      type: object
+      properties:
+        args:
+          description: Optional arguments to the driver.
+          type: array
+          items:
+            type: string
+        jarFileUris:
+          description: Jar file URIs to add to the CLASSPATHs of the Dataproc driver
+            and tasks.
+          type: array
+          items:
+            type: string
+        fileUris:
+          description: URIs of files to be copied to the working directory of Dataproc
+            drivers and distributed tasks.
+          type: array
+          items:
+            type: string
+        archiveUris:
+          description: URIs of archives to be extracted in the working directory of
+            Dataproc drivers and tasks.
+          type: array
+          items:
+            type: string
+        properties:
+          description: A mapping of property names to values, used to configure Dataproc.
+          type: object
+          additionalProperties:
+            type: string
+        mainPythonFileUri:
+          description: URI of the main Python file to use as the driver. Must be a
+            .py file.
+          type: string
+        pythonFileUris:
+          description: URIs of Python files to pass to the PySpark framework.
+          type: array
+          items:
+            type: string
+    QueryList:
+      type: object
+      properties:
+        queries:
+          type: array
+          items:
+            type: string
     Resources:
       type: object
       properties:
@@ -1068,6 +1425,43 @@ components:
       - MASTERNODE
       - DATANODE
       - COMPUTENODE
+    SparkJob:
+      type: object
+      properties:
+        args:
+          description: Optional arguments to the driver.
+          type: array
+          items:
+            type: string
+        jarFileUris:
+          description: Jar file URIs to add to the CLASSPATHs of the Dataproc driver
+            and tasks.
+          type: array
+          items:
+            type: string
+        fileUris:
+          description: URIs of files to be copied to the working directory of Dataproc
+            drivers and distributed tasks.
+          type: array
+          items:
+            type: string
+        archiveUris:
+          description: URIs of archives to be extracted in the working directory of
+            Dataproc drivers and tasks.
+          type: array
+          items:
+            type: string
+        properties:
+          description: A mapping of property names to values, used to configure Dataproc.
+          type: object
+          additionalProperties:
+            type: string
+        mainJarFileUri:
+          description: The HCFS URI of the jar file containing the main class.
+          type: string
+        mainClass:
+          description: The name of the driver's main class.
+          type: string
     StartClusterMetadata:
       type: object
       properties:
@@ -1633,5 +2027,7 @@ components:
 tags:
 - name: Cluster
   description: A set of methods for managing Dataproc clusters.
+- name: Job
+  description: A set of methods for managing jobs for Dataproc cluster.
 - name: Subcluster
   description: A set of methods for managing Dataproc subclusters.
