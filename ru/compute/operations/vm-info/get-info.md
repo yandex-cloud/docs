@@ -62,7 +62,7 @@
 
 ### Google Compute Engine {#gce-metadata}
 
-Сервер метаданных Яндекс.Облака позволяет возвращать метаданные в формате Google Compute Engine.
+Сервис метаданных Яндекс.Облака позволяет возвращать метаданные в формате Google Compute Engine.
 
 #### HTTP-запрос
 
@@ -125,7 +125,7 @@ $ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?re
 
 ### Amazon EC2 {#ec2-metadata}
 
-Сервер метаданных Яндекс.Облака позволяет возвращать метаданные в формате Amazon EC2.
+Сервис метаданных Яндекс.Облака позволяет возвращать метаданные в формате Amazon EC2.
 
 #### HTTP-запрос
 

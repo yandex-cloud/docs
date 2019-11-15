@@ -5,16 +5,32 @@
 {% list tabs %}
 
 - Консоль управления
-  
+
   Чтобы получить список доступных образов, выполните следующие шаги:
-  
+
   1. Откройте каталог, в котором будет создана виртуальная машина.
   1. Нажмите кнопку **Создать ресурс**.
   1. Выберите **Виртуальная машина**.
   1. В блоке **Публичные образы** нажмите кнопку **Выбрать**.
-  
+
 - CLI
-  
+
   {% include [standard-images](../../../_includes/standard-images.md) %}
-  
+
+- API
+
+  1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
+     * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
+     * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
+  1. Получите список публичных образов от Яндекс.Облака с помощью метода [List](../../api-ref/Image/list.md) для ресурса `Image`. В запросе укажите следующие параметры:
+     * В идентификаторе каталога укажите `standard-images`.
+     * В каталоге много образов, поэтому укажите `pageSize=1000` или используйте полученное значение `nextPageToken`, чтобы получить продолжение списка.
+
+    Результат запишите в файл, например в `output.json`:
+
+    ```bash
+    $ export IAM_TOKEN=CggaATEVAgA...
+    $ curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://compute.api.cloud.yandex.net/compute/v1/images?folderId=standard-images&pageSize=1000" > output.json
+    ```
+
 {% endlist %}
