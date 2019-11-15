@@ -18,9 +18,9 @@
 ![image](../../_assets/kms/service-roles-hierarchy.svg)
 
 Роли, действующие в сервисе:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+* {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+* {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+* {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
 ## Какие роли мне необходимы {#required-roles}
 

@@ -1,4 +1,4 @@
-#### mdb.dataproc.agent {#mdb-dataproc-agent}
+### mdb.dataproc.agent {#mdb-dataproc-agent}
 
 The `mdb.dataproc.agent` role lets the service account assigned to the {{ dataproc-name }} cluster notify the service of the status of each host in the cluster.
 

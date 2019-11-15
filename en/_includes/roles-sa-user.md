@@ -1,4 +1,4 @@
-#### iam.serviceAccounts.user {#sa-user}
+### iam.serviceAccounts.user {#sa-user}
 
 The `iam.serviceAccounts.user` role means that the user has the right to use service accounts.
 This role is necessary when the user asks the service to perform operations on behalf of a service account.

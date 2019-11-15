@@ -22,29 +22,21 @@ To assign a user a role:
 
 The list below shows all roles that are considered when verifying access rights in the {{ sf-name }} service.
 
-### Service roles
-
-_Service roles_ are roles that allow access to the resources of a particular service.
-
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
 {% include [functions-roles-invoker](../../_includes/roles-functions-invoker.md) %}
 
-### Primitive roles
-
-You can assign primitive roles to any resource in any service.
-
-#### {{ roles-viewer }}
+### {{ roles-viewer }}
 
 The user with the `{{ roles-viewer }}` role can view information about resources, such as the list of functions or their versions and the function execution log.
 
-#### {{ roles-editor }}
+### {{ roles-editor }}
 
 The user with the `{{ roles-editor }}` role can manage functions and their versions, such as creating or deleting a version or editing information about a function.
 
 The `{{ roles-editor }}` role also includes all `{{ roles-viewer }}` role permissions.
 
-#### {{ roles-admin }}
+### {{ roles-admin }}
 
 The user with the `{{ roles-admin }}` role can manage access rights to resources, such as allow other users to call functions or work with their versions.
 

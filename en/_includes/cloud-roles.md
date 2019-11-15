@@ -1,8 +1,8 @@
-#### {{ roles-cloud-member }} {#member}
+### {{ roles-cloud-member }} {#member}
 
 {% include [roles-cloud-member](roles-cloud-member.md) %}
 
-#### {{ roles-cloud-owner }} {#owner}
+### {{ roles-cloud-owner }} {#owner}
 
 The`{{ roles-cloud-owner }}` is assigned for the cloud and makes the user the [owner of the cloud](../resource-manager/concepts/resources-hierarchy.md#owner). The owner can perform any operation with the cloud and its resources.
 

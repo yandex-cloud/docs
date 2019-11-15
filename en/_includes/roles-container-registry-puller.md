@@ -1,4 +1,4 @@
-#### container-registry.images.puller {#cr-images-puller}
+### container-registry.images.puller {#cr-images-puller}
 
 The `{{ roles-cr-puller }}` role includes the following permissions:
 

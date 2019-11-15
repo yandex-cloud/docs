@@ -6,9 +6,9 @@ This section provides recommendations for using {{ iam-short-name }} features to
 
 For critical resources:
 
-* Assign the minimum required roles. For example, to allow the creation of virtual machines from images in {{ compute-name }}, [assign the](../operations/roles/grant.md) `compute.images.user` role instead of the `editor` role or higher.
+* Assign the minimum required [roles](../concepts/access-control/roles.md). For example, to allow the creation of virtual machines from images in {{ compute-name }}, [assign the](../operations/roles/grant.md) `compute.images.user` role instead of the `editor` role or higher.
 
-* Try to assign [service roles](../concepts/access-control/roles.md#service-roles) rather than [primitive](../concepts/access-control/roles.md#primitive-roles) roles (`viewer`, `editor`, `admin`). Primitive roles apply to resources in any Yandex.Cloud service.
+* Try to assign service roles rather than primitive roles (`viewer`, `editor`, `admin`). Primitive roles apply to resources in any Yandex.Cloud service.
 
     Use primitive roles if you don't have an applicable service role or if you want to grant a user total access.
 

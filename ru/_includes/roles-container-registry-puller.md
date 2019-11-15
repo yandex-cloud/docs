@@ -1,4 +1,4 @@
-#### container-registry.images.puller {#cr-images-puller}
+### container-registry.images.puller {#cr-images-puller}
 
 В роль `{{ roles-cr-puller }}` входят следующие разрешения: 
 

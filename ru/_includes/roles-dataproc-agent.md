@@ -1,4 +1,4 @@
-#### mdb.dataproc.agent {#mdb-dataproc-agent}
+### mdb.dataproc.agent {#mdb-dataproc-agent}
 
 Роль `mdb.dataproc.agent` позволяет сервисному аккаунту, привязанному к кластеру {{ dataproc-name }}, сообщать сервису о состоянии каждого хоста в кластере.
 

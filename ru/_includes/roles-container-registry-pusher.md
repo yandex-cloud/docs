@@ -1,4 +1,4 @@
-#### container-registry.images.pusher {#cr-images-pusher}
+### container-registry.images.pusher {#cr-images-pusher}
 
 В роль `{{ roles-cr-pusher }}` входят следующие разрешения: 
 

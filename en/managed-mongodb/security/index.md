@@ -20,27 +20,19 @@ To assign a user a role:
 
 The list below shows all roles that are considered when verifying access rights in the {{ mmg-name }} service.
 
-### Service roles
-
-_Service roles_ are roles that allow access to the resources of a particular service.
-
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
-### Primitive roles
-
-You can assign primitive roles to any resource in any service.
-
-#### {{ roles-viewer }}
+### {{ roles-viewer }}
 
 Users with the `{{ roles-viewer }}` role can view information about resources. For example, they can view a list of hosts or get information about a database cluster.
 
-#### {{ roles-editor }}
+### {{ roles-editor }}
 
 Users with the `{{ roles-editor }}` role can manage any resource, including creating a database cluster and creating or deleting cluster hosts.
 
 The `{{ roles-editor }}` role also includes all `{{ roles-viewer }}` role permissions.
 
-#### {{ roles-admin }}
+### {{ roles-admin }}
 
 Users with the `{{ roles-admin }}` role can manage resource access rights, including allowing other users to create database clusters and to view information about them.
 

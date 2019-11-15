@@ -1,4 +1,4 @@
-#### datalens.instances.user {#datalens-instances-user}
+### datalens.instances.user {#datalens-instances-user}
 
 The `{{ roles-datalens-instances-user }}` role provides access to {{ datalens-short-name }}.
 
