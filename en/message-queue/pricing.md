@@ -9,10 +9,23 @@ editable: false
 
 ### Requests to queues
 
-| Service | Price per 1 million requests, <br>with VAT |
-| ----- | ----- |
-| Requests to standard queues | 30.48 ₽ |
-| Requests to FIFO queues | 38.22 ₽ |
+{% list tabs %}
+
+- Prices in USD
+  
+  | Service | Rate for 1 million requests, without VAT |
+  | ----- | ----- |
+  | Requests to standard queues | $0.390769 |
+  | Requests to FIFO queues | $0.490000 |
+  
+- Prices in roubles
+  
+  Service | Rate for 1 million requests, with VAT
+  ----- | -----
+  Requests to standard queues | ₽30.48
+  Requests to FIFO queues | ₽38.22
+  
+{% endlist %}
 
 Payment is made for the actual number of requests. For example, the cost per thousand requests is `₽0.03048`.
 

@@ -8,7 +8,7 @@ The minimum charging unit is 1 MB. The price of a gigabyte of traffic changes de
 
 | Resource category | Cost of 1 GB without VAT | Cost of 1 GB with VAT |
 | ----- | ----- | ----- |
-| Outgoing traffic, <10 TB | 1.2712 ₽ | 1.5254 ₽ |
-| Outgoing traffic, next 40 TB | 1.0600 ₽ | 1.2720 ₽ |
-| Outgoing traffic, next 100 TB | 0.9000 ₽ | 1.0800 ₽ |
-| Outgoing traffic, >150 TB | 0.7500 ₽ | 0.9000 ₽ |
+| Outgoing traffic, <10 TB | ₽1.2712 | ₽1.5254 |
+| Outgoing traffic, next 40 TB | ₽1.0600 | ₽1.2720 |
+| Outgoing traffic, next 100 TB | ₽0.9000 | ₽1.0800 |
+| Outgoing traffic, >150 TB | ₽0.7500 | ₽0.9000 |
