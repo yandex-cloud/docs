@@ -423,9 +423,7 @@ paths:
     get:
       tags:
       - Cluster
-      summary: |-
-        Получает логи для указанного кластера Redis. Дополнительные сведения о логах см. в
-        разделе [Logs](/docs/managed-redis/concepts/logs) документации.
+      summary: Получает логи для указанного кластера Redis.
       operationId: ClusterListLogs
       parameters:
       - name: clusterId
@@ -1023,7 +1021,7 @@ components:
             $ref: '#/components/schemas/HostSpec'
     Backup:
       description: |-
-        Описание резервной копии Redis. Подробнее смотрите в [documentation](/docs/managed-redis/concepts/backup) Managed
+        Описание резервной копии Redis. Подробнее смотрите в [документации](/docs/managed-redis/concepts/backup) Managed
         Service for Redis.
       type: object
       properties:
@@ -1066,7 +1064,7 @@ components:
             копирование.
           type: string
     Cluster:
-      description: Описание кластера Redis. Подробнее смотрите в [documentation](/docs/managed-redis/concepts/)
+      description: Описание кластера Redis. Подробнее смотрите в [документации](/docs/managed-redis/concepts/)
         Managed Service for Redis.
       type: object
       properties:
@@ -1744,7 +1742,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-redis/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -2094,7 +2092,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-redis/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-redis/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -2134,7 +2132,7 @@ components:
         объема памяти, доступного на хосте. Параметр maxmemory зависит от [host
         class](/docs/managed-redis/concepts/instance-types) Managed Service for Redis.
 
-        Все политики подробно описаны в [Redis documentation](https://redis.io/topics/lru-cache).
+        Все политики подробно описаны в [документации Redis](https://redis.io/topics/lru-cache).
 
          - VOLATILE_LRU: Пытаться удалять менее востребованные (LRU) ключи с `expire set`.
          - ALLKEYS_LRU: Удалять менее востребованные (LRU) ключи.

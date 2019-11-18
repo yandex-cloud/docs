@@ -33,12 +33,15 @@ logGroupId | **string**<br>
 Method | Description
 --- | ---
 [addCertificate](addCertificate.md) | 
+[addPassword](addPassword.md) | 
 [create](create.md) | 
 [delete](delete.md) | 
 [deleteCertificate](deleteCertificate.md) | 
+[deletePassword](deletePassword.md) | 
 [get](get.md) | 
 [list](list.md) | 
 [listCertificates](listCertificates.md) | 
 [listDeviceTopicAliases](listDeviceTopicAliases.md) | 
 [listOperations](listOperations.md) | 
+[listPasswords](listPasswords.md) | 
 [update](update.md) | 

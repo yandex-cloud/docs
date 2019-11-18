@@ -429,9 +429,7 @@ paths:
     get:
       tags:
       - Cluster
-      summary: |-
-        Получает логи для указанного кластера MySQL. Дополнительные сведения о логах см. в
-        разделе [Логи](/docs/managed-mysql/concepts/logs) документации.
+      summary: Получает логи для указанного кластера MySQL.
       operationId: ClusterListLogs
       parameters:
       - name: clusterId
@@ -1304,7 +1302,7 @@ components:
             копирование.
           type: string
     Cluster:
-      description: Кластер MySQL. Подробнее см. в разделе [documentation](/docs/managed-mysql/concepts).
+      description: Кластер MySQL. Подробнее см. в [документации](/docs/managed-mysql/concepts).
       type: object
       properties:
         id:
@@ -1964,8 +1962,7 @@ components:
             Время, в течение которого запрос должен обрабатываться, прежде чем он начинает
             считаться медленным.
 
-            Подробнее см. в [MySQL documentation for the
-            variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
         generalLog:
@@ -2150,8 +2147,7 @@ components:
          - SELECT: Получение строк из таблиц.
 
         Некоторые операторы SELECT могут быть разрешены без привилегии SELECT. Привилегия SELECT
-        необходима для всех операторов, считывающих значения столбцов. Подробнее в [MySQL
-        documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).
+        необходима для всех операторов, считывающих значения столбцов. Подробнее в [документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).
          - SHOW_VIEW: Использование инструкции SHOW CREATE VIEW. Также необходимо для представлений,
         используемых с EXPLAIN.
          - TRIGGER: Создание, удаление, выполнение или отображение триггеров для таблицы.
@@ -2757,8 +2753,7 @@ components:
             Время, в течение которого запрос должен обрабатываться, прежде чем он начинает
             считаться медленным.
 
-            Подробнее см. в [MySQL documentation for the
-            variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
         generalLog:
@@ -2824,8 +2819,7 @@ components:
             Время, в течение которого запрос должен обрабатываться, прежде чем он начинает
             считаться медленным.
 
-            Подробнее см. в [MySQL documentation for the
-            variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
         generalLog:
@@ -2891,8 +2885,7 @@ components:
             Время, в течение которого запрос должен обрабатываться, прежде чем он начинает
             считаться медленным.
 
-            Подробнее см. в [MySQL documentation for the
-            variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
+            Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time).
           type: number
           format: double
         generalLog:

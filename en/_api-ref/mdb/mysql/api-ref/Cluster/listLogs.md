@@ -4,7 +4,6 @@ editable: false
 
 # Method listLogs
 Retrieves logs for the specified MySQL cluster.
-For more information about logs, see the [Logs](/docs/managed-mysql/concepts/logs) section in the documentation.
  
 
  

@@ -586,7 +586,7 @@ components:
         instanceGroupYaml:
           description: |-
             Required.
-            CreateInstanceGroupRequest in YAML format.
+            [create](/docs/compute/api-ref/InstanceGroup/create) request in YAML format.
 
             The maximum string length in characters is 1048576.
           type: string
@@ -1330,17 +1330,17 @@ components:
           type: string
         warmupDuration:
           description: |-
-            The warmup time of the instance, in seconds. During this time,
+            The warmup time of the instance in seconds. During this time,
             traffic is sent to the instance, but instance metrics are not collected.
 
             The maximum value is 600 seconds.
           type: string
         stabilizationDuration:
           description: |-
-            Minimum amount of time, in seconds, allotted for monitoring before
+            Minimum amount of time in seconds allotted for monitoring before
             Instance Groups can reduce the number of instances in the group.
-            During this time, the group size is not decreased, even if the new metric values
-            indicate that it should be.
+            During this time, the group size doesn't decrease, even if the new metric values
+            indicate that it should.
 
             Acceptable values are 60 seconds to 1800 seconds, inclusive.
           type: string
@@ -1366,7 +1366,7 @@ components:
       properties:
         utilizationTarget:
           description: |-
-            The target CPU utilization level. Instance Groups maintains this level for each availability zone.
+            Target CPU utilization level. Instance Groups maintains this level for each availability zone.
 
             Acceptable values are 10 to 100, inclusive.
           type: number
@@ -1381,28 +1381,28 @@ components:
         metricName:
           description: |-
             Required.
-            Name of a custom metric in Yandex Monitoring that should be used for scaling.
+            Name of custom metric in Yandex Monitoring that should be used for scaling.
 
             Value must match the regular expression `` [a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]<>-]{0,198} ``.
           type: string
         target:
           description: |-
-            Target value for specified custom metric. Instance Groups maintains this level for each availability zone.
+            Target value for the custom metric. Instance Groups maintains this level for each availability zone.
 
             Value must be greater than 0.
           type: number
           format: double
     ScalePolicyCustomRuleMetricType:
       description: |2-
-         - GAUGE: This type is used for metrics that shows the metric value at a certain point in time.
-        For example, requests per second to the server on an instance.
+         - GAUGE: This type is used for metrics that show the metric value at a certain point in time,
+        such as requests per second to the server on an instance.
 
-        Instance Groups will calculate the average metric value for the period
+        Instance Groups calculates the average metric value for the period
         specified in the measurementDuration field.
-         - COUNTER: This type is used for metrics that monotonically increase over time.
-        For example, the total number of requests to the server on an instance.
+         - COUNTER: This type is used for metrics that monotonically increase over time,
+        such as the total number of requests to the server on an instance.
 
-        Instance Groups will calculate the average value increase for the period
+        Instance Groups calculates the average value increase for the period
         specified in the measurementDuration field.
       type: string
       enum:
@@ -1412,10 +1412,10 @@ components:
       description: |2-
          - UTILIZATION: This type means that the metric applies to one instance.
         First, Instance Groups calculates the average metric value for each instance,
-        then averages the values for all groups' instances in one availability zone.
-        Metric with this type must have the `instance_id` label.
-         - WORKLOAD: This type means that the metric applies to all groups' instances in one availability zone.
-        Metric with this type must have the `zone_id` label.
+        then averages the values for instances in one availability zone.
+        This type of metric must have the `instance_id` label.
+         - WORKLOAD: This type means that the metric applies to instances in one availability zone.
+        This type of metric must have the `zone_id` label.
       type: string
       enum:
       - UTILIZATION
@@ -1491,7 +1491,7 @@ components:
         instanceGroupYaml:
           description: |-
             Required.
-            UpdateInstanceGroupRequest in YAML format.
+            [update](/docs/compute/api-ref/InstanceGroup/update) request in YAML format.
 
             The maximum string length in characters is 1048576.
           type: string
@@ -2221,13 +2221,13 @@ components:
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
     ScalePolicyCpuUtilizationRule_in_ScalePolicyAutoScale_cpuUtilizationRule:
-      description: Defines an autoscaling rule based on average CPU utilization of
-        the instance group.
+      description: Defines an autoscaling rule based on the average CPU utilization
+        of the instance group.
       type: object
       properties:
         utilizationTarget:
           description: |-
-            The target CPU utilization level. Instance Groups maintains this level for each availability zone.
+            Target CPU utilization level. Instance Groups maintains this level for each availability zone.
 
             Acceptable values are 10 to 100, inclusive.
           type: number
@@ -2235,15 +2235,15 @@ components:
     ScalePolicyCustomRuleRuleType_in_ScalePolicyCustomRule_ruleType:
       description: |-
         Required.
-        Rule type of the custom metric. This field affects which label from
-        the custom metric must be used: `zone_id` or `instance_id`.
+        Custom metric rule type. This field affects which label from
+        the custom metric should be used: `zone_id` or `instance_id`.
 
          - UTILIZATION: This type means that the metric applies to one instance.
         First, Instance Groups calculates the average metric value for each instance,
-        then averages the values for all groups' instances in one availability zone.
-        Metric with this type must have the `instance_id` label.
-         - WORKLOAD: This type means that the metric applies to all groups' instances in one availability zone.
-        Metric with this type must have the `zone_id` label.
+        then averages the values for instances in one availability zone.
+        This type of metric must have the `instance_id` label.
+         - WORKLOAD: This type means that the metric applies to instances in one availability zone.
+        This type of metric must have the `zone_id` label.
       type: string
       enum:
       - UTILIZATION
@@ -2251,17 +2251,17 @@ components:
     ScalePolicyCustomRuleMetricType_in_ScalePolicyCustomRule_metricType:
       description: |-
         Required.
-        Type of the custom metric. This field affects how Instance Group calculates an average metric value.
+        Type of custom metric. This field affects how Instance Groups calculates the average metric value.
 
-         - GAUGE: This type is used for metrics that shows the metric value at a certain point in time.
-        For example, requests per second to the server on an instance.
+         - GAUGE: This type is used for metrics that show the metric value at a certain point in time,
+        such as requests per second to the server on an instance.
 
-        Instance Groups will calculate the average metric value for the period
+        Instance Groups calculates the average metric value for the period
         specified in the measurementDuration field.
-         - COUNTER: This type is used for metrics that monotonically increase over time.
-        For example, the total number of requests to the server on an instance.
+         - COUNTER: This type is used for metrics that monotonically increase over time,
+        such as the total number of requests to the server on an instance.
 
-        Instance Groups will calculate the average value increase for the period
+        Instance Groups calculates the average value increase for the period
         specified in the measurementDuration field.
       type: string
       enum:

@@ -7,12 +7,16 @@ items:
         href: undefined/Device/index.md
       - name: addCertificate
         href: undefined/Device/addCertificate.md
+      - name: addPassword
+        href: undefined/Device/addPassword.md
       - name: create
         href: undefined/Device/create.md
       - name: delete
         href: undefined/Device/delete.md
       - name: deleteCertificate
         href: undefined/Device/deleteCertificate.md
+      - name: deletePassword
+        href: undefined/Device/deletePassword.md
       - name: get
         href: undefined/Device/get.md
       - name: list
@@ -21,6 +25,8 @@ items:
         href: undefined/Device/listCertificates.md
       - name: listOperations
         href: undefined/Device/listOperations.md
+      - name: listPasswords
+        href: undefined/Device/listPasswords.md
       - name: update
         href: undefined/Device/update.md
   - name: Registry
@@ -29,12 +35,16 @@ items:
         href: undefined/Registry/index.md
       - name: addCertificate
         href: undefined/Registry/addCertificate.md
+      - name: addPassword
+        href: undefined/Registry/addPassword.md
       - name: create
         href: undefined/Registry/create.md
       - name: delete
         href: undefined/Registry/delete.md
       - name: deleteCertificate
         href: undefined/Registry/deleteCertificate.md
+      - name: deletePassword
+        href: undefined/Registry/deletePassword.md
       - name: get
         href: undefined/Registry/get.md
       - name: list
@@ -45,5 +55,7 @@ items:
         href: undefined/Registry/listDeviceTopicAliases.md
       - name: listOperations
         href: undefined/Registry/listOperations.md
+      - name: listPasswords
+        href: undefined/Registry/listPasswords.md
       - name: update
         href: undefined/Registry/update.md

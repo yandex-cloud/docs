@@ -3135,7 +3135,7 @@ status | **string**<br><p>Текущее состояние кластера.</p
 [list](list.md) | Получает список ресурсов Cluster для PostgreSQL, принадлежащих указанному каталогу.
 [listBackups](listBackups.md) | Получает список доступных резервных копий для указанного кластера PostgreSQL.
 [listHosts](listHosts.md) | Получает список хостов для указанного кластера.
-[listLogs](listLogs.md) | Получает логи для указанного кластера PostgreSQL. Дополнительные сведения о логах см. в разделе [Logs](/docs/managed-postgresql/concepts/logs) документации.
+[listLogs](listLogs.md) | Получает логи для указанного кластера PostgreSQL.
 [listOperations](listOperations.md) | Получает список ресурсов Operation для указанного кластера.
 [move](move.md) | Перемещает кластер PostgreSQL в указанный каталог.
 [restore](restore.md) | Создает новый кластер PostgreSQL с использованием указанной резервной копии.

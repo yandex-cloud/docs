@@ -24,7 +24,8 @@ POST undefined/iot-devices/v1/devices
       "certificateData": "string"
     }
   ],
-  "topicAliases": "object"
+  "topicAliases": "object",
+  "password": "string"
 }
 ```
 
@@ -37,6 +38,7 @@ description | **string**<br><p>The maximum string length in characters is 256.</
 certificates[] | **object**<br>
 certificates[].<br>certificateData | **string**<br>
 topicAliases | **object**<br><p>map from alias to canonical topic name prefix, e.g. my/custom/alias -&gt; $device/{id}/events</p> 
+password | **string**<br><p>if specified, must contain at least 3 of 4 ASCII character groups: upper case latin, lower case latin, numbers and special symbols</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

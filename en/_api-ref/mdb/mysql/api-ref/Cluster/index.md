@@ -222,7 +222,7 @@ Method | Description
 [list](list.md) | Retrieves the list of MySQL clusters that belong to the specified folder.
 [listBackups](listBackups.md) | Retrieves the list of available backups for the specified MySQL cluster.
 [listHosts](listHosts.md) | Retrieves a list of hosts for the specified MySQL cluster.
-[listLogs](listLogs.md) | Retrieves logs for the specified MySQL cluster. For more information about logs, see the [Logs](/docs/managed-mysql/concepts/logs) section in the documentation.
+[listLogs](listLogs.md) | Retrieves logs for the specified MySQL cluster.
 [listOperations](listOperations.md) | Retrieves the list of operations for the specified MySQL cluster.
 [move](move.md) | Moves the specified MySQL cluster to the specified folder.
 [restore](restore.md) | Creates a new MySQL cluster using the specified backup.

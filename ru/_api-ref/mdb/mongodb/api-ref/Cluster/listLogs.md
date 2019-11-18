@@ -3,8 +3,7 @@ editable: false
 ---
 
 # Метод listLogs
-Получает логи для указанного кластера MongoDB. Логи подробно описаны в разделе
-[Logs](/docs/yandex-mdb-guide/concepts/logs) руководства разработчика.
+Получает логи для указанного кластера MongoDB.
  
 
  

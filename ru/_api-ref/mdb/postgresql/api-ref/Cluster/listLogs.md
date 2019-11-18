@@ -3,8 +3,7 @@ editable: false
 ---
 
 # Метод listLogs
-Получает логи для указанного кластера PostgreSQL. Дополнительные сведения о логах см. в
-разделе [Logs](/docs/managed-postgresql/concepts/logs) документации.
+Получает логи для указанного кластера PostgreSQL.
  
 
  

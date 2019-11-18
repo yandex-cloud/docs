@@ -3082,7 +3082,7 @@ components:
           type: boolean
           format: boolean
     NetworkSettings_in_Instance_networkSettings:
-      description: Network settings.
+      description: Do not specify this field, network settings are not supported yet.
       type: object
       properties:
         type:
@@ -3135,7 +3135,7 @@ components:
           $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
     NetworkSettingsType_in_NetworkSettings_type:
       description: |-
-        Network type.
+        Do not specify this field, network settings are not supported yet.
 
          - STANDARD: Standard network.
          - SOFTWARE_ACCELERATED: Software accelerated network.

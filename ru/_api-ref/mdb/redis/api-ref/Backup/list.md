@@ -44,7 +44,7 @@ pageToken | Токен страницы. Установите значение [
  
 Поле | Описание
 --- | ---
-backups[] | **object**<br><p>Описание резервной копии Redis. Подробнее смотрите в <a href="/docs/managed-redis/concepts/backup">documentation</a> Managed Service for Redis.</p> 
+backups[] | **object**<br><p>Описание резервной копии Redis. Подробнее смотрите в <a href="/docs/managed-redis/concepts/backup">документации</a> Managed Service for Redis.</p> 
 backups[].<br>id | **string**<br><p>Идентификатор резервной копии.</p> 
 backups[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит резервная копия.</p> 
 backups[].<br>createdAt | **string** (date-time)<br><p>Время создания в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> (т. е. когда операция резервного копирования была завершена).</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 

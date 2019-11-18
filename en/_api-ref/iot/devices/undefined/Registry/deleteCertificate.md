@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-DELETE undefined/iot-devices/v1/registries/{registryId}/certificates
+DELETE undefined/iot-devices/v1/registries/{registryId}/certificates/{fingerprint}
 ```
  
 ## Path parameters {#path_params}
@@ -17,11 +17,6 @@ DELETE undefined/iot-devices/v1/registries/{registryId}/certificates
 Parameter | Description
 --- | ---
 registryId | Required. The maximum string length in characters is 50.
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
 fingerprint | Required. The maximum string length in characters is 50.
  
 ## Response {#responses}

@@ -66,7 +66,7 @@ hosts[].<br>name | **string**<br><p>Имя хоста MongoDB. Имя хоста
 hosts[].<br>clusterId | **string**<br><p>Идентификатор хоста MongoDB. Этот идентификатор генерирует MDB при создании.</p> 
 hosts[].<br>zoneId | **string**<br><p>Идентификатор зоны доступности, в которой находится хост MongoDB.</p> 
 hosts[].<br>resources | **object**<br><p>Ресурсы, выделенные хосту MongoDB.</p> 
-hosts[].<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
+hosts[].<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">документации</a>.</p> 
 hosts[].<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
 hosts[].<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
 hosts[].<br>role | **string**<br><p>Роль хоста в кластере.</p> <ul> <li>ROLE_UNKNOWN: Роль хоста в кластере неизвестна.</li> <li>PRIMARY: Хост является основным сервером MongoDB в кластере.</li> <li>SECONDARY: Хост является вторичным сервером MongoDB в кластере.</li> </ul> 

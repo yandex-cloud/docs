@@ -26,7 +26,7 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instanceGroups:yaml
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. ID of the folder to create an instance group in. To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> 
-instanceGroupYaml | **string**<br><p>Required. CreateInstanceGroupRequest in YAML format.</p> <p>The maximum string length in characters is 1048576.</p> 
+instanceGroupYaml | **string**<br><p>Required. <a href="/docs/compute/api-ref/InstanceGroup/create">create</a> request in YAML format.</p> <p>The maximum string length in characters is 1048576.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

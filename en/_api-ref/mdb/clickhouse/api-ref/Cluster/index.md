@@ -928,7 +928,7 @@ Method | Description
 [list](list.md) | Retrieves a list of ClickHouse clusters that belong to the specified folder.
 [listBackups](listBackups.md) | Retrieves the list of available backups for the specified ClickHouse cluster.
 [listHosts](listHosts.md) | Retrieves a list of hosts for the specified cluster.
-[listLogs](listLogs.md) | Retrieves logs for the specified ClickHouse cluster. For more information about logs, see the [Logs](/docs/managed-clickhouse/concepts/logs) section of the documentation.
+[listLogs](listLogs.md) | Retrieves logs for the specified ClickHouse cluster.
 [listOperations](listOperations.md) | Retrieves the list of Operation resources for the specified cluster.
 [listShards](listShards.md) | Retrieves a list of shards that belong to the specified cluster.
 [move](move.md) | Moves a ClickHouse cluster to the specified folder.

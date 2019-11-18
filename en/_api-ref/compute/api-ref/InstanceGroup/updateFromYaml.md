@@ -30,7 +30,7 @@ instanceGroupId | Required. ID of the instance group to update. To get the insta
  
 Field | Description
 --- | ---
-instanceGroupYaml | **string**<br><p>Required. UpdateInstanceGroupRequest in YAML format.</p> <p>The maximum string length in characters is 1048576.</p> 
+instanceGroupYaml | **string**<br><p>Required. <a href="/docs/compute/api-ref/InstanceGroup/update">update</a> request in YAML format.</p> <p>The maximum string length in characters is 1048576.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

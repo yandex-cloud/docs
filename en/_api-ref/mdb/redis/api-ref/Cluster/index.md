@@ -119,7 +119,7 @@ Method | Description
 [list](list.md) | Retrieves the list of Redis clusters that belong to the specified folder.
 [listBackups](listBackups.md) | Retrieves the list of available backups for the specified Redis cluster.
 [listHosts](listHosts.md) | Retrieves a list of hosts for the specified cluster.
-[listLogs](listLogs.md) | Retrieves logs for the specified Redis cluster. For more information about logs, see the [Logs](/docs/managed-redis/concepts/logs) section in the documentation.
+[listLogs](listLogs.md) | Retrieves logs for the specified Redis cluster.
 [listOperations](listOperations.md) | Retrieves the list of operations for the specified cluster.
 [listShards](listShards.md) | Retrieves a list of shards.
 [move](move.md) | Moves a Redis cluster to the specified folder.

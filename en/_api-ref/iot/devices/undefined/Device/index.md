@@ -29,11 +29,14 @@ topicAliases | **object**<br><p>map from alias to canonical topic name prefix, e
 Method | Description
 --- | ---
 [addCertificate](addCertificate.md) | 
+[addPassword](addPassword.md) | 
 [create](create.md) | 
 [delete](delete.md) | 
 [deleteCertificate](deleteCertificate.md) | 
+[deletePassword](deletePassword.md) | 
 [get](get.md) | 
 [list](list.md) | 
 [listCertificates](listCertificates.md) | 
 [listOperations](listOperations.md) | 
+[listPasswords](listPasswords.md) | 
 [update](update.md) | 

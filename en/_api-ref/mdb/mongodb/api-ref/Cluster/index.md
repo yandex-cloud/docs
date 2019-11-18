@@ -869,7 +869,7 @@ Method | Description
 [list](list.md) | Retrieves the list of MongoDB Cluster resources that belong to the specified folder.
 [listBackups](listBackups.md) | Retrieves the list of available backups for the specified MongoDB cluster.
 [listHosts](listHosts.md) | Retrieves a list of hosts for the specified cluster.
-[listLogs](listLogs.md) | Retrieves logs for the specified MongoDB cluster. See the [Logs](/docs/yandex-mdb-guide/concepts/logs) section in the developers guide for detailed logs description.
+[listLogs](listLogs.md) | Retrieves logs for the specified MongoDB cluster.
 [listOperations](listOperations.md) | Retrieves the list of Operation resources for the specified cluster.
 [listShards](listShards.md) | Retrieves a list of shards.
 [move](move.md) | Moves the specified MongoDB cluster to the specified folder.

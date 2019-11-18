@@ -2,29 +2,26 @@
 editable: false
 ---
 
-# Method create
+# Method addPassword
 
  
 
  
 ## HTTP request {#https-request}
 ```
-POST undefined/iot-devices/v1/registries
+POST undefined/iot-devices/v1/devices/{deviceId}/passwords
 ```
+ 
+## Path parameters {#path_params}
+ 
+Parameter | Description
+--- | ---
+deviceId | Required. The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
 ```json 
 {
-  "folderId": "string",
-  "name": "string",
-  "description": "string",
-  "labels": "object",
-  "certificates": [
-    {
-      "certificateData": "string"
-    }
-  ],
   "password": "string"
 }
 ```
@@ -32,13 +29,7 @@ POST undefined/iot-devices/v1/registries
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Required. The maximum string length in characters is 50. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
-description | **string**<br><p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
-certificates[] | **object**<br>
-certificates[].<br>certificateData | **string**<br>
-password | **string**<br><p>if specified, must contain at least 3 of 4 ASCII character groups: upper case latin, lower case latin, numbers and special symbols</p> 
+password | **string**<br><p>must contain at least 3 of 4 ASCII character groups: upper case latin, lower case latin, numbers and special symbols</p> <p>The minimum string length in characters is 14.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

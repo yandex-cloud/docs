@@ -431,9 +431,7 @@ paths:
     get:
       tags:
       - Cluster
-      summary: |-
-        Получает логи для указанного кластера PostgreSQL. Дополнительные сведения о логах см. в
-        разделе [Logs](/docs/managed-postgresql/concepts/logs) документации.
+      summary: Получает логи для указанного кластера PostgreSQL.
       operationId: ClusterListLogs
       parameters:
       - name: clusterId
@@ -2343,7 +2341,7 @@ components:
     PostgresqlConfig10:
       description: |-
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL documentation](https://www.postgresql.org/docs/10/runtime-config.html).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/10/runtime-config.html).
       type: object
       properties:
         maxConnections:
@@ -3146,7 +3144,7 @@ components:
     PostgresqlConfig11:
       description: |-
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/11/runtime-config.html).
       type: object
       properties:
         maxConnections:
@@ -3984,8 +3982,7 @@ components:
     PostgresqlConfig9_6:
       description: |-
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL
-        documentation](https://www.postgresql.org/docs/9.6/static/runtime-config).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config).
       type: object
       properties:
         maxConnections:
@@ -4354,7 +4351,7 @@ components:
     PostgresqlHostConfig10:
       description: |-
         Поля и структура `PostgresqlHostConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL documentation](https://www.postgresql.org/docs/10/runtime-config.html).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/10/runtime-config.html).
       type: object
       properties:
         recoveryMinApplyDelay:
@@ -4888,7 +4885,7 @@ components:
     PostgresqlHostConfig11:
       description: |-
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/11/runtime-config.html).
       type: object
       properties:
         recoveryMinApplyDelay:
@@ -5416,7 +5413,7 @@ components:
     PostgresqlHostConfig9_6:
       description: |-
         Поля и структура `PostgresqlHostConfig` отражает параметры конфигурационного файла PostgreSQL.
-        Подробное описание доступно в [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/runtime-config.html).
+        Подробное описание доступно в [документации PostgreSQL](https://www.postgresql.org/docs/9.6/runtime-config.html).
       type: object
       properties:
         recoveryMinApplyDelay:
@@ -5668,8 +5665,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в
-            [documentation](/docs/managed-postgresql/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-postgresql/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -6275,8 +6271,7 @@ components:
       default: STATUS_UNKNOWN
     ConnectionPoolerConfigPoolingMode_in_ConnectionPoolerConfig_poolingMode:
       description: |-
-        Режим, в котором работает менеджер подключений. См. описание всех режимов в [documentation
-        for PgBouncer](https://pgbouncer.github.io/usage).
+        Режим, в котором работает менеджер подключений. См. описание всех режимов в [документации PgBouncer](https://pgbouncer.github.io/usage).
 
          - SESSION: Сессионный режим управления подключениями.
          - TRANSACTION: Транзакционный режим управления подключениями.
@@ -6457,8 +6452,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в
-            [documentation](/docs/managed-postgresql/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-postgresql/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -7162,7 +7156,7 @@ components:
         userConfig и [default_config]).
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL documentation](https://www.postgresql.org/docs/10/runtime-config.html).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/10/runtime-config.html).
       type: object
       properties:
         maxConnections:
@@ -7448,7 +7442,7 @@ components:
         Пользовательские настройки для кластера PostgreSQL 10.
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL documentation](https://www.postgresql.org/docs/10/runtime-config.html).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/10/runtime-config.html).
       type: object
       properties:
         maxConnections:
@@ -7734,7 +7728,7 @@ components:
         Конфигурация по умолчанию для кластера PostgreSQL 10.
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL documentation](https://www.postgresql.org/docs/10/runtime-config.html).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/10/runtime-config.html).
       type: object
       properties:
         maxConnections:
@@ -9064,7 +9058,7 @@ components:
         userConfig и [default_config]).
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/11/runtime-config.html).
       type: object
       properties:
         maxConnections:
@@ -9347,7 +9341,7 @@ components:
         Пользовательские настройки для кластера PostgreSQL 11.
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/11/runtime-config.html).
       type: object
       properties:
         maxConnections:
@@ -9630,7 +9624,7 @@ components:
         Конфигурация по умолчанию для кластера PostgreSQL 11.
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/11/runtime-config.html).
       type: object
       properties:
         maxConnections:
@@ -11053,8 +11047,7 @@ components:
         userConfig и [default_config]).
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL
-        documentation](https://www.postgresql.org/docs/9.6/static/runtime-config).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config).
       type: object
       properties:
         maxConnections:
@@ -11299,8 +11292,7 @@ components:
         Пользовательские настройки для кластера PostgreSQL 9.6.
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL
-        documentation](https://www.postgresql.org/docs/9.6/static/runtime-config).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config).
       type: object
       properties:
         maxConnections:
@@ -11545,8 +11537,7 @@ components:
         Конфигурация по умолчанию для кластера PostgreSQL 9.6.
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
-        подробное описание которого доступно в [PostgreSQL
-        documentation](https://www.postgresql.org/docs/9.6/static/runtime-config).
+        подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config).
       type: object
       properties:
         maxConnections:

@@ -3,8 +3,7 @@ editable: false
 ---
 
 # Метод listLogs
-Получает логи для указанного кластера ClickHouse. Дополнительные сведения о логах см. в
-разделе [Logs](/docs/managed-clickhouse/concepts/logs) документации.
+Получает логи для указанного кластера ClickHouse.
  
 
  

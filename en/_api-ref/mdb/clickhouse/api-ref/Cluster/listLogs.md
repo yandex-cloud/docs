@@ -4,7 +4,6 @@ editable: false
 
 # Method listLogs
 Retrieves logs for the specified ClickHouse cluster.
-For more information about logs, see the [Logs](/docs/managed-clickhouse/concepts/logs) section of the documentation.
  
 
  

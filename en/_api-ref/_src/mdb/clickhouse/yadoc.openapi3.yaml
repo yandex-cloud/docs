@@ -431,9 +431,7 @@ paths:
     get:
       tags:
       - Cluster
-      summary: |-
-        Retrieves logs for the specified ClickHouse cluster.
-        For more information about logs, see the [Logs](/docs/managed-clickhouse/concepts/logs) section of the documentation.
+      summary: Retrieves logs for the specified ClickHouse cluster.
       operationId: ClusterListLogs
       parameters:
       - name: clusterId

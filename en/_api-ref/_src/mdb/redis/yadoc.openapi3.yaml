@@ -424,9 +424,7 @@ paths:
     get:
       tags:
       - Cluster
-      summary: |-
-        Retrieves logs for the specified Redis cluster.
-        For more information about logs, see the [Logs](/docs/managed-redis/concepts/logs) section in the documentation.
+      summary: Retrieves logs for the specified Redis cluster.
       operationId: ClusterListLogs
       parameters:
       - name: clusterId

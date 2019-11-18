@@ -397,9 +397,7 @@ paths:
     get:
       tags:
       - Cluster
-      summary: |-
-        Получает логи для указанного кластера MongoDB. Логи подробно описаны в разделе
-        [Logs](/docs/yandex-mdb-guide/concepts/logs) руководства разработчика.
+      summary: Получает логи для указанного кластера MongoDB.
       operationId: ClusterListLogs
       parameters:
       - name: clusterId
@@ -2247,8 +2245,7 @@ components:
           description: |-
             Порог времени для медленных операций, в миллисекундах. Операции, которые
             выполняются дольше этого порога, считаются медленными и обрабатываются
-            профайлером, работающим в режиме SLOW_OP. Подробнее см. в [MongoDB
-            documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+            профайлером, работающим в режиме SLOW_OP. Подробнее см. в [документации MongoDB](https://docs.mongodb.com/v3.6/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
 
             Значение должно быть больше 0.
           type: integer
@@ -2313,8 +2310,7 @@ components:
           description: |-
             Порог времени для медленных операций, в миллисекундах. Операции, которые
             выполняются дольше этого порога, считаются медленными и обрабатываются
-            профайлером, работающим в режиме SLOW_OP. Подробнее см. в [MongoDB
-            documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+            профайлером, работающим в режиме SLOW_OP. Подробнее см. в [документации MongoDB](https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
 
             Значение должно быть больше 0.
           type: integer
@@ -2371,7 +2367,7 @@ components:
     MongodConfig3_6:
       description: |-
         Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
-        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+        всех опций, описанных в [документации MongoDB](https://docs.mongodb.com/v3.6/reference/configuration-options/).
       type: object
       properties:
         storage:
@@ -2475,7 +2471,7 @@ components:
     MongodConfig4_0:
       description: |-
         Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
-        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/).
+        всех опций, описанных в [документации MongoDB](https://docs.mongodb.com/v4.0/reference/configuration-options/).
       type: object
       properties:
         storage:
@@ -2901,7 +2897,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -3404,7 +3400,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -3426,7 +3422,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -3461,7 +3457,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -3542,8 +3538,7 @@ components:
           description: |-
             Порог времени для медленных операций, в миллисекундах. Операции, которые
             выполняются дольше этого порога, считаются медленными и обрабатываются
-            профайлером, работающим в режиме SLOW_OP. Подробнее см. в [MongoDB
-            documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+            профайлером, работающим в режиме SLOW_OP. Подробнее см. в [документации MongoDB](https://docs.mongodb.com/v3.6/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
 
             Значение должно быть больше 0.
           type: integer
@@ -3561,8 +3556,7 @@ components:
           format: int64
     MongoCfgConfig3_6OperationProfilingMode_in_MongoCfgConfig3_6OperationProfiling_mode:
       description: |-
-        Уровень профилирования операций. Подробнее см. в [MongoDB
-        documentation](https://docs.mongodb.com/v3.6/tutorial/manage-the-database-profiler/).
+        Уровень профилирования операций. Подробнее см. в [документации MongoDB](https://docs.mongodb.com/v3.6/tutorial/manage-the-database-profiler/).
 
          - OFF: Профайлер выключен и не собирает никакие данные. Это уровень профилирования по
         умолчанию.
@@ -3609,8 +3603,7 @@ components:
           description: |-
             Порог времени для медленных операций, в миллисекундах. Операции, которые
             выполняются дольше этого порога, считаются медленными и обрабатываются
-            профайлером, работающим в режиме SLOW_OP. Подробнее см. в [MongoDB
-            documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+            профайлером, работающим в режиме SLOW_OP. Подробнее см. в [документации MongoDB](https://docs.mongodb.com/v4.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
 
             Значение должно быть больше 0.
           type: integer
@@ -3933,7 +3926,7 @@ components:
         userConfig и [default_config]).
 
         Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
-        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+        всех опций, описанных в [документации MongoDB](https://docs.mongodb.com/v3.6/reference/configuration-options/).
       type: object
       properties:
         storage:
@@ -3947,7 +3940,7 @@ components:
         Пользовательские настройки mongod для кластера MongoDB 3.6.
 
         Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
-        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+        всех опций, описанных в [документации MongoDB](https://docs.mongodb.com/v3.6/reference/configuration-options/).
       type: object
       properties:
         storage:
@@ -3961,7 +3954,7 @@ components:
         Конфигурация mongod по умолчанию для кластера MongoDB 3.6.
 
         Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
-        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+        всех опций, описанных в [документации MongoDB](https://docs.mongodb.com/v3.6/reference/configuration-options/).
       type: object
       properties:
         storage:
@@ -3976,7 +3969,7 @@ components:
         userConfig и [default_config]).
 
         Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
-        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/).
+        всех опций, описанных в [документации MongoDB](https://docs.mongodb.com/v4.0/reference/configuration-options/).
       type: object
       properties:
         storage:
@@ -3990,7 +3983,7 @@ components:
         Пользовательские настройки mongod для кластера MongoDB 4.0.
 
         Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
-        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/).
+        всех опций, описанных в [документации MongoDB](https://docs.mongodb.com/v4.0/reference/configuration-options/).
       type: object
       properties:
         storage:
@@ -4004,7 +3997,7 @@ components:
         Конфигурация mongod по умолчанию для кластера MongoDB 4.0.
 
         Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
-        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/).
+        всех опций, описанных в [документации MongoDB](https://docs.mongodb.com/v4.0/reference/configuration-options/).
       type: object
       properties:
         storage:
@@ -4056,7 +4049,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -4086,7 +4079,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -4115,7 +4108,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -4172,7 +4165,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -4202,7 +4195,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -4232,7 +4225,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -4286,7 +4279,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -4304,7 +4297,7 @@ components:
         Конфигурация для хостов mongod 3.6.
 
         Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
-        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
+        всех опций, описанных в [документации MongoDB](https://docs.mongodb.com/v3.6/reference/configuration-options/).
       type: object
       properties:
         storage:
@@ -4320,7 +4313,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -4346,7 +4339,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -4400,7 +4393,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -4418,7 +4411,7 @@ components:
         Конфигурация для хостов mongod 4.0.
 
         Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
-        всех опций, описанных в [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/).
+        всех опций, описанных в [документации MongoDB](https://docs.mongodb.com/v4.0/reference/configuration-options/).
       type: object
       properties:
         storage:
@@ -4434,7 +4427,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.
@@ -4460,7 +4453,7 @@ components:
         resourcePresetId:
           description: |-
             Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и
-            т. д.). Все доступные наборы ресурсов перечислены в [documentation](/docs/managed-mongodb/concepts/instance-types).
+            т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types).
           type: string
         diskSize:
           description: Объем хранилища, доступного хосту, в байтах.

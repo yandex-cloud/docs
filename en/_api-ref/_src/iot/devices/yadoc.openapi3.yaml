@@ -221,6 +221,91 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteDeviceCertificateMetadata'
       x-y-operation-response: Empty
+  /iot-devices/v1/devices/{deviceId}/passwords:
+    get:
+      tags:
+      - Device
+      operationId: DeviceListPasswords
+      parameters:
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDevicePasswordsResponse'
+      x-y-navtitle: listPasswords
+    post:
+      tags:
+      - Device
+      operationId: DeviceAddPassword
+      parameters:
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDevicePasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addPassword
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddDevicePasswordMetadata'
+      x-y-operation-response: DevicePassword
+  /iot-devices/v1/devices/{deviceId}/passwords/{passwordId}:
+    delete:
+      tags:
+      - Device
+      operationId: DeviceDeletePassword
+      parameters:
+      - name: deviceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: passwordId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deletePassword
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteDevicePasswordMetadata'
+      x-y-operation-response: Empty
   /iot-devices/v1/devices/{deviceId}/operations:
     get:
       tags:
@@ -438,6 +523,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddRegistryCertificateMetadata'
       x-y-operation-response: RegistryCertificate
+  /iot-devices/v1/registries/{registryId}/certificates/{fingerprint}:
     delete:
       tags:
       - Registry
@@ -452,10 +538,11 @@ paths:
         schema:
           type: string
       - name: fingerprint
-        in: query
+        in: path
         description: |-
           Required.
           The maximum string length in characters is 50.
+        required: true
         schema:
           type: string
       responses:
@@ -468,6 +555,91 @@ paths:
       x-y-navtitle: deleteCertificate
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteRegistryCertificateMetadata'
+      x-y-operation-response: Empty
+  /iot-devices/v1/registries/{registryId}/passwords:
+    get:
+      tags:
+      - Registry
+      operationId: RegistryListPasswords
+      parameters:
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRegistryPasswordsResponse'
+      x-y-navtitle: listPasswords
+    post:
+      tags:
+      - Registry
+      operationId: RegistryAddPassword
+      parameters:
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddRegistryPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addPassword
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddRegistryPasswordMetadata'
+      x-y-operation-response: RegistryPassword
+  /iot-devices/v1/registries/{registryId}/passwords/{passwordId}:
+    delete:
+      tags:
+      - Registry
+      operationId: RegistryDeletePassword
+      parameters:
+      - name: registryId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: passwordId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deletePassword
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteRegistryPasswordMetadata'
       x-y-operation-response: Empty
   /iot-devices/v1/registries/{registryId}:listDeviceTopicAliases:
     get:
@@ -552,6 +724,22 @@ components:
       properties:
         certificateData:
           type: string
+    AddDevicePasswordMetadata:
+      type: object
+      properties:
+        deviceId:
+          type: string
+        passwordId:
+          type: string
+    AddDevicePasswordRequest:
+      type: object
+      properties:
+        password:
+          description: |-
+            must contain at least 3 of 4 ASCII character groups: upper case latin, lower case latin, numbers and special symbols
+
+            The minimum string length in characters is 14.
+          type: string
     AddRegistryCertificateMetadata:
       type: object
       properties:
@@ -563,6 +751,22 @@ components:
       type: object
       properties:
         certificateData:
+          type: string
+    AddRegistryPasswordMetadata:
+      type: object
+      properties:
+        registryId:
+          type: string
+        passwordId:
+          type: string
+    AddRegistryPasswordRequest:
+      type: object
+      properties:
+        password:
+          description: |-
+            must contain at least 3 of 4 ASCII character groups: upper case latin, lower case latin, numbers and special symbols
+
+            The minimum string length in characters is 14.
           type: string
     CreateDeviceMetadata:
       type: object
@@ -596,6 +800,10 @@ components:
           type: object
           additionalProperties:
             type: string
+        password:
+          description: 'if specified, must contain at least 3 of 4 ASCII character
+            groups: upper case latin, lower case latin, numbers and special symbols'
+          type: string
     CreateDeviceRequestCertificate:
       type: object
       properties:
@@ -637,6 +845,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CreateRegistryRequestCertificate'
+        password:
+          description: 'if specified, must contain at least 3 of 4 ASCII character
+            groups: upper case latin, lower case latin, numbers and special symbols'
+          type: string
     CreateRegistryRequestCertificate:
       type: object
       properties:
@@ -660,6 +872,19 @@ components:
       properties:
         deviceId:
           type: string
+    DeleteDevicePasswordMetadata:
+      type: object
+      properties:
+        deviceId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        passwordId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
     DeleteRegistryCertificateMetadata:
       type: object
       properties:
@@ -677,6 +902,19 @@ components:
       type: object
       properties:
         registryId:
+          type: string
+    DeleteRegistryPasswordMetadata:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        passwordId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
           type: string
     Device:
       type: object
@@ -724,6 +962,18 @@ components:
             format.
           type: string
           format: date-time
+    DevicePassword:
+      type: object
+      properties:
+        deviceId:
+          type: string
+        id:
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
@@ -755,6 +1005,13 @@ components:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
           type: string
+    ListDevicePasswordsResponse:
+      type: object
+      properties:
+        passwords:
+          type: array
+          items:
+            $ref: '#/components/schemas/DevicePassword'
     ListDeviceTopicAliasesResponse:
       type: object
       properties:
@@ -798,6 +1055,13 @@ components:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
           type: string
+    ListRegistryPasswordsResponse:
+      type: object
+      properties:
+        passwords:
+          type: array
+          items:
+            $ref: '#/components/schemas/RegistryPassword'
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -887,6 +1151,18 @@ components:
         fingerprint:
           type: string
         certificateData:
+          type: string
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+    RegistryPassword:
+      type: object
+      properties:
+        registryId:
+          type: string
+        id:
           type: string
         createdAt:
           description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text

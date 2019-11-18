@@ -3441,7 +3441,7 @@ Method | Description
 [list](list.md) | Retrieves the list of PostgreSQL Cluster resources that belong to the specified folder.
 [listBackups](listBackups.md) | Retrieves the list of available backups for the specified PostgreSQL cluster.
 [listHosts](listHosts.md) | Retrieves a list of hosts for the specified cluster.
-[listLogs](listLogs.md) | Retrieves logs for the specified PostgreSQL cluster. For more information about logs, see the [Logs](/docs/managed-postgresql/concepts/logs) section in the documentation.
+[listLogs](listLogs.md) | Retrieves logs for the specified PostgreSQL cluster.
 [listOperations](listOperations.md) | Retrieves the list of Operation resources for the specified cluster.
 [move](move.md) | Moves the specified PostgreSQL cluster to the specified folder.
 [restore](restore.md) | Creates a new PostgreSQL cluster using the specified backup.

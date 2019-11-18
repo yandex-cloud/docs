@@ -4,7 +4,6 @@ editable: false
 
 # Method listLogs
 Retrieves logs for the specified MongoDB cluster.
-See the [Logs](/docs/yandex-mdb-guide/concepts/logs) section in the developers guide for detailed logs description.
  
 
  
