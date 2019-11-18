@@ -1,8 +1,46 @@
 # YC CLI Releases
 
-## Version 0.42.0 (21.10.19) {#latest-release}
+## Version 0.43.1 (14.11.19) {#latest-release}
 
-### Changes to Yandex.Cloud services {#services}
+### Changes to the CLI {#cli}
+
+**Fixed**
+
+- For Windows Subsystem for Linux (WSL), the browser now opens correctly when logging in to the CLI using [SAML-compatible identity federations](../iam/concepts/users/identity-federations.md).
+
+## Previous releases {#previous-releases}
+
+### Version 0.43.0 (11.11.19) {#version0.43.0}
+
+#### Changes to the CLI {#cli}
+
+* Added CLI authentication using [SAML-compatible identity federations](../iam/concepts/users/identity-federations.md).
+
+    To do this, run the command `yc init --federation-id=<FEDERATION_ID>`, then you can use the CLI to work on behalf of the federated user.
+
+#### Changes to Yandex.Cloud services {#services}
+
+#### {{ sf-name }} {#serverless-functions}
+
+* Added command `yc serverless trigger create timer` to call functions using a timer.
+
+#### {{ compute-name }} {#compute}
+
+* Added details to the logged data and error text on [authorization from within a virtual machine](../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) (using an IAM token from the metadata).
+
+#### Changes in managed database services {#managed-db}
+
+**{{ mpg-name }}**
+
+* Added support for {{ PG }} version 12 database creation.
+
+**{{ mmg-name }}**
+
+* Added support for creating a cluster with {{ MG }} version 4.2.
+
+### Version 0.42.0 (21.10.19) {#version0.42.0}
+
+#### Changes to Yandex.Cloud services {#services}
 
 #### {{ compute-name }} {#compute}
 
@@ -27,8 +65,6 @@
 * Commands `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore`
 
    Added the value `10_1s` for the `-- postgresql-version string` flag to create {{ PG }} cluster version 10-1C.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.41.1 (26.09.19) {#version0.41.1}
 
