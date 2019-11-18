@@ -122,8 +122,12 @@ Create a file named `setpass` with a script that sets a password for the local a
 
 ```
 #ps1
-Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "P@ssw0rd11" -AsPlainText -Force)
+Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force)
 ```
+
+Your password must meet [complexity requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
+
+Read more about Active Directory security practices on the [developer's website](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 ## Create a VM for Active Directory {#ad-vm}
 
@@ -153,7 +157,7 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
   1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-a`. Under **Public address**, select **No address**.
 
   1. In the **Access** section, specify the data required to access the VM:
-      - In the **Password** field, enter `P@ssw0rd11`.
+      - In the **Password** field, enter your password.
 
   1. Click **Create VM**.
 
@@ -213,7 +217,7 @@ A file server with internet access is used to configure VMs with Active Director
   1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-c`. Under **Public address**, select **No address**.
 
   1. In the **Access** section, specify the data required to access the VM:
-      - In the **Password** field, enter `P@ssw0rd11`.
+      - In the **Password** field, enter your password.
 
   1. Click **Create VM**.
 
@@ -237,9 +241,9 @@ A file server with internet access is used to configure VMs with Active Director
 
 VMs with Active Directory don't have internet access, so they should be configured from the `fsw-vm` VM using RDP.
 
-1. Connect to `fsw-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and `P@ssw0rd11` as the password.
+1. Connect to `fsw-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and your password.
 
-1. On `fsw-vm`, start the RDP client and connect to `ad-vm-a`. Enter `Administrator` as the username and `P@ssw0rd11` as the password.
+1. On `fsw-vm`, start the RDP client and connect to `ad-vm-a`. Enter `Administrator` as the username and your password.
 
 1. On the `ad-vm-a` VM, launch PowerShell and set a static address:
 
@@ -269,7 +273,7 @@ VMs with Active Directory don't have internet access, so they should be configur
    Install-ADDSForest -DomainName 'yantoso.net' -Force:$true
    ```
 
-   Windows restarts automatically. Reconnect to `ad-vm-a`. Enter `yantoso\Administrator` as the username and `P@ssw0rd11` as the password. Relaunch PowerShell.
+   Windows restarts automatically. Reconnect to `ad-vm-a`. Enter `yantoso\Administrator` as the username and your password. Relaunch PowerShell.
 
 1. Rename the default site to `ru-central1-a`:
 
@@ -315,9 +319,9 @@ VMs with Active Directory don't have internet access, so they should be configur
 
 ## Configure the second domain controller {#install-ad-2}
 
-1. Connect to `fsw-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and `P@ssw0rd11` as the password.
+1. Connect to `fsw-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and your password.
 
-1. On `fsw-vm`, start the RDP client and connect to `ad-vm-b`. Enter `Administrator` as the username and `P@ssw0rd11` as the password.
+1. On `fsw-vm`, start the RDP client and connect to `ad-vm-b`. Enter `Administrator` as the username and your password.
 
 1. Create a temporary folder:
 
@@ -356,7 +360,7 @@ VMs with Active Directory don't have internet access, so they should be configur
        -Force:$true
    ```
 
-   Windows restarts automatically. Reconnect to `ad-vm-b`. Enter `yantoso\Administrator` as the username and `P@ssw0rd11` as the password. Relaunch PowerShell.
+   Windows restarts automatically. Reconnect to `ad-vm-b`. Enter `yantoso\Administrator` as the username and your password. Relaunch PowerShell.
 
 1. Set the DNS redirect server:
 
@@ -381,7 +385,7 @@ VMs with Active Directory don't have internet access, so they should be configur
    Add-Computer -DomainName yantoso.net -DomainCredential $Credentials -Force -Restart
    ```
 
-   Windows restarts automatically. Reconnect to `fsw-vm`. Enter `yantoso\Administrator` as the username and `P@ssw0rd11` as the password. Relaunch PowerShell.
+   Windows restarts automatically. Reconnect to `fsw-vm`. Enter `yantoso\Administrator` as the username and your password. Relaunch PowerShell.
 
 1. Create a folder named `distrib`:
 
@@ -435,7 +439,7 @@ VMs with Active Directory don't have internet access, so they should be configur
      1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-a`. Under **Public address**, select **No address**.
 
      1. In the **Access** section, specify the data required to access the VM:
-         - In the **Password** field, enter `P@ssw0rd11`.
+         - In the **Password** field, enter your password.
 
      1. Click **Create VM**.
 
@@ -458,7 +462,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
 1. Connect to `fsw-vm` using RDP.
 
-1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `Administrator` as the username and `P@ssw0rd11` as the password. Launch PowerShell.
+1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `Administrator` as the username and your password. Launch PowerShell.
 
 1. Configure the DNS client:
 
@@ -473,7 +477,7 @@ VMs with Active Directory don't have internet access, so they should be configur
    Add-Computer -DomainName yantoso.net -DomainCredential $Credentials -Force -Restart
    ```
 
-   After restarting, log in to the VM as `yantoso\Administrator` with the password `P@ssw0rd11`. Relaunch PowerShell.
+   After restarting, log in to the VM as `yantoso\Administrator` with your password. Relaunch PowerShell.
 
 1. Install the downloaded dependencies in the following order:
    1. `& \\fsw-vm\distrib\vcredist_x64_2012.exe /install /passive /norestart`
@@ -483,7 +487,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
 1. Restart the VM: `Restart-Computer -Force`.
 
-   After restarting, log in to the VM as `yantoso\Administrator` with the password `P@ssw0rd11`. Relaunch PowerShell.
+   After restarting, log in to the VM as `yantoso\Administrator` with your password. Relaunch PowerShell.
 
 1. Install Exchange Mailbox Server on `vm-exchange-a`. Mount the distribution image from the shared directory with distributions:
 
@@ -530,7 +534,7 @@ VMs with Active Directory don't have internet access, so they should be configur
      1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-b`. Under **Public address**, select **No address**.
 
      1. In the **Access** section, specify the data required to access the VM:
-         - In the **Password** field, enter `P@ssw0rd11`.
+         - In the **Password** field, enter your password.
 
      1. Click **Create VM**.
 
@@ -553,7 +557,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
 1. Connect to `fsw-vm` using RDP.
 
-1. On the `fsw-vm` VM, start the RDP client and use it to connect to `vm-exchange-b`. Enter `Administrator` as the username and `P@ssw0rd11` as the password. Launch PowerShell.
+1. On the `fsw-vm` VM, start the RDP client and use it to connect to `vm-exchange-b`. Enter `Administrator` as the username and your password. Launch PowerShell.
 
 1. Configure the DNS client:
 
@@ -568,7 +572,7 @@ VMs with Active Directory don't have internet access, so they should be configur
    Add-Computer -DomainName yantoso.net -DomainCredential $Credentials -Force -Restart
    ```
 
-   After restarting, log in to the VM as `yantoso\Administrator` with the password `P@ssw0rd11`. Relaunch PowerShell.
+   After restarting, log in to the VM as `yantoso\Administrator` with your password. Relaunch PowerShell.
 
 1. Install the downloaded dependencies in the following order:
    1. `& \\fsw-vm\distrib\vcredist_x64_2012.exe /install /passive /norestart`
@@ -578,7 +582,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
 1. Restart the VM: `Restart-Computer -Force`.
 
-   After restarting, log in to the VM as `yantoso\Administrator` with the password `P@ssw0rd11`. Relaunch PowerShell.
+   After restarting, log in to the VM as `yantoso\Administrator` with your password. Relaunch PowerShell.
 
 1. Install Exchange Mailbox Server on `vm-exchange-b`. Mount the distribution image from the shared directory with distributions:
 
@@ -609,7 +613,7 @@ A Database Availability Group ensures fault tolerance for mail servers via DB re
 
 ### Create disks for VM databases {#create-db-disks}
 
-1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `yantoso\Administrator` as the username and `P@ssw0rd11` as the password.
+1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `yantoso\Administrator` as the username and your password.
 
 1. Create an additional disk and format it:
 
@@ -631,7 +635,7 @@ Repeat these commands for the `vm-exchange-b` VM.
 
 ### Configure the Database Availability Group {#dag-configuration}
 
-1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `yantoso\Administrator` as the username and `P@ssw0rd11` as the password.
+1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `yantoso\Administrator` as the username and your password.
 
 1. Run the Exchange Management Shell.
 
@@ -866,7 +870,7 @@ Create a VM named `vm-edge-a`:
   1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-a`. Under **Public address**, select **Automatically** or choose an address from the list of reserved ones.
 
   1. In the **Access** section, specify the data required to access the VM:
-      - In the **Password** field, enter `P@ssw0rd11`.
+      - In the **Password** field, enter your password.
 
   1. Click **Create VM**.
 
@@ -914,7 +918,7 @@ Create a VM named `vm-edge-b`:
   1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-b`. Under **Public address**, select **Automatically** or choose an address from the list of reserved ones.
 
   1. In the **Access** section, specify the data required to access the VM:
-      - In the **Password** field, enter `P@ssw0rd11`.
+      - In the **Password** field, enter your password.
 
   1. Click **Create VM**.
 
@@ -940,7 +944,7 @@ Create a VM named `vm-edge-b`:
 
 1. Connect to `fsw-vm` using RDP.
 
-1. Connect to `vm-edge-a` using RDP. Enter `Administrator` as the username and `P@ssw0rd11` as the password. Launch PowerShell.
+1. Connect to `vm-edge-a` using RDP. Enter `Administrator` as the username and your password. Launch PowerShell.
 
 1. Create a temporary folder:
 
@@ -969,7 +973,7 @@ Create a VM named `vm-edge-b`:
    New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.ru-central1.internal\distrib' -Credential $Credential
    ```
 
-   Enter `yantoso\Administrator` as the username and `P@ssw0rd11` as the password.
+   Enter `yantoso\Administrator` as the username and your password.
 
 1. Install the dependencies:
 
@@ -1018,7 +1022,7 @@ Create a VM named `vm-edge-b`:
 
 1. Connect to `fsw-vm` using RDP.
 
-1. Connect to `vm-edge-b` using RDP. Enter `Administrator` as the username and `P@ssw0rd11` as the password. Launch PowerShell.
+1. Connect to `vm-edge-b` using RDP. Enter `Administrator` as the username and your password. Launch PowerShell.
 
 1. Create a temporary folder:
 
@@ -1047,7 +1051,7 @@ Create a VM named `vm-edge-b`:
    New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.ru-central1.internal\distrib' -Credential $Credential
    ```
 
-   Enter `yantoso\Administrator` as the username and `P@ssw0rd11` as the password.
+   Enter `yantoso\Administrator` as the username and your password.
 
 1. Install the dependencies:
 

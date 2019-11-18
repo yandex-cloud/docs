@@ -107,8 +107,12 @@
 
 ```
 #ps1
-Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "P@ssw0rd11" -AsPlainText -Force)
+Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<ваш пароль>" -AsPlainText -Force)
 ```
+
+Пароль должен соответствовать [требованиям к сложности](https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник).
+
+Подробные рекомендации по защите Active Directory читайте на [сайте разработчика](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 ## Создайте ВМ для Active Directory {#ad-vm}
 
@@ -132,7 +136,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
   1. В блоке **Сетевые настройки** нажмите кнопку **Добавить сеть** и выберите сеть `exchange-network`. Выберите подсеть `exchange-subnet-a`. В блоке **Публичный адрес** выберите вариант **Без адреса**. 
   1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-      - В поле **Пароль** укажите пароль `P@ssw0rd11`.
+      - В поле **Пароль** укажите ваш пароль.
   1. Нажмите кнопку **Создать ВМ**.
 
   Повторите операцию для ВМ с именем `ad-vm-b` в зоне доступности `ru-central1-a` и подключите ее к подсети `exchange-subnet-b`
@@ -185,7 +189,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
   1. В блоке **Сетевые настройки** нажмите кнопку **Добавить сеть** и выберите сеть `exchange-network`. Выберите подсеть `exchange-subnet-c`. В блоке **Публичный адрес** выберите вариант **Без адреса**. 
   1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-      - В поле **Пароль** укажите пароль `P@ssw0rd11`.
+      - В поле **Пароль** укажите ваш пароль.
   1. Нажмите кнопку **Создать ВМ**.
 
 - CLI
@@ -208,7 +212,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 У машин с Active Directory нет доступа в интернет, поэтому их следует настраивать через ВМ `jump-server-vm` с помощью RDP.
 
-1. Подключитесь к ВМ `jump-server-vm` с помощью RDP. Используйте логин `Administrator` и пароль `P@ssw0rd11`.
+1. Подключитесь к ВМ `jump-server-vm` с помощью RDP. Используйте логин `Administrator` и ваш пароль.
 1. Запустите RDP и подключитесь к виртуальной машине `ad-vm-a`.
 1. Запустите PowerShell и задайте статический адрес:
 
@@ -285,7 +289,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 ## Настройте второй контроллер домена {#install-ad-2}
 
 1. Подключитесь к ВМ `jump-server-vm` с помощью RDP. 
-1. С помощью RDP подключитесь к виртуальной машине `ad-vm-b`. Используйте логин `Administrator` и пароль `P@ssw0rd11`.
+1. С помощью RDP подключитесь к виртуальной машине `ad-vm-b`. Используйте логин `Administrator` и ваш пароль.
 1. Создайте временную папку:
 
    ```
@@ -334,7 +338,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 ## Проверьте работу Active Directory {#test-ad}
 
 1. Подключитесь к ВМ `jump-server-vm` с помощью RDP. 
-1. С помощью RDP подключитесь к виртуальной машине `ad-vm-b`. Используйте логин `Administrator` и пароль `P@ssw0rd11`. Запустите PowerShell.
+1. С помощью RDP подключитесь к виртуальной машине `ad-vm-b`. Используйте логин `Administrator` и ваш пароль. Запустите PowerShell.
 1. Создайте тестового пользователя:
 
    ```powershell
