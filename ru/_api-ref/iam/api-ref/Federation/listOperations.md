@@ -16,13 +16,13 @@ GET https://iam.api.cloud.yandex.net/iam/v1/saml/federations/{federationId}/oper
  
 Параметр | Описание
 --- | ---
-federationId | Идентификатор ресурса федерации, для которой запрашивается список операций.  Максимальная длина строки в символах — 50.
+federationId | Идентификатор федерации для перечисления операций.  Максимальная длина строки в символах — 50.
  
 ## Query-параметры {#query_params}
  
 Параметр | Описание
 --- | ---
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/iam/api-ref/Federation/listOperations#query_params) , сервис вернет значение [nextPageToken](/docs/iam/api-ref/Federation/listOperations#responses), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.  Допустимые значения — от 0 до 1000 включительно.
+pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/iam/api-ref/Federation/listOperations#query_params) , сервис вернет значение [ListFederationOperationsOperationsResponse.next_page_token], которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.  Допустимые значения — от 0 до 1000 включительно.
 pageToken | Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/Federation/listOperations#query_params) равным значению поля [nextPageToken](/docs/iam/api-ref/Federation/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
  
 ## Ответ {#responses}

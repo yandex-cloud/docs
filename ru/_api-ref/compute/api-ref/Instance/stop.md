@@ -5,8 +5,7 @@ editable: false
 # Метод stop
 Останавливает запущенную виртуальную машину.
  
-Вы можете запустить виртуальную машину позже, используя метод
-[start](/docs/compute/api-ref/Instance/start).
+Вы можете запустить виртуальную машину позже, используя метод [start](/docs/compute/api-ref/Instance/start).
  
 ## HTTP-запрос {#https-request}
 ```

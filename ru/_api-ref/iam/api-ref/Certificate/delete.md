@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Метод delete
-Удаляет сертификат.
+Удаляет указанный сертификат.
  
 
  
@@ -16,7 +16,7 @@ DELETE https://iam.api.cloud.yandex.net/iam/v1/saml/certificates/{certificateId}
  
 Параметр | Описание
 --- | ---
-certificateId | Идентификатор удаляемого сертификата. Чтобы получить идентификатор сертификата, используйте запрос [list](/docs/iam/api-ref/Certificate/list).  Максимальная длина строки в символах — 50.
+certificateId | Идентификатор сертификата, который следует удалить. Чтобы получить идентификатор сертификата, используйте запрос [list](/docs/iam/api-ref/Certificate/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

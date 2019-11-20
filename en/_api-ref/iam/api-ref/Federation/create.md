@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method create
-Creates a federation resource in the specified folder.
+Creates a federation in the specified folder.
  
 
  
@@ -30,14 +30,14 @@ POST https://iam.api.cloud.yandex.net/iam/v1/saml/federations
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>ID of the folder to create a federation in. To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+folderId | **string**<br><p>ID of the folder to create a federation in. To get the folder ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 name | **string**<br><p>Name of the federation. The name must be unique within the cloud.</p> <p>Value must match the regular expression <code>[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
 description | **string**<br><p>Description of the federation.</p> <p>The maximum string length in characters is 256.</p> 
-cookieMaxAge | **string**<br><p>The 'IAM_COOKIE' cookie max age in seconds. The value should be in range from 10 min to 12 hours. The default value is 8 hours.</p> <p>Acceptable values are 600 seconds to 43200 seconds, inclusive.</p> 
-autoCreateAccountOnLogin | **boolean** (boolean)<br><p>Auto create accounts for new user on first login.</p> 
-issuer | **string**<br><p>Required. federation issuer (entity Id).</p> <p>The maximum string length in characters is 8000.</p> 
-ssoBinding | **string**<br><p>Single sign on endpoint binding type.</p> <p>SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols.</p> <ul> <li>BINDING_TYPE_UNSPECIFIED: Invalid</li> <li>POST: HTTP POST binding.</li> <li>REDIRECT: HTTP redirect binding.</li> <li>ARTIFACT: HTTP artifact binding.</li> </ul> 
-ssoUrl | **string**<br><p>Required. Single sign on endpoint URL.</p> <p>The maximum string length in characters is 8000.</p> 
+cookieMaxAge | **string**<br><p>Browser cookie lifetime in seconds. If the cookie is still valid, the management console authenticates the user immediately and redirects them to the home page. The default value is <code>8h</code>.</p> <p>Acceptable values are 600 seconds to 43200 seconds, inclusive.</p> 
+autoCreateAccountOnLogin | **boolean** (boolean)<br><p>Add new users automatically on successful authentication. The user will get the <code>resource-manager.clouds.member</code> role automatically, but you need to grant other roles to them.</p> <p>If the value is <code>false</code>, users who aren't added to the cloud can't log in, even if they have authenticated on your server.</p> 
+issuer | **string**<br><p>Required. ID of the IdP server to be used for authentication. The IdP server also responds to IAM with this ID after the user authenticates.</p> <p>The maximum string length in characters is 8000.</p> 
+ssoBinding | **string**<br><p>Single sign-on endpoint binding type. Most Identity Providers support the <code>POST</code> binding type.</p> <p>SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols.</p> <ul> <li>POST: HTTP POST binding.</li> <li>REDIRECT: HTTP redirect binding.</li> <li>ARTIFACT: HTTP artifact binding.</li> </ul> 
+ssoUrl | **string**<br><p>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here.</p> <p>The maximum string length in characters is 8000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

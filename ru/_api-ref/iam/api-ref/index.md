@@ -16,6 +16,6 @@ editable: false
 [YandexPassportUserAccount](YandexPassportUserAccount/index.md) | Набор методов для управления ресурсами YandexPassportUserAccount.
 [Certificate](Certificate/index.md) | Набор методов для управления сертификатами.
 
-[Federation](Federation/index.md) | Набор методов для управления ресурсами федерации.
+[Federation](Federation/index.md) | Набор методов для управления федерациями.
 
 [AccessKey](AccessKey/index.md) | Набор методов управления ключами доступа.

@@ -22,8 +22,8 @@ certificateId | ID of the certificate to list operations for.  The maximum strin
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/iam/api-ref/Certificate/listOperations#query_params), the service returns a [nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/Certificate/listOperations#query_params) to the [nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/iam/api-ref/Certificate/listOperations#query_params), the service returns a [nextPageToken](/docs/iam/api-ref/Certificate/listOperations#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/Certificate/listOperations#query_params) to the [nextPageToken](/docs/iam/api-ref/Certificate/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -5,7 +5,7 @@ editable: false
 # Method get
 Returns the specified Role resource.
  
-To get the list of available Role resources, use a [list](/docs/iam/api-ref/Role/list) request.
+To get the list of available Role resources, make a [list](/docs/iam/api-ref/Role/list) request.
  
 ## HTTP request {#https-request}
 ```

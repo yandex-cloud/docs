@@ -119,8 +119,12 @@ items:
         href: api-ref/InstanceGroup/delete.md
       - name: get
         href: api-ref/InstanceGroup/get.md
+      - name: start
+        href: api-ref/InstanceGroup/start.md
       - name: createFromYaml
         href: api-ref/InstanceGroup/createFromYaml.md
+      - name: stop
+        href: api-ref/InstanceGroup/stop.md
       - name: create
         href: api-ref/InstanceGroup/create.md
       - name: listInstances

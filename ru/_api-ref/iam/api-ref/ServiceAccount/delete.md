@@ -16,7 +16,7 @@ DELETE https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId
  
 Параметр | Описание
 --- | ---
-serviceAccountId | Обязательное поле. Идентификатор удаляемого сервисного аккаунта. Чтобы получить идентификатор сервисного аккаунта, используйте запрос [list](/docs/iam/api-ref/ServiceAccount/list).  Максимальная длина строки в символах — 50.
+serviceAccountId | Обязательное поле. Идентификатор сервисного аккаунта, который следует удалить. Чтобы получить идентификатор сервисного аккаунта, используйте запрос [list](/docs/iam/api-ref/ServiceAccount/list).  Максимальная длина строки в символах — 50.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

@@ -40,6 +40,6 @@ orderBy | Максимальная длина строки в символах �
  
 Поле | Описание
 --- | ---
-repositories[] | **object**<br><p>Ресурс Repository. Подробнее смотрите в разделе <a href="docs/container-registry/concepts/repository">Repository</a>.</p> 
+repositories[] | **object**<br><p>Ресурс Repository. Подробнее смотрите в разделе <a href="/docs/container-registry/concepts/repository">Репозиторий</a>.</p> 
 repositories[].<br>name | **string**<br><p>Имя репозитория. Уникально в рамках реестра.</p> 
 nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/container-registry/api-ref/Repository/list#query_params">pageSize</a>, используйте <a href="/docs/container-registry/api-ref/Repository/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/container-registry/api-ref/Repository/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/container-registry/api-ref/Repository/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 

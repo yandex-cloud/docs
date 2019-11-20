@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Метод createFromYaml
-Создает группу виртуальных машин в указанном каталоге из YAML-файла. Метод
+Создает группу виртуальных машин в указанном каталоге из YAML-файла. Этот метод
 запускает операцию, которая может быть отменена другой операцией.
  
 
@@ -26,7 +26,7 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instanceGroups:yaml
 Поле | Описание
 --- | ---
 folderId | **string**<br><p>Обязательное поле. Идентификатор каталога для создания группы виртуальных машин. Чтобы получить идентификатор каталога, используйте запрос <a href="/docs/resource-manager/api-ref/Folder/list">list</a>.</p> 
-instanceGroupYaml | **string**<br><p>Обязательное поле. CreateInstanceGroupRequest в формате YAML.</p> <p>Максимальная длина строки в символах — 1048576.</p> 
+instanceGroupYaml | **string**<br><p>Обязательное поле. <a href="/docs/compute/api-ref/InstanceGroup/create">create</a> request in YAML format.</p> <p>Максимальная длина строки в символах — 1048576.</p> 
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

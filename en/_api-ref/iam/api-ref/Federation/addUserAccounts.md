@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method addUserAccounts
-Adds users to the specified federation resource.
+Adds users to the specified federation.
  
 
  
@@ -16,7 +16,7 @@ POST https://iam.api.cloud.yandex.net/iam/v1/saml/federations/{federationId}:add
  
 Parameter | Description
 --- | ---
-federationId | ID of the federation resource to add users.  The maximum string length in characters is 50.
+federationId | ID of the federation to add users.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -31,7 +31,7 @@ federationId | ID of the federation resource to add users.  The maximum string l
  
 Field | Description
 --- | ---
-nameIds[] | **string**<br><p>List of name_ids.</p> <p>The maximum string length in characters for each value is 1000.</p> 
+nameIds[] | **string**<br><p>Name IDs returned by the Identity Provider (IdP) on successful authentication. These may be UPNs or user email addresses.</p> <p>The maximum string length in characters for each value is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method delete
-Deletes the specified federation resource.
+Deletes the specified federation.
  
 
  
@@ -16,7 +16,7 @@ DELETE https://iam.api.cloud.yandex.net/iam/v1/saml/federations/{federationId}
  
 Parameter | Description
 --- | ---
-federationId | ID of the federation resource to delete. To get the federation resource ID, use a [list](/docs/iam/api-ref/Federation/list) request.  The maximum string length in characters is 50.
+federationId | ID of the federation to delete. To get the federation ID, make a [list](/docs/iam/api-ref/Federation/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -18,16 +18,6 @@ Parameter | Description
 --- | ---
 instanceGroupId | Required. ID of the instance group to start. To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.  The maximum string length in characters is 50.
  
-## Body parameters {#body_params}
- 
-```json 
-{}
-```
-
- 
-Field | Description
---- | ---
- 
 ## Response {#responses}
 **HTTP Code: 200 - OK**
 

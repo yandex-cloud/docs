@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Метод updateFromYaml
-Обновляет указанную группу виртуальных машин из YAML-файла. Метод запускает
+Обновляет указанную группу виртуальных машин из YAML-файла. Этот метод запускает
 операцию, которая может быть отменена другой операцией.
  
 
@@ -30,7 +30,7 @@ instanceGroupId | Обязательное поле. Идентификатор 
  
 Поле | Описание
 --- | ---
-instanceGroupYaml | **string**<br><p>Обязательное поле. UpdateInstanceGroupRequest в формате YAML.</p> <p>Максимальная длина строки в символах — 1048576.</p> 
+instanceGroupYaml | **string**<br><p>Обязательное поле. <a href="/docs/compute/api-ref/InstanceGroup/update">update</a> request in YAML format.</p> <p>Максимальная длина строки в символах — 1048576.</p> 
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

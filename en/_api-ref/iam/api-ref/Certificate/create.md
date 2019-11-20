@@ -26,8 +26,8 @@ POST https://iam.api.cloud.yandex.net/iam/v1/saml/certificates
  
 Field | Description
 --- | ---
-federationId | **string**<br><p>ID of the federation to add new certificate.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Name of the certificate.</p> <p>Value must match the regular expression <code>[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
+federationId | **string**<br><p>ID of the federation to add new certificate. To get the federation ID make a [yandex.cloud.iam.v1.FederationService.List] request.</p> <p>The maximum string length in characters is 50.</p> 
+name | **string**<br><p>Name of the certificate. The name must be unique within the federation.</p> <p>Value must match the regular expression <code>[a-z]([-a-z0-9]{0,61}[a-z0-9])?</code>.</p> 
 description | **string**<br><p>Description of the certificate.</p> <p>The maximum string length in characters is 256.</p> 
 data | **string**<br><p>Certificate data in PEM format.</p> <p>The maximum string length in characters is 32000.</p> 
  

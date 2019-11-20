@@ -645,7 +645,7 @@ components:
               структура соответствующего ему поля `response`.
             type: object
     Registry:
-      description: Ресурс Registry. Подробнее смотрите в разделе [Registry](docs/container-registry/concepts/registry).
+      description: Ресурс Registry. Подробнее смотрите в разделе [Реестр](/docs/container-registry/concepts/registry).
       type: object
       properties:
         id:
@@ -682,7 +682,7 @@ components:
       - ACTIVE
       - DELETING
     Repository:
-      description: Ресурс Repository. Подробнее смотрите в разделе [Repository](docs/container-registry/concepts/repository).
+      description: Ресурс Repository. Подробнее смотрите в разделе [Репозиторий](/docs/container-registry/concepts/repository).
       type: object
       properties:
         name:

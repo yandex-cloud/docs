@@ -111,7 +111,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор удаляемого ключа. Чтобы получить идентификатор ключа, используйте
+          Идентификатор ключа, который следует удалить. Чтобы получить идентификатор ключа, используйте
           запрос [list](/docs/iam/api-ref/ApiKey/list).
 
           Максимальная длина строки в символах — 50.
@@ -189,7 +189,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор удаляемого ключа. Чтобы получить идентификатор ключа, используйте
+          Идентификатор ключа, который следует удалить. Чтобы получить идентификатор ключа, используйте
           запрос [list](/docs/iam/api-ref/Key/list).
 
           Максимальная длина строки в символах — 50.
@@ -433,7 +433,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор удаляемого сервисного аккаунта. Чтобы получить идентификатор
+          Идентификатор сервисного аккаунта, который следует удалить. Чтобы получить идентификатор
           сервисного аккаунта, используйте запрос [list](/docs/iam/api-ref/ServiceAccount/list).
 
           Максимальная длина строки в символах — 50.
@@ -576,23 +576,21 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          ID of the resource to list access bindings for.
+          Идентификатор ресурса, для которого запрашивается список привязок прав доступа.
 
-          To get the resource ID, use a corresponding List request.
-          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
-
-          Максимальная длина строки в символах — 50.
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
+          Например, используйте запрос [list](/docs/resource-manager/api-ref/Cloud/list) для получения
+          идентификатора ресурса Cloud.
         required: true
         schema:
           type: string
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page that should be returned. If the number of available
-          results is larger than pageSize,
-          the service returns a nextPageToken
-          that can be used to get the next page of results in subsequent list requests.
-          Default value: 100.
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем pageSize , сервис вернет значение nextPageToken,
+          которое можно использовать для получения следующей страницы. Значение по умолчанию:
+          100.
 
           Максимальное значение — 1000.
         schema:
@@ -601,9 +599,9 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. Set pageToken
-          to the nextPageToken
-          returned by a previous list request to get the next page of results.
+          Токен страницы. Установите значение pageToken равным значению поля
+          nextPageToken прошлого запроса, чтобы получить следующую страницу
+          результатов.
 
           Максимальная длина строки в символах — 100.
         schema:
@@ -627,11 +625,9 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          ID of the resource for which access bindings are being set.
+          Идентификатор ресурса, для которого задается список привязок прав доступа.
 
-          To get the resource ID, use a corresponding List request.
-
-          Максимальная длина строки в символах — 50.
+          Чтобы получить идентификатор ресурса, используйте соответствующий запрос List.
         required: true
         schema:
           type: string
@@ -663,9 +659,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          ID of the resource for which access bindings are being updated.
-
-          Максимальная длина строки в символах — 50.
+          Идентификатор ресурса, для которого обновляется список привязок прав доступа.
         required: true
         schema:
           type: string
@@ -787,7 +781,8 @@ components:
       properties:
         roleId:
           description: |-
-            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
+            параметре subject.
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -795,8 +790,8 @@ components:
           $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
     AccessBindingAction:
       description: |2-
-         - ADD: Addition of an access binding.
-         - REMOVE: Removal of an access binding.
+         - ADD: Добавление новой привязки прав доступа.
+         - REMOVE: Удаление привязки прав доступа.
       type: string
       enum:
       - ADD
@@ -1034,18 +1029,17 @@ components:
       type: object
       properties:
         accessBindings:
-          description: List of access bindings for the specified resource.
+          description: Список привязок прав доступа для указанного ресурса.
           type: array
           items:
             $ref: '#/components/schemas/AccessBinding'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than pageSize, use
-            the nextPageToken as the value
-            for the pageToken query parameter
-            in the next list request. Each subsequent list request will have its own
-            nextPageToken to continue paging through the results.
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем pageSize, используйте nextPageToken в качестве
+            значения параметра pageToken в следующем запросе списка ресурсов. Все
+            последующие запросы будут получать свои значения nextPageToken для перебора страниц
+            результатов.
           type: string
     ListApiKeysResponse:
       type: object
@@ -1269,7 +1263,8 @@ components:
       type: object
       properties:
         resourceId:
-          description: ID of the resource for which access bindings are being set.
+          description: Идентификатор ресурса, для которого задается список привязок
+            прав доступа.
           type: string
     SetAccessBindingsRequest:
       type: object
@@ -1277,7 +1272,8 @@ components:
         accessBindings:
           description: |-
             Обязательное поле.
-            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+            Привязки прав доступа, которые будут установлены. Дополнительные сведения см. в
+            разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
           type: array
           items:
             $ref: '#/components/schemas/AccessBinding'
@@ -1302,33 +1298,33 @@ components:
       properties:
         id:
           description: |-
-            ID of the subject.
+            Идентификатор субъекта.
 
-            It can contain one of the following values:
-            * `allAuthenticatedUsers`: A special system identifier that represents anyone
-               who is authenticated. It can be used only if the type is `system`.
-
-            * `<cloud generated id>`: An identifier that represents a user account.
-               It can be used only if the type is `userAccount` or `serviceAccount`.
+            Может иметь одно из значений:
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре type указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре type передано одно из следующих значений: `userAccount` или `serviceAccount`.
 
             Максимальная длина строки в символах — 50.
           type: string
         type:
           description: |-
-            Type of the subject.
+            Тип субъекта.
 
-            It can contain one of the following values:
-            * `system`: System group. This type represents several accounts with a common system identifier.
-            * `userAccount`: An user account (for example, "alice.the.girl@yandex.ru"). This type represents the [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource.
-            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или [Яндекс.Коннекте]({{ link-yandex-connect }}), добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
 
-            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
           type: string
     UpdateAccessBindingsMetadata:
       type: object
       properties:
         resourceId:
-          description: ID of the resource for which access bindings are being updated.
+          description: Идентификатор ресурса, для которого обновляется список привязок
+            прав доступа.
           type: string
     UpdateAccessBindingsRequest:
       type: object
@@ -1336,7 +1332,7 @@ components:
         accessBindingDeltas:
           description: |-
             Обязательное поле.
-            Updates to access bindings.
+            Изменения в список привязок прав доступа.
           type: array
           items:
             $ref: '#/components/schemas/AccessBindingDelta'
@@ -1399,41 +1395,41 @@ components:
     Subject_in_AccessBinding_subject:
       description: |-
         Обязательное поле.
-        Identity for which access binding is being created.
-        It can represent an account with a unique ID or several accounts with a system identifier.
+        Субъект, для которого создается привязка прав доступа. Может
+        представлять собой аккаунт с уникальным идентификатором в облаке или системную
+        группу с общим системным идентификатором.
       type: object
       properties:
         id:
           description: |-
-            ID of the subject.
+            Идентификатор субъекта.
 
-            It can contain one of the following values:
-            * `allAuthenticatedUsers`: A special system identifier that represents anyone
-               who is authenticated. It can be used only if the type is `system`.
-
-            * `<cloud generated id>`: An identifier that represents a user account.
-               It can be used only if the type is `userAccount` or `serviceAccount`.
+            Может иметь одно из значений:
+            * `allAuthenticatedUsers`: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре type указано `system`.
+            * `allUsers`: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.
+            * `<идентификатор пользователя в облаке>`: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре type передано одно из следующих значений: `userAccount` или `serviceAccount`.
 
             Максимальная длина строки в символах — 50.
           type: string
         type:
           description: |-
-            Type of the subject.
+            Тип субъекта.
 
-            It can contain one of the following values:
-            * `system`: System group. This type represents several accounts with a common system identifier.
-            * `userAccount`: An user account (for example, "alice.the.girl@yandex.ru"). This type represents the [UserAccount](/docs/iam/api-ref/UserAccount#representation) resource.
-            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            Может иметь одно из значений:
+            * `userAccount` — аккаунт на Яндексе или [Яндекс.Коннекте]({{ link-yandex-connect }}), добавленный в Яндекс.Облако.
+            * `serviceAccount` — сервисный аккаунт. Этот тип представляет ресурс [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation).
+            * `federatedUser` — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.
+            * `system` — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.
 
-            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+            Дополнительные сведения см. в разделе [Субъект, которому назначается роль](/docs/iam/concepts/access-control/#subject).
           type: string
     AccessBindingAction_in_AccessBindingDelta_action:
       description: |-
         Обязательное поле.
-        The action that is being performed on an access binding.
+        Действие, которое надо выполнить с привязкой прав доступа.
 
-         - ADD: Addition of an access binding.
-         - REMOVE: Removal of an access binding.
+         - ADD: Добавление новой привязки прав доступа.
+         - REMOVE: Удаление привязки прав доступа.
       type: string
       enum:
       - ADD
@@ -1441,12 +1437,13 @@ components:
     AccessBinding_in_AccessBindingDelta_accessBinding:
       description: |-
         Обязательное поле.
-        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+        Привязка прав доступа. Дополнительные сведения см. в разделе [Привязка прав доступа](/docs/iam/concepts/access-control/#access-bindings).
       type: object
       properties:
         roleId:
           description: |-
-            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+            Идентификатор ресурса [Role](/docs/iam/api-ref/Role#representation) который назначен для субъекта, указанного в
+            параметре subject.
 
             Максимальная длина строки в символах — 50.
           type: string

@@ -264,7 +264,7 @@ components:
     TranslateGlossaryConfig_in_TranslateRequest_glossaryConfig:
       description: |-
         Глоссарий для применения при переводе. Дополнительные сведения см. в разделе
-        [Glossaries](/docs/translate/concepts/glossary).
+        [Глоссарии](/docs/translate/concepts/glossary).
       type: object
       allOf:
       - title: glossary_source

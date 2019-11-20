@@ -270,12 +270,6 @@ paths:
         required: true
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/StopInstanceGroupRequest'
-        required: true
       responses:
         "200":
           description: OK
@@ -305,12 +299,6 @@ paths:
         required: true
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/StartInstanceGroupRequest'
-        required: true
       responses:
         "200":
           description: OK
@@ -1446,18 +1434,12 @@ components:
         instanceGroupId:
           description: ID of the InstanceGroup resource that is being started.
           type: string
-    StartInstanceGroupRequest:
-      type: object
-      properties: {}
     StopInstanceGroupMetadata:
       type: object
       properties:
         instanceGroupId:
           description: ID of the InstanceGroup resource that is being stopped.
           type: string
-    StopInstanceGroupRequest:
-      type: object
-      properties: {}
     TargetGroupSpec:
       type: object
       properties:

@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method listOperations
-Lists operations for the specified federation resource.
+Lists operations for the specified federation.
  
 
  
@@ -16,7 +16,7 @@ GET https://iam.api.cloud.yandex.net/iam/v1/saml/federations/{federationId}/oper
  
 Parameter | Description
 --- | ---
-federationId | ID of the federation resource to list operations for.  The maximum string length in characters is 50.
+federationId | ID of the federation to list operations for.  The maximum string length in characters is 50.
  
 ## Query parameters {#query_params}
  

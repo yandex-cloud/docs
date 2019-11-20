@@ -51,7 +51,7 @@ filter | Параметры фильтрации ресурсов в ответ�
  
 Поле | Описание
 --- | ---
-subnets[] | **object**<br><p>Ресурс Subnet. Подробнее см. <a href="/vpc/concepts/subnets">Subnets</a>.</p> 
+subnets[] | **object**<br><p>Ресурс Subnet. Подробнее см. <a href="/vpc/concepts/subnets">Подсети</a>.</p> 
 subnets[].<br>id | **string**<br><p>Идентификатор подсети.</p> 
 subnets[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит подсеть.</p> 
 subnets[].<br>createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 

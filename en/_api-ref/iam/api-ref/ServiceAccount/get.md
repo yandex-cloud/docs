@@ -5,7 +5,7 @@ editable: false
 # Method get
 Returns the specified ServiceAccount resource.
  
-To get the list of available ServiceAccount resources, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
+To get the list of available ServiceAccount resources, make a [list](/docs/iam/api-ref/ServiceAccount/list) request.
  
 ## HTTP request {#https-request}
 ```

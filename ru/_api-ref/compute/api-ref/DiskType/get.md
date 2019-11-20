@@ -5,8 +5,7 @@ editable: false
 # Метод get
 Возвращает сведения об указанном типе диска.
  
-Чтобы получить список доступных типов дисков, выполните
-запрос [list](/docs/compute/api-ref/DiskType/list).
+Чтобы получить список доступных типов дисков, выполните запрос [list](/docs/compute/api-ref/DiskType/list).
  
 ## HTTP-запрос {#https-request}
 ```

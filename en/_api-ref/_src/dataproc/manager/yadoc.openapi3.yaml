@@ -6,10 +6,6 @@ info:
 paths: {}
 components:
   schemas:
-    Empty:
-      description: Empty JSON object `` {} ``.
-      type: object
-      maxProperties: 0
     HDFSInfo:
       type: object
       properties:
@@ -381,6 +377,9 @@ components:
         mainClass:
           description: The name of the driver's main class.
           type: string
+    UpdateJobStatusResponse:
+      type: object
+      properties: {}
     YarnInfo:
       type: object
       properties:

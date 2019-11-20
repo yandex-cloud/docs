@@ -13,7 +13,7 @@ paths:
       tags:
       - Certificate
       summary: Returns the specified certificate.
-      description: To get the list of available certificates, use a [list](/docs/iam/api-ref/Certificate/list)
+      description: To get the list of available certificates, make a [list](/docs/iam/api-ref/Certificate/list)
         request.
       operationId: CertificateGet
       parameters:
@@ -21,7 +21,7 @@ paths:
         in: path
         description: |-
           ID of the certificate to return.
-          To get the certificate ID, use a [list](/docs/iam/api-ref/Certificate/list) request.
+          To get the certificate ID, make a [list](/docs/iam/api-ref/Certificate/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -44,8 +44,8 @@ paths:
       - name: certificateId
         in: path
         description: |-
-          ID of the certificate to remove.
-          To get the certificate ID, use a [list](/docs/iam/api-ref/Certificate/list) request.
+          ID of the certificate to delete.
+          To get the certificate ID, make a [list](/docs/iam/api-ref/Certificate/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -71,7 +71,8 @@ paths:
       - name: certificateId
         in: path
         description: |-
-          ID of the certificate.
+          ID of the certificate to update.
+          To get the certificate ID, make a [list](/docs/iam/api-ref/Certificate/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -105,7 +106,8 @@ paths:
         in: query
         description: |-
           Required.
-          ID of the federation to list certificates for.
+          ID of the federation to list certificates in.
+          To get the federation ID make a [yandex.cloud.iam.v1.FederationService.List] request.
 
           The maximum string length in characters is 50.
         schema:
@@ -137,8 +139,9 @@ paths:
         description: |-
           A filter expression that filters resources listed in the response.
           The expression must specify:
-          1. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-          2. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+          1. The field name. Currently you can use filtering only on [Certificate.name](/docs/iam/api-ref/Certificate#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
 
           The maximum string length in characters is 1000.
         schema:
@@ -193,7 +196,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/iam/api-ref/Certificate/listOperations#query_params), the service returns a [nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#responses)
+          results is larger than [pageSize](/docs/iam/api-ref/Certificate/listOperations#query_params), the service returns a [nextPageToken](/docs/iam/api-ref/Certificate/listOperations#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -205,7 +208,7 @@ paths:
         in: query
         description: |-
           Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/Certificate/listOperations#query_params)
-          to the [nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#responses)
+          to the [nextPageToken](/docs/iam/api-ref/Certificate/listOperations#responses)
           returned by a previous list request.
 
           The maximum string length in characters is 100.
@@ -223,16 +226,16 @@ paths:
     get:
       tags:
       - Federation
-      summary: Returns the specified federation resource.
-      description: To get the list of available federation resources, use a [list](/docs/iam/api-ref/Federation/list)
+      summary: Returns the specified federation.
+      description: To get the list of available federations, make a [list](/docs/iam/api-ref/Federation/list)
         request.
       operationId: FederationGet
       parameters:
       - name: federationId
         in: path
         description: |-
-          ID of the federation resource to return.
-          To get the federation resource ID, use a [list](/docs/iam/api-ref/Federation/list) request.
+          ID of the federation to return.
+          To get the federation ID, make a [list](/docs/iam/api-ref/Federation/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -249,14 +252,14 @@ paths:
     delete:
       tags:
       - Federation
-      summary: Deletes the specified federation resource.
+      summary: Deletes the specified federation.
       operationId: FederationDelete
       parameters:
       - name: federationId
         in: path
         description: |-
-          ID of the federation resource to delete.
-          To get the federation resource ID, use a [list](/docs/iam/api-ref/Federation/list) request.
+          ID of the federation to delete.
+          To get the federation ID, make a [list](/docs/iam/api-ref/Federation/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -276,14 +279,14 @@ paths:
     patch:
       tags:
       - Federation
-      summary: Updates the specified federation resource.
+      summary: Updates the specified federation.
       operationId: FederationUpdate
       parameters:
       - name: federationId
         in: path
         description: |-
-          ID of the federation resource to update.
-          To get the federation resource ID, use a [list](/docs/iam/api-ref/Federation/list) request.
+          ID of the federation to update.
+          To get the federation ID, make a [list](/docs/iam/api-ref/Federation/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -310,14 +313,14 @@ paths:
     get:
       tags:
       - Federation
-      summary: Retrieves the list of federation resources in the specified folder.
+      summary: Retrieves the list of federations in the specified folder.
       operationId: FederationList
       parameters:
       - name: cloudId
         in: query
         description: |-
-          ID of the cloud to list federation resources in.
-          To get the cloud ID, use a [list](/docs/resource-manager/api-ref/Cloud/list) request.
+          ID of the cloud to list federations in.
+          To get the cloud ID, make a [list](/docs/resource-manager/api-ref/Cloud/list) request.
 
           The maximum string length in characters is 50.
         schema:
@@ -325,8 +328,8 @@ paths:
       - name: folderId
         in: query
         description: |-
-          ID of the folder to list federation resources in.
-          To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+          ID of the folder to list federations in.
+          To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
           The maximum string length in characters is 50.
         schema:
@@ -377,7 +380,7 @@ paths:
     post:
       tags:
       - Federation
-      summary: Creates a federation resource in the specified folder.
+      summary: Creates a federation in the specified folder.
       operationId: FederationCreate
       requestBody:
         content:
@@ -400,13 +403,13 @@ paths:
     post:
       tags:
       - Federation
-      summary: Adds users to the specified federation resource.
+      summary: Adds users to the specified federation.
       operationId: FederationAddUserAccounts
       parameters:
       - name: federationId
         in: path
         description: |-
-          ID of the federation resource to add users.
+          ID of the federation to add users.
 
           The maximum string length in characters is 50.
         required: true
@@ -433,13 +436,13 @@ paths:
     get:
       tags:
       - Federation
-      summary: Lists operations for the specified federation resource.
+      summary: Lists operations for the specified federation.
       operationId: FederationListOperations
       parameters:
       - name: federationId
         in: path
         description: |-
-          ID of the federation resource to list operations for.
+          ID of the federation to list operations for.
 
           The maximum string length in characters is 50.
         required: true
@@ -481,14 +484,15 @@ components:
       type: object
       properties:
         federationId:
-          description: ID of the federation resource that is being altered.
+          description: ID of the federation that is being altered.
           type: string
     AddUserAccountsRequest:
       type: object
       properties:
         nameIds:
           description: |-
-            List of name_ids.
+            Name IDs returned by the Identity Provider (IdP) on successful authentication.
+            These may be UPNs or user email addresses.
 
             The maximum string length in characters for each value is 1000.
           type: array
@@ -503,10 +507,7 @@ components:
           items:
             $ref: '#/components/schemas/UserAccount'
     BindingType:
-      description: |-
-        SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols.
-
-         - BINDING_TYPE_UNSPECIFIED: Invalid
+      description: |2-
          - POST: HTTP POST binding.
          - REDIRECT: HTTP redirect binding.
          - ARTIFACT: HTTP artifact binding.
@@ -535,13 +536,13 @@ components:
           type: string
         name:
           description: |-
-            Name of the certificate. 3-63 characters long.
+            Name of the certificate.
 
             Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
-            Description of the certificate. 0-256 characters long.
+            Description of the certificate.
 
             The maximum string length in characters is 256.
           type: string
@@ -571,12 +572,14 @@ components:
         federationId:
           description: |-
             ID of the federation to add new certificate.
+            To get the federation ID make a [yandex.cloud.iam.v1.FederationService.List] request.
 
             The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             Name of the certificate.
+            The name must be unique within the federation.
 
             Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
@@ -596,7 +599,7 @@ components:
       type: object
       properties:
         federationId:
-          description: ID of the federation resource that is being created.
+          description: ID of the federation that is being created.
           type: string
     CreateFederationRequest:
       type: object
@@ -604,7 +607,7 @@ components:
         folderId:
           description: |-
             ID of the folder to create a federation in.
-            To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+            To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
             The maximum string length in characters is 50.
           type: string
@@ -623,20 +626,28 @@ components:
           type: string
         cookieMaxAge:
           description: |-
-            The 'IAM_COOKIE' cookie max age in seconds.
-            The value should be in range from 10 min to 12 hours.
-            The default value is 8 hours.
+            Browser cookie lifetime in seconds.
+            If the cookie is still valid, the management console
+            authenticates the user immediately and redirects them to the home page.
+            The default value is `8h`.
 
             Acceptable values are 600 seconds to 43200 seconds, inclusive.
           type: string
         autoCreateAccountOnLogin:
-          description: Auto create accounts for new user on first login.
+          description: |-
+            Add new users automatically on successful authentication.
+            The user will get the `resource-manager.clouds.member` role automatically,
+            but you need to grant other roles to them.
+
+            If the value is `false`, users who aren't added to the cloud
+            can't log in, even if they have authenticated on your server.
           type: boolean
           format: boolean
         issuer:
           description: |-
             Required.
-            federation issuer (entity Id).
+            ID of the IdP server to be used for authentication.
+            The IdP server also responds to IAM with this ID after the user authenticates.
 
             The maximum string length in characters is 8000.
           type: string
@@ -645,7 +656,8 @@ components:
         ssoUrl:
           description: |-
             Required.
-            Single sign on endpoint URL.
+            Single sign-on endpoint URL.
+            Specify the link to the IdP login page here.
 
             The maximum string length in characters is 8000.
           type: string
@@ -659,7 +671,7 @@ components:
       type: object
       properties:
         federationId:
-          description: ID of the federation resource that is being deleted.
+          description: ID of the federation that is being deleted.
           type: string
     Empty:
       description: Empty JSON object `` {} ``.
@@ -667,8 +679,8 @@ components:
       maxProperties: 0
     Federation:
       description: |-
-        A federation resource.
-        For more information, see [federations](/docs/iam/concepts/users/saml-federations).
+        A federation.
+        For more information, see [SAML-compatible identity federations](/docs/iam/concepts/users/identity-federations).
       type: object
       properties:
         id:
@@ -689,13 +701,12 @@ components:
           description: |-
             Required.
             Name of the federation.
-            The name is unique within the cloud. 3-63 characters long.
 
             Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
-            Description of the federation. 0-256 characters long.
+            Description of the federation.
 
             The maximum string length in characters is 256.
           type: string
@@ -708,20 +719,27 @@ components:
           format: date-time
         cookieMaxAge:
           description: |-
-            The 'IAM_COOKIE' cookie max age in seconds.
-            The value should be in range from 10 min to 12 hours.
-            The default value is 8 hours.
+            Browser cookie lifetime in seconds.
+            If the cookie is still valid, the management console
+            authenticates the user immediately and redirects them to the home page.
 
             Acceptable values are 600 seconds to 43200 seconds, inclusive.
           type: string
         autoCreateAccountOnLogin:
-          description: Auto create accounts for new user on first login.
+          description: |-
+            Add new users automatically on successful authentication.
+            The user will get the `resource-manager.clouds.member` role automatically,
+            but you need to grant other roles to them.
+
+            If the value is `false`, users who aren't added to the cloud
+            can't log in, even if they have authenticated on your server.
           type: boolean
           format: boolean
         issuer:
           description: |-
             Required.
-            federation issuer (entity Id).
+            ID of the IdP server to be used for authentication.
+            The IdP server also responds to IAM with this ID after the user authenticates.
 
             The maximum string length in characters is 8000.
           type: string
@@ -730,7 +748,8 @@ components:
         ssoUrl:
           description: |-
             Required.
-            Single sign on endpoint URL.
+            Single sign-on endpoint URL.
+            Specify the link to the IdP login page here.
 
             The maximum string length in characters is 8000.
           type: string
@@ -764,7 +783,7 @@ components:
       type: object
       properties:
         certificates:
-          description: List of certificates for the specified federation.
+          description: List of certificates.
           type: array
           items:
             $ref: '#/components/schemas/Certificate'
@@ -781,7 +800,7 @@ components:
       type: object
       properties:
         operations:
-          description: List of operations for the specified federation resource.
+          description: List of operations for the specified federation.
           type: array
           items:
             $ref: '#/components/schemas/Operation'
@@ -917,6 +936,7 @@ components:
         name:
           description: |-
             Name of the certificate.
+            The name must be unique within the federation.
 
             Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
@@ -936,7 +956,7 @@ components:
       type: object
       properties:
         federationId:
-          description: ID of the federation resource that is being updated.
+          description: ID of the federation that is being updated.
           type: string
     UpdateFederationRequest:
       type: object
@@ -958,20 +978,28 @@ components:
           type: string
         cookieMaxAge:
           description: |-
-            The 'IAM_COOKIE' cookie max age in seconds.
-            The value should be in range from 10 min to 12 hours.
-            The default value is 8 hours.
+            Browser cookie lifetime in seconds.
+            If the cookie is still valid, the management console
+            authenticates the user immediately and redirects them to the home page.
+            The default value is `8h`.
 
             Acceptable values are 600 seconds to 43200 seconds, inclusive.
           type: string
         autoCreateAccountOnLogin:
-          description: Auto create accounts for new user on first login.
+          description: |-
+            Add new users automatically on successful authentication.
+            The user will get the `resource-manager.clouds.member` role automatically,
+            but you need to grant other roles to them.
+
+            If the value is `false`, users who aren't added to the cloud
+            can't log in, even if they have authenticated on your server.
           type: boolean
           format: boolean
         issuer:
           description: |-
             Required.
-            federation issuer (entity Id).
+            ID of the IdP server to be used for authentication.
+            The IdP server also responds to IAM with this ID after the user authenticates.
 
             The maximum string length in characters is 8000.
           type: string
@@ -980,7 +1008,8 @@ components:
         ssoUrl:
           description: |-
             Required.
-            Single sign on endpoint URL.
+            Single sign-on endpoint URL.
+            Specify the link to the IdP login page here.
 
             The maximum string length in characters is 8000.
           type: string
@@ -1017,11 +1046,11 @@ components:
           type: string
     BindingType_in_CreateFederationRequest_ssoBinding:
       description: |-
-        Single sign on endpoint binding type.
+        Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
 
-        SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols.
+        SAML Binding is a mapping of a SAML protocol message onto standard messaging
+        formats and/or communications protocols.
 
-         - BINDING_TYPE_UNSPECIFIED: Invalid
          - POST: HTTP POST binding.
          - REDIRECT: HTTP redirect binding.
          - ARTIFACT: HTTP artifact binding.
@@ -1032,11 +1061,11 @@ components:
       - ARTIFACT
     BindingType_in_Federation_ssoBinding:
       description: |-
-        Single sign on endpoint binding type.
+        Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
 
-        SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols.
+        SAML Binding is a mapping of a SAML protocol message onto standard messaging
+        formats and/or communications protocols.
 
-         - BINDING_TYPE_UNSPECIFIED: Invalid
          - POST: HTTP POST binding.
          - REDIRECT: HTTP redirect binding.
          - ARTIFACT: HTTP artifact binding.
@@ -1073,11 +1102,11 @@ components:
       type: string
     BindingType_in_UpdateFederationRequest_ssoBinding:
       description: |-
-        Single sign on endpoint binding type.
+        Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
 
-        SAML Binding is a mapping of a SAML protocol message onto standard messaging formats and/or communications protocols.
+        SAML Binding is a mapping of a SAML protocol message onto standard messaging
+        formats and/or communications protocols.
 
-         - BINDING_TYPE_UNSPECIFIED: Invalid
          - POST: HTTP POST binding.
          - REDIRECT: HTTP redirect binding.
          - ARTIFACT: HTTP artifact binding.
@@ -1090,4 +1119,4 @@ tags:
 - name: Certificate
   description: A set of methods for managing certificates.
 - name: Federation
-  description: A set of methods for managing federation resources.
+  description: A set of methods for managing federations.

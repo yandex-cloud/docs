@@ -16,7 +16,7 @@ DELETE https://iam.api.cloud.yandex.net/iam/v1/saml/certificates/{certificateId}
  
 Parameter | Description
 --- | ---
-certificateId | ID of the certificate to remove. To get the certificate ID, use a [list](/docs/iam/api-ref/Certificate/list) request.  The maximum string length in characters is 50.
+certificateId | ID of the certificate to delete. To get the certificate ID, make a [list](/docs/iam/api-ref/Certificate/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

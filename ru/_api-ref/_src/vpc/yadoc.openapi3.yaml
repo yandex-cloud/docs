@@ -997,7 +997,7 @@ components:
             запросы будут получать свои значения [nextPageToken](/docs/vpc/api-ref/Subnet/list#responses), для перебора страниц результатов.
           type: string
     Network:
-      description: Ресурс Network. Подробнее см. [Networks](/vpc/concepts/network).
+      description: Ресурс Network. Подробнее см. [Сети](/vpc/concepts/network).
       type: object
       properties:
         id:
@@ -1014,8 +1014,9 @@ components:
           type: string
           format: date-time
         name:
-          description: "Имя облачной сети. Имя должно быть уникальным в каталоге.
-            \nДлина имени должна быть от 3 до 63 символов."
+          description: |-
+            Имя облачной сети. Имя должно быть уникальным в каталоге.
+            Длина имени должна быть от 3 до 63 символов.
           type: string
         description:
           description: |-
@@ -1174,7 +1175,7 @@ components:
           items:
             type: object
     Subnet:
-      description: Ресурс Subnet. Подробнее см. [Subnets](/vpc/concepts/subnets).
+      description: Ресурс Subnet. Подробнее см. [Подсети](/vpc/concepts/subnets).
       type: object
       properties:
         id:
@@ -1191,8 +1192,9 @@ components:
           type: string
           format: date-time
         name:
-          description: "Имя подсети. Имя должно быть уникальным в каталоге. \nДлина
-            имени должна быть от 3 до 63 символов."
+          description: |-
+            Имя подсети. Имя должно быть уникальным в каталоге.
+            Длина имени должна быть от 3 до 63 символов.
           type: string
         description:
           description: Описание подсети. Длина описания должна быть от 0 до 256 символов.
@@ -1210,10 +1212,11 @@ components:
           description: Идентификатор зоны доступности, где находится подсеть.
           type: string
         v4CidrBlocks:
-          description: "CIDR. Диапазон внутренних адресов, определенных для этой подсети.
-            \nЭто поле может быть задано только во время создания\nресурса Subnet
-            и не может быть изменено. Например, 10.0.0.0/22 или 192.168.0.0/24. \nМинимальный
-            размер подсети /28, максимальный размер подсети /16."
+          description: |-
+            CIDR. Диапазон внутренних адресов, определенных для этой подсети.
+            Это поле может быть задано только во время создания
+            ресурса Subnet и не может быть изменено. Например, 10.0.0.0/22 или 192.168.0.0/24.
+            Минимальный размер подсети /28, максимальный размер подсети /16.
           type: array
           items:
             type: string

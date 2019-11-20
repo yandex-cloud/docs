@@ -32,7 +32,7 @@ networkId | Обязательное поле. Идентификатор воз
   "labels": "object"
 }
 ```
-Ресурс Network. Подробнее см. [Networks](/vpc/concepts/network).
+Ресурс Network. Подробнее см. [Сети](/vpc/concepts/network).
  
 Поле | Описание
 --- | ---

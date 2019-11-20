@@ -16,7 +16,7 @@ POST https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{r
  
 Параметр | Описание
 --- | ---
-resourceId | Обязательное поле. ID of the resource for which access bindings are being updated.  Максимальная длина строки в символах — 50.
+resourceId | Обязательное поле. Идентификатор ресурса, для которого обновляется список привязок прав доступа.
  
 ## Параметры в теле запроса {#body_params}
  
@@ -40,13 +40,13 @@ resourceId | Обязательное поле. ID of the resource for which acc
  
 Поле | Описание
 --- | ---
-accessBindingDeltas[] | **object**<br><p>Обязательное поле. Updates to access bindings.</p> 
-accessBindingDeltas[].<br>action | **string**<br><p>Обязательное поле. The action that is being performed on an access binding.</p> <ul> <li>ADD: Addition of an access binding.</li> <li>REMOVE: Removal of an access binding.</li> </ul> 
-accessBindingDeltas[].<br>accessBinding | **object**<br><p>Обязательное поле. Access binding. For more information, see <a href="/docs/iam/concepts/access-control/#access-bindings">Access Bindings</a>.</p> 
-accessBindingDeltas[].<br>accessBinding.<br>roleId | **string**<br><p>ID of the <a href="/docs/iam/api-ref/Role#representation">Role</a> that is assigned to the subject.</p> <p>Максимальная длина строки в символах — 50.</p> 
-accessBindingDeltas[].<br>accessBinding.<br>subject | **object**<br><p>Обязательное поле. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier.</p> 
-accessBindingDeltas[].<br>accessBinding.<br>subject.<br>id | **string**<br><p>ID of the subject.</p> <p>It can contain one of the following values:</p> <ul> <li> <p><code>allAuthenticatedUsers</code>: A special system identifier that represents anyone who is authenticated. It can be used only if the type is <code>system</code>.</p> </li> <li> <p><code>&lt;cloud generated id&gt;</code>: An identifier that represents a user account. It can be used only if the type is <code>userAccount</code> or <code>serviceAccount</code>.</p> </li> </ul> <p>Максимальная длина строки в символах — 50.</p> 
-accessBindingDeltas[].<br>accessBinding.<br>subject.<br>type | **string**<br><p>Type of the subject.</p> <p>It can contain one of the following values:</p> <ul> <li><code>system</code>: System group. This type represents several accounts with a common system identifier.</li> <li><code>userAccount</code>: An user account (for example, &quot;alice.the.girl@yandex.ru&quot;). This type represents the <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource.</li> <li><code>serviceAccount</code>: A service account. This type represents the <a href="/docs/iam/api-ref/ServiceAccount#representation">ServiceAccount</a> resource.</li> </ul> <p>For more information, see <a href="/docs/iam/concepts/access-control/#subject">Subject to which the role is assigned</a>.</p> 
+accessBindingDeltas[] | **object**<br><p>Обязательное поле. Изменения в список привязок прав доступа.</p> 
+accessBindingDeltas[].<br>action | **string**<br><p>Обязательное поле. Действие, которое надо выполнить с привязкой прав доступа.</p> <ul> <li>ADD: Добавление новой привязки прав доступа.</li> <li>REMOVE: Удаление привязки прав доступа.</li> </ul> 
+accessBindingDeltas[].<br>accessBinding | **object**<br><p>Обязательное поле. Привязка прав доступа. Дополнительные сведения см. в разделе <a href="/docs/iam/concepts/access-control/#access-bindings">Привязка прав доступа</a>.</p> 
+accessBindingDeltas[].<br>accessBinding.<br>roleId | **string**<br><p>Идентификатор ресурса <a href="/docs/iam/api-ref/Role#representation">Role</a> который назначен для субъекта, указанного в параметре subject.</p> <p>Максимальная длина строки в символах — 50.</p> 
+accessBindingDeltas[].<br>accessBinding.<br>subject | **object**<br><p>Обязательное поле. Субъект, для которого создается привязка прав доступа. Может представлять собой аккаунт с уникальным идентификатором в облаке или системную группу с общим системным идентификатором.</p> 
+accessBindingDeltas[].<br>accessBinding.<br>subject.<br>id | **string**<br><p>Идентификатор субъекта.</p> <p>Может иметь одно из значений:</p> <ul> <li><code>allAuthenticatedUsers</code>: Специальный системный идентификатор, представляющий любого пользователя, прошедшего аутентификацию. Его можно использовать только если в параметре type указано <code>system</code>.</li> <li><code>allUsers</code>: Специальный системный идентификатор, представляющий любого пользователя. Аутентификация не требуется. Например, при запросе через API не надо будет указывать IAM-токен.</li> <li><code>&lt;идентификатор пользователя в облаке&gt;</code>: Идентификатор, представляющий учетную запись пользователя. Его можно использовать только если в параметре type передано одно из следующих значений: <code>userAccount</code> или <code>serviceAccount</code>.</li> </ul> <p>Максимальная длина строки в символах — 50.</p> 
+accessBindingDeltas[].<br>accessBinding.<br>subject.<br>type | **string**<br><p>Тип субъекта.</p> <p>Может иметь одно из значений:</p> <ul> <li><code>userAccount</code> — аккаунт на Яндексе или [Яндекс.Коннекте]({{ link-yandex-connect }}), добавленный в Яндекс.Облако.</li> <li><code>serviceAccount</code> — сервисный аккаунт. Этот тип представляет ресурс <a href="/docs/iam/api-ref/ServiceAccount#representation">ServiceAccount</a>.</li> <li><code>federatedUser</code> — федеративный аккаунт. Этот тип представляет пользователя из федерации удостоверений, например Active Directory.</li> <li><code>system</code> — системная группа. Представляет набор аккаунтов, который описывается общим системным идентификатором.</li> </ul> <p>Дополнительные сведения см. в разделе <a href="/docs/iam/concepts/access-control/#subject">Субъект, которому назначается роль</a>.</p> 
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
