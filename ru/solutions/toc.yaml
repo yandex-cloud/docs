@@ -87,3 +87,5 @@ items:
         href: routing/nat-instance.md
       - name: Создание VPN-туннеля
         href: routing/ipsec-vpn.md
+      - name: Установка виртуального роутера Cisco CSR1000v
+        href: routing/cisco.md
