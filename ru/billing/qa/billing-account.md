@@ -4,6 +4,10 @@
 
 {% include [billing-account-amounts](../_includes/billing-account-amounts.md) %}
 
+{% include [billing-account-payers](../_includes/billing-account-payers.md) %}
+
+{% include [billing-account-payers-example](../_includes/billing-account-payers-example.md) %}
+
 #### Какое количество облаков я могу привязать к платежному аккаунту? {#clouds-amount}
 
 {% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}
@@ -47,3 +51,14 @@
 Скорее всего, платежная система вашей карты не поддерживается нашим сервисом.
 
 Для решения проблемы попробуйте привязать другую карту или, если вы являетесь юридическим лицом, создайте платежный аккаунт с типом **Бизнес-аккаунт** и способом оплаты **Банковский перевод**.
+
+#### Почему при создании платежного аккаунта появляется ошибка «Недоступная страна для плательщика»?  {#account-error}
+
+Скорее всего, вы авторизованы на Яндексе под аккаунтом, к которому уже привязан плательшик с другим резидентством. 
+
+{% include [billing-account-payers](../_includes/billing-account-payers.md) %}
+
+Чтобы создать платежный аккаунт, в котором плательщиком будет являться резидент другой страны, авторизуйтесь под другим аккаунтом Яндекс.Паспорта или Яндекс.Коннекта. 
+
+{% include [billing-account-payers-example](../_includes/billing-account-payers-example.md) %}
+

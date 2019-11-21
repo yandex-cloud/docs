@@ -1,2 +1,2 @@
-Select the account type: **Individual** or **Business**.
+Select the payer type: **Individual** or **Business**.
 
