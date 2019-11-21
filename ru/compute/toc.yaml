@@ -135,10 +135,14 @@ items:
         items:
           - name: Изменить группу
             href: operations/instance-groups/update.md
-          - name: Удалить группу
-            href: operations/instance-groups/delete.md
           - name: Настроить автоматическое восстановление виртуальных машин
             href: operations/instance-groups/enable-autohealing.md
+          - name: Остановить группу
+            href: operations/instance-groups/stop.md
+          - name: Запустить группу
+            href: operations/instance-groups/start.md
+          - name: Удалить группу
+            href: operations/instance-groups/delete.md
   - name: Сценарии
     items:
       - name: Настройка синхронизации времени NTP
@@ -175,7 +179,7 @@ items:
             href: concepts/snapshot.md
       - name: Образы
         href: concepts/image.md
-      - name: Instance Groups
+      - name: Группы виртуальных машин
         items:
           - name: Обзор
             href: concepts/instance-groups/index.md
@@ -191,8 +195,8 @@ items:
             href: concepts/instance-groups/autohealing.md
           - name: Конфигурационное обновление
             href: concepts/instance-groups/configuration-update.md
-          - name: Статусы виртуальных машин
-            href: concepts/instance-groups/vm-statuses.md
+          - name: Статусы
+            href: concepts/instance-groups/statuses.md
       - name: Резервное копирование
         href: concepts/backups.md
       - name: Квоты и лимиты

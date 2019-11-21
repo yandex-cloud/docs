@@ -116,7 +116,7 @@
       - Общую информацию о группе:
 
           ```
-          name: first-fixed-group
+          name: first-fixed-group-with-balancer
           service_account_id: <ID>
           description: "This instance group was created from YAML config"
           ```

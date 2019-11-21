@@ -15,6 +15,8 @@
 
 ## Управление группой виртуальных машин
 
+- [{#T}](stop.md)
+- [{#T}](start.md)
 - [{#T}](update.md)
 - [{#T}](delete.md)
 - [{#T}](enable-autohealing.md)
