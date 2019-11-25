@@ -22,7 +22,7 @@ You can add and remove cluster hosts and manage {{ PG }} settings for individual
 
   ```
   $ {{ yc-mdb-pg }} host list
-       --cluster-name=<cluster name>
+       --name=<cluster name>
   
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
@@ -108,7 +108,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
      ```
      $ {{ yc-mdb-pg }} host add
-          --cluster-name <cluster name>
+          --name <cluster name>
           --host zone-id=<availability zone>,subnet-id=<subnet ID>
      ```
 
@@ -116,7 +116,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
      ```
      $ {{ yc-mdb-pg }} host add
-          --cluster-name <cluster name>
+          --name <cluster name>
           --host zone-id=<availability zone>
      ```
 
@@ -156,7 +156,7 @@ For each host in a {{ PG }} cluster, you can change:
 
   ```
   $ {{ yc-mdb-pg }} host update <host name>
-       --cluster-name <cluster name>
+       --name <cluster name>
        --replication-source <source host's name
        --priority <replica's priority
   ```
@@ -195,7 +195,7 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
 
   ```
   $ {{ yc-mdb-pg }} host delete <hostname>
-       --cluster-name=<cluster name>
+       --name=<cluster name>
   ```
 
   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

@@ -20,7 +20,7 @@ You can add and remove users, as well as manage their individual settings.
 
   ```
   $ {{ yc-mdb-pg }} user list
-       --cluster-name=<cluster name>
+       --name=<cluster name>
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -59,7 +59,7 @@ When adding a user, {{ mpg-short-name }} reserves 50 connections to the {{ PG }}
 
   ```
   $ {{ yc-mdb-pg }} user create <username>
-       --cluster-name=<cluster name>
+       --name=<cluster name>
        --password=<DB user password>
        --permissions=<list of DBs the user can access>
        --conn-limit=<maximum number of connections per user>
@@ -98,7 +98,7 @@ For information setting up user privileges and roles, see [{#T}](grant.md).
 
   ```
   $ {{ yc-mdb-pg }} user update <username>
-       --cluster-name=<cluster name>
+       --name=<cluster name>
        --password=<DB user password>
        --permissions=<list of DBs the user can access>
        --conn-limit=<maximum number of connections per user>
@@ -127,7 +127,7 @@ For information setting up user privileges and roles, see [{#T}](grant.md).
 
   ```
   $ {{ yc-mdb-pg }} user delete <username>
-       --cluster-name=<cluster name>
+       --name=<cluster name>
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).

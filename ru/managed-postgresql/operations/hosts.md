@@ -22,7 +22,7 @@
   
   ```
   $ {{ yc-mdb-pg }} host list
-       --cluster-name=<имя кластера>
+       --name=<имя кластера>
        
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
@@ -110,7 +110,7 @@
      
      ```
      $ {{ yc-mdb-pg }} host add
-          --cluster-name <имя кластера>
+          --name <имя кластера>
           --host zone-id=<зона доступности>,subnet-id=<ID подсети>
      ```
      
@@ -118,7 +118,7 @@
      
      ```
      $ {{ yc-mdb-pg }} host add
-          --cluster-name <имя кластера>
+          --name <имя кластера>
           --host zone-id=<зона доступности>
      ```
      
@@ -160,7 +160,7 @@
   
   ```
   $ {{ yc-mdb-pg }} host update <имя хоста>
-       --cluster-name <имя кластера>
+       --name <имя кластера>
        --replication-source <имя хоста-источника>
        --priority <приоритет реплики>
   ```
@@ -199,7 +199,7 @@
   
   ```
   $ {{ yc-mdb-pg }} host delete <имя хоста>
-       --cluster-name=<имя кластера>
+       --name=<имя кластера>
   ```
   
   Имя хоста можно запросить со [списком хостов в кластере](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).

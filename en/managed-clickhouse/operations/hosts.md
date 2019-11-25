@@ -28,7 +28,7 @@ To add new hosts to a single-host cluster, first [add the {{ ZK }} hosts ](zk-ho
 
   ```
   $ {{ yc-mdb-ch }} host list
-       --cluster-name=<cluster name>
+       --name=<cluster name>
   
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
@@ -110,7 +110,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
      ```
      $ {{ yc-mdb-ch }} host add
-          --cluster-name <cluster name>
+          --name <cluster name>
           --host zone-id=<availability zone>,subnet-id=<subnet ID>
      ```
 
@@ -118,7 +118,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
      ```
      $ {{ yc-mdb-ch }} host add
-          --cluster-name <cluster name>
+          --name <cluster name>
           --host zone-id=<availability zone>
      ```
 
@@ -158,7 +158,7 @@ You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
 
   ```
   $ {{ yc-mdb-ch }} host delete <hostname>
-       --cluster-name=<cluster name>
+       --name=<cluster name>
   ```
 
   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

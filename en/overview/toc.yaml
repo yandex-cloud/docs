@@ -17,8 +17,8 @@ items:
     items:
       - name: Security bulletin
         href: security-bulletins/index.md
-      - name: Penetration tests
-        href: compliance/pentest.md
+  #    - name: Penetration tests
+  #      href: compliance/pentest.md
   - name: Deleting user data
     href: concepts/data-deletion.md
   - name: SLA

@@ -27,7 +27,7 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
   To get a list of databases in a cluster, run the command:
 
   ```
-  $ yc managed-redis shards list --cluster-name <cluster name>
+  $ yc managed-redis shards list --name <cluster name>
   +--------------+
   |     NAME     |
   +--------------+
@@ -50,7 +50,7 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 To get information about a shard, run the following command:
 
 ```
-$ {{ yc-mdb-rd }} shards get <shard name> --cluster-name <cluster name>
+$ {{ yc-mdb-rd }} shards get <shard name> --name <cluster name>
 ```
 
 The cluster name and ID can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -87,7 +87,7 @@ The cluster name and ID can be requested with a [list of clusters in the folder]
   To add a two-host shard to the cluster:
 
   ```
-  $ yc managed-redis shards add --name <name of the new shard> --cluster-name <cluster name> \
+  $ yc managed-redis shards add --name <name of the new shard> --name <cluster name> \
     --host zone-id=<availability zone>,subnet-name=<subnet name> \
     --host zone-id=<availability zone>,subnet-name=<subnet name>
   ```
@@ -130,7 +130,7 @@ All the shard hosts are deleted with the shard.
 
   ```
   $ {{ yc-mdb-rd }} shards delete <shard name>
-       --cluster-name=<cluster name>
+       --name=<cluster name>
   ```
 
   The shard name can be requested with a [list of cluster shards](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md).

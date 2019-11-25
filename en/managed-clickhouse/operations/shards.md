@@ -36,7 +36,7 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
   1. Start an operation, such as changing the shard weight:
 
      ```bash
-     {{ yc-mdb-ch }} shards update --cluster-name clickhouse12 \
+     {{ yc-mdb-ch }} shards update --name clickhouse12 \
                                    --name shard1 \
                                    --weight 80
      ```

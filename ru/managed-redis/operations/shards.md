@@ -27,7 +27,7 @@
   Чтобы получить список баз данных в кластере, выполните команду:
   
   ```
-  $ yc managed-redis shards list --cluster-name <имя кластера>
+  $ yc managed-redis shards list --name <имя кластера>
   +--------------+
   |     NAME     |
   +--------------+
@@ -50,7 +50,7 @@
 Чтобы получить информацию о шарде, выполните команду:
 
 ```
-$ {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя кластера>
+$ {{ yc-mdb-rd }} shards get <имя шарда> --name <имя кластера>
 ```
 
 Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
@@ -85,7 +85,7 @@ $ {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя клас
   Чтобы добавить шард c двумя хостами в кластер:
 
   ```
-  $ yc managed-redis shards add --name <имя нового шарда> --cluster-name <имя кластера> \
+  $ yc managed-redis shards add --name <имя нового шарда> --name <имя кластера> \
     --host zone-id=<зона доступности>,subnet-name=<имя подсети> \
     --host zone-id=<зона доступности>,subnet-name=<имя подсети>
   ```
@@ -128,7 +128,7 @@ $ {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя клас
 
   ```
   $ {{ yc-mdb-rd }} shards delete <имя шарда>
-       --cluster-name=<имя кластера>
+       --name=<имя кластера>
   ```
 
   Имя шарда можно запросить со [списком шардов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md).

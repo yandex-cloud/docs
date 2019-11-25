@@ -20,7 +20,7 @@ You can add and remove users, as well as manage their individual settings.
 
   ```
   $ {{ yc-mdb-mg }} user list
-       --cluster-name <cluster name>
+       --name <cluster name>
   ```
 
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -55,7 +55,7 @@ You can add and remove users, as well as manage their individual settings.
 
      ```
      $ {{ yc-mdb-mg }} user create <username>
-        --cluster-name <cluster name>
+        --name <cluster name>
         --password <user password>
         --permission database=<DB name>,role=<role>,role=<another role>,...
         --permission database=<another DB name>,role=<role>,...
@@ -94,7 +94,7 @@ You can add and remove users, as well as manage their individual settings.
 
      ```
      $ {{ yc-mdb-mg }} user update <username>
-        --cluster-name <cluster name>
+        --name <cluster name>
         --password <user password>
         --permission database=<DB name>,role=<role>,role=<another role>,...
         --permission database=<another DB name>,role=<role>,...
@@ -123,7 +123,7 @@ You can add and remove users, as well as manage their individual settings.
 
   ```
   $ {{ yc-mdb-mg }} user delete <username>
-       --cluster-name <cluster name>
+       --name <cluster name>
   ```
 
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).

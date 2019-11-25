@@ -30,7 +30,7 @@ To add a role, request the list of available roles with [user information](clust
 
   ```
   $ {{ yc-mdb-pg }} user update <username>
-       --cluster-name <cluster name>
+       --name <cluster name>
        --grants="<role1, role2>"
   ```
 

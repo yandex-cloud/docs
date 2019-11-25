@@ -20,7 +20,7 @@ You can add and remove databases, as well as view information about them.
 
   ```
   $ {{ yc-mdb-pg }} database list
-       --cluster-name=<cluster name>
+       --name=<cluster name>
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -76,7 +76,7 @@ specific tables. Learn more in the [{{ PG }} documentation](https://www.postgres
 
      ```
      $ {{ yc-mdb-pg }} user list
-          --cluster-name <cluster name>
+          --name <cluster name>
      ```
 
      If the required user is not in the list, [create it](cluster-users.md#adduser).
@@ -85,7 +85,7 @@ specific tables. Learn more in the [{{ PG }} documentation](https://www.postgres
 
      ```
      $ {{ yc-mdb-pg }} database create <database name>
-          --cluster-name <cluster name>
+          --name <cluster name>
           --owner <username of the DB owner>
           --lc-collate ru_RU.UTF8
           --lc-type ru_RU.UTF8
@@ -120,7 +120,7 @@ specific tables. Learn more in the [{{ PG }} documentation](https://www.postgres
 
   ```
   $ {{ yc-mdb-pg }} database delete <database name>
-       --cluster-name=<cluster name>
+       --name=<cluster name>
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
