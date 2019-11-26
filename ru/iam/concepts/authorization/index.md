@@ -82,6 +82,6 @@
 
   Чтобы выполнять операции от имени федеративного пользователя, пройдите аутентификацию в CLI по [инструкции](../../../cli/operations/authentication/federated-user.md).
 
-  {% include [include](../../../_include/cli/success-auth-via-federation.md) %}
+  {% include [include](../../../_includes/cli/success-auth-via-federation.md) %}
 
 {% endlist %}

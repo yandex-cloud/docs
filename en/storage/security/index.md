@@ -23,18 +23,18 @@ To assign the required roles to the user:
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
-#### admin
+### admin
 
 Users with the `admin` role can:
 
   - Perform any operations with buckets and objects in the folder: create, delete, and edit them.
   - Assign roles to other users.
 
-#### editor
+### editor
 
 Users with the `editor` role can perform any operations with buckets and objects in the folder: create, delete, and edit them.
 
-#### viewer
+### viewer
 
 Users with the `viewer` role can view lists of buckets and objects in the folder.
 

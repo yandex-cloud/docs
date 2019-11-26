@@ -26,7 +26,7 @@
     Press 'enter' to continue...
     ```
 
-    {% include [include](../../../_include/cli/success-auth-via-federation.md) %}
+    {% include [include](../../../_includes/cli/success-auth-via-federation.md) %}
 1. Вернитесь в интерфейс командной строки, чтобы завершить создание профиля.
 1. Выберите каталог по умолчанию:
    ```
