@@ -60,13 +60,13 @@ The time difference between the first and last request is rounded up to ten minu
 The session is calculated based on the user activity in the folder. If multiple users are working in the same {{ datalens-short-name }} instance at the same time, the service counts multiple sessions.
 If one user is working in multiple {{ datalens-short-name }} instances at the same time, the service calculates sessions in these instances independently of one another.
 
-### Session types
+### Session types {#session-types}
 
 In {{ datalens-short-name }}, sessions are categorized as internal or external:
 
 | Session type | Data source |
 | ----- | ----- |
-| Internal | Materialized datasets<br/>CSV connection<br/>Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>Databases that are created in Yandex.Cloud (ClickHouse, PostgreSQL, MySQL) |
+| Internal | Materialized datasets<br/>CSV connection<br/>Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>Managed databases in Yandex.Cloud:<br/> - [Managed Service for ClickHouse](../managed-clickhouse)<br/> - [Managed Service for PostgreSQL](../managed-postgresql)<br/> - [Managed Service for MySQL<sup>®</sup>](../managed-mysql) |
 | External | Any data source that is not related to Yandex or Yandex.Cloud. |
 
 ### How sessions are calculated {#how-sessions-counted}
