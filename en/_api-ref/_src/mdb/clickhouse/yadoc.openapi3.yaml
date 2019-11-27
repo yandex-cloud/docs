@@ -2362,6 +2362,12 @@ components:
         sslMode:
           $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryPostgresqlSourceSslMode_in_ClickhouseConfigExternalDictionaryPostgresqlSource_sslMode'
     ClickhouseConfigExternalDictionaryPostgresqlSourceSslMode:
+      description: |2-
+         - DISABLE: Only try a non-SSL connection.
+         - ALLOW: First try a non-SSL connection; if that fails, try an SSL connection.
+         - PREFER: First try an SSL connection; if that fails, try a non-SSL connection.
+         - VERIFY_CA: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).
+         - VERIFY_FULL: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.
       type: string
       enum:
       - DISABLE
@@ -4439,8 +4445,14 @@ components:
       - COMPLEX_KEY_CACHE
     ClickhouseConfigExternalDictionaryPostgresqlSourceSslMode_in_ClickhouseConfigExternalDictionaryPostgresqlSource_sslMode:
       description: |-
-        Mode of SSL TCP/IP connection to the PostgreSQL host. There are six modes: `disable`, `allow`, `prefer` (default), `require`, `verify-ca`, `verify-full`.
-        For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
+        Mode of SSL TCP/IP connection to the PostgreSQL host.
+        For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html).
+
+         - DISABLE: Only try a non-SSL connection.
+         - ALLOW: First try a non-SSL connection; if that fails, try an SSL connection.
+         - PREFER: First try an SSL connection; if that fails, try a non-SSL connection.
+         - VERIFY_CA: Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).
+         - VERIFY_FULL: Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.
       type: string
       enum:
       - DISABLE
