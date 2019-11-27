@@ -4,13 +4,13 @@
 
 | Type of limit | Value |
 | ----- | ----- |
-| Number of `SendMessage` and `SendMessageBatch` calls | 300 calls per second for standard queues<br/>30 calls per second for FIFO queues |
-| Number of `ReceiveMessage` calls | 300 calls per second for standard queues<br/>30 calls per second for FIFO queues |
-| Number of `DeleteMessage` and `DeleteMessageBatch` calls | 300 calls per second for standard queues<br/>30 calls per second for FIFO queues |
-| Number of `ChangeMessageVisibility` and `ChangeMessageVisibilityBatch` calls | 300 calls per second for standard queues<br/>30 calls per second for FIFO queues |
-| Number of `CreateQueue calls` | 2 calls per second |
-| Number of `DeleteQueue calls` | 5 calls per second |
-| Number of other request calls | 100 calls per second |
+| Number of `SendMessage` and `SendMessageBatch` calls per queue | 300 calls per second for standard queues<br/><br/>30 calls per second for FIFO queues |
+| Number of `ReceiveMessage` calls per queue | 300 calls per second for standard queues<br/><br/>30 calls per second for FIFO queues |
+| Number of `DeleteMessage` and `DeleteMessageBatch` calls per queue | 300 calls per second for standard queues<br/><br/>30 calls per second for FIFO queues |
+| Number of `ChangeMessageVisibility` and `ChangeMessageVisibilityBatch` calls per queue | 300 calls per second for standard queues<br/><br/>30 calls per second for FIFO queues |
+| Number of `CreateQueue calls` per cloud | 2 calls per second |
+| Number of `DeleteQueue calls` per cloud | 5 calls per second |
+| Number of other request calls per cloud | 100 calls per second |
 | Number of queues per cloud | 10 |
 
 #### Limits
