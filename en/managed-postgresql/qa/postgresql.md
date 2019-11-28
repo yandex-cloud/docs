@@ -6,7 +6,7 @@ Use the `pg_dump` built-in tool to migrate data to a {{ PG }} cluster in {{ mpg-
 
 #### What {{ PG }} versions does {{ mpg-short-name }} support? {#supported-version}
 
-{{ mpg-short-name }} supports {{ PG }} 10 and 11.
+{{ mpg-short-name }} supports {{ PG }} 10, 11, and 12, as well as PostgreSQL 10 for 1C.
 
 #### Is DB cluster backup enabled by default? {#backup}
 
@@ -27,4 +27,8 @@ The list of supported {{ PG }} extensions is provided in [{#T}](../operations/cl
 #### What limitations are imposed on {{ PG }} database clusters? {#instance-limitations}
 
 For more information about {{ mpg-short-name }} limitations, see [{#T}](../concepts/limits.md). Characteristics of clusters that can be created using {{ mpg-short-name }} are given in [{#T}](../concepts/instance-types.md).
+
+#### Which LC_COLLATE and LC_CTYPE values are set for databases by default?
+
+As databases are created, `LC_CTYPE=C` and `LC_COLLATE=C` are set by default. You can't change these settings for the database you create with clusters, but you can [create new databases](../operations/databases.md) and specify values for them.
 
