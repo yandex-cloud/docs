@@ -450,6 +450,42 @@ components:
         properties:
           invokeFunction:
             $ref: '#/components/schemas/InvokeFunctionOnce'
+    TriggerObjectStorage:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          eventType:
+            description: |-
+              Required.
+              Type (name) of events, at least one value is required.
+
+              Must contain at least one element.
+            type: array
+            items:
+              $ref: '#/components/schemas/TriggerObjectStorageEventType'
+          bucketId:
+            type: string
+          status:
+            description: Status of events, optional.
+            type: string
+          prefix:
+            description: Filter, optional.
+            type: string
+          suffix:
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
+    TriggerObjectStorageEventType:
+      type: string
+      enum:
+      - OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT
+      - OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT
+      - OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT
     TriggerRule:
       type: object
       allOf:
@@ -463,6 +499,8 @@ components:
             $ref: '#/components/schemas/TriggerMessageQueue'
           iotMessage:
             $ref: '#/components/schemas/TriggerIoTMessage'
+          objectStorage:
+            $ref: '#/components/schemas/TriggerObjectStorage'
     TriggerTimer:
       type: object
       allOf:
@@ -526,6 +564,8 @@ components:
             $ref: '#/components/schemas/TriggerMessageQueue'
           iotMessage:
             $ref: '#/components/schemas/TriggerIoTMessage'
+          objectStorage:
+            $ref: '#/components/schemas/TriggerObjectStorage'
     RetrySettings_in_InvokeFunctionWithRetry_retrySettings:
       description: Retry policy, optional (no value means no retry).
       type: object
@@ -558,6 +598,8 @@ components:
             $ref: '#/components/schemas/TriggerMessageQueue'
           iotMessage:
             $ref: '#/components/schemas/TriggerIoTMessage'
+          objectStorage:
+            $ref: '#/components/schemas/TriggerObjectStorage'
     FieldMask_in_UpdateTriggerRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.

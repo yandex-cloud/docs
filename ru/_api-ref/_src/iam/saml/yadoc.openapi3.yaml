@@ -412,7 +412,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AddUserAccountsRequest'
+              $ref: '#/components/schemas/AddFederatedUserAccountsRequest'
         required: true
       responses:
         "200":
@@ -423,8 +423,8 @@ paths:
                 $ref: '#/components/schemas/Operation'
       x-y-navtitle: addUserAccounts
       x-y-operation-metadata:
-        $ref: '#/components/schemas/AddUserAccountsMetadata'
-      x-y-operation-response: AddUserAccountsResponse
+        $ref: '#/components/schemas/AddFederatedUserAccountsMetadata'
+      x-y-operation-response: AddFederatedUserAccountsResponse
   /iam/v1/saml/federations/{federationId}/operations:
     get:
       tags:
@@ -473,13 +473,13 @@ paths:
       x-y-navtitle: listOperations
 components:
   schemas:
-    AddUserAccountsMetadata:
+    AddFederatedUserAccountsMetadata:
       type: object
       properties:
         federationId:
           description: Идентификатор изменяемой Федерации.
           type: string
-    AddUserAccountsRequest:
+    AddFederatedUserAccountsRequest:
       type: object
       properties:
         nameIds:
@@ -491,7 +491,7 @@ components:
           type: array
           items:
             type: string
-    AddUserAccountsResponse:
+    AddFederatedUserAccountsResponse:
       type: object
       properties:
         userAccounts:

@@ -170,7 +170,7 @@ components:
       properties:
         model:
           description: |-
-            The model to use for the image analysis.
+            Model to use for image classification.
 
             The maximum string length in characters is 256.
           type: string
@@ -212,7 +212,10 @@ components:
             type: string
         model:
           description: |-
-            Do not specify this field, custom models are not supported yet.
+            Model to use for text detection.
+            Possible values:
+            * page (default) — this model is suitable for detecting multiple text entries in an image.
+            * line — this model is suitable for cropped images with one line of text.
 
             The maximum string length in characters is 50.
           type: string
