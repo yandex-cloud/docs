@@ -3,6 +3,16 @@ href: index.yaml
 items:
   - name: Сервисы Яндекс.Облака
     href: concepts/services.md
+  - name: Сопоставление с другими платформами
+    items:
+      - name: Обзор
+        href: platform-comparison/index.md
+      - name: Сопоставление с Amazon Web Services
+        href: platform-comparison/aws.md
+      - name: Сопоставление с Google Cloud Platform
+        href: platform-comparison/gcp.md
+      - name: Сопоставление с Microsoft Azure
+        href: platform-comparison/azure.md
   - name: Зоны доступности
     href: concepts/geo-scope.md
   - name: Начало работы
