@@ -109,6 +109,8 @@ items:
         items:
         - name: s3fs
           href: instruments/s3fs.md
+        - name: goofys
+          href: instruments/goofys.md
   - name: HTTP API, compatible with Amazon S3
     items:
       - name: How to use the API

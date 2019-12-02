@@ -16,4 +16,5 @@
 
 - FUSE
     - [s3fs](s3fs.md)
+    - [goofys](goofys.md)
 

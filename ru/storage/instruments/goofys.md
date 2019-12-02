@@ -8,11 +8,11 @@
 
 ## Установка {#installation}
 
-Для установки goofys воспользуйтесь [инструкцией](https://github.com/kahing/goofys#installation) в репозитории проекта.
+Для установки `goofys` воспользуйтесь [инструкцией](https://github.com/kahing/goofys#installation) в репозитории проекта.
 
 ## Настройка {#setup}
 
-goofys использует секретный ключ из настроек [AWS CLI](aws-cli.md), хранящихся в файле `.aws/credentials`. Также можно поместить ключ в переменные окружения `AWS_ACCESS_KEY_ID` и `AWS_SECRET_ACCESS_KEY`.
+`goofys` использует секретный ключ из настроек [AWS CLI](aws-cli.md), хранящихся в файле `.aws/credentials`. Также можно поместить ключ в переменные окружения `AWS_ACCESS_KEY_ID` и `AWS_SECRET_ACCESS_KEY`.
 
 ## Монтирование бакета {#bucket-mounting}
 
