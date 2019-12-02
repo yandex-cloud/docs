@@ -1,0 +1,133 @@
+openapi: "3.0"
+info:
+  title: Yandex.Cloud Marketplace Metering API
+  description: Description not set.
+  version: v1
+paths:
+  /marketplace/v1/metering/imageProductUsage/write:
+    post:
+      tags:
+      - ImageProductUsage
+      summary: Writes image product's usage (authenticated by user's service account)
+      operationId: ImageProductUsageWrite
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WriteImageProductUsageRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WriteImageProductUsageResponse'
+      x-y-navtitle: write
+components:
+  schemas:
+    AcceptedUsageRecord:
+      type: object
+      properties:
+        uuid:
+          description: Unique identitifier of the usage record (UUID format)
+          type: string
+    RejectedUsageRecord:
+      type: object
+      properties:
+        uuid:
+          description: Unique identitifier of the usage record (UUID format)
+          type: string
+        reason:
+          $ref: '#/components/schemas/RejectedUsageRecordReason_in_RejectedUsageRecord_reason'
+    RejectedUsageRecordReason:
+      type: string
+      enum:
+      - DUPLICATE
+      - EXPIRED
+      - INVALID_TIMESTAMP
+      - INVALID_SKU_ID
+      - INVALID_PRODUCT_ID
+      - INVALID_QUANTITY
+      - INVALID_ID
+    UsageRecord:
+      type: object
+      properties:
+        uuid:
+          description: |-
+            Required.
+            Unique identitifier of the usage record (UUID format)
+
+            The maximum string length in characters is 36.
+          type: string
+        skuId:
+          description: |-
+            Required.
+            Consumed Marketplace SaaS Sku ID, linked to `UsageRecord.product_id`
+
+            The maximum string length in characters is 50.
+          type: string
+        quantity:
+          description: |-
+            Quantity of sku consumed, measured in `sku.usage_unit` units (e.g. bytes)
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+        timestamp:
+          description: |-
+            Required.
+            Timestamp in UTC for which the usage is being reported
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    WriteImageProductUsageRequest:
+      type: object
+      properties:
+        validateOnly:
+          description: Checks whether you have the access required for the emit usage
+          type: boolean
+          format: boolean
+        productId:
+          description: |-
+            Required.
+            Marketplace Product's ID
+
+            The maximum string length in characters is 50.
+          type: string
+        usageRecords:
+          description: |-
+            Required.
+            List of product usage records (up to 25 pet request)
+
+            The maximum number of elements is 25.
+          type: array
+          items:
+            $ref: '#/components/schemas/UsageRecord'
+    WriteImageProductUsageResponse:
+      type: object
+      properties:
+        accepted:
+          description: List of accepted product usage records
+          type: array
+          items:
+            $ref: '#/components/schemas/AcceptedUsageRecord'
+        rejected:
+          description: List of rejected product usage records (with reason)
+          type: array
+          items:
+            $ref: '#/components/schemas/RejectedUsageRecord'
+    RejectedUsageRecordReason_in_RejectedUsageRecord_reason:
+      description: The reason of rejection
+      type: string
+      enum:
+      - DUPLICATE
+      - EXPIRED
+      - INVALID_TIMESTAMP
+      - INVALID_SKU_ID
+      - INVALID_PRODUCT_ID
+      - INVALID_QUANTITY
+      - INVALID_ID
+tags:
+- name: ImageProductUsage

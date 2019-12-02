@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Метод list
-Возвращает список симметричных ключей в указанном каталоге.
+Возвращает список симметричных ключей KMS в указанном каталоге.
  
 
  
@@ -59,8 +59,8 @@ keys[] | **object**<br><p>Симметричный ключ KMS, который 
 keys[].<br>id | **string**<br><p>Идентификатор ключа.</p> 
 keys[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит ключ.</p> 
 keys[].<br>createdAt | **string** (date-time)<br><p>Время создания ключа.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-keys[].<br>name | **string**<br><p>Имя ключа.</p> 
-keys[].<br>description | **string**<br><p>Описание ключа.</p> 
+keys[].<br>name | **string**<br><p>Имя симметричного ключа.</p> 
+keys[].<br>description | **string**<br><p>Описание симметричного ключа.</p> 
 keys[].<br>labels | **object**<br><p>Пользовательские метки для ключа в виде пар <code>key:value</code>. Максимум 64 на ключ.</p> 
 keys[].<br>status | **string**<br><p>Текущий статус ключа.</p> <ul> <li>CREATING: Ключ создается.</li> <li>ACTIVE: Ключ активен и может использоваться для шифрования и дешифрования. Можно установить в INACTIVE с помощью метода <a href="/docs/kms/api-ref/SymmetricKey/update">update</a>.</li> <li>INACTIVE: Ключ неактивен и не может быть использован. Можно установить в ACTIVE с помощью метода <a href="/docs/kms/api-ref/SymmetricKey/update">update</a>.</li> </ul> 
 keys[].<br>primaryVersion | **object**<br><p>Основная версия ключа, используемая по умолчанию для всех операций шифрования, когда идентификатор версии не указан явно.</p> <p>Версия симметричного ключа KMS: метаданные криптографического материала.</p> 

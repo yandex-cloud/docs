@@ -50,7 +50,8 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор симметричного ключа, который следует использовать для дешифрования.
+          Идентификатор симметричного ключа KMS, который следует использовать для
+          дешифрования.
 
           Максимальная длина строки в символах — 50.
         required: true
@@ -74,8 +75,7 @@ paths:
     post:
       tags:
       - SymmetricCrypto
-      summary: Расшифрует и заново шифрует заданный зашифрованный текст с указанным
-        ключом KMS.
+      summary: Заново шифрует заданный зашифрованный текст с указанным ключом KMS.
       operationId: SymmetricCryptoReEncrypt
       parameters:
       - name: keyId
@@ -141,7 +141,7 @@ paths:
     get:
       tags:
       - SymmetricKey
-      summary: Возвращает список симметричных ключей в указанном каталоге.
+      summary: Возвращает список симметричных ключей KMS в указанном каталоге.
       operationId: SymmetricKeyList
       parameters:
       - name: folderId
@@ -219,7 +219,7 @@ paths:
         in: path
         description: |-
           Обязательное поле.
-          Идентификатор возвращаемого симметричного ключа. Чтобы получить идентификатор
+          Идентификатор возвращаемого симметричного ключа KMS. Чтобы получить идентификатор
           симметричного ключа используйте запрос [list](/docs/kms/api-ref/SymmetricKey/list).
 
           Максимальная длина строки в символах — 50.
@@ -638,9 +638,9 @@ components:
           type: string
         aadContext:
           description: |-
-            Дополнительные данные аутентификации (AAD-контекст), опционально. Если данные
-            указаны, то их потребуется передать для расшифровки с помощью SymmetricDecryptRequest. Должен
-            быть в кодировке base64.
+            Дополнительные аутентифицированные данные (контекст AAD), необязательное поле. Если
+            данные указаны, то их потребуется передать для расшифровки с помощью SymmetricDecryptRequest.
+            Необходимо закодировать в формате base64.
 
             Максимальная длина строки в символах — 8192.
           type: string
@@ -667,12 +667,11 @@ components:
         dataKeyPlaintext:
           description: |-
             Сгенерированный ключ шифрования данных в виде открытого текста. Это поле пусто, если
-            параметр [skipPlaintext](/docs/kms/api-ref/SymmetricCrypto/generateDataKey#body_params) был установлен в `true`. Должен быть в кодировке base64.
+            параметр [skipPlaintext](/docs/kms/api-ref/SymmetricCrypto/generateDataKey#body_params) был установлен в `true`.
           type: string
           format: byte
         dataKeyCiphertext:
-          description: Зашифрованный ключ шифрования данных. Должен быть в кодировке
-            base64.
+          description: Зашифрованный ключ шифрования данных.
           type: string
           format: byte
     ListSymmetricKeyOperationsResponse:
@@ -892,7 +891,7 @@ components:
           description: Идентификатор версии ключа, которая использовалась для дешифрования.
           type: string
         plaintext:
-          description: Расшифрованный открытый текст. Должен быть в кодировке base64.
+          description: Расшифрованный открытый текст.
           type: string
           format: byte
     SymmetricEncryptRequest:
@@ -907,9 +906,9 @@ components:
           type: string
         aadContext:
           description: |-
-            Дополнительные данные аутентификации (AAD-контекст), опционально. Если данные
-            указаны, то их потребуется передать для расшифровки с помощью SymmetricDecryptRequest. Должен
-            быть в кодировке base64.
+            Дополнительные аутентифицированные данные (контекст AAD), необязательное поле. Если
+            данные указаны, то их потребуется передать для расшифровки с помощью SymmetricDecryptRequest.
+            Необходимо закодировать в формате base64.
 
             Максимальная длина строки в символах — 8192.
           type: string
@@ -928,7 +927,7 @@ components:
         keyId:
           description: |-
             Обязательное поле.
-            Идентификатор симметричного ключа, который использовался для шифрования.
+            Идентификатор симметричного ключа KMS, который использовался для шифрования.
 
             Максимальная длина строки в символах — 50.
           type: string
@@ -939,7 +938,7 @@ components:
             Максимальная длина строки в символах — 50.
           type: string
         ciphertext:
-          description: Полученный шифртекст. Должен быть в кодировке base64.
+          description: Полученный шифртекст.
           type: string
           format: byte
     SymmetricKey:
@@ -962,15 +961,14 @@ components:
           type: string
           format: date-time
         name:
-          description: Имя ключа.
+          description: Имя симметричного ключа.
           type: string
         description:
-          description: Описание ключа.
+          description: Описание симметричного ключа.
           type: string
         labels:
-          description: |-
-            Пользовательские метки для ключа в виде пар `key:value`. Максимум 64 на
-            ключ.
+          description: Пользовательские метки для ключа в виде пар `key:value`. Максимум
+            64 на ключ.
           type: object
           additionalProperties:
             type: string
@@ -1112,7 +1110,7 @@ components:
             данных.
           type: string
         ciphertext:
-          description: Заново зашифрованный шифртекст. Должен быть в кодировке base64.
+          description: Заново зашифрованный шифртекст.
           type: string
           format: byte
     UpdateSymmetricKeyMetadata:
@@ -1128,7 +1126,7 @@ components:
           $ref: '#/components/schemas/FieldMask_in_UpdateSymmetricKeyRequest_updateMask'
         name:
           description: |-
-            Новое имя симметричного ключа KMS. Имя должно быть уникальным в каталоге.
+            Новое имя симметричного ключа KMS.
 
             Максимальная длина строки в символах — 100.
           type: string
@@ -1258,7 +1256,8 @@ components:
           format: date-time
     SymmetricAlgorithm_in_SymmetricKey_defaultAlgorithm:
       description: |-
-        Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями ключа.
+        Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями
+        ключа.
 
         Поддерживаемые алгоритмы симметричного шифрования.
 
@@ -1333,7 +1332,7 @@ components:
     SymmetricAlgorithm_in_UpdateSymmetricKeyRequest_defaultAlgorithm:
       description: |-
         Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями
-        ключа.
+        симметричного ключа KMS.
 
         Поддерживаемые алгоритмы симметричного шифрования.
 

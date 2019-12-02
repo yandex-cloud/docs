@@ -9,7 +9,7 @@ Decrypts the given ciphertext with the specified key.
  
 ## HTTP request {#https-request}
 ```
-POST https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}:decrypt
+POST https://kms.yandex/kms/v1/keys/{keyId}:decrypt
 ```
  
 ## Path parameters {#path_params}

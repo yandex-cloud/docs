@@ -9,7 +9,7 @@ Encrypts given plaintext with the specified key.
  
 ## HTTP request {#https-request}
 ```
-POST https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}:encrypt
+POST https://kms.yandex/kms/v1/keys/{keyId}:encrypt
 ```
  
 ## Path parameters {#path_params}
