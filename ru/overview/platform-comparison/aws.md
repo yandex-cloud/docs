@@ -11,7 +11,6 @@
 | Amazon Virtual Private Cloud |[{{ vpc-full-name }}](../../vpc/)|
 | AWS Direct Connect | [{{ interconnect-full-name }}](../../vpc/interconnect/) |
 |AWS Identity and Access Management, AWS Cognito |[{{ iam-full-name }}](../../iam/) |
-|Resource Groups, Cloud Directory, VPC: Security Group |[{{ resmgr-full-name }}](../../resource-manager/) |
 | AWS Key Management Service |[{{ kms-full-name }}](../../kms/) |
 | Elastic Load Balancing: Network Load Balancer |[{{ load-balancer-full-name }}](../../load-balancer/) |
 | Amazon EC2 Auto Scaling |[Yandex Instance Groups](../../compute/concepts/instance-groups/) |

@@ -11,7 +11,6 @@
 | Virtual Network|[{{ vpc-full-name }}](../../vpc/) |
 | ExpressRoute | [{{ interconnect-full-name }}](../../vpc/interconnect/) |
 | Azure Active Directory |[{{ iam-full-name }}](../../iam/)|
-|Azure Active Directory|[{{ resmgr-full-name }}](../../resource-manager/) |
 | Key Vault |[{{ kms-full-name }}](../../kms/) |
 | Load Balancer |[{{ load-balancer-full-name }}](../../load-balancer/)|
 | Virtual Machine Scale Sets |[Yandex Instance Groups](../../compute/concepts/instance-groups/) |
