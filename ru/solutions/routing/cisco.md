@@ -2,7 +2,7 @@
 
 В Яндекс.Облаке можно развернуть виртуальный роутер Cisco Cloud Services Router (CSR) 1000v из готового образа ВМ. Чтобы установить CSR 1000v и настроить к нему доступ по SSH:
 
-1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Необходимые платные ресурсы](#paid-resources).
 1. [Создайте ВМ с Cisco Cloud Services Router](#create-router).
 1. [Задайте имя хоста роутеру](#hostname).
@@ -12,9 +12,9 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-## Подготовьте облако к работе {#before-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
-{% include [before-begin](../_solutions_includes/before-begin.md) %}
+{% include [before-you-begin](../_solutions_includes/before-you-begin.md) %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 

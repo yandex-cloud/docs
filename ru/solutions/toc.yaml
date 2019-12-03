@@ -41,12 +41,6 @@ items:
       href: archive/object-storage-cloudberry.md
     - name: Резервное копирование в Object Storage через Duplicati
       href: archive/object-storage-duplicati.md
-    - name: Резервное копирование в Object Storage через Bacula
-      href: archive/backup-with-bacula.md
-    - name: Настройка SFTP-сервера на Centos 7
-      href: archive/backup-and-archive-to-sftp.md
-    - name: Оцифровка архива в Yandex Vision
-      href: archive/archive-from-vision-to-object-storage.md
   - name: Тестовая среда
     items:
     - name: Обзор
@@ -89,3 +83,5 @@ items:
         href: routing/ipsec-vpn.md
       - name: Установка виртуального роутера Cisco CSR1000v
         href: routing/cisco.md
+      - name: Установка виртуального роутера Mikrotik CHR
+        href: routing/mikrotik.md

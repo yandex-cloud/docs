@@ -6,7 +6,7 @@
 
 Для создания кластера и запуска вычислительной задачи:
 
-1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте основную виртуальную машину в облаке](#create-master-vm).
    1. [Создайте виртуальную машину](#create-vm).
    1. [Настройте виртуальную машину](#setup-vm).
@@ -20,9 +20,9 @@
 1. [Как удалить созданные ресурсы](#clear-out).
 
 
-## Подготовьте облако к работе {#before-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
-{% include [before-begin](../_solutions_includes/before-begin.md) %}
+{% include [before-you-begin](../_solutions_includes/before-you-begin.md) %}
 
 ### Необходимые платные ресурсы
 

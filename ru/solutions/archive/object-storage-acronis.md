@@ -2,13 +2,13 @@
 
 Чтобы настроить резервное копирование в {{ objstorage-name }} через Acronis Backup Gateway:
 
-1. [Подготовьте облако к работе](#before-begin)
+1. [Подготовьте облако к работе](#before-you-begin)
 1. [Создайте бакет](#create-bucket)
 1. [Настройте Acronis Backup Gateway](#configure-acronis)
 1. [Протестируйте резервное копирование](#test-backup)
 1. [Удалите созданные облачные ресурсы](#clear-out)
 
-## Подготовьте облако к работе {#before-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 Перед использованием {{ objstorage-full-name }} нужно зарегистрироваться в Облаке и создать платежный аккаунт:
 

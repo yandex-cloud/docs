@@ -6,7 +6,7 @@
 
 Чтобы создать и протестировать проект в среде GitLab:
 
-1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Необходимые платные ресурсы](#paid-resources).
 1. [Создайте виртуальную машину c GitLab](#create-vm).
 1. [Настройте GitLab](#confgure-gitlab).
@@ -18,9 +18,9 @@
 1. [Создайте ошибку в проекте](#create).
 1. [Как удалить созданные ресурсы](#clear-out).
 
-## Подготовьте облако к работе {#before-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
-{% include [before-begin](../_solutions_includes/before-begin.md) %}
+{% include [before-you-begin](../_solutions_includes/before-you-begin.md) %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
