@@ -39,7 +39,7 @@
 
 | Amazon Web Services | Яндекс.Облако |
 |----|----|
-| Amazon Dynamo |[{{ ydb-full-name }}](../../ydb/) |
+| Amazon DynamoDB |[{{ ydb-full-name }}](../../ydb/) |
 | Amazon Simple Queue Service|[{{ message-queue-full-name }}](../../message-queue/)|
 | AWS Lambda |[{{ sf-full-name }}](../../functions/) |
 | AWS IoT Core |[{{ iot-full-name }}](../../iot-core/) |
