@@ -10,7 +10,7 @@
 |Cloud Storage|[{{ objstorage-full-name }}](../../storage/) |
 | Virtual Private Cloud|[{{ vpc-full-name }}](../../vpc/) |
 | Cloud Interconnect | [{{ interconnect-full-name }}](../../vpc/interconnect/)|
-| Identity and Access Management, Cloud Identity>|[{{ iam-full-name }}](../../iam/) |
+| Identity and Access Management, Cloud Identity |[{{ iam-full-name }}](../../iam/) |
 | Cloud Key Management Service |[{{ kms-full-name }}](../../kms/) |
 | Cloud Load Balancing |[{{ load-balancer-full-name }}](../../load-balancer/) |
 | Managed Instance Groups |[Yandex Instance Groups](../../compute/concepts/instance-groups/)|
