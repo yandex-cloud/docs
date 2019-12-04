@@ -3,6 +3,12 @@
 ## Обзорные материалы {#overview}
 
 - [{{ ydb-full-name }} Whitepaper](https://storage.yandexcloud.net/ydb-public-talks/yandex-database-a4.pdf).
+    
+### 2019: YaTalks {#ya-talks}
+
+- Тема: {{ ydb-full-name }} — как выжать 10K IOPS из HDD и вставить в таблицу 50K записей на одном ядре.
+    - [Презентация](https://storage.yandexcloud.net/ydb-public-talks/yatalks-ydb.pptx).
+    - [Запись трансляции](https://youtu.be/hXH_tRBxFnA?t=11283).
 
 ### 2019: Yandex Scale {#scale}
 
