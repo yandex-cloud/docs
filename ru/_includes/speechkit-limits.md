@@ -22,8 +22,8 @@
 Максимальная длительность аудио | {{ stt-short-audioLength }}
 Максимальное количество аудиоканалов | {{ stt-short-channelsCount }}
 [**Потоковый режим распознавания коротких аудио**](../speechkit/stt/streaming.md) |
-Максимальная длительность переданного аудио за всю сессию | {{ stt-streaming-fileSize }}
-Максимальный размер переданных аудиоданных | {{ stt-streaming-audioLength }}
+Максимальная длительность переданного аудио за всю сессию | {{ stt-streaming-audioLength }}
+Максимальный размер переданных аудиоданных | {{ stt-streaming-fileSize }}
 Максимальное количество аудиоканалов | {{ stt-short-channelsCount }}
 [**Распознавании длинных аудио**](../speechkit/stt/streaming.md) |
 Максимальный размер файла | {{ stt-long-fileSize }}
