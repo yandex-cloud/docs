@@ -9,7 +9,7 @@ If you don't have any resources, create them (for example, a VM and a database) 
 
 {% endnote %}
 
-## Before you start {#before-beginning}
+## Before you start {#before-you-begin}
 
 Get access to {{ monitoring-full-name }} on the [service homepage](https://cloud.yandex.com/services/monitoring).
 

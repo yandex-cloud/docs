@@ -1,11 +1,11 @@
 # Пошаговые инструкции для {{ monitoring-full-name }}
 
-## Работа с графиками
+## Работа с графиками {#working-with-charts}
 
 - [{#T}](chart/create.md)
 - [{#T}](chart/create-query.md)
 
-## Работа с дашбордами
+## Работа с дашбордами {#working-with-dashboards}
 
 - [{#T}](dashboard/create.md)
 - [{#T}](dashboard/copy.md)

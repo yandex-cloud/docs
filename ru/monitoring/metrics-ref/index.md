@@ -8,7 +8,7 @@ editable: false
 
 Имя метрики пишется в метку `name`.
 
-## Сервис Compute Cloud
+## Сервис Compute Cloud {#compute-cloud}
 
 Имя<br/>Тип | Описание
 ----- | -----
@@ -30,7 +30,7 @@ editable: false
 Подробнее о сервисе в документации [{{ compute-full-name }}](../../compute/).
 
 
-## Сервис Managed Service for PostgreSQL
+## Сервис Managed Service for PostgreSQL {#managed-postgresql}
 Имя<br/>Тип| Описание
 ----- | -----
 `pooler-query_count`<br/>`GAUGE` | Количество запросов, выполняющихся на каждом из хостов БД.<br/><br/>Дополнительные метки: `host`
@@ -54,7 +54,7 @@ editable: false
 
 Подробнее о сервисе в документации [{{ managed-postgresql-full-name }}](../../managed-postgresql/).
 
-## Сервис Managed Service for MongoDB
+## Сервис Managed Service for MongoDB {#managed-mongodb}
 Имя<br/>Тип<br/>Дополнительные метки | Описание
 ----- | -----
 `server_status_admin_connections.available`<br/>`GAUGE` | Количество доступных соединений с БД
@@ -84,7 +84,7 @@ editable: false
 
 Подробнее о сервисе в документации [{{ managed-mongodb-full-name }}](../../managed-mongodb/).
 
-## Сервис Managed Service for ClickHouse
+## Сервис Managed Service for ClickHouse {#managed-clickhouse}
 Имя<br/>Тип<br/>Дополнительные метки | Описание
 ----- | -----
 `ch_system_metrics_HTTPConnection`<br/>`GAUGE` | Количество соединений с БД по HTTP
@@ -122,7 +122,7 @@ editable: false
 
 Подробнее о сервисе в документации [{{ managed-clickhouse-full-name }}](../../managed-clickhouse/).
 
-## Сервис Managed Service for MySQL<sup>®</sup>
+## Сервис Managed Service for MySQL<sup>®</sup> {#managed-mysql}
 Имя<br/>Тип| Описание
 ----- | -----
 `mysql_Threads_running`<br/>`GAUGE` | Количество потоков в БД, которые запущены в данный момент
@@ -138,7 +138,7 @@ editable: false
 
 Подробнее о сервисе в документации [{{ managed-mysql-full-name }}](../../managed-mysql/).
 
-## Сервис Managed Service for Redis
+## Сервис Managed Service for Redis {#managed-redis}
 Имя<br/>Тип| Описание
 ----- | -----
 `redis_connected_clients`<br/>`GAUGE` | Количество клиентов, подключенных к каждому хосту БД.<br/><br/>Дополнительные метки: `host`

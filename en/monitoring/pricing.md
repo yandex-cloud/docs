@@ -5,7 +5,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of using {{ monitoring-short-name }}
+## What goes into the cost of using {{ monitoring-short-name }} {#rules}
 
 Currently, the cost of {{ monitoring-short-name }} usage is calculated based on the number custom metrics written via the [API](api-ref/index.md).
 
@@ -41,7 +41,7 @@ The cost to write the first 87000 values is `₽0.609`, which is also rounded to
 
 {% endlist %}
 
-### Example of cost calculation
+### Example of cost calculation {#example}
 
 For example, you write 20 metrics to the {{ monitoring-short-name }} service at the rate of **1 value per minute**.
 After 30 days there will be the following number of values:

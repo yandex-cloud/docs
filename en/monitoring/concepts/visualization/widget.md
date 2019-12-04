@@ -6,7 +6,7 @@ There are three types of widgets available in {{ monitoring-full-name }}:
 
 - [Chart](#chart)
 - [Text](#text)
-- [Heading](#title)
+- [Heading](#heading)
 
 ## Chart {#chart}
 
@@ -39,7 +39,7 @@ Text in [markdown](https://en.wikipedia.org/wiki/Markdown) format, which lets yo
 
 Text that lets you label a dashboard or group of charts.
 
-#### See also
+#### See also {#see-also}
 
 - [{#T}](../../operations/chart/create.md)
 - [{#T}](../../operations/chart/create-query.md)
