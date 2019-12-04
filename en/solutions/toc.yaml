@@ -21,8 +21,6 @@ items:
     items:
     - name: Overview
       href: internet-store/index.md
-    - name: 1C-Bitrix online store
-      href: internet-store/bitrix-shop.md
     - name: Opencart online store
       href: internet-store/opencart.md
   - name: Data archive
