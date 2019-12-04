@@ -19,8 +19,6 @@ items:
       href: web/wordpress.md
   - name: Online stores
     items:
-    - name: Overview
-      href: internet-store/index.md
     - name: Opencart online store
       href: internet-store/opencart.md
   - name: Data archive
