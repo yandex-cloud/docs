@@ -9,18 +9,24 @@ items:
       href: web/static.md
     - name: Website on LAMP or LEMP stack
       href: web/lamp-lemp.md
-    - name: Fault-tolerant website with load balancing by Yandex Load Balancer
+    - name: Fault-tolerant website with load balancing from Yandex Load Balancer
       href: web/load-balancer-website.md
-    - name: Fault tolerant website with load balancing
+    - name: Fault-tolerant website using DNS load balancing
       href: web/dns-load-balancer.md
     - name: Joomla-based website with PostgreSQL
       href: web/joomla-postgresql.md
     - name: WordPress website
       href: web/wordpress.md
-  - name: Online shops
+    - name: 1C-Bitrix website
+      href: web/bitrix-website.md
+  - name: Online stores
     items:
-      - name: OpenCart online shop
-        href: internet-store/opencart.md
+    - name: Overview
+      href: internet-store/index.md
+    - name: 1C-Bitrix online store
+      href: internet-store/bitrix-shop.md
+    - name: Opencart online store
+      href: internet-store/opencart.md
   - name: Data archive
     items:
     - name: Overview
@@ -35,6 +41,10 @@ items:
       href: archive/object-storage-cloudberry.md
     - name: Backup to Object Storage via Duplicati
       href: archive/object-storage-duplicati.md
+    - name: Configuring an SFTP server on Centos 7
+      href: archive/backup-and-archive-to-sftp.md
+    - name: Digitizing archives in Yandex Vision
+      href: archive/archive-from-vision-to-object-storage.md
   - name: Test environment
     items:
     - name: Overview
@@ -47,7 +57,7 @@ items:
         href: infrastructure-management/index.md
       - name: Getting started with Terraform
         href: infrastructure-management/terraform-quickstart.md
-      - name: Uploading Terraform states to Object Storage
+      - name: Storing Terraform states in Object Storage
         href: infrastructure-management/terraform-state-storage.md
       - name: Getting started with Packer
         href: infrastructure-management/packer-quickstart.md
@@ -59,7 +69,7 @@ items:
     items:
       - name: Overview
         href: windows/index.md
-      - name: Deploying Active Directory
+      - name: Active Directory Deployment
         href: windows/active-directory.md
       - name: Deploying Microsoft Exchange
         href: windows/exchange.md
@@ -71,5 +81,3 @@ items:
         href: routing/nat-instance.md
       - name: Creating a VPN tunnel
         href: routing/ipsec-vpn.md
-      - name: Installing a Cisco CSR 1000v virtual router
-        href: routing/cisco.md

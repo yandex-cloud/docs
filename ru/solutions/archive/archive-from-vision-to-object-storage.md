@@ -99,7 +99,7 @@
     ```bash
     yc iam service-account create --name vision --description "this is vision service account"
     ```
-1. Узнайте идентификатор каталога по [инструкции](../../resource-manager/operations/folder/get-id.md):
+1. Узнайте идентификатор каталога по [инструкции](../../resource-manager/operations/folder/get-id.md).
 1. Узнайте идентификатор вашего сервисного аккаунта, подставив соответствующий идентификатор каталога:
     ```bash
     yc iam service-account --folder-id <FOLDER-ID>  get vision
@@ -120,7 +120,7 @@
     * `key_id`
     * `secret`
 
-1. Получите IAM-токен для сервисного аккаунта с помощью CLI по [инструкции](../../iam/operations/iam-token/create-for-sa.md) {#iam-token}:
+1. Получите IAM-токен для сервисного аккаунта с помощью CLI по [инструкции](../../iam/operations/iam-token/create-for-sa.md):
 
     ```bash
     yc iam key create --service-account-name vision --output key.json
@@ -229,7 +229,7 @@
     ```
 1. Скопируйте туда скрипт:
     ```bash
-        #!/bin/bash
+    #!/bin/bash
 
     # Создайте необходимые директории.
      echo "Creating directories..."
