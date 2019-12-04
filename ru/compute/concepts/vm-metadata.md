@@ -64,19 +64,9 @@
   * `serial-port-enable` — флаг, включающий доступ к серийной консоли. 1 — включить, 0 (по умолчанию) — выключить.
   * `user-data` — строка с пользовательскими метаданными, которые будут обработаны агентом [cloud-init](https://cloud-init.io), запущенным на виртуальной машине.
 
-      Cloud-init оддерживает разные [форматы](https://cloudinit.readthedocs.io/en/latest/topics/format.html) передачи метаданных, например [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). В этом формате вы можете передать SSH-ключи и указать, какому пользователю принадлежит каждый ключ. Для этого укажите их в элементе `users/ssh_authorized_keys`:
+      Cloud-init поддерживает разные [форматы](https://cloudinit.readthedocs.io/en/latest/topics/format.html) передачи метаданных, например [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). В этом формате вы можете передать SSH-ключи и указать, какому пользователю принадлежит каждый ключ. Для этого укажите их в элементе `users/ssh_authorized_keys`:
 
-      ```yaml
-      #cloud-config
-      users:
-        - name: user
-          groups: sudo
-          shell: /bin/bash
-          sudo: ['ALL=(ALL) NOPASSWD:ALL']
-          ssh-authorized-keys:
-            - ssh-rsa AAAAB3Nza......OjbSMRX user@example.com
-            - ssh-rsa AAAAB3Nza......Pu00jRN user@desktop
-      ```
+      {% include [user-data](../../_includes/compute/user-data.md) %}
 
       Чтобы передать эти данные в запросе, замените переносы строки символом `\n`:
 

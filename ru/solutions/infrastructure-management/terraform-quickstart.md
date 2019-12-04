@@ -54,7 +54,7 @@ Terraform позволяет быстро создать облачную инф
 
 Конфигурации ресурсов задаются сразу после конфигурации провайдера:
 
-~~~
+```
 provider "yandex" {
   token     = "OAuth_token"
   cloud_id  = "cloud-id"
@@ -137,7 +137,25 @@ output "external_ip_address_vm_1" {
 output "external_ip_address_vm_2" {
   value = "${yandex_compute_instance.vm-2.network_interface.0.nat_ip_address}"
 }
-~~~
+```
+
+### Создание пользователей {#users}
+
+Если вам нужно создать другого пользователя, в блок `metadata` вместо параметра `ssh-keys` можно передать пользовательские метаданные в параметре `user-data`. Для этого:
+
+1. Создайте текстовый файл с метаданными, например:
+
+   {% include [user-data](../../_includes/compute/user-data.md) %}
+
+1. Добавьте в конфигурацию параметр `user-data`, указав путь к файлу с метаданными:
+
+   ```
+     metadata = {
+       user-data = "${file("<путь к файлу>/meta.txt")}"
+     }
+   ```
+
+Подробнее о работе с метаданными читайте в разделе [Метаданные виртуальной машины](../../compute/concepts/vm-metadata).
 
 ## Создайте ресурсы {#create-resources}
 
