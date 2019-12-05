@@ -104,5 +104,33 @@ Operations with data that resulted in an error are charged only in the following
 
 Prices for standard storage are applied when calculating costs.
 
-{% include [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
+### Outgoing traffic {#prices-traffic}
 
+When using the service, you pay for the traffic from the Cloud to the internet. The traffic between Cloud services and the incoming traffic from the internet are free of charge.
+
+The minimum charging unit is 1 MB.
+
+{% list tabs %}
+
+- Prices in USD
+  | Resource category | Cost of 1 GB, without VAT |
+  | ----- | -----
+  | Outgoing traffic, under 10 GB | $0 |
+  | Outgoing traffic, from 10 GB to 1 TB | $0.012307 |
+  | Outgoing traffic, from 1 TB to 50 TB | $0.010256 |
+  | Outgoing traffic, from 50 TB to 100 TB | $0.009615 |
+  | Outgoing traffic, over 100 TB | $0.009230 |
+  
+- Prices in roubles
+  | Resource category | Cost of 1 GB, with VAT |
+  | ----- | -----
+  | Outgoing traffic, under 10 GB | ₽0 |
+  | Outgoing traffic, from 10 GB to 1 TB | ₽0.96 |
+  | Outgoing traffic, from 1 TB to 50 TB | ₽0.80 |
+  | Outgoing traffic, from 50 TB to 100 TB | ₽0.75 |
+  | Outgoing traffic, over 100 TB | ₽0.72 |
+
+  
+{% endlist %}
+
+The first 10 GB of outgoing traffic for {{ objstorage-name }} is counted independently of other services.
