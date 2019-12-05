@@ -43,6 +43,8 @@ items:
             href: operations/federations/integration-gsuite.md
           - name: Аутентификация с помощью федерации удостоверений
             href: operations/federations/integration-common.md
+          - name: Добавление пользователей
+            href: operations/federations/add-users.md
       - name: Роли
         items:
           - name: Назначение роли

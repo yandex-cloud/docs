@@ -21,6 +21,7 @@
 - [{#T}](federations/integration-adfs.md)
 - [{#T}](federations/integration-gsuite.md)
 - [{#T}](federations/integration-common.md)
+- [{#T}](federations/add-users.md)
 
 ## Roles
 

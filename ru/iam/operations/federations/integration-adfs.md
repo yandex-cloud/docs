@@ -49,8 +49,6 @@
 
       Если эту опцию не включать, то пользователь, которого не добавили в облако, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем сервере. В этом случае вы можете управлять белым списком пользователей, которым разрешено пользоваться Яндекс.Облаком.
 
-      {% include [add-federated-users-disclaimer](../../../_includes/iam/add-federated-users-disclaimer.md) %}
-
 {% endlist %}
 
 ## Укажите сертификаты для федерации {#add-certificate}
@@ -130,7 +128,7 @@ AD FS требует создавать _отношение доверия с п
 1. На следующей странице настройте, что будет передаваться в полях сообщения:
     1. В поле **Claim rule name** задайте имя правила, например `Claims mapping`
     1. В поле **Attribute Store** выберите `Active Directory`.
-    1. Укажите атрибут, который будет передаваться в качестве `NameID`. Для этого добавьте строчку в списке **Mapping of LDAP attributes**:
+    1. Укажите, что будет передаваться в качестве Name ID — уникального идентификатора пользователя. Для этого добавьте строчку в списке **Mapping of LDAP attributes**:
 
         В **LDAP Attribute** выберите `User-Principal-Name` или `E-Mail-Addresses`.
 
@@ -144,7 +142,7 @@ AD FS требует создавать _отношение доверия с п
 
 ## Добавьте пользователей в облако {#add-users}
 
-{% include [add-federated-users-disclaimer](../../../_includes/iam/add-federated-users-disclaimer.md) %}
+{% include [add-federated-users](../../../_includes/iam/add-federated-users.md) %}
 
 ## Протестируйте аутентификацию {#test-auth}
 

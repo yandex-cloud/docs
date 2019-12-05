@@ -1,15 +1,15 @@
 # Добавление пользователя в облако
 
-{% list tabs %}
+Чтобы добавлять пользователей в облако, необходима роль [`admin`](../../concepts/access-control/roles.md#admin) или [`resource-manager.clouds.owner`](../../concepts/access-control/roles.md#owner) на это облако.
 
-- Консоль управления
+Добавлять можно [пользователей с аккаунтом на Яндексе](#passport-user) и [федеративных пользователей](#federated-user).
 
-  1. {% include [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md) %}
-  2. На странице **Пользователи и роли** в правом верхнем углу нажмите **Добавить пользователя**.
-  3. Введите электронную почту пользователя в Яндексе.
-  4. Нажмите кнопку **Добавить**.
+## Добавить пользователя с аккаунтом на Яндексе {#passport-user}
 
-{% endlist %}
+1. {% include [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md) %}
+2. На странице **Пользователи и роли** в правом верхнем углу нажмите **Добавить пользователя**.
+3. Введите электронную почту пользователя на Яндексе.
+4. Нажмите кнопку **Добавить**.
 
 {% note info %}
 
@@ -17,4 +17,12 @@
 
 {% endnote %}
 
-Теперь вы можете [назначить пользователю роли](../roles/grant.md) на облако или каталог.
+## Добавить федеративных пользователей {#federated-user}
+
+{% include [include](../../../_includes/iam/add-federated-users-before-begin.md) %}
+
+{% include [include](../../../_includes/iam/add-federated-users-instruction.md) %}
+
+#### Что дальше {#whats-next}
+
+* [Назначьте роли добавленным пользователям](../roles/grant.md).

@@ -64,8 +64,6 @@ Before you can create an identity federation in the cloud, you need to get infor
 
         If this option is disabled, users who aren't added to the cloud can't log in, even if they have authenticated on your server. This way you can create a <q>white list</q> of users that are allowed to use Yandex.Cloud.
 
-        {% include [add-federated-users-disclaimer](../../../_includes/iam/add-federated-users-disclaimer.md) %}
-
 {% endlist %}
 
 ## Specify certificates for the identity federation {#add-certificate}
@@ -110,7 +108,7 @@ Having created a federation and obtained a console login link, finish creating t
 
 ## Add users to the cloud {#add-users}
 
-{% include [add-federated-users-disclaimer](../../../_includes/iam/add-federated-users-disclaimer.md) %}
+{% include [add-federated-users](../../../_includes/iam/add-federated-users.md) %}
 
 ## Test the authentication process {#test-auth}
 

@@ -41,8 +41,6 @@
 
       Если эту опцию не включать, то пользователь, которого не добавили в облако, не сможет войти в консоль управления, даже если пройдет аутентификацию на вашем сервере. В этом случае вы можете управлять белым списком пользователей, которым разрешено пользоваться Яндекс.Облаком.
 
-      {% include [add-federated-users-disclaimer](../../../_includes/iam/add-federated-users-disclaimer.md) %}
-
 {% endlist %}
 
 ## Укажите сертификаты для федерации {#add-certificate}
@@ -143,7 +141,7 @@
 
 ## Добавьте пользователей в облако {#add-users}
 
-{% include [add-federated-users-disclaimer](../../../_includes/iam/add-federated-users-disclaimer.md) %}
+{% include [add-federated-users](../../../_includes/iam/add-federated-users.md) %}
 
 ## Протестируйте аутентификацию {#test-auth}
 

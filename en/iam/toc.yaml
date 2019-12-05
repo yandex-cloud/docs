@@ -43,6 +43,8 @@ items:
             href: operations/federations/integration-gsuite.md
           - name: Authentication using an identity federation
             href: operations/federations/integration-common.md
+          - name: Adding users
+            href: operations/federations/add-users.md
       - name: Roles
         items:
           - name: Assigning roles
