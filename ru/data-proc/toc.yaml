@@ -36,6 +36,8 @@ items:
       href: concepts/limits.md
     - name: Версии Hadoop и компонентов
       href: concepts/environment.md
+    - name: Интерфейсы и порты компонентов
+      href: concepts/interfaces.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
