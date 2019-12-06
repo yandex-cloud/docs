@@ -22,7 +22,7 @@ The {{ message-queue-short-name }} trigger is used to unload a message queue. It
     - `{{ roles-viewer }}` for the folder with the function that the trigger calls.
     - `iam.serviceAccounts.user` for the service accounts on whose behalf the trigger performs operations.
 - To run a trigger, service accounts need the following roles:
-    - `{{ roles-viewer }}` for the folder with the message queue that the trigger reads messages from.
+    - `{{ roles-editor }}` for the folder with the message queue that the trigger reads messages from.
     - `{{ roles-functions-ivoker }}` for the folder with the function that the trigger calls.
 
 ## Triggers for {{ iot-short-name }} {#iot-trigger}
