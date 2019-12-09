@@ -8,7 +8,7 @@ There are two ways that you can work with {{ k8s }} in GitLab:
 
 To use either method, complete the preparatory steps first.
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 ### Create a VM from the GitLab image {#create-gitlab}
 
