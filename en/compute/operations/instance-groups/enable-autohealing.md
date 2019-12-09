@@ -46,7 +46,7 @@ To enable automatic recovery when updating an instance group:
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI's update group command:
+  1. View a description of the update group command in the CLI:
 
      ```
      $ {{ yc-compute-ig }} update --help
@@ -56,7 +56,7 @@ To enable automatic recovery when updating an instance group:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Select the `ID` or `NAME` of the group (for example, `first-fixed-group`).
+  1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
 
   1. Get [information](get-info.md) about the instance group.
 

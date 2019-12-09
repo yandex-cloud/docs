@@ -92,7 +92,7 @@ To create an instance group with a load balancer:
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI's create instance group command:
+  1. View a description of the create instance group command in the CLI:
 
       ```
       $ {{ yc-compute-ig }} create --help
@@ -104,7 +104,7 @@ To create an instance group with a load balancer:
       $ yc vpc network list
       ```
 
-      If there aren't any, [create the necessary networks](../../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+      If there aren't any, [create one](../../../vpc/operations/network-create.md).
 
   1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) (for example, CentOS 7).
 
@@ -117,7 +117,7 @@ To create an instance group with a load balancer:
       - General information about the group:
 
           ```
-          name: first-fixed-group
+          name: first-fixed-group-with-balancer
           service_account_id: <ID>
           description: "This instance group was created from YAML config"
           ```
@@ -165,7 +165,7 @@ To create an instance group with a load balancer:
           | `network_id` | The `default-net` ID. |
           | `primary_v4_address_spec` | IPv4 specification. Only IPv4 is currently available. You can allow public access to group instances by specifying the IP version for the public IP address. For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template). |
 
-      - [The policies](../../concepts/instance-groups/policies.md):
+      - [Policies](../../concepts/instance-groups/policies.md):
 
           ```
           deploy_policy:
@@ -247,7 +247,7 @@ To create an instance group with a load balancer:
       - Running CentOS 7.
       - In the `default-net` network.
       - In the `ru-central1-a` availability zone.
-      - With a single core and 4 GB RAM.
+      - With a single vCPU and 4 GB RAM.
       - With a 32 GB network HDD.
       - With a target group named `first-target-group`.
 
@@ -255,7 +255,7 @@ To create an instance group with a load balancer:
 
 - API
 
-  Use the [create](../../api-ref/InstanceGroup/create.md) API method.
+  Use the API method [create](../../api-ref/InstanceGroup/create.md).
 
 {% endlist %}
 

@@ -121,7 +121,7 @@ items:
             href: operations/instance-groups/create-with-balancer.md
           - name: Creating an automatically scaled instance group
             href: operations/instance-groups/create-autoscaled-group.md
-          - name: Creating an instance group with a Container Optimized Image
+          - name: Creating a VM with Container Optimized Image
             href: operations/instance-groups/create-with-coi
       - name: Getting information about instance groups
         items:
@@ -135,10 +135,14 @@ items:
         items:
           - name: Update a group
             href: operations/instance-groups/update.md
-          - name: Delete a group
-            href: operations/instance-groups/delete.md
           - name: Setting up automatic recovery for instances
             href: operations/instance-groups/enable-autohealing.md
+          - name: Stop a group
+            href: operations/instance-groups/stop.md
+          - name: Start a group
+            href: operations/instance-groups/start.md
+          - name: Delete a group
+            href: operations/instance-groups/delete.md
   - name: Scenarios
     items:
       - name: Configuring NTP time synchronization
@@ -175,7 +179,7 @@ items:
             href: concepts/snapshot.md
       - name: Images
         href: concepts/image.md
-      - name: Instance Groups
+      - name: Instance groups
         items:
           - name: Overview
             href: concepts/instance-groups/index.md
@@ -191,8 +195,8 @@ items:
             href: concepts/instance-groups/autohealing.md
           - name: Configuration update
             href: concepts/instance-groups/configuration-update.md
-          - name: Instance statuses
-            href: concepts/instance-groups/vm-statuses.md
+          - name: Statuses
+            href: concepts/instance-groups/statuses.md
       - name: Backups
         href: concepts/backups.md
       - name: Quotas and limits
