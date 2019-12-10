@@ -135,7 +135,7 @@ items:
         items:
           - name: Изменить группу
             href: operations/instance-groups/update.md
-          - name: Настроить автоматическое восстановление виртуальных машин
+          - name: Настроить проверку состояния приложения на ВМ
             href: operations/instance-groups/enable-autohealing.md
           - name: Остановить группу
             href: operations/instance-groups/stop.md
