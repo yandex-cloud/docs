@@ -9,7 +9,7 @@ items:
       - name: Запуск Spark-приложений
         href: solutions/run-spark-job.md
       - name: Копирование файлов из Yandex Object Storage
-        href: solutions/copy-files-from-s3.md
+        href: solutions/copy-files-from-object-storage.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
