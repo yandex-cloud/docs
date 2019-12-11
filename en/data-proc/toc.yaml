@@ -12,7 +12,7 @@ items:
         href: operations/connect.md
       - name: Updating subclusters
         href: operations/subcluster-update.md
-      - name: Managing subclusters
+      - name: How to manage subclusters
         href: operations/subclusters.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
@@ -28,6 +28,8 @@ items:
       href: concepts/limits.md
     - name: Hadoop and component versions
       href: concepts/environment.md
+    - name: Component interfaces and ports
+      href: concepts/interfaces.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
