@@ -83,7 +83,7 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
   To perform operations on behalf of a federated user, authenticate in the CLI following the [instructions](../../../cli/operations/authentication/federated-user.md).
 
-  {% include [include](../../../_include/cli/success-auth-via-federation.md) %}
+  {% include [include](../../../_includes/cli/success-auth-via-federation.md) %}
 
 {% endlist %}
 
