@@ -6,7 +6,7 @@ Users get permissions along with resource roles. For more information about how 
 
 ## Authentication in Yandex.Cloud {#authentication}
 
-Before authorization, a user must get authenticated, meaning they must log in under their account. Authentication is performed in different ways depending on the type of account and the interface used:
+Before authorization, a user must get authenticated, meaning they must log in under their account. Authentication is performed in different ways, depending on the type of account and the interface used:
 
 * [Authentication with a Yandex.Passport account](#passport)
 * [Service account authentication](#sa)
@@ -22,7 +22,7 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
 - CLI
 
-  To configure authentication in the CLI, enter your [OAuth token](oauth-token.md) during [profile initialization](../../../cli/quickstart.md#initialize). The token will be saved in the profile configuration and authentication will work automatically.
+  To configure authentication in the CLI, enter your [OAuth token](oauth-token.md) during [profile creation](../../../cli/operations/profile/profile-create.md). The token will be saved in the profile configuration and authentication will work automatically.
 
 - API
 
@@ -44,7 +44,7 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
 - CLI
 
-  To perform operations on behalf of your service account, specify the path to its authorized key in the `service-account-key` configuration during [profile initialization](../../../cli/quickstart.md#initialize). The key will be saved in the profile configuration and authentication will work automatically.
+  To perform operations on behalf of a service account, authenticate in the CLI following the [instructions](../../../cli/operations/authentication/service-account.md).
 
 - API
 
@@ -71,7 +71,19 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
 ### Federated user authentication {#saml-federation}
 
-{% include [federated-user-auth](../../../_includes/iam/federated-user-auth.md) %}
+{% list tabs %}
 
-The authentication process for a federated user depends on the IdP server settings. For more information, see [{#T}](../users/identity-federations.md)
+- Management console
+
+  {% include [federated-user-auth](../../../_includes/iam/federated-user-auth.md) %}
+
+  The authentication process for a federated user depends on the IdP server settings. For more information, see [{#T}](../users/identity-federations.md).
+
+- CLI
+
+  To perform operations on behalf of a federated user, authenticate in the CLI following the [instructions](../../../cli/operations/authentication/federated-user.md).
+
+  {% include [include](../../../_include/cli/success-auth-via-federation.md) %}
+
+{% endlist %}
 

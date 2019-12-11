@@ -10,11 +10,15 @@ In the management console and the command line interface (CLI), the token is obt
 
 ## Lifetime {#lifetime}
 
-The IAM token is usually valid for {{ iam-token-lifetime }}, but we recommend requesting a new token more often, like every hour. This lets you avoid situations where your only token expires right before {{ iam-short-name }} can't generate a new token for some reason.
+The IAM token is valid for no more than {{ iam-token-lifetime }}, but we recommend requesting a new token more often, like every hour. This lets you avoid situations where your only token expires right before {{ iam-short-name }} can't generate a new token for some reason.
 
-If you get an IAM token via the metadata server [inside the VM](../../../compute/operations/vm-connect/auth-inside-vm.md), its lifetime may be shorter, since the metadata server returns the last token generated instead of generating new tokens. New tokens are generated periodically.
+The IAM token lifetime can be less than 12 hours if:
 
-The metadata server returns the remaining lifetime of the token along with the IAM token. Account for your IAM token lifetime or request the token more often, like once per hour or with every operation.
+* You get an IAM token using the metadata service [inside the VM](../../../compute/operations/vm-connect/auth-inside-vm.md) or [from the function call context](../../../functions/operations/function-sa.md#context).
+
+  The metadata service returns the remaining token lifetime along with the IAM token. Account for your token lifetime or request the token more often, like once per hour or with every operation.
+
+* You passed [federated authentication](../../../cli/operations/authentication/federated-user.md) in the CLI. Then the IAM token lifetime is also limited by the cookie lifetime in the [federation](../users/identity-federations.md).
 
 ## Services that support this authentication method {#supported-services}
 

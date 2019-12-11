@@ -6,7 +6,7 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
 
 {% else %}
 
-Inside Yandex, the Yandex.Cloud command-line interface (CLI) lets you use:
+Inside Yandex, the CLI (command-line interface) of Yandex.Cloud allows you to use:
 
 - Managed Service for ClickHouse
 - Managed Service for MongoDB
@@ -20,7 +20,7 @@ Inside Yandex, the Yandex.Cloud command-line interface (CLI) lets you use:
 
 {% include [install-cli](../_includes/cli/install-cli.md) %}
 
-## Initializing {#initialize}
+## Creating a profile {#initialize}
 
 {% if audience == "internal" %}
 
@@ -34,15 +34,18 @@ Read about CLI initialization in the service documentation:
 {% else %}
 
   1. Get an OAuth token from Yandex.OAuth. To do this, go to the [link]({{ link-cloud-oauth }}) and click **Allow**.
+
   1. To configure your CLI profile, run the command `yc init`.
+
   1. Enter your OAuth token when prompted by the command.
 
      ```
      Please go to {{ link-cloud-oauth }}
       in order to obtain OAuth token.
-     
+
      Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
      ```
+
   1. At the command prompt, select one of the clouds from the list of those you have access to:
 
      ```
@@ -51,6 +54,9 @@ Read about CLI initialization in the service documentation:
       [2] cloud2 (id = dcvatao4faoe2bmrg22b)
      Please enter your numeric choice: 2
      ```
+
+     If only one cloud is available, it's selected automatically.
+
   1. Select the default folder:
 
      ```
@@ -60,7 +66,8 @@ Read about CLI initialization in the service documentation:
       [3] Create a new folder
      Please enter your numeric choice: 1
      ```
-  1. Select the default availability zone for {{ compute-full-name }}:
+
+  1. Select the default availability zone for the {{ compute-full-name }} service:
 
      ```
      Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
@@ -71,6 +78,7 @@ Read about CLI initialization in the service documentation:
       [4] Don't set default zone
      Please enter your numeric choice: 2
      ```
+
   1. View your CLI profile settings:
 
      ```
@@ -108,7 +116,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 
    ```
    $ yc vpc network list
-   
+
    +----------------------+------------------+-------------------------+
    |          ID          |       NAME       |       DESCRIPTION       |
    +----------------------+------------------+-------------------------+
@@ -121,7 +129,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 
    ```
    $ yc vpc network list --format yaml
-   
+
    - id: skesdqhkc6449hbqqar1
      folder_id: ijkl9012
      created_at: "2018-09-05T09:51:16Z"

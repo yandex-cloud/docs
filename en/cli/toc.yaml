@@ -15,6 +15,8 @@ items:
             href: operations/authentication/user.md
           - name: Authenticating as a service account
             href: operations/authentication/service-account.md
+          - name: Authenticating as a federated user
+            href: operations/authentication/federated-user.md
       - name: Profile management
         items:
           - name: Creating a profile
