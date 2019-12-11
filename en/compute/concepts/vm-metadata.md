@@ -1,58 +1,118 @@
 # VM instance metadata
 
-Information about VM instances is stored on the metadata server. You can request metadata from [inside](../operations/vm-info/get-info.md#inside-instance) or [outside](../operations/vm-info/get-info.md#outside-instance) an instance using the API or CLI.
+The VM instance details are available in the metadata service. You can use the metadata to pass any keys and values, and then request metadata from [inside](../operations/vm-info/get-info.md#inside-instance) or [outside](../operations/vm-info/get-info.md#outside-instance) an instance.
 
-Metadata is used by programs that are run when the VM starts (for example, to make a list of users or specify a public SSH key to connect to the VM).
+Metadata is also used by programs launched on VM start.
 
-{% include [vm-metadata](../../_includes/vm-metadata.md) %}
+## How to send metadata
 
-## Metadata format when creating a VM
+You can pass metadata when you create or [change](../operations/vm-control/vm-update.md#change-metadata) your virtual machine. VM connection data can't change, so it must be passed during creation:
 
-Metadata is set in the `metadata` field as `key:value` pairs. Only a string can be used as a value. If you need to pass multiple strings, separate them with the line break character `\n`.
+* [For a Linux VM](../operations/vm-create/create-linux-vm.md), you must pass the public SSH key to connect to it.
+* [For a Windows VM](../operations/vm-create/create-windows-vm.md), you must pass the administrator password to connect to it.
 
-{% include [metadata-from-file](../_includes_service/metadata-from-file.md) %}
+{% list tabs %}
 
-You can specify any keys. The keys you need to specify depend on the program that will handle them on your VM. For example, in Linux images provided by Yandex.Cloud, the [cloud-init](https://cloud-init.io) program is used.
+- CLI
+
+  In the CLI, you can specify metadata in three parameters:
+
+  * `--metadata-from-file` as a file (for example, `--metadata-from-file key=path/to/file`). This is convenient when passing values consisting of multiple strings.
+
+  * `--metadata` with a the list of `key-value` pairs separated by commas (for example, `--metadata foo1=bar, foo2=baz`).
+
+      If the value is multiline, use `\n` to split lines: `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`
+
+  * `--ssh-key` with an SSH key. Only for Linux-based virtual machines.
+
+      {{ compute-short-name }} Create the user `yc-user` and add the specified SSH key to the list of authorized keys. After the VM is created, you can use this key to connect to it over SSH.
+
+  You can combine these parameters, for example:
+
+  ```
+  $ yc compute instance create \
+  --name my-instance \
+  --metadata-from-file user-data=metadata.yaml \
+  --metadata serial-port-enable=1
+  ...
+  ```
+
+- API
+
+  In the API, you specify the metadata in the `metadata` property as a JSON object, for example:
+
+    ```json
+    "metadata": {
+      "ssh-keys": "ssh-rsa AAAAB3Nza... user@example.com",
+      "serial-port-enable": "1"
+    }
+    ```
+
+  To enter a line break in values, use the character combination `\n`.
+
+{% endlist %}
 
 {% note important %}
 
-Metadata, including user-defined metadata, is stored unencrypted. Anyone who can connect to a VM can get this metadata. If you place confidential information in the metadata, take measures to protect it (for example, by encrypting it).
+The metadata, including the user-defined metadata, is available in unencrypted format. If you place confidential information in the metadata, take measures to protect it (for example, by encrypting it).
 
 {% endnote %}
 
-## Programs that process metadata in Yandex.Cloud images {#public-images-metadata}
+## Keys processed in public images
 
-In Linux public images, the program used to configure VMs by default is [cloud-init](https://cloud-init.io).
+The list of keys that are processed in Yandex.Cloud's public images depends on the operating system.
 
-In Windows public images, it is [Cloudbase-Init](https://cloudbase.it/cloudbase-init/).
+{% list tabs %}
 
-### Using cloud-init
+- Linux
 
-The `cloud-init` program handles metadata that was passed in the `user-data` and `ssh-keys` keys.
+  * `serial-port-enable`: A flag that enables access to the serial console. 1 — enable, 0 (default) — disable.
 
-#### user-data
+  * `user-data`: A string with the user metadata to be processed by the [cloud-init](https://cloud-init.io) agent running on a virtual machine.
 
-All user-defined metadata for `cloud-init` should be passed in the `user-data` key. There are [several formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html) of metadata supported by `cloud-init`, such as `cloud-config`.
+      Cloud-init supports different [formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html) for passing metadata, such as [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). In this format, you can pass SSH keys and indicate which user each key is associated with. To do this, specify them in the `users/ssh_authorized_keys` element.
 
-You can use `user-data` to pass SSH keys to a VM and specify which user each key belongs to. To do this, pass them in the `users/ssh_authorized_keys` element. For more information, see the section [Users and Groups](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#users-and-groups) in the `cloud-init` documentation.
+      ```yaml
+      #cloud-config
+      users:
+        - name: user
+          groups: sudo
+          shell: /bin/bash
+          sudo: ['ALL=(ALL) NOPASSWD:ALL']
+          ssh-authorized-keys:
+            - ssh-rsa AAAAB3Nza......OjbSMRX user@example.com
+            - ssh-rsa AAAAB3Nza......Pu00jRN user@desktop
+      ```
 
-Example of metadata in the `cloud-config` format:
+      To pass this data in the request, replace line breaks with `\n`:
 
-```
-#cloud-config
-users:
-  - name: demo
-    groups: sudo
-    shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-rsa AAAAB3Nza......OjbSMRX user@example.com
-      - ssh-rsa AAAAB3Nza......Pu00jRN user@desktop
-```
+      ```json
+      "metadata": {
+        "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-rsa AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-rsa AAAAB3Nza......Pu00jRN user@desktop"
+      }
+      ```
 
-#### ssh-keys
+  * `ssh-keys`: A key for delivering an SSH key to Linux VMs. The key is specified in the format `any name>:<SSH key content>`, for example, `user:ssh-rsa AAAAB3Nza... user@example.com`. If you specify multiple keys, only the first one is used.
 
-To pass SSH keys to a VM, use the `ssh-keys` field. `cloud-init` will handle only the first key in the list. The key will be assigned to the user specified in the `cloud-init` configuration by default. In different images, these users differ.
+      {% note important %}
 
-If you aren't sure which user is set by default, we recommend passing the SSH keys in the `user-data` field.
+      Regardless of the username specified, the key is assigned to the user given in the `cloud-init` configuration by default. In different images, these users differ.
+
+      {% endnote %}
+
+      If you don't know the default user, find the string containing `Authorized keys from` in the [serial port output](../operations/vm-info/get-serial-port-output.md). It contains the name of the user assigned the authorized keys.
+
+      If no such string is found, but you see the string `no authorized ssh keys fingerprints found for user`, it means that you incorrectly passed your SSH key. Check the format again or try passing the SSH keys in the `user-data` field.
+
+- Windows
+
+  `user-data`: A string with user metadata to be processed by the [Cloudbase-Init](https://cloudbase.it/cloudbase-init/) agent. This agent supports various [data formats](https://cloudbase-init.readthedocs.io/en/latest/userdata.html), such as PowerShell scripts that set the administrator password:
+
+  ```json
+  "metadata": {
+    "user-data": "#ps1\nnet user Administrator Passw0rd"
+  }
+  ```
+
+{% endlist %}
 
