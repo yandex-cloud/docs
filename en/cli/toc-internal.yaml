@@ -3,36 +3,14 @@ href: index.yaml
 items:
   - name: Getting started with the CLI
     href: quickstart.md
-  - name: Step-by-step instructions
-    items:
-      - name: All instructions
-        href: operations/index.md
-      - name: CLI installation
-        href: operations/install-cli.md
-      - name: Authentication
-        items:
-          - name: Authenticating as a user
-            href: operations/authentication/user.md
-          - name: Authenticating as a service account
-            href: operations/authentication/service-account.md
-      - name: Profile management
-        items:
-          - name: Creating a profile
-            href: operations/profile/profile-create.md
-          - name: Managing profile parameters
-            href: operations/profile/manage-properties.md
-          - name: Getting profile information
-            href: operations/profile/profile-list.md
-          - name: Activating a profile
-            href: operations/profile/profile-activate.md
-          - name: Deleting a profile
-            href: operations/profile/profile-delete.md
-  - name: Concepts
+  - name: How to work with the CLI
     items:
       - name: Running commands
         href: concepts/index.md
       - name: CLI configuration
         href: concepts/core-properties.md
+      - name: Profiles
+        href: concepts/profile.md
       - name: Synchronous and asynchronous command execution modes
         href: concepts/mode.md
   - name: CLI releases

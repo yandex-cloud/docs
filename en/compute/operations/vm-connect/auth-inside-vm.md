@@ -6,7 +6,7 @@ To automate operations with Yandex.Cloud from inside a VM, we recommend using [s
 
 Yandex.Cloud provides simplified authentication via the API and CLI from inside a VM for service accounts. To authenticate:
 
-1. If you don't have a service account yet, [create one](../../../iam/operations/sa/create.md) and [set up its access rights](../../../iam/operations/sa/assign-role-for-sa.md).
+1. If you don't have a service account, [create one](../../../iam/operations/sa/create.md) and [set up its access rights](../../../iam/operations/sa/assign-role-for-sa.md).
 1. [Link the service account](#link-sa-with-instance) to a VM.
 1. [Authenticate from inside the VM](#auth-inside-vm).
 
@@ -86,39 +86,55 @@ To authenticate from inside a VM on behalf of the linked service account:
 
   1. Create a new profile:
 
-      `yc config profile create my-robot-profile`
+      ```
+      yc config profile create my-robot-profile
+      ```
 
-      All operations in this profile will be performed on behalf of the linked service account. To learn how to change your profile or edit its parameters, see [{#T}](../../../cli/concepts/profile.md) in the CLI documentation.
+  1. Configure your profile to run commands.
+
+      {% include [add-folder](../../../_includes/cli-add-folder.md) %}
+
+      You can also get an IAM token, for example, to authenticate with the API:
+
+      ```
+      yc iam create-token
+      ```
+
+      [IAM token lifetime](../../../iam/concepts/authorization/iam-token.md#lifetime) in this case will be less than {{ iam-token-lifetime }}. Request an IAM token more often, like once per hour or with every operation. To find out the remaining lifetime of the token, use the API instructions.
 
 - API
+
   1. Connect to the VM via [SSH](../vm-connect/ssh.md) or [RDP](../vm-connect/rdp.md).
-  1. Get the IAM token required for authentication.
 
-    * In Google Compute Engine format, run:
+  1. Get an IAM token from metadata in one of the following formats:
 
-      ```bash
-      $ curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
+       * **Google Compute Engine**:
 
-      {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
-      ```
+         ```bash
+         $ curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
+         
+         {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
+         ```
 
-      The IAM token will be returned in the `access_token` field of the response.
+         The IAM token will be returned in the `access_token` field of the response. The remaining lifetime of the IAM token is specified in the `expires_in` field.
 
-    * To get the IAM token in Amazon EC2 format, run:
+       * **Amazon EC2**:
 
-      ```bash
-      $ curl http://169.254.169.254/latest/meta-data/iam/security-credentials/default/
+         ```bash
+         $ curl http://169.254.169.254/latest/meta-data/iam/security-credentials/default/
+         
+         {
+           "Code" : "Success",
+           "Expiration" : "2019-06-28T04:43:32+00:00",
+           "Token" : "CggVAgAAA..."
+         }
+         ```
 
-      {
-        "Code" : "Success",
-        "Expiration" : "2019-06-28T04:43:32+00:00",
-        "Token" : "CggVAgAAA..."
-      }
-      ```
+         The IAM token will be returned in the `Token` field of the response. The IAM token lifetime is specified in the `Expiration` field.
 
-      The IAM token will be returned in the `Token` field of the response.
+  1. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
-  {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
+    Account for your IAM token lifetime or request the token more often, like once per hour or with every operation.
 
 {% endlist %}
 

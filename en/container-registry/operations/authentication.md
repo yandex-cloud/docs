@@ -174,7 +174,7 @@ You can use the Credential helper for another profile, without switching from th
 $ yc container registry configure-docker --profile <profile name>
 ```
 
-For more information about YC CLI profiles, see [Profiles](../../cli/concepts/profile.md).
+For more information about YC CLI profile management, see the [step-by-step instructions](../../cli/operations/index.md#profile).
 
 #### Disabling a Credential helper {#ch-not-use}
 

@@ -1,109 +1,46 @@
 # Getting started with the command-line interface
 
+{% if audience != "internal" %}
+
 _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software for managing your cloud resources from the command line.
+
+{% else %}
+
+Inside Yandex, the Yandex.Cloud command-line interface (CLI) lets you use:
+
+- Managed Service for ClickHouse
+- Managed Service for MongoDB
+- Managed Service for MySQL
+- Managed Service for Redis
+- Managed Service for PostgreSQL
+
+{% endif %}
 
 ## Installation {#install}
 
-{% list tabs %}
+{% include [install-cli](../_includes/cli/install-cli.md) %}
 
-- Linux
+## Initializing {#initialize}
 
-  1. Run at a command prompt:
+{% if audience == "internal" %}
 
-     ```
-     $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
-     ```
+Read about CLI initialization in the service documentation:
 
-     The script will install the CLI and add the executable file path to the environment variable `PATH`.
+- [Managed Service for {{ CH }}](../managed-clickhouse/quickstart.md#setup)
+- [Managed Service for {{ MG }}](../managed-mongodb/quickstart.md#setup)
+- [Managed Service for {{ RD }}](../managed-redis/quickstart.md#setup)
+- [Managed Service for {{ PG }}](../managed-postgresql/quickstart.md#setup)
 
-     {% note info %}
+{% else %}
 
-     The script will update `PATH` only if you run it in `bash` or `zsh` shell.
-
-     If you run the script in a different shell, add the path to the CLI to the variable `PATH` yourself.
-
-     {% endnote %}
-
-  1. After installation is complete, restart your terminal.
-
-- macOS
-
-  1. Run at a command prompt:
-
-      ```
-      $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
-      ```
-
-      The script will install the CLI and add the executable file path to the environment variable `PATH`.
-  1. Restart your terminal for the changes to take effect.
-
-  The CLI supports command completion for the  `bash` shell. For command completion to work:
-
-  1. Install the [Homebrew](https://brew.sh) package manager.
-  1. Install the `bash-completion` package:
-
-     ```
-     $ brew install bash-completion
-     ```
-  1. After installation is complete, add the following lines to the ` ~/.bash_profile` file:
-
-     ```
-     if [ -f $(brew --prefix)/etc/bash_completion ]; then
-     . $(brew --prefix)/etc/bash_completion
-     fi
-     ```
-  1. Restart your terminal.
-
-- Windows
-
-  For Windows, the CLI can be installed using PowerShell and `cmd`:
-
-  - To install using PowerShell:
-
-      1. Run the command:
-
-          ```
-          iex (New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}')
-          ```
-
-      1. The installation script will ask whether to add the path to `yc` to the PATH variable:
-
-          ```
-          Add yc installation dir to your PATH? [Y/n]
-          ```
-
-      1. Enter `Y`. After this, you can use the Yandex.Cloud CLI without restarting the command shell.
-
-  - To install using `cmd`:
-
-      1. Run the command:
-
-          ```
-          @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
-          ```
-
-      1. The installation script will ask whether to add the path to `yc` to the PATH variable:
-
-          ```
-          Add yc installation dir to your PATH? [Y/n]
-          ```
-
-      1. Enter `Y`.
-
-      1. Restart your terminal for the changes to take effect.
-
-{% endlist %}
-
-## Initialization {#initialize}
-
-  1. Get an OAuth token from Yandex OAuth. To do this, follow the [link](https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) and click **Allow**.
+  1. Get an OAuth token from Yandex.OAuth. To do this, go to the [link]({{ link-cloud-oauth }}) and click **Allow**.
   1. To configure your CLI profile, run the command `yc init`.
   1. Enter your OAuth token when prompted by the command.
 
      ```
      Please go to {{ link-cloud-oauth }}
       in order to obtain OAuth token.
-
+     
      Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
      ```
   1. At the command prompt, select one of the clouds from the list of those you have access to:
@@ -123,7 +60,7 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
       [3] Create a new folder
      Please enter your numeric choice: 1
      ```
-  1. Select the default availability zone for the {{ compute-full-name }} service:
+  1. Select the default availability zone for {{ compute-full-name }}:
 
      ```
      Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
@@ -140,7 +77,7 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
      $ yc config list
      ```
 
-## Command examples {#example}
+## Examples of commands {#example}
 
 The following steps describe how to create a cloud network, subnet, and virtual machine that is connected to this subnet.
 
@@ -171,7 +108,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 
    ```
    $ yc vpc network list
-
+   
    +----------------------+------------------+-------------------------+
    |          ID          |       NAME       |       DESCRIPTION       |
    +----------------------+------------------+-------------------------+
@@ -184,7 +121,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 
    ```
    $ yc vpc network list --format yaml
-
+   
    - id: skesdqhkc6449hbqqar1
      folder_id: ijkl9012
      created_at: "2018-09-05T09:51:16Z"
@@ -200,7 +137,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
        my-label: my-value
    ```
 1. Create a virtual machine and connect it to the subnet `my-yc-subnet-b`:
-   1. Prepare the key pair (public and private) for SSH access to the VM.
+   1. Prepare the key pair (public and private keys) for SSH access to the VM.
    1. Create a virtual machine:
 
       ```
@@ -218,7 +155,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
       $ yc compute instance get my-yc-instance
       ```
 
-      In the command output, find the address of the virtual machine in the `one_to_one_nat` section:
+      In the command output, find the address of the VM in the `one_to_one_nat` section:
 
       ```
       one_to_one_nat:
@@ -237,4 +174,6 @@ The following steps describe how to create a cloud network, subnet, and virtual 
    $ yc vpc subnet delete my-yc-subnet-b
    $ yc vpc network delete my-yc-network
    ```
+
+{% endif %}
 

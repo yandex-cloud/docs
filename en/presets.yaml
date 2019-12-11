@@ -205,6 +205,10 @@ default:
   # Container Registry specific
   coi: Container Optimized Image
 
+  # CLI specific
+  yc-install-path: /yandexcloud-yc/install.sh
+  yc-windows-path: /yandexcloud-yc/install.ps1
+
   # links
   link-console-billing: https://console.cloud.yandex.com/billing
   link-console-main: https://console.cloud.yandex.com/

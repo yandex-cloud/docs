@@ -1,6 +1,6 @@
 # Troubleshooting
 
-If an error occurs during the operation, the CLI displays the appropriate message.
+If an error occurs during the operation, the CLI displays the corresponding message.
 
 ### Sample error message {#sample}
 
@@ -26,8 +26,9 @@ To help our support team solve your problem faster, use the error message to:
 1. Copy all available **IDs**. In the given example, these are `server-request-id`, `client-request-id`, and `client-trace-id`.
 1. Copy the **trace file** that was saved to your PC. See the path to the trace file at the end of the error message.
 In the given example, it is:
+
     ```
     C:\Users\username\yandex-cloud\logs\yc_compute_instance_create-2019-02-18T12-26-39.897.txt
     ```
-1. Provide this information to the [technical support]({{ link-console-support }}) team.
+1. Provide this information to [technical support]({{ link-console-support }}).
 
