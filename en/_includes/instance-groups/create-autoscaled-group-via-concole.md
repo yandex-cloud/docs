@@ -46,6 +46,8 @@
         - Time to average metrics.
         - Startup duration of an instance in the group.
         - Time to monitor the maximum load on a service.
-        - Target CPU performance level.
+        - Select the metric type:
+            - [CPU](../../compute/concepts/instance-groups/scale.md#cpu-utilization): Specify the average CPU load level that {{ ig-name }} must support.
+            - [Custom](../../compute/concepts/instance-groups/scale.md#custom-metrics): Specify the name of the custom metric and target value that {{ ig-name }} must support.
 1. Click **Create**.
 
