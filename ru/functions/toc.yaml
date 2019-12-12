@@ -76,7 +76,7 @@ items:
           - name: Триггер для Message Queue
             href: concepts/trigger/ymq-trigger.md
           - name: Триггер для Yandex IoT Core
-            href: concepts/trigger/iot-trigger.md
+            href: concepts/trigger/iot-core-trigger.md
       - name: Мониторинг
         href: concepts/monitoring.md
       - name: Квоты и лимиты
