@@ -15,7 +15,7 @@
 
 Привяжите сервисный аккаунт к существующей или к создаваемой виртуальной машине. Привязать можно только один сервисный аккаунт.
 
-Чтобы привязать сервисный аккаунт к виртуальной машине, необходимо иметь разрешение на использование этого аккаунта. Это разрешение входит в роли [`iam.serviceAccounts.user`](../../../iam/concepts/access-control/roles.md#sa-user), [`editor`](../../../iam/concepts/access-control/roles.md#editor) и выше.
+Чтобы привязать сервисный аккаунт к виртуальной машине, необходимо иметь разрешение на использование этого аккаунта. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor) и выше.
 
 ### К существующей виртуальной машине {#link-with-exist-instance}
 

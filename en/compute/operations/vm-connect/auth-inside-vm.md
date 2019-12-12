@@ -14,7 +14,7 @@ Yandex.Cloud provides simplified authentication via the API and CLI from inside 
 
 Link your service account to an existing or new VM. You can only link one service account.
 
-To link a service account to a VM, you must have permission to use this account. This permission is included in the [`iam.serviceAccounts.user` role](../../../iam/concepts/access-control/roles.md#sa-user), [`editor` role](../../../iam/concepts/access-control/roles.md#editor), and higher.
+To link a service account to a VM, you must have permission to use this account. This permission is included in the [iam.serviceAccounts.user role](../../../iam/concepts/access-control/roles.md#sa-user), [editor role](../../../iam/concepts/access-control/roles.md#editor), and higher.
 
 ### Linking to an existing VM {#link-with-exist-instance}
 

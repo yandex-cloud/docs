@@ -5,6 +5,8 @@ items:
     items:
       - name: Создание и выполнение функции
         href: quickstart/function-quickstart.md
+      - name: Создание таймера
+        href: quickstart/timer-quickstart.md
       - name: Создание триггера для Message Queue
         href: quickstart/ymq-trigger-quickstart.md
       - name: Создание триггера для Yandex IoT Core
@@ -39,6 +41,8 @@ items:
         items:
           - name: Получение информации о триггере
             href: operations/trigger/trigger-list.md
+          - name: Создание таймера
+            href: operations/trigger/timer-create.md
           - name: Создание триггера для Message Queue
             href: operations/trigger/ymq-trigger-create.md
           - name: Создание триггера для Yandex IoT Core
@@ -64,7 +68,15 @@ items:
           - name: Контекст выполнения
             href: concepts/runtime/execution-context.md
       - name: Триггер
-        href: concepts/trigger.md
+        items:
+          - name: Обзор
+            href: concepts/trigger/index.md
+          - name: Таймер
+            href: concepts/trigger/timer.md
+          - name: Триггер для Message Queue
+            href: concepts/trigger/ymq-trigger.md
+          - name: Триггер для Yandex IoT Core
+            href: concepts/trigger/iot-trigger.md
       - name: Мониторинг
         href: concepts/monitoring.md
       - name: Квоты и лимиты
