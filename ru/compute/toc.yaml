@@ -79,6 +79,8 @@ items:
             href: operations/vm-connect/rdp.md
           - name: Работа с Яндекс.Облаком изнутри ВМ
             href: operations/vm-connect/auth-inside-vm.md
+          - name: Установка NVIDIA-драйверов
+            href: operations/vm-operate/install-nvidia-drivers.md
       - name: Создание нового диска
         items:
           - name: Создать пустой диcк
@@ -97,8 +99,6 @@ items:
         items:
           - name: Загрузить свой образ
             href: operations/image-create/upload.md
-          - name: Установка NVIDIA драйверов
-            href: operations/image-create/install-nvidia-drivers.md
       - name: Управление образом
         items:
           - name: Удалить образ
