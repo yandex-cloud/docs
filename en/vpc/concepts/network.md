@@ -8,12 +8,7 @@ Public IP addresses are used for providing internet access to and from {{ comput
 
 ### Filtering outgoing traffic {#egress-traffic-filter}
 
-Yandex.Cloud always blocks outgoing traffic to ports 25:
-
-* To any servers on the internet other than Yandex.Mail servers.
-* To Yandex Compute Cloud VMs when accessed via a public IP address.
-
-Yandex.Cloud may open port 25 by request via technical support if you comply with [Acceptable Use Policy](https://yandex.com/legal/cloud_aup/). Yandex.Cloud is entitled to block outgoing traffic on port 25 if you violate the Use Policy.
+{% include [port-25.md](../../_includes/vpc/port-25.md) %}
 
 ## Subnets {#subnet}
 

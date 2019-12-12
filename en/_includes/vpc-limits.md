@@ -16,3 +16,6 @@
 | Maximum CIDR size for a subnet | /16 |
 | Maximum number of simultaneous TCP/UDP connections per VM | 50000 |
 
+#### Filtering outgoing traffic {#egress-traffic-filter}
+
+{% include [port-25.md](vpc/port-25.md) %}
