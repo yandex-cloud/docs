@@ -64,7 +64,7 @@ items:
           href: payment/payment-methods.md
         - name: Для физических лиц
           href: payment/payment-methods-individual.md
-        - name: Для юридических лиц
+        - name: Для организаций и ИП
           items:
           - name: Перевод с расчетного счета
             href: payment/payment-methods-business.md
@@ -76,7 +76,7 @@ items:
           href: payment/billing-cycle.md
         - name: Для физических лиц
           href: payment/billing-cycle-individual.md
-        - name: Для юридических лиц
+        - name: Для организаций и ИП
           href: payment/billing-cycle-business.md
     - name: Финансовые документы
       items:
