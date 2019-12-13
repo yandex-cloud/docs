@@ -33,6 +33,10 @@ items:
       href: operations/cluster-delete.md
     - name: Миграция базы данных в Облако
       href: operations/data-migration.md
+  - name: Сценарии использования
+    items:
+      - name: Создание кластера PostgreSQL для 1С
+        href: solutions/1c-postgresql
   - name: Концепции
     items:
     - name: Взаимосвязь ресурсов сервиса
