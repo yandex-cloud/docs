@@ -32,6 +32,7 @@
 
 - [{#T}](iam-token/create.md)
 - [{#T}](iam-token/create-for-sa.md)
+- [{#T}](iam-token/create-for-federation.md)
 
 ## API-ключи
 

@@ -1,6 +1,6 @@
 # Получение IAM-токена для сервисного аккаунта
 
-[IAM-токен](../../concepts/authorization/iam-token.md) необходим для аутентификации при выполнении операций через API. Есть несколько способов получить IAM-токен для [сервисного аккаунта](../../concepts/users/service-accounts.md):
+Есть несколько способов получить [IAM-токен](../../concepts/authorization/iam-token.md) для [сервисного аккаунта](../../concepts/users/service-accounts.md):
 
 * [С помощью CLI](#via-cli) — самый простой способ.
 * [С помощью JSON Web Token](#via-jwt). Этот способ подойдет для автоматизации работы через API.
@@ -202,7 +202,7 @@ yc iam create-token
   using Org.BouncyCastle.Crypto.Parameters;
   using Org.BouncyCastle.OpenSsl;
   using Org.BouncyCastle.Security;
-  
+
   class Program
   {
       static void Main(string[] args)
@@ -210,12 +210,12 @@ yc iam create-token
           var serviceAccountId = "ajepg0mjt06siua65usm";
           var keyId = "lfkoe35hsk58aks301nl";
           var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-  
+
           var headers = new Dictionary<string, object>()
           {
               { "kid", keyId }
           };
-  
+
           var payload = new Dictionary<string, object>()
           {
               { "aud", "https://iam.api.cloud.yandex.net/iam/v1/tokens" },
@@ -223,13 +223,13 @@ yc iam create-token
               { "iat", now },
               { "exp", now + 3600 }
           };
-              
+
           RsaPrivateCrtKeyParameters privateKeyParams;
           using (var pemStream = File.OpenText("private.pem"))
           {
               privateKeyParams = new PemReader(pemStream).ReadObject() as RsaPrivateCrtKeyParameters;
           }
-  
+
           using (var rsa = new RSACryptoServiceProvider())
           {
               rsa.ImportParameters(DotNetUtilities.ToRSAParameters(privateKeyParams));

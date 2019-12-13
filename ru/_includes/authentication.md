@@ -1,13 +1,12 @@
 # Аутентификация в API
 
-Для выполнения операций в Яндекс.Облаке через API необходим [IAM-токен](../iam/concepts/authorization/iam-token.md).
+Для выполнения операций через API необходимо получить [IAM-токен](../iam/concepts/authorization/iam-token.md):
+* [Инструкция](../iam/operations/iam-token/create.md) для аккаунта на Яндексе.
+* [Инструкция](../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
+* [Инструкция](../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
 
-Чтобы пройти аутентификацию в API:
+{% include [iam-token-usage](iam-token-usage.md) %}
 
-1. Получите IAM-токен:
-    * [Инструкция](../iam/operations/iam-token/create.md) для аккаунта на Яндексе.
-    * [Инструкция](../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
-    * [Инструкция](../compute/operations/vm-connect/auth-inside-vm.md) по аутентификации изнутри виртуальной машины в {{ compute-name }}.
-    * [Инструкция](../functions/operations/function-sa.md) по аутентификации с помощью функции в {{ sf-name }}.
+#### См. также {#see-also}
 
-2. {% include [iam-token-usage](iam-token-usage.md) %}
+[{#T}](../iam/concepts/index.md#accounts)
