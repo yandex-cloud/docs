@@ -108,13 +108,13 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   5% vCPU | $0.002476
   20% vCPU | $0.007051 |
   100% vCPU | $0.008996 |
-  RAM (за 1 ГБ) | $0.003129
+  RAM (per 1 GB) | $0.003129
   **Intel Cascade Lake** |
   5% vCPU | $0.001307
   20%+ vCPU | $0.003923
   50%+ vCPU | $0.005753
   100% vCPU | $0.009584
-  RAM (за 1 ГБ) | $0.002538
+  RAM (per 1 GB) | $0.002538
 
 - Prices in roubles
 
@@ -124,13 +124,13 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   5% vCPU | ₽0.1932
   20% vCPU | ₽0.5500 |
   100% vCPU | ₽0.7017 |
-  RAM (за 1 ГБ) | ₽0.2441
+  RAM (per 1 GB) | ₽0.2441
   **Intel Cascade Lake** |
   5% vCPU | ₽0.1020
   20%+ vCPU | ₽0.3060
   50%+ vCPU | ₽0.4488
   100% vCPU | ₽0.7476
-  RAM (за 1 ГБ) | ₽0.1980
+  RAM (per 1 GB) | ₽0.1980
 
 {% endlist %}
 
@@ -147,13 +147,13 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   20% vCPU | $0.002187 |
   100% vCPU | $0.002769 |
   1 GPU | $1.999397 |
-  RAM (за 1 ГБ) | $0.000961
+  RAM (per 1 GB) | $0.000961
   **Intel Cascade Lake** |
   5% vCPU | $0.000815
   20%+ vCPU | $0.001282
   50%+ vCPU | $0.001794
   100% vCPU | $0.002615
-  RAM (за 1 ГБ) | $0.000630
+  RAM (per 1 GB) | $0.000630
 
 - Prices in roubles
 
@@ -204,20 +204,20 @@ For the following products, funds are debited once for the calendar month in adv
 
 - Prices in USD
 
-  Product | Cost per vCPU per month, without VAT 
+  Product | Cost per vCPU per month, without VAT
   ----- | -----
   MS SQL Server Standard* | $75,59615
   MS SQL Server Enterprise* | $258,50001
 
 - Prices in roubles
 
-  Product | Cost per vCPU per month, with VAT 
+  Product | Cost per vCPU per month, with VAT
   ----- | -----
   MS SQL Server Standard* | ₽5896.5
-  MS SQL Server Enterprise* | ₽20163 
+  MS SQL Server Enterprise* | ₽20163
 
 {% endlist %}
-    
+
 \* The product is given for a bunch of 2 vCPU cores, the minimal amount of the vCPU cores — 4 (2 bunches).
 
 ### Disks, snapshots, and images {#prices-storage}

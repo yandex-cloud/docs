@@ -65,7 +65,7 @@ To create the function version, you'll need a ZIP archive with the function code
         name = 'World'
         if 'queryStringParameters' in event and 'name' in event['queryStringParameters']:
             name = event['queryStringParameters']['name']
-    
+
         return {
             'statusCode': 200,
             'headers': {
@@ -106,7 +106,7 @@ To create the function version, you'll need a ZIP archive with the function code
   --function-name=my-python-function \ # Function name.
   --runtime python37 \ # Runtime environment.
   --entrypoint main.handler \ # The handler specified in the <function file name>.<handler name> format.
-  --memory 128m \ # Amount of RAM. 
+  --memory 128m \ # Amount of RAM.
   --execution-timeout 5s \ # The maximum function execution time before the timeout is reached.
   --source-path ./hello-py.zip # ZIP archive with the function code and all the required dependencies.
   ```
@@ -203,7 +203,7 @@ To create the function version, you'll need a ZIP archive with the function code
   --function-name=my-nodejs-function \ # Function name.
   --runtime nodejs10 \ # Runtime environment.
   --entrypoint index.handler \ The handler, specified in <function file name>.<handler name> format.
-  --memory 128m \ # Amount of RAM. 
+  --memory 128m \ # Amount of RAM.
   --execution-timeout 5s \ # The maximum function execution time before the timeout is reached.
   --source-path ./hello-js.zip # ZIP archive with the function code and all required dependencies.
   ```
@@ -269,7 +269,7 @@ $ yc serverless function list
 
 - CLI
 
-    Call the function by specifying in the parameter a name for еру greeting:
+    Call the function by specifying in the parameter a name for the greeting:
 
     ```
     $ yc serverless function invoke my-python-function -d '{"queryStringParameters": {"name": "Username"}}'

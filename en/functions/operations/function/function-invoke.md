@@ -54,11 +54,11 @@ As an example, we use the function described in [{#T}](version-manage.md#func-ve
 
 - CLI
 
-    Call the function by specifying in the parameter a name for еру greeting:
+    Call the function by specifying in the parameter a name for the greeting:
 
     ```
     $ yc serverless function invoke b09bhaokchn9pnbrlseb -d '{"queryStringParameters": {"name": "Username"}}'
-    
+
     {"statusCode": 200, "headers": {"Content-Type": "text/plain"}, "isBase64Encoded": false, "body": "Hello, Username!"}
     ```
 

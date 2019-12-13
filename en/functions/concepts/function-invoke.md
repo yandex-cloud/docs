@@ -51,7 +51,7 @@ Detailed description of a request:
     ```
     {
         "identity": "<a set of key:value pairs to authenticate the user>",
-        "httpMethod": "<DELETE, GET, HEAD, OPTIONS, PATCH, POST или PUT>",
+        "httpMethod": "<DELETE, GET, HEAD, OPTIONS, PATCH, POST or PUT>",
         "requestId": "<request ID, generated in the router>",
         "requestTime": "<request time in CLF format>",
         "requestTimeEpoch": "<request time in Unix format>"
@@ -234,8 +234,8 @@ Detailed description of how to transfer data using different flags and arguments
      echo '{"queryStringParameters": "name"}' | yc serverless function invoke b09bhaokchn9pnbrlseb --data-stdin
      ```
 
-    Similar to the command with the `-d` argument with the value `@-`: 
-    
+    Similar to the command with the `-d` argument with the value `@-`:
+
     ```
     echo '{"queryStringParameters": "name"}' | yc serverless function invoke b09bhaokchn9pnbrlseb -d @-`
     ```

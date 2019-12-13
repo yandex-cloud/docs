@@ -32,7 +32,7 @@ After creating a cluster, you can:
 
      ```
      $ {{ yc-mdb-my }} resource-preset list
-     
+
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
@@ -93,13 +93,13 @@ After creating a cluster, you can:
       $ {{ yc-mdb-my }} cluster update --help
       ```
 
-  2. Make sure the cloud's quota is sufficient to increase the storage size: open the [Квоты]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
+  2. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
 
   3. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ {{ yc-mdb-my }} cluster get <cluster name>
-      
+
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
       ...
@@ -125,7 +125,7 @@ After creating a cluster, you can:
 
   You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.resources.diskSize`.
 
-  Make sure the cloud's quota is sufficient to increase the storage size: open the [Квоты]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
+  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
 
 {% endlist %}
 

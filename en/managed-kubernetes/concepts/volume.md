@@ -65,7 +65,7 @@ Depending on the `PersistentVolume` and `PersistentVolumeClaim` settings, volume
 
 - For dynamically provisioned volumes: after removing a `PersistentVolumeClaim` built on the `yc-network-hdd` or `yc-network-nvme` storage classes, the applicable `PersistentVolume` and Compute Cloud disk **are deleted**.
 
-- For statically provisioned volumes: you can specify whether to delete the {{ compute-name }} disk when deleting the `PersistentVolumeClaim`. Тo do this, use the `persistentVolumeReclaimPolicy` parameter in the [PersistentVolumeSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#persistentvolumespec-v1-core). By default, the `Retain` value is used for statically provisioned pods and the {{ compute-name }} disk is **not deleted**.
+- For statically provisioned volumes: you can specify whether to delete the {{ compute-name }} disk when deleting the `PersistentVolumeClaim`. To do this, use the `persistentVolumeReclaimPolicy` parameter in the [PersistentVolumeSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#persistentvolumespec-v1-core). By default, the `Retain` value is used for statically provisioned pods and the {{ compute-name }} disk is **not deleted**.
 
 Learn more about volumes in the {{ k8s }} [documentation](https://kubernetes.io/docs/concepts/storage/volumes/).
 

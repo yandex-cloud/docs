@@ -46,7 +46,7 @@ You can use the following metrics for automatic scaling:
 
 #### CPU utilization {#cpu-utilization}
 
-{{ ig-name}} сan control the group size to maintain average CPU utilization at the target level. Average CPU utilization is calculated for instances in the same group and availability zone.
+{{ ig-name}} can control the group size to maintain average CPU utilization at the target level. Average CPU utilization is calculated for instances in the same group and availability zone.
 
 Let's look at the algorithm of service actions outside the stabilization period:
 

@@ -100,13 +100,13 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
          --zone ru-central1-a \
          --network-name exchange-network \
          --range 10.1.0.0/16
-       
+
        yc vpc subnet create \
          --name exchange-subnet-b \
          --zone ru-central1-b \
          --network-name exchange-network \
          --range 10.2.0.0/16
-       
+
        yc vpc subnet create \
          --name exchange-subnet-c \
          --zone ru-central1-c \
@@ -175,7 +175,7 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
       --network-interface subnet-name=exchange-subnet-a,ipv4-address=10.1.0.3 \
       --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
       --metadata-from-file user-data=setpass
-  
+
   $ yc compute instance create \
       --name ad-vm-b \
       --hostname ad-vm-b \
@@ -201,7 +201,7 @@ A file server with internet access is used to configure VMs with Active Director
 
   1. In the **Name** field, enter the VM name: `fsw-vm`.
 
-  1. Select [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-с`.
+  1. Select [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-c`.
 
   1. Under **Public images**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
 
@@ -261,7 +261,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
    ```powershell
    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-   
+
    Success Restart Needed Exit Code      Feature Result
    ------- -------------- ---------      --------------
    True    No             Success        {Active Directory Domain Services, Group P...
@@ -333,7 +333,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
    ```powershell
    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-   
+
    Success Restart Needed Exit Code      Feature Result
    ------- -------------- ---------      --------------
    True    No             Success        {Active Directory Domain Services, Group P...
@@ -659,7 +659,7 @@ Repeat these commands for the `vm-exchange-b` VM.
 
    ```powershell
    Get-DatabaseAvailabilityGroup -Status
-   
+
    Name             Member Servers                                      Operational Servers
    ----             --------------                                      -------------------
    ycdag            {VM-EXCHANGE-A, VM-EXCHANGE-B}                    {VM-EXCHANGE-A, VM-EXCHANGE-B}
@@ -962,14 +962,14 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    Get-NetAdapter | `
-       Set-DnsClientServerAddress -ServerAddresses "10.1.0.3,10.2.0.3" 
+       Set-DnsClientServerAddress -ServerAddresses "10.1.0.3,10.2.0.3"
    ```
 
 1. Configure remote access to the directory with distributions on `fsw-vm`:
 
    ```powershell
    $Credential = Get-Credential # Username: yantoso\Administrator
-   
+
    New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.ru-central1.internal\distrib' -Credential $Credential
    ```
 
@@ -992,9 +992,9 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Suffix = 'ru-central1.internal'
-   
-   Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name Domain -Value $Suffix 
-   
+
+   Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name Domain -Value $Suffix
+
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name 'NV Domain' -Value $Suffix
    ```
 
@@ -1047,7 +1047,7 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Credential = Get-Credential # Username: yantoso\Administrator
-   
+
    New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.ru-central1.internal\distrib' -Credential $Credential
    ```
 
@@ -1070,9 +1070,9 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Suffix = 'ru-central1.internal'
-   
-   Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name Domain -Value $Suffix 
-   
+
+   Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name Domain -Value $Suffix
+
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name 'NV Domain' -Value $Suffix
    ```
 
@@ -1128,7 +1128,7 @@ Each Edge Transport server must subscribe to a website in its own availability z
 
    ```powershell
    Get-EdgeSubscription
-   
+
    Name            Site                 Domain
    ----            ----                 ------
    vm-edge-a       yantoso.net/Confi... ru-central1.internal
@@ -1170,7 +1170,7 @@ Each Edge Transport server must subscribe to a website in its own availability z
 
    ```powershell
    Get-EdgeSubscription
-   
+
    Name            Site                 Domain
    ----            ----                 ------
    vm-edge-a       yantoso.net/Confi... ru-central1.internal
