@@ -12,9 +12,12 @@ For now, you can only recognize long audio in Russian.
 
 ## Before you start
 
-1. A recognition request should be sent on behalf of a [service account](../../iam/concepts/users/service-accounts.md). If you don't have a service account yet, [create one](../../iam/operations/sa/create.md).
+1. A recognition request should be sent on behalf of a [service account](../../iam/concepts/users/service-accounts.md) with the [`editor`](../../iam/concepts/access-control/roles.md#editor) role for the folder where it was created.
 
-1. Make sure the service account has access to the folder where it was created.
+    If necessary, follow the instructions:
+    * [{#T}](../../iam/operations/sa/create.md). In the management console, you can assign roles when creating a service account.
+    * [{#T}](../../iam/operations/roles/get-assigned-roles.md).
+    * [{#T}](../../iam/operations/sa/assign-role-for-sa.md).
 
 1. [Get an IAM token](../../iam/operations/iam-token/create-for-sa.md) or [API key](../../iam/operations/api-key/create.md) for your service account. In our examples, an IAM token is used for authentication.
 

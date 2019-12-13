@@ -43,12 +43,12 @@ items:
             href: operations/federations/integration-gsuite.md
           - name: Authentication using an identity federation
             href: operations/federations/integration-common.md
-          - name: Adding users
-            href: operations/federations/add-users.md
       - name: Roles
         items:
           - name: Assigning roles
             href: operations/roles/grant.md
+          - name: Viewing assigned roles
+            href: operations/roles/get-assigned-roles.md
           - name: Revoking roles
             href: operations/roles/revoke.md
       - name: IAM tokens
@@ -77,6 +77,9 @@ items:
             href: concepts/access-control/roles.md
           - name: System groups
             href: concepts/access-control/system-group.md
+          - name: Resources that roles can be assigned for
+            href: concepts/access-control/resources-with-access-control.md
+
       - name: Authorization
         items:
           - name: Overview
