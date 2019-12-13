@@ -1,6 +1,42 @@
 # Релизы YC CLI
 
-## Версия 0.45.0 (03.12.19) {#latest-release}
+## Версия 0.46.0 (13.12.19) {#latest-release}
+
+### Изменения в сервисах Облака {#services}
+
+#### {{ iam-name }} {#iam}
+
+Добавлена поддержка вычисления CRC32c для IAM-токена и для произвольной строки.
+
+#### {{ sf-name }} {#serverless-functions}
+
+Добавлена команда `yc serverless trigger create object-storage` для подписки на изменения бакета в {{ objstorage-name }}. Флаги команды:
+
+```
+--name: string
+--description: string
+--labels: key=value[,key=value...]
+--bucket-id: string
+--prefix: string
+--suffix: string
+--events: stringSlice
+--invoke-function-id: string
+--invoke-function-name: string
+--invoke-function-tag: string
+--invoke-function-service-account-id: string
+--invoke-function-service-account-name: string
+--retry-attempts: int64
+--retry-interval: duration
+--async: bool
+```
+
+#### Изменения в CLI {#cli}
+
+- Небольшие исправления и обновления.
+
+## Предыдущие релизы {#previous-releases}
+
+## Версия 0.45.0 (03.12.19) {#version0.45.0} 
 
 ### Изменения в CLI {#cli}
 
@@ -19,8 +55,6 @@
 - Команды `yc iot mqtt publish` и `yc iot mqtt subscribe`.
 
     Добавлены флаги для поддержки авторизации по логину и паролю: `--username` и `--password`.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.44.0 (19.11.19) {#version0.44.0} 
 
