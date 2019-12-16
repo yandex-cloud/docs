@@ -4,12 +4,6 @@
 
 Для этого в методе [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) в свойстве `type` укажите `TEXT_DETECTION`, а в свойстве `textDetectionConfig` задайте настройки распознавания.
 
-{% note info %}
-
-Распознается текст, расположенный горизонтально. Если изображение или текст перевернуты, текст может не распознаться. Если вы отсканировали документ и не знаете, как повернуто изображение, отправьте несколько вариантов изображения с разными углами поворота.
-
-{% endnote %}
-
 ## Примеры {#examples}
 
 ### Перед началом {#before-beginning}
@@ -20,7 +14,7 @@
 
 {% include [text-detection-steps](../../../_includes/vision/text-detection-steps.md) %}
 
-### Распознайте текст из PDF-файла
+### Распознайте текст из PDF-файла {#pdf}
 
 1. В PDF-файле должно быть не больше 8 страниц. Если страниц больше, разбейте его на файлы по 8 страниц.
 1. Кодируйте PDF-файл в формат Base64.
@@ -28,7 +22,7 @@
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
 1. Создайте файл с телом запроса, например `body.json`.
 
-    В теле запроса укажите [MIME-тип](https://en.wikipedia.org/wiki/Media_type) `application/pdf`, а в свойстве `content` укажите PDF-файл, [кодированный в Base64](../base64-encode.md).
+    В теле запроса укажите [MIME-тип](https://en.wikipedia.org/wiki/Media_type) `application/pdf`, а в свойстве `content` укажите PDF-файл, кодированный в Base64.
 
     **body.json:**
     ```json
@@ -48,6 +42,43 @@
     ```
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 
+### Распознайте строку текста {#string}
+
+Если вы не хотите передавать изображение целиком, вы можете вырезать строку и отправить на распознавание только ее. В конфигурации укажите модель `line`, которая лучше подходит для распознавания отдельных строк.
+
+{% note alert %}
+
+{% include [include](../../../_includes/vision/text-detection-line-note.md) %}
+
+{% endnote %}
+
+Чтобы распознать строку текста:
+
+1. Кодируйте файл изображения в формат Base64.
+
+    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
+1. Создайте файл с телом запроса, например `body.json`.
+
+    В свойстве `model` укажите модель `line`. В свойстве `content` укажите изображение, кодированное в Base64.
+
+    **body.json:**
+    ```json
+    {
+        "folderId": "b1gvmob95yysaplct532",
+        "analyze_specs": [{
+            "content": "iVBORw0KGgo...",
+            "features": [{
+                "type": "TEXT_DETECTION",
+                "text_detection_config": {
+                    "language_codes": ["*"],
+                    "model": "line"
+                }
+            }]
+        }]
+    }
+    ```
+1. {% include [send-request](../../../_includes/vision/send-request.md) %}
+
 ### Указать язык текста в запросе {#multiple-languages}
 
 Если вы знаете язык текста, укажите его в запросе, чтобы повысить качество распознавания:
@@ -55,7 +86,7 @@
 1. Кодируйте файл в формат Base64:
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
-1. Создайте файл с телом запроса, например `body.json`. В свойстве `content` укажите изображение, [кодированное в Base64](../base64-encode.md).
+1. Создайте файл с телом запроса, например `body.json`. В свойстве `content` укажите изображение, кодированное в Base64.
 
     **body.json:**
     ```json
