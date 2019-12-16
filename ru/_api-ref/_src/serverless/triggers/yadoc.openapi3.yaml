@@ -1,0 +1,792 @@
+openapi: "3.0"
+info:
+  title: Yandex Cloud Triggers Service
+  description: Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию
+    над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре
+    API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: triggers/api-ref
+  x-y-baseUrl: https://serverless-triggers.api.cloud.yandex.net
+paths:
+  /triggers/v1/triggers/{triggerId}:
+    get:
+      tags:
+      - Trigger
+      summary: Возвращает указанный триггер.
+      description: Чтобы получить список доступных триггеров, используйте запрос [list](/docs/functions/triggers/api-ref/Trigger/list)
+        .
+      operationId: TriggerGet
+      parameters:
+      - name: triggerId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор возвращаемого триггера.
+
+          Чтобы получить идентификатор триггера, используйте запрос [list](/docs/functions/triggers/api-ref/Trigger/list) .
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trigger'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Trigger
+      summary: Удаляет указанный триггер.
+      operationId: TriggerDelete
+      parameters:
+      - name: triggerId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор триггера для удаления.
+
+          Чтобы получить идентификатор триггера, используйте запрос [list](/docs/functions/triggers/api-ref/Trigger/list) .
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteTriggerMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Trigger
+      summary: Обновляет указанный триггер.
+      operationId: TriggerUpdate
+      parameters:
+      - name: triggerId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор триггера для обновления.
+
+          Чтобы получить идентификатор триггера, используйте запрос [list](/docs/functions/triggers/api-ref/Trigger/list) .
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTriggerRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateTriggerMetadata'
+      x-y-operation-response: '[Trigger](/docs/functions/triggers/api-ref/Trigger#representation)'
+  /triggers/v1/triggers:
+    get:
+      tags:
+      - Trigger
+      summary: Возвращает список триггеров в указанном каталоге.
+      operationId: TriggerList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Обязательное поле.
+          Идентификатор каталога для получения списка триггеров.
+
+          Чтобы получить идентификатор каталога, используйте запрос
+          [list](/docs/resource-manager/api-ref/Folder/list).
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем `pageSize` , сервис вернет значение [nextPageToken](/docs/functions/triggers/api-ref/Trigger/list#responses), которое
+          можно использовать для получения следующей страницы.
+
+          Значение по умолчанию: 100.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `pageToken` равным значению поля
+          [nextPageToken](/docs/functions/triggers/api-ref/Trigger/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе.
+
+          В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Trigger.name](/docs/functions/triggers/api-ref/Trigger#representation).
+          2. Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-trigger`.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTriggersResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Trigger
+      summary: Создает триггер в указанном каталоге.
+      operationId: TriggerCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTriggerRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateTriggerMetadata'
+      x-y-operation-response: '[Trigger](/docs/functions/triggers/api-ref/Trigger#representation)'
+  /triggers/v1/triggers/{triggerId}/operations:
+    get:
+      tags:
+      - Trigger
+      summary: Возвращает список операций для указанного триггера.
+      operationId: TriggerListOperations
+      parameters:
+      - name: triggerId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор триггера, для котрого запрашивается список операций.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное число возвращаемых результатов на странице. Если количество
+          результатов больше чем `pageSize` , сервис вернет значение [nextPageToken](/docs/functions/triggers/api-ref/Trigger/listOperations#responses),
+          которое можно использовать для получения следующей страницы.
+
+          Значение по умолчанию: 100.
+
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение `pageToken` равным значению поля
+          [nextPageToken](/docs/functions/triggers/api-ref/Trigger/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе.
+
+          В параметрах фильтрации указываются:
+          1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Trigger.name](/docs/functions/triggers/api-ref/Trigger#representation).
+          2. Условный оператор. Операторы `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений.
+          3. Значение. Значение длиной от 3 до 63 символов, совпадающее с регулярным выражением `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Пример фильтра: `name=my-function`.
+
+          Максимальная длина строки в символах — 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTriggerOperationsResponse'
+      x-y-navtitle: listOperations
+components:
+  schemas:
+    BatchSettings:
+      description: Настройки обработки группы сообщений в очереди.
+      type: object
+      properties:
+        size:
+          description: |-
+            Размер группы сообщений. Триггер отправит группу сообщений в соответствующую
+            функцию, когда число сообщений в очереди достигнет этого значения, или прошло cutoff
+            время.
+
+            Допустимые значения — от 0 до 10 включительно.
+          type: string
+          format: int64
+        cutoff:
+          description: |-
+            Обязательное поле.
+            Максимальное время ожидания. Триггер отправит группу сообщений, если время с
+            момента последнего пакета превышает `cutoff` значение, независимо от количества
+            сообщений в очереди.
+          type: string
+    CreateTriggerMetadata:
+      type: object
+      properties:
+        triggerId:
+          description: Идентификатор создаваемого триггера.
+          type: string
+    CreateTriggerRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Обязательное поле.
+            Идентификатор каталога, в котором создается триггер.
+
+            Чтобы получить идентификатор каталога, используйте запрос
+            [list](/docs/resource-manager/api-ref/Folder/list).
+          type: string
+        name:
+          description: |-
+            Имя триггера. Имя должно быть уникальным в рамках каталога.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Описание триггера.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки ресурса в формате `key:value`.
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        rule:
+          $ref: '#/components/schemas/TriggerRule_in_CreateTriggerRequest_rule'
+    DeleteTriggerMetadata:
+      type: object
+      properties:
+        triggerId:
+          description: |-
+            Обязательное поле.
+            Идентификатор удаляемого триггера.
+          type: string
+    Empty:
+      description: Пустой JSON объект `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+    InvokeFunctionOnce:
+      description: Единичный вызов функции.
+      type: object
+      properties:
+        functionId:
+          description: |-
+            Обязательное поле.
+            Идентификатор вызываемой функции.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        functionTag:
+          description: Тег версии функции для выполнения.
+          type: string
+        serviceAccountId:
+          description: Идентификатор сервисного аккаунта, от имени которого будет
+            вызываться функция.
+          type: string
+    InvokeFunctionWithRetry:
+      description: Вызов функции с повторными попытками.
+      type: object
+      properties:
+        functionId:
+          description: |-
+            Обязательное поле.
+            Идентификатор вызываемой функции.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        functionTag:
+          description: Тег версии функции для выполнения.
+          type: string
+        serviceAccountId:
+          description: Идентификатор сервисного аккаунта с ролью на вызов функции.
+          type: string
+        retrySettings:
+          $ref: '#/components/schemas/RetrySettings_in_InvokeFunctionWithRetry_retrySettings'
+    ListTriggerOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанного триггера.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/functions/triggers/api-ref/Trigger/listOperations#query_params), используйте `nextPageToken` в качестве значения параметра
+            [pageToken](/docs/functions/triggers/api-ref/Trigger/listOperations#query_params) в следующем запросе списка ресурсов.
+
+            Все последующие запросы будут получать свои значения `nextPageToken` для перебора страниц
+            результатов.
+          type: string
+    ListTriggersResponse:
+      type: object
+      properties:
+        triggers:
+          description: Возвращает список триггеров в указанном каталоге.
+          type: array
+          items:
+            $ref: '#/components/schemas/Trigger'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [pageSize](/docs/functions/triggers/api-ref/Trigger/list#query_params), используйте `nextPageToken` в качестве значения параметра
+            [pageToken](/docs/functions/triggers/api-ref/Trigger/list#query_params) в следующем запросе списка ресурсов.
+
+            Все последующие запросы будут получать свои значения `nextPageToken` для перебора страниц
+            результатов.
+          type: string
+    Operation:
+      description: |-
+        Ресурс Operation. Дополнительные сведения см. в разделе
+        [Объект Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
+    RetrySettings:
+      description: Параметры повторной попытки вызова функции.
+      type: object
+      properties:
+        retryAttempts:
+          description: |-
+            Максимальное количество повторных попыток (дополнительных вызовов), прежде чем
+            действие будет считаться неудачным.
+
+            Допустимые значения — от 1 до 5 включительно.
+          type: string
+          format: int64
+        interval:
+          description: |-
+            Обязательное поле.
+            Время ожидания между повторными попытками, в секундах.
+          type: string
+    Status:
+      description: Описание ошибки в случае сбоя или отмены операции.
+      type: object
+      properties:
+        code:
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: Текст ошибки.
+          type: string
+        details:
+          description: Список сообщений с подробными сведениями об ошибке.
+          type: array
+          items:
+            type: object
+    Trigger:
+      description: |-
+        Триггер для вызова бессерверной функции. Дополнительные сведения см. в разделе
+        [Триггеры](/docs/functions/concepts/trigger).
+      type: object
+      properties:
+        id:
+          description: Идентификатор триггера. Генерируется во время создания.
+          type: string
+        folderId:
+          description: |-
+            Обязательное поле.
+            Идентификатор каталога, в котором создается триггер.
+
+            Максимальная длина строки в символах — 50.
+          type: string
+        createdAt:
+          description: |-
+            Время создания триггера.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
+        name:
+          description: |-
+            Имя триггера.
+
+            Длина строки в символах должна быть от 3 до 63.
+          type: string
+        description:
+          description: |-
+            Описание триггера.
+
+            Длина строки в символах должна быть от 0 до 256.
+          type: string
+        labels:
+          description: Метки триггеров в виде пар `key:value` .
+          type: object
+          additionalProperties:
+            type: string
+        rule:
+          $ref: '#/components/schemas/TriggerRule_in_Trigger_rule'
+    TriggerIoTMessage:
+      description: Правило для активации триггера Yandex IoT Core.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          registryId:
+            description: |-
+              Обязательное поле.
+              Идентификатор реестра Yandex IoT Core.
+            type: string
+          deviceId:
+            description: Идентификатор устройства в реестре Yandex IoT.
+            type: string
+          mqttTopic:
+            description: MQTT-топик, сообщения котрого активируют триггер.
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
+            description: Инструкции для вызова функции с повторными попытками по мере
+              необходимости.
+    TriggerMessageQueue:
+      description: Правило для активации триггера очереди сообщений.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          queueId:
+            description: |-
+              Обязательное поле.
+              Идентификатор очереди сообщений в Yandex Message Queue.
+            type: string
+          serviceAccountId:
+            description: |-
+              Обязательное поле.
+              Идентификатор сервисного аккаунта с ролью на чтение очереди сообщений.
+
+              Максимальная длина строки в символах — 50.
+            type: string
+          batchSettings:
+            $ref: '#/components/schemas/BatchSettings'
+            description: |-
+              Обязательное поле.
+              Настройки группы сообщений для обработки сообщений в очереди.
+          visibilityTimeout:
+            description: |-
+              Переопределение таймаута видимости очереди.
+
+              Максимальное значение — 43200 seconds.
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionOnce'
+            description: Инструкции для вызова функции один раз.
+    TriggerObjectStorage:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          eventType:
+            description: |-
+              Обязательное поле.
+              Тип (имя) событий, требуется хотя бы одно значение.
+
+              Должен содержать хотя бы один элемент.
+            type: array
+            items:
+              $ref: '#/components/schemas/TriggerObjectStorageEventType'
+          bucketId:
+            type: string
+          prefix:
+            description: Фильтр, опционально.
+            type: string
+          suffix:
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
+    TriggerObjectStorageEventType:
+      type: string
+      enum:
+      - OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT
+      - OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT
+      - OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT
+    TriggerRule:
+      description: Описание правила активации триггера.
+      type: object
+      allOf:
+      - title: rule
+        type: object
+        maxProperties: 1
+        properties:
+          timer:
+            $ref: '#/components/schemas/TriggerTimer'
+            description: Правило для таймера.
+          messageQueue:
+            $ref: '#/components/schemas/TriggerMessageQueue'
+            description: Правило для триггера очереди сообщений.
+          iotMessage:
+            $ref: '#/components/schemas/TriggerIoTMessage'
+            description: Правило для триггера Yandex IoT Core.
+          objectStorage:
+            $ref: '#/components/schemas/TriggerObjectStorage'
+    TriggerTimer:
+      description: Правило активации для таймера.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          cronExpression:
+            description: |-
+              Обязательное поле.
+              Описание расписания в виде [cron-выражения](/docs/functions/concepts/trigger/timer).
+
+              Максимальная длина строки в символах — 100.
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionOnce'
+            description: Инструкции для вызова функции один раз.
+    UpdateTriggerMetadata:
+      type: object
+      properties:
+        triggerId:
+          description: |-
+            Обязательное поле.
+            Идентификатор обновляемого триггера.
+          type: string
+    UpdateTriggerRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateTriggerRequest_updateMask'
+        name:
+          description: |-
+            Новое имя триггера. Имя должно быть уникальным в рамках каталога.
+
+            Значение должно соответствовать регулярному выражению `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Описание триггера.
+
+            Максимальная длина строки в символах — 256.
+          type: string
+        labels:
+          description: |-
+            Метки триггеров в виде пар `key:value` .
+
+            Существующий набор меток полностью заменяется предоставленным набором, поэтому,
+            если вы просто хотите добавить или удалить метку, запросите текущий набор меток,
+            используя запрос [get](/docs/functions/triggers/api-ref/Trigger/get) .
+
+            Не более 64 на ресурс.
+            Длина строки в символах для каждого ключа должна быть от 1 до 63.
+            Каждый ключ должен соответствовать регулярному выражению `` [a-z][-_0-9a-z]* ``.
+            Максимальная длина строки в символах для каждого значения — 63.
+            Каждое значение должно соответствовать регулярному выражению `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    TriggerRule_in_CreateTriggerRequest_rule:
+      description: |-
+        Обязательное поле.
+        Тип триггера.
+
+        Описание правила активации триггера.
+      type: object
+      allOf:
+      - title: rule
+        type: object
+        maxProperties: 1
+        properties:
+          timer:
+            $ref: '#/components/schemas/TriggerTimer'
+            description: Правило для таймера.
+          messageQueue:
+            $ref: '#/components/schemas/TriggerMessageQueue'
+            description: Правило для триггера очереди сообщений.
+          iotMessage:
+            $ref: '#/components/schemas/TriggerIoTMessage'
+            description: Правило для триггера Yandex IoT Core.
+          objectStorage:
+            $ref: '#/components/schemas/TriggerObjectStorage'
+    RetrySettings_in_InvokeFunctionWithRetry_retrySettings:
+      description: |-
+        Политика повторных попыток. Если поле не указано или значение пусто, повторные
+        попытки не предпринимаются.
+
+        Параметры повторной попытки вызова функции.
+      type: object
+      properties:
+        retryAttempts:
+          description: |-
+            Максимальное количество повторных попыток (дополнительных вызовов), прежде чем
+            действие будет считаться неудачным.
+
+            Допустимые значения — от 1 до 5 включительно.
+          type: string
+          format: int64
+        interval:
+          description: |-
+            Обязательное поле.
+            Время ожидания между повторными попытками, в секундах.
+          type: string
+    TriggerRule_in_Trigger_rule:
+      description: |-
+        Обязательное поле.
+        Правило активации триггера (всегда соответствует типу триггера).
+
+        Описание правила активации триггера.
+      type: object
+      allOf:
+      - title: rule
+        type: object
+        maxProperties: 1
+        properties:
+          timer:
+            $ref: '#/components/schemas/TriggerTimer'
+            description: Правило для таймера.
+          messageQueue:
+            $ref: '#/components/schemas/TriggerMessageQueue'
+            description: Правило для триггера очереди сообщений.
+          iotMessage:
+            $ref: '#/components/schemas/TriggerIoTMessage'
+            description: Правило для триггера Yandex IoT Core.
+          objectStorage:
+            $ref: '#/components/schemas/TriggerObjectStorage'
+    FieldMask_in_UpdateTriggerRequest_updateMask:
+      description: |-
+        Маска поля, которая указывает, какие атрибуты триггера должны быть обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
+tags:
+- name: Trigger
+  description: Набор методов управления триггерами для бессерверных функций.

@@ -205,7 +205,8 @@ clusterId | Обязательное поле. Идентификатор рес
       "seconds": "integer",
       "nanos": "integer"
     }
-  }
+  },
+  "name": "string"
 }
 ```
 
@@ -346,6 +347,7 @@ configSpec.<br>backupWindowStart.<br>hours | **integer** (int32)<br><p>Час в
 configSpec.<br>backupWindowStart.<br>minutes | **integer** (int32)<br><p>Минута часа. Допустимые значения — от 0 до 59.</p> 
 configSpec.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Секунда минуты. Обычно допустимые значения — от 0 до 59. API может разрешить значение 60, если поддерживаются високосные секунды.</p> 
 configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Доли секунды, в наносекундах. Допустимые значения — от 0 до 999 999 999.</p> 
+name | **string**<br><p>Новое имя кластера.</p> <p>Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению <code>[a-zA-Z0-9_-]*</code>.</p> 
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

@@ -89,3 +89,17 @@ items:
     href: pricing.md
   - name: Управление доступом
     href: security/index.md
+  - name: Справочник API Functions
+    items:
+      - name: Аутентификация в API
+        href: api-ref/functions/authentication.md
+    include:
+      repo: docs
+      path: ru/_api-ref/serverless/functions/toc.yaml
+  - name: Справочник API Triggers
+    items:
+      - name: Аутентификация в API
+        href: api-ref/triggers/authentication.md
+    include:
+      repo: docs
+      path: ru/_api-ref/serverless/triggers/toc.yaml

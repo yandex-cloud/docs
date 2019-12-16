@@ -75,3 +75,17 @@ items:
     href: pricing.md
   - name: Access management
     href: security/index.md
+  - name: Functions API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/functions/authentication.md
+    include:
+      repo: docs
+      path: en/_api-ref/serverless/functions/toc.yaml
+  - name: Triggers API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/triggers/authentication.md
+    include:
+      repo: docs
+      path: en/_api-ref/serverless/triggers/toc.yaml

@@ -1,19 +1,19 @@
 items:
   - name: Overview
-    href: undefined/index.md
+    href: triggers/api-ref/index.md
   - name: Trigger
     items:
       - name: Overview
-        href: undefined/Trigger/index.md
+        href: triggers/api-ref/Trigger/index.md
       - name: create
-        href: undefined/Trigger/create.md
+        href: triggers/api-ref/Trigger/create.md
       - name: delete
-        href: undefined/Trigger/delete.md
+        href: triggers/api-ref/Trigger/delete.md
       - name: get
-        href: undefined/Trigger/get.md
+        href: triggers/api-ref/Trigger/get.md
       - name: list
-        href: undefined/Trigger/list.md
+        href: triggers/api-ref/Trigger/list.md
       - name: listOperations
-        href: undefined/Trigger/listOperations.md
+        href: triggers/api-ref/Trigger/listOperations.md
       - name: update
-        href: undefined/Trigger/update.md
+        href: triggers/api-ref/Trigger/update.md

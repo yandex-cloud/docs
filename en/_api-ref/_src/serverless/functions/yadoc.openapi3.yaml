@@ -1,18 +1,29 @@
 openapi: "3.0"
 info:
-  title: Yandex Serverless Functions Service
-  description: Description not set.
+  title: Yandex Cloud Functions Service
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
+  x-y-docUri: functions/api-ref
+  x-y-baseUrl: https://serverless-functions.api.cloud.yandex.net
 paths:
   /functions/v1/functions/{functionId}:
     get:
       tags:
       - Function
+      summary: Returns the specified function.
+      description: To get the list of all available functions, make a [list](/docs/functions/functions/api-ref/Function/list)
+        request.
       operationId: FunctionGet
       parameters:
       - name: functionId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the function to return.
+
+          To get a function ID make a [list](/docs/functions/functions/api-ref/Function/list) request.
         required: true
         schema:
           type: string
@@ -27,11 +38,15 @@ paths:
     delete:
       tags:
       - Function
+      summary: Deletes the specified function.
       operationId: FunctionDelete
       parameters:
       - name: functionId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the function to delete.
+          To get a function ID make a [list](/docs/functions/functions/api-ref/Function/list) request.
         required: true
         schema:
           type: string
@@ -49,11 +64,16 @@ paths:
     patch:
       tags:
       - Function
+      summary: Updates the specified function.
       operationId: FunctionUpdate
       parameters:
       - name: functionId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the function to update.
+
+          To get a function ID make a [list](/docs/functions/functions/api-ref/Function/list) request.
         required: true
         schema:
           type: string
@@ -73,29 +93,52 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateFunctionMetadata'
-      x-y-operation-response: '[Function](/Function#representation)'
+      x-y-operation-response: '[Function](/docs/functions/functions/api-ref/Function#representation)'
   /functions/v1/functions:
     get:
       tags:
       - Function
+      summary: Retrieves the list of functions in the specified folder.
       operationId: FunctionList
       parameters:
       - name: folderId
         in: query
-        description: Required.
+        description: |-
+          Required.
+          ID of the folder to list functions in.
+
+          To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
         schema:
           type: string
       - name: pageSize
         in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/functions/api-ref/Function/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Default value: 100.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
+        description: |-
+          Page token. To get the next page of results, set `pageToken` to the
+          [nextPageToken](/docs/functions/functions/api-ref/Function/list#responses) returned by a previous list request.
         schema:
           type: string
       - name: filter
         in: query
+        description: |-
+          A filter expression that filters functions listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently filtering can only be applied to the [Function.name](/docs/functions/functions/api-ref/Function#representation) field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
+          for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+          Example of a filter: `name=my-function`.
         schema:
           type: string
       responses:
@@ -109,6 +152,7 @@ paths:
     post:
       tags:
       - Function
+      summary: Creates a function in the specified folder.
       operationId: FunctionCreate
       requestBody:
         content:
@@ -126,16 +170,23 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateFunctionMetadata'
-      x-y-operation-response: '[Function](/Function#representation)'
+      x-y-operation-response: '[Function](/docs/functions/functions/api-ref/Function#representation)'
   /functions/v1/versions/{functionVersionId}:
     get:
       tags:
       - Function
+      summary: Returns the specified version of a function.
+      description: To get the list of available version, make a [listVersions](/docs/functions/functions/api-ref/Function/listVersions)
+        request.
       operationId: FunctionGetVersion
       parameters:
       - name: functionVersionId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the version to return.
+
+          To get a version ID make a [listVersions](/docs/functions/functions/api-ref/Function/listVersions) request.
         required: true
         schema:
           type: string
@@ -151,17 +202,28 @@ paths:
     get:
       tags:
       - Function
+      summary: Returns all versions with the specified tag.
+      description: To get the list of all available versions, make a [listVersions](/docs/functions/functions/api-ref/Function/listVersions)
+        request.
       operationId: FunctionGetVersionByTag
       parameters:
       - name: functionId
         in: query
-        description: Required.
+        description: |-
+          Required.
+          ID of the function whose versions should be listed.
+
+          To get a function ID use a [list](/docs/functions/functions/api-ref/Function/list) request.
         schema:
           type: string
       - name: tag
         in: query
-        description: Value must match the regular expression `` [a-z][-_0-9a-z]*|[$]latest
-          ``.
+        description: |-
+          Version tag.
+
+          To get the history of version tags make a [listTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory) request.
+
+          Value must match the regular expression `` [a-z][-_0-9a-z]*|[$]latest ``.
         schema:
           type: string
       responses:
@@ -176,30 +238,60 @@ paths:
     get:
       tags:
       - Function
+      summary: |-
+        Retrieves the list of versions for the specified function, or of all function versions
+        in the specified folder.
       operationId: FunctionListVersions
       parameters:
       - name: folderId
         in: query
+        description: |-
+          ID of the folder to list function versions for.
+          To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
         schema:
           type: string
       - name: functionId
         in: query
+        description: |-
+          ID of the function to list versions for.
+          To get a function ID use a [list](/docs/functions/functions/api-ref/Function/list) request.
         schema:
           type: string
       - name: pageSize
         in: query
-        description: Acceptable values are 0 to 1000, inclusive.
+        description: |-
+          The maximum number of results per page to return. If the number of available results
+          is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/functions/api-ref/Function/listVersions#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: The maximum string length in characters is 100.
+        description: |-
+          Page token. To get the next page of results, set `pageToken` to the
+          [nextPageToken](/docs/functions/functions/api-ref/Function/listVersions#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       - name: filter
         in: query
-        description: The maximum string length in characters is 1000.
+        description: |-
+          A filter expression that filters resources listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently filtering can only be applied to the [Function.name](/docs/functions/functions/api-ref/Function#representation) field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
+          for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+          Example of a filter: `name=my-function`.
+
+          The maximum string length in characters is 1000.
         schema:
           type: string
       responses:
@@ -213,6 +305,7 @@ paths:
     post:
       tags:
       - Function
+      summary: Creates a version for the specified function.
       operationId: FunctionCreateVersion
       requestBody:
         content:
@@ -235,11 +328,16 @@ paths:
     post:
       tags:
       - Function
+      summary: Set a tag for the specified version of a function.
       operationId: FunctionSetTag
       parameters:
       - name: functionVersionId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the version to set the tag for.
+
+          To get a version ID make a [listVersions](/docs/functions/functions/api-ref/Function/listVersions) request.
         required: true
         schema:
           type: string
@@ -264,11 +362,16 @@ paths:
     post:
       tags:
       - Function
+      summary: Remove a tag from the specified version of a function.
       operationId: FunctionRemoveTag
       parameters:
       - name: functionVersionId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the version to remove a tag from.
+
+          To get the a version ID make a [listVersions](/docs/functions/functions/api-ref/Function/listVersions) request.
         required: true
         schema:
           type: string
@@ -293,34 +396,61 @@ paths:
     get:
       tags:
       - Function
+      summary: Returns the log of tags assigned to versions of the specified function.
       operationId: FunctionListTagHistory
       parameters:
       - name: functionId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the function to retrieve tag history for.
+
+          To get a function ID, make a [list](/docs/functions/functions/api-ref/Function/list) request.
         required: true
         schema:
           type: string
       - name: tag
         in: query
-        description: Value must match the regular expression `` [a-z][-_0-9a-z]*|[$]latest
-          ``.
+        description: |-
+          Specific tag that history should be limited to.
+
+          Value must match the regular expression `` [a-z][-_0-9a-z]*|[$]latest ``.
         schema:
           type: string
       - name: pageSize
         in: query
-        description: Acceptable values are 0 to 1000, inclusive.
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: The maximum string length in characters is 100.
+        description: |-
+          Page token. To get the next page of results, set `pageToken` to the
+          [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       - name: filter
         in: query
-        description: The maximum string length in characters is 1000.
+        description: |-
+          A filter expression that filters resources listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently filtering can only be applied to the [Function.name](/docs/functions/functions/api-ref/Function#representation) field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
+          for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+          For example, `name=my-function`.
+
+          The maximum string length in characters is 1000.
         schema:
           type: string
       responses:
@@ -335,6 +465,7 @@ paths:
     get:
       tags:
       - Function
+      summary: Lists available runtime environments for the specified function.
       operationId: FunctionListRuntimes
       responses:
         "200":
@@ -348,28 +479,52 @@ paths:
     get:
       tags:
       - Function
+      summary: Lists operations for the specified function.
       operationId: FunctionListOperations
       parameters:
       - name: functionId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the function to list operations for.
         required: true
         schema:
           type: string
       - name: pageSize
         in: query
-        description: Acceptable values are 0 to 1000, inclusive.
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: The maximum string length in characters is 100.
+        description: |-
+          Page token. To get the next page of results, set `pageToken` to the
+          [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       - name: filter
         in: query
-        description: The maximum string length in characters is 1000.
+        description: |-
+          A filter expression that filters resources listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently filtering can only be applied to the [Function.name](/docs/functions/functions/api-ref/Function#representation) field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
+          for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+          Example of a filter: `name=my-function`.
+
+          The maximum string length in characters is 1000.
         schema:
           type: string
       responses:
@@ -384,6 +539,7 @@ paths:
     get:
       tags:
       - Function
+      summary: Lists existing access bindings for the specified function.
       operationId: FunctionListAccessBindings
       parameters:
       - name: resourceId
@@ -432,6 +588,7 @@ paths:
     post:
       tags:
       - Function
+      summary: Sets access bindings for the function.
       operationId: FunctionSetAccessBindings
       parameters:
       - name: resourceId
@@ -465,6 +622,7 @@ paths:
     post:
       tags:
       - Function
+      summary: Updates access bindings for the specified function.
       operationId: FunctionUpdateAccessBindings
       parameters:
       - name: resourceId
@@ -524,22 +682,35 @@ components:
       type: object
       properties:
         functionId:
+          description: ID of the function that is being created.
           type: string
     CreateFunctionRequest:
       type: object
       properties:
         folderId:
-          description: Required.
+          description: |-
+            Required.
+            ID of the folder to create a function in.
+
+            To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
           type: string
         name:
-          description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
-            ``.
+          description: |-
+            Name of the function.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
-          description: The maximum string length in characters is 256.
+          description: |-
+            Description of the function.
+
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
+            Resource labels as `key:value` pairs.
+
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
@@ -552,6 +723,7 @@ components:
       type: object
       properties:
         functionVersionId:
+          description: ID of the version that is being created.
           type: string
     CreateFunctionVersionRequest:
       type: object
@@ -559,26 +731,47 @@ components:
       - type: object
         properties:
           functionId:
-            description: Required.
+            description: |-
+              Required.
+              ID of the function to create a version for.
+
+              To get a function ID, make a [list](/docs/functions/functions/api-ref/Function/list) request.
             type: string
           runtime:
-            description: Required.
+            description: |-
+              Required.
+              Runtime environment for the version.
             type: string
           description:
+            description: |-
+              Description of the version
+
+              The string length in characters must be 0-256.
             type: string
           entrypoint:
-            description: Required.
+            description: |-
+              Required.
+              Entrypoint of the version.
             type: string
           resources:
             $ref: '#/components/schemas/Resources'
-            description: Required.
+            description: |-
+              Required.
+              Resources allocated to the version.
           executionTimeout:
-            description: Required.
+            description: |-
+              Required.
+              Timeout for the execution of the version.
+
+              If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.
             type: string
           serviceAccountId:
+            description: ID of the service account to associate with the version.
             type: string
           environment:
             description: |-
+              Environment settings for the version.
+
               Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``.
               The maximum string length in characters for each value is 4096.
             type: object
@@ -590,14 +783,19 @@ components:
         properties:
           package:
             $ref: '#/components/schemas/Package'
+            description: Functions deployment package.
           content:
-            description: The maximum string length in characters is 52428800.
+            description: |-
+              Content of the deployment package.
+
+              The maximum string length in characters is 52428800.
             type: string
             format: byte
     DeleteFunctionMetadata:
       type: object
       properties:
         functionId:
+          description: ID of the function that is being deleted.
           type: string
     Empty:
       description: Empty JSON object `` {} ``.
@@ -615,32 +813,56 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     Function:
+      description: A serverless function. For details about the concept, see [Functions](/docs/functions/concepts/function).
       type: object
       properties:
         id:
+          description: ID of the function. Generated at creation time.
           type: string
         folderId:
+          description: ID of the folder that the function belongs to.
           type: string
         createdAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Creation timestamp for the function.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         name:
+          description: |-
+            Name of the function. The name is unique within the folder.
+
+            The string length in characters must be 3-63.
           type: string
         description:
+          description: |-
+            Description of the function.
+
+            The string length in characters must be 0-256.
           type: string
         labels:
+          description: |-
+            Function labels as `key:value` pairs.
+
+            No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
         logGroupId:
+          description: ID of the log group for the function.
           type: string
         httpInvokeUrl:
+          description: URL that needs to be requested to invoke the function.
           type: string
         status:
           $ref: '#/components/schemas/FunctionStatus_in_Function_status'
     FunctionStatus:
+      description: |2-
+         - CREATING: Function is being created.
+         - ACTIVE: Function is ready to be invoked.
+         - DELETING: Function is being deleted.
+         - ERROR: Function failed.
       type: string
       enum:
       - CREATING
@@ -668,61 +890,98 @@ components:
       type: object
       properties:
         operations:
+          description: List of operations for the specified function.
           type: array
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/functions/functions/api-ref/Function/listOperations#query_params), use `nextPageToken` as the value
+            for the [pageToken](/docs/functions/functions/api-ref/Function/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `nextPageToken` to continue paging through the results.
           type: string
     ListFunctionTagHistoryResponse:
       type: object
       properties:
         functionTagHistoryRecord:
+          description: Set of relevant tag history records.
           type: array
           items:
             $ref: '#/components/schemas/ListFunctionTagHistoryResponseFunctionTagHistoryRecord'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/functions/functions/api-ref/Function/listTagHistory#query_params), use `nextPageToken` as the value
+            for the [pageToken](/docs/functions/functions/api-ref/Function/listTagHistory#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `nextPageToken` to continue paging through the results.
           type: string
     ListFunctionTagHistoryResponseFunctionTagHistoryRecord:
+      description: A record in the tag history.
       type: object
       properties:
         functionId:
+          description: ID of the function that the record is about.
           type: string
         functionVersionId:
+          description: ID of the function version that the record is about.
           type: string
         tag:
+          description: Tag that was set for the version at some point.
           type: string
         effectiveFrom:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Timestamp when the tag started being active for the function.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         effectiveTo:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Timestamp when the tag stopped being active for the function.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     ListFunctionsResponse:
       type: object
       properties:
         functions:
+          description: List of functions in the specified folder.
           type: array
           items:
             $ref: '#/components/schemas/Function'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/functions/functions/api-ref/Function/list#query_params), use `nextPageToken` as the value
+            for the [pageToken](/docs/functions/functions/api-ref/Function/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `nextPageToken` to continue paging through the results.
           type: string
     ListFunctionsVersionsResponse:
       type: object
       properties:
         versions:
+          description: List of versions for the specified folder or function.
           type: array
           items:
             $ref: '#/components/schemas/Version'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/functions/functions/api-ref/Function/listVersions#query_params), use `nextPageToken` as the value
+            for the [pageToken](/docs/functions/functions/api-ref/Function/listVersions#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `nextPageToken` to continue paging through the results.
           type: string
     ListRuntimesResponse:
       type: object
       properties:
         runtimes:
+          description: Runtime environments available for the specified function.
           type: array
           items:
             type: string
@@ -784,33 +1043,46 @@ components:
               Any method that returns a long-running operation should document the response type, if any.
             type: object
     Package:
+      description: Version deployment package.
       type: object
       properties:
         bucketName:
-          description: Required.
+          description: |-
+            Required.
+            Name of the bucket that stores the code for the version.
           type: string
         objectName:
-          description: Required.
+          description: |-
+            Required.
+            Name of the object in the bucket that stores the code for the version.
           type: string
         sha256:
+          description: SHA256 hash of the version deployment package.
           type: string
     RemoveFunctionTagMetadata:
       type: object
       properties:
         functionVersionId:
+          description: ID of the function versions that is being untagged.
           type: string
     RemoveFunctionTagRequest:
       type: object
       properties:
         tag:
-          description: Value must match the regular expression `` [a-z][-_0-9a-z]*
-            ``.
+          description: |-
+            Tag to remove from the specified version.
+
+            Value must match the regular expression `` [a-z][-_0-9a-z]* ``.
           type: string
     Resources:
+      description: Resources allocated to a version.
       type: object
       properties:
         memory:
-          description: Acceptable values are 33554432 to 1073741824, inclusive.
+          description: |-
+            Amount of memory available to the version, specified in bytes.
+
+            Acceptable values are 33554432 to 1073741824, inclusive.
           type: string
           format: int64
     SetAccessBindingsMetadata:
@@ -833,13 +1105,16 @@ components:
       type: object
       properties:
         functionVersionId:
+          description: ID of the function versions that is being tagged.
           type: string
     SetFunctionTagRequest:
       type: object
       properties:
         tag:
-          description: Value must match the regular expression `` [a-z][-_0-9a-z]*
-            ``.
+          description: |-
+            Tag to set for the version.
+
+            Value must match the regular expression `` [a-z][-_0-9a-z]* ``.
           type: string
     Subject:
       type: object
@@ -890,6 +1165,7 @@ components:
       type: object
       properties:
         functionId:
+          description: ID of the function that is being updated.
           type: string
     UpdateFunctionRequest:
       type: object
@@ -897,14 +1173,25 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateFunctionRequest_updateMask'
         name:
-          description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
-            ``.
+          description: |-
+            New name for the function.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
-          description: The maximum string length in characters is 256.
+          description: |-
+            New description for the function.
+
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
+            Function labels as `key:value` pairs.
+
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label, request the current set of labels with a [get](/docs/functions/functions/api-ref/Function/get) request.
+
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
@@ -914,45 +1201,75 @@ components:
           additionalProperties:
             type: string
     Version:
+      description: Version of a function. For details about the concept, see [Function
+        versions](/docs/functions/concepts/function#version).
       type: object
       properties:
         id:
+          description: ID of the version.
           type: string
         functionId:
+          description: ID of the function that the version belongs to.
           type: string
         description:
+          description: |-
+            Description of the version.
+
+            The string length in characters must be 0-256.
           type: string
         createdAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Creation timestamp for the version.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         runtime:
+          description: |-
+            ID of the runtime environment for the function.
+
+            Supported environments and their identifiers are listed in the [Runtime environments](/docs/functions/concepts/runtime).
           type: string
         entrypoint:
+          description: |-
+            Entrypoint for the function: the name of the function to be called as the handler.
+
+            Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`.
           type: string
         resources:
           $ref: '#/components/schemas/Resources_in_Version_resources'
         executionTimeout:
+          description: |-
+            Timeout for the execution of the version.
+
+            If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.
           type: string
         serviceAccountId:
+          description: ID of the service account associated with the version.
           type: string
         imageSize:
+          description: Final size of the deployment package after unpacking.
           type: string
           format: int64
         status:
           $ref: '#/components/schemas/VersionStatus_in_Version_status'
         tags:
+          description: Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag).
           type: array
           items:
             type: string
         logGroupId:
+          description: ID of the log group for the version.
           type: string
         environment:
+          description: Environment settings for the version.
           type: object
           additionalProperties:
             type: string
     VersionStatus:
+      description: |2-
+         - CREATING: Version is being created.
+         - ACTIVE: Version is ready to use.
       type: string
       enum:
       - CREATING
@@ -1032,6 +1349,13 @@ components:
         subject:
           $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
     FunctionStatus_in_Function_status:
+      description: |-
+        Status of the function.
+
+         - CREATING: Function is being created.
+         - ACTIVE: Function is ready to be invoked.
+         - DELETING: Function is being deleted.
+         - ERROR: Function failed.
       type: string
       enum:
       - CREATING
@@ -1040,6 +1364,8 @@ components:
       - ERROR
     FieldMask_in_UpdateFunctionRequest_updateMask:
       description: |-
+        Field mask that specifies which attributes of the function should be updated.
+
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
@@ -1050,16 +1376,29 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     Resources_in_Version_resources:
+      description: |-
+        Resources allocated to the version.
+
+        Resources allocated to a version.
       type: object
       properties:
         memory:
-          description: Acceptable values are 33554432 to 1073741824, inclusive.
+          description: |-
+            Amount of memory available to the version, specified in bytes.
+
+            Acceptable values are 33554432 to 1073741824, inclusive.
           type: string
           format: int64
     VersionStatus_in_Version_status:
+      description: |-
+        Status of the version.
+
+         - CREATING: Version is being created.
+         - ACTIVE: Version is ready to use.
       type: string
       enum:
       - CREATING
       - ACTIVE
 tags:
 - name: Function
+  description: A set of methods for managing serverless functions.

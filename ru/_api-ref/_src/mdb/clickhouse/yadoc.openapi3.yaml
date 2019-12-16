@@ -3298,6 +3298,13 @@ components:
             type: string
         configSpec:
           $ref: '#/components/schemas/ConfigSpec_in_UpdateClusterRequest_configSpec'
+        name:
+          description: |-
+            Новое имя кластера.
+
+            Максимальная длина строки в символах — 63.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+          type: string
     UpdateClusterShardMetadata:
       type: object
       properties:

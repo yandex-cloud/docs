@@ -1,35 +1,41 @@
 items:
   - name: Обзор
-    href: undefined/index.md
+    href: functions/api-ref/index.md
   - name: Function
     items:
       - name: Обзор
-        href: undefined/Function/index.md
+        href: functions/api-ref/Function/index.md
       - name: create
-        href: undefined/Function/create.md
-      - name: createFunctionVersion
-        href: undefined/Function/createFunctionVersion.md
+        href: functions/api-ref/Function/create.md
+      - name: createVersion
+        href: functions/api-ref/Function/createVersion.md
       - name: delete
-        href: undefined/Function/delete.md
+        href: functions/api-ref/Function/delete.md
       - name: get
-        href: undefined/Function/get.md
-      - name: getFunctionVersion
-        href: undefined/Function/getFunctionVersion.md
-      - name: getFunctionVersionByTag
-        href: undefined/Function/getFunctionVersionByTag.md
+        href: functions/api-ref/Function/get.md
+      - name: getVersion
+        href: functions/api-ref/Function/getVersion.md
+      - name: getVersionByTag
+        href: functions/api-ref/Function/getVersionByTag.md
       - name: list
-        href: undefined/Function/list.md
-      - name: listFunctionTagHistory
-        href: undefined/Function/listFunctionTagHistory.md
-      - name: listFunctionVersions
-        href: undefined/Function/listFunctionVersions.md
+        href: functions/api-ref/Function/list.md
+      - name: listAccessBindings
+        href: functions/api-ref/Function/listAccessBindings.md
       - name: listOperations
-        href: undefined/Function/listOperations.md
+        href: functions/api-ref/Function/listOperations.md
       - name: listRuntimes
-        href: undefined/Function/listRuntimes.md
+        href: functions/api-ref/Function/listRuntimes.md
+      - name: listTagHistory
+        href: functions/api-ref/Function/listTagHistory.md
+      - name: listVersions
+        href: functions/api-ref/Function/listVersions.md
       - name: removeTag
-        href: undefined/Function/removeTag.md
+        href: functions/api-ref/Function/removeTag.md
+      - name: setAccessBindings
+        href: functions/api-ref/Function/setAccessBindings.md
       - name: setTag
-        href: undefined/Function/setTag.md
+        href: functions/api-ref/Function/setTag.md
       - name: update
-        href: undefined/Function/update.md
+        href: functions/api-ref/Function/update.md
+      - name: updateAccessBindings
+        href: functions/api-ref/Function/updateAccessBindings.md

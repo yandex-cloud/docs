@@ -209,7 +209,8 @@ clusterId | Required. ID of the ClickHouse Cluster resource to update. To get th
       "dataLens": true,
       "webSql": true
     }
-  }
+  },
+  "name": "string"
 }
 ```
 
@@ -353,6 +354,7 @@ configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions
 configSpec.<br>access | **object**<br><p>Access policy to DB</p> 
 configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
 configSpec.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow access for Web SQL</p> 
+name | **string**<br><p>New name for the cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -75,6 +75,9 @@ components:
               The maximum string length in characters is 10485760.
             type: string
             format: byte
+          signature:
+            description: The maximum string length in characters is 16384.
+            type: string
     BatchAnalyzeRequest:
       type: object
       properties:
@@ -132,6 +135,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Property'
+    CopyMatch:
+      type: object
+      properties:
+        imageUrl:
+          description: url of image
+          type: string
+        pageUrl:
+          description: url of page that contains image
+          type: string
+        title:
+          description: page title that contains image
+          type: string
+        description:
+          description: image description
+          type: string
     Face:
       type: object
       properties:
@@ -196,6 +214,9 @@ components:
           faceDetection:
             $ref: '#/components/schemas/FaceAnnotation'
             description: Face detection result.
+          imageCopySearch:
+            $ref: '#/components/schemas/ImageCopySearchAnnotation'
+            description: Image Copy Search result.
     FeatureTextDetectionConfig:
       type: object
       properties:
@@ -224,11 +245,25 @@ components:
          - TEXT_DETECTION: Text detection (OCR) feature.
          - CLASSIFICATION: Classification feature.
          - FACE_DETECTION: Face detection feature.
+         - IMAGE_COPY_SEARCH: Image copy search.
       type: string
       enum:
       - TEXT_DETECTION
       - CLASSIFICATION
       - FACE_DETECTION
+      - IMAGE_COPY_SEARCH
+    ImageCopySearchAnnotation:
+      type: object
+      properties:
+        copyCount:
+          description: Number of image copies
+          type: string
+          format: int64
+        topResults:
+          description: Top relevance result of image copy search
+          type: array
+          items:
+            $ref: '#/components/schemas/CopyMatch'
     Line:
       type: object
       properties:

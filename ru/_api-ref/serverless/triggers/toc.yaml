@@ -1,0 +1,19 @@
+items:
+  - name: Обзор
+    href: triggers/api-ref/index.md
+  - name: Trigger
+    items:
+      - name: Обзор
+        href: triggers/api-ref/Trigger/index.md
+      - name: create
+        href: triggers/api-ref/Trigger/create.md
+      - name: delete
+        href: triggers/api-ref/Trigger/delete.md
+      - name: get
+        href: triggers/api-ref/Trigger/get.md
+      - name: list
+        href: triggers/api-ref/Trigger/list.md
+      - name: listOperations
+        href: triggers/api-ref/Trigger/listOperations.md
+      - name: update
+        href: triggers/api-ref/Trigger/update.md
