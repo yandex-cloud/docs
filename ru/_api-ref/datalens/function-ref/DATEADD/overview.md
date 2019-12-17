@@ -26,7 +26,7 @@ DATEADD( datetime, unit, number )
 - `"second"` — секунда.
 
 **Типы аргументов:**
-- `datetime` — `Дата | Дата со временем`
+- `datetime` — `Дата | Дата и время`
 - `unit` — `Строка`
 - `number` — `Целое число`
 
@@ -87,4 +87,4 @@ DATEADD(#2018-01-12 01:02:03#, "year", 6) = #2024-01-12 01:02:03#
 
 #### Поддержка источников данных
 
-`Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`
+`Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

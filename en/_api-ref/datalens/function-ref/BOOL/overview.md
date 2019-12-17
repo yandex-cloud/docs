@@ -24,7 +24,7 @@ Converts the `expression` expression to Boolean type according to the following 
 | <code>Date &#124; Datetime</code> | -                   | `TRUE`     |
 
 **Argument types:**
-- `expression` — `Any`
+- `expression` — `Boolean | Date | Datetime | Geopoint | Geopolygon | Number | String`
 
 
 **Return type**: `Boolean`
@@ -46,4 +46,4 @@ BOOL("Lorem ipsum") = TRUE
 
 #### Data source support
 
-`Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`
+`Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

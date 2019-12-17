@@ -18,12 +18,12 @@ Returns the date obtained by adding `unit` in the amount of `number` to the spec
 
 The `number` argument is an integer. It can be negative.
 The `unit` argument takes the following values:
-- `"year"`
-- `"month"`
-- `"day"`
-- `"hour"`
-- `"minute"`
-- `"second"`
+- `"year"`,
+- `"month"`,
+- `"day"`,
+- `"hour"`,
+- `"minute"`,
+- `"second"`.
 
 **Argument types:**
 - `datetime` — `Date | Datetime`
@@ -87,4 +87,4 @@ DATEADD(#2018-01-12 01:02:03#, "year", 6) = #2024-01-12 01:02:03#
 
 #### Data source support
 
-`Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`
+`Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

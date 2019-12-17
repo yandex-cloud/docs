@@ -37,8 +37,8 @@ value_1 => value_2
 Compares the value `value_1` with the value `value_2`.
 
 **Argument types:**
-- `value_1` — `Any`
-- `value_2` — `Any`
+- `value_1` — `Boolean | Date | Datetime | Geopoint | Geopolygon | Number | String`
+- `value_2` — `Boolean | Date | Datetime | Geopoint | Geopolygon | Number | String`
 
 
 **Return type**: `Boolean`
@@ -56,4 +56,4 @@ Compares the value `value_1` with the value `value_2`.
 
 #### Data source support
 
-`Materialized Dataset`, `ClickHouse 1.1`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`
+`Materialized Dataset`, `ClickHouse 1.1`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

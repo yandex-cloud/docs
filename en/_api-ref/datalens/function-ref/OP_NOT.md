@@ -17,7 +17,7 @@ NOT value
 Inverts a Boolean value.
 
 **Argument types:**
-- `value` — `Any`
+- `value` — `Boolean | Date | Datetime | Geopoint | Geopolygon | Number | String`
 
 
 **Return type**: `Boolean`
@@ -59,4 +59,4 @@ NOT #2019-01-01 03:00:00# = FALSE
 
 #### Data source support
 
-`Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`
+`Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

@@ -17,13 +17,13 @@ DATETRUNC( datetime, unit [ , number ] )
 Rounds `datetime` down to the given `unit`. If optional `number` is given, then the value is rounded down to a `number` multiple of `unit` (omitting `number` is the same as `number = 1`).
 
 Supported units:
-- `"second"`
-- `"minute"`
-- `"hour"`
-- `"day"` (acts as the day of the year if `number` is specified)
-- `"week"`
-- `"month"`
-- `"year"`
+- `"second"`,
+- `"minute"`,
+- `"hour"`,
+- `"day"` (acts as the day of the year if `number` is specified),
+- `"week"`,
+- `"month"`,
+- `"year"`.
 
 **Argument types:**
 - `datetime` — `Date | Datetime`
@@ -41,7 +41,7 @@ Only constant values are accepted for arguments (unit, number).
 
 {% note info %}
 
-A function with three arguments is only available for the sources `Materialized Dataset`, `ClickHouse` version `19.3.3` or higher.
+The function with three arguments is only available for the sources `Materialized Dataset`, `ClickHouse` version `19.3.3` or higher.
 
 {% endnote %}
 
@@ -67,4 +67,4 @@ DATETRUNC(#2018-07-12 11:07:13#, "month", 4) = #2018-05-01 00:00:00#
 
 #### Data source support
 
-`Materialized Dataset`, `ClickHouse 1.1`, `PostgreSQL 9.3`
+`Materialized Dataset`, `ClickHouse 1.1`, `PostgreSQL 9.3`.

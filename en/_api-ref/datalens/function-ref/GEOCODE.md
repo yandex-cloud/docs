@@ -38,4 +38,4 @@ GEOCODE("посёлок Свободный Серп") = [53.650704, 37.224461]
 
 #### Data source support
 
-`Materialized Dataset`
+`Materialized Dataset`.

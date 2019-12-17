@@ -1,3 +1,3 @@
 **Syntax:**`RADIANS( degrees )`
 
-Converts `degrees` degress to radians.
+Converts `degrees` degrees to radians.

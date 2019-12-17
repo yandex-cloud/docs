@@ -29,7 +29,7 @@ DAYOFWEEK( datetime [ , firstday ] )
 
 
 **Типы аргументов:**
-- `datetime` — `Дата | Дата со временем`
+- `datetime` — `Дата | Дата и время`
 - `firstday` — `Строка`
 
 
@@ -59,4 +59,4 @@ DAYOFWEEK(#1971-01-14#, "wednesday") = 2
 
 #### Поддержка источников данных
 
-`Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`
+`Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

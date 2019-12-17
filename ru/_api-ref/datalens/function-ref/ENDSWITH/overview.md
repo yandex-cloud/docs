@@ -14,7 +14,7 @@ ENDSWITH( string, substring )
 ```
 
 #### Описание
-Возвращает `TRUE`, если строка `string` оканчивается на подстроку `substring`.Для регистронезависимой проверки см. [IENDSWITH](../IENDSWITH/overview.md)
+Возвращает `TRUE`, если строка `string` оканчивается на подстроку `substring`.Для регистронезависимой проверки см. [IENDSWITH](../IENDSWITH/overview.md).
 
 **Типы аргументов:**
 - `string` — `Строка`
@@ -40,4 +40,4 @@ ENDSWITH("Lorem ipsum", "abc") = FALSE
 
 #### Поддержка источников данных
 
-`Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`
+`Материализованный датасет`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

@@ -28,11 +28,11 @@ If the substring is not found, the string is not changed.
 
 {% note info %}
 
-Информацию о синтаксисе регулярных выражений уточняйте в документации к источникам данных.
+See the documentation of the data source to clarify the regular expression syntax.
 
 {% endnote %}
 
-Для материализованных датасетов шаблоны описываются в синтаксисе [ClickHouse](https://github.com/google/re2/wiki/Syntax).
+Use the [ClickHouse](https://github.com/google/re2/wiki/Syntax) syntax to create regular expressions in materialized datasets.
 
 
 
@@ -45,4 +45,4 @@ REGEXP_REPLACE("RU 912873", "\s", "-") = "RU-912873"
 
 #### Data source support
 
-`Materialized Dataset`, `ClickHouse 1.1`, `MySQL 8.0.12`, `PostgreSQL 9.3`
+`Materialized Dataset`, `ClickHouse 1.1`, `MySQL 8.0.12`, `PostgreSQL 9.3`.

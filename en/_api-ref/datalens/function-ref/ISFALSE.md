@@ -19,7 +19,7 @@ Checks whether the `value` value is false (`FALSE`).
 The `value IS NOT FALSE` option returns the opposite value.
 
 **Argument types:**
-- `value` — `Any`
+- `value` — `Boolean | Date | Datetime | Geopoint | Geopolygon | Number | String`
 
 
 **Return type**: `Boolean`
@@ -57,4 +57,4 @@ TRUE IS NOT FALSE = TRUE
 
 #### Data source support
 
-`Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`
+`Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

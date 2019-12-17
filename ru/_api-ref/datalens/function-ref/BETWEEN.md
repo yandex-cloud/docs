@@ -19,9 +19,9 @@ value [ NOT ] BETWEEEN low AND high
 Вариант `value NOT BETWEEEN low AND high` возвращает противоположное значение
 
 **Типы аргументов:**
-- `value` — `Любой`
-- `low` — `Любой`
-- `high` — `Любой`
+- `value` — `Дата | Дата и время | Число | Строка`
+- `low` — `Дата | Дата и время | Число | Строка`
+- `high` — `Дата | Дата и время | Число | Строка`
 
 
 **Возвращаемый тип**: `Логический`
@@ -39,4 +39,4 @@ value [ NOT ] BETWEEEN low AND high
 
 #### Поддержка источников данных
 
-`Материализованный датасет`, `ClickHouse 1.1`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`
+`Материализованный датасет`, `ClickHouse 1.1`, `Yandex.Metrica`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

@@ -4,9 +4,9 @@ Returns the date obtained by adding `unit` in the amount of `number` to the spec
 
 The `number` argument is an integer. It can be negative.
 The `unit` argument takes the following values:
-- `"year"`
-- `"month"`
-- `"day"`
-- `"hour"`
-- `"minute"`
-- `"second"`
+- `"year"`,
+- `"month"`,
+- `"day"`,
+- `"hour"`,
+- `"minute"`,
+- `"second"`.

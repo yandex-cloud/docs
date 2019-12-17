@@ -32,4 +32,4 @@ Arguments (`value`, `quant`) must be of the same type.
 
 #### Data source support
 
-`Materialized Dataset`, `ClickHouse 1.1`
+`Materialized Dataset`, `ClickHouse 1.1`.

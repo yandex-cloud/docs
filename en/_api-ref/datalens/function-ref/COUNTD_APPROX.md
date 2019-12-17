@@ -31,4 +31,4 @@ COUNTD_APPROX([ClienID])
 
 #### Data source support
 
-`Materialized Dataset`, `ClickHouse 1.1`
+`Materialized Dataset`, `ClickHouse 1.1`.
