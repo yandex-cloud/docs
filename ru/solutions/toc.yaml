@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Веб-сервис
     items:
-    - name: Обзор
+    - name: Все сценарии
       href: web/index.md
     - name: Cтатический сайт в Object Storage
       href: web/static.md
@@ -21,7 +21,7 @@ items:
       href: web/bitrix-website.md
   - name: Интернет-магазины
     items:
-    - name: Обзор
+    - name: Все сценарии
       href: internet-store/index.md
     - name: Интернет-магазин на 1С-Битрикс
       href: internet-store/bitrix-shop.md
@@ -29,7 +29,7 @@ items:
       href: internet-store/opencart.md
   - name: Архив данных
     items:
-    - name: Обзор
+    - name: Все сценарии
       href: archive/index.md
     - name: Однонодовый файловый сервер
       href: archive/single-node-file-server.md
@@ -47,7 +47,7 @@ items:
       href: archive/archive-from-vision-to-object-storage.md
   - name: Тестовая среда
     items:
-    - name: Обзор
+    - name: Все сценарии
       href: testing/index.md
     - name: Тестирование приложений с помощью GitLab
       href: testing/gitlab.md
@@ -55,7 +55,7 @@ items:
       href: testing/ci-for-snapshots.md
   - name: Управление инфраструктурой
     items:
-      - name: Обзор
+      - name: Все сценарии
         href: infrastructure-management/index.md
       - name: Начало работы с Terraform
         href: infrastructure-management/terraform-quickstart.md
@@ -69,7 +69,7 @@ items:
         href: infrastructure-management/gitlab-containers.md
   - name: Windows в Яндекс.Облаке
     items:
-      - name: Обзор
+      - name: Все сценарии
         href: windows/index.md
       - name: Развертывание Active Directory
         href: windows/active-directory.md
@@ -77,7 +77,7 @@ items:
         href: windows/exchange.md
   - name: Сетевая маршрутизация
     items:
-      - name: Обзор
+      - name: Все сценарии
         href: routing/index.md
       - name: Маршрутизация с помощью NAT-инстанса
         href: routing/nat-instance.md
@@ -87,3 +87,19 @@ items:
         href: routing/cisco.md
       - name: Установка виртуального роутера Mikrotik CHR
         href: routing/mikrotik.md
+  - name: DataLens
+    items:
+      - name: Все сценарии
+        href: datalens/index.md
+      - name: Визуализация данных из CSV-файла
+        href: datalens/data-from-csv-visualization.md
+      - name: Визуализация данных из базы данных ClickHouse
+        href: datalens/data-from-ch-visualization.md
+      - name: Визуализация данных из Метрики
+        href: datalens/data-from-metrica-visualization.md
+      - name: Визуализация данных из Metriсa Logs API
+        href: datalens/data-from-metrica-logsapi-visualization.md
+      - name: Публикация в DataLens Public диаграммы с картой на основе CSV-файла
+        href: datalens/data-from-csv-to-public-visualization.md
+      - name: Визуализация данных из AppMetrica
+        href: datalens/data-from-appmetrica-visualization.md
