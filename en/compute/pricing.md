@@ -12,7 +12,8 @@ editable: false
 The cost of {{ compute-short-name }} usage is based on:
 
 * Computing resources
-    * Type and number of cores (vCPU)
+    * Type and number of cores (vCPUs)
+    * Number of graphics accelerators (GPUs)
     * Amount of memory (RAM)
 * Operating systems
 * Type and size of storage:
@@ -39,7 +40,7 @@ For information about external IP address usage pricing, see [{#T}](../vpc/prici
 
 When creating a VM, you specify the number of vCPUs and graphics accelerators ([GPUs](concepts/gpus.md)), as well as the basic level of core performance and the amount of RAM in GB. Read more in [{#T}](concepts/performance-levels.md).
 
-The basic level of core performance depends on the [platform](./concepts/vm-platforms.md) you selected.
+The basic level of core performance depends on the [platform](concepts/vm-platforms.md) you selected.
 
 {{ price-per-hour-count-per-second }}
 
@@ -51,7 +52,7 @@ OS usage on a VM is charged, as well. The cost depends on the OS license and the
 
 #### Example of cost calculation
 
-Let's compare the cost of running VMs on the Intel Broadwell [platform](./concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
+Let's compare the cost of running VMs on the Intel Broadwell [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
 
 Two VMs have been created running Linux OS:
 
@@ -68,7 +69,7 @@ VM cost with 5% vCPU:
 >
 > Total: ₽314.8560
 
-VM cost with 100% vCPU:
+VM Cost with 100% vCPU:
 
 > 1 vCPU = ₽0.7017/hour * 30 days * 24 hours = ₽505.2240
 >
@@ -108,6 +109,7 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   5% vCPU | $0.002476
   20% vCPU | $0.007051 |
   100% vCPU | $0.008996 |
+  1 GPU | $1.999397 |
   RAM (per 1 GB) | $0.003129
   **Intel Cascade Lake** |
   5% vCPU | $0.001307
@@ -124,6 +126,7 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   5% vCPU | ₽0.1932
   20% vCPU | ₽0.5500 |
   100% vCPU | ₽0.7017 |
+  1 GPU | ₽155.9530
   RAM (per 1 GB) | ₽0.2441
   **Intel Cascade Lake** |
   5% vCPU | ₽0.1020
@@ -146,7 +149,7 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   5% vCPU | $0.001535
   20% vCPU | $0.002187 |
   100% vCPU | $0.002769 |
-  1 GPU | $1.999397 |
+  1 GPU | $0.500000 |
   RAM (per 1 GB) | $0.000961
   **Intel Cascade Lake** |
   5% vCPU | $0.000815
@@ -163,7 +166,7 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   | 5%+ of vCPU| ₽0.1198 |
   | 20%+ vCPU| ₽0.1706 |
   | 100% of vCPU| ₽0.2160 |
-  | 1 GPU | ₽155,9530 |
+  | 1 GPU | ₽39,0000 |
   | RAM (for 1 GB)| ₽0.0750 |
   **Intel Cascade Lake** |
   | 5%+ of vCPU| ₽0.0636 |
