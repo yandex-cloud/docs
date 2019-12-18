@@ -211,7 +211,7 @@ Input conditions:
 
 - Files must be saved in the `user-data` bucket with the `/users/upload/` prefix.
 - Uploaded objects are publicly accessible for reading.
-- If the upload is successful, the user is redirected to `https://cloud.yandex.ru/docs/storage/concepts/presigned-post-forms`.
+- If the upload is successful, the user is redirected to `https://cloud.yandex.com/docs/storage/concepts/presigned-post-forms`.
 
 To generate form fields, we use [boto3](../instruments/boto.md) from the Python SDK:
 
@@ -230,8 +230,8 @@ s3 = boto3.client('s3',
 
 key = 'users/uploads/${filename}'
 bucket = 'user-data'
-conditions = [{"acl":"public-read"}, ["starts-with", "$key", "users/uploads"], {'success_action_redirect': 'https://cloud.yandex.ru/docs/storage/concepts/presigned-post-forms'}]
-fields = {'success_action_redirect': 'https://cloud.yandex.ru/docs/storage/concepts/presigned-post-forms'}
+conditions = [{"acl":"public-read"}, ["starts-with", "$key", "users/uploads"], {'success_action_redirect': 'https://cloud.yandex.com/docs/storage/concepts/presigned-post-forms'}]
+fields = {'success_action_redirect': 'https://cloud.yandex.com/docs/storage/concepts/presigned-post-forms'}
 
 prepared_form_fields = s3.generate_presigned_post(Bucket=bucket,
                                                   Key=key,
@@ -251,7 +251,7 @@ The script returns a JSON document in the following format:
     'fields': {
         'x-amz-algorithm': 'AWS4-HMAC-SHA256',
         'x-amz-date': '20190722T153936Z',
-        'success_action_redirect': 'https://cloud.yandex.ru/docs/storage/concepts/presigned-post-forms',
+        'success_action_redirect': 'https://cloud.yandex.com/docs/storage/concepts/presigned-post-forms',
         'x-amz-signature': '4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96',
         'key': 'users/uploads/${filename}',
         'policy': u'eyJjb25kaXRpb25zIj...M5OjM2WiJ9',
@@ -274,7 +274,7 @@ Using the values from the returned document, you can build an HTML page with a f
             <input type="hidden"   name="acl" value="public-read" />
             <input type="hidden"   name="x-amz-algorithm" value="AWS4-HMAC-SHA256" />
             <input type="hidden"   name="x-amz-date" value="20190722T153936Z" />
-            <input type="hidden"   name="success_action_redirect" value="https://cloud.yandex.ru/docs/storage/concepts/presigned-post-forms" />
+            <input type="hidden"   name="success_action_redirect" value="https://cloud.yandex.com/docs/storage/concepts/presigned-post-forms" />
             <input type="hidden"   name="policy" value="eyJjb25kaXRpb25zIj...M5OjM2WiJ9" />
             <input type="hidden" name="x-amz-signature" value="4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96" />
             File to upload:

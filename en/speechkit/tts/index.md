@@ -73,6 +73,6 @@ To get more control over speech synthesis, you can use [Speech Synthesis Markup 
 
 #### What's next
 
-* Try speech synthesis using the demo on the [service page](https://cloud.yandex.ru/services/speechkit#demo).
+* Try speech synthesis using the demo on the [service page](https://cloud.yandex.com/services/speechkit#demo).
 * [{#T}](request.md)
 

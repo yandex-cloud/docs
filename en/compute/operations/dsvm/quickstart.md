@@ -1,48 +1,22 @@
 # Creating a VM from a public DSVM image
 
-To create a VM:
+Create a DSVM [virtual machine](../../concepts/vm.md) using {{ compute-name }} from the Yandex.Cloud management console and connect to the VM over SSH.
 
-1. Open the folder where the VM will be created.
+## Before you start {#before-you-begin}
 
-1. Click **Create resource**.
+{% include [before-you-begin-linux](../../../_includes/compute/before-you-begin-linux.md) %}
 
-1. Select **Virtual machine**.
+## Creating a VM from a public DSVM image {#create-dsvm}
 
-1. In the **Name** field, enter the VM name.
+{% include [create-instance-via-console-dsvm](../../_includes_service/create-instance-via-console-dsvm.md) %}
 
-    {% include [name-format](../../../_includes/name-format.md) %}
+## Connecting to a VM over SSH {#first-login}
 
-1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to locate the VM in.
+You can connect to a VM using the SSH protocol when it is running (the VM's status is `RUNNING`). You can use the `ssh` tool in Linux and macOS or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
-1. Select a public DSVM [image](../images-with-pre-installed-software/get-list.md).
+Read more about SSH connections in [Connecting to a VM](../../quickstart/quick-create-linux.md#connect-to-vm).
 
-1. In the **Computing resources** section:
-    - Choose the [platform](../../concepts/vm-platforms.md).
-    - Specify the necessary number of vCPUs and amount of RAM.
-
-1. In the **Network settings** section, click **Add network**.
-
-1. In the window that opens, select the subnet to connect the VM to when creating it.
-
-1. In **Public address**, choose:
-    - **Automatically** — to set a public IP address automatically. The address is allocated from the pool of Yandex.Cloud addresses.
-    - **List** — to select a public IP address from the list of static addresses. For more information, see the section [{#T}](../../../vpc/operations/set-static-ip.md) in the {{ vpc-name }} service documentation.
-    - **No address** — to not assign a public IP address.
-
-1. Specify data required for accessing the VM:
-    - Enter the username in the **Login** field.
-    - In the **SSH key** field, paste the contents of the public key file.
-You need to create a key pair for SSH connection yourself. To generate keys, use third-party tools, such as `ssh-keygen` utilities on Linux and macOS or [PuTTygen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) on Windows.
-
-1. Click **Create VM**.
-
-{% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
-
-## Connecting to a DSVM via SSH {#first-login}
-
-{% include [vm-connect-ssh](../../../_includes/vm-connect-ssh.md) %}
-
-In the welcome message, you will see the commands for activating an environment and running [Jupyter Notebook](http://jupyter.org/index.html) and [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/):
+When connected, you see in the welcome message the commands to activate the environment and run [Jupyter Notebook](http://jupyter.org/index.html) and [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/):
 
 ```
 #####################################################################
@@ -71,3 +45,4 @@ Description and help:
 
 #####################################################################
 ```
+

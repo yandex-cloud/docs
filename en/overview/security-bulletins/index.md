@@ -18,7 +18,7 @@ Comprehensive vulnerabilities analysis by Red Hat: [TCP SACK PANIC](https://acce
 
 
 ### Yandex.Cloud services impact
-* Yandex.Cloud infrastructure was patched immediately. 
+* Yandex.Cloud infrastructure was patched immediately.
 * Public VM images available to Yandex Cloud Compute users were updated as soon as the corresponding fixes became available. New virtual machines created in Yandex Compute Cloud are not affected by the listed vulnerabilities.
 
 
@@ -41,5 +41,5 @@ More information can be found in our [blog post](https://cloud.yandex.ru/blog/po
 
 ### Yandex.Cloud services impact
 
-This will improve security and isolation for Yandex Cloud customers. 
+This will improve security and isolation for Yandex Cloud customers.
 

@@ -10,8 +10,8 @@ These instructions are intended for cloud [owners](../resource-manager/concepts/
 
 ## Before you start
 
-1. Log in to the [management console](https://console.cloud.yandex.ru). If you aren't registered, go to the management console and follow the instructions.
-1. [On the billing page](https://console.cloud.yandex.ru/billing), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. Log in to the [management console](https://console.cloud.yandex.com). If you aren't registered, go to the management console and follow the instructions.
+1. [On the billing page](https://console.cloud.yandex.com/billing), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you have no one to add to the cloud, you can [create a new account](https://passport.yandex.com/registration) on Yandex and grant access to the cloud to this account.
 
 ## Add a new user to the cloud {#add-user}

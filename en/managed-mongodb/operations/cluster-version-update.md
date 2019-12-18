@@ -49,7 +49,7 @@ To update a {{ mmg-name }} cluster:
        monitoring:
        - name: Console
          description: Console charts
-         link: https://console.cloud.yandex.ru/folders/b1g0itj57rbjk9thrinv/managed-mongodb/cluster/c9qut3k64b2o9umqogr7?section=monitoring
+         link: https://console.cloud.yandex.com/folders/b1g0itj57rbjk9thrinv/managed-mongodb/cluster/c9qut3k64b2o9umqogr7?section=monitoring
        config:
          version: "3.6"
          feature_compatibility_version: "3.6"

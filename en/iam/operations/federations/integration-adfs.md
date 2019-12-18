@@ -159,7 +159,7 @@ To configure mapping of user data to SAML message elements:
 
         In **Outgoing Claim Type**, select `Name ID`.
 
-    1. For users to be able to contact Yandex.Cloud technical support from the [management console](https://console.cloud.yandex.ru/support), configure the server to pass an email address (`E-Mail Address` and the name of the user (`Name`):
+    1. For users to be able to contact Yandex.Cloud technical support from the [management console](https://console.cloud.yandex.com/support), configure the server to pass an email address (`E-Mail Address` and the name of the user (`Name`):
 
         ![image](../../../_assets/iam/federations/specify-claims-mapping-ad.png)
 

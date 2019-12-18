@@ -36,7 +36,7 @@ To create a VM:
           $ export FAMILY=windows-2016-gvlk
           $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
             "https://compute.api.cloud.yandex.net/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
-
+          
           {
            "productIds": [
             "f2eu62v659or2tqv28l0"

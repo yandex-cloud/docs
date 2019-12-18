@@ -2,7 +2,7 @@
 
 {% note info %}
 
-The service is only available on request: to request access, fill in the [form](https://cloud.yandex.ru/services/kms#request-access).
+The service is only available on request: to request access, fill in the [form](https://cloud.yandex.com/services/kms#request-access).
 
 {% endnote %}
 
@@ -14,7 +14,7 @@ To start working with {{ kms-name }}:
 
 * Set up Yandex.Cloud:
   1. Log in to the [management console]({{link-console-main}}). If you aren't registered, go to the management console and follow the instructions.
-  1. [On the billing page](https://console.cloud.yandex.ru/billing), make sure you linked a [payment account](../../billing/concepts/billing-account.md), and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+  1. [On the billing page](https://console.cloud.yandex.com/billing), make sure you linked a [payment account](../../billing/concepts/billing-account.md), and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
   1. Make sure that you have the `owner` or `editor` role for the cloud.
 * Configure your local environment (you need the Bash shell):
   1. {% include [cli-install](../../_includes/cli-install.md) %}

@@ -26,7 +26,7 @@ To authenticate using an [SAML-compatible identity federation](../../../iam/conc
     ```
     You are going to be authenticated via federation-id 'aje1f0hsgds3aas2f6ai2'.
     Your federation authentication web site will be opened.
-    After your successful authentication, you will be redirected to 'https://console.cloud.yandex.ru'.
+    After your successful authentication, you will be redirected to 'https://console.cloud.yandex.com'.
 
     Press 'enter' to continue...
     ```
