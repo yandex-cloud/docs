@@ -7,7 +7,7 @@ A Docker image consists of layers. Each change is written to a new layer.
 - When pushing or pulling a Docker image, operations are performed only on the layers that were changed.
 - The layers of the source Docker image are shared by all its versions and are not duplicated.
 
-## Version control
+## Version control {#version}
 
 Docker image version control is carried out using tags and digests.
 

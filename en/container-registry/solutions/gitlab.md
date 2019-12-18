@@ -4,13 +4,13 @@
 
 To build a Docker image by running a GitLab script:
 
-- [Before you start](#before-begin)
+- [Before you start](#before-you-begin)
   - [Create a VM from the GitLab image](#create-gitlab)
   - [Configure GitLab](#configure-gitlab)
 - [Configure a Docker image build from CI](#docker-build)
 - [Authenticate with {{ container-registry-short-name }}](#auth)
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 ### Create a VM from the GitLab image {#create-gitlab}
 

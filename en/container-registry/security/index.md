@@ -4,7 +4,7 @@ In this section, you'll learn:
 
 * [What resources](#resources) you can assign the role to.
 * [What roles exist in the service](#roles-list).
-* [What roles are required](#required-roles) for particular actions.
+* [What roles are required](#choosing-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -30,7 +30,7 @@ Active roles in the service:
     * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
     * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-## What roles do I need {#required-roles}
+## What roles do I need {#choosing-roles}
 
 The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
 
@@ -50,7 +50,7 @@ The table below lists the roles needed to perform a given action. You can always
 | **Manage resource access** |  |
 | [Assign a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view roles granted for the folder or cloud | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource |
 
-#### What's next
+#### What's next {what-is-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).

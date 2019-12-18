@@ -4,7 +4,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Если нужный Docker-образ загружен в {{ container-registry-name }}, то создайте [сервисный аккаунт](../../../iam/operations/sa/create.md) с ролью [{{ roles-cr-puller }}](../../security/index.md#required-roles) на используемый реестр. От его имени ВМ на базе {{ coi }} будет скачивать из реестра Docker-образ.
+Если нужный Docker-образ загружен в {{ container-registry-name }}, то создайте [сервисный аккаунт](../../../iam/operations/sa/create.md) с ролью [{{ roles-cr-puller }}](../../security/index.md#choosing-roles) на используемый реестр. От его имени ВМ на базе {{ coi }} будет скачивать из реестра Docker-образ.
 
 ## Создайте ВМ с Docker-контейнером на базе образа {{ coi }} {#create-vm}
 

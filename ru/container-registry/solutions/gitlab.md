@@ -4,13 +4,13 @@
 для хранения и получения Docker-образов ваших приложений при выполнении сценария сборки.
 
 Чтобы собрать Docker-образ при выполнении сценария GitLab:
-- [Перед началом работы](#before-begin)
+- [Перед началом работы](#before-you-begin)
   - [Создайте виртуальную машину из образа GitLab](#create-gitlab)
   - [Настройте GitLab](#configure-gitlab)
 - [Настройте сборку Docker-образа из CI](#docker-build)
  - [Аутентифицируйтесь в {{ container-registry-short-name }}](#auth)
 
-## Перед началом работы {#before-begin}
+## Перед началом работы {#before-you-begin}
 
 ### Создайте виртуальную машину из образа GitLab {#create-gitlab}
 
