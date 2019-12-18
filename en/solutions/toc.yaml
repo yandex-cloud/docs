@@ -45,6 +45,8 @@ items:
       href: testing/index.md
     - name: Creating test VMs using GitLab CI
       href: testing/ci-for-snapshots.md
+    - name: Testing applications with GitLab
+      href: testing/gitlab.md
   - name: Performing infrastructure management
     items:
       - name: Overview
