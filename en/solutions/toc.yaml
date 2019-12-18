@@ -47,6 +47,8 @@ items:
       href: testing/ci-for-snapshots.md
     - name: Testing applications with GitLab
       href: testing/gitlab.md
+    - name: High-performance computing on preemptible VMs
+      href: testing/hpc-on-preemptible.md
   - name: Performing infrastructure management
     items:
       - name: Overview
