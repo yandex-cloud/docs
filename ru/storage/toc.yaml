@@ -17,6 +17,8 @@ items:
             href: operations/buckets/limit-max-volume.md
           - name: Открытие публичного доступа к бакету
             href: operations/buckets/bucket-availability.md
+          - name: Управление жизненными циклами объектов
+            href: operations/buckets/lifecycles.md
           - name: Редактирование ACL бакета
             href: operations/buckets/edit-acl.md
       - name: Объекты
@@ -43,6 +45,8 @@ items:
         href: concepts/bucket.md
       - name: Объект
         href: concepts/object.md
+      - name: Жизненные циклы объектов
+        href: concepts/lifecycles.md
       - name: Подписанные (pre-signed) URL
         href: concepts/pre-signed-urls.md
       - name: Составная (multipart) загрузка
@@ -75,14 +79,6 @@ items:
         href: cors/configuration.md
       - name: Настройка в консоли управления
         href: cors/setup.md
-  - name: Жизненный цикл объектов
-    items:
-      - name: Обзор
-        href: lifecycles/index.md
-      - name: Описание конфигурации
-        href: lifecycles/configuration.md
-      - name: Настройка в консоли управления
-        href: lifecycles/setup.md
   - name: Инструменты
     items:
       - name: Все инструменты
@@ -195,6 +191,8 @@ items:
             items:
               - name: Все методы
                 href: s3/api-ref/lifecycles.md
+              - name: XML-структура конфигурации жизненных циклов
+                href: s3/api-ref/lifecycles/xml-config.md
               - name: upload
                 href: s3/api-ref/lifecycles/upload.md
               - name: get
@@ -205,8 +203,8 @@ items:
             items:
               - name: Все методы
                 href: s3/api-ref/acl.md
-              - name: XML-схема ACL
-                href: s3/api-ref/acl/xmlscheme.md
+              - name: XML-структура конфигурации ACL
+                href: s3/api-ref/acl/xml-config.md
               - name: objectGetAcl
                 href: s3/api-ref/acl/objectget.md
               - name: objectPutAcl

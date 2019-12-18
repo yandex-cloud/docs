@@ -1,4 +1,4 @@
-# Storage class {#storage-class}
+# Storage class
 
 {{ objstorage-name }} lets you store objects in both *standard* and *cold* storages:
 

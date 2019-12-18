@@ -41,6 +41,8 @@ URL может иметь одну из следующих форм:
 - `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
 - `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
 
+{% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
+
 ## CORS запросы
 
 Кросс-доменные запросы доступны для всех методов API, которые управляют объектами.

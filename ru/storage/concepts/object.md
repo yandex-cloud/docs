@@ -19,7 +19,7 @@
 Для объекта в бакете можно настроить:
 
 - [CORS](../cors/index.md).
-- [Жизненный цикл](../lifecycles/index.md).
+- [Жизненный цикл](lifecycles.md).
 
 {{ objstorage-name }} накладывает ограничения на размеры объектов и их метаданных. Подробнее смотрите в разделе [{#T}](limits.md)).
 
@@ -55,6 +55,8 @@ URL объекта может иметь одну из следующих фор
 
 - `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
 - `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
+
+{% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 
 ## Метаданные {#metadata}
 
