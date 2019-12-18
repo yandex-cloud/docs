@@ -24,7 +24,11 @@
   ```
   
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
-  
+
+- Terraform
+
+  {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
+     
 {% endlist %}
 
 

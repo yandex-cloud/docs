@@ -1,6 +1,6 @@
 # Начало работы с Terraform
 
-Terraform позволяет быстро создать облачную инфраструктуру в Яндекс.Облаке. Состав инфраструктуры определяется с помощью конфигурационных файлов, в которых указываются требуемые облачные ресурсы и их параметры.
+{% include [terraform-definition](../_solutions_includes/terraform-definition.md)  %}
 
 Конфигурации для Terraform записываются в файлы в формате `.tf` на языке HashiCorp Configuration Language (HCL).
 
