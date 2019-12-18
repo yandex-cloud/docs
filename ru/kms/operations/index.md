@@ -1,13 +1,13 @@
 # Пошаговые инструкции
 
-## Ключ
+## Ключ {#key}
 
 - [{#T}](key.md#create)
 - [{#T}](key.md#rotate)
 - [{#T}](key.md#update)
 - [{#T}](key.md#delete)
 
-## Версия
+## Версия {#version}
 
 - [{#T}](version.md#make-primary)
 - [{#T}](version.md#delete)

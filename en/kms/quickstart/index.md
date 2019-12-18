@@ -8,7 +8,7 @@ The service is only available on request: to request access, fill in the [form](
 
 In this guide, you create your first [key](../concepts/index.md) and encrypt and decrypt text using the {{ kms-short-name }} REST API.
 
-## Before you start {#prepare}
+## Before you start {#before-you-begin}
 
 To start working with {{ kms-name }}:
 
@@ -62,7 +62,7 @@ To decrypt the text, you need access to the {{ kms-short-name }} key and know th
    The launch is scheduled for Marchember 42.
    ```
 
-#### See also {#also}
+#### See also {#see-also}
 
 - [Key rotation](../operations/key.md#rotate)
 - [Change the default key version](../operations/version.md#make-primary)

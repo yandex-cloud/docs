@@ -32,7 +32,7 @@ To destroy a version:
 
 The version switches to the `Scheduled For Destruction` status. The day that destruction is scheduled for is shown in the **Destruction date** column.
 
-## Cancel version destruction
+## Cancel version destruction {#cancel-delete}
 
 If you scheduled the destruction of a key version, you can cancel it before the scheduled date:
 
