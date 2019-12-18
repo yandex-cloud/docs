@@ -8,7 +8,8 @@ In Yandex.Cloud, you can deploy a virtual Cisco Cloud Services Router (CSR) 1000
 1. [Set the host name for the router](#hostname).
 1. [Create a user with administrator rights](#create-user).
 1. [Configure authentication using SSH keys](#enable-ssh).
-1. [Check the connection to the router](#test-ssh).
+1. [Check the SSH connection to the router](#test-ssh).
+1. [Delete the created resources](#clear-out).
 
 If you no longer need the created resources, [delete them](#clear-out).
 
@@ -79,7 +80,7 @@ Make sure that the router name in the command line prompt changes to `cisco-rout
 Create a user with administrator rights and password authentication disabled:
 
 ```
-cisco-router(config)#username test-user privilege 15 
+cisco-router(config)#username test-user privilege 15
 ```
 
 ## Configure authentication using SSH keys {#enable-ssh}
@@ -131,7 +132,7 @@ cisco-router(config)#username test-user privilege 15
 1. Run the following command on your computer:
 
    ```
-   $ ssh-i <path to the file with the private key> test-user@<public IP address of the router> 
+   $ ssh -i <path to the file with the private key> test-user@<public IP address of the router> 
    ```
 
    If everything is configured correctly, you will log in to the router under `test-user`. If the connection is not established, make sure that the router is configured correctly in the serial console: the `aaa new-model` command was run, the key hashes are the same on your computer and the router, and password authorization for the test user is disabled. If you can't find the problem, repeat the previous steps.

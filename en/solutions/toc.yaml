@@ -75,3 +75,5 @@ items:
         href: routing/nat-instance.md
       - name: Creating a VPN tunnel
         href: routing/ipsec-vpn.md
+      - name: Installing a Cisco CSR 1000v virtual router
+        href: routing/cisco.md
