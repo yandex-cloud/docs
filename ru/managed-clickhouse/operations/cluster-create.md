@@ -107,68 +107,219 @@
      ```
       
       {% endif %}
+
+- Terraform
+
+  {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+  
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).  
+  
+  Чтобы создать кластер: 
+  
+    1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+       
+       * Кластер базы данных — описание кластера и его хостов.
+       * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
+       * Подсети — описание [подсетей](../../vpc/concepts/network.md#network), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+       
+       Пример структуры конфигурационного файла:
+       
+       ```
+       resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+         name        = "<имя кластера>"
+         environment = "<окружение>"
+         network_id  = "<идентификатор сети>"
+       
+         clickhouse {
+           resources {
+             resource_preset_id = "<класс хоста>"
+             disk_type_id       = "<тип хранилища>"
+             disk_size          = "<объем хранилища, ГБ>"
+           }
+         }
+       
+         database {
+           name = "<имя базы данных>"
+         }
+       
+         user {
+           name     = "<имя пользователя БД>"
+           password = "<пароль>"
+           permission {
+             database_name = "<имя БД, в которой создается пользователь>"
+           }
+         }
+       
+         host {
+           type      = "CLICKHOUSE"
+           zone      = "<зона доступности>"
+           subnet_id = "<идентификатор подсети>"
+         }
+       }
+         
+       resource "yandex_vpc_network" "<имя сети>" {}
+       
+       resource "yandex_vpc_subnet" "<имя подсети>" {
+         zone           = "<зона доступности>"
+         network_id     = "<идентификатор сети>"
+         v4_cidr_blocks = ["<диапазон>"]
+       }
+       ```
+       
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_redis_cluster.html).
+       
+    2. Проверьте корректность конфигурацилонных файлов.
+       
+       1. В командной строке перейдите в каталог, в котором вы создали конфигурационный файл.
+       2. Выполните проверку с помощь команды:
+          ```
+          terraform plan
+          ```
+       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. Это проверочный этап: ресурсы не будут созданы.
+          
+    3. Создайте кластер.
+    
+       1. Если в конфигурации нет ошибок, выполните команду:
+          ```
+          terraform apply
+          ```
+       2. Подтвердите создание ресурсов.
+       
+       После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).  
       
 {% endlist %}
 
 
 ## Примеры
 
-### Создание кластера с одним хостом
+{% list tabs %}
 
-Чтобы создать кластер с одним хостом, следует передать один параметр `--host`.
+- CLI
 
-Допустим, нужно создать {{ CH }}-кластер со следующими характеристиками:
-
-{% if audience != "internal" %}
-
-- С именем `mych`.
-- В окружении `production`.
-- В сети `default`.
-- С одним хостом ClickHouse класса `s1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
-- С сетевым SSD-хранилищем объемом 20 ГБ.
-- С одним пользователем, `user1`, с паролем `user1user1`.
-- С одной базой данных, `db1`.
-
-{% else %}
-
-- С именем `mych`.
-- В окружении `production`.
-- С одним хостом ClickHouse класса `{{host-class}}` в зоне доступности `{{zone-id}}`.
-- С SSD-хранилищем объемом 20 ГБ.
-- С одним пользователем, `user1`, с паролем `user1user1`.
-- С одной базой данных, `db1`.
+  **Создание кластера с одним хостом**
+  
+  Чтобы создать кластер с одним хостом, следует передать один параметр `--host`.
+  
+  Допустим, нужно создать {{ CH }}-кластер со следующими характеристиками:
+  
+  {% if audience != "internal" %}
+  
+  - С именем `mych`.
+  - В окружении `production`.
+  - В сети `default`.
+  - С одним хостом ClickHouse класса `s1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
+  - С сетевым SSD-хранилищем объемом 20 ГБ.
+  - С одним пользователем, `user1`, с паролем `user1user1`.
+  - С одной базой данных, `db1`.
+  
+  {% else %}
+  
+  - С именем `mych`.
+  - В окружении `production`.
+  - С одним хостом ClickHouse класса `{{host-class}}` в зоне доступности `{{zone-id}}`.
+  - С SSD-хранилищем объемом 20 ГБ.
+  - С одним пользователем, `user1`, с паролем `user1user1`.
+  - С одной базой данных, `db1`.
+  
+  {% endif %}
+  
+  Запустите следующую команду:
+  
+  {% if audience != "internal" %}
+  
+  ```
+  $ {{ yc-mdb-ch }} cluster create \
+       --name mych \
+       --environment=production \
+       --network-name default \
+       --clickhouse-resource-preset s1.nano \
+       --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
+       --clickhouse-disk-size 20 \
+       --clickhouse-disk-type network-ssd \
+       --user name=user1,password=user1user1 \
+       --database name=db1
+  ```
+  
+  {% else %}
+  
+  ```
+  $ {{ yc-mdb-ch }} cluster create \
+       --name mych \
+       --environment=production \
+       --clickhouse-resource-preset s2.nano \
+       --host type=clickhouse,zone-id=man \
+       --clickhouse-disk-size 20 \
+       --clickhouse-disk-type local-ssd \
+       --user name=user1,password=user1user1 \
+       --database name=db1
+  ```
 
 {% endif %}
 
-Запустите следующую команду:
+- Terraform
 
-{% if audience != "internal" %}
+  **Создание кластера с одним хостом**
 
-```
-$ {{ yc-mdb-ch }} cluster create \
-     --name mych \
-     --environment=production \
-     --network-name default \
-     --clickhouse-resource-preset s1.nano \
-     --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
-     --clickhouse-disk-size 20 \
-     --clickhouse-disk-type network-ssd \
-     --user name=user1,password=user1user1 \
-     --database name=db1
-```
+  Допустим, нужно создать {{ CH }}-кластер и сеть для него со следующими характеристиками:
+    - С именем `mych`.
+    - В окружении `PRESTABLE`.
+    - В облаке с идентификатором `b1gq90dgh25иuebiu75o`.
+    - В каталоге `myfolder`.
+    - В новой сети `mynet`.
+    - С одним хостом класса `s2.micro` в новой подсети `mysubnet`, в зоне доступности `ru-central1-c`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    - С быстрым сетевым хранилищем объемом 32 ГБ.
+    - С именем базы данных `my_db`.
+    - C именем пользователя `user1` и паролем `user1user1`.
+    
+  Конфигурационный файл для такого кластера выглядит так:
+  
+  ```
+  provider "yandex" {
+    token     = "<OAuth или статический ключ сервисного аккаунта>"
+    cloud_id  = "b1gq90dgh25иuebiu75o"
+    folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
+    zone      = "ru-central1-c"
+  }
+  
+  resource "yandex_mdb_clickhouse_cluster" "mych" {
+    name        = "mych"
+    environment = "PRESTABLE"
+    network_id  = "${yandex_vpc_network.mynet.id}"
+  
+    clickhouse {
+      resources {
+        resource_preset_id = "s2.micro"
+        disk_type_id       = "network-ssd"
+        disk_size          = 32
+      }
+    }
+  
+    database {
+      name = "my_db"
+    }
+  
+    user {
+      name     = "user1"
+      password = "user1user1"
+      permission {
+        database_name = "my_db"
+      }
+    }
+  
+    host {
+      type      = "CLICKHOUSE"
+      zone      = "ru-central1-c"
+      subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
+    }
+  }
+  
+  resource "yandex_vpc_network" "mynet" {}
+  
+  resource "yandex_vpc_subnet" "mysubnet" {
+    zone           = "ru-central1-c"
+    network_id     = "${yandex_vpc_network.mynet.id}"
+    v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  ```
 
-{% else %}
-
-```
-$ {{ yc-mdb-ch }} cluster create \
-     --name mych \
-     --environment=production \
-     --clickhouse-resource-preset s2.nano \
-     --host type=clickhouse,zone-id=man \
-     --clickhouse-disk-size 20 \
-     --clickhouse-disk-type local-ssd \
-     --user name=user1,password=user1user1 \
-     --database name=db1
-```
-
-{% endif %}
+{% endlist %}
