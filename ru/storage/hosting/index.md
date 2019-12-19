@@ -21,7 +21,7 @@ http(s)://{{ s3-web-host }}/<имя_бакета>
 
 {% note info %}
 
-Протокол HTTPS можно использовать только если имя бакета не содержит точку.
+К бакету, имя которого содержит точку, нельзя обратиться по протоколу HTTPS. Для настройки HTTPS, [загрузите собственные сертификаты безопасности](../operations/buckets/certificate.md) в {{ objstorage-name }}.
 
 {% endnote %}
 
@@ -49,6 +49,6 @@ http(s)://{{ s3-web-host }}/<имя_бакета>
 
 {% note info %}
 
-Сайт доступен только по протоколу HTTP, например, `http://www.example.com` или `http://www.example.com.{{ s3-web-host }}`.
+Чтобы поддержать для сайта протокол HTTPS, [загрузите сертификат безопасности](../operations/buckets/certificate.md) в {{ objstorage-name }}. Иначе, сайт доступен только по протоколу HTTP. 
 
 {% endnote %}

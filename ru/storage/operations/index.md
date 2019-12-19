@@ -7,6 +7,7 @@
 - [{#T}](buckets/limit-max-volume.md)
 - [{#T}](buckets/bucket-availability.md)
 - [{#T}](buckets/edit-acl.md)
+- [{#T}](buckets/certificate.md)
 
 ## Объекты
 

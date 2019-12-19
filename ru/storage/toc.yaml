@@ -21,6 +21,8 @@ items:
             href: operations/buckets/lifecycles.md
           - name: Редактирование ACL бакета
             href: operations/buckets/edit-acl.md
+          - name: Настройка HTTPS
+            href: operations/buckets/certificate.md
       - name: Объекты
         items:
           - name: Загрузка объекта

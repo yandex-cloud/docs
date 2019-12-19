@@ -13,19 +13,24 @@
 
    {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
 
+При выборе имени бакета помните, что имена с точками используются при [хостинге статических сайтов](../hosting/index.md). Возможен конфликт имен, который не позволит вам или другому пользователю разместить свой сайт в Object Storage.
+
 ## URL бакета {#bucket-url}
 
-Название бакета можно поместить в разные части URL, который в зависимости от этого может принимать одну из следующих форм:
+Для обращения к бакету вы можете использовать следующие формы URL:
 
 - `https://{{ s3-storage-host }}/<bucket>?<parameters>`
-- `https://<bucket>.{{ s3-storage-host }}?<parameters>`
-
-Если имя бакета содержит точку, то необходимо учитывать следующие особенности:
-
-- Имена с точками используются при [хостинге статических сайтов](../hosting/index.md). Возможен конфликт имен, который не позволит вам или другому пользователю разместить свой сайт в {{ objstorage-name }}.
-- Протокол HTTPS недоступен, если при обращении к бакету вы используете форму URL `https://<bucket>.{{ s3-storage-host }}?<parameters>`.
+- `http://<bucket>.{{ s3-storage-host }}?<parameters>`
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
+
+## Обращение к бакету по HTTPS {#bucket-https}
+
+{{ objstorage-name }} поддерживает безопасное подключение по протоколу [HTTPS](https://ru.wikipedia.org/wiki/HTTPS). При обращении к бакетам используйте URL вида `https://{{ s3-storage-host }}/<bucket>?<parameters>`.
+
+При использовании URL вида `http://<bucket>.{{ s3-storage-host }}?<parameters>` протокол HTTPS не доступен.
+
+О поддержке HTTPS при хостинге сайтов в {{ objstorage-name }}, читайте в разделе [{#T}](../hosting/index.md).
 
 ## Настройки бакетов {#bucket-settings}
 
