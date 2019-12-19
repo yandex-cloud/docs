@@ -4,7 +4,7 @@ Yandex.Cloud provides technical support to users with different service plans. Y
 
 {% note info %}
 
-No additional fees apply for technical support until, and including, December 31, 2019.
+No additional fees apply for technical support until, and including, February 29, 2019.
 
 {% endnote %}
 
@@ -83,7 +83,7 @@ No additional fees apply for technical support until, and including, December 31
 
   {% note info %}
 
-  The <q>Premium</q> plan will be available as of January 1, 2020.
+  The <q>Premium</q> plan will be available as of March 1, 2020.
 
   {% endnote %}
 
@@ -128,7 +128,7 @@ No additional fees apply for technical support until, and including, December 31
 
   {% note info %}
 
-  The <q>Basic</q> plan will be available as of January 1, 2020, when the <q>Standard</q> plan is no longer free.
+  The <q>Basic</q> plan will be available as of March 1, 2020, when the <q>Standard</q> plan is no longer free.
 
   {% endnote %}
 
