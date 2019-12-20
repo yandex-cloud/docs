@@ -7,7 +7,7 @@ To start exchanging data between your devices:
 - [Create a device in the registry and add a certificate to it](#create-device).
 - [Connect to the MQTT broker](#connect-mqtt-broker).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 To get started, you will need:
 
@@ -45,7 +45,7 @@ For devices and registries to interact, you must have X.509 certificates:
 
     ```
     $ yc iot registry create --name my-registry
-    
+
     id: b91hafek85hpppnbpld2
     folder_id: aoek49ghmknnpj1ll45e
     created_at: "2019-05-27T13:40:06.923Z"
@@ -58,7 +58,7 @@ For devices and registries to interact, you must have X.509 certificates:
     $ yc iot registry certificate add \
     --registry-name my-registry \ # Registry name.
     --certificate-file ./certs/registry-cert.pem # Path to the public part of the certificate.
-    
+
     registry_id: b91hafek85hpppnbpld2
     fingerprint: 589ce16050****
     certificate_data: |
@@ -76,7 +76,7 @@ For devices and registries to interact, you must have X.509 certificates:
     $ yc iot device create \
     --registry-name my-registry \ # Registry name.
     --name my-device # Device name.
-    
+
     id: b912an77oqaeijolmlgm
     registry_id: b91hafek85hpppnbpld2
     created_at: "2019-05-27T13:44:35.164Z"
@@ -89,7 +89,7 @@ For devices and registries to interact, you must have X.509 certificates:
     $ yc iot device certificate add \
     --device-name my-device \ # Device name.
     --certificate-file ./certs/device-cert.pem # Path to the public part of the certificate.
-    
+
     device_id: b912an77oqaeijolmlgm
     fingerprint: 65e5b05006...
     certificate_data: |
