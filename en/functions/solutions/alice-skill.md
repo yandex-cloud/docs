@@ -27,7 +27,7 @@ To create [versions](../../functions/concepts/function.md#version) of functions,
 
 - Python
     1. Download a sample file from GitHub: [parrot.py](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/python/parrot/parrot.py).
-    1. Create a ZIP archive named `parrot-py.zip` and add the `parrot.py` file.
+    1. Create a ZIP archive named `parrot-py.zip` with the `parrot.py` file.
 
 - Node.js
     1. Download a sample file from GitHub: [index.js](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/nodejs/parrot/index.js).
@@ -35,11 +35,11 @@ To create [versions](../../functions/concepts/function.md#version) of functions,
 
 {% endlist %}
 
-## Create a function: {#create-function}
+## Create a function {#create-function}
 
 Once created, the function will only contain information about itself, like its name, description, and unique ID. The skill's code will be added to the function when you [create a version](#create-version).
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create your function.
+1. In [management console]({{ link-console-main }}), select the folder where you want to create your function.
 
 1. Click **Create resource**.
 
@@ -51,7 +51,7 @@ Once created, the function will only contain information about itself, like its 
 
 1. Click **Create**.
 
-## Create a version of the function {#create-version}
+## Create the version of the function {#create-version}
 
 Choose the programming language and create a [version of the function](../concepts/function.md#version).
 
@@ -92,9 +92,19 @@ Choose the programming language and create a [version of the function](../concep
 ## Add the function link to Alice's skill {#add-link}
 
 1. Go to Alice's skill page in your [dashboard](https://dialogs.yandex.ru/developer/).
+
 1. Open the **Settings** tab.
+
 1. Under **Backend**, select **Function in Yandex.Cloud**.
+
 1. Select the desired function from the drop-down list.
+
+    {% note important %}
+
+    The list shows the functions that you're allowed to view. To attach a function to a skill, you need permission to launch the function. This permission is part of the [{{ roles-functions-ivoker }}](../security/index.md#serverless-functions-invoker), [{{ roles-editor}}](../security/index.md#editor), and higher roles.
+
+    {% endnote %}
+
 1. Click **Save** at the bottom of the page to save changes.
 
 ## Test the skill {#test}
