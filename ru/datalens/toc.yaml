@@ -49,6 +49,8 @@ items:
             href: operations/dataset/create.md
           - name: Создание поля данных
             href: operations/dataset/create-field.md
+          - name: Создание вычисляемого поля данных
+            href: operations/dataset/create-calculated-field.md
           - name: Материализация датасета
             href: operations/dataset/materialize.md
           - name: Управление доступом к датасету
@@ -107,6 +109,8 @@ items:
         href: concepts/dashboard.md
       - name: DataLens Public
         href: concepts/datalens-public.md
+      - name: Вычисляемые поля
+        href: concepts/calculations.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
