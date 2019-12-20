@@ -2,17 +2,17 @@
 
 Этот раздел описывает, как начать использовать {{ vision-short-name }} API для анализа изображений.
 
-## Перед началом
+## Перед началом {#before-you-begin}
 
 {% include [ai-before-beginning](../_includes/ai-before-beginning.md) %}
 
-## Проанализируйте изображение
+## Проанализируйте изображение {#analyze-image}
 
 Вы можете использовать любые возможности для анализа из [списка](concepts/index.md#features). Для примера, воспользуемся возможностью [Распознавание текста](concepts/ocr/index.md):
 
 {% include [text-detection-steps](../_includes/vision/text-detection-steps.md) %}
 
-#### Что дальше
+#### Что дальше {#what-is-next}
 
 * [Узнайте обо всех возможностях сервиса](concepts/index.md)
 * [Узнайте про способы аутентификации в API](api-ref/authentication.md)

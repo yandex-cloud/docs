@@ -6,7 +6,7 @@
 
 ## Примеры {#examples}
 
-### Перед началом {#before-beginning}
+### Перед началом {#before-you-begin}
 
 {% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 

@@ -2,7 +2,7 @@
 
 This section describes how the _Optical Character Recognition (OCR)_ feature works in the service.
 
-## Text recognition process
+## Text recognition process {#text-recognition-process}
 
 Text in an image is recognized in two stages:
 
@@ -76,7 +76,7 @@ Example of a recognized word with coordinates:
 }
 ```
 
-## Image requirements
+## Image requirements {#image-requirements}
 
 An image in a request must meet the following requirements:
 
@@ -88,7 +88,7 @@ The recognition confidence shows the service's confidence in the result. For exa
 
 Currently, the recognition confidence value is only calculated for lines. The `confidence` value for words and language is substituted with the line's `confidence` value.
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [View the list of supported languages and models](supported-languages.md)
 * [View known restrictions for the current version](known-issues.md)
