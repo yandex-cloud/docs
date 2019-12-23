@@ -4,6 +4,12 @@
 
 {{ objstorage-name }} поддерживает только [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded сертификаты.
 
+{% note info %}
+
+Доступ к бакету по HTTPS отрывается в течение получаса после загрузки сертификата.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Консоль управления
