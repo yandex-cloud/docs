@@ -1,16 +1,10 @@
-# Создать таймер
+# Создание таймера
 
 {% include [triggers-preview](../../../_includes/functions/triggers-preview-stage.md) %}
 
 Создайте [таймер](../../concepts/trigger/timer.md), который будет вызывать вашу функцию по расписанию.
 
-## Перед началом работы {#before-you-begin}
-
-Для создания триггера вам понадобятся: 
-1. Сервисный аккаунт с правами на вызов функции. Если у вас нет сервисного аккаунта, [создайте его](../../../iam/operations/sa/create.md).
-1. [Функция](../../concepts/function.md), которой триггер будет передавать сообщения на обработку. Если у вас еще нет функции:
-    - [Создайте функцию](../../operations/function/function-create.md).
-    - [Создайте версию функции и загрузите в нее код функции](../../operations/function/version-manage.md#func-version-create).
+{% include [before-begin](../../../_includes/functions/os-timer-before-begin.md) %}
 
 ## Создать таймер {#timer-create}
 
