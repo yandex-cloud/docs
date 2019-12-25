@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Subcluster
-A set of methods for managing Dataproc subclusters.
+A set of methods for managing Data Proc subclusters.
 ## JSON Representation {#representation}
 ```json 
 {
@@ -24,23 +24,23 @@ A set of methods for managing Dataproc subclusters.
  
 Field | Description
 --- | ---
-id | **string**<br><p>ID of the Dataproc subcluster. This ID is assigned by Dataproc in the process of creating Dataproc subcluster.</p> 
-clusterId | **string**<br><p>ID of the Dataproc cluster. This ID is assigned by Dataproc in the process of creating Dataproc cluster.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-name | **string**<br><p>Name of the Dataproc subcluster. The name is unique within the folder. 1-64 characters long.</p> 
-role | **string**<br><p>Role of all hosts in subcluster.</p> <ul> <li>ROLE_UNSPECIFIED: Host have undefined role</li> <li>MASTERNODE: Masternode includes these services (depends on given component list)</li> </ul> <ul> <li>HDFS Namenode, Secondary Namenode,</li> <li>YARN ResorceManager, Timeline Server,</li> <li>Zookeeper,</li> <li>Hive Server, Hive Metastore, HCatalog</li> <li>HBase Master,</li> <li>Spark History Server,</li> <li>Zeppelin</li> </ul> <ul> <li>DATANODE: Datanode includes these services (depends on given component list)</li> </ul> <ul> <li>HDFS Datanode,</li> <li>YARN NodeManager,</li> <li>HBase RegionServer,</li> <li>Spark libraries.</li> </ul> <ul> <li>COMPUTENODE: Computenodes includes these services (depends on given component list)</li> </ul> <ul> <li>YARN NodeManager.</li> <li>Spark libraries.</li> </ul> 
-resources | **object**<br><p>Resource configuration for hosts in subcluster.</p> 
+id | **string**<br><p>ID of the subcluster. Generated at creation time.</p> 
+clusterId | **string**<br><p>ID of the Data Proc cluster that the subcluster belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the subcluster. The name is unique within the cluster.</p> <p>The string length in characters must be 1-63.</p> 
+role | **string**<br><p>Role that is fulfilled by hosts of the subcluster.</p> <ul> <li>MASTERNODE: The subcluster fulfills the master role.</li> </ul> <p>Master can run the following services, depending on the requested components:</p> <ul> <li>HDFS: Namenode, Secondary Namenode</li> <li>YARN: ResourceManager, Timeline Server</li> <li>HBase Master</li> <li>Hive: Server, Metastore, HCatalog</li> <li>Spark History Server</li> <li>Zeppelin</li> <li>Zookeeper</li> </ul> <ul> <li>DATANODE: The subcluster is a DATANODE in a Data Proc cluster.</li> </ul> <p>DATANODE can run the following services, depending on the requested components:</p> <ul> <li>HDFS DataNode,</li> <li>YARN NodeManager,</li> <li>HBase RegionServer,</li> <li>Spark libraries.</li> </ul> <ul> <li>COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.</li> </ul> <p>COMPUTENODE can run the following services, depending on the requested components:</p> <ul> <li>YARN NodeManager.</li> <li>Spark libraries.</li> </ul> 
+resources | **object**<br><p>Resources allocated for each host in the subcluster.</p> 
 resources.<br>resourcePresetId | **string**<br><p>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/data-proc/concepts/instance-types">documentation</a>.</p> 
 resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive.</li> </ul> 
 resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-subnetId | **string**<br><p>ID of using compute subnet for hosts in subcluster.</p> 
-hostsCount | **string** (int64)<br><p>Number of hosts in subcluster.</p> 
+subnetId | **string**<br><p>ID of the VPC subnet used for hosts in the subcluster.</p> 
+hostsCount | **string** (int64)<br><p>Number of hosts in the subcluster.</p> 
 
 ## Methods {#methods}
 Method | Description
 --- | ---
-[create](create.md) | Creates a Dataproc subcluster in the specified cluster.
-[delete](delete.md) | Deletes the specified Dataproc subcluster.
-[get](get.md) | Returns the specified Dataproc subcluster resource.
-[list](list.md) | Retrieves a list of Dataproc subcluster.
-[update](update.md) | Updates configuration of the specified Dataproc subcluster.
+[create](create.md) | Creates a subcluster in the specified cluster.
+[delete](delete.md) | Deletes the specified subcluster.
+[get](get.md) | Returns the specified subcluster.
+[list](list.md) | Retrieves a list of subclusters in the specified cluster.
+[update](update.md) | Updates the specified subcluster.

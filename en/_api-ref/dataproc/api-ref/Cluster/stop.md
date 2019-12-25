@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method stop
-Stop the specified Dataproc cluster.
+Stops the specified cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}:stop
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Dataproc cluster. This ID is assigned by Dataproc at creation time.  The maximum string length in characters is 50.
+clusterId | Required. ID of the cluster to stop.  To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method create
-Creates a job for Dataproc cluster.
+Creates a job for a cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/jobs
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster to create Dataproc job in.  The maximum string length in characters is 50.
+clusterId | Required. ID of the cluster to create a job for.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -108,39 +108,39 @@ clusterId | Required. ID of the cluster to create Dataproc job in.  The maximum 
  
 Field | Description
 --- | ---
-name | **string**<br><p>Optional. Name of the job.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
-mapreduceJob | **object** <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
-mapreduceJob.<br>args[] | **string**<br><p>Optional arguments to the driver.</p> 
-mapreduceJob.<br>jarFileUris[] | **string**<br><p>URIs of file to run.</p> 
-mapreduceJob.<br>fileUris[] | **string**<br><p>URIs of files to be copied to the working directory of Dataproc drivers and distributed tasks.</p> 
-mapreduceJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted in the working directory of Dataproc drivers and tasks.</p> 
-mapreduceJob.<br>properties | **object**<br><p>A mapping of property names to values, used to configure Dataproc.</p> 
-mapreduceJob.<br>mainJarFileUri | **string** <br>`mapreduceJob` includes only one of the fields `mainJarFileUri`, `mainClass`<br><br><p>The HCFS URI of the jar file containing the main class.</p> 
-mapreduceJob.<br>mainClass | **string** <br>`mapreduceJob` includes only one of the fields `mainJarFileUri`, `mainClass`<br><br><p>The name of the driver's main class.</p> 
-sparkJob | **object** <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
-sparkJob.<br>args[] | **string**<br><p>Optional arguments to the driver.</p> 
-sparkJob.<br>jarFileUris[] | **string**<br><p>Jar file URIs to add to the CLASSPATHs of the Dataproc driver and tasks.</p> 
-sparkJob.<br>fileUris[] | **string**<br><p>URIs of files to be copied to the working directory of Dataproc drivers and distributed tasks.</p> 
-sparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted in the working directory of Dataproc drivers and tasks.</p> 
-sparkJob.<br>properties | **object**<br><p>A mapping of property names to values, used to configure Dataproc.</p> 
-sparkJob.<br>mainJarFileUri | **string**<br><p>The HCFS URI of the jar file containing the main class.</p> 
-sparkJob.<br>mainClass | **string**<br><p>The name of the driver's main class.</p> 
-pysparkJob | **object** <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
-pysparkJob.<br>args[] | **string**<br><p>Optional arguments to the driver.</p> 
-pysparkJob.<br>jarFileUris[] | **string**<br><p>Jar file URIs to add to the CLASSPATHs of the Dataproc driver and tasks.</p> 
-pysparkJob.<br>fileUris[] | **string**<br><p>URIs of files to be copied to the working directory of Dataproc drivers and distributed tasks.</p> 
-pysparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted in the working directory of Dataproc drivers and tasks.</p> 
-pysparkJob.<br>properties | **object**<br><p>A mapping of property names to values, used to configure Dataproc.</p> 
-pysparkJob.<br>mainPythonFileUri | **string**<br><p>URI of the main Python file to use as the driver. Must be a .py file.</p> 
+name | **string**<br><p>Name of the job.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+mapreduceJob | **object**<br>Specification for a MapReduce job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
+mapreduceJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 
+mapreduceJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH of the Data Proc driver and each task.</p> 
+mapreduceJob.<br>fileUris[] | **string**<br><p>URIs of resource files to be copied to the working directory of Data Proc drivers and distributed Hadoop tasks.</p> 
+mapreduceJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted to the working directory of Data Proc drivers and tasks.</p> 
+mapreduceJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and MapReduce.</p> 
+mapreduceJob.<br>mainJarFileUri | **string** <br>`mapreduceJob` includes only one of the fields `mainJarFileUri`, `mainClass`<br><br><p>HCFS URI of the .jar file containing the driver class.</p> 
+mapreduceJob.<br>mainClass | **string** <br>`mapreduceJob` includes only one of the fields `mainJarFileUri`, `mainClass`<br><br><p>The name of the driver class.</p> 
+sparkJob | **object**<br>Specification for a Spark job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
+sparkJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 
+sparkJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH of the Data Proc driver and each task.</p> 
+sparkJob.<br>fileUris[] | **string**<br><p>URIs of resource files to be copied to the working directory of Data Proc drivers and distributed Hadoop tasks.</p> 
+sparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted to the working directory of Data Proc drivers and tasks.</p> 
+sparkJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and Spark.</p> 
+sparkJob.<br>mainJarFileUri | **string**<br><p>The HCFS URI of the jar file containing the <code>main</code> class for the job.</p> 
+sparkJob.<br>mainClass | **string**<br><p>The name of the driver class.</p> 
+pysparkJob | **object**<br>Specification for a PySpark job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
+pysparkJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 
+pysparkJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH of the Data Proc driver and each task.</p> 
+pysparkJob.<br>fileUris[] | **string**<br><p>URIs of resource files to be copied to the working directory of Data Proc drivers and distributed Hadoop tasks.</p> 
+pysparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted to the working directory of Data Proc drivers and tasks.</p> 
+pysparkJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and PySpark.</p> 
+pysparkJob.<br>mainPythonFileUri | **string**<br><p>URI of the file with the driver code. Must be a .py file.</p> 
 pysparkJob.<br>pythonFileUris[] | **string**<br><p>URIs of Python files to pass to the PySpark framework.</p> 
-hiveJob | **object** <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
-hiveJob.<br>properties | **object**<br><p>A mapping of property names to values, used to configure Hive.</p> 
-hiveJob.<br>continueOnFailure | **boolean** (boolean)<br><p>Whether to continue executing queries if a query fails.</p> 
-hiveJob.<br>scriptVariables | **object**<br><p>Mapping of query variable names to values.</p> 
-hiveJob.<br>jarFileUris[] | **string**<br><p>Jar file URIs to add to the CLASSPATHs of the Hive driver and tasks.</p> 
-hiveJob.<br>queryFileUri | **string** <br>`hiveJob` includes only one of the fields `queryFileUri`, `queryList`<br><br><p>URI of the script that contains Hive queries.</p> 
-hiveJob.<br>queryList | **object** <br>`hiveJob` includes only one of the fields `queryFileUri`, `queryList`<br><br>
-hiveJob.<br>queryList.<br>queries[] | **string**<br>
+hiveJob | **object**<br>Specification for a Hive job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
+hiveJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and Hive.</p> 
+hiveJob.<br>continueOnFailure | **boolean** (boolean)<br><p>Flag indicating whether a job should continue to run if a query fails.</p> 
+hiveJob.<br>scriptVariables | **object**<br><p>Query variables and their values.</p> 
+hiveJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH of the Hive driver and each task.</p> 
+hiveJob.<br>queryFileUri | **string** <br>`hiveJob` includes only one of the fields `queryFileUri`, `queryList`<br><br><p>URI of the script with all the necessary Hive queries.</p> 
+hiveJob.<br>queryList | **object**<br>List of Hive queries to be used in the job. <br>`hiveJob` includes only one of the fields `queryFileUri`, `queryList`<br><br>
+hiveJob.<br>queryList.<br>queries[] | **string**<br><p>List of Hive queries.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

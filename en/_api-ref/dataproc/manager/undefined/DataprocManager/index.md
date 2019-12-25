@@ -3,7 +3,7 @@ editable: false
 ---
 
 # DataprocManager
-Dataproc manager service defifnition
+Data Proc manager service defifnition
 
 ## Methods {#methods}
 Method | Description

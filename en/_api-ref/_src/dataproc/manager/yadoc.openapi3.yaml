@@ -170,35 +170,42 @@ components:
         oozie:
           $ref: '#/components/schemas/OozieInfo_in_Info_oozie'
     Job:
-      description: Dataproc job.
+      description: Data Proc job.
       type: object
       allOf:
       - type: object
         properties:
           id:
-            description: "Required. Unique ID of the Dataproc job.\r\nThis ID is assigned
-              by MDB in the process of creating Dataproc job."
+            description: |-
+              Required. Unique ID of the Data Proc job.
+              This ID is assigned by MDB in the process of creating Data Proc job.
             type: string
           clusterId:
-            description: Required. Unique ID of the Dataproc cluster.
+            description: Required. Unique ID of the Data Proc cluster.
             type: string
           createdAt:
-            description: "The time when the Dataproc job was created.\r\n\nString
-              in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format."
+            description: |-
+              The time when the Data Proc job was created.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
             type: string
             format: date-time
           startedAt:
-            description: "The time when the Dataproc job was started.\r\n\nString
-              in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format."
+            description: |-
+              The time when the Data Proc job was started.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
             type: string
             format: date-time
           finishedAt:
-            description: "The time when the Dataproc job was finished.\r\n\nString
-              in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format."
+            description: |-
+              The time when the Data Proc job was finished.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
             type: string
             format: date-time
           name:
-            description: Name of the Dataproc job.
+            description: Name of the Data Proc job.
             type: string
           status:
             $ref: '#/components/schemas/JobStatus'
@@ -227,7 +234,7 @@ components:
       type: object
       properties:
         jobs:
-          description: Requested list of Dataproc jobs.
+          description: Requested list of Data Proc jobs.
           type: array
           items:
             $ref: '#/components/schemas/Job'
@@ -255,20 +262,20 @@ components:
             items:
               type: string
           fileUris:
-            description: URIs of files to be copied to the working directory of Dataproc
-              drivers and distributed tasks.
+            description: URIs of files to be copied to the working directory of Data
+              Proc drivers and distributed tasks.
             type: array
             items:
               type: string
           archiveUris:
             description: URIs of archives to be extracted in the working directory
-              of Dataproc drivers and tasks.
+              of Data Proc drivers and tasks.
             type: array
             items:
               type: string
           properties:
             description: A mapping of property names to values, used to configure
-              Dataproc.
+              Data Proc.
             type: object
             additionalProperties:
               type: string
@@ -297,25 +304,26 @@ components:
           items:
             type: string
         jarFileUris:
-          description: Jar file URIs to add to the CLASSPATHs of the Dataproc driver
+          description: Jar file URIs to add to the CLASSPATHs of the Data Proc driver
             and tasks.
           type: array
           items:
             type: string
         fileUris:
-          description: URIs of files to be copied to the working directory of Dataproc
-            drivers and distributed tasks.
+          description: URIs of files to be copied to the working directory of Data
+            Proc drivers and distributed tasks.
           type: array
           items:
             type: string
         archiveUris:
           description: URIs of archives to be extracted in the working directory of
-            Dataproc drivers and tasks.
+            Data Proc drivers and tasks.
           type: array
           items:
             type: string
         properties:
-          description: A mapping of property names to values, used to configure Dataproc.
+          description: A mapping of property names to values, used to configure Data
+            Proc.
           type: object
           additionalProperties:
             type: string
@@ -349,25 +357,26 @@ components:
           items:
             type: string
         jarFileUris:
-          description: Jar file URIs to add to the CLASSPATHs of the Dataproc driver
+          description: Jar file URIs to add to the CLASSPATHs of the Data Proc driver
             and tasks.
           type: array
           items:
             type: string
         fileUris:
-          description: URIs of files to be copied to the working directory of Dataproc
-            drivers and distributed tasks.
+          description: URIs of files to be copied to the working directory of Data
+            Proc drivers and distributed tasks.
           type: array
           items:
             type: string
         archiveUris:
           description: URIs of archives to be extracted in the working directory of
-            Dataproc drivers and tasks.
+            Data Proc drivers and tasks.
           type: array
           items:
             type: string
         properties:
-          description: A mapping of property names to values, used to configure Dataproc.
+          description: A mapping of property names to values, used to configure Data
+            Proc.
           type: object
           additionalProperties:
             type: string
@@ -517,4 +526,4 @@ components:
 tags:
 - name: Job
 - name: DataprocManager
-  description: Dataproc manager service defifnition
+  description: Data Proc manager service defifnition

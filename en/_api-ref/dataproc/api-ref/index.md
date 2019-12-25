@@ -7,6 +7,6 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 Resource | Description
 --- | ---
-[Cluster](Cluster/index.md) | A set of methods for managing Dataproc clusters.
-[Job](Job/index.md) | A set of methods for managing jobs for Dataproc cluster.
-[Subcluster](Subcluster/index.md) | A set of methods for managing Dataproc subclusters.
+[Cluster](Cluster/index.md) | A set of methods for managing Data Proc clusters.
+[Job](Job/index.md) | A set of methods for managing Data Proc jobs.
+[Subcluster](Subcluster/index.md) | A set of methods for managing Data Proc subclusters.

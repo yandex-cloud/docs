@@ -3432,6 +3432,17 @@ components:
         databaseName:
           description: Name of the database that the permission grants access to.
           type: string
+        dataFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/PermissionDataFilter'
+    PermissionDataFilter:
+      type: object
+      properties:
+        tableName:
+          type: string
+        filter:
+          type: string
     ResourcePreset:
       description: A ResourcePreset resource for describing hardware configuration
         presets.
@@ -3822,6 +3833,65 @@ components:
             $ref: '#/components/schemas/Permission'
         settings:
           $ref: '#/components/schemas/UserSettings_in_User_settings'
+        quotas:
+          description: Set of quotas assigned to the user.
+          type: array
+          items:
+            $ref: '#/components/schemas/UserQuota'
+    UserQuota:
+      description: |-
+        ClickHouse quota representation. Each quota associated with an user and limits it resource usage for an interval.
+        See in-depth description [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/quotas/).
+      type: object
+      properties:
+        intervalDuration:
+          description: |-
+            Duration of interval for quota in milliseconds.
+            Minimal value is 1 minute.
+
+            The minimum value is 60000.
+          type: integer
+          format: int64
+        queries:
+          description: |-
+            The total number of queries.
+            0 - unlimited.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        errors:
+          description: |-
+            The number of queries that threw exception.
+            0 - unlimited.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        resultRows:
+          description: |-
+            The total number of rows given as the result..
+            0 - unlimited.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        readRows:
+          description: |-
+            The total number of source rows read from tables for running the query, on all remote servers.
+            0 - unlimited.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        executionTime:
+          description: |-
+            The total query execution time, in milliseconds (wall time).
+            0 - unlimited.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
     UserSettings:
       description: |-
         ClickHouse user settings. Supported settings are a limited subset of all settings
@@ -4327,6 +4397,11 @@ components:
             $ref: '#/components/schemas/Permission'
         settings:
           $ref: '#/components/schemas/UserSettings_in_UserSpec_settings'
+        quotas:
+          description: Set of quotas assigned to the user.
+          type: array
+          items:
+            $ref: '#/components/schemas/UserQuota'
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -5348,6 +5423,11 @@ components:
             $ref: '#/components/schemas/Permission'
         settings:
           $ref: '#/components/schemas/UserSettings_in_UserSpec_settings'
+        quotas:
+          description: Set of quotas assigned to the user.
+          type: array
+          items:
+            $ref: '#/components/schemas/UserQuota'
     FormatSchemaType_in_FormatSchema_type:
       type: string
       enum:
@@ -5360,6 +5440,10 @@ components:
         databaseName:
           description: Name of the database that the permission grants access to.
           type: string
+        dataFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/PermissionDataFilter'
     HostType_in_Host_type:
       description: |-
         Type of the host.

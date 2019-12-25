@@ -28,3 +28,4 @@ Method | Description
 [delete](delete.md) | Deletes the specified API key.
 [get](get.md) | Returns the specified API key.
 [list](list.md) | Retrieves the list of API keys for the specified service account.
+[listOperations](listOperations.md) | Retrieves the list of operations for the specified API key.

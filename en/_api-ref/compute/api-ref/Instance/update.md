@@ -37,6 +37,9 @@ instanceId | Required. ID of the Instance resource to update. To get the instanc
   "serviceAccountId": "string",
   "networkSettings": {
     "type": "string"
+  },
+  "placementPolicy": {
+    "placementGroupId": "string"
   }
 }
 ```
@@ -58,6 +61,8 @@ metadata | **object**<br><p>The metadata <code>key:value</code> pairs that will 
 serviceAccountId | **string**<br><p>ID of the service account to use for <a href="/docs/compute/operations/vm-connect/auth-inside-vm">authentication inside the instance</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 
 networkSettings | **object**<br><p>Network settings.</p> 
 networkSettings.<br>type | **string**<br><p>Do not specify this field, network settings are not supported yet.</p> <ul> <li>STANDARD: Standard network.</li> <li>SOFTWARE_ACCELERATED: Software accelerated network.</li> <li>HARDWARE_ACCELERATED: Hardware accelerated network (not available yet, reserved for future use).</li> </ul> 
+placementPolicy | **object**<br><p>Placement policy configuration.</p> 
+placementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -34,7 +34,7 @@ Field | Description
 --- | ---
 validateOnly | **boolean** (boolean)<br><p>Checks whether you have the access required for the emit usage</p> 
 productId | **string**<br><p>Required. Marketplace Product's ID</p> <p>The maximum string length in characters is 50.</p> 
-usageRecords[] | **object**<br><p>Required. List of product usage records (up to 25 pet request)</p> <p>The maximum number of elements is 25.</p> 
+usageRecords[] | **object**<br><p>Required. List of product usage records (up to 25 pet request)</p> <p>The number of elements must be in the range 1-25.</p> 
 usageRecords[].<br>uuid | **string**<br><p>Required. Unique identitifier of the usage record (UUID format)</p> <p>The maximum string length in characters is 36.</p> 
 usageRecords[].<br>skuId | **string**<br><p>Required. Consumed Marketplace SaaS Sku ID, linked to <code>UsageRecord.product_id</code></p> <p>The maximum string length in characters is 50.</p> 
 usageRecords[].<br>quantity | **string** (int64)<br><p>Quantity of sku consumed, measured in <code>sku.usage_unit</code> units (e.g. bytes)</p> <p>Value must be greater than 0.</p> 

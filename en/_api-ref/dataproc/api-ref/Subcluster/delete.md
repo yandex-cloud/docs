@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method delete
-Deletes the specified Dataproc subcluster.
+Deletes the specified subcluster.
  
 
  
@@ -16,8 +16,8 @@ DELETE https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/su
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Dataproc cluster to delete subcluster from. To get the Dataproc cluster ID, use a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-subclusterId | Required. ID of the Dataproc subcluster resource to delete.  The maximum string length in characters is 50.
+clusterId | Required. ID of the cluster to remove a subcluster from.  To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+subclusterId | Required. ID of the subcluster to delete.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

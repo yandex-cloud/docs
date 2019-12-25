@@ -124,8 +124,57 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Empty'
+                $ref: '#/components/schemas/Operation'
       x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteApiKeyMetadata'
+      x-y-operation-response: Empty
+  /iam/v1/apiKeys/{apiKeyId}/operations:
+    get:
+      tags:
+      - ApiKey
+      summary: Возвращает список операций для указанного API ключа.
+      operationId: ApiKeyListOperations
+      parameters:
+      - name: apiKeyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор API-ключа, для которого требуется получть список операций.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/iam/api-ref/ApiKey/listOperations#query_params), сервис вернет значение [nextPageToken](/docs/iam/api-ref/ApiKey/listOperations#responses),
+          которое можно использовать для получения следующей страницы.
+          Значение по умолчанию: 100.
+
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/ApiKey/listOperations#query_params) равным значению поля [nextPageToken](/docs/iam/api-ref/ApiKey/listOperations#responses)
+          предыдущего запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListApiKeyOperationsResponse'
+      x-y-navtitle: listOperations
   /iam/v1/tokens:
     post:
       tags:
@@ -947,6 +996,12 @@ components:
 
             Максимальная длина строки в символах — 256.
           type: string
+    DeleteApiKeyMetadata:
+      type: object
+      properties:
+        apiKeyId:
+          description: Идентификатор удаляемого API-ключа.
+          type: string
     DeleteKeyMetadata:
       type: object
       properties:
@@ -1039,6 +1094,22 @@ components:
             результатов больше чем pageSize, используйте nextPageToken в качестве
             значения параметра pageToken в следующем запросе списка ресурсов. Все
             последующие запросы будут получать свои значения nextPageToken для перебора страниц
+            результатов.
+          type: string
+    ListApiKeyOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанного API-ключа.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/iam/api-ref/ApiKey/listOperations#query_params), используйте [nextPageToken](/docs/iam/api-ref/ApiKey/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/iam/api-ref/ApiKey/listOperations#query_params) в следующем запросе списка API-ключей. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/ApiKey/listOperations#responses) для перебора страниц
             результатов.
           type: string
     ListApiKeysResponse:

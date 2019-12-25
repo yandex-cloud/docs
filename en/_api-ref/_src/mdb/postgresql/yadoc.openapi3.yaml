@@ -1968,6 +1968,7 @@ components:
       - REPLICA_TYPE_UNKNOWN
       - ASYNC
       - SYNC
+      - QUORUM
       default: REPLICA_TYPE_UNKNOWN
     HostRole:
       description: |2-
@@ -6685,6 +6686,7 @@ components:
       - REPLICA_TYPE_UNKNOWN
       - ASYNC
       - SYNC
+      - QUORUM
       default: REPLICA_TYPE_UNKNOWN
     ConfigHostSpec_in_HostSpec_configSpec:
       description: Configuration of a PostgreSQL server for the host.

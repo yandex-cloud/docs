@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method update
-Updates configuration of the specified Dataproc cluster.
+Updates the configuration of the specified cluster.
  
 
  
@@ -16,7 +16,7 @@ PATCH https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}
  
 Parameter | Description
 --- | ---
-clusterId | ID of the Dataproc cluster. This ID is assigned by Dataproc at creation time.  The maximum string length in characters is 50.
+clusterId | ID of the cluster to update.  To get the cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -48,21 +48,21 @@ clusterId | ID of the Dataproc cluster. This ID is assigned by Dataproc at creat
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>Field mask that specifies which fields of the Dataproc Cluster resource should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-description | **string**<br><p>Description of the Dataproc cluster. 0-256 characters long.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Custom labels for the Dataproc cluster as <code>key:value</code> pairs. Maximum 64 per resource.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
-configSpec | **object**<br><p>Configuration and resources for hosts that should be created for the Dataproc cluster.</p> 
-configSpec.<br>subclustersSpec[] | **object**<br><p>Subclusters configuration.</p> 
-configSpec.<br>subclustersSpec[].<br>id | **string**<br><p>ID of the Dataproc subcluster. This ID is assigned by Dataproc at creation time.</p> 
-configSpec.<br>subclustersSpec[].<br>name | **string**<br><p>Name of Dataproc subcluster.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
-configSpec.<br>subclustersSpec[].<br>resources | **object**<br><p>Resource configuration for hosts in subcluster.</p> 
+updateMask | **string**<br><p>Field mask that specifies which attributes of the cluster should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+description | **string**<br><p>New description for the cluster.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>A new set of cluster labels as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
+configSpec | **object**<br><p>Configuration and resources for hosts that should be created with the Data Proc cluster.</p> 
+configSpec.<br>subclustersSpec[] | **object**<br><p>New configuration for subclusters in a cluster.</p> 
+configSpec.<br>subclustersSpec[].<br>id | **string**<br><p>ID of the subcluster to update.</p> <p>To get the subcluster ID make a <a href="/docs/data-proc/api-ref/Subcluster/list">list</a> request.</p> 
+configSpec.<br>subclustersSpec[].<br>name | **string**<br><p>Name of the subcluster.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+configSpec.<br>subclustersSpec[].<br>resources | **object**<br><p>Resource configuration for each host in the subcluster.</p> 
 configSpec.<br>subclustersSpec[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/data-proc/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>subclustersSpec[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive.</li> </ul> 
 configSpec.<br>subclustersSpec[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-configSpec.<br>subclustersSpec[].<br>hostsCount | **string** (int64)<br><p>Number of hosts in subcluster</p> <p>The minimum value is 1.</p> 
-name | **string**<br><p>Name of the Dataproc cluster. The name must be unique within the folder. The name must be 1-63 characters long and match the regular expression <code>^[a-z]([-a-z0-9]{,61}[a-z0-9])?$</code>. The name can’t be changed after the Dataproc cluster is created.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
-serviceAccountId | **string**<br><p>Identifier of the new service account for the cluster.</p> 
-bucket | **string**<br><p>Name of the new object storage bucket for Dataproc jobs.</p> 
+configSpec.<br>subclustersSpec[].<br>hostsCount | **string** (int64)<br><p>Number of hosts in the subcluster.</p> <p>The minimum value is 1.</p> 
+name | **string**<br><p>New name for the Data Proc cluster. The name must be unique within the folder.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+serviceAccountId | **string**<br><p>ID of the new service account to be used by the Data Proc manager agent.</p> 
+bucket | **string**<br><p>Name of the new Object Storage bucket to use for Data Proc jobs.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

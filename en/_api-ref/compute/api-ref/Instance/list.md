@@ -86,6 +86,9 @@ filter | A filter expression that filters resources listed in the response. The 
       "serviceAccountId": "string",
       "networkSettings": {
         "type": "string"
+      },
+      "placementPolicy": {
+        "placementGroupId": "string"
       }
     }
   ],
@@ -142,4 +145,6 @@ instances[].<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>T
 instances[].<br>serviceAccountId | **string**<br><p>ID of the service account to use for <a href="/docs/compute/operations/vm-connect/auth-inside-vm">authentication inside the instance</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 
 instances[].<br>networkSettings | **object**<br><p>Do not specify this field, network settings are not supported yet.</p> 
 instances[].<br>networkSettings.<br>type | **string**<br><p>Do not specify this field, network settings are not supported yet.</p> <ul> <li>STANDARD: Standard network.</li> <li>SOFTWARE_ACCELERATED: Software accelerated network.</li> <li>HARDWARE_ACCELERATED: Hardware accelerated network (not available yet, reserved for future use).</li> </ul> 
+instances[].<br>placementPolicy | **object**<br><p>Placement policy configuration.</p> 
+instances[].<br>placementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/Instance/list#query_params">pageSize</a>, use the <a href="/docs/compute/api-ref/Instance/list#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/Instance/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/Instance/list#responses">nextPageToken</a> to continue paging through the results.</p> 

@@ -98,35 +98,35 @@ editable: false
  
 Field | Description
 --- | ---
-id | **string**<br><p>Required. Unique ID of the Dataproc job. This ID is assigned by MDB in the process of creating Dataproc job.</p> 
-clusterId | **string**<br><p>Required. Unique ID of the Dataproc cluster.</p> 
-createdAt | **string** (date-time)<br><p>The time when the Dataproc job was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-startedAt | **string** (date-time)<br><p>The time when the Dataproc job was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-finishedAt | **string** (date-time)<br><p>The time when the Dataproc job was finished.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-name | **string**<br><p>Name of the Dataproc job.</p> 
+id | **string**<br><p>Required. Unique ID of the Data Proc job. This ID is assigned by MDB in the process of creating Data Proc job.</p> 
+clusterId | **string**<br><p>Required. Unique ID of the Data Proc cluster.</p> 
+createdAt | **string** (date-time)<br><p>The time when the Data Proc job was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+startedAt | **string** (date-time)<br><p>The time when the Data Proc job was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+finishedAt | **string** (date-time)<br><p>The time when the Data Proc job was finished.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the Data Proc job.</p> 
 status | **string**<br>Status.<br>
 mapreduceJob | **object** <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 mapreduceJob.<br>args[] | **string**<br><p>Optional arguments to the driver.</p> 
 mapreduceJob.<br>jarFileUris[] | **string**<br><p>URIs of file to run.</p> 
-mapreduceJob.<br>fileUris[] | **string**<br><p>URIs of files to be copied to the working directory of Dataproc drivers and distributed tasks.</p> 
-mapreduceJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted in the working directory of Dataproc drivers and tasks.</p> 
-mapreduceJob.<br>properties | **object**<br><p>A mapping of property names to values, used to configure Dataproc.</p> 
+mapreduceJob.<br>fileUris[] | **string**<br><p>URIs of files to be copied to the working directory of Data Proc drivers and distributed tasks.</p> 
+mapreduceJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted in the working directory of Data Proc drivers and tasks.</p> 
+mapreduceJob.<br>properties | **object**<br><p>A mapping of property names to values, used to configure Data Proc.</p> 
 mapreduceJob.<br>mainJarFileUri | **string** <br>`mapreduceJob` includes only one of the fields `mainJarFileUri`, `mainClass`<br><br><p>The HCFS URI of the jar file containing the main class.</p> 
 mapreduceJob.<br>mainClass | **string** <br>`mapreduceJob` includes only one of the fields `mainJarFileUri`, `mainClass`<br><br><p>The name of the driver's main class.</p> 
 sparkJob | **object** <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 sparkJob.<br>args[] | **string**<br><p>Optional arguments to the driver.</p> 
-sparkJob.<br>jarFileUris[] | **string**<br><p>Jar file URIs to add to the CLASSPATHs of the Dataproc driver and tasks.</p> 
-sparkJob.<br>fileUris[] | **string**<br><p>URIs of files to be copied to the working directory of Dataproc drivers and distributed tasks.</p> 
-sparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted in the working directory of Dataproc drivers and tasks.</p> 
-sparkJob.<br>properties | **object**<br><p>A mapping of property names to values, used to configure Dataproc.</p> 
+sparkJob.<br>jarFileUris[] | **string**<br><p>Jar file URIs to add to the CLASSPATHs of the Data Proc driver and tasks.</p> 
+sparkJob.<br>fileUris[] | **string**<br><p>URIs of files to be copied to the working directory of Data Proc drivers and distributed tasks.</p> 
+sparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted in the working directory of Data Proc drivers and tasks.</p> 
+sparkJob.<br>properties | **object**<br><p>A mapping of property names to values, used to configure Data Proc.</p> 
 sparkJob.<br>mainJarFileUri | **string**<br><p>The HCFS URI of the jar file containing the main class.</p> 
 sparkJob.<br>mainClass | **string**<br><p>The name of the driver's main class.</p> 
 pysparkJob | **object** <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 pysparkJob.<br>args[] | **string**<br><p>Optional arguments to the driver.</p> 
-pysparkJob.<br>jarFileUris[] | **string**<br><p>Jar file URIs to add to the CLASSPATHs of the Dataproc driver and tasks.</p> 
-pysparkJob.<br>fileUris[] | **string**<br><p>URIs of files to be copied to the working directory of Dataproc drivers and distributed tasks.</p> 
-pysparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted in the working directory of Dataproc drivers and tasks.</p> 
-pysparkJob.<br>properties | **object**<br><p>A mapping of property names to values, used to configure Dataproc.</p> 
+pysparkJob.<br>jarFileUris[] | **string**<br><p>Jar file URIs to add to the CLASSPATHs of the Data Proc driver and tasks.</p> 
+pysparkJob.<br>fileUris[] | **string**<br><p>URIs of files to be copied to the working directory of Data Proc drivers and distributed tasks.</p> 
+pysparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted in the working directory of Data Proc drivers and tasks.</p> 
+pysparkJob.<br>properties | **object**<br><p>A mapping of property names to values, used to configure Data Proc.</p> 
 pysparkJob.<br>mainPythonFileUri | **string**<br><p>URI of the main Python file to use as the driver. Must be a .py file.</p> 
 pysparkJob.<br>pythonFileUris[] | **string**<br><p>URIs of Python files to pass to the PySpark framework.</p> 
 hiveJob | **object** <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>

@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Method get
-Returns the specified Dataproc cluster.
+Returns the specified cluster.
  
-
+To get the list of all available clusters, make a [list](/docs/data-proc/api-ref/Cluster/list) request.
  
 ## HTTP request {#https-request}
 ```
@@ -16,7 +16,7 @@ GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Dataproc cluster. This ID is assigned by Dataproc at creation time.  The maximum string length in characters is 50.
+clusterId | Required. ID of the Data Proc cluster.  To get a cluster ID make a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -55,29 +55,28 @@ clusterId | Required. ID of the Dataproc cluster. This ID is assigned by Datapro
   "bucket": "string"
 }
 ```
-Description of a Dataproc cluster. For more information, see
-the Yandex Dataproc [documentation](/docs/data-proc/concepts/).
+A Data Proc cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
  
 Field | Description
 --- | ---
-id | **string**<br><p>ID of the Dataproc cluster. This ID is assigned by Dataproc at creation time.</p> 
-folderId | **string**<br><p>ID of the folder that the Dataproc cluster belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-name | **string**<br><p>Name of the Dataproc cluster. The name is unique within the folder. 1-64 characters long.</p> 
-description | **string**<br><p>Description of the Dataproc cluster. 0-256 characters long.</p> 
-labels | **object**<br><p>Custom labels for the Dataproc cluster as <code>key:value</code> pairs. Maximum 64 per resource.</p> 
-monitoring[] | **object**<br><p>Monitoring system.</p> 
+id | **string**<br><p>ID of the cluster. Generated at creation time.</p> 
+folderId | **string**<br><p>ID of the folder that the cluster belongs to.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+name | **string**<br><p>Name of the cluster. The name is unique within the folder.</p> <p>The string length in characters must be 1-63.</p> 
+description | **string**<br><p>Description of the cluster.</p> <p>The string length in characters must be 0-256.</p> 
+labels | **object**<br><p>Cluster labels as <code>key:value</code> pairs.</p> <p>No more than 64 per resource.</p> 
+monitoring[] | **object**<br><p>Metadata of a monitoring system for a Data Proc cluster.</p> 
 monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
 monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
 monitoring[].<br>link | **string**<br><p>Link to the monitoring system.</p> 
-config | **object**<br><p>Configuration of the Dataproc cluster.</p> 
-config.<br>versionId | **string**<br><p>Version of image for cluster provisioning. All available versions are listed in the <a href="/docs/managed-hadoop/concepts/image-versions">documentation</a>.</p> 
-config.<br>hadoop | **object**<br><p>Dataproc specific options</p> <p>Configuration, that describes application logic of installed services, their properties and settings.</p> 
-config.<br>hadoop.<br>services[] | **string**<br><p>List of used services in cluster (for default use empty)</p> 
-config.<br>hadoop.<br>properties | **object**<br><p>Properties passed to all hosts *-site.xml configurations. In key you need to use prefix 'hdfs:dfs.replication' for setting property 'dfs.replication' in /etc/hadoop/conf/hdfs-site.xml</p> 
-config.<br>hadoop.<br>sshPublicKeys[] | **string**<br><p>List of ssh public keys to access to cluster hosts.</p> 
+config | **object**<br><p>Configuration of the cluster.</p> 
+config.<br>versionId | **string**<br><p>Image version for cluster provisioning. All available versions are listed in the <a href="/docs/managed-hadoop/concepts/image-versions">documentation</a>.</p> 
+config.<br>hadoop | **object**<br><p>Data Proc specific configuration options.</p> <p>Hadoop configuration that describes services installed in a cluster, their properties and settings.</p> 
+config.<br>hadoop.<br>services[] | **string**<br><p>Set of services used in the cluster (if empty, the default set is used).</p> 
+config.<br>hadoop.<br>properties | **object**<br><p>Properties set for all hosts in <code>*-site.xml</code> configurations. The key should indicate the service and the property.</p> <p>For example, use the key 'hdfs:dfs.replication' to set the <code>dfs.replication</code> property in <code>/etc/hadoop/conf/hdfs-site.xml</code>.</p> 
+config.<br>hadoop.<br>sshPublicKeys[] | **string**<br><p>List of public SSH keys to access to cluster hosts.</p> 
 health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown ([Host.health] for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is alive and well ([Host.health] for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable ([Host.health] for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity ([Host.health] for at least one host in the cluster is not ALIVE).</li> </ul> 
 status | **string**<br><p>Cluster status.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
-zoneId | **string**<br><p>ID of the availability zone.</p> 
-serviceAccountId | **string**<br><p>ID of service account for Dataproc manager agent.</p> 
-bucket | **string**<br><p>Object storage bucket name for Dataproc jobs.</p> 
+zoneId | **string**<br><p>ID of the availability zone where the cluster resides.</p> 
+serviceAccountId | **string**<br><p>ID of service account for the Data Proc manager agent.</p> 
+bucket | **string**<br><p>Object Storage bucket to be used for Data Proc jobs that are run in the cluster.</p> 

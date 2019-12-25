@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method listOperations
-
+Lists operations for the specified cluster.
  
 
  
@@ -16,14 +16,14 @@ GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/opera
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Dataproc cluster. This ID is assigned by Dataproc at creation time.  The maximum string length in characters is 50.
+clusterId | Required. ID of the cluster to list operations for.  The maximum string length in characters is 50.
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a `next_page_token` that can be used to get the next page of results in subsequent ListOperations requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. Set `page_token` to the `next_page_token` returned by a previous ListOperations request to get the next page of results.  The maximum string length in characters is 100.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/data-proc/api-ref/Cluster/listOperations#query_params), the service returns a [nextPageToken](/docs/data-proc/api-ref/Cluster/listOperations#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/data-proc/api-ref/Cluster/listOperations#query_params) to the [nextPageToken](/docs/data-proc/api-ref/Cluster/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -73,4 +73,4 @@ operations[].<br>error.<br>code | **integer** (int32)<br><p>Error code. An enum 
 operations[].<br>error.<br>message | **string**<br><p>An error message.</p> 
 operations[].<br>error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
 operations[].<br>response | **object** <br>`operations[]` includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for ListOperations requests, if the number of results is larger than <code>page_size</code> specified in the request. To get the next page, specify the value of <code>next_page_token</code> as a value for the <code>page_token</code> parameter in the next ListOperations request. Subsequent ListOperations requests will have their own <code>next_page_token</code> to continue paging through the results.</p> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/data-proc/api-ref/Cluster/listOperations#query_params">pageSize</a>, use <code>next_page_token</code> as the value for the <a href="/docs/data-proc/api-ref/Cluster/listOperations#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own <code>next_page_token</code> to continue paging through the results.</p> 

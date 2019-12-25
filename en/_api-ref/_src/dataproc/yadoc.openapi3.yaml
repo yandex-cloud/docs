@@ -12,15 +12,18 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Returns the specified Dataproc cluster.
+      summary: Returns the specified cluster.
+      description: To get the list of all available clusters, make a [list](/docs/data-proc/api-ref/Cluster/list)
+        request.
       operationId: ClusterGet
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the Dataproc cluster.
-          This ID is assigned by Dataproc at creation time.
+          ID of the Data Proc cluster.
+
+          To get a cluster ID make a [list](/docs/data-proc/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -37,15 +40,16 @@ paths:
     delete:
       tags:
       - Cluster
-      summary: Deletes the specified Dataproc cluster.
+      summary: Deletes the specified cluster.
       operationId: ClusterDelete
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the Dataproc cluster.
-          This ID is assigned by Dataproc at creation time.
+          ID of the cluster to delete.
+
+          To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -65,14 +69,15 @@ paths:
     patch:
       tags:
       - Cluster
-      summary: Updates configuration of the specified Dataproc cluster.
+      summary: Updates the configuration of the specified cluster.
       operationId: ClusterUpdate
       parameters:
       - name: clusterId
         in: path
         description: |-
-          ID of the Dataproc cluster.
-          This ID is assigned by Dataproc at creation time.
+          ID of the cluster to update.
+
+          To get the cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -99,14 +104,16 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Retrieves a list of Dataproc clusters.
+      summary: Retrieves the list of clusters in the specified folder.
       operationId: ClusterList
       parameters:
       - name: folderId
         in: query
         description: |-
           Required.
-          ID of the folder that the Dataproc cluster belongs to.
+          ID of the folder to list clusters in.
+
+          To get the folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
           The maximum string length in characters is 50.
         schema:
@@ -114,10 +121,10 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page that should be returned. If the number of available
-          results is larger than `page_size`, the service returns a `next_page_token` that can be used
-          to get the next page of results in subsequent ListClusters requests.
-          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/data-proc/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/data-proc/api-ref/Cluster/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
           The maximum value is 1000.
         schema:
@@ -126,8 +133,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. Set `page_token` to the `next_page_token` returned by a previous ListClusters
-          request to get the next page of results.
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/data-proc/api-ref/Cluster/list#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -135,7 +142,13 @@ paths:
       - name: filter
         in: query
         description: |-
-          String that describes a display filter.
+          A filter expression that filters clusters listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [Cluster.name](/docs/data-proc/api-ref/Cluster#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9].
+          Example of a filter: `name=my-cluster`.
 
           The maximum string length in characters is 1000.
         schema:
@@ -151,7 +164,7 @@ paths:
     post:
       tags:
       - Cluster
-      summary: Creates a Dataproc cluster.
+      summary: Creates a cluster in the specified folder.
       operationId: ClusterCreate
       requestBody:
         content:
@@ -174,15 +187,16 @@ paths:
     post:
       tags:
       - Cluster
-      summary: Start the specified Dataproc cluster.
+      summary: Starts the specified cluster.
       operationId: ClusterStart
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the Dataproc cluster.
-          This ID is assigned by Dataproc at creation time.
+          ID of the cluster to start.
+
+          To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -203,15 +217,16 @@ paths:
     post:
       tags:
       - Cluster
-      summary: Stop the specified Dataproc cluster.
+      summary: Stops the specified cluster.
       operationId: ClusterStop
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the Dataproc cluster.
-          This ID is assigned by Dataproc at creation time.
+          ID of the cluster to stop.
+
+          To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -232,14 +247,14 @@ paths:
     get:
       tags:
       - Cluster
+      summary: Lists operations for the specified cluster.
       operationId: ClusterListOperations
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the Dataproc cluster.
-          This ID is assigned by Dataproc at creation time.
+          ID of the cluster to list operations for.
 
           The maximum string length in characters is 50.
         required: true
@@ -248,10 +263,10 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page that should be returned. If the number of available
-          results is larger than `page_size`, the service returns a `next_page_token` that can be used
-          to get the next page of results in subsequent ListOperations requests.
-          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/data-proc/api-ref/Cluster/listOperations#query_params), the service returns a [nextPageToken](/docs/data-proc/api-ref/Cluster/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
           The maximum value is 1000.
         schema:
@@ -260,8 +275,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. Set `page_token` to the `next_page_token` returned by a previous ListOperations
-          request to get the next page of results.
+          Page token. To get the next page of results, set [pageToken](/docs/data-proc/api-ref/Cluster/listOperations#query_params) to the
+          [nextPageToken](/docs/data-proc/api-ref/Cluster/listOperations#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -278,14 +293,15 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Retrieves a list of hosts.
+      summary: Retrieves the list of hosts in the specified cluster.
       operationId: ClusterListHosts
       parameters:
       - name: clusterId
         in: path
         description: |-
-          ID of the Dataproc cluster.
-          This ID is assigned by Dataproc at creation time.
+          ID of the cluster to list hosts for.
+
+          To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -294,10 +310,10 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page that should be returned. If the number of available
-          results is larger than `page_size`, the service returns a `next_page_token` that can be used
-          to get the next page of results in subsequent ListClusterHosts requests.
-          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/data-proc/api-ref/Cluster/listHosts#query_params), the service returns a [nextPageToken](/docs/data-proc/api-ref/Cluster/listHosts#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
           The maximum value is 1000.
         schema:
@@ -306,8 +322,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. Set `page_token` to the `next_page_token` returned by a previous ListClusterHosts
-          request to get the next page of results.
+          Page token. To get the next page of results, set [pageToken](/docs/data-proc/api-ref/Cluster/listHosts#query_params) to the
+          [nextPageToken](/docs/data-proc/api-ref/Cluster/listHosts#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -315,7 +331,13 @@ paths:
       - name: filter
         in: query
         description: |-
-          String that describes a display filter.
+          A filter expression that filters hosts listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [Cluster.name](/docs/data-proc/api-ref/Cluster#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9].
+          Example of a filter: `name=my-host`
 
           The maximum string length in characters is 1000.
         schema:
@@ -332,13 +354,14 @@ paths:
     get:
       tags:
       - Job
-      summary: Retrieves a list of jobs for Dataproc cluster.
+      summary: Retrieves a list of jobs for a cluster.
       operationId: JobList
       parameters:
       - name: clusterId
         in: path
         description: |-
-          Required. ID of the cluster to list Dataproc jobs of.
+          Required.
+          ID of the cluster to list jobs for.
 
           The maximum string length in characters is 50.
         required: true
@@ -346,25 +369,35 @@ paths:
           type: string
       - name: pageSize
         in: query
-        description: "The maximum number of results per page that should be returned.
-          If the number of available\r\nresults is larger than `page_size`, the service
-          returns a `next_page_token` that can be used\r\nto get the next page of
-          results in subsequent ListJobs requests.\r\nAcceptable values are 0 to 1000,
-          inclusive. Default value: 100.\n\nThe maximum value is 1000."
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/data-proc/api-ref/Job/list#query_params), the service returns a [nextPageToken](/docs/data-proc/api-ref/Job/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: "Page token. Set `page_token` to the `next_page_token` returned
-          by a previous ListJobs\r\nrequest to get the next page of results.\n\nThe
-          maximum string length in characters is 100."
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/data-proc/api-ref/Job/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       - name: filter
         in: query
         description: |-
-          String that describes a display filter.
+          A filter expression that filters jobs listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [Job.name](/docs/data-proc/api-ref/Job#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9].
+          Example of a filter: `name=my-job`.
 
           The maximum string length in characters is 1000.
         schema:
@@ -380,13 +413,14 @@ paths:
     post:
       tags:
       - Job
-      summary: Creates a job for Dataproc cluster.
+      summary: Creates a job for a cluster.
       operationId: JobCreate
       parameters:
       - name: clusterId
         in: path
         description: |-
-          Required. ID of the cluster to create Dataproc job in.
+          Required.
+          ID of the cluster to create a job for.
 
           The maximum string length in characters is 50.
         required: true
@@ -413,14 +447,14 @@ paths:
     get:
       tags:
       - Job
-      summary: Returns the specified Dataproc cluster.
+      summary: Returns the specified job.
       operationId: JobGet
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          Required. ID of the Dataproc cluster.
+          ID of the cluster to request a job from.
 
           The maximum string length in characters is 50.
         required: true
@@ -430,7 +464,9 @@ paths:
         in: path
         description: |-
           Required.
-          Required. ID of the Dataproc job to return.
+          ID of the job to return.
+
+          To get a job ID make a [list](/docs/data-proc/api-ref/Job/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -448,16 +484,16 @@ paths:
     get:
       tags:
       - Subcluster
-      summary: Returns the specified Dataproc subcluster resource.
-      description: To get the list of available Dataproc subcluster resources, make
-        a [list](/docs/data-proc/api-ref/Subcluster/list) request.
+      summary: Returns the specified subcluster.
+      description: To get the list of all available subclusters, make a [list](/docs/data-proc/api-ref/Subcluster/list)
+        request.
       operationId: SubclusterGet
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the Dataproc cluster to get subcluster from.
+          ID of the Data Proc cluster that the subcluster belongs to.
 
           The maximum string length in characters is 50.
         required: true
@@ -467,8 +503,9 @@ paths:
         in: path
         description: |-
           Required.
-          ID of the Dataproc subcluster resource to return.
-          To get the subcluster ID use a [list](/docs/data-proc/api-ref/Subcluster/list) request.
+          ID of the subcluster to return.
+
+          To get a subcluster ID make a [list](/docs/data-proc/api-ref/Subcluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -485,15 +522,16 @@ paths:
     delete:
       tags:
       - Subcluster
-      summary: Deletes the specified Dataproc subcluster.
+      summary: Deletes the specified subcluster.
       operationId: SubclusterDelete
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the Dataproc cluster to delete subcluster from.
-          To get the Dataproc cluster ID, use a [list](/docs/data-proc/api-ref/Cluster/list) request.
+          ID of the cluster to remove a subcluster from.
+
+          To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -503,7 +541,7 @@ paths:
         in: path
         description: |-
           Required.
-          ID of the Dataproc subcluster resource to delete.
+          ID of the subcluster to delete.
 
           The maximum string length in characters is 50.
         required: true
@@ -523,15 +561,16 @@ paths:
     patch:
       tags:
       - Subcluster
-      summary: Updates configuration of the specified Dataproc subcluster.
+      summary: Updates the specified subcluster.
       operationId: SubclusterUpdate
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the Dataproc cluster to update subcluster to.
-          To get the Dataproc cluster ID, use a [list](/docs/data-proc/api-ref/Cluster/list) request.
+          ID of the cluster to update a subcluster in.
+
+          To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -541,8 +580,9 @@ paths:
         in: path
         description: |-
           Required.
-          ID of the Dataproc subcluster resource.
-          To get the subcluster ID use a [list](/docs/data-proc/api-ref/Subcluster/list) request.
+          ID of the subcluster to update.
+
+          To get a subcluster ID, make a [list](/docs/data-proc/api-ref/Subcluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -569,14 +609,14 @@ paths:
     get:
       tags:
       - Subcluster
-      summary: Retrieves a list of Dataproc subcluster.
+      summary: Retrieves a list of subclusters in the specified cluster.
       operationId: SubclusterList
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the Dataproc cluster to get subclusters from.
+          ID of the Data Proc cluster to list subclusters in.
 
           The maximum string length in characters is 50.
         required: true
@@ -585,10 +625,10 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page that should be returned. If the number of available
-          results is larger than `page_size`, the service returns a `next_page_token` that can be used
-          to get the next page of results in subsequent ListSubclusters requests.
-          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/data-proc/api-ref/Subcluster/list#query_params), the service returns a [nextPageToken](/docs/data-proc/api-ref/Subcluster/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
 
           The maximum value is 1000.
         schema:
@@ -597,8 +637,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. Set `page_token` to the `next_page_token` returned by a previous ListSubclusters
-          request to get the next page of results.
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/data-proc/api-ref/Subcluster/list#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -606,11 +646,13 @@ paths:
       - name: filter
         in: query
         description: |-
-          A filter expression that filters resources listed in the response.
+          A filter expression that filters subclusters listed in the response.
+
           The expression must specify:
-          1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/data-proc/api-ref/Cluster#representation) field.
+          1. The field name. Currently you can use filtering only on [Subcluster.name](/docs/data-proc/api-ref/Subcluster#representation) field.
           2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-          3. The value. Мust be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9].
+          Example of a filter: `name=dataproc123_subcluster456`.
 
           The maximum string length in characters is 1000.
         schema:
@@ -626,15 +668,16 @@ paths:
     post:
       tags:
       - Subcluster
-      summary: Creates a Dataproc subcluster in the specified cluster.
+      summary: Creates a subcluster in the specified cluster.
       operationId: SubclusterCreate
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the Dataproc cluster to create create subcluster to.
-          To get the Dataproc cluster ID, use a [list](/docs/data-proc/api-ref/Cluster/list) request.
+          ID of the Data Proc cluster to create a subcluster in.
+
+          To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -660,43 +703,44 @@ paths:
 components:
   schemas:
     Cluster:
-      description: |-
-        Description of a Dataproc cluster. For more information, see
-        the Yandex Dataproc [documentation](/docs/data-proc/concepts/).
+      description: A Data Proc cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
       type: object
       properties:
         id:
-          description: |-
-            ID of the Dataproc cluster.
-            This ID is assigned by Dataproc at creation time.
+          description: ID of the cluster. Generated at creation time.
           type: string
         folderId:
-          description: ID of the folder that the Dataproc cluster belongs to.
+          description: ID of the folder that the cluster belongs to.
           type: string
         createdAt:
           description: |-
-            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            Creation timestamp.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         name:
           description: |-
-            Name of the Dataproc cluster.
-            The name is unique within the folder. 1-64 characters long.
+            Name of the cluster. The name is unique within the folder.
+
+            The string length in characters must be 1-63.
           type: string
         description:
-          description: Description of the Dataproc cluster. 0-256 characters long.
+          description: |-
+            Description of the cluster.
+
+            The string length in characters must be 0-256.
           type: string
         labels:
           description: |-
-            Custom labels for the Dataproc cluster as `` key:value `` pairs.
-            Maximum 64 per resource.
+            Cluster labels as `key:value` pairs.
+
+            No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
         monitoring:
-          description: Monitoring systems relevant to the Dataproc cluster.
+          description: Monitoring systems relevant to the cluster.
           type: array
           items:
             $ref: '#/components/schemas/Monitoring'
@@ -707,20 +751,21 @@ components:
         status:
           $ref: '#/components/schemas/ClusterStatus_in_Cluster_status'
         zoneId:
-          description: ID of the availability zone.
+          description: ID of the availability zone where the cluster resides.
           type: string
         serviceAccountId:
-          description: ID of service account for Dataproc manager agent.
+          description: ID of service account for the Data Proc manager agent.
           type: string
         bucket:
-          description: Object storage bucket name for Dataproc jobs.
+          description: Object Storage bucket to be used for Data Proc jobs that are
+            run in the cluster.
           type: string
     ClusterConfig:
       type: object
       properties:
         versionId:
           description: |-
-            Version of image for cluster provisioning.
+            Image version for cluster provisioning.
             All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions).
           type: string
         hadoop:
@@ -749,13 +794,14 @@ components:
       properties:
         versionId:
           description: |-
-            Vesion of image for cluster provisioning.
+            Version of the image for cluster provisioning.
+
             All available versions are listed in the [documentation](/docs/data-proc/concepts/image-versions).
           type: string
         hadoop:
           $ref: '#/components/schemas/HadoopConfig_in_CreateClusterConfigSpec_hadoop'
         subclustersSpec:
-          description: Subclusters configuration.
+          description: Specification for creating subclusters.
           type: array
           items:
             $ref: '#/components/schemas/CreateSubclusterConfigSpec'
@@ -763,9 +809,7 @@ components:
       type: object
       properties:
         clusterId:
-          description: |-
-            ID of the Dataproc cluster.
-            This ID is assigned by Dataproc at creation time.
+          description: ID of the cluster that is being created.
           type: string
     CreateClusterRequest:
       type: object
@@ -773,28 +817,28 @@ components:
         folderId:
           description: |-
             Required.
-            ID of the folder that the Dataproc cluster belongs to.
+            ID of the folder to create a cluster in.
+
+            To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
             The maximum string length in characters is 50.
           type: string
         name:
           description: |-
-            Name of the Dataproc cluster. The name must be unique within the folder.
-            The name must be 1-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.
-            The name can’t be changed after the Dataproc cluster is created.
+            Name of the cluster. The name must be unique within the folder.
+            The name can’t be changed after the Data Proc cluster is created.
 
             Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
           description: |-
-            Description of the Dataproc cluster. 0-256 characters long.
+            Description of the cluster.
 
             The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
-            Custom labels for the Dataproc cluster as `` key:value `` pairs.
-            Maximum 64 per resource.
+            Cluster labels as `key:value` pairs.
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
@@ -809,17 +853,19 @@ components:
         zoneId:
           description: |-
             Required.
-            ID of the availability zone.
+            ID of the availability zone where the cluster should be placed.
+
+            To get the list of available zones make a [list](/docs/compute/api-ref/Zone/list) request.
 
             The maximum string length in characters is 50.
           type: string
         serviceAccountId:
           description: |-
             Required.
-            ID of the service account for Dataproc manager agent
+            ID of the service account to be used by the Data Proc manager agent.
           type: string
         bucket:
-          description: Name of object storage bucket for Dataproc jobs.
+          description: Name of the Object Storage bucket to use for Data Proc jobs.
           type: string
     CreateJobMetadata:
       type: object
@@ -827,13 +873,13 @@ components:
         clusterId:
           description: |-
             Required.
-            ID of the Dataproc cluster.
+            ID of the cluster that the job is being created for.
 
             The maximum string length in characters is 50.
           type: string
         jobId:
           description: |-
-            ID of the Dataproc job.
+            ID of the job being created.
 
             The maximum string length in characters is 50.
           type: string
@@ -844,7 +890,7 @@ components:
         properties:
           name:
             description: |-
-              Optional. Name of the job.
+              Name of the job.
 
               Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
             type: string
@@ -854,18 +900,22 @@ components:
         properties:
           mapreduceJob:
             $ref: '#/components/schemas/MapreduceJob'
+            description: Specification for a MapReduce job.
           sparkJob:
             $ref: '#/components/schemas/SparkJob'
+            description: Specification for a Spark job.
           pysparkJob:
             $ref: '#/components/schemas/PysparkJob'
+            description: Specification for a PySpark job.
           hiveJob:
             $ref: '#/components/schemas/HiveJob'
+            description: Specification for a Hive job.
     CreateSubclusterConfigSpec:
       type: object
       properties:
         name:
           description: |-
-            Name of Dataproc subcluster.
+            Name of the subcluster.
 
             Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
@@ -876,14 +926,14 @@ components:
         subnetId:
           description: |-
             Required.
-            ID of using compute subnet for hosts in subcluster.
+            ID of the VPC subnet used for hosts in the subcluster.
 
             The maximum string length in characters is 50.
           type: string
         hostsCount:
           description: |-
             Required.
-            Number of hosts in subcluster
+            Number of hosts in the subcluster.
 
             The minimum value is 1.
           type: string
@@ -893,13 +943,13 @@ components:
       properties:
         clusterId:
           description: |-
-            ID of the Dataproc cluster resource to return.
+            ID of the cluster that the subcluster is being added to.
 
             The maximum string length in characters is 50.
           type: string
         subclusterId:
           description: |-
-            ID of the Dataproc subcluster resource.
+            ID of the subcluster that is being created.
 
             The maximum string length in characters is 50.
           type: string
@@ -908,9 +958,8 @@ components:
       properties:
         name:
           description: |-
-            Name of the Dataproc subcluster. The name must be unique within the folder.
-            The name must be 1-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.
-            The name can’t be changed after the Dataproc subcluster is created.
+            Name of the subcluster. The name must be unique within the cluster. The name can’t be
+            changed when the subcluster is created.
 
             Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
@@ -921,14 +970,14 @@ components:
         subnetId:
           description: |-
             Required.
-            ID of using compute subnet for hosts in subcluster.
+            ID of the VPC subnet used for hosts in the subcluster.
 
             The maximum string length in characters is 50.
           type: string
         hostsCount:
           description: |-
             Required.
-            Number of hosts in subcluster.
+            Number of hosts in the subcluster.
 
             The minimum value is 1.
           type: string
@@ -937,22 +986,20 @@ components:
       type: object
       properties:
         clusterId:
-          description: |-
-            ID of the Dataproc cluster.
-            This ID is assigned by Dataproc at creation time.
+          description: ID of the Data Proc cluster that is being deleted.
           type: string
     DeleteSubclusterMetadata:
       type: object
       properties:
         clusterId:
           description: |-
-            ID of the Dataproc cluster resource to return.
+            ID of the cluster whose subcluster is being deleted.
 
             The maximum string length in characters is 50.
           type: string
         subclusterId:
           description: |-
-            ID of the Dataproc subcluster resource to delete.
+            ID of the ubcluster resource that is being to deleted.
 
             The maximum string length in characters is 50.
           type: string
@@ -973,25 +1020,28 @@ components:
       type: string
     HadoopConfig:
       description: |-
-        Configuration, that describes application logic of installed services,
+        Hadoop configuration that describes services installed in a cluster,
         their properties and settings.
       type: object
       properties:
         services:
-          description: List of used services in cluster (for default use empty)
+          description: Set of services used in the cluster (if empty, the default
+            set is used).
           type: array
           items:
             $ref: '#/components/schemas/HadoopConfigService'
         properties:
           description: |-
-            Properties passed to all hosts *-site.xml configurations.
-            In key you need to use prefix 'hdfs:dfs.replication' for setting
-            property 'dfs.replication' in /etc/hadoop/conf/hdfs-site.xml
+            Properties set for all hosts in `*-site.xml` configurations. The key should indicate
+            the service and the property.
+
+            For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
+            in `/etc/hadoop/conf/hdfs-site.xml`.
           type: object
           additionalProperties:
             type: string
         sshPublicKeys:
-          description: List of ssh public keys to access to cluster hosts.
+          description: List of public SSH keys to access to cluster hosts.
           type: array
           items:
             type: string
@@ -1029,23 +1079,24 @@ components:
       - type: object
         properties:
           properties:
-            description: A mapping of property names to values, used to configure
+            description: Property names and values, used to configure Data Proc and
               Hive.
             type: object
             additionalProperties:
               type: string
           continueOnFailure:
-            description: Whether to continue executing queries if a query fails.
+            description: Flag indicating whether a job should continue to run if a
+              query fails.
             type: boolean
             format: boolean
           scriptVariables:
-            description: Mapping of query variable names to values.
+            description: Query variables and their values.
             type: object
             additionalProperties:
               type: string
           jarFileUris:
-            description: Jar file URIs to add to the CLASSPATHs of the Hive driver
-              and tasks.
+            description: JAR file URIs to add to CLASSPATH of the Hive driver and
+              each task.
             type: array
             items:
               type: string
@@ -1054,88 +1105,95 @@ components:
         maxProperties: 1
         properties:
           queryFileUri:
-            description: URI of the script that contains Hive queries.
+            description: URI of the script with all the necessary Hive queries.
             type: string
           queryList:
             $ref: '#/components/schemas/QueryList'
+            description: List of Hive queries to be used in the job.
     Host:
-      description: |-
-        A Dataproc Host resource. For more information, see
-        the [Concepts](/docs/data-proc/concepts) section of the documentation.
+      description: A Data Proc host resource. For details about the concept, see [documentation](/docs/data-proc/concepts/).
       type: object
       properties:
         name:
           description: |-
-            Name of the Dataproc host. The host name is assigned by Dataproc at creation time, and cannot be changed.
-            1-63 characters long.
-
-            The name is unique across all existing Dataproc hosts in Yandex.Cloud, as it defines the FQDN of the host.
+            Name of the Data Proc host. The host name is assigned by Data Proc at creation time
+            and cannot be changed. The name is generated to be unique across all existing Data Proc
+            hosts in Yandex.Cloud, as it defines the FQDN of the host.
           type: string
         subclusterId:
-          description: ID of Dataproc subcluster host. The ID is assigned by Dataproc
-            at creation time.
+          description: ID of the Data Proc subcluster that the host belongs to.
           type: string
         health:
           $ref: '#/components/schemas/Health_in_Host_health'
         computeInstanceId:
-          description: ID of compute instance appropriated to the Dataproc host.
+          description: ID of the Compute virtual machine that is used as the Data
+            Proc host.
           type: string
         role:
           $ref: '#/components/schemas/Role_in_Host_role'
     Job:
-      description: Dataproc job.
+      description: A Data Proc job. For details about the concept, see [documentation](/docs/dataproc/concepts/jobs).
       type: object
       allOf:
       - type: object
         properties:
           id:
-            description: |-
-              Required. Unique ID of the Dataproc job.
-              This ID is assigned by MDB in the process of creating Dataproc job.
+            description: ID of the job. Generated at creation time.
             type: string
           clusterId:
-            description: Required. Unique ID of the Dataproc cluster.
+            description: Unique ID of the Data Proc cluster.
             type: string
           createdAt:
             description: |-
-              The time when the Dataproc job was created.
+              Creation timestamp.
 
               String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
             type: string
             format: date-time
           startedAt:
             description: |-
-              The time when the Dataproc job was started.
+              The time when the job was started.
 
               String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
             type: string
             format: date-time
           finishedAt:
             description: |-
-              The time when the Dataproc job was finished.
+              The time when the job was finished.
 
               String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
             type: string
             format: date-time
           name:
-            description: Name of the Dataproc job.
+            description: Name of the job, specified in the [create](/docs/data-proc/api-ref/Job/create)
+              request.
             type: string
           status:
             $ref: '#/components/schemas/JobStatus'
-            description: Status.
+            description: Job status.
       - title: job_spec
         type: object
         maxProperties: 1
         properties:
           mapreduceJob:
             $ref: '#/components/schemas/MapreduceJob'
+            description: Specification for a MapReduce job.
           sparkJob:
             $ref: '#/components/schemas/SparkJob'
+            description: Specification for a Spark job.
           pysparkJob:
             $ref: '#/components/schemas/PysparkJob'
+            description: Specification for a PySpark job.
           hiveJob:
             $ref: '#/components/schemas/HiveJob'
+            description: Specification for a Hive job.
     JobStatus:
+      description: |2-
+         - PROVISIONING: Job is logged in the database and is waiting for the agent to run it.
+         - PENDING: Job is acquired by the agent and is in the queue for execution.
+         - RUNNING: Job is being run in the cluster.
+         - ERROR: Job failed to finish the run properly.
+         - DONE: Job is finished
       type: string
       enum:
       - PROVISIONING
@@ -1153,74 +1211,75 @@ components:
             $ref: '#/components/schemas/Host'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for ListClusterHosts requests,
-            if the number of results is larger than `page_size` specified in the request.
-            To get the next page, specify the value of `next_page_token` as a value for
-            the `page_token` parameter in the next ListSubclusterHosts request. Subsequent ListClusterHosts
-            requests will have their own `next_page_token` to continue paging through the results.
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/data-proc/api-ref/Cluster/listHosts#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/data-proc/api-ref/Cluster/listHosts#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListClusterOperationsResponse:
       type: object
       properties:
         operations:
+          description: List of operations for the specified cluster.
           type: array
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for ListOperations requests,
-            if the number of results is larger than `page_size` specified in the request.
-            To get the next page, specify the value of `next_page_token` as a value for
-            the `page_token` parameter in the next ListOperations request. Subsequent ListOperations
-            requests will have their own `next_page_token` to continue paging through the results.
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/data-proc/api-ref/Cluster/listOperations#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/data-proc/api-ref/Cluster/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListClustersResponse:
       type: object
       properties:
         clusters:
-          description: Requested list of Dataproc clusters.
+          description: List of clusters in the specified folder.
           type: array
           items:
             $ref: '#/components/schemas/Cluster'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for ListClusters requests,
-            if the number of results is larger than `page_size` specified in the request.
-            To get the next page, specify the value of `next_page_token` as a value for
-            the `page_token` parameter in the next ListClusters request. Subsequent ListClusters
-            requests will have their own `next_page_token` to continue paging through the results.
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/data-proc/api-ref/Cluster/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/data-proc/api-ref/Cluster/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListJobsResponse:
       type: object
       properties:
         jobs:
-          description: Requested list of Dataproc jobs.
+          description: List of jobs for the specified cluster.
           type: array
           items:
             $ref: '#/components/schemas/Job'
         nextPageToken:
-          description: "This token allows you to get the next page of results for
-            ListJobs requests,\r\nif the number of results is larger than `page_size`
-            specified in the request.\r\nTo get the next page, specify the value of
-            `next_page_token` as a value for\r\nthe `page_token` parameter in the
-            next ListClusters request. Subsequent ListClusters\r\nrequests will have
-            their own `next_page_token` to continue paging through the results."
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/data-proc/api-ref/Job/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/data-proc/api-ref/Job/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListSubclustersResponse:
       type: object
       properties:
         subclusters:
-          description: List of Dataproc subclusters.
+          description: List of subclusters in the specified cluster.
           type: array
           items:
             $ref: '#/components/schemas/Subcluster'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for ListSubclusters requests,
-            if the number of results is larger than `page_size` specified in the request.
-            To get the next page, specify the value of `next_page_token` as a value for
-            the `page_token` parameter in the next ListClusters request. Subsequent ListClusters
-            requests will have their own `next_page_token` to continue paging through the results.
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/data-proc/api-ref/Subcluster/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/data-proc/api-ref/Subcluster/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     MapreduceJob:
       type: object
@@ -1228,30 +1287,32 @@ components:
       - type: object
         properties:
           args:
-            description: Optional arguments to the driver.
+            description: Optional arguments to pass to the driver.
             type: array
             items:
               type: string
           jarFileUris:
-            description: URIs of file to run.
+            description: JAR file URIs to add to CLASSPATH of the Data Proc driver
+              and each task.
             type: array
             items:
               type: string
           fileUris:
-            description: URIs of files to be copied to the working directory of Dataproc
-              drivers and distributed tasks.
+            description: |-
+              URIs of resource files to be copied to the working directory of Data Proc drivers
+              and distributed Hadoop tasks.
             type: array
             items:
               type: string
           archiveUris:
-            description: URIs of archives to be extracted in the working directory
-              of Dataproc drivers and tasks.
+            description: URIs of archives to be extracted to the working directory
+              of Data Proc drivers and tasks.
             type: array
             items:
               type: string
           properties:
-            description: A mapping of property names to values, used to configure
-              Dataproc.
+            description: Property names and values, used to configure Data Proc and
+              MapReduce.
             type: object
             additionalProperties:
               type: string
@@ -1260,13 +1321,13 @@ components:
         maxProperties: 1
         properties:
           mainJarFileUri:
-            description: The HCFS URI of the jar file containing the main class.
+            description: HCFS URI of the .jar file containing the driver class.
             type: string
           mainClass:
-            description: The name of the driver's main class.
+            description: The name of the driver class.
             type: string
     Monitoring:
-      description: Monitoring system.
+      description: Metadata of a monitoring system for a Data Proc cluster.
       type: object
       properties:
         name:
@@ -1339,36 +1400,37 @@ components:
       type: object
       properties:
         args:
-          description: Optional arguments to the driver.
+          description: Optional arguments to pass to the driver.
           type: array
           items:
             type: string
         jarFileUris:
-          description: Jar file URIs to add to the CLASSPATHs of the Dataproc driver
-            and tasks.
+          description: JAR file URIs to add to CLASSPATH of the Data Proc driver and
+            each task.
           type: array
           items:
             type: string
         fileUris:
-          description: URIs of files to be copied to the working directory of Dataproc
-            drivers and distributed tasks.
+          description: |-
+            URIs of resource files to be copied to the working directory of Data Proc drivers
+            and distributed Hadoop tasks.
           type: array
           items:
             type: string
         archiveUris:
-          description: URIs of archives to be extracted in the working directory of
-            Dataproc drivers and tasks.
+          description: URIs of archives to be extracted to the working directory of
+            Data Proc drivers and tasks.
           type: array
           items:
             type: string
         properties:
-          description: A mapping of property names to values, used to configure Dataproc.
+          description: Property names and values, used to configure Data Proc and
+            PySpark.
           type: object
           additionalProperties:
             type: string
         mainPythonFileUri:
-          description: URI of the main Python file to use as the driver. Must be a
-            .py file.
+          description: URI of the file with the driver code. Must be a .py file.
           type: string
         pythonFileUris:
           description: URIs of Python files to pass to the PySpark framework.
@@ -1379,6 +1441,7 @@ components:
       type: object
       properties:
         queries:
+          description: List of Hive queries.
           type: array
           items:
             type: string
@@ -1403,21 +1466,26 @@ components:
           format: int64
     Role:
       description: |2-
-         - ROLE_UNSPECIFIED: Host have undefined role
-         - MASTERNODE: Masternode includes these services (depends on given component list)
-        * HDFS Namenode, Secondary Namenode,
-        * YARN ResorceManager, Timeline Server,
-        * Zookeeper,
-        * Hive Server, Hive Metastore, HCatalog
-        * HBase Master,
-        * Spark History Server,
+         - MASTERNODE: The subcluster fulfills the master role.
+
+        Master can run the following services, depending on the requested components:
+        * HDFS: Namenode, Secondary Namenode
+        * YARN: ResourceManager, Timeline Server
+        * HBase Master
+        * Hive: Server, Metastore, HCatalog
+        * Spark History Server
         * Zeppelin
-         - DATANODE: Datanode includes these services (depends on given component list)
-        * HDFS Datanode,
+        * Zookeeper
+         - DATANODE: The subcluster is a DATANODE in a Data Proc cluster.
+
+        DATANODE can run the following services, depending on the requested components:
+        * HDFS DataNode,
         * YARN NodeManager,
         * HBase RegionServer,
         * Spark libraries.
-         - COMPUTENODE: Computenodes includes these services (depends on given component list)
+         - COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.
+
+        COMPUTENODE can run the following services, depending on the requested components:
         * YARN NodeManager.
         * Spark libraries.
       type: string
@@ -1429,99 +1497,93 @@ components:
       type: object
       properties:
         args:
-          description: Optional arguments to the driver.
+          description: Optional arguments to pass to the driver.
           type: array
           items:
             type: string
         jarFileUris:
-          description: Jar file URIs to add to the CLASSPATHs of the Dataproc driver
-            and tasks.
+          description: JAR file URIs to add to CLASSPATH of the Data Proc driver and
+            each task.
           type: array
           items:
             type: string
         fileUris:
-          description: URIs of files to be copied to the working directory of Dataproc
-            drivers and distributed tasks.
+          description: |-
+            URIs of resource files to be copied to the working directory of Data Proc drivers
+            and distributed Hadoop tasks.
           type: array
           items:
             type: string
         archiveUris:
-          description: URIs of archives to be extracted in the working directory of
-            Dataproc drivers and tasks.
+          description: URIs of archives to be extracted to the working directory of
+            Data Proc drivers and tasks.
           type: array
           items:
             type: string
         properties:
-          description: A mapping of property names to values, used to configure Dataproc.
+          description: Property names and values, used to configure Data Proc and
+            Spark.
           type: object
           additionalProperties:
             type: string
         mainJarFileUri:
-          description: The HCFS URI of the jar file containing the main class.
+          description: The HCFS URI of the jar file containing the `main` class for
+            the job.
           type: string
         mainClass:
-          description: The name of the driver's main class.
+          description: The name of the driver class.
           type: string
     StartClusterMetadata:
       type: object
       properties:
         clusterId:
-          description: |-
-            ID of the Dataproc cluster.
-            This ID is assigned by Dataproc at creation time.
+          description: ID of the Data Proc cluster that is being started.
           type: string
     StopClusterMetadata:
       type: object
       properties:
         clusterId:
-          description: |-
-            ID of the Dataproc cluster.
-            This ID is assigned by Dataproc at creation time.
+          description: ID of the Data Proc cluster that is being stopped.
           type: string
     Subcluster:
-      description: |-
-        A Dataproc Subcluster resource. For more information, see
-        the [Concepts](/docs/data-proc/concepts) section of the documentation.
+      description: A Data Proc subcluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
       type: object
       properties:
         id:
-          description: |-
-            ID of the Dataproc subcluster.
-            This ID is assigned by Dataproc in the process of creating Dataproc subcluster.
+          description: ID of the subcluster. Generated at creation time.
           type: string
         clusterId:
-          description: |-
-            ID of the Dataproc cluster.
-            This ID is assigned by Dataproc in the process of creating Dataproc cluster.
+          description: ID of the Data Proc cluster that the subcluster belongs to.
           type: string
         createdAt:
           description: |-
-            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            Creation timestamp.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         name:
           description: |-
-            Name of the Dataproc subcluster.
-            The name is unique within the folder. 1-64 characters long.
+            Name of the subcluster. The name is unique within the cluster.
+
+            The string length in characters must be 1-63.
           type: string
         role:
           $ref: '#/components/schemas/Role_in_Subcluster_role'
         resources:
           $ref: '#/components/schemas/Resources_in_Subcluster_resources'
         subnetId:
-          description: ID of using compute subnet for hosts in subcluster.
+          description: ID of the VPC subnet used for hosts in the subcluster.
           type: string
         hostsCount:
-          description: Number of hosts in subcluster.
+          description: Number of hosts in the subcluster.
           type: string
           format: int64
     UpdateClusterConfigSpec:
       type: object
       properties:
         subclustersSpec:
-          description: Subclusters configuration.
+          description: New configuration for subclusters in a cluster.
           type: array
           items:
             $ref: '#/components/schemas/UpdateSubclusterConfigSpec'
@@ -1529,9 +1591,7 @@ components:
       type: object
       properties:
         clusterId:
-          description: |-
-            ID of the Dataproc cluster.
-            This ID is assigned by Dataproc at creation time.
+          description: ID of the cluster that is being updated.
           type: string
     UpdateClusterRequest:
       type: object
@@ -1540,14 +1600,13 @@ components:
           $ref: '#/components/schemas/FieldMask_in_UpdateClusterRequest_updateMask'
         description:
           description: |-
-            Description of the Dataproc cluster. 0-256 characters long.
+            New description for the cluster.
 
             The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
-            Custom labels for the Dataproc cluster as `` key:value `` pairs.
-            Maximum 64 per resource.
+            A new set of cluster labels as `key:value` pairs.
 
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
@@ -1561,29 +1620,30 @@ components:
           $ref: '#/components/schemas/UpdateClusterConfigSpec_in_UpdateClusterRequest_configSpec'
         name:
           description: |-
-            Name of the Dataproc cluster. The name must be unique within the folder.
-            The name must be 1-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.
-            The name can’t be changed after the Dataproc cluster is created.
+            New name for the Data Proc cluster. The name must be unique within the folder.
 
             Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         serviceAccountId:
-          description: Identifier of the new service account for the cluster.
+          description: ID of the new service account to be used by the Data Proc manager
+            agent.
           type: string
         bucket:
-          description: Name of the new object storage bucket for Dataproc jobs.
+          description: Name of the new Object Storage bucket to use for Data Proc
+            jobs.
           type: string
     UpdateSubclusterConfigSpec:
       type: object
       properties:
         id:
           description: |-
-            ID of the Dataproc subcluster.
-            This ID is assigned by Dataproc at creation time.
+            ID of the subcluster to update.
+
+            To get the subcluster ID make a [list](/docs/data-proc/api-ref/Subcluster/list) request.
           type: string
         name:
           description: |-
-            Name of Dataproc subcluster.
+            Name of the subcluster.
 
             Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
@@ -1591,7 +1651,7 @@ components:
           $ref: '#/components/schemas/Resources_in_UpdateSubclusterConfigSpec_resources'
         hostsCount:
           description: |-
-            Number of hosts in subcluster
+            Number of hosts in the subcluster.
 
             The minimum value is 1.
           type: string
@@ -1601,13 +1661,13 @@ components:
       properties:
         clusterId:
           description: |-
-            ID of the Dataproc cluster resource to return.
+            ID of the cluster whose subcluster is being updated.
 
             The maximum string length in characters is 50.
           type: string
         subclusterId:
           description: |-
-            ID of the Dataproc subcluster resource to update.
+            ID of the subcluster that is being updated.
 
             The maximum string length in characters is 50.
           type: string
@@ -1620,14 +1680,14 @@ components:
           $ref: '#/components/schemas/Resources_in_UpdateSubclusterRequest_resources'
         name:
           description: |-
-            Name of the Dataproc subcluster. The name must be unique within the folder.
+            New name for the subcluster. The name must be unique within the cluster.
 
             Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         hostsCount:
           description: |-
             Required.
-            Number of hosts in subcluster.
+            New number of hosts in the subcluster.
 
             The minimum value is 1.
           type: string
@@ -1649,12 +1709,12 @@ components:
           items:
             type: object
     ClusterConfig_in_Cluster_config:
-      description: Configuration of the Dataproc cluster.
+      description: Configuration of the cluster.
       type: object
       properties:
         versionId:
           description: |-
-            Version of image for cluster provisioning.
+            Image version for cluster provisioning.
             All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions).
           type: string
         hadoop:
@@ -1697,94 +1757,106 @@ components:
       default: STATUS_UNKNOWN
     HadoopConfig_in_ClusterConfig_hadoop:
       description: |-
-        Dataproc specific options
+        Data Proc specific configuration options.
 
-        Configuration, that describes application logic of installed services,
+        Hadoop configuration that describes services installed in a cluster,
         their properties and settings.
       type: object
       properties:
         services:
-          description: List of used services in cluster (for default use empty)
+          description: Set of services used in the cluster (if empty, the default
+            set is used).
           type: array
           items:
             $ref: '#/components/schemas/HadoopConfigService'
         properties:
           description: |-
-            Properties passed to all hosts *-site.xml configurations.
-            In key you need to use prefix 'hdfs:dfs.replication' for setting
-            property 'dfs.replication' in /etc/hadoop/conf/hdfs-site.xml
+            Properties set for all hosts in `*-site.xml` configurations. The key should indicate
+            the service and the property.
+
+            For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
+            in `/etc/hadoop/conf/hdfs-site.xml`.
           type: object
           additionalProperties:
             type: string
         sshPublicKeys:
-          description: List of ssh public keys to access to cluster hosts.
+          description: List of public SSH keys to access to cluster hosts.
           type: array
           items:
             type: string
     HadoopConfig_in_CreateClusterConfigSpec_hadoop:
       description: |-
-        Dataproc specific options.
+        Data Proc specific options.
 
-        Configuration, that describes application logic of installed services,
+        Hadoop configuration that describes services installed in a cluster,
         their properties and settings.
       type: object
       properties:
         services:
-          description: List of used services in cluster (for default use empty)
+          description: Set of services used in the cluster (if empty, the default
+            set is used).
           type: array
           items:
             $ref: '#/components/schemas/HadoopConfigService'
         properties:
           description: |-
-            Properties passed to all hosts *-site.xml configurations.
-            In key you need to use prefix 'hdfs:dfs.replication' for setting
-            property 'dfs.replication' in /etc/hadoop/conf/hdfs-site.xml
+            Properties set for all hosts in `*-site.xml` configurations. The key should indicate
+            the service and the property.
+
+            For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
+            in `/etc/hadoop/conf/hdfs-site.xml`.
           type: object
           additionalProperties:
             type: string
         sshPublicKeys:
-          description: List of ssh public keys to access to cluster hosts.
+          description: List of public SSH keys to access to cluster hosts.
           type: array
           items:
             type: string
     CreateClusterConfigSpec_in_CreateClusterRequest_configSpec:
       description: |-
         Required.
-        Configuration and resources for hosts that should be created for the Dataproc cluster.
+        Configuration and resources for hosts that should be created with the cluster.
       type: object
       properties:
         versionId:
           description: |-
-            Vesion of image for cluster provisioning.
+            Version of the image for cluster provisioning.
+
             All available versions are listed in the [documentation](/docs/data-proc/concepts/image-versions).
           type: string
         hadoop:
           $ref: '#/components/schemas/HadoopConfig_in_CreateClusterConfigSpec_hadoop'
         subclustersSpec:
-          description: Subclusters configuration.
+          description: Specification for creating subclusters.
           type: array
           items:
             $ref: '#/components/schemas/CreateSubclusterConfigSpec'
     Role_in_CreateSubclusterConfigSpec_role:
       description: |-
         Required.
-        Role of hosts in subcluster.
+        Role of the subcluster in the Data Proc cluster.
 
-         - ROLE_UNSPECIFIED: Host have undefined role
-         - MASTERNODE: Masternode includes these services (depends on given component list)
-        * HDFS Namenode, Secondary Namenode,
-        * YARN ResorceManager, Timeline Server,
-        * Zookeeper,
-        * Hive Server, Hive Metastore, HCatalog
-        * HBase Master,
-        * Spark History Server,
+         - MASTERNODE: The subcluster fulfills the master role.
+
+        Master can run the following services, depending on the requested components:
+        * HDFS: Namenode, Secondary Namenode
+        * YARN: ResourceManager, Timeline Server
+        * HBase Master
+        * Hive: Server, Metastore, HCatalog
+        * Spark History Server
         * Zeppelin
-         - DATANODE: Datanode includes these services (depends on given component list)
-        * HDFS Datanode,
+        * Zookeeper
+         - DATANODE: The subcluster is a DATANODE in a Data Proc cluster.
+
+        DATANODE can run the following services, depending on the requested components:
+        * HDFS DataNode,
         * YARN NodeManager,
         * HBase RegionServer,
         * Spark libraries.
-         - COMPUTENODE: Computenodes includes these services (depends on given component list)
+         - COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.
+
+        COMPUTENODE can run the following services, depending on the requested components:
         * YARN NodeManager.
         * Spark libraries.
       type: string
@@ -1795,7 +1867,7 @@ components:
     Resources_in_CreateSubclusterConfigSpec_resources:
       description: |-
         Required.
-        Resource configuration for hosts in subcluster.
+        Resource configuration for hosts in the subcluster.
       type: object
       properties:
         resourcePresetId:
@@ -1817,23 +1889,28 @@ components:
     Role_in_CreateSubclusterRequest_role:
       description: |-
         Required.
-        Role of hosts in subcluster.
+        Role that is fulfilled by hosts of the subcluster.
 
-         - ROLE_UNSPECIFIED: Host have undefined role
-         - MASTERNODE: Masternode includes these services (depends on given component list)
-        * HDFS Namenode, Secondary Namenode,
-        * YARN ResorceManager, Timeline Server,
-        * Zookeeper,
-        * Hive Server, Hive Metastore, HCatalog
-        * HBase Master,
-        * Spark History Server,
+         - MASTERNODE: The subcluster fulfills the master role.
+
+        Master can run the following services, depending on the requested components:
+        * HDFS: Namenode, Secondary Namenode
+        * YARN: ResourceManager, Timeline Server
+        * HBase Master
+        * Hive: Server, Metastore, HCatalog
+        * Spark History Server
         * Zeppelin
-         - DATANODE: Datanode includes these services (depends on given component list)
-        * HDFS Datanode,
+        * Zookeeper
+         - DATANODE: The subcluster is a DATANODE in a Data Proc cluster.
+
+        DATANODE can run the following services, depending on the requested components:
+        * HDFS DataNode,
         * YARN NodeManager,
         * HBase RegionServer,
         * Spark libraries.
-         - COMPUTENODE: Computenodes includes these services (depends on given component list)
+         - COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.
+
+        COMPUTENODE can run the following services, depending on the requested components:
         * YARN NodeManager.
         * Spark libraries.
       type: string
@@ -1844,7 +1921,7 @@ components:
     Resources_in_CreateSubclusterRequest_resources:
       description: |-
         Required.
-        Resources allocated to hosts in subcluster.
+        Resources allocated for each host in the subcluster.
       type: object
       properties:
         resourcePresetId:
@@ -1865,7 +1942,7 @@ components:
           format: int64
     Health_in_Host_health:
       description: |-
-        Status code of the aggregated health of the host.
+        Host status code.
 
          - HEALTH_UNKNOWN: State of the cluster is unknown ([Host.health] for every host in the cluster is UNKNOWN).
          - ALIVE: Cluster is alive and well ([Host.health] for every host in the cluster is ALIVE).
@@ -1880,23 +1957,28 @@ components:
       default: HEALTH_UNKNOWN
     Role_in_Host_role:
       description: |-
-        Role of current host in cluster.
+        Role of the host in the cluster.
 
-         - ROLE_UNSPECIFIED: Host have undefined role
-         - MASTERNODE: Masternode includes these services (depends on given component list)
-        * HDFS Namenode, Secondary Namenode,
-        * YARN ResorceManager, Timeline Server,
-        * Zookeeper,
-        * Hive Server, Hive Metastore, HCatalog
-        * HBase Master,
-        * Spark History Server,
+         - MASTERNODE: The subcluster fulfills the master role.
+
+        Master can run the following services, depending on the requested components:
+        * HDFS: Namenode, Secondary Namenode
+        * YARN: ResourceManager, Timeline Server
+        * HBase Master
+        * Hive: Server, Metastore, HCatalog
+        * Spark History Server
         * Zeppelin
-         - DATANODE: Datanode includes these services (depends on given component list)
-        * HDFS Datanode,
+        * Zookeeper
+         - DATANODE: The subcluster is a DATANODE in a Data Proc cluster.
+
+        DATANODE can run the following services, depending on the requested components:
+        * HDFS DataNode,
         * YARN NodeManager,
         * HBase RegionServer,
         * Spark libraries.
-         - COMPUTENODE: Computenodes includes these services (depends on given component list)
+         - COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.
+
+        COMPUTENODE can run the following services, depending on the requested components:
         * YARN NodeManager.
         * Spark libraries.
       type: string
@@ -1906,23 +1988,28 @@ components:
       - COMPUTENODE
     Role_in_Subcluster_role:
       description: |-
-        Role of all hosts in subcluster.
+        Role that is fulfilled by hosts of the subcluster.
 
-         - ROLE_UNSPECIFIED: Host have undefined role
-         - MASTERNODE: Masternode includes these services (depends on given component list)
-        * HDFS Namenode, Secondary Namenode,
-        * YARN ResorceManager, Timeline Server,
-        * Zookeeper,
-        * Hive Server, Hive Metastore, HCatalog
-        * HBase Master,
-        * Spark History Server,
+         - MASTERNODE: The subcluster fulfills the master role.
+
+        Master can run the following services, depending on the requested components:
+        * HDFS: Namenode, Secondary Namenode
+        * YARN: ResourceManager, Timeline Server
+        * HBase Master
+        * Hive: Server, Metastore, HCatalog
+        * Spark History Server
         * Zeppelin
-         - DATANODE: Datanode includes these services (depends on given component list)
-        * HDFS Datanode,
+        * Zookeeper
+         - DATANODE: The subcluster is a DATANODE in a Data Proc cluster.
+
+        DATANODE can run the following services, depending on the requested components:
+        * HDFS DataNode,
         * YARN NodeManager,
         * HBase RegionServer,
         * Spark libraries.
-         - COMPUTENODE: Computenodes includes these services (depends on given component list)
+         - COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.
+
+        COMPUTENODE can run the following services, depending on the requested components:
         * YARN NodeManager.
         * Spark libraries.
       type: string
@@ -1931,7 +2018,7 @@ components:
       - DATANODE
       - COMPUTENODE
     Resources_in_Subcluster_resources:
-      description: Resource configuration for hosts in subcluster.
+      description: Resources allocated for each host in the subcluster.
       type: object
       properties:
         resourcePresetId:
@@ -1952,7 +2039,7 @@ components:
           format: int64
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-
-        Field mask that specifies which fields of the Dataproc Cluster resource should be updated.
+        Field mask that specifies which attributes of the cluster should be updated.
 
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
@@ -1964,17 +2051,17 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     UpdateClusterConfigSpec_in_UpdateClusterRequest_configSpec:
-      description: Configuration and resources for hosts that should be created for
-        the Dataproc cluster.
+      description: Configuration and resources for hosts that should be created with
+        the Data Proc cluster.
       type: object
       properties:
         subclustersSpec:
-          description: Subclusters configuration.
+          description: New configuration for subclusters in a cluster.
           type: array
           items:
             $ref: '#/components/schemas/UpdateSubclusterConfigSpec'
     Resources_in_UpdateSubclusterConfigSpec_resources:
-      description: Resource configuration for hosts in subcluster.
+      description: Resource configuration for each host in the subcluster.
       type: object
       properties:
         resourcePresetId:
@@ -1995,6 +2082,8 @@ components:
           format: int64
     FieldMask_in_UpdateSubclusterRequest_updateMask:
       description: |-
+        Field mask that specifies which attributes of the subcluster should be updated.
+
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
@@ -2005,7 +2094,8 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     Resources_in_UpdateSubclusterRequest_resources:
-      description: Resources allocated to hosts in subcluster.
+      description: New configuration of resources that should be allocated for each
+        host in the subcluster.
       type: object
       properties:
         resourcePresetId:
@@ -2026,8 +2116,8 @@ components:
           format: int64
 tags:
 - name: Cluster
-  description: A set of methods for managing Dataproc clusters.
+  description: A set of methods for managing Data Proc clusters.
 - name: Job
-  description: A set of methods for managing jobs for Dataproc cluster.
+  description: A set of methods for managing Data Proc jobs.
 - name: Subcluster
-  description: A set of methods for managing Dataproc subclusters.
+  description: A set of methods for managing Data Proc subclusters.

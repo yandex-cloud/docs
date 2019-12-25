@@ -217,7 +217,13 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
       "password": "string",
       "permissions": [
         {
-          "databaseName": "string"
+          "databaseName": "string",
+          "dataFilters": [
+            {
+              "tableName": "string",
+              "filter": "string"
+            }
+          ]
         }
       ],
       "settings": {
@@ -300,7 +306,17 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
         "sendProgressInHttpHeaders": true,
         "httpHeadersProgressInterval": "integer",
         "addHttpCorsHeader": true
-      }
+      },
+      "quotas": [
+        {
+          "intervalDuration": "integer",
+          "queries": "integer",
+          "errors": "integer",
+          "resultRows": "integer",
+          "readRows": "integer",
+          "executionTime": "integer"
+        }
+      ]
     }
   ],
   "hostSpecs": [
@@ -466,6 +482,9 @@ userSpecs[].<br>name | **string**<br><p>Required. Name of the ClickHouse user.</
 userSpecs[].<br>password | **string**<br><p>Required. Password of the ClickHouse user.</p> <p>The string length in characters must be 8-128.</p> 
 userSpecs[].<br>permissions[] | **object**<br><p>Set of permissions to grant to the user.</p> 
 userSpecs[].<br>permissions[].<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
+userSpecs[].<br>permissions[].<br>dataFilters[] | **object**<br>
+userSpecs[].<br>permissions[].<br>dataFilters[].<br>tableName | **string**<br>
+userSpecs[].<br>permissions[].<br>dataFilters[].<br>filter | **string**<br>
 userSpecs[].<br>settings | **object**<br><p>ClickHouse user settings. Supported settings are a limited subset of all settings described in <a href="https://clickhouse.yandex/docs/en/operations/settings/">ClickHouse documentation</a>.</p> 
 userSpecs[].<br>settings.<br>readonly | **integer** (int64)<br><p>Restricts permissions for non-DDL queries. Possible values:</p> <ul> <li>0 (default) —  no restrictions.</li> <li>1 — only read data queries are allowed.</li> <li>2 — read data and change settings queries are allowed. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_readonly">ClickHouse documentation</a>.</li> </ul> <p>Acceptable values are 0 to 2, inclusive.</p> 
 userSpecs[].<br>settings.<br>allowDdl | **boolean** (boolean)<br><p>Whether DDL queries are allowed. Default value: <code>false</code>. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_allow_ddl">ClickHouse documentation</a>.</p> 
@@ -546,6 +565,13 @@ userSpecs[].<br>settings.<br>enableHttpCompression | **boolean** (boolean)<br><p
 userSpecs[].<br>settings.<br>sendProgressInHttpHeaders | **boolean** (boolean)<br><p>Whether progress notifications using X-ClickHouse-Progress headers are enabled. Default value: <code>false</code>. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-send_progress_in_http_headers">ClickHouse documentation</a>.</p> 
 userSpecs[].<br>settings.<br>httpHeadersProgressInterval | **integer** (int64)<br><p>Minimum interval between progress notifications, in milliseconds. Default value: 100.</p> 
 userSpecs[].<br>settings.<br>addHttpCorsHeader | **boolean** (boolean)<br><p>Whether CORS header in HTTP responses is enabled. Default value: <code>false</code>.</p> 
+userSpecs[].<br>quotas[] | **object**<br><p>ClickHouse quota representation. Each quota associated with an user and limits it resource usage for an interval. See in-depth description <a href="https://clickhouse.yandex/docs/en/operations/quotas/">ClickHouse documentation</a>.</p> 
+userSpecs[].<br>quotas[].<br>intervalDuration | **integer** (int64)<br><p>Duration of interval for quota in milliseconds. Minimal value is 1 minute.</p> <p>The minimum value is 60000.</p> 
+userSpecs[].<br>quotas[].<br>queries | **integer** (int64)<br><p>The total number of queries. 0 - unlimited.</p> <p>The minimum value is 0.</p> 
+userSpecs[].<br>quotas[].<br>errors | **integer** (int64)<br><p>The number of queries that threw exception. 0 - unlimited.</p> <p>The minimum value is 0.</p> 
+userSpecs[].<br>quotas[].<br>resultRows | **integer** (int64)<br><p>The total number of rows given as the result.. 0 - unlimited.</p> <p>The minimum value is 0.</p> 
+userSpecs[].<br>quotas[].<br>readRows | **integer** (int64)<br><p>The total number of source rows read from tables for running the query, on all remote servers. 0 - unlimited.</p> <p>The minimum value is 0.</p> 
+userSpecs[].<br>quotas[].<br>executionTime | **integer** (int64)<br><p>The total query execution time, in milliseconds (wall time). 0 - unlimited.</p> <p>The minimum value is 0.</p> 
 hostSpecs[] | **object**<br><p>Required. Individual configurations for hosts that should be created for the ClickHouse cluster.</p> <p>Must contain at least one element.</p> 
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>type | **string**<br><p>Required. Type of the host to be deployed.</p> <ul> <li>CLICKHOUSE: ClickHouse host.</li> <li>ZOOKEEPER: ZooKeeper host.</li> </ul> 

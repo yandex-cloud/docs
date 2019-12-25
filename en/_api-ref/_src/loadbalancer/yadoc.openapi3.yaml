@@ -1046,7 +1046,7 @@ components:
           description: |-
             Port to use for HTTP health checks.
 
-            Acceptable values are 1 to 32767, inclusive.
+            Acceptable values are 1 to 65535, inclusive.
           type: string
           format: int64
         path:
@@ -1062,9 +1062,21 @@ components:
           description: |-
             Port to use for TCP health checks.
 
-            Acceptable values are 1 to 32767, inclusive.
+            Acceptable values are 1 to 65535, inclusive.
           type: string
           format: int64
+    InternalAddressSpec:
+      description: Internal address specification that is used by ListenerSpec.
+      type: object
+      properties:
+        address:
+          description: Internal IP address for a listener.
+          type: string
+        subnetId:
+          description: ID of the subnet.
+          type: string
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_InternalAddressSpec_ipVersion'
     IpVersion:
       description: |-
         IP version of the addresses that the load balancer works with.
@@ -1161,11 +1173,15 @@ components:
           description: Port of a target.
           type: string
           format: int64
+        subnetId:
+          description: ID of the subnet.
+          type: string
     ListenerProtocol:
       description: Network protocol to use.
       type: string
       enum:
       - TCP
+      - UDP
     ListenerSpec:
       description: Listener specification that will be used by a network load balancer.
       type: object
@@ -1183,7 +1199,7 @@ components:
             description: |-
               Port for incoming traffic.
 
-              Acceptable values are 1 to 32767, inclusive.
+              Acceptable values are 1 to 65535, inclusive.
             type: string
             format: int64
           protocol:
@@ -1194,7 +1210,7 @@ components:
           targetPort:
             description: |-
               Port of a target.
-              Acceptable values are 1 to 32767, inclusive.
+              Acceptable values are 1 to 65535, inclusive.
             type: string
             format: int64
       - title: address
@@ -1204,6 +1220,9 @@ components:
           externalAddressSpec:
             $ref: '#/components/schemas/ExternalAddressSpec'
             description: External IP address specification.
+          internalAddressSpec:
+            $ref: '#/components/schemas/InternalAddressSpec'
+            description: Internal IP address specification.
     NetworkLoadBalancer:
       description: A NetworkLoadBalancer resource. For more information, see [Network
         Load Balancer](/docs/load-balancer/concepts).
@@ -1289,9 +1308,11 @@ components:
         Type of the load balancer. Only external load balancers are currently available.
 
          - EXTERNAL: External network load balancer.
+         - INTERNAL: Internal network load balancer.
       type: string
       enum:
       - EXTERNAL
+      - INTERNAL
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -1608,7 +1629,7 @@ components:
             description: |-
               Port for incoming traffic.
 
-              Acceptable values are 1 to 32767, inclusive.
+              Acceptable values are 1 to 65535, inclusive.
             type: string
             format: int64
           protocol:
@@ -1619,7 +1640,7 @@ components:
           targetPort:
             description: |-
               Port of a target.
-              Acceptable values are 1 to 32767, inclusive.
+              Acceptable values are 1 to 65535, inclusive.
             type: string
             format: int64
       - title: address
@@ -1629,6 +1650,9 @@ components:
           externalAddressSpec:
             $ref: '#/components/schemas/ExternalAddressSpec'
             description: External IP address specification.
+          internalAddressSpec:
+            $ref: '#/components/schemas/InternalAddressSpec'
+            description: Internal IP address specification.
     AttachedTargetGroup_in_AttachNetworkLoadBalancerTargetGroupRequest_attachedTargetGroup:
       description: |-
         Required.
@@ -1663,10 +1687,25 @@ components:
         Type of the load balancer. Only external load balancers are currently available.
 
          - EXTERNAL: External network load balancer.
+         - INTERNAL: Internal network load balancer.
       type: string
       enum:
       - EXTERNAL
+      - INTERNAL
     IpVersion_in_ExternalAddressSpec_ipVersion:
+      description: |-
+        IP version.
+
+        IP version of the addresses that the load balancer works with.
+        Only IPv4 is currently available.
+
+         - IPV4: IPv4
+         - IPV6: IPv6
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    IpVersion_in_InternalAddressSpec_ipVersion:
       description: |-
         IP version.
 
@@ -1687,6 +1726,7 @@ components:
       type: string
       enum:
       - TCP
+      - UDP
     NetworkLoadBalancerStatus_in_NetworkLoadBalancer_status:
       description: |-
         Status of the network load balancer.
@@ -1716,9 +1756,11 @@ components:
         Type of the load balancer. Only external load balancers are currently available.
 
          - EXTERNAL: External network load balancer.
+         - INTERNAL: Internal network load balancer.
       type: string
       enum:
       - EXTERNAL
+      - INTERNAL
     NetworkLoadBalancerSessionAffinity_in_NetworkLoadBalancer_sessionAffinity:
       description: |-
         Type of the session affinity. Only 5-tuple affinity is available now.

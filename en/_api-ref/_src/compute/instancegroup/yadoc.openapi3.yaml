@@ -753,7 +753,7 @@ components:
           description: |-
             Port to use for HTTP health checks.
 
-            Acceptable values are 1 to 32767, inclusive.
+            Acceptable values are 1 to 65535, inclusive.
           type: string
           format: int64
         path:
@@ -766,7 +766,7 @@ components:
           description: |-
             Port to use for TCP health checks.
 
-            Acceptable values are 1 to 32767, inclusive.
+            Acceptable values are 1 to 65535, inclusive.
           type: string
           format: int64
     HealthChecksSpec:
@@ -879,8 +879,7 @@ components:
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-            The maximum string length in characters for each value is 63.
-            Each value must match the regular expression `` [-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 128.
           type: object
           additionalProperties:
             type: string
@@ -1622,8 +1621,7 @@ components:
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-            The maximum string length in characters for each value is 63.
-            Each value must match the regular expression `` [-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 128.
           type: object
           additionalProperties:
             type: string
@@ -1793,8 +1791,7 @@ components:
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-            The maximum string length in characters for each value is 63.
-            Each value must match the regular expression `` [-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 128.
           type: object
           additionalProperties:
             type: string
@@ -2281,8 +2278,7 @@ components:
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-            The maximum string length in characters for each value is 63.
-            Each value must match the regular expression `` [-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 128.
           type: object
           additionalProperties:
             type: string

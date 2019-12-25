@@ -60,9 +60,9 @@ attachedTargetGroup.<br>healthChecks[].<br>timeout | **string**<br><p>Timeout fo
 attachedTargetGroup.<br>healthChecks[].<br>unhealthyThreshold | **string** (int64)<br><p>Number of failed health checks before changing the status to <code>UNHEALTHY</code>. The default is 2.</p> <p>Acceptable values are 2 to 10, inclusive.</p> 
 attachedTargetGroup.<br>healthChecks[].<br>healthyThreshold | **string** (int64)<br><p>Number of successful health checks required in order to set the <code>HEALTHY</code> status for the target. The default is 2.</p> <p>Acceptable values are 2 to 10, inclusive.</p> 
 attachedTargetGroup.<br>healthChecks[].<br>tcpOptions | **object**<br>Options for TCP health check. <br>`attachedTargetGroup.healthChecks[]` includes only one of the fields `tcpOptions`, `httpOptions`<br><br><p>Configuration option for a TCP health check.</p> 
-attachedTargetGroup.<br>healthChecks[].<br>tcpOptions.<br>port | **string** (int64)<br><p>Port to use for TCP health checks.</p> <p>Acceptable values are 1 to 32767, inclusive.</p> 
+attachedTargetGroup.<br>healthChecks[].<br>tcpOptions.<br>port | **string** (int64)<br><p>Port to use for TCP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
 attachedTargetGroup.<br>healthChecks[].<br>httpOptions | **object**<br>Options for HTTP health check. <br>`attachedTargetGroup.healthChecks[]` includes only one of the fields `tcpOptions`, `httpOptions`<br><br><p>Configuration option for an HTTP health check.</p> 
-attachedTargetGroup.<br>healthChecks[].<br>httpOptions.<br>port | **string** (int64)<br><p>Port to use for HTTP health checks.</p> <p>Acceptable values are 1 to 32767, inclusive.</p> 
+attachedTargetGroup.<br>healthChecks[].<br>httpOptions.<br>port | **string** (int64)<br><p>Port to use for HTTP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
 attachedTargetGroup.<br>healthChecks[].<br>httpOptions.<br>path | **string**<br><p>URL path to set for health checking requests for every target in the target group. For example <code>/ping</code>. The default path is <code>/</code>.</p> 
  
 ## Response {#responses}

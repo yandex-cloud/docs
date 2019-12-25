@@ -1,0 +1,61 @@
+items:
+  - name: Обзор
+    href: api-ref/index.md
+  - name: Device
+    items:
+      - name: Обзор
+        href: api-ref/Device/index.md
+      - name: addCertificate
+        href: api-ref/Device/addCertificate.md
+      - name: addPassword
+        href: api-ref/Device/addPassword.md
+      - name: create
+        href: api-ref/Device/create.md
+      - name: delete
+        href: api-ref/Device/delete.md
+      - name: deleteCertificate
+        href: api-ref/Device/deleteCertificate.md
+      - name: deletePassword
+        href: api-ref/Device/deletePassword.md
+      - name: get
+        href: api-ref/Device/get.md
+      - name: list
+        href: api-ref/Device/list.md
+      - name: listCertificates
+        href: api-ref/Device/listCertificates.md
+      - name: listOperations
+        href: api-ref/Device/listOperations.md
+      - name: listPasswords
+        href: api-ref/Device/listPasswords.md
+      - name: update
+        href: api-ref/Device/update.md
+  - name: Registry
+    items:
+      - name: Обзор
+        href: api-ref/Registry/index.md
+      - name: addCertificate
+        href: api-ref/Registry/addCertificate.md
+      - name: addPassword
+        href: api-ref/Registry/addPassword.md
+      - name: create
+        href: api-ref/Registry/create.md
+      - name: delete
+        href: api-ref/Registry/delete.md
+      - name: deleteCertificate
+        href: api-ref/Registry/deleteCertificate.md
+      - name: deletePassword
+        href: api-ref/Registry/deletePassword.md
+      - name: get
+        href: api-ref/Registry/get.md
+      - name: list
+        href: api-ref/Registry/list.md
+      - name: listCertificates
+        href: api-ref/Registry/listCertificates.md
+      - name: listDeviceTopicAliases
+        href: api-ref/Registry/listDeviceTopicAliases.md
+      - name: listOperations
+        href: api-ref/Registry/listOperations.md
+      - name: listPasswords
+        href: api-ref/Registry/listPasswords.md
+      - name: update
+        href: api-ref/Registry/update.md

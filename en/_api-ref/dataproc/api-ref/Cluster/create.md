@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method create
-Creates a Dataproc cluster.
+Creates a cluster in the specified folder.
  
 
  
@@ -54,28 +54,28 @@ POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>Required. ID of the folder that the Dataproc cluster belongs to.</p> <p>The maximum string length in characters is 50.</p> 
-name | **string**<br><p>Name of the Dataproc cluster. The name must be unique within the folder. The name must be 1-63 characters long and match the regular expression <code>^[a-z]([-a-z0-9]{,61}[a-z0-9])?$</code>. The name can’t be changed after the Dataproc cluster is created.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
-description | **string**<br><p>Description of the Dataproc cluster. 0-256 characters long.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Custom labels for the Dataproc cluster as <code>key:value</code> pairs. Maximum 64 per resource.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
-configSpec | **object**<br><p>Required. Configuration and resources for hosts that should be created for the Dataproc cluster.</p> 
-configSpec.<br>versionId | **string**<br><p>Vesion of image for cluster provisioning. All available versions are listed in the <a href="/docs/data-proc/concepts/image-versions">documentation</a>.</p> 
-configSpec.<br>hadoop | **object**<br><p>Dataproc specific options.</p> <p>Configuration, that describes application logic of installed services, their properties and settings.</p> 
-configSpec.<br>hadoop.<br>services[] | **string**<br><p>List of used services in cluster (for default use empty)</p> 
-configSpec.<br>hadoop.<br>properties | **object**<br><p>Properties passed to all hosts *-site.xml configurations. In key you need to use prefix 'hdfs:dfs.replication' for setting property 'dfs.replication' in /etc/hadoop/conf/hdfs-site.xml</p> 
-configSpec.<br>hadoop.<br>sshPublicKeys[] | **string**<br><p>List of ssh public keys to access to cluster hosts.</p> 
-configSpec.<br>subclustersSpec[] | **object**<br><p>Subclusters configuration.</p> 
-configSpec.<br>subclustersSpec[].<br>name | **string**<br><p>Name of Dataproc subcluster.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
-configSpec.<br>subclustersSpec[].<br>role | **string**<br><p>Required. Role of hosts in subcluster.</p> <ul> <li>ROLE_UNSPECIFIED: Host have undefined role</li> <li>MASTERNODE: Masternode includes these services (depends on given component list)</li> </ul> <ul> <li>HDFS Namenode, Secondary Namenode,</li> <li>YARN ResorceManager, Timeline Server,</li> <li>Zookeeper,</li> <li>Hive Server, Hive Metastore, HCatalog</li> <li>HBase Master,</li> <li>Spark History Server,</li> <li>Zeppelin</li> </ul> <ul> <li>DATANODE: Datanode includes these services (depends on given component list)</li> </ul> <ul> <li>HDFS Datanode,</li> <li>YARN NodeManager,</li> <li>HBase RegionServer,</li> <li>Spark libraries.</li> </ul> <ul> <li>COMPUTENODE: Computenodes includes these services (depends on given component list)</li> </ul> <ul> <li>YARN NodeManager.</li> <li>Spark libraries.</li> </ul> 
-configSpec.<br>subclustersSpec[].<br>resources | **object**<br><p>Required. Resource configuration for hosts in subcluster.</p> 
+folderId | **string**<br><p>Required. ID of the folder to create a cluster in.</p> <p>To get a folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+name | **string**<br><p>Name of the cluster. The name must be unique within the folder. The name can’t be changed after the Data Proc cluster is created.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+description | **string**<br><p>Description of the cluster.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>Cluster labels as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 63. Each value must match the regular expression <code>[-_0-9a-z]*</code>.</p> 
+configSpec | **object**<br><p>Required. Configuration and resources for hosts that should be created with the cluster.</p> 
+configSpec.<br>versionId | **string**<br><p>Version of the image for cluster provisioning.</p> <p>All available versions are listed in the <a href="/docs/data-proc/concepts/image-versions">documentation</a>.</p> 
+configSpec.<br>hadoop | **object**<br><p>Data Proc specific options.</p> <p>Hadoop configuration that describes services installed in a cluster, their properties and settings.</p> 
+configSpec.<br>hadoop.<br>services[] | **string**<br><p>Set of services used in the cluster (if empty, the default set is used).</p> 
+configSpec.<br>hadoop.<br>properties | **object**<br><p>Properties set for all hosts in <code>*-site.xml</code> configurations. The key should indicate the service and the property.</p> <p>For example, use the key 'hdfs:dfs.replication' to set the <code>dfs.replication</code> property in <code>/etc/hadoop/conf/hdfs-site.xml</code>.</p> 
+configSpec.<br>hadoop.<br>sshPublicKeys[] | **string**<br><p>List of public SSH keys to access to cluster hosts.</p> 
+configSpec.<br>subclustersSpec[] | **object**<br><p>Specification for creating subclusters.</p> 
+configSpec.<br>subclustersSpec[].<br>name | **string**<br><p>Name of the subcluster.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+configSpec.<br>subclustersSpec[].<br>role | **string**<br><p>Required. Role of the subcluster in the Data Proc cluster.</p> <ul> <li>MASTERNODE: The subcluster fulfills the master role.</li> </ul> <p>Master can run the following services, depending on the requested components:</p> <ul> <li>HDFS: Namenode, Secondary Namenode</li> <li>YARN: ResourceManager, Timeline Server</li> <li>HBase Master</li> <li>Hive: Server, Metastore, HCatalog</li> <li>Spark History Server</li> <li>Zeppelin</li> <li>Zookeeper</li> </ul> <ul> <li>DATANODE: The subcluster is a DATANODE in a Data Proc cluster.</li> </ul> <p>DATANODE can run the following services, depending on the requested components:</p> <ul> <li>HDFS DataNode,</li> <li>YARN NodeManager,</li> <li>HBase RegionServer,</li> <li>Spark libraries.</li> </ul> <ul> <li>COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.</li> </ul> <p>COMPUTENODE can run the following services, depending on the requested components:</p> <ul> <li>YARN NodeManager.</li> <li>Spark libraries.</li> </ul> 
+configSpec.<br>subclustersSpec[].<br>resources | **object**<br><p>Required. Resource configuration for hosts in the subcluster.</p> 
 configSpec.<br>subclustersSpec[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/data-proc/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>subclustersSpec[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive.</li> </ul> 
 configSpec.<br>subclustersSpec[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-configSpec.<br>subclustersSpec[].<br>subnetId | **string**<br><p>Required. ID of using compute subnet for hosts in subcluster.</p> <p>The maximum string length in characters is 50.</p> 
-configSpec.<br>subclustersSpec[].<br>hostsCount | **string** (int64)<br><p>Required. Number of hosts in subcluster</p> <p>The minimum value is 1.</p> 
-zoneId | **string**<br><p>Required. ID of the availability zone.</p> <p>The maximum string length in characters is 50.</p> 
-serviceAccountId | **string**<br><p>Required. ID of the service account for Dataproc manager agent</p> 
-bucket | **string**<br><p>Name of object storage bucket for Dataproc jobs.</p> 
+configSpec.<br>subclustersSpec[].<br>subnetId | **string**<br><p>Required. ID of the VPC subnet used for hosts in the subcluster.</p> <p>The maximum string length in characters is 50.</p> 
+configSpec.<br>subclustersSpec[].<br>hostsCount | **string** (int64)<br><p>Required. Number of hosts in the subcluster.</p> <p>The minimum value is 1.</p> 
+zoneId | **string**<br><p>Required. ID of the availability zone where the cluster should be placed.</p> <p>To get the list of available zones make a <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+serviceAccountId | **string**<br><p>Required. ID of the service account to be used by the Data Proc manager agent.</p> 
+bucket | **string**<br><p>Name of the Object Storage bucket to use for Data Proc jobs.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

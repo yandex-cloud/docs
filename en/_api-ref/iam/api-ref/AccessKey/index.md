@@ -30,3 +30,4 @@ Method | Description
 [delete](delete.md) | Deletes the specified access key.
 [get](get.md) | Returns the specified access key.
 [list](list.md) | Retrieves the list of access keys for the specified service account.
+[listOperations](listOperations.md) | Retrieves the list of operations for the specified access key.

@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method update
-Updates configuration of the specified Dataproc subcluster.
+Updates the specified subcluster.
  
 
  
@@ -16,8 +16,8 @@ PATCH https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/sub
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Dataproc cluster to update subcluster to. To get the Dataproc cluster ID, use a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-subclusterId | Required. ID of the Dataproc subcluster resource. To get the subcluster ID use a [list](/docs/data-proc/api-ref/Subcluster/list) request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the cluster to update a subcluster in.  To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+subclusterId | Required. ID of the subcluster to update.  To get a subcluster ID, make a [list](/docs/data-proc/api-ref/Subcluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -37,13 +37,13 @@ subclusterId | Required. ID of the Dataproc subcluster resource. To get the subc
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-resources | **object**<br><p>Resources allocated to hosts in subcluster.</p> 
+updateMask | **string**<br><p>Field mask that specifies which attributes of the subcluster should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+resources | **object**<br><p>New configuration of resources that should be allocated for each host in the subcluster.</p> 
 resources.<br>resourcePresetId | **string**<br><p>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/data-proc/concepts/instance-types">documentation</a>.</p> 
 resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive.</li> </ul> 
 resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-name | **string**<br><p>Name of the Dataproc subcluster. The name must be unique within the folder.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
-hostsCount | **string** (int64)<br><p>Required. Number of hosts in subcluster.</p> <p>The minimum value is 1.</p> 
+name | **string**<br><p>New name for the subcluster. The name must be unique within the cluster.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+hostsCount | **string** (int64)<br><p>Required. New number of hosts in the subcluster.</p> <p>The minimum value is 1.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

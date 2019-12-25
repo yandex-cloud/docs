@@ -13,6 +13,8 @@ items:
         href: api-ref/ApiKey/get.md
       - name: list
         href: api-ref/ApiKey/list.md
+      - name: listOperations
+        href: api-ref/ApiKey/listOperations.md
   - name: IamToken
     items:
       - name: Обзор
@@ -121,6 +123,8 @@ items:
         href: api-ref/AccessKey/index.md
       - name: list
         href: api-ref/AccessKey/list.md
+      - name: listOperations
+        href: api-ref/AccessKey/listOperations.md
       - name: delete
         href: api-ref/AccessKey/delete.md
       - name: get

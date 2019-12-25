@@ -126,8 +126,58 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Empty'
+                $ref: '#/components/schemas/Operation'
       x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteApiKeyMetadata'
+      x-y-operation-response: Empty
+  /iam/v1/apiKeys/{apiKeyId}/operations:
+    get:
+      tags:
+      - ApiKey
+      summary: Retrieves the list of operations for the specified API key.
+      operationId: ApiKeyListOperations
+      parameters:
+      - name: apiKeyId
+        in: path
+        description: |-
+          Required.
+          ID of the key to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/iam/api-ref/ApiKey/listOperations#query_params),
+          the service returns a [nextPageToken](/docs/iam/api-ref/ApiKey/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/ApiKey/listOperations#query_params) to the
+          [nextPageToken](/docs/iam/api-ref/ApiKey/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListApiKeyOperationsResponse'
+      x-y-navtitle: listOperations
   /iam/v1/tokens:
     post:
       tags:
@@ -952,6 +1002,12 @@ components:
 
             The maximum string length in characters is 256.
           type: string
+    DeleteApiKeyMetadata:
+      type: object
+      properties:
+        apiKeyId:
+          description: ID of the API key that is being deleted.
+          type: string
     DeleteKeyMetadata:
       type: object
       properties:
@@ -1044,6 +1100,21 @@ components:
             for the pageToken query parameter
             in the next list request. Each subsequent list request will have its own
             nextPageToken to continue paging through the results.
+          type: string
+    ListApiKeyOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified API key.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/iam/api-ref/ApiKey/listOperations#query_params), use the [nextPageToken](/docs/iam/api-ref/ApiKey/listOperations#responses) as the value
+            for the [pageToken](/docs/iam/api-ref/ApiKey/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/iam/api-ref/ApiKey/listOperations#responses) to continue paging through the results.
           type: string
     ListApiKeysResponse:
       type: object

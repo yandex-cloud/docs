@@ -28,7 +28,13 @@ userName | Required. Name of the ClickHouse User resource to return. To get the 
   "clusterId": "string",
   "permissions": [
     {
-      "databaseName": "string"
+      "databaseName": "string",
+      "dataFilters": [
+        {
+          "tableName": "string",
+          "filter": "string"
+        }
+      ]
     }
   ],
   "settings": {
@@ -111,7 +117,17 @@ userName | Required. Name of the ClickHouse User resource to return. To get the 
     "sendProgressInHttpHeaders": true,
     "httpHeadersProgressInterval": "integer",
     "addHttpCorsHeader": true
-  }
+  },
+  "quotas": [
+    {
+      "intervalDuration": "integer",
+      "queries": "integer",
+      "errors": "integer",
+      "resultRows": "integer",
+      "readRows": "integer",
+      "executionTime": "integer"
+    }
+  ]
 }
 ```
 A ClickHouse User resource. For more information, see 
@@ -123,6 +139,9 @@ name | **string**<br><p>Name of the ClickHouse user.</p>
 clusterId | **string**<br><p>ID of the ClickHouse cluster the user belongs to.</p> 
 permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 
 permissions[].<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
+permissions[].<br>dataFilters[] | **object**<br>
+permissions[].<br>dataFilters[].<br>tableName | **string**<br>
+permissions[].<br>dataFilters[].<br>filter | **string**<br>
 settings | **object**<br><p>ClickHouse user settings. Supported settings are a limited subset of all settings described in <a href="https://clickhouse.yandex/docs/en/operations/settings/">ClickHouse documentation</a>.</p> 
 settings.<br>readonly | **integer** (int64)<br><p>Restricts permissions for non-DDL queries. Possible values:</p> <ul> <li>0 (default) —  no restrictions.</li> <li>1 — only read data queries are allowed.</li> <li>2 — read data and change settings queries are allowed. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_readonly">ClickHouse documentation</a>.</li> </ul> <p>Acceptable values are 0 to 2, inclusive.</p> 
 settings.<br>allowDdl | **boolean** (boolean)<br><p>Whether DDL queries are allowed. Default value: <code>false</code>. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_allow_ddl">ClickHouse documentation</a>.</p> 
@@ -203,3 +222,10 @@ settings.<br>enableHttpCompression | **boolean** (boolean)<br><p>See in-depth de
 settings.<br>sendProgressInHttpHeaders | **boolean** (boolean)<br><p>Whether progress notifications using X-ClickHouse-Progress headers are enabled. Default value: <code>false</code>. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/settings/#settings-send_progress_in_http_headers">ClickHouse documentation</a>.</p> 
 settings.<br>httpHeadersProgressInterval | **integer** (int64)<br><p>Minimum interval between progress notifications, in milliseconds. Default value: 100.</p> 
 settings.<br>addHttpCorsHeader | **boolean** (boolean)<br><p>Whether CORS header in HTTP responses is enabled. Default value: <code>false</code>.</p> 
+quotas[] | **object**<br><p>ClickHouse quota representation. Each quota associated with an user and limits it resource usage for an interval. See in-depth description <a href="https://clickhouse.yandex/docs/en/operations/quotas/">ClickHouse documentation</a>.</p> 
+quotas[].<br>intervalDuration | **integer** (int64)<br><p>Duration of interval for quota in milliseconds. Minimal value is 1 minute.</p> <p>The minimum value is 60000.</p> 
+quotas[].<br>queries | **integer** (int64)<br><p>The total number of queries. 0 - unlimited.</p> <p>The minimum value is 0.</p> 
+quotas[].<br>errors | **integer** (int64)<br><p>The number of queries that threw exception. 0 - unlimited.</p> <p>The minimum value is 0.</p> 
+quotas[].<br>resultRows | **integer** (int64)<br><p>The total number of rows given as the result.. 0 - unlimited.</p> <p>The minimum value is 0.</p> 
+quotas[].<br>readRows | **integer** (int64)<br><p>The total number of source rows read from tables for running the query, on all remote servers. 0 - unlimited.</p> <p>The minimum value is 0.</p> 
+quotas[].<br>executionTime | **integer** (int64)<br><p>The total query execution time, in milliseconds (wall time). 0 - unlimited.</p> <p>The minimum value is 0.</p> 

@@ -992,6 +992,234 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListInstanceOperationsResponse'
       x-y-navtitle: listOperations
+  /compute/v1/placementGroups/{placementGroupId}:
+    get:
+      tags:
+      - PlacementGroup
+      summary: Returns the specified placement group.
+      operationId: PlacementGroupGet
+      parameters:
+      - name: placementGroupId
+        in: path
+        description: |-
+          ID of the placement group to return.
+          To get the placement group ID, use [list](/docs/compute/api-ref/PlacementGroup/list) request.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlacementGroup'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - PlacementGroup
+      summary: Deletes the specified placement group.
+      operationId: PlacementGroupDelete
+      parameters:
+      - name: placementGroupId
+        in: path
+        description: |-
+          ID of the placement group to delete.
+          To get the placement group ID, use [list](/docs/compute/api-ref/PlacementGroup/list) request.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeletePlacementGroupMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - PlacementGroup
+      summary: Updates the specified placement group.
+      operationId: PlacementGroupUpdate
+      parameters:
+      - name: placementGroupId
+        in: path
+        description: |-
+          ID of the placement group to update.
+          To get the placement group ID, use an [list](/docs/compute/api-ref/PlacementGroup/list) request.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePlacementGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdatePlacementGroupMetadata'
+      x-y-operation-response: '[PlacementGroup](/docs/compute/api-ref/PlacementGroup#representation)'
+  /compute/v1/placementGroups:
+    get:
+      tags:
+      - PlacementGroup
+      summary: Retrieves the list of placement groups in the specified folder.
+      operationId: PlacementGroupList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          ID of the folder to list placement groups in.
+          To get the folder ID, use [list](/docs/resource-manager/api-ref/Folder/list) request.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/PlacementGroup/list#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/PlacementGroup/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results,
+          set [pageToken](/docs/compute/api-ref/PlacementGroup/list#query_params) to the [nextPageToken](/docs/compute/api-ref/PlacementGroup/list#responses)
+          returned by a previous list request.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on the [PlacementGroup.name](/docs/compute/api-ref/PlacementGroup#representation) field.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPlacementGroupsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - PlacementGroup
+      summary: Creates a placement group in the specified folder.
+      operationId: PlacementGroupCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePlacementGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreatePlacementGroupMetadata'
+      x-y-operation-response: '[PlacementGroup](/docs/compute/api-ref/PlacementGroup#representation)'
+  /compute/v1/placementGroups/{placementGroupId}/instances:
+    get:
+      tags:
+      - PlacementGroup
+      summary: Lists instances for the specified placement group.
+      operationId: PlacementGroupListInstances
+      parameters:
+      - name: placementGroupId
+        in: path
+        description: |-
+          ID of the placement group to list instances for.
+          To get the placement group ID, use [list](/docs/compute/api-ref/PlacementGroup/list) request.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/PlacementGroup/listInstances#query_params),
+          the service returns a [nextPageToken](/docs/compute/api-ref/PlacementGroup/listInstances#responses)
+          that can be used to get the next page of results in subsequent list requests.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results,
+          set [pageToken](/docs/compute/api-ref/PlacementGroup/listInstances#query_params) to the [nextPageToken](/docs/compute/api-ref/PlacementGroup/listInstances#responses)
+          returned by a previous list request.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPlacementGroupInstancesResponse'
+      x-y-navtitle: listInstances
+  /compute/v1/placementGroups/{placementGroupId}/operations:
+    get:
+      tags:
+      - PlacementGroup
+      summary: Lists operations for the specified placement group.
+      operationId: PlacementGroupListOperations
+      parameters:
+      - name: placementGroupId
+        in: path
+        description: |-
+          ID of the placement group to list operations for.
+          To get the placement group ID, use [list](/docs/compute/api-ref/PlacementGroup/list) request.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/PlacementGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/PlacementGroup/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/PlacementGroup/listOperations#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/PlacementGroup/listOperations#responses) returned by a previous list request.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPlacementGroupOperationsResponse'
+      x-y-navtitle: listOperations
   /compute/v1/snapshots/{snapshotId}:
     get:
       tags:
@@ -1717,6 +1945,42 @@ components:
           type: string
         networkSettings:
           $ref: '#/components/schemas/NetworkSettings_in_CreateInstanceRequest_networkSettings'
+        placementPolicy:
+          $ref: '#/components/schemas/PlacementPolicy_in_CreateInstanceRequest_placementPolicy'
+    CreatePlacementGroupMetadata:
+      type: object
+      properties:
+        placementGroupId:
+          description: ID of the placement group that is being created.
+          type: string
+    CreatePlacementGroupRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              ID of the folder to create a placement group in.
+              To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+            type: string
+          name:
+            description: Name of the placement group.
+            type: string
+          description:
+            description: Description of the placement group.
+            type: string
+          labels:
+            description: Resource labels as `key:value` pairs.
+            type: object
+            additionalProperties:
+              type: string
+      - title: placement_strategy
+        type: object
+        maxProperties: 1
+        properties:
+          spreadPlacementStrategy:
+            $ref: '#/components/schemas/SpreadPlacementStrategy'
+            description: Distribute instances over distinct failure domains.
     CreateSnapshotMetadata:
       type: object
       properties:
@@ -1786,6 +2050,12 @@ components:
       properties:
         instanceId:
           description: ID of the instance that is being deleted.
+          type: string
+    DeletePlacementGroupMetadata:
+      type: object
+      properties:
+        placementGroupId:
+          description: ID of the placement group that is being deleted.
           type: string
     DeleteSnapshotMetadata:
       type: object
@@ -2083,6 +2353,8 @@ components:
           type: string
         networkSettings:
           $ref: '#/components/schemas/NetworkSettings_in_Instance_networkSettings'
+        placementPolicy:
+          $ref: '#/components/schemas/PlacementPolicy_in_Instance_placementPolicy'
     InstanceStatus:
       description: |2-
          - PROVISIONING: Instance is waiting for resources to be allocated.
@@ -2236,6 +2508,55 @@ components:
             for the [pageToken](/docs/compute/api-ref/Instance/list#query_params) query parameter
             in the next list request. Each subsequent list request will have its own
             [nextPageToken](/docs/compute/api-ref/Instance/list#responses) to continue paging through the results.
+          type: string
+    ListPlacementGroupInstancesResponse:
+      type: object
+      properties:
+        instances:
+          description: Lists instances for the specified placement group.
+          type: array
+          items:
+            $ref: '#/components/schemas/Instance'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is more than [pageSize](/docs/compute/api-ref/PlacementGroup/listInstances#query_params), use
+            [nextPageToken](/docs/compute/api-ref/PlacementGroup/listInstances#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/PlacementGroup/listInstances#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/PlacementGroup/listInstances#responses) to continue paging through the results.
+          type: string
+    ListPlacementGroupOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified placement group.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/PlacementGroup/listOperations#query_params), use the [nextPageToken](/docs/compute/api-ref/PlacementGroup/listOperations#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/PlacementGroup/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/compute/api-ref/PlacementGroup/listOperations#responses) to continue paging through the results.
+          type: string
+    ListPlacementGroupsResponse:
+      type: object
+      properties:
+        placementGroups:
+          description: Lists placement groups for the specified folder.
+          type: array
+          items:
+            $ref: '#/components/schemas/PlacementGroup'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/compute/api-ref/PlacementGroup/list#query_params), use
+            [nextPageToken](/docs/compute/api-ref/PlacementGroup/list#responses) as the value
+            for the [pageToken](/docs/compute/api-ref/PlacementGroup/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/compute/api-ref/PlacementGroup/list#responses) to continue paging through the results.
           type: string
     ListSnapshotOperationsResponse:
       type: object
@@ -2416,6 +2737,50 @@ components:
       enum:
       - LINUX
       - WINDOWS
+    PlacementGroup:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the placement group.
+            type: string
+          folderId:
+            description: ID of the folder that the placement group belongs to.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          name:
+            description: |-
+              Name of the placement group.
+              The name is unique within the folder.
+            type: string
+          description:
+            description: Description of the placement group.
+            type: string
+          labels:
+            description: Resource labels as `key:value` pairs.
+            type: object
+            additionalProperties:
+              type: string
+      - title: placement_strategy
+        type: object
+        maxProperties: 1
+        properties:
+          spreadPlacementStrategy:
+            $ref: '#/components/schemas/SpreadPlacementStrategy'
+            description: Distribute instances over distinct failure domains.
+    PlacementPolicy:
+      type: object
+      properties:
+        placementGroupId:
+          description: Placement group ID.
+          type: string
     PrimaryAddress:
       type: object
       properties:
@@ -2573,6 +2938,9 @@ components:
       - READY
       - ERROR
       - DELETING
+    SpreadPlacementStrategy:
+      type: object
+      properties: {}
     StartInstanceMetadata:
       type: object
       properties:
@@ -2764,6 +3132,33 @@ components:
           type: string
         networkSettings:
           $ref: '#/components/schemas/NetworkSettings_in_UpdateInstanceRequest_networkSettings'
+        placementPolicy:
+          $ref: '#/components/schemas/PlacementPolicy_in_UpdateInstanceRequest_placementPolicy'
+    UpdatePlacementGroupMetadata:
+      type: object
+      properties:
+        placementGroupId:
+          description: ID of the placement group that is being updated.
+          type: string
+    UpdatePlacementGroupRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdatePlacementGroupRequest_updateMask'
+        name:
+          description: Name of the placement group.
+          type: string
+        description:
+          description: Description of the placement group.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            The existing set of `labels` is completely replaced by the provided set.
+          type: object
+          additionalProperties:
+            type: string
     UpdateSnapshotMetadata:
       type: object
       properties:
@@ -2981,6 +3376,13 @@ components:
       properties:
         type:
           $ref: '#/components/schemas/NetworkSettingsType_in_NetworkSettings_type'
+    PlacementPolicy_in_CreateInstanceRequest_placementPolicy:
+      description: Placement policy configuration.
+      type: object
+      properties:
+        placementGroupId:
+          description: Placement group ID.
+          type: string
     ImageStatus_in_Image_status:
       description: |-
         Current status of the image.
@@ -3087,6 +3489,13 @@ components:
       properties:
         type:
           $ref: '#/components/schemas/NetworkSettingsType_in_NetworkSettings_type'
+    PlacementPolicy_in_Instance_placementPolicy:
+      description: Placement policy configuration.
+      type: object
+      properties:
+        placementGroupId:
+          description: Placement group ID.
+          type: string
     PrimaryAddress_in_NetworkInterface_primaryV4Address:
       description: Primary IPv4 address that is assigned to the instance for this
         network interface.
@@ -3295,6 +3704,26 @@ components:
       properties:
         type:
           $ref: '#/components/schemas/NetworkSettingsType_in_NetworkSettings_type'
+    PlacementPolicy_in_UpdateInstanceRequest_placementPolicy:
+      description: Placement policy configuration.
+      type: object
+      properties:
+        placementGroupId:
+          description: Placement group ID.
+          type: string
+    FieldMask_in_UpdatePlacementGroupRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the PlacementGroup resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
     FieldMask_in_UpdateSnapshotRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the Snapshot resource are going to be updated.
@@ -3327,6 +3756,8 @@ tags:
   description: A set of methods for managing Image resources.
 - name: Instance
   description: A set of methods for managing Instance resources.
+- name: PlacementGroup
+  description: A set of methods for managing PlacementGroup resources.
 - name: Snapshot
   description: A set of methods for managing Snapshot resources.
 - name: Zone

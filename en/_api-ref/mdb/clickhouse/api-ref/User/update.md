@@ -27,7 +27,13 @@ userName | Required. Name of the user to be updated. To get the name of the user
   "password": "string",
   "permissions": [
     {
-      "databaseName": "string"
+      "databaseName": "string",
+      "dataFilters": [
+        {
+          "tableName": "string",
+          "filter": "string"
+        }
+      ]
     }
   ],
   "settings": {
@@ -121,6 +127,9 @@ updateMask | **string**<br><p>Field mask that specifies which attributes of the 
 password | **string**<br><p>New password for the user.</p> <p>The string length in characters must be 8-128.</p> 
 permissions[] | **object**<br><p>New set of permissions for the user.</p> 
 permissions[].<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
+permissions[].<br>dataFilters[] | **object**<br>
+permissions[].<br>dataFilters[].<br>tableName | **string**<br>
+permissions[].<br>dataFilters[].<br>filter | **string**<br>
 settings | **object**<br><p>ClickHouse user settings. Supported settings are a limited subset of all settings described in <a href="https://clickhouse.yandex/docs/en/operations/settings/">ClickHouse documentation</a>.</p> 
 settings.<br>readonly | **integer** (int64)<br><p>Restricts permissions for non-DDL queries. Possible values:</p> <ul> <li>0 (default) —  no restrictions.</li> <li>1 — only read data queries are allowed.</li> <li>2 — read data and change settings queries are allowed. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_readonly">ClickHouse documentation</a>.</li> </ul> <p>Acceptable values are 0 to 2, inclusive.</p> 
 settings.<br>allowDdl | **boolean** (boolean)<br><p>Whether DDL queries are allowed. Default value: <code>false</code>. See in-depth description in <a href="https://clickhouse.yandex/docs/en/operations/settings/permissions_for_queries/#settings_allow_ddl">ClickHouse documentation</a>.</p> 

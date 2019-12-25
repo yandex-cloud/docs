@@ -74,3 +74,10 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+    include:
+      repo: docs
+      path: en/_api-ref/iot/devices/toc.yaml

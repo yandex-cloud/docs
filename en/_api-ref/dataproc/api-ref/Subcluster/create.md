@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method create
-Creates a Dataproc subcluster in the specified cluster.
+Creates a subcluster in the specified cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/subc
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Dataproc cluster to create create subcluster to. To get the Dataproc cluster ID, use a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the Data Proc cluster to create a subcluster in.  To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -37,14 +37,14 @@ clusterId | Required. ID of the Dataproc cluster to create create subcluster to.
  
 Field | Description
 --- | ---
-name | **string**<br><p>Name of the Dataproc subcluster. The name must be unique within the folder. The name must be 1-63 characters long and match the regular expression <code>^[a-z]([-a-z0-9]{,61}[a-z0-9])?$</code>. The name can’t be changed after the Dataproc subcluster is created.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
-role | **string**<br><p>Required. Role of hosts in subcluster.</p> <ul> <li>ROLE_UNSPECIFIED: Host have undefined role</li> <li>MASTERNODE: Masternode includes these services (depends on given component list)</li> </ul> <ul> <li>HDFS Namenode, Secondary Namenode,</li> <li>YARN ResorceManager, Timeline Server,</li> <li>Zookeeper,</li> <li>Hive Server, Hive Metastore, HCatalog</li> <li>HBase Master,</li> <li>Spark History Server,</li> <li>Zeppelin</li> </ul> <ul> <li>DATANODE: Datanode includes these services (depends on given component list)</li> </ul> <ul> <li>HDFS Datanode,</li> <li>YARN NodeManager,</li> <li>HBase RegionServer,</li> <li>Spark libraries.</li> </ul> <ul> <li>COMPUTENODE: Computenodes includes these services (depends on given component list)</li> </ul> <ul> <li>YARN NodeManager.</li> <li>Spark libraries.</li> </ul> 
-resources | **object**<br><p>Required. Resources allocated to hosts in subcluster.</p> 
+name | **string**<br><p>Name of the subcluster. The name must be unique within the cluster. The name can’t be changed when the subcluster is created.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
+role | **string**<br><p>Required. Role that is fulfilled by hosts of the subcluster.</p> <ul> <li>MASTERNODE: The subcluster fulfills the master role.</li> </ul> <p>Master can run the following services, depending on the requested components:</p> <ul> <li>HDFS: Namenode, Secondary Namenode</li> <li>YARN: ResourceManager, Timeline Server</li> <li>HBase Master</li> <li>Hive: Server, Metastore, HCatalog</li> <li>Spark History Server</li> <li>Zeppelin</li> <li>Zookeeper</li> </ul> <ul> <li>DATANODE: The subcluster is a DATANODE in a Data Proc cluster.</li> </ul> <p>DATANODE can run the following services, depending on the requested components:</p> <ul> <li>HDFS DataNode,</li> <li>YARN NodeManager,</li> <li>HBase RegionServer,</li> <li>Spark libraries.</li> </ul> <ul> <li>COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.</li> </ul> <p>COMPUTENODE can run the following services, depending on the requested components:</p> <ul> <li>YARN NodeManager.</li> <li>Spark libraries.</li> </ul> 
+resources | **object**<br><p>Required. Resources allocated for each host in the subcluster.</p> 
 resources.<br>resourcePresetId | **string**<br><p>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/data-proc/concepts/instance-types">documentation</a>.</p> 
 resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host. Possible values:</p> <ul> <li>network-hdd — network HDD drive,</li> <li>network-ssd — network SSD drive.</li> </ul> 
 resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
-subnetId | **string**<br><p>Required. ID of using compute subnet for hosts in subcluster.</p> <p>The maximum string length in characters is 50.</p> 
-hostsCount | **string** (int64)<br><p>Required. Number of hosts in subcluster.</p> <p>The minimum value is 1.</p> 
+subnetId | **string**<br><p>Required. ID of the VPC subnet used for hosts in the subcluster.</p> <p>The maximum string length in characters is 50.</p> 
+hostsCount | **string** (int64)<br><p>Required. Number of hosts in the subcluster.</p> <p>The minimum value is 1.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

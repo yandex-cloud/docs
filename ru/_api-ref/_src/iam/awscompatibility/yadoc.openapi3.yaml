@@ -126,8 +126,57 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Empty'
+                $ref: '#/components/schemas/Operation'
       x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteAccessKeyMetadata'
+      x-y-operation-response: Empty
+  /iam/aws-compatibility/v1/accessKeys/{accessKeyId}/operations:
+    get:
+      tags:
+      - AccessKey
+      summary: Возвращает список операций для указанного ключа доступа.
+      operationId: AccessKeyListOperations
+      parameters:
+      - name: accessKeyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор ключа доступа, для которого требуется получть список операций.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/iam/api-ref/AccessKey/listOperations#query_params), сервис вернет значение [nextPageToken](/docs/iam/api-ref/AccessKey/listOperations#responses),
+          которое можно использовать для получения следующей страницы.
+          Значение по умолчанию: 100.
+
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/iam/api-ref/AccessKey/listOperations#query_params) равным значению поля
+          [nextPageToken](/docs/iam/api-ref/AccessKey/listOperations#responses) предыдущего запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessKeyOperationsResponse'
+      x-y-navtitle: listOperations
 components:
   schemas:
     AccessKey:
@@ -184,10 +233,32 @@ components:
         secret:
           description: Секретный ключ доступа. Ключ совместим с сервисами AWS.
           type: string
+    DeleteAccessKeyMetadata:
+      type: object
+      properties:
+        accessKeyId:
+          description: Идентификатор удаляемого ключа доступа.
+          type: string
     Empty:
       description: Пустой JSON объект `` {} ``.
       type: object
       maxProperties: 0
+    ListAccessKeyOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанного ключа доступа.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/iam/api-ref/AccessKey/listOperations#query_params), используйте [nextPageToken](/docs/iam/api-ref/AccessKey/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/iam/api-ref/AccessKey/listOperations#query_params) в следующем запросе списка ключей доступа. Все
+            последующие запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/AccessKey/listOperations#responses) для перебора страниц
+            результатов.
+          type: string
     ListAccessKeysResponse:
       type: object
       properties:
@@ -203,6 +274,90 @@ components:
             параметра [pageToken](/docs/iam/api-ref/AccessKey/list#query_params) в следующем запросе списка ресурсов. Все последующие
             запросы будут получать свои значения [nextPageToken](/docs/iam/api-ref/AccessKey/list#responses) для перебора страниц результатов.
           type: string
+    Operation:
+      description: |-
+        Ресурс Operation. Дополнительные сведения см. в разделе
+        [Объект Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Идентификатор операции.
+            type: string
+          description:
+            description: |-
+              Описание операции. Длина описания должна быть от 0 до 256
+              символов.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса в формате в
+              [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          createdBy:
+            description: |-
+              Идентификатор пользователя или сервисного
+              аккаунта, инициировавшего операцию.
+            type: string
+          modifiedAt:
+            description: |-
+              Время, когда ресурс Operation последний раз
+              обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          done:
+            description: |-
+              Если значение равно `false` — операция еще
+              выполняется. Если `true` — операция завершена, и задано значение
+              одного из полей `error` или `response`.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Метаданные операции. Обычно в поле содержится
+              идентификатор ресурса, над которым выполняется операция. Если
+              метод возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `metadata`.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: Описание ошибки в случае сбоя или отмены операции.
+          response:
+            description: |-
+              Результат операции в случае успешного завершения. Если
+              исходный метод не возвращает никаких данных при успешном
+              завершении, например метод Delete, поле содержит объект
+              [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty). Если исходный метод — это стандартный метод Create
+              / Update, поле содержит целевой ресурс операции. Если метод
+              возвращает ресурс Operation, в описании метода приведена
+              структура соответствующего ему поля `response`.
+            type: object
+    Status:
+      description: Описание ошибки в случае сбоя или отмены операции.
+      type: object
+      properties:
+        code:
+          description: Код ошибки. Значение из списка [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: Текст ошибки.
+          type: string
+        details:
+          description: Список сообщений с подробными сведениями об ошибке.
+          type: array
+          items:
+            type: object
     AccessKey_in_CreateAccessKeyResponse_accessKey:
       description: |-
         Ресурс AccessKey.

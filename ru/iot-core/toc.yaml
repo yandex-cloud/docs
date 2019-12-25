@@ -84,3 +84,10 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+    include:
+      repo: docs
+      path: ru/_api-ref/iot/devices/toc.yaml
