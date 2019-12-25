@@ -4,11 +4,14 @@
 
 - [{{ ydb-full-name }} Whitepaper](https://storage.yandexcloud.net/ydb-public-talks/yandex-database-a4.pdf).
     
-### 2019: YaTalks Москва {#ya-talks}
+### 2019: YaTalks Москва {#yatalks-moscow-2019}
 
 - Тема: {{ ydb-full-name }} — как выжать 10K IOPS из HDD и вставить в таблицу 50K записей на одном ядре.
     - [Презентация](https://storage.yandexcloud.net/ydb-public-talks/yatalks-ydb.pptx).
     - [Запись трансляции](https://youtu.be/hXH_tRBxFnA?t=11283).
+    - Описание: 
+        1. Рассказ об успешном использовании {{ ydb-full-name }} в качестве бэкэнда для распределенной трассировки Jaeger от представителей Auto.ru и [Яндекс.Недвижимости](https://realty.yandex.ru/).
+        1. Рассказ про архитектуру распределенного сетевого хранилища в {{ ydb-full-name }}.
 
 ### 2019: Yandex Scale {#scale}
 
@@ -37,12 +40,18 @@
     - [Запись трансляции](https://youtu.be/Kr6WIYPts8I?t=10550).    
     - Описание: о YDB как о базе данных.
 - Тема: {{ ydb-full-name }}: сетевое блочное устройство. 
-    - [Запись трансляции](https://youtu.be/Kr6WIYPts8I?t=12861).    
+    - [Запись трансляции](https://youtu.be/Kr6WIYPts8I?t=12861).
     - Описание: рассказ про Network Block Store — сервис виртуальных дисков, на которых работают все виртуальные машины Облака.
 
 ## Материалы для углубленного изучения YDB {#internals}
+
+### 2019: DevZen Podcast {#devzen}
+
+- Тема: Устройство {{ ydb-full-name }}.
+    - [Запись подкаста](https://devzen.ru/episode-0272/).    
+    - Описание: подробный рассказ про устройство YDB и ответы на вопросы.
     
-### 2019: YaTalks Екатеринбург {#yatalks}
+### 2019: YaTalks Екатеринбург {#yatalks-ekb-2019}
 
 - Тема: {{ ydb-full-name }}: newSQL-база данных Яндекса.
     - [Презентация](https://storage.yandexcloud.net/ydb-public-talks/YdbInCloud_2.pptx).
@@ -76,7 +85,15 @@
     - [Презентация](https://storage.yandexcloud.net/ydb-public-talks/Hydra_2019_Semen_Checherinda_Raspredelennyye_tranzaktsii_v_YDB%20(2).pptx).
     - Описание: механизм выполнения распределенных транзакций в YDB. 
     
-    
+## Решения на базе YDB {#solutions}
+
+### 2019: HighLoad++ Siberia {#highload}
      
-
-
+- Тема: Реализация геораспределенной персистентной очереди сообщений.
+    - [Запись трансляции](https://www.youtube.com/watch?v=IZ7qxPVyasc).
+    - [Презентация](https://storage.yandexcloud.net/ydb-public-talks/ymq.pdf).
+    - Описание: рассказ про {{ monitoring-full-name }} — сервис для сбора, хранения и отображения метрик.
+- Тема: Архитектура высокопроизводительной и высокодоступной системы мониторинга.
+    - [Запись трансляции](https://www.youtube.com/watch?v=Qnw7s8290Cs).
+    - [Презентация](https://storage.yandexcloud.net/ydb-public-talks/monitoring.pdf).
+    - Описание: рассказ про {{ message-queue-full-name }} — универсальное масштабируемое решение для обмена сообщениями между приложениями.
