@@ -58,7 +58,7 @@
           `service_account_id` | Идентификатор сервисного аккаунта.
           `description` | Произвольное описание группы виртуальных машин.
 
-      - [Шаблон виртуальной машины](../../concepts/instance-groups/instance-template.md):
+      - [Шаблон виртуальной машины](../../concepts/instance-groups/instance-template.md), например:
 
           ```
           instance_template:
@@ -75,6 +75,8 @@
               network_interface_specs:
                   - network_id: c64mknqgnd8avp6edhbt
                     primary_v4_address_spec: {}
+              scheduling_policy:
+                  preemptible: false
           ```
 
           {% include [default-unit-size](../../../_includes/instance-groups/default-unit-size.md) %}
@@ -92,7 +94,8 @@
           `size` | Размер диска.
           `network_id` | Идентификатор сети `default-net`.
           `primary_v4_address_spec` | Спецификация версии интернет протокола IPv4. На данный момент доступен только протокол IPv4. Вы можете предоставить публичный доступ к виртуальным машинам группы, указав версию IP для публичного IP-адреса. Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
-
+          `scheduling_policy` | Конфигурация политики планирования.
+          `preemptible` | Флаг, указывающий создавать [прерываемые виртуальные машины](../../concepts/preemptible-vm.md). Если значение `true` — будет создана прерываемая, если `false` (по умолчанию) — обычная.<br>Создавая группу прерываемых машин учитывайте, что виртуальные машины будут останавливаться спустя 24 часа непрерывной работ, а могут быть остановлены еще раньше. При этом возможна ситуация, что {{ ig-name }} не сможет сразу перезапустить их из-за нехватки ресурсов. Это может произойти, если резко возрастет потребление вычислительных ресурсов в Яндекс.Облаке.
       - [Политики](../../concepts/instance-groups/policies.md):
 
           ```

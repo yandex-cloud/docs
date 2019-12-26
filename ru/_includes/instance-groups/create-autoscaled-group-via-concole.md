@@ -19,6 +19,7 @@
     - В блоке **Вычислительные ресурсы**:
         - Выберите [платформу](../../compute/concepts/vm-platforms.md).
         - Укажите [гарантированную долю](../../compute/concepts/performance-levels.md) и необходимое количество vCPU и объем RAM.
+        - {% include [include](specify-preemptible-vm.md) %}
     - В блоке **Сетевые настройки**:
         - Выберите [облачную сеть](../../compute/concepts/vm.md#network) и подсеть. Если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md).
         - Отметьте необходимость в публичном IP-адресе.
