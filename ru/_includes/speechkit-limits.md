@@ -27,4 +27,5 @@
 Максимальное количество аудиоканалов | {{ stt-short-channelsCount }}
 [**Распознавании длинных аудио**](../speechkit/stt/streaming.md) |
 Максимальный размер файла | {{ stt-long-fileSize }}
+Максимальная длительность аудио | {{ stt-long-audioLength }}
 Срок хранения результатов распознавания на сервере | {{ stt-long-resultsStorageTime }}

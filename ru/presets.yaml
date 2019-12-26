@@ -189,6 +189,7 @@ default:
   stt-short-channelsCount: 1
   stt-long-fileSize: 1 ГБ
   stt-long-resultsStorageTime: 3 суток
+  stt-long-audioLength: 4 часа
   stt-streaming-fileSize: 10 МБ
   stt-streaming-audioLength: 5 минут
 
