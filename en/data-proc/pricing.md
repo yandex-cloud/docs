@@ -66,11 +66,11 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
   | RAM (for 1 GB) | ₽0.2641 | ₽0.0200 |
   | **Intel Cascade Lake** |
   | 20% vCPU | ₽0.3210 | ₽0.0150 |
-  | 50%+ vCPU | ₽0.4863 | ₽0.0375 |
+  | 50% vCPU | ₽0.4863 | ₽0.0375 |
   | 100% vCPU | ₽0.8226 | ₽0.0750 |
   | 1 GPU | ₽200.5960 | ₽15.5960 |
   | RAM (for 1 GB) | ₽0.2180 | ₽0.0200 |
-  
+
 {% endlist %}
 
 {% note info %}
@@ -94,7 +94,7 @@ The feature of using GPU on {{ dataproc-name }} hosts is available on request to
   | ----- | -----
   | Standard network storage| ₽2.2881 |
   | Fast network storage| ₽8.1356 |
-  
+
 {% endlist %}
 
 ### Outgoing traffic {#prices-traffic}

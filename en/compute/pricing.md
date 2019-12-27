@@ -110,13 +110,13 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   20% vCPU | $0.007051 |
   100% vCPU | $0.008996 |
   1 GPU | $1.999397 |
-  RAM (per 1 GB) | $0.003129
+  RAM (for 1 GB) | $0.003129
   **Intel Cascade Lake** |
   5% vCPU | $0.001307
-  20%+ vCPU | $0.003923
-  50%+ vCPU | $0.005753
+  20% vCPU | $0.003923
+  50% vCPU | $0.005753
   100% vCPU | $0.009584
-  RAM (per 1 GB) | $0.002538
+  RAM (for 1 GB) | $0.002538
 
 - Prices in roubles
 
@@ -127,13 +127,13 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   20% vCPU | ₽0.5500 |
   100% vCPU | ₽0.7017 |
   1 GPU | ₽155.9530
-  RAM (per 1 GB) | ₽0.2441
+  RAM (for 1 GB) | ₽0.2441
   **Intel Cascade Lake** |
   5% vCPU | ₽0.1020
-  20%+ vCPU | ₽0.3060
-  50%+ vCPU | ₽0.4488
+  20% vCPU | ₽0.3060
+  50% vCPU | ₽0.4488
   100% vCPU | ₽0.7476
-  RAM (per 1 GB) | ₽0.1980
+  RAM (for 1 GB) | ₽0.1980
 
 {% endlist %}
 
@@ -150,29 +150,29 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   20% vCPU | $0.002187 |
   100% vCPU | $0.002769 |
   1 GPU | $0.500000 |
-  RAM (per 1 GB) | $0.000961
+  RAM (for 1 GB) | $0.000961
   **Intel Cascade Lake** |
   5% vCPU | $0.000815
-  20%+ vCPU | $0.001282
-  50%+ vCPU | $0.001794
+  20% vCPU | $0.001282
+  50% vCPU | $0.001794
   100% vCPU | $0.002615
-  RAM (per 1 GB) | $0.000630
+  RAM (for 1 GB) | $0.000630
 
 - Prices in roubles
 
   Computing resources | Rate for 1 hour, with VAT |
   ----- | -----
   **Intel Broadwell** |
-  | 5%+ of vCPU| ₽0.1198 |
-  | 20%+ vCPU| ₽0.1706 |
-  | 100% of vCPU| ₽0.2160 |
+  | 5% vCPU| ₽0.1198 |
+  | 20% vCPU| ₽0.1706 |
+  | 100% vCPU| ₽0.2160 |
   | 1 GPU | ₽39,0000 |
   | RAM (for 1 GB)| ₽0.0750 |
   **Intel Cascade Lake** |
-  | 5%+ of vCPU| ₽0.0636 |
-  | 20%+ vCPU| ₽0.1000 |
-  | 50%+ vCPU| ₽0.1400 |
-  | 100% of vCPU| ₽0.2040 |
+  | 5% vCPU| ₽0.0636 |
+  | 20% vCPU| ₽0.1000 |
+  | 50% vCPU| ₽0.1400 |
+  | 100% vCPU| ₽0.2040 |
   | RAM (for 1 GB)| ₽0.0492 |
 
 {% endlist %}
@@ -186,8 +186,8 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   | OS | Cost per vCPU per hour, without VAT
   ----- | -----
   | Linux for all core types | $0 |
-  | Windows Server for 5%+ of vCPU | $0.008135 |
-  | Windows Server for 20%+ and 50%+ vCPU | $0.009615 |
+  | Windows Server for 5% of vCPU | $0.008135 |
+  | Windows Server for 20% and 50% vCPU | $0.009615 |
   | Windows Server for 100% vCPU | $0.016270 |
 
 - Prices in roubles
@@ -195,8 +195,8 @@ All other Yandex.Cloud services, such as creation of VMs or allocation of extern
   | OS | Cost per vCPU per hour, with VAT |
   ----- | -----
   | Linux for all core types | ₽0 |
-  | Windows Server for 5%+ of vCPU | ₽0.6346 |
-  | Windows Server for 20%+ and 50%+ vCPU | ₽0.75 |
+  | Windows Server for 5% of vCPU | ₽0.6346 |
+  | Windows Server for 20% and 50% vCPU | ₽0.75 |
   | Windows Server for 100% vCPU | ₽1.2691 |
 
 {% endlist %}
