@@ -1,44 +1,74 @@
 # Релизы YC CLI
 
-## Версия 0.47.0 (17.12.19) {#latest-release}
+## Версия 0.48.0 (27.12.19) {#latest-release}
 
 ### Изменения в CLI {#cli}
+
+**Улучшено**
+- При обновлении YC CLI теперь выводится текущая устанавливаемая версия.
+
+### Изменения в сервисах Облака {#services}
+
+#### {{ compute-name }} {#compute}
+
+- Добавлена возможность работы с группой размещения `yc compute placement-group --help`.
+- Команды `yc compute instance create` и `yc compute instance update`.
+
+    Флаг для указания платформы переименован с `--platform-id` на `--platform`. Старое именование продолжает поддерживаться.
+- Команда `yc compute instance create`.
+
+    SSH-ключ, добавленный с помощью флага `--ssh-key`, записывается в метаданные с ключом `ssh-keys` вместо `ec2-user-data`.
+    
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mmy-name }}**
+
+- Добавлена поддержка создания кластера с версией {{ MY }} 8.0.
+- Добавлена команда для ручного переключение мастера для указанного кластера {{ MY }} `{{ yc-mdb-my }} cluster start-failover`.
+- Команда `{{ yc-mdb-my }} cluster update`.
+
+    Добавлена возможность переименовать кластер с помощью флага `--new-name`. 
+
+**{{ mpg-name }}**
+
+- Добавлена команда для ручного переключение мастера для указанного кластера {{ PG }} `{{ yc-mdb-pg }} cluster start-failover`.
+- Команда `{{ yc-mdb-pg }} cluster update`.
+
+    Добавлена возможность переименовать кластер с помощью флага `--new-name`.     
+
+**{{ mch-name }}**
+
+- Команда `{{ yc-mdb-ch }} cluster update`.
+
+    Добавлена возможность переименовать кластер с помощью флага `--new-name`. 
+
+**{{ mrd-name }}**
+
+- Команда `{{ yc-mdb-rd }} cluster update`.
+
+    Добавлена возможность переименовать кластер с помощью флага `--new-name`. 
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.47.0 (17.12.19) {#version0.47.0}
+
+#### Изменения в CLI {#cli}
 **Улучшено**
 
 - Добавлена возможность [аутентификации с помощью федерации](operations/authentication/federated-user.md) при вызове `yc` в неинтерактивном режиме. Этот режим используется, когда CLI запускается пользователем не напрямую, например в скрипте или в `kubectl` при работе с [кластером Kubernetes](../managed-kubernetes/concepts/index.md#kubernetes-cluster) в {{ managed-k8s-name }}.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.46.0 (13.12.19) {#version0.46.0}
 
 #### Изменения в CLI {#cli}
 
 **Улучшено**
-- Для ускорения диагностики проблем авторизации, в журнал отладки запроса пишется CRC32 отправляемого [IAM-токен](../iam/concepts/authorization/iam-token.md).
+- Для ускорения диагностики проблем авторизации, в журнал отладки запроса пишется CRC32 отправляемого [IAM-токена](../iam/concepts/authorization/iam-token.md).
 
 #### Изменения в сервисах Облака {#services}
 
 #### {{ sf-name }} {#serverless-functions}
 
-Добавлена команда `yc serverless trigger create object-storage` для подписки на изменения бакета в {{ objstorage-name }}. Флаги команды:
-
-```
---name: string
---description: string
---labels: key=value[,key=value...]
---bucket-id: string
---prefix: string
---suffix: string
---events: stringSlice
---invoke-function-id: string
---invoke-function-name: string
---invoke-function-tag: string
---invoke-function-service-account-id: string
---invoke-function-service-account-name: string
---retry-attempts: int64
---retry-interval: duration
---async: bool
-```
+- Добавлена команда `yc serverless trigger create object-storage` для подписки на изменения бакета в {{ objstorage-name }}.
 
 ### Версия 0.45.0 (03.12.19) {#version0.45.0}
 
