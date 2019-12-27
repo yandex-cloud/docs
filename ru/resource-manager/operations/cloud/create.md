@@ -2,15 +2,9 @@
 
 [При регистрации](../../../billing/quickstart/index.md#create_billing_account) для вас будет автоматически создано [облако](../../concepts/resources-hierarchy.md#cloud) с именем `cloud`. После того, как вы привязали платежный аккаунт, вы сможете создать дополнительное облако.
 
-{% note important %}
-
-Сейчас вы не можете создать дополнительное облако, если вас уже пригласили в облако и у вас нет платежного аккаунта.
-
-{% endnote %}
-
 Чтобы создать дополнительное облако:
 
-  1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account).
+  1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account) или попросите вашего администратора назначить вам роль `billing.accounts.member` на платежный аккаунт.
   1. Откройте главную страницу [консоли управления]({{ link-console-main }}).
   1. Нажмите значок ![image](../../../_assets/options.svg) напротив своего биллинг-аккаунта.
   1. Выберите **Создать облако**.

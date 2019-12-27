@@ -26,7 +26,7 @@ For critical resources:
 
 * Keep your [OAuth token](../concepts/authorization/oauth-token.md) a secret, since it can be used to get an [IAM token](../concepts/authorization/iam-token.md) and perform operations in the cloud on your behalf.
 
-    If someone might have discovered your OAuth token, [invalidate it](https://yandex.ru/dev/oauth/doc/dg/reference/token-invalidate-docpage/) and issue a new one.
+    If someone might have discovered your OAuth token, [invalidate it](https://tech.yandex.com/oauth/doc/dg/reference/token-invalidate-docpage/) and issue a new one.
 
 * Avoid using your OAuth token for authentication if you can use an IAM token. OAuth tokens are valid for 1 year while IAM tokens are valid for {{ iam-token-lifetime }}. If your token is compromised, the hacker has limited time to use it.
 
