@@ -1,10 +1,16 @@
 # View service usage details
 
-Go to **Usage details** to see graphs and tables showing information about Yandex.Cloud service usage.
+You can see graphs and tables showing information about Yandex.Cloud service usage:
+
+1. In [management console]({{ link-console-billing }}), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. Select an account from the list.
+1. Go to the **Usage details** page.
+4. Select [clouds](#clouds) and [period](#period), [configure data grouping](#grouping) data by service or product.
+
+By default, data is displayed from the start of the month to the current day. Data may be updated with a slight delay (up to several hours).
 
 {% include [currency](../_includes/currency.md) %}
 
-By default, data is displayed from the start of the month to the current day. Data may be updated with a slight delay (up to several hours).
 
 ## Select clouds {#clouds}
 
