@@ -428,7 +428,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
        --zone ru-central1-a \
        --network-interface subnet-name=exchange-subnet-a \
        --create-boot-disk size=100,image-folder-id=standard-images,image-family=windows-2016-gvlk \
-       --create-disk type=network-nvme,size=250,auto-delete=false \
+       --create-disk type=network-ssd,size=250,auto-delete=false \
        --metadata-from-file user-data=setpass
      ```
 
@@ -512,7 +512,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
        --zone ru-central1-b \
        --network-interface subnet-name=exchange-subnet-b \
        --create-boot-disk size=100,image-folder-id=standard-images,image-family=windows-2016-gvlk \
-       --create-disk type=network-nvme,size=250,auto-delete=false \
+       --create-disk type=network-ssd,size=250,auto-delete=false \
        --metadata-from-file user-data=setpass
      ```
 

@@ -63,7 +63,7 @@ Packer создаст и запустит виртуальную машину с
       "source_image_family": "debian-9",
       "subnet_id":           "<идентификатор подсети>",
       "use_ipv4_nat":        true,
-      "disk_type":           "network-nvme",
+      "disk_type":           "network-ssd",
       "ssh_username":        "debian"
     }
   ],
