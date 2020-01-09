@@ -41,16 +41,14 @@ items:
         items:
           - name: Создание группы размещения
             href: operations/placement-groups/create.md
+          - name: Удаление группы размещения
+            href: operations/placement-groups/delete.md
           - name: Создание ВМ в группе размещения
             href: operations/placement-groups/create-vm-in-pg.md
           - name: Добавление ВМ в группу размещения
             href: operations/placement-groups/add-vm.md
-          - name: Добавление ВМ в группу размещения
-            href: operations/placement-groups/add-vm.md
-          - name: Удаление ВМ из группы размещения
+          - name: Исключение ВМ из группы размещения
             href: operations/placement-groups/delete-vm.md
-          - name: Удаление группы размещения
-            href: operations/placement-groups/delete.md
       - name: Образы с предустановленным ПО
         items:
           - name: Создать ВМ
