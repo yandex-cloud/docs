@@ -1180,7 +1180,7 @@ components:
             The maximum string length in characters is 50.
           type: string
     Device:
-      description: A device. For more information, see [Device](/docs/iot-core/concept/index.md#device).
+      description: A device. For more information, see [Device](/docs/iot-core/concepts/index#device).
       type: object
       properties:
         id:
@@ -1214,7 +1214,7 @@ components:
       description: |-
         A device topic alias.
 
-        Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. For more information, see [Using topic aliases](/docs/iot-core/concepts/topic.md#aliases).
+        Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. For more information, see [Using topic aliases](/docs/iot-core/concepts/topic#aliases).
       type: object
       properties:
         deviceId:
@@ -1228,7 +1228,7 @@ components:
           type: string
     DeviceCertificate:
       description: A device certificate. For more information, see [Managing device
-        certificates](/docs/iot-core/operations/certificates/device-certificates.md).
+        certificates](/docs/iot-core/operations/certificates/device-certificates).
       type: object
       properties:
         deviceId:
@@ -1449,7 +1449,7 @@ components:
               Any method that returns a long-running operation should document the response type, if any.
             type: object
     Registry:
-      description: A registry. For more information, see [Registry](/docs/iot-core/concept/index.md#registry).
+      description: A registry. For more information, see [Registry](/docs/iot-core/concepts/index#registry).
       type: object
       properties:
         id:
@@ -1483,7 +1483,7 @@ components:
           type: string
     RegistryCertificate:
       description: A registry certificate. For more information, see [Managing registry
-        certificates](/docs/iot-core/operations/certificates/registry-certificates.md).
+        certificates](/docs/iot-core/operations/certificates/registry-certificates).
       type: object
       properties:
         registryId:

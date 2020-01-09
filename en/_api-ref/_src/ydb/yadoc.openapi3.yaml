@@ -300,6 +300,9 @@ components:
             type: array
             items:
               type: string
+          assignPublicIps:
+            type: boolean
+            format: boolean
       - title: database_type
         type: object
         maxProperties: 1
@@ -343,6 +346,9 @@ components:
             type: array
             items:
               type: string
+          assignPublicIps:
+            type: boolean
+            format: boolean
       - title: database_type
         type: object
         maxProperties: 1
@@ -580,6 +586,9 @@ components:
             type: array
             items:
               type: string
+          assignPublicIps:
+            type: boolean
+            format: boolean
       - title: database_type
         type: object
         maxProperties: 1

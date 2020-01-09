@@ -11,7 +11,7 @@ Resource | Description
 [DiskType](DiskType/index.md) | A set of methods to retrieve information about disk types.
 [Image](Image/index.md) | A set of methods for managing Image resources.
 [Instance](Instance/index.md) | A set of methods for managing Instance resources.
-[PlacementGroup](PlacementGroup/index.md) | A set of methods for managing PlacementGroup resources.
+[PlacementGroup](PlacementGroup/index.md) | A set of methods for managing placement groups.
 [Snapshot](Snapshot/index.md) | A set of methods for managing Snapshot resources.
 [Zone](Zone/index.md) | A set of methods to retrieve information about availability zones.
 [InstanceGroup](InstanceGroup/index.md) | A set of methods for managing InstanceGroup resources.

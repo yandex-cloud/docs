@@ -3296,6 +3296,13 @@ components:
             type: string
         configSpec:
           $ref: '#/components/schemas/ConfigSpec_in_UpdateClusterRequest_configSpec'
+        name:
+          description: |-
+            New name for the cluster.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
     UpdateUserMetadata:
       type: object
       properties:

@@ -73,6 +73,24 @@ items:
         href: api-ref/Instance/update.md
       - name: updateMetadata
         href: api-ref/Instance/updateMetadata.md
+  - name: PlacementGroup
+    items:
+      - name: Обзор
+        href: api-ref/PlacementGroup/index.md
+      - name: create
+        href: api-ref/PlacementGroup/create.md
+      - name: delete
+        href: api-ref/PlacementGroup/delete.md
+      - name: get
+        href: api-ref/PlacementGroup/get.md
+      - name: list
+        href: api-ref/PlacementGroup/list.md
+      - name: listInstances
+        href: api-ref/PlacementGroup/listInstances.md
+      - name: listOperations
+        href: api-ref/PlacementGroup/listOperations.md
+      - name: update
+        href: api-ref/PlacementGroup/update.md
   - name: Snapshot
     items:
       - name: Обзор

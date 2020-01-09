@@ -992,6 +992,242 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListInstanceOperationsResponse'
       x-y-navtitle: listOperations
+  /compute/v1/placementGroups/{placementGroupId}:
+    get:
+      tags:
+      - PlacementGroup
+      summary: Возвращает указанную группу размещения.
+      description: Чтобы получить список доступных групп размещения, используйте запрос
+        [list](/docs/compute/api-ref/PlacementGroup/list).
+      operationId: PlacementGroupGet
+      parameters:
+      - name: placementGroupId
+        in: path
+        description: |-
+          Идентификатор возвращаемой группы размещения.
+
+          Чтобы получить идентификатор группы размещения выполните запрос [list](/docs/compute/api-ref/PlacementGroup/list).
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlacementGroup'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - PlacementGroup
+      summary: Удаляет указанную группу размещения.
+      operationId: PlacementGroupDelete
+      parameters:
+      - name: placementGroupId
+        in: path
+        description: |-
+          Идентификатор удаляемой группы размещения.
+
+          Чтобы получить идентификатор группы размещения, используйте запрос [list](/docs/compute/api-ref/PlacementGroup/list).
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeletePlacementGroupMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - PlacementGroup
+      summary: Обновляет указанную группу размещения.
+      operationId: PlacementGroupUpdate
+      parameters:
+      - name: placementGroupId
+        in: path
+        description: |-
+          Идентификатор обновляемой группы размещения.
+
+          Чтобы получить идентификатор группы размещения, используйте запрос [list](/docs/compute/api-ref/PlacementGroup/list).
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePlacementGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdatePlacementGroupMetadata'
+      x-y-operation-response: '[PlacementGroup](/docs/compute/api-ref/PlacementGroup#representation)'
+  /compute/v1/placementGroups:
+    get:
+      tags:
+      - PlacementGroup
+      summary: Возвращает список групп размещения в указанном каталоге.
+      operationId: PlacementGroupList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Идентификатор каталога для получения списка групп размещения.
+
+          Чтобы получить идентификатор каталога, используйте запрос
+          [list](/docs/resource-manager/api-ref/Folder/list).
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/compute/api-ref/PlacementGroup/list#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/PlacementGroup/list#responses),
+          которое можно использовать для получения следующей страницы.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/PlacementGroup/list#query_params) равным значению поля
+          [nextPageToken](/docs/compute/api-ref/PlacementGroup/list#responses) предыдущего запроса, чтобы получить следующую страницу
+          результатов.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Параметры фильтрации ресурсов в ответе. В настоящее время фильтрация
+          осуществляется только по полю [PlacementGroup.name](/docs/compute/api-ref/PlacementGroup#representation).
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPlacementGroupsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - PlacementGroup
+      summary: Создает группу размещения в указанном каталоге.
+      operationId: PlacementGroupCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePlacementGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreatePlacementGroupMetadata'
+      x-y-operation-response: '[PlacementGroup](/docs/compute/api-ref/PlacementGroup#representation)'
+  /compute/v1/placementGroups/{placementGroupId}/instances:
+    get:
+      tags:
+      - PlacementGroup
+      summary: Возвращает список виртуальных машин в указанной группе размещения.
+      operationId: PlacementGroupListInstances
+      parameters:
+      - name: placementGroupId
+        in: path
+        description: |-
+          Идентификатор группы размещения для получения списка виртуальных машин.
+
+          Чтобы получить идентификатор группы размещения, используйте запрос [list](/docs/compute/api-ref/PlacementGroup/list).
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/compute/api-ref/PlacementGroup/listInstances#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/PlacementGroup/listInstances#responses),
+          которое можно использовать для получения следующей страницы.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/PlacementGroup/listInstances#query_params) равным значению поля
+          [nextPageToken](/docs/compute/api-ref/PlacementGroup/listInstances#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPlacementGroupInstancesResponse'
+      x-y-navtitle: listInstances
+  /compute/v1/placementGroups/{placementGroupId}/operations:
+    get:
+      tags:
+      - PlacementGroup
+      summary: Возвращает список операций указанной группы размещения.
+      operationId: PlacementGroupListOperations
+      parameters:
+      - name: placementGroupId
+        in: path
+        description: |-
+          Идентификатор группы размещения для получения списка операций.
+
+          Чтобы получить идентификатор группы размещения, используйте запрос [list](/docs/compute/api-ref/PlacementGroup/list).
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/compute/api-ref/PlacementGroup/listOperations#query_params), сервис вернет значение [nextPageToken](/docs/compute/api-ref/PlacementGroup/listOperations#responses),
+          которое можно использовать для получения следующей страницы.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/compute/api-ref/PlacementGroup/listOperations#query_params) равным значению поля
+          [nextPageToken](/docs/compute/api-ref/PlacementGroup/listOperations#responses) предыдущего запроса, чтобы получить следующую
+          страницу результатов.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPlacementGroupOperationsResponse'
+      x-y-navtitle: listOperations
   /compute/v1/snapshots/{snapshotId}:
     get:
       tags:
@@ -1722,6 +1958,44 @@ components:
           type: string
         networkSettings:
           $ref: '#/components/schemas/NetworkSettings_in_CreateInstanceRequest_networkSettings'
+    CreatePlacementGroupMetadata:
+      type: object
+      properties:
+        placementGroupId:
+          description: Идентификатор создаваемой группы размещения.
+          type: string
+    CreatePlacementGroupRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Идентификатор каталога, в котором создается группа размещения.
+
+              Чтобы получить идентификатор каталога, используйте запрос
+              [list](/docs/resource-manager/api-ref/Folder/list).
+            type: string
+          name:
+            description: Имя группы размещения.
+            type: string
+          description:
+            description: Описание группы размещения.
+            type: string
+          labels:
+            description: Метки группы размещения в формате `key:value`.
+            type: object
+            additionalProperties:
+              type: string
+      - title: placement_strategy
+        type: object
+        maxProperties: 1
+        properties:
+          spreadPlacementStrategy:
+            $ref: '#/components/schemas/SpreadPlacementStrategy'
+            description: |-
+              Стратегия распределенного размещения (`spread`). Каждая из виртуальных машин в группе
+              расположена на отдельной стойке.
     CreateSnapshotMetadata:
       type: object
       properties:
@@ -1791,6 +2065,12 @@ components:
       properties:
         instanceId:
           description: Идентификатор удаляемой виртуальной машины.
+          type: string
+    DeletePlacementGroupMetadata:
+      type: object
+      properties:
+        placementGroupId:
+          description: Идентификатор удаляемой группы размещения.
           type: string
     DeleteSnapshotMetadata:
       type: object
@@ -2244,6 +2524,55 @@ components:
             параметра [pageToken](/docs/compute/api-ref/Instance/list#query_params) в следующем запросе списка ресурсов. Все последующие
             запросы будут получать свои значения [nextPageToken](/docs/compute/api-ref/Instance/list#responses) для перебора страниц результатов.
           type: string
+    ListPlacementGroupInstancesResponse:
+      type: object
+      properties:
+        instances:
+          description: Возвращает список виртуальных машин в указанной группе размещения.
+          type: array
+          items:
+            $ref: '#/components/schemas/Instance'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/compute/api-ref/PlacementGroup/listInstances#query_params), используйте [nextPageToken](/docs/compute/api-ref/PlacementGroup/listInstances#responses) в качестве
+            значения параметра [pageToken](/docs/compute/api-ref/PlacementGroup/listInstances#query_params) в следующем запросе списка ресурсов.
+            Каждая следующая страница будет иметь свой [nextPageToken](/docs/compute/api-ref/PlacementGroup/listInstances#responses) для перебора страниц
+            результатов.
+          type: string
+    ListPlacementGroupOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: Список операций для указанной группы размещения.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы результатов в ответе. Если количество
+            результатов больше чем [pageSize](/docs/compute/api-ref/PlacementGroup/listOperations#query_params), используйте [nextPageToken](/docs/compute/api-ref/PlacementGroup/listOperations#responses) в качестве
+            значения параметра [pageToken](/docs/compute/api-ref/PlacementGroup/listOperations#query_params) в следующем запросе списка ресурсов.
+            Каждая следующая страница будет иметь свой [nextPageToken](/docs/compute/api-ref/PlacementGroup/listOperations#responses) для продолжения перебора
+            страниц результатов.
+          type: string
+    ListPlacementGroupsResponse:
+      type: object
+      properties:
+        placementGroups:
+          description: Выводит список групп размещения для указанного каталога.
+          type: array
+          items:
+            $ref: '#/components/schemas/PlacementGroup'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше
+            чем [<RequestMessage>.page_size], используйте `next_page_token` в качестве значения параметра
+            [<RequestMessage>.page_token] в следующем запросе списка ресурсов.
+
+            Каждая следующая страница будет иметь свой `next_page_token` для продолжения перебора
+            страниц результатов.
+          type: string
     ListSnapshotOperationsResponse:
       type: object
       properties:
@@ -2433,6 +2762,45 @@ components:
       enum:
       - LINUX
       - WINDOWS
+    PlacementGroup:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Идентификатор группы размещения. Генерируется при создании.
+            type: string
+          folderId:
+            description: Идентификатор каталога, которому принадлежит группа размещения.
+            type: string
+          createdAt:
+            description: |-
+              Время создания ресурса.
+
+              Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+            type: string
+            format: date-time
+          name:
+            description: Имя группы размещения. Имя уникально в рамках каталога.
+            type: string
+          description:
+            description: Описание группы размещения. Длина описания должна быть от
+              0 до 256 символов.
+            type: string
+          labels:
+            description: Метки групп размещения в формате `key:value`.
+            type: object
+            additionalProperties:
+              type: string
+      - title: placement_strategy
+        type: object
+        maxProperties: 1
+        properties:
+          spreadPlacementStrategy:
+            $ref: '#/components/schemas/SpreadPlacementStrategy'
+            description: |-
+              Стратегия распределенного размещения (`spread`). Каждая из виртуальных машин в группе
+              расположена на отдельной стойке.
     PrimaryAddress:
       type: object
       properties:
@@ -2593,6 +2961,15 @@ components:
       - READY
       - ERROR
       - DELETING
+    SpreadPlacementStrategy:
+      description: |-
+        Стратегия распределенного размещения (`spread`). Каждая из виртуальных машин в группе
+        расположена на отдельной стойке.
+
+        Это пустая структура, которую необходимо передать для явного указания стратегии
+        размещения.
+      type: object
+      properties: {}
     StartInstanceMetadata:
       type: object
       properties:
@@ -2788,6 +3165,31 @@ components:
           type: string
         networkSettings:
           $ref: '#/components/schemas/NetworkSettings_in_UpdateInstanceRequest_networkSettings'
+    UpdatePlacementGroupMetadata:
+      type: object
+      properties:
+        placementGroupId:
+          description: Идентификатор обновляемой группы размещения.
+          type: string
+    UpdatePlacementGroupRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdatePlacementGroupRequest_updateMask'
+        name:
+          description: Имя группы размещения.
+          type: string
+        description:
+          description: Описание группы размещения.
+          type: string
+        labels:
+          description: |-
+            Метки группы размещения в формате `key:value`.
+
+            Существующий набор `labels` полностью перезаписывается набором, переданным в запросе.
+          type: object
+          additionalProperties:
+            type: string
     UpdateSnapshotMetadata:
       type: object
       properties:
@@ -3330,6 +3732,19 @@ components:
       properties:
         type:
           $ref: '#/components/schemas/NetworkSettingsType_in_NetworkSettings_type'
+    FieldMask_in_UpdatePlacementGroupRequest_updateMask:
+      description: |-
+        Маска, определяющая, какие атрибуты группы размещения должны быть обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
     FieldMask_in_UpdateSnapshotRequest_updateMask:
       description: |-
         Маска, определяющая, какие поля ресурса Snapshot будут обновлены.
@@ -3362,6 +3777,8 @@ tags:
   description: Набор методов для управления ресурсами Image.
 - name: Instance
   description: Набор методов для управления ресурсами Instance.
+- name: PlacementGroup
+  description: Набор методов для управления группами размещения.
 - name: Snapshot
   description: Набор методов для управления ресурсами Snapshot.
 - name: Zone

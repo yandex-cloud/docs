@@ -17,7 +17,7 @@ GET https://serverless-functions.api.cloud.yandex.net/functions/v1/versions:byTa
 Параметр | Описание
 --- | ---
 functionId | Обязательное поле. Идентификатор функции, для которой нужно вернуть список версий.  Чтобы получить идентификатор функции, используйте запрос [list](/docs/functions/functions/api-ref/Function/list) .
-tag | Тег версии.  Чтобы получить историю тегов версий, используйте запрос [listTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory) .  Значение должно соответствовать регулярному выражению `[a-z][-_0-9a-z]*|[$]latest`.
+tag | Тег версии.  Чтобы получить историю тегов версий, используйте запрос [listTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory) .  Значение должно соответствовать регулярному выражению `` [a-z][-_0-9a-z]*|[$]latest ``.
  
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**

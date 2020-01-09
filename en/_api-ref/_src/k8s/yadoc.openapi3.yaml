@@ -1297,6 +1297,33 @@ components:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
             description: Fixed scale policy of the node group.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Auto scale policy of the node group.
+    ScalePolicyAutoScale:
+      type: object
+      properties:
+        minSize:
+          description: |-
+            Minimum number of nodes in the node group.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        maxSize:
+          description: |-
+            Maximum number of nodes in the node group.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+        initialSize:
+          description: |-
+            Initial number of nodes in the node group.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
     ScalePolicyFixedScale:
       type: object
       properties:
@@ -1601,6 +1628,9 @@ components:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
             description: Fixed scale policy of the node group.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Auto scale policy of the node group.
     NodeGroupAllocationPolicy_in_CreateNodeGroupRequest_allocationPolicy:
       description: Allocation policy of the node group by the zones and regions.
       type: object
@@ -1791,6 +1821,9 @@ components:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
             description: Fixed scale policy of the node group.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Auto scale policy of the node group.
     NodeGroupAllocationPolicy_in_NodeGroup_allocationPolicy:
       description: Allocation policy by which resources for node group are allocated
         to zones and regions.
@@ -1980,6 +2013,9 @@ components:
           fixedScale:
             $ref: '#/components/schemas/ScalePolicyFixedScale'
             description: Fixed scale policy of the node group.
+          autoScale:
+            $ref: '#/components/schemas/ScalePolicyAutoScale'
+            description: Auto scale policy of the node group.
     NodeGroupAllocationPolicy_in_UpdateNodeGroupRequest_allocationPolicy:
       description: Allocation policy of the node group by the zones and regions.
       type: object

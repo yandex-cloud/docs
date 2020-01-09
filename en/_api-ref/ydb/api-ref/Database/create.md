@@ -37,6 +37,7 @@ POST https://ydb.api.cloud.yandex.net/ydb/v1/databases
   "subnetIds": [
     "string"
   ],
+  "assignPublicIps": true,
 
   //  includes only one of the fields `zonalDatabase`, `regionalDatabase`
   "zonalDatabase": {
@@ -66,6 +67,7 @@ scalePolicy.<br>fixedScale | **object**<br>
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>The minimum value is 1.</p> 
 networkId | **string**<br>
 subnetIds[] | **string**<br>
+assignPublicIps | **boolean** (boolean)<br>
 zonalDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`<br><br>
 zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
 regionalDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`<br><br>

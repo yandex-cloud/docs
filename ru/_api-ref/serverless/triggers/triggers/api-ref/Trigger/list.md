@@ -36,7 +36,7 @@ filter | Параметры фильтрации ресурсов в ответ�
       "labels": "object",
       "rule": {
 
-        // `triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`
+        // `triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`, `objectStorage`
         "timer": {
           "cronExpression": "string",
           "invokeFunction": {
@@ -73,6 +73,23 @@ filter | Параметры фильтрации ресурсов в ответ�
             }
           }
         },
+        "objectStorage": {
+          "eventType": [
+            "string"
+          ],
+          "bucketId": "string",
+          "prefix": "string",
+          "suffix": "string",
+          "invokeFunction": {
+            "functionId": "string",
+            "functionTag": "string",
+            "serviceAccountId": "string",
+            "retrySettings": {
+              "retryAttempts": "string",
+              "interval": "string"
+            }
+          }
+        },
         // конец списка возможных полей`triggers[].rule`
 
       }
@@ -93,13 +110,13 @@ triggers[].<br>name | **string**<br><p>Имя триггера.</p> <p>Длин�
 triggers[].<br>description | **string**<br><p>Описание триггера.</p> <p>Длина строки в символах должна быть от 0 до 256.</p> 
 triggers[].<br>labels | **object**<br><p>Метки триггеров в виде пар <code>key:value</code> .</p> 
 triggers[].<br>rule | **object**<br><p>Обязательное поле. Правило активации триггера (всегда соответствует типу триггера).</p> <p>Описание правила активации триггера.</p> 
-triggers[].<br>rule.<br>timer | **object**<br>Правило для таймера. <br>`triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`<br><br><p>Правило активации для таймера.</p> 
+triggers[].<br>rule.<br>timer | **object**<br>Правило для таймера. <br>`triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`, `objectStorage`<br><br><p>Правило активации для таймера.</p> 
 triggers[].<br>rule.<br>timer.<br>cronExpression | **string**<br><p>Обязательное поле. Описание расписания в виде <a href="/docs/functions/concepts/trigger/timer">cron-выражения</a>.</p> <p>Максимальная длина строки в символах — 100.</p> 
 triggers[].<br>rule.<br>timer.<br>invokeFunction | **object**<br>Инструкции для вызова функции один раз.<br><p>Единичный вызов функции.</p> 
 triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>functionId | **string**<br><p>Обязательное поле. Идентификатор вызываемой функции.</p> <p>Максимальная длина строки в символах — 50.</p> 
 triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>functionTag | **string**<br><p>Тег версии функции для выполнения.</p> 
 triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта, от имени которого будет вызываться функция.</p> 
-triggers[].<br>rule.<br>messageQueue | **object**<br>Правило для триггера очереди сообщений. <br>`triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`<br><br><p>Правило для активации триггера очереди сообщений.</p> 
+triggers[].<br>rule.<br>messageQueue | **object**<br>Правило для триггера очереди сообщений. <br>`triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`, `objectStorage`<br><br><p>Правило для активации триггера очереди сообщений.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>queueId | **string**<br><p>Обязательное поле. Идентификатор очереди сообщений в Yandex Message Queue.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>serviceAccountId | **string**<br><p>Обязательное поле. Идентификатор сервисного аккаунта с ролью на чтение очереди сообщений.</p> <p>Максимальная длина строки в символах — 50.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>batchSettings | **object**<br>Обязательное поле. Настройки группы сообщений для обработки сообщений в очереди.<br><p>Настройки обработки группы сообщений в очереди.</p> 
@@ -110,7 +127,7 @@ triggers[].<br>rule.<br>messageQueue.<br>invokeFunction | **object**<br>Инст
 triggers[].<br>rule.<br>messageQueue.<br>invokeFunction.<br>functionId | **string**<br><p>Обязательное поле. Идентификатор вызываемой функции.</p> <p>Максимальная длина строки в символах — 50.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>invokeFunction.<br>functionTag | **string**<br><p>Тег версии функции для выполнения.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта, от имени которого будет вызываться функция.</p> 
-triggers[].<br>rule.<br>iotMessage | **object**<br>Правило для триггера Yandex IoT Core. <br>`triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`<br><br><p>Правило для активации триггера Yandex IoT Core.</p> 
+triggers[].<br>rule.<br>iotMessage | **object**<br>Правило для триггера Yandex IoT Core. <br>`triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`, `objectStorage`<br><br><p>Правило для активации триггера Yandex IoT Core.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>registryId | **string**<br><p>Обязательное поле. Идентификатор реестра Yandex IoT Core.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>deviceId | **string**<br><p>Идентификатор устройства в реестре Yandex IoT.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>mqttTopic | **string**<br><p>MQTT-топик, сообщения котрого активируют триггер.</p> 
@@ -121,4 +138,16 @@ triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>serviceAccountId | **s
 triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>retrySettings | **object**<br><p>Политика повторных попыток. Если поле не указано или значение пусто, повторные попытки не предпринимаются.</p> <p>Параметры повторной попытки вызова функции.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Максимальное количество повторных попыток (дополнительных вызовов), прежде чем действие будет считаться неудачным.</p> <p>Допустимые значения — от 1 до 5 включительно.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Обязательное поле. Время ожидания между повторными попытками, в секундах.</p> 
+triggers[].<br>rule.<br>objectStorage | **object** <br>`triggers[].rule` включает только одно из полей `timer`, `messageQueue`, `iotMessage`, `objectStorage`<br><br>
+triggers[].<br>rule.<br>objectStorage.<br>eventType[] | **string**<br><p>Обязательное поле. Тип (имя) событий, требуется хотя бы одно значение.</p> <p>Должен содержать хотя бы один элемент.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>bucketId | **string**<br>
+triggers[].<br>rule.<br>objectStorage.<br>prefix | **string**<br><p>Фильтр, опционально.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>suffix | **string**<br>
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction | **object**<br>Инструкции для вызова функции с повторными попытками по мере необходимости.<br><p>Вызов функции с повторными попытками.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>functionId | **string**<br><p>Обязательное поле. Идентификатор вызываемой функции.</p> <p>Максимальная длина строки в символах — 50.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>functionTag | **string**<br><p>Тег версии функции для выполнения.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>Идентификатор сервисного аккаунта с ролью на вызов функции.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>retrySettings | **object**<br><p>Политика повторных попыток. Если поле не указано или значение пусто, повторные попытки не предпринимаются.</p> <p>Параметры повторной попытки вызова функции.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Максимальное количество повторных попыток (дополнительных вызовов), прежде чем действие будет считаться неудачным.</p> <p>Допустимые значения — от 1 до 5 включительно.</p> 
+triggers[].<br>rule.<br>objectStorage.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Обязательное поле. Время ожидания между повторными попытками, в секундах.</p> 
 nextPageToken | **string**<br><p>Токен для получения следующей страницы списка. Если количество результатов больше чем <a href="/docs/functions/triggers/api-ref/Trigger/list#query_params">pageSize</a>, используйте <code>nextPageToken</code> в качестве значения параметра <a href="/docs/functions/triggers/api-ref/Trigger/list#query_params">pageToken</a> в следующем запросе списка ресурсов.</p> <p>Все последующие запросы будут получать свои значения <code>nextPageToken</code> для перебора страниц результатов.</p> 

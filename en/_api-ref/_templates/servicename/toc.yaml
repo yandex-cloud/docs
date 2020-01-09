@@ -1,0 +1,25 @@
+items:
+  - name: Overview
+    href: api-ref/index.md
+  - name: ResourceName
+    items:
+      - name: Overview
+        href: api-ref/ResourceName/index.md
+      - name: create
+        href: api-ref/ResourceName/create.md
+      - name: delete
+        href: api-ref/ResourceName/delete.md
+      - name: get
+        href: api-ref/ResourceName/get.md
+      - name: list
+        href: api-ref/ResourceName/list.md
+      - name: listAccessBindings
+        href: api-ref/ResourceName/listAccessBindings.md
+      - name: listOperations
+        href: api-ref/ResourceName/listOperations.md
+      - name: setAccessBindings
+        href: api-ref/ResourceName/setAccessBindings.md
+      - name: update
+        href: api-ref/ResourceName/update.md
+      - name: updateAccessBindings
+        href: api-ref/ResourceName/updateAccessBindings.md

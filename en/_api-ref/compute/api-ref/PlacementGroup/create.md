@@ -27,11 +27,11 @@ POST https://compute.api.cloud.yandex.net/compute/v1/placementGroups
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>ID of the folder to create a placement group in. To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> 
+folderId | **string**<br><p>ID of the folder to create a placement group in.</p> <p>To get a folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> 
 name | **string**<br><p>Name of the placement group.</p> 
 description | **string**<br><p>Description of the placement group.</p> 
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> 
-spreadPlacementStrategy | **object**<br>Distribute instances over distinct failure domains.<br>
+spreadPlacementStrategy | **object**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains.<br><p>Anti-affinity placement strategy (<code>spread</code>). Instances are distributed over distinct failure domains.</p> <p>This is an empty structure that must be passed to explicitly specify the required placement strategy.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

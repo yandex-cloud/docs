@@ -1,0 +1,809 @@
+openapi: "3.0"
+info:
+  title: Yandex Service Name API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://servicename.api.cloud.yandex.net
+paths:
+  /servicename/v1/resourceNames/{resourceNameId}:
+    get:
+      tags:
+      - ResourceName
+      summary: Returns the specified resource name.
+      description: To get the list of all available resource names, make a [list](/docs/service-name/api-ref/ResourceName/list)
+        request.
+      operationId: ResourceNameGet
+      parameters:
+      - name: resourceNameId
+        in: path
+        description: |-
+          Required.
+          ID of the resource name to return.
+
+          To get a resource name ID make a [list](/docs/service-name/api-ref/ResourceName/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceName'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - ResourceName
+      summary: Deletes the specified resource name.
+      operationId: ResourceNameDelete
+      parameters:
+      - name: resourceNameId
+        in: path
+        description: |-
+          Required.
+          ID of the resource name to delete.
+
+          To get a resource name ID make a [list](/docs/service-name/api-ref/ResourceName/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteResourceNameMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - ResourceName
+      summary: Updates the specified resource name.
+      operationId: ResourceNameUpdate
+      parameters:
+      - name: resourceNameId
+        in: path
+        description: |-
+          Required.
+          ID of the resource name to update.
+
+          To get the resource name ID make a [list](/docs/service-name/api-ref/ResourceName/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateResourceNameRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateResourceNameMetadata'
+      x-y-operation-response: '[ResourceName](/docs/service-name/api-ref/ResourceName#representation)'
+  /servicename/v1/resourceNames:
+    get:
+      tags:
+      - ResourceName
+      summary: Retrieves the list of resource names in the specified folder.
+      operationId: ResourceNameList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list resource names in.
+
+          To get the folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/service-name/api-ref/ResourceName/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/service-name/api-ref/ResourceName/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resource names listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [ResourceName.name](/docs/service-name/api-ref/ResourceName#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9].
+          Example of a filter: `name=my-resourcename`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListResourceNamesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - ResourceName
+      summary: Creates a resource name in the specified folder.
+      operationId: ResourceNameCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateResourceNameRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateResourceNameMetadata'
+      x-y-operation-response: '[ResourceName](/docs/service-name/api-ref/ResourceName#representation)'
+  /servicename/v1/resourceNames/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - ResourceName
+      summary: Lists access bindings for the specified resource name.
+      operationId: ResourceNameListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /servicename/v1/resourceNames/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - ResourceName
+      summary: Sets access bindings for the resource name.
+      operationId: ResourceNameSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /servicename/v1/resourceNames/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - ResourceName
+      summary: Updates access bindings for the specified resource name.
+      operationId: ResourceNameUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /servicename/v1/resourceNames/{resourceNameId}/operations:
+    get:
+      tags:
+      - ResourceName
+      summary: Lists operations for the specified resource name.
+      operationId: ResourceNameListOperations
+      parameters:
+      - name: resourceNameId
+        in: path
+        description: |-
+          Required.
+          ID of the resource name to list operations for.
+
+          To get a resource name ID make a [list](/docs/service-name/api-ref/ResourceName/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/service-name/api-ref/ResourceName/listOperations#query_params), the service returns a [nextPageToken](/docs/service-name/api-ref/ResourceName/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/service-name/api-ref/ResourceName/listOperations#query_params) to the
+          [nextPageToken](/docs/service-name/api-ref/ResourceName/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListResourceNameOperationsResponse'
+      x-y-navtitle: listOperations
+components:
+  schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    CreateResourceNameMetadata:
+      type: object
+      properties:
+        resourceNameId:
+          description: ID of the resource name that is being created.
+          type: string
+    CreateResourceNameRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create a resource name in.
+
+            To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of the resource name.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the resource name.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource name labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        zoneId:
+          description: |-
+            Required.
+            ID of the availability zone where resource name resides.
+            To get a list of available zones, make a [list](/docs/compute/api-ref/Zone/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+    DeleteResourceNameMetadata:
+      type: object
+      properties:
+        resourceNameId:
+          description: ID of the resource name that is being deleted.
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than pageSize, use
+            the nextPageToken as the value
+            for the pageToken query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
+    ListResourceNameOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified resource name.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/service-name/api-ref/ResourceName/listOperations#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/service-name/api-ref/ResourceName/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
+          type: string
+    ListResourceNamesResponse:
+      type: object
+      properties:
+        resourceNames:
+          description: List of resource name in the specified folder.
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceName'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/service-name/api-ref/ResourceName/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/service-name/api-ref/ResourceName/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    ResourceName:
+      description: A resource name. For details about the concept, see [documentation](/docs/service-name/concepts/resource-name).
+      type: object
+      properties:
+        id:
+          description: ID of the resource name. Generated at creation time.
+          type: string
+        folderId:
+          description: ID of the folder that the resource name belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: |-
+            Name of the resource name.
+            The name is unique within the folder.
+          type: string
+        description:
+          description: Description of the resource name.
+          type: string
+        labels:
+          description: Resource name labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+        zoneId:
+          description: ID of the availability zone where the resource name resides.
+          type: string
+        status:
+          $ref: '#/components/schemas/ResourceNameStatus_in_ResourceName_status'
+    ResourceNameStatus:
+      description: |2-
+         - CREATING: Resource name is being created.
+         - READY: Resource name is ready to use.
+         - ERROR: Resource name encountered a problem and cannot operate.
+         - DELETING: Resource name is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being set.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Required.
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the type is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the type is `userAccount` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or [Yandex.Connect](https://connect.yandex.com), added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+          type: string
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being updated.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Required.
+            Updates to access bindings.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateResourceNameMetadata:
+      type: object
+      properties:
+        resourceNameId:
+          description: ID of the resource name that is being updated.
+          type: string
+    UpdateResourceNameRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateResourceNameRequest_updateMask'
+        name:
+          description: |-
+            New name for the resource name.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            New description of the resource name.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource name labels as `key:value` pairs.
+
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [get](/docs/service-name/api-ref/ResourceName/get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Required.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the type is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the type is `userAccount` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or [Yandex.Connect](https://connect.yandex.com), added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Required.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    ResourceNameStatus_in_ResourceName_status:
+      description: |-
+        Status of the resource name.
+
+         - CREATING: Resource name is being created.
+         - READY: Resource name is ready to use.
+         - ERROR: Resource name encountered a problem and cannot operate.
+         - DELETING: Resource name is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
+    FieldMask_in_UpdateResourceNameRequest_updateMask:
+      description: |-
+        Field mask that specifies which attributes of the resource name should be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+tags:
+- name: ResourceName
+  description: A set of methods for managing resource names.

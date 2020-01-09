@@ -997,13 +997,16 @@ paths:
       tags:
       - PlacementGroup
       summary: Returns the specified placement group.
+      description: To get the list of all available placement groups, make a [list](/docs/compute/api-ref/PlacementGroup/list)
+        request.
       operationId: PlacementGroupGet
       parameters:
       - name: placementGroupId
         in: path
         description: |-
           ID of the placement group to return.
-          To get the placement group ID, use [list](/docs/compute/api-ref/PlacementGroup/list) request.
+
+          To get a placement group ID make a [list](/docs/compute/api-ref/PlacementGroup/list) request.
         required: true
         schema:
           type: string
@@ -1025,6 +1028,7 @@ paths:
         in: path
         description: |-
           ID of the placement group to delete.
+
           To get the placement group ID, use [list](/docs/compute/api-ref/PlacementGroup/list) request.
         required: true
         schema:
@@ -1050,6 +1054,7 @@ paths:
         in: path
         description: |-
           ID of the placement group to update.
+
           To get the placement group ID, use an [list](/docs/compute/api-ref/PlacementGroup/list) request.
         required: true
         schema:
@@ -1082,7 +1087,8 @@ paths:
         in: query
         description: |-
           ID of the folder to list placement groups in.
-          To get the folder ID, use [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          To get the folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
         schema:
           type: string
       - name: pageSize
@@ -1151,6 +1157,7 @@ paths:
         in: path
         description: |-
           ID of the placement group to list instances for.
+
           To get the placement group ID, use [list](/docs/compute/api-ref/PlacementGroup/list) request.
         required: true
         schema:
@@ -1192,6 +1199,7 @@ paths:
         in: path
         description: |-
           ID of the placement group to list operations for.
+
           To get the placement group ID, use [list](/docs/compute/api-ref/PlacementGroup/list) request.
         required: true
         schema:
@@ -1961,7 +1969,8 @@ components:
           folderId:
             description: |-
               ID of the folder to create a placement group in.
-              To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+              To get a folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
             type: string
           name:
             description: Name of the placement group.
@@ -1980,7 +1989,8 @@ components:
         properties:
           spreadPlacementStrategy:
             $ref: '#/components/schemas/SpreadPlacementStrategy'
-            description: Distribute instances over distinct failure domains.
+            description: Anti-affinity placement strategy (`spread`). Instances are
+              distributed over distinct failure domains.
     CreateSnapshotMetadata:
       type: object
       properties:
@@ -2545,18 +2555,17 @@ components:
       type: object
       properties:
         placementGroups:
-          description: Lists placement groups for the specified folder.
+          description: Lists placement groups in the specified folder.
           type: array
           items:
             $ref: '#/components/schemas/PlacementGroup'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/compute/api-ref/PlacementGroup/list#query_params), use
-            [nextPageToken](/docs/compute/api-ref/PlacementGroup/list#responses) as the value
-            for the [pageToken](/docs/compute/api-ref/PlacementGroup/list#query_params) query parameter
-            in the next list request. Each subsequent list request will have its own
-            [nextPageToken](/docs/compute/api-ref/PlacementGroup/list#responses) to continue paging through the results.
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/compute/api-ref/PlacementGroup/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/compute/api-ref/PlacementGroup/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListSnapshotOperationsResponse:
       type: object
@@ -2743,14 +2752,14 @@ components:
       - type: object
         properties:
           id:
-            description: ID of the placement group.
+            description: ID of the placement group. Generated at creation time.
             type: string
           folderId:
             description: ID of the folder that the placement group belongs to.
             type: string
           createdAt:
             description: |-
-              Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+              Creation timestamp.
 
               String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
             type: string
@@ -2761,10 +2770,10 @@ components:
               The name is unique within the folder.
             type: string
           description:
-            description: Description of the placement group.
+            description: Description of the placement group. 0-256 characters long.
             type: string
           labels:
-            description: Resource labels as `key:value` pairs.
+            description: Placement group labels as `key:value` pairs.
             type: object
             additionalProperties:
               type: string
@@ -2774,7 +2783,9 @@ components:
         properties:
           spreadPlacementStrategy:
             $ref: '#/components/schemas/SpreadPlacementStrategy'
-            description: Distribute instances over distinct failure domains.
+            description: |-
+              Anti-affinity placement strategy (`spread`). Instances are distributed
+              over distinct failure domains.
     PlacementPolicy:
       type: object
       properties:
@@ -2939,6 +2950,12 @@ components:
       - ERROR
       - DELETING
     SpreadPlacementStrategy:
+      description: |-
+        Anti-affinity placement strategy (`spread`). Instances are distributed
+        over distinct failure domains.
+
+        This is an empty structure that must be passed to explicitly
+        specify the required placement strategy.
       type: object
       properties: {}
     StartInstanceMetadata:
@@ -3713,7 +3730,7 @@ components:
           type: string
     FieldMask_in_UpdatePlacementGroupRequest_updateMask:
       description: |-
-        Field mask that specifies which fields of the PlacementGroup resource are going to be updated.
+        Field mask that specifies which fields of the PlacementGroup resource should be updated.
 
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
@@ -3757,7 +3774,7 @@ tags:
 - name: Instance
   description: A set of methods for managing Instance resources.
 - name: PlacementGroup
-  description: A set of methods for managing PlacementGroup resources.
+  description: A set of methods for managing placement groups.
 - name: Snapshot
   description: A set of methods for managing Snapshot resources.
 - name: Zone

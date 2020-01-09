@@ -16,7 +16,7 @@ DELETE https://compute.api.cloud.yandex.net/compute/v1/placementGroups/{placemen
  
 Parameter | Description
 --- | ---
-placementGroupId | ID of the placement group to delete. To get the placement group ID, use [list](/docs/compute/api-ref/PlacementGroup/list) request.
+placementGroupId | ID of the placement group to delete.  To get the placement group ID, use [list](/docs/compute/api-ref/PlacementGroup/list) request.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

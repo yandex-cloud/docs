@@ -11,6 +11,7 @@ editable: false
 [DiskType](DiskType/index.md) | Набор методов для получения информации о типах дисков.
 [Image](Image/index.md) | Набор методов для управления ресурсами Image.
 [Instance](Instance/index.md) | Набор методов для управления ресурсами Instance.
+[PlacementGroup](PlacementGroup/index.md) | Набор методов для управления группами размещения.
 [Snapshot](Snapshot/index.md) | Набор методов для управления ресурсами Snapshot.
 [Zone](Zone/index.md) | Набор методов для получения информации о зонах доступности.
 [InstanceGroup](InstanceGroup/index.md) | Набор методов для управления ресурсами InstanceGroup.

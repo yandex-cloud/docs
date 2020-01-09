@@ -16,7 +16,7 @@ PATCH https://compute.api.cloud.yandex.net/compute/v1/placementGroups/{placement
  
 Parameter | Description
 --- | ---
-placementGroupId | ID of the placement group to update. To get the placement group ID, use an [list](/docs/compute/api-ref/PlacementGroup/list) request.
+placementGroupId | ID of the placement group to update.  To get the placement group ID, use an [list](/docs/compute/api-ref/PlacementGroup/list) request.
  
 ## Body parameters {#body_params}
  
@@ -32,7 +32,7 @@ placementGroupId | ID of the placement group to update. To get the placement gro
  
 Field | Description
 --- | ---
-updateMask | **string**<br><p>Field mask that specifies which fields of the PlacementGroup resource are going to be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+updateMask | **string**<br><p>Field mask that specifies which fields of the PlacementGroup resource should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
 name | **string**<br><p>Name of the placement group.</p> 
 description | **string**<br><p>Description of the placement group.</p> 
 labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>The existing set of <code>labels</code> is completely replaced by the provided set.</p> 

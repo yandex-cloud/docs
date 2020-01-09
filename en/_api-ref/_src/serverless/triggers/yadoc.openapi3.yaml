@@ -356,6 +356,8 @@ components:
           type: string
         retrySettings:
           $ref: '#/components/schemas/RetrySettings_in_InvokeFunctionWithRetry_retrySettings'
+        deadLetterQueue:
+          $ref: '#/components/schemas/PutQueueMessage_in_InvokeFunctionWithRetry_deadLetterQueue'
     ListTriggerOperationsResponse:
       type: object
       properties:
@@ -445,6 +447,19 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    PutQueueMessage:
+      type: object
+      properties:
+        queueId:
+          description: ID of the queue.
+          type: string
+        serviceAccountId:
+          description: |-
+            Required.
+            SA which has write permission on the queue.
+
+            The maximum string length in characters is 50.
+          type: string
     RetrySettings:
       description: Settings for retrying to invoke a function.
       type: object
@@ -650,6 +665,8 @@ components:
           invokeFunction:
             $ref: '#/components/schemas/InvokeFunctionOnce'
             description: Instructions for invoking a function once.
+          invokeFunctionWithRetry:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
     UpdateTriggerMetadata:
       type: object
       properties:
@@ -732,6 +749,20 @@ components:
           description: |-
             Required.
             Time in seconds to wait between individual retries.
+          type: string
+    PutQueueMessage_in_InvokeFunctionWithRetry_deadLetterQueue:
+      description: DLQ policy (no value means discarding a message)
+      type: object
+      properties:
+        queueId:
+          description: ID of the queue.
+          type: string
+        serviceAccountId:
+          description: |-
+            Required.
+            SA which has write permission on the queue.
+
+            The maximum string length in characters is 50.
           type: string
     TriggerRule_in_Trigger_rule:
       description: |-

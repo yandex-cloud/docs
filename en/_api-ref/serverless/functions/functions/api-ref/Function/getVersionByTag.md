@@ -17,7 +17,7 @@ GET https://serverless-functions.api.cloud.yandex.net/functions/v1/versions:byTa
 Parameter | Description
 --- | ---
 functionId | Required. ID of the function whose versions should be listed.  To get a function ID use a [list](/docs/functions/functions/api-ref/Function/list) request.
-tag | Version tag.  To get the history of version tags make a [listTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory) request.  Value must match the regular expression `[a-z][-_0-9a-z]*|[$]latest`.
+tag | Version tag.  To get the history of version tags make a [listTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory) request.  Value must match the regular expression `` [a-z][-_0-9a-z]*|[$]latest ``.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

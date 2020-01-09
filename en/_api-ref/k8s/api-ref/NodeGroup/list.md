@@ -57,9 +57,18 @@ filter | A filter expression that filters resources listed in the response. The 
         }
       },
       "scalePolicy": {
+
+        // `nodeGroups[].scalePolicy` includes only one of the fields `fixedScale`, `autoScale`
         "fixedScale": {
           "size": "string"
-        }
+        },
+        "autoScale": {
+          "minSize": "string",
+          "maxSize": "string",
+          "initialSize": "string"
+        },
+        // end of the list of possible fields`nodeGroups[].scalePolicy`
+
       },
       "allocationPolicy": {
         "locations": [
@@ -146,8 +155,12 @@ nodeGroups[].<br>nodeTemplate.<br>v4AddressSpec.<br>oneToOneNatSpec.<br>ipVersio
 nodeGroups[].<br>nodeTemplate.<br>schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
 nodeGroups[].<br>nodeTemplate.<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
 nodeGroups[].<br>scalePolicy | **object**<br><p>Scale policy of the node group.  For more information, see <a href="/docs/compute/concepts/instance-groups/policies#scale-policy">Scaling policy</a>.</p> 
-nodeGroups[].<br>scalePolicy.<br>fixedScale | **object**<br>Fixed scale policy of the node group.<br>
+nodeGroups[].<br>scalePolicy.<br>fixedScale | **object**<br>Fixed scale policy of the node group. <br>`nodeGroups[].scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
 nodeGroups[].<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+nodeGroups[].<br>scalePolicy.<br>autoScale | **object**<br>Auto scale policy of the node group. <br>`nodeGroups[].scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
+nodeGroups[].<br>scalePolicy.<br>autoScale.<br>minSize | **string** (int64)<br><p>Minimum number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+nodeGroups[].<br>scalePolicy.<br>autoScale.<br>maxSize | **string** (int64)<br><p>Maximum number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+nodeGroups[].<br>scalePolicy.<br>autoScale.<br>initialSize | **string** (int64)<br><p>Initial number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 nodeGroups[].<br>allocationPolicy | **object**<br><p>Allocation policy by which resources for node group are allocated to zones and regions.</p> 
 nodeGroups[].<br>allocationPolicy.<br>locations[] | **object**<br><p>List of locations where resources for the node group will be allocated.</p> 
 nodeGroups[].<br>allocationPolicy.<br>locations[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the nodes may reside.</p> 

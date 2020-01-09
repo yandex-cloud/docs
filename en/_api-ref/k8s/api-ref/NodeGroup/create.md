@@ -42,9 +42,18 @@ POST https://mks.api.cloud.yandex.net/managed-kubernetes/v1/nodeGroups
     }
   },
   "scalePolicy": {
+
+    // `scalePolicy` includes only one of the fields `fixedScale`, `autoScale`
     "fixedScale": {
       "size": "string"
-    }
+    },
+    "autoScale": {
+      "minSize": "string",
+      "maxSize": "string",
+      "initialSize": "string"
+    },
+    // end of the list of possible fields`scalePolicy`
+
   },
   "allocationPolicy": {
     "locations": [
@@ -120,8 +129,12 @@ nodeTemplate.<br>v4AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br
 nodeTemplate.<br>schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
 nodeTemplate.<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
 scalePolicy | **object**<br><p>Required. Scale policy of the node group.</p> 
-scalePolicy.<br>fixedScale | **object**<br>Fixed scale policy of the node group.<br>
+scalePolicy.<br>fixedScale | **object**<br>Fixed scale policy of the node group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+scalePolicy.<br>autoScale | **object**<br>Auto scale policy of the node group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
+scalePolicy.<br>autoScale.<br>minSize | **string** (int64)<br><p>Minimum number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+scalePolicy.<br>autoScale.<br>maxSize | **string** (int64)<br><p>Maximum number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+scalePolicy.<br>autoScale.<br>initialSize | **string** (int64)<br><p>Initial number of nodes in the node group.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 allocationPolicy | **object**<br><p>Allocation policy of the node group by the zones and regions.</p> 
 allocationPolicy.<br>locations[] | **object**<br><p>List of locations where resources for the node group will be allocated.</p> 
 allocationPolicy.<br>locations[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the nodes may reside.</p> 

@@ -52,6 +52,7 @@ pageToken | Page token. Set `page_token` to the `next_page_token` returned by a 
       "subnetIds": [
         "string"
       ],
+      "assignPublicIps": true,
 
       // `databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`
       "zonalDatabase": {
@@ -89,6 +90,7 @@ databases[].<br>scalePolicy.<br>fixedScale | **object**<br>
 databases[].<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>The minimum value is 1.</p> 
 databases[].<br>networkId | **string**<br>
 databases[].<br>subnetIds[] | **string**<br>
+databases[].<br>assignPublicIps | **boolean** (boolean)<br>
 databases[].<br>zonalDatabase | **object** <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`<br><br>
 databases[].<br>zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
 databases[].<br>regionalDatabase | **object** <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`<br><br>
