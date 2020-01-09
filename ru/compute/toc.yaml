@@ -37,6 +37,20 @@ items:
             href: operations/dsvm/index.md
           - name: Создание и поключение к ВМ
             href: operations/dsvm/quickstart.md
+      - name: Группы размещения
+        items:
+          - name: Создание группы размещения
+            href: operations/placement-groups/create.md
+          - name: Создание ВМ в группе размещения
+            href: operations/placement-groups/create-vm-in-pg.md
+          - name: Добавление ВМ в группу размещения
+            href: operations/placement-groups/add-vm.md
+          - name: Добавление ВМ в группу размещения
+            href: operations/placement-groups/add-vm.md
+          - name: Удаление ВМ из группы размещения
+            href: operations/placement-groups/delete-vm.md
+          - name: Удаление группы размещения
+            href: operations/placement-groups/delete.md
       - name: Образы с предустановленным ПО
         items:
           - name: Создать ВМ
@@ -167,6 +181,8 @@ items:
             href: concepts/network.md
           - name: Динамическая миграция
             href: concepts/live-migration.md
+          - name: Группы размещения
+            href: concepts/placement-groups.md
           - name: Статусы
             href: concepts/vm-statuses.md
           - name: Метаданные
