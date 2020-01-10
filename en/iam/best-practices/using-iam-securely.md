@@ -20,7 +20,7 @@ For critical resources:
 
     Administrators can revoke one another's access rights, while owners can revoke the owner role from one another. These roles also include all the permissions under the `editor` role — they let you create, edit, and delete resources.
 
-## Protect your Yandex account {#safe-your-account}
+## Protect your Yandex account {#protect-account}
 
 * {% include [yandex-account-2fa-warning.md](../../_includes/iam/yandex-account-2fa-warning.md) %}
 

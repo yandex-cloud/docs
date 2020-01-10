@@ -11,7 +11,7 @@ To set up authentication:
 1. [Add users to the cloud](#add-users).
 1. [Test the authentication process](#test-auth).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 To use the instructions in this section, you need:​
 
@@ -184,7 +184,7 @@ When you finish configuring authentication with Active Directory, test that it r
 
 1. On successful authentication, ADFS redirects you back to the management console login link and then to the management console home page. In the upper-right corner, you can see that you are logged in to the console under an Active Directory account.
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [Assign roles to the added users](../roles/grant.md#access-to-federated-user).
 

@@ -24,7 +24,7 @@ These services and utilities can request an IAM token automatically, so you can 
 * [Packer](../../../solutions/infrastructure-management/packer-quickstart.md)
 * [GitLab CI](../../../solutions/testing/ci-for-snapshots.md)
 
-#### See also
+#### See also {#see-also}
 
 * [Learn more about Yandex.OAuth ](https://tech.yandex.com/oauth/).
 

@@ -4,7 +4,7 @@ This section describes how to assign a [role](../../concepts/access-control/role
 
 You can't set service account access rights via the management console. You can [assign a role for a folder](../../../resource-manager/operations/folder/set-access-bindings.md) hosting the service account.
 
-## Assign a role to a service account
+## Assign a role to a service account {#assign-role-to-sa}
 
 {% list tabs %}
 

@@ -24,7 +24,7 @@ The IAM token lifetime can be less than 12 hours if:
 
 This authentication method is supported by all services, except for those with AWS-compatible APIs (they only need an IAM token for managing [access keys](access-key.md) and [service accounts](../users/service-accounts.md)).
 
-#### See also
+#### See also {#see-also}
 
 * [{#T}](../../operations/iam-token/create.md)
 * [{#T}](../../operations/iam-token/create-for-sa.md)

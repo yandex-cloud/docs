@@ -11,7 +11,7 @@ _Статические ключи доступа_ — секретный клю
 * [{{ objstorage-name }}](/docs/storage/)
 * [{{ message-queue-name }}](/docs/message-queue/)
 
-#### См. также
+#### См. также {#see-also}
 
 * [Как создать статический ключ доступа](../../operations/sa/create-access-key.md)
 * [{#T}](index.md)

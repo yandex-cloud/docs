@@ -69,7 +69,7 @@ If a resource has child resources, all permissions from the parent resource will
 
 If a child resource is also assigned some roles, a list of permissions for this resource will be combined with a list of permissions for its parent resource. You can't limit the list of permissions inherited from the parent resource.
 
-#### See also
+#### See also {#see-also}
 
 For more information about managing access to a specific Yandex.Cloud service, see the <q>Access management</q> section in the documentation on that service.
 

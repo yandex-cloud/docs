@@ -11,7 +11,7 @@ To set up authentication:
 1. [Add users to the cloud](#add-users).
 1. [Test the authentication process](#test-auth).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 To use the instructions in this section, you need:​
 
@@ -170,7 +170,7 @@ When you finish configuring the server, check the authentication process:
 1. Enter your authentication data. By default, you must enter the UPN and password. Then click **Sign in**.
 1. On successful authentication, the server will redirect you back to the management console login link and then to the console's home page. In the upper-right corner, you can see that you are logged in to the console as a federated user.
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [Assign roles to the added users](../roles/grant.md#access-to-federated-user).
 

@@ -1,12 +1,12 @@
 # Step-by-step instructions
 
-## Users
+## Users {#users}
 
 - [{#T}](users/create.md)
 - [{#T}](users/get.md)
 - [{#T}](users/delete.md)
 
-## Service accounts
+## Service accounts {#sa}
 
 - [{#T}](sa/create.md)
 - [{#T}](sa/update.md)
@@ -16,29 +16,29 @@
 - [{#T}](sa/get-id.md)
 - [{#T}](sa/delete.md)
 
-## Identity federations
+## Identity federations {#federations}
 
 - [{#T}](federations/integration-adfs.md)
 - [{#T}](federations/integration-gsuite.md)
 - [{#T}](federations/integration-common.md)
 - [{#T}](federations/add-users.md)
 
-## Roles
+## Roles {#roles}
 
 - [{#T}](roles/grant.md)
 - [{#T}](roles/revoke.md)
 
-## IAM tokens
+## IAM tokens {#iam-tokens}
 
 - [{#T}](iam-token/create.md)
 - [{#T}](iam-token/create-for-sa.md)
 
-## API keys
+## API keys {#api-keys}
 
 - [{#T}](api-key/create.md)
 - [{#T}](api-key/delete.md)
 
-## Authorized keys
+## Authorized keys {#authorized-keys}
 
 - [{#T}](authorized-key/create.md)
 

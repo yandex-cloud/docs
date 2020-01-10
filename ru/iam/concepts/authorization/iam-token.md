@@ -22,7 +22,7 @@ IAM-токен действует не больше {{ iam-token-lifetime }}, н
 
 Этот способ авторизации поддерживают все сервисы, кроме сервисов с AWS-совместимым API (в них IAM-токен нужен только для управления [ключами доступа](access-key.md) и [сервисными аккаунтами](../users/service-accounts.md)).
 
-#### См. также
+#### См. также {#see-also}
 
 * [{#T}](../../operations/iam-token/create.md)
 * [{#T}](../../operations/iam-token/create-for-sa.md)

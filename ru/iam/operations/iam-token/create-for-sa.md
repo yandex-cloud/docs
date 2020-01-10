@@ -31,7 +31,7 @@ yc iam create-token
 
 Чтобы получить IAM-токен, создайте [JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT) и обменяйте его на IAM-токен.
 
-### Перед началом
+### Перед началом {#before-you-begin}
 
 1. [Узнайте идентификатор сервисного аккаунта](../sa/get-id.md).
 1. [Создайте авторизованные ключи](../authorized-key/create.md), которые необходимы при создании JWT.
@@ -531,7 +531,7 @@ yc iam create-token
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
 
-#### Что дальше
+#### Что дальше {#what-is-next}
 
 * [{#T}](../sa/set-access-bindings.md)
 * [{#T}](../sa/assign-role-for-sa.md)

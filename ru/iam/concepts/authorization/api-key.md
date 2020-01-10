@@ -24,7 +24,7 @@ Authorization: Api-Key <API-ключ>
 * [{{ translate-name }}](../../../translate/api-ref/authentication.md)
 * [{{ vision-name }}](../../../vision/api-ref/authentication.md)
 
-#### См. также
+#### См. также {#see-also}
 
 * [Как создать API-ключ](../../operations/api-key/create.md)
 * [{#T}](iam-token.md)

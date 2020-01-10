@@ -23,6 +23,6 @@
 
 {% include [include](../../../_includes/iam/add-federated-users-instruction.md) %}
 
-#### Что дальше {#whats-next}
+#### Что дальше {#what-is-next}
 
 * [Назначьте роли добавленным пользователям](../roles/grant.md).

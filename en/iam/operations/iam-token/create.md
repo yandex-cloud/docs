@@ -30,7 +30,7 @@ To perform operations in Yandex.Cloud via the API, you need an [IAM token](../..
 
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
-## Examples
+## Examples {#examples}
 
 Save the IAM token to a variable in the CLI and use it in other requests from the command line. Sample request to get cloud list:
 

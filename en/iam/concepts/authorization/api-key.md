@@ -18,7 +18,7 @@ For information about how to use an API key for authentication, read the documen
 * [{{ translate-name }}](../../../translate/api-ref/authentication.md)
 * [{{ vision-name }}](../../../vision/api-ref/authentication.md)
 
-#### See also
+#### See also {#see-also}
 
 * [How to create an API key](../../operations/api-key/create.md)
 * [{#T}](iam-token.md)
