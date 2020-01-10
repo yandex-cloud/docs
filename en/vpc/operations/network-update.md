@@ -52,9 +52,9 @@ After creating a cloud network, you can change its name, description, and tags.
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
-### Changing a cloud network using its name
+### Changing a cloud network using its name {#using-name}
 
 You can change a cloud network using its name instead of its ID:
 
