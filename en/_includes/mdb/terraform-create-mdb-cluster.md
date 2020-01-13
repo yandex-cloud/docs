@@ -1,0 +1,20 @@
+2. Make sure that the configuration files are correct.
+   1. In the command line, use the `cd <folder path>` command to go to the folder where you created the configuration file.
+   2. Run the check using the command:
+
+      ```
+      terraform plan
+      ```
+
+   If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If there are errors in the configuration, Terraform will point them out. This is a test step. No resources are created.
+
+3. Create a cluster.
+   1. If there are no errors in the configuration, run the command:
+
+      ```
+      terraform apply
+      ```
+   2. Confirm the creation of resources.
+
+   After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in [console]({{ link-console-main }}).
+

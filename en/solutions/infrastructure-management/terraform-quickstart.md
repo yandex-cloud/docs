@@ -1,6 +1,6 @@
 # Getting started with Terraform
 
-Terraform allows you to quickly create a cloud infrastructure in Yandex.Cloud. The infrastructure components are identified through configuration files that specify the required cloud resources and their parameters.
+{% include [terraform-definition](../_solutions_includes/terraform-definition.md)  %}
 
 Configurations for Terraform are written to `.tf` files in HashiCorp Configuration Language (HCL).
 
