@@ -27,7 +27,7 @@ items:
       href: operations/shards.md
     - name: Удаление кластера
       href: operations/cluster-delete.md
-    - name: Миграция базы данных в Облако
+    - name: Миграция базы данных в Яндекс.Облако
       href: operations/data-migration.md
   - name: Сценарии использования
     items:
