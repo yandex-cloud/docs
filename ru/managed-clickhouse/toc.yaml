@@ -21,6 +21,8 @@ items:
       href: operations/update.md
     - name: Подключение внешних словарей
       href: operations/dictionaries.md
+    - name: Подключение моделей машинного обучения
+      href: operations/ml-models.md
     - name: Изменение версии ClickHouse
       href: operations/cluster-version-update.md
     - name: Управление хостами ClickHouse
