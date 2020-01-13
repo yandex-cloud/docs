@@ -99,12 +99,12 @@ A set of methods for managing Data Proc jobs.
 Field | Description
 --- | ---
 id | **string**<br><p>ID of the job. Generated at creation time.</p> 
-clusterId | **string**<br><p>Unique ID of the Data Proc cluster.</p> 
+clusterId | **string**<br><p>ID of the Data Proc cluster that the job belongs to.</p> 
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 startedAt | **string** (date-time)<br><p>The time when the job was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 finishedAt | **string** (date-time)<br><p>The time when the job was finished.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the job, specified in the <a href="/docs/data-proc/api-ref/Job/create">create</a> request.</p> 
-status | **string**<br>Job status.<br><ul> <li>PROVISIONING: Job is logged in the database and is waiting for the agent to run it.</li> <li>PENDING: Job is acquired by the agent and is in the queue for execution.</li> <li>RUNNING: Job is being run in the cluster.</li> <li>ERROR: Job failed to finish the run properly.</li> <li>DONE: Job is finished</li> </ul> 
+status | **string**<br>Job status.<br><ul> <li>PROVISIONING: Job is logged in the database and is waiting for the agent to run it.</li> <li>PENDING: Job is acquired by the agent and is in the queue for execution.</li> <li>RUNNING: Job is being run in the cluster.</li> <li>ERROR: Job failed to finish the run properly.</li> <li>DONE: Job is finished.</li> </ul> 
 mapreduceJob | **object** <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 mapreduceJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 
 mapreduceJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH of the Data Proc driver and each task.</p> 
@@ -119,7 +119,7 @@ sparkJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH 
 sparkJob.<br>fileUris[] | **string**<br><p>URIs of resource files to be copied to the working directory of Data Proc drivers and distributed Hadoop tasks.</p> 
 sparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted to the working directory of Data Proc drivers and tasks.</p> 
 sparkJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and Spark.</p> 
-sparkJob.<br>mainJarFileUri | **string**<br><p>The HCFS URI of the jar file containing the <code>main</code> class for the job.</p> 
+sparkJob.<br>mainJarFileUri | **string**<br><p>The HCFS URI of the JAR file containing the <code>main</code> class for the job.</p> 
 sparkJob.<br>mainClass | **string**<br><p>The name of the driver class.</p> 
 pysparkJob | **object** <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 pysparkJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 

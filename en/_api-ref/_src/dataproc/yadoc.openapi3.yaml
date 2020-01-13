@@ -999,7 +999,7 @@ components:
           type: string
         subclusterId:
           description: |-
-            ID of the ubcluster resource that is being to deleted.
+            ID of the subcluster that is being deleted.
 
             The maximum string length in characters is 50.
           type: string
@@ -1036,7 +1036,7 @@ components:
             the service and the property.
 
             For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
-            in `/etc/hadoop/conf/hdfs-site.xml`.
+            in the file `/etc/hadoop/conf/hdfs-site.xml`.
           type: object
           additionalProperties:
             type: string
@@ -1111,7 +1111,7 @@ components:
             $ref: '#/components/schemas/QueryList'
             description: List of Hive queries to be used in the job.
     Host:
-      description: A Data Proc host resource. For details about the concept, see [documentation](/docs/data-proc/concepts/).
+      description: A Data Proc host. For details about the concept, see [documentation](/docs/data-proc/concepts/).
       type: object
       properties:
         name:
@@ -1141,7 +1141,7 @@ components:
             description: ID of the job. Generated at creation time.
             type: string
           clusterId:
-            description: Unique ID of the Data Proc cluster.
+            description: ID of the Data Proc cluster that the job belongs to.
             type: string
           createdAt:
             description: |-
@@ -1193,7 +1193,7 @@ components:
          - PENDING: Job is acquired by the agent and is in the queue for execution.
          - RUNNING: Job is being run in the cluster.
          - ERROR: Job failed to finish the run properly.
-         - DONE: Job is finished
+         - DONE: Job is finished.
       type: string
       enum:
       - PROVISIONING
@@ -1475,19 +1475,19 @@ components:
         * Hive: Server, Metastore, HCatalog
         * Spark History Server
         * Zeppelin
-        * Zookeeper
+        * ZooKeeper
          - DATANODE: The subcluster is a DATANODE in a Data Proc cluster.
 
         DATANODE can run the following services, depending on the requested components:
-        * HDFS DataNode,
-        * YARN NodeManager,
-        * HBase RegionServer,
-        * Spark libraries.
+        * HDFS DataNode
+        * YARN NodeManager
+        * HBase RegionServer
+        * Spark libraries
          - COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.
 
         COMPUTENODE can run the following services, depending on the requested components:
-        * YARN NodeManager.
-        * Spark libraries.
+        * YARN NodeManager
+        * Spark libraries
       type: string
       enum:
       - MASTERNODE
@@ -1527,7 +1527,7 @@ components:
           additionalProperties:
             type: string
         mainJarFileUri:
-          description: The HCFS URI of the jar file containing the `main` class for
+          description: The HCFS URI of the JAR file containing the `main` class for
             the job.
           type: string
         mainClass:
@@ -1775,7 +1775,7 @@ components:
             the service and the property.
 
             For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
-            in `/etc/hadoop/conf/hdfs-site.xml`.
+            in the file `/etc/hadoop/conf/hdfs-site.xml`.
           type: object
           additionalProperties:
             type: string
@@ -1804,7 +1804,7 @@ components:
             the service and the property.
 
             For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
-            in `/etc/hadoop/conf/hdfs-site.xml`.
+            in the file `/etc/hadoop/conf/hdfs-site.xml`.
           type: object
           additionalProperties:
             type: string
@@ -1846,19 +1846,19 @@ components:
         * Hive: Server, Metastore, HCatalog
         * Spark History Server
         * Zeppelin
-        * Zookeeper
+        * ZooKeeper
          - DATANODE: The subcluster is a DATANODE in a Data Proc cluster.
 
         DATANODE can run the following services, depending on the requested components:
-        * HDFS DataNode,
-        * YARN NodeManager,
-        * HBase RegionServer,
-        * Spark libraries.
+        * HDFS DataNode
+        * YARN NodeManager
+        * HBase RegionServer
+        * Spark libraries
          - COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.
 
         COMPUTENODE can run the following services, depending on the requested components:
-        * YARN NodeManager.
-        * Spark libraries.
+        * YARN NodeManager
+        * Spark libraries
       type: string
       enum:
       - MASTERNODE
@@ -1900,19 +1900,19 @@ components:
         * Hive: Server, Metastore, HCatalog
         * Spark History Server
         * Zeppelin
-        * Zookeeper
+        * ZooKeeper
          - DATANODE: The subcluster is a DATANODE in a Data Proc cluster.
 
         DATANODE can run the following services, depending on the requested components:
-        * HDFS DataNode,
-        * YARN NodeManager,
-        * HBase RegionServer,
-        * Spark libraries.
+        * HDFS DataNode
+        * YARN NodeManager
+        * HBase RegionServer
+        * Spark libraries
          - COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.
 
         COMPUTENODE can run the following services, depending on the requested components:
-        * YARN NodeManager.
-        * Spark libraries.
+        * YARN NodeManager
+        * Spark libraries
       type: string
       enum:
       - MASTERNODE
@@ -1968,19 +1968,19 @@ components:
         * Hive: Server, Metastore, HCatalog
         * Spark History Server
         * Zeppelin
-        * Zookeeper
+        * ZooKeeper
          - DATANODE: The subcluster is a DATANODE in a Data Proc cluster.
 
         DATANODE can run the following services, depending on the requested components:
-        * HDFS DataNode,
-        * YARN NodeManager,
-        * HBase RegionServer,
-        * Spark libraries.
+        * HDFS DataNode
+        * YARN NodeManager
+        * HBase RegionServer
+        * Spark libraries
          - COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.
 
         COMPUTENODE can run the following services, depending on the requested components:
-        * YARN NodeManager.
-        * Spark libraries.
+        * YARN NodeManager
+        * Spark libraries
       type: string
       enum:
       - MASTERNODE
@@ -1999,19 +1999,19 @@ components:
         * Hive: Server, Metastore, HCatalog
         * Spark History Server
         * Zeppelin
-        * Zookeeper
+        * ZooKeeper
          - DATANODE: The subcluster is a DATANODE in a Data Proc cluster.
 
         DATANODE can run the following services, depending on the requested components:
-        * HDFS DataNode,
-        * YARN NodeManager,
-        * HBase RegionServer,
-        * Spark libraries.
+        * HDFS DataNode
+        * YARN NodeManager
+        * HBase RegionServer
+        * Spark libraries
          - COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.
 
         COMPUTENODE can run the following services, depending on the requested components:
-        * YARN NodeManager.
-        * Spark libraries.
+        * YARN NodeManager
+        * Spark libraries
       type: string
       enum:
       - MASTERNODE

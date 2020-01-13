@@ -98,8 +98,8 @@ editable: false
  
 Field | Description
 --- | ---
-id | **string**<br><p>Required. Unique ID of the Data Proc job. This ID is assigned by MDB in the process of creating Data Proc job.</p> 
-clusterId | **string**<br><p>Required. Unique ID of the Data Proc cluster.</p> 
+id | **string**<br><p>Unique ID of the Data Proc job. This ID is assigned by MDB in the process of creating Data Proc job.</p> 
+clusterId | **string**<br><p>ID of the Data Proc cluster.</p> 
 createdAt | **string** (date-time)<br><p>The time when the Data Proc job was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 startedAt | **string** (date-time)<br><p>The time when the Data Proc job was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 finishedAt | **string** (date-time)<br><p>The time when the Data Proc job was finished.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

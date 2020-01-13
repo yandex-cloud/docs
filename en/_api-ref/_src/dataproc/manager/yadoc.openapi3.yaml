@@ -177,11 +177,11 @@ components:
         properties:
           id:
             description: |-
-              Required. Unique ID of the Data Proc job.
+              Unique ID of the Data Proc job.
               This ID is assigned by MDB in the process of creating Data Proc job.
             type: string
           clusterId:
-            description: Required. Unique ID of the Data Proc cluster.
+            description: ID of the Data Proc cluster.
             type: string
           createdAt:
             description: |-

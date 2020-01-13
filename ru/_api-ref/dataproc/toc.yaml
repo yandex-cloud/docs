@@ -1,0 +1,49 @@
+items:
+  - name: Обзор
+    href: api-ref/index.md
+  - name: Cluster
+    items:
+      - name: Обзор
+        href: api-ref/Cluster/index.md
+      - name: create
+        href: api-ref/Cluster/create.md
+      - name: delete
+        href: api-ref/Cluster/delete.md
+      - name: get
+        href: api-ref/Cluster/get.md
+      - name: list
+        href: api-ref/Cluster/list.md
+      - name: listHosts
+        href: api-ref/Cluster/listHosts.md
+      - name: listOperations
+        href: api-ref/Cluster/listOperations.md
+      - name: start
+        href: api-ref/Cluster/start.md
+      - name: stop
+        href: api-ref/Cluster/stop.md
+      - name: update
+        href: api-ref/Cluster/update.md
+  - name: Job
+    items:
+      - name: Обзор
+        href: api-ref/Job/index.md
+      - name: create
+        href: api-ref/Job/create.md
+      - name: get
+        href: api-ref/Job/get.md
+      - name: list
+        href: api-ref/Job/list.md
+  - name: Subcluster
+    items:
+      - name: Обзор
+        href: api-ref/Subcluster/index.md
+      - name: create
+        href: api-ref/Subcluster/create.md
+      - name: delete
+        href: api-ref/Subcluster/delete.md
+      - name: get
+        href: api-ref/Subcluster/get.md
+      - name: list
+        href: api-ref/Subcluster/list.md
+      - name: update
+        href: api-ref/Subcluster/update.md
