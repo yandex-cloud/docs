@@ -10,19 +10,31 @@ You can use disk snapshots for various purposes, such as:
 
 {% note info %}
 
-If you need to create multiple disks with identical content, use [images](image.md). Disk creation from an image is faster than from a snapshot.
+If you need to create multiple disks with the same content, use [images](images.md). Disk creation from an image is faster than from a snapshot.
 
 {% endnote %}
 
-## A disk snapshot as a Yandex.Cloud resource  {#concept_pdw_xtc_v2b}
+## Disk snapshots as a Yandex.Cloud resource {#concept_pdw_xtc_v2b}
 
 A disk snapshot is a resource like the disk itself. Snapshots are created in a folder. Access rights to a snapshot are inherited from rights to the folder.
 
-Snapshots take up space in the storage so additional fees are charged for storing them. For more information, see the section [{#T}](../pricing.md).
+Snapshots take up space in the storage so additional fees are charged for storing them. For more information, see [{#T}](../pricing.md).
 
-Snapshot information contains the ID of the disk from which the snapshot was created. In addition, the license IDs are inherited from the source resource (`product_ids`), which are used to calculate the cost of disk usage.
+Snapshot information contains the ID of the disk from which the snapshot was created. In addition, the license IDs (`product_ids`) are inherited from the source resource, which are used to calculate the disk use cost.
 
-## Backup {#backup}
+## Backups {#backup}
 
-Each snapshot is automatically replicated across multiple availability zones to ensure reliable data storage.
+Snapshots are stored in {{ ydb-full-name }}, replicated in multiple availability zones, and encrypted at the database level.
+
+Snapshot storage time is determined by the user.
+
+### Checking backups {#verify}
+
+#### Checking backup integrity {#integrity}
+
+The checksum is stored for blocks in the snapshot. This checksum is checked when creating a disk from a snapshot.
+
+#### Checking backup recovery {#capabilities}
+
+To test disk recovery from a snapshot, [create a VM with a disk from a snapshot](../operations/vm-create/create-from-snapshots.md) and check the integrity of your data.
 

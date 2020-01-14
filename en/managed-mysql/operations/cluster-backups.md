@@ -4,7 +4,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 ## Restoring clusters from backups {#restore}
 
-When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
+When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
 For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ CH }} backup cannot be restored as a {{ MY }} cluster).
 
@@ -37,12 +37,12 @@ For a new cluster, you should set all the parameters that are required at creati
 
       ```
       $ {{ yc-mdb-my }} backup list
-
+      
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
       | c9qlk4v13uq79r9cgcku:... | 2018-11-02T10:08:38Z | c9qlk4v13uq79r9cgcku | 2018-11-02T10:08:37Z |
-      | ...                                                                                           |                          |
+      | ...                                                                                           |                          
       +--------------------------+----------------------+----------------------+----------------------+
       ```
 
@@ -97,7 +97,7 @@ For a new cluster, you should set all the parameters that are required at creati
       - With the `mynewmy` name.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
-      - With a single `{{ host-class }}` class host in the  `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
+      - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
       - With SSD network storage of 20 GB.
 
@@ -131,7 +131,7 @@ For a new cluster, you should set all the parameters that are required at creati
   1. Request creation of a backup specifying the cluster name or ID:
 
       ```
-      $ {{ yc-mdb-my }} cluster backup <cluster ID>
+      $ {{ yc-mdb-my }} cluster backup <cluster name>
       ```
 
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
@@ -156,7 +156,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ {{ yc-mdb-my }} backup list
-
+  
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
   +----------+----------------------+----------------------+----------------------+
@@ -201,7 +201,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - CLI
 
-  To set the backup start time, use the `--backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
+  To set the backup start time, use the `-- backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
 
   ```
   $ yc {{ yc-mdb-my }} cluster create \
@@ -210,10 +210,10 @@ For a new cluster, you should set all the parameters that are required at creati
      --network-name <network name> \
      --host zone-id=<availability zone>,subnet-id=<subnet ID> \
      --mongodb-version <database version> \
-     --backup-window-start 10:25:00
+     --backup-window-start 10:25:00  
   ```
 
-  To change the backup start time in an existing cluster, use the  `update` command:
+  To change the backup start time in an existing cluster, use the `update` command:
 
   ```
   $ yc {{ yc-mdb-my }} cluster update \

@@ -2,9 +2,9 @@
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
-## Restoring clusters from backups: {#restore}
+## Restoring clusters from backups {#restore}
 
-When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
+When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps.
 
 {% list tabs %}
 
@@ -40,7 +40,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
       ```
       $ {{ yc-mdb-rd }} backup list
-
+      
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -127,7 +127,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
   ```
   $ {{ yc-mdb-rd }} backup list
-
+  
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
   +----------+----------------------+----------------------+----------------------+
@@ -174,7 +174,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
 - CLI
 
-  To set the backup start time, use the `--backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
+  To set the backup start time, use the `-- backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
 
   ```
   $ yc {{ yc-mdb-rd }} cluster create \
@@ -182,10 +182,10 @@ When you restore a cluster from a backup, you create a new cluster with the data
      --environment <prestable or production> \
      --network-name <network name> \
      --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-     --backup-window-start 10:25:00
+     --backup-window-start 10:25:00  
   ```
 
-  To change the backup start time in an existing cluster, use the  `update` command:
+  To change the backup start time in an existing cluster, use the `update` command:
 
   ```
   $ yc {{ yc-mdb-rd }} cluster update \
@@ -194,4 +194,3 @@ When you restore a cluster from a backup, you create a new cluster with the data
   ```
 
 {% endlist %}
-

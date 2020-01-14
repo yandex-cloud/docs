@@ -46,7 +46,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 ## Restoring clusters from backups {#restore}
 
-When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the cloud has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
+When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the cloud has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
 For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ CH }} backup cannot be restored as a {{ PG }} cluster).
 
@@ -78,7 +78,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       ```
       $ {{ yc-mdb-ch }} backup list
-
+      
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -125,7 +125,7 @@ For a new cluster, you should set all the parameters that are required at creati
       - Named `mynewch`.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
-      - With one `{{ host-class }}` class host in the  `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
+      - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
       - With SSD network storage of 20 GB.
 
@@ -160,7 +160,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ {{ yc-mdb-ch }} backup list
-
+  
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
   +----------+----------------------+----------------------+----------------------+
@@ -207,7 +207,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - CLI
 
-  To set the backup start time, use the `--backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
+  To set the backup start time, use the `-- backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
 
   ```
   $ yc {{ yc-mdb-ch }} cluster create \
@@ -223,7 +223,7 @@ For a new cluster, you should set all the parameters that are required at creati
         --backup-window-start 10:00:00
   ```
 
-  To change the backup start time in an existing cluster, use the  `update` command:
+  To change the backup start time in an existing cluster, use the `update` command:
 
   ```
   $ yc {{ yc-mdb-ch }} cluster update \
