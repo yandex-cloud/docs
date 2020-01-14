@@ -33,6 +33,7 @@ X-DL-Client-Id | Идентификатор клиента.
   "settings": {},
   "tables": [{
     "name": "string",
+    "title": "string",
     "partition_key": [
       "string"
     ],
@@ -58,6 +59,7 @@ version | **string**<br><p>Версия подключения.</p>
 settings | **object**<br><p>Настройки подключения. Используются на стороне поставки данных. Настройки могут меняться пользователями.</p>
 tables[] | **object**<br><p>Информация о таблицах в подключении.</p>
 tables[].name | **string**<br><p>Имя таблицы.</p>
+tables[].title | **string**<br><p>Заголовок таблицы.</p>
 tables[].partition_key[] | **object**<br><p>Ключ партиционирования.</p>
 tables[].meta | **object**<br><p>Метаданные таблицы.</p>
 tables[].meta.lastUploadTime | **string**<br><p>Дата и время последнего обновления таблицы.<br/>Строка в формате <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>.</p>

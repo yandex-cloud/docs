@@ -18,6 +18,8 @@ items:
         href: api-ref/get-connection-info.md
       - name: Обновление таблицы
         href: api-ref/update-table-info.md
+      - name: Удаление таблицы
+        href: api-ref/delete-table-info.md
       - name: Запись данных
         href: api-ref/write-data.md
       - name: Удаление данных
