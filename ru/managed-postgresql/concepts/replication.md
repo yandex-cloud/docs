@@ -24,4 +24,4 @@
 
 Если вы хотите гарантировать постоянную консистентность чтения данных между мастером и синхронной репликой, [укажите в настройках кластера](../operations/update.md#change-postgresql-config) параметр `synchronous_commit = remote_write`. С этим значением параметра запись не считается успешной, пока синхронная реплика не готова читать обновленные данные. Недостаток этого решения — операции записи в кластер будут занимать больше времени.
 
-Подробное описание параметра `synchronous_commit` смотрите в [документации {{ PG }}]((https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT)).
+Подробное описание параметра `synchronous_commit` смотрите в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).

@@ -23,5 +23,5 @@ By default, the master and replica are kept in sync by syncing the [Write-Ahead 
 
 If you want to ensure ongoing consistency of data reads between the master and synchronous replica, [specify, in the cluster settings](../operations/update.md#change-postgresql-config), the `synchronous_commit = remote_write` parameter. With this parameter value, a data write is not considered successful until the synchronous replica is ready to read the updated data. However, there is a disadvantage: write operations to the cluster will take longer.
 
-For a detailed description of the `synchronous_commit` parameter, see the [{{ PG }} documentation]( (https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT)).
+For a detailed description of the `synchronous_commit` parameter, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
 
