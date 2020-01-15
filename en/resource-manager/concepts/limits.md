@@ -3,5 +3,5 @@ editable: false
 ---
 # Quotas and limits
 
-There are no quotas or limits for {{ resmgr-full-name }}.
+{% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
 
