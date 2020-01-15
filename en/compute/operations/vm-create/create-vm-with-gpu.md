@@ -92,7 +92,7 @@ By default, the cloud now has a zero quota for creating virtual machines with GP
 
 {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
-#### See also
+#### See also {#see-also}
 
 - Learn how to [change the VM configuration](../vm-control/vm-update-resources.md).
 

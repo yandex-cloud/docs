@@ -63,7 +63,7 @@ You can also get the basic details and metadata [from inside a VM](#inside-insta
 
 The Yandex.Cloud metadata service lets you return metadata in the Google Compute Engine format.
 
-#### HTTP request
+#### HTTP request {#gce-http}
 
 ```
 GET http://169.254.169.254/computeMetadata/v1/instance/
@@ -83,7 +83,7 @@ Metadata-Flavor: Google
 | `last_etag` | The ETag value from the previous response to a similar request. Use it when `wait_for_change="true"`. |
 | `timeout_sec` | Maximum request timeout. Use it when `wait_for_change="true"`. |
 
-#### Request examples
+#### Request examples {#request-examples}
 
 Find out the ID of a VM from inside it:
 
@@ -103,7 +103,7 @@ Get metadata in an easy-to-read format. Use the [jq](https://stedolan.github.io/
 $ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true | jq -r '.'
 ```
 
-#### List of returned elements
+#### List of returned elements {#list-of-returned-elements}
 
 List of elements that are available for this request.
 
@@ -126,7 +126,7 @@ Other elements, such as `project`, which are used for backward compatibility and
 
 The Yandex.Cloud metadata service lets you return metadata in the Amazon EC2 format.
 
-#### HTTP request
+#### HTTP request {#ec2-http}
 
 ```
 GET http://169.254.169.254/latest/meta-data/<element>
@@ -136,7 +136,7 @@ GET http://169.254.169.254/latest/meta-data/<element>
 | ----- | ----- |
 | `<element>` | Path to the element you want to get. If the element is omitted, the response returns a list of available elements. |
 
-#### List of returned elements
+#### List of returned elements {#list-of-returned-elements}
 
 List of elements that are available for this request.
 
@@ -160,7 +160,7 @@ The angle brackets contain parameters that need to be replaced with values. For 
 | `public-ipv4` | External IPv4 address. |
 | `iam/security-credentials/default/` | [IAM token](../../../iam/concepts/authorization/iam-token.md) of the linked service account. |
 
-#### Request examples
+#### Request examples {#request-examples}
 
 Get an internal IP address from inside a VM:
 

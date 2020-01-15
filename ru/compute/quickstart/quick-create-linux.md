@@ -2,7 +2,7 @@
 
 Cоздайте [виртуальную машину](../concepts/vm.md) Linux с помощью сервиса {{ compute-name }} в консоли управления Яндекс.Облаком и подключитесь к ней.
 
-## Перед началом работы {#before-begin}
+## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin-linux](../../_includes/compute/before-you-begin-linux.md) %}
 

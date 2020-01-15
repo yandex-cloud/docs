@@ -36,7 +36,7 @@ To set up a secure connection:
 
 Check the specified files often. Download these files only via HTTPS after verifying the validity of the `https://storage.yandexcloud.net` website certificate. If the website cannot securely encrypt your data  due to certificate problems, the browser will warn you about that.
 
-## Connecting to the serial console
+## Connecting to the serial console {connect-to-serial-console}
 
 {% note info %}
 
@@ -60,7 +60,7 @@ $ ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_rsa fhm0b28lgfp4tkoa3jl6.yc-
 
 The  `yc-user` user is generated automatically when the VM is being created. Learn more in [{#T}](../vm-create/create-linux-vm.md).
 
-#### Troubleshooting
+#### Troubleshooting {#troubleshooting}
 
 - If you connect to the serial console and nothing appears on the screen:
     - Press `Enter`.
@@ -68,7 +68,7 @@ The  `yc-user` user is generated automatically when the VM is being created. Lea
 - If the system requests user data to provide access to the VM, enter the login and password.
 - If you see the error `Warning: remote host identification has changed!` when connecting to the VM, run `ssh-keygen -R <IP address of VM>`.
 
-## Disconnecting from the serial console
+## Disconnecting from the serial console {#turn-off-serial-console}
 
 To disconnect from the serial console:
 

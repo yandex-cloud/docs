@@ -37,7 +37,7 @@ Set up a secure connection in one of the following ways:
 
 Check the specified files often. Download these files only via HTTPS after verifying the validity of the `https://storage.yandexcloud.net` website certificate. If the website cannot securely encrypt your data  due to certificate problems, the browser will warn you about that.
 
-## Connecting to a serial console
+## Connecting to a serial console {connect-to-serial-console}
 
 To connect to the serial console:
 
@@ -75,7 +75,7 @@ To connect to the serial console:
 
 {% endlist %}
 
-## Disconnecting from the serial console
+## Disconnecting from the serial console {#disconnect-serial-console}
 
 To disconnect from the serial console:
 

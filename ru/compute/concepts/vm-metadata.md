@@ -10,7 +10,7 @@
 * [Google Compute Engine](../operations/vm-info/get-info.md#gce-metadata) (поддерживаются не все поля).
 * [Amazon EC2](../operations/vm-info/get-info.md#ec2-metadata) (поддерживаются не все поля).
 
-## Как передать метаданные {#how-to-pass-metadata}
+## Как передать метаданные {#how-to-send-metadata}
 
 Вы можете передать метаданные при создании и [изменении](../operations/vm-control/vm-update.md#change-metadata) виртуальной машины. Данные для подключения к виртуальной машине нельзя изменить и необходимо передать при создании:
 * [Для виртуальной машины Linux](../operations/vm-create/create-linux-vm.md) необходимо передать открытый ключ SSH для подключения к ней.
@@ -59,7 +59,7 @@
 
 {% endnote %}
 
-## Ключи, обрабатываемые в публичных образах {#metadata-keys}
+## Ключи, обрабатываемые в публичных образах {#keys-processed-in-public-images}
 
 Список ключей, которые обрабатываются в публичных образах Яндекс.Облака, зависит от операционной системы.
 

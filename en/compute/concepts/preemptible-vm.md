@@ -12,7 +12,7 @@ Preemptible instances are cheaper than standard virtual machines, but they don't
 
 To create a preemptible VM, [follow the instructions](../operations/vm-create/create-preemptible-vm.md).
 
-## Restrictions
+## Restrictions {#restrictions}
 
 Preemptible instances run like regular VMs, but they have the following restrictions:
 

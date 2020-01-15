@@ -15,7 +15,7 @@
 | --- | --- | --- | --- | --- | --- |
 | Intel Broadwell with </br> NVIDIA Tesla V100 </br> (`gpu-standard-v1`) | [NVIDIA Tesla V100](https://www.nvidia.com/en-us/data-center/tesla-v100/) | [Intel Xeon</br>Processor E5-2660 v4](https://ark.intel.com/content/www/us/en/ark/products/91772/intel-xeon-processor-e5-2660-v4-35m-cache-2-00-ghz.html) | **Maximum number of GPUs per VM**: 4 </br> **Number of vCPUs per GPU**: 8 </br> **RAM per GPU**: 96 GB |
 
-## See also
+## See also {#see-also}
 
 * [Permissible vCPU and RAM configurations](performance-levels.md).
 * [Permissible GPU, vCPU, and RAM configurations](gpus.md#config).

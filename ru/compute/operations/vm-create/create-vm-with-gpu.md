@@ -84,6 +84,6 @@
 
 {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
-#### См. также
+#### См. также {#see-also}
 
 - Узнайте, как [изменить конфигурацию виртуальной машины](../vm-control/vm-update-resources.md).

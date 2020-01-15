@@ -2,18 +2,18 @@
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 
-## Creating instance groups
+## Creating instance groups {#ig-create}
 
 - [{#T}](create-fixed-group.md)
 - [{#T}](create-with-balancer.md)
 
-## Getting information about instance groups
+## Getting information about instance groups {#ig-info}
 
 - [{#T}](get-list.md)
 - [{#T}](get-info.md)
 - [{#T}](get-list-instances.md)
 
-## Managing instance groups
+## Managing instance groups {#ig-control}
 
 - [{#T}](stop.md)
 - [{#T}](start.md)

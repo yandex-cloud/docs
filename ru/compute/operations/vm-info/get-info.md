@@ -64,7 +64,7 @@
 
 Сервис метаданных Яндекс.Облака позволяет возвращать метаданные в формате Google Compute Engine.
 
-#### HTTP-запрос
+#### HTTP-запрос {#gce-http}
 
 ```
 GET http://169.254.169.254/computeMetadata/v1/instance/
@@ -84,7 +84,7 @@ Metadata-Flavor: Google
 `last_etag` | Значение ETag из предыдущего ответа на аналогичный запрос. Используйте при `wait_for_change="true"`.
 `timeout_sec` | Максимальное время ожидания запроса. Используйте при `wait_for_change="true"`.
 
-#### Примеры запросов
+#### Примеры запросов {#request-examples}
 
 Узнать идентификатор виртуальной машины изнутри машины:
 
@@ -104,7 +104,7 @@ $ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?re
 $ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true | jq -r '.'
 ```
 
-#### Список возвращаемых элементов
+#### Список возвращаемых элементов {#list-of-returned-items}
 
 Список элементов, которые доступны по этому запросу.
 
@@ -127,7 +127,7 @@ $ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?re
 
 Сервис метаданных Яндекс.Облака позволяет возвращать метаданные в формате Amazon EC2.
 
-#### HTTP-запрос
+#### HTTP-запрос {#ec2-http}
 
 ```
 GET http://169.254.169.254/latest/meta-data/<элемент>
@@ -137,7 +137,7 @@ GET http://169.254.169.254/latest/meta-data/<элемент>
 ----- | -----
 `<элемент>` | Путь к элементу, который вы хотите получить. Если элемент не задан, в ответе вернется список доступных элементов.
 
-#### Список возвращаемых элементов
+#### Список возвращаемых элементов {#list-of-returned-items}
 
 Список элементов, которые доступны по этому запросу.
 
@@ -161,7 +161,7 @@ GET http://169.254.169.254/latest/meta-data/<элемент>
 `public-ipv4` | Внешний IPv4-адрес.
 `iam/security-credentials/default/` | [IAM-токен](../../../iam/concepts/authorization/iam-token.md) привязанного сервисного аккаунта.
 
-#### Примеры запросов
+#### Примеры запросов {#request-examples}
 
 Получить внутренний IP-адрес изнутри виртуальной машины:
 

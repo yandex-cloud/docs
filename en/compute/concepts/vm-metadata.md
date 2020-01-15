@@ -4,7 +4,7 @@ The VM instance details are available in the metadata service. You can use the m
 
 Metadata is also used by programs launched on VM start.
 
-## How to send metadata
+## How to send metadata {#how-to-send-metadata}
 
 You can pass metadata when you create or [change](../operations/vm-control/vm-update.md#change-metadata) your virtual machine. VM connection data can't change, so it must be passed during creation:
 
@@ -58,7 +58,7 @@ The metadata, including the user-defined metadata, is available in unencrypted f
 
 {% endnote %}
 
-## Keys processed in public images
+## Keys processed in public images {#keys-processed-in-public-images}
 
 The list of keys that are processed in Yandex.Cloud's public images depends on the operating system.
 

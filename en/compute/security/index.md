@@ -36,7 +36,7 @@ Active roles in the service:
     * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
     * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).

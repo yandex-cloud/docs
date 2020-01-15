@@ -36,7 +36,7 @@ To create a VM:
           $ export FAMILY=windows-2016-gvlk
           $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
             "https://compute.api.cloud.yandex.net/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
-          
+
           {
            "productIds": [
             "f2eu62v659or2tqv28l0"
@@ -174,7 +174,7 @@ When a VM is being created, it is assigned an IP address and FQDN. You can use t
 
 You can make a public IP address static. Learn more in [{#T}](../vm-control/vm-set-static-ip.md).
 
-#### See also
+#### See also {#see-also}
 
 - [{#T}](../vm-connect/rdp.md)
 

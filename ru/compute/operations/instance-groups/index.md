@@ -2,18 +2,18 @@
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 
-## Создание группы виртуальных машин
+## Создание группы виртуальных машин {#ig-create}
 
 - [{#T}](create-fixed-group.md)
 - [{#T}](create-with-balancer.md)
 
-## Получение информации о группе виртуальных машин
+## Получение информации о группе виртуальных машин {#ig-info}
 
 - [{#T}](get-list.md)
 - [{#T}](get-info.md)
 - [{#T}](get-list-instances.md)
 
-## Управление группой виртуальных машин
+## Управление группой виртуальных машин {#ig-control}
 
 - [{#T}](stop.md)
 - [{#T}](start.md)

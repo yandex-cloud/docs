@@ -17,7 +17,7 @@ Creation of an instance group is free of charge.
 
 All other Yandex.Cloud services, such as creation of VMs or allocation of external IP addresses, are [charged as usual](../../billing/pricing.md).
 
-#### How do I know I'm not overpaying?
+#### How do I know I'm not overpaying? {#not-overpaying}
 
 To select the appropriate number of instances and minimize costs:
 
