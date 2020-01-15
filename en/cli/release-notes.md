@@ -1,14 +1,68 @@
 # YC CLI Releases
 
-## Version 0.47.0 (17.12.19) {#latest-release}
+## Version 0.48.0 (27.12.19) {#latest-release}
 
 ### Changes to the CLI {#cli}
 
 **Improved**
 
-- [Federated authentication](operations/authentication/federated-user.md) is now supported for non-interactive `yc` calls. This mode is used when the CLI is not started directly by the user, like when it is started via a script or `kubectl` when working with the [Kubernetes cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) in {{ managed-k8s-name }}.
+- When updating YC CLI, the current version to be installed is now displayed.
+
+### Changes to Yandex.Cloud services {#services}
+
+#### {{ compute-name }} {#compute}
+
+- Added ability to use placement groups: `yc compute placement-group --help`.
+
+- Commands `yc compute instance create` and `yc compute instance update`
+
+    Renamed the flag used for specifying the platform from `--platform-id` to `--platform`. The old flag name is still supported.
+
+- Command `yc compute instance create`
+
+    SSH keys added using the `--ssh-key` flag are saved to the metadata with the `ssh-keys` key instead of `ec2-user-data`.
+
+#### Managed database services {#managed-db}
+
+**{{ mmy-name }}**
+
+- Added support for creating a cluster with {{ MY }} version 8.0.
+
+- Added a command to manually switch the master for a specified cluster: {{ MY }} `{{ yc-mdb-my }} cluster start-failover`.
+
+- Command `{{ yc-mdb-my }} cluster update`
+
+    Added the ability to rename clusters using the `--new-name` flag.
+
+**{{ mpg-name }}**
+
+- Added a command to manually switch the master for a specified cluster: {{ PG }} `{{ yc-mdb-pg }} cluster start-failover`.
+
+- Command `{{ yc-mdb-pg }} cluster update`
+
+    Added the ability to rename clusters using the `--new-name` flag.
+
+**{{ mch-name }}**
+
+- Command `{{ yc-mdb-ch }} cluster update`
+
+    Added the ability to rename clusters using the `--new-name` flag.
+
+**{{ mrd-name }}**
+
+- Command `{{ yc-mdb-rd }} cluster update`
+
+    Added the ability to rename clusters using the `--new-name` flag.
 
 ## Previous releases {#previous-releases}
+
+### Version 0.47.0 (17.12.19) {#version0.47.0}
+
+#### Changes to the CLI {#cli}
+
+**Improved**
+
+- [Federated authentication](operations/authentication/federated-user.md) is now supported for non-interactive `yc` calls. This mode is used when the CLI is not started directly by the user, like when it is started via a script or `kubectl` when working with the [Kubernetes cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) in {{ managed-k8s-name }}.
 
 ### Version 0.46.0 (13.12.19) {#version0.46.0}
 
