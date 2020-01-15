@@ -16,7 +16,7 @@
 
 {% endnote %}
 
-#### См. также
+#### См. также {#see-also}
 
 * [{#T}](update.md)
 * [{#T}](set-access-bindings.md)

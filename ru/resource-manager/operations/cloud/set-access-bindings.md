@@ -310,7 +310,7 @@
 
 {% endlist %}
 
-#### Что дальше
+#### Что дальше {#what-is-next}
 
 * [{#T}](../folder/create.md)
 * [{#T}](../folder/set-access-bindings.md)
