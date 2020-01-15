@@ -25,6 +25,8 @@ items:
     items:
       - name: Работа с Kubernetes из GitLab
         href: solutions/gitlab.md
+      - name: Интеграция с Container Registry
+        href: solutions/container-registry.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
