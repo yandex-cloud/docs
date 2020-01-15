@@ -33,6 +33,10 @@ items:
         href: operations/cluster-delete.md
       - name: Database migration to the Cloud
         href: operations/data-migration.md
+  - name: Solutions
+    items:
+      - name: Creating a PG cluster for 1C:Enterprise
+        href: solutions/1c-postgresql
   - name: Concepts
     items:
       - name: Relationship between service resources
