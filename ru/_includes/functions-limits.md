@@ -16,6 +16,7 @@ ZIP-архив через консоль управления | 3,5 МБ
 ZIP-архив через S3 бакет | 128 МБ
 Распакованный ZIP-архив через S3 бакет | 680 МБ
 **Другие ограничения** | 
+Максимальный размер [JSON-структуры запроса](../functions/concepts/function-invoke.md#request) | 3,5 МБ
 Максимальный объем [временных файлов](../functions/concepts/runtime/environment-variables.md#files) | 512 МБ
 Максимальное время выполнения функции до [таймаута](../functions/operations/function/version-manage.md#version-create) (включая начальную инициализацию при первом запуске) | 5 минут
 Максимальное количество [триггеров](../functions/concepts/trigger/index.md) для одной [очереди сообщений](../message-queue/concepts/queue.md) | 1
