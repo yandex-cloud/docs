@@ -148,9 +148,13 @@ Spark Submit позволяет запускать заранее написан
           "org.apache.spark" %% "spark-sql" % "2.2.3" % "provided"
       )
       ```
+      
      {% note info %}
+     
      Версия Scala и библиотек может измениться с обновлениями компонентов {{ dataproc-name }}.
+     
      {% endnote %}
+     
   1. Скомпилируйте и соберите jar-файл:
   
       ```bash
