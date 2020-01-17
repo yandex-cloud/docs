@@ -61,6 +61,8 @@ items:
     items:
       - name: Действующие правила
         href: pricing.md
+      - name: С 1 февраля 2020 года
+        href: pricing-01022020.md
       - name: Архив
         items:
           - name: До 1 января 2019 года
