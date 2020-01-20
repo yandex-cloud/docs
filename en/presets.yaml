@@ -1,4 +1,6 @@
 default:
+  audience: external
+
   # Полные имена сервисов
   iam-full-name: Yandex Identity and Access Management
   resmgr-full-name: Yandex Resource Manager
@@ -84,7 +86,7 @@ default:
   kms-short-name: KMS
 
   # Тарифы
-  price-per-hour-count-per-second: The price is indicated for 1 hour of use. Charging per second.
+  price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
 
   # Роли
   roles-cr-puller: container-registry.images.puller
@@ -116,6 +118,9 @@ default:
   yc-compute-ig: yc compute instance-group
   yc-compute: yc compute
   yc-compute-instance: yc compute instance
+
+  # Compute specific
+  max-gpus: 4
 
   # IAM specific
   iam-token-lifetime: 12 hours
@@ -177,6 +182,7 @@ default:
   s2-3xlarge: s2.3xlarge (32 vCPU, 128 GB)
   s2-4xlarge: s2.4xlarge (40 vCPU, 160 GB)
   s2-5xlarge: s2.5xlarge (48 vCPU, 192 GB)
+  s2-6xlarge: s2.6xlarge (64 vCPU, 256 GB)
 
   # SpeechKit specific
   stt-short-fileSize: 1 MB
@@ -184,6 +190,7 @@ default:
   stt-short-channelsCount: 1
   stt-long-fileSize: 1 GB
   stt-long-resultsStorageTime: 3 days
+  stt-long-audioLength: 4 hours
   stt-streaming-fileSize: 10 MB
   stt-streaming-audioLength: 5 minutes
 

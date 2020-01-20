@@ -13,7 +13,7 @@ items:
       href: operations/cluster-create.md
     - name: Connecting to databases
       href: operations/connect.md
-    - name: Stopping and starting clusters
+    - name: Stop and start the cluster
       href: operations/cluster-stop.md
     - name: Changing cluster and database settings
       href: operations/update.md
@@ -29,7 +29,7 @@ items:
       href: operations/shards.md
     - name: Deleting clusters
       href: operations/cluster-delete.md
-    - name: Database migration to the Cloud
+    - name: Database migration to Yandex.Cloud
       href: operations/data-migration.md
   - name: Solutions
     items:
@@ -61,6 +61,8 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
+      - name: From February 1, 2020
+        href: pricing-01022020.md
       - name: Archive
         items:
           - name: Before January 1, 2019

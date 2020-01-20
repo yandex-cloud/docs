@@ -36,7 +36,7 @@ The minimum billing unit is one hour (for example, the cost of 1.5 hours of oper
 The following is charged:
 
 * Storage allocated for DB clusters.
-    * Storage on fast local disks (SSD) can only be ordered for clusters with more than 3 hosts in 100 GB increments.
+    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with more than 3 hosts in 100 GB increments.
 
 * Space used by DB backups in excess of the storage specified for the cluster.
 
@@ -47,6 +47,12 @@ The following is charged:
 The cost is specified for one month of use. The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
 
 ## Pricing {#prices}
+
+{% note info %}
+
+From February 1, 2020, service pricing [changes](pricing-01022020.md#prices): the cost of clusters will be calculated directly based on the computing resources used directly, not the host class.
+
+{% endnote %}
 
 ### Hosts {prices-hosts}
 

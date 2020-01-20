@@ -1,7 +1,6 @@
 ---
 editable: false
 ---
-
 # Pricing for {{ mch-short-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -43,7 +42,7 @@ The minimum billing unit is one hour (for example, the cost of 1.5 hours of oper
 The following is charged:
 
 * Storage allocated for DB clusters.
-    * Storage on fast local disks (SSD) can only be ordered for clusters with more than 2 hosts in 100 GB increments.
+    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with more than 2 hosts in 100 GB increments.
 
 * Space used by DB backups in excess of the storage specified for the cluster.
 
@@ -61,12 +60,17 @@ You can choose the host class for {{ CH }} and ZooKeeper hosts (as appropriate f
 
 For example, let's say you create a {{ CH }} cluster with 3 `s1.micro` class hosts, but didn't specify the class of the ZooKeeper hosts. {{ mch-short-name }} automatically creates 3 `s1.nano` class ZooKeeper hosts.
 
-The hourly price will be calculated using the rates below (with VAT): `3 × ₽5.5119 + 3 × ₽1.7492 = ₽21.78`.
+The hourly price will be calculated using the rates below (including VAT): `3 × ₽5.5119 + 3 × ₽1.7492 = ₽21.78`.
 
 ## Pricing {#prices}
 
-### {{ CH }} hosts {#prices-clickhouse}
+{% note info %}
 
+From February 1, 2020, service pricing [changes](pricing-01022020.md#prices): the cost of clusters will be calculated directly based on the computing resources used directly, not the host class.
+
+{% endnote %}
+
+### Hosts {{ CH }} {#prices-clickhouse}
 {% list tabs %}
 
 - Prices in USD
@@ -282,7 +286,6 @@ The hourly price will be calculated using the rates below (with VAT): `3 × ₽5
   | Backups beyond the storage size| ₽2.5424 |
 
 {% endlist %}
-
 
 ### Outgoing traffic {#prices-traffic}
 

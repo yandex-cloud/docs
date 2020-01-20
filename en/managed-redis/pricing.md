@@ -43,6 +43,12 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 ## Pricing {#prices}
 
+{% note info %}
+
+From February 1, 2020, service pricing [changes](pricing-01022020.md#prices): the cost of clusters will be calculated directly based on the computing resources used directly, not the host class.
+
+{% endnote %}
+
 ### Hosts {#prices-hosts}
 
 The first two tabs show the cost per {{ mrd-name }} host per month and per hour.
