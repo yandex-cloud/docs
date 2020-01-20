@@ -97,9 +97,9 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
-### Creating a single-host cluster
+### Creating a single-host cluster {#Creating-single-host-cluster}
 
 To create a cluster with a single host, you should pass a single parameter, `--host`.
 

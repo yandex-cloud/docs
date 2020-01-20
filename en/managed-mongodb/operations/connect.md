@@ -12,7 +12,7 @@ If public access is only configured for certain hosts in your cluster, automatic
 
 {% endnote %}
 
-## Configuring an SSL certificate
+## Configuring an SSL certificate {#Configuring-an-SSL-certificate}
 
 {{ MG }}hosts with public access only support connections with an SSL certificate. You can prepare a certificate as follows:
 
@@ -34,7 +34,7 @@ $ chmod 0600 ~/.mongodb/CA.pem
 
 {% endif %}
 
-## Connection string
+## Connection string {#Connection-string}
 
 You can connect to the database using the command `mongo` by listing all the cluster hosts in the `host` parameter value.
 

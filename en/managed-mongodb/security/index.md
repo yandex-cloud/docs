@@ -10,29 +10,29 @@ For more information about role inheritance, see [{#T}](../../resource-manager/c
 
 {% endnote %}
 
-## Assigning roles
+## Assigning roles {#grant-roles}
 
 To assign a user a role:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Roles
+## Roles {#roles}
 
 The list below shows all roles that are considered when verifying access rights in the {{ mmg-name }} service.
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
-### {{ roles-viewer }}
+### {{ roles-viewer }} {#viewer}
 
 Users with the `{{ roles-viewer }}` role can view information about resources. For example, they can view a list of hosts or get information about a database cluster.
 
-### {{ roles-editor }}
+### {{ roles-editor }} {#editor}
 
 Users with the `{{ roles-editor }}` role can manage any resource, including creating a database cluster and creating or deleting cluster hosts.
 
 The `{{ roles-editor }}` role also includes all `{{ roles-viewer }}` role permissions.
 
-### {{ roles-admin }}
+### {{ roles-admin }} {#admin}
 
 Users with the `{{ roles-admin }}` role can manage resource access rights, including allowing other users to create database clusters and to view information about them.
 
