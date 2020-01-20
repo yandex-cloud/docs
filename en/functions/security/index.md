@@ -12,13 +12,13 @@ For more information about role inheritance, see [{#T}](../../resource-manager/c
 
 {% endnote %}
 
-## Assigning roles
+## Assigning roles {#grant-roles}
 
 To assign a user a role:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Roles
+## Roles {#roles}
 
 The list below shows all roles that are considered when verifying access rights in the {{ sf-name }} service.
 
@@ -26,17 +26,17 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [functions-roles-invoker](../../_includes/roles-functions-invoker.md) %}
 
-### {{ roles-viewer }}
+### {{ roles-viewer }} {#viewer}
 
 The user with the `{{ roles-viewer }}` role can view information about resources, such as the list of functions or their versions and the function execution log.
 
-### {{ roles-editor }}
+### {{ roles-editor }} {#editor}
 
 The user with the `{{ roles-editor }}` role can manage functions and their versions, such as creating or deleting a version or editing information about a function.
 
 The `{{ roles-editor }}` role also includes all `{{ roles-viewer }}` role permissions.
 
-### {{ roles-admin }}
+### {{ roles-admin }} {#admin}
 
 The user with the `{{ roles-admin }}` role can manage access rights to resources, such as allow other users to call functions or work with their versions.
 

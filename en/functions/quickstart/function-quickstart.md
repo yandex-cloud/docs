@@ -12,7 +12,7 @@ Create and execute [functions](../concepts/function.md) which welcome the user. 
 - [Call the function](#invoke)
 - [What's next](#what-is-next)
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 1. [Create a folder](../../resource-manager/operations/folder/create.md) in Yandex.Cloud.
 1. [Install the](../../cli/quickstart.md) YC CLI.
