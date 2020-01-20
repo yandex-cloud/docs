@@ -99,7 +99,6 @@
 - [postgres_fdw](https://www.postgresql.org/docs/current/static/postgres-fdw.html) (требует роли `owner` или [mdb_admin](../concepts/roles.md#mdb-admin)).
 - [seg](https://www.postgresql.org/docs/current/static/seg.html)
 - [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html)
-- [timetravel](https://www.postgresql.org/docs/current/static/contrib-spi.html#id-1.11.7.46.6)
 - [unaccent](https://www.postgresql.org/docs/current/static/unaccent.html)
 - [uuid-ossp](https://www.postgresql.org/docs/current/static/uuid-ossp.html)
 - [xml2](https://www.postgresql.org/docs/current/static/xml2.html)
