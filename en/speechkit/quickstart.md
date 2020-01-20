@@ -4,11 +4,11 @@ If you want to see how the service synthesizes or recognizes speech, use the dem
 
 In this section, you'll learn how to use the {{ speechkit-short-name }} API. First you will create an audio file from text and then try to recognize the audio.
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 {% include [ai-before-beginning](../_includes/ai-before-beginning.md) %}
 
-## Text-to-speech
+## Text-to-speech {#Text-to-speech}
 
 With [speech synthesis](tts/index.md), you can convert text to speech and save it to an audio file.
 
@@ -37,7 +37,7 @@ By default, audio is created in the [OggOpus](https://wiki.xiph.org/OggOpus) for
 
 [Read more about the format of a speech synthesis request](tts/request.md).
 
-## Speech recognition
+## Speech recognition {#Speech-recognition}
 
 The service can recognize speech [three different ways](stt/index.md#stt-ways). This section describes [recognition of short audio files](stt/request.md).
 
@@ -52,7 +52,7 @@ $ curl -X POST \
 {"result":"Hello world"}
 ```
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [Read more about speech synthesis](tts/index.md)
 * [Read more about speech recognition](stt/index.md)

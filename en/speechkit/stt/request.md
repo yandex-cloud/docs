@@ -4,7 +4,7 @@ Short audio recognition ensures fast response time and is suitable for single-ch
 
 If you want to recognize speech over the same connection, use [streaming mode](streaming.md). In streaming mode, you can get intermediate recognition results.
 
-## Audio requirements
+## Audio requirements {#Audio-requirements}
 
 The audio you send must meet the following requirements:
 
@@ -61,7 +61,7 @@ To recognize speech in Russian, send an audio fragment (for example, [speech.ogg
   POST /speech/v1/stt:recognize?topic=general&lang=ru-RU&folderId={folder ID} HTTP/1.1
   Host: stt.api.cloud.yandex.net
   Authorization: Bearer <IAM-TOKEN>
-  
+
   ... (binary content of an audio file)
   ```
 
@@ -82,25 +82,25 @@ To recognize speech in Russian, send an audio fragment (for example, [speech.ogg
   ```python
   import urllib.request
   import json
-  
+
   FOLDER_ID = "b1gvmob95yysaplct532" # ID of the folder
   IAM_TOKEN = "CggaATEVAgA..." # IAM token
-  
+
   with open("speech.ogg", "rb") as f:
       data = f.read()
-  
+
   params = "&".join([
       "topic=general",
       "folderId=%s" % FOLDER_ID,
       "lang=ru-RU"
   ])
-  
+
   url = urllib.request.Request("https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?%s" % params, data=data)
   url.add_header("Authorization", "Bearer %s" % IAM_TOKEN)
-  
+
   responseData = urllib.request.urlopen(url).read().decode('UTF-8')
   decodedData = json.loads(responseData)
-  
+
   if decodedData.get("error_code") is None:
       print(decodedData.get("result"))
   ```
@@ -109,13 +109,13 @@ To recognize speech in Russian, send an audio fragment (for example, [speech.ogg
 
   ```php
   <?php
-  
+
   $token = 'CggaATEVAgA...'; # IAM token
   $folderId = "b1gvmob95yysaplct532"; # ID of the folder
   $audioFileName = "speech.ogg";
-  
+
   $file = fopen($audioFileName, 'rb');
-  
+
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?lang=ru-RU&folderId=${folderId}&format=oggopus");
   curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $token, 'Transfer-Encoding: chunked'));
@@ -124,7 +124,7 @@ To recognize speech in Russian, send an audio fragment (for example, [speech.ogg
   curl_setopt($ch, CURLOPT_POST, true);
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
   curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
-  
+
   curl_setopt($ch, CURLOPT_INFILE, $file);
   curl_setopt($ch, CURLOPT_INFILESIZE, filesize($audioFileName));
   $res = curl_exec($ch);
@@ -136,7 +136,7 @@ To recognize speech in Russian, send an audio fragment (for example, [speech.ogg
       echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
       echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
   }
-  
+
   fclose($file);
   ```
 

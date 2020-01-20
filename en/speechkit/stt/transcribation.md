@@ -10,7 +10,7 @@ For now, you can only recognize long audio in Russian.
 
 {% endnote %}
 
-## Before you start
+## Before you start {#before-you-begin}
 
 1. A recognition request should be sent on behalf of a [service account](../../iam/concepts/users/service-accounts.md) with the [`editor`](../../iam/concepts/access-control/roles.md#editor) role for the folder where it was created.
 
@@ -43,17 +43,17 @@ For now, you can only recognize long audio in Russian.
 
         The link will contain additional query parameters (after `?`) for buckets with restricted access. You don't need to pass these parameters in {{ speechkit-name }} since they just get ignored.
 
-## Send a file for recognition
+## Send a file for recognition {#sendfile}
 
 Send your file for recognition using a POST request:
 
-### HTTP request
+### HTTP request {#sendfile-request}
 
 ```
 POST https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
 ```
 
-### Parameters in the request body
+### Parameters in the request body {#sendfile-params}
 
 ```json
 {
@@ -84,7 +84,7 @@ POST https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
 | config.<br>specification.<br>raw_results | **boolean** <br>The flag that indicates how to write numbers. `true` — In words. `false` (default) — In figures. |
 | audio.<br>uri | **string**<br>The URI of the audio file for recognition. Supports only links to files stored in [Yandex Object Storage](/docs/storage/). |
 
-### Response
+### Response {#sendfile-response}
 
 If your request is written correctly, the service returns the [Operation object](../../api-design-guide/concepts/operation.md) with the recognition operation ID (`id`):
 
@@ -100,7 +100,7 @@ If your request is written correctly, the service returns the [Operation object]
 
 Use this ID at the next step.
 
-## Get recognition results
+## Get recognition results {#get-result}
 
 [Monitor the recognition results](../../api-design-guide/concepts/operation.md#monitoring) using the received ID. The number of result monitoring requests is [limited](../concepts/limits.md), so consider the recognition speed: it takes about 10 seconds to recognize 1 minute of single-channel audio.
 
@@ -110,19 +110,19 @@ Recognition results are stored on the {{ stt-long-resultsStorageTime }} server. 
 
 {% endnote %}
 
-### HTTP request
+### HTTP request {#get-result-request}
 
 ```
 GET https://operation.api.cloud.yandex.net/operations/{operationId}
 ```
 
-### Path parameters
+### Path parameters {#get-result-params}
 
 | Parameter | Description |
 | ----- | ----- |
 | operationId | The operation ID received when sending the recognition request. |
 
-### Response
+### Response {#get-result-response}
 
 Once the recognition is complete, the `done` field will be set to `true` and the `response` field will contain a list of recognition results (`chunks[]`).
 

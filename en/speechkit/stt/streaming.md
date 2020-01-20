@@ -14,9 +14,9 @@ Streaming mode is designed for real-time audio recognition. If you need to send 
 
 {% endnote %}
 
-## Using the service
+## Using the service {#service-use}
 
-### Creating a client app
+### Creating a client app {#create-client-app}
 
 For speech recognition, the app should first send a [message with recognition settings](#specification-msg) and then send [messages with audio fragments](#audio-msg).
 
@@ -26,13 +26,13 @@ To enable the app to access the service, you need to generate the client interfa
 
 See [examples](#examples) of client apps below. In addition, see the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and deploy client apps for various programming languages.
 
-### Authorization in the service
+### Authorization in the service {#auth}
 
 In each request, the application must transmit [the ID of folder](../../resource-manager/operations/folder/get-id.md) that you have been granted the `editor` role or higher for. For more information, see [Access management](../security/index.md).
 
 The application must also be authenticated for each request, such as with an IAM token. [Learn more about service authentication](../concepts/auth.md).
 
-### Recognition result
+### Recognition result {#results}
 
 During the recognition process, the speech is segmented into phrases (known as utterances). An utterance is a fragment of speech consisting of one or more words, followed by a period of silence. An utterance may contain multiple sentences if there is no pause between them.
 
@@ -44,7 +44,7 @@ _Intermediate results_ of speech recognition are formed during utterance recogni
 
 You can configure the service to return intermediate recognition results. In the [message with recognition settings](#specification-msg), specify `config.specification.partial_results=true`. In the response, `final=false` indicates the intermediate results and `final=true` indicates the final results.
 
-### Limitations of a speech recognition session
+### Limitations of a speech recognition session {#session-restrictions}
 
 After receiving the message with the recognition settings, the service starts a recognition session. The following limitations apply to each session:
 
@@ -58,7 +58,7 @@ After receiving the message with the recognition settings, the service starts a 
 
 If messages aren't sent to the service within 5 seconds or the data duration or size limit is reached, the session is terminated. To continue speech recognition, reconnect and send a new message with the speech recognition settings.
 
-## Service API
+## Service API {#streaming-api}
 
 The service is located at: `stt.api.cloud.yandex.net:443`
 
