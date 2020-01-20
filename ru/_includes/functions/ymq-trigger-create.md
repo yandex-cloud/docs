@@ -33,7 +33,7 @@
     Создайте триггер: 
 
     - `--name` — имя триггера.
-    - `--queue-arn` — уникальный идентификатор очереди. 
+    - `--queue` — уникальный идентификатор очереди. 
         
         Чтобы узнать уникальный идентификатор очереди:
         1. В [консоли управления]({{ link-console-main }}) откройте раздел **Message Queue**.
@@ -47,7 +47,7 @@
     ```
     $ yc serverless trigger create message-queue \
         --name test-trigger \
-        --queue-arn yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq \
+        --queue yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq \
         --queue-service-account-id bfbqqeo6jkpls2tse5o6 \
         --invoke-function-id b09e5lu91ta21vdrrgma \
         --invoke-function-service-account-id bfbqqeo6jkpls2tse5o6 \
