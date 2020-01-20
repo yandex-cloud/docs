@@ -6,7 +6,7 @@ The example in this section is the same as in [{#T}](../quickstart.md). For more
 
 {% include [translate-instruction](../../_includes/translate/translate-instruction.md) %}
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [How to increase translation accuracy](better-quality.md)
 

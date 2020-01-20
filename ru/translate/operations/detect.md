@@ -2,7 +2,7 @@
 
 Чтобы определить, на каком языке написан текст, воспользуйтесь методом [detectLanguage](../api-ref/Translation/detectLanguage).
 
-## Перед началом {#before-begin}
+## Перед началом {#before-you-begin}
 
 {% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
 

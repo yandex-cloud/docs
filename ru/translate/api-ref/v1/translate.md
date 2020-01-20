@@ -10,7 +10,7 @@
 POST https://translate.api.cloud.yandex.net/translate/v1/translate
 ```
 
-### Параметры в теле запроса
+### Параметры в теле запроса {#parameters-in-the-request-body}
 
 Для всех параметров обязательно используйте URL-кодирование. Максимальный размер тела POST-запроса 30 КБ.
 
@@ -41,7 +41,7 @@ POST https://translate.api.cloud.yandex.net/translate/v1/translate
 
 ## Примеры {#examples}
 
-### Пример запроса
+### Пример запроса {#sample-request}
 
 ```httpget
 export FOLDER_ID=<folder id>
@@ -54,7 +54,7 @@ curl -X POST \
      "https://translate.api.cloud.yandex.net/translate/v1/translate"
 ```
 
-### Пример ответа
+### Пример ответа {#response-example}
 
 Ответ возвращается в формате JSON.
 

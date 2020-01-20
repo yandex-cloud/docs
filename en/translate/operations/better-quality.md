@@ -5,7 +5,7 @@ To improve the accuracy of translations:
 * [Specify the source language](#with-source-language). Some words are written the same in different languages, but have different meanings. If the model detects the wrong source language, these words are translated differently.
 * [Specify your translation glossary](#with-glossary). One word can be translated different ways. For example, the English word <q>oil</q> can be translated to Russian as <q>масло</q> or <q>нефть</q>. You can use a glossary to indicate the proper translation of a word or phrase.  [Learn more about glossaries](../concepts/glossary.md).
 
-## Before getting started {#before-begin}
+## Before getting started {#before-you-begin}
 
 {% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
 

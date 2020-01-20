@@ -10,7 +10,7 @@ If you don't know the source language of a text, the service automatically detec
 
 To increase the accuracy of translations on specific topics, [pass a glossary in the request](../operations/better-quality.md#with-glossary). A glossary is a dictionary of words and phrases with a single translation. [Learn more about glossaries](glossary.md).
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [Learn how to translate text](../operations/translate.md)
 * [Detect the language of a text](../operations/detect.md)

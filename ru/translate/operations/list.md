@@ -1,6 +1,6 @@
 # Получение списка поддерживаемых языков
 
-## Перед началом {#before-begin}
+## Перед началом {#before-you-begin}
 
 {% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
 

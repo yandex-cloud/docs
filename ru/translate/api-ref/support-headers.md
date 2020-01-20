@@ -1,6 +1,6 @@
 {% include [support-headers](../../_includes/ai-common/support-headers.md) %}
 
-## Примеры
+## Примеры {#examples}
 
 Пример добавления заголовка с помощью [cURL](https://curl.haxx.se):
 
