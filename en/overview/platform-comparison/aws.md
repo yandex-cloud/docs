@@ -50,5 +50,5 @@
 | ---- | ---- |
 | Polly, Transcribe | [{{ speechkit-full-name }}](../../speechkit/) |
 | Translate | [{{ translate-full-name }}](../../translate/) |
-| Rekognition, Textract | [{{ vision-full-name }}](../../vision/) |
+| Rekognition | [{{ vision-full-name }}](../../vision/) |
 
