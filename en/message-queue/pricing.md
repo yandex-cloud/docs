@@ -3,28 +3,28 @@ editable: false
 ---
 # Pricing for {{ message-queue-name }}
 
-## What goes into the cost of using Yandex Message Queue
+## What goes into the cost of using Yandex Message Queue {#rules}
 
 {{ message-queue-name }} charges for the number of requests to [standard queues](concepts/queue.md#standard-queues) and [FIFO queues](concepts/queue.md#fifo-queues), as well as for outgoing traffic.
 
-### Requests to queues
+### Requests to queues {#requests-to-queues}
 
 {% list tabs %}
 
 - Prices in USD
-  
+
   | Service | Rate for 1 million requests, without VAT |
   | ----- | ----- |
   | Requests to standard queues | $0.390769 |
   | Requests to FIFO queues | $0.490000 |
-  
+
 - Prices in roubles
-  
+
   Service | Rate for 1 million requests, with VAT
   ----- | -----
   Requests to standard queues | ₽30.48
   Requests to FIFO queues | ₽38.22
-  
+
 {% endlist %}
 
 Payment is made for the actual number of requests. For example, the cost per thousand requests is `₽0.03048`.

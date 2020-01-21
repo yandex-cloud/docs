@@ -35,7 +35,7 @@ Attribute.N.Value (attribute value)
 | ----- | ----- |
 | `ContentBasedDeduplication` | Enables [content-based deduplication](../../concepts/deduplication.md#content-based-deduplication). Valid values: `true` or `false`. |
 
-#### Non-supported attributes
+#### Non-supported attributes {#non-supported-attributes}
 
 | Attribute | Type | Description |
 | ----- | ----- | ----- |

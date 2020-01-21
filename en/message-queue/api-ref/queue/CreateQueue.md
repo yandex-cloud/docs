@@ -56,7 +56,7 @@ Attribute.N.Value (attribute value)
 | `FifoQueue` | Returns whether the queue is [FIFO](../../concepts/queue.md#fifo-queues). <p>Valid values: `true` or `false`.</p> <p>If this parameter is not used, a standard queue is created. You cannot change the parameter value for a created queue. When sending messages to a FIFO queue, explicitly specify their `MessageGroupId`.</p> |
 | `ContentBasedDeduplication` | Enables [content-based deduplication](../../concepts/deduplication.md#content-based-deduplication). Valid values: `true` or `false`. |
 
-#### Non-supported attributes
+#### Non-supported attributes {#non-supported-attributes}
 
 | Attribute | Type | Description |
 | ----- | ----- | ----- |
