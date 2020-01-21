@@ -54,7 +54,7 @@ From February 1, 2020, service pricing [changes](pricing-01022020.md#prices): th
 
 {% endnote %}
 
-### Hosts {prices-hosts}
+### Hosts {#prices-hosts}
 
 {% list tabs %}
 

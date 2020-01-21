@@ -4,7 +4,7 @@
 
 {% include [storage-type.md](../../_includes/mdb/storage-type.md) %}
 
-## Local storage features
+## Local storage features {#Local-storage-features}
 
 Local storage doesn't provide fault tolerance for data storage and affects the overall pricing for the cluster:
 

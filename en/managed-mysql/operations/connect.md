@@ -10,7 +10,7 @@ If public access is only configured for certain hosts in your cluster, automatic
 
 {% endnote %}
 
-## Configuring an SSL certificate
+## Configuring an SSL certificate {#Configuring-an-SSL-certificate}
 
 {{ MY }}hosts with public access only support connections with an SSL certificate. You can prepare a certificate as follows:
 
@@ -32,7 +32,7 @@ $ chmod 0600 ~/.mysql/root.crt
 
 {% endif %}
 
-## Connection string
+## Connection string {#Connection-string}
 
 Connect to the database using the command `mysql`.
 
@@ -67,7 +67,7 @@ Connect to the database using the command `mysql`.
 
 {% endlist%}
 
-## Connecting to the master
+## Connecting to the master {#Connecting-to-master}
 
 Hosts will always identify the current master as `c-<cluster ID>.rw.{{ dns-zone }}`. For example, you can connect to the master of the cluster with the `c9qash3nb1v9ulc8j9nm` ID as follows:
 

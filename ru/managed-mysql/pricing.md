@@ -61,7 +61,7 @@ editable: false
 {% endnote %}
 
 
-### Хосты {prices-hosts}
+### Хосты {#prices-hosts}
 
 {% list tabs %}
 
