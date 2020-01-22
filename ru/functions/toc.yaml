@@ -99,13 +99,28 @@ items:
     items:
       - name: Аутентификация в API
         href: api-ref/functions/authentication.md
-    include:
-      repo: docs
-      path: ru/_api-ref/serverless/functions/toc.yaml
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/functions/functions/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref/serverless/functions/toc.yaml
   - name: Справочник API Triggers
     items:
       - name: Аутентификация в API
         href: api-ref/triggers/authentication.md
-    include:
-      repo: docs
-      path: ru/_api-ref/serverless/triggers/toc.yaml
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/functions/triggers/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref/serverless/triggers/toc.yaml
+

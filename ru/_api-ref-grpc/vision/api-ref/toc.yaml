@@ -1,0 +1,5 @@
+items:
+  - name: Обзор
+    href: grpc/index.md
+  - name: VisionService
+    href: grpc/vision_service.md

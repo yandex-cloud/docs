@@ -78,6 +78,13 @@ items:
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
-    include:
-      repo: docs
-      path: en/_api-ref/iot/devices/toc.yaml
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/iot-core/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref/iot/devices/toc.yaml

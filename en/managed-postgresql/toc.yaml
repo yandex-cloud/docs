@@ -73,11 +73,18 @@ items:
             href: pricing-archive/pricing-01032019.md
   - name: API reference
     items:
-    - name: Authentication in the API
-      href: api-ref/authentication.md
-    include:
-      repo: docs
-      path: en/_api-ref/mdb/postgresql/toc.yaml
+      - name: Authentication in the API 
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/managed-postgresql/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref/mdb/postgresql/toc.yaml
   - name: Questions and answers
     items:
     - name: General questions

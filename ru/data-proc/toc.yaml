@@ -46,9 +46,16 @@ items:
     items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
-    include:
-      repo: docs
-      path: ru/_api-ref/dataproc/toc.yaml
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/data-proc/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref/dataproc/toc.yaml
 #  - name: Сценарии использования
 #    href: scenarios/index.md
 #  - name: Справочник API

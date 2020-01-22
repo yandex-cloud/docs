@@ -1,0 +1,9 @@
+items:
+  - name: Обзор
+    href: grpc/index.md
+  - name: DeviceService
+    href: grpc/device_service.md
+  - name: RegistryService
+    href: grpc/registry_service.md
+  - name: OperationService
+    href: grpc/operation_service.md

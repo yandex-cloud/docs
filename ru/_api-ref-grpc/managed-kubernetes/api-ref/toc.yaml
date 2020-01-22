@@ -1,0 +1,9 @@
+items:
+  - name: Обзор
+    href: grpc/index.md
+  - name: ClusterService
+    href: grpc/cluster_service.md
+  - name: NodeGroupService
+    href: grpc/node_group_service.md
+  - name: OperationService
+    href: grpc/operation_service.md

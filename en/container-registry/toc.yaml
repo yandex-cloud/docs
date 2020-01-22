@@ -74,9 +74,16 @@ items:
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
-    include:
-      repo: docs
-      path: en/_api-ref/containerregistry/toc.yaml
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/container-registry/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref/containerregistry/toc.yaml
   - name: Troubleshooting
     href: error/index.md
   - name: Questions and answers
