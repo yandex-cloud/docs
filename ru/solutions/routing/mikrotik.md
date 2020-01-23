@@ -1,10 +1,8 @@
-# Установка Mikrotik Cloud Hosted Router
+# Установка виртуального роутера Mikrotik CHR
 
 В Яндекс.Облаке можно развернуть виртуальный роутер Mikrotik Cloud Hosted Router из готового образа ВМ. Чтобы установить Mikrotik Cloud Hosted Router и проверить его работу:
 
-1. [Создайте сети и подсети](#before-you-begin).
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Необходимые платные ресурсы](#paid-resources).
 1. [Создайте ВМ с Mikrotik Cloud Hosted Router](#create-router).
 1. [Зайдите на ВМ и смените пароль](#change-password).
 1. [Создайте тестовую ВМ](#create-test-vm).
