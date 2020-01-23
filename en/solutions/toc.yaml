@@ -37,6 +37,8 @@ items:
       href: archive/object-storage-cloudberry.md
     - name: Backup to Object Storage via Duplicati
       href: archive/object-storage-duplicati.md
+    - name: Backup to Object Storage via Bacula
+      href: archive/backup-with-bacula.md
     - name: Configuring an SFTP server on Centos 7
       href: archive/backup-and-archive-to-sftp.md
     - name: Digitizing archives in Yandex Vision
