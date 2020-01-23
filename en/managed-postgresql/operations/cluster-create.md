@@ -123,9 +123,9 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
-### Creating a single-host cluster
+### Creating a single-host cluster {#creating-a-single-host-cluster}
 
 To create a cluster with a single host, you should pass a single parameter, `--host`.
 

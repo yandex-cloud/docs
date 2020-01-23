@@ -7,7 +7,7 @@ is returned only when the data is written to the disk on both the master host an
 
 For more information about how replication works in {{ PG }}, see the [DBMS documentation](https://www.postgresql.org/docs/current/static/warm-standby.html).
 
-## Selecting the master and a synchronous replica
+## Selecting the master and a synchronous replica {#selecting-the-master-and-a-synchronous-replica}
 
 The master host and synchronous replica are selected by priority, which you can [set for a specific host](../operations/hosts.md#update).
 
@@ -17,7 +17,7 @@ In addition, you can configure cascading replication by explicitly assigning a s
 * Participate in the selection of a new master host.
 * Automatically switch to a new source of replication.
 
-## Write sync and read consistency
+## Write sync and read consistency {#write-sync-and-read-consistency}
 
 By default, the master and replica are kept in sync by syncing the [Write-Ahead Log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) (`synchronous_commit = on`). However, the WAL isn't applied to a synchronous replica immediately after being updated, so the synchronous replica might respond with outdated data during this lag.
 

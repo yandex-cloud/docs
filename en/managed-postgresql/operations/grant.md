@@ -44,9 +44,9 @@ To add a role, request the list of available roles with [user information](clust
 
 {% endlist %}
 
-## Example
+## Example {#example}
 
-### Creating a read-only user
+### Creating a read-only user {#creating-a-read-only-user}
 
 To create a user who can access data in the database but not change it:
 

@@ -28,7 +28,7 @@ The list of supported {{ PG }} extensions is provided in [{#T}](../operations/cl
 
 For more information about {{ mpg-short-name }} limitations, see [{#T}](../concepts/limits.md). Characteristics of clusters that can be created using {{ mpg-short-name }} are given in [{#T}](../concepts/instance-types.md).
 
-#### Which LC_COLLATE and LC_CTYPE values are set for databases by default?
+#### Which LC_COLLATE and LC_CTYPE values are set for databases by default? {#which-lc-collate-and-lc-lctype-values-are-set-for-databases-by-default}
 
 As databases are created, `LC_CTYPE=C` and `LC_COLLATE=C` are set by default. You can't change these settings for the database you create with clusters, but you can [create new databases](../operations/databases.md) and specify values for them.
 
