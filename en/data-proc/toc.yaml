@@ -2,6 +2,12 @@ title: "Yandex Data Proc"
 stage: new
 href: index.yaml
 items:
+  - name: Solutions
+    items:
+      - name: Configuring networks for Data Proc clusters
+        href: solutions/configure-network.md
+      - name: Copying files from Yandex Object Storage
+        href: solutions/copy-files-from-object-storage.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
