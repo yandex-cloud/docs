@@ -6,6 +6,8 @@ items:
     items:
       - name: Configuring networks for Data Proc clusters
         href: solutions/configure-network.md
+      - name: Running Spark jobs
+        href: solutions/run-spark-job.md
       - name: Copying files from Yandex Object Storage
         href: solutions/copy-files-from-object-storage.md
   - name: Step-by-step instructions

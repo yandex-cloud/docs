@@ -98,14 +98,14 @@ Spark Submit позволяет запускать заранее написан
      
   1. Запустите приложение:
   
-      ```bash
-      $ spark-submit month_stat.py
-      ```
+     ```bash
+     $ spark-submit month_stat.py
+     ```
   1. Результат работы приложения будет выгружен в HDFS. Список получившихся файлов можно вывести командой:
   
-      ```bash
-      $ hdfs dfs -ls /tmp/month_stat
-      ```
+     ```bash
+     $ hdfs dfs -ls /tmp/month_stat
+     ```
 
 - Spark Submit
 
