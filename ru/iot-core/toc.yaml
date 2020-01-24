@@ -73,6 +73,8 @@ items:
           href: concepts/limits.md
   - name: Сценарии использования
     items:
+      - name: Все сценарии
+        href: solutions/index.md
       - name: Работа с помощью Mosquitto
         items:
           - name: Отправить сообщение
