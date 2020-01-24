@@ -9,7 +9,7 @@ You can manage [lifecycle configurations](configuration.md) in:
 
 This allows you to manage lifecycle configurations using [tools](../instruments/index.md) that access {{ objstorage-name }} via the HTTP API compatible with Amazon S3.
 
-## Example of uploading a lifecycle configuration via the AWS CLI
+## Example of uploading a lifecycle configuration via the AWS CLI {#example-uploading-lifecycle-config}
 
 1. Describe the objects' lifecycle configuration in a file named `lifecycles.json`:
 

@@ -33,5 +33,5 @@
 `Grantee` | Пользователь или группа для которой выдается доступ.<br/><br/>Путь: `/AccessControlPolicy/AccessControlList/Grant/Grantee`.
 `ID` | Идентификатор пользователя.<br/><br/>Ответ на запрос `bucketGetAcl` содержит идентификатор каталога, в котором находится бакет.<br/><br/>Пути: `/AccessControlPolicy/Owner/ID`, `/AccessControlPolicy/AccessControlList/Grant/Grantee/ID`.
 `DisplayName` | Имя пользователя. Игнорируется для запросов `objectPutAcl` и `bucketPutAcl`<br/><br/>Пути: `/AccessControlPolicy/Owner/DisplayName`, `/AccessControlPolicy/AccessControlList/Grant/Grantee/DisplayName`.
-`URI` | Идентификатор [системной группы](../../../concepts/acl.md#system_groups).<br/><br/>Путь: `/AccessControlPolicy/AccessControlList/Grant/Grantee/URI`.
+`URI` | Идентификатор [системной группы](../../../concepts/acl.md#system-groups).<br/><br/>Путь: `/AccessControlPolicy/AccessControlList/Grant/Grantee/URI`.
 `Permission` | Разрешения пользователя.<br/><br/>Можно указать: `READ`, `WRITE` и `FULL_CONTROL`, при выдаче разрешений для объекта можно также указать `READ_ACP`, `WRITE_ACP`. Подробнее читайте в разделе [Список управления доступом (ACL)](../../../concepts/acl.md).<br/><br/>Путь: `/AccessControlPolicy/AccessControlList/Grant/Grantee/DisplayName`.

@@ -14,7 +14,7 @@
 
 ## Supported methods {#operations-list}
 
-### Bucket service
+### Bucket service {#bucket-service}
 
 | Method | Description |
 | ----- | ----- |
@@ -24,7 +24,7 @@
 | [listBuckets](bucket/list.md) | Returns a list of buckets. |
 | [deleteBucket](bucket/delete.md) | Deletes a bucket. |
 
-### Object service
+### Object service {#object-service}
 
 | Method | Description |
 | ----- | ----- |
@@ -36,7 +36,7 @@
 | [deleteMultipleObjecs](object/deletemultipleobjects.md) | Deletes objects based on a list. |
 | [options](object/options.md) | Checks whether a CORS request to an object can be made. |
 
-### Multipart Upload service
+### Multipart Upload service {#multipart-upload-service}
 
 | Method | Description |
 | ----- | ----- |
@@ -48,7 +48,7 @@
 | [completeUpload](multipart/completeupload.md) | Completes multipart upload. |
 | [listUploads](multipart/listuploads.md) | Returns a list of incomplete uploads. |
 
-### Static Website Hosting service
+### Static Website Hosting service {#static-website-hosting-service}
 
 | Method | Description |
 | ----- | ----- |
@@ -56,7 +56,7 @@
 | [get](hosting/get.md) | Returns a bucket's configuration for static website hosting from {{ objstorage-name }}. |
 | [delete](hosting/delete.md) | Deletes a bucket's configuration for static website hosting. |
 
-### CORS service
+### CORS service {#cors-service}
 
 | Method | Description |
 | ----- | ----- |
@@ -64,7 +64,7 @@
 | [get](cors/get.md) | Returns a CORS configuration for a bucket. |
 | [delete](cors/delete.md) | Deletes a CORS configuration for a bucket. |
 
-### Lifecycles service
+### Lifecycles service {#lifecycles-service}
 
 | Method | Description |
 | ----- | ----- |
@@ -72,7 +72,7 @@
 | [get](lifecycles/get.md) | Returns an object lifecycle configuration from {{ objstorage-name }}. |
 | [delete](lifecycles/delete.md) | Deletes an object lifecycle configuration from {{ objstorage-name }}. |
 
-### ACL service
+### ACL service {#acl-service}
 
 | Method | Description |
 | ----- | ----- |
@@ -81,7 +81,7 @@
 | [bucketGetAcl](acl/bucketget.md) | Returns the access control list for a bucket. |
 | [bucketPutAcl](acl/bucketput.md) | Uploads an access control list for a bucket. |
 
-## See also
+## See also {#see-also}
 
 - [{#T}](../../s3/index.md)
 - [{#T}](../../instruments/index.md)

@@ -1,6 +1,6 @@
 | Heading | Description |
 | ---------- | --------- |
-| `x-amz-acl` | Sets a [predefined ACL](../concepts/acl.md#predefined_acls) for an object. |
+| `x-amz-acl` | Sets a [predefined ACL](../concepts/acl.md#predefined-acls) for an object. |
 | `x-amz-grant-read` | Grants the access grantee permission to view the contents of a bucket and read objects within it. |
 | `x-amz-grant-write` | Grants the access grantee object write permission. You must use this heading with `x-amz-grant-read`, otherwise {{ objstorage-name }} will return code `501 Not Implemented`. |
 | `x-amz-grant-read-acp` | Grants the access grantee bucket ACL read permission. |

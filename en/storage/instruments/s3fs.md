@@ -12,7 +12,7 @@ If you have any questions, see the [official documentation](https://github.com/s
 
 s3fs performance depends on the speed of your local disk. Use high-speed disks, especially if you store a lot of small files (several hundred kilobytes each or smaller). To increase s3fs performance, you can enable caching (use the key `--use_cache <directory>`). As the s3fs cache can grow indefinitely, please make sure to clear it regularly. Learn more in the [s3fs documentation](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Fuse-Over-Amazon#details).
 
-## Before you start {#preparations}
+## Before you start {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
@@ -29,7 +29,7 @@ echo  <key ID>:<secret key> >  ~/.passwd-s3fs
 chmod 600  ~/.passwd-s3fs
 ```
 
-## Mounting a bucket
+## Mounting a bucket {#mounting-bucket}
 
 1. Select the folder where you want to mount the bucket and make sure you have permissions to perform the mounting operation.
 

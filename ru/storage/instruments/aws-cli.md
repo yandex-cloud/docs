@@ -7,7 +7,7 @@
 - [s3](https://docs.aws.amazon.com/cli/latest/reference/s3/index.html) — дополнительные команды, упрощающие работу с большим количеством объектов.
 
 
-## Подготовка к работе {#preparations}
+## Подготовка к работе {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
@@ -61,7 +61,7 @@
 
 ## Примеры операций {#aws-cli-examples}
 
-### Создать бакет
+### Создать бакет {#creating-bucket}
 
    ```bash
    aws --endpoint-url=https://{{ s3-storage-host }} s3 mb s3://bucket-name
@@ -73,7 +73,7 @@
 
 {% endnote %}
 
-### Загрузить объекты
+### Загрузить объекты {#uploading-objects}
 
 Загрузить объекты можно разными способами, например:
 
@@ -94,14 +94,14 @@
        s3 cp testfile.txt s3://bucket-name/path_style_prefix/textfile.txt
    ```
 
-### Получить список объектов
+### Получить список объектов {#getting-objects-list}
 
    ```bash
    aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 ls --recursive s3://bucket-name
    ```
 
-### Удалить объекты
+### Удалить объекты {#deleting-objects}
 
 Удалить объекты можно разными способами, например:
 
@@ -122,7 +122,7 @@
        s3 rm s3://bucket-name/path_style_prefix/textfile.txt
    ```
 
-### Получить объект
+### Получить объект {#retrieving-objects}
 
    ```bash
    aws --endpoint-url=https://{{ s3-storage-host }} \

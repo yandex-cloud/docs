@@ -2,7 +2,7 @@
 
 [S3cmd](https://s3tools.org/s3cmd) — это интерфейс командной строки (Linux, Mac) для работы с сервисами, поддерживающими HTTP API Amazon S3. Общий [порядок вызова команд](https://s3tools.org/usage) смотрите в официальной документации S3cmd.
 
-## Подготовка к работе {#preparations}
+## Подготовка к работе {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
@@ -54,13 +54,13 @@ website_endpoint = http://%(bucket)s.{{ s3-web-host }}
 
 ## Примеры операций {#s3cmd-examples}
 
-### Получить список бакетов
+### Получить список бакетов {#listing-buckets}
 
 ```bash
 s3cmd ls
 ```
 
-### Создать бакет
+### Создать бакет {#creating-bucket}
 
 ```bash
 s3cmd mb s3://bucket
@@ -72,25 +72,25 @@ s3cmd mb s3://bucket
 
 {% endnote %}
 
-### Загрузить объект
+### Загрузить объект {#uploading-object}
 
 ```
 s3cmd put local_file s3://bucket/object
 ```
 
-### Получить список объектов
+### Получить список объектов {#getting-object-list}
 
 ```bash
 s3cmd ls s3://bucket
 ```
 
-### Получить объект
+### Получить объект {#retrieving-object}
 
 ```bash
 s3cmd get s3://bucket/object local_file
 ```
 
-### Удалить объект
+### Удалить объект {#deleting-object}
 
 ```bash
 s3cmd del s3://bucket/object

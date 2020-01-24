@@ -7,7 +7,7 @@ To work with {{ objstorage-full-name }} via the AWS CLI, you can use the followi
 - [s3api](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html) — commands corresponding to operations in the REST API. Before you start, review the [list of supported operations](../s3/api-ref/index.md).
 - [s3](https://docs.aws.amazon.com/cli/latest/reference/s3/index.html) — additional commands that make it easier to work with a large number of objects.
 
-## Before you start {#preparations}
+## Before you start {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
@@ -66,7 +66,7 @@ When using the AWS CLI to work with {{ objstorage-name }}, keep the following in
 
 ## Examples of operations {#aws-cli-examples}
 
-### Create a bucket
+### Create a bucket {#creating-bucket}
 
    ```bash
    aws --endpoint-url=https://{{ s3-storage-host }} s3 mb s3://bucket-name
@@ -78,7 +78,7 @@ When creating a bucket, follow the [naming conventions](../concepts/bucket.md#na
 
 {% endnote %}
 
-### Uploading objects
+### Uploading objects {#uploading-objects}
 
 You can upload objects using one of the following methods:
 
@@ -102,14 +102,14 @@ You can upload objects using one of the following methods:
        s3 cp testfile.txt s3://bucket-name/path_style_prefix/textfile.txt
    ```
 
-### Getting a list of objects
+### Getting a list of objects {#getting-objects-list}
 
    ```bash
    aws --endpoint-url=https://{{ s3-storage-host }} \
        s3 ls --recursive s3://bucket-name
    ```
 
-### Deleting objects
+### Deleting objects {#deleting-objects}
 
 You can delete objects using one of the following methods:
 
@@ -133,7 +133,7 @@ You can delete objects using one of the following methods:
        s3 rm s3://bucket-name/path_style_prefix/textfile.txt
    ```
 
-### Retrieve an object
+### Retrieve an object {#retrieving-objects}
 
    ```bash
    aws --endpoint-url=https://{{ s3-storage-host }} \

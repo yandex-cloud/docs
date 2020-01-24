@@ -1,6 +1,6 @@
 # Все инструкции
 
-## Бакеты
+## Бакеты {#buckets}
 
 - [{#T}](buckets/create.md)
 - [{#T}](buckets/delete.md)
@@ -9,7 +9,7 @@
 - [{#T}](buckets/edit-acl.md)
 - [{#T}](buckets/certificate.md)
 
-## Объекты
+## Объекты {#objects}
 
 - [{#T}](objects/upload.md)
 - [{#T}](objects/info.md)

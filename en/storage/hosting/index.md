@@ -25,7 +25,7 @@ You can use HTTPS only if there is no dot in a bucket name.
 
 {% endnote %}
 
-## Your own domain
+## Your own domain {#your-domain}
 
 To display the site, you can use your own domain (for example, `www.example.com`).
 

@@ -24,7 +24,7 @@ Buckets can be configured:
 - In the Yandex.Cloud [management console](setup.md).
 - Through the [HTTP API](../s3/api-ref/hosting.md) compatible with Amazon S3.
 
-## Support for multiple website domain names
+## Support for multiple website domain names {#supporting-multiple-domains}
 
 If you want to have multiple domain names supported for your website, for instance, `example.com` and `www.example.com`, you can do this as follows:
 

@@ -18,9 +18,9 @@ To grant permission to a Yandex.Cloud user, you need to know their account ID. Y
 
 To grant permission to a [service account](../../iam/concepts/users/service-accounts) you need to retrieve its ID in the Service accounts section of the management console.
 
-To grant permission to a system group, you need to know its URI. For more information, see [System groups](#system_groups).
+To grant permission to a system group, you need to know its URI. For more information, see [System groups](#system-groups).
 
-{{ objstorage-name }} supports [predefined ACLs](#predefined_acls), which contain common permission sets.
+{{ objstorage-name }} supports [predefined ACLs](#predefined-acls), which contain common permission sets.
 
 The ACL structure can be viewed in the [ACL XML schema](../s3/api-ref/acl/xmlscheme.md).
 
@@ -43,7 +43,7 @@ When receiving a request to a bucket or object, {{ objstorage-name }} checks acc
 
 Permissions granted to a bucket apply to all of the objects it contains.  You can extend user permissions to individual objects by adding them to the relevant objects' ACL.
 
-## Permission types
+## Permission types {#permissions-types}
 
 Permissions correspond to user roles in {{ iam-name }}.
 
@@ -61,7 +61,7 @@ If you specify `WRITE` permission but not `READ` when making an ACL, {{ objstora
 
 {% endnote %}
 
-## Predefined ACLs {#predefined_acls}
+## Predefined ACLs {#predefined-acls}
 
 | ACL | Description |
 | ---- | --------- |
@@ -72,9 +72,9 @@ If you specify `WRITE` permission but not `READ` when making an ACL, {{ objstora
 
 Predefined ACLs can be applied to both objects and buckets. When applied to an object, the `public-read-write` ACL is the same as `public-read`.
 
-## System groups {#system_groups}
+## System groups {#system-groups}
 
-### AllUsers
+### AllUsers {#all-users}
 
 Includes all internet users.
 
@@ -86,7 +86,7 @@ Permission for `AllUsers` looks like this:
 </Grantee>
 ```
 
-### AuthenticatedUsers
+### AuthenticatedUsers {#all-users}
 
 Includes all Yandex.Cloud users.
 

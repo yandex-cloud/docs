@@ -2,7 +2,7 @@
 
 [S3cmd](https://s3tools.org/s3cmd) is a command line tool (for Linux and Mac) designed for services that support the Amazon S3 HTTP API. The general [procedure for running commands](https://s3tools.org/usage) can be found in the official S3cmd documentation.
 
-## Before you start {#preparations}
+## Before you start {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
@@ -59,13 +59,13 @@ Keep in mind that S3cmd treats {{ objstorage-name }} as a hierarchical file syst
 
 ## Examples of operations {#s3cmd-examples}
 
-### List buckets
+### List buckets {#listing-buckets}
 
 ```bash
 s3cmd ls
 ```
 
-### Create a bucket
+### Create a bucket {#creating-bucket}
 
 ```bash
 s3cmd  mb s3://bucket
@@ -77,25 +77,25 @@ When creating a bucket, follow the [naming conventions](../concepts/bucket.md#na
 
 {% endnote %}
 
-### Upload an object
+### Upload an object {#uploading-object}
 
 ```
 s3cmd put local_file s3://bucket/object
 ```
 
-### Getting a list of objects
+### Getting a list of objects {#getting-object-list}
 
 ```bash
 s3cmd ls s3://bucket
 ```
 
-### Retrieve an object
+### Retrieve an object {#retrieving-object}
 
 ```bash
 s3cmd get s3://bucket/object local_file
 ```
 
-### Deleting an object
+### Deleting an object {#deleting-object}
 
 ```bash
 s3cmd del s3://bucket/object

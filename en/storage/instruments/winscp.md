@@ -8,7 +8,7 @@ To work with {{ objstorage-name }}, use version 5.14 or later.
 
 {% endnote %}
 
-## Before you start {#preparations}
+## Before you start {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 

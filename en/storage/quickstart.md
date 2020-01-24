@@ -4,7 +4,7 @@ This section describes how to create your first bucket in {{ objstorage-name }}.
 
 The Object Storage API is partially compatible with the AWS S3 API, so you can use [tools](instruments/index.md) designed to work with S3.
 
-## Before you start {#preparations}
+## Before you start {#before-you-begin}
 
 1. Sign up for Yandex.Cloud.
 

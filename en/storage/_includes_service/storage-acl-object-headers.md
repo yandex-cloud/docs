@@ -1,6 +1,6 @@
 | Heading | Description |
 | ---------- | --------- |
-| `x-amz-acl` | Sets a [predefined ACL](../concepts/acl.md#predefined_acls) for an object. |
+| `x-amz-acl` | Sets a [predefined ACL](../concepts/acl.md#predefined-acls) for an object. |
 | `x-amz-grant-read` | Grants the access grantee object read permission. |
 | `x-amz-grant-read-acp` | Grants the access grantee object ACL read permission. |
 | `x-amz-grant-write-acp` | Grants the access grantee object ACL write permission. |

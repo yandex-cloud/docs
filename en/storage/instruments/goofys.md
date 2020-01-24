@@ -2,7 +2,7 @@
 
 [goofys](https://github.com/kahing/goofys) is a utility that lets Linux and macOS mount {{ objstorage-name }} buckets via [FUSE](https://en.wikipedia.org/wiki/Fuse_ESB).
 
-## Before you start {#preparations}
+## Before you start {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 

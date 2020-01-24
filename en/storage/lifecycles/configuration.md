@@ -23,7 +23,7 @@ To pass a lifecycle configuration through the [HTTP API compatible with Amazon S
 
 A configuration can contain up to 1,000 rules.
 
-## Possible elements
+## Possible elements {#possible-elements}
 
 | Element | Description |
 | ----- | ----- |

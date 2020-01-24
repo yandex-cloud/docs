@@ -2,7 +2,7 @@
 
 CyberDuck — это графический клиент к облачным хранилищам для Mac и Windows (в виде консольного клиента доступен для всех операционных систем).
 
-## Подготовка к работе {#preparations}
+## Подготовка к работе {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 

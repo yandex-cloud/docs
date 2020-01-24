@@ -2,7 +2,7 @@
 
 [goofys](https://github.com/kahing/goofys) — программа для Linux и macOS, позволяющая монтировать бакеты {{ objstorage-name }} через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).
 
-## Подготовка к работе {#preparations}
+## Подготовка к работе {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 

@@ -1,6 +1,6 @@
 # All instructions
 
-## Buckets
+## Buckets {#buckets}
 
 - [{#T}](buckets/create.md)
 - [{#T}](buckets/delete.md)
@@ -8,7 +8,7 @@
 - [{#T}](buckets/bucket-availability.md)
 - [{#T}](buckets/edit-acl.md)
 
-## Objects
+## Objects {#objects}
 
 - [{#T}](objects/upload.md)
 - [{#T}](objects/info.md)

@@ -14,7 +14,7 @@ Use [HMAC](https://en.wikipedia.org/wiki/HMAC) with the [SHA256](https://en.wiki
 
 ## Generate a signing key {#signing-key-gen}
 
-To generate a signing key, you need static access keys for {{ objstorage-name }}. To find out how to get them, read [Before you start](index.md#preparations).
+To generate a signing key, you need static access keys for {{ objstorage-name }}. To find out how to get them, read [Before you start](index.md#before-you-begin).
 
 Generate a signing key
 

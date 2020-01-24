@@ -32,6 +32,6 @@ ACL general view:
 | `Grantee` | The user or group that access is granted to.<br/><br/>Path: `/AccessControlPolicy/AccessControlList/Grant/Grantee`. |
 | `ID` | User ID.<br/><br/>Responses to `bucketGetAcl` requests contain the ID of the folder where the bucket is located.<br/><br/>Paths: `/AccessControlPolicy/Owner/ID`, `/AccessControlPolicy/AccessControlList/Grant/Grantee/ID`. |
 | `DisplayName` | User name. Ignored for `objectPutAcl` and `bucketPutAcl` requests<br/><br/>Paths: `/AccessControlPolicy/Owner/DisplayName`, `/AccessControlPolicy/AccessControlList/Grant/Grantee/DisplayName`. |
-| `URI` | [System group](../../../concepts/acl.md#system_groups) ID.<br/><br/>Path: `/AccessControlPolicy/AccessControlList/Grant/Grantee/URI`. |
+| `URI` | [System group](../../../concepts/acl.md#system-groups) ID.<br/><br/>Path: `/AccessControlPolicy/AccessControlList/Grant/Grantee/URI`. |
 | `Permission` | User permissions.<br/><br/>You can specify the following permissions: `READ`, `WRITE`, and `FULL_CONTROL`. When granting permissions to an object, you can also specify `READ_ACP` and `WRITE_ACP`. For more information, see [Access control lists (ACLs)](../../../concepts/acl.md).<br/><br/>Path: `/AccessControlPolicy/AccessControlList/Grant/Grantee/DisplayName`. |
 

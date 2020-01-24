@@ -40,7 +40,7 @@ https://{{ s3-storage-host }}/<имя бакета>/<ключ объекта>?
 `X-Amz-Credential` | Идентификатор для подписи.<br/><br/>Строка формата `<access-key-id>/<YYYYMMDD>/ru-central1/s3/aws4_request`, где `<YYYYMMDD>` должна совпадать с датой, установленной в заголовке `X-Amz-Date`.
 
 
-## Составление подписанного URL
+## Составление подписанного URL {#creating-presigned-url}
 
 Чтобы получить подписанный URL необходимо:
 
@@ -83,11 +83,11 @@ UNSIGNED-PAYLOAD
 
 Строка `UNSIGNED-PAYLOAD` всегда должна завершать канонический запрос.
 
-#### HTTPVerb
+#### HTTPVerb {#http-verb}
 
 HTTP метод, которым будет отправлен запрос: `GET`, `PUT`, `HEAD` или `DELETE`.
 
-#### CanonicalURL
+#### CanonicalURL {#canonical-url}
 
 URL-кодированный путь к ресурсу. Например, `/<bucket-name>/<object-key>`.
 
@@ -97,7 +97,7 @@ URL-кодированный путь к ресурсу. Например, `/<bu
 
 {% endnote %}
 
-#### CanonicalQueryString
+#### CanonicalQueryString {#canonical-query-string}
 
 Каноническая строка запроса должна включать все query параметры конечного URL, кроме `X-Amz-Signature`. Параметры в строке должны быть URL-кодированы и отсортированы по алфавиту.
 
@@ -108,7 +108,7 @@ X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2
 ```
 
 
-#### CanonicalHeaders
+#### CanonicalHeaders {#canonical-headers}
 
 Список заголовков запроса со значениями. 
 
@@ -130,7 +130,7 @@ x-amz-date:20190801T000000Z
 ```
 
 
-#### SignedHeaders
+#### SignedHeaders {#signed-headers}
 
 Список имен заголовков запроса в нижнем регистре, отсортированный по алфавиту и разделенный точками с запятыми.
 
@@ -146,7 +146,7 @@ host;x-amz-date
 Чтобы составить подписанный URL, к URL ресурса {{ objstorage-name }} добавьте [параметры](#presigned-url-preview), необходимые для авторизации запроса, в том числе параметр `X-Amz-Signature` с вычисленной подписью.
 
 
-#### Пример составления подписанного URL для скачивания объекта
+#### Пример составления подписанного URL для скачивания объекта {#example-for-object-download}
 
 Составим подписанный URL для скачивания объекта `object-for-share.txt` из бакета `example-bucket` в течение часа.
 
@@ -199,7 +199,7 @@ host;x-amz-date
     https://{{ s3-storage-host }}/example-bucket/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=56bdf53a1f10c078c2b4fb5a26cefa670b3ea796567d85489135cf33e77783f0
     ```
 
-## Примеры получения подписанной ссылки в инструментах {{ objstorage-name }}
+## Примеры получения подписанной ссылки в инструментах {{ objstorage-name }} {#example-for-getting-in-tools}
 
 {% list tabs %}
 

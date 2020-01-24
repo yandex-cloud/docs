@@ -1,6 +1,6 @@
 # CORS configuration of buckets
 
-## Sample configuration as an XML file
+## Sample configuration as an XML file {#xml-config-sample}
 
 ```
 <CORSConfiguration>
@@ -16,7 +16,7 @@
 
 This configuration allows you to send cross-domain requests from the `http://www.example.com` website using the PUT, POST, and DELETE methods without any header restrictions.
 
-## Possible elements
+## Possible elements {#possible-elements}
 
 | Element | Description |
 | ----- | ----- |

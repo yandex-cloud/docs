@@ -130,7 +130,7 @@ Description of form fields:
 
 | Field | Description | Required |
 | ----- | ---------- | -------------- |
-| `acl` | ACL for the object. You can set one of the [pre-defined ACLs](acl.md#predefined_acls). For example, if you want to make an object public, use `public-read`. | No |
+| `acl` | ACL for the object. You can set one of the [pre-defined ACLs](acl.md#predefined-acls). For example, if you want to make an object public, use `public-read`. | No |
 | `Cache-Control` | A set of directives for caching data according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9). | No |
 | `Content-Disposition` | The name {{ objstorage-name }} suggests saving an object as a file under when it's downloaded. Compliant with [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1). | No |
 | `Content-Encoding` | Defines content encoding according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11). | No |
@@ -205,7 +205,7 @@ Common [policy signature](../s3/signing-requests.md) algorithm:
 2. [Generate a signing key](../s3/signing-requests.md#signing-key-gen).
 3. [Generate a policy signature](../s3/signing-requests.md#signing).
 
-## Example of generating a form using boto3
+## Example of generating a form using boto3 {#example-generating-form}
 
 Input conditions:
 

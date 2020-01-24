@@ -1,6 +1,6 @@
 # Как пользоваться API
 
-## Подготовка к работе {#preparations}
+## Подготовка к работе {#before-you-begin}
 
 Чтобы воспользоваться API:
 
@@ -43,7 +43,7 @@ URL может иметь одну из следующих форм:
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 
-## CORS запросы
+## CORS запросы {#cors-requests}
 
 Кросс-доменные запросы доступны для всех методов API, которые управляют объектами.
 

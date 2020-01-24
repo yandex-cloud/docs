@@ -2,7 +2,7 @@
 
 CyberDuck is a GUI-based cloud storage client for Mac and Windows that is available as a console client for all operating systems.
 
-## Before you start {#preparations}
+## Before you start {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 

@@ -10,7 +10,7 @@ You can set up a [CORS configuration](configuration.md) for each bucket via:
 
     This allows you to manage CORS configurations using [tools](../instruments/index.md) that interact with {{ objstorage-name }} via the HTTP API compatible with Amazon S3.
 
-## Example of uploading a CORS configuration via the AWS CLI
+## Example of uploading a CORS configuration via the AWS CLI {#example-uploading-cors-cli}
 
 Put the CORS configuration in the `cors.json` file:
 

@@ -1,6 +1,6 @@
 # How to use the API
 
-## Before you start {#preparations}
+## Before you start {#before-you-begin}
 
 To use the API:
 
@@ -41,7 +41,7 @@ URLs can taken one of the following forms:
 - `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
 - `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
 
-## CORS requests
+## CORS requests {#cors-requests}
 
 Cross-domain requests are available for all API methods used for object management.
 
