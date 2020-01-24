@@ -49,12 +49,14 @@ $ s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
    df.printSchema()
    ```
    В терминале будет выведен список столбцов с их типами.
+   
 1. Рассчитайте статистику перелетов по месяцам и найдите первую десятку городов по количеству вылетов:
    * Количество перелетов по месяцам:
 
      ```python
      df.groupBy("Month").count().orderBy("Month").show()
      ```
+     
    * Первая десятка городов по количеству вылетов:
 
      ```
@@ -72,7 +74,7 @@ Spark Submit позволяет запускать заранее написан
   
   1. На мастер-хосте создайте файл `month_stat.py` со следующим кодом:
   
-      ```python
+     ```python
       import sys
       
       from pyspark import SparkContext, SparkConf
@@ -92,7 +94,8 @@ Spark Submit позволяет запускать заранее написан
       
       if __name__ == "__main__":
               main()
-      ```
+     ```
+     
   1. Запустите приложение:
   
       ```bash

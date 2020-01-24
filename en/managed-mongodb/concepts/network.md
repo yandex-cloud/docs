@@ -6,7 +6,7 @@ When creating a cluster, you can:
 
 * Set the subnets for each host in the cluster.
 
-* Request a public IP address to access the cluster from outside the Cloud.
+* Request a public IP address to access the cluster from outside Yandex.Cloud.
 
 You can create a cluster without specifying any subnets for the hosts, if the availability zone selected for each host contains exactly one subnet of the cluster network.
 

@@ -41,5 +41,5 @@ More information can be found in our [blog post](https://cloud.yandex.ru/blog/po
 
 ### Yandex.Cloud services impact
 
-This will improve security and isolation for Yandex Cloud customers.
+This will improve security and isolation for Yandex.Cloud customers.
 
