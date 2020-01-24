@@ -21,6 +21,8 @@ items:
       href: operations/update.md
     - name: Connecting external dictionaries
       href: operations/dictionaries.md
+    - name: Enabling machine learning models
+      href: operations/ml-models.md
     - name: Changing ClickHouse versions
       href: operations/cluster-version-update.md
     - name: Managing ClickHouse hosts

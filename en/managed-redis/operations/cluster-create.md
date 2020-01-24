@@ -36,13 +36,10 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
      {% endnote %}
 
-  1. Under **Host class**:
-
-      - Select the host type: it determines the [performance](../../compute/concepts/performance-levels) level of the processor cores. **High-memory** hosts allow full core usage, whereas **burstable** hosts only a portion.
-
+  1. Set up a [host class](../concepts/instance-types.md) for the cluster:
+      - Select the host type: it defines the [guaranteed vCPU performance](../../compute/concepts/performance-levels.md). **High-memory** hosts allow full core usage, whereas **burstable** hosts only a portion.
       - Select the amount of RAM for the host.
-
-      - Select the disk size.
+      - Select the disk size. The available disk size depends on the amount of RAM and is limited by [quotas and limits](../concepts/limits.md#limits). The minimum disk size is twice the selected amount of RAM, while the maximum disk size is 8 times the selected amount of RAM.
 
   1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
 
@@ -76,7 +73,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
       $ {{ yc-mdb-rd }} cluster create --help
       ```
 
-  1. View available host classes:
+  1. When you create a cluster from the CLI, you can't explicitly specify the host type and amount of RAM. Choose the applicable [host class](../concepts/instance-types.md) instead. To see what host classes are available, run the command:
 
      ```
      $ {{ yc-mdb-rd }} resource-preset list
@@ -106,12 +103,10 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
   To create a cluster:
 
-    1. Prepare an infrastructure plan.
-
-       In the configuration file, describe the parameters of resources that you want to create:
+    1. In the configuration file, describe the parameters of resources that you want to create:
+       * Database cluster: Description of the cluster and its hosts.
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
-       * Database cluster: Description of the cluster and its hosts.
 
        Sample configuration file structure:
 
@@ -148,7 +143,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
        For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_redis_cluster.html).
 
     2. Make sure that the configuration files are correct.
-       1. In the command line, use the `cd <folder path>` command to go to the folder where you created the configuration file.
+       1. In the command line, go to the folder where you created the configuration file.
        2. Run the check using the command:
 
           ```
@@ -183,8 +178,8 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   - Named `myredis`.
   - In the `production` environment.
   - In the `default` network.
-  - With a single `b1.nano` class host in the `b0rcctk2rvtr8efcch64` subnet and the `ru-central1-c` availability zone.
-  - With 20 GB of storage.
+  - With a single `b1.nano` class host in the `b0rcctk2rvtr8efcch64` subnet and `ru-central1-c` availability zone.
+  - With 16 GB of storage.
   - With the `user1user1` password.
 
   Run the command:
@@ -194,9 +189,9 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
        --name myredis \
        --environment production \
        --network-name default \
-       --resource-preset b1.nano \
+       --resource-preset hm1.nano \
        --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
-       --disk-size 20 \
+       --disk-size 16 \
        --password=user1user1
   ```
 
@@ -207,8 +202,8 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   Let's say we need to create a {{ RD }} cluster and a network for it with the following characteristics:
     - Named `myredis`.
     - In the `production` environment.
-    - In the cloud with the `b1gq90dgh25иuebiu75o` ID.
-    - In a folder named `myfolder.`
+    - In the cloud with ID `b1gq90dgh25иuebiu75o`.
+    - In a folder named `myfolder`.
     - In a new network named `mynet`.
     - With a single `hm1.nano` class host in a new subnet named `mysubnet` and in the `ru-central1-c` availability zone. The `mysubnet` subnet will have the `10.5.0.0/24` range.
     - With 16 GB of storage.
