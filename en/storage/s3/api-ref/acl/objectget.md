@@ -33,9 +33,9 @@ Responses can only contain [common response headers](../common-response-headers.
 
 ### Data schema {#response-scheme}
 
-The structure of the returned data is described in [ACL XML schema](xmlscheme.md).
+For a description of the structure returned, see [ACL XML schema](xml-config.md).
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [{#T}](../response-codes.md).
+For the list of possible responses, see [{#T}](../response-codes.md).
 

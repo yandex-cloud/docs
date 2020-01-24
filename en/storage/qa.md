@@ -32,7 +32,7 @@ You can store data in any format. {{ objstorage-full-name }} saves data in its o
 
 Use the feedback form on the support page in the management console.
 
-#### How do I contact technical support? {qa-support-channels}
+#### How do I contact technical support? {#qa-support-channels}
 
 You can contact technical support using any of these methods:
 

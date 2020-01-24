@@ -34,7 +34,7 @@ PUT /{bucket}?acl HTTP/1.1
 
 {% include [storage-acl-headers](../../../_includes_service/storage-acl-bucket-headers.md) %}
 
-### Схема данных
+### Схема данных {#data-schema}
 
 ACL передается в виде XML-документа. Описание схемы смотрите в разделе [XML-cхема ACL](xml-config.md).
 

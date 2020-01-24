@@ -21,7 +21,7 @@ http(s)://{{ s3-web-host }}/<bucket name>
 
 {% note info %}
 
-You can use HTTPS only if there is no dot in a bucket name.
+A bucket whose name contains a dot can't be accessed over HTTPS. To configure HTTPS, [upload your own security certificates](../operations/buckets/certificate.md) to {{ objstorage-name }}.
 
 {% endnote %}
 
@@ -35,7 +35,7 @@ In this case:
 
     {% note info %}
 
-    Use only for hosting third-level domains or higher in {{ objstorage-name }}. This is related to how `CNAME` records are processed on DNS hosting. Read more in point 2.4 in [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt).
+    For hosting your websites in {{ objstorage-name }}, use only third-level domains or higher. This is related to how `CNAME` records are processed on DNS hosting. Read more in point 2.4 in [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt).
 
     {% endnote %}
 
@@ -49,7 +49,7 @@ In this case:
 
 {% note info %}
 
-The website is accessible only over HTTP, for instance, `http://www.example.com` or `http://www.example.com.{{ s3-web-host }}`.
+To support HTTPS for your website, [upload a security certificate](../operations/buckets/certificate.md) to {{ objstorage-name }}. Otherwise, the site will only be available over HTTP.
 
 {% endnote %}
 

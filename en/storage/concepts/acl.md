@@ -5,9 +5,9 @@ Access control lists allow you to control access to buckets and objects.
 Yandex.Cloud uses two independent mechanisms for managing access to {{ objstorage-name }} resources:
 
 - {{ iam-name }} ([IAM documentation](../../iam/concepts/index.md))
-- ACL {{ objstorage-name }}
+- ACL {{ objstorage-name }}.
 
-{{ objstorage-name }} creates ACLs for all objects and buckets. ACLs are empty by default. Users with the appropriate IAM rights can upload ACLs for {{ objstorage-name }} resources. Each ACL contains a list of users who are allowed to access objects and buckets and specifies user permissions. Permissions and users in the IAM and ACL may differ. To learn how {{ objstorage-name }} verifies access to resources, see  [Checking permissions](#permissions-check).
+{{ objstorage-name }} creates ACLs for all objects and buckets. ACLs are empty by default. Users with the appropriate IAM rights can upload ACLs for {{ objstorage-name }} resources. Each ACL contains a list of users who are allowed to access objects and buckets and specifies user permissions. Permissions and users in the IAM and ACL may differ. To learn how {{ objstorage-name }} verifies access to resources, see [Checking permissions](#permissions-check).
 
 You can grant permission to Yandex.Cloud users, service accounts, and system groups.
 
@@ -16,13 +16,13 @@ To grant permission to a Yandex.Cloud user, you need to know their account ID. Y
 - In the [IAM]({{ link-console-access-management }}) section of the management console.
 - Using the [CLI or API](../../iam/operations/users/get.md).
 
-To grant permission to a [service account](../../iam/concepts/users/service-accounts) you need to retrieve its ID in the Service accounts section of the management console.
+To grant permission to a [service account](../../iam/concepts/users/service-accounts) by retrieving its ID in the Service accounts section of the management console.
 
-To grant permission to a system group, you need to know its URI. For more information, see [System groups](#system-groups).
+To grant permission to a system group, you need to know its URI. Learn more in [System groups](#system_groups).
 
-{{ objstorage-name }} supports [predefined ACLs](#predefined-acls), which contain common permission sets.
+{{ objstorage-name }} supports [predefined ACLs](#predefined_acls), which contain common permission sets.
 
-The ACL structure can be viewed in the [ACL XML schema](../s3/api-ref/acl/xmlscheme.md).
+To view the ACL structure, see [ACL XML schema](../s3/api-ref/acl/xml-config.md).
 
 {{ objstorage-name }} supports operations for uploading and downloading ACLs. No operation is available to delete ACLs. To remove all access permissions, upload an empty ACL. {{ objstorage-name }} creates an empty ACL for each new object or bucket by default.
 
@@ -39,7 +39,7 @@ Yandex.Cloud uses two mechanisms for managing access to {{ objstorage-name }} re
 - {{ iam-name }}
 - ACL
 
-When receiving a request to a bucket or object, {{ objstorage-name }} checks access permissions with both mechanisms. If the required access is granted from either method, {{ objstorage-name }} executes the request.
+When receiving a request to a bucket or object, {{ objstorage-name }} checks access permissions through both mechanisms. If the required access is granted from either method, {{ objstorage-name }} executes the request.
 
 Permissions granted to a bucket apply to all of the objects it contains.  You can extend user permissions to individual objects by adding them to the relevant objects' ACL.
 
@@ -57,22 +57,22 @@ Permissions correspond to user roles in {{ iam-name }}.
 
 {% note info %}
 
-If you specify `WRITE` permission but not `READ` when making an ACL, {{ objstorage-name }} will return code `501 Not Implemented`.
+If you specify `WRITE` permission, but not `READ` when making an ACL, {{ objstorage-name }} will return the code `501 Not Implemented`.
 
 {% endnote %}
 
-## Predefined ACLs {#predefined-acls}
+## Predefined ACLs {#predefined_acls}
 
 | ACL | Description |
 | ---- | --------- |
-| `private`<br/>`bucket-owner-full-control` | Cloud users are granted permissions according to their roles in IAM. |
-| `public-read` | The system `AllUsers` group has `READ` permission. |
-| `public-read-write` | The system `AllUsers` group has `READ` and `WRITE` permissions. |
-| `authenticated-read` | The system `AuthenticatedUsers` group has `READ` permission. |
+| `private`<br/>`bucket-owner-full-control` | Cloud users get permissions according to their roles in IAM. |
+| `public-read` | The `AllUsers` system group gets `READ` permission. |
+| `public-read-write` | The `AllUsers` system group gets `READ` and `WRITE` permissions. |
+| `authenticated-read` | The `AuthenticatedUsers` system group gets `READ` permission. |
 
 Predefined ACLs can be applied to both objects and buckets. When applied to an object, the `public-read-write` ACL is the same as `public-read`.
 
-## System groups {#system-groups}
+## System groups {#system_groups}
 
 ### AllUsers {#all-users}
 
@@ -86,7 +86,7 @@ Permission for `AllUsers` looks like this:
 </Grantee>
 ```
 
-### AuthenticatedUsers {#all-users}
+### AuthenticatedUsers {#authenticated-users}
 
 Includes all Yandex.Cloud users.
 

@@ -19,7 +19,7 @@ PUT /{bucket}/{key}?acl HTTP/1.1
 | Parameter | Description |
 | ----- | ----- |
 | `bucket` | Name of the bucket. |
-| `key` | Object key. ID to use for saving the object in {{ objstorage-name }}. |
+| `key` | Object key. ID for saving the object in {{ objstorage-name }}. |
 
 ### Query parameters {#request-params}
 
@@ -35,9 +35,9 @@ You can also use the headers listed below.
 
 {% include [storage-acl-headers](../../../_includes_service/storage-acl-object-headers.md) %}
 
-### Data schema
+### Data schema {#data-schema}
 
-ACLs are passed as XML documents. For a description of the schema, see [ACL XML schema](xmlscheme.md).
+ACLs are passed as XML documents. For the schema description, see [ACL XML schema](xml-config.md).
 
 ## Response {#response}
 
@@ -47,5 +47,5 @@ Responses can only contain [common response headers](../common-response-headers.
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [{#T}](../response-codes.md).
+For the list of possible responses, see [{#T}](../response-codes.md).
 

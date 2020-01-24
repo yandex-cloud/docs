@@ -4,6 +4,7 @@
 
 - [Бакет](bucket.md)
 - [Объект](object.md)
+- [Жизненные циклы объектов в бакете](lifecycles.md)
 - [Подписанный (pre-signed) URL](pre-signed-urls.md)
 - [Составная (multipart) загрузка](multipart.md)
 - [Список управления доступом](acl.md)

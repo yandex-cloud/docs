@@ -1,6 +1,6 @@
 # upload method
 
-Uploads a bucket's object lifecycle configuration to {{ objstorage-name }}.
+Uploads the bucket object lifecycle configuration to {{ objstorage-name }}.
 
 ## Request {#request}
 
@@ -22,21 +22,21 @@ PUT /{bucket}?lifecycle HTTP/1.1
 
 ### Headers {#request-headers}
 
-In a request, use the necessary [common request headers](../common-request-headers.md).
+Use the necessary [common request headers](../common-request-headers.md) in requests.
 
 The `Content-MD5` header is required.
 
 ### Data schema {#request-scheme}
 
-For the configuration description, see [{#T}](../../../lifecycles/configuration.md).
+The configuration type is described in [{#T}](xml-config.md).
 
 ## Response {#response}
 
 ### Headers {#response-headers}
 
-A response can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common response headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 
-For a list of possible responses, see [{#T}](../response-codes.md).
+For the list of possible responses, see [{#T}](../response-codes.md).
 

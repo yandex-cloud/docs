@@ -17,8 +17,12 @@ items:
             href: operations/buckets/limit-max-volume.md
           - name: Allowing public access to a bucket
             href: operations/buckets/bucket-availability.md
+          - name: Managing object lifecycles
+            href: operations/buckets/lifecycles.md
           - name: Editing a bucket ACL
             href: operations/buckets/edit-acl.md
+          - name: Configuring HTTPS
+            href: operations/buckets/certificate.md
       - name: Objects
         items:
           - name: Uploading an object
@@ -43,6 +47,8 @@ items:
         href: concepts/bucket.md
       - name: Objects
         href: concepts/object.md
+      - name: Object lifecycles
+        href: concepts/lifecycles.md
       - name: Pre-signed URLs
         href: concepts/pre-signed-urls.md
       - name: Multipart upload
@@ -75,14 +81,6 @@ items:
         href: cors/configuration.md
       - name: Configuring in the management console
         href: cors/setup.md
-  - name: Object lifecycle
-    items:
-      - name: Overview
-        href: lifecycles/index.md
-      - name: Configuration description
-        href: lifecycles/configuration.md
-      - name: Configuring in the management console
-        href: lifecycles/setup.md
   - name: Tools
     items:
       - name: All tools
@@ -195,6 +193,8 @@ items:
             items:
               - name: All methods
                 href: s3/api-ref/lifecycles.md
+              - name: XML structure of lifecycle configuration
+                href: s3/api-ref/lifecycles/xml-config.md
               - name: upload
                 href: s3/api-ref/lifecycles/upload.md
               - name: get
@@ -205,8 +205,8 @@ items:
             items:
               - name: All methods
                 href: s3/api-ref/acl.md
-              - name: ACL XML schema
-                href: s3/api-ref/acl/xmlscheme.md
+              - name: XML structure of ACL configuration
+                href: s3/api-ref/acl/xml-config.md
               - name: objectGetAcl
                 href: s3/api-ref/acl/objectget.md
               - name: objectPutAcl

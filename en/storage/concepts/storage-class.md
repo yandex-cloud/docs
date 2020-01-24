@@ -17,6 +17,21 @@ You can set the default storage when creating a bucket in the management console
 
 Setting default storage is useful if the tool you use doesn't let you set the object storage class.
 
+## Changing an object storage class {#changing-storage-class}
+
+{{ objstorage-name }} doesn't support arbitrarily changing the storage class of an object. To change the storage class, you can:
+
+- Upload the object again to {{ objstorage-name }} with the required storage class.
+- Set the criteria for changing the storage class in the [object lifecycle](lifecycles.md) configuration.
+
+The Lifecycle configuration lets you move an object from standard storage to cold storage according to the [rules](../s3/api-ref/lifecycles/xml-config.md).
+
+{% note info %}
+
+The lifecycle configuration only lets you move an object from standard to cold storage.
+
+{% endnote %}
+
 ## Storage class IDs {#storage-class-identifiers}
 
 - Standard storage: `STANDARD`.

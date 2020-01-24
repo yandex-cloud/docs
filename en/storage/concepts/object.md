@@ -19,7 +19,7 @@ All other operations that can be performed using [tools](../instruments/index.md
 You can configure the following for a bucket's object:
 
 - [CORS](../cors/index.md).
-- [Lifecycle](../lifecycles/index.md).
+- [Lifecycle](lifecycles.md).
 
 {{ objstorage-name }} restricts the size of objects and their metadata. For more information, see [{#T}](limits.md)).
 
@@ -55,6 +55,8 @@ Object URLs can take one of the following forms:
 
 - `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
 - `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
+
+{% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 
 ## Metadata {#metadata}
 

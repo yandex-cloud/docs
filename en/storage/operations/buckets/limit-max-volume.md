@@ -1,8 +1,17 @@
-# Limiting the maximum size of a bucket
+# Limiting the maximum bucket size
 
-If you want to limit the maximum size of an existing bucket, follow these steps:
+{{objstorage-name}} lets you limit the maximum size of a bucket.
 
-1. Open the bucket you need.
-2. In the left pane, select **Settings**.
-3. Set the maximum bucket size.
+If, for example, you provide the users of your service the ability to upload objects to {{objstorage-name}}, then by limiting the maximum volume, you can better control user actions and avoid unnecessary spending.
+
+{% list tabs %}
+
+- Management console
+  1. In the management console, select the appropriate folder.
+  1. Select **Object Storage**.
+  1. Click the name of the desired bucket.
+  1. Go to the **Settings** tab.
+  1. Set the maximum bucket size.
+
+{% endlist %}
 
