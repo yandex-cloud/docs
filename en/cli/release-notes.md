@@ -1,18 +1,39 @@
 # YC CLI Releases
 
-## Version 0.48.0 (27.12.19) {#latest-release}
+## Version 0.49.0 (21.01.20) {#latest-release}
 
 ### Changes to the CLI {#cli}
 
 **Improved**
 
-- When updating YC CLI, the current version to be installed is now displayed.
+- When running the YC CLI with the `--debug` flag, the API call response log line now outputs not only the gRPC status code, but also its description.
 
 ### Changes to Yandex.Cloud services {#services}
 
+#### {{ kms-name }} {#kms}
+
+Support for the cryptographic key management service: {{ kms-full-name }}.
+
+{{ kms-full-name }} (KMS) allows you to create encryption keys and implement data protection models in your applications and services.
+Use the keys to protect your secrets, private data, and other confidential information you store in the cloud.
+
+The {{ kms-full-name }} service is at the Preview stage. Read more about the service in the [documentation](https://cloud.yandex.com/docs/kms/).
+
+## Previous releases {#previous-releases}
+
+### Version 0.48.0 (27.12.19) {#version0.48.0}
+
+#### Changes to the CLI {#cli}
+
+**Improved**
+
+- When updating YC CLI, the current version to be installed is now displayed.
+
+#### Changes to Yandex.Cloud services {#services}
+
 #### {{ compute-name }} {#compute}
 
-- Added ability to use placement groups: `yc compute placement-group --help`.
+- Added the feature to use placement groups: `yc compute placement-group --help`.
 
 - Commands `yc compute instance create` and `yc compute instance update`
 
@@ -32,7 +53,7 @@
 
 - Command `{{ yc-mdb-my }} cluster update`
 
-    Added the ability to rename clusters using the `--new-name` flag.
+    Added the feature to rename the cluster using the `--new-name` flag.
 
 **{{ mpg-name }}**
 
@@ -40,21 +61,19 @@
 
 - Command `{{ yc-mdb-pg }} cluster update`
 
-    Added the ability to rename clusters using the `--new-name` flag.
+    Added the feature to rename the cluster using the `--new-name` flag.
 
 **{{ mch-name }}**
 
 - Command `{{ yc-mdb-ch }} cluster update`
 
-    Added the ability to rename clusters using the `--new-name` flag.
+    Added the feature to rename the cluster using the `--new-name` flag.
 
 **{{ mrd-name }}**
 
 - Command `{{ yc-mdb-rd }} cluster update`
 
-    Added the ability to rename clusters using the `--new-name` flag.
-
-## Previous releases {#previous-releases}
+    Added the feature to rename the cluster using the `--new-name` flag.
 
 ### Version 0.47.0 (17.12.19) {#version0.47.0}
 
@@ -70,31 +89,13 @@
 
 **Improved**
 
-- To facilitate authorization diagnostics, the CRC32 of the sent [IAM token](../iam/concepts/authorization/iam-token.md) is written to the request debug log.
+- To accelerate authorization diagnostics, the CRC32 of the sent [IAM token](../iam/concepts/authorization/iam-token.md) is written to the request debug log.
 
 #### Changes to Yandex.Cloud services {#services}
 
 #### {{ sf-name }} {#serverless-functions}
 
-Added the `yc serverless trigger create object-storage` command to subscribe for bucket updates in {{ objstorage-name }}. Command flags:
-
-```
---name: string
---description: string
---labels: key=value[,key=value...]
---bucket-id: string
---prefix: string
---suffix: string
---events: stringSlice
---invoke-function-id: string
---invoke-function-name: string
---invoke-function-tag: string
---invoke-function-service-account-id: string
---invoke-function-service-account-name: string
---retry-attempts: int64
---retry-interval: duration
---async: bool
-```
+- Added the `yc serverless trigger create object-storage` command to subscribe to bucket updates in {{ objstorage-name }}.
 
 ### Version 0.45.0 (03.12.19) {#version0.45.0}
 
@@ -136,7 +137,7 @@ Added the `yc serverless trigger create object-storage` command to subscribe for
 
 * Disabled the display of the `Status.details` field for gRPC errors. Information from it is duplicated in the `Status.message` field, which is shown as the main error message.
 
-### Version 0.43.1 (14.11.19) {#version0.43.1}
+### Version 0.43.1 (14.11.19)
 
 #### Changes to the CLI {#cli}
 
@@ -258,7 +259,7 @@ Added the `yc serverless trigger create object-storage` command to subscribe for
 
 - Command `yc container registry`
 
-    Added the ability to set and view a list of roles for the Docker image registry: `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
+    Added the feature to set and view a list of roles for the Docker image registry: `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
 
 #### Managed database services {#managed-db}
 
@@ -322,7 +323,7 @@ Added the `yc serverless trigger create object-storage` command to subscribe for
 
 - Commands `{{ yc-mdb-pg }} user create` and `yc managed-postgresql user update`
 
-    Added ability to specify a user's login and set their access rights using the`--login` and `--grants` flags.
+    Added the feature to specify a user's login and set their access rights using the`--login` and `--grants` flags.
 
 ### Version 0.36.0 (27.08.19) {#version0.36.0}
 
@@ -332,7 +333,7 @@ Added the `yc serverless trigger create object-storage` command to subscribe for
 
 - Command `yc resource-manager cloud update`
 
-    Added the ability to rename clouds.
+    Added the feature to rename the cloud.
 
 ### Version 0.35.1 (16.08.19) {#version0.35.1}
 
@@ -386,7 +387,7 @@ Added the `yc serverless trigger create object-storage` command to subscribe for
 
 - Command `{{ mmy-name }} cluster update-config --set`
 
-    Added the ability to globally set the SQL mode using `sql_mode`.
+    Added the feature to globally set the SQL mode using `sql_mode`.
 
 ### Version 0.33.0 (19.07.19) {#version0.33.0}
 
@@ -404,7 +405,7 @@ Added the `yc serverless trigger create object-storage` command to subscribe for
 
 - Commands `{{ yc-mdb-pg }} user create` and `{{ yc-mdb-pg }} user update`
 
-    Added ability to set user parameters with flags such as `--lock_timeout` and `--log_min_duration_statement`.
+    Added the feature to set user parameters with flags such as `--lock_timeout` and `--log_min_duration_statement`.
 
 ### Version 0.32.0 (05.07.19) {#version0.32.0}
 
@@ -512,7 +513,7 @@ Added the `yc serverless trigger create object-storage` command to subscribe for
 
 - Command `{{ yc-mdb-ch }} cluster add-zooker`
 
-    Added the ability to add ZooKeeper hosts.
+    Added the feature to add ZooKeeper hosts.
 
 - Command `{{ yc-mdb-ch }} shards add`
 
