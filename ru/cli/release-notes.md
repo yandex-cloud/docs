@@ -1,15 +1,39 @@
 # Релизы YC CLI
 
-## Версия 0.49.0 (21.01.20) {#latest-release}
-
-### Изменения в CLI {#cli}
-
-**Улучшено**
-- При запуске YC CLI с флагом `--debug`, строка лога ответа API-вызова теперь выводит не только gRPC-код статуса, но и его описание.
+## Версия 0.50.0 (27.01.20) {#latest-release}
 
 ### Изменения в сервисах Облака {#services}
 
+- Для [ресурсов, на которые можно назначать роли](../iam/concepts/access-control/resources-with-access-control.md).
+
+    Добавлены альтернативы флагу `--subject` для команд управления ролями: `--service-account-id`, `--service-account-name`, `--user-account-id`, `--user-yandex-login` и `--all-authenticated-users`.
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Команда `yc managed-kubernetes node-group create`.
+
+    Добавлен флаг `--auto-scale`, позволяющий создать группу узлов динамического размера под управлением [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler#cluster-autoscaler).
+
+#### {{ compute-name }} {#compute}
+
+- Команда `yc compute instance create`.
+
+  При указании флага `--gpus` автоматически выбирается платформа `gpu-standard-v1`.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.49.0 (21.01.20) {#version0.49.0}
+
+#### Изменения в CLI {#cli}
+
+**Улучшено**
+
+- При запуске YC CLI с флагом `--debug`, строка лога ответа API-вызова теперь выводит не только gRPC-код статуса, но и его описание.
+
+#### Изменения в сервисах Облака {#services}
+
 #### {{ kms-name }} {#kms}
+
 Появилась поддержка сервиса для управления криптографическими ключами: {{ kms-full-name }}.
 
 {{ kms-full-name }} (KMS) позволяет создавать ключи шифрования и организовывать схемы защиты данных в ваших приложениях и сервисах.
@@ -17,8 +41,6 @@
 
 Сервис {{ kms-full-name }} находится на стадии Preview. Подробнее про сервис читайте в [документации](https://cloud.yandex.ru/docs/kms/).
 
-## Предыдущие релизы {#previous-releases}
- 
 ### Версия 0.48.0 (27.12.19) {#version0.48.0}
 
 #### Изменения в CLI {#cli}
