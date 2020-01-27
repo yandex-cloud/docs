@@ -37,7 +37,6 @@ To add more disks, click **Add disk**.
             - In the window that opens, enter a name for the new network and choose a subnet to connect the virtual machine to. Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet) (if there's no subnet, create one). Then click **Create**.
         - In the **Public IP** field, choose a method for assigning an IP address:
             - **Auto**: Assign a random IP address from the Yandex.Cloud IP pool.
-            - **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
             - **No address**: Don't assign a public IP address.
         - If necessary, select [DDoS protection](../../vpc/ddos-protection/).
     - Under **Access**, specify the data required to access the VM:
