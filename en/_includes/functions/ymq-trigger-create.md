@@ -1,6 +1,6 @@
 {% include [triggers-preview](triggers-preview-stage.md) %}
 
-Create a trigger for the [message queue](../.. /message-queue/concepts/queue.md) of {{ message-queue-full-name }} and process messages using the [function](../../functions/concepts/function.md) {{ sf-name }}.
+Create a trigger for the [message queue](../../message-queue/concepts/queue.md) of {{ message-queue-full-name }} and process messages using the [function](../../functions/concepts/function.md) {{ sf-name }}.
 
 {% note important %}
 
