@@ -72,7 +72,7 @@ An alias is set in the key-value format:
 
 You can use aliases for sending messages and subscribing to messages along with regular device topics. You can also use wildcard characters in aliases when subscribing to messages. In this case, the service checks the format of the original topic that was assigned an alias.
 
-Aliases must uniquely identify devices, meaning the topic that the alias is assigned to must contain the unique device ID.
+Aliases must uniquely identify devices, so the topic that the alias is assigned to must contain a unique device ID.
 
 > If you [create an alias](../operations/device/alias/alias-create.md) `my/alias/=$devices/<device ID>/`, you can use the `my/alias/events` topic. This is the same as `$devices/<device ID>/events`. Similarly, you can use other topics starting with `$devices/<device ID>/`.
 
@@ -86,14 +86,14 @@ If a filter starts with `$devices/`, it includes device topics. If it starts wit
 
     This character is always the last in a filter.
 
-- The `+` indicates that one part of a subtopic between the `/` is substituted.
+- The `+` is a placeholder, inserted between two `/`, that represents one part of the subtopic.
 
-    The `$devices/+` and `$registries/+` filters don't work. In this case, the format of the topic for sending a message doesn't match the format allowed in the service, where the topic consists of three parts: `$<devices or registries>/<ID>/<events or commands>`.
+    The `$devices/+` and `$registries/+` filters don't work. In this case, the format of the topic for sending a message doesn't match the acceptable service format where the topic contains three parts: `$<devices or registries>/<ID>/<events or commands>`.
 
 Filtering also takes general rules for subscribing to topics into account, such as:
 
 > - Subscribing to the `$devices/#` filter with a registry certificate is the same as subscribing to `$devices/+/events` and `$devices/+/events/#`.
-> - Subscribing to the `$registry/#` filter with a registry certificate is the same as subscribing to `$devices/<device ID >/commands` and `$devices/<device ID>/commands/#`.
+- Subscribing to the `$registry/#` filter with a device certificate is the same as subscribing to `$devices/<device ID >/commands` and `$devices/<device ID>/commands/#`.
 
 #### Examples of using wildcard characters  {#examples}
 
@@ -124,4 +124,5 @@ _Triggers_ are conditions that automatically launch a specific function when met
 
 {% include [iot-core](../../_includes/functions/iot-core-trigger-description.md) %}
 
-Read more about triggers in the [documentation {{ sf-name }}](../../functions/concepts/trigger.md).
+Read more about triggers in the [{{ sf-name }} documentation](../../functions/concepts/trigger/index.md).
+

@@ -3,8 +3,12 @@ href: index.yaml
 items:
   - name: Getting started
     items:
+      - name: Overview
+        href: quickstart/index.md
       - name: Creating and executing functions
         href: quickstart/function-quickstart.md
+      - name: Creating a timer
+        href: quickstart/timer-quickstart.md
       - name: Creating a trigger for Message Queue
         href: quickstart/ymq-trigger-quickstart.md
       - name: Creating a trigger for Yandex IoT Core
@@ -63,8 +67,18 @@ items:
             href: concepts/runtime/environment-variables.md
           - name: Execution context
             href: concepts/runtime/execution-context.md
-      - name: Trigger
-        href: concepts/trigger.md
+      - name: Triggers
+        items:
+          - name: Overview
+            href: concepts/trigger/index.md
+          - name: Timer
+            href: concepts/trigger/timer.md
+          - name: Trigger for Message Queue
+            href: concepts/trigger/ymq-trigger.md
+          - name: Trigger for Yandex IoT Core
+            href: concepts/trigger/iot-core-trigger.md
+      - name: Monitoring
+        href: concepts/monitoring.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Tutorials

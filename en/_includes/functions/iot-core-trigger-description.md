@@ -1,4 +1,4 @@
-The trigger for {{ iot-short-name }} is designed for managing messages exchanged between devices and registries. It's created for topics: it takes copies of messages from them and passes them to the function for processing. The trigger must be in the same cloud as the device or register as the topic it reads messages from.
+[Trigger](../../functions/concepts/trigger/index.md) for {{ iot-short-name }} is designed for managing messages exchanged by devices and registries. The trigger is created for topics: it picks up copies of messages from them and passes them to the function for processing. The trigger must be in the same cloud as the device or register as the topic it reads messages from.
 
 Triggers can be created:
 

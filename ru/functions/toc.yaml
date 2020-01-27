@@ -3,6 +3,8 @@ href: index.yaml
 items:
   - name: Начало работы
     items:
+      - name: Обзор
+        href: quickstart/index.md
       - name: Создание и выполнение функции
         href: quickstart/function-quickstart.md
       - name: Создание таймера
