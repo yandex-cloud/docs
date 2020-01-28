@@ -88,7 +88,7 @@ If speech fragment recognition is successful, you will receive a message contain
 
 * `alternatives[]`: List of alternative recognition results. Each alternative contains the following fields:
     * `text`: Recognized text.
-    * `confidence`: Recognition accuracy. Currently the service always returns `1`, which is the same as 100%.
+    * `confidence`: This field is not supported, do not use it.
 * `final`: Set to `true` if the result is final, and to `false` if it is intermediate.
 
 ### Error codes returned by the server {#error_codes}

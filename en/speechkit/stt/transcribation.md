@@ -133,9 +133,9 @@ Each result in the `chunks[]` list contains the following fields:
       * `startTime`: Time stamp of the beginning of the word in the recording. An error of 1-2 seconds is possible.
       * `endTime`: Time stamp of the end of the word. An error of 1-2 seconds is possible.
       * `word`: Recognized word. Recognized numbers are written in words (for example, `twelve` rather than `12`).
-      * `confidence`: Recognition accuracy. Currently the service always returns `1`, which is the same as 100%.
+      * `confidence`: This field is not supported, do not use it.
     * `text`: Full recognized text. By default, numbers are written in figures. To output the entire text in words, specify `true` in the `raw_results` field.
-    * `confidence`: Recognition accuracy. Currently the service always returns `1`, which is the same as 100%.
+    * `confidence`: This field is not supported, do not use it.
 * `channelTag`: Audio channel that recognition was performed for.
 
 ```json
