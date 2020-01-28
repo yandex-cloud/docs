@@ -59,7 +59,7 @@
         - `--message` — текст сообщения.
         - `--qos` — [уровень качества обслуживания (QoS)](../concepts/topic.md#qos).
 
-{% endnote %}          
+{% endlist %}          
 
 ### Отправьте данные с устройства в топик реестра {#to-registry-topic}
 

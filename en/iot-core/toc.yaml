@@ -1,6 +1,5 @@
 title: "Yandex IoT Core"
 href: index.yaml
-stage: preview
 items:
   - name: Getting started
     href: quickstart.md
@@ -16,7 +15,7 @@ items:
         href: operations/logs.md
       - name: Creating a trigger for a topic
         href: operations/trigger-create.md
-      - name: Registries
+      - name: Managing registries
         items:
         - name: Getting information about registries
           href: operations/registry/registry-list.md
@@ -26,7 +25,7 @@ items:
           href: operations/registry/registry-update.md
         - name: Deleting a registry
           href: operations/registry/registry-delete.md
-      - name: Devices
+      - name: Managing devices
         items:
           - name: Managing topic aliases
             items:
@@ -46,14 +45,25 @@ items:
             href: operations/device/device-update.md
           - name: Deleting a device
             href: operations/device/device-delete.md
-      - name: Certificates
+      - name: Managing certificates
         items:
+          - name: Creating a certificate
+            href: operations/certificates/create-certificates.md
           - name: Managing registry certificates
             href: operations/certificates/registry-certificates.md
           - name: Managing device certificates
             href: operations/certificates/device-certificates.md
+      - name: Managing passwords
+        items:
+          - name: Managing registry passwords
+            href: operations/password/registry-password.md
+          - name: Managing device passwords
+            href: operations/password/device-password.md
+
   - name: Concepts
     items:
+        - name: Authorization
+          href: concepts/authorization.md
         - name: Relationship between service resources
           href: concepts/index.md
         - name: MQTT broker connection parameters
@@ -62,7 +72,7 @@ items:
           href: concepts/topic.md
         - name: Quotas and limits
           href: concepts/limits.md
-  - name: Tutorials
+  - name: Solutions
     items:
       - name: Working with Mosquitto
         items:

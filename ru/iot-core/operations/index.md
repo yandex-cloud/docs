@@ -34,7 +34,7 @@
 
 ## Управление паролями {#password}
 
-* [{#T}](password/device-password.md)
 * [{#T}](password/registry-password.md)
+* [{#T}](password/device-password.md)
 
 

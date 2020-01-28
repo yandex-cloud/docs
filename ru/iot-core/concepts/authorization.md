@@ -33,7 +33,7 @@
 
 #### См. также {#see-also}
 
-* [{#T}](index.md).
+* [{#T}](../concepts/index.md).
 * [{#T}](../operations/certificates/create-certificates.md).
 * [{#T}](../operations/certificates/device-certificates.md).
 * [{#T}](../operations/certificates/registry-certificates.md).
