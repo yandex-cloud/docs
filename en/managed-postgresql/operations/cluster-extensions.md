@@ -16,7 +16,7 @@
 
   ```
   $ {{ yc-mdb-pg }} database get <database name> \
-       --name <cluster name>
+       --cluster-name <cluster name>
   ```
 
   The enabled extensions will be listed in the `extensions` list.
@@ -41,7 +41,7 @@
 
   ```
   $ {{ yc-mdb-pg }} database update <database name> \
-       --name <cluster name>
+       --cluster-name <cluster name>
        --extensions <extension name>=<version>,<extension name>=<version>...
   ```
 

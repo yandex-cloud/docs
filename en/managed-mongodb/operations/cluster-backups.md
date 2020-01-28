@@ -58,7 +58,7 @@ For a new cluster, you should set all the parameters that are required at creati
       ```
       $ {{ yc-mdb-mg }} cluster restore \
            --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
-           --name mynewmg \
+           --cluster-name mynewmg \
            --environment=PRODUCTION \
            --network-id {{ network-name }} \
            --host type=clickhouse,zone-id={{ zone-id }} \
@@ -72,7 +72,7 @@ For a new cluster, you should set all the parameters that are required at creati
       ```
       $ {{ yc-mdb-mg }} cluster restore \
            --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
-           --name mynewmg \
+           --cluster-name mynewmg \
            --environment=PRODUCTION \
            --network-name {{ network-name }} \
            --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
@@ -213,7 +213,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ yc {{ yc-mdb-mg }} cluster create \
-     --name <cluster name> \
+     --cluster-name <cluster name> \
      --environment <prestable or production> \
      --network-name <network name> \
      --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -225,7 +225,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ yc {{ yc-mdb-mg }} cluster update \
-     --name <cluster name> \
+     --cluster-name <cluster name> \
      --backup-window-start 11:25:00
   ```
 

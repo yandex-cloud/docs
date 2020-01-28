@@ -59,7 +59,7 @@
       ```
       $ {{ yc-mdb-mg }} cluster restore \
            --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
-           --name mynewmg \
+           --cluster-name mynewmg \
            --environment=PRODUCTION \
            --network-id {{ network-name }} \
            --host type=clickhouse,zone-id={{ zone-id }} \
@@ -73,7 +73,7 @@
       ```
       $ {{ yc-mdb-mg }} cluster restore \
            --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
-           --name mynewmg \
+           --cluster-name mynewmg \
            --environment=PRODUCTION \
            --network-name {{ network-name }} \
            --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \

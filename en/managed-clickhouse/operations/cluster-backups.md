@@ -94,7 +94,7 @@ For a new cluster, you should set all the parameters that are required at creati
       ```
       $ {{ yc-mdb-ch }} cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
-             --name mynewch \
+             --cluster-name mynewch \
              --environment=PRODUCTION \
              --network-id ' ' \
              --host type=clickhouse,zone-id={{ zone-id }} \
@@ -108,7 +108,7 @@ For a new cluster, you should set all the parameters that are required at creati
       ```
       $ {{ yc-mdb-ch }} cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
-             --name mynewch \
+             --cluster-name mynewch \
              --environment=PRODUCTION \
              --network-name {{ network-name }} \
              --host type=clickhouse,zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
@@ -211,7 +211,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ yc {{ yc-mdb-ch }} cluster create \
-        --name <cluster name> \
+        --cluster-name <cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \
         --host type=<clickhouse or zookeeper>,zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -227,7 +227,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ yc {{ yc-mdb-ch }} cluster update \
-     --name <cluster name> \
+     --cluster-name <cluster name> \
      --backup-window-start 11:25:00
   ```
 

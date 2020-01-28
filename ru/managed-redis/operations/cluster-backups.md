@@ -55,7 +55,7 @@
       ```
       $ {{ yc-mdb-rd }} cluster restore \
            --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
-           --name mynewrd \
+           --cluster-name mynewrd \
            --environment=PRODUCTION \
            --network-name default \
            --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
@@ -183,7 +183,7 @@
 
   ```
   $ yc {{ yc-mdb-rd }} cluster create \
-     --name <имя кластера> \
+     --cluster-name <имя кластера> \
      --environment <окружение, prestable или production> \
      --network-name <имя сети> \
      --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
@@ -194,7 +194,7 @@
 
   ```
   $ yc {{ yc-mdb-rd }} cluster update \
-     --name <имя кластера> \
+     --cluster-name <имя кластера> \
      --backup-window-start 11:25:00
   ```
   

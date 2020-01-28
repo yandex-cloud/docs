@@ -20,7 +20,7 @@ You can add and remove databases, as well as view information about them.
 
   ```
   $ {{ yc-mdb-ch }} database list
-       --name=<cluster name>
+       --cluster-name=<cluster name>
   ```
 
   The cluster name can be requested with a [list of folder clusters](#list-clusters).
@@ -54,7 +54,7 @@ The number of databases in a cluster is unlimited.
 
   ```
   $ {{ yc-mdb-ch }} database create <database name>
-      --name <cluster name>
+      --cluster-name <cluster name>
   ```
 
   {{ mch-short-name }} runs the create database operation.
@@ -86,7 +86,7 @@ The number of databases in a cluster is unlimited.
 
   ```
   $ {{ yc-mdb-ch }} database delete <database name>
-       --name=<cluster name>
+       --cluster-name=<cluster name>
   ```
 
   The cluster name can be requested with a [list of folder clusters](#list-clusters).

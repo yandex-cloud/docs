@@ -65,7 +65,7 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
 
       ```
       $ {{ yc-mdb-mg }} cluster create \
-         --name <cluster name> \
+         --cluster-name <cluster name> \
          --environment=<prestable or production> \
          --network-name <network name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -82,7 +82,7 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
 
       ```
       $ {{ yc-mdb-mg }} cluster create \
-         --name <cluster name> \
+         --cluster-name <cluster name> \
          --environment=<prestable or production> \
          --network-id {{ network-name }} \
          --host zone-id=<availability zone> \
@@ -132,7 +132,7 @@ Run the command:
 
 ```
 $ {{ yc-mdb-mg }} cluster create \
-     --name mymg \
+     --cluster-name mymg \
      --environment production \
      --network-name {{ network-name }} \
      --mongod-resource-preset {{ host-class }} \
@@ -147,7 +147,7 @@ $ {{ yc-mdb-mg }} cluster create \
 
 ```
 $ {{ yc-mdb-mg }} cluster create \
-     --name mymg \
+     --cluster-name mymg \
      --environment production \
      --network-id {{ network-name }} \
      --mongod-resource-preset {{ host-class }} \

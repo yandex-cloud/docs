@@ -73,7 +73,7 @@
 
      ```
      $ {{ yc-mdb-my }} cluster create \
-        --name <имя кластера> \
+        --cluster-name  <имя кластера> \
         --environment <окружение, prestable или production> \
         --network-name <имя сети> \
         --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \

@@ -88,7 +88,7 @@
 
       ```bash
       $ {{ yc-mdb-pg }} cluster create \
-         --name <имя кластера> \
+         --cluster-name <имя кластера> \
          --environment <окружение, prestable или production> \
          --network-name <имя сети> \
          --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
@@ -104,7 +104,7 @@
 
       ```bash
       $ {{ yc-mdb-pg }} cluster create \
-         --name <имя кластера> \
+         --cluster-name <имя кластера> \
          --environment <окружение, prestable или production> \
          --network-id {{ network-name }} \
          --host zone-id=<зона доступности> \
@@ -155,7 +155,7 @@
 
 ```
 $ {{ yc-mdb-pg }} cluster create \
-     --name mypg \
+     --cluster-name mypg \
      --environment production \
      --network-name default \
      --resource-preset s1.nano \
@@ -170,7 +170,7 @@ $ {{ yc-mdb-pg }} cluster create \
 
 ```
 $ {{ yc-mdb-pg }} cluster create \
-     --name mypg \
+     --cluster-name mypg \
      --environment production \
      --network-id ' ' \
      --host zone-id=man \

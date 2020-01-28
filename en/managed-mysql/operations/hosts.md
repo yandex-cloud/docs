@@ -20,7 +20,7 @@ You can add and remove cluster hosts and manage {{ MY }} settings for individual
 
   ```
   $ {{ yc-mdb-my }} host list
-       --name=<cluster name>
+       --cluster-name=<cluster name>
   
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
@@ -94,7 +94,7 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
      ```
      $ {{ yc-mdb-my }} host add
-          --name <cluster name>
+          --cluster-name <cluster name>
           --host zone-id=<availability zone>,subnet-id=<subnet ID>
      ```
 
@@ -131,7 +131,7 @@ If the host is the master when deleted, {{ mmy-short-name }} automatically assig
 
   ```
   $ {{ yc-mdb-my }} host delete <hostname>
-       --name=<cluster name>
+       --cluster-name=<cluster name>
   ```
 
   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

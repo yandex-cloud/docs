@@ -93,7 +93,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
       ```bash
       $ {{ yc-mdb-pg }} cluster create \
-         --name <cluster name> \
+         --cluster-name <cluster name> \
          --environment <prestable or production> \
          --network-name <network name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -109,7 +109,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
       ```bash
       $ {{ yc-mdb-pg }} cluster create \
-         --name <cluster name> \
+         --cluster-name <cluster name> \
          --environment <prestable or production> \
          --network-id {{ network-name }} \
          --host zone-id=<availability zone> \
@@ -158,7 +158,7 @@ Run the command:
 
 ```
 $ {{ yc-mdb-pg }} cluster create \
-     --name mypg \
+     --cluster-name mypg \
      --environment production \
      --network-name default \
      --resource-preset s1.nano \
@@ -173,7 +173,7 @@ $ {{ yc-mdb-pg }} cluster create \
 
 ```
 $ {{ yc-mdb-pg }} cluster create \
-     --name mypg \
+     --cluster-name mypg \
      --environment production \
      --network-id ' ' \
      --host zone-id=man \

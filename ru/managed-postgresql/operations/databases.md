@@ -22,7 +22,7 @@
 
   ```
   $ {{ yc-mdb-pg }} database list
-       --name=<имя кластера>
+       --cluster-name <имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
@@ -80,7 +80,7 @@
 
      ```
      $ {{ yc-mdb-pg }} user list
-          --name <имя кластера>
+          --cluster-name <имя кластера>
      ```
 
      Если нужного пользователя в списке нет, [создайте его](cluster-users.md#adduser).
@@ -89,7 +89,7 @@
 
      ```
      $ {{ yc-mdb-pg }} database create <имя базы данных>
-          --name <имя кластера>
+          --cluster-name <имя кластера>
           --owner <имя пользователя-владельца>
           --lc-collate ru_RU.UTF8
           --lc-type ru_RU.UTF8
@@ -127,7 +127,7 @@
 
   ```
   $ {{ yc-mdb-pg }} database delete <имя базы данных>
-       --name=<имя кластера>
+       --cluster-name <имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).

@@ -96,7 +96,7 @@ This is necessary for distributing the load on the dictionary source when upgrad
 
      ```
      $ {{ yc-mdb-ch }} cluster add-external-dictionary \
-        --name <{{ CH }} cluster name> \
+        --cluster-name <cluster name> \
         --dict-name <dictionary name> \
         --structure-id <key column name> \
         --structure-attribute name=<data column name>,type=<data type>,null-value=<empty element value >,expression=<expression>,hierarchical=<true|false>,injective=<true|false> \
@@ -171,7 +171,7 @@ This is necessary for distributing the load on the dictionary source when upgrad
 
   ```
   $ {{ yc-mdb-ch }} cluster remove-external-dictionary \
-    --name <cluster name> \
+    --cluster-name <cluster name> \
     --dict-name <dictionary name> \
   ```
 

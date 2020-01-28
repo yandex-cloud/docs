@@ -56,7 +56,7 @@ For a new cluster, you should set all the parameters that are required at creati
       $ {{ yc-mdb-my }} cluster restore \
              --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
              --time 2018-11-02T10:09:38Z \
-             --name mynewmy \
+             --cluster-name mynewmy \
              --environment=PRODUCTION \
              --network-id {{ network-name }} \
              --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
@@ -71,7 +71,7 @@ For a new cluster, you should set all the parameters that are required at creati
       $ {{ yc-mdb-my }} cluster restore \
              --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
              --time 2018-11-02T10:09:38Z \
-             --name mynewmy \
+             --cluster-name mynewmy \
              --environment=PRODUCTION \
              --network-name {{ network-name }} \
              --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
@@ -205,7 +205,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ yc {{ yc-mdb-my }} cluster create \
-     --name <cluster name> \
+     --cluster-name <cluster name> \
      --environment <prestable or production> \
      --network-name <network name> \
      --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -217,7 +217,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ yc {{ yc-mdb-my }} cluster update \
-     --name <cluster name> \
+     --cluster-name <cluster name> \
      --backup-window-start 11:25:00
   ```
 

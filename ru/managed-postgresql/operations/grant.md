@@ -31,7 +31,7 @@ GRANT SELECT ON DATABASE db1 TO user2;
 
   ```
   $ {{ yc-mdb-pg }} user update <имя пользователя>
-       --name <имя кластера>
+       --cluster-name <имя кластера>
        --grants="<роль1,роль2>"
   ```
 

@@ -20,7 +20,7 @@ You can add and remove databases, as well as view information about them.
 
   ```
   $ {{ yc-mdb-mg }} database list
-       --name=<cluster name>
+       --cluster-name=<cluster name>
   ```
 
   The cluster name can be requested with a [list of folder clusters](#list-clusters).
@@ -61,7 +61,7 @@ Created databases are not available to cluster users by default. To allow a user
 
   ```
   $ {{ yc-mdb-mg }} database create <database name>
-      --name <cluster name>
+      --cluster-name <cluster name>
   ```
 
   {{ mmg-short-name }} runs the create database operation.
@@ -95,7 +95,7 @@ Created databases are not available to cluster users by default. To allow a user
 
   ```
   $ {{ yc-mdb-mg }} database delete <database name>
-       --name=<cluster name>
+       --cluster-name=<cluster name>
   ```
 
   The cluster name can be requested with a [list of folder clusters](#list-clusters).

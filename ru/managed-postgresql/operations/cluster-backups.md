@@ -59,7 +59,7 @@
       $ {{ yc-mdb-pg }} cluster restore \
              --backup-id c9qlk4v13uq79r9cgcku:base_000000010000000000000002 \
              --time 2018-11-02T10:09:38Z \
-             --name mynewpg \
+             --cluster-name mynewpg \
              --environment=PRODUCTION \
              --network-name {{ network-name }} \
              --host {{ host-net-example }} \
@@ -184,7 +184,7 @@
 
   ```bash
   $ {{ yc-mdb-pg }} cluster create \
-     --name <имя кластера> \
+     --cluster-name <имя кластера> \
      --environment <окружение, prestable или production> \
      --network-name <имя сети> \
      --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
@@ -199,7 +199,7 @@
 
   ```
   $ yc {{ yc-mdb-pg }} cluster update \
-     --name <имя кластера> \
+     --cluster-name <имя кластера> \
      --backup-window-start 11:25:00
   ```
   

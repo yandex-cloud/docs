@@ -94,7 +94,7 @@
       ```
       $ {{ yc-mdb-ch }} cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
-             --name mynewch \
+             --cluster-name mynewch \
              --environment=PRODUCTION \
              --network-id ' ' \
              --host type=clickhouse,zone-id={{ zone-id }} \
@@ -108,7 +108,7 @@
       ```
       $ {{ yc-mdb-ch }} cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
-             --name mynewch \
+             --cluster-name mynewch \
              --environment=PRODUCTION \
              --network-name {{ network-name }} \
              --host type=clickhouse,zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
@@ -214,7 +214,7 @@
 
   ```
   $ yc {{ yc-mdb-ch }} cluster create \
-        --name <имя кластера> \
+        --cluster-name <имя кластера> \
         --environment <окружение, prestable или production> \
         --network-name <имя сети> \
         --host type=<clickhouse или zookeeper>,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
@@ -230,7 +230,7 @@
 
   ```
   $ yc {{ yc-mdb-ch }} cluster update \
-     --name <имя кластера> \
+     --cluster-name <имя кластера> \
      --backup-window-start 11:25:00
   ```
 

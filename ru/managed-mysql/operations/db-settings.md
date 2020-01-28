@@ -18,7 +18,7 @@
   
   ```bash
   $ {{ yc-mdb-my }} cluster update-config
-       --name=<имя кластера>
+       --cluster-name <имя кластера>
        --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
   ```
   

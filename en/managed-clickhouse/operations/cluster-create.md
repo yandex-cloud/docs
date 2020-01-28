@@ -85,7 +85,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
      ```
      $ {{ yc-mdb-ch }} cluster create \
-        --name <cluster name> \
+        --cluster-name <cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \
         --host type=<clickhouse or zookeeper>,zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -102,7 +102,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
      ```
      $ {{ yc-mdb-ch }} cluster create \
-        --name <cluster name> \
+        --cluster-name <cluster name> \
         --environment <prestable or production> \
         --network-id ' ' \
         --host type=<clickhouse or zookeeper>,zone-id=<availability zone> \
@@ -233,7 +233,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
   ```
   $ {{ yc-mdb-ch }} cluster create \
-       --name mych \
+       --cluster-name mych \
        --environment=production \
        --network-name default \
        --clickhouse-resource-preset s1.nano \
@@ -248,7 +248,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
   ```
   $ {{ yc-mdb-ch }} cluster create \
-       --name mych \
+       --cluster-name mych \
        --environment=production \
        --clickhouse-resource-preset s2.nano \
        --host type=clickhouse,zone-id=man \

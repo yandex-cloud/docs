@@ -83,7 +83,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
       ```bash
       $ {{ yc-mdb-rd }} cluster create \
-         --name <cluster name> \
+         --cluster-name <cluster name> \
          --environment <prestable or production> \
          --network-name <network name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -186,7 +186,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
   ```
   $ {{ yc-mdb-rd }} cluster create \
-       --name myredis \
+       --cluster-name myredis \
        --environment production \
        --network-name default \
        --resource-preset hm1.nano \

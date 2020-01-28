@@ -65,7 +65,7 @@
 
       ```
       $ {{ yc-mdb-mg }} cluster create \
-         --name <имя кластера> \
+         --cluster-name <имя кластера> \
          --environment=<окружение, prestable или production> \
          --network-name <имя сети> \
          --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
@@ -82,7 +82,7 @@
 
       ```
       $ {{ yc-mdb-mg }} cluster create \
-         --name <имя кластера> \
+         --cluster-name <имя кластера> \
          --environment=<окружение, prestable или production> \
          --network-id {{ network-name }} \
          --host zone-id=<зона доступности> \
@@ -133,7 +133,7 @@
 
 ```
 $ {{ yc-mdb-mg }} cluster create \
-     --name mymg \
+     --cluster-name mymg \
      --environment production \
      --network-name {{ network-name }} \
      --mongod-resource-preset {{ host-class }} \
@@ -148,7 +148,7 @@ $ {{ yc-mdb-mg }} cluster create \
 
 ```
 $ {{ yc-mdb-mg }} cluster create \
-     --name mymg \
+     --cluster-name mymg \
      --environment production \
      --network-id {{ network-name }} \
      --mongod-resource-preset {{ host-class }} \

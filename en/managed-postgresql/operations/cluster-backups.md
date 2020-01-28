@@ -59,7 +59,7 @@ For a new cluster, you should set all the parameters that are required at creati
       $ {{ yc-mdb-pg }} cluster restore \
              --backup-id c9qlk4v13uq79r9cgcku:base_000000010000000000000002 \
              --time 2018-11-02T10:09:38Z \
-             --name mynewpg \
+             --cluster-name mynewpg \
              --environment=PRODUCTION \
              --network-name {{ network-name }} \
              --host {{ host-net-example }} \
@@ -178,7 +178,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```bash
   $ {{ yc-mdb-pg }} cluster create \
-     --name <cluster name> \
+     --cluster-name <cluster name> \
      --environment <prestable or production> \
      --network-name <network name> \
      --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -193,7 +193,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ yc {{ yc-mdb-pg }} cluster update \
-     --name <cluster name> \
+     --cluster-name <cluster name> \
      --backup-window-start 11:25:00
   ```
 

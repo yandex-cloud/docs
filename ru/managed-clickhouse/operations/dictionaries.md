@@ -100,7 +100,7 @@
    
      ```
      $ {{ yc-mdb-ch }} cluster add-external-dictionary \
-        --name <имя кластера {{ CH }}> \
+        --cluster-name <имя кластера {{ CH }}> \
         --dict-name <имя словаря> \
         --structure-id <имя ключевого столбца> \
         --structure-attribute name=<имя столбца данных>,type=<тип данных>,null-value=<значение для пустого элемента>,expression=<выражение>,hierarchical=<true|false>,injective=<true|false> \
@@ -178,7 +178,7 @@
   1. Удалите словарь с помощью команды:
   ```
   $ {{ yc-mdb-ch }} cluster remove-external-dictionary \
-    --name <имя кластера> \
+    --cluster-name <имя кластера> \
     --dict-name <имя словаря> \
   ```
 

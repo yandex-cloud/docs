@@ -73,7 +73,7 @@
   
       ```bash
       $ {{ yc-mdb-rd }} cluster create \
-         --name <имя кластера> \
+         --cluster-name <имя кластера> \
          --environment <окружение, prestable или production> \
          --network-name <имя сети> \
          --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
@@ -178,7 +178,7 @@
   
   ```
   $ {{ yc-mdb-rd }} cluster create \
-       --name myredis \
+       --cluster-name myredis \
        --environment production \
        --network-name default \
        --resource-preset hm1.nano \

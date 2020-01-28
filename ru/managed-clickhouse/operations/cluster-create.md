@@ -82,7 +82,7 @@
      {% if audience != "internal" %}
      ```
      $ {{ yc-mdb-ch }} cluster create \
-        --name <имя кластера> \
+        --cluster-name <имя кластера> \
         --environment <окружение, prestable или production> \
         --network-name <имя сети> \
         --host type=<clickhouse или zookeeper>,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
@@ -99,7 +99,7 @@
       
      ```
      $ {{ yc-mdb-ch }} cluster create \
-        --name <имя кластера> \
+        --cluster-name <имя кластера> \
         --environment <окружение, prestable или production> \
         --network-id ' ' \
         --host type=<clickhouse или zookeeper>,zone-id=<зона доступности> \
@@ -233,7 +233,7 @@
   
   ```
   $ {{ yc-mdb-ch }} cluster create \
-       --name mych \
+       --cluster-name mych \
        --environment=production \
        --network-name default \
        --clickhouse-resource-preset s1.nano \
@@ -248,7 +248,7 @@
   
   ```
   $ {{ yc-mdb-ch }} cluster create \
-       --name mych \
+       --cluster-name mych \
        --environment=production \
        --clickhouse-resource-preset s2.nano \
        --host type=clickhouse,zone-id=man \

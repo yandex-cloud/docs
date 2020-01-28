@@ -38,8 +38,8 @@ After creating a cluster, you can:
 
      ```
      $ {{ yc-mdb-rd }} cluster update <cluster name> \
-          --name "<new cluster name>" \
-          --description "<new cluster description>"
+          --cluster-name <new cluster name> \
+          --description <new cluster description>
      ```
 
 - API

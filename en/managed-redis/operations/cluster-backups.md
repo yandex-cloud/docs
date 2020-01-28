@@ -54,7 +54,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
       ```
       $ {{ yc-mdb-rd }} cluster restore \
            --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
-           --name mynewrd \
+           --cluster-name mynewrd \
            --environment=PRODUCTION \
            --network-name default \
            --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
@@ -178,7 +178,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
   ```
   $ yc {{ yc-mdb-rd }} cluster create \
-     --name <cluster name> \
+     --cluster-name <cluster name> \
      --environment <prestable or production> \
      --network-name <network name> \
      --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -189,7 +189,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
   ```
   $ yc {{ yc-mdb-rd }} cluster update \
-     --name <cluster name> \
+     --cluster-name <cluster name> \
      --backup-window-start 11:25:00
   ```
 
