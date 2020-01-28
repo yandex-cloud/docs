@@ -6,6 +6,8 @@ items:
     items:
       - name: Настройка сети для кластеров Data Proc
         href: solutions/configure-network.md
+      - name: Использование Apache Hive
+        href: solutions/how-to-use-hive.md
       - name: Запуск Spark-приложений
         href: solutions/run-spark-job.md
       - name: Копирование файлов из Yandex Object Storage
