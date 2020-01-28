@@ -79,6 +79,8 @@ items:
             href: operations/vm-connect/rdp.md
           - name: Working with Yandex.Cloud from inside an instance
             href: operations/vm-connect/auth-inside-vm.md
+          - name: Installing NVIDIA drivers
+            href: operations/vm-operate/install-nvidia-drivers.md
       - name: Creating new disks
         items:
           - name: Creating an empty disk
