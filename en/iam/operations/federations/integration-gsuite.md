@@ -12,7 +12,7 @@ To set up authentication:
 1. [Add users to the cloud](#add-users).
 1. [Test the authentication process](#test-auth).
 
-## Before you start {#before-you-begin}
+## Before you start {#before-begin}
 
 To use the instructions in this section, you need:​
 
@@ -36,7 +36,7 @@ Before you can create an identity federation in the cloud, you need to get infor
 
 - Management console
 
-    1. Open the folder page in the [management console]({{ link-console-main }}).
+    1. Open the folder page in [management console]({{ link-console-main }}).
 
     1. Select the **Federations** tab in the left menu.
 
@@ -87,9 +87,15 @@ Having created a federation and obtained a console login link, finish creating t
 1. Enter a name for your SAML app, like <q>yandex-cloud-federation</q>. Add a description and upload a logo if necessary. Click **Next**.
 
 1. Enter information about Yandex.Cloud that acts as a Service Provider (SP):
+
     * In the **ACS URL** and **Entity ID** fields, enter the previously obtained [console login link](#get-link).
+
     * Enable **Signed Response**.
-    * In the **Name ID** field, choose **Basic Information** and **Primary Email** next to it.
+
+    * In the **Name ID** field, specify what the server will return as Name ID (the unique ID of the identity federation user).
+
+        Select **Basic Information** and **Primary Email** next to it.
+
     * The other fields are optional, so you can skip them and click **Next**.
 
     ![image](../../../_assets/iam/federations/configure-saml-gsuite.png)
@@ -119,7 +125,7 @@ When you finish configuring the server, you can test that everything is up and r
 1. Enter your authentication data. By default, enter your UPN and password. After that, click **Sign in**.
 1. If the authentication is successful, the server redirects you back to the console login link and then to the management console home page. In the upper-right corner, you can see that you are logged in to the console as a federated user.
 
-#### What's next {#what-is-next}
+#### What's next
 
 * [Assign roles to the added users](../roles/grant.md#access-to-federated-user).
 

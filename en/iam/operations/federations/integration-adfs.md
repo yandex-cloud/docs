@@ -1,6 +1,6 @@
 # Authentication using Active Directory
 
-If you have an [identity federation](../../concepts/users/identity-federations.md), you can use [Active Directory Federation Services](https://docs.microsoft.com/ru-ru/windows-server/identity/active-directory-federation-services) (ADFS) to authenticate in the cloud.
+If you have an [identity federation](../../concepts/users/identity-federations.md), you can use [Active Directory Federation Services](https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services) (ADFS) to authenticate in the cloud.
 
 To set up authentication:
 
@@ -11,7 +11,7 @@ To set up authentication:
 1. [Add users to the cloud](#add-users).
 1. [Test the authentication process](#test-auth).
 
-## Before you start {#before-you-begin}
+## Before you start {#before-begin}
 
 To use the instructions in this section, you need:​
 
@@ -39,7 +39,7 @@ To use the instructions in this section, you need:​
 
   To create a federation in {{ iam-short-name }}:
 
-  1. Open the folder page in the [management console]({{ link-console-main }}).
+  1. Open the folder page in [management console]({{ link-console-main }}).
 
   1. Select the **Federations** tab in the left menu.
 
@@ -153,7 +153,7 @@ To configure mapping of user data to SAML message elements:
 
     1. In the **Attribute Store** field, click `Active Directory`.
 
-    1. Specify the attribute to be passed as `NameID`. For this, add a line to the **Mapping of LDAP attributes** list:
+    1. Specify what the server will return as Name ID to uniquely identify the user. To do this, add a line to the **Mapping of LDAP attributes** list:
 
         Under **LDAP Attribute**, select `User-Principal-Name` or `E-Mail Addresses`.
 
@@ -184,7 +184,7 @@ When you finish configuring authentication with Active Directory, test that it r
 
 1. On successful authentication, ADFS redirects you back to the management console login link and then to the management console home page. In the upper-right corner, you can see that you are logged in to the console under an Active Directory account.
 
-#### What's next {#what-is-next}
+#### What's next
 
 * [Assign roles to the added users](../roles/grant.md#access-to-federated-user).
 
