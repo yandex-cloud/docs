@@ -187,7 +187,7 @@ pg_restore -Fd -v --single-transaction -s --no-privileges \
 Этапы миграции:
 
 1. [Создайте дамп переносимой базы](#dump).
-2. [Создайте виртуальную машину в Яндекс.Облаке и загрузите дамп БД на нее (опционально)](#create-vm).
+2. [(опционально) Создайте виртуальную машину в Яндекс.Облаке и загрузите дамп БД на нее](#create-vm).
 3. [Создайте кластер {{ mpg-name }}](#create-cluster).
 4. [Восстановите данные из дампа в кластер](#restore).
 
@@ -232,26 +232,31 @@ pg_restore -Fd -v --single-transaction -s --no-privileges \
 
     Виртуальная машина должна находиться в той же сети и зоне доступности, что и кластер {{ PG }}. Кроме того, виртуальной машине должен быть присвоен внешний IP-адрес, чтобы вы могли загрузить дамп извне Облака.
 
-2. Установите клиент {{ PG }} и дополнительные утилиты для работы с СУБД:
+1. Настройте [apt-репозиторий {{ PG }}](https://www.postgresql.org/download/linux/ubuntu/).
 
-    ```
-    $ sudo apt install postgresql-client-common
+1. Установите клиент {{ PG }} и дополнительные утилиты для работы с СУБД:
 
-    $ sudo apt install postgresql-client-10 # Для PostgreSQL 10
+   ```bash
+   $ sudo apt install postgresql-client-common
 
-    $ sudo apt install postgresql-client-11 # Для PostgreSQL 11
+   # Для PostgreSQL 10
+   $ sudo apt install postgresql-client-10
    
-    $ sudo apt install postgresql-client-12 # Для PostgreSQL 12
+   # Для PostgreSQL 11
+   $ sudo apt install postgresql-client-11
+   
+   # Для PostgreSQL 12
+   $ sudo apt install postgresql-client-12
 
-    ```
+   ```
 
-3. Перенесите дамп базы данных на виртуальную машину, например, используя утилиту `scp`:
+1. Перенесите дамп базы данных на виртуальную машину, например, используя утилиту `scp`:
 
     ```
     scp ~/db_dump.tar.gz <имя пользователя ВМ>@<публичный адрес ВМ>:/tmp/db_dump.tar.gz
     ```
     
-4. Распакуйте дамп:
+1. Распакуйте дамп:
 
     ```
     tar -xzf /tmp/db_dump.tar.gz
