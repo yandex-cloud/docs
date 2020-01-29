@@ -222,13 +222,13 @@ items:
       - name: gRPC
         items:
         include:
-           repo: docs
-           path: en/_api-ref-grpc/compute/api-ref/toc.yaml
+          repo: docs
+          path: en/_api-ref-grpc/compute/api-ref/toc.yaml
       - name: REST
         items:
-    include:
-        repo: docs
-        path: en/_api-ref/compute/toc.yaml
+        include:
+          repo: docs
+          path: en/_api-ref/compute/toc.yaml
   - name: Questions and answers
     items:
       - name: General questions
