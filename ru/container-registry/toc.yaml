@@ -63,8 +63,6 @@ items:
         href: solutions/index.md
       - name: Запуск Docker-образа на виртуальной машине
         href: solutions/run-docker-on-vm.md
-      - name: Работа с Container Registry из GitLab
-        href: solutions/gitlab.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
