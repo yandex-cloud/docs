@@ -166,6 +166,93 @@
         https://compute.api.cloud.yandex.net/compute/v1/instances
       ```
 
+- Terraform
+
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер Яндекс.Облака](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).  
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+       {% note info %}
+
+       Если у вас уже есть подходящие ресурсы (облачная сеть и подсеть), описывать их повторно не нужно. Используйте их имена и идентификаторы в соответствующих параметрах.
+
+       {% endnote %}
+
+     * `yandex_compute_instance` — описание [виртуальной машины](../../concepts/vm.md):
+       * `name` — имя виртуальной машины.
+       * `platform_id` — [платформа](../../concepts/vm-platforms.md).
+       * `resources` — количество ядер vCPU и объем RAM, доступные виртуальной машине. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
+       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
+       * `network_interface` — настройка сети. Укажите идентификатор выбранной подсети. Чтобы автоматически назначить виртуальной машине публичный IP-адрес, укажите `nat = true`.
+       * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на виртуальную машину. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md). 
+     * `yandex_vpc_network` — описание [облачной сети](../../../vpc/concepts/network.md#network).
+     * `yandex_vpc_subnet` — описание [подсети](../../../vpc/concepts/network.md#network), к которой будет подключена виртуальная машина.
+
+     Пример структуры конфигурационного файла:
+
+     ```
+     resource "yandex_compute_instance" "vm-1" {
+
+       name        = "linux-vm"
+       platform_id = "standard-v2"
+
+       resources {
+         cores  = <количество ядер vCPU>
+         memory = <объем RAM в ГБ>
+       }
+
+       boot_disk {
+         initialize_params {
+           image_id = "<идентификатор образа>"
+         }
+       }
+
+       network_interface {
+         subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+         nat       = true
+       }
+
+       metadata = {
+         ssh-keys = "<имя пользователя>:<содержимое SSH-ключа>"
+       }
+     }
+
+     resource "yandex_vpc_network" "network-1" {
+       name = "network1"
+     }
+
+     resource "yandex_vpc_subnet" "subnet-1" {
+       name       = "subnet1"
+       zone       = "<зона доступности>"
+       network_id = "${yandex_vpc_network.network-1.id}"
+     }
+     ```
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+
+  2. Проверьте корректность конфигурационных файлов.
+
+     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+     2. Выполните проверку с помощью команды:
+
+        ```
+        $ terraform plan
+        ```
+
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+
+  3. Разверните облачные ресурсы.
+
+     1. Если в конфигурации нет ошибок, выполните команду:
+
+        ```
+        $ terraform apply
+        ```
+
+     2. Подтвердите создание ресурсов.
+
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
 {% endlist %}
 
 {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
