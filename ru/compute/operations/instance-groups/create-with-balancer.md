@@ -276,7 +276,7 @@
 
      * `yandex_iam_service_account` — описание [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
      * `yandex_resourcemanager_folder_iam_binding` — описание прав доступа к каталогу, которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять виртуальные машины в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
-     * `yandex_compute_instance_group` — описание [группы виртуальных машин](../../concepts/instance-groups.md):
+     * `yandex_compute_instance_group` — описание [группы виртуальных машин](../../concepts/index.md):
 
        - Общая информация о группе:
 
