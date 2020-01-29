@@ -2,7 +2,7 @@
 
 {{ mrd-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. If the total amount of data and backups exceeds the amount of storage, the excess is charged at the corresponding [rates](../pricing.md).
 
-## Backup settings {{ mrd-short-name }}
+## Backup settings {{ mrd-short-name }} {#backup-settings}
 
 {{ mrd-short-name }} uses AOF (append-only file) with forced write to disk every second: the [appendfsync everysec](http://download.redis.io/redis-stable/redis.conf) parameter is set.
 

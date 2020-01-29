@@ -4,7 +4,7 @@
 
 For the internal MDB service, the [web interface]({{console-link}}) is deployed where you can manually create a database cluster. For more about quotas and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
 
-## Access to DB clusters
+## Access to DB clusters {#access}
 
 [Request access](https://puncher.yandex-team.ru/) to the `_PGAASINTERNALNETS_` macro so you can connect to the created clusters. To connect to PostgreSQL clusters, you need access to ports 26379 (Sentinel) and 6379 (Redis).
 
@@ -35,7 +35,7 @@ Quickly create a cluster and test your connection to it:
     $ <host FQDN>:26379> sentinel get-master-addr-by-name <cluster name>
     1) "<master name>"
     2) "6379"
-    
+
     $ redis-cli -h <master FQDN> \
                 -p 6379
     $ <master FQDN>:6379> auth <cluster password>
