@@ -57,7 +57,7 @@
 
 ## Создайте группу узлов {#node-group-create}
 
-{% [create-node-group](../_includes/managed-kubernetes/node-group-create.md) %}
+{% include [create-node-group](../_includes/managed-kubernetes/node-group-create.md) %}
 
 ## Что дальше {#what-is-next}
 
