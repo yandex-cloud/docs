@@ -1,12 +1,15 @@
 # Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}
 
-Для предоставления доступа к приложению, запущенному в кластере {{ k8s }}, вы можете использовать [сервисы различных типов](../concepts/service.md). Для предоставления публичного доступа воспользуйтесь сервисом типа `LoadBalancer`.
+Для предоставления доступа к приложению, запущенному в кластере {{ k8s }}, вы можете использовать [сервисы различных типов](../concepts/service.md). 
+
+* Для предоставления публичного доступа к приложению воспользуйтесь сервисом типа `LoadBalancer` с публичным IP-адресом.
+* Для доступа к приложению из внутренней сети, но не из кластера {{ k8s }}, используйте сервис типа `LoadBalancer` с внутренним IP-адресом.
 
 Подготовьте и запустите в кластере {{ k8s }} приложение, к которому необходимо предоставить доступ с помощью сервиса типа `LoadBalancer`. В качестве примера используйте простое приложение, которое отвечает на HTTP-запросы на порт 8080.
 
 - [Создайте простое приложение](#simple-app)
-- [Создайте сервис типа LoadBalancer](#lb-create)
-- [Проверьте результат](#check-result)
+- [Создайте сервис типа LoadBalancer с публичным IP-адресом](#lb-create)
+- [Создайте сервис типа LoadBalancer с внутренним IP-адресом](#lb-int-create)
 - [Дополнительные настройки для сервиса типа LoadBalancer](#advanced)
 
 ## Создайте простое приложение {#simple-app}
@@ -79,13 +82,13 @@
       Normal  ScalingReplicaSet  24s   deployment-controller  Scaled up replica set hello-9ffd9ff9b to 2
     ``` 
        
-## Создайте сервис с типом LoadBalancer {#lb-create}
+## Создайте сервис типа LoadBalancer с публичным IP-адресом {#lb-create}
 
-Когда вы создаете сервис с типом `LoadBalancer`, контроллер Яндекс.Облака создает и настраивает для вас [сетевой балансировщик нагрузки](../../load-balancer/concepts/index.md) в вашем каталоге с публичным IP-адресом.
+Когда вы создаете сервис типа `LoadBalancer`, контроллер Яндекс.Облака создает и настраивает для вас [сетевой балансировщик нагрузки](../../load-balancer/concepts/index.md) в вашем каталоге с публичным IP-адресом.
 
 {% note important %}
 
-Не изменяйте и не удаляйте сетевой балансировщик нагрузки и целевые группы, которые будут автоматически созданы в вашем каталоге после создания сервиса с типом `LoadBalancer`. 
+Не изменяйте и не удаляйте сетевой балансировщик нагрузки и целевые группы, которые будут автоматически созданы в вашем каталоге после создания сервиса типа `LoadBalancer`. 
 
 {% endnote %}
 
@@ -141,22 +144,41 @@
       Normal  EnsuredLoadBalancer   4s    service-controller  Ensured load balancer
     ```
 1.  В [консоли управления]({{ link-console-main }}) откройте раздел **{{ load-balancer-name }}**. Там должен появиться балансировщик нагрузки с префиксом `k8s` в имени и уникальным идентификатором вашего кластера {{ k8s }} в описании.
+1. Убедитесь, что приложение доступно из интернета:
 
-## Проверьте результат {#check-result}
+    ```
+    $ curl http://<IP-адрес из поля LoadBalancer Ingress> 
+    Hello, world!
+    Running in 'hello-9ffd9ff9b-4jnxs'
+    ```
 
-Чтобы проверить результат, выполните команду:
+## Создайте сервис типа LoadBalancer с внутренним IP-адресом {#lb-int-create}
+
+Чтобы создать балансировщик нагрузки с внутренним IP-адресом, укадите в спецификации сервиса два параметра в секцию `annotations`: `yandex.cloud/load-balancer-type` и `yandex.cloud/subnet-id`:
 
 ```
-$ curl http://<IP-адрес из поля LoadBalancer Ingress> 
-Hello, world!
-Running in 'hello-9ffd9ff9b-4jnxs'
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+  annotations:
+    yandex.cloud/load-balancer-type: internal
+    yandex.cloud/subnet-id: <ID подсети, в которой необходимо выделить IP-адрес балансировщика>
+spec:
+  ports:
+    - port: 80
+      name: plaintext
+      targetPort: 8080
+  selector:
+    app: hello
+  type: LoadBalancer
 ```
 
 ## Дополнительные настройки для сервиса типа LoadBalancer {#advanced}
 
 В {{ managed-k8s-short-name }} для сервиса типа `LoadBalancer` доступны следующие дополнительные настройки:
 
-- Назначение [заранее зарезервированного IP-адреса](../../vpc/operations/get-static-ip.md) с помощью параметра `loadBalancerIP`.
+- Назначение [заранее зарезервированного публичного IP-адреса](../../vpc/operations/get-static-ip.md) с помощью параметра `loadBalancerIP`.
 - Управление трафиком с помощью параметра [externalTrafficPolicy](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#service-v1-core): 
     - `Local` — трафик напрямую попадает на узлы, где запущены контейнеры приложений. При этом: 
         - Сохраняется IP-адрес запроса пользователя.
@@ -166,7 +188,7 @@ Running in 'hello-9ffd9ff9b-4jnxs'
     
 Параметры `loadBalancerIP` и `externalTrafficPolicy` не обязательные. Если их не указывать, балансировщик будет создан с динамическим IP-адресом и параметром `externalTrafficPolicy: Cluster`.
  
-Пример спецификации сервиса типа `LoadBalancer`:
+Пример спецификации сервиса типа `LoadBalancer` с этими параметрами:
 
 ```
 apiVersion: v1
