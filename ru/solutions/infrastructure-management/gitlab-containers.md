@@ -102,12 +102,12 @@
           spec:
             containers:
               - name: hello-world
-                image: cr.yandex/<registry-id>/hello:__VERSION__
+                image: cr.yandex/<ID реестра>/hello:__VERSION__
                 imagePullPolicy: Always
       ```
 
    1. Замените в приведенном файле `<ID реестра>` на идентификатор вашего реестра, созданного ранее.
-   1. Напишите комментарий к коммиту в поле **Commit message**.
+   1. Напишите комментарий к коммиту в поле **Commit message**: `Docker image deployment config`.
    1. Нажмите кнопку **Commit changes**.
 
 ## Создайте ресурсы {{ k8s }} {#k8s-create}
@@ -148,11 +148,11 @@
 
 Если вам больше не нужны развернутые приложения и кластер {{ k8s }}:
 
-- Удалите кластер {{ k8s }}.
+- Удалите группу узлов и кластер {{ k8s }}.
 - [Удалите созданные ВМ](../../compute/operations/vm-control/vm-delete.md).
-- Удалите созданные Docker-образы и реестр {{ container-registry-short-name }}.
-- Удалите созданные подсети и сети.
-- Удалите созданные сервисные аккаунты.
+- Удалите созданные [Docker-образы](../../container-registry/operations/docker-image/docker-image-delete.md) и [реестр {{ container-registry-short-name }}](../../container-registry/operations/registry/registry-delete.md).
+- Удалите созданные [подсети](../../vpc/operations/subnet-delete.md) и [сети](../../vpc/operations/network-delete.md).
+- Удалите созданные [сервисные аккаунты](../../iam/operations/sa/delete.md).
 
 #### См. также {#see-also}
 

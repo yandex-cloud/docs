@@ -25,14 +25,14 @@ Where:
 
 To read more about building Docker images from the CI, see the [GitLab Docker integration documentation](https://docs.gitlab.com/ee/ci/docker/README.html).
 
-When the build is complete, upload the Docker image to {{ container-registry-name }} to make it available. To do this, [authenticate in {{ container-registry-name }}](../../container-registry/solutions/gitlab.md#auth).
+When the build is complete, upload the Docker image to {{ container-registry-name }} to make it available. To do this, authenticate in {{ container-registry-name }}.
 
 ### Authenticate in {{ container-registry-short-name }} {#auth}
 
 There are two ways to authenticate in {{ container-registry-name }} from GitLab Runner:
 
-- (recommended) [Dynamic](../../container-registry/solutions/gitlab.md#auth-dynamic): Use the metadata service.
-- [Static](../../container-registry/solutions/gitlab.md#auth-static): Use environment variables.
+- (recommended) Dynamic: Use the metadata service.
+- Static: Use environment variables.
 
 #### Dynamic {#auth-dynamic}
 

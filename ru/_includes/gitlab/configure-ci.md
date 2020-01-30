@@ -39,8 +39,8 @@
       services:
         - docker:19.03.1-dind
       script:
-        - docker build . -t cr.yandex/<registry-id>/hello:gitlab-$CI_COMMIT_SHORT_SHA
-        - docker push cr.yandex/<registry-id>/hello:gitlab-$CI_COMMIT_SHORT_SHA
+        - docker build . -t cr.yandex/<ID реестра>/hello:gitlab-$CI_COMMIT_SHORT_SHA
+        - docker push cr.yandex/<ID реестра>/hello:gitlab-$CI_COMMIT_SHORT_SHA
           
     deploy:
       image: gcr.io/cloud-builders/kubectl:latest
@@ -55,7 +55,7 @@
     ```
 
     1. Замените в приведенном файле `<ID реестра>` на идентификатор вашего реестра, созданного ранее.
-    1. Напишите комментарий к коммиту в поле **Commit message**.
+    1. Напишите комментарий к коммиту в поле **Commit message**: `CI scripts`.
     1. Нажмите кнопку **Commit changes**.
     
     {% note info %}
