@@ -1,4 +1,4 @@
-* **Geobase uri** — адрес архива с пользовательской геобазой в {{ objstorage-name }}.
+* **Geobase uri** — адрес архива с [пользовательской геобазой](../../managed-clickhouse/concepts/dictionaries.md#internal-dicts) в {{ objstorage-name }}.
 * **Keep alive timeout** — время в секундах после поступления последнего запроса к {{ CH }}, в течение которого сервер ожидает новый запрос. Если в течение этого времени запросов не поступит, {{ CH }} разорвет соединение. Подробнее см. в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#keep-alive-timeout).
 * **Log level** — уровень логирования событий. На каждом следующем уровне лог будет содержать всю информацию из предыдущего:
    1. `ERROR` — информация об ошибках в работе кластера;

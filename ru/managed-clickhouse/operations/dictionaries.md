@@ -1,6 +1,6 @@
 # Подключение внешних словарей
 
-Вы можете подключать к кластеру внешние словари и отключать их. Подробне о словарях читайте в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/query_language/dicts/).
+Вы можете подключать к кластеру [внешние словари](../concepts/dictionaries.md#external-dicts) и отключать их. Подробне о словарях читайте в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/query_language/dicts/).
 
 ## Подключить словарь {#add-dictionary}
 

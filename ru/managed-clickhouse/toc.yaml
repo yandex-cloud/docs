@@ -21,6 +21,8 @@ items:
       href: operations/update.md
     - name: Подключение внешних словарей
       href: operations/dictionaries.md
+    - name: Подключение собственной геобазы
+      href: operations/internal-dictionaries.md
     - name: Подключение моделей машинного обучения
       href: operations/ml-models.md
     - name: Изменение версии ClickHouse
