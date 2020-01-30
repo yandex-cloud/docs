@@ -8,6 +8,8 @@
 
 ## Создайте триггер {#trigger-create}
 
+{% include [trigger-time](../../_includes/functions/trigger-time.md) %}
+
 {% include [os-create-ui](../../_includes/functions/os-create-ui.md) %}
 
 ## Что дальше {#what-is-next}

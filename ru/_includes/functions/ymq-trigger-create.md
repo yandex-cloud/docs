@@ -22,6 +22,8 @@
 
 Создайте триггер для очереди сообщений.
 
+{% include [trigger-time](trigger-time.md) %}
+
 {% list tabs %}
 
 - CLI

@@ -23,6 +23,8 @@
 
 Создайте триггер для топика устройства.
 
+{% include [trigger-time](trigger-time.md) %}
+
 {% list tabs %}
 
 - CLI

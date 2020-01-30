@@ -8,6 +8,8 @@
 
 ## Создайте триггер {#trigger-create}
 
+{% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
+
 {% list tabs %}
 
 - Консоль управления
