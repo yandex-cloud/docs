@@ -45,6 +45,8 @@ $ chmod 0600 ~/.mongodb/CA.pem
 - SSL для mongo 4.2
 
   {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
+    
+  {% if audience != "internal" %}
 
   ```bash
   $ mongo --norc \
@@ -55,10 +57,30 @@ $ chmod 0600 ~/.mongodb/CA.pem
           -p <пароль пользователя> \
           <имя БД>
   ```
+ 
+  {% else %}
+
+  ```bash
+  $ mongo --norc \
+          --tls \
+          --tlsCAFile ~/.mongodb/CA.pem \
+          --ipv6 \
+          --host 'rs01/<FQDN хоста 1>:27018,<FQDN хоста 2>:27018,<FQDN хоста N>:27018' \
+          -u <имя пользователя> \
+          -p <пароль пользователя> \
+          <имя БД>
+  ```
+
+  {% endif %}
+
+
+
 
 - SSL для mongo старых версий
 
   {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
+
+  {% if audience != "internal" %}
 
   ```bash
   $ mongo --norc \
@@ -69,11 +91,30 @@ $ chmod 0600 ~/.mongodb/CA.pem
           -p <пароль пользователя> \
           <имя БД>
   ```
+ 
+  {% else %}
+
+  ```bash
+  $ mongo --norc \
+          --ssl \
+          --sslCAFile ~/.mongodb/CA.pem \
+          --ipv6 \
+          --host 'rs01/<FQDN хоста 1>:27018,<FQDN хоста 2>:27018,<FQDN хоста N>:27018' \
+          -u <имя пользователя> \
+          -p <пароль пользователя> \
+          <имя БД>
+  ```
+
+  {% endif %}
+
+
 
 
 - Без SSL
 
   Если вам не нужно шифровать трафик внутри виртуальной сети при подключении к БД, то вы можете подключаться с виртуальной машины Яндекс.Облака без SSL-соединения. Передайте параметр `sslmode` со значением `disable`:
+
+  {% if audience != "internal" %}
 
   ```bash
   $ mongo --norc \
@@ -82,6 +123,21 @@ $ chmod 0600 ~/.mongodb/CA.pem
           -p <пароль пользователя> \
           <имя БД>
   ```
+ 
+  {% else %}
+
+  ```bash
+  $ mongo --norc \
+          --ipv6 \
+          --host 'rs01/<FQDN хоста 1>:27018,<FQDN хоста 2>:27018,<FQDN хоста N>:27018' \
+          -u <имя пользователя> \
+          -p <пароль пользователя> \
+          <имя БД>
+  ```
+
+  {% endif %}
+
+
 
 {% endlist%}
 
