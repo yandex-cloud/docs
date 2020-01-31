@@ -7,5 +7,7 @@ items:
     href: notify.md
   - name: Data requests
     href: request.md
+  - name: Pricing policy
+    href: pricing.md
   - name: Questions and answers
     href: qa.md

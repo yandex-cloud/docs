@@ -18,4 +18,5 @@ If a failure occurs in Yandex.Cloud that could affect the security or availabili
 
 ## Information security incident
 
-If an event occurs in the Yandex.Cloud infrastructure that causes your data to be compromised, technical support notifies you by email within 24 hours after the damage is detected. The email will be sent to the cloud owner and the Data Protection Officer (DPO), if this role is assigned for your cloud.
+If an event occurs in the Yandex.Cloud infrastructure that causes your data to be compromised, technical support notifies you by email within 24 hours after the damage is detected. The email is sent to the cloud owner and the Data Protection Officer (DPO) if this role is assigned for your cloud.
+
