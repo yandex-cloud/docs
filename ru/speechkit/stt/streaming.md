@@ -313,15 +313,16 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
           console.log('Start chunk: ');
           response.chunks[0].alternatives.forEach((alternative) => {
               console.log('alternative: ', alternative.text)
-          };)
+          });
           console.log('Is final: ', Boolean(response.chunks[0].final));
           console.log('');
-      })
+      });
 
- call.on('error', (response) => {
+      call.on('error', (response) => {
           // Обрабатываем ошибки
           console.log(response);
-      })      ```
+      });
+      ```
   1. Задайте переменные `FOLDER_ID` и `IAM_TOKEN`, которые используются в скрипте, и выполните созданный файл. В аргументах укажите путь к аудиофайлу:
 
       ```bash
