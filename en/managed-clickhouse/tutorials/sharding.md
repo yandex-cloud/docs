@@ -20,14 +20,14 @@ By default, {{ mch-name }} creates the first shard together with the cluster. Th
 
 ## Example of sharding {#example}
 
-Let's say you already have a sharded {{ mch-name }} cluster hosting the `default` database. Your task is to enable sharding for the `hits` table. A random number, `rand()`, is used as a sharding expression in the example:
+Let's say you already have a sharded {{ mch-name }} cluster hosting the `db1` database. Your task is to enable sharding for the `hits` table. A random number, `rand()`, is used as a sharding expression in the example:
 
 1. [Connect](../operations/connect.md) to the database.
 
 1. Create a distributed table:
 
    ```
-   CREATE TABLE sharding ENGINE = Distributed(logs, default, hits, rand());
+   CREATE TABLE sharding ENGINE = Distributed(logs, db1, hits, rand());
    ```
 
 After that, you can do SELECT queries and INSERT queries against the created table. The queries will be processed according to the configuration you set.
