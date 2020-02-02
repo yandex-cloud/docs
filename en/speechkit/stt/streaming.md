@@ -34,15 +34,9 @@ The application must also be authenticated for each request, such as with an IAM
 
 ### Recognition result {#results}
 
-During the recognition process, the speech is segmented into phrases (known as utterances). An utterance is a fragment of speech consisting of one or more words, followed by a period of silence. An utterance may contain multiple sentences if there is no pause between them.
+In each [recognition result message](#response), the server returns one or more speech fragments that it managed to recognize during this period (`chunks`). A list of recognized text alternatives is specified for each speech fragment (`alternatives`).
 
-A speech recognition result provides alternative versions of a single utterance. The response from the service may contain multiple utterances.
-
-_Final results_ of speech recognition are formed when the speech recognition system detects the end of an utterance. You can send multiple messages with an audio fragment and it will be a single utterance.
-
-_Intermediate results_ of speech recognition are formed during utterance recognition. Getting intermediate results allows you to quickly respond to the recognized speech without waiting for the end of the utterance to get the final result.
-
-You can configure the service to return intermediate recognition results. In the [message with recognition settings](#specification-msg), specify `config.specification.partial_results=true`. In the response, `final=false` indicates the intermediate results and `final=true` indicates the final results.
+During the recognition process, speech is split into utterances and the end of the utterance is marked with the `endOfUtterance` flag. By default, the server returns a response only after an utterance is fully recognized. You can use the `partialResults` flag to make the server return intermediate recognition results as well. Intermediate results let you quickly respond to the recognized speech without waiting for the end of the utterance.
 
 ### Limitations of a speech recognition session {#session-restrictions}
 
@@ -72,8 +66,10 @@ The service is located at: `stt.api.cloud.yandex.net:443`
 | config<br>.specification<br>.model | **string**<br>The language model to be used for recognition.<br/>The closer the model is matched, the better the recognition result. You can only specify one model per request.<br/>[Acceptable values](models.md) depend on the selected language. Default value: `general`. |
 | config<br>.specification<br>.profanityFilter | **boolean**<br>The profanity filter.<br/>Acceptable values:<ul><li>`true` — Exclude profanity from recognition results.</li><li>`false` (by default) — Do not exclude profanity from recognition results.</li></ul> |
 | config<br>.specification<br>.partialResults | **boolean**<br>The intermediate results filter.<br/>Acceptable values:<ul><li>`true` — Return intermediate results (part of the recognized utterance). For intermediate results, `final` is set to `false`.</li><li>`false` (default) — Return only the final results (the entire recognized utterance). |
+| config<br>.specification<br>.singleUtterance | **boolean**<br>Flag that disables recognition after the first utterance.<br/>Acceptable values:<ul><li>`true` — Recognize only the first utterance, stop recognition, and wait for the user to disconnect.</li><li>`false` (default) — Continue recognition until the end of the session.</li></ul> |
 | config<br>.specification<br>.audioEncoding | **string**<br>[The format](formats.md) of the submitted audio.<br/>Acceptable values:<ul><li>`LINEAR16_PCM` — [LPCM with no WAV header](formats.md#lpcm).</li><li>`OGG_OPUS` (default) — [OggOpus](formats.md#oggopus) format.</li></ul> |
 | config<br>.specification<br>.sampleRateHertz | **integer** (int64)<br>The sampling frequency of the submitted audio.<br/>Required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default) — Sampling rate of 48 kHz.</li><li>`16000` — Sampling rate of 16 kHz.</li><li>`8000` — Sampling rate of 8 kHz.</li></ul> |
+| config.<br>specification.<br>rawResults | **boolean** <br>Flag that indicates how to write numbers. `true` — In words. `false` (default) — In figures. |
 | folderId | **string**<br><p>ID of the folder that you have access to. Required for authorization with a user account (see the <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
 
 ### Audio message {#audio-msg}
@@ -82,14 +78,23 @@ The service is located at: `stt.api.cloud.yandex.net:443`
 | ----- | ----- |
 | `audio_content` | An audio fragment represented as an array of bytes. The audio must match the format specified in the [message with recognition settings](#specification-msg). |
 
-### Response structure {#response}
+### Message with recognition results {#response}
 
 If speech fragment recognition is successful, you will receive a message containing a list of recognition results (`chunks[]`). Each result contains the following fields:
 
-* `alternatives[]`: List of alternative recognition results. Each alternative contains the following fields:
-    * `text`: Recognized text.
-    * `confidence`: This field is not supported, do not use it.
-* `final`: Set to `true` if the result is final, and to `false` if it is intermediate.
+* `alternatives[]` — List of recognized text alternatives. Each alternative contains the following fields:
+    * `text` — Recognized text.
+    * `confidence` — Recognition accuracy percentage. This field is currently not supported and always returns `1`.
+
+* `final` — Flag that indicates that this recognition result is final and will not change anymore. If the value is `false`, it means that the recognition result is intermediate and may change as the following speech fragments are recognized.
+
+* `endOfUtterance` — Flag that indicates that this result contains the end of the utterance. If the value is `true`, then the new utterance will start with the next result obtained.
+
+   {% note info %}
+
+   If you specified `singleUtterance=true` in the settings, only one utterance will be recognized per session. After sending a message where `endOfUtterance` is `true`, the server doesn't recognize the following utterances and waits until you end the session.
+
+   {% endnote %}
 
 ### Error codes returned by the server {#error_codes}
 
@@ -135,7 +140,7 @@ Then proceed to creating a client app.
       ```bash
       $ cd cloudapi
       $ mkdir output
-      $ python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=output --grpc_python_out=output google/api/http.proto google/api/annotations.proto yandex/api/operation.proto google/rpc/status.proto yandex/cloud/operation/operation.proto yandex/cloud/ai/stt/v2/stt_service.proto
+      $ python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=output --grpc_python_out=output google/api/http.proto google/api/annotations.proto yandex/cloud/api/operation.proto google/rpc/status.proto yandex/cloud/operation/operation.proto yandex/cloud/ai/stt/v2/stt_service.proto
       ```
 
       As a result, the `stt_service_pb2.py` and `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
@@ -145,15 +150,15 @@ Then proceed to creating a client app.
       ```python
       #coding=utf8
       import argparse
-
+      
       import grpc
-
+      
       import yandex.cloud.ai.stt.v2.stt_service_pb2 as stt_service_pb2
       import yandex.cloud.ai.stt.v2.stt_service_pb2_grpc as stt_service_pb2_grpc
-
-
+      
+      
       CHUNK_SIZE = 4000
-
+      
       def gen(folder_id, audio_file_name):
           # Configure recognition settings.
           specification = stt_service_pb2.RecognitionSpec(
@@ -165,27 +170,27 @@ Then proceed to creating a client app.
               sample_rate_hertz=8000
           )
           streaming_config = stt_service_pb2.RecognitionConfig(specification=specification, folder_id=folder_id)
-
+      
           # Send a message with the recognition settings.
           yield stt_service_pb2.StreamingRecognitionRequest(config=streaming_config)
-
+      
           # Read the audio file and send its contents in chunks.
           with open(audio_file_name, 'rb') as f:
               data = f.read(CHUNK_SIZE)
               while data != b'':
                   yield stt_service_pb2.StreamingRecognitionRequest(audio_content=data)
                   data = f.read(CHUNK_SIZE)
-
-
+      
+      
       def run(folder_id, iam_token, audio_file_name):
           # Establish a connection with the server.
           cred = grpc.ssl_channel_credentials()
           channel = grpc.secure_channel('stt.api.cloud.yandex.net:443', cred)
           stub = stt_service_pb2_grpc.SttServiceStub(channel)
-
+      
           # Send data for recognition.
           it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(('authorization', 'Bearer %s' % iam_token),))
-
+      
           # Process server responses and output the result to the console.
           try:
               for r in it:
@@ -199,15 +204,15 @@ Then proceed to creating a client app.
                       print('Not available chunks')
           except grpc._channel._Rendezvous as err:
               print('Error code %s, message: %s' % (err._state.code, err._state.details))
-
-
+      
+      
       if __name__ == '__main__':
           parser = argparse.ArgumentParser()
           parser.add_argument('--token', required=True, help='IAM token')
           parser.add_argument('--folder_id', required=True, help='folder ID')
           parser.add_argument('--path', required=True, help='audio file path')
           args = parser.parse_args()
-
+      
           run(args.folder_id, args.token, args.path)
       ```
 
@@ -220,7 +225,7 @@ Then proceed to creating a client app.
       Start chunk:
       alternative: Hello
       Is final: False
-
+      
       Start chunk:
       alternative: Hello world
       Is final: True
@@ -252,14 +257,14 @@ Then proceed to creating a client app.
       const grpc = require('grpc');
       const protoLoader = require('@grpc/proto-loader');
       const CHUNK_SIZE = 4000;
-
+      
       // Get the folder ID and IAM token from the environment variables.
       const folderId = process.env.FOLDER_ID;
       const iamToken = process.env.IAM_TOKEN;
-
+      
       // Read the file specified in the arguments.
       const audio = fs.readFileSync(process.argv[2]);
-
+      
       // Specify the recognition settings.
       const request = {
           config: {
@@ -274,28 +279,28 @@ Then proceed to creating a client app.
               folderId: folderId
           }
       };
-
+      
       // How often audio is sent in milliseconds.
       // For LPCM format, the frequency can be calculated using the formula: CHUNK_SIZE * 1000 / ( 2 * sampleRateHertz).
       const FREQUENCY = 250;
-
+      
       const serviceMetadata = new grpc.Metadata();
       serviceMetadata.add('authorization', `Bearer ${iamToken}`);
-
+      
       const packageDefinition = protoLoader.loadSync('../yandex/cloud/ai/stt/v2/stt_service.proto', {
           includeDirs: ['node_modules/google-proto-files', '..']
       });
       const packageObject = grpc.loadPackageDefinition(packageDefinition);
-
+      
       // Establish a connection with the server.
       const serviceConstructor = packageObject.yandex.cloud.ai.stt.v2.SttService;
       const grpcCredentials = grpc.credentials.createSsl(fs.readFileSync('./roots.pem'));
       const service = new serviceConstructor('stt.api.cloud.yandex.net:443', grpcCredentials);
       const call = service['StreamingRecognize'](serviceMetadata);
-
+      
       // Send a message with the recognition settings.
       call.write(request);
-
+      
       // Read the audio file and send its contents in chunks.
       let i = 1;
       const interval = setInterval(() => {
@@ -309,7 +314,7 @@ Then proceed to creating a client app.
               clearInterval(interval);
           }
       }, FREQUENCY);
-
+      
       // Process server responses and output the result to the console.
       call.on('data', (response) => {
           console.log('Start chunk: ');
@@ -319,9 +324,10 @@ Then proceed to creating a client app.
           console.log('Is final: ', Boolean(response.chunks[0].final));
           console.log('');
       });
+      
 
       call.on('error', (response) => {
-          // Handle errors.
+          // Handling errors
           console.log(response);
       });
       ```
@@ -332,7 +338,7 @@ Then proceed to creating a client app.
       $ export FOLDER_ID=b1gvmob95yysaplct532
       $ export IAM_TOKEN=CggaATEVAgA...
       $  node index.js speech.pcm
-
+      
       Start chunk:
       alternative: Hello world
       Is final:  true
