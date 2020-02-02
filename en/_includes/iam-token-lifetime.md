@@ -1,2 +1,2 @@
-IAM tokens are valid for {{ iam-token-lifetime }}. To keep your token [valid](../iam/concepts/authorization/iam-token.md#lifetime), request it more often (for example, once per hour).
+[The IAM token lifetime](../iam/concepts/authorization/iam-token.md#lifetime) doesn't exceed {{ iam-token-lifetime }}, but we recommend requesting the token more often, like once per hour.
 

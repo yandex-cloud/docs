@@ -1,6 +1,6 @@
 # IAM token
 
-An IAM token (or just token) is a unique sequence of characters issued to a user after authentication. The user needs this token for authorization in the Yandex.Cloud API and access to resources.
+An IAM token is a unique sequence of characters issued to a user after authentication. The user needs this token for authorization in the Yandex.Cloud API and access to resources.
 
 ## Using the token {#use}
 
@@ -25,7 +25,6 @@ The IAM token lifetime can be less than 12 hours if:
 This authentication method is supported by all services, except for those with AWS-compatible APIs (they only need an IAM token for managing [access keys](access-key.md) and [service accounts](../users/service-accounts.md)).
 
 #### See also {#see-also}
-
 * [{#T}](../../operations/iam-token/create.md)
 * [{#T}](../../operations/iam-token/create-for-sa.md)
 * [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md)

@@ -18,6 +18,7 @@
 
 ## Identity federations {#federations}
 
+
 - [{#T}](federations/integration-adfs.md)
 - [{#T}](federations/integration-gsuite.md)
 - [{#T}](federations/integration-common.md)
@@ -32,6 +33,7 @@
 
 - [{#T}](iam-token/create.md)
 - [{#T}](iam-token/create-for-sa.md)
+- [{#T}](iam-token/create-for-federation.md)
 
 ## API keys {#api-keys}
 
