@@ -97,7 +97,7 @@ The `{{ permission-admin }}` permission includes everything under the `{{ permis
 | Edit dashboards | N/A | - | ✔ | ✔ |
 | Edit permissions | N/A | - | - | ✔ |
 
-#### What's next
+#### What's next {#what-is-next}
 
 - [{#T}](../operations/permission/grant.md)
 - [{#T}](../operations/permission/revoke.md)

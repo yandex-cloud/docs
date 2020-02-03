@@ -86,7 +86,7 @@ Data is periodically loaded to {{ datalens-full-name }} storage according to cer
 
 You can configure dataset permissions. For more information, see [{#T}](../security/index.md).
 
-#### See also
+#### See also {#see-also}
 
 - [{#T}](../operations/dataset/create.md)
 

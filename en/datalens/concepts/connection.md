@@ -25,7 +25,7 @@ The following types of connectors are available in {{ datalens-short-name }}:
 
 You can configure connection permissions. For more information, see [{#T}](../security/index.md).
 
-#### See also
+#### See also {#see-also}
 
 - [{#T}](../operations/connection/create-clickhouse.md)
 - [{#T}](../operations/connection/create-csv.md)
