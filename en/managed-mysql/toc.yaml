@@ -53,8 +53,10 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: From February 1, 2020
-        href: pricing-01022020.md
+      - name: Archive
+        items:
+          - name: Before February 1, 2020
+            href: pricing-archive/pricing-01022020.md
   - name: API reference
     items:
       - name: Authentication in the API

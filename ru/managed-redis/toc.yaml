@@ -53,8 +53,10 @@ items:
     items:
       - name: Действующие правила
         href: pricing.md
-      - name: С 1 февраля 2020 года
-        href: pricing-01022020.md
+      - name: Архив
+        items:
+          - name: До 1 февраля 2020 года
+            href: pricing-archive/pricing-01022020.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

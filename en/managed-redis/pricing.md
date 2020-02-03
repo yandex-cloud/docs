@@ -11,21 +11,13 @@ editable: false
 
 The cost of {{ mrd-name }} usage is based on:
 
-* Type and size of the disk selected for the cluster hosts.
-
-* [The host class](concepts/instance-types.md) selected for the cluster.
-
-* The number of DB hosts in the cluster.
-
-* The size of the backups.
-
-* The amount of outgoing traffic.
+{% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 ### Use of DB hosts {#rules-hosts-uptime}
 
-The cost is calculated for each hour of the host's operation in accordance with its class. Class characteristics are given in [{#T}](concepts/instance-types.md).
+The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are listed in the [{#T}](concepts/instance-types.md) section, prices for using vCPU and RAM — in the [Prices](#prices) section.
 
 The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation). You are not charged for time when the {{ RD }} host is not performing its main functions.
 
@@ -43,87 +35,48 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 ## Pricing {#prices}
 
-{% note info %}
-
-From February 1, 2020, service pricing [changes](pricing-01022020.md#prices): the cost of clusters will be calculated directly based on the computing resources used directly, not the host class.
-
-{% endnote %}
-
-### Hosts {#prices-hosts}
-
-The first two tabs show the cost per {{ mrd-name }} host per month and per hour.
-
-The data in the **Per 1 GB RAM** tab is given for reference purposes: the table shows how the cost of 1 GB of RAM changes as the host class is increased.
+### Host computing resources {#prices-hosts}
 
 {% list tabs %}
 
-- Prices in USD
+- Prices in USD, without VAT
 
-  Prices are indicated without VAT.
+    | Resource | Rate for 1 hour |
+    | ----- | ----- |
+    | 5% vCPU (**burstable**, 2 GB RAM) | $0.000128 |
+    | 20% vCPU (**burstable**, 4 GB RAM) | $0.002949 |
+    | 100% vCPU (**high-memory**) | $0.016026 |
+    | RAM (for 1 GB) | $0.004359 |
+    
+- Prices in roubles, with VAT
 
-  Host class | Rate for 1 host per hour | Price per 1 GB RAM per hour
-  ----- | ----- | -----
-  {{ b1-nano }} | $0.009046 | $0.004523
-  {{ b1-small }} | $0.023384 | $0.005846
-  {{ hm1-nano }} | $0.067092 | $0.008387
-  {{ hm1-micro }} | $0.092876 | $0.007740
-  {{ hm1-small }} | $0.113523 | $0.007095
-  {{ hm1-medium }} | $0.161323 | $0.006722
-  {{ hm1-large }} | $0.203123 | $0.006348
-  {{ hm1-xlarge }} | $0.287707 | $0.005994
-  {{ hm1-2xlarge }} | $0.361153 | $0.005643
-  {{ hm1-3xlarge }} | $0.434092 | $0.005426
-  {{ hm1-4xlarge }} | $0.508353 | $0.005295
-  {{ hm1-5xlarge }} | $0.662061 | $0.005172
-  {{ hm1-6xlarge }} | $0.807876 | $0.005049
-  {{ hm1-7xlarge }} | $0.945523 | $0.004925
-  {{ hm1-8xlarge }} | $1.075538 | $0.004802
-  {{ hm1-9xlarge }} | $1.197692 | $0.004678
-
-- Prices in roubles
-
-  Prices are indicated with VAT.
-
-  Host class | Rate for 1 host per hour | Price per 1 GB RAM per hour
-  ----- | ----- | ----- | -----
-  {{ b1-nano }} | ₽0.7056 | ₽0.3528
-  {{ b1-small }} | ₽1.8240 | ₽0.4560
-  {{ hm1-nano }} | ₽5.2332 | ₽0.6541
-  {{ hm1-micro }} | ₽7.2444 | ₽0.6037
-  {{ hm1-small }} | ₽8.8548 | ₽0.5534
-  {{ hm1-medium }} | ₽12.5832 | ₽0.5243
-  {{ hm1-large }} | ₽15.8436 | ₽0.4951
-  {{ hm1-xlarge }} | ₽22.4412 | ₽0.4675
-  {{ hm1-2xlarge }} | ₽28.1700 | ₽0.4402
-  {{ hm1-3xlarge }} | ₽33.8592 | ₽0.4232
-  {{ hm1-4xlarge }} | ₽39.6516 | ₽0.4130
-  {{ hm1-5xlarge }} | ₽51.6408 | ₽0.4034
-  {{ hm1-6xlarge }} | ₽63.0144 | ₽0.3938
-  {{ hm1-7xlarge }} | ₽73.7508 | ₽0.3841
-  {{ hm1-8xlarge }} | ₽83.8920 | ₽0.3745
-  {{ hm1-9xlarge }} | ₽93.4200 | ₽0.3649
+    | Resource | Rate for 1 hour |
+    | ----- | ----- |
+    | 5% vCPU (**burstable**, 2 GB RAM) | ₽0.01 |
+    | 20% vCPU (**burstable**, 4 GB RAM) | ₽0.23 |
+    | 100% vCPU (**high-memory**) | ₽1.25 |
+    | RAM (for 1 GB) | ₽0.34 |
 
 {% endlist %}
-
 
 ### Storage and backups {#prices-storage}
 
 {% list tabs %}
 
-- Prices in USD
+- Prices in USD, without VAT
 
-  Service | Rate for 1 GB per month, without VAT
+  Service | Rate for 1 GB per month
   ----- | ----- | -----
   Fast network storage | $0.104302 |
-  Backup over storage size | $0.032594 ₽
+  Backup over storage size | $0.032594
 
 
-- Prices in roubles
+- Prices in roubles, with VAT
 
-  Service | Rate for 1 GB per month, with VAT
+  Service | Rate for 1 GB per month
   ----- | -----
   Fast network storage | ₽8.1356 |
-  Backup over storage size | ₽2.5424 ₽
+  Backup over storage size | ₽2.5424
 
 {% endlist %}
 
@@ -131,3 +84,59 @@ The data in the **Per 1 GB RAM** tab is given for reference purposes: the table 
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
 
+
+## Estimated prices for host classes {#calculated-prices}
+
+Prices for the time of host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-redis#calculator).
+
+{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
+
+{% list tabs %}
+
+- Prices in USD, without VAT
+
+  | RAM, GB | Rate for 1 hour|
+  | ----- | ----- |
+  | **burstable** |
+  | 2 | $0.008974 |
+  | 4 | $0.023333 |
+  | **high-memory** |
+  | 8 | $0.066923 |
+  | 12 | $0.084359 |
+  | 16 | $0.101795 |
+  | 24 | $0.168718 |
+  | 32 | $0.203590 |
+  | 48 | $0.273333 |
+  | 64 | $0.343077 |
+  | 80 | $0.412821 |
+  | 96 | $0.546667 |
+  | 128 | $0.686154 |
+  | 160 | $0.825641 |
+  | 192 | $0.965128 |
+  | 224 | $1.104615 |
+  | 256 | $1.244103 |
+
+- Prices in roubles, with VAT
+
+  | RAM, GB | Rate for 1 hour |
+  | ----- | ----- |
+  | **burstable** |
+  | 2 | ₽0.70 |
+  | 4 | ₽1.82 |
+  | **high-memory** |
+  | 8 | ₽5.22 |
+  | 12 | ₽6.58 |
+  | 16 | ₽7.94 |
+  | 24 | ₽13.16 |
+  | 32 | ₽15.88 |
+  | 48 | ₽21.32 |
+  | 64 | ₽26.76 |
+  | 80 | ₽32.20 |
+  | 96 | ₽42.64 |
+  | 128 | ₽53.52 |
+  | 160 | ₽64.40 |
+  | 192 | ₽75.28 |
+  | 224 | ₽86.16 |
+  | 256 | ₽97.04 |
+
+{% endlist %}
