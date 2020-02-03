@@ -17,7 +17,7 @@ You can use two approaches to authenticate in {{objstorage-name}}:
 1. Use [CredentialProvider](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CredentialProviderAPI.html).
 1. Pass the `access key` and `secret key` parameters when the job starts.
 
-### Copying via CredentialProvider
+### Copying via CredentialProvider {#copying-via-credentialprovider}
 
 To use a secret storage provider, place the secrets within the components that need access to {{objstorage-name}}. To do this, you can use [JCEKS](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) (Java Cryptography Extension KeyStore): in this example, first you create a file with secrets and then place it in HDFS.
 
@@ -66,7 +66,7 @@ hadoop distcp \
        hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/set01/
 ```
 
-## Copying files by passing keys in arguments
+## Copying files by passing keys in arguments {#copying-files-by-passing-keys-in-arguments}
 
 Instead of creating a secrets file, you can pass keys in command arguments:
 

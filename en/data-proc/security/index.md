@@ -10,7 +10,7 @@ For more information about role inheritance, see [{#T}](../../resource-manager/c
 
 {% endnote %}
 
-## Assigning roles {#assign-role}
+## Assigning roles {#grant-role}
 
 To assign a user a role:
 

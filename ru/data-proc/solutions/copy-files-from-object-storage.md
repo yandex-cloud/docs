@@ -18,7 +18,7 @@
 1. Использовать [CredentialProvider](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CredentialProviderAPI.html).
 1. Передавать параметры `access key` и `secret key` при запуске задачи.
 
-### Копирование с использованием CredentialProvider
+### Копирование с использованием CredentialProvider {#copying-via-credentialprovider}
 
 Чтобы воспользоваться провайдером для хранения секретов, разместите эти секреты в компонентах, которым нужен доступ к {{objstorage-name}}. Для этого можно воспользоваться [JCEKS](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) (Java Cryptography Extension KeyStore): в примере вы создадите файл с секретами, который затем разместите в HDFS.
 
@@ -42,7 +42,7 @@
            -D hadoop.security.credential.provider.path=jceks://hdfs/user/root/yc.jceks \
            -update \
            -skipcrccheck \
-           -numListstatusThreads 10 \ 
+           -numListstatusThreads 10 \
            s3a://yc-mdb-examples/dataproc/example01/set01 \
            hdfs://<хост HDFS>/<путь>/
     ```
@@ -61,12 +61,12 @@ hadoop distcp \
        -D hadoop.security.credential.provider.path=jceks://hdfs/user/root/yc.jceks \
        -update \
        -skipcrccheck \
-       -numListstatusThreads 10 \ 
+       -numListstatusThreads 10 \
        s3a://yc-mdb-examples/dataproc/example01/set01 \
        hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/set01/
 ```
 
-## Копирование файлов с передачей ключей в аргументах
+## Копирование файлов с передачей ключей в аргументах {#copying-files-by-passing-keys-in-arguments}
 
 Вы можете не создавать файл секретов, а передавать ключи в аргументах команды:
 
@@ -79,7 +79,7 @@ hadoop distcp \
        -skipcrccheck \
        -numListstatusThreads 10 \
        s3a://yc-mdb-examples/dataproc/example01/set01 \
-       hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/set01/ 
+       hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/set01/
 ```
 
 ## Использование s3fs {#s3fs}
@@ -91,25 +91,25 @@ hadoop distcp \
 {% list tabs %}
 
 - Spark Shell
-  
+
   Реализуйте нужный вариант доступа:
-  
+
   * С использованием JCEKS:
-  
+
     ```scala
     sc.hadoopConfiguration.set("fs.s3a.endpoint", "storage.yandexcloud.net");
     sc.hadoopConfiguration.set("hadoop.security.credential.provider.path", "jceks://hdfs/<путь к файлу JCEKS>");
     ```
   * По ключу доступа и секрету:
-  
+
     ```scala
     sc.hadoopConfiguration.set("fs.s3a.endpoint", "storage.yandexcloud.net");
     sc.hadoopConfiguration.set("fs.s3a.access.key","<access key>>");
     sc.hadoopConfiguration.set("fs.s3a.secret.key","<secret_key>");
     ```
-  
+
   После этого можно читать файл из {{objstorage-name}}:
-  
+
   ```scala
   val sqlContext = new org.apache.spark.sql.SQLContext(sc)
   val df = sqlContext.read.parquet("s3a://<имя бакета>/<путь к объекту>")
@@ -118,23 +118,23 @@ hadoop distcp \
 - PySpark Shell
 
   Выберите способ доступа:
-  
+
   * Доступ к объектам {{objstorage-name}} c использование JCEKS:
-  
+
     ```python
     sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "storage.yandexcloud.net")
     sc._jsc.hadoopConfiguration().set("hadoop.security.credential.provider.path", "jceks://hdfs/<путь к файлу JCEKS>")
     ```
   * Доступ по ключу доступа и секрету бакета:
-  
+
     ```python
     sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "storage.yandexcloud.net")
     sc._jsc.hadoopConfiguration().set("fs.s3a.access.key","<ключ доступа>>")
     sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key","<секрет бакета>")
     ```
-  
+
   Получив доступ, вы можете читать файл напрямую из {{objstorage-name}}:
-  
+
   ```python
   sql = SQLContext(sc)
   df = sql.read.parquet("s3a://<bucket_name>/<path_to_file_or_directory>")
