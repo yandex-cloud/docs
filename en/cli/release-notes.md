@@ -1,14 +1,36 @@
 # YC CLI Releases
 
-## Version 0.49.0 (21.01.20) {#latest-release}
+## Version 0.50.0 (27.01.20) {#latest-release}
 
-### Changes to the CLI {#cli}
+### Changes to Yandex.Cloud services {#services}
+
+- For [resources that you can assign roles for](../iam/concepts/access-control/resources-with-access-control.md).
+
+    Added alternatives to the `--subject` flag for role management commands: `--service-account-id`, `--service-account-name`, `--user-account-id`, `--user-yandex-login`, and `--all-authenticated-users`.
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Command `yc managed-kubernetes node-group create`
+
+    Added the flag `--auto-scale`. You can use it to create a group of nodes whose size is dynamically adjusted by [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler#cluster-autoscaler).
+
+#### {{ compute-name }} {#compute}
+
+- Command `yc compute instance create`
+
+  If you specify the `--gpus` flag, the `gpu-standard-v1` platform is automatically selected.
+
+## Previous releases {#previous-releases}
+
+### Version 0.49.0 (21.01.20) {#version0.49.0}
+
+#### Changes to the CLI {#cli}
 
 **Improved**
 
 - When running the YC CLI with the `--debug` flag, the API call response log line now outputs not only the gRPC status code, but also its description.
 
-### Changes to Yandex.Cloud services {#services}
+#### Changes to Yandex.Cloud services {#services}
 
 #### {{ kms-name }} {#kms}
 
@@ -18,8 +40,6 @@ Support for the cryptographic key management service: {{ kms-full-name }}.
 Use the keys to protect your secrets, private data, and other confidential information you store in the cloud.
 
 The {{ kms-full-name }} service is at the Preview stage. Read more about the service in the [documentation](https://cloud.yandex.com/docs/kms/).
-
-## Previous releases {#previous-releases}
 
 ### Version 0.48.0 (27.12.19) {#version0.48.0}
 
