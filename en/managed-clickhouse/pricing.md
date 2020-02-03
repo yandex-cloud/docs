@@ -266,7 +266,7 @@ Prices for the time of host uptime are calculated based on [host classes](concep
 {% endlist %}
 
 
-### Хосты ZooKeeper {#prices-zookeeper}
+### ZooKeeper hosts {#prices-zookeeper}
 
 {% list tabs %}
 
