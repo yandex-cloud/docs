@@ -24,7 +24,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
   1. In the management console, select the folder where you want to create a DB cluster.
 
-  1. {% if audience != "internal" %} Выберите сервис **{{ mch-name }}**. {% endif %}
+  1. {% if audience != "internal" %} Select **{{ mch-name }}**. {% endif %}
 
   1. Click **Create cluster**.
 
@@ -50,6 +50,10 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
       - User password. At least 8 characters.
 
   1. Under **Hosts**, specify the parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating the {{ CH }} cluster, you can set at least two hosts). To change the added host, place the cursor on the host line and click ![image](../../_assets/pencil.svg).
+
+  1. If necessary, configure the DBMS parameters:
+
+     {% include [mch-additional-properties](../../_includes/mdb/mch-additional-properties.md) %}
 
   1. Click **Create cluster**.
 
@@ -85,7 +89,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
      ```
      $ {{ yc-mdb-ch }} cluster create \
-        --cluster-name <cluster name> \
+        --name <cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \
         --host type=<clickhouse or zookeeper>,zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -102,7 +106,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
      ```
      $ {{ yc-mdb-ch }} cluster create \
-        --cluster-name <cluster name> \
+        --name <cluster name> \
         --environment <prestable or production> \
         --network-id ' ' \
         --host type=<clickhouse or zookeeper>,zone-id=<availability zone> \
@@ -135,7 +139,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
          name        = "<cluster name>"
          environment = "<environment>"
          network_id  = "<network ID>"
-
+       
          clickhouse {
            resources {
              resource_preset_id = "<host class>"
@@ -143,11 +147,11 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
              disk_size          = "<storage size, GB>"
            }
          }
-
+       
          database {
            name = "<DB name>"
          }
-
+       
          user {
            name     = "<DB username>"
            password = "<password>"
@@ -155,16 +159,16 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
              database_name = "<name of the DB where the user is created>"
            }
          }
-
+       
          host {
            type      = "CLICKHOUSE"
            zone      = "<availability zone>"
            subnet_id = "<subnet ID>"
          }
        }
-
+       
        resource "yandex_vpc_network" "<network name>" {}
-
+       
        resource "yandex_vpc_subnet" "<subnet name>" {
          zone           = "<availability zone>"
          network_id     = "<network ID>"
@@ -196,7 +200,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
 {% endlist %}
 
-## Examples {#examples}
+## Examples
 
 {% list tabs %}
 
@@ -233,7 +237,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
   ```
   $ {{ yc-mdb-ch }} cluster create \
-       --cluster-name mych \
+       --name mych \
        --environment=production \
        --network-name default \
        --clickhouse-resource-preset s1.nano \
@@ -248,7 +252,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
   ```
   $ {{ yc-mdb-ch }} cluster create \
-       --cluster-name mych \
+       --name mych \
        --environment=production \
        --clickhouse-resource-preset s2.nano \
        --host type=clickhouse,zone-id=man \
@@ -284,12 +288,12 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
     zone      = "ru-central1-c"
   }
-
+  
   resource "yandex_mdb_clickhouse_cluster" "mych" {
     name        = "mych"
     environment = "PRESTABLE"
     network_id  = "${yandex_vpc_network.mynet.id}"
-
+  
     clickhouse {
       resources {
         resource_preset_id = "s2.micro"
@@ -297,11 +301,11 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
         disk_size          = 32
       }
     }
-
+  
     database {
       name = "my_db"
     }
-
+  
     user {
       name     = "user1"
       password = "user1user1"
@@ -309,16 +313,16 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
         database_name = "my_db"
       }
     }
-
+  
     host {
       type      = "CLICKHOUSE"
       zone      = "ru-central1-c"
       subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
     }
   }
-
+  
   resource "yandex_vpc_network" "mynet" {}
-
+  
   resource "yandex_vpc_subnet" "mysubnet" {
     zone           = "ru-central1-c"
     network_id     = "${yandex_vpc_network.mynet.id}"

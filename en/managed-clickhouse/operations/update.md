@@ -20,7 +20,7 @@ After creating a cluster, you can:
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View the description of the CLI's update cluster command:
+  1. View a description of the CLI's update cluster command:
 
      ```
      $ {{ yc-mdb-ch }} cluster update --help
@@ -115,7 +115,7 @@ After creating a cluster, you can:
 
   {% endif %}
 
-  1. View the description of the CLI's update cluster command:
+  1. View a description of the CLI's update cluster command:
 
      ```
      $ {{ yc-mdb-ch }} cluster update --help
@@ -144,13 +144,27 @@ After creating a cluster, you can:
 
 ## Changing {{ CH }} settings {#change-clickhouse-config}
 
-You can change the DBMS settings of the hosts in your cluster. All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
+You can change the DBMS settings of the hosts in your cluster.
 
 {% list tabs %}
 
+- Management console
+
+  1. Go to the folder page and select **{{ mch-name }}**.
+
+  1. Select the cluster and click **Edit cluster** in the top panel.
+
+  1. Under **DBMS settings**, click **Configure**.
+
+  1. Configure the cluster parameters:
+
+     {% include [mch-additional-properties](../../_includes/mdb/mch-additional-properties.md) %}
+
+  1. Click **Save**.
+
 - API
 
-  You can change the DBMS settings for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.clickhouse.config`.
+  You can change the DBMS settings for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.clickhouse.config`. All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
 
 {% endlist %}
 
