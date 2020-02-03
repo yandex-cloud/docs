@@ -58,7 +58,7 @@ ZooKeeper is used for replication. {{ mch-short-name }} creates a separate ZooKe
 
 Access to ZooKeeper and its setup are not available to Cloud users.
 
-#### Why does a {{ CH }} cluster take up 3 hosts more than it should?
+#### Why does a {{ CH }} cluster take up 3 hosts more than it should? {#why-does-a-cluster-take-up-3-hosts-more-than-it-should}
 
 When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster of 3 ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the [resource quotas]({{ link-console-quotas }}) used by the cloud and the cluster cost. By default, ZooKeeper hosts are created with a minimal [host class](../concepts/instance-types.md).
 

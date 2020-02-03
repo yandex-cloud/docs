@@ -26,7 +26,7 @@ All the clusters are created within the `_PGAASINTERNALNETS_` network macro. To 
 
 You can use the FQDN to access the host within a single cloud network. Read more in the [documentation for {{ vpc-full-name }}](../../vpc/).
 
-## Public access to a host
+## Public access to a host {#public-access-to-a-host}
 
 Any cluster host can be accessible from outside Yandex.Cloud if you requested public access when creating the host. To connect to such a host, use its FQDN.
 

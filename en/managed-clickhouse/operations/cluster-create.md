@@ -135,7 +135,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
          name        = "<cluster name>"
          environment = "<environment>"
          network_id  = "<network ID>"
-       
+
          clickhouse {
            resources {
              resource_preset_id = "<host class>"
@@ -143,11 +143,11 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
              disk_size          = "<storage size, GB>"
            }
          }
-       
+
          database {
            name = "<DB name>"
          }
-       
+
          user {
            name     = "<DB username>"
            password = "<password>"
@@ -155,16 +155,16 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
              database_name = "<name of the DB where the user is created>"
            }
          }
-       
+
          host {
            type      = "CLICKHOUSE"
            zone      = "<availability zone>"
            subnet_id = "<subnet ID>"
          }
        }
-       
+
        resource "yandex_vpc_network" "<network name>" {}
-       
+
        resource "yandex_vpc_subnet" "<subnet name>" {
          zone           = "<availability zone>"
          network_id     = "<network ID>"
@@ -196,7 +196,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
 {% list tabs %}
 
@@ -284,12 +284,12 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
     zone      = "ru-central1-c"
   }
-  
+
   resource "yandex_mdb_clickhouse_cluster" "mych" {
     name        = "mych"
     environment = "PRESTABLE"
     network_id  = "${yandex_vpc_network.mynet.id}"
-  
+
     clickhouse {
       resources {
         resource_preset_id = "s2.micro"
@@ -297,11 +297,11 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
         disk_size          = 32
       }
     }
-  
+
     database {
       name = "my_db"
     }
-  
+
     user {
       name     = "user1"
       password = "user1user1"
@@ -309,16 +309,16 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
         database_name = "my_db"
       }
     }
-  
+
     host {
       type      = "CLICKHOUSE"
       zone      = "ru-central1-c"
       subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
     }
   }
-  
+
   resource "yandex_vpc_network" "mynet" {}
-  
+
   resource "yandex_vpc_subnet" "mysubnet" {
     zone           = "ru-central1-c"
     network_id     = "${yandex_vpc_network.mynet.id}"

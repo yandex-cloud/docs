@@ -10,7 +10,7 @@
 
 {% include [non-replicating-hosts](../../_includes/mdb/non-replicating-hosts.md) %}
 
-### Реплицируемые таблицы
+### Реплицируемые таблицы {#replicated-tables}
 
 {{ CH }} поддерживает автоматическую репликацию только для таблиц семейства `ReplicatedMergeTree` (см. раздел [Репликация данных](https://clickhouse.yandex/docs/ru/table_engines/replication/) в документации {{ CH }}). Чтобы обеспечить репликацию, вы можете создать такие таблицы на каждом хосте по отдельности или использовать распределенный DDL-запрос.
 

@@ -10,7 +10,7 @@ If you created a {{ CH }} cluster with 2 or more hosts, it isn't possible to red
 
 {% include [non-replicating-hosts](../../_includes/mdb/non-replicating-hosts.md) %}
 
-### Replicated tables
+### Replicated tables {#replicated-tables}
 
 {{ CH }} only supports automatic replication for `ReplicatedMergeTree` tables (see [Data replication](https://clickhouse.yandex/docs/ru/table_engines/replication/) in the {{ CH }} documentation). To enable replication, you can create the tables on each host separately or use a distributed DDL query.
 
