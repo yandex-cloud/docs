@@ -18,7 +18,7 @@ _A registry_ is a set of devices that are logically related to each other. Regis
 
 ## MQTT broker {#mqtt-broker}
 
-_The MQTT broker_ is the central node for exchanging MQTT messages between devices and registries. Data is only exchanged through the broker. It's responsible for receiving and processing messages and controls their delivery to clients (devices or registries) to ensure the necessary [QoS](../concepts/topic.md#qos).
+_The MQTT broker_ is the central node for exchanging MQTT messages between devices and registries. Data is only exchanged through the broker. It's responsible for receiving and processing messages and controls their delivery to clients (devices or registries) to ensure the necessary [QoS](#qos).
 
 Inside the service, devices and registries exchange data and commands as messages with specific [topics](topic.md).
 

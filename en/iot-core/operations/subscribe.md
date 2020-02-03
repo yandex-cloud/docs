@@ -41,7 +41,7 @@ You can subscribe a registry to one, multiple, or all devices added to it.
         - `--cert` and `--key`: Parameters for authorization using a certificate.
         - `--topic`: Device topic for sending data.
         - `--message`: Message text.
-        - `--qos`: [Quality of service (QoS)](../concepts/topic.md#qos).
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
     - Subscribe a registry using a username and password:
 
@@ -57,7 +57,7 @@ You can subscribe a registry to one, multiple, or all devices added to it.
         - `--username` and `--password`: Parameters for authorization using a username and password.
         - `--topic`: Device topic for sending data.
         - `--message`: Message text.
-        - `--qos`: [Quality of service (QoS)](../concepts/topic.md#qos).
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
 {% endlist %}
 
@@ -87,7 +87,7 @@ The registry will only receive data from devices that send messages to the `$reg
         - `--cert` and `--key`: Parameters for authorization using a certificate.
         - `--topic`: Registry topic for getting data.
         - `--message`: Message text.
-        - `--qos`: [Quality of service (QoS)](../concepts/topic.md#qos).
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
     - Subscribe a registry using a username and password:
 
@@ -103,7 +103,7 @@ The registry will only receive data from devices that send messages to the `$reg
         - `--username` and `--password`: Parameters for authorization using a username and password.
         - `--topic`: Registry topic for getting data.
         - `--message`: Message text.
-        - `--qos`: [Quality of service (QoS)](../concepts/topic.md#qos).
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
 {% endlist %}
 
@@ -139,7 +139,7 @@ Commands from a registry can be given to a specific device or all devices in the
             - `--cert` and `--key`: Parameters for authorization using a certificate.
             - `--topic`: Device topic for getting commands.
             - `--message`: Message text.
-            - `--qos`: [Quality of service (QoS)](../concepts/topic.md#qos).
+            - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
         - Using your username and password:
 
@@ -155,7 +155,7 @@ Commands from a registry can be given to a specific device or all devices in the
             - `--username` and `--password`: Parameters for authorization using a username and password.
             - `--topic`: Device topic for getting commands.
             - `--message`: Message text.
-            - `--qos`: [Quality of service (QoS)](../concepts/topic.md#qos).
+            - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
 {% endlist %}
 
@@ -185,7 +185,7 @@ Only devices subscribed to the `$registries/<registry ID>/commands` topic will r
         - `--cert` and `--key`: Parameters for authorization using a certificate.
         - `--topic`: Registry topic for sending commands.
         - `--message`: Message text.
-        - `--qos`: [Quality of service (QoS)](../concepts/topic.md#qos).
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
     - Subscribe a device using a username and password:
 
@@ -201,6 +201,6 @@ Only devices subscribed to the `$registries/<registry ID>/commands` topic will r
         - `--username` and `--password`: Parameters for authorization using a username and password.
         - `--topic`: Registry topic for sending commands.
         - `--message`: Message text.
-        - `--qos`: [Quality of service (QoS)](../concepts/topic.md#qos).
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 {% endlist %}
 
