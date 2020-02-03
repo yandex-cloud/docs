@@ -1,4 +1,4 @@
-### Введение
+### Введение {#introduction}
 
 В KiKiMR есть HTTP интерфейс, который позволяет выполнять различные команды.
 В частности, через него можно работать с распределенной БД KiKiMR. Для этого выделено две команды: операция над схемой и операция над данными. Ниже идет описание каждой из них.
@@ -8,9 +8,9 @@
 **Коды ответа:** 200 (с данными) или 204 (без данных) при успешном запросе, другие (400, <span style="color:red;">какие ещё?</span>) при неуспешном
 **Формат ответа:** Возвращается JSON с данными или информацией об ошибке, `Content-Type: application/json`
 
-### Описание команд
+### Описание команд {#command-description}
 
-#### DbSchema
+#### DbSchema {#dbschema}
 **URL:** /CLI_MB/DbSchema
 **Коды ошибок (поле SchemeStatus):** см. [enum EStatus](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/protos/flat_tx_scheme.proto)
 
@@ -48,7 +48,7 @@ CreateTable - опциональный атрибут, позволяющий с
 Для удобства указания нескольких операций в одной команде, атрибуты обрабатываются в следующем порядке: DropTable, MkDir, CreateTable.
 В случае успешного выполнения операции, никакого контента не возвращается, возвращается HTTP код 204. В случае ошибки возвращается JSON с разными кодами ошибок (TBusResponse).
 
-#### DbOperation
+#### DbOperation {#dboperation}
 Method: POST
 URL: /CLI_MB/DbOperation
 Content-Type: application/x-www-form-urlencoded
@@ -95,7 +95,7 @@ Batch - опциональный атрибут, дающий возможнос
         }
     ]
 ```
-#### SchemeDescribe
+#### SchemeDescribe {#schemedescribe}
 
 Method: POST
 URL: /CLI_MB/SchemeDescribe
@@ -110,7 +110,7 @@ Content-Type: application/x-www-form-urlencoded
   "Path": "/Root/tmp"
 }
 ```
-#### DbQuery
+#### DbQuery {#dbquery}
 
 С помощью метода DbQuery можно выполнять YQL-запросы через HTTP-интерфейс
 
@@ -127,17 +127,17 @@ curl -v --data @select-with-dbquery.json -w'\n' "http://3dc-ydb-dev.yandex.net:8
 Можно получить все строки из таблицы /Root/Tmp/kovalad/organizations на кластере 3dc_dev.
 Главное не забывать про то, что автокомита нет.
 
-### Аутентификация
+### Аутентификация {#authentication}
 
 Для аутентификации поддерживается возможность передачи токенов в заголовках, как в [инструкции](https://wiki.yandex-team.ru/oauth/newservice/#kakpodderzhatoauthvsvojomservise)
 
 Про аутентификацию и авторизацию есть более подробный [раздел](../concepts/iam.md)
 
-### Примеры
+### Примеры {#examples}
 
 В качестве примера мы создадим таблицу с тривиальной схемой, запишем туда значение и прочтем его. Все с использованием консольной команды curl.
 
-#### Создание схемы
+#### Создание схемы {#create-schema}
 Создадим файл с именем "schema.json" со следующим содержимым:
 ``` json
 {
@@ -175,7 +175,7 @@ xenoxeno@xenoxeno-ub14:~$ curl -v --data @schema.json -w'\n' "http://localhost:8
 ```
 Команда выполнена успешно (HTTP/1.1 204 No content), теперь у нас есть таблица, расшардированная по 10 партишенам.
 Запишем данные.
-#### Запись данных
+#### Запись данных {#data-record}
 Для этого создадим файлик "update.json" со следующим содержимым:
 ``` json
 {
@@ -210,7 +210,7 @@ xenoxeno@xenoxeno-ub14:~$ curl -v --data @update.json -w'\n' "http://localhost:8
 ```
 Команда выполнена успешно (HTTP/1.1 204 No content), мы записали значение "xyz" в строку с ключом 1234.
 Теперь прочтем это.
-#### Чтение данных
+#### Чтение данных {#data-read}
 Создадим файлик "select.json" со следующим содержимым:
 ``` json
 {

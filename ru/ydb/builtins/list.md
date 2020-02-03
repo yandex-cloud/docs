@@ -1,6 +1,6 @@
 # Функции для работы со списками
 
-## ListCreate
+## ListCreate {#listcreate}
 
 Сконструировать пустой список. В единственном аргументе указывается строка с описанием типа данных ячейки списка, либо сами типом, полученным с помощью [предназначенных для этого функций](types.md).
 
@@ -15,7 +15,7 @@ SELECT ListCreate("Tuple<String,Double?>");
 SELECT ListCreate(OptionalType(DataType("String")));
 ```
 
-## AsList
+## AsList {#aslist}
 
 Сконструировать список из 1 или более аргументов.
 
@@ -24,7 +24,7 @@ SELECT ListCreate(OptionalType(DataType("String")));
 SELECT AsList(1, 2, 3, 4, 5);
 ```
 
-## ListLength
+## ListLength {#listlength}
 
 Количество элементов в списке.
 
@@ -32,7 +32,7 @@ SELECT AsList(1, 2, 3, 4, 5);
 ```sql
 SELECT ListLength(list_column) FROM my_table;
 ```
-## ListSort, ListSortAsc и ListSortDesc
+## ListSort, ListSortAsc и ListSortDesc {#listsort-listsortasc-listsortdesc}
 <a name="listsort"></a><a name="listsortasc"></a><a name="listsortdesc"></a>
 
 Отсортировать список. По умолчанию выполняется сортировка по возрастанию (ListSort — алиас ListSortAsc).
@@ -56,7 +56,7 @@ $list = AsList(
 SELECT ListSort($list, ($x) -> {RETURN $x.1;});
 ```
 
-## ListCount
+## ListCount {#listcount}
 
 Количество элементов в списке за вычетом пустых (`NULL`).
 
@@ -65,7 +65,7 @@ SELECT ListSort($list, ($x) -> {RETURN $x.1;});
 SELECT ListCount(list_column) FROM my_table;
 ```
 
-## ListExtend
+## ListExtend {#listextend}
 
 Последовательно соединить списки с одинаковым типом элементов (конкатенация списков).
 
@@ -78,7 +78,7 @@ SELECT ListExtend(
 ) FROM my_table;
 ```
 
-## ListZip и ListZipAll
+## ListZip и ListZipAll {#listzip-listzipall}
 
 По входящим спискам построить список пар (Tuple), содержащих соответствующие по индексу элементы списков.
 
@@ -93,7 +93,7 @@ SELECT
 FROM my_table;
 ```
 
-## ListEnumerate
+## ListEnumerate {#listenumerate}
 
 Построить список пар (Tuple), содержащих номер элемента и сам элемент.
 
@@ -102,7 +102,7 @@ FROM my_table;
 SELECT ListEnumerate(list_column) FROM my_table;
 ```
 
-## ListReverse
+## ListReverse {#listreverse}
 
 Развернуть список.
 
@@ -111,7 +111,7 @@ SELECT ListEnumerate(list_column) FROM my_table;
 SELECT ListReverse(list_column) FROM my_table;
 ```
 
-## ListSkip
+## ListSkip {#listskip}
 
 Возвращает копию списка с пропущенным некоторым числом первых элементов.
 
@@ -124,7 +124,7 @@ SELECT
 FROM my_table;
 ```
 
-## ListTake
+## ListTake {#listtake}
 
 Возвращает копию списка, состоящую из ограниченного числа элементов второго списка. Первый аргумент — исходный список, второй — не больше сколько элементов с начала оставить.
 
@@ -133,7 +133,7 @@ FROM my_table;
 SELECT ListTake(list_column, 3) FROM my_table;
 ```
 
-## ListIndexOf
+## ListIndexOf {#listindexof}
 
 Ищет элемент с указанным значением в списке и при первом обнаружении возвращает его индекс. Отсчет индексов начинается с 0, а в случае отсутствия элемента возвращается `NULL`.
 
@@ -144,7 +144,7 @@ SELECT
 FROM my_table;
 ```
 
-## ListMap, ListFlatMap и ListFilter
+## ListMap, ListFlatMap и ListFilter {#listmap-listflatmap-listfilter}
 
 Применяют к каждому элементу списка указанную в качестве второго аргумента функцию. Различаются возвращаемым результатом:
 
@@ -175,7 +175,7 @@ SELECT
 FROM my_table;
 ```
 
-## ListUniq
+## ListUniq {#listuniq}
 
 Возвращает копию списка, в котором оставляет только уникальный набор элементов.
 
@@ -186,7 +186,7 @@ SELECT
 FROM my_table;
 ```
 
-## ListAny и ListAll
+## ListAny и ListAll {#listany-listall}
 
 Для списка булевых значений возвращает true, если:
 
@@ -202,7 +202,7 @@ SELECT
 FROM my_table;
 ```
 
-## ListHas
+## ListHas {#listhas}
 
 Содержит ли список указанный элемент.
 
@@ -213,7 +213,7 @@ SELECT
 FROM my_table;
 ```
 
-## ListMin, ListMax, ListSum и ListAvg
+## ListMin, ListMax, ListSum и ListAvg {#listmin-listmax-listsum-listavg}
 
 Применяет соответствующую агрегатную функцию ко всем элементам списка числовых значений.
 
@@ -227,7 +227,7 @@ SELECT
 FROM my_table;
 ```
 
-## ListFromRange
+## ListFromRange {#listfromrange}
 
 Генерация последовательности чисел с указанным шагом. Аналог xrange в Python 2, но дополнительно с поддержкой чисел с плавающей точкой.
 
@@ -253,7 +253,7 @@ SELECT
     ListFromRange(2, 1, -0.5); -- [2.0, 1.5]
 ```
 
-## ListReplicate
+## ListReplicate {#listreplicate}
 
 Создает список из нескольких копий указанного значения.
 
@@ -267,7 +267,7 @@ SELECT
 SELECT ListReplicate(true, 3); -- [true, true, true]
 ```
 
-## ListConcat
+## ListConcat {#listconcat}
 
 Объединяет список строк в одну строку без разделителей.
 
@@ -280,7 +280,7 @@ SELECT
 FROM my_table;
 ```
 
-## ListExtract
+## ListExtract {#listextract}
 
 По списку структур возвращает список содержащихся в них полей с указанным именем.
 
@@ -291,7 +291,7 @@ SELECT
 FROM my_table;
 ```
 
-## ListTakeWhile / ListSkipWhile
+## ListTakeWhile / ListSkipWhile {#listtakewhile-listskipwhile}
 
 `ListTakeWhile` — выдает список от начала, пока предикат истинный, далее список заканчивается.
 `ListSkipWhile` — пропускает отрезок списка от начала, пока предикат истинный, далее выдает остаток список не обращая внимания на предикат.
@@ -310,7 +310,7 @@ SELECT
     ListSkipWhile($data, ($x) -> {return $x <= 3}); -- [5, 1, 2, 5]
 ```
 
-## ToDict / ToMultiDict
+## ToDict / ToMultiDict {#todict-tomultidict}
 
 Преобразуют список из кортежей с парами ключ-значение в словарь. В случае конфликтов по ключам во входном списке `ToDict` оставляет первое значение, а `ToMultiDict` — собирает из всех значений список.
 

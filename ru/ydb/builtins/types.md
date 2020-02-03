@@ -1,11 +1,11 @@
 # Функции для работы с типами
 
-## FormatType
+## FormatType {#formattype}
 
 Сериализация типа в человекочитаемую строку. Это полезно для отладки, а также будет использоваться в последующих примерах данного раздела.  [Документация по формату](../misc/type_string.md).
 
 
-## ParseType
+## ParseType {#parsetype}
 
 Построение типа по строке с его описанием. [Документация по формату](../misc/type_string.md).
 
@@ -14,7 +14,7 @@
 SELECT FormatType(ParseType("List<Int32>"));  -- List<int32>
 ```
 
-## TypeOf
+## TypeOf {#typeof}
 
 Получение типа значения, переданного в аргумент.
 
@@ -26,7 +26,7 @@ SELECT FormatType(TypeOf("foo"));  -- String
 SELECT FormatType(TypeOf(AsTuple(1, 1u))); -- Tuple<Int32,Uint32>
 ```
 
-## InstanceOf
+## InstanceOf {#instanceof}
 
 Возвращает экземпляр указанного типа, который можно использовать только для получения типа результата выражения с его использованием.
 
@@ -40,7 +40,7 @@ SELECT FormatType(TypeOf(
 )); -- Double, because "Int32 + Double" returns Double
 ```
 
-## DataType
+## DataType {#datatype}
 
 Возвращает тип для примитивных типов данных по его имени.
 
@@ -49,7 +49,7 @@ SELECT FormatType(TypeOf(
 SELECT FormatType(DataType("Bool")); -- Bool
 ```
 
-## OptionalType
+## OptionalType {#optionaltype}
 
 Добавляет в переданный тип возможность содержать NULL.
 
@@ -58,7 +58,7 @@ SELECT FormatType(DataType("Bool")); -- Bool
 SELECT FormatType(OptionalType(DataType("Bool"))); -- Bool?
 ```
 
-## ListType и StreamType
+## ListType и StreamType {#listtype-streamtype}
 <a name="listtype></a><a name="streamtype></a>
 
 Строит тип списка или потока по переданному типу элемента.
@@ -68,7 +68,7 @@ SELECT FormatType(OptionalType(DataType("Bool"))); -- Bool?
 SELECT FormatType(ListType(DataType("Bool"))); -- List<Bool>
 ```
 
-## DictType
+## DictType {#dicttype}
 
 Строит тип словаря по переданным типам ключа (первый аргумент) и значения (второй аргумент).
 
@@ -80,7 +80,7 @@ SELECT FormatType(DictType(
 )); -- Dict<String,Double>
 ```
 
-## TupleType
+## TupleType {#tupletype}
 
 Строит тип кортежа по переданным типам элементов.
 
@@ -93,7 +93,7 @@ SELECT FormatType(TupleType(
 )); -- Tuple<String,Double,Bool?>
 ```
 
-## StructType
+## StructType {#structtype}
 
 Строит тип структуры по переданным типам элементов. Для указания имен элементов используется стандартный синтаксис именованных аргументов.
 
@@ -105,7 +105,7 @@ SELECT FormatType(StructType(
 )); -- Struct<'MyBool':Bool,'StringList':List<String>>
 ```
 
-## VariantType
+## VariantType {#varianttype}
 
 Возвращает тип варианта по низлежащему типу (структуры или кортежа).
 
@@ -116,7 +116,7 @@ SELECT FormatType(VariantType(
 )); -- Variant<'bar':Double,'foo':Int32>
 ```
 
-## ResourceType
+## ResourceType {#resourcetype}
 
 Возвращает тип ресурса по переданной строковой метке.
 
@@ -125,7 +125,7 @@ SELECT FormatType(VariantType(
 SELECT FormatType(ResourceType("Foo")); -- Resource<'Foo'>
 ```
 
-## CallableType
+## CallableType {#callabletype}
 
 Строит тип вызываемого значения по следующим аргументам:
 
@@ -146,7 +146,7 @@ SELECT FormatType(CallableType(
 )); -- Callable<(String,[Int64?])->Double>
 ```
 
-## GenericType, UnitType и VoidType
+## GenericType, UnitType и VoidType {#generictype-unittype-voidtype}
 
 Возвращают одноименные типы данных. Аргументов нет, так как они ничем не параметризуются.
 
@@ -155,7 +155,7 @@ SELECT FormatType(CallableType(
 SELECT FormatType(VoidType()); -- Void
 ```
 
-## OptionalItemType, ListItemType и StreamItemType
+## OptionalItemType, ListItemType и StreamItemType {#optionalitemtype-listitemtype-streamitemtype}
 
 Выполняют действие, обратное [OptionalType](#optionaltype), [ListType](#listtype) и [StreamType](#streamtype) — возвращают тип элемента по типу соответствующего контейнера.
 
@@ -166,7 +166,7 @@ SELECT FormatType(ListItemType(
 )); -- Int32
 ```
 
-## DictKeyType и DictPayloadType
+## DictKeyType и DictPayloadType {#dictkeytype-dictpayloadtype}
 
 Возвращают тип ключа или значения по типу словаря.
 
@@ -177,7 +177,7 @@ SELECT FormatType(DictKeyType(
 )); -- Int32
 ```
 
-## TupleElementType
+## TupleElementType {#tupleelementtype}
 
 Возвращает тип элемента кортежа по типу кортежа и индексу элемента (индекс с нуля).
 
@@ -188,7 +188,7 @@ SELECT FormatType(TupleElementType(
 )); -- Double
 ```
 
-## StructMemberType
+## StructMemberType {#structmembertype}
 
 Возвращает тип элемента структуры по типу структуры и имени элемента.
 
@@ -199,7 +199,7 @@ SELECT FormatType(StructMemberType(
 )); -- Int32
 ```
 
-## CallableResultType и CallableArgumentType
+## CallableResultType и CallableArgumentType {#callableresulttype-callableargumenttype}
 
 CallableResultType возвращает тип результата по типу вызываемого значения, а CallableArgumentType — тип аргумента по типу вызываемого значения и его индексу (индекс с нуля).
 
@@ -214,7 +214,7 @@ FormatType(CallableArgumentType(
 )); -- Bool
 ```
 
-## VariantUnderlyingType
+## VariantUnderlyingType {#variantunderlyingtype}
 
 Выполняет действие, обратное [VariantType](#varianttype) — возвращает низлежащий тип по типу варианта.
 

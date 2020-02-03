@@ -182,7 +182,7 @@ SELECT Url::CutWWW("www.yandex.ru");           -- "yandex.ru"
 SELECT Url::PunycodeToHostName("xn--d1acpjx3f.xn--p1ai"); -- "яндекс.рф"
 ```
 
-#### IsAllowedByRobotsTxt
+#### IsAllowedByRobotsTxt {#isallowedbyrobotstxt}
 
 **Список функций**
 

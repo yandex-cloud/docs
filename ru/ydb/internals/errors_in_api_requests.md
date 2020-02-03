@@ -1,15 +1,15 @@
-## Определение ошибки по результату
+## Определение ошибки по результату {#definition-of-the-error-on-the-result}
 
-### gRPC API
+### gRPC API {#gprc-api}
 
 Результат выполнения запроса имеет тип `TYqlResponse`, в составе которого есть атрибут `KqpStatus`.
 Он может принимать значение из перечня ниже.
 
-### Python
+### Python {#python}
 
 Обработка ошибок в python-module описана в разделе про [python API]((../operations/start_python.md#_4)
 
-## Перечень ошибок и краткое описание
+## Перечень ошибок и краткое описание {#list-of-errors-and-brief-description}
 
 В таблице перечислены все допустимые значения `KqpStatus`, для каждого есть принзак можно ли повторять запрос при получении ответа с таким статусом и дано краткое описание причин, которые приводят к ошибочным кодам ответов
 
@@ -30,17 +30,17 @@
 13 | STATUS_OVERLOADED | Y | Необходимо заполнить
 
 
-## Рецепты по устранению ошибок
+## Рецепты по устранению ошибок {#recipes-for-troubleshooting-errors}
 
-### STATUS\_BAD\_REQUEST
-### STATUS\_PROCESS\_ERROR
-### STATUS\_QUERY\_ERROR
-### STATUS\_BAD\_SESSION
-### STATUS\_NO\_SESSION
-### STATUS\_BUSY\_PENDING\_QUERY
-### STATUS\_QUERY\_TIMEOUT
-### STATUS\_LOCKS\_INVALIDATED
-### STATUS\_LOCKS\_ACQUIRE\_FAILURE
-### STATUS\_SCHEME\_ERROR
-### STATUS\_TEMPORARILY\_UNAVAILABLE
-### STATUS\_OVERLOADED
+### STATUS\_BAD\_REQUEST {#status-bad-request}
+### STATUS\_PROCESS\_ERROR {#status-process-error}
+### STATUS\_QUERY\_ERROR {#status-query-error}
+### STATUS\_BAD\_SESSION {#status-bad-session}
+### STATUS\_NO\_SESSION {#status-no-session}
+### STATUS\_BUSY\_PENDING\_QUERY {#status-busy-pending}
+### STATUS\_QUERY\_TIMEOUT {#status-query-timeout}
+### STATUS\_LOCKS\_INVALIDATED {#status-locks-invalid}
+### STATUS\_LOCKS\_ACQUIRE\_FAILURE {#status-locks-acquire}
+### STATUS\_SCHEME\_ERROR {#status-scheme-error}
+### STATUS\_TEMPORARILY\_UNAVAILABLE {#status-temporarily-unavailable}
+### STATUS\_OVERLOADED {#status-overloaded}

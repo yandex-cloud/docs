@@ -1,24 +1,24 @@
-## Описание C++ интерфейса запросов к локальной БД.
+## Описание C++ интерфейса запросов к локальной БД. {#description-of-the-c-plus-plus-interface-for-queries-to-the-local-database}
 
 Данная библиотека была сделана чтобы обеспечить удобную работу в терминах С++ типов, и их проверки во время компиляции. К примеру, чтобы нельзя было попытаться сохранить 256 в колонку с типом bool или ui8.
 Благодаря темплейтной реализации, у библиотеки отсутствует какой либо оверхэд.
 
 Поскольку читать примеры проще, чем абстрактное описание, данный текст весь построен на примерах.
 
-### Пример описания схемы:
-``` cpp 
+### Пример описания схемы: {#example-of-a-schema-description}
+``` cpp
 // Основная структура схемы должна наследоваться от NIceDb::Schema
 struct Schema : NIceDb::Schema {
 
     // Описание таблицы. Идентификатор указывается в параметре базового класса.
     // Имя таблицы будет соответствовать имени типа ("Transaction", ID:1).
     struct Transaction : Table<1> {
-    
+
         // Описание колонки, параметры базового класса: идентификатор и тип колонки.
         // Идентификатор умышленно задается вручную, чтобы можно было перемещать и удалять колонки.
         // Имя колонки будет получено из имени типа.
         struct ID : Column<1, NScheme::TTypeIds::Uint64> {};
-        
+
         // Указание значения по-умолчанию для колонки
         // (когда в БД лежит NULL, а его читают как значение через GetValue())
         struct Plan : Column<2, NScheme::TTypeIds::Uint64> { static constexpr ui64 Default = 1234; };
@@ -31,7 +31,7 @@ struct Schema : NIceDb::Schema {
 
         // Перечисление ключевых колонок.
         using Key = TableKey<ID>;
-        
+
         // Перечисление вообще всех колонок таблицы.
         using Columns = TableColumns<ID, Plan, AffectedSet>;
     };
@@ -71,27 +71,27 @@ struct Schema : NIceDb::Schema {
     using Tables = SchemaTables<Transaction, Mediator, State>;
 };
 ```
-### Для материализации такой схемы в локальной БД нужно вызвать всего один метод
+### Для материализации такой схемы в локальной БД нужно вызвать всего один метод {#for-the-materialization-of-such-a-scheme-in-the-local-database-you-need-to-call-only-one-method}
 ``` cpp
 bool Execute(TTransactionContext &txc, const TActorContext&) {
     Schema::Tables::Materialize(txc.DB);
     return true;
 }
 ```
-### Для работы с БД используется инстанс класса TNiceDb
+### Для работы с БД используется инстанс класса TNiceDb {#instance-of-the-tnicedb-class-is-used-to-work-with-the-database}
 ``` cpp
 NIceDb::TNiceDb db(txc.DB);
 ```
 Все операции над БД устроены по следующему принципу:
 **<БД>.<Таблица>.<Ключ>.<Операция>**
 
-### Вставка строки / апдейт колонки
+### Вставка строки / апдейт колонки {#inserting-a-row-column-update}
 ``` cpp
 NIceDb::TNiceDb db(txc.DB);
 
 // NIceDb::TUpdate - операция по обновлению одной колонки (колонка задается темплейтом, значение колонки параметром)
 // В Update() может быть передано произвольное количество апдейтов
-// В данном примере мы в таблице Schema::State, в строке с ключом = 123 обновляем колонку Schema::State::StateValue в значение "abc" 
+// В данном примере мы в таблице Schema::State, в строке с ключом = 123 обновляем колонку Schema::State::StateValue в значение "abc"
 db.Table<Schema::State>().Key(123).Update(NIceDb::TUpdate<Schema::State::StateValue>("abc"));
 // или
 db.Table<Schema::State>().Key(123).Update<Schema::State::StateValue>("abc");
@@ -103,14 +103,14 @@ db.Table<Schema::State>().Key(123).Update<Schema::State::StateValue1>("abc").Upd
 // или
 db.Table<Schema::State>().Key(123).Update<Schema::State::StateValue1, Schema::State::StateValue2>("abc", 13);
 ```
-### Удаление строки
+### Удаление строки {#delete-line}
 ``` cpp
 NIceDb::TNiceDb db(txc.DB);
 
-// В данном примере мы в таблице Schema::State, удаляем строку с ключом = 456 
+// В данном примере мы в таблице Schema::State, удаляем строку с ключом = 456
 db.Table<Schema::State>().Key(456).Delete();
 ```
-### При чтении из БД создается инстанс класса Rowset, условно его можно представить так
+### При чтении из БД создается инстанс класса Rowset, условно его можно представить так {#when-reading-from-the-database-an-instance-of-the-rowset-class-is-created-it-can-be-conditionally-represented-as-follows}
 ``` cpp
 class Rowset {
 public:
@@ -139,7 +139,7 @@ public:
     tuple GetKey() const;
 };
 ```
-### Чтение из БД возможно при помощи нескольких операций, каждая из которых возвращает Rowset
+### Чтение из БД возможно при помощи нескольких операций, каждая из которых возвращает Rowset {#reading-from-the-database-is-possible-using-several-operations-each-of-which-returns-a-rowset}
 ``` cpp
 // Чтение по полному совпадению ключа (если количество параметров соответствует количеству колонок в ключе)
 db.Table<...>().Key(a,b,c).Select<...>();
@@ -165,7 +165,7 @@ db.Table<...>().LessOrEqual(a,b).Select<...>();
 // ... диапазон
 db.Table<...>().GreaterOrEqual(a,b).LessOrEqual(c,d).Select<...>();
 ```
-### В качестве параметров Select может быть как перечисление колонок (тогда будут выбранны только эти колонки), так и специальный класс - "все колонки" из схемы
+### В качестве параметров Select может быть как перечисление колонок (тогда будут выбранны только эти колонки), так и специальный класс - "все колонки" из схемы {#select-parameters}
 ``` cpp
 // Более эффективный вариант
 auto rowset = db.Table<Schema::Mediator>().Key(1234).Select<Schema::Mediator::ID, Schema::Mediator::TransactionID>();
@@ -175,7 +175,7 @@ auto rowset = db.Table<Schema::Mediator>().Key(1234).Select<Schema::Mediator::Co
 // или
 auto rowset = db.Table<Schema::Mediator>().Key(1234).Select();
 ```
-### Типичный цикл чтения из БД
+### Типичный цикл чтения из БД {#typical-cycle-of-reading-from-the-database}
 ``` cpp
 NIceDb::TNiceDb db(txc.DB);
 auto rowset = db.Table<Schema::Node>().Key(123).Select<Schema::Node::Columns>();

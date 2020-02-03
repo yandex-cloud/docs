@@ -1,11 +1,11 @@
-## Общее описание
+## Общее описание {#general-description}
 Командный интерфейс KiKiMR'а доступен через тот же бинарный файл, что используется для запуска сервера.
 На текущий момент, формат команды такой:
 
 ```
 kikimr <глобальные флаги> <команда> <аргументы/флаги команды>
 ```
-### Глобальные флаги
+### Глобальные флаги {#global-flags}
 
 ```
 -s|--server <host[:port]>
@@ -27,7 +27,7 @@ kikimr <глобальные флаги> <команда> <аргументы/ф
 ```
 Выводит прогресс выполнения долгих команд.
 
-## Команды
+## Команды {#commands}
 
 В виду большого количества и разнообразия команд, они организованы в иерархическую структуру:
 ```
@@ -62,21 +62,21 @@ kikimr
 │     └─ mkdir              Create directory
 └─ server                   Execute KiKiMR server
 ```
-### db
+### db {#db}
 
 
-### db execute
+### db execute {#db-execute}
 
 ```
 kikimr db execute <MiniKQL> [<Parameters>]
 ```
 Команда выполнения транзакции над БД KiKiMR. Транзакция описывается на языке MiniKQL. В качестве первого аргумента указывается текст программы (или путь к файлу, содержащий программу в текстовом виде). Опционально можно указать параметры программы (также, в виде текста или в виде пути к тестовому файлу).
 
-#### db schema
+#### db schema {#db-schema}
 
 Описывает подраздел операций с схемой БД KiKiMR.
 
-##### db schema describe
+##### db schema describe {#db-schema-describe}
 
 ```
 kikimr db schema describe [-t|--tree] [-d|--details] <path>
@@ -109,7 +109,7 @@ xenoxeno@xenoxeno-ub14:~/arcadia/kikimr/driver$ ./kikimr db schema describe -d /
 3│LargeBoundedByteString│value │
 xenoxeno@xenoxeno-ub14:~/arcadia/kikimr/driver$
 ```
-#### db schema init
+#### db schema init {#db-schema-init}
 ```
 db schema init <root>
 ```
@@ -118,7 +118,7 @@ db schema init <root>
 xenoxeno@xenoxeno-ub14:~/arcadia/kikimr/driver$ ./kikimr db schema init Root
 xenoxeno@xenoxeno-ub14:~/arcadia/kikimr/driver$
 ```
-#### db schema ls
+#### db schema ls {#db-schema-ls}
 ```
 db schema ls <path>
 ```
@@ -141,7 +141,7 @@ xenoxeno@xenoxeno-ub14:~/arcadia/kikimr/driver$ ./kikimr db schema ls /Root
 72075186232623600/3	<dir>	sub_path2
 xenoxeno@xenoxeno-ub14:~/arcadia/kikimr/driver$
 ```
-#### db schema mkdir
+#### db schema mkdir {#db-schema-mkdir}
 ```
 db schema mkdir <path>
 ```
@@ -150,7 +150,7 @@ db schema mkdir <path>
 xenoxeno@xenoxeno-ub14:~/arcadia/kikimr/driver$ ./kikimr db schema mkdir /Root/test1
 xenoxeno@xenoxeno-ub14:~/arcadia/kikimr/driver$
 ```
-#### db schema execute
+#### db schema execute {#db-schema-execute}
 
 ```
 db schema execute <protobuf>
@@ -160,22 +160,22 @@ db schema execute <protobuf>
 xenoxeno@xenoxeno-ub14:~/arcadia/kikimr/driver$ ./kikimr db schema execute "ModifyScheme { WorkingDir: '/Root' OperationType: ESchemeOpMkDir MkDir { Name: 'Berkanavt' }}"
 xenoxeno@xenoxeno-ub14:~/arcadia/kikimr/driver$
 ```
-### admin
+### admin {#admin}
 
 В данном описании команды раздела "admin" не рассматриваются.
 
-### server
+### server {#server}
 
 Команда server предназначена для запуска сервера KiKiMR.
 
-### readTable
+### readTable {#readTable}
 потоковая неблокирующая консистентная выгрузка таблицы
 
-#### Цель
+#### Цель {#target}
 
 С помощью kikimr cli выгрузить таблицу любого размера целиком, не сталкиваясь с ограничениями на размер ответа, которые неизбежно возникают при попытке выгрузить таблицу через YQL.
 
-#### Кратко о readTable
+#### Кратко о readTable {#briefly-about-readTable}
 Выгрузка таблиц с помощью readTable позволяет получить консистентное состояние таблицы и при этом не блокировать другие запросы к таблице.
 
 Можно указывать перечень столбцов, которые должны быть в ответе, накладывать ограничения на диапазон значений первичного ключа, ограничивать количество возвращаемых рядов.
@@ -205,13 +205,13 @@ Options:
 Free args: min: 1, max: 1 (listed described args only)
   <PATH>  path to table
 ```
-#### Ограничения
+#### Ограничения {#restrictions}
 
 1. Любая ошибка во время вычитывания таблицы приведёт прерыванию операции. Повторение операции будет выгружать новое консистентное состояние
 2. вероятность ошибки во время вычитывания растёт с размером таблицы и количеством шардов
 3. если разбить вычитывание таблицы на несколько запросов readTable по диапазону ключей, то это не будет консистентным вычитыванием, каждый readTable будет консистентен, все вместе - нет.
 
-#### Предусловия
+#### Предусловия {#preconditions}
 
 Чтобы воспользоваться `readTable`, нужно:
 
@@ -240,14 +240,14 @@ StreamingConfig {
     EnableOutputStreams: true
   }
 ```
-#### Шаги
-##### Запустить команду
+#### Шаги {#steps}
+##### Запустить команду {#run-command}
 
 Чтобы выгрузить столбцы token и type из таблицы `/Root/Captcha/CaptchaTest_Sessions` c кластера `3dc_dev`, начиная со значения ключа 00100A6ieOzDnkKRfoIHCc0M5vh0lCSP, нужно выполнить команду:
 ```kikimr -s grpc://3dc-ydb-dev-vla-003.search.yandex.net:2135 db readtable /Root/Captcha/CaptchaTest_Sessions --columns=token,type --limit=10000 --from=00100A6ieOzDnkKRfoIHCc0M5vh0lCSP
 ```
-#### Возможные ошибки
+#### Возможные ошибки {#possible-errors}
 
-##### Some keys not resolved, see UnresolvedKeys for details
+##### Some keys not resolved, see UnresolvedKeys for details {#some-keys-not-resolved-see-unresolvedKeys-for-details}
 1. В опциях `--from` и `--to` указаны значения ключей, для которых не нашлось строк
 1. в списке --columns указаны несуществующие имена колонок

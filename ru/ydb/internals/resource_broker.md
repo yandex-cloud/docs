@@ -1,12 +1,12 @@
 Resource Broker появился как результат развития сервиса Compaction Broker, который использовался для ограничения количества одновременно запущенных таблеточных компакшенов. Resource Broker решает более общую задачу распределения ресурсов между задачами, в том числе и просто ограничивая количество запускаемых задач определенного типа. Resource Broker является локальным сервисом и создается по одному на каждую ноду.
 
-### Ресурсы
+### Ресурсы {#resources}
 На данный момент Resource Broker управляет двумя ресурсам: CPU и Memory. Они перечислены в интерфейсе Resource Broker-а.
 
 ``` cpp
 enum EResourceType {
-    CPU    = 0;     
-    MEMORY = 1;     
+    CPU    = 0;
+    MEMORY = 1;
 };
 
 message TResources {
@@ -14,7 +14,7 @@ message TResources {
     repeated uint64 Resource = 1;
 };
 ```
-### Задачи
+### Задачи {#tasks}
 Чтобы получить ресурсы, мы должны отправить в Resource Broker задачу. Задача при создании описывается следующей структурой:
 ``` cpp
 struct TTask {
@@ -36,7 +36,7 @@ struct TTask {
 
 При получении задачи Resource Broker помещает ее в одну из своих очередей. Очередь выбирается в соответствии с типом задачи.
 
-### Очереди задач 
+### Очереди задач {#task-queues}
 Resource Broker управляет несколькими очередями задач. Очередь описывается следующей структурой:
 ``` cpp
 message TQueueConfig {
@@ -50,7 +50,7 @@ message TQueueConfig {
 * **Weight** - вес очереди определяет долю получаемых ресурсов
 * **Limit** - ограничение на потребление ресурсов задает максимальное потребление ресурсов всеми одновременно запущенными в этой очереди задачами. Единственное условие, при котором это ограничение может быть нарушено - одна задача требует ресурсов больше установленных лимитов (она может быть запущена только при отсутствии других запущенных задач из этой очереди).
 
-### Типы задач
+### Типы задач {#types-of-tasks}
 Тип задачи определяет, в какую очередь попадет задача. Также по каждому типу ведется статистика времени выполнения задачи, которая используется при планировании задач, так что полезно разделять по типам те задачи, время исполнения которых может сильно отличаться. Тип задачи описывается следующей структурой:
 ``` cpp
 message TTaskConfig {
@@ -64,7 +64,7 @@ message TTaskConfig {
 * **QueueName** - имя очереди, в которую отправятся все задачи данного типа
 * **DefaultDuration** - время исполнения задачи, которое используется до сбора достаточной статистики
 
-### Конфигурация Resource Broker
+### Конфигурация Resource Broker {#resource-broker-configuration}
 Конфигурация задает предопределенный набор очередей и типов задач. Специальный тип задачи "unknown" используется для всех задач, которые имеют тип, не описанный в конфигурации. Также определяется общий лимит на потребление ресурсов всеми очередями. Как и в случае очереди, этот лимит может быть превышен, если у нас есть задача, которой требуется больше ресурсов (эта задача при этом будет единственной активной). Конфигурация описывается следующей структурой:
 ``` cpp
 message TResourceBrokerConfig {
@@ -190,7 +190,7 @@ ResourceLimit {
 </details>
 На данный момент драйвер может принимать как конфиг для Resource Broker, так и старый конфиг для Compaction Broker (оба лежат в boot.txt). При их отсутствии используется дефолтный конфиг.
 
-#### Переход с конфигов Compaction Broker на конфиги Resource Broker
+#### Переход с конфигов Compaction Broker на конфиги Resource Broker {#switching-from-compaction-broker-configs-to-resource-broker-configs}
 Самый простой способ заменить Compaction Broker конфиг на соответствующий ему Resource Broker конфиг - это запустить Kikimr с конфигом Compaction Broker и взять соответствующий Resource Broker конфиг с его страницы мониторинга. Имена очередей в полученном конфиге можно изменять по желанию. Имена типов задач необходимо сохранить для совместимости со старыми ComapctionPolicy таблиц.
 <details markdown="1"> <summary>Пример Compaction Boker конфига и соответствующего ему Resource Broker конфига</summary>
 ``` cpp
@@ -282,7 +282,7 @@ ResourceBroker {
 
 Рекомендуется добавить очереди и типы задач для фонового компакшена (по умолчанию фоновый компакшн в Compaction Policy выключен, но для возможности его включения полезно иметь готовые типы задач и очередь; пример можно увидеть в дефолтном конфиге) и транзакций (тип задачи "transaction" используется в Resource Profile таблеток по умолчанию).
 
-### Мониторинг
+### Мониторинг {#monitoring}
 Актор Resource Broker-а регистрирует свою страницу мониторинга /actors/rb, на которой можно посмотреть текущий конфиг, счетчики, а также состояния всех очередей и задач.
 Resource Broker репортит в Solomon статистику по задачам, включая ожидающие, исполняющиеся и завершенные задачи. Как и для Compaction Broker-а сервисом для сенсоров выбран сервис tablets.
 Большинство сенсоров отправляют статистику как по очередям, так и по типам задач. Сенсоры очередей снабжены меткой "queue" с именем очереди, а сенсоры   типов задач снабжены меткой "task" с именем типа задачи. Ниже приведен доступный набор сенсоров:
@@ -307,20 +307,20 @@ Resource Broker репортит в Solomon статистику по задач
 * **MissingTaskTypeCounter** - инкрементальный счетчик количества задач, тип которых не содержится в конфиге. Ненулевое значение данного сенсора указывает на проблемы в конфигурации кластера
   * _[График](https://solomon.yandex-team.ru/?project=kikimr&cluster=kikimr_ugc_prod&service=tablets&l.host=cluster&l.sensor=MissingTaskType&graph=auto) количества задач с неизвестным типом_
 
-### Планирование задач
+### Планирование задач {#task-planning}
 В каждый момент в очереди есть известный набор исполняемых задач, а у каждой задачи известно потребление ею ресурсов, обозначим его за **c**. Общее количество ресурсов, потребляемых в очереди вычисляется суммой **С = SUM(cvvivv)**. Так как мы работаем с несколькими ресурсами, то **С** является вектором. Для сравнения потребления разнородных ресурсов в разных задачах и очередях удобно использовать понятие доминантного ресурса. Для вычисления текущего доминантного ресурса мы берем отношение **CvvNvv = C / L""""vvTotalvv** (где **LvvTotalvv** - количество всех доступных ресурсов) и выбираем в полученном векторе **CvvNvv** максимальную компоненту **CvvDvv**, которая и будет являться текущим потреблением доминантного ресурса для очереди. Аналогично потребление доминантного ресурса можно посчитать и для задачи (**сvvDvv**).
 
-Для каждой очереди мы считаем две величины потребления ресурсов: реальное потребление и планируемое потребление. Реальное потребление **CvvRvv** считается как интеграл от **CvvDvv** по времени. Планируемое потребление **CvvPvv** считается как сумма **сvvDvv * t** для всех запущенных в очереди задач, где **t** - фактическое или планируемое время исполнения задачи. Для уже завершенных задач используется фактическое время исполнения. Для текущих задач используется планируемое время исполнения. Планируемое время вычисляется как среднее время работы исполненных задач того же типа. 
+Для каждой очереди мы считаем две величины потребления ресурсов: реальное потребление и планируемое потребление. Реальное потребление **CvvRvv** считается как интеграл от **CvvDvv** по времени. Планируемое потребление **CvvPvv** считается как сумма **сvvDvv * t** для всех запущенных в очереди задач, где **t** - фактическое или планируемое время исполнения задачи. Для уже завершенных задач используется фактическое время исполнения. Для текущих задач используется планируемое время исполнения. Планируемое время вычисляется как среднее время работы исполненных задач того же типа.
 
 При запуске очередной задачи выбирается очередь с минимальным отношением **MAX(CvvRvv,CvvPvv) / Weight** (**Weight** - вес очереди) и запускается первая задача из этой очереди (если не превышен лимит по использованию ресурсов в очереди). После этого обновляются значения **CvvRvv**, **CvvPvv** и процесс повторяется.
 
-### Неактивные очереди
+### Неактивные очереди {#inactive-queues}
 Если в очереди нет ни одной ожидающей или исполняемой задачи, то очередь становится неактивной. Очевидно, что неактивные очереди могут сильно отстать от других очередей в потреблении ресурсов. Для избежания перекоса в распределении ресурсов после того, как такая очередь вновь станет активной, при активации очереди ее значения потребления ресурсов корректируются. Если очередь становится активной и есть другие активные очереди, то **CvvRvv / Weight**, **CvvPvv / Weight** активируемой очереди не могут быть меньше соответствующих значений какой либо из активных очередей. При необходимости значения корректируются.
 
-### Интерфейс с Resource Broker
+### Интерфейс с Resource Broker {#interface-with-resource-broker}
 Для управления задачами в Resource Broker используется следующий набор сообщений:
 ``` cpp
-struct TEvResourceBroker {                                                
+struct TEvResourceBroker {
   enum EEv {
     EvSubmitTask = EventSpaceBegin(TKikimrEvents::ES_RESOURCE_BROKER),
     EvUpdateTask,
@@ -329,29 +329,29 @@ struct TEvResourceBroker {
     EvFinishTask,
     EvNotifyActorDied,
     EvConfigure,
-    
+
     EvTaskOperationError = EvSubmitTask + 512,
     EvResourceAllocated,
     EvConfigureResult
-  };                                                                    
-};                                                                        
+  };
+};
 ```
-#### TEvSubmitTask
+#### TEvSubmitTask {#tevsubmittask}
 Это сообщение используется для добавления задачи в очередь. Идентификатор задачи может использоваться для дальнейшего управления задачей. Идентификаторы должны быть уникальны среди запланированных задач от одного клиента. В случае ошибки Resource Broker присылает TEvTaskOperationError.
 ``` cpp
 struct TEvSubmitTask : TEventLocal<TEvSubmitTask, EvSubmitTask> {
-    TTask Task;                                                  
-};                                                                  
-                                                  
+    TTask Task;
+};
+
 struct TStatus {
     enum ECode {
-        // Cannot submit task with already used ID.                                  
+        // Cannot submit task with already used ID.
         ALREADY_EXISTS,
-        // Cannot update/remove/finish task with unknown ID.                         
+        // Cannot update/remove/finish task with unknown ID.
         UNKNOWN_TASK,
-        // Cannot remove task in-fly.                                                
+        // Cannot remove task in-fly.
         TASK_IN_FLY,
-        // Cannot finish task which is still in queue.                               
+        // Cannot finish task which is still in queue.
         TASK_IN_QUEUE
     };
 
@@ -363,57 +363,57 @@ struct TEvTaskOperationError : public TEventLocal<TEvTaskOperationError, EvTaskO
     ui64 TaskId;
     TStatus Status;
     TIntrusivePtr<TThrRefBase> Cookie;
-};                                                                                                                                      
+};
 ```
-#### TEvUpdateTask
+#### TEvUpdateTask {#tevupdatetask}
 Это сообщение позволяет изменить приоритет, тип и потребляемые ресурсы задачи. Если задача находится в исполнении, то она может быть возвращена назад в очередь с помощью флага Resubmit.
 ``` cpp
-struct TEvUpdateTask : TEventLocal<TEvUpdateTask, EvUpdateTask> {                  
+struct TEvUpdateTask : TEventLocal<TEvUpdateTask, EvUpdateTask> {
     ui64 TaskId;
     TResourceValues RequiredResources;
     TString Type;
     ui64 Priority;
     bool Resubmit;
-};                                                                                 
+};
 ```
-#### TEvUpdateTaskCookie
+#### TEvUpdateTaskCookie {#tevupdatetaskcookie}
 Это сообщение позволяет изменить Cookie задачи. В случае ошибки Resource Broker присылает TEvTaskOperationError.
 ``` cpp
-struct TEvUpdateTaskCookie : TEventLocal<TEvUpdateTaskCookie, EvUpdateTaskCookie> {                  
+struct TEvUpdateTaskCookie : TEventLocal<TEvUpdateTaskCookie, EvUpdateTaskCookie> {
     ui64 TaskId;
     TIntrusivePtr<TThrRefBase> Cookie;
-};                                                                                 
+};
 ```
-#### TEvRemoveTask
+#### TEvRemoveTask {#tevremovetask}
 Это сообщение удаляет задачу из очереди. Не может применяться к уже запущенным задачам. В случае ошибки Resource Broker присылает TEvTaskOperationError.
 
 ``` cpp
-struct TEvRemoveTask : TEventLocal<TEvRemoveTask, EvRemoveTask> {                  
-    ui64 TaskId;                                                                   
-};                                                                                 
+struct TEvRemoveTask : TEventLocal<TEvRemoveTask, EvRemoveTask> {
+    ui64 TaskId;
+};
 ```
-#### TEvFinishTask
+#### TEvFinishTask {#tevfinishtask}
 Это сообщение используется для завершения задачи и освобождения используемых ею ресурсов. В случае ошибки Resource Broker присылает TEvTaskOperationError.
 
 ``` cpp
-struct TEvFinishTask : TEventLocal<TEvFinishTask, EvFinishTask> {                  
-    ui64 TaskId;                                                                   
-};                                                                                                                                                               
+struct TEvFinishTask : TEventLocal<TEvFinishTask, EvFinishTask> {
+    ui64 TaskId;
+};
 ```
-#### TEvNotifyActorDied
+#### TEvNotifyActorDied {#tevnotifyactordied}
 Сообщение используется для удаления всех задач актора.
 ``` cpp
 struct TEvNotifyActorDied : public TEventLocal<TEvNotifyActorDied, EvNotifyActorDied> {
 };
-```#### TEvResourceAllocated
+```#### TEvResourceAllocated {#tevresourceallocated}
 Это сообщение отправляется клиенту Resource Broker-а после аллокации ресурсов для его задачи.
 ``` cpp
 struct TEvResourceAllocated : TEventLocal<TEvResourceAllocated, EvResourceAllocated> {
-    ui64 TaskId;                                                                    
-    TIntrusivePtr<TThrRefBase> Cookie;                                              
-};                                                                                  
+    ui64 TaskId;
+    TIntrusivePtr<TThrRefBase> Cookie;
+};
 ```
-#### TEvConfigure
+#### TEvConfigure {#tevconfigure}
 Это сообщение используется для изменения конфигурации Resource Broker-а. При этом все текущие задачи перераспределяются по новым очередям. В ответ отправляется сообщение TEvConfigureResult. При перезагрузке ноды будет снова использован конфиг из статического конфига.
 ``` cpp
 struct TEvConfigure : public TEventPB<TEvConfigure,
@@ -422,12 +422,12 @@ struct TEvConfigure : public TEventPB<TEvConfigure,
 };
 
 message TResourceBrokerConfigResult {
-    optional bool Success = 1;       
-    optional string Message = 2;     
-}; 
+    optional bool Success = 1;
+    optional string Message = 2;
+};
 
 struct TEvConfigureResult : public TEventPB<TEvConfigureResult,
                                             NKikimrResourceBroker::TResourceBrokerConfigResult,
                                             EvConfigureResult> {
-};                                                                                
+};
 ```

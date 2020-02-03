@@ -1,6 +1,6 @@
 # Агрегатные функции в YQL
 
-## COUNT
+## COUNT {#count}
 
 Подсчет количества строк в таблице (если в качестве аргумента указана `*`) или непустых значений в столбце таблицы (если в качестве аргумента указано имя столбца).
 
@@ -14,7 +14,7 @@ SELECT COUNT(*) FROM my_table;
 SELECT COUNT(value) FROM my_table GROUP BY key;
 ```
 
-## MIN и MAX
+## MIN и MAX {#min-and-max}
 
 Минимальное или максимальное значение.
 
@@ -25,7 +25,7 @@ SELECT COUNT(value) FROM my_table GROUP BY key;
 SELECT MIN(value), MAX(value) FROM my_table;
 ```
 
-## SUM
+## SUM {#sum}
 
 Сумма чисел.
 
@@ -37,7 +37,7 @@ SELECT MIN(value), MAX(value) FROM my_table;
 SELECT SUM(value) FROM my_table;
 ```
 
-## AVG
+## AVG {#avg}
 
 Арифметическое среднее.
 В качестве аргумента допустимо произвольное вычислимое выражение с числовым результатом.
@@ -48,7 +48,7 @@ SELECT SUM(value) FROM my_table;
 SELECT AVG(value) FROM my_table;
 ```
 
-## COUNT_IF
+## COUNT_IF {#count-if}
 
 Количество строк, для которых указанное в качестве аргумента выражение истинно (результат вычисления выражения — true).
 
@@ -63,7 +63,7 @@ SELECT
 FROM my_table;
 ```
 
-## SUM_IF и AVG_IF
+## SUM_IF и AVG_IF {#sum-if-and-avg-if}
 
 Сумма или арифметическое среднее, но только для строк, удовлетворяющих условию, переданному вторым аргументом.
 
@@ -77,7 +77,7 @@ SELECT
 FROM my_table;
 ```
 
-## CountDistinctEstimate, HyperLogLog и HLL
+## CountDistinctEstimate, HyperLogLog и HLL {#countdistinctestimate-hyperloglog-and-hll}
 
 Примерная оценка числа уникальных значений по алгоритму [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog). Логически делает то же самое, что и `COUNT(DISTINCT ...)`, но работает значительно быстрее ценой некоторой погрешности.
 
@@ -103,7 +103,7 @@ SELECT
 FROM my_table;
 ```
 
-## SOME
+## SOME {#some}
 
 Получить значение указанного в качестве аргумента выражения для одной из строк таблицы. Не дает никаких гарантий о том, какая именно строка будет использована. Аналог функции [any()](https://clickhouse.yandex/docs/ru/agg_functions/reference/#anyx) в ClickHouse.
 
@@ -116,7 +116,7 @@ SELECT
 FROM my_table;
 ```
 
-## LIST
+## LIST {#list}
 
 Получить все значения столбца в виде списка. В сочетании с `DISTINCT` возвращает только уникальные значения. Порядок элементов в результирующем списке зависит от реализации и снаружи не задается, чтобы получить упорядочный список необходимо отсортировать результат, например с помощью [ListSort](list.md#listsort).
 
@@ -144,7 +144,7 @@ FROM my_table
 GROUP BY key;
 ```
 
-## MAX_BY и MIN_BY
+## MAX_BY и MIN_BY {#max-by-and-min-by}
 
 Вернуть значение первого аргумента для строки таблицы, в которой второй аргумент оказался минимальным/максимальным.
 
@@ -168,7 +168,7 @@ SELECT
 FROM my_table;
 ```
 
-## STDDEV и VARIANCE
+## STDDEV и VARIANCE {#stddev-and-variance}
 <a name="stddev"></a><a name="variance"></a>
 
 Стандартное отклонение и дисперсия по колонке. Используется [однопроходной параллельный алгоритм](https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance#Parallel_algorithm), результат которого может отличаться от полученного более распространенными методами, требующими двух проходов по даным.
@@ -189,7 +189,7 @@ SELECT
 FROM my_table;
 ```
 
-## CORRELATION и COVARIANCE
+## CORRELATION и COVARIANCE {#correlation-and-covariance}
 
 Корреляция и ковариация двух колонок.
 
@@ -205,7 +205,7 @@ SELECT
 FROM my_table;
 ```
 
-## PERCENTILE и MEDIAN
+## PERCENTILE и MEDIAN {#percentile-and-median}
 
 Подсчет процентилей по амортизированной версии алгоритма [TDigest](https://github.com/tdunning/t-digest). `MEDIAN` — алиас для `PERCENTILE(N, 0.5)`.
 
@@ -219,24 +219,24 @@ SELECT
 FROM my_table;
 ```
 
-## HISTOGRAM
+## HISTOGRAM {#histogram}
 
 Построение примерной гистограммы по числовому выражению с автоматическим выбором корзин.
 
 [Вспомогательные функции](../udf/list/histogram.md#histogram)
 
-### Базовые настройки
+### Базовые настройки {#basic-settings}
 
 * Ограничение на число корзин можно задать с помощью опционального аргумента, значение по умолчанию — 100. Следует иметь в виду, что дополнительная точность стоит дополнительных вычислительных ресурсов и может негативно сказываться на времени выполнения запроса, а в экстремальных случаях — и на его успешности.
 * У `Histogram::Print` есть опциональный числовой аргумент, который задает максимальную длину столбцов гистограммы (в символах, так как гистограмма рисуется в технике ASCII-арт). Зачение по умолчанию — 25.
 
-### Поддержка весов
+### Поддержка весов {#support-for-weights}
 
 Имеется возможность указать «вес» для каждого значения, участвующего в построении гистограммы. Для этого вторым аргументом в агрегатную функцию нужно передать выражение для вычисления веса. По умолчанию всегда используется вес `1.0`. Если используются нестандартные веса, ограничение на число корзин можно задать третьим аргументом.
 
 В случае если передано два аргумента, смысл второго аргумента определяется по его типу (целочисленный литерал — ограничение на число корзин, в противном случае — вес).
 
-### Алгоритмы
+### Алгоритмы {#algorithms}
 
 [Оригинальный whitepaper](http://jmlr.org/papers/volume11/ben-haim10a/ben-haim10a.pdf)
 [Используемая библиотека с реализацией в Аркадии](https://a.yandex-team.ru/arc/trunk/arcadia/yweb/robot/kiwi_aggregators/histogram/)
@@ -262,12 +262,12 @@ BlockWardHistogram
 While FastGreedyShrink is used most of the time, SlowShrink is mostly used for histogram finalization
 </blockquote>
 
-### Если нужна точная гистограмма
+### Если нужна точная гистограмма {#if-you-need-an-accurate-histogram}
 
 1. Можно воспользоваться описанными ниже агрегатными функциями с фиксированными сетками корзин: [LinearHistogram](#linearhistogram) или [LogarithmicHistogram](#logarithmichistogram).
 2. Можно самостоятельно вычислить номер корзины для каждой строки и сделать по нему [GROUP BY](../syntax/basic.md#group-by).
 
-### Примеры
+### Примеры {#examples}
 
 ```sql
 SELECT
@@ -284,7 +284,7 @@ SELECT
 FROM my_table;
 ```
 
-## LinearHistogram, LogarithmicHistogram и LogHistogram
+## LinearHistogram, LogarithmicHistogram и LogHistogram {#linearhistogram-logarithmichistogram-and-loghistogram}
 <a name="linearhistogram"></a><a name="logarithmichistogram"></a><a name="loghistogram"></a>
 
 Построение гистограммы по явно указанной фиксированной шкале корзин.
@@ -307,7 +307,7 @@ SELECT
 FROM my_table;
 ```
 
-## BOOL_AND и BOOL_OR
+## BOOL_AND и BOOL_OR {#bool-and-bool-or}
 
 Применение соответствующей логической операции (`AND / OR`) ко всем значениям булевой колонки или выражения.
 Логика работы эквивалентна функциям Python `all()` и `any()` соответственно.
@@ -320,7 +320,7 @@ SELECT
 FROM my_table;
 ```
 
-## BIT_AND, BIT_OR и BIT_XOR
+## BIT_AND, BIT_OR и BIT_XOR {#bit-and-bit-or-bit-xor}
 
 Применение соответствующей битовой операции ко всем значениям числовой колонки или выражения.
 
@@ -330,7 +330,7 @@ SELECT
 FROM my_table;
 ```
 {% if yt %}
-## UDAF
+## UDAF {#udaf}
 
 Если по каким-то причинам перечисленных выше агрегатных функций оказалось недостаточно, в YQL имеется механизм описания пользовательских агрегатных функций. Подробнее [см. в отдельной статье](../guides/udaf.md).
 {% endif %}

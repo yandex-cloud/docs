@@ -1,6 +1,6 @@
 # Функции для работы со словарями
 
-## DictItems
+## DictItems {#dictitems}
 
 Получения содержимого словаря в виде списка кортежей с парами ключ-значение.
 
@@ -10,7 +10,7 @@ SELECT DictItems(dict_column)
 FROM my_table;
 ```
 
-## DictKeys
+## DictKeys {#dictkeys}
 
 Получения списка ключей словаря.
 
@@ -20,7 +20,7 @@ SELECT DictKeys(dict_column)
 FROM my_table;
 ```
 
-## DictPayloads
+## DictPayloads {#dictpayloads}
 
 Получения списка значений словаря.
 
@@ -30,7 +30,7 @@ SELECT DictPayloads(dict_column)
 FROM my_table;
 ```
 
-## DictLookup
+## DictLookup {#dictlookup}
 
 Получение элемента словаря по ключу.
 
@@ -40,7 +40,7 @@ SELECT DictLookup(dict_column, "foo")
 FROM my_table;
 ```
 
-## DictContains
+## DictContains {#dictcontains}
 
 Проверка наличия элемента в словаре по ключу. Возвращает true или false.
 

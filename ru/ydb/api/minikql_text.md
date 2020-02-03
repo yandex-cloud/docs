@@ -1,7 +1,7 @@
 В данном документе описывается текстовое представление языка miniKQL.
 Всё написанное ниже является драфтом и может подвергаться существенным изменениям.
 
-## Описание программы
+## Описание программы {#program-description}
 miniKQL — функциональный декларативный строготипизированный язык с иммутабельными значениями, позволяющий задать набор операций, выполняющихся в одну транзакцию KiKiMR.
 miniKQL имеет Haskell-like синтаксис. Программой на языке miniKQL является набор объявлений и выражений в кодировке utf-8. Команды разделяются символом ` ; `.
 
@@ -10,12 +10,12 @@ miniKQL имеет Haskell-like синтаксис. Программой на я
 1. Блока декларации внешних параметров (может отсутствовать). В блоке декларации необходимо описать все внешние параметры и их типы, используя ключевое слово ExternalParam. %%
 v1 = ExternalParam Int32;
 v2 = ExternalParam String;
-Перед выполнением программы необходимо сбайндить внешние параметры с их значениями, передав компилятору текстовый файл вида: 
+Перед выполнением программы необходимо сбайндить внешние параметры с их значениями, передав компилятору текстовый файл вида:
 ```
 v1 101
 v2 "abacaba”
 ```
-В самой программе внешние параметры используются как обычные переменные. Передача более сложных структур: 
+В самой программе внешние параметры используются как обычные переменные. Передача более сложных структур:
 ```
 v1 = ExternalParam [] Int32; -- List of Int32.
 v2 = ExternalParam [] ("m1" : Int32, "m2" : String); -- List of Struct.
@@ -25,7 +25,7 @@ v2 [("m1": 1, "m2": "a"), ("m1": 2, "m2": "b")]
 ```
 2. Самой программы. Состоит из объявлений переменных, чтений/записей из/в базу, различных операций над переменными.
 
-## Объявление переменных
+## Объявление переменных {#variable-declaration}
 Сразу отметим, что “переменные” на самом деле не переменные, а константные (как и в Haskell), знак “=“ обозначает “связывание" имени переменной со значением.  Однажды использованное имя нельзя “пересвязать”, все значения иммутабельны.
 
 Формальная конструкция для объявления переменных типов Data и Key:
@@ -38,7 +38,7 @@ f = Bool True;
 x = Int32 5;
 y = UInt64 10;
 s = String “15”;
-k = DbKey /tag1/tag2:value2/tag3:*value3; 
+k = DbKey /tag1/tag2:value2/tag3:*value3;
 -- типы значений тэгов берутся из схемы:
 -- : для static tag
 -- :* для dynamic
@@ -77,9 +77,9 @@ tag = tagname[(:|:*)value]
 tagname = // здесь разумное ограничение на tagname.
 value = // здесь разумное ограничение на value.
 ```
-## Представление типов и работа с ними
+## Представление типов и работа с ними {#representation-of-types-and-work-with-them}
 
-### Data
+### Data {#data}
 _Types_: Int32, Int64, UInt32, UInt64, Bool, String.
 
 Считаем дата-литералы встроенными в язык:
@@ -96,7 +96,7 @@ y = UInt32 32;
 k = x + 19;
 s = String "aaa";
 ```
-### List 
+### List {#list}
 _Type_: List
 _Methods_: len, skip, take, append, extend, ...
 
@@ -108,7 +108,7 @@ x = len l2; -- 0
 l3 = append l2 10;
 ```
 
-### Struct 
+### Struct {#struct}
 _Type_: Struct
 _Methods_: getMember, addMember
 
@@ -120,7 +120,7 @@ s1 = addMember s “member” 1;
 s2 = (“member1”: 12, “member2”: “hi");  -- имена полей (member) — всегда строки.
 val = getMember s2  “fieldname1”; -- 12
 ```
-### Dict 
+### Dict {#dict}
 _Type_: Dict
 _Methods_: contains, lookup
 _Built-ins_: createHashedDict, createSortedDict
@@ -132,7 +132,7 @@ d = {2: 2L, 3: 3L}; -- {key1: val1, key2: val2, …}
 has = contains d 2; -- True
 val = lookup d 3; -- <3L>
 ```
-### Optional 
+### Optional {#optional}
 _Type_: Opt
 _Methods_: coalesce, exist, ifPresent
 
@@ -146,7 +146,7 @@ someVar = Int32 12;
 o2 = <someVar>;
 f2 = ifPresent o2 "true" "false"; -- will be "true".
 ```
-### DbKey и DocKey 
+### DbKey и DocKey {#dbkey-and-dockey}
 _Types_: DbKey, DocKey
 _Consts_: RootDbKey, RootDocKey, DbKey, DocKey
 _Methods_: addDynamicTag, addStaticTag, addScalarTag
@@ -171,15 +171,15 @@ k = DbKey /tag1/tag2:someVal2/tag3:*someVal3/;
 ```
 dbk = addDynamicTag RootDbKey #tagid someVal;
 ```
-## Различные операции
-### Арифметические операции 
+## Различные операции {#various-operations}
+### Арифметические операции {#arithmetic-operations}
 Можно производить только над Data (и должно поддерживаться типом): ` +, -, *, /, % `
 
-Для ` +, -, * ` результатом является Data, 
+Для ` +, -, * ` результатом является Data,
 
 для ` /, % ` -- Opt of Data.
 
-### Операции сравнения 
+### Операции сравнения {#comparison-operations}
 Любые два значения типа Data можно сравнивать: ` ==, <=, <, >, >=, /= `
 Результатом сравнения является Bool.
 
@@ -191,7 +191,7 @@ o = <12>; -- Opt
 x = 13;
 f2 = o /= x; -- True
 ```
-### Логические операции 
+### Логические операции {#logical-operations}
 _Keywords_: and, or, xor, not
 and, or, xor, not — работают с Bool, на выходе Bool.
 ```
@@ -199,20 +199,20 @@ f1 = Bool True;
 f2 = Bool False;
 f3 = f1 and f2; // False.
 ```
-## Разное
-### map, reduce и лямбды
+## Разное {#other}
+### map, reduce и лямбды {#map-reduce-lambdas}
 _KeyWords_: _, map, reduce, sort, filter, ...
 На входе List и лямбды. На выходе List.
 
-Haskell-style: 
+Haskell-style:
 `\x y -> x + y`
 
-Scala-style: 
+Scala-style:
 ```
 // simple
 (x : Int, y : Int) => x + y
 // multiline
-(x : Int, y : Int) => { 
+(x : Int, y : Int) => {
     val xx = 2 * x
     val yy = 2 * y
     xx + yy
@@ -235,46 +235,46 @@ l = [1, 2, 3, 4];
 l2 = map l (x) => {x + 1;}; -- символ _ -- переданный элемент.
 l3 = sort l (x) => {-x}; -- сортировка в обратном порядке.
 ```
-### If-then-else 
+### If-then-else {#if-then-else}
 _KeyWords_: if, then, else
 ```
 if 2 < 4 then "true" else "false";
 ```
-### Макросы 
+### Макросы {#macros}
 /// TODO функции вместо макросов
 
-## Работа с базой
-### Read
+## Работа с базой {#work-with-the-base}
+### Read {#read}
 На входе -- DbKey. На выходе empty Opt или Opt of Opt of Data.
 
 ```
 k = DbKey /tag1/tag2:someVal2/;
 res = read k;
 ```
-### Range Read
+### Range Read {#range-read}
 ```
 k = DbKey /t1/t2/t3/;
 subk1 = DbKey /t4/;
 subk2 = DbKey /t5/;
 subkeys = ("subk1": subk1, "subk2": subk2);
-res = readrange k t5 <initValue> <termValue> subkeys; 
+res = readrange k t5 <initValue> <termValue> subkeys;
 ```
 TODO: как работать с subkey в ProgramBuilder?
 
-### Write
+### Write {#write}
 Запись/обновление данных по ключу. Писать можно только Data или Opt of Data (для нескалярных тэгов).
 ```
 k = DbKey /t1/t2/;
 payload = Int32 4;
 write k payload;
 ```
-### Erase
+### Erase {#erase}
 Удаление данных по ключу.
 ```
 k = DbKey /t1/t2/;
 erase k;
 ```
-## Пример
+## Пример {#example}
 Пример простой программы, которая по двум userId (задаются внешними параметрами) возвращает имя старшего из них по информации из базы.
 
 ext_params.txt
@@ -290,7 +290,7 @@ userId2 = ExternalParam UInt64;
 k1 = DbKey /userinfo/ages_and_names:userId1/;
 k2 = DbKey /userinfo/ages_and_names:userId2/;
 
-// Делаем Read'ы по ключам k1 и k2. 
+// Делаем Read'ы по ключам k1 и k2.
 res1 = read k1;
 res2 = read k2;
 // Обработка ответа...

@@ -1,6 +1,6 @@
 # Deploy to Developer Slices
 
-## Введение
+## Введение {#introduction}
 В данной статье описано средство деплоя конфигурации и бинарников KiKiMR на тестовые кластера aka Dev Slices. Данный режим удобен в первую очередь разработчикам, так как:
 
 1. Не требует ничего, кроме подготовленного slice, хотя может и сама из svn (hg) собрать необходимые таргеты в аркадии (kikimr, nbs).
@@ -11,7 +11,7 @@ $ kikimr_slice update -c cluster.yaml --svn
 ```
 В качестве подхода к построению конфигурации программа `kikimr_slice` использует подход описанный [здесь](slicedeploy.md).
 
-## Подготовка кластера
+## Подготовка кластера {#cluster-preparation}
 Для того, чтобы kikimr_slice мог работать на кластере, кластер должен быть соответствующим образом подготовлен:
 
 1. Должны быть установлены пакеты из [шаблона](https://z2.yandex-team.ru/meta_control_panel?configId=KIKIMR_INFRA_TEST) в Z2. <span style="color:red;">(Актуально ли, у меня 403)</span>
@@ -19,7 +19,7 @@ $ kikimr_slice update -c cluster.yaml --svn
 3. 'yandex-search-kikimr-multitenancy-class-scripts' -- для работы с тенантами
 4. yandex-search-kikimr-blockstore-{bin,client,conf,init,logging,plugin} -- для работы с nbs.
 
-## Программа kikimr\_slice
+## Программа kikimr\_slice {#programm-kikimr-slice}
 Программа автоматизирует некоторые действия с кластером KiKiMR, например, такие как:
 
 * остановка/запуск сервисов KiKiMR

@@ -1,4 +1,4 @@
-## Как технически устроена документация по YDB?
+## Как технически устроена документация по YDB? {#how-the-ydb-documentation-is-technically-arranged}
 
 Инфраструктура для генерации сайта с документацией по контенту из данной директории располагается в [arcadia/kikimr/tools/docs](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/tools/docs) и обладает своим [README.md](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/tools/docs/README.md).
 
@@ -7,7 +7,7 @@
 * Документация разрабатывается в формате [Markdown](https://en.wikipedia.org/wiki/Markdown).
 * Чтобы новая статья была опубликована, ее нужно внести в [оглавление](toc.yaml).
 
-## Краткая справка про используемый диалект Markdown
+## Краткая справка про используемый диалект Markdown {#short-help-on-markdown-dialect-used}
 
 * Заголовки на отдельной строке начиная с `# `, `## ` или `### `.
 * Выделение жирным в `**звездочках**` или `__подчеркиваниях__`.

@@ -1,5 +1,5 @@
 # YQL HTTP API
-## Введение
+## Введение {#introduction}
 Мы хотим в ближайшее время полностью перейти на данный HTTP API вместо текущего MessageBus API и со временем закопать последний. Таким образом все возможности YQL, за вычетом  событий, происходящих на клиенте (например, повторные попытки соединения), будут доступны через HTTP API. В будущем, вероятно, будет добавлен режим работы через WebSocket, чтобы была возможность получать обновления статусов операций без polling.
 
 HTTP API построен по принципу REST, то есть каждой сущности соответствует URL. Типа HTTP-запроса определяет, какая операция будет выполненена:
@@ -15,17 +15,17 @@ HTTP API построен по принципу REST, то есть каждой
 
 ![](https://jing.yandex-team.ru/files/blinkov/YQL-08.png)
 
-## Справочная документация по API
+## Справочная документация по API {#api-reference-documentation}
 Полный список всех ручек:
 [yql.yandex-team.ru/docs/http/reference](https://yql.yandex-team.ru/docs/http/reference/)
 
-## Клиентские библиотеки
+## Клиентские библиотеки {#client-library}
 Обертки YQL HTTP API для:
 
 * [Python](python.md)
 * [JDBC](jdbc.md) (Java)
 
-## Пример запуска запроса
+## Пример запуска запроса {#example-of-running-a-query}
 ``` sh
 $ export YQL_TOKEN="XXXXX" # получаем с https://yql.yandex.net/api/oauth/new
 $ curl -X POST \
@@ -139,7 +139,7 @@ $ curl -X POST \
 ```
 </details>
 
-## Websocket
+## Websocket {#websocket}
 Также HTTP API YQL предоставляет возможность получения push-уведомлений об изменении статусов операций через Websocket.
 
 * URL для подключения (также требуется аутентификация): `wss://yql.yandex.net/websocket`

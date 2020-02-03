@@ -1,22 +1,22 @@
 # YQL Python Library
-## Введение
+## Введение {#introduction}
 Основное предназначение данной библиотеки — упростить доступ к [YQL HTTP API](http.md) из скриптов на Python.
 Библиотека предоставляет доступ к клиенту YQL в виде Python-объекта класса `YqlClient`.
 <blockquote>В настоящий момент разобраться, как работать с библиотекой, можно с помощью приведенных ниже **примеров**. Полной документации на API пока нет.
 </blockquote>
 
-## Примеры использования
+## Примеры использования {#example-of-use}
 ![](https://wiki.yandex-team.ru/yql/lib/python/.files/yql-python.gif)
 
 * [Hello, world!](https://a.yandex-team.ru/arc/trunk/arcadia/yql/library/python/yql/api/v1/examples/hello_world.py)
 * [Базовый доступ к результатам](https://a.yandex-team.ru/arc/trunk/arcadia/yql/library/python/yql/api/v1/examples/iterate.py)
 * [Все примеры](https://a.yandex-team.ru/arc/trunk/arcadia/yql/library/python/yql/api/v1/examples)
 
-## Интеграция
+## Интеграция {#integration}
 Помимо своего интерфейса библиотека поставляется в комплекте с тонкой оберткой, реализующей протокол [DBAPI 2.0 (PEP 0249)](https://www.python.org/dev/peps/pep-0249/). Через нее можно подключить различные opensource и не только продукты, работающие по этому протоколу. Например, также есть готовый адаптер к [библиотеке SQLAlchemy](https://www.sqlalchemy.org) для генерации и запуска SQL запросов, см. [отдельные примеры по работе через SQLAlchemy](https://a.yandex-team.ru/arc/trunk/arcadia/yql/library/python/yql/sqlalchemy/examples).
 
-## Как воспользоваться?
-### Из консольного клиента YQL
+## Как воспользоваться? {#how-to-use}
+### Из консольного клиента YQL {#from-the-yql-console-client}
 Cамый простой способ получить доступ к интерпретатору Python с предустановленной библиотекой yql для первичного ознакомления и экспериментов — [скачать консольный клиент](cli.md#vvedenie) и, как показано выше на анимированной иллюстрации, запустить его командой:
 ``` sh
 $ yql python
@@ -28,18 +28,18 @@ $ yql python
 * интерактивный режим на основе IPython + ptpython;
 * запуск скрипта из файла с помощью `$ yql python foo.py`.</blockquote>
 {% if yt %}
-### Из Jupyter
+### Из Jupyter {#from-jupyter}
 Также в консольном клиенте YQL есть режим автоматического запуска Jupyter (в прошлом IPython Notebook) с предустановленной клиентской библиотекой. Про этот режим и особенности использования YQL из Jupyter есть [отдельная подробная статья](../guides/jupyter.md).
 {% endif %}
-### Из Аркадии
+### Из Аркадии {#from-arcadia}
 Если ваш Python-проект тоже живет в Аркадии на [PY_SRCS](https://wiki.yandex-team.ru/devtools/commandsandvars/pysrcs/), то чтобы подключить клиентскую библиотеку YQL — достаточно создать [PEERDIR](https://wiki.yandex-team.ru/devtools/commandsandvars/#komandyproekta) на `yql/library/python`.
 
 Если вы собираетесь пользоваться опцией по скачиванию полных таблиц на клиент (`fetch_full_data()`), то также нужен PEERDIR на `contrib/python/yt`.
 
-### deb-пакет
+### deb-пакет {#deb-package}
 `yandex-yql-python` в репозитории <http://common.dist.yandex.ru/common/> `stable/all`.
 
-### pip
+### pip {#pip}
 Минимальная установка:
 ``` sh
 $ pip install -i <https://pypi.yandex-team.ru/simple/> yql
@@ -48,7 +48,7 @@ $ pip install -i <https://pypi.yandex-team.ru/simple/> yql
 ``` sh
 $ pip install -i <https://pypi.yandex-team.ru/simple/> 'yql[full]'
 ```
-## Особенности реализации
+## Особенности реализации {#features}
 Исторически эта библиотека была выделена из ранее монолитного [консольного клиента YQL](cli.md). С одной стороны, это позволило сразу же обеспечить доступ из библиотеки ко всей функциональности YQL, в том числе к большинству специфичных для консольного клиента команд, например: `EXPLAIN`, `DESCRIBE`, `SHOW TABLES` и прочих. С другой стороны, в наследство достались и минусы реализации клиента (но все они устранимы):
 
 * Состояние конфигурации клиента хранится глобально (в singleton-объекте), поэтому создавать в одном процессе несколько объектов клиента не целесообразно — изменение в конфигурации любого из них отразится на всех остальных.

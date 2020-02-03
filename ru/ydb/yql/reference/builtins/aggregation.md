@@ -363,11 +363,11 @@ FROM my_table;
 
 Вспомогательные функции перечислены в разделе [Histogram UDF](../udf/list/histogram.md).
 
-### Базовые настройки
+### Базовые настройки {#basic-settings}
 
 Ограничение на число корзин можно задать с помощью опционального аргумента, значение по умолчанию — 100. Следует иметь в виду, что дополнительная точность стоит дополнительных вычислительных ресурсов и может негативно сказываться на времени выполнения запроса, а в экстремальных случаях — и на его успешности.
 
-### Поддержка весов
+### Поддержка весов {#weight-support}
 
 Имеется возможность указать «вес» для каждого значения, участвующего в построении гистограммы. Для этого вторым аргументом в агрегатную функцию нужно передать выражение для вычисления веса. По умолчанию всегда используется вес `1.0`. Если используются нестандартные веса, ограничение на число корзин можно задать третьим аргументом.
 
@@ -375,7 +375,7 @@ FROM my_table;
 
 {% if audience == "internal" %}
 
-### Алгоритмы
+### Алгоритмы {#algorithms}
 
 * [Оригинальный whitepaper](http://jmlr.org/papers/volume11/ben-haim10a/ben-haim10a.pdf);
 * [Используемая библиотека с реализацией в Аркадии](https://a.yandex-team.ru/arc/trunk/arcadia/library/histogram/adaptive).
@@ -404,7 +404,7 @@ While FastGreedyShrink is used most of the time, SlowShrink is mostly used for h
 
 {% endif %}
 
-### Если нужна точная гистограмма
+### Если нужна точная гистограмма {#if-you-need-an-accurate-histogram}
 
 1. Можно воспользоваться описанными ниже агрегатными функциями с фиксированными сетками корзин: [LinearHistogram](#linearhistogram) или [LogarithmicHistogram](#logarithmichistogram).
 2. Можно самостоятельно вычислить номер корзины для каждой строки и сделать по нему [GROUP BY](../syntax/group_by.md).
@@ -436,7 +436,7 @@ SELECT
 FROM my_table;
 ```
 
-## LinearHistogram, LogarithmicHistogram и LogHistogram {%linearhistogram}
+## LinearHistogram, LogarithmicHistogram и LogHistogram {%linearhistogram} {#linearhistogram-logarithmichistogram-and-loghistogram-linearhistogram}
 
 Построение гистограммы по явно указанной фиксированной шкале корзин.
 
