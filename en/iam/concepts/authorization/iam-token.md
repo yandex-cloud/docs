@@ -29,5 +29,5 @@ This authentication method is supported by all services, except for those with A
 * [{#T}](../../operations/iam-token/create-for-sa.md)
 * [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md)
 * [{#T}](../../../functions/operations/function-sa.md)
-* [{#T}](index.md)
+* [{#T}](./index.md)
 

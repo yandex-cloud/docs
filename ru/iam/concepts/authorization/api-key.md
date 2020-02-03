@@ -28,4 +28,4 @@ Authorization: Api-Key <API-ключ>
 
 * [Как создать API-ключ](../../operations/api-key/create.md)
 * [{#T}](iam-token.md)
-* [{#T}](index.md)
+* [{#T}](./index.md)
