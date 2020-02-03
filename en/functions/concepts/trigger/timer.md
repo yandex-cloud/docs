@@ -1,6 +1,6 @@
 # Timer
 
-_Timer_ is a [trigger](./index.md) that runs a function on a schedule. The schedule is entered as a [cron expression](#cron-expression). The cron expression uses [Coordinated Universal Time (UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+_Timer_ is a [trigger](index.md) that runs a function on a schedule. The schedule is entered as a [cron expression](#cron-expression). The cron expression uses Coordinated Universal Time, [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 ## Cron expression format {#cron-expression}
 
@@ -10,7 +10,7 @@ The order of fields in the cron expression: `Minutes Hours Day-of-month Month Da
 
 {% note info %}
 
-Special characters used, as well as the names of months and days of the week, are case-insensitive: `MON` is the same as `mon`.
+Special characters used, as well as the names of months and days of the week, are case-insensitive: `MON` is equivalent to `mon`.
 
 {% endnote %}
 
@@ -25,19 +25,19 @@ Special characters used, as well as the names of months and days of the week, ar
 
 ### Special characters {#special-characters}
 
-You can use the following special characters in cron expressions:
+You can use the following special characters in the cron expressions:
 
 * `*` — Select all values in the field.
 
-    > The `*` character in the `Minutes` field: The trigger starts `every minute`.
+    > The `*` character in the `Minutes` field: the trigger starts `every minute`.
 
-* `?` — Select any field value. You can't add values for `Day of month` and `Day of week` at the same time. If you entered a value in one of these fields, enter `?` in the other field.
+* `?` — Select any field value. You cannot fill `Day of month` and `Day of week` at the same time. If you entered a value in one of these fields, enter `?` in the other field.
 
-    > `10` in `Day of month` and `?` in `Day of week`: The trigger is launched every 10th day of the month.
+    > `10` in `Day of month` and `?` in `Day of week`: the trigger is launched every 10th day of the month.
 
-* `-` — Select a range of values.
+* `` — Select a range of values.
 
-    > The `10-12` range in `Hours`: the trigger runs at 10 a.m., 11 a.m., and noon.
+    > The `10-12` range in `Hours`: the trigger runs at 10 a.m., 11 a.m., and at noon.
 
 * `,` — Select multiple values.
 
@@ -51,7 +51,7 @@ You can use the following special characters in cron expressions:
     * In the `Day of month` field, it means the last day of the month.
     * In the `Day of week` field, it means the last day of the week, `7` (Saturday, `SAT`).
 
-    > `L` in the `Day of month` field: The trigger runs on January 31, February 28, and so forth.
+    > `L` in the `Day of month` field: The trigger runs on January 31, February 28, and so on.
 
 * `W` — Select the weekday nearest to the specified date.
 
@@ -59,11 +59,11 @@ You can use the following special characters in cron expressions:
 
     {% note info %}
 
-    The characters `L` and `W` in the `Day of month` field can also be merged into `LW`: The trigger is run on the last weekday of the month.
+    The characters `L` and `W` in the `Day of month` field can be also merged into `LW`: The trigger is run on the last weekday of the month.
 
     {% endnote %}
 
-* `#`  — Select the Nth day of the month.
+* `#` — Select the Nth day of the month.
 
     > The value `6#3` in the `Day of week` field: The trigger runs on the third Friday of the month (6 — Friday, 3 — the third Friday of the month).
 
@@ -75,7 +75,7 @@ You can use the following special characters in cron expressions:
 | `0 * ? * * *` | The trigger is run every hour. |
 | `15 10 ? * * *` | The trigger is run every day at 10:15 a.m. |
 
-## Roles required for timers to run correctly {#timer-role}
+## Roles required for the timer to run correctly {#roles}
 
 - To create a timer, you need a permission for the service account that runs the timer executing the operation. This permission is included in the roles [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor), and higher.
 - To run a timer, the service account needs the `{{ roles-functions-ivoker }}` role for the folder containing the function called by the timer.
@@ -84,7 +84,7 @@ Learn more about [access management](../../security/index.md).
 
 ## Timer message format {#timer-format}
 
-When the trigger starts, it sends the following message to the function:
+After the trigger is activated, it sends the following message to the function:
 
 ```json
 {

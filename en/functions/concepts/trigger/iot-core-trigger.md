@@ -2,7 +2,7 @@
 
 {% include [iot-core](../../../_includes/functions/iot-core-trigger-description.md) %}
 
-## Roles required for the proper operation of a trigger for {{ iot-short-name }} {#iot-role}
+## Roles required for the proper operation of a trigger for {{ iot-short-name }} {#roles}
 
 - To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the roles [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor), and higher.
 - To run a trigger, the service account needs the `{{ roles-functions-ivoker }}` role for the folder containing the function called by the trigger.
@@ -11,7 +11,7 @@ Learn more about [access management](../../security/index.md).
 
 ## Trigger message format {{ iot-short-name }} {#iot-format}
 
-Before the message is copied to a function, the trigger converts it to the following format:
+Before a message copy to a function, the trigger converts it to the following format:
 
 ```json
 {

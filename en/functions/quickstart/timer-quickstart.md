@@ -4,20 +4,13 @@
 
 Create a [timer](../concepts/trigger/timer.md) and run your functions on a schedule.
 
-## Before you start {#before-begin}
-
-To create a timer, you need:
-
-1. A service account with rights for function call. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
-1. [A function](../concepts/function.md) that the trigger will send messages to for processing. If you don't have a function:
-    - [Create a function](../operations/function/function-create.md).
-    - [Create a function version and upload your function code to it](../operations/function/version-manage.md#func-version-create).
+{% include [before-begin](../../_includes/functions/os-timer-before-begin.md) %}
 
 ## Create a timer {#trigger-create}
 
 To create a timer:
 
-1. Open **{{ sf-name }}** in the folder where you want to create a timer.
+1. Open the **{{ sf-name }}** section in the folder where you want to create a timer.
 1. Go to the **Triggers** tab.
 1. Click **Create trigger**.
 1. Under **Basic parameters**:
@@ -28,12 +21,12 @@ To create a timer:
 1. Under **Function settings**:
     * Select the function to be called by the timer.
     * Specify [the function version tag](../concepts/function.md#tag).
-    * Specify the service account to be used to call the function.
-1. Click **Create trigger**.
+    * Specify the service account that will be used to call the function.
+1. Click**Create trigger**.
 
 ## What's next {#what-is-next}
 
-- Read about the [concept of triggers](../concepts/trigger/index.md).
-- Read more about [timers](../concepts/trigger/timer.md).
+- Read about the [concept of trigger](../concepts/trigger/index.md).
+- Read more about the [timer](../concepts/trigger/timer.md).
 - For information about what you can do with triggers, see our [step-by-step instructions](../operations/index.md).
 

@@ -1,10 +1,10 @@
 # Triggers for {{ message-queue-short-name }}
 
-The [trigger](./index.md) for {{ message-queue-short-name }} is used to process the message queue. It picks up messages from the queue and passes them to a function for processing. The trigger must be in the same cloud with the queue it reads messages from. Only one trigger can be created for each message queue.
+[The trigger](index.md) for {{ message-queue-short-name }} is used to process the message queue. It picks up messages from the queue and passes them to a function for processing. The trigger must be in the same cloud with the queue it reads messages from. Only one trigger can be created for each message queue.
 
-{{ message-queue-short-name }} triggers require service accounts to read messages from a message queue and to call a function. You can use the same service account for both operations.
+The {{ message-queue-short-name }} trigger needs [service accounts](../../../iam/concepts/users/service-accounts.md) to read messages from a queue and call functions. You can use the same service account for both operations.
 
-## Roles required for the proper operation of a trigger for {{ message-queue-short-name }} {#ymq-role}
+## Roles required for the proper operation of a trigger for {{ message-queue-short-name }} {#roles}
 
 - To create a trigger, you need the following roles:
     - `{{ roles-viewer }}` for the folder with the message queue that the trigger reads messages from.

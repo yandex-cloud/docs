@@ -17,7 +17,10 @@
 ## Managing triggers {#manage-trigger}
 
 - [{#T}](trigger/trigger-list.md)
+- [{#T}](trigger/timer-create.md)
+- [{#T}](trigger/os-trigger-create.md)
 - [{#T}](trigger/ymq-trigger-create.md)
 - [{#T}](trigger/iot-core-trigger-create.md)
 - [{#T}](trigger/trigger-update.md)
 - [{#T}](trigger/trigger-delete.md)
+
