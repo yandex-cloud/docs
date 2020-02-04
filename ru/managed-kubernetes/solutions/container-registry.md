@@ -1,16 +1,16 @@
 # Интеграция с {{ container-registry-name }}
 
-Для интеграции {{ k8s }} и {{ container-registry-name }} создайте следующие ресурсы: сервисные аккаунты для управления ресурсами и доступами к ним, кластер {{ k8s }}, группу узлов, а также реест и Docker-образ. Для упрощения аутентификации настройте Docker Credential Helper и убедитесь, что под с приложением из {{ container-registry-name }} запускается без дополнительной аутентификации, используя сервисный аккаунт.
+Для интеграции {{ k8s }} и {{ container-registry-name }} создайте следующие ресурсы: сервисные аккаунты для управления ресурсами и доступами к ним, кластер {{ k8s }}, группу узлов, а также реестр и Docker-образ. Для упрощения аутентификации настройте Docker Credential helper и убедитесь, что под с приложением из {{ container-registry-name }} запускается без дополнительной аутентификации, используя сервисный аккаунт.
 
 1. [Создайте сервисные аккаунты](#create-sa)
     1. [Создайте сервисный аккаунт для ресурсов](#res-sa)
     1. [Создайте сервисный аккаунт для узлов](#node-sa) 
-1. [Подготовьте необходимые ресурсы {{ k8s }}](#create-resources)
+1. [Подготовьте необходимые ресурсы {{ k8s }}](#create-k8s-res)
     1. [Создайте кластер {{ k8s }}](#create-cluster)
     1. [Создайте группу узлов](#create-node-groups)
 1. [Подготовьте необходимые ресурсы {{ container-registry-name }}](#create-cr-res)    
     1. [Создайте реестр](#registry-create) 
-    1. [Сконфигурируйте Credential Helper](config-ch)
+    1. [Сконфигурируйте Credential helper](#config-ch)
     1. [Подготовьте Docker-образ](#docker-image)
 1. [Подключитесь к кластеру {{ k8s }}](#cluster-connect)
 1. [Запустите тестовое приложение](#test-app)
@@ -162,7 +162,7 @@
 yc container registry create --name yc-auto-cr
 ```
 
-### Сконфигурируйте Docker Credential Helper {#config-ch}
+### Сконфигурируйте Docker Credential helper {#config-ch}
 
 Для упрощения аутентификации в {{ container-registry-name }} сконфигурируйте [Docker Credential helper](../../container-registry/operations/authentication.md#cred-helper). Он позволяет работать с приватными реестрами Яндекс.Облака, не выполняя команду `docker login`.
 
@@ -183,7 +183,7 @@ yc container registry configure-docker
     ```
 1. Соберите Docker-образ:
 
-    1. Получите идентификатор реестра, [созданного раннее](#registry-create), и запишите его в переменную:
+    1. Получите идентификатор реестра, [созданного ранее](#registry-create), и запишите его в переменную:
     
         {% list tabs %}
         

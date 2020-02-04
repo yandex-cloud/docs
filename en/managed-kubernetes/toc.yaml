@@ -21,6 +21,10 @@ items:
             href: operations/volumes/static-create-pv.md
           - name: Managing storage classes
             href: operations/volumes/manage-storage-class.md
+  - name: Solutions
+    items:
+      - name: Integration with Container Registry
+        href: solutions/container-registry.md
   - name: Concepts
     items:
       - name: Relationship between service resources
