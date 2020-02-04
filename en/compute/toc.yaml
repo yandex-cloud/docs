@@ -37,6 +37,18 @@ items:
             href: operations/dsvm/index.md
           - name: Creating an instance and connecting to it
             href: operations/dsvm/quickstart.md
+      - name: Placement groups
+        items:
+          - name: Creating a placement group
+            href: operations/placement-groups/create.md
+          - name: Creating a VM instance in a placement group
+            href: operations/placement-groups/create-vm-in-pg.md
+          - name: Adding a VM instance to a placement group
+            href: operations/placement-groups/add-vm.md
+          - name: Removing a VM instance from an instance group
+            href: operations/placement-groups/delete-vm.md
+          - name: Deleting a placement group
+            href: operations/placement-groups/delete.md
       - name: Images with pre-installed software
         items:
           - name: Creating a VM
@@ -135,7 +147,7 @@ items:
         items:
           - name: Update a group
             href: operations/instance-groups/update.md
-          - name: Configure application health check on the instance
+          - name: Configure application health check on the VM
             href: operations/instance-groups/enable-autohealing.md
           - name: Stop a group
             href: operations/instance-groups/stop.md
@@ -167,6 +179,8 @@ items:
             href: concepts/network.md
           - name: Live migration
             href: concepts/live-migration.md
+          - name: Placement groups
+            href: concepts/placement-groups.md
           - name: Statuses
             href: concepts/vm-statuses.md
           - name: Metadata
@@ -215,20 +229,13 @@ items:
           href: pricing-archive/pricing-01032019.md
         - name: From March 1 to May 1, 2019
           href: pricing-archive/pricing-30042019.md
-  - name: API reference
+  - name: Compute API reference
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
-      - name: gRPC
-        items:
-        include:
-          repo: docs
-          path: en/_api-ref-grpc/compute/api-ref/toc.yaml
-      - name: REST
-        items:
-        include:
-          repo: docs
-          path: en/_api-ref/compute/toc.yaml
+    include:
+      repo: docs
+      path: en/_api-ref/compute/toc.yaml
   - name: Questions and answers
     items:
       - name: General questions

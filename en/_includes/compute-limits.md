@@ -13,7 +13,9 @@
 | Number of images per cloud | 8 |
 | Number of instance groups per cloud | 10 |
 | Total number of GPUs for all VMs per cloud* | 0 |
-| Number of concurrent [operations](../api-design-guide/concepts/operation.md) per cloud | 15 |
+| Number of concurrent [operations](../api-design-guide/concepts/operation.md) in the cloud | 15 |
+| Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5 |
+| Maximum number of placement groups per cloud | 2 |
 
 \* To create a VM with a GPU, contact [technical support](https://cloud.yandex.com/support).
 
