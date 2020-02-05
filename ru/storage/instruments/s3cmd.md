@@ -1,6 +1,6 @@
 # S3cmd
 
-[S3cmd](https://s3tools.org/s3cmd) — это интерфейс командной строки (Linux, Mac) для работы с сервисами, поддерживающими HTTP API Amazon S3. Общий [порядок вызова команд](https://s3tools.org/usage) смотрите в официальной документации S3cmd.
+[S3cmd](https://s3tools.org/s3cmd) — это консольный клиент (Linux, Mac) для сервисов, поддерживающими HTTP API Amazon S3. Общий порядок вызова команд смотрите в [официальной документации](https://s3tools.org/usage) S3cmd.
 
 ## Подготовка к работе {#before-you-begin}
 
@@ -50,9 +50,16 @@ website_endpoint = http://%(bucket)s.{{ s3-web-host }}
 
 ## Особенности {#specifics}
 
-Помните, что S3cmd работает с {{ objstorage-name }} как с иерархической файловой системой и ключи объектов имеют вид пути к файлу.
+- S3cmd работает с {{ objstorage-name }} как с иерархической файловой системой и ключи объектов имеют вид пути к файлу.
+- По умолчанию S3cmd загружает объекты в холодное хранилище. Чтобы указать [класс хранилища](../concepts/storage-class.md), при загрузке объекта используйте ключ `--storage-class`.
 
 ## Примеры операций {#s3cmd-examples}
+
+{% note info %}
+
+Для включения отладочного вывода в консоли используйте ключ `--debug`.
+
+{% endnote %}
 
 ### Получить список бакетов {#listing-buckets}
 
@@ -72,10 +79,10 @@ s3cmd mb s3://bucket
 
 {% endnote %}
 
-### Загрузить объект {#uploading-object}
+### Загрузить объект в холодное хранилище {#uploading-object}
 
 ```
-s3cmd put local_file s3://bucket/object
+s3cmd --storage-class COLD put local_file s3://bucket/object
 ```
 
 ### Получить список объектов {#getting-object-list}

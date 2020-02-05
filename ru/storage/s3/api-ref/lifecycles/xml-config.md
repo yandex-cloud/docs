@@ -7,6 +7,7 @@
 ```xml
 <LifecycleConfiguration>
     <Rule>
+        <ID>Описание правила</ID>
         <Status>{Enabled|Disabled}</Status>
         <Filter>
            <Prefix>префикс_ключа</Prefix>
@@ -39,7 +40,7 @@
 `Days` | Интервал исполнения правила.<br/><br/>Задается количеством дней после загрузки объекта.<br/><br/>Путь: `LifecycleConfiguration\Rule\Expiration\Days`.
 `Expiration` | Правило для удаления объекта из {{ objstorage-name }}.<br/><br/>Содержит элемент `Days` или `Date`, который определяет сроки исполнения действия.<br/><br/>Путь: `LifecycleConfiguration\Rule\Expiration`.
 `Filter` | Фильтр объектов.<br/><br/>Содержит не более одного элемента `Prefix`. Если установить пустой фильтр `<Filter></Filter>`, то правило применяется ко всем объектам в бакете.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter`.
-`ID` | Уникальный идентификатор правила.<br/><br/>Длина до 255 символов. Необязательный параметр, который можно использовать для поиска правила в конфигурации.<br/><br/>Путь: `LifecycleConfiguration\Rule\ID`.
+`ID` | Уникальный идентификатор правила.<br/><br/>Произвольный текст длиной до 255 символов, например "Удалить через 20 дней". Необязательный параметр, который можно использовать для поиска правила в конфигурации.<br/><br/>Если идентификатор не указан, то {{objstorage-name}} генерирует его автоматически.<br/><br/>Путь: `LifecycleConfiguration\Rule\ID`.
 `LifecycleConfiguration` | Корневой элемент XML-документа.<br/><br/>Может содержать до 1000 элементов `Rule`.<br/><br/>Путь: `LifecycleConfiguration`.
 `Prefix` | Префикс ключа.<br/><br/>Используется для фильтрации объектов, попадающих под действие правила.<br/><br/>Примеры префиксов для ключа `some/long/object/key`: `some`, `some/`, `some/lo`.<br/><br/>Фильтр может содержать только один префикс.<br/><br/>Путь:`LifecycleConfiguration\Rule\Filter\Prefix`.
 `Rule` | Описание правила.<br/><br/>Объекты, попадающие под действие правила задаются элементом `Filter`. Действия над объектами определяются элементами `Transition` и `Expiration`. Действий каждого типа может быть несколько.<br/><br/>Путь: `LifecycleConfiguration\Rule`.
@@ -57,6 +58,7 @@
 ```xml
 <LifecycleConfiguration>
     <Rule>
+        <ID>Переместить и потом удалить</ID>
         <Status>Enabled</Status>
         <Filter>
            <Prefix></Prefix>
