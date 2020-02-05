@@ -43,3 +43,9 @@ When you click the **Activate** button on the **Create billing account** page, a
 It may take up to three business days to activate your billing account.
 If you didn't receive an email within that period, send a request to: [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru).
 
+In the request, specify the full name of your company and cloud ID and attach the following documents:
+
+  - A copy of the certificate of business registration (English or Russian translation required).
+  - A copy of the power of attorney of the business representative if you are a representative (English or Russian translation required).
+  
+
