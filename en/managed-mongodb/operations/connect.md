@@ -46,6 +46,8 @@ You can connect to the database using the command `mongo` by listing all the clu
 
   {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
 
+  {% if audience != "internal" %}
+
   ```bash
   $ mongo --norc \
           --tls \
@@ -55,10 +57,27 @@ You can connect to the database using the command `mongo` by listing all the clu
           -p <user password> \
           <DB name>
   ```
+ 
+  {% else %}
+
+  ```bash
+  $ mongo --norc \
+          --tls \
+          --tlsCAFile ~/.mongodb/CA.pem \
+          --ipv6 \
+          --host 'rs01/<host 1 FQDN>:27018,<host 2 FQDN>:27018,<host N FQDN>:27018' \
+          -u <user name> \
+          -p <user password> \
+          <DB name>
+  ```
+
+  {% endif %}
 
 - SSL for older versions of MongoDB
 
   {% include [public-connect-ssl](../../_includes/mdb/public-connect-ssl.md) %}
+
+  {% if audience != "internal" %}
 
   ```bash
   $ mongo --norc \
@@ -70,9 +89,26 @@ You can connect to the database using the command `mongo` by listing all the clu
           <DB name>
   ```
 
+  {% else %}
+
+  ```bash
+  $ mongo --norc \
+          --ssl \
+          --sslCAFile ~/.mongodb/CA.pem \
+          --ipv6 \
+          --host 'rs01/<host 1 FQDN>:27018,<host 2 FQDN>:27018,<host N FQDN>:27018' \
+          -u <user name> \
+          -p <user password> \
+          <DB name>
+  ```
+
+  {% endif %}
+
 - Without SSL
 
   If you don't need to encrypt traffic within the virtual network when connecting to the database, you can connect from a Yandex.Cloud VM without SSL. Pass the `sslmode` parameter with the `disable` value:
+
+  {% if audience != "internal" %}
 
   ```bash
   $ mongo --norc \
@@ -81,6 +117,19 @@ You can connect to the database using the command `mongo` by listing all the clu
           -p <user password> \
           <DB name>
   ```
+
+  {% else %}
+
+  ```bash
+  $ mongo --norc \
+          --ipv6 \
+          --host 'rs01/<host 1 FQDN>:27018,<host 2 FQDN>:27018,<host N FQDN>:27018' \
+          -u <user name> \
+          -p <user password> \
+          <DB name>
+  ```
+
+  {% endif %}
 
 {% endlist%}
 

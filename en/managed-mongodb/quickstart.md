@@ -64,6 +64,20 @@ To use the service, create a cluster and connect to a DBMS:
 
 1. You can now connect to the cluster:
 
+    {% if audience != "internal" %}
+ 
+    ```bash
+    $ mongo --norc \
+            --ssl \
+            --sslCAFile ~/.mongodb/CA.pem \
+            --host 'rs01/<address of host 1>:27018,<address of host 2>:27018,<address of host N>:27018' \
+            -u <user name> \
+            -p <user password> \
+            <DB name>
+    ```
+    
+    {% else %}
+    
     ```bash
     $ mongo --norc \
             --ssl \
@@ -73,5 +87,7 @@ To use the service, create a cluster and connect to a DBMS:
             -u <user name> \
             -p <user password> \
             <DB name>
-    ```
+    ```    
+    
+    {% endif %}
 
