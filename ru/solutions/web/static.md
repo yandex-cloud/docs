@@ -1,6 +1,6 @@
 # Статический веб-сайт в {{ objstorage-full-name }}
 
-С помощью этой инструкции вы научитесь загружать статические HTML-файлы вашего веб-сайта в хранилище [Yandex Object Storage](../../storage) и привязать доменное имя к [бакету](../../storage/concepts/bucket), в котором будут храниться файлы.
+С помощью этой инструкции вы научитесь загружать статические HTML-файлы вашего веб-сайта в хранилище [{{ objstorage-full-name }}](../../storage) и привязать доменное имя к [бакету](../../storage/concepts/bucket), в котором будут храниться файлы.
 
 Чтобы разместить статический веб-сайт в Object Storage:
 
@@ -84,7 +84,7 @@
 
 {% note info %}
 
-Сайт доступен только по протоколу HTTP, например, `http://www.example.com` или `http://www.example.com.{{ s3-web-host }}`.
+По умолчанию сайт доступен только по протоколу HTTP, например, `http://www.example.com` или `http://www.example.com.{{ s3-web-host }}`. Чтобы поддержать для сайта протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
 
 {% endnote %}
 
