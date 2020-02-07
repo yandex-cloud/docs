@@ -19,10 +19,10 @@ items:
             href: operations/buckets/bucket-availability.md
           - name: Управление жизненными циклами объектов
             href: operations/buckets/lifecycles.md
+          - name: Управление конфигурацией CORS
+            href: operations/buckets/cors.md
           - name: Редактирование ACL бакета
             href: operations/buckets/edit-acl.md
-          - name: Настройка HTTPS
-            href: operations/buckets/certificate.md
       - name: Объекты
         items:
           - name: Загрузка объекта
@@ -39,6 +39,16 @@ items:
             href: operations/objects/deleting-multipart.md
           - name: Редактирование ACL объекта
             href: operations/objects/edit-acl.md
+      - name: Хостинг статических сайтов
+        items:
+          - name: Настройка хостинга
+            href: operations/hosting/setup.md
+          - name: Поддержка собственного домена
+            href: operations/hosting/own-domain.md
+          - name: Поддержка нескольких доменных имен
+            href: operations/hosting/multiple-domains.md
+          - name: Настройка HTTPS
+            href: operations/hosting/certificate.md
   - name: Концепции
     items:
       - name: Обзор
@@ -49,6 +59,10 @@ items:
         href: concepts/object.md
       - name: Жизненные циклы объектов
         href: concepts/lifecycles.md
+      - name: CORS
+        href: concepts/cors.md
+      - name: Хостинг статических сайтов
+        href: concepts/hosting.md
       - name: Подписанные (pre-signed) URL
         href: concepts/pre-signed-urls.md
       - name: Составная (multipart) загрузка
@@ -63,52 +77,34 @@ items:
         href: concepts/backup.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Хостинг статических сайтов
-    items:
-      - name: Обзор
-        href: hosting/index.md
-      - name: Описание конфигурации
-        href: hosting/bucket-configuration.md
-      - name: Настройка в консоли управления
-        href: hosting/setup.md
-      - name: Коды ответов
-        href: hosting/answer-codes.md
-  - name: CORS
-    items:
-      - name: Обзор
-        href: cors/index.md
-      - name: Описание конфигурации
-        href: cors/configuration.md
-      - name: Настройка в консоли управления
-        href: cors/setup.md
   - name: Инструменты
     items:
       - name: Все инструменты
-        href: instruments/index.md
+        href: tools/index.md
       - name: Консольные клиенты
         items:
         - name: AWS CLI
-          href: instruments/aws-cli.md
+          href: tools/aws-cli.md
         - name: S3cmd
-          href: instruments/s3cmd.md
+          href: tools/s3cmd.md
       - name: Файловые браузеры
         items:
         - name: CyberDuck
-          href: instruments/cyberduck.md
+          href: tools/cyberduck.md
         - name: WinSCP
-          href: instruments/winscp.md
+          href: tools/winscp.md
       - name: SDK
         items:
         - name: AWS SDK для Java
-          href: instruments/aws-sdk-java.md
+          href: tools/aws-sdk-java.md
         - name: Python SDK (boto)
-          href: instruments/boto.md
+          href: tools/boto.md
       - name: FUSE
         items:
         - name: s3fs
-          href: instruments/s3fs.md
+          href: tools/s3fs.md
         - name: goofys
-          href: instruments/goofys.md
+          href: tools/goofys.md
   - name: HTTP API, совместимый с Amazon S3
     items:
       - name: Как пользоваться API
@@ -179,10 +175,14 @@ items:
                 href: s3/api-ref/hosting/get.md
               - name: delete
                 href: s3/api-ref/hosting/delete.md
+              - name: Коды ответов статического сайта
+                href: answer-codes.md
           - name: CORS
             items:
               - name: Все методы
                 href: s3/api-ref/cors.md
+              - name: XML-структура конфигурации CORS
+                href: s3/api-ref/cors/xml-config.md
               - name: upload
                 href: s3/api-ref/cors/upload.md
               - name: get

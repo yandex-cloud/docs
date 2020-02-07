@@ -6,9 +6,9 @@ description:
     <li>Хранить данные произвольного формата как <a href=\"/docs/storage/concepts/object\">объекты</a> с доступом по текстовому идентификатору.</li>
     <li>Использовать различные <a href=\"/docs/storage/concepts/storage-class\">классы хранилища</a> для объектов и управлять их <a href=\"/docs/storage/concepts/lifecycles\">жизненным циклом</a>.</li>
     <li>Хранить <a href=\"/docs/storage/concepts/multipart\">большие объекты</a> размером в несколько терабайт.</li>
-    <li>Опубликовать статический <a href=\"/docs/storage/hosting\">веб-сайт</a>.</li>
+    <li>Опубликовать статический <a href=\"/docs/storage/concepts/hosting\">веб-сайт</a>.</li>
   </ul>"
-  - "<a href=\"/docs/storage/s3\">HTTP API сервиса</a> совместим с API Amazon S3, то есть для работы с Object Storage вы можете использовать множество <a href=\"/docs/storage/instruments\">инструментов</a>, созданных для работы с объектными хранилищами."
+  - "<a href=\"/docs/storage/s3\">HTTP API сервиса</a> совместим с API Amazon S3, то есть для работы с Object Storage вы можете использовать множество <a href=\"/docs/storage/tools\">инструментов</a>, созданных для работы с объектными хранилищами."
   - "Инфраструктура Яндекс.Облака <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
   - "Для сервиса действует <a href=\"https://yandex.ru/legal/cloud_sla\">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href=\"https://yandex.ru/legal/cloud_sla_storage\">Уровень обслуживания Yandex Object Storage</a>."
 nav:

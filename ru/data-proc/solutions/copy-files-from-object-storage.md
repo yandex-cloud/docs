@@ -84,7 +84,7 @@ hadoop distcp \
 
 ## Использование s3fs {#s3fs}
 
-`s3fs` позволяет монтировать бакеты {{objstorage-name}} посредством Fuse. Более подробно о ее использовании можно узнать на странице [s3fs](../../storage/instruments/s3fs.md)
+`s3fs` позволяет монтировать бакеты {{objstorage-name}} посредством Fuse. Более подробно о ее использовании можно узнать на странице [s3fs](../../storage/tools/s3fs.md)
 
 ## Использование {{objstorage-name}} в Spark {#objstorage-spark}
 

@@ -84,4 +84,4 @@
 
 ## См. также {#see-also}
 - [{#T}](../../s3/index.md)
-- [{#T}](../../instruments/index.md)
+- [{#T}](../../tools/index.md)
