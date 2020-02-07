@@ -176,7 +176,7 @@ items:
               - name: delete
                 href: s3/api-ref/hosting/delete.md
               - name: Коды ответов статического сайта
-                href: answer-codes.md
+                href: s3/api-ref/hosting/answer-codes.md
           - name: CORS
             items:
               - name: Все методы
