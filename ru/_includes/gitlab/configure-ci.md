@@ -64,7 +64,7 @@
     * Сборка Docker-образа с использованием `Dockerfile` из предыдущего этапа и загрузка образа в {{ container-registry-name }}. 
         * Для этого шага нужно использовать контейнер для сборки Docker-образов и запустить Docker-сервер как [GitLab-сервис](https://docs.gitlab.com/ee/ci/yaml/README.html#services).
         * Для аутентификации в {{ container-registry-name }} нужно использовать сервисный аккаунт, подключенный к узлам {{ k8s }}. В начале работы этому аккаунту была назначена роль [{{ roles-cr-pusher }}](../../container-registry/security/index.md#required-roles).
-        * Чтобы получить из метаданных ВМ данные для аутентификации, используется вспомогательный публичный Docker-образ `cr.yandex/yc/metadata-token-docker-helper:0.1`. Внутри него работает [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper), который получает IAM-токен из сервиса метаданных. 
+        * Чтобы получить из метаданных ВМ данные для аутентификации, используется вспомогательный публичный Docker-образ `cr.yandex/yc/metadata-token-docker-helper:0.2`. Внутри него работает [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper), который получает IAM-токен из сервиса метаданных. 
     * Настройка окружения для работы с {{ k8s }} и применение конфигурации `k8s.yaml` к кластеру {{ k8s }}. Таким образом приложение развертывается на созданном ранее кластере.
 
     {% endnote %}
