@@ -20,7 +20,7 @@ Maximum request processing times are given in the table below. A dash in a table
 
 | Channel | Basic | Standard | Business | Premium |
 | ----- | ----- | ----- | ----- | ----- |
-| Request in console | 24 hours | Standard: 24 hours<br/>Critical: 8 hours | Standard: 4 hours<br/>Critical: 30 minutes | Standard: 2 hours<br/>Critical: 15 minutes |
+| Request in console | 24 hours | Standard: 8 hours<br/>Critical: 2 hours | Standard: 4 hours<br/>Critical: 30 minutes | Standard: 2 hours<br/>Critical: 15 minutes |
 | Chat | - | 15 minutes | 5 minutes | immediate |
 | Phone | - | - | immediate | immediate |
 

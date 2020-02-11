@@ -23,19 +23,19 @@ Compared to the basic plan, the <q>Standard</q> plan lets you request basic reco
 
 - USD, without VAT
 
-    The cost of support under the service plan is $12.820513 per month, or 1% of the cost of resources consumed for the current month (whichever is more).
+    The cost of support under the service plan is $12.820513 per month for the cost of resources consumed up to $1282,0513, and 7% of that cost for the amount over $1282,0513.
     
-    The fixed cost is divided by the number of days in the month, and that number is the amount charged every day. If by the beginning of the next reporting period, 1% of the consumption amount exceeds $12.820513, the difference is charged on the first day of the month.
+    The fixed cost is divided by the number of days in the month, and that number is the amount charged every day. If by the beginning of the next reporting period, 7% of the consumption amount exceeds $12.820513, the difference is charged on the first day of the month.
 
 - Roubles, with VAT
     
-    The cost of support under the service plan is ₽1000 per month, or 1% of the cost of resources consumed for the current month (whichever is more).
+    The cost of support under the service plan is ₽1000 per month for the cost of resources consumed up to ₽100,000, and 7% of that cost for the amount over ₽100,000.
     
-    The fixed cost is divided by the number of days in the month, and that number is the amount charged every day. If by the beginning of the next reporting period, 1% of the consumption amount exceeds ₽1000, the difference is charged on the first day of the month.
+    The fixed cost is divided by the number of days in the month, and that number is the amount charged every day. If by the beginning of the next month the consumption amount exceeds ₽100,000, in the next reporting period, you will be also charged the difference between 7% of the  consumption amount and the already accrued cost of support. This charge is made within 2 business days after the end of the current reporting period.
 
 {% endlist%}
 
-### Example of cost calculation {#standard-examples}
+### Examples of cost calculation {#standard-examples}
 
 {% list tabs %}
 
@@ -49,7 +49,7 @@ Compared to the basic plan, the <q>Standard</q> plan lets you request basic reco
     
     * If by the end of the reporting period you spent $1600, then on August 1, you're charged the difference of 1% the consumption amount minus the amount already accrued for 17 days: `$16 − $0.413565 × 17 = $8.969396`.
     
-      Total cost of support for July: `$1600 × 0.01 = $16`
+      Total cost of support for July: `$1600 × 0.07 = $112`
 
 - Roubles, with VAT
 
@@ -61,7 +61,7 @@ Compared to the basic plan, the <q>Standard</q> plan lets you request basic reco
     
     * If by the end of the reporting period you spent ₽120,000, then on August 1, you're charged the difference of 1% the consumption amount minus the amount already accrued for 17 days: `₽1200 − ₽32.25 × 17 = ₽651.75`.
     
-      Total cost of support for July: `₽120,000 × 0.01 = ₽1200`
+      Total cost of support for July: `₽120,000 × 0.07 = ₽8400`
 
 {% endlist%}
 
@@ -83,9 +83,8 @@ Compared to the basic plan, the <q>Business</q> plan lets you:
     
     The consumption cost percentage is calculated as follows:
     
-    * If the consumption amount is more than $769.230780 but less than $2,564.102600, the additional cost is 7% the difference of the consumption amount minus $769.230780.
-    * If the consumption amount is more than $2,564.102600 but less than $6,410.256500, the additional cost is $125.641027 plus 5% the difference of the consumption amount minus $2,564.102600.
-    * If the consumption amount is over $6,410.256500, the additional cost is $317.948722 plus 3% the difference of the consumption amount minus $6,410.256500.
+    * If the consumption amount is more than $769.230780 but less than $2,564.1026, the additional cost is 7% the difference of the consumption amount minus $769.230780.
+    * If the consumption amount is more than $2,564.1026, the additional cost is $125.641027 plus 5% the difference of the consumption amount minus $2,564.1026.
     
     The fixed cost ($76.923078) is divided by the number of days in the month, and that number is then amount charged every day. If by the beginning of the next reporting period the consumption amount exceeds $769.230780, the calculated additional cost is charged on the first day of the month.
 
@@ -96,8 +95,7 @@ Compared to the basic plan, the <q>Business</q> plan lets you:
     The consumption cost percentage is calculated as follows:
     
     * If the consumption amount is more than ₽60,000 but less than ₽200,000, the additional cost is 7% the difference of the consumption amount minus ₽60,000.
-    * If the consumption amount is more than ₽200,000 but less than ₽500,000, the additional cost is ₽9800 plus 5% the difference of the consumption amount minus ₽200,000.
-    * If the consumption amount is over ₽500,000, the additional cost is ₽24,800 plus 3% the difference of the consumption amount minus ₽500,000.
+    * If the consumption amount is more than ₽200,000, the additional cost is ₽9800 plus 5% the difference of the consumption amount minus ₽200,000.
     
     The fixed cost (₽6000) is divided by the number of days in the month, and that number is then amount charged every day. If by the beginning of the next reporting period the consumption amount exceeds ₽60,000, the calculated additional cost is charged on the first day of the month.
 
@@ -105,7 +103,7 @@ Compared to the basic plan, the <q>Business</q> plan lets you:
 
 
 
-### Example of cost calculation {#standard-examples}
+### Examples of cost calculation {#standard-examples}
 
 {% list tabs %}
 
@@ -125,10 +123,6 @@ Compared to the basic plan, the <q>Business</q> plan lets you:
     
       Total cost of support for July: `$2.481390 × 17 days + $297.435897 = $339.619527`
     
-    * If by the end of the reporting period you spent more than $6410.256500 (for example, $10,000), then on August 1, you're charged $317.948722 plus 3% the difference of the consumption amount minus $6410.256500: `$317.948722 + ($10,000 − $6410.256500) × 0.03 = $425.641027`.
-    
-      Total cost of support for July: `$2.481390 × 17 days + $425.641027 = $467.824657`
-
 - Roubles, with VAT
 
     You started paid consumption on July 15 and enabled support under the Business plan. Every day you're charged a percentage of the fixed cost: `₽6000 / 31 = ₽193.55`.
