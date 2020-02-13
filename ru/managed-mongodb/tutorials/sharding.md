@@ -21,6 +21,12 @@
 
 ## Как включить шардирование коллекций {#enable}
 
+{% note important %}
+
+Все операции по настройке шардирования с помощью CLI `mongo` необходимо выполнять от имени пользователя с ролью [mdbShardingManager](../concepts/users-and-roles.md#mdbShardingManager) в базе данных [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database).
+
+{% endnote %}
+
 1. Перейдите на страницу нужного кластера {{ mmg-name }} в [консоли управления]({{ link-console-main }}).
 1. Перейдите на вкладку **Шарды** и нажмите кнопку **Включить**.
 1. Укажите класс хоста, тип и размер хранилища, а также подсети для хостов шарда (mongocfg и mongos).
@@ -61,7 +67,7 @@
 
 Последовательность операций:
 
-1. [Подключитесь](../operations/connect.md) к базе.
+1. [Подключитесь](../operations/connect.md) к базе `billing`. У пользователя, от имени которого вы подключаетесь к базе, должна быть роль [mdbShardingManager](../concepts/users-and-roles.md#mdbShardingManager) в базе данных [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database).
 1. Включите шардирование для базы `billing`:
 
    ```
