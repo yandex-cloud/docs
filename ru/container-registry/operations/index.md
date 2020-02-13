@@ -23,7 +23,7 @@
 - [{#T}](registry/registry-update.md)
 - [{#T}](registry/registry-delete.md)
 
-## Управдение репозиторием {#repository}
+## Управление репозиторием {#repository}
 
 - [{#T}](repository/repository-list.md)
 
