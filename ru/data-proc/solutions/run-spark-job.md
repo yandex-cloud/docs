@@ -41,8 +41,6 @@ $ s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
 1. Построчно введите следующий код:
 
    ```python
-   sc._jsc.hadoopConfiguration().set("spark.hadoop.fs.s3a.endpoint", "storage.yandexcloud.net")
-   sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider")
    sql = SQLContext(sc)
    df = sql.read.parquet("s3a://yc-mdb-examples/dataproc/example01/set01")
    ```
