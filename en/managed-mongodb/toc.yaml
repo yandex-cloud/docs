@@ -53,6 +53,8 @@ items:
       href: concepts/replication.md
     - name: Sharding
       href: concepts/sharding.md
+    - name: Users and roles
+      href: concepts/users-and-roles.md
     - name: Supported clients
       href: concepts/supported-clients.md
   - name: Access management
@@ -67,7 +69,7 @@ items:
             href: pricing-archive/pricing-01012019.md
           - name: From January 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
-          - name: From March 1, 2019, to February 1, 2020
+          - name: From March 1, 2019 to February 1, 2020
             href: pricing-archive/pricing-01022020.md
   - name: API reference
     items:
@@ -77,7 +79,7 @@ items:
         items:
         include:
           repo: docs
-          path: en/_api-ref-grpc/managed-mongodb/api-ref/toc.yaml
+          path: ru/_api-ref-grpc/managed-mongodb/api-ref/toc.yaml
       - name: REST
         items:
         include:
