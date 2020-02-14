@@ -2,43 +2,56 @@
 
 {% if audience != "internal"%}
 
-Пользователь Яндекс.Облака может выполнять только те операции над ресурсами, которые разрешены назначенными ему ролями. Пока у пользователя нет никаких ролей, почти все операции ему запрещены.
+В этом разделе вы узнаете:
+* [на какие ресурсы можно назначить роль](#resources);
+* [какие роли действуют в сервисе](#roles-list);
+* [какие роли необходимы](#required-roles) для того или иного действия.
 
-Чтобы разрешить доступ к ресурсам сервиса {{ mmg-name }} (кластеры и хосты БД, резервные копии кластеров, базы данных и их пользователи), назначьте пользователю нужные роли из приведенного ниже списка. На данный момент роль может быть назначена только на родительский ресурс (каталог или облако), роли которого наследуются вложенными ресурсами.
+{% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-{% note info %}
+## На какие ресурсы можно назначить роль {#resources}
 
-Подробнее о наследовании ролей читайте в {% if audience != "internal"%} разделе [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-full-name }} {% else %} [документации сервиса {{ resmgr-full-name }}](https://cloud.yandex.ru/docs/resource-manager/concepts/resources-hierarchy#access-rights-inheritance) {% endif %}.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-{% endnote %}
+Чтобы разрешить доступ к ресурсам сервиса {{ mmg-name }} (кластеры и хосты БД, резервные копии кластеров, базы данных и их пользователи), назначьте пользователю нужные роли на каталог или облако, в котором эти ресурсы лежат.
 
-## Назначение ролей {#grant-roles}
+## Какие роли действуют в сервисе {#roles-list}
 
-Чтобы назначить пользователю роль:
+На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
-{% include [grant-role-console](../../_includes/grant-role-console.md) %}
+![image](service-roles-hierarchy.svg)
 
-## Роли {#roles}
+Роли, действующие в сервисе:
 
-Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ mmg-name }}.
+* Сервисные роли:
+    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* Примитивные роли:
+    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+## Какие роли мне необходимы {#required-roles}
 
-### {{ roles-viewer }} {#viewer}
+В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `editor` вместо `viewer`.
 
-Пользователь с ролью `{{ roles-viewer }}` может просматривать информацию о ресурсах, например посмотреть список хостов или получить информацию о кластере БД.
+Действие | Методы | Необходимые роли
+----- | ----- | -----
+**Просмотр информации** | |
+Просмотр информации о кластере и связанных ресурсах | `get`, `list` | `viewer` на каталог с кластером
+**Управление ресурсами** | |
+Создание кластеров и бэкапов в каталоге | `create` | `editor` на каталог
+Изменение, удаление кластеров и связанных ресурсов | `update`, `delete` | `editor` на каталог с кластером
+**Управление доступом к ресурсам** | |
+[Добавление](../operations/cluster-users.md#adduser), [изменение](../operations/cluster-users.md#updateuser), [удаление](../operations/cluster-users.md#removeuser) пользователей в кластере | `create`, `update`, `delete` | `editor` на каталог с кластером
+[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот каталог или облако
 
-### {{ roles-editor }} {#editor}
+#### Что дальше
 
-Пользователь с ролью `{{ roles-editor }}` может управлять любыми ресурсами, например создать кластер БД, создать или удалить хост в кластере.
-
-Помимо этого роль `{{ roles-editor }}` включает в себя все разрешения роли `{{ roles-viewer }}`.
-
-### {{ roles-admin }} {#admin}
-
-Пользователь с ролью `{{ roles-admin }}` может управлять правами доступа к ресурсам, например разрешить другим пользователям создавать кластеры БД или просматривать информацию о них.
-
-Помимо этого роль `{{ roles-admin }}` включает в себя все разрешения роли `{{ roles-editor }}`.
+* [Как назначить роль](../../iam/operations/roles/grant.md).
+* [Как отозвать роль](../../iam/operations/roles/revoke.md).
+* [Подробнее об управлении доступом в Яндекс.Облаке](../../iam/concepts/access-control/index.md).
+* [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 
 {% else %}
 
