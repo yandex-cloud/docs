@@ -877,7 +877,7 @@ paths:
       x-y-navtitle: addShard
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterShardMetadata'
-      x-y-operation-response: Shard
+      x-y-operation-response: '`Shard`'
   /managed-mongodb/v1/clusters/{clusterId}/databases/{databaseName}:
     get:
       tags:
@@ -1602,10 +1602,10 @@ components:
       - PRESTABLE
     ClusterHealth:
       description: |2-
-         - HEALTH_UNKNOWN: Состояние кластера неизвестно ([Host.health] для каждого хоста в кластере — UNKNOWN).
-         - ALIVE: Кластер работает нормально ([Host.health] для каждого хоста в кластере — ALIVE).
-         - DEAD: Кластер не работает ([Host.health] для каждого узла в кластере — DEAD).
-         - DEGRADED: Кластер работает неоптимально ([Host.health] по крайней мере для одного узла в кластере
+         - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).
+         - ALIVE: Кластер работает нормально (`health` для каждого хоста в кластере — ALIVE).
+         - DEAD: Кластер не работает (`health` для каждого узла в кластере — DEAD).
+         - DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного узла в кластере
         не ALIVE).
       type: string
       enum:
@@ -2015,7 +2015,7 @@ components:
 
             После создания узла этот параметр изменить нельзя. Чтобы удалить назначенный
             публичный IP-адрес или назначить публичный IP уже созданному хосту, пересоздайте хост
-            с нужным значением поля assignPublicIp.
+            с нужным значением поля `assignPublicIp`.
 
             Возможные значения:
             * false — не назначать хосту публичный IP-адрес.
@@ -2255,7 +2255,7 @@ components:
          - OFF: Профайлер выключен и не собирает никакие данные. Это уровень профилирования по
         умолчанию.
          - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
-        slowOpThreshold.
+        `slowOpThreshold`.
          - ALL: Профайлер собирает данные для всех операций.
       type: string
       enum:
@@ -2319,7 +2319,7 @@ components:
       description: |2-
          - OFF: Профайлер выключен и не собирает никакие данные.
          - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
-        slowOpThreshold.
+        `slowOpThreshold`.
          - ALL: Профайлер собирает данные для всех операций.
       type: string
       enum:
@@ -2404,7 +2404,7 @@ components:
       description: |2-
          - OFF: Профайлер выключен и не собирает никакие данные.
          - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
-        slowOpThreshold.
+        `slowOpThreshold`.
          - ALL: Профайлер собирает данные для всех операций.
       type: string
       enum:
@@ -2508,7 +2508,7 @@ components:
       description: |2-
          - OFF: Профайлер выключен и не собирает никакие данные.
          - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
-        slowOpThreshold.
+        `slowOpThreshold`.
          - ALL: Профайлер собирает данные для всех операций.
       type: string
       enum:
@@ -2862,7 +2862,7 @@ components:
           description: Имя базы данных, к которой предоставляет доступ разрешение.
           type: string
         roles:
-          description: Роли MongoDB базы данных databaseName, которые предоставляет
+          description: Роли MongoDB базы данных `databaseName`, которые предоставляет
             разрешение.
           type: array
           items:
@@ -3246,10 +3246,10 @@ components:
       description: |-
         Агрегированная работоспособность кластера.
 
-         - HEALTH_UNKNOWN: Состояние кластера неизвестно ([Host.health] для каждого хоста в кластере — UNKNOWN).
-         - ALIVE: Кластер работает нормально ([Host.health] для каждого хоста в кластере — ALIVE).
-         - DEAD: Кластер не работает ([Host.health] для каждого узла в кластере — DEAD).
-         - DEGRADED: Кластер работает неоптимально ([Host.health] по крайней мере для одного узла в кластере
+         - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).
+         - ALIVE: Кластер работает нормально (`health` для каждого хоста в кластере — ALIVE).
+         - DEAD: Кластер не работает (`health` для каждого узла в кластере — DEAD).
+         - DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного узла в кластере
         не ALIVE).
       type: string
       enum:
@@ -3445,7 +3445,7 @@ components:
           description: Имя базы данных, к которой предоставляет доступ разрешение.
           type: string
         roles:
-          description: Роли MongoDB базы данных databaseName, которые предоставляет
+          description: Роли MongoDB базы данных `databaseName`, которые предоставляет
             разрешение.
           type: array
           items:
@@ -3561,7 +3561,7 @@ components:
          - OFF: Профайлер выключен и не собирает никакие данные. Это уровень профилирования по
         умолчанию.
          - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
-        slowOpThreshold.
+        `slowOpThreshold`.
          - ALL: Профайлер собирает данные для всех операций.
       type: string
       enum:
@@ -3625,7 +3625,7 @@ components:
 
          - OFF: Профайлер выключен и не собирает никакие данные.
          - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
-        slowOpThreshold.
+        `slowOpThreshold`.
          - ALL: Профайлер собирает данные для всех операций.
       type: string
       enum:
@@ -3654,7 +3654,7 @@ components:
     MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_effectiveConfig:
       description: |-
         Действующие параметры mongocfg для кластера MongoDB 3.6 (сочетание параметров, определенных
-        в userConfig и [default_config]).
+        в `userConfig` и `defaultConfig`).
       type: object
       properties:
         storage:
@@ -3686,7 +3686,7 @@ components:
     MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_effectiveConfig:
       description: |-
         Действующие параметры mongocfg для кластера MongoDB 4.0 (сочетание параметров, определенных
-        в userConfig и [default_config]).
+        в `userConfig` и `defaultConfig`).
       type: object
       properties:
         storage:
@@ -3755,7 +3755,7 @@ components:
 
          - OFF: Профайлер выключен и не собирает никакие данные.
          - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
-        slowOpThreshold.
+        `slowOpThreshold`.
          - ALL: Профайлер собирает данные для всех операций.
       type: string
       enum:
@@ -3861,7 +3861,7 @@ components:
 
          - OFF: Профайлер выключен и не собирает никакие данные.
          - SLOW_OP: Профайлер собирает данные для операций, которые производятся дольше, чем значение
-        slowOpThreshold.
+        `slowOpThreshold`.
          - ALL: Профайлер собирает данные для всех операций.
       type: string
       enum:
@@ -3923,7 +3923,7 @@ components:
     MongodConfig3_6_in_MongodConfigSet3_6_effectiveConfig:
       description: |-
         Действующие параметры для кластера MongoDB 3.6 (сочетание параметров, определенных в
-        userConfig и [default_config]).
+        `userConfig` и `defaultConfig`).
 
         Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
         всех опций, описанных в [документации MongoDB](https://docs.mongodb.com/v3.6/reference/configuration-options/).
@@ -3966,7 +3966,7 @@ components:
     MongodConfig4_0_in_MongodConfigSet4_0_effectiveConfig:
       description: |-
         Действующие параметры для кластера MongoDB 4.0 (сочетание параметров, определенных в
-        userConfig и [default_config]).
+        `userConfig` и `defaultConfig`).
 
         Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством
         всех опций, описанных в [документации MongoDB](https://docs.mongodb.com/v4.0/reference/configuration-options/).
@@ -4491,7 +4491,7 @@ components:
     MongosConfig3_6_in_MongosConfigSet3_6_effectiveConfig:
       description: |-
         Действующие параметры для кластера MongoDB 3.6 (сочетание параметров, определенных в
-        userConfig и [default_config]).
+        `userConfig` и `defaultConfig`).
       type: object
       properties:
         net:
@@ -4511,7 +4511,7 @@ components:
     MongosConfig4_0_in_MongosConfigSet4_0_effectiveConfig:
       description: |-
         Действующие параметры mongos для кластера MongoDB 4.0 (комбинация параметров, определенных
-        в userConfig и [default_config]).
+        в `userConfig` и `defaultConfig`).
       type: object
       properties:
         net:

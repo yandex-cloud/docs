@@ -3,7 +3,7 @@ editable: false
 ---
 
 # MlModel
-
+A set of methods for managing machine learning models.
 ## JSON Representation {#representation}
 ```json 
 {
@@ -16,16 +16,16 @@ editable: false
  
 Field | Description
 --- | ---
-name | **string**<br>
-clusterId | **string**<br>
-type | **string**<br>
-uri | **string**<br>
+name | **string**<br><p>Name of the the model.</p> 
+clusterId | **string**<br><p>ID of the ClickHouse cluster that the model belongs to.</p> 
+type | **string**<br><p>Type of the model.</p> <ul> <li>ML_MODEL_TYPE_CATBOOST: CatBoost model.</li> </ul> 
+uri | **string**<br><p>Model file URL. You can only use models stored in Yandex Object Storage.</p> 
 
 ## Methods {#methods}
 Method | Description
 --- | ---
-[create](create.md) | 
-[delete](delete.md) | 
-[get](get.md) | 
-[list](list.md) | 
-[update](update.md) | 
+[create](create.md) | Creates a machine learning model in the specified cluster.
+[delete](delete.md) | Deletes the specified machine learning model.
+[get](get.md) | Returns the specified machine learning model.
+[list](list.md) | Retrieves the list of machine learning models in the specified cluster.
+[update](update.md) | Updates the specified machine learning model.

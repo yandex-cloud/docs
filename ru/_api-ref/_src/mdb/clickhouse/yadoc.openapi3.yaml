@@ -840,7 +840,7 @@ paths:
       x-y-navtitle: updateShard
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateClusterShardMetadata'
-      x-y-operation-response: Shard
+      x-y-operation-response: '`Shard`'
   /managed-clickhouse/v1/clusters/{clusterId}/shards:
     get:
       tags:
@@ -920,7 +920,7 @@ paths:
       x-y-navtitle: addShard
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterShardMetadata'
-      x-y-operation-response: Shard
+      x-y-operation-response: '`Shard`'
   /managed-clickhouse/v1/clusters/{clusterId}:createExternalDictionary:
     post:
       tags:
@@ -1151,6 +1151,209 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateDatabaseMetadata'
       x-y-operation-response: '[Database](/docs/managed-clickhouse/api-ref/Database#representation)'
+  /managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}:
+    get:
+      tags:
+      - MlModel
+      summary: Возвращает указанную модель машинного обучения.
+      description: Чтобы получить список доступных подкластеров Data Proc, выполните
+        запрос "[list](/docs/managed-clickhouse/api-ref/MlModel/list)".
+      operationId: MlModelGet
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера ClickHouse, к которому принадлежит модель.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: mlModelName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя возвращаемой модели.
+
+          Чтобы получить имя модели, используйте запрос "[list](/docs/managed-clickhouse/api-ref/MlModel/list)".
+
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MlModel'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - MlModel
+      summary: Удаляет указанную модель машинного обучения.
+      operationId: MlModelDelete
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера, в котором необходимо удалить модель.
+
+          Чтобы получить идентификатор кластера, выполните запрос "[list](/docs/managed-clickhouse/api-ref/Cluster/list)".
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: mlModelName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя модели, которую нужно удалить.
+
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteMlModelMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - MlModel
+      summary: Обновляет указанную модель машинного обучения.
+      operationId: MlModelUpdate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера для обновления модели.
+
+          Чтобы получить идентификатор кластера, выполните запрос "[list](/docs/managed-clickhouse/api-ref/Cluster/list)".
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: mlModelName
+        in: path
+        description: |-
+          Обязательное поле.
+          Имя модели для обновления.
+
+          Максимальная длина строки в символах — 63.
+          Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMlModelRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateMlModelMetadata'
+      x-y-operation-response: '[MlModel](/docs/managed-clickhouse/api-ref/MlModel#representation)'
+  /managed-clickhouse/v1/clusters/{clusterId}/mlModels:
+    get:
+      tags:
+      - MlModel
+      summary: Возвращает список моделей машинного обучения в указанном кластере.
+      operationId: MlModelList
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера, к которому принадлежат модели.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем "page_size" , сервис вернет значение "[nextPageToken](/docs/managed-clickhouse/api-ref/MlModel/list#responses)", которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.
+
+          Максимальное значение — 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение "page_token" равным значению поля "[nextPageToken](/docs/managed-clickhouse/api-ref/MlModel/list#responses)" предыдущего запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListMlModelsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - MlModel
+      summary: Создает модель машинного обучения в указанном кластере.
+      operationId: MlModelCreate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор кластера, в котором создается модель.
+
+          Чтобы получить идентификатор кластера, выполните запрос "[list](/docs/managed-clickhouse/api-ref/Cluster/list)".
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMlModelRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateMlModelMetadata'
+      x-y-operation-response: '[MlModel](/docs/managed-clickhouse/api-ref/MlModel#representation)'
   /managed-clickhouse/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
@@ -1630,8 +1833,7 @@ components:
           type: string
     ClickhouseConfig:
       description: |-
-        Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек
-        доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
 
         Любые настройки, не перечисленные здесь, не поддерживаются.
       type: object
@@ -1673,35 +1875,30 @@ components:
           type: integer
           format: int64
         keepAliveTimeout:
-          description: |-
-            Количество миллисекунд, в течение которых ClickHouse ожидает входящие запросы прежде чем
-            закрыть подключение.
+          description: Количество миллисекунд, в течение которых ClickHouse ожидает
+            входящие запросы прежде чем закрыть подключение.
           type: integer
           format: int64
         uncompressedCacheSize:
-          description: |-
-            Размер кэша (в байтах) для несжатых данных, используемых таблицами MergeTree. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
+          description: Размер кэша (в байтах) для несжатых данных, используемых таблицами
+            MergeTree. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
           type: integer
           format: int64
         markCacheSize:
           description: |-
-            Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в
-            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
+            Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
 
             Значение должно быть больше 5368709120.
           type: integer
           format: int64
         maxTableSizeToDrop:
-          description: |-
-            Максимальный размер таблицы, которую можно удалить с помощью запроса DROP. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
+          description: Максимальный размер таблицы, которую можно удалить с помощью
+            запроса DROP. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
           type: integer
           format: int64
         maxPartitionSizeToDrop:
-          description: |-
-            Максимальный размер раздела, который можно удалить с помощью запроса DROP. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
+          description: Максимальный размер раздела, который можно удалить с помощью
+            запроса DROP. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
@@ -1710,9 +1907,9 @@ components:
           type: integer
           format: int64
         timezone:
-          description: |-
-            Часовой пояс сервера, используемый в преобразованиях полей DateTime. Указывается как
-            идентификатор IANA. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
+          description: Часовой пояс сервера, используемый в преобразованиях полей
+            DateTime. Указывается как идентификатор IANA. См. подробное описание в
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
           type: string
         geobaseUri:
           type: string
@@ -1840,8 +2037,7 @@ components:
         format:
           description: |-
             Обязательное поле.
-            Формат данных. Допустимые значения: все форматы, поддерживаемые диалектом ClickHouse
-            SQL.
+            Формат данных. Допустимые значения: все форматы, поддерживаемые диалектом ClickHouse SQL.
           type: string
     ClickhouseConfigExternalDictionaryLayout:
       description: Макет, определяющий способ хранения словаря в памяти.
@@ -1850,26 +2046,18 @@ components:
         type:
           $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryLayoutType_in_ClickhouseConfigExternalDictionaryLayout_type'
         sizeInCells:
-          description: |-
-            Количество ячеек в кэше. Округляется до степени двойки. Применимо только для типов
-            макета CACHE и COMPLEX_KEY_CACHE.
+          description: Количество ячеек в кэше. Округляется до степени двойки. Применимо
+            только для типов макета CACHE и COMPLEX_KEY_CACHE.
           type: string
           format: int64
     ClickhouseConfigExternalDictionaryLayoutType:
       description: |2-
-         - FLAT: Весь словарь хранится в памяти в виде плоских массивов. Доступно для любых
-        источников словарей.
-         - HASHED: Весь словарь хранится в памяти в виде хэш-таблицы. Доступно для любых источников
-        словарей.
-         - COMPLEX_KEY_HASHED: Аналогичен HASHED, для использования с составными ключами. Доступно для любых
-        источников словарей.
-         - RANGE_HASHED: Весь словарь хранится в памяти в виде хэш-таблицы, с упорядоченным массивом
-        диапазонов и соответствующих им значений. Доступно для любых источников
-        словарей.
-         - CACHE: Словарь хранится в кэше с заданным количеством ячеек. Доступно для источников
-        словарей MySQL, ClickHouse и HTTP.
-         - COMPLEX_KEY_CACHE: Аналогичен CACHE, для использования с составными ключами. Доступно для источников
-        словарей MySQL, ClickHouse и HTTP.
+         - FLAT: Весь словарь хранится в памяти в виде плоских массивов. Доступно для любых источников словарей.
+         - HASHED: Весь словарь хранится в памяти в виде хэш-таблицы. Доступно для любых источников словарей.
+         - COMPLEX_KEY_HASHED: Аналогичен HASHED, для использования с составными ключами. Доступно для любых источников словарей.
+         - RANGE_HASHED: Весь словарь хранится в памяти в виде хэш-таблицы, с упорядоченным массивом диапазонов и соответствующих им значений. Доступно для любых источников словарей.
+         - CACHE: Словарь хранится в кэше с заданным количеством ячеек. Доступно для источников словарей MySQL, ClickHouse и HTTP.
+         - COMPLEX_KEY_CACHE: Аналогичен CACHE, для использования с составными ключами. Доступно для источников словарей MySQL, ClickHouse и HTTP.
       type: string
       enum:
       - FLAT
@@ -1889,8 +2077,7 @@ components:
         collection:
           description: |-
             Обязательное поле.
-            Имя коллекции в указанной базе данных, которую следует использовать в качестве
-            источника словаря.
+            Имя коллекции в указанной базе данных, которую следует использовать в качестве источника словаря.
           type: string
         host:
           description: |-
@@ -1929,8 +2116,7 @@ components:
           type: string
         port:
           description: |-
-            Порт по умолчанию, который нужно использовать при подключении к реплике источника
-            словаря.
+            Порт по умолчанию, который нужно использовать при подключении к реплике источника словаря.
 
             Допустимые значения — от 0 до 65535 включительно.
           type: string
@@ -1954,9 +2140,9 @@ components:
           description: Критерии выбора данных в указанной таблице MySQL.
           type: string
         invalidateQuery:
-          description: |-
-            Запрос на проверку состояния словаря, который позволит извлекать только
-            обновленные данные. Дополнительные сведения см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_lifetime/).
+          description: Запрос на проверку состояния словаря, который позволит извлекать
+            только обновленные данные. Дополнительные сведения см. в [документации
+            ClickHouse on dictionaries](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_lifetime/).
           type: string
     ClickhouseConfigExternalDictionaryMysqlSourceReplica:
       type: object
@@ -1971,16 +2157,14 @@ components:
         priority:
           description: |-
             Обязательное поле.
-            Приоритет реплики, который ClickHouse должен учитывать при подключении. Реплике с
-            наивысшим приоритетом должно соответствовать наименьшее значение в этом поле.
+            Приоритет реплики, который ClickHouse должен учитывать при подключении. Реплике с наивысшим приоритетом должно соответствовать наименьшее значение в этом поле.
 
             Значение должно быть больше 0.
           type: string
           format: int64
         port:
           description: |-
-            Порт, который нужно использовать при подключении к реплике. Если для какой-либо
-            реплики не указан порт, ClickHouse использует порт, указанный для источника.
+            Порт, который нужно использовать при подключении к реплике. Если для какой-либо реплики не указан порт, ClickHouse использует порт, указанный для источника.
 
             Допустимые значения — от 0 до 65535 включительно.
           type: string
@@ -2029,24 +2213,19 @@ components:
           description: Пароль пользователя базы данных PostrgreSQL.
           type: string
         invalidateQuery:
-          description: |-
-            Запрос на проверку состояния словаря, который позволит извлекать только
-            обновленные данные. Дополнительные сведения см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_lifetime/).
+          description: Запрос на проверку состояния словаря, который позволит извлекать
+            только обновленные данные. Дополнительные сведения см. в [документации
+            ClickHouse on dictionaries](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_lifetime/).
           type: string
         sslMode:
           $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryPostgresqlSourceSslMode_in_ClickhouseConfigExternalDictionaryPostgresqlSource_sslMode'
     ClickhouseConfigExternalDictionaryPostgresqlSourceSslMode:
       description: |2-
          - DISABLE: SSL-соединение не используется.
-         - ALLOW: Сначала предпринимается попытка установить незашифрованное соединение. Если
-        это не удается, устанавливается SSL-соединение.
-         - PREFER: Сначала предпринимается попытка установить SSL-соединение. Если это не удается,
-        устанавливается незашифрованное соединение.
-         - VERIFY_CA: Устанавливается только SSL-соединение и только при условии, что сертификат выдан
-        доверенным центром сертификации (CA).
-         - VERIFY_FULL: Устанавливается только SSL-соединение и только при условии, что сертификат выдан
-        доверенным центром сертификации и что имя хоста сервера совпадает с указанным в
-        сертификате.
+         - ALLOW: Сначала предпринимается попытка установить незашифрованное соединение. Если это не удается, устанавливается SSL-соединение.
+         - PREFER: Сначала предпринимается попытка установить SSL-соединение. Если это не удается, устанавливается незашифрованное соединение.
+         - VERIFY_CA: Устанавливается только SSL-соединение и только при условии, что сертификат выдан доверенным центром сертификации (CA).
+         - VERIFY_FULL: Устанавливается только SSL-соединение и только при условии, что сертификат выдан доверенным центром сертификации и что имя хоста сервера совпадает с указанным в сертификате.
       type: string
       enum:
       - DISABLE
@@ -2106,12 +2285,12 @@ components:
           description: Выражение, описывающее атрибут, если применимо.
           type: string
         hierarchical:
-          description: Признак поддержки иерархии. Значение по умолчанию `false`.
+          description: Признак поддержки иерархии. Значение по умолчанию "false".
           type: boolean
           format: boolean
         injective:
           description: Признакт инъективного отображения "id -> атрибут". Значение
-            по умолчанию `false`.
+            по умолчанию "false".
           type: boolean
           format: boolean
     ClickhouseConfigExternalDictionaryStructureId:
@@ -2163,8 +2342,7 @@ components:
         function:
           description: |-
             Обязательное поле.
-            Имя агрегирующей функции, которую следует применить к данным старше возраста,
-            указанного в retention.
+            Имя агрегирующей функции, которую следует применить к данным старше возраста, указанного в "`retention`".
           type: string
         retention:
           description: |-
@@ -2205,15 +2383,13 @@ components:
       type: object
       properties:
         replicatedDeduplicationWindow:
-          description: |-
-            Количество блоков хэшей, которые должен хранить ZooKeeper. Смотрите подробное описание
-            в [ClickHouse sources](https://github.com/yandex/ClickHouse/blob/v18.1.0-stable/dbms/src/Storages/MergeTree/MergeTreeSettings.h#L59).
+          description: Количество блоков хэшей, которые должен хранить ZooKeeper.
+            Смотрите подробное описание в [ClickHouse sources](https://github.com/yandex/ClickHouse/blob/v18.1.0-stable/dbms/src/Storages/MergeTree/MergeTreeSettings.h#L59).
           type: integer
           format: int64
         replicatedDeduplicationWindowSeconds:
-          description: |-
-            Период времени, в течение которого следует хранить блоки хэшей. См. описание в
-            [ClickHouse sources](https://github.com/yandex/ClickHouse/blob/v18.1.0-stable/dbms/src/Storages/MergeTree/MergeTreeSettings.h#L64).
+          description: Период времени, в течение которого следует хранить блоки хэшей.
+            См. описание в [ClickHouse sources](https://github.com/yandex/ClickHouse/blob/v18.1.0-stable/dbms/src/Storages/MergeTree/MergeTreeSettings.h#L64).
           type: integer
           format: int64
         partsToDelayInsert:
@@ -2327,10 +2503,10 @@ components:
       - PRESTABLE
     ClusterHealth:
       description: |2-
-         - HEALTH_UNKNOWN: Состояние кластера неизвестно ([Host.health] для каждого хоста в кластере — UNKNOWN).
-         - ALIVE: Кластер работает нормально ([Host.health] для каждого хоста в кластере — ALIVE).
-         - DEAD: Кластер не работает ([Host.health] для каждого узла в кластере — DEAD).
-         - DEGRADED: Кластер работает неоптимально ([Host.health] по крайней мере для одного узла в кластере
+         - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).
+         - ALIVE: Кластер работает нормально (`health` для каждого хоста в кластере — ALIVE).
+         - DEAD: Кластер не работает (`health` для каждого узла в кластере — DEAD).
+         - DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного узла в кластере
         не ALIVE).
       type: string
       enum:
@@ -2498,6 +2674,33 @@ components:
       properties:
         databaseSpec:
           $ref: '#/components/schemas/DatabaseSpec_in_CreateDatabaseRequest_databaseSpec'
+    CreateMlModelMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера, в который добавляется модель.
+          type: string
+        mlModelName:
+          description: Имя создаваемой модели.
+          type: string
+    CreateMlModelRequest:
+      type: object
+      properties:
+        mlModelName:
+          description: |-
+            Обязательное поле.
+            Имя модели. Имя модели — один из аргументов функции modelEvaluate (), которая используется для вызова модели в ClickHouse.
+
+            Максимальная длина строки в символах — 63.
+            Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
+          type: string
+        type:
+          $ref: '#/components/schemas/MlModelType_in_CreateMlModelRequest_type'
+        uri:
+          description: |-
+            Обязательное поле.
+            URL файла модели. Вы можете использовать только модели, хранящиеся в Yandex Object Storage.
+          type: string
     CreateUserMetadata:
       type: object
       properties:
@@ -2596,6 +2799,15 @@ components:
           type: string
         databaseName:
           description: Имя удаляемой базы данных ClickHouse.
+          type: string
+    DeleteMlModelMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера, содержащего удаляемую модель.
+          type: string
+        mlModelName:
+          description: Имя удаляемой модели.
           type: string
     DeleteUserMetadata:
       type: object
@@ -2712,7 +2924,7 @@ components:
 
             После создания узла этот параметр изменить нельзя. Чтобы удалить назначенный
             публичный IP-адрес или назначить публичный IP уже созданному хосту, пересоздайте хост
-            с нужным значением поля assignPublicIp.
+            с нужным значением поля `assignPublicIp`.
 
             Возможные значения:
             * false — не назначать хосту публичный IP-адрес.
@@ -2864,6 +3076,20 @@ components:
             параметра [pageToken](/docs/managed-clickhouse/api-ref/Database/list#query_params) в следующем запросе списка ресурсов. Все последующие
             запросы будут получать свои значения [nextPageToken](/docs/managed-clickhouse/api-ref/Database/list#responses) для перебора страниц результатов.
           type: string
+    ListMlModelsResponse:
+      type: object
+      properties:
+        mlModels:
+          description: Список моделей в указанном кластере.
+          type: array
+          items:
+            $ref: '#/components/schemas/MlModel'
+        nextPageToken:
+          description: |-
+            Токен для получения следующей страницы списка. Если количество результатов больше чем "[pageSize](/docs/managed-clickhouse/api-ref/MlModel/list#query_params)", используйте "next_page_token" в качестве значения параметра "[pageToken](/docs/managed-clickhouse/api-ref/MlModel/list#query_params)" в следующем запросе списка ресурсов.
+
+            Каждая следующая страница будет иметь свой "next_page_token" для продолжения перебора страниц результатов.
+          type: string
     ListResourcePresetsResponse:
       type: object
       properties:
@@ -2910,6 +3136,26 @@ components:
           type: object
           additionalProperties:
             type: string
+    MlModel:
+      type: object
+      properties:
+        name:
+          description: Имя модели.
+          type: string
+        clusterId:
+          description: Идентификатор кластера ClickHouse, к которому принадлежит модель.
+          type: string
+        type:
+          $ref: '#/components/schemas/MlModelType_in_MlModel_type'
+        uri:
+          description: URL файла модели. Вы можете использовать только модели, хранящиеся
+            в Yandex Object Storage.
+          type: string
+    MlModelType:
+      description: ' - ML_MODEL_TYPE_CATBOOST: Модель CatBoost.'
+      type: string
+      enum:
+      - ML_MODEL_TYPE_CATBOOST
     Monitoring:
       description: Метаданные системы мониторинга.
       type: object
@@ -3321,6 +3567,24 @@ components:
           $ref: '#/components/schemas/FieldMask_in_UpdateClusterShardRequest_updateMask'
         configSpec:
           $ref: '#/components/schemas/ShardConfigSpec_in_UpdateClusterShardRequest_configSpec'
+    UpdateMlModelMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Идентификатор кластера, содержащего обновляемую модель.
+          type: string
+        mlModelName:
+          description: Имя обновляемой модели.
+          type: string
+    UpdateMlModelRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateMlModelRequest_updateMask'
+        uri:
+          description: URL файла новой модели. Вы можете использовать только модели,
+            хранящиеся в Yandex Object Storage.
+          type: string
     UpdateUserMetadata:
       type: object
       properties:
@@ -3366,21 +3630,77 @@ components:
             $ref: '#/components/schemas/Permission'
         settings:
           $ref: '#/components/schemas/UserSettings_in_User_settings'
+        quotas:
+          description: Набор квот, назначенных пользователю.
+          type: array
+          items:
+            $ref: '#/components/schemas/UserQuota'
+    UserQuota:
+      description: Представление квот ClickHouse. Каждая квота связана с пользователем
+        и ограничивает использование ресурсов на определенный интервал. См. подробное
+        описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/quotas/).
+      type: object
+      properties:
+        intervalDuration:
+          description: |-
+            Длительность интервала для квоты в миллисекундах. Минимальное значение - 1 минута.
+
+            Минимальное значение — 60000.
+          type: integer
+          format: int64
+        queries:
+          description: |-
+            Общее количество запросов. 0-неограниченно.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        errors:
+          description: |-
+            Количество запросов, которые вызвали исключение. 0-неограниченно.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        resultRows:
+          description: |-
+            Общее число строк, приведенных в результате. 0-неограниченно.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        readRows:
+          description: |-
+            Общее число исходных строк, считанных из таблиц для выполнения запроса, на всех удаленных серверах. 0-неограниченно.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        executionTime:
+          description: |-
+            Общее время выполнения запроса, в миллисекундах. 0-неограниченно.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
     UserSettings:
-      description: |-
-        Пользовательские настройки ClickHouse. Поддерживаемые параметры входят в число
-        параметров, описанных в разделе [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/).
+      description: Пользовательские настройки ClickHouse. Поддерживаемые параметры
+        входят в число параметров, описанных в разделе [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/).
       type: object
       properties:
         readonly:
           description: |-
-            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_readonly).
+            Ограничивает разрешения для запросов, не относящихся к DDL. Возможные значения:
+            * 0 (по умолчанию) - никаких ограничений.
+            * 1-разрешены только запросы на чтение данных.
+            * 2 — разрешены запросы на чтение данных и изменение настроек. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_readonly).
 
             Допустимые значения — от 0 до 2 включительно.
           type: integer
           format: int64
         allowDdl:
-          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_allow_ddl).
+          description: Разрешены ли запросы DDL. Значение по умолчанию "false". См.
+            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_allow_ddl).
           type: boolean
           format: boolean
         insertQuorum:
@@ -3390,10 +3710,30 @@ components:
             Минимальное значение — 0.
           type: integer
           format: int64
+        connectTimeout:
+          description: |-
+            Время ожидания соединения в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        receiveTimeout:
+          description: |-
+            Время ожидания приема в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        sendTimeout:
+          description: |-
+            Время ожидания отправки в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
         insertQuorumTimeout:
           description: |-
-            Время ожидания записи для кворума в миллисекундах. Значение по умолчанию: 60000. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-insert_quorum_timeout).
+            Время ожидания записи для кворума в миллисекундах. Значение по умолчанию: 60000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-insert_quorum_timeout).
 
             Минимальное значение — 1000.
           type: integer
@@ -3404,9 +3744,7 @@ components:
           format: boolean
         maxReplicaDelayForDistributedQueries:
           description: |-
-            Максимальная задержка реплики в миллисекундах. Если реплика отстает на значение
-            больше установленного, реплика перестает использоваться. Значение по умолчанию:
-            300000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries).
+            Максимальная задержка реплики в миллисекундах. Если реплика отстает на значение больше установленного, реплика перестает использоваться. Значение по умолчанию: 300000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries).
 
             Минимальное значение — 1000.
           type: integer
@@ -3415,11 +3753,44 @@ components:
           description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
           type: boolean
           format: boolean
-        maxThreads:
+        replicationAlterPartitionsSync:
           description: |-
-            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_threads).
+            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/query_language/alter/#synchronicity-of-alter-queries).
 
-            Значение должно быть больше 0.
+            Допустимые значения — от 0 до 2 включительно.
+          type: integer
+          format: int64
+        distributedProductMode:
+          $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
+        distributedAggregationMemoryEfficient:
+          description: Включен ли режим экономии памяти распределенной агрегации.
+          type: boolean
+          format: boolean
+        distributedDdlTaskTimeout:
+          description: Время ожидания запросов DDL в миллисекундах.
+          type: integer
+          format: int64
+        compile:
+          description: Включена ли компиляция запросов. См. подробное описание в [документации
+            ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#compile).
+          type: boolean
+          format: boolean
+        minCountToCompile:
+          description: |-
+            Число структурно идентичных запросов до их компиляции. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#min-count-to-compile).
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        compileExpressions:
+          description: Включена ли компиляция выражений.
+          type: boolean
+          format: boolean
+        minCountToCompileExpression:
+          description: |-
+            Число идентичных выражений до их компиляции.
+
+            Минимальное значение — 0.
           type: integer
           format: int64
         maxBlockSize:
@@ -3429,9 +3800,88 @@ components:
             Значение должно быть больше 0.
           type: integer
           format: int64
+        minInsertBlockSizeRows:
+          description: |-
+            Минимальный размер блока в строках при выполнении INSERT запросов. Блоки меньшего размера ClickHouse будет склеивать в один блок. Если установлено значение "0", ClichHouse не будет склеивать блоки.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        minInsertBlockSizeBytes:
+          description: |-
+            Минимальный размер блока в байтах при выполнении INSERT запросов. Блоки меньшего размера ClickHouse будет склеивать в один блок. Если установлено значение "0", ClichHouse не будет склеивать блоки.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
         maxInsertBlockSize:
           description: |-
             См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_insert_block_size).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        minBytesToUseDirectIo:
+          description: |-
+            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-min_bytes_to_use_direct_io).
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        useUncompressedCache:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#setting-use_uncompressed_cache).
+          type: boolean
+          format: boolean
+        mergeTreeMaxRowsToUseCache:
+          description: |-
+            Максимальный размер запроса в строках для использования кэша несжатых данных. Кэш не используется для запросов, превышающих указанное значение. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#setting-merge_tree_max_rows_to_use_cache).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        mergeTreeMaxBytesToUseCache:
+          description: |-
+            Максимальный размер запроса в байтах для использования кэша несжатых данных. Кэш не используется для запросов, превышающих указанное значение.
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        mergeTreeMinRowsForConcurrentRead:
+          description: |-
+            Минимальное число строк, считываемых из файла для одновременного чтения. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#setting-merge_tree_min_rows_for_concurrent_read).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        mergeTreeMinBytesForConcurrentRead:
+          description: |-
+            Минимальное число байтов, считываемых из файла для одновременного чтения.
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        maxBytesBeforeExternalGroupBy:
+          type: integer
+          format: int64
+        maxBytesBeforeExternalSort:
+          type: integer
+          format: int64
+        groupByTwoLevelThreshold:
+          type: integer
+          format: int64
+        groupByTwoLevelThresholdBytes:
+          type: integer
+          format: int64
+        priority:
+          description: |-
+            Приоритет запроса.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        maxThreads:
+          description: |-
+            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_threads).
 
             Значение должно быть больше 0.
           type: integer
@@ -3450,6 +3900,22 @@ components:
             Минимальное значение — 0.
           type: integer
           format: int64
+        maxNetworkBandwidth:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_network_bandwidth).
+          type: integer
+          format: int64
+        maxNetworkBandwidthForUser:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_network_bandwidth_for_user).
+          type: integer
+          format: int64
+        forceIndexByDate:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-force_index_by_date).
+          type: boolean
+          format: boolean
+        forcePrimaryKey:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#force-primary-key).
+          type: boolean
+          format: boolean
         maxRowsToRead:
           description: |-
             См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-rows-to-read).
@@ -3541,8 +4007,7 @@ components:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_transferOverflowMode'
         maxExecutionTime:
           description: |-
-            Максимальное время выполнения запроса в миллисекундах. См. подробное описание в
-            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-execution-time).
+            Максимальное время выполнения запроса в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-execution-time).
 
             Минимальное значение — 0.
           type: integer
@@ -3551,62 +4016,122 @@ components:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_timeoutOverflowMode'
         maxColumnsToRead:
           description: |-
-            Максимальное количество столбцов, которые можно прочитать из таблицы в одном
-            запросе. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-columns-to-read).
+            Максимальное количество столбцов, которые можно прочитать из таблицы в одном запросе. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-columns-to-read).
 
             Минимальное значение — 0.
           type: integer
           format: int64
         maxTemporaryColumns:
           description: |-
-            Максимальное количество временных столбцов, которые должны храниться в оперативной
-            памяти одновременно при выполнении запроса, включая постоянные столбцы. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-columns).
+            Максимальное количество временных столбцов, которые должны храниться в оперативной памяти одновременно при выполнении запроса, включая постоянные столбцы. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-columns).
 
             Минимальное значение — 0.
           type: integer
           format: int64
         maxTemporaryNonConstColumns:
           description: |-
-            Максимальное количество временных столбцов, которые должны храниться в оперативной
-            памяти одновременно при выполнении запроса, за исключением постоянных столбцов. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-non-const-columns).
+            Максимальное количество временных столбцов, которые должны храниться в оперативной памяти одновременно при выполнении запроса, за исключением постоянных столбцов. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-non-const-columns).
 
             Минимальное значение — 0.
           type: integer
           format: int64
         maxQuerySize:
           description: |-
-            Наибольшая часть запроса, которая может быть передана в RAM для разбора с помощью
-            анализатора SQL, в байтах. Значение по умолчанию: 262144. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_query_size).
+            Наибольшая часть запроса, которая может быть передана в RAM для разбора с помощью анализатора SQL, в байтах. Значение по умолчанию: 262144. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_query_size).
 
             Значение должно быть больше 0.
           type: integer
           format: int64
         maxAstDepth:
           description: |-
-            Максимальная глубина синтаксического дерева запроса. Значение по умолчанию: 1000. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-depth).
+            Максимальная глубина синтаксического дерева запроса. Значение по умолчанию: 1000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-depth).
 
             Значение должно быть больше 0.
           type: integer
           format: int64
         maxAstElements:
           description: |-
-            Максимальный размер синтаксического дерева запроса в количестве узлов. Значение по
-            умолчанию: 50000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-elements).
+            Максимальный размер синтаксического дерева запроса в количестве узлов. Значение по умолчанию: 50000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-elements).
 
             Значение должно быть больше 0.
           type: integer
           format: int64
         maxExpandedAstElements:
           description: |-
-            Максимальный размер синтаксического дерева запроса в количестве узлов после
-            раскрытия псевдонимов и звездочки. Значение по умолчанию: 500000.
+            Максимальный размер синтаксического дерева запроса в количестве узлов после раскрытия псевдонимов и звездочки. Значение по умолчанию: 500000.
 
             Значение должно быть больше 0.
           type: integer
           format: int64
+        inputFormatValuesInterpretExpressions:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-input_format_values_interpret_expressions).
+          type: boolean
+          format: boolean
+        inputFormatDefaultsForOmittedFields:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuote_64BitIntegers:
+          description: Если значение истинно, то при использовании JSON форматов UInt64
+            и Int64 числа выводятся в кавычках. См. подробное описание в [документации
+            ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#session_settings-output_format_json_quote_64bit_integers).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuoteDenormals:
+          description: Включен ли вывод специальных значений с плавающей запятой (
+            "+nan", "-nan", "+inf" и "-inf") в формате вывода JSON.
+          type: boolean
+          format: boolean
+        lowCardinalityAllowInNativeFormat:
+          type: boolean
+          format: boolean
+        emptyResultForAggregationByEmptySet:
+          type: boolean
+          format: boolean
+        httpConnectionTimeout:
+          description: Время ожидания соединения в миллисекундах.
+          type: integer
+          format: int64
+        httpReceiveTimeout:
+          description: Время ожидания приема в миллисекундах.
+          type: integer
+          format: int64
+        httpSendTimeout:
+          description: Время ожидания отправки в миллисекундах.
+          type: integer
+          format: int64
+        enableHttpCompression:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-enable_http_compression).
+          type: boolean
+          format: boolean
+        sendProgressInHttpHeaders:
+          description: Включены ли уведомления о ходе выполнения с использованием
+            заголовков X-ClickHouse-Progress. Значение по умолчанию "false". См. подробное
+            описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-send_progress_in_http_headers).
+          type: boolean
+          format: boolean
+        httpHeadersProgressInterval:
+          description: 'Минимальный интервал между уведомлениями о ходе выполнения,
+            в миллисекундах. Значение по умолчанию: 100.'
+          type: integer
+          format: int64
+        addHttpCorsHeader:
+          description: Включен ли заголовок CORS в HTTP-ответах. Значение по умолчанию
+            "false".
+          type: boolean
+          format: boolean
+    UserSettingsDistributedProductMode:
+      description: |2-
+         - DISTRIBUTED_PRODUCT_MODE_DENY: Значение по умолчанию. Запрещает использование этих типов подзапросов (возвращает исключение "Double-distributed in/JOIN subqueries is denied").
+         - DISTRIBUTED_PRODUCT_MODE_LOCAL: Заменяет базу данных и таблицу в подзапросе локальными для конечного сервера (шарда), оставляя обычный IN / JOIN.
+         - DISTRIBUTED_PRODUCT_MODE_GLOBAL: Заменяет IN/JOIN запрос на GLOBAL IN/GLOBAL JOIN.
+         - DISTRIBUTED_PRODUCT_MODE_ALLOW: Позволяет использовать эти типы подзапросов.
+      type: string
+      enum:
+      - DISTRIBUTED_PRODUCT_MODE_DENY
+      - DISTRIBUTED_PRODUCT_MODE_LOCAL
+      - DISTRIBUTED_PRODUCT_MODE_GLOBAL
+      - DISTRIBUTED_PRODUCT_MODE_ALLOW
     UserSettingsGroupByOverflowMode:
       type: string
       enum:
@@ -3643,6 +4168,11 @@ components:
             $ref: '#/components/schemas/Permission'
         settings:
           $ref: '#/components/schemas/UserSettings_in_UserSpec_settings'
+        quotas:
+          description: Набор квот, назначенных пользователю.
+          type: array
+          items:
+            $ref: '#/components/schemas/UserQuota'
     rpcStatus:
       description: Описание ошибки в случае сбоя или отмены операции.
       type: object
@@ -3686,7 +4216,9 @@ components:
             * local-ssd — локальное SSD-хранилище.
           type: string
     ClickhouseConfigLogLevel_in_ClickhouseConfig_logLevel:
-      description: Уровень логирования для кластера ClickHouse.
+      description: 'Уровень логирования для кластера ClickHouse. Допустимые значения:
+        "TRACE", "DEBUG", "INFORMATION", "WARNING", "ERROR". См. описание в [документации
+        ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server_settings-logger).'
       type: string
       enum:
       - TRACE
@@ -3702,15 +4234,13 @@ components:
       type: object
       properties:
         replicatedDeduplicationWindow:
-          description: |-
-            Количество блоков хэшей, которые должен хранить ZooKeeper. Смотрите подробное описание
-            в [ClickHouse sources](https://github.com/yandex/ClickHouse/blob/v18.1.0-stable/dbms/src/Storages/MergeTree/MergeTreeSettings.h#L59).
+          description: Количество блоков хэшей, которые должен хранить ZooKeeper.
+            Смотрите подробное описание в [ClickHouse sources](https://github.com/yandex/ClickHouse/blob/v18.1.0-stable/dbms/src/Storages/MergeTree/MergeTreeSettings.h#L59).
           type: integer
           format: int64
         replicatedDeduplicationWindowSeconds:
-          description: |-
-            Период времени, в течение которого следует хранить блоки хэшей. См. описание в
-            [ClickHouse sources](https://github.com/yandex/ClickHouse/blob/v18.1.0-stable/dbms/src/Storages/MergeTree/MergeTreeSettings.h#L64).
+          description: Период времени, в течение которого следует хранить блоки хэшей.
+            См. описание в [ClickHouse sources](https://github.com/yandex/ClickHouse/blob/v18.1.0-stable/dbms/src/Storages/MergeTree/MergeTreeSettings.h#L64).
           type: integer
           format: int64
         partsToDelayInsert:
@@ -3730,7 +4260,7 @@ components:
           format: int64
     ClickhouseConfigCompressionMethod_in_ClickhouseConfigCompression_method:
       description: |-
-        Метод сжатия, используемый для указанной комбинации `min_part_size` и `min_part_size_ratio`.
+        Метод сжатия, используемый для указанной комбинации "min_part_size" и "min_part_size_ratio".
 
          - LZ4: [LZ4 compression algorithm](https://lz4.github.io/lz4/).
          - ZSTD: [Zstandard compression algorithm](https://facebook.github.io/zstd/).
@@ -3743,19 +4273,12 @@ components:
         Обязательное поле.
         Тип макета для внешнего словаря.
 
-         - FLAT: Весь словарь хранится в памяти в виде плоских массивов. Доступно для любых
-        источников словарей.
-         - HASHED: Весь словарь хранится в памяти в виде хэш-таблицы. Доступно для любых источников
-        словарей.
-         - COMPLEX_KEY_HASHED: Аналогичен HASHED, для использования с составными ключами. Доступно для любых
-        источников словарей.
-         - RANGE_HASHED: Весь словарь хранится в памяти в виде хэш-таблицы, с упорядоченным массивом
-        диапазонов и соответствующих им значений. Доступно для любых источников
-        словарей.
-         - CACHE: Словарь хранится в кэше с заданным количеством ячеек. Доступно для источников
-        словарей MySQL, ClickHouse и HTTP.
-         - COMPLEX_KEY_CACHE: Аналогичен CACHE, для использования с составными ключами. Доступно для источников
-        словарей MySQL, ClickHouse и HTTP.
+         - FLAT: Весь словарь хранится в памяти в виде плоских массивов. Доступно для любых источников словарей.
+         - HASHED: Весь словарь хранится в памяти в виде хэш-таблицы. Доступно для любых источников словарей.
+         - COMPLEX_KEY_HASHED: Аналогичен HASHED, для использования с составными ключами. Доступно для любых источников словарей.
+         - RANGE_HASHED: Весь словарь хранится в памяти в виде хэш-таблицы, с упорядоченным массивом диапазонов и соответствующих им значений. Доступно для любых источников словарей.
+         - CACHE: Словарь хранится в кэше с заданным количеством ячеек. Доступно для источников словарей MySQL, ClickHouse и HTTP.
+         - COMPLEX_KEY_CACHE: Аналогичен CACHE, для использования с составными ключами. Доступно для источников словарей MySQL, ClickHouse и HTTP.
       type: string
       enum:
       - FLAT
@@ -3766,18 +4289,13 @@ components:
       - COMPLEX_KEY_CACHE
     ClickhouseConfigExternalDictionaryPostgresqlSourceSslMode_in_ClickhouseConfigExternalDictionaryPostgresqlSource_sslMode:
       description: |-
-        Режим SSL TCP/IP соединения с хостом PostgreSQL. Дополнительные сведения см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/libpq-ssl.html).
+        Режим SSL TCP/IP соединения с хостом PostgreSQL. Дополнительные сведения см. в [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html).
 
          - DISABLE: SSL-соединение не используется.
-         - ALLOW: Сначала предпринимается попытка установить незашифрованное соединение. Если
-        это не удается, устанавливается SSL-соединение.
-         - PREFER: Сначала предпринимается попытка установить SSL-соединение. Если это не удается,
-        устанавливается незашифрованное соединение.
-         - VERIFY_CA: Устанавливается только SSL-соединение и только при условии, что сертификат выдан
-        доверенным центром сертификации (CA).
-         - VERIFY_FULL: Устанавливается только SSL-соединение и только при условии, что сертификат выдан
-        доверенным центром сертификации и что имя хоста сервера совпадает с указанным в
-        сертификате.
+         - ALLOW: Сначала предпринимается попытка установить незашифрованное соединение. Если это не удается, устанавливается SSL-соединение.
+         - PREFER: Сначала предпринимается попытка установить SSL-соединение. Если это не удается, устанавливается незашифрованное соединение.
+         - VERIFY_CA: Устанавливается только SSL-соединение и только при условии, что сертификат выдан доверенным центром сертификации (CA).
+         - VERIFY_FULL: Устанавливается только SSL-соединение и только при условии, что сертификат выдан доверенным центром сертификации и что имя хоста сервера совпадает с указанным в сертификате.
       type: string
       enum:
       - DISABLE
@@ -3799,8 +4317,7 @@ components:
           type: string
     ClickhouseConfigExternalDictionaryStructureKey_in_ClickhouseConfigExternalDictionaryStructure_key:
       description: |-
-        Составной ключ для словаря, содержащего один или несколько столбцов с ключами.
-        Подробнее см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_structure/#composite-key).
+        Составной ключ для словаря, содержащего один или несколько столбцов с ключами. Подробнее см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_structure/#composite-key).
 
         Составной ключ.
       type: object
@@ -3815,9 +4332,8 @@ components:
           items:
             $ref: '#/components/schemas/ClickhouseConfigExternalDictionaryStructureAttribute'
     ClickhouseConfigExternalDictionaryStructureAttribute_in_ClickhouseConfigExternalDictionaryStructure_rangeMin:
-      description: |-
-        Поле, содержащее начало диапазона для словарей, которые хранятся в памяти
-        способом`RANGE_HASHED`. Подробнее см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_layout/#range-hashed)
+      description: Поле, содержащее начало диапазона для словарей, которые хранятся
+        в памяти способом "RANGE_HASHED". Подробнее см.[документации ClickHouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_layout/#range-hashed)
       type: object
       properties:
         name:
@@ -3838,18 +4354,17 @@ components:
           description: Выражение, описывающее атрибут, если применимо.
           type: string
         hierarchical:
-          description: Признак поддержки иерархии. Значение по умолчанию `false`.
+          description: Признак поддержки иерархии. Значение по умолчанию "false".
           type: boolean
           format: boolean
         injective:
           description: Признакт инъективного отображения "id -> атрибут". Значение
-            по умолчанию `false`.
+            по умолчанию "false".
           type: boolean
           format: boolean
     ClickhouseConfigExternalDictionaryStructureAttribute_in_ClickhouseConfigExternalDictionaryStructure_rangeMax:
-      description: |-
-        Поле, содержащее конец диапазона для словарей, которые хранятся в памяти
-        способом`RANGE_HASHED`. Подробнее см. в [документации ClickHouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_layout/#range-hashed)
+      description: Поле, содержащее конец диапазона для словарей, которые хранятся
+        в памяти способом "RANGE_HASHED". Подробнее см.[документации ClickHouse](https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_layout/#range-hashed)
       type: object
       properties:
         name:
@@ -3870,22 +4385,20 @@ components:
           description: Выражение, описывающее атрибут, если применимо.
           type: string
         hierarchical:
-          description: Признак поддержки иерархии. Значение по умолчанию `false`.
+          description: Признак поддержки иерархии. Значение по умолчанию "false".
           type: boolean
           format: boolean
         injective:
           description: Признакт инъективного отображения "id -> атрибут". Значение
-            по умолчанию `false`.
+            по умолчанию "false".
           type: boolean
           format: boolean
     ClickhouseConfig_in_ClickhouseConfigSet_effectiveConfig:
       description: |-
         Обязательное поле.
-        Действующие параметры для кластера ClickHouse (сочетание параметров, определенных в
-        userConfig и [default_config]).
+        Действующие параметры для кластера ClickHouse (сочетание параметров, определенных в "`userConfig`" и `defaultConfig`).
 
-        Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек
-        доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
 
         Любые настройки, не перечисленные здесь, не поддерживаются.
       type: object
@@ -3927,35 +4440,30 @@ components:
           type: integer
           format: int64
         keepAliveTimeout:
-          description: |-
-            Количество миллисекунд, в течение которых ClickHouse ожидает входящие запросы прежде чем
-            закрыть подключение.
+          description: Количество миллисекунд, в течение которых ClickHouse ожидает
+            входящие запросы прежде чем закрыть подключение.
           type: integer
           format: int64
         uncompressedCacheSize:
-          description: |-
-            Размер кэша (в байтах) для несжатых данных, используемых таблицами MergeTree. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
+          description: Размер кэша (в байтах) для несжатых данных, используемых таблицами
+            MergeTree. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
           type: integer
           format: int64
         markCacheSize:
           description: |-
-            Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в
-            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
+            Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
 
             Значение должно быть больше 5368709120.
           type: integer
           format: int64
         maxTableSizeToDrop:
-          description: |-
-            Максимальный размер таблицы, которую можно удалить с помощью запроса DROP. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
+          description: Максимальный размер таблицы, которую можно удалить с помощью
+            запроса DROP. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
           type: integer
           format: int64
         maxPartitionSizeToDrop:
-          description: |-
-            Максимальный размер раздела, который можно удалить с помощью запроса DROP. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
+          description: Максимальный размер раздела, который можно удалить с помощью
+            запроса DROP. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
@@ -3964,9 +4472,9 @@ components:
           type: integer
           format: int64
         timezone:
-          description: |-
-            Часовой пояс сервера, используемый в преобразованиях полей DateTime. Указывается как
-            идентификатор IANA. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
+          description: Часовой пояс сервера, используемый в преобразованиях полей
+            DateTime. Указывается как идентификатор IANA. См. подробное описание в
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
           type: string
         geobaseUri:
           type: string
@@ -3974,8 +4482,7 @@ components:
       description: |-
         Пользовательские настройки для кластера ClickHouse.
 
-        Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек
-        доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
 
         Любые настройки, не перечисленные здесь, не поддерживаются.
       type: object
@@ -4017,35 +4524,30 @@ components:
           type: integer
           format: int64
         keepAliveTimeout:
-          description: |-
-            Количество миллисекунд, в течение которых ClickHouse ожидает входящие запросы прежде чем
-            закрыть подключение.
+          description: Количество миллисекунд, в течение которых ClickHouse ожидает
+            входящие запросы прежде чем закрыть подключение.
           type: integer
           format: int64
         uncompressedCacheSize:
-          description: |-
-            Размер кэша (в байтах) для несжатых данных, используемых таблицами MergeTree. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
+          description: Размер кэша (в байтах) для несжатых данных, используемых таблицами
+            MergeTree. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
           type: integer
           format: int64
         markCacheSize:
           description: |-
-            Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в
-            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
+            Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
 
             Значение должно быть больше 5368709120.
           type: integer
           format: int64
         maxTableSizeToDrop:
-          description: |-
-            Максимальный размер таблицы, которую можно удалить с помощью запроса DROP. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
+          description: Максимальный размер таблицы, которую можно удалить с помощью
+            запроса DROP. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
           type: integer
           format: int64
         maxPartitionSizeToDrop:
-          description: |-
-            Максимальный размер раздела, который можно удалить с помощью запроса DROP. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
+          description: Максимальный размер раздела, который можно удалить с помощью
+            запроса DROP. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
@@ -4054,9 +4556,9 @@ components:
           type: integer
           format: int64
         timezone:
-          description: |-
-            Часовой пояс сервера, используемый в преобразованиях полей DateTime. Указывается как
-            идентификатор IANA. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
+          description: Часовой пояс сервера, используемый в преобразованиях полей
+            DateTime. Указывается как идентификатор IANA. См. подробное описание в
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
           type: string
         geobaseUri:
           type: string
@@ -4064,8 +4566,7 @@ components:
       description: |-
         Конфигурация по умолчанию для кластера ClickHouse.
 
-        Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек
-        доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
 
         Любые настройки, не перечисленные здесь, не поддерживаются.
       type: object
@@ -4107,35 +4608,30 @@ components:
           type: integer
           format: int64
         keepAliveTimeout:
-          description: |-
-            Количество миллисекунд, в течение которых ClickHouse ожидает входящие запросы прежде чем
-            закрыть подключение.
+          description: Количество миллисекунд, в течение которых ClickHouse ожидает
+            входящие запросы прежде чем закрыть подключение.
           type: integer
           format: int64
         uncompressedCacheSize:
-          description: |-
-            Размер кэша (в байтах) для несжатых данных, используемых таблицами MergeTree. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
+          description: Размер кэша (в байтах) для несжатых данных, используемых таблицами
+            MergeTree. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
           type: integer
           format: int64
         markCacheSize:
           description: |-
-            Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в
-            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
+            Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
 
             Значение должно быть больше 5368709120.
           type: integer
           format: int64
         maxTableSizeToDrop:
-          description: |-
-            Максимальный размер таблицы, которую можно удалить с помощью запроса DROP. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
+          description: Максимальный размер таблицы, которую можно удалить с помощью
+            запроса DROP. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
           type: integer
           format: int64
         maxPartitionSizeToDrop:
-          description: |-
-            Максимальный размер раздела, который можно удалить с помощью запроса DROP. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
+          description: Максимальный размер раздела, который можно удалить с помощью
+            запроса DROP. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
@@ -4144,9 +4640,9 @@ components:
           type: integer
           format: int64
         timezone:
-          description: |-
-            Часовой пояс сервера, используемый в преобразованиях полей DateTime. Указывается как
-            идентификатор IANA. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
+          description: Часовой пояс сервера, используемый в преобразованиях полей
+            DateTime. Указывается как идентификатор IANA. См. подробное описание в
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
           type: string
         geobaseUri:
           type: string
@@ -4181,10 +4677,10 @@ components:
       description: |-
         Агрегированная работоспособность кластера.
 
-         - HEALTH_UNKNOWN: Состояние кластера неизвестно ([Host.health] для каждого хоста в кластере — UNKNOWN).
-         - ALIVE: Кластер работает нормально ([Host.health] для каждого хоста в кластере — ALIVE).
-         - DEAD: Кластер не работает ([Host.health] для каждого узла в кластере — DEAD).
-         - DEGRADED: Кластер работает неоптимально ([Host.health] по крайней мере для одного узла в кластере
+         - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).
+         - ALIVE: Кластер работает нормально (`health` для каждого хоста в кластере — ALIVE).
+         - DEAD: Кластер не работает (`health` для каждого узла в кластере — DEAD).
+         - DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного узла в кластере
         не ALIVE).
       type: string
       enum:
@@ -4358,8 +4854,7 @@ components:
       description: |-
         Конфигурация для сервера ClickHouse.
 
-        Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек
-        доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
 
         Любые настройки, не перечисленные здесь, не поддерживаются.
       type: object
@@ -4401,35 +4896,30 @@ components:
           type: integer
           format: int64
         keepAliveTimeout:
-          description: |-
-            Количество миллисекунд, в течение которых ClickHouse ожидает входящие запросы прежде чем
-            закрыть подключение.
+          description: Количество миллисекунд, в течение которых ClickHouse ожидает
+            входящие запросы прежде чем закрыть подключение.
           type: integer
           format: int64
         uncompressedCacheSize:
-          description: |-
-            Размер кэша (в байтах) для несжатых данных, используемых таблицами MergeTree. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
+          description: Размер кэша (в байтах) для несжатых данных, используемых таблицами
+            MergeTree. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
           type: integer
           format: int64
         markCacheSize:
           description: |-
-            Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в
-            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
+            Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
 
             Значение должно быть больше 5368709120.
           type: integer
           format: int64
         maxTableSizeToDrop:
-          description: |-
-            Максимальный размер таблицы, которую можно удалить с помощью запроса DROP. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
+          description: Максимальный размер таблицы, которую можно удалить с помощью
+            запроса DROP. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
           type: integer
           format: int64
         maxPartitionSizeToDrop:
-          description: |-
-            Максимальный размер раздела, который можно удалить с помощью запроса DROP. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
+          description: Максимальный размер раздела, который можно удалить с помощью
+            запроса DROP. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
@@ -4438,9 +4928,9 @@ components:
           type: integer
           format: int64
         timezone:
-          description: |-
-            Часовой пояс сервера, используемый в преобразованиях полей DateTime. Указывается как
-            идентификатор IANA. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
+          description: Часовой пояс сервера, используемый в преобразованиях полей
+            DateTime. Указывается как идентификатор IANA. См. подробное описание в
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
           type: string
         geobaseUri:
           type: string
@@ -4583,6 +5073,15 @@ components:
             Максимальная длина строки в символах — 63.
             Значение должно соответствовать регулярному выражению `` [a-zA-Z0-9_-]* ``.
           type: string
+    MlModelType_in_CreateMlModelRequest_type:
+      description: |-
+        Обязательное поле.
+        Тип модели.
+
+         - ML_MODEL_TYPE_CATBOOST: Модель CatBoost.
+      type: string
+      enum:
+      - ML_MODEL_TYPE_CATBOOST
     UserSpec_in_CreateUserRequest_userSpec:
       description: |-
         Обязательное поле.
@@ -4611,6 +5110,11 @@ components:
             $ref: '#/components/schemas/Permission'
         settings:
           $ref: '#/components/schemas/UserSettings_in_UserSpec_settings'
+        quotas:
+          description: Набор квот, назначенных пользователю.
+          type: array
+          items:
+            $ref: '#/components/schemas/UserQuota'
     Permission_in_GrantUserPermissionRequest_permission:
       description: Разрешение, которое должно быть предоставлено указанному пользователю.
       type: object
@@ -4674,6 +5178,14 @@ components:
       enum:
       - CLICKHOUSE
       - ZOOKEEPER
+    MlModelType_in_MlModel_type:
+      description: |-
+        Тип модели.
+
+         - ML_MODEL_TYPE_CATBOOST: Модель CatBoost.
+      type: string
+      enum:
+      - ML_MODEL_TYPE_CATBOOST
     ClusterEnvironment_in_RestoreClusterRequest_environment:
       description: |-
         Обязательное поле.
@@ -4795,8 +5307,7 @@ components:
       description: |-
         Настройки ClickHouse для шарда.
 
-        Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек
-        доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+        Настройки конфигурации ClickHouse. Подробное описание для каждого набора настроек доступно в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
 
         Любые настройки, не перечисленные здесь, не поддерживаются.
       type: object
@@ -4838,35 +5349,30 @@ components:
           type: integer
           format: int64
         keepAliveTimeout:
-          description: |-
-            Количество миллисекунд, в течение которых ClickHouse ожидает входящие запросы прежде чем
-            закрыть подключение.
+          description: Количество миллисекунд, в течение которых ClickHouse ожидает
+            входящие запросы прежде чем закрыть подключение.
           type: integer
           format: int64
         uncompressedCacheSize:
-          description: |-
-            Размер кэша (в байтах) для несжатых данных, используемых таблицами MergeTree. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
+          description: Размер кэша (в байтах) для несжатых данных, используемых таблицами
+            MergeTree. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#uncompressed_cache_size).
           type: integer
           format: int64
         markCacheSize:
           description: |-
-            Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в
-            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
+            Примерный размер (в байтах) кэша «меток», используемых таблицами MergeTree. Подробнее в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#mark_cache_size).
 
             Значение должно быть больше 5368709120.
           type: integer
           format: int64
         maxTableSizeToDrop:
-          description: |-
-            Максимальный размер таблицы, которую можно удалить с помощью запроса DROP. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
+          description: Максимальный размер таблицы, которую можно удалить с помощью
+            запроса DROP. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_table_size_to_drop).
           type: integer
           format: int64
         maxPartitionSizeToDrop:
-          description: |-
-            Максимальный размер раздела, который можно удалить с помощью запроса DROP. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
+          description: Максимальный размер раздела, который можно удалить с помощью
+            запроса DROP. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max_partition_size_to_drop).
           type: integer
           format: int64
         builtinDictionariesReloadInterval:
@@ -4875,9 +5381,9 @@ components:
           type: integer
           format: int64
         timezone:
-          description: |-
-            Часовой пояс сервера, используемый в преобразованиях полей DateTime. Указывается как
-            идентификатор IANA. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
+          description: Часовой пояс сервера, используемый в преобразованиях полей
+            DateTime. Указывается как идентификатор IANA. См. подробное описание в
+            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#timezone).
           type: string
         geobaseUri:
           type: string
@@ -4946,6 +5452,17 @@ components:
       properties:
         clickhouse:
           $ref: '#/components/schemas/ShardConfigSpecClickhouse_in_ShardConfigSpec_clickhouse'
+    FieldMask_in_UpdateMlModelRequest_updateMask:
+      description: |-
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
     FieldMask_in_UpdateUserRequest_updateMask:
       description: |-
         Маска, которая указывает, какие атрибуты пользователя ClickHouse должны быть изменены.
@@ -4960,20 +5477,23 @@ components:
         Значения остальных полей будут сброшены на значения по умолчанию.
       type: string
     UserSettings_in_UpdateUserRequest_settings:
-      description: |-
-        Пользовательские настройки ClickHouse. Поддерживаемые параметры входят в число
-        параметров, описанных в разделе [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/).
+      description: Пользовательские настройки ClickHouse. Поддерживаемые параметры
+        входят в число параметров, описанных в разделе [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/).
       type: object
       properties:
         readonly:
           description: |-
-            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_readonly).
+            Ограничивает разрешения для запросов, не относящихся к DDL. Возможные значения:
+            * 0 (по умолчанию) - никаких ограничений.
+            * 1-разрешены только запросы на чтение данных.
+            * 2 — разрешены запросы на чтение данных и изменение настроек. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_readonly).
 
             Допустимые значения — от 0 до 2 включительно.
           type: integer
           format: int64
         allowDdl:
-          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_allow_ddl).
+          description: Разрешены ли запросы DDL. Значение по умолчанию "false". См.
+            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_allow_ddl).
           type: boolean
           format: boolean
         insertQuorum:
@@ -4983,10 +5503,30 @@ components:
             Минимальное значение — 0.
           type: integer
           format: int64
+        connectTimeout:
+          description: |-
+            Время ожидания соединения в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        receiveTimeout:
+          description: |-
+            Время ожидания приема в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        sendTimeout:
+          description: |-
+            Время ожидания отправки в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
         insertQuorumTimeout:
           description: |-
-            Время ожидания записи для кворума в миллисекундах. Значение по умолчанию: 60000. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-insert_quorum_timeout).
+            Время ожидания записи для кворума в миллисекундах. Значение по умолчанию: 60000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-insert_quorum_timeout).
 
             Минимальное значение — 1000.
           type: integer
@@ -4997,9 +5537,7 @@ components:
           format: boolean
         maxReplicaDelayForDistributedQueries:
           description: |-
-            Максимальная задержка реплики в миллисекундах. Если реплика отстает на значение
-            больше установленного, реплика перестает использоваться. Значение по умолчанию:
-            300000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries).
+            Максимальная задержка реплики в миллисекундах. Если реплика отстает на значение больше установленного, реплика перестает использоваться. Значение по умолчанию: 300000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries).
 
             Минимальное значение — 1000.
           type: integer
@@ -5008,11 +5546,44 @@ components:
           description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
           type: boolean
           format: boolean
-        maxThreads:
+        replicationAlterPartitionsSync:
           description: |-
-            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_threads).
+            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/query_language/alter/#synchronicity-of-alter-queries).
 
-            Значение должно быть больше 0.
+            Допустимые значения — от 0 до 2 включительно.
+          type: integer
+          format: int64
+        distributedProductMode:
+          $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
+        distributedAggregationMemoryEfficient:
+          description: Включен ли режим экономии памяти распределенной агрегации.
+          type: boolean
+          format: boolean
+        distributedDdlTaskTimeout:
+          description: Время ожидания запросов DDL в миллисекундах.
+          type: integer
+          format: int64
+        compile:
+          description: Включена ли компиляция запросов. См. подробное описание в [документации
+            ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#compile).
+          type: boolean
+          format: boolean
+        minCountToCompile:
+          description: |-
+            Число структурно идентичных запросов до их компиляции. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#min-count-to-compile).
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        compileExpressions:
+          description: Включена ли компиляция выражений.
+          type: boolean
+          format: boolean
+        minCountToCompileExpression:
+          description: |-
+            Число идентичных выражений до их компиляции.
+
+            Минимальное значение — 0.
           type: integer
           format: int64
         maxBlockSize:
@@ -5022,9 +5593,88 @@ components:
             Значение должно быть больше 0.
           type: integer
           format: int64
+        minInsertBlockSizeRows:
+          description: |-
+            Минимальный размер блока в строках при выполнении INSERT запросов. Блоки меньшего размера ClickHouse будет склеивать в один блок. Если установлено значение "0", ClichHouse не будет склеивать блоки.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        minInsertBlockSizeBytes:
+          description: |-
+            Минимальный размер блока в байтах при выполнении INSERT запросов. Блоки меньшего размера ClickHouse будет склеивать в один блок. Если установлено значение "0", ClichHouse не будет склеивать блоки.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
         maxInsertBlockSize:
           description: |-
             См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_insert_block_size).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        minBytesToUseDirectIo:
+          description: |-
+            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-min_bytes_to_use_direct_io).
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        useUncompressedCache:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#setting-use_uncompressed_cache).
+          type: boolean
+          format: boolean
+        mergeTreeMaxRowsToUseCache:
+          description: |-
+            Максимальный размер запроса в строках для использования кэша несжатых данных. Кэш не используется для запросов, превышающих указанное значение. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#setting-merge_tree_max_rows_to_use_cache).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        mergeTreeMaxBytesToUseCache:
+          description: |-
+            Максимальный размер запроса в байтах для использования кэша несжатых данных. Кэш не используется для запросов, превышающих указанное значение.
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        mergeTreeMinRowsForConcurrentRead:
+          description: |-
+            Минимальное число строк, считываемых из файла для одновременного чтения. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#setting-merge_tree_min_rows_for_concurrent_read).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        mergeTreeMinBytesForConcurrentRead:
+          description: |-
+            Минимальное число байтов, считываемых из файла для одновременного чтения.
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        maxBytesBeforeExternalGroupBy:
+          type: integer
+          format: int64
+        maxBytesBeforeExternalSort:
+          type: integer
+          format: int64
+        groupByTwoLevelThreshold:
+          type: integer
+          format: int64
+        groupByTwoLevelThresholdBytes:
+          type: integer
+          format: int64
+        priority:
+          description: |-
+            Приоритет запроса.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        maxThreads:
+          description: |-
+            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_threads).
 
             Значение должно быть больше 0.
           type: integer
@@ -5043,6 +5693,22 @@ components:
             Минимальное значение — 0.
           type: integer
           format: int64
+        maxNetworkBandwidth:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_network_bandwidth).
+          type: integer
+          format: int64
+        maxNetworkBandwidthForUser:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_network_bandwidth_for_user).
+          type: integer
+          format: int64
+        forceIndexByDate:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-force_index_by_date).
+          type: boolean
+          format: boolean
+        forcePrimaryKey:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#force-primary-key).
+          type: boolean
+          format: boolean
         maxRowsToRead:
           description: |-
             См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-rows-to-read).
@@ -5134,8 +5800,7 @@ components:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_transferOverflowMode'
         maxExecutionTime:
           description: |-
-            Максимальное время выполнения запроса в миллисекундах. См. подробное описание в
-            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-execution-time).
+            Максимальное время выполнения запроса в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-execution-time).
 
             Минимальное значение — 0.
           type: integer
@@ -5144,77 +5809,128 @@ components:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_timeoutOverflowMode'
         maxColumnsToRead:
           description: |-
-            Максимальное количество столбцов, которые можно прочитать из таблицы в одном
-            запросе. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-columns-to-read).
+            Максимальное количество столбцов, которые можно прочитать из таблицы в одном запросе. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-columns-to-read).
 
             Минимальное значение — 0.
           type: integer
           format: int64
         maxTemporaryColumns:
           description: |-
-            Максимальное количество временных столбцов, которые должны храниться в оперативной
-            памяти одновременно при выполнении запроса, включая постоянные столбцы. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-columns).
+            Максимальное количество временных столбцов, которые должны храниться в оперативной памяти одновременно при выполнении запроса, включая постоянные столбцы. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-columns).
 
             Минимальное значение — 0.
           type: integer
           format: int64
         maxTemporaryNonConstColumns:
           description: |-
-            Максимальное количество временных столбцов, которые должны храниться в оперативной
-            памяти одновременно при выполнении запроса, за исключением постоянных столбцов. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-non-const-columns).
+            Максимальное количество временных столбцов, которые должны храниться в оперативной памяти одновременно при выполнении запроса, за исключением постоянных столбцов. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-non-const-columns).
 
             Минимальное значение — 0.
           type: integer
           format: int64
         maxQuerySize:
           description: |-
-            Наибольшая часть запроса, которая может быть передана в RAM для разбора с помощью
-            анализатора SQL, в байтах. Значение по умолчанию: 262144. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_query_size).
+            Наибольшая часть запроса, которая может быть передана в RAM для разбора с помощью анализатора SQL, в байтах. Значение по умолчанию: 262144. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_query_size).
 
             Значение должно быть больше 0.
           type: integer
           format: int64
         maxAstDepth:
           description: |-
-            Максимальная глубина синтаксического дерева запроса. Значение по умолчанию: 1000. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-depth).
+            Максимальная глубина синтаксического дерева запроса. Значение по умолчанию: 1000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-depth).
 
             Значение должно быть больше 0.
           type: integer
           format: int64
         maxAstElements:
           description: |-
-            Максимальный размер синтаксического дерева запроса в количестве узлов. Значение по
-            умолчанию: 50000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-elements).
+            Максимальный размер синтаксического дерева запроса в количестве узлов. Значение по умолчанию: 50000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-elements).
 
             Значение должно быть больше 0.
           type: integer
           format: int64
         maxExpandedAstElements:
           description: |-
-            Максимальный размер синтаксического дерева запроса в количестве узлов после
-            раскрытия псевдонимов и звездочки. Значение по умолчанию: 500000.
+            Максимальный размер синтаксического дерева запроса в количестве узлов после раскрытия псевдонимов и звездочки. Значение по умолчанию: 500000.
 
             Значение должно быть больше 0.
           type: integer
           format: int64
+        inputFormatValuesInterpretExpressions:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-input_format_values_interpret_expressions).
+          type: boolean
+          format: boolean
+        inputFormatDefaultsForOmittedFields:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuote_64BitIntegers:
+          description: Если значение истинно, то при использовании JSON форматов UInt64
+            и Int64 числа выводятся в кавычках. См. подробное описание в [документации
+            ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#session_settings-output_format_json_quote_64bit_integers).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuoteDenormals:
+          description: Включен ли вывод специальных значений с плавающей запятой (
+            "+nan", "-nan", "+inf" и "-inf") в формате вывода JSON.
+          type: boolean
+          format: boolean
+        lowCardinalityAllowInNativeFormat:
+          type: boolean
+          format: boolean
+        emptyResultForAggregationByEmptySet:
+          type: boolean
+          format: boolean
+        httpConnectionTimeout:
+          description: Время ожидания соединения в миллисекундах.
+          type: integer
+          format: int64
+        httpReceiveTimeout:
+          description: Время ожидания приема в миллисекундах.
+          type: integer
+          format: int64
+        httpSendTimeout:
+          description: Время ожидания отправки в миллисекундах.
+          type: integer
+          format: int64
+        enableHttpCompression:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-enable_http_compression).
+          type: boolean
+          format: boolean
+        sendProgressInHttpHeaders:
+          description: Включены ли уведомления о ходе выполнения с использованием
+            заголовков X-ClickHouse-Progress. Значение по умолчанию "false". См. подробное
+            описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-send_progress_in_http_headers).
+          type: boolean
+          format: boolean
+        httpHeadersProgressInterval:
+          description: 'Минимальный интервал между уведомлениями о ходе выполнения,
+            в миллисекундах. Значение по умолчанию: 100.'
+          type: integer
+          format: int64
+        addHttpCorsHeader:
+          description: Включен ли заголовок CORS в HTTP-ответах. Значение по умолчанию
+            "false".
+          type: boolean
+          format: boolean
     UserSettings_in_User_settings:
-      description: |-
-        Пользовательские настройки ClickHouse. Поддерживаемые параметры входят в число
-        параметров, описанных в разделе [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/).
+      description: Пользовательские настройки ClickHouse. Поддерживаемые параметры
+        входят в число параметров, описанных в разделе [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/).
       type: object
       properties:
         readonly:
           description: |-
-            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_readonly).
+            Ограничивает разрешения для запросов, не относящихся к DDL. Возможные значения:
+            * 0 (по умолчанию) - никаких ограничений.
+            * 1-разрешены только запросы на чтение данных.
+            * 2 — разрешены запросы на чтение данных и изменение настроек. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_readonly).
 
             Допустимые значения — от 0 до 2 включительно.
           type: integer
           format: int64
         allowDdl:
-          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_allow_ddl).
+          description: Разрешены ли запросы DDL. Значение по умолчанию "false". См.
+            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_allow_ddl).
           type: boolean
           format: boolean
         insertQuorum:
@@ -5224,10 +5940,30 @@ components:
             Минимальное значение — 0.
           type: integer
           format: int64
+        connectTimeout:
+          description: |-
+            Время ожидания соединения в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        receiveTimeout:
+          description: |-
+            Время ожидания приема в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        sendTimeout:
+          description: |-
+            Время ожидания отправки в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
         insertQuorumTimeout:
           description: |-
-            Время ожидания записи для кворума в миллисекундах. Значение по умолчанию: 60000. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-insert_quorum_timeout).
+            Время ожидания записи для кворума в миллисекундах. Значение по умолчанию: 60000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-insert_quorum_timeout).
 
             Минимальное значение — 1000.
           type: integer
@@ -5238,9 +5974,7 @@ components:
           format: boolean
         maxReplicaDelayForDistributedQueries:
           description: |-
-            Максимальная задержка реплики в миллисекундах. Если реплика отстает на значение
-            больше установленного, реплика перестает использоваться. Значение по умолчанию:
-            300000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries).
+            Максимальная задержка реплики в миллисекундах. Если реплика отстает на значение больше установленного, реплика перестает использоваться. Значение по умолчанию: 300000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries).
 
             Минимальное значение — 1000.
           type: integer
@@ -5249,11 +5983,44 @@ components:
           description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
           type: boolean
           format: boolean
-        maxThreads:
+        replicationAlterPartitionsSync:
           description: |-
-            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_threads).
+            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/query_language/alter/#synchronicity-of-alter-queries).
 
-            Значение должно быть больше 0.
+            Допустимые значения — от 0 до 2 включительно.
+          type: integer
+          format: int64
+        distributedProductMode:
+          $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
+        distributedAggregationMemoryEfficient:
+          description: Включен ли режим экономии памяти распределенной агрегации.
+          type: boolean
+          format: boolean
+        distributedDdlTaskTimeout:
+          description: Время ожидания запросов DDL в миллисекундах.
+          type: integer
+          format: int64
+        compile:
+          description: Включена ли компиляция запросов. См. подробное описание в [документации
+            ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#compile).
+          type: boolean
+          format: boolean
+        minCountToCompile:
+          description: |-
+            Число структурно идентичных запросов до их компиляции. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#min-count-to-compile).
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        compileExpressions:
+          description: Включена ли компиляция выражений.
+          type: boolean
+          format: boolean
+        minCountToCompileExpression:
+          description: |-
+            Число идентичных выражений до их компиляции.
+
+            Минимальное значение — 0.
           type: integer
           format: int64
         maxBlockSize:
@@ -5263,9 +6030,88 @@ components:
             Значение должно быть больше 0.
           type: integer
           format: int64
+        minInsertBlockSizeRows:
+          description: |-
+            Минимальный размер блока в строках при выполнении INSERT запросов. Блоки меньшего размера ClickHouse будет склеивать в один блок. Если установлено значение "0", ClichHouse не будет склеивать блоки.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        minInsertBlockSizeBytes:
+          description: |-
+            Минимальный размер блока в байтах при выполнении INSERT запросов. Блоки меньшего размера ClickHouse будет склеивать в один блок. Если установлено значение "0", ClichHouse не будет склеивать блоки.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
         maxInsertBlockSize:
           description: |-
             См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_insert_block_size).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        minBytesToUseDirectIo:
+          description: |-
+            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-min_bytes_to_use_direct_io).
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        useUncompressedCache:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#setting-use_uncompressed_cache).
+          type: boolean
+          format: boolean
+        mergeTreeMaxRowsToUseCache:
+          description: |-
+            Максимальный размер запроса в строках для использования кэша несжатых данных. Кэш не используется для запросов, превышающих указанное значение. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#setting-merge_tree_max_rows_to_use_cache).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        mergeTreeMaxBytesToUseCache:
+          description: |-
+            Максимальный размер запроса в байтах для использования кэша несжатых данных. Кэш не используется для запросов, превышающих указанное значение.
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        mergeTreeMinRowsForConcurrentRead:
+          description: |-
+            Минимальное число строк, считываемых из файла для одновременного чтения. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#setting-merge_tree_min_rows_for_concurrent_read).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        mergeTreeMinBytesForConcurrentRead:
+          description: |-
+            Минимальное число байтов, считываемых из файла для одновременного чтения.
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        maxBytesBeforeExternalGroupBy:
+          type: integer
+          format: int64
+        maxBytesBeforeExternalSort:
+          type: integer
+          format: int64
+        groupByTwoLevelThreshold:
+          type: integer
+          format: int64
+        groupByTwoLevelThresholdBytes:
+          type: integer
+          format: int64
+        priority:
+          description: |-
+            Приоритет запроса.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        maxThreads:
+          description: |-
+            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_threads).
 
             Значение должно быть больше 0.
           type: integer
@@ -5284,6 +6130,22 @@ components:
             Минимальное значение — 0.
           type: integer
           format: int64
+        maxNetworkBandwidth:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_network_bandwidth).
+          type: integer
+          format: int64
+        maxNetworkBandwidthForUser:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_network_bandwidth_for_user).
+          type: integer
+          format: int64
+        forceIndexByDate:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-force_index_by_date).
+          type: boolean
+          format: boolean
+        forcePrimaryKey:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#force-primary-key).
+          type: boolean
+          format: boolean
         maxRowsToRead:
           description: |-
             См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-rows-to-read).
@@ -5375,8 +6237,7 @@ components:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_transferOverflowMode'
         maxExecutionTime:
           description: |-
-            Максимальное время выполнения запроса в миллисекундах. См. подробное описание в
-            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-execution-time).
+            Максимальное время выполнения запроса в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-execution-time).
 
             Минимальное значение — 0.
           type: integer
@@ -5385,62 +6246,124 @@ components:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_timeoutOverflowMode'
         maxColumnsToRead:
           description: |-
-            Максимальное количество столбцов, которые можно прочитать из таблицы в одном
-            запросе. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-columns-to-read).
+            Максимальное количество столбцов, которые можно прочитать из таблицы в одном запросе. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-columns-to-read).
 
             Минимальное значение — 0.
           type: integer
           format: int64
         maxTemporaryColumns:
           description: |-
-            Максимальное количество временных столбцов, которые должны храниться в оперативной
-            памяти одновременно при выполнении запроса, включая постоянные столбцы. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-columns).
+            Максимальное количество временных столбцов, которые должны храниться в оперативной памяти одновременно при выполнении запроса, включая постоянные столбцы. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-columns).
 
             Минимальное значение — 0.
           type: integer
           format: int64
         maxTemporaryNonConstColumns:
           description: |-
-            Максимальное количество временных столбцов, которые должны храниться в оперативной
-            памяти одновременно при выполнении запроса, за исключением постоянных столбцов. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-non-const-columns).
+            Максимальное количество временных столбцов, которые должны храниться в оперативной памяти одновременно при выполнении запроса, за исключением постоянных столбцов. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-non-const-columns).
 
             Минимальное значение — 0.
           type: integer
           format: int64
         maxQuerySize:
           description: |-
-            Наибольшая часть запроса, которая может быть передана в RAM для разбора с помощью
-            анализатора SQL, в байтах. Значение по умолчанию: 262144. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_query_size).
+            Наибольшая часть запроса, которая может быть передана в RAM для разбора с помощью анализатора SQL, в байтах. Значение по умолчанию: 262144. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_query_size).
 
             Значение должно быть больше 0.
           type: integer
           format: int64
         maxAstDepth:
           description: |-
-            Максимальная глубина синтаксического дерева запроса. Значение по умолчанию: 1000. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-depth).
+            Максимальная глубина синтаксического дерева запроса. Значение по умолчанию: 1000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-depth).
 
             Значение должно быть больше 0.
           type: integer
           format: int64
         maxAstElements:
           description: |-
-            Максимальный размер синтаксического дерева запроса в количестве узлов. Значение по
-            умолчанию: 50000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-elements).
+            Максимальный размер синтаксического дерева запроса в количестве узлов. Значение по умолчанию: 50000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-elements).
 
             Значение должно быть больше 0.
           type: integer
           format: int64
         maxExpandedAstElements:
           description: |-
-            Максимальный размер синтаксического дерева запроса в количестве узлов после
-            раскрытия псевдонимов и звездочки. Значение по умолчанию: 500000.
+            Максимальный размер синтаксического дерева запроса в количестве узлов после раскрытия псевдонимов и звездочки. Значение по умолчанию: 500000.
 
             Значение должно быть больше 0.
           type: integer
           format: int64
+        inputFormatValuesInterpretExpressions:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-input_format_values_interpret_expressions).
+          type: boolean
+          format: boolean
+        inputFormatDefaultsForOmittedFields:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuote_64BitIntegers:
+          description: Если значение истинно, то при использовании JSON форматов UInt64
+            и Int64 числа выводятся в кавычках. См. подробное описание в [документации
+            ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#session_settings-output_format_json_quote_64bit_integers).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuoteDenormals:
+          description: Включен ли вывод специальных значений с плавающей запятой (
+            "+nan", "-nan", "+inf" и "-inf") в формате вывода JSON.
+          type: boolean
+          format: boolean
+        lowCardinalityAllowInNativeFormat:
+          type: boolean
+          format: boolean
+        emptyResultForAggregationByEmptySet:
+          type: boolean
+          format: boolean
+        httpConnectionTimeout:
+          description: Время ожидания соединения в миллисекундах.
+          type: integer
+          format: int64
+        httpReceiveTimeout:
+          description: Время ожидания приема в миллисекундах.
+          type: integer
+          format: int64
+        httpSendTimeout:
+          description: Время ожидания отправки в миллисекундах.
+          type: integer
+          format: int64
+        enableHttpCompression:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-enable_http_compression).
+          type: boolean
+          format: boolean
+        sendProgressInHttpHeaders:
+          description: Включены ли уведомления о ходе выполнения с использованием
+            заголовков X-ClickHouse-Progress. Значение по умолчанию "false". См. подробное
+            описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-send_progress_in_http_headers).
+          type: boolean
+          format: boolean
+        httpHeadersProgressInterval:
+          description: 'Минимальный интервал между уведомлениями о ходе выполнения,
+            в миллисекундах. Значение по умолчанию: 100.'
+          type: integer
+          format: int64
+        addHttpCorsHeader:
+          description: Включен ли заголовок CORS в HTTP-ответах. Значение по умолчанию
+            "false".
+          type: boolean
+          format: boolean
+    UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode:
+      description: |-
+        См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#distributed-product-mode).
+
+         - DISTRIBUTED_PRODUCT_MODE_DENY: Значение по умолчанию. Запрещает использование этих типов подзапросов (возвращает исключение "Double-distributed in/JOIN subqueries is denied").
+         - DISTRIBUTED_PRODUCT_MODE_LOCAL: Заменяет базу данных и таблицу в подзапросе локальными для конечного сервера (шарда), оставляя обычный IN / JOIN.
+         - DISTRIBUTED_PRODUCT_MODE_GLOBAL: Заменяет IN/JOIN запрос на GLOBAL IN/GLOBAL JOIN.
+         - DISTRIBUTED_PRODUCT_MODE_ALLOW: Позволяет использовать эти типы подзапросов.
+      type: string
+      enum:
+      - DISTRIBUTED_PRODUCT_MODE_DENY
+      - DISTRIBUTED_PRODUCT_MODE_LOCAL
+      - DISTRIBUTED_PRODUCT_MODE_GLOBAL
+      - DISTRIBUTED_PRODUCT_MODE_ALLOW
     UserSettingsOverflowMode_in_UserSettings_readOverflowMode:
       description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#read-overflow-mode).
       type: string
@@ -5485,20 +6408,23 @@ components:
       - OVERFLOW_MODE_THROW
       - OVERFLOW_MODE_BREAK
     UserSettings_in_UserSpec_settings:
-      description: |-
-        Пользовательские настройки ClickHouse. Поддерживаемые параметры входят в число
-        параметров, описанных в разделе [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/).
+      description: Пользовательские настройки ClickHouse. Поддерживаемые параметры
+        входят в число параметров, описанных в разделе [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/).
       type: object
       properties:
         readonly:
           description: |-
-            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_readonly).
+            Ограничивает разрешения для запросов, не относящихся к DDL. Возможные значения:
+            * 0 (по умолчанию) - никаких ограничений.
+            * 1-разрешены только запросы на чтение данных.
+            * 2 — разрешены запросы на чтение данных и изменение настроек. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_readonly).
 
             Допустимые значения — от 0 до 2 включительно.
           type: integer
           format: int64
         allowDdl:
-          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_allow_ddl).
+          description: Разрешены ли запросы DDL. Значение по умолчанию "false". См.
+            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_allow_ddl).
           type: boolean
           format: boolean
         insertQuorum:
@@ -5508,10 +6434,30 @@ components:
             Минимальное значение — 0.
           type: integer
           format: int64
+        connectTimeout:
+          description: |-
+            Время ожидания соединения в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        receiveTimeout:
+          description: |-
+            Время ожидания приема в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        sendTimeout:
+          description: |-
+            Время ожидания отправки в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
         insertQuorumTimeout:
           description: |-
-            Время ожидания записи для кворума в миллисекундах. Значение по умолчанию: 60000. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-insert_quorum_timeout).
+            Время ожидания записи для кворума в миллисекундах. Значение по умолчанию: 60000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-insert_quorum_timeout).
 
             Минимальное значение — 1000.
           type: integer
@@ -5522,9 +6468,7 @@ components:
           format: boolean
         maxReplicaDelayForDistributedQueries:
           description: |-
-            Максимальная задержка реплики в миллисекундах. Если реплика отстает на значение
-            больше установленного, реплика перестает использоваться. Значение по умолчанию:
-            300000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries).
+            Максимальная задержка реплики в миллисекундах. Если реплика отстает на значение больше установленного, реплика перестает использоваться. Значение по умолчанию: 300000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries).
 
             Минимальное значение — 1000.
           type: integer
@@ -5533,11 +6477,44 @@ components:
           description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
           type: boolean
           format: boolean
-        maxThreads:
+        replicationAlterPartitionsSync:
           description: |-
-            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_threads).
+            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/query_language/alter/#synchronicity-of-alter-queries).
 
-            Значение должно быть больше 0.
+            Допустимые значения — от 0 до 2 включительно.
+          type: integer
+          format: int64
+        distributedProductMode:
+          $ref: '#/components/schemas/UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode'
+        distributedAggregationMemoryEfficient:
+          description: Включен ли режим экономии памяти распределенной агрегации.
+          type: boolean
+          format: boolean
+        distributedDdlTaskTimeout:
+          description: Время ожидания запросов DDL в миллисекундах.
+          type: integer
+          format: int64
+        compile:
+          description: Включена ли компиляция запросов. См. подробное описание в [документации
+            ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#compile).
+          type: boolean
+          format: boolean
+        minCountToCompile:
+          description: |-
+            Число структурно идентичных запросов до их компиляции. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#min-count-to-compile).
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        compileExpressions:
+          description: Включена ли компиляция выражений.
+          type: boolean
+          format: boolean
+        minCountToCompileExpression:
+          description: |-
+            Число идентичных выражений до их компиляции.
+
+            Минимальное значение — 0.
           type: integer
           format: int64
         maxBlockSize:
@@ -5547,9 +6524,88 @@ components:
             Значение должно быть больше 0.
           type: integer
           format: int64
+        minInsertBlockSizeRows:
+          description: |-
+            Минимальный размер блока в строках при выполнении INSERT запросов. Блоки меньшего размера ClickHouse будет склеивать в один блок. Если установлено значение "0", ClichHouse не будет склеивать блоки.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        minInsertBlockSizeBytes:
+          description: |-
+            Минимальный размер блока в байтах при выполнении INSERT запросов. Блоки меньшего размера ClickHouse будет склеивать в один блок. Если установлено значение "0", ClichHouse не будет склеивать блоки.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
         maxInsertBlockSize:
           description: |-
             См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_insert_block_size).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        minBytesToUseDirectIo:
+          description: |-
+            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-min_bytes_to_use_direct_io).
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        useUncompressedCache:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#setting-use_uncompressed_cache).
+          type: boolean
+          format: boolean
+        mergeTreeMaxRowsToUseCache:
+          description: |-
+            Максимальный размер запроса в строках для использования кэша несжатых данных. Кэш не используется для запросов, превышающих указанное значение. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#setting-merge_tree_max_rows_to_use_cache).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        mergeTreeMaxBytesToUseCache:
+          description: |-
+            Максимальный размер запроса в байтах для использования кэша несжатых данных. Кэш не используется для запросов, превышающих указанное значение.
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        mergeTreeMinRowsForConcurrentRead:
+          description: |-
+            Минимальное число строк, считываемых из файла для одновременного чтения. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#setting-merge_tree_min_rows_for_concurrent_read).
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        mergeTreeMinBytesForConcurrentRead:
+          description: |-
+            Минимальное число байтов, считываемых из файла для одновременного чтения.
+
+            Значение должно быть больше 0.
+          type: integer
+          format: int64
+        maxBytesBeforeExternalGroupBy:
+          type: integer
+          format: int64
+        maxBytesBeforeExternalSort:
+          type: integer
+          format: int64
+        groupByTwoLevelThreshold:
+          type: integer
+          format: int64
+        groupByTwoLevelThresholdBytes:
+          type: integer
+          format: int64
+        priority:
+          description: |-
+            Приоритет запроса.
+
+            Минимальное значение — 0.
+          type: integer
+          format: int64
+        maxThreads:
+          description: |-
+            См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_threads).
 
             Значение должно быть больше 0.
           type: integer
@@ -5568,6 +6624,22 @@ components:
             Минимальное значение — 0.
           type: integer
           format: int64
+        maxNetworkBandwidth:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_network_bandwidth).
+          type: integer
+          format: int64
+        maxNetworkBandwidthForUser:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_network_bandwidth_for_user).
+          type: integer
+          format: int64
+        forceIndexByDate:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-force_index_by_date).
+          type: boolean
+          format: boolean
+        forcePrimaryKey:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#force-primary-key).
+          type: boolean
+          format: boolean
         maxRowsToRead:
           description: |-
             См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-rows-to-read).
@@ -5659,8 +6731,7 @@ components:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_transferOverflowMode'
         maxExecutionTime:
           description: |-
-            Максимальное время выполнения запроса в миллисекундах. См. подробное описание в
-            [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-execution-time).
+            Максимальное время выполнения запроса в миллисекундах. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-execution-time).
 
             Минимальное значение — 0.
           type: integer
@@ -5669,62 +6740,110 @@ components:
           $ref: '#/components/schemas/UserSettingsOverflowMode_in_UserSettings_timeoutOverflowMode'
         maxColumnsToRead:
           description: |-
-            Максимальное количество столбцов, которые можно прочитать из таблицы в одном
-            запросе. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-columns-to-read).
+            Максимальное количество столбцов, которые можно прочитать из таблицы в одном запросе. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-columns-to-read).
 
             Минимальное значение — 0.
           type: integer
           format: int64
         maxTemporaryColumns:
           description: |-
-            Максимальное количество временных столбцов, которые должны храниться в оперативной
-            памяти одновременно при выполнении запроса, включая постоянные столбцы. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-columns).
+            Максимальное количество временных столбцов, которые должны храниться в оперативной памяти одновременно при выполнении запроса, включая постоянные столбцы. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-columns).
 
             Минимальное значение — 0.
           type: integer
           format: int64
         maxTemporaryNonConstColumns:
           description: |-
-            Максимальное количество временных столбцов, которые должны храниться в оперативной
-            памяти одновременно при выполнении запроса, за исключением постоянных столбцов. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-non-const-columns).
+            Максимальное количество временных столбцов, которые должны храниться в оперативной памяти одновременно при выполнении запроса, за исключением постоянных столбцов. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-temporary-non-const-columns).
 
             Минимальное значение — 0.
           type: integer
           format: int64
         maxQuerySize:
           description: |-
-            Наибольшая часть запроса, которая может быть передана в RAM для разбора с помощью
-            анализатора SQL, в байтах. Значение по умолчанию: 262144. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_query_size).
+            Наибольшая часть запроса, которая может быть передана в RAM для разбора с помощью анализатора SQL, в байтах. Значение по умолчанию: 262144. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_query_size).
 
             Значение должно быть больше 0.
           type: integer
           format: int64
         maxAstDepth:
           description: |-
-            Максимальная глубина синтаксического дерева запроса. Значение по умолчанию: 1000. См.
-            подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-depth).
+            Максимальная глубина синтаксического дерева запроса. Значение по умолчанию: 1000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-depth).
 
             Значение должно быть больше 0.
           type: integer
           format: int64
         maxAstElements:
           description: |-
-            Максимальный размер синтаксического дерева запроса в количестве узлов. Значение по
-            умолчанию: 50000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-elements).
+            Максимальный размер синтаксического дерева запроса в количестве узлов. Значение по умолчанию: 50000. См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-elements).
 
             Значение должно быть больше 0.
           type: integer
           format: int64
         maxExpandedAstElements:
           description: |-
-            Максимальный размер синтаксического дерева запроса в количестве узлов после
-            раскрытия псевдонимов и звездочки. Значение по умолчанию: 500000.
+            Максимальный размер синтаксического дерева запроса в количестве узлов после раскрытия псевдонимов и звездочки. Значение по умолчанию: 500000.
 
             Значение должно быть больше 0.
           type: integer
           format: int64
+        inputFormatValuesInterpretExpressions:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-input_format_values_interpret_expressions).
+          type: boolean
+          format: boolean
+        inputFormatDefaultsForOmittedFields:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuote_64BitIntegers:
+          description: Если значение истинно, то при использовании JSON форматов UInt64
+            и Int64 числа выводятся в кавычках. См. подробное описание в [документации
+            ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#session_settings-output_format_json_quote_64bit_integers).
+          type: boolean
+          format: boolean
+        outputFormatJsonQuoteDenormals:
+          description: Включен ли вывод специальных значений с плавающей запятой (
+            "+nan", "-nan", "+inf" и "-inf") в формате вывода JSON.
+          type: boolean
+          format: boolean
+        lowCardinalityAllowInNativeFormat:
+          type: boolean
+          format: boolean
+        emptyResultForAggregationByEmptySet:
+          type: boolean
+          format: boolean
+        httpConnectionTimeout:
+          description: Время ожидания соединения в миллисекундах.
+          type: integer
+          format: int64
+        httpReceiveTimeout:
+          description: Время ожидания приема в миллисекундах.
+          type: integer
+          format: int64
+        httpSendTimeout:
+          description: Время ожидания отправки в миллисекундах.
+          type: integer
+          format: int64
+        enableHttpCompression:
+          description: См. подробное описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-enable_http_compression).
+          type: boolean
+          format: boolean
+        sendProgressInHttpHeaders:
+          description: Включены ли уведомления о ходе выполнения с использованием
+            заголовков X-ClickHouse-Progress. Значение по умолчанию "false". См. подробное
+            описание в [документации ClickHouse](https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-send_progress_in_http_headers).
+          type: boolean
+          format: boolean
+        httpHeadersProgressInterval:
+          description: 'Минимальный интервал между уведомлениями о ходе выполнения,
+            в миллисекундах. Значение по умолчанию: 100.'
+          type: integer
+          format: int64
+        addHttpCorsHeader:
+          description: Включен ли заголовок CORS в HTTP-ответах. Значение по умолчанию
+            "false".
+          type: boolean
+          format: boolean
 tags:
 - name: Backup
   description: Набор методов для управления резервными копиями для ClickHouse.
@@ -5732,6 +6851,8 @@ tags:
   description: Набор методов для управления кластерами ClickHouse.
 - name: Database
   description: Набор методов для управления ресурсами Database для ClickHouse.
+- name: MlModel
+  description: Набор методов управления моделями машинного обучения.
 - name: ResourcePreset
   description: Набор методов для управления ресурсами ResourcePreset.
 - name: User

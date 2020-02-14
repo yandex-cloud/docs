@@ -109,6 +109,9 @@ filter | A filter expression that filters resources listed in the response. The 
       "serviceAccountId": "string",
       "nodeServiceAccountId": "string",
       "releaseChannel": "string",
+      "networkPolicy": {
+        "provider": "string"
+      },
       "gatewayIpv4Address": "string"
     }
   ],
@@ -175,5 +178,7 @@ clusters[].<br>ipAllocationPolicy.<br>serviceIpv4CidrBlock | **string**<br><p>CI
 clusters[].<br>serviceAccountId | **string**<br><p>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster.</p> 
 clusters[].<br>nodeServiceAccountId | **string**<br><p>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.</p> 
 clusters[].<br>releaseChannel | **string**<br>
+clusters[].<br>networkPolicy | **object**<br>
+clusters[].<br>networkPolicy.<br>provider | **string**<br>
 clusters[].<br>gatewayIpv4Address | **string**<br><p>Gateway IPv4 address.</p> <p>The maximum string length in characters is 15.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-kubernetes/api-ref/Cluster/list#query_params">pageSize</a>, use the <a href="/docs/managed-kubernetes/api-ref/Cluster/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-kubernetes/api-ref/Cluster/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-kubernetes/api-ref/Cluster/list#responses">nextPageToken</a> to continue paging through the results.</p> 

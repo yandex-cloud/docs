@@ -131,6 +131,40 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteAccessKeyMetadata'
       x-y-operation-response: Empty
+    patch:
+      tags:
+      - AccessKey
+      summary: Updates the specified access key.
+      operationId: AccessKeyUpdate
+      parameters:
+      - name: accessKeyId
+        in: path
+        description: |-
+          Required.
+          ID of the AccessKey resource to update.
+          To get the access key ID, use a [list](/docs/iam/api-ref/AccessKey/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessKeyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessKeyMetadata'
+      x-y-operation-response: '[AccessKey](/docs/iam/api-ref/AccessKey#representation)'
   /iam/aws-compatibility/v1/accessKeys/{accessKeyId}/operations:
     get:
       tags:
@@ -246,6 +280,17 @@ components:
       description: Empty JSON object `` {} ``.
       type: object
       maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
     ListAccessKeyOperationsResponse:
       type: object
       properties:
@@ -351,6 +396,23 @@ components:
           type: array
           items:
             type: object
+    UpdateAccessKeyMetadata:
+      type: object
+      properties:
+        accessKeyId:
+          description: ID of the AccessKey resource that is being updated.
+          type: string
+    UpdateAccessKeyRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateAccessKeyRequest_updateMask'
+        description:
+          description: |-
+            Description of the access key.
+
+            The maximum string length in characters is 256.
+          type: string
     AccessKey_in_CreateAccessKeyResponse_accessKey:
       description: |-
         AccessKey resource.
@@ -382,6 +444,19 @@ components:
             ID of the access key.
             The key is AWS compatible.
           type: string
+    FieldMask_in_UpdateAccessKeyRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the Accesskey resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
 tags:
 - name: AccessKey
   description: A set of methods for managing access keys.

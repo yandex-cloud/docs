@@ -837,7 +837,7 @@ paths:
       x-y-navtitle: updateShard
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateClusterShardMetadata'
-      x-y-operation-response: Shard
+      x-y-operation-response: '`Shard`'
   /managed-clickhouse/v1/clusters/{clusterId}/shards:
     get:
       tags:
@@ -917,7 +917,7 @@ paths:
       x-y-navtitle: addShard
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterShardMetadata'
-      x-y-operation-response: Shard
+      x-y-operation-response: '`Shard`'
   /managed-clickhouse/v1/clusters/{clusterId}:createExternalDictionary:
     post:
       tags:
@@ -1213,6 +1213,45 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteFormatSchemaMetadata'
       x-y-operation-response: Empty
+    patch:
+      tags:
+      - FormatSchema
+      operationId: FormatSchemaUpdate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: formatSchemaName
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFormatSchemaRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateFormatSchemaMetadata'
+      x-y-operation-response: '[FormatSchema](/docs/managed-clickhouse/api-ref/FormatSchema#representation)'
   /managed-clickhouse/v1/clusters/{clusterId}/formatSchemas:
     get:
       tags:
@@ -1276,46 +1315,21 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateFormatSchemaMetadata'
       x-y-operation-response: '[FormatSchema](/docs/managed-clickhouse/api-ref/FormatSchema#representation)'
-    patch:
-      tags:
-      - FormatSchema
-      operationId: FormatSchemaUpdate
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateFormatSchemaRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: update
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/UpdateFormatSchemaMetadata'
-      x-y-operation-response: '[FormatSchema](/docs/managed-clickhouse/api-ref/FormatSchema#representation)'
   /managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}:
     get:
       tags:
       - MlModel
+      summary: Returns the specified machine learning model.
+      description: To get the list of all available models, make a [list](/docs/managed-clickhouse/api-ref/MlModel/list)
+        request.
       operationId: MlModelGet
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
+          ID of the cluster that the model belongs to.
+
           The maximum string length in characters is 50.
         required: true
         schema:
@@ -1324,6 +1338,10 @@ paths:
         in: path
         description: |-
           Required.
+          Name of the model to return.
+
+          To get a model name make a [list](/docs/managed-clickhouse/api-ref/MlModel/list) request.
+
           The maximum string length in characters is 63.
           Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
         required: true
@@ -1340,12 +1358,17 @@ paths:
     delete:
       tags:
       - MlModel
+      summary: Deletes the specified machine learning model.
       operationId: MlModelDelete
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
+          ID of the cluster to delete the model in.
+
+          To get a cluster ID make a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.
+
           The maximum string length in characters is 50.
         required: true
         schema:
@@ -1354,6 +1377,8 @@ paths:
         in: path
         description: |-
           Required.
+          Name of the the model to delete.
+
           The maximum string length in characters is 63.
           Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
         required: true
@@ -1370,29 +1395,88 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteMlModelMetadata'
       x-y-operation-response: Empty
+    patch:
+      tags:
+      - MlModel
+      summary: Updates the specified machine learning model.
+      operationId: MlModelUpdate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the cluster to update the model in.
+
+          To get a cluster ID make a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: mlModelName
+        in: path
+        description: |-
+          Required.
+          Name of the the model to update.
+
+          The maximum string length in characters is 63.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMlModelRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateMlModelMetadata'
+      x-y-operation-response: '[MlModel](/docs/managed-clickhouse/api-ref/MlModel#representation)'
   /managed-clickhouse/v1/clusters/{clusterId}/mlModels:
     get:
       tags:
       - MlModel
+      summary: Retrieves the list of machine learning models in the specified cluster.
       operationId: MlModelList
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
+          ID of the cluster that models belongs to.
+
           The maximum string length in characters is 50.
         required: true
         schema:
           type: string
       - name: pageSize
         in: query
-        description: The maximum value is 1000.
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/managed-clickhouse/api-ref/MlModel/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: The maximum string length in characters is 100.
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/managed-clickhouse/api-ref/MlModel/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       responses:
@@ -1406,12 +1490,17 @@ paths:
     post:
       tags:
       - MlModel
+      summary: Creates a machine learning model in the specified cluster.
       operationId: MlModelCreate
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
+          ID of the cluster to create a model in.
+
+          To get a cluster ID make a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.
+
           The maximum string length in characters is 50.
         required: true
         schema:
@@ -1432,36 +1521,6 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateMlModelMetadata'
-      x-y-operation-response: '[MlModel](/docs/managed-clickhouse/api-ref/MlModel#representation)'
-    patch:
-      tags:
-      - MlModel
-      operationId: MlModelUpdate
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateMlModelRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: update
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/UpdateMlModelMetadata'
       x-y-operation-response: '[MlModel](/docs/managed-clickhouse/api-ref/MlModel#representation)'
   /managed-clickhouse/v1/resourcePresets/{resourcePresetId}:
     get:
@@ -1837,6 +1896,10 @@ components:
           format: boolean
         webSql:
           description: Allow access for Web SQL
+          type: boolean
+          format: boolean
+        metrika:
+          description: Allow access for Metrika
           type: boolean
           format: boolean
     AddClusterHostsMetadata:
@@ -2488,7 +2551,7 @@ components:
         function:
           description: |-
             Required.
-            Name of the aggregating function to apply to data of the age specified in retention.
+            Name of the aggregating function to apply to data of the age specified in `retention`.
           type: string
         retention:
           description: |-
@@ -2616,6 +2679,10 @@ components:
           $ref: '#/components/schemas/ClusterHealth_in_Cluster_health'
         status:
           $ref: '#/components/schemas/ClusterStatus_in_Cluster_status'
+        serviceAccountId:
+          description: ID of the service account used for access to Yandex Object
+            Storage.
+          type: string
     ClusterConfig:
       type: object
       properties:
@@ -2656,10 +2723,10 @@ components:
       - PRESTABLE
     ClusterHealth:
       description: |2-
-         - HEALTH_UNKNOWN: State of the cluster is unknown ([Host.health] for every host in the cluster is UNKNOWN).
-         - ALIVE: Cluster is alive and well ([Host.health] for every host in the cluster is ALIVE).
-         - DEAD: Cluster is inoperable ([Host.health] for every host in the cluster is DEAD).
-         - DEGRADED: Cluster is working below capacity ([Host.health] for at least one host in the cluster is not ALIVE).
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -2814,6 +2881,10 @@ components:
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
+        serviceAccountId:
+          description: ID of the service account used for access to Yandex Object
+            Storage.
+          type: string
     CreateDatabaseMetadata:
       type: object
       properties:
@@ -2853,8 +2924,10 @@ components:
       type: object
       properties:
         clusterId:
+          description: ID of the cluster that a model is being added to.
           type: string
         mlModelName:
+          description: Name of the the model that is being created.
           type: string
     CreateMlModelRequest:
       type: object
@@ -2862,13 +2935,17 @@ components:
         mlModelName:
           description: |-
             Required.
+            Model name. The model name is one of the arguments of the modelEvaluate() function, which is used to call the model in ClickHouse.
+
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
         type:
           $ref: '#/components/schemas/MlModelType_in_CreateMlModelRequest_type'
         uri:
-          description: Required.
+          description: |-
+            Required.
+            Model file URL. You can only use models stored in Yandex Object Storage.
           type: string
     CreateUserMetadata:
       type: object
@@ -2977,8 +3054,10 @@ components:
       type: object
       properties:
         clusterId:
+          description: ID of the cluster that contains the model being deleted.
           type: string
         mlModelName:
+          description: Name of the the model that is being deleted.
           type: string
     DeleteUserMetadata:
       type: object
@@ -3109,7 +3188,7 @@ components:
             Whether the host should get a public IP address on creation.
 
             After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
-            a public IP to a host without one, recreate the host with assignPublicIp set as needed.
+            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
 
             Possible values:
             * false — don't assign a public IP to the host.
@@ -3269,10 +3348,17 @@ components:
       type: object
       properties:
         mlModels:
+          description: List of models in the specified cluster.
           type: array
           items:
             $ref: '#/components/schemas/MlModel'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/managed-clickhouse/api-ref/MlModel/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/managed-clickhouse/api-ref/MlModel/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListResourcePresetsResponse:
       type: object
@@ -3323,14 +3409,19 @@ components:
       type: object
       properties:
         name:
+          description: Name of the the model.
           type: string
         clusterId:
+          description: ID of the ClickHouse cluster that the model belongs to.
           type: string
         type:
           $ref: '#/components/schemas/MlModelType_in_MlModel_type'
         uri:
+          description: Model file URL. You can only use models stored in Yandex Object
+            Storage.
           type: string
     MlModelType:
+      description: ' - ML_MODEL_TYPE_CATBOOST: CatBoost model.'
       type: string
       enum:
       - ML_MODEL_TYPE_CATBOOST
@@ -3431,17 +3522,6 @@ components:
       properties:
         databaseName:
           description: Name of the database that the permission grants access to.
-          type: string
-        dataFilters:
-          type: array
-          items:
-            $ref: '#/components/schemas/PermissionDataFilter'
-    PermissionDataFilter:
-      type: object
-      properties:
-        tableName:
-          type: string
-        filter:
           type: string
     ResourcePreset:
       description: A ResourcePreset resource for describing hardware configuration
@@ -3732,6 +3812,10 @@ components:
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
+        serviceAccountId:
+          description: ID of the service account used for access to Yandex Object
+            Storage.
+          type: string
     UpdateClusterShardMetadata:
       type: object
       properties:
@@ -3758,12 +3842,6 @@ components:
     UpdateFormatSchemaRequest:
       type: object
       properties:
-        formatSchemaName:
-          description: |-
-            Required.
-            The maximum string length in characters is 63.
-            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-          type: string
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateFormatSchemaRequest_updateMask'
         uri:
@@ -3772,21 +3850,19 @@ components:
       type: object
       properties:
         clusterId:
+          description: ID of the cluster that contains the model being updated.
           type: string
         mlModelName:
+          description: Name of the the model that is being updated.
           type: string
     UpdateMlModelRequest:
       type: object
       properties:
-        mlModeName:
-          description: |-
-            Required.
-            The maximum string length in characters is 63.
-            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-          type: string
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateMlModelRequest_updateMask'
         uri:
+          description: The new model file URL. You can only use models stored in Yandex
+            Object Storage.
           type: string
     UpdateUserMetadata:
       type: object
@@ -3815,6 +3891,10 @@ components:
             $ref: '#/components/schemas/Permission'
         settings:
           $ref: '#/components/schemas/UserSettings_in_UpdateUserRequest_settings'
+        quotas:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserQuota'
     User:
       description: "A ClickHouse User resource. For more information, see \nthe [Developer's
         guide](/docs/managed-clickhouse/concepts)."
@@ -4355,6 +4435,11 @@ components:
           type: boolean
           format: boolean
     UserSettingsDistributedProductMode:
+      description: |2-
+         - DISTRIBUTED_PRODUCT_MODE_DENY: Default value. Prohibits using these types of subqueries (returns the "Double-distributed in/JOIN subqueries is denied" exception).
+         - DISTRIBUTED_PRODUCT_MODE_LOCAL: Replaces the database and table in the subquery with local ones for the destination server (shard), leaving the normal IN/JOIN.
+         - DISTRIBUTED_PRODUCT_MODE_GLOBAL: Replaces the IN/JOIN query with GLOBAL IN/GLOBAL JOIN.
+         - DISTRIBUTED_PRODUCT_MODE_ALLOW: Allows the use of these types of subqueries.
       type: string
       enum:
       - DISTRIBUTED_PRODUCT_MODE_DENY
@@ -4446,7 +4531,9 @@ components:
             * local-ssd — local SSD storage.
           type: string
     ClickhouseConfigLogLevel_in_ClickhouseConfig_logLevel:
-      description: Logging level for the ClickHouse cluster.
+      description: |-
+        Logging level for the ClickHouse cluster. Допустимые значения: `TRACE`, `DEBUG`, `INFORMATION`, `WARNING`, `ERROR`.
+        See description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#server_settings-logger).
       type: string
       enum:
       - TRACE
@@ -4645,7 +4732,7 @@ components:
       description: |-
         Required.
         Effective settings for a ClickHouse cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
 
         ClickHouse configuration options. Detailed description for each set of options
         is available in [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
@@ -4952,10 +5039,10 @@ components:
       description: |-
         Aggregated cluster health.
 
-         - HEALTH_UNKNOWN: State of the cluster is unknown ([Host.health] for every host in the cluster is UNKNOWN).
-         - ALIVE: Cluster is alive and well ([Host.health] for every host in the cluster is ALIVE).
-         - DEAD: Cluster is inoperable ([Host.health] for every host in the cluster is DEAD).
-         - DEGRADED: Cluster is working below capacity ([Host.health] for at least one host in the cluster is not ALIVE).
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -5039,6 +5126,10 @@ components:
           format: boolean
         webSql:
           description: Allow access for Web SQL
+          type: boolean
+          format: boolean
+        metrika:
+          description: Allow access for Metrika
           type: boolean
           format: boolean
     ClickhouseConfigSet_in_ClusterConfigClickhouse_config:
@@ -5146,6 +5237,10 @@ components:
           format: boolean
         webSql:
           description: Allow access for Web SQL
+          type: boolean
+          format: boolean
+        metrika:
+          description: Allow access for Metrika
           type: boolean
           format: boolean
     ClickhouseConfig_in_ConfigSpecClickhouse_config:
@@ -5391,7 +5486,11 @@ components:
       - FORMAT_SCHEMA_TYPE_PROTOBUF
       - FORMAT_SCHEMA_TYPE_CAPNPROTO
     MlModelType_in_CreateMlModelRequest_type:
-      description: Required.
+      description: |-
+        Required.
+        Type of the model.
+
+         - ML_MODEL_TYPE_CATBOOST: CatBoost model.
       type: string
       enum:
       - ML_MODEL_TYPE_CATBOOST
@@ -5440,10 +5539,6 @@ components:
         databaseName:
           description: Name of the database that the permission grants access to.
           type: string
-        dataFilters:
-          type: array
-          items:
-            $ref: '#/components/schemas/PermissionDataFilter'
     HostType_in_Host_type:
       description: |-
         Type of the host.
@@ -5502,6 +5597,10 @@ components:
       - CLICKHOUSE
       - ZOOKEEPER
     MlModelType_in_MlModel_type:
+      description: |-
+        Type of the model.
+
+         - ML_MODEL_TYPE_CATBOOST: CatBoost model.
       type: string
       enum:
       - ML_MODEL_TYPE_CATBOOST
@@ -6745,7 +6844,13 @@ components:
           type: boolean
           format: boolean
     UserSettingsDistributedProductMode_in_UserSettings_distributedProductMode:
-      description: See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#distributed-product-mode).
+      description: |-
+        See in-depth description in [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/settings/settings/#distributed-product-mode).
+
+         - DISTRIBUTED_PRODUCT_MODE_DENY: Default value. Prohibits using these types of subqueries (returns the "Double-distributed in/JOIN subqueries is denied" exception).
+         - DISTRIBUTED_PRODUCT_MODE_LOCAL: Replaces the database and table in the subquery with local ones for the destination server (shard), leaving the normal IN/JOIN.
+         - DISTRIBUTED_PRODUCT_MODE_GLOBAL: Replaces the IN/JOIN query with GLOBAL IN/GLOBAL JOIN.
+         - DISTRIBUTED_PRODUCT_MODE_ALLOW: Allows the use of these types of subqueries.
       type: string
       enum:
       - DISTRIBUTED_PRODUCT_MODE_DENY
@@ -7266,6 +7371,7 @@ tags:
   description: A set of methods for managing ClickHouse Database resources.
 - name: FormatSchema
 - name: MlModel
+  description: A set of methods for managing machine learning models.
 - name: ResourcePreset
   description: A set of methods for managing ResourcePreset resources.
 - name: User

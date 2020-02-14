@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method validate
-Checks that given CreateDeploymentRequest is valid
+Checks that given `CreateDeploymentRequest` is valid
  
 
  

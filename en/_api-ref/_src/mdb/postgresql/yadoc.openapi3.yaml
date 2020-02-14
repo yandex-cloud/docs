@@ -1494,10 +1494,10 @@ components:
       - PRESTABLE
     ClusterHealth:
       description: |2-
-         - HEALTH_UNKNOWN: State of the cluster is unknown ([Host.health] for every host in the cluster is UNKNOWN).
-         - ALIVE: Cluster is alive and well ([Host.health] for every host in the cluster is ALIVE).
-         - DEAD: Cluster is inoperable ([Host.health] for every host in the cluster is DEAD).
-         - DEGRADED: Cluster is working below capacity ([Host.health] for at least one host in the cluster is not ALIVE).
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -2004,7 +2004,7 @@ components:
             Whether the host should get a public IP address on creation.
 
             After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
-            a public IP to a host without one, recreate the host with assignPublicIp set as needed.
+            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
 
             Possible values:
             * false — don't assign a public IP to the host.
@@ -2012,8 +2012,8 @@ components:
           type: boolean
           format: boolean
         replicationSource:
-          description: name of the host to be used as the replication source (for
-            cascading replication).
+          description: '`name` of the host to be used as the replication source (for
+            cascading replication).'
           type: string
         priority:
           description: |-
@@ -6138,7 +6138,7 @@ components:
           type: string
         replicationSource:
           description: |-
-            name of the host to be used as the replication source (for cascading replication).
+            `name` of the host to be used as the replication source (for cascading replication).
             To get the PostgreSQL host name, use a [listHosts](/docs/managed-postgresql/api-ref/Cluster/listHosts) request.
           type: string
         priority:
@@ -6400,10 +6400,10 @@ components:
       description: |-
         Aggregated cluster health.
 
-         - HEALTH_UNKNOWN: State of the cluster is unknown ([Host.health] for every host in the cluster is UNKNOWN).
-         - ALIVE: Cluster is alive and well ([Host.health] for every host in the cluster is ALIVE).
-         - DEAD: Cluster is inoperable ([Host.health] for every host in the cluster is DEAD).
-         - DEGRADED: Cluster is working below capacity ([Host.health] for at least one host in the cluster is not ALIVE).
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -7350,7 +7350,7 @@ components:
       description: |-
         Required.
         Effective settings for a PostgreSQL 10 cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
 
         Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
         parameters whose detailed description is available in
@@ -8396,7 +8396,7 @@ components:
       description: |-
         Required.
         Effective settings for a PostgreSQL 10 1C cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
 
         Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
         parameters whose detailed description is available in
@@ -9441,7 +9441,7 @@ components:
     PostgresqlConfig11_in_PostgresqlConfigSet11_effectiveConfig:
       description: |-
         Effective settings for a PostgreSQL 11 cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
 
         Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
         parameters which detailed description is available in
@@ -10564,7 +10564,7 @@ components:
     PostgresqlConfig12_in_PostgresqlConfigSet12_effectiveConfig:
       description: |-
         Effective settings for a PostgreSQL 12 cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
 
         Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
         parameters which detailed description is available in
@@ -11706,7 +11706,7 @@ components:
       description: |-
         Required.
         Effective settings for a PostgreSQL 9.6 cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
 
         Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
         parameters whose detailed description is available in

@@ -121,7 +121,10 @@ filter | A filter expression that filters resources listed in the response. The 
           // end of the list of possible fields`nodeGroups[].maintenancePolicy.maintenanceWindow`
 
         }
-      }
+      },
+      "allowedUnsafeSysctls": [
+        "string"
+      ]
     }
   ],
   "nextPageToken": "string"
@@ -193,4 +196,5 @@ nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWi
 nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
 nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 nodeGroups[].<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>duration | **string**<br><p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p> 
+nodeGroups[].<br>allowedUnsafeSysctls[] | **string**<br>
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-kubernetes/api-ref/NodeGroup/list#query_params">pageSize</a>, use the <a href="/docs/managed-kubernetes/api-ref/NodeGroup/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-kubernetes/api-ref/NodeGroup/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-kubernetes/api-ref/NodeGroup/list#responses">nextPageToken</a> to continue paging through the results.</p> 

@@ -1618,7 +1618,7 @@ config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Доли се
 config.<br>access | **object**<br>
 config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Разрешить доступ для DataLens</p> 
 config.<br>postgresqlConfig_9_6 | **object** <br>`config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`<br><br>
-config.<br>postgresqlConfig_9_6.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера PostgreSQL 9.6 (сочетание настроек, определенных в userConfig и [default_config]).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config">документации PostgreSQL</a>.</p> 
+config.<br>postgresqlConfig_9_6.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера PostgreSQL 9.6 (сочетание настроек, определенных в <code>userConfig</code> и <code>defaultConfig</code>).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/9.6/static/runtime-config">документации PostgreSQL</a>.</p> 
 config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
 config.<br>postgresqlConfig_9_6.<br>effectiveConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -1859,7 +1859,7 @@ config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>autovacuumNaptime | **inte
 config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>archiveTimeout | **integer** (int64)<br><p>Допустимые значения — от 10000 до 600000 включительно.</p> 
 config.<br>postgresqlConfig_9_6.<br>defaultConfig.<br>trackActivityQuerySize | **integer** (int64)<br><p>Допустимые значения — от 100 до 102400 включительно.</p> 
 config.<br>postgresqlConfig_10_1C | **object** <br>`config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`<br><br>
-config.<br>postgresqlConfig_10_1C.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера PostgreSQL 10 1С (сочетание настроек, определенных в userConfig и [default_config]).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
+config.<br>postgresqlConfig_10_1C.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера PostgreSQL 10 1С (сочетание настроек, определенных в <code>userConfig</code> и <code>defaultConfig</code>).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
 config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
 config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -2196,7 +2196,7 @@ config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>pgHintPlanEnableHintTabl
 config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>pgHintPlanMessageLevel | **string**<br>
 config.<br>postgresqlConfig_10 | **object** <br>`config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`<br><br>
-config.<br>postgresqlConfig_10.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера PostgreSQL 10 (сочетание настроек, определенных в userConfig и [default_config]).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
+config.<br>postgresqlConfig_10.<br>effectiveConfig | **object**<br><p>Обязательное поле. Действующие настройки для кластера PostgreSQL 10 (сочетание настроек, определенных в <code>userConfig</code> и <code>defaultConfig</code>).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/10/runtime-config.html">документации PostgreSQL</a>.</p> 
 config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
 config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -2476,7 +2476,7 @@ config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxWorkerProcesses | **inte
 config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 config.<br>postgresqlConfig_11 | **object** <br>`config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`<br><br>
-config.<br>postgresqlConfig_11.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 11 (сочетание настроек, определенных в userConfig и [default_config]).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+config.<br>postgresqlConfig_11.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 11 (сочетание настроек, определенных в <code>userConfig</code> и <code>defaultConfig</code>).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
 config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -2753,7 +2753,7 @@ config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxWorkerProcesses | **inte
 config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxParallelWorkers | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Допустимые значения — от 0 до 1024 включительно.</p> 
 config.<br>postgresqlConfig_12 | **object** <br>`config` включает только одно из полей `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_12`<br><br>
-config.<br>postgresqlConfig_12.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 12 (сочетание настроек, определенных в userConfig и [default_config]).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
+config.<br>postgresqlConfig_12.<br>effectiveConfig | **object**<br><p>Действующие настройки для кластера PostgreSQL 12 (сочетание настроек, определенных в <code>userConfig</code> и <code>defaultConfig</code>).</p> <p>Поля и структура <code>PostgresqlConfig</code> отражает параметры конфигурационного файла PostgreSQL, подробное описание которого доступно в <a href="https://www.postgresql.org/docs/11/runtime-config.html">документации PostgreSQL</a>.</p> 
 config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>sharedBuffers | **integer** (int64)<br>
 config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>tempBuffers | **integer** (int64)<br>
@@ -3120,7 +3120,7 @@ config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgHintPlanEnableHintTable |
 config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgHintPlanMessageLevel | **string**<br>
 networkId | **string**<br><p>Идентификатор сети, к которой принадлежит кластер.</p> 
-health | **string**<br><p>Агрегированная работоспособность кластера.</p> <ul> <li>HEALTH_UNKNOWN: Состояние кластера неизвестно ([Host.health] для каждого хоста в кластере — UNKNOWN).</li> <li>ALIVE: Кластер работает нормально ([Host.health] для каждого хоста в кластере — ALIVE).</li> <li>DEAD: Кластер не работает ([Host.health] для каждого узла в кластере — DEAD).</li> <li>DEGRADED: Кластер работает неоптимально ([Host.health] по крайней мере для одного узла в кластере не ALIVE).</li> </ul> 
+health | **string**<br><p>Агрегированная работоспособность кластера.</p> <ul> <li>HEALTH_UNKNOWN: Состояние кластера неизвестно (<code>health</code> для каждого хоста в кластере — UNKNOWN).</li> <li>ALIVE: Кластер работает нормально (<code>health</code> для каждого хоста в кластере — ALIVE).</li> <li>DEAD: Кластер не работает (<code>health</code> для каждого узла в кластере — DEAD).</li> <li>DEGRADED: Кластер работает неоптимально (<code>health</code> по крайней мере для одного узла в кластере не ALIVE).</li> </ul> 
 status | **string**<br><p>Текущее состояние кластера.</p> <ul> <li>STATUS_UNKNOWN: Состояние кластера неизвестно.</li> <li>CREATING: Кластер создается.</li> <li>RUNNING: Кластер работает нормально.</li> <li>ERROR: На кластере произошла ошибка, блокирующая работу.</li> <li>UPDATING: Кластер изменяется.</li> <li>STOPPING: Кластер останавливается.</li> <li>STOPPED: Кластер остановлен.</li> <li>STARTING: Кластер запускается.</li> </ul> 
 
 ## Методы {#methods}

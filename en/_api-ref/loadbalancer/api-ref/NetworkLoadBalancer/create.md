@@ -85,10 +85,10 @@ listenerSpecs[].<br>name | **string**<br><p>Required. Name of the listener. The 
 listenerSpecs[].<br>port | **string** (int64)<br><p>Port for incoming traffic.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
 listenerSpecs[].<br>protocol | **string**<br>Required. Protocol for incoming traffic.<br><p>Network protocol to use.</p> 
 listenerSpecs[].<br>targetPort | **string** (int64)<br><p>Port of a target. Acceptable values are 1 to 65535, inclusive.</p> 
-listenerSpecs[].<br>externalAddressSpec | **object**<br>External IP address specification. <br>`listenerSpecs[]` includes only one of the fields `externalAddressSpec`, `internalAddressSpec`<br><br><p>External address specification that is used by ListenerSpec.</p> 
+listenerSpecs[].<br>externalAddressSpec | **object**<br>External IP address specification. <br>`listenerSpecs[]` includes only one of the fields `externalAddressSpec`, `internalAddressSpec`<br><br><p>External address specification that is used by <code>ListenerSpec</code>.</p> 
 listenerSpecs[].<br>externalAddressSpec.<br>address | **string**<br><p>Public IP address for a listener. If you provide a static public IP address for the <a href="/docs/load-balancer/api-ref/NetworkLoadBalancer/update">update</a> method, it will replace the existing listener address.</p> 
 listenerSpecs[].<br>externalAddressSpec.<br>ipVersion | **string**<br><p>IP version.</p> <p>IP version of the addresses that the load balancer works with. Only IPv4 is currently available.</p> <ul> <li>IPV4: IPv4</li> <li>IPV6: IPv6</li> </ul> 
-listenerSpecs[].<br>internalAddressSpec | **object**<br>Internal IP address specification. <br>`listenerSpecs[]` includes only one of the fields `externalAddressSpec`, `internalAddressSpec`<br><br><p>Internal address specification that is used by ListenerSpec.</p> 
+listenerSpecs[].<br>internalAddressSpec | **object**<br>Internal IP address specification. <br>`listenerSpecs[]` includes only one of the fields `externalAddressSpec`, `internalAddressSpec`<br><br><p>Internal address specification that is used by <code>ListenerSpec</code>.</p> 
 listenerSpecs[].<br>internalAddressSpec.<br>address | **string**<br><p>Internal IP address for a listener.</p> 
 listenerSpecs[].<br>internalAddressSpec.<br>subnetId | **string**<br><p>ID of the subnet.</p> 
 listenerSpecs[].<br>internalAddressSpec.<br>ipVersion | **string**<br><p>IP version.</p> <p>IP version of the addresses that the load balancer works with. Only IPv4 is currently available.</p> <ul> <li>IPV4: IPv4</li> <li>IPV6: IPv6</li> </ul> 

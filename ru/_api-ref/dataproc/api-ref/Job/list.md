@@ -39,6 +39,7 @@ filter | Параметры фильтрации задач в ответе.  В
       "startedAt": "string",
       "finishedAt": "string",
       "name": "string",
+      "createdBy": "string",
       "status": "string",
 
       // `jobs[]` включает только одно из полей `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`
@@ -135,6 +136,7 @@ jobs[].<br>createdAt | **string** (date-time)<br><p>Время создания.
 jobs[].<br>startedAt | **string** (date-time)<br><p>Время запуска задачи.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 jobs[].<br>finishedAt | **string** (date-time)<br><p>Время завершения задачи.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 jobs[].<br>name | **string**<br><p>Имя задачи, указанное в запросе <a href="/docs/data-proc/api-ref/Job/create">create</a>.</p> 
+jobs[].<br>createdBy | **string**<br><p>Идентификатор пользователя, создавшего задачу.</p> 
 jobs[].<br>status | **string**<br>Статус задачи.<br><ul> <li>PROVISIONING: Задача зарегистрирована в базе данных и ожидает, пока агент запустит ее.</li> <li>PENDING: Задача получена агентом и находится в очереди на выполнение.</li> <li>RUNNING: Задача выполняется в кластере.</li> <li>ERROR: Задача не смогла завершиться должным образом.</li> <li>DONE: Задача выполнена.</li> </ul> 
 jobs[].<br>mapreduceJob | **object**<br>Спецификация задачи для MapReduce. <br>`jobs[]` включает только одно из полей `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 jobs[].<br>mapreduceJob.<br>args[] | **string**<br><p>Необязательные аргументы, которые передаются драйверу.</p> 

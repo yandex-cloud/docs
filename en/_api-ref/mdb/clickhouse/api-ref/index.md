@@ -11,6 +11,6 @@ Resource | Description
 [Cluster](Cluster/index.md) | A set of methods for managing ClickHouse clusters.
 [Database](Database/index.md) | A set of methods for managing ClickHouse Database resources.
 [FormatSchema](FormatSchema/index.md) | 
-[MlModel](MlModel/index.md) | 
+[MlModel](MlModel/index.md) | A set of methods for managing machine learning models.
 [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing ResourcePreset resources.
 [User](User/index.md) | A set of methods for managing ClickHouse User resources.

@@ -27,6 +27,8 @@ items:
         href: api-ref/SymmetricKey/get.md
       - name: list
         href: api-ref/SymmetricKey/list.md
+      - name: listAccessBindings
+        href: api-ref/SymmetricKey/listAccessBindings.md
       - name: listOperations
         href: api-ref/SymmetricKey/listOperations.md
       - name: listVersions
@@ -35,7 +37,11 @@ items:
         href: api-ref/SymmetricKey/rotate.md
       - name: scheduleVersionDestruction
         href: api-ref/SymmetricKey/scheduleVersionDestruction.md
+      - name: setAccessBindings
+        href: api-ref/SymmetricKey/setAccessBindings.md
       - name: setPrimaryVersion
         href: api-ref/SymmetricKey/setPrimaryVersion.md
       - name: update
         href: api-ref/SymmetricKey/update.md
+      - name: updateAccessBindings
+        href: api-ref/SymmetricKey/updateAccessBindings.md

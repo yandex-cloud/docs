@@ -564,6 +564,8 @@ components:
             type: string
           releaseChannel:
             $ref: '#/components/schemas/ReleaseChannel'
+          networkPolicy:
+            $ref: '#/components/schemas/NetworkPolicy'
       - title: internet_gateway
         type: object
         maxProperties: 1
@@ -669,6 +671,8 @@ components:
             type: string
           releaseChannel:
             $ref: '#/components/schemas/ReleaseChannel'
+          networkPolicy:
+            $ref: '#/components/schemas/NetworkPolicy'
       - title: internet_gateway
         type: object
         maxProperties: 1
@@ -1042,6 +1046,15 @@ components:
           $ref: '#/components/schemas/UpdateVersionSpec_in_MasterUpdateSpec_version'
         maintenancePolicy:
           $ref: '#/components/schemas/MasterMaintenancePolicy_in_MasterUpdateSpec_maintenancePolicy'
+    NetworkPolicy:
+      type: object
+      properties:
+        provider:
+          $ref: '#/components/schemas/NetworkPolicyProvider_in_NetworkPolicy_provider'
+    NetworkPolicyProvider:
+      type: string
+      enum:
+      - CALICO
     NodeAddressSpec:
       type: object
       properties:
@@ -1097,6 +1110,10 @@ components:
           $ref: '#/components/schemas/VersionInfo_in_NodeGroup_versionInfo'
         maintenancePolicy:
           $ref: '#/components/schemas/NodeGroupMaintenancePolicy_in_NodeGroup_maintenancePolicy'
+        allowedUnsafeSysctls:
+          type: array
+          items:
+            type: string
     NodeGroupAllocationPolicy:
       type: object
       properties:
@@ -1434,6 +1451,8 @@ components:
               Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry
               or to push node logs and metrics.
             type: string
+          networkPolicy:
+            $ref: '#/components/schemas/NetworkPolicy'
       - title: internet_gateway
         type: object
         maxProperties: 1
@@ -1755,6 +1774,10 @@ components:
           format: boolean
         maintenanceWindow:
           $ref: '#/components/schemas/MaintenanceWindow_in_MasterMaintenancePolicy_maintenanceWindow'
+    NetworkPolicyProvider_in_NetworkPolicy_provider:
+      type: string
+      enum:
+      - CALICO
     OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec:
       description: One-to-one NAT configuration. Setting up one-to-one NAT ensures
         that public IP addresses are assigned to nodes, and therefore internet is
@@ -1960,7 +1983,7 @@ components:
       - IPV4
       - IPV6
     ExternalAddressSpec_in_RegionalMasterSpec_externalV4AddressSpec:
-      description: Specify to allocate a static public IP for the master
+      description: Specify to allocate a static public IP for the master.
       type: object
       properties: {}
     FieldMask_in_UpdateNodeGroupRequest_updateMask:

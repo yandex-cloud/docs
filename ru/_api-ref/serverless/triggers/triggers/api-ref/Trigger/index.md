@@ -94,7 +94,7 @@ rule.<br>messageQueue | **object** <br>`rule` включает только од
 rule.<br>messageQueue.<br>queueId | **string**<br><p>Обязательное поле. Идентификатор очереди сообщений в Yandex Message Queue.</p> 
 rule.<br>messageQueue.<br>serviceAccountId | **string**<br><p>Обязательное поле. Идентификатор сервисного аккаунта с ролью на чтение очереди сообщений.</p> <p>Максимальная длина строки в символах — 50.</p> 
 rule.<br>messageQueue.<br>batchSettings | **object**<br><p>Настройки обработки группы сообщений в очереди.</p> 
-rule.<br>messageQueue.<br>batchSettings.<br>size | **string** (int64)<br><p>Размер группы сообщений. Триггер отправит группу сообщений в соответствующую функцию, когда число сообщений в очереди достигнет этого значения, или прошло cutoff время.</p> <p>Допустимые значения — от 0 до 10 включительно.</p> 
+rule.<br>messageQueue.<br>batchSettings.<br>size | **string** (int64)<br><p>Размер группы сообщений. Триггер отправит группу сообщений в соответствующую функцию, когда число сообщений в очереди достигнет этого значения, или прошло <code>cutoff</code> время.</p> <p>Допустимые значения — от 0 до 10 включительно.</p> 
 rule.<br>messageQueue.<br>batchSettings.<br>cutoff | **string**<br><p>Обязательное поле. Максимальное время ожидания. Триггер отправит группу сообщений, если время с момента последнего пакета превышает <code>cutoff</code> значение, независимо от количества сообщений в очереди.</p> 
 rule.<br>messageQueue.<br>visibilityTimeout | **string**<br><p>Переопределение таймаута видимости очереди.</p> <p>Максимальное значение — 43200 seconds.</p> 
 rule.<br>messageQueue.<br>invokeFunction | **object**<br>Инструкции для вызова функции один раз.<br><p>Единичный вызов функции.</p> 

@@ -863,7 +863,7 @@ paths:
       x-y-navtitle: addShard
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterShardMetadata'
-      x-y-operation-response: Shard
+      x-y-operation-response: '`Shard`'
   /managed-redis/v1/clusters/{clusterId}:rebalance:
     post:
       tags:
@@ -2125,7 +2125,7 @@ components:
     RedisConfig5_0_in_RedisConfigSet5_0_effectiveConfig:
       description: |-
         Effective settings for a Redis 5.0 cluster (a combination of settings
-        defined in userConfig and [default_config]).
+        defined in `userConfig` and `defaultConfig`).
 
         Fields and structure of `RedisConfig` reflects Redis configuration file
         parameters.

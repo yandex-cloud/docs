@@ -39,3 +39,4 @@ Method | Description
 [get](get.md) | Returns the specified Key resource.
 [list](list.md) | Retrieves the list of Key resources for the specified service account.
 [listOperations](listOperations.md) | Lists operations for the specified key.
+[update](update.md) | Updates the specified key pair.

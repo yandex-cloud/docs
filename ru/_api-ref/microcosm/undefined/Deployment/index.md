@@ -423,4 +423,4 @@ deploymentTemplateId | **string**<br>
 [get](get.md) | 
 [listOperations](listOperations.md) | 
 [stop](stop.md) | Gracefully stops the specified [Deployment](/Deployment#representation).
-[validate](validate.md) | Checks that given CreateDeploymentRequest is valid
+[validate](validate.md) | Checks that given `CreateDeploymentRequest` is valid

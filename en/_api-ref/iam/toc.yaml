@@ -15,6 +15,8 @@ items:
         href: api-ref/ApiKey/list.md
       - name: listOperations
         href: api-ref/ApiKey/listOperations.md
+      - name: update
+        href: api-ref/ApiKey/update.md
   - name: IamToken
     items:
       - name: Overview
@@ -35,6 +37,8 @@ items:
         href: api-ref/Key/list.md
       - name: listOperations
         href: api-ref/Key/listOperations.md
+      - name: update
+        href: api-ref/Key/update.md
   - name: Role
     items:
       - name: Overview
@@ -121,6 +125,8 @@ items:
     items:
       - name: Overview
         href: api-ref/AccessKey/index.md
+      - name: update
+        href: api-ref/AccessKey/update.md
       - name: list
         href: api-ref/AccessKey/list.md
       - name: listOperations

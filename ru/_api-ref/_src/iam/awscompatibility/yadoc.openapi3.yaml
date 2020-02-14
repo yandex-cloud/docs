@@ -131,6 +131,40 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteAccessKeyMetadata'
       x-y-operation-response: Empty
+    patch:
+      tags:
+      - AccessKey
+      summary: Обновляет указанный ключ доступа.
+      operationId: AccessKeyUpdate
+      parameters:
+      - name: accessKeyId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор обновляемого ресурса AccessKey. Чтобы получить идентификатор
+          ключа доступа, используйте запрос [list](/docs/iam/api-ref/AccessKey/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessKeyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessKeyMetadata'
+      x-y-operation-response: '[AccessKey](/docs/iam/api-ref/AccessKey#representation)'
   /iam/aws-compatibility/v1/accessKeys/{accessKeyId}/operations:
     get:
       tags:
@@ -243,6 +277,17 @@ components:
       description: Пустой JSON объект `` {} ``.
       type: object
       maxProperties: 0
+    FieldMask:
+      description: |-
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
     ListAccessKeyOperationsResponse:
       type: object
       properties:
@@ -358,6 +403,23 @@ components:
           type: array
           items:
             type: object
+    UpdateAccessKeyMetadata:
+      type: object
+      properties:
+        accessKeyId:
+          description: Идентификатор изменяемого ресурса AccessKey.
+          type: string
+    UpdateAccessKeyRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateAccessKeyRequest_updateMask'
+        description:
+          description: |-
+            Описание ключа доступа.
+
+            Максимальная длина строки в символах — 256.
+          type: string
     AccessKey_in_CreateAccessKeyResponse_accessKey:
       description: |-
         Ресурс AccessKey.
@@ -388,6 +450,19 @@ components:
         keyId:
           description: Идентификатор ключа доступа. Ключ совместим с сервисами AWS.
           type: string
+    FieldMask_in_UpdateAccessKeyRequest_updateMask:
+      description: |-
+        Маска, определяющая, какие поля ресурса AccessKey будут обновлены.
+
+        Имена всех обновляемых полей, разделенные запятыми.
+        Только значения указанных полей будут изменены. Остальные останутся нетронутыми.
+        Если поле указано в параметре `` updateMask `` и в запросе не было отправлено значение для этого поля,
+        значение поля будет сброшено на значение по умолчанию. Значение по умолчанию для большинства полей — null или 0.
+
+        Если в запросе не передается `` updateMask ``, значения всех полей будут обновлены.
+        Для полей, указанных в запросе, будут использованы переданные значения.
+        Значения остальных полей будут сброшены на значения по умолчанию.
+      type: string
 tags:
 - name: AccessKey
   description: Набор методов управления ключами доступа.

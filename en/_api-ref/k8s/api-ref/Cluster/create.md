@@ -89,6 +89,9 @@ POST https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters
   "serviceAccountId": "string",
   "nodeServiceAccountId": "string",
   "releaseChannel": "string",
+  "networkPolicy": {
+    "provider": "string"
+  },
   "gatewayIpv4Address": "string"
 }
 ```
@@ -134,13 +137,15 @@ masterSpec.<br>regionalMasterSpec.<br>locations[] | **object**<br>
 masterSpec.<br>regionalMasterSpec.<br>locations[].<br>zoneId | **string**<br><p>Required.</p> 
 masterSpec.<br>regionalMasterSpec.<br>locations[].<br>internalV4AddressSpec | **object**<br><p>If not specified and there is a single subnet in specified zone, address in this subnet will be allocated.</p> 
 masterSpec.<br>regionalMasterSpec.<br>locations[].<br>internalV4AddressSpec.<br>subnetId | **string**<br><p>ID of the subnet. If no ID is specified, and there only one subnet in specified zone, an address in this subnet will be allocated.</p> 
-masterSpec.<br>regionalMasterSpec.<br>externalV4AddressSpec | **object**<br><p>Specify to allocate a static public IP for the master</p> 
+masterSpec.<br>regionalMasterSpec.<br>externalV4AddressSpec | **object**<br><p>Specify to allocate a static public IP for the master.</p> 
 ipAllocationPolicy | **object**<br>IP allocation policy of the Kubernetes cluster.<br>
 ipAllocationPolicy.<br>clusterIpv4CidrBlock | **string**<br><p>CIDR block. IP range for allocating pod addresses.</p> <p>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets.</p> 
 ipAllocationPolicy.<br>serviceIpv4CidrBlock | **string**<br><p>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from.</p> <p>It should not overlap with any subnet in the network the Kubernetes cluster located in.</p> 
 serviceAccountId | **string**<br><p>Required. Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have <code>edit</code> role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides.</p> 
 nodeServiceAccountId | **string**<br><p>Required. Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.</p> 
 releaseChannel | **string**<br>
+networkPolicy | **object**<br>
+networkPolicy.<br>provider | **string**<br>
 gatewayIpv4Address | **string**<br><p>Gateway IPv4 address.</p> 
  
 ## Response {#responses}

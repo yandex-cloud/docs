@@ -928,7 +928,7 @@ components:
       type: object
       maxProperties: 0
     ExternalAddressSpec:
-      description: Спецификация внешнего адреса для ListenerSpec.
+      description: Спецификация внешнего адреса для `ListenerSpec`.
       type: object
       properties:
         address:
@@ -954,7 +954,7 @@ components:
       properties:
         targetStates:
           description: Список состояний ресурсов в целевой группе, указанных в сообщении
-            GetTargetStatesRequest .
+            `GetTargetStatesRequest` .
           type: array
           items:
             $ref: '#/components/schemas/TargetState'

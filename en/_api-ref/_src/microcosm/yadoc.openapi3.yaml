@@ -54,7 +54,7 @@ paths:
     post:
       tags:
       - Deployment
-      summary: Checks that given CreateDeploymentRequest is valid
+      summary: Checks that given `CreateDeploymentRequest` is valid
       operationId: DeploymentValidate
       requestBody:
         content:

@@ -99,7 +99,12 @@ view | Defines which information about the Instance template should be returned 
     "schedulingPolicy": {
       "preemptible": true
     },
-    "serviceAccountId": "string"
+    "serviceAccountId": "string",
+    "networkSettings": {
+      "type": "string"
+    },
+    "name": "string",
+    "hostname": "string"
   },
   "scalePolicy": {
 
@@ -122,6 +127,7 @@ view | Defines which information about the Instance template should be returned 
           "ruleType": "string",
           "metricType": "string",
           "metricName": "string",
+          "labels": "object",
           "target": "number"
         }
       ]
@@ -182,7 +188,13 @@ view | Defines which information about the Instance template should be returned 
     ]
   },
   "serviceAccountId": "string",
-  "status": "string"
+  "status": "string",
+  "variables": [
+    {
+      "key": "string",
+      "value": "string"
+    }
+  ]
 }
 ```
 
@@ -198,13 +210,13 @@ labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p>
 instanceTemplate | **object**<br><p>Instance template for creating the instance group. For more information, see <a href="/docs/compute/concepts/ig-instance-templates">Instance Templates</a>.</p> 
 instanceTemplate.<br>description | **string**<br><p>Description of the instance template.</p> <p>The maximum string length in characters is 256.</p> 
 instanceTemplate.<br>labels | **object**<br><p>Resource labels as <code>key:value</code> pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 128.</p> 
-instanceTemplate.<br>platformId | **string**<br><p>ID of the hardware platform configuration for the instance. Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see <a href="/docs/compute/concepts/vm-platforms">Platforms</a>.</p> 
+instanceTemplate.<br>platformId | **string**<br><p>Required. ID of the hardware platform configuration for the instance. Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see <a href="/docs/compute/concepts/vm-platforms">Platforms</a>.</p> 
 instanceTemplate.<br>resourcesSpec | **object**<br><p>Required. Computing resources of the instance such as the amount of memory and number of cores.</p> 
-instanceTemplate.<br>resourcesSpec.<br>memory | **string** (int64)<br><p>The amount of memory available to the instance, specified in bytes.</p> <p>The maximum value is 274877906944.</p> 
+instanceTemplate.<br>resourcesSpec.<br>memory | **string** (int64)<br><p>The amount of memory available to the instance, specified in bytes.</p> <p>The maximum value is 824633720832.</p> 
 instanceTemplate.<br>resourcesSpec.<br>cores | **string** (int64)<br><p>The number of cores available to the instance.</p> <p>Value must be one of 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 52, 56, 60 or 64.</p> 
 instanceTemplate.<br>resourcesSpec.<br>coreFraction | **string** (int64)<br><p>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core.</p> <p>Value must be one of 0, 5, 20, 50 or 100.</p> 
 instanceTemplate.<br>resourcesSpec.<br>gpus | **string** (int64)<br><p>The number of GPUs available to the instance.</p> <p>Value must be one of 0, 1, 2 or 4.</p> 
-instanceTemplate.<br>metadata | **object**<br><p>The metadata <code>key:value</code> pairs assigned to this instance template. This includes custom metadata and predefined keys.</p> <p>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see <a href="/docs/compute/concepts/vm-metadata">Metadata</a>.</p> <p>No more than 128 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 262144.</p> 
+instanceTemplate.<br>metadata | **object**<br><p>The metadata <code>key:value</code> pairs assigned to this instance template. This includes custom metadata and predefined keys.</p> <p>Metadata values may contain one of the supported placeholders: {instance_group.id} {instance.short_id} {instance.index} {instance.index_in_zone} {instance.zone_id} InstanceGroup and Instance labels may be copied to metadata following way: {instance_group.labels.some_label_key} {instance.labels.another_label_key} These placeholders will be substituted for each created instance anywhere in the value text. In the rare case the value requires to contain this placeholder explicitly, it must be escaped with double brackets, in example {{instance.index}}</p> <p>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see <a href="/docs/compute/concepts/vm-metadata">Metadata</a>.</p> <p>No more than 128 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression <code>[a-z][-_0-9a-z]*</code>. The maximum string length in characters for each value is 262144.</p> 
 instanceTemplate.<br>bootDiskSpec | **object**<br><p>Required. Boot disk specification that will be attached to the instance.</p> 
 instanceTemplate.<br>bootDiskSpec.<br>mode | **string**<br><p>Required. Access mode to the Disk resource.</p> <ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access.</li> </ul> 
 instanceTemplate.<br>bootDiskSpec.<br>deviceName | **string**<br><p>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance.</p> <p>Value must match the regular expression <code>\|[a-z][-_0-9a-z]{0,19}</code>.</p> 
@@ -235,6 +247,10 @@ instanceTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToO
 instanceTemplate.<br>schedulingPolicy | **object**<br><p>Scheduling policy for the instance.</p> 
 instanceTemplate.<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
 instanceTemplate.<br>serviceAccountId | **string**<br><p>Service account ID for the instance.</p> 
+instanceTemplate.<br>networkSettings | **object**<br><p>Network settings for the instance.</p> 
+instanceTemplate.<br>networkSettings.<br>type | **string**<br><p>Type of instance network.</p> 
+instanceTemplate.<br>name | **string**<br><p>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list.</p> <p>The maximum string length in characters is 128.</p> 
+instanceTemplate.<br>hostname | **string**<br><p>Host name for the instance. This field is used to generate the <a href="/docs/compute/api-ref/Instance#representation">Instance.fqdn</a> value. The host name must be unique within the network and region. If not specified, the host name will be equal to <a href="/docs/compute/api-ref/Instance#representation">Instance.id</a> of the instance and FQDN will be <code>&lt;id&gt;.auto.internal</code>. Otherwise FQDN will be <code>&lt;hostname&gt;.&lt;region_id&gt;.internal</code>.</p> <p>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, <code>name</code> value will be used It may also contain another placeholders, see metadata doc for full list.</p> <p>The maximum string length in characters is 128.</p> 
 scalePolicy | **object**<br><p><a href="/docs/compute/concepts/instance-groups/scale">Scaling policy</a> of the instance group.</p> 
 scalePolicy.<br>fixedScale | **object**<br>[Manual scaling policy](/docs/compute/concepts/instance-groups/scale#fixed-policy) of the instance group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of instances in the instance group.</p> <p>Acceptable values are 1 to 100, inclusive.</p> 
@@ -249,15 +265,16 @@ scalePolicy.<br>autoScale.<br>cpuUtilizationRule | **object**<br><p>Defines an a
 scalePolicy.<br>autoScale.<br>cpuUtilizationRule.<br>utilizationTarget | **number** (double)<br><p>Target CPU utilization level. Instance Groups maintains this level for each availability zone.</p> <p>Acceptable values are 10 to 100, inclusive.</p> 
 scalePolicy.<br>autoScale.<br>customRules[] | **object**<br><p>Defines an autoscaling rule based on a <a href="/docs/monitoring/operations/metric/add">custom metric</a> from Yandex Monitoring.</p> <p>The maximum number of elements is 1.</p> 
 scalePolicy.<br>autoScale.<br>customRules[].<br>ruleType | **string**<br><p>Required. Custom metric rule type. This field affects which label from the custom metric should be used: <code>zone_id</code> or <code>instance_id</code>.</p> <ul> <li>UTILIZATION: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone. This type of metric must have the <code>instance_id</code> label.</li> <li>WORKLOAD: This type means that the metric applies to instances in one availability zone. This type of metric must have the <code>zone_id</code> label.</li> </ul> 
-scalePolicy.<br>autoScale.<br>customRules[].<br>metricType | **string**<br><p>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value.</p> <ul> <li>GAUGE: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance.</li> </ul> <p>Instance Groups calculates the average metric value for the period specified in the measurementDuration field.</p> <ul> <li>COUNTER: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance.</li> </ul> <p>Instance Groups calculates the average value increase for the period specified in the measurementDuration field.</p> 
+scalePolicy.<br>autoScale.<br>customRules[].<br>metricType | **string**<br><p>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value.</p> <ul> <li>GAUGE: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance.</li> </ul> <p>Instance Groups calculates the average metric value for the period specified in the <code>measurementDuration</code> field.</p> <ul> <li>COUNTER: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance.</li> </ul> <p>Instance Groups calculates the average value increase for the period specified in the <code>measurementDuration</code> field.</p> 
 scalePolicy.<br>autoScale.<br>customRules[].<br>metricName | **string**<br><p>Required. Name of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>Value must match the regular expression <code>[a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]&lt;&gt;-]{0,198}</code>.</p> 
+scalePolicy.<br>autoScale.<br>customRules[].<br>labels | **object**<br><p>Labels of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>Each key must match the regular expression <code>^[a-zA-Z][0-9a-zA-Z_]{0,31}$</code>. Each value must match the regular expression <code>[a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]&lt;&gt;-]{0,198}</code>.</p> 
 scalePolicy.<br>autoScale.<br>customRules[].<br>target | **number** (double)<br><p>Target value for the custom metric. Instance Groups maintains this level for each availability zone.</p> <p>Value must be greater than 0.</p> 
 deployPolicy | **object**<br><p>Deployment policy of the instance group.</p> 
-deployPolicy.<br>maxUnavailable | **string** (int64)<br><p>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If maxExpansion is not specified or set to zero, maxUnavailable must be set to a non-zero value.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+deployPolicy.<br>maxUnavailable | **string** (int64)<br><p>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If <code>maxExpansion</code> is not specified or set to zero, <code>maxUnavailable</code> must be set to a non-zero value.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 deployPolicy.<br>maxDeleting | **string** (int64)<br><p>The maximum number of instances that can be deleted at the same time.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 deployPolicy.<br>maxCreating | **string** (int64)<br><p>The maximum number of instances that can be created at the same time.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-deployPolicy.<br>maxExpansion | **string** (int64)<br><p>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If maxUnavailable is not specified or set to zero, maxExpansion must be set to a non-zero value.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
-deployPolicy.<br>startupDuration | **string**<br><p>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See ManagedInstanceStatus for more information.</p> <p>Acceptable values are 0 seconds to 3600 seconds, inclusive.</p> 
+deployPolicy.<br>maxExpansion | **string** (int64)<br><p>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If <code>maxUnavailable</code> is not specified or set to zero, <code>maxExpansion</code> must be set to a non-zero value.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+deployPolicy.<br>startupDuration | **string**<br><p>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See <code>ManagedInstanceStatus</code> for more information.</p> <p>Acceptable values are 0 seconds to 3600 seconds, inclusive.</p> 
 allocationPolicy | **object**<br><p>Allocation policy of the instance group by zones and regions.</p> 
 allocationPolicy.<br>zones[] | **object**<br><p>Required. List of availability zones.</p> <p>The minimum number of elements is 1.</p> 
 allocationPolicy.<br>zones[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the instance resides.</p> 
@@ -266,9 +283,9 @@ loadBalancerState.<br>targetGroupId | **string**<br><p>ID of the target group us
 loadBalancerState.<br>statusMessage | **string**<br><p>Status message of the target group.</p> 
 managedInstancesState | **object**<br><p>States of instances for this instance group.</p> 
 managedInstancesState.<br>targetSize | **string** (int64)<br><p>Target number of instances for this instance group.</p> 
-managedInstancesState.<br>runningActualCount | **string** (int64)<br><p>The number of running instances that match the current instance template. For more information, see RUNNING_ACTUAL.</p> 
-managedInstancesState.<br>runningOutdatedCount | **string** (int64)<br><p>The number of running instances that does not match the current instance template. For more information, see RUNNING_OUTDATED.</p> 
-managedInstancesState.<br>processingCount | **string** (int64)<br><p>The number of instances in flight (for example, updating, starting, deleting). For more information, see ManagedInstanceStatus.</p> 
+managedInstancesState.<br>runningActualCount | **string** (int64)<br><p>The number of running instances that match the current instance template. For more information, see <code>RUNNING_ACTUAL</code>.</p> 
+managedInstancesState.<br>runningOutdatedCount | **string** (int64)<br><p>The number of running instances that does not match the current instance template. For more information, see <code>RUNNING_OUTDATED</code>.</p> 
+managedInstancesState.<br>processingCount | **string** (int64)<br><p>The number of instances in flight (for example, updating, starting, deleting). For more information, see <code>ManagedInstanceStatus</code>.</p> 
 loadBalancerSpec | **object**<br><p>Load balancing specification.</p> 
 loadBalancerSpec.<br>targetGroupSpec | **object**<br><p>Specification of the target group that the instance group will be added to. For more information, see <a href="/docs/load-balancer/target-resources">Target groups and resources</a>.</p> 
 loadBalancerSpec.<br>targetGroupSpec.<br>name | **string**<br><p>Name of the target group.</p> <p>Value must match the regular expression <code>\|[a-z][-a-z0-9]{1,61}[a-z0-9]</code>.</p> 
@@ -287,3 +304,6 @@ healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions.<br>port | **string** (i
 healthChecksSpec.<br>healthCheckSpecs[].<br>httpOptions.<br>path | **string**<br><p>URL path to set for health checking requests.</p> 
 serviceAccountId | **string**<br><p>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see <a href="/docs/iam/concepts/users/service-accounts">Service accounts</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 
 status | **string**<br><p>Status of the instance group.</p> <ul> <li>STARTING: Instance group is being started and will become active soon.</li> <li>ACTIVE: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. To stop the instance group, call <a href="/docs/compute/api-ref/InstanceGroup/stop">stop</a>.</li> <li>STOPPING: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li> <li>STOPPED: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call <a href="/docs/compute/api-ref/InstanceGroup/start">start</a>.</li> <li>DELETING: Instance group is being deleted.</li> </ul> 
+variables[] | **object**<br>
+variables[].<br>key | **string**<br><p>The string length in characters must be 1-128. Value must match the regular expression <code>[a-zA-Z0-9._-]*</code>.</p> 
+variables[].<br>value | **string**<br><p>The maximum string length in characters is 128.</p> 

@@ -947,6 +947,62 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DetachInstanceDiskMetadata'
       x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
+  /compute/v1/instances/{instanceId}/addOneToOneNat:
+    post:
+      tags:
+      - Instance
+      operationId: InstanceAddOneToOneNat
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddInstanceOneToOneNatRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addOneToOneNat
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddInstanceOneToOneNatMetadata'
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
+  /compute/v1/instances/{instanceId}/removeOneToOneNat:
+    post:
+      tags:
+      - Instance
+      operationId: InstanceRemoveOneToOneNat
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveInstanceOneToOneNatRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: removeOneToOneNat
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RemoveInstanceOneToOneNatMetadata'
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
   /compute/v1/instances/{instanceId}/operations:
     get:
       tags:
@@ -1510,6 +1566,20 @@ paths:
       x-y-navtitle: list
 components:
   schemas:
+    AddInstanceOneToOneNatMetadata:
+      type: object
+      properties:
+        instanceId:
+          type: string
+    AddInstanceOneToOneNatRequest:
+      type: object
+      properties:
+        networkInterfaceIndex:
+          type: string
+        internalAddress:
+          type: string
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/OneToOneNatSpec_in_AddInstanceOneToOneNatRequest_oneToOneNatSpec'
     AttachInstanceDiskMetadata:
       type: object
       properties:
@@ -2676,6 +2746,8 @@ components:
       properties:
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
+        address:
+          type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -2811,6 +2883,18 @@ components:
           type: string
         oneToOneNatSpec:
           $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
+    RemoveInstanceOneToOneNatMetadata:
+      type: object
+      properties:
+        instanceId:
+          type: string
+    RemoveInstanceOneToOneNatRequest:
+      type: object
+      properties:
+        networkInterfaceIndex:
+          type: string
+        internalAddress:
+          type: string
     Resources:
       type: object
       properties:
@@ -3246,6 +3330,13 @@ components:
           type: array
           items:
             type: object
+    OneToOneNatSpec_in_AddInstanceOneToOneNatRequest_oneToOneNatSpec:
+      type: object
+      properties:
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
+        address:
+          type: string
     AttachedDiskSpec_in_AttachInstanceDiskRequest_attachedDiskSpec:
       description: |-
         Required.
@@ -3498,7 +3589,7 @@ components:
           type: boolean
           format: boolean
     NetworkSettings_in_Instance_networkSettings:
-      description: Do not specify this field, network settings are not supported yet.
+      description: Network Settings
       type: object
       properties:
         type:
@@ -3558,7 +3649,7 @@ components:
           $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
     NetworkSettingsType_in_NetworkSettings_type:
       description: |-
-        Do not specify this field, network settings are not supported yet.
+        Network Type
 
          - STANDARD: Standard network.
          - SOFTWARE_ACCELERATED: Software accelerated network.
@@ -3580,7 +3671,6 @@ components:
       - IPV6
     IpVersion_in_OneToOneNatSpec_ipVersion:
       description: |-
-        Required.
         External IP address version.
 
          - IPV4: IPv4 address, for example 192.0.2.235.
@@ -3619,6 +3709,8 @@ components:
       properties:
         ipVersion:
           $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
+        address:
+          type: string
     SnapshotStatus_in_Snapshot_status:
       description: |-
         Current status of the snapshot.

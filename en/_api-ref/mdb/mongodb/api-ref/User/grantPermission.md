@@ -37,7 +37,7 @@ Field | Description
 --- | ---
 permission | **object**<br><p>Required. Permission that should be granted to the specified user.</p> 
 permission.<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
-permission.<br>roles[] | **string**<br><p>MongoDB roles for the databaseName database that the permission grants.</p> 
+permission.<br>roles[] | **string**<br><p>MongoDB roles for the <code>databaseName</code> database that the permission grants.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -1507,10 +1507,10 @@ components:
       - PRESTABLE
     ClusterHealth:
       description: |2-
-         - HEALTH_UNKNOWN: Состояние кластера неизвестно ([Host.health] для каждого хоста в кластере — UNKNOWN).
-         - ALIVE: Кластер работает нормально ([Host.health] для каждого хоста в кластере — ALIVE).
-         - DEAD: Кластер не работает ([Host.health] для каждого узла в кластере — DEAD).
-         - DEGRADED: Кластер работает неоптимально ([Host.health] по крайней мере для одного узла в кластере
+         - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).
+         - ALIVE: Кластер работает нормально (`health` для каждого хоста в кластере — ALIVE).
+         - DEAD: Кластер не работает (`health` для каждого узла в кластере — DEAD).
+         - DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного узла в кластере
         не ALIVE).
       type: string
       enum:
@@ -2037,7 +2037,7 @@ components:
 
             После создания узла этот параметр изменить нельзя. Чтобы удалить назначенный
             публичный IP-адрес или назначить публичный IP уже созданному хосту, пересоздайте хост
-            с нужным значением поля assignPublicIp.
+            с нужным значением поля `assignPublicIp`.
 
             Возможные значения:
             * false — не назначать хосту публичный IP-адрес.
@@ -2045,8 +2045,8 @@ components:
           type: boolean
           format: boolean
         replicationSource:
-          description: name of the host to be used as the replication source (for
-            cascading replication).
+          description: '`name` of the host to be used as the replication source (for
+            cascading replication).'
           type: string
         priority:
           description: |-
@@ -5975,7 +5975,7 @@ components:
           type: string
         replicationSource:
           description: |-
-            name хоста, который будет использоваться в качестве источника репликации (для
+            `name` хоста, который будет использоваться в качестве источника репликации (для
             каскадной репликации). Чтобы получить имя хоста PostgreSQL, используйте запрос
             [listHosts](/docs/managed-postgresql/api-ref/Cluster/listHosts).
           type: string
@@ -6234,10 +6234,10 @@ components:
       description: |-
         Агрегированная работоспособность кластера.
 
-         - HEALTH_UNKNOWN: Состояние кластера неизвестно ([Host.health] для каждого хоста в кластере — UNKNOWN).
-         - ALIVE: Кластер работает нормально ([Host.health] для каждого хоста в кластере — ALIVE).
-         - DEAD: Кластер не работает ([Host.health] для каждого узла в кластере — DEAD).
-         - DEGRADED: Кластер работает неоптимально ([Host.health] по крайней мере для одного узла в кластере
+         - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).
+         - ALIVE: Кластер работает нормально (`health` для каждого хоста в кластере — ALIVE).
+         - DEAD: Кластер не работает (`health` для каждого узла в кластере — DEAD).
+         - DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного узла в кластере
         не ALIVE).
       type: string
       enum:
@@ -7153,7 +7153,7 @@ components:
       description: |-
         Обязательное поле.
         Действующие настройки для кластера PostgreSQL 10 (сочетание настроек, определенных в
-        userConfig и [default_config]).
+        `userConfig` и `defaultConfig`).
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
         подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/10/runtime-config.html).
@@ -8013,7 +8013,7 @@ components:
       description: |-
         Обязательное поле.
         Действующие настройки для кластера PostgreSQL 10 1С (сочетание настроек, определенных в
-        userConfig и [default_config]).
+        `userConfig` и `defaultConfig`).
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
         подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/10/runtime-config.html).
@@ -9055,7 +9055,7 @@ components:
     PostgresqlConfig11_in_PostgresqlConfigSet11_effectiveConfig:
       description: |-
         Действующие настройки для кластера PostgreSQL 11 (сочетание настроек, определенных в
-        userConfig и [default_config]).
+        `userConfig` и `defaultConfig`).
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
         подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/11/runtime-config.html).
@@ -9905,7 +9905,7 @@ components:
     PostgresqlConfig12_in_PostgresqlConfigSet12_effectiveConfig:
       description: |-
         Действующие настройки для кластера PostgreSQL 12 (сочетание настроек, определенных в
-        userConfig и [default_config]).
+        `userConfig` и `defaultConfig`).
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
         подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/11/runtime-config.html).
@@ -11044,7 +11044,7 @@ components:
       description: |-
         Обязательное поле.
         Действующие настройки для кластера PostgreSQL 9.6 (сочетание настроек, определенных в
-        userConfig и [default_config]).
+        `userConfig` и `defaultConfig`).
 
         Поля и структура `PostgresqlConfig` отражает параметры конфигурационного файла PostgreSQL,
         подробное описание которого доступно в [документации PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config).

@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas
+PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas/{formatSchemaName}
 ```
  
 ## Path parameters {#path_params}
@@ -17,12 +17,12 @@ PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId
 Parameter | Description
 --- | ---
 clusterId | Required. The maximum string length in characters is 50.
+formatSchemaName | Required. The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
 ## Body parameters {#body_params}
  
 ```json 
 {
-  "formatSchemaName": "string",
   "updateMask": "string",
   "uri": "string"
 }
@@ -31,7 +31,6 @@ clusterId | Required. The maximum string length in characters is 50.
  
 Field | Description
 --- | ---
-formatSchemaName | **string**<br><p>Required. The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
 updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in <code>updateMask</code> and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If <code>updateMask</code> is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
 uri | **string**<br>
  

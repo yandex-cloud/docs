@@ -131,6 +131,40 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteApiKeyMetadata'
       x-y-operation-response: Empty
+    patch:
+      tags:
+      - ApiKey
+      summary: Updates the specified API key.
+      operationId: ApiKeyUpdate
+      parameters:
+      - name: apiKeyId
+        in: path
+        description: |-
+          Required.
+          ID of the ApiKey resource to update.
+          To get the API key ID, use a [list](/docs/iam/api-ref/ApiKey/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateApiKeyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateApiKeyMetadata'
+      x-y-operation-response: '[ApiKey](/docs/iam/api-ref/ApiKey#representation)'
   /iam/v1/apiKeys/{apiKeyId}/operations:
     get:
       tags:
@@ -259,6 +293,40 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteKeyMetadata'
       x-y-operation-response: Empty
+    patch:
+      tags:
+      - Key
+      summary: Updates the specified key pair.
+      operationId: KeyUpdate
+      parameters:
+      - name: keyId
+        in: path
+        description: |-
+          Required.
+          ID of the Key resource to update.
+          To get key pair ID, use a [Service.List] request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateKeyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateKeyMetadata'
+      x-y-operation-response: '[Key](/docs/iam/api-ref/Key#representation)'
   /iam/v1/keys:
     get:
       tags:
@@ -839,7 +907,7 @@ components:
       properties:
         roleId:
           description: |-
-            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
 
             The maximum string length in characters is 50.
           type: string
@@ -1368,11 +1436,11 @@ components:
 
             It can contain one of the following values:
             * `allAuthenticatedUsers`: A special system identifier that represents anyone
-               who is authenticated. It can be used only if the type is `system`.
+               who is authenticated. It can be used only if the `type` is `system`.
             * `allUsers`: A special system identifier that represents anyone. No authentication is required.
                For example, you don't need to specify the IAM token in an API query.
             * `<cloud generated id>`: An identifier that represents a user account.
-               It can be used only if the type is `userAccount` or `serviceAccount`.
+               It can be used only if the `type` is `userAccount` or `serviceAccount`.
 
             The maximum string length in characters is 50.
           type: string
@@ -1404,6 +1472,40 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateApiKeyMetadata:
+      type: object
+      properties:
+        apiKeyId:
+          description: ID of the ApiKey resource that is being updated.
+          type: string
+    UpdateApiKeyRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateApiKeyRequest_updateMask'
+        description:
+          description: |-
+            Description of the API key.
+
+            The maximum string length in characters is 256.
+          type: string
+    UpdateKeyMetadata:
+      type: object
+      properties:
+        keyId:
+          description: ID of the Key resource that is being updated.
+          type: string
+    UpdateKeyRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateKeyRequest_updateMask'
+        description:
+          description: |-
+            Description of the key pair.
+
+            The maximum string length in characters is 256.
+          type: string
     UpdateServiceAccountMetadata:
       type: object
       properties:
@@ -1473,11 +1575,11 @@ components:
 
             It can contain one of the following values:
             * `allAuthenticatedUsers`: A special system identifier that represents anyone
-               who is authenticated. It can be used only if the type is `system`.
+               who is authenticated. It can be used only if the `type` is `system`.
             * `allUsers`: A special system identifier that represents anyone. No authentication is required.
                For example, you don't need to specify the IAM token in an API query.
             * `<cloud generated id>`: An identifier that represents a user account.
-               It can be used only if the type is `userAccount` or `serviceAccount`.
+               It can be used only if the `type` is `userAccount` or `serviceAccount`.
 
             The maximum string length in characters is 50.
           type: string
@@ -1512,7 +1614,7 @@ components:
       properties:
         roleId:
           description: |-
-            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
 
             The maximum string length in characters is 50.
           type: string
@@ -1598,6 +1700,32 @@ components:
           serviceAccountId:
             description: ID of the service account that the Key resource belongs to.
             type: string
+    FieldMask_in_UpdateApiKeyRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the ApiKey resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    FieldMask_in_UpdateKeyRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the Key resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
     FieldMask_in_UpdateServiceAccountRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the ServiceAccount resource are going to be updated.

@@ -43,7 +43,7 @@ listenerSpec.<br>name | **string**<br><p>Обязательное поле. Им
 listenerSpec.<br>port | **string** (int64)<br><p>Порт для входящего трафика.</p> <p>Допустимые значения — от 1 до 32767 включительно.</p> 
 listenerSpec.<br>protocol | **string**<br>Обязательное поле. Сетевой протокол для входящего трафика.<br><p>Сетевой протокол для использования при проверке.</p> <ul> <li>TCP: Протокол TCP.</li> </ul> 
 listenerSpec.<br>targetPort | **string** (int64)<br><p>Порты целевых ресурсов для входящего трафика. Допустимые значения — от 1 до 32767 включительно.</p> 
-listenerSpec.<br>externalAddressSpec | **object**<br>Спецификация внешнего IP-адреса.<br><p>Спецификация внешнего адреса для ListenerSpec.</p> 
+listenerSpec.<br>externalAddressSpec | **object**<br>Спецификация внешнего IP-адреса.<br><p>Спецификация внешнего адреса для <code>ListenerSpec</code>.</p> 
 listenerSpec.<br>externalAddressSpec.<br>address | **string**<br><p>Публичный IP-адрес для обработчика. Если адрес передается в методе <a href="/docs/load-balancer/api-ref/NetworkLoadBalancer/update">update</a>, он заменит существующий адрес обработчика.</p> 
 listenerSpec.<br>externalAddressSpec.<br>ipVersion | **string**<br><p>Версия IP-адреса.</p> <p>Версия IP-адресов, с которыми работает балансировщик нагрузки. В настоящее время доступны только адреса IPv4.</p> <ul> <li>IPV4: Протокол IPv4.</li> <li>IPV6: Протокол IPv6.</li> </ul> 
  

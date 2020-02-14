@@ -323,7 +323,7 @@ paths:
       x-y-navtitle: createVersion
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateFunctionVersionMetadata'
-      x-y-operation-response: Version
+      x-y-operation-response: '`Version`'
   /functions/v1/versions/{functionVersionId}:setTag:
     post:
       tags:
@@ -357,7 +357,7 @@ paths:
       x-y-navtitle: setTag
       x-y-operation-metadata:
         $ref: '#/components/schemas/SetFunctionTagMetadata'
-      x-y-operation-response: Version
+      x-y-operation-response: '`Version`'
   /functions/v1/versions/{functionVersionId}:removeTag:
     post:
       tags:
@@ -391,7 +391,7 @@ paths:
       x-y-navtitle: removeTag
       x-y-operation-metadata:
         $ref: '#/components/schemas/RemoveFunctionTagMetadata'
-      x-y-operation-response: Version
+      x-y-operation-response: '`Version`'
   /functions/v1/functions/{functionId}:tagHistory:
     get:
       tags:
@@ -518,11 +518,11 @@ paths:
           A filter expression that filters resources listed in the response.
 
           The expression must specify:
-          1. The field name. Currently filtering can only be applied to the [Function.name](/docs/functions/functions/api-ref/Function#representation) field.
+          1. The field name. Currently filtering can be applied to the [Operation.done](/docs/operation/api-ref/Operation#representation), [Operation.createdBy](/docs/operation/api-ref/Operation#representation) field.
           2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
           for lists of values.
           3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
-          Example of a filter: `name=my-function`.
+          Examples of a filter: `done=false`, `created_by='John.Doe'`.
 
           The maximum string length in characters is 1000.
         schema:
@@ -657,7 +657,7 @@ components:
       properties:
         roleId:
           description: |-
-            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
 
             The maximum string length in characters is 50.
           type: string
@@ -776,6 +776,14 @@ components:
               The maximum string length in characters for each value is 4096.
             type: object
             additionalProperties:
+              type: string
+          tag:
+            description: |-
+              Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag).
+
+              Each value must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            type: array
+            items:
               type: string
       - title: package_source
         type: object
@@ -1125,11 +1133,11 @@ components:
 
             It can contain one of the following values:
             * `allAuthenticatedUsers`: A special system identifier that represents anyone
-               who is authenticated. It can be used only if the type is `system`.
+               who is authenticated. It can be used only if the `type` is `system`.
             * `allUsers`: A special system identifier that represents anyone. No authentication is required.
                For example, you don't need to specify the IAM token in an API query.
             * `<cloud generated id>`: An identifier that represents a user account.
-               It can be used only if the type is `userAccount` or `serviceAccount`.
+               It can be used only if the `type` is `userAccount` or `serviceAccount`.
 
             The maximum string length in characters is 50.
           type: string
@@ -1303,11 +1311,11 @@ components:
 
             It can contain one of the following values:
             * `allAuthenticatedUsers`: A special system identifier that represents anyone
-               who is authenticated. It can be used only if the type is `system`.
+               who is authenticated. It can be used only if the `type` is `system`.
             * `allUsers`: A special system identifier that represents anyone. No authentication is required.
                For example, you don't need to specify the IAM token in an API query.
             * `<cloud generated id>`: An identifier that represents a user account.
-               It can be used only if the type is `userAccount` or `serviceAccount`.
+               It can be used only if the `type` is `userAccount` or `serviceAccount`.
 
             The maximum string length in characters is 50.
           type: string
@@ -1342,7 +1350,7 @@ components:
       properties:
         roleId:
           description: |-
-            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
 
             The maximum string length in characters is 50.
           type: string

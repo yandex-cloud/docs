@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method delete
-
+Deletes the specified machine learning model.
  
 
  
@@ -16,8 +16,8 @@ DELETE https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterI
  
 Parameter | Description
 --- | ---
-clusterId | Required. The maximum string length in characters is 50.
-mlModelName | Required. The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. ID of the cluster to delete the model in.  To get a cluster ID make a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+mlModelName | Required. Name of the the model to delete.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

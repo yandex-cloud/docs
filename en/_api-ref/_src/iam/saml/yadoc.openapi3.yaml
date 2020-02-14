@@ -431,7 +431,7 @@ paths:
       x-y-navtitle: addUserAccounts
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddFederatedUserAccountsMetadata'
-      x-y-operation-response: AddFederatedUserAccountsResponse
+      x-y-operation-response: '`AddFederatedUserAccountsResponse`'
   /iam/v1/saml/federations/{federationId}/operations:
     get:
       tags:

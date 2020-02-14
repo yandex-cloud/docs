@@ -127,6 +127,13 @@ components:
         ip:
           description: User IP address in IPv4 or IPv6 format.
           type: string
+        uuid:
+          description: |-
+            Unique user identifier that can be used for debugging. May be empty.
+
+            The maximum string length in characters is 64.
+            Value must match the regular expression `` [A-Za-z0-9._-] ``.
+          type: string
     LocationResponse:
       type: object
       allOf:

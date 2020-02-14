@@ -39,6 +39,7 @@ filter | A filter expression that filters jobs listed in the response.  The expr
       "startedAt": "string",
       "finishedAt": "string",
       "name": "string",
+      "createdBy": "string",
       "status": "string",
 
       // `jobs[]` includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`
@@ -135,6 +136,7 @@ jobs[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>S
 jobs[].<br>startedAt | **string** (date-time)<br><p>The time when the job was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 jobs[].<br>finishedAt | **string** (date-time)<br><p>The time when the job was finished.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 jobs[].<br>name | **string**<br><p>Name of the job, specified in the <a href="/docs/data-proc/api-ref/Job/create">create</a> request.</p> 
+jobs[].<br>createdBy | **string**<br><p>The id of the user who created the job</p> 
 jobs[].<br>status | **string**<br>Job status.<br><ul> <li>PROVISIONING: Job is logged in the database and is waiting for the agent to run it.</li> <li>PENDING: Job is acquired by the agent and is in the queue for execution.</li> <li>RUNNING: Job is being run in the cluster.</li> <li>ERROR: Job failed to finish the run properly.</li> <li>DONE: Job is finished.</li> </ul> 
 jobs[].<br>mapreduceJob | **object**<br>Specification for a MapReduce job. <br>`jobs[]` includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 jobs[].<br>mapreduceJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 

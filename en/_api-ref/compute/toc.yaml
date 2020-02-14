@@ -47,6 +47,8 @@ items:
     items:
       - name: Overview
         href: api-ref/Instance/index.md
+      - name: addOneToOneNat
+        href: api-ref/Instance/addOneToOneNat.md
       - name: attachDisk
         href: api-ref/Instance/attachDisk.md
       - name: create
@@ -63,6 +65,8 @@ items:
         href: api-ref/Instance/list.md
       - name: listOperations
         href: api-ref/Instance/listOperations.md
+      - name: removeOneToOneNat
+        href: api-ref/Instance/removeOneToOneNat.md
       - name: restart
         href: api-ref/Instance/restart.md
       - name: start

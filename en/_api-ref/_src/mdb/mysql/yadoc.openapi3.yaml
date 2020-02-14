@@ -1391,10 +1391,10 @@ components:
       - PRESTABLE
     ClusterHealth:
       description: |2-
-         - HEALTH_UNKNOWN: State of the cluster is unknown ([Host.health] for every host in the cluster is UNKNOWN).
-         - ALIVE: Cluster is alive and well ([Host.health] for every host in the cluster is ALIVE).
-         - DEAD: Cluster is inoperable ([Host.health] for every host in the cluster is DEAD).
-         - DEGRADED: Cluster is working below capacity ([Host.health] for at least one host in the cluster is not ALIVE).
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -1737,7 +1737,7 @@ components:
             Whether the host should get a public IP address on creation.
 
             After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
-            a public IP to a host without one, recreate the host with assignPublicIp set as needed.
+            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
 
             Possible values:
             * false — don't assign a public IP to the host.
@@ -2650,10 +2650,10 @@ components:
       description: |-
         Aggregated cluster health.
 
-         - HEALTH_UNKNOWN: State of the cluster is unknown ([Host.health] for every host in the cluster is UNKNOWN).
-         - ALIVE: Cluster is alive and well ([Host.health] for every host in the cluster is ALIVE).
-         - DEAD: Cluster is inoperable ([Host.health] for every host in the cluster is DEAD).
-         - DEGRADED: Cluster is working below capacity ([Host.health] for at least one host in the cluster is not ALIVE).
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -2861,7 +2861,7 @@ components:
     MysqlConfig5_7_in_MysqlConfigSet5_7_effectiveConfig:
       description: |-
         Effective settings for a MySQL 5.7 cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
 
         Options and structure of `MysqlConfig5_7` reflects MySQL 5.7 configuration file
       type: object
@@ -3057,7 +3057,7 @@ components:
     MysqlConfig8_0_in_MysqlConfigSet8_0_effectiveConfig:
       description: |-
         Effective settings for a MySQL 8.0 cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
 
         Options and structure of `MysqlConfig8_0` reflects MySQL 8.0 configuration file
       type: object

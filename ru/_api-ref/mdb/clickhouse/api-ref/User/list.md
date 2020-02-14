@@ -43,15 +43,43 @@ pageToken | Токен страницы. Установите значение [
         "readonly": "integer",
         "allowDdl": true,
         "insertQuorum": "integer",
+        "connectTimeout": "integer",
+        "receiveTimeout": "integer",
+        "sendTimeout": "integer",
         "insertQuorumTimeout": "integer",
         "selectSequentialConsistency": true,
         "maxReplicaDelayForDistributedQueries": "integer",
         "fallbackToStaleReplicasForDistributedQueries": true,
-        "maxThreads": "integer",
+        "replicationAlterPartitionsSync": "integer",
+        "distributedProductMode": "string",
+        "distributedAggregationMemoryEfficient": true,
+        "distributedDdlTaskTimeout": "integer",
+        "compile": true,
+        "minCountToCompile": "integer",
+        "compileExpressions": true,
+        "minCountToCompileExpression": "integer",
         "maxBlockSize": "integer",
+        "minInsertBlockSizeRows": "integer",
+        "minInsertBlockSizeBytes": "integer",
         "maxInsertBlockSize": "integer",
+        "minBytesToUseDirectIo": "integer",
+        "useUncompressedCache": true,
+        "mergeTreeMaxRowsToUseCache": "integer",
+        "mergeTreeMaxBytesToUseCache": "integer",
+        "mergeTreeMinRowsForConcurrentRead": "integer",
+        "mergeTreeMinBytesForConcurrentRead": "integer",
+        "maxBytesBeforeExternalGroupBy": "integer",
+        "maxBytesBeforeExternalSort": "integer",
+        "groupByTwoLevelThreshold": "integer",
+        "groupByTwoLevelThresholdBytes": "integer",
+        "priority": "integer",
+        "maxThreads": "integer",
         "maxMemoryUsage": "integer",
         "maxMemoryUsageForUser": "integer",
+        "maxNetworkBandwidth": "integer",
+        "maxNetworkBandwidthForUser": "integer",
+        "forceIndexByDate": true,
+        "forcePrimaryKey": true,
         "maxRowsToRead": "integer",
         "maxBytesToRead": "integer",
         "readOverflowMode": "string",
@@ -77,8 +105,31 @@ pageToken | Токен страницы. Установите значение [
         "maxQuerySize": "integer",
         "maxAstDepth": "integer",
         "maxAstElements": "integer",
-        "maxExpandedAstElements": "integer"
-      }
+        "maxExpandedAstElements": "integer",
+        "inputFormatValuesInterpretExpressions": true,
+        "inputFormatDefaultsForOmittedFields": true,
+        "outputFormatJsonQuote_64BitIntegers": true,
+        "outputFormatJsonQuoteDenormals": true,
+        "lowCardinalityAllowInNativeFormat": true,
+        "emptyResultForAggregationByEmptySet": true,
+        "httpConnectionTimeout": "integer",
+        "httpReceiveTimeout": "integer",
+        "httpSendTimeout": "integer",
+        "enableHttpCompression": true,
+        "sendProgressInHttpHeaders": true,
+        "httpHeadersProgressInterval": "integer",
+        "addHttpCorsHeader": true
+      },
+      "quotas": [
+        {
+          "intervalDuration": "integer",
+          "queries": "integer",
+          "errors": "integer",
+          "resultRows": "integer",
+          "readRows": "integer",
+          "executionTime": "integer"
+        }
+      ]
     }
   ],
   "nextPageToken": "string"
@@ -94,18 +145,46 @@ users[].<br>clusterId | **string**<br><p>Идентификатор класте
 users[].<br>permissions[] | **object**<br><p>Набор разрешений, предоставленных пользователю.</p> 
 users[].<br>permissions[].<br>databaseName | **string**<br><p>Имя базы данных, к которой предоставляет доступ разрешение.</p> 
 users[].<br>settings | **object**<br><p>Пользовательские настройки ClickHouse. Поддерживаемые параметры входят в число параметров, описанных в разделе <a href="https://clickhouse.yandex/docs/ru/operations/settings/">документации ClickHouse</a>.</p> 
-users[].<br>settings.<br>readonly | **integer** (int64)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_readonly">документации ClickHouse</a>.</p> <p>Допустимые значения — от 0 до 2 включительно.</p> 
-users[].<br>settings.<br>allowDdl | **boolean** (boolean)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_allow_ddl">документации ClickHouse</a>.</p> 
+users[].<br>settings.<br>readonly | **integer** (int64)<br><p>Ограничивает разрешения для запросов, не относящихся к DDL. Возможные значения:</p> <ul> <li>0 (по умолчанию) - никаких ограничений.</li> <li>1-разрешены только запросы на чтение данных.</li> <li>2 — разрешены запросы на чтение данных и изменение настроек. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_readonly">документации ClickHouse</a>.</li> </ul> <p>Допустимые значения — от 0 до 2 включительно.</p> 
+users[].<br>settings.<br>allowDdl | **boolean** (boolean)<br><p>Разрешены ли запросы DDL. Значение по умолчанию &quot;false&quot;. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/#settings_allow_ddl">документации ClickHouse</a>.</p> 
 users[].<br>settings.<br>insertQuorum | **integer** (int64)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-insert_quorum">документации ClickHouse</a>.</p> <p>Минимальное значение — 0.</p> 
+users[].<br>settings.<br>connectTimeout | **integer** (int64)<br><p>Время ожидания соединения в миллисекундах. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout">документации ClickHouse</a>.</p> <p>Значение должно быть больше 0.</p> 
+users[].<br>settings.<br>receiveTimeout | **integer** (int64)<br><p>Время ожидания приема в миллисекундах. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout">документации ClickHouse</a>.</p> <p>Значение должно быть больше 0.</p> 
+users[].<br>settings.<br>sendTimeout | **integer** (int64)<br><p>Время ожидания отправки в миллисекундах. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#connect-timeout-receive-timeout-send-timeout">документации ClickHouse</a>.</p> <p>Значение должно быть больше 0.</p> 
 users[].<br>settings.<br>insertQuorumTimeout | **integer** (int64)<br><p>Время ожидания записи для кворума в миллисекундах. Значение по умолчанию: 60000. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-insert_quorum_timeout">документации ClickHouse</a>.</p> <p>Минимальное значение — 1000.</p> 
 users[].<br>settings.<br>selectSequentialConsistency | **boolean** (boolean)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-select_sequential_consistency">документации ClickHouse</a>.</p> 
 users[].<br>settings.<br>maxReplicaDelayForDistributedQueries | **integer** (int64)<br><p>Максимальная задержка реплики в миллисекундах. Если реплика отстает на значение больше установленного, реплика перестает использоваться. Значение по умолчанию: 300000. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries">документации ClickHouse</a>.</p> <p>Минимальное значение — 1000.</p> 
 users[].<br>settings.<br>fallbackToStaleReplicasForDistributedQueries | **boolean** (boolean)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries">документации ClickHouse</a>.</p> 
-users[].<br>settings.<br>maxThreads | **integer** (int64)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_threads">документации ClickHouse</a>.</p> <p>Значение должно быть больше 0.</p> 
+users[].<br>settings.<br>replicationAlterPartitionsSync | **integer** (int64)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/query_language/alter/#synchronicity-of-alter-queries">документации ClickHouse</a>.</p> <p>Допустимые значения — от 0 до 2 включительно.</p> 
+users[].<br>settings.<br>distributedProductMode | **string**<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#distributed-product-mode">документации ClickHouse</a>.</p> <ul> <li>DISTRIBUTED_PRODUCT_MODE_DENY: Значение по умолчанию. Запрещает использование этих типов подзапросов (возвращает исключение &quot;Double-distributed in/JOIN subqueries is denied&quot;).</li> <li>DISTRIBUTED_PRODUCT_MODE_LOCAL: Заменяет базу данных и таблицу в подзапросе локальными для конечного сервера (шарда), оставляя обычный IN / JOIN.</li> <li>DISTRIBUTED_PRODUCT_MODE_GLOBAL: Заменяет IN/JOIN запрос на GLOBAL IN/GLOBAL JOIN.</li> <li>DISTRIBUTED_PRODUCT_MODE_ALLOW: Позволяет использовать эти типы подзапросов.</li> </ul> 
+users[].<br>settings.<br>distributedAggregationMemoryEfficient | **boolean** (boolean)<br><p>Включен ли режим экономии памяти распределенной агрегации.</p> 
+users[].<br>settings.<br>distributedDdlTaskTimeout | **integer** (int64)<br><p>Время ожидания запросов DDL в миллисекундах.</p> 
+users[].<br>settings.<br>compile | **boolean** (boolean)<br><p>Включена ли компиляция запросов. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#compile">документации ClickHouse</a>.</p> 
+users[].<br>settings.<br>minCountToCompile | **integer** (int64)<br><p>Число структурно идентичных запросов до их компиляции. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#min-count-to-compile">документации ClickHouse</a>.</p> <p>Минимальное значение — 0.</p> 
+users[].<br>settings.<br>compileExpressions | **boolean** (boolean)<br><p>Включена ли компиляция выражений.</p> 
+users[].<br>settings.<br>minCountToCompileExpression | **integer** (int64)<br><p>Число идентичных выражений до их компиляции.</p> <p>Минимальное значение — 0.</p> 
 users[].<br>settings.<br>maxBlockSize | **integer** (int64)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#max-block-size">документации ClickHouse</a>.</p> <p>Значение должно быть больше 0.</p> 
+users[].<br>settings.<br>minInsertBlockSizeRows | **integer** (int64)<br><p>Минимальный размер блока в строках при выполнении INSERT запросов. Блоки меньшего размера ClickHouse будет склеивать в один блок. Если установлено значение &quot;0&quot;, ClichHouse не будет склеивать блоки.</p> <p>Минимальное значение — 0.</p> 
+users[].<br>settings.<br>minInsertBlockSizeBytes | **integer** (int64)<br><p>Минимальный размер блока в байтах при выполнении INSERT запросов. Блоки меньшего размера ClickHouse будет склеивать в один блок. Если установлено значение &quot;0&quot;, ClichHouse не будет склеивать блоки.</p> <p>Минимальное значение — 0.</p> 
 users[].<br>settings.<br>maxInsertBlockSize | **integer** (int64)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_insert_block_size">документации ClickHouse</a>.</p> <p>Значение должно быть больше 0.</p> 
+users[].<br>settings.<br>minBytesToUseDirectIo | **integer** (int64)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-min_bytes_to_use_direct_io">документации ClickHouse</a>.</p> <p>Минимальное значение — 0.</p> 
+users[].<br>settings.<br>useUncompressedCache | **boolean** (boolean)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#setting-use_uncompressed_cache">документации ClickHouse</a>.</p> 
+users[].<br>settings.<br>mergeTreeMaxRowsToUseCache | **integer** (int64)<br><p>Максимальный размер запроса в строках для использования кэша несжатых данных. Кэш не используется для запросов, превышающих указанное значение. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#setting-merge_tree_max_rows_to_use_cache">документации ClickHouse</a>.</p> <p>Значение должно быть больше 0.</p> 
+users[].<br>settings.<br>mergeTreeMaxBytesToUseCache | **integer** (int64)<br><p>Максимальный размер запроса в байтах для использования кэша несжатых данных. Кэш не используется для запросов, превышающих указанное значение.</p> <p>Значение должно быть больше 0.</p> 
+users[].<br>settings.<br>mergeTreeMinRowsForConcurrentRead | **integer** (int64)<br><p>Минимальное число строк, считываемых из файла для одновременного чтения. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#setting-merge_tree_min_rows_for_concurrent_read">документации ClickHouse</a>.</p> <p>Значение должно быть больше 0.</p> 
+users[].<br>settings.<br>mergeTreeMinBytesForConcurrentRead | **integer** (int64)<br><p>Минимальное число байтов, считываемых из файла для одновременного чтения.</p> <p>Значение должно быть больше 0.</p> 
+users[].<br>settings.<br>maxBytesBeforeExternalGroupBy | **integer** (int64)<br>
+users[].<br>settings.<br>maxBytesBeforeExternalSort | **integer** (int64)<br>
+users[].<br>settings.<br>groupByTwoLevelThreshold | **integer** (int64)<br>
+users[].<br>settings.<br>groupByTwoLevelThresholdBytes | **integer** (int64)<br>
+users[].<br>settings.<br>priority | **integer** (int64)<br><p>Приоритет запроса.</p> <p>Минимальное значение — 0.</p> 
+users[].<br>settings.<br>maxThreads | **integer** (int64)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_threads">документации ClickHouse</a>.</p> <p>Значение должно быть больше 0.</p> 
 users[].<br>settings.<br>maxMemoryUsage | **integer** (int64)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#settings_max_memory_usage">документации ClickHouse</a>.</p> <p>Минимальное значение — 0.</p> 
 users[].<br>settings.<br>maxMemoryUsageForUser | **integer** (int64)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-memory-usage-for-user">документации ClickHouse</a>.</p> <p>Минимальное значение — 0.</p> 
+users[].<br>settings.<br>maxNetworkBandwidth | **integer** (int64)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_network_bandwidth">документации ClickHouse</a>.</p> 
+users[].<br>settings.<br>maxNetworkBandwidthForUser | **integer** (int64)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-max_network_bandwidth_for_user">документации ClickHouse</a>.</p> 
+users[].<br>settings.<br>forceIndexByDate | **boolean** (boolean)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-force_index_by_date">документации ClickHouse</a>.</p> 
+users[].<br>settings.<br>forcePrimaryKey | **boolean** (boolean)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#force-primary-key">документации ClickHouse</a>.</p> 
 users[].<br>settings.<br>maxRowsToRead | **integer** (int64)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-rows-to-read">документации ClickHouse</a>.</p> <p>Минимальное значение — 0.</p> 
 users[].<br>settings.<br>maxBytesToRead | **integer** (int64)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-bytes-to-read">документации ClickHouse</a>.</p> <p>Минимальное значение — 0.</p> 
 users[].<br>settings.<br>readOverflowMode | **string**<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#read-overflow-mode">документации ClickHouse</a>.</p> 
@@ -132,4 +211,24 @@ users[].<br>settings.<br>maxQuerySize | **integer** (int64)<br><p>Наиболь
 users[].<br>settings.<br>maxAstDepth | **integer** (int64)<br><p>Максимальная глубина синтаксического дерева запроса. Значение по умолчанию: 1000. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-depth">документации ClickHouse</a>.</p> <p>Значение должно быть больше 0.</p> 
 users[].<br>settings.<br>maxAstElements | **integer** (int64)<br><p>Максимальный размер синтаксического дерева запроса в количестве узлов. Значение по умолчанию: 50000. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/#max-ast-elements">документации ClickHouse</a>.</p> <p>Значение должно быть больше 0.</p> 
 users[].<br>settings.<br>maxExpandedAstElements | **integer** (int64)<br><p>Максимальный размер синтаксического дерева запроса в количестве узлов после раскрытия псевдонимов и звездочки. Значение по умолчанию: 500000.</p> <p>Значение должно быть больше 0.</p> 
+users[].<br>settings.<br>inputFormatValuesInterpretExpressions | **boolean** (boolean)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-input_format_values_interpret_expressions">документации ClickHouse</a>.</p> 
+users[].<br>settings.<br>inputFormatDefaultsForOmittedFields | **boolean** (boolean)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields">документации ClickHouse</a>.</p> 
+users[].<br>settings.<br>outputFormatJsonQuote_64BitIntegers | **boolean** (boolean)<br><p>Если значение истинно, то при использовании JSON форматов UInt64 и Int64 числа выводятся в кавычках. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#session_settings-output_format_json_quote_64bit_integers">документации ClickHouse</a>.</p> 
+users[].<br>settings.<br>outputFormatJsonQuoteDenormals | **boolean** (boolean)<br><p>Включен ли вывод специальных значений с плавающей запятой ( &quot;+nan&quot;, &quot;-nan&quot;, &quot;+inf&quot; и &quot;-inf&quot;) в формате вывода JSON.</p> 
+users[].<br>settings.<br>lowCardinalityAllowInNativeFormat | **boolean** (boolean)<br>
+users[].<br>settings.<br>emptyResultForAggregationByEmptySet | **boolean** (boolean)<br>
+users[].<br>settings.<br>httpConnectionTimeout | **integer** (int64)<br><p>Время ожидания соединения в миллисекундах.</p> 
+users[].<br>settings.<br>httpReceiveTimeout | **integer** (int64)<br><p>Время ожидания приема в миллисекундах.</p> 
+users[].<br>settings.<br>httpSendTimeout | **integer** (int64)<br><p>Время ожидания отправки в миллисекундах.</p> 
+users[].<br>settings.<br>enableHttpCompression | **boolean** (boolean)<br><p>См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-enable_http_compression">документации ClickHouse</a>.</p> 
+users[].<br>settings.<br>sendProgressInHttpHeaders | **boolean** (boolean)<br><p>Включены ли уведомления о ходе выполнения с использованием заголовков X-ClickHouse-Progress. Значение по умолчанию &quot;false&quot;. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/settings/settings/#settings-send_progress_in_http_headers">документации ClickHouse</a>.</p> 
+users[].<br>settings.<br>httpHeadersProgressInterval | **integer** (int64)<br><p>Минимальный интервал между уведомлениями о ходе выполнения, в миллисекундах. Значение по умолчанию: 100.</p> 
+users[].<br>settings.<br>addHttpCorsHeader | **boolean** (boolean)<br><p>Включен ли заголовок CORS в HTTP-ответах. Значение по умолчанию &quot;false&quot;.</p> 
+users[].<br>quotas[] | **object**<br><p>Представление квот ClickHouse. Каждая квота связана с пользователем и ограничивает использование ресурсов на определенный интервал. См. подробное описание в <a href="https://clickhouse.yandex/docs/ru/operations/quotas/">документации ClickHouse</a>.</p> 
+users[].<br>quotas[].<br>intervalDuration | **integer** (int64)<br><p>Длительность интервала для квоты в миллисекундах. Минимальное значение - 1 минута.</p> <p>Минимальное значение — 60000.</p> 
+users[].<br>quotas[].<br>queries | **integer** (int64)<br><p>Общее количество запросов. 0-неограниченно.</p> <p>Минимальное значение — 0.</p> 
+users[].<br>quotas[].<br>errors | **integer** (int64)<br><p>Количество запросов, которые вызвали исключение. 0-неограниченно.</p> <p>Минимальное значение — 0.</p> 
+users[].<br>quotas[].<br>resultRows | **integer** (int64)<br><p>Общее число строк, приведенных в результате. 0-неограниченно.</p> <p>Минимальное значение — 0.</p> 
+users[].<br>quotas[].<br>readRows | **integer** (int64)<br><p>Общее число исходных строк, считанных из таблиц для выполнения запроса, на всех удаленных серверах. 0-неограниченно.</p> <p>Минимальное значение — 0.</p> 
+users[].<br>quotas[].<br>executionTime | **integer** (int64)<br><p>Общее время выполнения запроса, в миллисекундах. 0-неограниченно.</p> <p>Минимальное значение — 0.</p> 
 nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/managed-clickhouse/api-ref/User/list#query_params">pageSize</a>, используйте <a href="/docs/managed-clickhouse/api-ref/User/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/managed-clickhouse/api-ref/User/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/managed-clickhouse/api-ref/User/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 

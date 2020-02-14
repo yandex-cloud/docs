@@ -238,7 +238,7 @@ paths:
       x-y-navtitle: addCertificate
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddDeviceCertificateMetadata'
-      x-y-operation-response: DeviceCertificate
+      x-y-operation-response: '`DeviceCertificate`'
   /iot-devices/v1/devices/{deviceId}/certificates/{fingerprint}:
     delete:
       tags:
@@ -340,7 +340,7 @@ paths:
       x-y-navtitle: addPassword
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddDevicePasswordMetadata'
-      x-y-operation-response: DevicePassword
+      x-y-operation-response: '`DevicePassword`'
   /iot-devices/v1/devices/{deviceId}/passwords/{passwordId}:
     delete:
       tags:
@@ -659,7 +659,7 @@ paths:
       x-y-navtitle: addCertificate
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddRegistryCertificateMetadata'
-      x-y-operation-response: RegistryCertificate
+      x-y-operation-response: '`RegistryCertificate`'
   /iot-devices/v1/registries/{registryId}/certificates/{fingerprint}:
     delete:
       tags:
@@ -761,7 +761,7 @@ paths:
       x-y-navtitle: addPassword
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddRegistryPasswordMetadata'
-      x-y-operation-response: RegistryPassword
+      x-y-operation-response: '`RegistryPassword`'
   /iot-devices/v1/registries/{registryId}/passwords/{passwordId}:
     delete:
       tags:

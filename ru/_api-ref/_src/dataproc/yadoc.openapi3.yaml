@@ -1065,10 +1065,10 @@ components:
       - OOZIE
     Health:
       description: |2-
-         - HEALTH_UNKNOWN: Состояние кластера неизвестно ([Host.health] для каждого хоста в кластере — UNKNOWN).
-         - ALIVE: Кластер работает нормально ([Host.health] для каждого хоста в кластере — ALIVE).
-         - DEAD: Кластер не работает ([Host.health] для каждого хоста в кластере — DEAD).
-         - DEGRADED: Кластер работает неоптимально ([Host.health] по крайней мере для одного хоста в кластере не
+         - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).
+         - ALIVE: Кластер работает нормально (`health` для каждого хоста в кластере — ALIVE).
+         - DEAD: Кластер не работает (`health` для каждого хоста в кластере — DEAD).
+         - DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного хоста в кластере не
         ALIVE).
       type: string
       enum:
@@ -1172,6 +1172,9 @@ components:
             format: date-time
           name:
             description: Имя задачи, указанное в запросе [create](/docs/data-proc/api-ref/Job/create).
+            type: string
+          createdBy:
+            description: Идентификатор пользователя, создавшего задачу.
             type: string
           status:
             $ref: '#/components/schemas/JobStatus'
@@ -1750,10 +1753,10 @@ components:
       description: |-
         Агрегированная работоспособность кластера.
 
-         - HEALTH_UNKNOWN: Состояние кластера неизвестно ([Host.health] для каждого хоста в кластере — UNKNOWN).
-         - ALIVE: Кластер работает нормально ([Host.health] для каждого хоста в кластере — ALIVE).
-         - DEAD: Кластер не работает ([Host.health] для каждого хоста в кластере — DEAD).
-         - DEGRADED: Кластер работает неоптимально ([Host.health] по крайней мере для одного хоста в кластере не
+         - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).
+         - ALIVE: Кластер работает нормально (`health` для каждого хоста в кластере — ALIVE).
+         - DEAD: Кластер не работает (`health` для каждого хоста в кластере — DEAD).
+         - DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного хоста в кластере не
         ALIVE).
       type: string
       enum:
@@ -1972,10 +1975,10 @@ components:
       description: |-
         Код состояния хоста.
 
-         - HEALTH_UNKNOWN: Состояние кластера неизвестно ([Host.health] для каждого хоста в кластере — UNKNOWN).
-         - ALIVE: Кластер работает нормально ([Host.health] для каждого хоста в кластере — ALIVE).
-         - DEAD: Кластер не работает ([Host.health] для каждого хоста в кластере — DEAD).
-         - DEGRADED: Кластер работает неоптимально ([Host.health] по крайней мере для одного хоста в кластере не
+         - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).
+         - ALIVE: Кластер работает нормально (`health` для каждого хоста в кластере — ALIVE).
+         - DEAD: Кластер не работает (`health` для каждого хоста в кластере — DEAD).
+         - DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного хоста в кластере не
         ALIVE).
       type: string
       enum:

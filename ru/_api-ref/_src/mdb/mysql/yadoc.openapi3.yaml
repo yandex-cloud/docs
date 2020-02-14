@@ -1396,10 +1396,10 @@ components:
       - PRESTABLE
     ClusterHealth:
       description: |2-
-         - HEALTH_UNKNOWN: Состояние кластера неизвестно ([Host.health] для каждого хоста в кластере — UNKNOWN).
-         - ALIVE: Кластер работает нормально ([Host.health] для каждого хоста в кластере — ALIVE).
-         - DEAD: Кластер не работает ([Host.health] для каждого узла в кластере — DEAD).
-         - DEGRADED: Кластер работает неоптимально ([Host.health] по крайней мере для одного узла в кластере
+         - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).
+         - ALIVE: Кластер работает нормально (`health` для каждого хоста в кластере — ALIVE).
+         - DEAD: Кластер не работает (`health` для каждого узла в кластере — DEAD).
+         - DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного узла в кластере
         не ALIVE).
       type: string
       enum:
@@ -1742,7 +1742,7 @@ components:
 
             После создания узла этот параметр изменить нельзя. Чтобы удалить назначенный
             публичный IP-адрес или назначить публичный IP уже созданному хосту, пересоздайте хост
-            с нужным значением поля assignPublicIp.
+            с нужным значением поля `assignPublicIp`.
 
             Возможные значения:
             * false — не назначать хосту публичный IP-адрес.
@@ -2679,10 +2679,10 @@ components:
       description: |-
         Агрегированная работоспособность кластера.
 
-         - HEALTH_UNKNOWN: Состояние кластера неизвестно ([Host.health] для каждого хоста в кластере — UNKNOWN).
-         - ALIVE: Кластер работает нормально ([Host.health] для каждого хоста в кластере — ALIVE).
-         - DEAD: Кластер не работает ([Host.health] для каждого узла в кластере — DEAD).
-         - DEGRADED: Кластер работает неоптимально ([Host.health] по крайней мере для одного узла в кластере
+         - HEALTH_UNKNOWN: Состояние кластера неизвестно (`health` для каждого хоста в кластере — UNKNOWN).
+         - ALIVE: Кластер работает нормально (`health` для каждого хоста в кластере — ALIVE).
+         - DEAD: Кластер не работает (`health` для каждого узла в кластере — DEAD).
+         - DEGRADED: Кластер работает неоптимально (`health` по крайней мере для одного узла в кластере
         не ALIVE).
       type: string
       enum:
@@ -2890,7 +2890,7 @@ components:
     MysqlConfig5_7_in_MysqlConfigSet5_7_effectiveConfig:
       description: |-
         Действующие параметры для кластера MySQL 5.7 (сочетание параметров, определенных в
-        userConfig и [default_config]).
+        `userConfig` и `defaultConfig`).
 
         Поля и структура `MysqlConfig5_7` отражает параметры конфигурации MySQL 5.7.
       type: object
@@ -3089,7 +3089,7 @@ components:
     MysqlConfig8_0_in_MysqlConfigSet8_0_effectiveConfig:
       description: |-
         Действующие параметры для кластера MySQL 8.0 (сочетание параметров, определенных в
-        userConfig и [default_config]).
+        `userConfig` и `defaultConfig`).
 
         Поля и структура `MysqlConfig8_0` отражает параметры конфигурации MySQL 8.0.
       type: object

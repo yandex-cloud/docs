@@ -45,7 +45,7 @@ userSpec.<br>name | **string**<br><p>Required. Name of the MongoDB user.</p> <p>
 userSpec.<br>password | **string**<br><p>Required. Password of the MongoDB user.</p> <p>The string length in characters must be 8-128.</p> 
 userSpec.<br>permissions[] | **object**<br><p>Set of permissions to grant to the user.</p> 
 userSpec.<br>permissions[].<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
-userSpec.<br>permissions[].<br>roles[] | **string**<br><p>MongoDB roles for the databaseName database that the permission grants.</p> 
+userSpec.<br>permissions[].<br>roles[] | **string**<br><p>MongoDB roles for the <code>databaseName</code> database that the permission grants.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

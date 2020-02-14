@@ -43,7 +43,7 @@ updateMask | **string**<br><p>Field mask that specifies which fields of the Mong
 password | **string**<br><p>New password for the user.</p> <p>The string length in characters must be 8-128.</p> 
 permissions[] | **object**<br><p>New set of permissions for the user.</p> 
 permissions[].<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
-permissions[].<br>roles[] | **string**<br><p>MongoDB roles for the databaseName database that the permission grants.</p> 
+permissions[].<br>roles[] | **string**<br><p>MongoDB roles for the <code>databaseName</code> database that the permission grants.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

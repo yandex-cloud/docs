@@ -624,7 +624,7 @@ components:
       properties:
         roleId:
           description: |-
-            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
 
             The maximum string length in characters is 50.
           type: string
@@ -933,11 +933,11 @@ components:
 
             It can contain one of the following values:
             * `allAuthenticatedUsers`: A special system identifier that represents anyone
-               who is authenticated. It can be used only if the type is `system`.
+               who is authenticated. It can be used only if the `type` is `system`.
             * `allUsers`: A special system identifier that represents anyone. No authentication is required.
                For example, you don't need to specify the IAM token in an API query.
             * `<cloud generated id>`: An identifier that represents a user account.
-               It can be used only if the type is `userAccount` or `serviceAccount`.
+               It can be used only if the `type` is `userAccount` or `serviceAccount`.
 
             The maximum string length in characters is 50.
           type: string
@@ -1058,11 +1058,11 @@ components:
 
             It can contain one of the following values:
             * `allAuthenticatedUsers`: A special system identifier that represents anyone
-               who is authenticated. It can be used only if the type is `system`.
+               who is authenticated. It can be used only if the `type` is `system`.
             * `allUsers`: A special system identifier that represents anyone. No authentication is required.
                For example, you don't need to specify the IAM token in an API query.
             * `<cloud generated id>`: An identifier that represents a user account.
-               It can be used only if the type is `userAccount` or `serviceAccount`.
+               It can be used only if the `type` is `userAccount` or `serviceAccount`.
 
             The maximum string length in characters is 50.
           type: string
@@ -1097,7 +1097,7 @@ components:
       properties:
         roleId:
           description: |-
-            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the subject.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
 
             The maximum string length in characters is 50.
           type: string

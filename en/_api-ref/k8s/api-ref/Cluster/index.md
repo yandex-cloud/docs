@@ -88,6 +88,9 @@ A set of methods for managing Kubernetes cluster.
   "serviceAccountId": "string",
   "nodeServiceAccountId": "string",
   "releaseChannel": "string",
+  "networkPolicy": {
+    "provider": "string"
+  },
   "gatewayIpv4Address": "string"
 }
 ```
@@ -149,6 +152,8 @@ ipAllocationPolicy.<br>serviceIpv4CidrBlock | **string**<br><p>CIDR block. IP ra
 serviceAccountId | **string**<br><p>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster.</p> 
 nodeServiceAccountId | **string**<br><p>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.</p> 
 releaseChannel | **string**<br>
+networkPolicy | **object**<br>
+networkPolicy.<br>provider | **string**<br>
 gatewayIpv4Address | **string**<br><p>Gateway IPv4 address.</p> <p>The maximum string length in characters is 15.</p> 
 
 ## Methods {#methods}

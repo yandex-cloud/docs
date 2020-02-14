@@ -146,7 +146,7 @@ rule.<br>messageQueue | **object**<br>Rule for a message queue trigger. <br>`rul
 rule.<br>messageQueue.<br>queueId | **string**<br><p>Required. ID of the message queue in Yandex Message Queue.</p> 
 rule.<br>messageQueue.<br>serviceAccountId | **string**<br><p>Required. ID of the service account which has read access to the message queue.</p> <p>The maximum string length in characters is 50.</p> 
 rule.<br>messageQueue.<br>batchSettings | **object**<br>Required. Batch settings for processing messages in the queue.<br><p>Settings for batch processing of messages in a queue.</p> 
-rule.<br>messageQueue.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size. Trigger will send the batch of messages to the associated function when the number of messages in the queue reaches this value, or the cutoff time has passed.</p> <p>Acceptable values are 0 to 10, inclusive.</p> 
+rule.<br>messageQueue.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size. Trigger will send the batch of messages to the associated function when the number of messages in the queue reaches this value, or the <code>cutoff</code> time has passed.</p> <p>Acceptable values are 0 to 10, inclusive.</p> 
 rule.<br>messageQueue.<br>batchSettings.<br>cutoff | **string**<br><p>Required. Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the <code>cutoff</code> value, regardless of the amount of messages in the queue.</p> 
 rule.<br>messageQueue.<br>visibilityTimeout | **string**<br><p>Queue visibility timeout override.</p> <p>The maximum value is 43200 seconds.</p> 
 rule.<br>messageQueue.<br>invokeFunction | **object**<br>Instructions for invoking a function once.<br><p>A single function invocation.</p> 

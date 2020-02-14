@@ -1062,10 +1062,10 @@ components:
       - OOZIE
     Health:
       description: |2-
-         - HEALTH_UNKNOWN: State of the cluster is unknown ([Host.health] for every host in the cluster is UNKNOWN).
-         - ALIVE: Cluster is alive and well ([Host.health] for every host in the cluster is ALIVE).
-         - DEAD: Cluster is inoperable ([Host.health] for every host in the cluster is DEAD).
-         - DEGRADED: Cluster is working below capacity ([Host.health] for at least one host in the cluster is not ALIVE).
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -1167,6 +1167,9 @@ components:
           name:
             description: Name of the job, specified in the [create](/docs/data-proc/api-ref/Job/create)
               request.
+            type: string
+          createdBy:
+            description: The id of the user who created the job
             type: string
           status:
             $ref: '#/components/schemas/JobStatus'
@@ -1723,10 +1726,10 @@ components:
       description: |-
         Aggregated cluster health.
 
-         - HEALTH_UNKNOWN: State of the cluster is unknown ([Host.health] for every host in the cluster is UNKNOWN).
-         - ALIVE: Cluster is alive and well ([Host.health] for every host in the cluster is ALIVE).
-         - DEAD: Cluster is inoperable ([Host.health] for every host in the cluster is DEAD).
-         - DEGRADED: Cluster is working below capacity ([Host.health] for at least one host in the cluster is not ALIVE).
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -1944,10 +1947,10 @@ components:
       description: |-
         Host status code.
 
-         - HEALTH_UNKNOWN: State of the cluster is unknown ([Host.health] for every host in the cluster is UNKNOWN).
-         - ALIVE: Cluster is alive and well ([Host.health] for every host in the cluster is ALIVE).
-         - DEAD: Cluster is inoperable ([Host.health] for every host in the cluster is DEAD).
-         - DEGRADED: Cluster is working below capacity ([Host.health] for at least one host in the cluster is not ALIVE).
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN

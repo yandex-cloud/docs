@@ -638,6 +638,10 @@ components:
             made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
             To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.
           type: string
+        variables:
+          type: array
+          items:
+            $ref: '#/components/schemas/Variable'
     DeleteInstanceGroupMetadata:
       type: object
       properties:
@@ -653,7 +657,7 @@ components:
           description: |-
             The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time
             during the update process.
-            If maxExpansion is not specified or set to zero, maxUnavailable must be set to a non-zero value.
+            If `maxExpansion` is not specified or set to zero, `maxUnavailable` must be set to a non-zero value.
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -676,7 +680,7 @@ components:
           description: |-
             The maximum number of instances that can be temporarily allocated above the group's target size
             during the update process.
-            If maxUnavailable is not specified or set to zero, maxExpansion must be set to a non-zero value.
+            If `maxUnavailable` is not specified or set to zero, `maxExpansion` must be set to a non-zero value.
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -686,7 +690,7 @@ components:
             Instance startup duration.
             Instance will be considered up and running (and start receiving traffic) only after startup_duration
             has elapsed and all health checks are passed.
-            See ManagedInstanceStatus for more information.
+            See `ManagedInstanceStatus` for more information.
 
             Acceptable values are 0 seconds to 3600 seconds, inclusive.
           type: string
@@ -834,6 +838,10 @@ components:
           type: string
         status:
           $ref: '#/components/schemas/InstanceGroupStatus_in_InstanceGroup_status'
+        variables:
+          type: array
+          items:
+            $ref: '#/components/schemas/Variable'
     InstanceGroupStatus:
       description: |2-
          - STARTING: Instance group is being started and will become active soon.
@@ -885,6 +893,7 @@ components:
             type: string
         platformId:
           description: |-
+            Required.
             ID of the hardware platform configuration for the instance.
             Platforms allows you to create various types of instances: with a large amount of memory,
             with a large number of cores, with a burstable performance.
@@ -895,6 +904,19 @@ components:
         metadata:
           description: |-
             The metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
+
+            Metadata values may contain one of the supported placeholders:
+              {instance_group.id}
+              {instance.short_id}
+              {instance.index}
+              {instance.index_in_zone}
+              {instance.zone_id}
+            InstanceGroup and Instance labels may be copied to metadata following way:
+              {instance_group.labels.some_label_key}
+              {instance.labels.another_label_key}
+            These placeholders will be substituted for each created instance anywhere in the value text.
+            In the rare case the value requires to contain this placeholder explicitly,
+            it must be escaped with double brackets, in example {{instance.index}}
 
             For example, you may use the metadata in order to provide your public SSH key to the instance.
             For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
@@ -929,6 +951,39 @@ components:
           $ref: '#/components/schemas/SchedulingPolicy_in_InstanceTemplate_schedulingPolicy'
         serviceAccountId:
           description: Service account ID for the instance.
+          type: string
+        networkSettings:
+          $ref: '#/components/schemas/NetworkSettings_in_InstanceTemplate_networkSettings'
+        name:
+          description: |-
+            Name of the instance.
+            In order to be unique it must contain at least on of instance unique placeholders:
+              {instance.short_id}
+              {instance.index}
+              combination of {instance.zone_id} and {instance.index_in_zone}
+            Example: my-instance-{instance.index}
+            If not set, default is used: {instance_group.id}-{instance.short_id}
+            It may also contain another placeholders, see metadata doc for full list.
+
+            The maximum string length in characters is 128.
+          type: string
+        hostname:
+          description: |-
+            Host name for the instance.
+            This field is used to generate the [Instance.fqdn](/docs/compute/api-ref/Instance#representation) value.
+            The host name must be unique within the network and region.
+            If not specified, the host name will be equal to [Instance.id](/docs/compute/api-ref/Instance#representation) of the instance
+            and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`.
+
+            In order to be unique it must contain at least on of instance unique placeholders:
+              {instance.short_id}
+              {instance.index}
+              combination of {instance.zone_id} and {instance.index_in_zone}
+            Example: my-instance-{instance.index}
+            If not set, `name` value will be used
+            It may also contain another placeholders, see metadata doc for full list.
+
+            The maximum string length in characters is 128.
           type: string
     IpVersion:
       description: |2-
@@ -1111,17 +1166,17 @@ components:
           format: int64
         runningActualCount:
           description: The number of running instances that match the current instance
-            template. For more information, see RUNNING_ACTUAL.
+            template. For more information, see `RUNNING_ACTUAL`.
           type: string
           format: int64
         runningOutdatedCount:
           description: The number of running instances that does not match the current
-            instance template. For more information, see RUNNING_OUTDATED.
+            instance template. For more information, see `RUNNING_OUTDATED`.
           type: string
           format: int64
         processingCount:
           description: The number of instances in flight (for example, updating, starting,
-            deleting). For more information, see ManagedInstanceStatus.
+            deleting). For more information, see `ManagedInstanceStatus`.
           type: string
           format: int64
     NetworkInterface:
@@ -1157,6 +1212,17 @@ components:
           $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec'
         primaryV6AddressSpec:
           $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec'
+    NetworkSettings:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/NetworkSettingsType_in_NetworkSettings_type'
+    NetworkSettingsType:
+      type: string
+      enum:
+      - STANDARD
+      - SOFTWARE_ACCELERATED
+      - HARDWARE_ACCELERATED
     OneToOneNat:
       type: object
       properties:
@@ -1250,7 +1316,7 @@ components:
           description: |-
             The amount of memory available to the instance, specified in bytes.
 
-            The maximum value is 274877906944.
+            The maximum value is 824633720832.
           type: string
           format: int64
         cores:
@@ -1372,6 +1438,15 @@ components:
 
             Value must match the regular expression `` [a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]<>-]{0,198} ``.
           type: string
+        labels:
+          description: |-
+            Labels of custom metric in Yandex Monitoring that should be used for scaling.
+
+            Each key must match the regular expression `` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ ``.
+            Each value must match the regular expression `` [a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]<>-]{0,198} ``.
+          type: object
+          additionalProperties:
+            type: string
         target:
           description: |-
             Target value for the custom metric. Instance Groups maintains this level for each availability zone.
@@ -1385,12 +1460,12 @@ components:
         such as requests per second to the server on an instance.
 
         Instance Groups calculates the average metric value for the period
-        specified in the measurementDuration field.
+        specified in the `measurementDuration` field.
          - COUNTER: This type is used for metrics that monotonically increase over time,
         such as the total number of requests to the server on an instance.
 
         Instance Groups calculates the average value increase for the period
-        specified in the measurementDuration field.
+        specified in the `measurementDuration` field.
       type: string
       enum:
       - GAUGE
@@ -1533,6 +1608,21 @@ components:
           type: string
         loadBalancerSpec:
           $ref: '#/components/schemas/LoadBalancerSpec_in_UpdateInstanceGroupRequest_loadBalancerSpec'
+        variables:
+          type: array
+          items:
+            $ref: '#/components/schemas/Variable'
+    Variable:
+      type: object
+      properties:
+        key:
+          description: |-
+            The string length in characters must be 1-128.
+            Value must match the regular expression `` [a-zA-Z0-9._-]* ``.
+          type: string
+        value:
+          description: The maximum string length in characters is 128.
+          type: string
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -1627,6 +1717,7 @@ components:
             type: string
         platformId:
           description: |-
+            Required.
             ID of the hardware platform configuration for the instance.
             Platforms allows you to create various types of instances: with a large amount of memory,
             with a large number of cores, with a burstable performance.
@@ -1637,6 +1728,19 @@ components:
         metadata:
           description: |-
             The metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
+
+            Metadata values may contain one of the supported placeholders:
+              {instance_group.id}
+              {instance.short_id}
+              {instance.index}
+              {instance.index_in_zone}
+              {instance.zone_id}
+            InstanceGroup and Instance labels may be copied to metadata following way:
+              {instance_group.labels.some_label_key}
+              {instance.labels.another_label_key}
+            These placeholders will be substituted for each created instance anywhere in the value text.
+            In the rare case the value requires to contain this placeholder explicitly,
+            it must be escaped with double brackets, in example {{instance.index}}
 
             For example, you may use the metadata in order to provide your public SSH key to the instance.
             For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
@@ -1672,6 +1776,39 @@ components:
         serviceAccountId:
           description: Service account ID for the instance.
           type: string
+        networkSettings:
+          $ref: '#/components/schemas/NetworkSettings_in_InstanceTemplate_networkSettings'
+        name:
+          description: |-
+            Name of the instance.
+            In order to be unique it must contain at least on of instance unique placeholders:
+              {instance.short_id}
+              {instance.index}
+              combination of {instance.zone_id} and {instance.index_in_zone}
+            Example: my-instance-{instance.index}
+            If not set, default is used: {instance_group.id}-{instance.short_id}
+            It may also contain another placeholders, see metadata doc for full list.
+
+            The maximum string length in characters is 128.
+          type: string
+        hostname:
+          description: |-
+            Host name for the instance.
+            This field is used to generate the [Instance.fqdn](/docs/compute/api-ref/Instance#representation) value.
+            The host name must be unique within the network and region.
+            If not specified, the host name will be equal to [Instance.id](/docs/compute/api-ref/Instance#representation) of the instance
+            and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`.
+
+            In order to be unique it must contain at least on of instance unique placeholders:
+              {instance.short_id}
+              {instance.index}
+              combination of {instance.zone_id} and {instance.index_in_zone}
+            Example: my-instance-{instance.index}
+            If not set, `name` value will be used
+            It may also contain another placeholders, see metadata doc for full list.
+
+            The maximum string length in characters is 128.
+          type: string
     ScalePolicy_in_CreateInstanceGroupRequest_scalePolicy:
       description: |-
         Required.
@@ -1700,7 +1837,7 @@ components:
           description: |-
             The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time
             during the update process.
-            If maxExpansion is not specified or set to zero, maxUnavailable must be set to a non-zero value.
+            If `maxExpansion` is not specified or set to zero, `maxUnavailable` must be set to a non-zero value.
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -1723,7 +1860,7 @@ components:
           description: |-
             The maximum number of instances that can be temporarily allocated above the group's target size
             during the update process.
-            If maxUnavailable is not specified or set to zero, maxExpansion must be set to a non-zero value.
+            If `maxUnavailable` is not specified or set to zero, `maxExpansion` must be set to a non-zero value.
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -1733,7 +1870,7 @@ components:
             Instance startup duration.
             Instance will be considered up and running (and start receiving traffic) only after startup_duration
             has elapsed and all health checks are passed.
-            See ManagedInstanceStatus for more information.
+            See `ManagedInstanceStatus` for more information.
 
             Acceptable values are 0 seconds to 3600 seconds, inclusive.
           type: string
@@ -1797,6 +1934,7 @@ components:
             type: string
         platformId:
           description: |-
+            Required.
             ID of the hardware platform configuration for the instance.
             Platforms allows you to create various types of instances: with a large amount of memory,
             with a large number of cores, with a burstable performance.
@@ -1807,6 +1945,19 @@ components:
         metadata:
           description: |-
             The metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
+
+            Metadata values may contain one of the supported placeholders:
+              {instance_group.id}
+              {instance.short_id}
+              {instance.index}
+              {instance.index_in_zone}
+              {instance.zone_id}
+            InstanceGroup and Instance labels may be copied to metadata following way:
+              {instance_group.labels.some_label_key}
+              {instance.labels.another_label_key}
+            These placeholders will be substituted for each created instance anywhere in the value text.
+            In the rare case the value requires to contain this placeholder explicitly,
+            it must be escaped with double brackets, in example {{instance.index}}
 
             For example, you may use the metadata in order to provide your public SSH key to the instance.
             For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
@@ -1842,6 +1993,39 @@ components:
         serviceAccountId:
           description: Service account ID for the instance.
           type: string
+        networkSettings:
+          $ref: '#/components/schemas/NetworkSettings_in_InstanceTemplate_networkSettings'
+        name:
+          description: |-
+            Name of the instance.
+            In order to be unique it must contain at least on of instance unique placeholders:
+              {instance.short_id}
+              {instance.index}
+              combination of {instance.zone_id} and {instance.index_in_zone}
+            Example: my-instance-{instance.index}
+            If not set, default is used: {instance_group.id}-{instance.short_id}
+            It may also contain another placeholders, see metadata doc for full list.
+
+            The maximum string length in characters is 128.
+          type: string
+        hostname:
+          description: |-
+            Host name for the instance.
+            This field is used to generate the [Instance.fqdn](/docs/compute/api-ref/Instance#representation) value.
+            The host name must be unique within the network and region.
+            If not specified, the host name will be equal to [Instance.id](/docs/compute/api-ref/Instance#representation) of the instance
+            and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`.
+
+            In order to be unique it must contain at least on of instance unique placeholders:
+              {instance.short_id}
+              {instance.index}
+              combination of {instance.zone_id} and {instance.index_in_zone}
+            Example: my-instance-{instance.index}
+            If not set, `name` value will be used
+            It may also contain another placeholders, see metadata doc for full list.
+
+            The maximum string length in characters is 128.
+          type: string
     ScalePolicy_in_InstanceGroup_scalePolicy:
       description: '[Scaling policy](/docs/compute/concepts/instance-groups/scale)
         of the instance group.'
@@ -1867,7 +2051,7 @@ components:
           description: |-
             The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time
             during the update process.
-            If maxExpansion is not specified or set to zero, maxUnavailable must be set to a non-zero value.
+            If `maxExpansion` is not specified or set to zero, `maxUnavailable` must be set to a non-zero value.
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -1890,7 +2074,7 @@ components:
           description: |-
             The maximum number of instances that can be temporarily allocated above the group's target size
             during the update process.
-            If maxUnavailable is not specified or set to zero, maxExpansion must be set to a non-zero value.
+            If `maxUnavailable` is not specified or set to zero, `maxExpansion` must be set to a non-zero value.
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -1900,7 +2084,7 @@ components:
             Instance startup duration.
             Instance will be considered up and running (and start receiving traffic) only after startup_duration
             has elapsed and all health checks are passed.
-            See ManagedInstanceStatus for more information.
+            See `ManagedInstanceStatus` for more information.
 
             Acceptable values are 0 seconds to 3600 seconds, inclusive.
           type: string
@@ -1938,17 +2122,17 @@ components:
           format: int64
         runningActualCount:
           description: The number of running instances that match the current instance
-            template. For more information, see RUNNING_ACTUAL.
+            template. For more information, see `RUNNING_ACTUAL`.
           type: string
           format: int64
         runningOutdatedCount:
           description: The number of running instances that does not match the current
-            instance template. For more information, see RUNNING_OUTDATED.
+            instance template. For more information, see `RUNNING_OUTDATED`.
           type: string
           format: int64
         processingCount:
           description: The number of instances in flight (for example, updating, starting,
-            deleting). For more information, see ManagedInstanceStatus.
+            deleting). For more information, see `ManagedInstanceStatus`.
           type: string
           format: int64
     LoadBalancerSpec_in_InstanceGroup_loadBalancerSpec:
@@ -2003,7 +2187,7 @@ components:
           description: |-
             The amount of memory available to the instance, specified in bytes.
 
-            The maximum value is 274877906944.
+            The maximum value is 824633720832.
           type: string
           format: int64
         cores:
@@ -2058,6 +2242,12 @@ components:
             For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
           type: boolean
           format: boolean
+    NetworkSettings_in_InstanceTemplate_networkSettings:
+      description: Network settings for the instance.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/NetworkSettingsType_in_NetworkSettings_type'
     TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec:
       description: Specification of the target group that the instance group will
         be added to. For more information, see [Target groups and resources](/docs/load-balancer/target-resources).
@@ -2160,6 +2350,13 @@ components:
       properties:
         oneToOneNatSpec:
           $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
+    NetworkSettingsType_in_NetworkSettings_type:
+      description: Type of instance network.
+      type: string
+      enum:
+      - STANDARD
+      - SOFTWARE_ACCELERATED
+      - HARDWARE_ACCELERATED
     IpVersion_in_OneToOneNat_ipVersion:
       description: |-
         External IP address version.
@@ -2236,12 +2433,12 @@ components:
         such as requests per second to the server on an instance.
 
         Instance Groups calculates the average metric value for the period
-        specified in the measurementDuration field.
+        specified in the `measurementDuration` field.
          - COUNTER: This type is used for metrics that monotonically increase over time,
         such as the total number of requests to the server on an instance.
 
         Instance Groups calculates the average value increase for the period
-        specified in the measurementDuration field.
+        specified in the `measurementDuration` field.
       type: string
       enum:
       - GAUGE
@@ -2284,6 +2481,7 @@ components:
             type: string
         platformId:
           description: |-
+            Required.
             ID of the hardware platform configuration for the instance.
             Platforms allows you to create various types of instances: with a large amount of memory,
             with a large number of cores, with a burstable performance.
@@ -2294,6 +2492,19 @@ components:
         metadata:
           description: |-
             The metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
+
+            Metadata values may contain one of the supported placeholders:
+              {instance_group.id}
+              {instance.short_id}
+              {instance.index}
+              {instance.index_in_zone}
+              {instance.zone_id}
+            InstanceGroup and Instance labels may be copied to metadata following way:
+              {instance_group.labels.some_label_key}
+              {instance.labels.another_label_key}
+            These placeholders will be substituted for each created instance anywhere in the value text.
+            In the rare case the value requires to contain this placeholder explicitly,
+            it must be escaped with double brackets, in example {{instance.index}}
 
             For example, you may use the metadata in order to provide your public SSH key to the instance.
             For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
@@ -2329,6 +2540,39 @@ components:
         serviceAccountId:
           description: Service account ID for the instance.
           type: string
+        networkSettings:
+          $ref: '#/components/schemas/NetworkSettings_in_InstanceTemplate_networkSettings'
+        name:
+          description: |-
+            Name of the instance.
+            In order to be unique it must contain at least on of instance unique placeholders:
+              {instance.short_id}
+              {instance.index}
+              combination of {instance.zone_id} and {instance.index_in_zone}
+            Example: my-instance-{instance.index}
+            If not set, default is used: {instance_group.id}-{instance.short_id}
+            It may also contain another placeholders, see metadata doc for full list.
+
+            The maximum string length in characters is 128.
+          type: string
+        hostname:
+          description: |-
+            Host name for the instance.
+            This field is used to generate the [Instance.fqdn](/docs/compute/api-ref/Instance#representation) value.
+            The host name must be unique within the network and region.
+            If not specified, the host name will be equal to [Instance.id](/docs/compute/api-ref/Instance#representation) of the instance
+            and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`.
+
+            In order to be unique it must contain at least on of instance unique placeholders:
+              {instance.short_id}
+              {instance.index}
+              combination of {instance.zone_id} and {instance.index_in_zone}
+            Example: my-instance-{instance.index}
+            If not set, `name` value will be used
+            It may also contain another placeholders, see metadata doc for full list.
+
+            The maximum string length in characters is 128.
+          type: string
     ScalePolicy_in_UpdateInstanceGroupRequest_scalePolicy:
       description: |-
         Required.
@@ -2357,7 +2601,7 @@ components:
           description: |-
             The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time
             during the update process.
-            If maxExpansion is not specified or set to zero, maxUnavailable must be set to a non-zero value.
+            If `maxExpansion` is not specified or set to zero, `maxUnavailable` must be set to a non-zero value.
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -2380,7 +2624,7 @@ components:
           description: |-
             The maximum number of instances that can be temporarily allocated above the group's target size
             during the update process.
-            If maxUnavailable is not specified or set to zero, maxExpansion must be set to a non-zero value.
+            If `maxUnavailable` is not specified or set to zero, `maxExpansion` must be set to a non-zero value.
 
             Acceptable values are 0 to 100, inclusive.
           type: string
@@ -2390,7 +2634,7 @@ components:
             Instance startup duration.
             Instance will be considered up and running (and start receiving traffic) only after startup_duration
             has elapsed and all health checks are passed.
-            See ManagedInstanceStatus for more information.
+            See `ManagedInstanceStatus` for more information.
 
             Acceptable values are 0 seconds to 3600 seconds, inclusive.
           type: string

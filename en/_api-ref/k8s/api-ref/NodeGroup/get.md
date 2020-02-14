@@ -116,7 +116,10 @@ nodeGroupId | Required. ID of the node group to return. To get the node group ID
       // end of the list of possible fields`maintenancePolicy.maintenanceWindow`
 
     }
-  }
+  },
+  "allowedUnsafeSysctls": [
+    "string"
+  ]
 }
 ```
 
@@ -184,3 +187,4 @@ maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWe
 maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
 maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>startTime.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>duration | **string**<br><p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p> 
+allowedUnsafeSysctls[] | **string**<br>

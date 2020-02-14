@@ -26,6 +26,9 @@ POST https://serverless-functions.api.cloud.yandex.net/functions/v1/versions
   "executionTimeout": "string",
   "serviceAccountId": "string",
   "environment": "object",
+  "tag": [
+    "string"
+  ],
 
   //  includes only one of the fields `package`, `content`
   "package": {
@@ -51,6 +54,7 @@ resources.<br>memory | **string** (int64)<br><p>Amount of memory available to th
 executionTimeout | **string**<br><p>Required. Timeout for the execution of the version.</p> <p>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.</p> 
 serviceAccountId | **string**<br><p>ID of the service account to associate with the version.</p> 
 environment | **object**<br><p>Environment settings for the version.</p> <p>Each key must match the regular expression <code>[a-zA-Z][a-zA-Z0-9_]*</code>. The maximum string length in characters for each value is 4096.</p> 
+tag[] | **string**<br><p>Function version tags. For details, see <a href="/docs/functions/concepts/function#tag">Version tag</a>.</p> <p>Each value must match the regular expression <code>[a-z][-_0-9a-z]*</code>.</p> 
 package | **object**<br>Functions deployment package. <br> includes only one of the fields `package`, `content`<br><br><p>Version deployment package.</p> 
 package.<br>bucketName | **string**<br><p>Required. Name of the bucket that stores the code for the version.</p> 
 package.<br>objectName | **string**<br><p>Required. Name of the object in the bucket that stores the code for the version.</p> 

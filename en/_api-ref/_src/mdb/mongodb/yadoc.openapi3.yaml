@@ -839,7 +839,7 @@ paths:
       x-y-navtitle: addShard
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterShardMetadata'
-      x-y-operation-response: Shard
+      x-y-operation-response: '`Shard`'
   /managed-mongodb/v1/clusters/{clusterId}/databases/{databaseName}:
     get:
       tags:
@@ -1558,10 +1558,10 @@ components:
       - PRESTABLE
     ClusterHealth:
       description: |2-
-         - HEALTH_UNKNOWN: State of the cluster is unknown ([Host.health] for every host in the cluster is UNKNOWN).
-         - ALIVE: Cluster is alive and well ([Host.health] for every host in the cluster is ALIVE).
-         - DEAD: Cluster is inoperable ([Host.health] for every host in the cluster is DEAD).
-         - DEGRADED: Cluster is working below capacity ([Host.health] for at least one host in the cluster is not ALIVE).
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -1965,7 +1965,7 @@ components:
             Whether the host should get a public IP address on creation.
 
             After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
-            a public IP to a host without one, recreate the host with assignPublicIp set as needed.
+            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
 
             Possible values:
             * false — don't assign a public IP to the host.
@@ -2198,7 +2198,7 @@ components:
       description: |2-
          - OFF: The profiler is off and does not collect any data. This is the default
         profiler level.
-         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
          - ALL: The profiler collects data for all operations.
       type: string
       enum:
@@ -2260,7 +2260,7 @@ components:
     MongoCfgConfig4_0OperationProfilingMode:
       description: |2-
          - OFF: The profiler is off and does not collect any data.
-         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
          - ALL: The profiler collects data for all operations.
       type: string
       enum:
@@ -2322,7 +2322,7 @@ components:
     MongoCfgConfig4_2OperationProfilingMode:
       description: |2-
          - OFF: The profiler is off and does not collect any data.
-         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
          - ALL: The profiler collects data for all operations.
       type: string
       enum:
@@ -2414,7 +2414,7 @@ components:
     MongodConfig3_6OperationProfilingMode:
       description: |2-
          - OFF: The profiler is off and does not collect any data.
-         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
          - ALL: The profiler collects data for all operations.
       type: string
       enum:
@@ -2517,7 +2517,7 @@ components:
     MongodConfig4_0OperationProfilingMode:
       description: |2-
          - OFF: The profiler is off and does not collect any data.
-         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
          - ALL: The profiler collects data for all operations.
       type: string
       enum:
@@ -2612,7 +2612,7 @@ components:
     MongodConfig4_2OperationProfilingMode:
       description: |2-
          - OFF: The profiler is off and does not collect any data.
-         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
          - ALL: The profiler collects data for all operations.
       type: string
       enum:
@@ -3046,7 +3046,7 @@ components:
           description: Name of the database that the permission grants access to.
           type: string
         roles:
-          description: MongoDB roles for the databaseName database that the permission
+          description: MongoDB roles for the `databaseName` database that the permission
             grants.
           type: array
           items:
@@ -3439,10 +3439,10 @@ components:
       description: |-
         Aggregated cluster health.
 
-         - HEALTH_UNKNOWN: State of the cluster is unknown ([Host.health] for every host in the cluster is UNKNOWN).
-         - ALIVE: Cluster is alive and well ([Host.health] for every host in the cluster is ALIVE).
-         - DEAD: Cluster is inoperable ([Host.health] for every host in the cluster is DEAD).
-         - DEGRADED: Cluster is working below capacity ([Host.health] for at least one host in the cluster is not ALIVE).
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -3638,7 +3638,7 @@ components:
           description: Name of the database that the permission grants access to.
           type: string
         roles:
-          description: MongoDB roles for the databaseName database that the permission
+          description: MongoDB roles for the `databaseName` database that the permission
             grants.
           type: array
           items:
@@ -3754,7 +3754,7 @@ components:
 
          - OFF: The profiler is off and does not collect any data. This is the default
         profiler level.
-         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
          - ALL: The profiler collects data for all operations.
       type: string
       enum:
@@ -3816,7 +3816,7 @@ components:
         Mode which specifies operations that should be profiled.
 
          - OFF: The profiler is off and does not collect any data.
-         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
          - ALL: The profiler collects data for all operations.
       type: string
       enum:
@@ -3878,7 +3878,7 @@ components:
         Mode which specifies operations that should be profiled.
 
          - OFF: The profiler is off and does not collect any data.
-         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
          - ALL: The profiler collects data for all operations.
       type: string
       enum:
@@ -3906,7 +3906,7 @@ components:
     MongoCfgConfig3_6_in_MongoCfgConfigSet3_6_effectiveConfig:
       description: |-
         Effective mongocfg settings for a MongoDB 3.6 cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
       type: object
       properties:
         storage:
@@ -3938,7 +3938,7 @@ components:
     MongoCfgConfig4_0_in_MongoCfgConfigSet4_0_effectiveConfig:
       description: |-
         Effective mongocfg settings for a MongoDB 4.0 cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
       type: object
       properties:
         storage:
@@ -3970,7 +3970,7 @@ components:
     MongoCfgConfig4_2_in_MongoCfgConfigSet4_2_effectiveConfig:
       description: |-
         Effective mongocfg settings for a MongoDB 4.2 cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
       type: object
       properties:
         storage:
@@ -4038,7 +4038,7 @@ components:
         Mode which specifies operations that should be profiled.
 
          - OFF: The profiler is off and does not collect any data.
-         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
          - ALL: The profiler collects data for all operations.
       type: string
       enum:
@@ -4142,7 +4142,7 @@ components:
         Mode which specifies operations that should be profiled.
 
          - OFF: The profiler is off and does not collect any data.
-         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
          - ALL: The profiler collects data for all operations.
       type: string
       enum:
@@ -4238,7 +4238,7 @@ components:
         Mode which specifies operations that should be profiled.
 
          - OFF: The profiler is off and does not collect any data.
-         - SLOW_OP: The profiler collects data for operations that take longer than the value of slowOpThreshold.
+         - SLOW_OP: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
          - ALL: The profiler collects data for all operations.
       type: string
       enum:
@@ -4298,7 +4298,7 @@ components:
     MongodConfig3_6_in_MongodConfigSet3_6_effectiveConfig:
       description: |-
         Effective mongod settings for a MongoDB 3.6 cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
 
         Configuration of a mongod daemon. Supported options are a limited subset of all
         options described in [MongoDB documentation](https://docs.mongodb.com/v3.6/reference/configuration-options/).
@@ -4341,7 +4341,7 @@ components:
     MongodConfig4_0_in_MongodConfigSet4_0_effectiveConfig:
       description: |-
         Effective mongod settings for a MongoDB 4.0 cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
 
         Configuration of a mongod daemon. Supported options are a limited subset of all
         options described in [MongoDB documentation](https://docs.mongodb.com/v4.0/reference/configuration-options/).
@@ -4384,7 +4384,7 @@ components:
     MongodConfig4_2_in_MongodConfigSet4_2_effectiveConfig:
       description: |-
         Effective mongod settings for a MongoDB 4.2 cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
 
         Configuration of a mongod daemon. Supported options are a limited subset of all
         options described in [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/).
@@ -5169,7 +5169,7 @@ components:
     MongosConfig3_6_in_MongosConfigSet3_6_effectiveConfig:
       description: |-
         Effective settings for a MongoDB 3.6 cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
       type: object
       properties:
         net:
@@ -5189,7 +5189,7 @@ components:
     MongosConfig4_0_in_MongosConfigSet4_0_effectiveConfig:
       description: |-
         Effective mongos settings for a MongoDB 4.0 cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
       type: object
       properties:
         net:
@@ -5209,7 +5209,7 @@ components:
     MongosConfig4_2_in_MongosConfigSet4_2_effectiveConfig:
       description: |-
         Effective mongos settings for a MongoDB 4.2 cluster (a combination of settings defined
-        in userConfig and [default_config]).
+        in `userConfig` and `defaultConfig`).
       type: object
       properties:
         net:

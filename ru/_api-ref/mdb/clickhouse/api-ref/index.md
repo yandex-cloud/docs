@@ -10,5 +10,6 @@ editable: false
 [Backup](Backup/index.md) | Набор методов для управления резервными копиями для ClickHouse.
 [Cluster](Cluster/index.md) | Набор методов для управления кластерами ClickHouse.
 [Database](Database/index.md) | Набор методов для управления ресурсами Database для ClickHouse.
+[MlModel](MlModel/index.md) | Набор методов управления моделями машинного обучения.
 [ResourcePreset](ResourcePreset/index.md) | Набор методов для управления ресурсами ResourcePreset.
 [User](User/index.md) | Набор методов для управления ресурсами User для ClickHouse.

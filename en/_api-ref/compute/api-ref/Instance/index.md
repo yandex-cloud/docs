@@ -117,14 +117,15 @@ fqdn | **string**<br><p>A domain name of the instance. FQDN is defined by the se
 schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
 schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for short-lived compute instances. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible VMs</a>.</p> 
 serviceAccountId | **string**<br><p>ID of the service account to use for <a href="/docs/compute/operations/vm-connect/auth-inside-vm">authentication inside the instance</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 
-networkSettings | **object**<br><p>Do not specify this field, network settings are not supported yet.</p> 
-networkSettings.<br>type | **string**<br><p>Do not specify this field, network settings are not supported yet.</p> <ul> <li>STANDARD: Standard network.</li> <li>SOFTWARE_ACCELERATED: Software accelerated network.</li> <li>HARDWARE_ACCELERATED: Hardware accelerated network (not available yet, reserved for future use).</li> </ul> 
+networkSettings | **object**<br><p>Network Settings</p> 
+networkSettings.<br>type | **string**<br><p>Network Type</p> <ul> <li>STANDARD: Standard network.</li> <li>SOFTWARE_ACCELERATED: Software accelerated network.</li> <li>HARDWARE_ACCELERATED: Hardware accelerated network (not available yet, reserved for future use).</li> </ul> 
 placementPolicy | **object**<br><p>Placement policy configuration.</p> 
 placementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
 
 ## Methods {#methods}
 Method | Description
 --- | ---
+[addOneToOneNat](addOneToOneNat.md) | 
 [attachDisk](attachDisk.md) | Attaches the disk to the instance.
 [create](create.md) | Creates an instance in the specified folder. Method starts an asynchronous operation that can be cancelled while it is in progress.
 [delete](delete.md) | Deletes the specified instance.
@@ -133,6 +134,7 @@ Method | Description
 [getSerialPortOutput](getSerialPortOutput.md) | Returns the serial port output of the specified Instance resource.
 [list](list.md) | Retrieves the list of Instance resources in the specified folder.
 [listOperations](listOperations.md) | Lists operations for the specified instance.
+[removeOneToOneNat](removeOneToOneNat.md) | 
 [restart](restart.md) | Restarts the running instance.
 [start](start.md) | Starts the stopped instance.
 [stop](stop.md) | Stops the running instance.

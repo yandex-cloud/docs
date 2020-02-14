@@ -412,7 +412,7 @@ paths:
       x-y-navtitle: scheduleVersionDestruction
       x-y-operation-metadata:
         $ref: '#/components/schemas/ScheduleSymmetricKeyVersionDestructionMetadata'
-      x-y-operation-response: SymmetricKeyVersion
+      x-y-operation-response: '`SymmetricKeyVersion`'
   /kms/v1/keys/{keyId}:cancelVersionDestruction:
     post:
       tags:
@@ -447,7 +447,7 @@ paths:
       x-y-navtitle: cancelVersionDestruction
       x-y-operation-metadata:
         $ref: '#/components/schemas/CancelSymmetricKeyVersionDestructionMetadata'
-      x-y-operation-response: SymmetricKeyVersion
+      x-y-operation-response: '`SymmetricKeyVersion`'
   /kms/v1/keys/{keyId}:rotate:
     post:
       tags:
@@ -526,8 +526,149 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListSymmetricKeyOperationsResponse'
       x-y-navtitle: listOperations
+  /kms/v1/keys/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - SymmetricKey
+      summary: Lists existing access bindings for the specified key.
+      operationId: SymmetricKeyListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /kms/v1/keys/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - SymmetricKey
+      summary: Sets access bindings for the key.
+      operationId: SymmetricKeySetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /kms/v1/keys/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - SymmetricKey
+      summary: Updates access bindings for the specified key.
+      operationId: SymmetricKeyUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
 components:
   schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
     CancelSymmetricKeyVersionDestructionMetadata:
       type: object
       properties:
@@ -604,6 +745,10 @@ components:
         keyId:
           description: ID of the key being deleted.
           type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -628,7 +773,7 @@ components:
         aadContext:
           description: |-
             Additional authenticated data (AAD context), optional.
-            If specified, this data will be required for decryption with the SymmetricDecryptRequest.
+            If specified, this data will be required for decryption with the `SymmetricDecryptRequest`.
             Should be encoded with base64.
 
             The maximum string length in characters is 8192.
@@ -663,6 +808,23 @@ components:
           description: The encrypted data key.
           type: string
           format: byte
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than pageSize, use
+            the nextPageToken as the value
+            for the pageToken query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
     ListSymmetricKeyOperationsResponse:
       type: object
       properties:
@@ -807,6 +969,22 @@ components:
             Time interval between the version destruction request and actual destruction.
             Default value: 7 days.
           type: string
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being set.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Required.
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
     SetPrimarySymmetricKeyVersionMetadata:
       type: object
       properties:
@@ -826,6 +1004,35 @@ components:
 
             The maximum string length in characters is 50.
           type: string
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or [Yandex.Connect](https://connect.yandex.com), added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+          type: string
     SymmetricAlgorithm:
       description: |-
         Supported symmetric encryption algorithms.
@@ -844,7 +1051,7 @@ components:
         aadContext:
           description: |-
             Additional authenticated data, must be the same as was provided
-            in the corresponding SymmetricEncryptRequest.
+            in the corresponding `SymmetricEncryptRequest`.
             Should be encoded with base64.
 
             The maximum string length in characters is 8192.
@@ -883,7 +1090,7 @@ components:
         aadContext:
           description: |-
             Additional authenticated data (AAD context), optional.
-            If specified, this data will be required for decryption with the SymmetricDecryptRequest.
+            If specified, this data will be required for decryption with the `SymmetricDecryptRequest`.
             Should be encoded with base64.
 
             The maximum string length in characters is 8192.
@@ -1019,7 +1226,7 @@ components:
 
          - ACTIVE: The version is active and can be used for encryption and decryption.
          - SCHEDULED_FOR_DESTRUCTION: The version is scheduled for destruction, the time when it will be destroyed
-        is specified in the destroyAt field.
+        is specified in the `destroyAt` field.
          - DESTROYED: The version is destroyed and cannot be recovered.
       type: string
       enum:
@@ -1086,6 +1293,22 @@ components:
           description: Resulting re-encrypted ciphertext.
           type: string
           format: byte
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being updated.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Required.
+            Updates to access bindings.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
     UpdateSymmetricKeyMetadata:
       type: object
       properties:
@@ -1144,6 +1367,64 @@ components:
           type: array
           items:
             type: object
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Required.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or [Yandex.Connect](https://connect.yandex.com), added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Required.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
     SymmetricAlgorithm_in_CreateSymmetricKeyRequest_defaultAlgorithm:
       description: |-
         Encryption algorithm to be used with a new key version, generated with the next rotation.
@@ -1247,7 +1528,7 @@ components:
 
          - ACTIVE: The version is active and can be used for encryption and decryption.
          - SCHEDULED_FOR_DESTRUCTION: The version is scheduled for destruction, the time when it will be destroyed
-        is specified in the destroyAt field.
+        is specified in the `destroyAt` field.
          - DESTROYED: The version is destroyed and cannot be recovered.
       type: string
       enum:

@@ -241,7 +241,7 @@ components:
         size:
           description: |-
             Batch size. Trigger will send the batch of messages to the associated function
-            when the number of messages in the queue reaches this value, or the cutoff time has passed.
+            when the number of messages in the queue reaches this value, or the `cutoff` time has passed.
 
             Acceptable values are 0 to 10, inclusive.
           type: string

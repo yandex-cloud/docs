@@ -33,7 +33,8 @@ POST https://locator.api.cloud.yandex.net/locator/v1/getLocation
       "signalStrength": "string"
     }
   ],
-  "ip": "string"
+  "ip": "string",
+  "uuid": "string"
 }
 ```
 
@@ -51,6 +52,7 @@ wifiAccessPoints[] | **object**<br><p>An array of visible WiFi access points aro
 wifiAccessPoints[].<br>bssid | **string**<br><p>Required. The MAC address of the WiFi access point. It's typically called a BSS, BSSID or MAC address.</p> <p>The value is 12 hexadecimal digits without <code>:</code> (colon) separators.</p> <p>Value must match the regular expression <code>[0-9a-fA-F]{12}</code>.</p> 
 wifiAccessPoints[].<br>signalStrength | **string** (int64)<br><p>Required. The current signal strength measured in dBm.</p> <p>Value must be less than 0.</p> 
 ip | **string**<br><p>User IP address in IPv4 or IPv6 format.</p> 
+uuid | **string**<br><p>Unique user identifier that can be used for debugging. May be empty.</p> <p>The maximum string length in characters is 64. Value must match the regular expression <code>[A-Za-z0-9._-]</code>.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

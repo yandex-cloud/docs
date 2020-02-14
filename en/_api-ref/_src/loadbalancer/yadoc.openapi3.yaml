@@ -963,7 +963,7 @@ components:
       type: object
       maxProperties: 0
     ExternalAddressSpec:
-      description: External address specification that is used by ListenerSpec.
+      description: External address specification that is used by `ListenerSpec`.
       type: object
       properties:
         address:
@@ -990,7 +990,7 @@ components:
       properties:
         targetStates:
           description: List of states of targets within the target group that is specified
-            in the GetTargetStatesRequest message.
+            in the `GetTargetStatesRequest` message.
           type: array
           items:
             $ref: '#/components/schemas/TargetState'
@@ -1066,7 +1066,7 @@ components:
           type: string
           format: int64
     InternalAddressSpec:
-      description: Internal address specification that is used by ListenerSpec.
+      description: Internal address specification that is used by `ListenerSpec`.
       type: object
       properties:
         address:

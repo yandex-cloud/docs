@@ -24,13 +24,7 @@ userName | Required. Name of the user to grant the permission to. To get the nam
 ```json 
 {
   "permission": {
-    "databaseName": "string",
-    "dataFilters": [
-      {
-        "tableName": "string",
-        "filter": "string"
-      }
-    ]
+    "databaseName": "string"
   }
 }
 ```
@@ -40,9 +34,6 @@ Field | Description
 --- | ---
 permission | **object**<br><p>Permission that should be granted to the specified user.</p> 
 permission.<br>databaseName | **string**<br><p>Name of the database that the permission grants access to.</p> 
-permission.<br>dataFilters[] | **object**<br>
-permission.<br>dataFilters[].<br>tableName | **string**<br>
-permission.<br>dataFilters[].<br>filter | **string**<br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

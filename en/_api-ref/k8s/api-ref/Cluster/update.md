@@ -73,6 +73,9 @@ clusterId | Required. ID of the Kubernetes cluster to update. To get the Kuberne
   },
   "serviceAccountId": "string",
   "nodeServiceAccountId": "string",
+  "networkPolicy": {
+    "provider": "string"
+  },
   "gatewayIpv4Address": "string"
 }
 ```
@@ -110,6 +113,8 @@ masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWind
 masterSpec.<br>maintenancePolicy.<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>daysOfWeek[].<br>duration | **string**<br><p>Acceptable values are 3600 seconds to 86400 seconds, inclusive.</p> 
 serviceAccountId | **string**<br><p>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have <code>edit</code> role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides.</p> 
 nodeServiceAccountId | **string**<br><p>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.</p> 
+networkPolicy | **object**<br>
+networkPolicy.<br>provider | **string**<br>
 gatewayIpv4Address | **string**<br><p>The maximum string length in characters is 15.</p> 
  
 ## Response {#responses}

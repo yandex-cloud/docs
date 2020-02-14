@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method create
-
+Creates a machine learning model in the specified cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}
  
 Parameter | Description
 --- | ---
-clusterId | Required. The maximum string length in characters is 50.
+clusterId | Required. ID of the cluster to create a model in.  To get a cluster ID make a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -31,9 +31,9 @@ clusterId | Required. The maximum string length in characters is 50.
  
 Field | Description
 --- | ---
-mlModelName | **string**<br><p>Required. The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
-type | **string**<br><p>Required.</p> 
-uri | **string**<br><p>Required.</p> 
+mlModelName | **string**<br><p>Required. Model name. The model name is one of the arguments of the modelEvaluate() function, which is used to call the model in ClickHouse.</p> <p>The maximum string length in characters is 63. Value must match the regular expression <code>[a-zA-Z0-9_-]*</code>.</p> 
+type | **string**<br><p>Required. Type of the model.</p> <ul> <li>ML_MODEL_TYPE_CATBOOST: CatBoost model.</li> </ul> 
+uri | **string**<br><p>Required. Model file URL. You can only use models stored in Yandex Object Storage.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
