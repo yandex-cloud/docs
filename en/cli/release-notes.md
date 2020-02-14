@@ -1,8 +1,40 @@
 # YC CLI Releases
 
-## Version 0.50.0 (27.01.20) {#latest-release}
+## Version 0.51.0 (12.02.20) {#latest-release}
+
+### Changes to the CLI {#cli}
+
+**Improved**
+
+- Command `yc <service> <resource> create`
+
+  Added the ability to pass resource names as command arguments. Сommands like `yc <service> <resource> create --name <resource name>` and `yc <service> <resource> create <resource name>` are now the same.
+
+  For example, instead of the running the command `yc managed-kubernetes cluster create --name my-cluster ...`, you can now use the command `yc managed-kubernetes cluster create my-cluster ...`.
+
+- Command `yc <service> <resource> set-access-binding`
+
+  Added a warning that the command deletes assigned roles. If the user runs the command directly (rather than using another command or script), they're asked for confirmation.
+
+**Fixed**
+
+- Command `yc init`
+
+  The values of the flags `--cloud-id`, `--folder-id`, and `--folder-name` are now properly recognized.
+
+- Disabled messages about the availability of a new version of `yc` when invoking of a non-interactive command.
 
 ### Changes to Yandex.Cloud services {#services}
+
+#### {{iam-name}} {#iam}
+
+- Added commands for creating and managing SAML-compatible identity federations and their certificates: `yc iam federation` and `yc iam certificate`. Learn more about SAML-compatible identity federations in the [documentation](https://cloud.yandex.com/docs/iam/concepts/users/identity-federations).
+
+## Previous releases {#previous-releases}
+
+### Version 0.50.0 (27.01.20) {#version0.50.0}
+
+#### Changes to Yandex.Cloud services {#services}
 
 - For [resources that you can assign roles for](../iam/concepts/access-control/resources-with-access-control.md).
 
@@ -19,8 +51,6 @@
 - Command `yc compute instance create`
 
   If you specify the `--gpus` flag, the `gpu-standard-v1` platform is automatically selected.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.49.0 (21.01.20) {#version0.49.0}
 
@@ -53,7 +83,7 @@ The {{ kms-full-name }} service is at the Preview stage. Read more about the ser
 
 #### {{ compute-name }} {#compute}
 
-- Added the feature to use placement groups: `yc compute placement-group --help`.
+- Added ability to use placement groups: `yc compute placement-group --help`.
 
 - Commands `yc compute instance create` and `yc compute instance update`
 
@@ -73,7 +103,7 @@ The {{ kms-full-name }} service is at the Preview stage. Read more about the ser
 
 - Command `{{ yc-mdb-my }} cluster update`
 
-    Added the feature to rename the cluster using the `--new-name` flag.
+    Added the ability to rename clusters using the `--new-name` flag.
 
 **{{ mpg-name }}**
 
@@ -81,19 +111,19 @@ The {{ kms-full-name }} service is at the Preview stage. Read more about the ser
 
 - Command `{{ yc-mdb-pg }} cluster update`
 
-    Added the feature to rename the cluster using the `--new-name` flag.
+    Added the ability to rename clusters using the `--new-name` flag.
 
 **{{ mch-name }}**
 
 - Command `{{ yc-mdb-ch }} cluster update`
 
-    Added the feature to rename the cluster using the `--new-name` flag.
+    Added the ability to rename clusters using the `--new-name` flag.
 
 **{{ mrd-name }}**
 
 - Command `{{ yc-mdb-rd }} cluster update`
 
-    Added the feature to rename the cluster using the `--new-name` flag.
+    Added the ability to rename clusters using the `--new-name` flag.
 
 ### Version 0.47.0 (17.12.19) {#version0.47.0}
 
@@ -279,7 +309,7 @@ The {{ kms-full-name }} service is at the Preview stage. Read more about the ser
 
 - Command `yc container registry`
 
-    Added the feature to set and view a list of roles for the Docker image registry: `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
+    Added the ability to set and view a list of roles for the Docker image registry: `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
 
 #### Managed database services {#managed-db}
 
@@ -343,7 +373,7 @@ The {{ kms-full-name }} service is at the Preview stage. Read more about the ser
 
 - Commands `{{ yc-mdb-pg }} user create` and `yc managed-postgresql user update`
 
-    Added the feature to specify a user's login and set their access rights using the`--login` and `--grants` flags.
+    Added ability to specify a user's login and set their access rights using the`--login` and `--grants` flags.
 
 ### Version 0.36.0 (27.08.19) {#version0.36.0}
 
@@ -353,7 +383,7 @@ The {{ kms-full-name }} service is at the Preview stage. Read more about the ser
 
 - Command `yc resource-manager cloud update`
 
-    Added the feature to rename the cloud.
+    Added the ability to rename clouds.
 
 ### Version 0.35.1 (16.08.19) {#version0.35.1}
 
@@ -407,7 +437,7 @@ The {{ kms-full-name }} service is at the Preview stage. Read more about the ser
 
 - Command `{{ mmy-name }} cluster update-config --set`
 
-    Added the feature to globally set the SQL mode using `sql_mode`.
+    Added the ability to globally set the SQL mode using `sql_mode`.
 
 ### Version 0.33.0 (19.07.19) {#version0.33.0}
 
@@ -425,7 +455,7 @@ The {{ kms-full-name }} service is at the Preview stage. Read more about the ser
 
 - Commands `{{ yc-mdb-pg }} user create` and `{{ yc-mdb-pg }} user update`
 
-    Added the feature to set user parameters with flags such as `--lock_timeout` and `--log_min_duration_statement`.
+    Added ability to set user parameters with flags such as `--lock_timeout` and `--log_min_duration_statement`.
 
 ### Version 0.32.0 (05.07.19) {#version0.32.0}
 
@@ -533,7 +563,7 @@ The {{ kms-full-name }} service is at the Preview stage. Read more about the ser
 
 - Command `{{ yc-mdb-ch }} cluster add-zooker`
 
-    Added the feature to add ZooKeeper hosts.
+    Added the ability to add ZooKeeper hosts.
 
 - Command `{{ yc-mdb-ch }} shards add`
 
