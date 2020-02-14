@@ -81,6 +81,7 @@
 
 * [{#T}](#multiple-roles)
 * [{#T}](#access-to-sa)
+* [{#T}](#access-to-federated-user)
 * [{#T}](#access-to-all)
 
 ### Назначить несколько ролей {#multiple-roles}
@@ -191,6 +192,8 @@
 {% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-sa.md) %}
 
 ### Доступ к ресурсу для федеративного пользователя {#access-to-federated-user}
+
+{% include [include](../../../_includes/saml-assign-role-note.md) %}
 
 Сейчас [федеративному пользователю](../../concepts/users/identity-federations.md) можно назначить роль только в консоли управления.
 

@@ -51,7 +51,11 @@
 
 * `userAccount` — [аккаунт на Яндексе](../index.md#passport), добавленный в Яндекс.Облако.
 * `serviceAccount` — [сервисный аккаунт](../users/service-accounts.md), созданный в Яндекс.Облаке.
+
+    {% include [include](../../../_includes/sa-assign-role-note.md) %}
 * `federatedUser` — аккаунт пользователя из [федерации удостоверений](../users/identity-federations.md), например из Active Directory.
+
+    {% include [include](../../../_includes/saml-assign-role-note.md) %}
 * `system` — [системная группа](system-group.md).
 
 ### Привязка прав доступа {#access-bindings}
