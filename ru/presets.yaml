@@ -28,6 +28,7 @@ default:
   ydb-full-name: Yandex Database
   kms-full-name: Yandex Key Management Service
   interconnect-full-name: Yandex Cloud Interconnect
+  ml-platform-full-name: Yandex ML Platform
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -57,6 +58,7 @@ default:
   ydb-name: Yandex Database
   kms-name: Key Management Service
   interconnect-name: Cloud Interconnect
+  ml-platform-name: ML Platform
 
   # Короткие имена
   iam-short-name: IAM
@@ -84,6 +86,7 @@ default:
   sf-short-name: Functions
   ydb-short-name: YDB
   kms-short-name: KMS
+  ml-platform-short-name: ML Platform
 
   # Тарифы
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.

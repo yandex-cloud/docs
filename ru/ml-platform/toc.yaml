@@ -1,0 +1,58 @@
+title: "Yandex ML Platform"
+stage: tech-preview
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Проекты
+        items:
+          - name: Создание проекта
+            href: operations/projects/create.md
+          - name: Установка зависимостей
+            href: operations/projects/install-dependencies.md
+          - name: Управление вычислительными ресурсами
+            href: operations/projects/control-compute-resources.md
+          - name: Очистка состояния интерпретатора
+            href: operations/projects/clear-kernel-state.md
+          - name: Поделиться ноутбуком
+            href: operations/projects/share.md
+          - name: Изменение имени или описания
+            href: operations/projects/update.md
+          - name: Удаление проекта
+            href: operations/projects/delete.md
+      - name: Ресурсы
+        items:
+          - name: Загрузка файлов
+            href: operations/resources/upload.md
+          - name: Создание папки
+            href: operations/resources/create-folder.md
+          - name: Перемещение и переименование
+            href: operations/resources/move.md
+          - name: Скачивание файлов
+            href: operations/resources/download.md
+          - name: Получение публичной ссылки на файл
+            href: operations/resources/get-link.md
+          - name: Удаление файлов
+            href: operations/resources/delete.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Список предустановленного ПО
+        href: concepts/preinstalled-packages.md
+      - name: Список доступных конфигураций ВМ
+        href: concepts/vm-configurations.md
+      - name: Проект
+        href: concepts/project.md
+      - name: Ресурсы
+        href: concepts/resources.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
