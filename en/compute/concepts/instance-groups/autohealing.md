@@ -1,4 +1,4 @@
-# Automatic recovery
+# Auto-healing
 
 {{ ig-name }} regularly runs health checks for the instances in your instance group. If an instance has stopped or an app is taking too long to respond, {{ ig-name }} will try to recover the instance: either it will restart it or create a new one, depending on the [deployment policy](policies.md#deploy-policy).
 
@@ -74,6 +74,10 @@ If you increase the target size of the instance group, new instances will be cre
 > Let's say 2 out of 4 instances in an instance group failed the [application health check](#functional-healthcheck). At that point, the target size of the instance group has increased to 6 instances. You have two instances to create and another two to recover.
 >
 > If `max_expansion = 1` and `max_creating` is not set, then {{ ig-name }} will start creating three instances in parallel: two under the instance group expansion, and one under the recovery process.
+
+### Auto-healing preemptible instances {#healthcheck-preemptible-vm}
+
+[Preemptible](../preemptible-vm.md) instances can only be auto-healed if the computing resources in the availability zone allow for this. If the resources are insufficient, {{ ig-name }} will resume auto-healing as soon as the resources become available, but this may take a long time.
 
 #### See also {#see-also}
 

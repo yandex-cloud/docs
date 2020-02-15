@@ -1,6 +1,6 @@
 To create a fixed-size instance group:
 
-1. In the [management console](https://console.cloud.yandex.com), select a folder to create your instance group in.
+1. In the [management console]({{ link-console-main }}), select a folder to create your instance group in.
 
 1. In the list of services, select {{ compute-name }}.
 
@@ -29,7 +29,7 @@ To add more disks, click **Add disk**.
     - Under **Computing resources**:
         - Choose a [platform](../../compute/concepts/vm-platforms.md).
         - Specify the [guaranteed share](../../compute/concepts/performance-levels.md) and the necessary number of vCPUs and amount of RAM.
-        - If necessary, make your VM [preemptible](../../compute/concepts/preemptible-vm.md).
+        - {% include [include](specify-preemptible-vm.md) %}
     - Under **Network settings**:
         - Select the [cloud network](../../compute/concepts/vm.md#network) and the subnet. If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
         - Specify if a public IP address is required.
@@ -37,6 +37,7 @@ To add more disks, click **Add disk**.
             - In the window that opens, enter a name for the new network and choose a subnet to connect the virtual machine to. Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet) (if there's no subnet, create one). Then click **Create**.
         - In the **Public IP** field, choose a method for assigning an IP address:
             - **Auto**: Assign a random IP address from the Yandex.Cloud IP pool.
+            - **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
             - **No address**: Don't assign a public IP address.
         - If necessary, select [DDoS protection](../../vpc/ddos-protection/).
     - Under **Access**, specify the data required to access the VM:

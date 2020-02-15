@@ -1,23 +1,29 @@
 # Preemptible VMs
 
-Preemptible virtual machines use computing resources in Yandex.Cloud at a lower price. You can choose this option when creating a VM. Preemptible VM instances are terminated at least once every 24 hours. Stopped instances can be restarted without data loss.
+*Preemptible instances* are instances that may be terminated at any time. This can occur in two cases:
 
-{% note info %}
+* If 24 hours have passed since the instance was started.
+* If there are insufficient resources to launch a regular instance in the same availability zone. The probability of termination is low, but varies depending on the day.
 
-Preemptible instances may be terminated at any time.
-
-{% endnote %}
-
-Preemptible instances are cheaper than standard virtual machines, but they don't ensure fault tolerance. To get more information about preemptible VM prices, see [{#T}](../pricing.md#prices-preemptible-instance-resources).
-
-To create a preemptible VM, [follow the instructions](../operations/vm-create/create-preemptible-vm.md).
+Preemptible instances are available at a [lower price](../pricing.md#prices-preemptible-instance-resources) than regular instances. However, they don't provide fault-tolerance.
 
 ## Restrictions {#restrictions}
 
-Preemptible instances run like regular VMs, but they have the following restrictions:
+In addition to the fact that preemptible instances can be forcibly stopped, they have the following limitations:
 
-- There are no SLA obligations.
-- A preemptible instance can terminate at any time. The probability of termination is low, but it varies depending on the day and the availability zone.
-- A preemptible instance cannot be turned into a standard VM and vice versa.
-- A preemptible instance always terminates within 24 hours.
+- If there aren't enough resources in the specified availability zone to launch a preemptible instance, it won't launch.
+- A preemptible instance can't be turned into a standard VM and vice versa.
+- Preemptible stances aren't subject to an [SLA](../../overview/sla.md).
+
+## How to work with preemptible instances {#work-with-preemptible-vm}
+
+To create a preemptible VM, [follow the instructions](../operations/vm-create/create-preemptible-vm.md).
+
+The instance isn't deleted after it's stopped and all its data is saved. When you need the instance again, [start it](../operations/vm-control/vm-stop-and-start#start) again.
+
+{% note info %}
+
+In [{{ ig-name }}](instance-groups/index.md), stopped instances start automatically thanks to [auto-healing](instance-groups/autohealing.md).
+
+{% endnote %}
 

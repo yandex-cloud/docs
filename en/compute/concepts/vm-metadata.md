@@ -4,7 +4,14 @@ The VM instance details are available in the metadata service. You can use the m
 
 Metadata is also used by programs launched on VM start.
 
-## How to send metadata {#how-to-send-metadata}
+## Metadata formats supported inside VM {#metadata-formats}
+
+From inside a VM instance, metadata is available in the following formats:
+
+* [Google Compute Engine](../operations/vm-info/get-info.md#gce-metadata) (not all fields are supported).
+* [Amazon EC2](../operations/vm-info/get-info.md#ec2-metadata) (not all fields are supported).
+
+## How to send metadata {#how-to-pass-metadata}
 
 You can pass metadata when you create or [change](../operations/vm-control/vm-update.md#change-metadata) your virtual machine. VM connection data can't change, so it must be passed during creation:
 
@@ -15,17 +22,17 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
 
 - CLI
 
-  In the CLI, you can specify metadata in three parameters:
+  In the CLI, you can specify metadata in any of three parameters :
 
   * `--metadata-from-file` as a file (for example, `--metadata-from-file key=path/to/file`). This is convenient when passing values consisting of multiple strings.
 
   * `--metadata` with a the list of `key-value` pairs separated by commas (for example, `--metadata foo1=bar, foo2=baz`).
 
-      If the value is multiline, use `\n` to split lines: `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`
+      If the value is multiline, use `\n` as a delimiter: `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`
 
   * `--ssh-key` with an SSH key. Only for Linux-based virtual machines.
 
-      {{ compute-short-name }} Create the user `yc-user` and add the specified SSH key to the list of authorized keys. After the VM is created, you can use this key to connect to it over SSH.
+      {{ compute-short-name }} Create the user `yc-user` and add the specified SSH key to the list of authorized keys. After the VM is created, you can use this key to connect to it via SSH.
 
   You can combine these parameters, for example:
 
@@ -58,7 +65,7 @@ The metadata, including the user-defined metadata, is available in unencrypted f
 
 {% endnote %}
 
-## Keys processed in public images {#keys-processed-in-public-images}
+## Keys processed in public images {#metadata-keys}
 
 The list of keys that are processed in Yandex.Cloud's public images depends on the operating system.
 
@@ -72,17 +79,7 @@ The list of keys that are processed in Yandex.Cloud's public images depends on t
 
       Cloud-init supports different [formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html) for passing metadata, such as [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). In this format, you can pass SSH keys and indicate which user each key is associated with. To do this, specify them in the `users/ssh_authorized_keys` element.
 
-      ```yaml
-      #cloud-config
-      users:
-        - name: user
-          groups: sudo
-          shell: /bin/bash
-          sudo: ['ALL=(ALL) NOPASSWD:ALL']
-          ssh-authorized-keys:
-            - ssh-rsa AAAAB3Nza......OjbSMRX user@example.com
-            - ssh-rsa AAAAB3Nza......Pu00jRN user@desktop
-      ```
+      {% include [user-data](../../_includes/compute/user-data.md) %}
 
       To pass this data in the request, replace line breaks with `\n`:
 

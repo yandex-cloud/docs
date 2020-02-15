@@ -20,7 +20,7 @@ To create an instance group with a load balancer:
 
   1. Click **Create group**.
 
-  1. In the **Basic parameters** section:
+  1. Under **Basic parameters**:
 
       - Enter the name and description of the group.
 
@@ -44,9 +44,11 @@ To create an instance group with a load balancer:
 
       - Under **Computing resources**:
 
-          - Choose the [platform](../../concepts/vm-platforms.md).
+          - Choose a [platform](../../concepts/vm-platforms.md).
 
           - Specify the [guaranteed share](../../concepts/performance-levels.md), the necessary number of vCPUs, and the amount of RAM.
+
+          - {% include [include](../../../_includes/instance-groups/specify-preemptible-vm.md) %}
 
       - Under **Network settings**:
 
@@ -54,7 +56,7 @@ To create an instance group with a load balancer:
 
           - Specify if a public IP address is required.
 
-      - In the **Access** section, specify the data required to access the VM:
+      - Under **Access**, specify the data required to access the VM:
 
           - Enter the username in the **Login** field.
 
@@ -130,7 +132,7 @@ To create an instance group with a load balancer:
           | `service_account_id` | ID of the service account. |
           | `description` | A description of the instance group. |
 
-      - [Instance template](../../concepts/instance-groups/instance-template.md):
+      - [Instance template](../../concepts/instance-groups/instance-template.md), for example:
 
           ```
           instance_template:
@@ -147,6 +149,8 @@ To create an instance group with a load balancer:
               network_interface_specs:
                   - network_id: c64mknqgnd8avp6edhbt
                     primary_v4_address_spec: {}
+              scheduling_policy:
+                  preemptible: false
           ```
 
           {% include [default-unit-size](../../../_includes/instance-groups/default-unit-size.md) %}
@@ -164,6 +168,8 @@ To create an instance group with a load balancer:
           | `size` | Disk size. |
           | `network_id` | The `default-net` ID. |
           | `primary_v4_address_spec` | IPv4 specification. Only IPv4 is currently available. You can allow public access to group instances by specifying the IP version for the public IP address. For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template). |
+          | `scheduling_policy` | Scheduling policy configuration. |
+          | `preemptible` | A flag that enables the creation of [preemptible instances](../../concepts/preemptible-vm.md). If the value is `true`, a preemptible instance is created, if `false` (default), a regular instance is created.<br>When creating a preemptible instance group, keep in mind that the instances will terminate after 24 hours of continuous operation or earlier. It's possible that {{ ig-name }} won't be able to restart them immediately due to insufficient resources. This may occur in the event of a drastic increase in Yandex.Cloud computing resource usage. |
 
       - [Policies](../../concepts/instance-groups/policies.md):
 

@@ -84,7 +84,7 @@ If speech fragment recognition is successful, you will receive a message contain
 
 * `alternatives[]` — List of recognized text alternatives. Each alternative contains the following fields:
     * `text` — Recognized text.
-    * `confidence` — Recognition accuracy percentage. This field is currently not supported and always returns `1`.
+    * `confidence` — This field is currently unsupported.
 
 * `final` — Flag that indicates that this recognition result is final and will not change anymore. If the value is `false`, it means that the recognition result is intermediate and may change as the following speech fragments are recognized.
 
@@ -150,15 +150,15 @@ Then proceed to creating a client app.
       ```python
       #coding=utf8
       import argparse
-      
+
       import grpc
-      
+
       import yandex.cloud.ai.stt.v2.stt_service_pb2 as stt_service_pb2
       import yandex.cloud.ai.stt.v2.stt_service_pb2_grpc as stt_service_pb2_grpc
-      
-      
+
+
       CHUNK_SIZE = 4000
-      
+
       def gen(folder_id, audio_file_name):
           # Configure recognition settings.
           specification = stt_service_pb2.RecognitionSpec(
@@ -170,27 +170,27 @@ Then proceed to creating a client app.
               sample_rate_hertz=8000
           )
           streaming_config = stt_service_pb2.RecognitionConfig(specification=specification, folder_id=folder_id)
-      
+
           # Send a message with the recognition settings.
           yield stt_service_pb2.StreamingRecognitionRequest(config=streaming_config)
-      
+
           # Read the audio file and send its contents in chunks.
           with open(audio_file_name, 'rb') as f:
               data = f.read(CHUNK_SIZE)
               while data != b'':
                   yield stt_service_pb2.StreamingRecognitionRequest(audio_content=data)
                   data = f.read(CHUNK_SIZE)
-      
-      
+
+
       def run(folder_id, iam_token, audio_file_name):
           # Establish a connection with the server.
           cred = grpc.ssl_channel_credentials()
           channel = grpc.secure_channel('stt.api.cloud.yandex.net:443', cred)
           stub = stt_service_pb2_grpc.SttServiceStub(channel)
-      
+
           # Send data for recognition.
           it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(('authorization', 'Bearer %s' % iam_token),))
-      
+
           # Process server responses and output the result to the console.
           try:
               for r in it:
@@ -204,15 +204,15 @@ Then proceed to creating a client app.
                       print('Not available chunks')
           except grpc._channel._Rendezvous as err:
               print('Error code %s, message: %s' % (err._state.code, err._state.details))
-      
-      
+
+
       if __name__ == '__main__':
           parser = argparse.ArgumentParser()
           parser.add_argument('--token', required=True, help='IAM token')
           parser.add_argument('--folder_id', required=True, help='folder ID')
           parser.add_argument('--path', required=True, help='audio file path')
           args = parser.parse_args()
-      
+
           run(args.folder_id, args.token, args.path)
       ```
 
@@ -225,7 +225,7 @@ Then proceed to creating a client app.
       Start chunk:
       alternative: Hello
       Is final: False
-      
+
       Start chunk:
       alternative: Hello world
       Is final: True
@@ -257,14 +257,14 @@ Then proceed to creating a client app.
       const grpc = require('grpc');
       const protoLoader = require('@grpc/proto-loader');
       const CHUNK_SIZE = 4000;
-      
+
       // Get the folder ID and IAM token from the environment variables.
       const folderId = process.env.FOLDER_ID;
       const iamToken = process.env.IAM_TOKEN;
-      
+
       // Read the file specified in the arguments.
       const audio = fs.readFileSync(process.argv[2]);
-      
+
       // Specify the recognition settings.
       const request = {
           config: {
@@ -279,28 +279,28 @@ Then proceed to creating a client app.
               folderId: folderId
           }
       };
-      
+
       // How often audio is sent in milliseconds.
       // For LPCM format, the frequency can be calculated using the formula: CHUNK_SIZE * 1000 / ( 2 * sampleRateHertz).
       const FREQUENCY = 250;
-      
+
       const serviceMetadata = new grpc.Metadata();
       serviceMetadata.add('authorization', `Bearer ${iamToken}`);
-      
+
       const packageDefinition = protoLoader.loadSync('../yandex/cloud/ai/stt/v2/stt_service.proto', {
           includeDirs: ['node_modules/google-proto-files', '..']
       });
       const packageObject = grpc.loadPackageDefinition(packageDefinition);
-      
+
       // Establish a connection with the server.
       const serviceConstructor = packageObject.yandex.cloud.ai.stt.v2.SttService;
       const grpcCredentials = grpc.credentials.createSsl(fs.readFileSync('./roots.pem'));
       const service = new serviceConstructor('stt.api.cloud.yandex.net:443', grpcCredentials);
       const call = service['StreamingRecognize'](serviceMetadata);
-      
+
       // Send a message with the recognition settings.
       call.write(request);
-      
+
       // Read the audio file and send its contents in chunks.
       let i = 1;
       const interval = setInterval(() => {
@@ -314,7 +314,7 @@ Then proceed to creating a client app.
               clearInterval(interval);
           }
       }, FREQUENCY);
-      
+
       // Process server responses and output the result to the console.
       call.on('data', (response) => {
           console.log('Start chunk: ');
@@ -324,7 +324,7 @@ Then proceed to creating a client app.
           console.log('Is final: ', Boolean(response.chunks[0].final));
           console.log('');
       });
-      
+
 
       call.on('error', (response) => {
           // Handling errors
@@ -338,7 +338,7 @@ Then proceed to creating a client app.
       $ export FOLDER_ID=b1gvmob95yysaplct532
       $ export IAM_TOKEN=CggaATEVAgA...
       $  node index.js speech.pcm
-      
+
       Start chunk:
       alternative: Hello world
       Is final:  true

@@ -2,7 +2,7 @@
 1. Select **{{compute-name}}**.
 1. On the **Virtual machines** page, go to the **Instance groups** tab.
 1. Click **Create group**.
-1. In the **Basic parameters** section:
+1. Under **Basic parameters**:
     - Enter the name and description of the group.
 
         {% include [name-format](../name-format.md) %}
@@ -18,12 +18,13 @@
 
             To add more disks, click **Add disk**.
     - Under **Computing resources**:
-        - Choose the [platform](../../compute/concepts/vm-platforms.md).
+        - Choose a [platform](../../compute/concepts/vm-platforms.md).
         - Specify the [guaranteed share](../../compute/concepts/performance-levels.md) and the necessary number of vCPUs and amount of RAM.
+        - {% include [include](specify-preemptible-vm.md) %}
     - Under **Network settings**:
         - Select the [cloud network](../../compute/concepts/vm.md#network) and the subnet. If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
         - Specify if a public IP address is required.
-    - In the **Access** section, specify the data required to access the VM:
+    - Under **Access**, specify the data required to access the VM:
         - Enter the username in the **Login** field.
         - Under **SSH key**, paste the contents of the public key file. You have to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for SSH connections on your own.
     - Click **Add**.
