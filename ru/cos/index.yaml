@@ -1,0 +1,23 @@
+# Yandex Container Optimized Solutions
+title: "Yandex Container Optimized Solutions"
+description:
+  - "Yandex Container Optimized Solutions — это сценарии использования на базе виртуальных машин с образом Container Optimized Image, оптимизированных для запуска Docker-контейнеров. Образ Container Optimized Image также доступен в <a href=\"https://cloud.yandex.ru/marketplace/products/f2er6dljk4mbatsurr5t\">маркетплейсе</a>."
+# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+meta:
+  title: "Yandex Container Optimized Solutions"
+# Блок со ссылками
+links:
+- title: "Начало работы"
+  description: "Создайте первую ВМ на основе образа Container Optimized Image"
+  href: "quickstart"
+- title: "Концепции"
+  description: "Узнайте подробнее про образ Container Optimized Image"
+  href: "concepts/"
+- title: "Сценарии использования"
+  description: "Сценарии использования образа Container Optimized Image"
+  href: "operations/"
+- title: "Квоты и лимиты"
+  description: "Технические и организационные ограничения"
+- title: "Правила тарификации"
+  description: "Цены и правила расчета стоимости услуг"
+  href: "pricing"

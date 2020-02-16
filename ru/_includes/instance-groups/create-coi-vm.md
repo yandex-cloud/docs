@@ -1,4 +1,4 @@
-Для запуска нескольких экземпляров сервиса в Docker-контейнерах вы можете создать группу виртуальных машин на базе образа [{{ coi }}](../../container-registry/concepts/coi.md). В такой группе обновлять Docker-контейнер можно с помощью метаданных ВМ.
+Для запуска нескольких экземпляров сервиса в Docker-контейнерах вы можете создать группу виртуальных машин на базе образа [{{ coi }}](../../cos/concepts/index.md). В такой группе обновлять Docker-контейнер можно с помощью метаданных ВМ.
 
 {% include [warning.md](warning.md) %}
 
@@ -97,7 +97,7 @@
         `network_id` | Идентификатор сети `default-net`.
         `primary_v4_address_spec` | Спецификация версии интернет протокола IPv4. На данный момент доступен только протокол IPv4. Вы можете предоставить публичный доступ к виртуальным машинам группы, указав версию IP для публичного IP-адреса. Подробнее читайте в разделе [{#T}](../../compute/concepts/instance-groups/instance-template.md#instance-template).
         `metadata` | Значения, которые будут переданы в метаданные виртуальной машины.
-        `docker-container-declaration` | Ключ в метаданных виртуальной машины, по которому доступно [описание Docker-контейнера](../../container-registry/concepts/coi.md#coi-specification).
+        `docker-container-declaration` | Ключ в метаданных виртуальной машины, по которому доступно [описание Docker-контейнера](../../cos/concepts/index.md#coi-specification).
 
     - [Политики](../../compute/concepts/instance-groups/policies.md):
 

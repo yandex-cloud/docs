@@ -155,6 +155,8 @@ items:
             href: operations/instance-groups/start.md
           - name: Удалить группу
             href: operations/instance-groups/delete.md
+  - name: Yandex Container Optimized Solutions
+    href: ../cos/
   - name: Сценарии
     items:
       - name: Настройка синхронизации времени NTP

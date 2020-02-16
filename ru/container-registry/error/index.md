@@ -3,7 +3,7 @@
 В списке ниже приведены часто возникающие ошибки и способы их решения:
 - `docker login is not supported with yc credential helper`
 
-    **Почему возникла ошибка:** если вы используете [Docker Credential helper](../operations/authentication.md#cred-helper), нельзя аутентифицироваться в {{ container-registry-full-name }} с помощью `docker login`. Эту ошибку можно также увидеть в [Container Optimized Image](../concepts/coi.md), где Credential helper используется для аутентификации от имени привязанного к ВМ сервисного аккаунта.
+    **Почему возникла ошибка:** если вы используете [Docker Credential helper](../operations/authentication.md#cred-helper), нельзя аутентифицироваться в {{ container-registry-full-name }} с помощью `docker login`. Эту ошибку можно также увидеть в [Container Optimized Image](../../cos/concepts/index.md), где Credential helper используется для аутентификации от имени привязанного к ВМ сервисного аккаунта.
 
     **Как исправить:** аутентифицируйтесь в реестре, [используя Docker Credential helper](../operations/authentication.md#cred-helper), или [отключите Docker Credential helper](../operations/authentication.md#ch-not-use).
 - `Got permission denied while trying to connect to the Docker daemon socket`
