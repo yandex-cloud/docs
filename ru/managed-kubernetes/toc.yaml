@@ -29,12 +29,22 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
-      - name: Том
-        href: concepts/volume.md
-      - name: Сервис
-        href: concepts/service.md
       - name: Релизные каналы и обновления
         href: concepts/release-channels-and-updates.md
+      - name: Использование объектов API Kubernetes
+        items:
+          - name: Том
+            href: concepts/volume.md
+          - name: Сервис
+            href: concepts/service.md
+      - name: Группа узлов
+        items:
+          - name: Автоматическое масштабирование группы узлов
+            href: concepts/node-group/cluster-autoscaler.md
+          - name: Расселение подов с узла
+            href: concepts/node-group/node-drain.md
+          - name: Динамическое резервирование ресурсов для узла
+            href: concepts/node-group/allocatable-resources.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
