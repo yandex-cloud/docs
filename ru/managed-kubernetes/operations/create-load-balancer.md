@@ -19,7 +19,7 @@
 
 1. Сохраните следующую спецификацию для создания приложения в YAML-файл с названием `hello.yaml`:
 
-    [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) — объект API Kubernetes, управляющий реплицированным приложением.
+    [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) — объект API {{ k8s }}, управляющий реплицированным приложением.
     
     ```
     apiVersion: apps/v1

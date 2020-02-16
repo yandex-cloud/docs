@@ -29,21 +29,21 @@
     
 - CLI
     
-  {% include [cli-install](../_includes/cli-install.md) %}
-  
-  {% include [default-catalogue](../_includes/default-catalogue.md) %}
-  
-  Чтобы добавить учетные данные кластера {{ k8s }} в конфигурационный файл kubectl:
-  1. Выполните команду:
-  
+    {% include [cli-install](../_includes/cli-install.md) %}
+    
+    {% include [default-catalogue](../_includes/default-catalogue.md) %}
+    
+    Чтобы добавить учетные данные кластера {{ k8s }} в конфигурационный файл kubectl:
+    1. Выполните команду:
+    
       ```
       $ yc managed-kubernetes cluster get-credentials test-k8s-cluster --external
       ```
       
       - По умолчанию учетные данные добавляются в директорию `$HOME/.kube/config`.
       - Если необходимо изменить расположение конфигураций, используйте флаг `--kubeconfig <путь к файлу>`.
-  1. Проверьте конфигурацию kubectl после добавления учетных данных:
-  
+    1. Проверьте конфигурацию kubectl после добавления учетных данных:
+    
       ```
       $ kubectl config view
       apiVersion: v1
