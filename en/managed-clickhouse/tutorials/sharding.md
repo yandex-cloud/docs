@@ -14,9 +14,9 @@ For more information about sharding, see [{#T}](../concepts/sharding.md).
 
 ## How to start sharding tables {#enable}
 
-By default, {{ mch-name }} creates the first shard together with the cluster. This shard includes all the hosts in the cluster. To start using sharding, [add](../operations/shards.md#add-shard) the number of shards you need and create a table on the [Distributed](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/) engine. The article under the link describes sharding strategies and guidelines for creating tables in the applicable format, as well as distributed table limits.
+By default, {{ mch-name }} creates the first shard together with the cluster. This shard includes all the hosts in the cluster. To start using sharding, [add](../operations/shards.md#add-shard) the number of shards you need and create a table on the [Distributed](https://clickhouse.yandex/docs/en/operations/table_engines/distributed/) engine. The article under the link describes sharding strategies and guidelines for creating tables in the applicable format, as well as distributed table limits.
 
-{{ mch-name }} automatically creates the [shard configuration](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/) in the cluster. You can [manage this configuration](../operations/shards.md#shard-update).
+{{ mch-name }} automatically creates the [shard configuration](https://clickhouse.yandex/docs/en/operations/table_engines/distributed/) in the cluster. You can [manage this configuration](../operations/shards.md#shard-update).
 
 ## Example of sharding {#example}
 

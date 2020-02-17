@@ -2,7 +2,7 @@
 
 {{ mch-name }} allows you to visualize the data structure in your ClickHouse cluster and send SQL queries to databases from the Yandex.Cloud management console. To do this, log in to [management console]({{ link-console-main }}), open the cluster page and go to the **SQL** tab.
 
-See a reference list of supported queries in the [ClickHouse documentation](https://clickhouse.yandex/docs/ru/query_language/select/).
+See a reference list of supported queries in the [ClickHouse documentation](https://clickhouse.yandex/docs/en/query_language/select/).
 
 ## Authentication {#authentication}
 
@@ -40,5 +40,5 @@ In addition, keep in mind the following:
 
 * The management console will only display the first 1000 rows of results, even if there is actually more data.
 * When a cluster query takes more than 10 minutes to complete, the management console will report an error as a result, even if the query was eventually processed successfully.
-* If your cluster has multiple ClickHouse hosts, queries from the management console are sent to a random host. Keep this in mind if you are going to modify data. For example, the `CREATE TABLE db1.newtable` query creates a table on one host only. To avoid this, use a [distributed query](https://clickhouse.yandex/docs/ru/query_language/create/#raspredelennye-ddl-zaprosy-sektsiia-on-cluster) putting your cluster name inside the curly brackets: `CREATE TABLE db1.newtable ON CLUSTER '{cluster}'`.
+* If your cluster has multiple ClickHouse hosts, queries from the management console are sent to a random host. Keep this in mind if you are going to modify data. For example, the `CREATE TABLE db1.newtable` query creates a table on one host only. To avoid this, use a [distributed query](https://clickhouse.yandex/docs/en/query_language/create/#raspredelennye-ddl-zaprosy-sektsiia-on-cluster) putting your cluster name inside the curly brackets: `CREATE TABLE db1.newtable ON CLUSTER '{cluster}'`.
 

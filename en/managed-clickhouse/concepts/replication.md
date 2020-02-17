@@ -12,7 +12,7 @@ If you created a {{ CH }} cluster with 2 or more hosts, it isn't possible to red
 
 ### Replicated tables {#replicated-tables}
 
-{{ CH }} only supports automatic replication for `ReplicatedMergeTree` tables (see [Data replication](https://clickhouse.yandex/docs/ru/table_engines/replication/) in the {{ CH }} documentation). To enable replication, you can create the tables on each host separately or use a distributed DDL query.
+{{ CH }} only supports automatic replication for `ReplicatedMergeTree` tables (see [Data replication](https://clickhouse.yandex/docs/en/table_engines/replication/) in the {{ CH }} documentation). To enable replication, you can create the tables on each host separately or use a distributed DDL query.
 
 To create a `ReplicatedMergeTree` table on a specific {{ CH }} host, send the following query:
 
@@ -31,7 +31,7 @@ Where:
 
 * `{replica}` is the host ID macro.
 
-To create replicated tables on every host in the cluster, send a distributed DDL query (as described in the [{{ CH }} documentation]( https://clickhouse.yandex/docs/ru/query_language/queries/#ddl-on-cluster)):
+To create replicated tables on every host in the cluster, send a distributed DDL query (as described in the [{{ CH }} documentation]( https://clickhouse.yandex/docs/en/query_language/queries/#ddl-on-cluster)):
 
 ```
 CREATE TABLE db_01.table_01 ON CLUSTER '{cluster}' (log_date Date, user_name String) \
@@ -56,5 +56,5 @@ How ZooKeeper hosts are managed:
 
 {% endif %}
 
-For more information about using ZooKeeper to manage replication in {{ CH }}, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/ru/operations/table_engines/replication/).
+For more information about using ZooKeeper to manage replication in {{ CH }}, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/table_engines/replication/).
 

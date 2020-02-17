@@ -1,6 +1,6 @@
 # Connecting external dictionaries
 
-You can add external dictionaries to a cluster and remove them. For more information about dictionaries, see the [{{ CH }}  documentation](https://clickhouse.yandex/docs/en/query_language/dicts/).
+You can add and remove [external dictionaries](../concepts/dictionaries.md#external-dicts) from your cluster. For more information about dictionaries, see the [{{ CH }}  documentation](https://clickhouse.yandex/docs/en/query_language/dicts/).
 
 ## Adding a dictionary {#add-dictionary}
 
@@ -39,7 +39,7 @@ For more information, see the [{{ PG }} documentation](https://www.postgresql.or
 
      For more information about dictionary sources and their connection parameters, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_sources/).
 
-  3. Configure the structure and how the dictionary is stored in memory:
+  3. Configure the structure and how the dictionary is stored in the memory:
 
      **{{ mch-name }}** supports multiple methods for storing dictionaries in memory:
 ```flat```, ```hashed```, ```cache```, ```range_hashed```, ```complex_key_hashed```, and ```complex_key_cache```.
@@ -72,8 +72,8 @@ You can't use NULL in this field. Optional parameter.
   4. Set how often the dictionary updates:
 
      {{ CH }} loads dictionaries to the RAM and periodically updates them.
-You can set a fixed update interval in seconds or specify a range
-and {{ CH }} chooses a uniformly random time within this range.
+You can set a fixed update interval in seconds or specify a range,
+which {{ CH }} chooses a uniformly random time within.
 This is necessary for distributing the load on the dictionary source when upgrading on a large number of servers.
 
      For more information about dictionary updates, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
@@ -96,7 +96,7 @@ This is necessary for distributing the load on the dictionary source when upgrad
 
      ```
      $ {{ yc-mdb-ch }} cluster add-external-dictionary \
-        --cluster-name <cluster name> \
+        --cluster-name <{{ CH }} cluster name> \
         --dict-name <dictionary name> \
         --structure-id <key column name> \
         --structure-attribute name=<data column name>,type=<data type>,null-value=<empty element value >,expression=<expression>,hierarchical=<true|false>,injective=<true|false> \
@@ -167,11 +167,11 @@ This is necessary for distributing the load on the dictionary source when upgrad
   ```
   $ {{ yc-mdb-ch }} cluster remove-external-dictionary --help
   ```
-  1. Run the command to remove the dictionary:
+  1. Run the command to remove a dictionary:
 
   ```
   $ {{ yc-mdb-ch }} cluster remove-external-dictionary \
-    --cluster-name <cluster name> \
+    --cluster-name <cluster name>
     --dict-name <dictionary name> \
   ```
 

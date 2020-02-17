@@ -6,7 +6,7 @@ After creating a cluster, you can:
 
 * [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd` and `network-ssd`).
 
-* [Configure servers](#change-clickhouse-config){{ CH }} according to the [{{ CH }} documentation](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/).
+* [Configure servers](#change-clickhouse-config){{ CH }} according to the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/).
 
 ## Changing the host class {#change-resource-preset}
 

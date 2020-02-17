@@ -22,15 +22,15 @@
 
 Yes. You can connect to {{ CH }} cluster hosts over an encrypted connection:
 
-* Using the [HTTPS interface](https://clickhouse.yandex/docs/ru/interfaces/http_interface/), port 8443.
+* Using the [HTTPS interface](https://clickhouse.yandex/docs/en/interfaces/http_interface/), port 8443.
 
-* Using the [command-line client](https://clickhouse.yandex/docs/ru/interfaces/cli/), port 9440.
+* Using the [command-line client](https://clickhouse.yandex/docs/en/interfaces/cli/), port 9440.
 
 SSH connections are not supported.
 
 #### How do I upload data to {{ CH }}? {#load-data}
 
-Use the INSERT query described in the [{{ CH }} documentation](https://clickhouse.yandex/docs/ru/query_language/queries.html#insert).
+Use the INSERT query described in the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/queries.html#insert).
 
 #### How do I upload a very large amount of data to {{ CH }}? {#loadalot}
 
@@ -42,7 +42,7 @@ Data transfer from physical media is not yet supported.
 
 DB clusters consist of at least two replicas, so the cluster will continue working if one of its nodes is out.
 
-Data may be lost only if a node with a [non-replicated table](https://clickhouse.yandex/docs/ru/table_engines/replication/) fails.
+Data may be lost only if a node with a [non-replicated table](https://clickhouse.yandex/docs/en/table_engines/replication/) fails.
 
 #### Is it possible to deploy a {{ CH }} DB cluster in multiple availability zones? {#multiple-az}
 
@@ -62,5 +62,5 @@ Access to ZooKeeper and its setup are not available to Cloud users.
 
 When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster of 3 ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the [resource quotas]({{ link-console-quotas }}) used by the cloud and the cluster cost. By default, ZooKeeper hosts are created with a minimal [host class](../concepts/instance-types.md).
 
-For more information about using ZooKeeper, see [ClickHouse documentation](https://clickhouse.yandex/docs/ru/operations/table_engines/replication/).
+For more information about using ZooKeeper, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/table_engines/replication/).
 
