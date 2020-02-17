@@ -24,6 +24,8 @@ To create a trigger, you need:
 
 Create a trigger for the device topic.
 
+{% include [trigger-time](trigger-time.md) %}
+
 {% list tabs %}
 
 - CLI

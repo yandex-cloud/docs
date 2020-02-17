@@ -8,6 +8,8 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
 
 ## Create a trigger {#trigger-create}
 
+{% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
+
 {% list tabs %}
 
 - Management console

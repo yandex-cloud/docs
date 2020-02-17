@@ -23,6 +23,8 @@ To create a trigger, you need:
 
 Create a trigger for the message queue.
 
+{% include [trigger-time](trigger-time.md) %}
+
 {% list tabs %}
 
 - CLI

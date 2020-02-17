@@ -8,6 +8,8 @@ Create a [timer](../concepts/trigger/timer.md) and run your functions on a sched
 
 ## Create a timer {#trigger-create}
 
+{% include [trigger-time](../../_includes/functions/trigger-time.md) %}
+
 To create a timer:
 
 1. Open the **{{ sf-name }}** section in the folder where you want to create a timer.

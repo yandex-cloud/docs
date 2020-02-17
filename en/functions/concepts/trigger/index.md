@@ -4,6 +4,8 @@
 
 _Triggers_ are the criteria which automatically launch a specific function when met. Triggers let you automate your work with other Yandex.Cloud services, for example: {{ sf-full-name }}, {{message-queue-full-name}}, and {{ iot-full-name }}.
 
+{% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
+
 You can set up the following types of triggers at the Preview stage:
 
 * [{#T}](timer.md).

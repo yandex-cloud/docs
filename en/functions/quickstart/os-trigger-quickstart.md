@@ -8,6 +8,8 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
 ## Create a trigger {#trigger-create}
 
+{% include [trigger-time](../../_includes/functions/trigger-time.md) %}
+
 {% include [os-create-ui](../../_includes/functions/os-create-ui.md) %}
 
 ## What's next {#what-is-next}

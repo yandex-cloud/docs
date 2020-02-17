@@ -8,6 +8,8 @@ Create a [timer](../../concepts/trigger/timer.md) to call your function on a sch
 
 ## Create a timer {#timer-create}
 
+{% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
+
 {% list tabs %}
 
 - Management console
