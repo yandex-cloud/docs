@@ -14,7 +14,7 @@ POST /{bucket}/{key}?uploads HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Name of the bucket. |
+| `bucket` | Bucket name. |
 | `key` | Object key. The object will be saved in {{ objstorage-name }} with the specified name. |
 
 ### Query parameters {#request-parameters}
@@ -46,7 +46,7 @@ Responses can only contain [common response headers](../common-response-headers.
 
 ### Response codes {#response-codes}
 
-For the list of possible responses, see [{#T}](../response-codes.md).
+For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response contains additional data in XML format with the schema described below.
 

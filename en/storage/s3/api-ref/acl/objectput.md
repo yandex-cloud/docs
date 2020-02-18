@@ -4,7 +4,7 @@ Uploads an access control list for an object.
 
 {% note info %}
 
-ACLs can be uploaded as XML documents or using special `x-amx-grant*` headers. Do not use XML documents and `x-amx-grant*` headers in the same request.
+ACLs can be uploaded as XML documents or using special `x-amx-grant*` headers. Don't use XML documents and `x-amx-grant*` headers in the same request.
 
 {% endnote %}
 
@@ -18,7 +18,7 @@ PUT /{bucket}/{key}?acl HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Name of the bucket. |
+| `bucket` | Bucket name. |
 | `key` | Object key. ID for saving the object in {{ objstorage-name }}. |
 
 ### Query parameters {#request-params}
@@ -47,5 +47,5 @@ Responses can only contain [common response headers](../common-response-headers.
 
 ### Response codes {#response-codes}
 
-For the list of possible responses, see [{#T}](../response-codes.md).
+For a list of possible responses, see [{#T}](../response-codes.md).
 

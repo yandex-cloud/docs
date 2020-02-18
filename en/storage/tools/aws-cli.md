@@ -4,8 +4,8 @@
 
 To work with {{ objstorage-full-name }} via the AWS CLI, you can use the following sets of commands:
 
-- [s3api](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html) — commands corresponding to operations in the REST API. Before you start, review the [list of supported operations](../s3/api-ref/index.md).
-- [s3](https://docs.aws.amazon.com/cli/latest/reference/s3/index.html) — additional commands that make it easier to work with a large number of objects.
+- [s3api](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html): Commands corresponding to operations in the REST API. Before you start, review the [list of supported operations](../s3/api-ref/index.md).
+- [s3](https://docs.aws.amazon.com/cli/latest/reference/s3/index.html): Additional commands that make it easier to work with a large number of objects.
 
 ## Before you start {#before-you-begin}
 
@@ -17,17 +17,17 @@ To work with {{ objstorage-full-name }} via the AWS CLI, you can use the followi
 
 ## Configuration {#setup}
 
-To configure the AWS CLI, use the `aws configure` command. The command will request values for the following parameters:
+To configure the AWS CLI, use the `aws configure` command. The command requests values for the following parameters:
 
-1. `AWS Access Key ID`: enter the ID of the key that you received when generating the static key.
+1. `AWS Access Key ID`: Enter the ID of the key that you received when generating the static key.
 
-1. `AWS Secret Access Key`: enter the secret key that you received when generating the static key.
+1. `AWS Secret Access Key`: Enter the secret key that you received when generating the static key.
 
 1. `Default region name`: Enter `ru-central1`.
 
    {% note info %}
 
-   To work with Yandex Object Storage, always specify the `ru-central1` region. A different value of the region may lead to an authorization error.
+   To work with Yandex Object Storage, always specify the `ru-central1` region. A different region value may lead to an authorization error.
 
    {% endnote %}
 
@@ -35,7 +35,7 @@ To configure the AWS CLI, use the `aws configure` command. The command will requ
 
 ### Configuration files {#config-files}
 
-The `aws configure` command will result in saving your settings to the following files:
+The `aws configure` command saves your settings to the following files:
 
 - Your static key to the `.aws/credentials` file in the format:
 
@@ -66,7 +66,13 @@ When using the AWS CLI to work with {{ objstorage-name }}, keep the following in
 
 ## Examples of operations {#aws-cli-examples}
 
-### Create a bucket {#creating-bucket}
+{% note info %}
+
+To enable debug output in the console, use the `--debug` key.
+
+{% endnote %}
+
+### Creating a bucket {#creating-bucket}
 
    ```bash
    aws --endpoint-url=https://{{ s3-storage-host }} s3 mb s3://bucket-name
@@ -133,7 +139,7 @@ You can delete objects using one of the following methods:
        s3 rm s3://bucket-name/path_style_prefix/textfile.txt
    ```
 
-### Retrieve an object {#retrieving-objects}
+### Retrieving an object {#retrieving-objects}
 
    ```bash
    aws --endpoint-url=https://{{ s3-storage-host }} \

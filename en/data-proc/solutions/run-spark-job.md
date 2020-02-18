@@ -2,7 +2,7 @@
 
 By following this tutorial, you'll be able to calculate statistics on 2018 US air traffic based on data from [transtats.bts.gov](https://transtats.bts.gov/). The data set is prepared in [Parquet](https://parquet.apache.org/) format in a public {{ objstorage-full-name }} bucket named `yc-mdb-examples`.
 
-To work with {{ objstorage-name }}, we recommend [setting up S3cmd](../../storage/instruments/s3cmd.md).
+To work with {{ objstorage-name }}, we recommend [setting up S3cmd](../../storage/tools/s3cmd.md).
 
 You can get a list of files using the command:
 

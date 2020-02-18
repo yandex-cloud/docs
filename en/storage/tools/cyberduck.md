@@ -16,7 +16,7 @@ Create a connection with the following parameters:
 
   - Connection type: `Amazon S3`.
   - Server and port: `{{ s3-storage-host }}:443`.
-  - Access Key ID: The `ID` that you received when generating the static key.
+  - Access Key ID: The `id` that you received when generating the static key.
   - Password: The `secretKey` that you received when generating the static key.
 
 {% note info %}

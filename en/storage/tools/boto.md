@@ -50,7 +50,7 @@
   forDeletion = [{'Key':'object_name'}, {'Key':'script/py_script.py'}]
   response = s3.delete_objects(Bucket='bucket-name', Delete={'Objects': forDeletion})
   
-  # Retrieve an object
+  # Retrieving an object
   get_object_response = s3.get_object(Bucket='bucket-name',Key='py_script.py')
   print(get_object_response['Body'].read())
   ```
@@ -94,7 +94,7 @@
   # Deleting multiple objects
   response = bucket.delete_keys(['test-string', 'py_script.py'])
   
-  # Retrieve an object
+  # Retrieving an object
   key = bucket.get_key('script/py_script.py')
   print key.get_contents_as_string()
   ```

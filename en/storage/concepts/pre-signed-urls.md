@@ -4,7 +4,7 @@ Using pre-signed URLs, internet users can perform various operations in {{ objst
 
 - Download an object
 - Upload an object
-- Create a bucket
+- Creating a bucket
 
 A pre-signed URL is a URL containing request authorization data in its parameters. Users with static access keys can create pre-signed URLs.
 
@@ -142,7 +142,7 @@ To create a pre-signed URL, {{ objstorage-name }} add the [parameters](#presigne
 
 #### Example of composing a pre-signed URL for object download {#example-for-object-download}
 
-Let's compose a pre-signed URL to download the `object-for-share.txt` object that's valid for one hour.
+Create a signed URL to download the `object-for-share.txt` object from `example-bucket` for an hour.
 
 - Static key:
 

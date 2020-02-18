@@ -66,7 +66,7 @@ A response may contain [common response headers](../common-response-headers.md) 
 
 ### Response codes {#response-codes}
 
-For the list of possible responses, see [{#T}](../response-codes.md).
+For a list of possible responses, see [{#T}](../response-codes.md).
 
 ### Data schema {#response-scheme}
 

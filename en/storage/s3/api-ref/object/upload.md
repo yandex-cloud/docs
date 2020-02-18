@@ -20,7 +20,7 @@ PUT /{bucket}/{key} HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Name of the bucket. |
+| `bucket` | Bucket name. |
 | `key` | Object key. ID for saving the object in {{ objstorage-name }}. |
 
 ### Headers {#request-headers}
@@ -46,5 +46,5 @@ Responses can only contain [common response headers](../common-response-headers.
 
 ### Response codes {#response-codes}
 
-For the list of possible responses, see [{#T}](../response-codes.md).
+For a list of possible responses, see [{#T}](../response-codes.md).
 

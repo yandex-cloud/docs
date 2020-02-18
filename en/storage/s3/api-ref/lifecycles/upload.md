@@ -12,7 +12,7 @@ PUT /{bucket}?lifecycle HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Name of the bucket. |
+| `bucket` | Bucket name. |
 
 ### Query parameters {#request-params}
 
@@ -38,5 +38,5 @@ Responses can only contain [common response headers](../common-response-headers.
 
 ### Response codes {#response-codes}
 
-For the list of possible responses, see [{#T}](../response-codes.md).
+For a list of possible responses, see [{#T}](../response-codes.md).
 

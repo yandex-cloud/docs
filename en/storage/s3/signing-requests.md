@@ -10,11 +10,11 @@ The signing process consists of the following stages:
 2. [Generate a string to sign](#string-to-sign-gen)
 3. [Sign the string with a key](#signing)
 
-Use [HMAC](https://en.wikipedia.org/wiki/HMAC) with the [SHA256](https://en.wikipedia.org/wiki/SHA-2) hash function to sign. Many programming languages support relevant methods. The samples assume the presence of a `sign` function that encodes the input string with the specified key.
+Use [HMAC](https://en.wikipedia.org/wiki/HMAC) with the [SHA256](https://en.wikipedia.org/wiki/SHA-2) hash function to sign. Many programming languages support relevant methods. The examples assume that there is a `sign(STRING, KEY)` function that encodes the input string with the specified key.
 
-## Generate a signing key {#signing-key-gen}
+## Generating a signing key {#signing-key-gen}
 
-To generate a signing key, you need static access keys for {{ objstorage-name }}. To find out how to get them, read [Before you start](index.md#before-you-begin).
+To generate a signing key, you need static access keys for {{ objstorage-name }}. To learn how to get them, see [Before you start](./index.md#before-you-begin).
 
 Generate a signing key
 

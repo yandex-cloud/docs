@@ -14,7 +14,7 @@ Naming rules:
 
    {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
 
-When selecting a bucket name, please keep in mind that names containing dots are used for [hosting static sites](../hosting/index.md). You may encounter a name conflict that prevents you or another user from hosting a website in Object Storage.
+When selecting a bucket name, please keep in mind that names containing dots are used for [hosting static websites](hosting.md). You may encounter a name conflict that prevents you or another user from hosting a website in Object Storage.
 
 ## Bucket URL {#bucket-url}
 
@@ -31,13 +31,13 @@ You can use the following URL format to access a bucket:
 
 When you use URLs in the format `http://<bucket>.{{ s3-storage-host }}?<parameters>` HTTPS isn't available.
 
-Read about HTTPS support when hosting websites in {{ objstorage-name }} under [{#T}](../hosting/index.md).
+Read about HTTPS support when hosting websites in {{ objstorage-name }} under [{#T}](hosting.md).
 
 ## Bucket settings {#bucket-settings}
 
 You can:
 
-- [Limit the maximum bucket size](../operations/buckets/limit-max-volume.md).
+- [Limit the maximum size of a bucket](../operations/buckets/limit-max-volume.md).
 
     {{ objstorage-name }} doesn't let you upload objects if adding them exceeds the maximum bucket size.
 
@@ -45,9 +45,9 @@ You can:
 
      Objects uploaded to a bucket are by default saved with the storage class specified for that bucket.
 
-- Configure a bucket for [static website hosting](../hosting/index.md).
+- Configure a bucket for [static website hosting](hosting.md).
 
-- Download a [CORS configuration](../cors/index.md) for a bucket.
+- Download a [CORS configuration](cors.md) for a bucket.
 
 - Set up [object lifecycles](lifecycles.md).
 
@@ -57,7 +57,7 @@ By default, buckets are created with restricted access, which is defined in the 
 
 {% include [storage-public-operations](../_includes_service/storage-public-operations.md) %}
 
-If necessary, you can configure permissions to buckets and the objects they contain using [ACL](acl.md).
+If necessary, you can configure permissions to the buckets and objects they contain using the [ACL](acl.md).
 
 ## Guidelines and limitations {#details-of-usage}
 

@@ -12,7 +12,7 @@ GET /{bucket}?lifecycle HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Name of the bucket. |
+| `bucket` | Bucket name. |
 
 ### Query parameters {#request-params}
 
@@ -38,5 +38,5 @@ For a list of other possible responses, see [{#T}](../response-codes.md).
 
 ### Data schema {#response-scheme}
 
-The structure of returned data is the same as that of the data passed by the [upload](upload.md) method. The structure is described in [{#T}](xml-config.md).
+The structure of returned data is the same as the structure of the data passed by the [upload](upload.md) method. The structure is described in [{#T}](xml-config.md).
 

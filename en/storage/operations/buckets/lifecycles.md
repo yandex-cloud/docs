@@ -1,14 +1,14 @@
 # Managing lifecycles of object in buckets
 
-{{ objstorage-name }} allows you to manage [object lifecycles](../../concepts/lifecycles.md) for objects in buckets.
+{{ objstorage-name }} lets you manage [lifecycles](../../concepts/lifecycles.md) for objects in buckets.
 
 {% list tabs %}
 
 - Management console
-    1. In the management console, go to the bucket you want to configure object licecycles for.
+    1. In the management console, go to the bucket you want to configure object lifecycles for.
     2. In the left pane, select **Lifecycle**.
     3. Click **Configure**.
-    4. On the page that opens, you can add, remove, and edit configuration rules. For a detailed description of configuration fields, see [{#T}](../../s3/api-ref/lifecycles/xml-config.md).
+    4. On the page that opens, you can add, remove, and edit configuration rules. For a detailed description of the configuration fields, see [{#T}](../../s3/api-ref/lifecycles/xml-config.md).
 
     {% note info %}
 
@@ -18,7 +18,7 @@
 
 - AWS CLI
 
-    To upload the configuration via the AWS CLI:
+    To upload a configuration via the AWS CLI:
 
     1. Define the object lifecycle configuration in JSON format. For example:
 

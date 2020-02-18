@@ -18,3 +18,10 @@
 - [{#T}](objects/deleting-multipart.md)
 - [{#T}](objects/edit-acl.md)
 
+## Static website hosting
+
+- [{#T}](hosting/setup.md)
+- [{#T}](hosting/own-domain.md)
+- [{#T}](hosting/multiple-domains.md)
+- [{#T}](hosting/certificate.md)
+

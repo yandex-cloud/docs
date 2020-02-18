@@ -3,7 +3,7 @@
 {{ objstorage-name }} lets you store objects in both *standard* and *cold* storages:
 
 - Standard storage is designed for storing frequently used objects.
-- Cold storage is designed for long-term storage of objects with rare read requests.
+- Cold storage is designed for the long-term storage of objects that are rarely read.
 
 The storage class is optionally specified when uploading each individual object.
 
@@ -15,7 +15,7 @@ If you don't specify the storage class on object upload, the object is saved to 
 
 You can set the default storage when creating a bucket in the management console. Afterwards, you can also change this setting for each bucket in the management console. You can't set or change the default storage with other tools. For buckets created outside of the management console, the default storage is set. You can't set the default storage for all buckets in a folder or cloud at once.
 
-Setting default storage is useful if the tool you use doesn't let you set the object storage class.
+Setting the default storage is useful if the tool you use doesn't let you set the object storage class.
 
 ## Changing an object storage class {#changing-storage-class}
 
@@ -38,5 +38,5 @@ The lifecycle configuration only lets you move an object from standard to cold s
 
 - Cold storage: `COLD`.
 
-    To upload objects to cold storage, you can also specify the `STANDARD_IA` and `NEARLINE` IDs. {{ objstorage-name }} interprets them as `COLD`. Use any ID you like when working with an [Amazon S3- compatible API](../s3/index.md) or the tools described in [{#T}](../instruments/index.md).
+    To upload objects to cold storage, you can also specify the `STANDARD_IA` and `NEARLINE` IDs. {{ objstorage-name }} interprets them as `COLD`. Use any ID you want when working with an [Amazon S3-compatible API](../s3/index.md) or the tools described in [{#T}](../tools/index.md).
 

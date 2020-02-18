@@ -84,7 +84,7 @@ hadoop distcp \
 
 ## Using s3fs {#s3fs}
 
-`s3fs` lets you mount {{objstorage-name}} buckets using Fuse. Read more at [s3fs](../../storage/instruments/s3fs.md)
+`s3fs` lets you mount {{objstorage-name}} buckets using Fuse. Read more at [s3fs](../../storage/tools/s3fs.md)
 
 ## Using {{objstorage-name}} from Spark {#objstorage-spark}
 
@@ -143,3 +143,4 @@ hadoop distcp \
   ```
 
 {% endlist%}
+

@@ -12,7 +12,7 @@ GET /{bucket}/{key}?acl HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Name of the bucket. |
+| `bucket` | Bucket name. |
 | `key` | Object key. |
 
 ### Query parameters {#request-params}
@@ -37,5 +37,5 @@ For a description of the structure returned, see [ACL XML schema](xml-config.md)
 
 ### Response codes {#response-codes}
 
-For the list of possible responses, see [{#T}](../response-codes.md).
+For a list of possible responses, see [{#T}](../response-codes.md).
 

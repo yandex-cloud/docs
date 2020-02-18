@@ -1,6 +1,6 @@
 # All services and methods
 
-{{ objstorage-name }} The HTTP API provides the following services:
+{{ objstorage-name }} HTTP API provides the following services:
 
 | Service | Description |
 | ------- | --------- |
@@ -52,9 +52,9 @@
 
 | Method | Description |
 | ----- | ----- |
-| [upload](hosting/upload.md) | Uploads a bucket's configuration for static website hosting to {{ objstorage-name }}. |
-| [get](hosting/get.md) | Returns a bucket's configuration for static website hosting from {{ objstorage-name }}. |
-| [delete](hosting/delete.md) | Deletes a bucket's configuration for static website hosting. |
+| [upload](hosting/upload.md) | Uploads a bucket configuration for static website hosting to {{ objstorage-name }}. |
+| [get](hosting/get.md) | Returns a bucket configuration for static website hosting from {{ objstorage-name }}. |
+| [delete](hosting/delete.md) | Deletes a bucket configuration for static website hosting. |
 
 ### CORS service {#cors-service}
 
@@ -84,5 +84,5 @@
 ## See also {#see-also}
 
 - [{#T}](../../s3/index.md)
-- [{#T}](../../instruments/index.md)
+- [{#T}](../../tools/index.md)
 

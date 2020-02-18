@@ -1,4 +1,4 @@
-# Limiting the maximum bucket size
+# Limiting the maximum size of a bucket
 
 {{objstorage-name}} lets you limit the maximum size of a bucket.
 

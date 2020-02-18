@@ -130,7 +130,7 @@ Description of form fields:
 
 | Field | Description | Required |
 | ----- | ---------- | -------------- |
-| `acl` | ACL for the object. You can set one of the [pre-defined ACLs](acl.md#predefined-acls). For example, if you want to make an object public, use `public-read`. | No |
+| `acl` | ACL for the object. You can set one of the [predefined ACLs](acl.md#predefined-acls). For example, if you want to make an object public, use `public-read`. | No |
 | `Cache-Control` | A set of directives for caching data according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9). | No |
 | `Content-Disposition` | The name {{ objstorage-name }} suggests saving an object as a file under when it's downloaded. Compliant with [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1). | No |
 | `Content-Encoding` | Defines content encoding according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11). | No |
@@ -146,7 +146,7 @@ Description of form fields:
 | `x-amz-date` | Date in ISO8601 format, for example: `20180719T000000Z`. It must match the date in the `x-amz-credential` field (by the value rather than format) and the date used to sign the policy.<br/><br/>Required if the form has a security policy. | Conditional |
 | `x-amz-storage-class` | [The storage class](storage-class.md) for the object. With an HTML form, you can only put an object in standard storage. | No |
 | `x-amz-meta-*` | User-defined object metadata.<br/><br/>{{ objstorage-name }} considers all headers starting with `x-amz-meta-` as user-defined. It doesn't process these headers. Instead, it saves them in their original format.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The header names and their values are included when calculating the size. | No |
-| `x-amz-website-` `redirect-location` | If the bucket is configured as a [website](../hosting/index.md), this field sets a redirect from the specified object to any other object in the bucket or any URL on the internet. The redirect is saved in the metadata of the object. | No |
+| `x-amz-website-` `redirect-location` | If the bucket is configured as a [website](hosting.md), this field sets a redirect from the specified object to any other object in the bucket or any URL on the internet. The redirect is saved in the metadata of the object. | No |
 | `file` | An input field that lets the user select a file to upload. This field must be the last field in the form. All fields given after `file` are ignored. You can't upload more than one file in a single request. | Yes |
 
 ## Security policy {#policy}
@@ -186,7 +186,7 @@ Possible restrictions:
 | Element | Restriction type | Restriction scope |
 | -------- | ----------------- | --------------------- |
 | `acl` | Exact and partial match. | The `acl` field in the form. |
-| `bucket` | Exact and partial match. | Name of the bucket. |
+| `bucket` | Exact and partial match. | Bucket name. |
 | `content-length-range` | `content-length-range` | `content-length-range` |
 | `key` | Exact and partial match. | The `key` field in the form. It lets you set the object key or prefix. |
 | `success_action_redirect` | Exact and partial match. | The `success_action_redirect` field in the form. |
@@ -213,7 +213,7 @@ Input conditions:
 - Uploaded objects are publicly accessible for reading.
 - If the upload is successful, the user is redirected to `https://cloud.yandex.com/docs/storage/concepts/presigned-post-forms`.
 
-To generate form fields, we use [boto3](../instruments/boto.md) from the Python SDK:
+To generate form fields, we use [boto3](../tools/boto.md) from the Python SDK:
 
 ```python
 aws_access_key_id = 'JK38EXAMPLEAKDID8'

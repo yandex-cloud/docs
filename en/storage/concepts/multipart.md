@@ -2,9 +2,9 @@
 
 {{ objstorage-name }} lets you store objects that are up to several terabytes in size (see [{#T}](limits.md)). The larger the object, the more likely the upload will fail with a network error. For this reason, it is more efficient to upload larger objects in smaller parts. Sending objects to {{ objstorage-name }} like this is called a multipart upload. For more information about multipart upload support, see [{#T}](../s3/api-ref/multipart.md).
 
-Many of the tools listed in [{#T}](../instruments/index.md) support multipart uploads.
+Many of the tools listed in [{#T}](../tools/index.md) support multipart uploads.
 
-You might see the following messages in a bucket overview in the Cloud management console:
+You might see the following messages in a bucket overview in the Yandex.Cloud management console:
 
 - "N incomplete uploads."
 - "Wait for uploading to finish, or use the tool of your choice to end or delete the upload processes."

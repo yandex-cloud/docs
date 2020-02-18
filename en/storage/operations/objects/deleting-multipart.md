@@ -1,6 +1,6 @@
-# Deleting partially uploaded objects
+# Deleting a partially uploaded object
 
-You can upload an object in parts using [multipart upload](../../concepts/multipart.md). You can't see or delete these objects in the management console. To do this, use [tools](../../instruments/index.md) that support multipart uploads.
+You can upload an object in parts using [multipart upload](../../concepts/multipart.md). You can't see or delete these objects in the management console. To do this, use [tools](../../tools/index.md) that support multipart uploads.
 
 {% list tabs %}
 
@@ -17,3 +17,4 @@ You can upload an object in parts using [multipart upload](../../concepts/multip
   ```
 
 {% endlist %}
+

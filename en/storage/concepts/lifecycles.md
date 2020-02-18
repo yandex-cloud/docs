@@ -13,9 +13,9 @@ To manage object lifecycles, you can use:
 
 - [The Yandex.Cloud management console](../operations/buckets/lifecycles.md).
 
-- [The Amazon S3-compatible HTTP API](../s3/index.md).
+- [An Amazon S3-compatible HTTP API](../s3/index.md).
 
-    This way you can manage lifecycle configurations using [tools](../instruments/index.md) that support Amazon S3 HTTP API.
+    This way you can manage lifecycle configurations using [tools](../tools/index.md) that support Amazon S3 HTTP API.
 
-When you manage lifecycles via the Amazon S3-compatible HTTP API, define the [configuration in XML format](../s3/api-ref/lifecycles/xml-config.md). Different tools may require different configuration formats, see the example for AWS CLI in [{#T}](../operations/buckets/lifecycles.md).
+When you manage lifecycles via the Amazon S3-compatible HTTP API, define the [configuration in XML format](../s3/api-ref/lifecycles/xml-config.md). Different tools may require different configuration formats, see the example for the AWS CLI in [{#T}](../operations/buckets/lifecycles.md).
 

@@ -1,47 +1,47 @@
 # Access control lists (ACLs)
 
-Access control lists allow you to control access to buckets and objects.
-
 Yandex.Cloud uses two independent mechanisms for managing access to {{ objstorage-name }} resources:
 
-- {{ iam-name }} ([IAM documentation](../../iam/concepts/index.md))
-- ACL {{ objstorage-name }}.
+- [{{ iam-name }}](../../iam/concepts/index.md) settings.
+- An {{ objstorage-name }} ACL is a list of permissions for each object and bucket and is stored directly in {{ objstorage-name }}.
 
-{{ objstorage-name }} creates ACLs for all objects and buckets. ACLs are empty by default. Users with the appropriate IAM rights can upload ACLs for {{ objstorage-name }} resources. Each ACL contains a list of users who are allowed to access objects and buckets and specifies user permissions. Permissions and users in the IAM and ACL may differ. To learn how {{ objstorage-name }} verifies access to resources, see [Checking permissions](#permissions-check).
+When receiving a request to a bucket or object, {{ objstorage-name }} checks access permissions through both mechanisms. If the required access is granted from either method, {{ objstorage-name }} executes the request. Permissions granted to a bucket apply to all of the objects it contains. With ACLs, you can extend access permissions to individual objects.
 
-You can grant permission to Yandex.Cloud users, service accounts, and system groups.
+By default, {{ objstorage-name }} creates an empty ACL for each new object or bucket. Users with the appropriate access rights can edit and upload ACLs for {{ objstorage-name }} buckets and objects.
 
-To grant permission to a Yandex.Cloud user, you need to know their account ID. You can find the account ID:
+You can use ACLs to grant permissions to Yandex.Cloud users, service accounts, and system groups. To do this, you need to know the [permission recipient's ID](#accounts-ids). When granting permissions, you can use [predefined ACLs](#predefined-acls), which contain common permission sets.
 
-- In the [IAM]({{ link-console-access-management }}) section of the management console.
-- Using the [CLI or API](../../iam/operations/users/get.md).
-
-To grant permission to a [service account](../../iam/concepts/users/service-accounts) by retrieving its ID in the Service accounts section of the management console.
-
-To grant permission to a system group, you need to know its URI. Learn more in [System groups](#system_groups).
-
-{{ objstorage-name }} supports [predefined ACLs](#predefined_acls), which contain common permission sets.
-
-To view the ACL structure, see [ACL XML schema](../s3/api-ref/acl/xml-config.md).
-
-{{ objstorage-name }} supports operations for uploading and downloading ACLs. No operation is available to delete ACLs. To remove all access permissions, upload an empty ACL. {{ objstorage-name }} creates an empty ACL for each new object or bucket by default.
+To view the ACL structure, see [ACL XML schema](../s3/api-ref/acl/xml-config.md). You can set up to 100 rules per ACL.
 
 {% note info %}
 
-ACLs uploaded for objects are applied immediately. ACLs uploaded for buckets and access permissions updated in the IAM service apply after a delay. For more information about delays, see [IAM documentation](../../iam/concepts/access-control/index.md).
+ACLs uploaded for objects are applied immediately. ACLs uploaded for buckets and access permissions updated in the IAM service apply after a delay. For more information about delays, see the [IAM documentation](../../iam/concepts/access-control/index.md).
 
 {% endnote %}
 
-## Checking permissions {#permissions-check}
+## Permission recipient ID {#accounts-ids}
 
-Yandex.Cloud uses two mechanisms for managing access to {{ objstorage-name }} resources:
+- Yandex.Cloud user
 
-- {{ iam-name }}
-- ACL
+    You can get the ID in the following ways:
+    - In the [IAM]({{ link-console-access-management }}) section of the management console.
+    - Using the [CLI or IAM API](../../iam/operations/users/get.md).
 
-When receiving a request to a bucket or object, {{ objstorage-name }} checks access permissions through both mechanisms. If the required access is granted from either method, {{ objstorage-name }} executes the request.
+- [A service account](../../iam/concepts/users/service-accounts)
 
-Permissions granted to a bucket apply to all of the objects it contains.  You can extend user permissions to individual objects by adding them to the relevant objects' ACL.
+    To get the ID, go to the **Service accounts** section in the management console.
+
+- [System group](#system-groups)
+
+    Use the system group URI to grant permissions.
+
+## ACL operations {#acl-operations}
+
+- In the management console, you can edit ACLs for [buckets](../operations/buckets/edit-acl.md) and [objects](../operations/objects/edit-acl.md).
+
+- Using an Amazon S3-compatible API, you can [upload or download](../s3/api-ref/acl.md) ACLs for buckets or objects.
+
+    You can't delete ACLs. To remove all access permissions, upload an empty ACL.
 
 ## Permission types {#permissions-types}
 
@@ -61,18 +61,20 @@ If you specify `WRITE` permission, but not `READ` when making an ACL, {{ objstor
 
 {% endnote %}
 
-## Predefined ACLs {#predefined_acls}
+## Predefined ACLs {#predefined-acls}
 
 | ACL | Description |
 | ---- | --------- |
-| `private`<br/>`bucket-owner-full-control` | Cloud users get permissions according to their roles in IAM. |
+| `private`<br/>`bucket-owner-full-control` | Yandex.Cloud users get permissions according to their roles in IAM. |
 | `public-read` | The `AllUsers` system group gets `READ` permission. |
 | `public-read-write` | The `AllUsers` system group gets `READ` and `WRITE` permissions. |
 | `authenticated-read` | The `AuthenticatedUsers` system group gets `READ` permission. |
 
 Predefined ACLs can be applied to both objects and buckets. When applied to an object, the `public-read-write` ACL is the same as `public-read`.
 
-## System groups {#system_groups}
+You can upload a predefined ACL using only an [Amazon S3-compatible HTTP API](../s3/api-ref/acl.md). When uploading an ACL, use the `x-amz-acl` HTTP header.
+
+## System groups {#system-groups}
 
 ### AllUsers {#all-users}
 

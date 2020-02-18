@@ -3,7 +3,7 @@
 This section lists the roles required for an account to perform operations with {{ objstorage-name }} resources. The following user categories can be granted access to {{ objstorage-name }}:
 
 - Users with a registered account in Yandex.Passport.
-- [Service accounts](../../iam/concepts/users/service-accounts.md) {{ iam-full-name }}.
+- [Service accounts](../../iam/concepts/users/service-accounts.md) for {{ iam-full-name }}.
 
 {% note info %}
 

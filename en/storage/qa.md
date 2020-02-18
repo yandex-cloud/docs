@@ -1,6 +1,6 @@
 # Questions and answers about {{ objstorage-name }}
 
-#### What is {{ objstorage-full-name }}? {#qa-what-is}
+#### What's {{ objstorage-full-name }}? {#qa-what-is}
 
 {{ objstorage-full-name }} is a universal, scalable solution for data storage. It is the perfect choice both for high-load services that require reliable and fast access to data, and for projects with minimal requirements for storage infrastructure.
 
@@ -8,7 +8,7 @@
 
 With {{ objstorage-name }}, you can:
 
-- Store files of your project (website or server app) in {{ objstorage-name }} and make access to them either public or private. Files can be in any format.
+- Store your project files (website or server app) in {{ objstorage-name }} and make access to them either public or private. Files can be in any format.
 - Store large archive data (up to 5 TB per file) and make them available only to those you allow.
 - Enable collaboration with data inside a distributed organization.
 - Provide access to your data from any place on Earth where internet access is available.
@@ -22,7 +22,7 @@ To start working with {{ objstorage-name }}:
 At this step, you can already use {{ objstorage-name }} via the Yandex.Cloud management console. You can create and delete buckets, as well as upload objects to and download them from buckets.
 1. Get static keys to use the {{ objstorage-name }} HTTP API or available SDKs and apps.
 
-For more detailed instructions, see the sections [{#T}](quickstart.md) and [{#T}](s3/index.md).
+For more detailed instructions, see [{#T}](quickstart.md) and [{#T}](s3/index.md).
 
 #### What data formats can I store? {#qa-data-types}
 
@@ -32,15 +32,14 @@ You can store data in any format. {{ objstorage-full-name }} saves data in its o
 
 Use the feedback form on the support page in the management console.
 
-#### How do I contact technical support? {#qa-support-channels}
+#### How do I contact technical support? {qa-support-channels}
 
-You can contact technical support using any of these methods:
-
-{% include [support-channels](../_includes/support-channels.md) %}
+You can contact technical support in the management console
+ under [Support]({{ link-console-support }}).
 
 #### How much data can I store? {#qa-storage-volume}
 
-Read the section [{#T}](concepts/limits.md).
+See [{#T}](concepts/limits.md).
 
 #### How can I delete multiple objects at a time? {#qa-delete-multiple-objects}
 
@@ -52,7 +51,7 @@ The data is saved in the form in which it was transmitted by the user.
 
 #### Does Yandex use {{ objstorage-name }} to store its own data? {#qa-usage-by-yandex}
 
-Yes, it does. {{ objstorage-name }} is used in the Yandex infrastructure. Several Yandex services store their websites' static data in the storage.
+Yes. {{ objstorage-name }} is used in the Yandex infrastructure. Several Yandex services store their websites' static data in the storage.
 
 #### What data consistency model does {{ objstorage-full-name }} use? {#qa-consistency}
 
@@ -71,11 +70,11 @@ Data is stored in several geographically distributed data centers located in Rus
 
 #### How is my data protected in {{ objstorage-full-name }}? {#qa-data-security}
 
-Physical media are located in Yandex's data centers that are high security facilities.
+Physical media is located in Yandex data centers, wich are highly secure facilities.
 
 Data is stored in an encrypted format and none of those who have access to the physical media can read the data.
 
 By default, the storage is accessed via HTTPS.
 
-
 {% include [qa-fz-152.md](../_includes/qa-fz-152.md) %}
+

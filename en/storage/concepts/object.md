@@ -14,12 +14,9 @@ The object ID is the string [key](#key).
 - Downloading an object from storage.
 - Copying an object inside the storage (for example, from one bucket to another).
 
-All other operations that can be performed using [tools](../instruments/index.md) are combinations of the above.
+All other operations that can be performed using [tools](../tools/index.md) are combinations of the ones given above.
 
-You can configure the following for a bucket's object:
-
-- [CORS](../cors/index.md).
-- [Lifecycle](lifecycles.md).
+You can configure [lifecycles](lifecycles.md) for bucket objects.
 
 {{ objstorage-name }} restricts the size of objects and their metadata. For more information, see [{#T}](limits.md)).
 
@@ -27,7 +24,7 @@ You can configure the following for a bucket's object:
 
 The key is the ID of an object in a bucket.
 
-Objects are stored in a flat structure, but GUI-based [tools](../instruments/index.md) let you use {{ objstorage-name }} as a hierarchical file system. The hierarchical view is possible because keys can be written as paths in a file system (for example, `top_level_prefix/subprefix/text_data.txt`). In the Yandex.Cloud management console, prefixes are called folders.
+Objects are stored in a flat structure, but GUI-based [tools](../tools/index.md) let you use {{ objstorage-name }} as a hierarchical file system. Hierarchical view is possible because keys can be written as paths in a file system (for example, `top_level_prefix/subprefix/text_data.txt`). In the Yandex.Cloud management console, prefixes are called directories.
 
 A key must:
 
@@ -37,15 +34,15 @@ A key must:
 
 The following characters are safe to use in a key: `[a-zA-Z0-9]`, `-`, `_`, `/`, `\`. Other characters may cause various problems in {{ objstorage-name }}.
 
-### Folders {#folder}
+### Directory {#folder}
 
-There are no folders in {{ objstorage-name }}, but GUI-based file management clients like [CyberDuck](../instruments/cyberduck.md) and the {{ objstorage-name }} interface in the Yandex.Cloud management console emulate folders. A zero-size object serves as a folder. Its key is included in the keys of other objects as a prefix. For example, an object with the `x` key and zero size will be a folder in the management console, while an object with the `x/y.txt` key will be the `y.txt` object located in the `x` folder.
+There are no directories in {{ objstorage-name }}, but GUI-based file management clients like [CyberDuck](../tools/cyberduck.md) and the {{ objstorage-name }} interface in the Yandex.Cloud management console emulate them. A zero-size object serves as a directory. Its key is included as a prefix in the keys of other objects. For example, an object with the `x` key and zero size is a directory in the management console, while an object with the `x/y.txt` key is the `y.txt` object located in the `x` directory.
 
-Each of the [tools](../instruments/index.md) manages objects and folders according to their own logic, which is described in their respective documentation.
+Each [tool](../tools/index.md) manages objects and directories according to their own logic, which is described in their respective documentation.
 
 {% note info %}
 
-Deleting folders with objects is an asynchronous operation. At the start of the operation, {{ objstorage-name }} prepares a list of objects to delete and then deletes them. If during the deletion process, you upload an object to {{ objstorage-name }} that should be in the folder being deleted, the object will still be uploaded successfully. After both operations in {{objstorage-name}} are complete, you're left with the folder that was supposed to be deleted and the newly uploaded file.
+Deleting directories with objects is an asynchronous operation. At the start of the operation, {{ objstorage-name }} prepares a list of objects to delete and then deletes them. If during the deletion process, you upload an object to {{ objstorage-name }} that should be in the directory being deleted, the object will still be uploaded successfully. After both operations in {{objstorage-name}} are complete, you're left with the directory that was supposed to be deleted and the newly uploaded file.
 
 {% endnote %}
 

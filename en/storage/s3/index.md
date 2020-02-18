@@ -6,7 +6,7 @@ To use the API:
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
-To access the HTTP API directly, you need static key authentication, which is supported by the tools listed in [{#T}](../instruments/index.md).
+To access the HTTP API directly, you need static key authentication, which is supported by the tools listed in [{#T}](../tools/index.md).
 
 For a list of supported Amazon S3 HTTP API methods, see the [API reference](api-ref/index.md).
 
@@ -48,3 +48,4 @@ URLs can taken one of the following forms:
 Cross-domain requests are available for all API methods used for object management.
 
 To check permissions, CORS sends the [options](api-ref/object/options.md) preflight request to a resource. {{ objstorage-name }} allows you to skip the preflight request when sending cross-domain requests to resources. In this case, your request [headers](api-ref/object/options.md#request-headers) must be the same as those in the preflight request.
+
