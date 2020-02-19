@@ -85,6 +85,8 @@ items:
             href: pricing-archive/pricing-01012019.md
           - name: From January 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
+          - name: From March 1, 2019 to February 1, 2020
+            href: pricing-archive/pricing-01022020.md
   - name: API reference
     items:
       - name: Authentication in the API
