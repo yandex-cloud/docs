@@ -101,7 +101,7 @@ Restore the schema in the new cluster:
 ```bash
 pg_restore -Fd -v --single-transaction -s --no-privileges \
           -h <source address> \
-          -U <username>\
+          -U <username> \
           -p 6432 \
           -d <database name> /tmp/db_dump
 ```
@@ -124,7 +124,8 @@ For logical replication to work, you need to define a publication (a group of lo
    CREATE PUBLICATION p_data_migration FOR ALL TABLES;
    ```
 
-1. On the {{ mpg-name }} cluster host, create a subscription with a connection string to the publication. For more information about creating subscriptions, see the [{{ PG }} documentation](https://www.postgresql.org/docs/10/sql-createsubscription.html).
+1. On the {{ mpg-name }} cluster host, create a subscription with a connection string to the publication. Learn more about creating
+subscriptions in the [{{ PG }} documentation](https://www.postgresql.org/docs/10/sql-createsubscription.html).
 
    Request with SSL enabled:
 
@@ -191,7 +192,7 @@ Before trying to import your data, check whether the DBMS versions of the existi
 Migration stages:
 
 1. [Create a dump of the database you want to migrate](#dump).
-2. [Create a virtual machine in Yandex.Cloud and upload the database dump to it (optional)](#create-vm).
+2. [(optional) Create a virtual machine in Yandex.Cloud and upload the database dump to it](#create-vm).
 3. [Create a cluster {{ mpg-name }}](#create-cluster).
 4. [Restore data from the dump to the cluster](#restore).
 
@@ -234,25 +235,30 @@ To prepare the virtual machine to restore the dump:
 
     The virtual machine must be in the same network and availability zone as the {{ PG }} cluster. Additionally, the VM must be assigned an external IP address so that you can load the dump from outside Yandex.Cloud.
 
-2. Install the {{ PG }} client and additional utilities for working with the DBMS:
+1. Set up the [{{ PG }} apt repository](https://www.postgresql.org/download/linux/ubuntu/).
 
-    ```
-    $ sudo apt install postgresql-client-common
-    
-    $ sudo apt install postgresql-client-10 # For PostgreSQL 10
-    
-    $ sudo apt install postgresql-client-11 # For PostgreSQL 11
-    
-    $ sudo apt install postgresql-client-12 # For PostgreSQL 12
-    ```
+1. Install the {{ PG }} client and additional utilities for working with the DBMS:
 
-3. Move the DB dump to the VM. For example, you can use `scp`:
+   ```bash
+   $ sudo apt install postgresql-client-common
+   
+   # For PostgreSQL 10
+   $ sudo apt install postgresql-client-10
+   
+   # For PostgreSQL 11
+   $ sudo apt install postgresql-client-11
+   
+   # For PostgreSQL 12
+   $ sudo apt install postgresql-client-12
+   ```
+
+1. Move the DB dump to the VM. For example, you can use `scp`:
 
     ```
     scp ~/db_dump.tar.gz <VM username>@<VM public address>:/tmp/db_dump.tar.gz
     ```
 
-4. Unpack the dump:
+1. Unpack the dump:
 
     ```
     tar -xzf /tmp/db_dump.tar.gz
@@ -260,7 +266,7 @@ To prepare the virtual machine to restore the dump:
 
 ### Create a cluster {{ mpg-name }} {#create-cluster}
 
-Make sure that the computing power and storage size of the cluster are appropriate for the environment, where the existing databases are deployed, and [create a cluster](cluster-create.md).
+Make sure that the computing power and storage size of the cluster are appropriate for the environment where the existing databases are deployed, and [create a cluster](cluster-create.md).
 
 ### Restore data in the new environment {#restore}
 
