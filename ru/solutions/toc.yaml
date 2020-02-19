@@ -73,6 +73,10 @@ items:
         href: infrastructure-management/jenkins.md
       - name: Непрерывное развертывание контейнеризованных приложений с помощью GitLab
         href: infrastructure-management/gitlab-containers.md
+      - name: Создание кластера Linux-серверов «1С:Предприятия» с кластером Managed Service for PostgreSQL 
+        href: infrastructure-management/1c-postgresql-linux.md
+      - name: Создание кластера Windows-серверов «1С:Предприятия» с базой данных MS SQL Server 
+        href: infrastructure-management/1c-mssql-windows.md
   - name: Windows в Яндекс.Облаке
     items:
       - name: Все сценарии
@@ -93,6 +97,8 @@ items:
         href: routing/cisco.md
       - name: Установка виртуального роутера Mikrotik CHR
         href: routing/mikrotik.md
+      - name: Создание VPN-соединения с помощью OpenVPN
+        href: routing/openvpn.md
   - name: DataLens
     items:
       - name: Все сценарии
