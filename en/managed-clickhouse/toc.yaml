@@ -77,8 +77,6 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: From February 1, 2020
-        href: pricing-01022020.md
       - name: Archive
         items:
           - name: Before January 1, 2019
