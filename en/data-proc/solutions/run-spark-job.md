@@ -38,8 +38,6 @@ To run Spark applications in {{ dataproc-name }} clusters, you can use:
 1. Enter the following code line by line:
 
    ```python
-   sc._jsc.hadoopConfiguration().set("spark.hadoop.fs.s3a.endpoint", "storage.yandexcloud.net")
-   sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider")
    sql = SQLContext(sc)
    df = sql.read.parquet("s3a://yc-mdb-examples/dataproc/example01/set01")
    ```
@@ -76,29 +74,28 @@ Spark Submit lets you run pre-written applications using the `spark-submit` scri
 
 - PySpark Submit
 
-  1. On the master host, create the file `month_stat.py` with the following code:
+  1.  On the master host, create the file `month_stat.py` with the following code:
 
-    ```python
-    import sys
-    
-    from pyspark import SparkContext, SparkConf
-    from pyspark.sql import SQLContext
-    
-    def main():
-          conf = SparkConf().setAppName("Month Stat - Python")
-          conf.set("spark.hadoop.fs.s3a.endpoint", "storage.yandexcloud.net")
-          conf.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider")
-          sc = SparkContext(conf=conf)
-    
-          sql = SQLContext(sc)
-          df = sql.read.parquet("s3a://yc-mdb-examples/dataproc/example01/set01")
-          defaultFS = sc._jsc.hadoopConfiguration().get("fs.defaultFS")
-          month_stat = df.groupBy("Month").count()
-          month_stat.repartition(1).write.format("csv").save(defaultFS+"/tmp/month_stat")
-    
-    if __name__ == "__main__":
-          main()
-    ```
+     ```python
+      import sys
+      
+      from pyspark import SparkContext, SparkConf
+      from pyspark.sql import SQLContext
+      
+      def main():
+              conf = SparkConf().setAppName("Month Stat - Python")
+              conf.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider")
+              sc = SparkContext(conf=conf)
+      
+              sql = SQLContext(sc)
+              df = sql.read.parquet("s3a://yc-mdb-examples/dataproc/example01/set01")
+              defaultFS = sc._jsc.hadoopConfiguration().get("fs.defaultFS")
+              month_stat = df.groupBy("Month").count()
+              month_stat.repartition(1).write.format("csv").save(defaultFS+"/tmp/month_stat")
+      
+      if __name__ == "__main__":
+              main()
+     ```
 
   1. Run the application:
 

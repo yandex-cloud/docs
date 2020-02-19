@@ -6,7 +6,9 @@ items:
     items:
       - name: Configuring networks for Data Proc clusters
         href: solutions/configure-network.md
-      - name: Running Spark jobs
+      - name: Using Apache Hive
+        href: solutions/how-to-use-hive.md
+      - name: Running Spark applications
         href: solutions/run-spark-job.md
       - name: Copying files from Yandex Object Storage
         href: solutions/copy-files-from-object-storage.md
@@ -56,4 +58,3 @@ items:
         include:
           repo: docs
           path: en/_api-ref/dataproc/toc.yaml
-
