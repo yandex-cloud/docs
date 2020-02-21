@@ -1,6 +1,67 @@
 # Релизы YC CLI
 
-## Версия 0.51.0 (12.02.20) {#latest-release}
+## Версия 0.52.02 (21.02.20) {#latest-release}
+
+### Изменения в CLI {#cli}
+
+
+
+**Улучшено**
+
+- При запуске `yc` с флагом `--help' или '-h`, помощь открывается в интерактивном режиме: 
+  в `less` (`$PAGER`) на linux и macOS, в `more` на windows. Это убирает необходимость отматывать вывод помощи наверх.
+
+- Debug логи выполнения и взаимодействия с API теперь сохраняются не в директорию установки, а в директорию конфигурации
+  `$HOME/.config/yandex-cloud/logs`. Это устраняет проблему, когда `yc`, установленный как отдельный бинарный файл, 
+  неожиданно сохранял лог рядом и мог не иметь на это прав.
+- Debug логи сохраняются и в случае успешных запросов. В случае обращения в поддержку по поводу проблемы возникшей 
+  в процессе выполнения команды `yc`, вероятно, мы сможем помочь быстрее, если вы приложите сохраненный лог.
+
+**Исправлено**
+- Во время выполнения команд `yc components ...` не выводится предложение обновиться.
+
+
+### Изменения в сервисах Облака {#services}
+
+#### {{ compute-name }} {#compute}
+
+- Команда `yc compute instance create`.
+
+  В флаг `--network-interface` добавлен параметр `nat-address`, позволяющий указать создаваемому инстансу конкретный NAT-адрес.
+  
+- Добавлены команды `yc compute instance add-one-to-one-nat` и `yc compute instance remove-one-to-one-nat`.
+
+  Команды позволяют управлять NAT на уже созданных инстансах.
+  
+- Команды `yc compute instance create` и `yc compute instance create`.
+
+  Добавлен флаг `--network-settings`, с помощью которого можно изменить тип сети на `Software accelerated` и обратно в `Standard`.
+  
+#### {{ kms-name }} {#kms}
+
+- Команда `yc kms symmetric-key`.
+
+  Добавлены команды, позволяющие управлять ролями на отдельные ключи: 
+  `list-access-bindings`, `set-access-bindings`, `add-access-binding`, `remove-access-binding`.
+
+#### {{ managed-k8s-name }} {#k8s}
+- Команда `yc managed-kubernetes cluster create`.
+
+  Добавлен флаг `--enable-network-policy` для создания кластера Kubernetes с поддержкой 
+  [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
+  
+- Команда `yc k8s cluster get-credentials`.
+  
+  Добавлен флаг `--context-name`, позволяющий пользователю указать имя создаваемого `context` в `kubeconfig`.
+  
+  Имя создаваемого контекста по умолчанию стало более понятным: `yc-<cluster-name>`.
+  
+  Выводится пояснение результата выполнения.
+
+
+## Предыдущие релизы {#previous-releases}
+
+## Версия 0.51.0 (12.02.20) 
 
 ### Изменения в CLI {#cli}
 
@@ -28,8 +89,6 @@
 
 #### {{iam-name}} {#iam}
 - Добавлены команды для создания и управления SAML-совместимыми федерациями удостоверений и сертификатами к ним: `yc iam federation` и `yc iam certificate`. Подробнее про SAML-совместимые федерации удостоверений можно узнать в [документации](https://cloud.yandex.ru/docs/iam/concepts/users/identity-federations).
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.50.0 (27.01.20) {#version0.50.0}
 
