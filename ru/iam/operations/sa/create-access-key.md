@@ -97,5 +97,5 @@
 
 #### Что дальше {#what-is-next}
 
-- [Настроить инструменты для работы с {{ objstorage-name }}](../../../storage/instruments/)
+- [Настроить инструменты для работы с {{ objstorage-name }}](../../../storage/tools/)
 - [{#T}](assign-role-for-sa.md)

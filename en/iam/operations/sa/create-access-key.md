@@ -105,6 +105,6 @@ Add a description when creating an access key.
 
 #### What's next {#what-is-next}
 
-- [Configuring tools to work with {{ objstorage-name }}](../../../storage/instruments/)
+- [Configuring tools to work with {{ objstorage-name }}](../../../storage/tools/)
 - [{#T}](assign-role-for-sa.md)
 

@@ -1,6 +1,6 @@
 # Static website in {{ objstorage-full-name }}
 
-In this guide, you'll learn how to upload your the static HTML files of your website to [{{ objstorage-full-name }}](../../storage) storage and link your domain name to a [bucket](../../storage/concepts/bucket), which will store the files.
+In this guide, you'll learn how to upload your the static HTML files of your website to [{{ objstorage-full-name }}](../../storage) storage and link your domain name to a [bucket](../../storage/concepts/bucket.md), which will store the files.
 
 To host a static website in Object Storage:
 
@@ -27,7 +27,7 @@ The cost of hosting a static website includes:
 
 * A fee for storing static website data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
 * A fee for data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-operations)).
-* The cost of outgoing traffic from Yandex.Cloud to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing#prices-storage.md#prices-traffic)).
+* The cost of outgoing traffic from Yandex.Cloud to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-traffic)).
 
 ## Create a public bucket {#create-public-bucket}
 
@@ -99,7 +99,7 @@ The instructions below describe how to configure an external DNS service using [
 
 ## Upload the website files {#upload-files}
 
-After you configure and test the website's availability, upload the remaining files that are necessary for website operation. To do this, use the [консоль управления]({{ link-console-main }}), [API](../../storage/s3/api-ref/object/upload.md), or one of the available [tools for working with {{ objstorage-name }}](../../storage/instruments/).
+After you configure and test the website's availability, upload the remaining files that are necessary for website operation. To do this, use the [management console]({{ link-console-main }}), [API](../../storage/s3/api-ref/object/upload.md), or one of the available [tools for working with {{ objstorage-name }}](../../storage/tools/).
 
 ## Check that the website is running {#test-site}
 
