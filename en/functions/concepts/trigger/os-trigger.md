@@ -9,7 +9,7 @@ A trigger for {{ objstorage-name }} needs a [service account](../../../iam/conce
 Events with bucket objects that can be tracked using a trigger:
 
 - [Creating an object](../../../storage/operations/objects/upload.md).
-- Moving an object.
+- [Editing an object ACL](../../../storage/operations/objects/edit-acl.md).
 - [Deleting an object](../../../storage/operations/objects/delete.md).
 
 ### Filtering events by object {#filter}

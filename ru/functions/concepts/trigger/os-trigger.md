@@ -8,7 +8,7 @@
 
 События с объектами в бакете, которые можно отслеживать с помощью триггера:
 - [Создание объекта](../../../storage/operations/objects/upload.md).
-- Перемещение объекта.
+- [Редактирование ACL объекта](../../../storage/operations/objects/edit-acl.md).
 - [Удаление объекта](../../../storage/operations/objects/delete.md).
 
 ### Фильтрация событий по объектам {#filter}
