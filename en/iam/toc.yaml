@@ -43,10 +43,14 @@ items:
             href: operations/federations/integration-gsuite.md
           - name: Authentication using an identity federation
             href: operations/federations/integration-common.md
+          - name: Adding users
+            href: operations/federations/add-users.md
       - name: Roles
         items:
           - name: Assigning roles
             href: operations/roles/grant.md
+          - name: Viewing assigned roles
+            href: operations/roles/get-assigned-roles.md
           - name: Revoking roles
             href: operations/roles/revoke.md
       - name: IAM tokens
@@ -55,6 +59,8 @@ items:
             href: operations/iam-token/create.md
           - name: Getting an IAM token for a service account
             href: operations/iam-token/create-for-sa.md
+          - name: Getting an IAM token for a federated account
+            href: operations/iam-token/create-for-federation.md
       - name: Keys
         items:
           - name: Creating API keys
@@ -75,6 +81,9 @@ items:
             href: concepts/access-control/roles.md
           - name: System groups
             href: concepts/access-control/system-group.md
+          - name: Resources that roles can be assigned for
+            href: concepts/access-control/resources-with-access-control.md
+
       - name: Authorization
         items:
           - name: Overview
@@ -105,9 +114,16 @@ items:
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
-    include:
-      repo: docs
-      path: en/_api-ref/iam/toc.yaml
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/iam/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref/iam/toc.yaml
   - name: Questions and answers
     items:
       - name: General questions

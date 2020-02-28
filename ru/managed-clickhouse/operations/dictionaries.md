@@ -1,6 +1,6 @@
 # Подключение внешних словарей
 
-Вы можете подключать к кластеру внешние словари и отключать их. Подробне о словарях читайте в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/query_language/dicts/).
+Вы можете подключать к кластеру [внешние словари](../concepts/dictionaries.md#external-dicts) и отключать их. Подробне о словарях читайте в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/query_language/dicts/).
 
 ## Подключить словарь {#add-dictionary}
 
@@ -100,7 +100,7 @@
    
      ```
      $ yc managed-clickhouse cluster add-external-dictionary \
-        --name <имя кластера ClickHouse> \
+        --cluster-name <имя кластера ClickHouse> \
         --dict-name <имя словаря> \
         --structure-id <имя ключевого столбца> \
         --structure-attribute name=<имя столбца данных>,type=<тип данных>,null-value=<значение для пустого элемента>,expression=<выражение>,hierarchical=<true|false>,injective=<true|false> \
@@ -178,7 +178,7 @@
   1. Удалите словарь с помощью команды:
   ```
   $ yc managed-clickhouse cluster remove-external-dictionary \
-    --name <имя кластера> \
+    --cluster-name <имя кластера> \
     --dict-name <имя словаря> \
   ```
 

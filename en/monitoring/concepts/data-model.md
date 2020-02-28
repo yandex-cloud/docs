@@ -46,7 +46,7 @@ The following templates are available in {{ monitoring-full-name }}:
 
 For an example of a metric request, see [{#T}](../operations/chart/create-query.md).
 
-#### See also
+#### See also {#see-also}
 
 - [{#T}](visualization/index.md)
 

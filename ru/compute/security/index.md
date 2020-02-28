@@ -32,7 +32,7 @@
     * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
 
-#### Что дальше
+#### Что дальше {#what-is-next}
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).
 * [Как отозвать роль](../../iam/operations/roles/revoke.md).

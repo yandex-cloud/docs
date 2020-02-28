@@ -46,7 +46,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 ## Restoring clusters from backups {#restore}
 
-When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the cloud has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
+When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the cloud has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
 For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ CH }} backup cannot be restored as a {{ PG }} cluster).
 
@@ -78,7 +78,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       ```
       $ yc managed-clickhouse backup list
-
+      
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -92,7 +92,7 @@ For a new cluster, you should set all the parameters that are required at creati
       ```
       $ yc managed-clickhouse cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
-             --name mynewch \
+             --cluster-name mynewch \
              --environment=PRODUCTION \
              --network-name default \
              --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
@@ -106,7 +106,7 @@ For a new cluster, you should set all the parameters that are required at creati
       - Named `mynewch`.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
-      - With one `{{ host-class }}` class host in the  `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
+      - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
       - With SSD network storage of 20 GB.
 
@@ -132,7 +132,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ yc managed-clickhouse backup list
-
+  
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
   +----------+----------------------+----------------------+----------------------+
@@ -179,11 +179,11 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - CLI
 
-  To set the backup start time, use the `--backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
+  To set the backup start time, use the `-- backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
 
   ```
   $ yc yc managed-clickhouse cluster create \
-        --name <cluster name> \
+        --cluster-name <cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \
         --host type=<clickhouse or zookeeper>,zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -195,11 +195,11 @@ For a new cluster, you should set all the parameters that are required at creati
         --backup-window-start 10:00:00
   ```
 
-  To change the backup start time in an existing cluster, use the  `update` command:
+  To change the backup start time in an existing cluster, use the `update` command:
 
   ```
   $ yc yc managed-clickhouse cluster update \
-     --name <cluster name> \
+     --cluster-name <cluster name> \
      --backup-window-start 11:25:00
   ```
 

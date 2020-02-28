@@ -54,9 +54,9 @@ You cannot restore a subnet after it is deleted.
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
-### Deleting a subnet from a particular folder
+### Deleting a subnet from a particular folder {#from-folder}
 
 {% list tabs %}
 

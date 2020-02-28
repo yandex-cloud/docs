@@ -11,7 +11,7 @@ For more information about role inheritance, see [{#T}](../../resource-manager/c
 
 {% endnote %}
 
-## Assigning roles {#assignment}
+## Assigning roles {#grant-roles}
 
 To assign a role to a user:
 
@@ -21,27 +21,19 @@ To assign a role to a user:
 
 The list below shows all roles that are considered when verifying access rights in the {{ monitoring-full-name }} service.
 
-### Service roles {#service-roles}
-
-_Service roles_ are roles that allow access to the resources of a particular service.
-
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
-### Primitive roles {#primitive-roles}
-
-You can assign primitive roles to any resource in any service.
-
-#### {{ roles-viewer }}
+### {{ roles-viewer }} {#viewer}
 
 Users with the `{{ roles-viewer }}` role can view created dashboards and widgets, as well as written metrics.
 
-#### {{ roles-editor }}
+### {{ roles-editor }} {#editor}
 
 Users with the `{{ roles-editor }}` role can create dashboards and widgets, as well as write metrics.
 
 In addition, the `{{ roles-editor }}` role includes all permissions of the `{{ roles-viewer }}` role.
 
-#### {{ roles-admin }}
+### {{ roles-admin }} {#admin}
 
 Users with the `{{ roles-admin }}` role can create dashboards and widgets, as well as write metrics.
 

@@ -102,7 +102,7 @@
 
 {% endlist %}
 
-## Примеры
+## Примеры {#examples}
 
 {% list tabs %}
 - CLI

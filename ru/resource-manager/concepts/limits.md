@@ -4,4 +4,4 @@ editable: false
 
 # Квоты и лимиты
 
-Квоты и лимиты для сервиса {{ resmgr-full-name }} не определены.
+{% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}

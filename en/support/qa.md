@@ -2,11 +2,12 @@
 
 #### How do I contact technical support? {#support-channels}
 
-You can contact technical support from [Support]({{ link-console-support }}) in the management console.
+You can contact technical support in the management console
+ under [Support]({{ link-console-support }}).
 
 #### How do I contact technical support if I can't log in to the management console? {#requesting-support-without-ui}
 
-If you can't access your Yandex account, please refer to the section [Solving problems](https://yandex.com/support/passport/troubleshooting/problems.html) in the Yandex.Passport documentation.
+If you can't access your Yandex account, please see our [instructions for solving problems](https://yandex.com/support/passport/troubleshooting/problems.html) in the Yandex.Passport documentation.
 
 If you successfully logged in to your Yandex account but you can't connect to the Yandex.Cloud management console, contact technical support by email.
 
@@ -25,13 +26,13 @@ Technical support responds to requests 24 hours a day, 7 days a week.
 
 The response time depends on your service plan. For more information about service plans, see [{#T}](overview.md).
 
-#### How quickly will technical support solve the problem? {#resolution-time}
+#### How quickly can technical support solve my problem? {#resolution-time}
 
-The resolution time is individual for each case and depends on the nature of the problem. Problems with apps and services can have various causes. This makes it difficult to estimate their troubleshooting time. The technical support team will work closely with you to identify the cause of the problem and fix it as quickly as possible.
+The resolution time is individual for each case and depends on the nature of the problem. Problems with apps and services can have various causes. This makes it difficult to estimate how long it will take. The technical support team works closely with you to identify the cause of the problem and fix it as quickly as possible.
 
 #### How many times can I contact technical support? {#support-requests-limit}
 
-You can contact technical support an unlimited number of times.
+There is no limit to the number of times you can contact technical support.
 
 #### How can I get help with architecture-related tasks? {#help-with-arch-tasks}
 
@@ -46,5 +47,5 @@ Technical support includes troubleshooting third-party software that is used in 
 
 #### What happens if you can't solve my third-party software problems? {#unresolved-third-party-issues}
 
-If the technical support team can't resolve the issue with third-party software, you will need to contact the support service of the software vendor. In some cases, contacting the support service requires a valid contract for technical support with the vendors or their partners.
+If the technical support team can't resolve your third-party software issue, you need to contact the support service of the software vendor. In some cases, contacting a vendor's support service requires a valid contract for technical support with the vendor or their partners.
 

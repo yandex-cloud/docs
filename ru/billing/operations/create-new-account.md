@@ -6,6 +6,10 @@
 
 1. {% include [create-account-button-step](../_includes/create-account-button-step.md) %}
 
+1. {% include [choose-country-step](../_includes/choose-country-step.md) %}
+
+   {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
+
 1. {% include [choose-balance-payer](../_includes/choose-balance-payer.md) %}
 
 1. {% include [choose-name-step](../_includes/choose-name-step.md) %}
@@ -16,7 +20,7 @@
 
    {% list tabs %}
 
-    - Личный аккаунт
+    - Физическое лицо
 
        Укажите ваши ФИО и привяжите банковскую карту:
        
@@ -28,9 +32,9 @@
 
         {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
-    - Бизнес-аккаунт
+    - Юридическое лицо или ИП
 
-      6.1. Выберите способ оплаты (банковская карта или банковский перевод):
+      7.1. Выберите способ оплаты (банковская карта или банковский перевод):
       - **Банковская карта**.
       <br/>Привяжите корпоративную банковскую карту:
       
@@ -42,9 +46,8 @@
 
         {% include [yandex-account](../_includes/payment-card-validation.md) %}
       - **Банковский перевод**.
-      <br/>После того, как вы нажмете кнопку **Активировать** (шаг 8), платежный аккаунт будет создан в статусе [Не подтвержден](../concepts/billing-account.md#conditions). На вашу почту, указанную в аккаунте Яндекса или Яндекс.Коннекта, будет отправлено письмо с описанием дальнейших действий. Активация платежного аккаунта может занять до трех рабочих дней.
-
-      6.2. Укажите юридическую информацию о вашей организации.
+      
+      7.2. Укажите юридическую информацию о вашей организации.
 
    {% endlist %}
 

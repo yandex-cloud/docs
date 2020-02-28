@@ -73,9 +73,9 @@ To create a static access key:
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
-### Add a description when creating
+### Add a description when creating {#add-description}
 
 Add a description when creating an access key.
 
@@ -103,8 +103,8 @@ Add a description when creating an access key.
 
 {% endlist %}
 
-#### What's next
+#### What's next {#what-is-next}
 
-- [Configuring tools to work with {{ objstorage-name }}](../../../storage/instruments/)
+- [Configuring tools to work with {{ objstorage-name }}](../../../storage/tools/)
 - [{#T}](assign-role-for-sa.md)
 

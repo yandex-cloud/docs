@@ -1,12 +1,12 @@
 # Creating a VM from a custom image
 
-## Before getting started
+## Before getting started {#before-you-begin}
 
 [Prepare and upload](../image-create/upload.md) the image to create a VM from.
 
 Make sure the uploaded image is in the `READY` status.
 
-## Create a VM from the prepared image
+## Create a VM from the prepared image {create-vm-from-image}
 
 {% list tabs %}
 

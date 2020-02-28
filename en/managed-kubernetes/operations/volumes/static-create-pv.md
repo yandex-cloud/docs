@@ -1,14 +1,12 @@
 # Static volume provisioning
 
-{% include [note-about-version](../../../_includes/managed-kubernetes/note-about-version.md) %}
-
 Create a pod with a statically provisioned [volume](../../concepts/volume.md):
 
 1. [Create a PersistentVolume](#create-pv).
 1. [Create a PersistentVolumeClaim](#create-claim).
 1. [Create a pod](#create-pod).
 
-## Before getting started {#before-begin}
+## Before getting started {#before-you-begin}
 
 Look up the unique ID of the disk to be used to create the `PersistentVolume`, or create a new disk:
 

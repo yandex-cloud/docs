@@ -95,7 +95,7 @@ The cluster name and ID can be requested with a [list of clusters in the folder]
   After adding a new shard, you must rebalance your cluster:
 
   ```
-  $ yc managed-redis cluster --name test-sharding-2 rebalance 
+  $ yc managed-redis cluster --cluster-name test-sharding-2 rebalance 
   ```
 
 {% endlist %}

@@ -4,6 +4,7 @@
 
 ## Что дальше {#what-is-next}
 
-- Ознакомьтесь с [концепциями триггеров](../concepts/trigger.md).
+- Ознакомьтесь с [концепциями триггеров](../concepts/trigger/index.md).
+- Прочитайте подробнее о [триггере для {{ iot-short-name }}](../concepts/trigger/iot-core-trigger.md).
 - Посмотрите, что можно делать с триггерами в [пошаговых инструкциях](../operations/index.md).
 - Ознакомьтесь с [концепциями {{ iot-name }}](../../iot-core/concepts/index.md).

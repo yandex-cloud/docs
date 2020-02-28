@@ -14,7 +14,7 @@ To find out the unique ID or name of a trigger, get a list triggers in the folde
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Get a list of [triggers](../../concepts/trigger.md):
+    Get a list of [triggers](../../concepts/index.md):
 
     ```
     $ yc serverless trigger list

@@ -4,7 +4,7 @@ Using pre-signed URLs, internet users can perform various operations in {{ objst
 
 - Download an object
 - Upload an object
-- Create a bucket
+- Creating a bucket
 
 A pre-signed URL is a URL containing request authorization data in its parameters. Users with static access keys can create pre-signed URLs.
 
@@ -39,7 +39,7 @@ Pre-signed URL parameters:
 | `X-Amz-Date` | Time in [ISO8601](https://ru.wikipedia.org/wiki/ISO_8601) format, for example: `20180719T000000Z`. The date specified must match the date in the `X-Amz-Credential` parameter (by the value rather than format). |
 | `X-Amz-Credential` | Signature ID.<br/><br/>A string in `<access-key-id>/<YYYYMMDD>/ru-central1/s3/aws4_request` format, where `<YYYYMMDD>` must match the date set in the `X-Amz-Date` header. |
 
-## Creating pre-signed URLs
+## Creating pre-signed URLs {#creating-presigned-url}
 
 To get a pre-signed URL, do the following:
 
@@ -81,11 +81,11 @@ UNSIGNED-PAYLOAD
 
 A canonical request must always end with the `UNSIGNED-PAYLOAD` string.
 
-#### HTTPVerb
+#### HTTPVerb {#http-verb}
 
 The HTTP method used to send a request: `GET`, `PUT`, `HEAD`, or `DELETE`.
 
-#### CanonicalURL
+#### CanonicalURL {#canonical-url}
 
 The URL-encoded path to the resource. For example, `/<bucket-name>/<object-key>`.
 
@@ -95,7 +95,7 @@ Do not normalize the path. For example, an object may have a `some//strange//key
 
 {% endnote %}
 
-#### CanonicalQueryString
+#### CanonicalQueryString {#canonical-query-string}
 
 The canonical query string must include all the query parameters of the destination URL, except `X-Amz-Signature`. The parameters in the string must be URL-encoded and sorted alphabetically.
 
@@ -105,7 +105,7 @@ Example:
 X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host
 ```
 
-#### CanonicalHeaders
+#### CanonicalHeaders {#canonical-headers}
 
 A list of the request headers and their values.
 
@@ -126,7 +126,7 @@ host:storage.yandexcloud.net
 x-amz-date:20190801T000000Z
 ```
 
-#### SignedHeaders
+#### SignedHeaders {#signed-headers}
 
 A list of lowercase request header names, sorted alphabetically and separated by commas.
 
@@ -140,9 +140,9 @@ host;x-amz-date
 
 To create a pre-signed URL, {{ objstorage-name }} add the [parameters](#presigned-url-preview) required to authorize the request to the resource URL, including the `X-Amz-Signature` parameter with the calculated signature.
 
-#### Example of composing a pre-signed URL for object download
+#### Example of composing a pre-signed URL for object download {#example-for-object-download}
 
-Let's compose a pre-signed URL to download the `object-for-share.txt` object that's valid for one hour.
+Create a signed URL to download the `object-for-share.txt` object from `example-bucket` for an hour.
 
 - Static key:
 
@@ -192,7 +192,7 @@ Let's compose a pre-signed URL to download the `object-for-share.txt` object tha
     https://storage.yandexcloud.net/example-bucket/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=56bdf53a1f10c078c2b4fb5a26cefa670b3ea796567d85489135cf33e77783f0
     ```
 
-## Examples of getting pre-signed links in tools {{ objstorage-name }}
+## Examples of getting pre-signed links in tools {{ objstorage-name }} {#example-for-getting-in-tools}
 
 {% list tabs %}
 

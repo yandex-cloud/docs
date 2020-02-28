@@ -22,7 +22,7 @@
   
   ```
   $ yc managed-postgresql host list
-       --cluster-name=<имя кластера>
+       --cluster-name <имя кластера>
        
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
@@ -176,7 +176,7 @@
   
   ```
   $ yc managed-postgresql host delete <имя хоста>
-       --cluster-name=<имя кластера>
+       --cluster-name <имя кластера>
   ```
   
   Имя хоста можно запросить со [списком хостов в кластере](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).

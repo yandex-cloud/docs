@@ -8,7 +8,7 @@ Use this feature to find out how well an image matches a certain property (for i
 
 The list of properties that the result is returned for depends on the selected model. For example, the `quality` model, which is used to assess the quality of an image, returns the probabilities for properties such as `low`, `medium`, and `high`. [More information about supported models](supported-models.md).
 
-## Request format
+## Request format {#request-format}
 
 To use this feature, specify `CLASSIFICATION` in the feature type and pass the name of the [model](supported-models.md):
 
@@ -50,7 +50,7 @@ Only one model can be used within a single analysis feature. If you need to appl
 }
 ```
 
-## Service response
+## Service response {#service-response}
 
 The service returns a list of properties in the following format:
 
@@ -67,7 +67,7 @@ The service returns all properties for the selected model, even if the probabili
 
 {% include [classification-quality-response](../../../_includes/vision/classification-quality-response.md) %}
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [View the list of supported models](supported-models.md)
 * [See how to handle errors](../../api-ref/errors-handling.md)

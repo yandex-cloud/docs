@@ -1,4 +1,4 @@
-# Visualizing data from Yandex.Metriсa
+# Visualizing data from Yandex.Metrica
 
 Statistics from Yandex.Metrica are used as source data. {{ datalens-short-name }} automatically creates a dashboard based on a Yandex.Metrica tag with a selection of charts that you can edit however you like.
 
@@ -12,7 +12,7 @@ This includes the following steps:
 
 {% note important %}
 
-This step is available to users who have permission to any Yandex.Metrica tag. If don't have permission to a tag, open a ready-to-use **Yandex.Metriсa** dashboard and proceed to step 2.
+This step is available to users who have permission to any Yandex.Metrica tag. If don't have permission to a tag, open a ready-to-use **Yandex.Metrica** dashboard and proceed to step 2.
 
 {% endnote %}
 
@@ -22,11 +22,11 @@ This step is available to users who have permission to any Yandex.Metrica tag. I
 
     ![image](../../_assets/datalens/solution3/connection-create.png)
 
-1. Select **Metriсa**.
+1. Select **Metrica**.
 
     ![image](../../_assets/datalens/solution3/create-connection.png)
 
-1. Enter the connection name: **Metriсa connect**.
+1. Enter the connection name: **Metrica connect**.
 
 1. Click **Get token**.
 
@@ -44,7 +44,7 @@ This step is available to users who have permission to any Yandex.Metrica tag. I
 
 {% note important %}
 
-If you don't have a Yandex.Metriсa tag and you skipped step 1, use the dashboard named **Metriсa Live Demo Dashboard**.
+If you don't have a Yandex.Metrica tag and you skipped step 1, use the dashboard named **Metrica Live Demo Dashboard**.
 
 {% endnote %}
 

@@ -2,7 +2,7 @@
 
 Create a Linux [virtual machine](../concepts/vm.md) using {{ compute-name }} in the Yandex.Cloud management console and connect to it.
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 {% include [before-you-begin-linux](../../_includes/compute/before-you-begin-linux.md) %}
 

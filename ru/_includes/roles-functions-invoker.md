@@ -1,4 +1,4 @@
-#### serverless.functions.invoker {#serverless-functions-invoker}
+### serverless.functions.invoker {#serverless-functions-invoker}
 
 Роль `serverless.functions.invoker` дает право выполнять функции.
 

@@ -2,17 +2,17 @@
 
 This section describes how to get started with the {{ vision-short-name }} API for image analysis.
 
-## Before getting started
+## Before getting started {#before-you-begin}
 
 {% include [ai-before-beginning](../_includes/ai-before-beginning.md) %}
 
-## Analyze the image
+## Analyze the image {#analyze-image}
 
 You can use any of the analysis features from the [list](concepts/index.md#features). For example, use the [Text recognition](concepts/ocr/index.md) feature:
 
 {% include [text-detection-steps](../_includes/vision/text-detection-steps.md) %}
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [Find out about all the service features](concepts/index.md)
 * [Learn about API authentication methods](api-ref/authentication.md)

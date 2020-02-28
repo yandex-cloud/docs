@@ -3,10 +3,16 @@ href: index.yaml
 items:
   - name: Начало работы
     items:
+      - name: Обзор
+        href: quickstart/index.md
       - name: Создание и выполнение функции
         href: quickstart/function-quickstart.md
+      - name: Создание таймера
+        href: quickstart/timer-quickstart.md
       - name: Создание триггера для Message Queue
         href: quickstart/ymq-trigger-quickstart.md
+      - name: Создание триггера для Object Storage
+        href: quickstart/os-trigger-quickstart.md
       - name: Создание триггера для Yandex IoT Core
         href: quickstart/iot-core-trigger-quickstart.md
   - name: Пошаговые инструкции
@@ -39,8 +45,12 @@ items:
         items:
           - name: Получение информации о триггере
             href: operations/trigger/trigger-list.md
+          - name: Создание таймера
+            href: operations/trigger/timer-create.md
           - name: Создание триггера для Message Queue
             href: operations/trigger/ymq-trigger-create.md
+          - name: Создание триггера для Object Storage
+            href: operations/trigger/os-trigger-create.md
           - name: Создание триггера для Yandex IoT Core
             href: operations/trigger/iot-core-trigger-create.md
           - name: Изменение триггера
@@ -64,7 +74,17 @@ items:
           - name: Контекст выполнения
             href: concepts/runtime/execution-context.md
       - name: Триггер
-        href: concepts/trigger.md
+        items:
+          - name: Обзор
+            href: concepts/trigger/index.md
+          - name: Таймер
+            href: concepts/trigger/timer.md
+          - name: Триггер для Message Queue
+            href: concepts/trigger/ymq-trigger.md
+          - name: Триггер для Object Storage
+            href: concepts/trigger/os-trigger.md
+          - name: Триггер для Yandex IoT Core
+            href: concepts/trigger/iot-core-trigger.md
       - name: Мониторинг
         href: concepts/monitoring.md
       - name: Квоты и лимиты
@@ -77,3 +97,32 @@ items:
     href: pricing.md
   - name: Управление доступом
     href: security/index.md
+  - name: Справочник API Functions
+    items:
+      - name: Аутентификация в API
+        href: api-ref/functions/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/functions/functions/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref/serverless/functions/toc.yaml
+  - name: Справочник API Triggers
+    items:
+      - name: Аутентификация в API
+        href: api-ref/triggers/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/functions/triggers/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref/serverless/triggers/toc.yaml
+

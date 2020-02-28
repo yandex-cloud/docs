@@ -14,7 +14,7 @@ Currently supported models:
 * [quality](#quality) — Assesses the quality of an image.
 * [moderation](#moderation) — Assesses whether an image meets moderation requirements.
 
-## quality
+## quality {#quality}
 
 Assesses the quality of an image.
 
@@ -103,7 +103,7 @@ Assesses the quality of an image.
 
 {% endlist %}
 
-## moderation
+## moderation {#moderation}
 
 Evaluates how well the image matches the properties used during moderation.
 

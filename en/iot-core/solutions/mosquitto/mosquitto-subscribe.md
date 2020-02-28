@@ -27,7 +27,7 @@ Subscribe a registry to a device or devices using the following parameters:
 - `--cert`: Path to the public part of the registry certificate.
 - `-- key`: Path to the private part of the registry certificate.
 - `-t`: Device topics.
-- `-q`: [Quality of service (QoS)](../../concepts/topic.md#qos).
+- `-q`: [Quality of service (QoS)](../../concepts/index.md#qos).
 
 {% include [debug-note](../../../_includes/iot-core/debug-note.md) %}
 
@@ -88,7 +88,7 @@ Subscribe a device to a registry using the following parameters:
 - `--cert`: Path to the public part of the device certificate.
 - `--key`: Path to the private part of the device certificate.
 - `-t`: Device topic.
-- `-q`: [Quality of service (QoS)](../../concepts/topic.md#qos).
+- `-q`: [Quality of service (QoS)](../../concepts/index.md#qos).
 
 {% include [debug-note](../../../_includes/iot-core/debug-note.md) %}
 

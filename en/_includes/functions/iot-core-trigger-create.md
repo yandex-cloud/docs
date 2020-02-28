@@ -12,17 +12,19 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
 To create a trigger, you need:
 
-1. Service account with rights for function call. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
-1. [A registry](../../iot-core/concepts/index.md#registry) or [device](../../iot-core/concepts/index.md#device) whose topics the trigger will pick up message copies from. If you don't have them yet:
+1. A service account with rights for function call. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
+1. [A registry](../../iot-core/concepts/index.md#registry) or [device](../../iot-core/concepts/index.md#device) whose topics the trigger will accept copies of messages from. If you don't have either:
     - [Create a registry](../../iot-core/operations/registry/registry-create.md).
     - [Create a device](../../iot-core/operations/device/device-create.md).
-1. [A function](../../functions/concepts/function.md) the trigger will send messages to for processing. If you don't have a function:
+1. [Functions](../../functions/concepts/function.md) the trigger will send messages to for processing. If you don't have a function:
     - [Create a function](../../functions/operations/function/function-create.md).
     - [Create a version of the function and upload the function code to it](../../functions/operations/function/version-manage.md#func-version-create).
 
 ## Create a trigger {#trigger-create}
 
 Create a trigger for the device topic.
+
+{% include [trigger-time](trigger-time.md) %}
 
 {% list tabs %}
 

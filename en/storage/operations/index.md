@@ -1,6 +1,6 @@
 # All instructions
 
-## Buckets
+## Buckets {#buckets}
 
 - [{#T}](buckets/create.md)
 - [{#T}](buckets/delete.md)
@@ -8,7 +8,7 @@
 - [{#T}](buckets/bucket-availability.md)
 - [{#T}](buckets/edit-acl.md)
 
-## Objects
+## Objects {#objects}
 
 - [{#T}](objects/upload.md)
 - [{#T}](objects/info.md)
@@ -17,4 +17,11 @@
 - [{#T}](objects/delete.md)
 - [{#T}](objects/deleting-multipart.md)
 - [{#T}](objects/edit-acl.md)
+
+## Static website hosting
+
+- [{#T}](hosting/setup.md)
+- [{#T}](hosting/own-domain.md)
+- [{#T}](hosting/multiple-domains.md)
+- [{#T}](hosting/certificate.md)
 

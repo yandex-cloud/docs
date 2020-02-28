@@ -3,10 +3,16 @@ href: index.yaml
 items:
   - name: Getting started
     items:
+      - name: Overview
+        href: quickstart/index.md
       - name: Creating and executing functions
         href: quickstart/function-quickstart.md
+      - name: Creating a timer
+        href: quickstart/timer-quickstart.md
       - name: Creating a trigger for Message Queue
         href: quickstart/ymq-trigger-quickstart.md
+      - name: Creating a trigger for Object Storage
+        href: quickstart/os-trigger-quickstart.md
       - name: Creating a trigger for Yandex IoT Core
         href: quickstart/iot-core-trigger-quickstart.md
   - name: Step-by-step instructions
@@ -39,8 +45,12 @@ items:
         items:
           - name: Getting information about a trigger
             href: operations/trigger/trigger-list.md
+          - name: Creating a timer
+            href: operations/trigger/timer-create.md
           - name: Creating a trigger for Message Queue
             href: operations/trigger/ymq-trigger-create.md
+          - name: Creating a trigger for Object Storage
+            href: operations/trigger/os-trigger-create.md
           - name: Creating a trigger for Yandex IoT Core
             href: operations/trigger/iot-core-trigger-create.md
           - name: Updating a trigger
@@ -63,11 +73,23 @@ items:
             href: concepts/runtime/environment-variables.md
           - name: Execution context
             href: concepts/runtime/execution-context.md
-      - name: Trigger
-        href: concepts/trigger.md
+      - name: Triggers
+        items:
+          - name: Overview
+            href: concepts/trigger/index.md
+          - name: Timer
+            href: concepts/trigger/timer.md
+          - name: Trigger for Message Queue
+            href: concepts/trigger/ymq-trigger.md
+          - name: Trigger for Object Storage
+            href: concepts/trigger/os-trigger.md
+          - name: Trigger for Yandex IoT Core
+            href: concepts/trigger/iot-core-trigger.md
+      - name: Monitoring
+        href: concepts/monitoring.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Tutorials
+  - name: Solutions
     items:
       - name: Creating skills for Alice
         href: solutions/alice-skill.md
@@ -75,3 +97,31 @@ items:
     href: pricing.md
   - name: Access management
     href: security/index.md
+  - name: API Functions reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/functions/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/functions/functions/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref/serverless/functions/toc.yaml
+  - name: Triggers API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/triggers/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/functions/triggers/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref/serverless/triggers/toc.yaml

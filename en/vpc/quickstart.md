@@ -60,7 +60,7 @@ If you no longer need a subnet, [delete it](operations/subnet-delete.md).
 
 If the reserved address isn't assigned to any resource, you can [delete it](operations/address-delete.md).
 
-## What's next {#whats-next}
+## What's next {#what-is-next}
 
 [Create a new VM](../compute/operations/vm-create/create-linux-vm.md), connect it to a subnet, and assign it a reserved public IP address.
 

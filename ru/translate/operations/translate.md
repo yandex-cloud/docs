@@ -6,6 +6,6 @@
 
 {% include [translate-instruction](../../_includes/translate/translate-instruction.md) %}
 
-#### Что дальше
+#### Что дальше {#what-is-next}
 
 * [Как повысить точность перевода](better-quality.md)

@@ -54,10 +54,17 @@ items:
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
-      - name: Handling errors
-        href: api-ref/errors-handling.md
-      - name: Troubleshooting
-        href: api-ref/support-headers.md
-    include:
-      repo: docs
-      path: en/_api-ref/ai/vision/toc.yaml
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/vision/api-ref/toc.yaml
+      - name: REST
+        items:
+          - name: Handling errors
+            href: api-ref/errors-handling.md
+          - name: Troubleshooting
+            href: api-ref/support-headers.md
+        include:
+          repo: docs
+          path: en/_api-ref/ai/vision/toc.yaml

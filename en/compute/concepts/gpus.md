@@ -26,7 +26,7 @@ For more information about VM organizational and technical limits, see [Quotas a
 
 {% include [gpu-os](../../_includes/compute/gpu-os.md) %}
 
-## See also
+## See also {#see-also}
 
 * [Create a VM with a GPU](../operations/vm-create/create-vm-with-gpu.md).
 * Learn how to [add a GPU to an existing VM](../operations/vm-control/vm-update-resources.md#add-gpu).

@@ -46,7 +46,7 @@
 
 ## Восстановить кластер из резервной копии {#restore}
 
-Восстанавливая кластер из резервной копии, вы создаете новый кластер с данными из резервной копии. Если в облаке не хватает [ресурсов](../concepts/limits.md) для создания такого кластера, восстановиться из резервной копии не получится.
+Восстанавливая кластер из резервной копии, вы создаете новый кластер с данными из резервной копии. Если в облаке не хватает [ресурсов](../concepts/limits.md) для создания такого кластера, восстановиться из резервной копии не получится. Средняя скорость восстановления из резервной копии — 10 МБайт/с на каждое ядро БД.
 
 Для нового кластера необходимо задать все параметры, обязательные при создании, кроме типа кластера (резервную копию {{ CH }} не получится восстановить как кластер {{ PG }}).
 
@@ -92,7 +92,7 @@
       ```
       $ yc managed-clickhouse cluster restore \
              --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
-             --name mynewch \
+             --cluster-name mynewch \
              --environment=PRODUCTION \
              --network-name default \
              --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
@@ -184,7 +184,7 @@
 
   ```
   $ yc yc managed-clickhouse cluster create \
-        --name <имя кластера> \
+        --cluster-name <имя кластера> \
         --environment <окружение, prestable или production> \
         --network-name <имя сети> \
         --host type=<clickhouse или zookeeper>,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
@@ -200,7 +200,7 @@
 
   ```
   $ yc yc managed-clickhouse cluster update \
-     --name <имя кластера> \
+     --cluster-name <имя кластера> \
      --backup-window-start 11:25:00
   ```
 

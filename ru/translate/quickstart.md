@@ -4,7 +4,7 @@
 
 {% include [translate-instruction](../_includes/translate/translate-instruction.md) %}
 
-#### Что дальше
+#### Что дальше {#what-is-next}
 
 * [Узнайте подробнее о сервисе в концепциях](concepts/index.md)
 * [Посмотрите другие инструкции](operations/index.md)

@@ -27,8 +27,8 @@ If you want to create an instance from an existing disk, go to **Disks** [add a 
 
 1. Under **Computing resources**:
     - Choose the [platform](../../../compute/concepts/vm-platforms.md#gpu-platforms) Intel Broadwell with NVIDIA Tesla v100.
-    - Choose the [configuration](../../../compute/concepts/gpus.md#config) of the virtual machine.
-      - Specify the required number of GPUs.
+    - Choose the [configuration](../../../compute/concepts/gpus.md#config) of the virtual machine by specifying the required number of GPUs.
+    - If necessary, make your VM [preemptible](../../../compute/concepts/preemptible-vm.md).
 
 1. Under **Network settings**:
     - Specify the subnet ID or select a [cloud network](../../../vpc/concepts/network.md#network) from the list. If you don't have a network, click **Create a new network** to create one:

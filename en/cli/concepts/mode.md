@@ -1,4 +1,4 @@
-# Synchronous and asynchronous modes of command execution
+# Synchronous and asynchronous command execution modes
 
 The CLI provides two command execution modes: synchronous and asynchronous.
 
@@ -13,7 +13,7 @@ To get information about an operation run asynchronously, use the following comm
     ```
     $ yc operation get <operation ID>
     ```
-    - If the operation is still in progress, information about the operation will be displayed again.
+    - If the operation is still in progress, the information about the operation is displayed again.
     - If the operation is completed, you'll see the result of the operation.
 
 - To return to synchronous mode of operation execution:
@@ -22,16 +22,16 @@ To get information about an operation run asynchronously, use the following comm
     $ yc operation wait <operation ID>
     ```
 
-## Examples
+## Examples {#example}
 
 Compare the execution of the create VM command in different modes.
 
-### Command execution in synchronous mode
+### Command execution in synchronous mode {#sync}
 
 First, dots are displayed indicating that the operation is in progress and then the result of the operation is output.
 
 ```
-$ yc compute instance create --name my-inst3 --metadata user-data="#ps1\nnet user Administrator 123qwe" --zone ru-central1-b --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk-1537967224
+$ yc compute instance create --name my-inst3 --metadata user-data="#ps1\nnet user Administrator Passw0rd" --zone ru-central1-b --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk-1537967224
 ....................................................................................................................................................................done
 id: epdplofgadqohn5ppkt3
 folder_id: b1g88tflru0ek1omtsu0
@@ -61,13 +61,12 @@ network_interfaces:
 fqdn: epdplofgadqohn5ppkt3.auto.internal
 ```
 
-### Command execution in asynchronous mode
+### Command execution in asynchronous mode {#async}
 
 Once the command has been run, information about the operation is output, and the execution continues in the background.
 
 ```
-$ yc compute instance create --name my-test-inst --metadata user-data="#ps1\nnet user Administrator
-123qwe" --zone ru-central1-b --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk
+$ yc compute instance create --name my-test-inst --metadata user-data="#ps1\nnet user Administrator Passw0rd" --zone ru-central1-b --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk
 -1537967224 --async
 id: epdjte17at0fguj52ili
 description: Create instance

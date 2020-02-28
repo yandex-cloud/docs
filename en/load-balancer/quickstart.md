@@ -4,7 +4,7 @@
 
 Create a network load balancer with a [listener](concepts/listener.md), attach a [group of target resources](concepts/target-resources), and set up [health checks](concepts/health-check.md) using {{ load-balancer-name }}.
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 1. Log in to or register in the [management console](https://console.cloud.yandex.com). If you aren't registered, go to the management console and follow the instructions.
 1. [On the billing page](https://console.cloud.yandex.com/billing), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
@@ -69,7 +69,7 @@ If you no longer need a load balancer, [delete it](operations/load-balancer-dele
 
 Then [delete the target group](operations/target-group-delete.md) and [VMs](../compute/operations/vm-control/vm-delete.md).
 
-## What's next {#whats-next}
+## What's next {#what-is-next}
 
 * Learn more about how [network load balancers](concepts/index.md) work.
 * See our [recommendations](best-practices.md) for working with load balancers.

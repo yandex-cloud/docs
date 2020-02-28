@@ -10,10 +10,10 @@ You will learn how to:
 * [Run operations in the CLI](#run-operation-from-sa).
 * [Delete service accounts](#delete-sa).
 
-## Before you start
+## Before you start {#before-you-begin}
 
-1. If you aren't registered at Yandex.Cloud, go to the [management console](https://console.cloud.yandex.ru).
-1. [On the billing page](https://console.cloud.yandex.ru/billing), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. If you aren't registered at Yandex.Cloud, go to the [management console](https://console.cloud.yandex.com).
+1. [On the billing page](https://console.cloud.yandex.com/billing), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 
 ## Create a service account {#create-sa}
 
@@ -33,13 +33,13 @@ Now you can perform operations on behalf of a service account, such as viewing t
 yc resource-manager folder list
 ```
 
-## Delete the service account {#revoke-roles}
+## Delete the service account {#delete-sa}
 
 If you no longer need the service account, delete it:
 
 {% include [delete-sa-via-console](../_includes/iam/delete-sa-via-console.md) %}
 
-## What's next
+## What's next {#what-is-next}
 
 * [The step-by-step instructions](operations/index.md) will help you with your tasks in {{ iam-name }}.
 * [Read more about service accounts](concepts/users/service-accounts.md) in the concepts section.

@@ -10,13 +10,13 @@ You cannot currently move a created VM to a different folder.
 
 Each VM has a unique ID and name. The name is unique within the folder. The ID is generated automatically when the VM is being created and is unique within Yandex.Cloud.
 
-## Availability zones {#az}
+## Availability zone {#az}
 
 {% include [instance-az](../_includes_service/instance-az.md) %}
 
 ## Computing resources {#types}
 
-When creating a VM, you specify the amount of computing resources to be allocated to it: the number and performance of processor cores (vCPUs) and the amount of RAM. You can choose the amount of computing resources that is appropriate for the expected load. For more information, see [{#T}](performance-levels.md).
+When creating a VM, you specify the amount of computing resources to be allocated to it: the number and performance of processor cores (vCPUs) and the amount of RAM. You can choose the computing resources that are appropriate for the expected load. For more information, see [{#T}](performance-levels.md).
 
 ## Disks {#disks}
 
@@ -34,15 +34,13 @@ Read more about disks in [{#T}](disk.md).
 
 The status of a VM affects which operations you can currently perform on it.
 
-> For example, the `STOPPED` status means that the VM is stopped and you cannot connect to it. To do that, first [start](../operations/vm-control/ vm-stop-and-start.md#start) the VM. After the status changes to `RUNNING` and the OS loading completes, you will be able to connect to the VM.
+> For example, the `STOPPED` status means that the VM is stopped and you can't connect to it. To connect to the VM, you must [start](../operations/vm-control/vm-stop-and-start.md#start) it first. After the status changes to `RUNNING` and the OS loading completes, you will be able to connect to the VM.
 
-For more information about statuses, see the section [{#T}](vm-statuses.md).
+For more information about statuses, see [{#T}](vm-statuses.md).
 
 ## Metadata {#metadata}
 
-Each VM stores information about itself on the metadata server. You can request this metadata from inside a VM using the Yandex.Cloud API or CLI.
-
-You can set your own metadata when creating or updating VMs. For example, to connect to a Linux VM, you need to pass an SSH key to it. This is done using the metadata service. For more information, see [{#T}](vm-metadata.md).
+You can set your own metadata when creating or updating VMs. For example, to connect to a Linux VM, you need to pass an SSH key to it. This is done using the metadata service. Learn more in [{#T}](vm-metadata.md).
 
 ## Network {#network}
 

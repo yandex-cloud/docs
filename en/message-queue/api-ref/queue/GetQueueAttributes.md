@@ -45,7 +45,7 @@ Attribute.N.Value (attribute value)
 | `FifoQueue` | Returns whether the queue is [FIFO](../../concepts/queue.md#fifo-queues). To determine whether a queue is FIFO, check whether its name ends with the `.fifo` suffix. |
 | `ContentBasedDeduplication` | Returns whether [content-based deduplication](../../concepts/deduplication.md#content-based-deduplication). |
 
-#### Non-supported attributes
+#### Non-supported attributes {#non-supported-attributes}
 
 | Attribute | Type | Description |
 | ----- | ----- | ----- |

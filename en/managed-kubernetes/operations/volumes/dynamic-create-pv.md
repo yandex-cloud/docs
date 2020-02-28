@@ -1,7 +1,5 @@
 # Dynamic volume provisioning
 
-{% include [note-about-version](../../../_includes/managed-kubernetes/note-about-version.md) %}
-
 Create a pod with a dynamically provisioned [volume](../../concepts/volume.md):
 
 1. [Create a PersistentVolumeClaim](#create-pvc).

@@ -1,6 +1,6 @@
 # Virtual machines
 
-## Technical parameters
+## Technical parameters {#technical-parameters}
 
 #### What VM configuration (memory, vCPU) can I use? {#configure-vm}
 
@@ -12,7 +12,7 @@ For more information, see the section [{#T}](../concepts/performance-levels.md).
 
 For more information, see the section [{#T}](../operations/vm-control/vm-update-resources.md).
 
-## Operations on VMs
+## Operations on VMs {#operations-on-vm}
 
 #### Can I copy or clone an existing VM? {#clone-vm}
 

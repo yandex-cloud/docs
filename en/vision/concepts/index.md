@@ -10,7 +10,7 @@ _Features_ are various types of analysis that the service provides. For example:
 * [Face detection](face-detection/index.md)
 * [Image classification](classification/index.md)
 
-## Request body format
+## Request body format {#request-body-format}
 
 The body of a request consists of _specifications_ (`analyzeSpecs`). In each spec, you pass a file with an image (`content`) and a list of `features` to be applied.
 
@@ -36,7 +36,7 @@ For example, if you want the service to detect faces and recognize text in an im
 
 You can pass up to 8 specs in a request and use up to 8 features in each spec. If you need to use more than 8 features for a single image, pass it twice in different specs.
 
-## Service response
+## Service response {#service-response}
 
 The service returns an array of analysis results for each of the passed specs. Each element of the array is also an array of results for each of the requested features:
 
@@ -63,7 +63,7 @@ The service also returns the results for each of the requested features.
 
 If an error occurs during analysis, the service returns the error as a result. [More about handling errors](../api-ref/errors-handling.md).
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [How text recognition works](ocr/index.md)
 * [How face detection works](face-detection/index.md)

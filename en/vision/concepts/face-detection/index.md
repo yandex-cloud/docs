@@ -12,7 +12,7 @@ This feature doesn't recognize faces. You will not be able to use it to find sim
 
 {% endnote %}
 
-## Request format
+## Request format {#request-format}
 
 In the feature type, specify `FACE_DETECTION`:
 
@@ -28,7 +28,7 @@ In the feature type, specify `FACE_DETECTION`:
 }
 ```
 
-## Service response
+## Service response {#service-response}
 
 The service searches for human faces in the image and marks them with rectangles. In the response, the service returns the coordinates of the rectangles for all detected faces:
 
@@ -72,13 +72,13 @@ Sample response with the coordinates of the detected face:
 }
 ```
 
-## Image requirements
+## Image requirements {#image-requirements}
 
 An image in a request must meet the following requirements:
 
 {% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [Try detecting faces in an image](../../operations/face-detection/index.md)
 * [See how to handle errors](../../api-ref/errors-handling.md)

@@ -3,7 +3,7 @@
 В этом разделе вы узнаете:
 * [на какие ресурсы можно назначить роль](#resources);
 * [какие роли действуют в сервисе](#roles-list);
-* [какие роли необходимы](#required-roles) для того или иного действия.
+* [какие роли необходимы](#choosing-roles) для того или иного действия.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -29,7 +29,7 @@
     * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
     * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-## Какие роли мне необходимы {#required-roles}
+## Какие роли мне необходимы {#choosing-roles}
 
 В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `editor` вместо `viewer`.
 
@@ -38,18 +38,18 @@
 **Просмотр информации** | |
 Получение списка [реестров](../operations/registry/registry-list.md)| `list` | `container-registry.images.puller` на каталог
 Получение информации о реестрах, [Docker-образах](../operations/docker-image/docker-image-list.md) и [репозиториях](../operations/repository/repository-list.md) | `get`, `list` | `container-registry.images.puller` на реестр с указанным ресурсом
-[Скачивание Docker-образа из реестра](../operations/docker-image/docker-image-pull.md) | — | `container-registry.images.puller`<br>на указанный реестр
+[Скачивание Docker-образа](../operations/docker-image/docker-image-pull.md) | — | `container-registry.images.puller`<br>на указанный реестр или репозиторий
 **Управление ресурсами** | |
 [Создание реестров в каталоге](../operations/registry/registry-create.md) | `create` | `editor` на каталог
 [Изменение](../operations/registry/registry-update.md) и [удаление](../operations/registry/registry-delete.md) реестров | `update`, `delete` | `editor` на указанный реестр
-[Создание Docker-образов](../operations/docker-image/docker-image-create.md) c использованием базовых Docker-образов из реестра | — | `container-registry.images.puller`<br>на указанный реестр
+[Создание Docker-образов](../operations/docker-image/docker-image-create.md) c использованием базовых Docker-образов из реестра | — | `container-registry.images.puller`<br>на указанный реестр или репозиторий
 [Создание Docker-образов](../operations/docker-image/docker-image-create.md) без использования базовых Docker-образов из реестра| — | Не требует ролей
-[Загрузка Docker-образов в реестр](../operations/docker-image/docker-image-push.md) | — | `container-registry.images.pusher`<br>на указанный реестр
-[Удаление Docker-образов](../operations/docker-image/docker-image-delete.md) | `delete` | `editor` на реестр с Docker-образом
+[Загрузка Docker-образов в реестр](../operations/docker-image/docker-image-push.md) | — | `container-registry.images.pusher`<br>на указанный реестр или репозиторий
+[Удаление Docker-образов](../operations/docker-image/docker-image-delete.md) | `delete` | `editor` на реестр или репозиторий с Docker-образом
 **Управление доступом к ресурсам** | |
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог, облако или реестр | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
 
-#### Что дальше
+#### Что дальше {what-is-next}
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).
 * [Как отозвать роль](../../iam/operations/roles/revoke.md).

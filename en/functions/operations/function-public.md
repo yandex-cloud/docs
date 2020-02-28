@@ -54,7 +54,7 @@ To allow any user to call the function, you must make it public, meaning enable 
 - Management console
 
     Make the function private:
-    1. Open **{{ sf-name }}** in the folder with the function that you want to make public.
+    1. Open **{{ sf-name }}** in the folder with the function that you want to make private.
     1. Select it from the list of functions.
     1. On the **Overview** page under **Common function**, click the toggle in the **Public function** field.
 

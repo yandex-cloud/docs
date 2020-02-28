@@ -8,7 +8,7 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
 
 ## Examples {#examples}
 
-### Before getting started {#before-beginning}
+### Before getting started {#before-you-begin}
 
 {% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 

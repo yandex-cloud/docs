@@ -2,11 +2,10 @@
 
 Чтобы работать с Docker-образами, [аутентифицируйтесь в {{ container-registry-short-name }}](authentication.md).
 
+
 ## Работа с {{ coi }} {#coi}
 
-- [{#T}](coi/vm-create.md)
-- [{#T}](coi/vm-update.md)
-- [{#T}](coi/ig-create.md)
+Подробнее о том, как работать с образом {{ coi }}, читайте в документации [{{ cos-name }}](../../cos/).
 
 ## Управление Docker-образом {#docker-images}
 

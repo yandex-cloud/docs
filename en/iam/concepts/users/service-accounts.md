@@ -12,7 +12,7 @@ To prevent your program from accidentally deleting a VM, create a service accoun
 
 ## How service accounts differ from other accounts {#sa-difference}
 
-* Currently, you can't use service accounts to log in to [консоль управления]({{ link-console-main }}). We assume that programs, rather than users, perform operations on behalf of service accounts.
+* Currently, you can't use service accounts to log in to the [management console]({{ link-console-main }}). We assume that programs, rather than users, perform operations on behalf of service accounts.
 
 * The service account is a resource. You can [assign](../../operations/sa/set-access-bindings.md) and [revoke](../../operations/roles/revoke.md) roles for a service account from other users. For example, you can allow other people to use this service account to access Yandex.Cloud.
 

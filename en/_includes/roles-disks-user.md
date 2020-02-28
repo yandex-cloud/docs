@@ -1,4 +1,4 @@
-#### compute.disks.user {#compute-disks-user}
+### compute.disks.user {#compute-disks-user}
 
 The `compute.disks.user` role includes the following permissions:
 

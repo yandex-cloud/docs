@@ -5,54 +5,60 @@ items:
     href: quickstart.md
   - name: Step-by-step instructions
     items:
-      - name: All instructions
-        href: operations/index.md
-      - name: Information about existing clusters
-        href: operations/cluster-list.md
-      - name: Creating clusters
-        href: operations/cluster-create.md
-      - name: Connecting to databases
-        href: operations/connect.md
-      - name: Stop and start the cluster
-        href: operations/cluster-stop.md
-      - name: Changing cluster and database settings
-        href: operations/update.md
-      - name: Managing PostgreSQL hosts
-        href: operations/hosts.md
-      - name: Database management
-        href: operations/databases.md
-      - name: How to manage PostgreSQL extensions
-        href: operations/cluster-extensions.md
-      - name: Managing database users
-        href: operations/cluster-users.md
-      - name: Granting permissions and roles
-        href: operations/grant.md
-      - name: Managing backups
-        href: operations/cluster-backups.md
-      - name: Deleting clusters
-        href: operations/cluster-delete.md
-      - name: Database migration to the Cloud
-        href: operations/data-migration.md
+    - name: All instructions
+      href: operations/index.md
+    - name: Information about existing clusters
+      href: operations/cluster-list.md
+    - name: Creating clusters
+      href: operations/cluster-create.md
+    - name: Connecting to databases
+      href: operations/connect.md
+    - name: Stop and start the cluster
+      href: operations/cluster-stop.md
+#    - name: SQL queries in the management console
+#      href: operations/web-sql-query.md
+    - name: Changing cluster and database settings
+      href: operations/update.md
+    - name: Managing PostgreSQL hosts
+      href: operations/hosts.md
+    - name: Database management
+      href: operations/databases.md
+    - name: How to manage PostgreSQL extensions
+      href: operations/cluster-extensions.md
+    - name: Managing database users
+      href: operations/cluster-users.md
+    - name: Granting permissions and roles
+      href: operations/grant.md
+    - name: Managing backups
+      href: operations/cluster-backups.md
+    - name: Deleting clusters
+      href: operations/cluster-delete.md
+    - name: Database migration to the Cloud
+      href: operations/data-migration.md
+  - name: Solutions
+    items:
+      - name: Creating a PostgreSQL cluster for 1C
+        href: solutions/1c-postgresql
   - name: Concepts
     items:
-      - name: Relationship between service resources
-        href: concepts/index.md
-      - name: Host classes
-        href: concepts/instance-types.md
-      - name: Network in Yandex Managed Service for PostgreSQL
-        href: concepts/network.md
-      - name: Quotas and limits
-        href: concepts/limits.md
-      - name: Storage types
-        href: concepts/storage.md
-      - name: Backups
-        href: concepts/backup.md
-      - name: Assigning roles
-        href: concepts/roles.md
-      - name: Replication
-        href: concepts/replication.md
-      - name: Supported clients
-        href: concepts/supported-clients.md
+    - name: Relationship between service resources
+      href: concepts/index.md
+    - name: Host classes
+      href: concepts/instance-types.md
+    - name: Network in Yandex Managed Service for PostgreSQL
+      href: concepts/network.md
+    - name: Quotas and limits
+      href: concepts/limits.md
+    - name: Storage types
+      href: concepts/storage.md
+    - name: Backups
+      href: concepts/backup.md
+    - name: Assigning roles
+      href: concepts/roles.md
+    - name: Replication
+      href: concepts/replication.md
+    - name: Supported clients
+      href: concepts/supported-clients.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -65,18 +71,27 @@ items:
             href: pricing-archive/pricing-01012019.md
           - name: From January 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
+          - name: From March 1, 2019 to February 1, 2020
+            href: pricing-archive/pricing-01022020.md
   - name: API reference
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
-    include:
-      repo: docs
-      path: en/_api-ref/mdb/postgresql/toc.yaml
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/managed-postgresql/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref/mdb/postgresql/toc.yaml
   - name: Questions and answers
     items:
-      - name: General questions
-        href: qa/general.md
-      - name: Questions about PostgreSQL
-        href: qa/postgresql.md
-      - name: All questions on the same page
-        href: qa/all.md
+    - name: General questions
+      href: qa/general.md
+    - name: Questions about PostgreSQL
+      href: qa/postgresql.md
+    - name: All questions on the same page
+      href: qa/all.md

@@ -110,7 +110,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
    folder_id = "<folder ID>"
    zone      = "ru-central1-a"
    }
-   
+
    terraform {
      backend "s3" {
        endpoint   = "storage.yandexcloud.net"
@@ -119,88 +119,88 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
        key = "<path to the state file in the bucket>/<state file name>.tfstate"
        access_key = "<static key identifier>"
        secret_key = "<secret key>"
-   
+
        skip_region_validation      = true
        skip_credentials_validation = true
      }
    }
-   
+
    resource "yandex_compute_instance" "vm-1" {
      name = "terraform1"
-   
+
      resources {
        cores  = 1
        memory = 2
      }
-   
+
      boot_disk {
        initialize_params {
          image_id = "fd87va5cc00gaq2f5qfb"
        }
      }
-   
+
      network_interface {
        subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
        nat       = true
      }
-   
+
      metadata = {
        ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
      }
    }
-   
+
    resource "yandex_compute_instance" "vm-2" {
      name = "terraform2"
-   
+
      resources {
        cores  = 2
        memory = 4
      }
-   
+
      boot_disk {
        initialize_params {
          image_id = "fd87va5cc00gaq2f5qfb"
        }
      }
-   
+
      network_interface {
        subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
        nat       = true
      }
-   
+
      metadata = {
        ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
      }
    }
-   
+
    resource "yandex_vpc_network" "network-1" {
      name = "network1"
    }
-   
+
    resource "yandex_vpc_subnet" "subnet-1" {
      name           = "subnet1"
      zone           = "ru-central1-a"
      network_id     = "${yandex_vpc_network.network-1.id}"
      v4_cidr_blocks = ["192.168.10.0/24"]
    }
-   
+
    output "internal_ip_address_vm_1" {
      value = "${yandex_compute_instance.vm-1.network_interface.0.ip_address}"
    }
-   
+
    output "internal_ip_address_vm_2" {
      value = "${yandex_compute_instance.vm-2.network_interface.0.ip_address}"
    }
-   
-   
+
+
    output "external_ip_address_vm_1" {
      value = "${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}"
    }
-   
+
    output "external_ip_address_vm_2" {
      value = "${yandex_compute_instance.vm-2.network_interface.0.nat_ip_address}"
    }
-   
+
    output "subnet-1" {
      value = "${yandex_vpc_subnet.subnet-1.id}"
    }
@@ -214,7 +214,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
 
 Make sure that the state file is uploaded to {{ objstorage-name }}:
 
-1. Open the [management console](https://console.cloud.yandex.ru) and select the folder with the bucket created.
+1. Open the [management console](https://console.cloud.yandex.com) and select the folder with the bucket created.
 1. Select **{{ objstorage-name }}**.
 1. From the bucket list, select the bucket you saved the Terraform state to.
 1. Make sure that the state file is in the bucket.
@@ -236,7 +236,7 @@ Create another configuration and use the saved state to create another VM in one
      folder_id = "folder-id"
      zone      = "ru-central1-a"
    }
-   
+
    data "terraform_remote_state" "vpc" {
      backend = "s3"
      config = {
@@ -246,31 +246,31 @@ Create another configuration and use the saved state to create another VM in one
        key = "<path to the state file in the bucket>/<state file name>.tfstate"
        access_key = "<static key identifier>"
        secret_key = "<secret key>"
-   
+
        skip_region_validation      = true
        skip_credentials_validation = true
      }
    }
-   
+
    resource "yandex_compute_instance" "vm-3" {
      name = "terraform3"
-   
+
      resources {
        cores  = 1
        memory = 2
      }
-   
+
      boot_disk {
        initialize_params {
          image_id = "fd87va5cc00gaq2f5qfb"
        }
      }
-   
+
      network_interface {
        subnet_id = data.terraform_remote_state.vpc.outputs.subnet-1
        nat       = true
      }
-   
+
      metadata = {
        ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
      }

@@ -239,7 +239,7 @@ Allow the service account to manage the folder and its resources:
 
 {% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-all.md) %}
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [{#T}](update.md)
 * [{#T}](../../concepts/resources-hierarchy.md)

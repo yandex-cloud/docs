@@ -1,12 +1,18 @@
 # Granting access to an app running in a cluster {{ k8s }}
 
-To grant access to an app running in a {{ k8s }} cluster, you can use [various types of services](../concepts/service.md). To grant public access, use `LoadBalancer` service.
+To grant access to an app running in a {{ k8s }} cluster, you can use [various types of services](../concepts/service.md). To grant public access, use a `LoadBalancer` type service.
+
+{% note info %}
+
+Unlike the IP address of a pod or node, which may change if the resources in a node group are updated, the IP address of `LoadBalancer` services don't change.
+
+{% endnote %}
 
 Prepare and run the application to be granted access to using a `LoadBalancer` service in the {{ k8s }} cluster. As an example, use a simple application that responds to HTTP requests on port 8080.
 
 - [Create a simple application](#simple-app)
 - [Create a LoadBalancer service](#lb-create)
-- [Check the result](#check-result)
+- [Check the results](#check-result)
 - [Advanced LoadBalancer service settings](#advanced)
 
 ## Create a simple app {#simple-app}
@@ -87,7 +93,8 @@ When you create a service with the `LoadBalancer` type, Yandex.Cloud controller 
 
 {% note important %}
 
-Don't modify or delete the network load balancer or target groups that are automatically created in your folder after creating a `LoadBalancer` service.
+* You will be charged for the network load balancer you created based on the [pricing rules](../../load-balancer/pricing.md).
+* Don't modify or delete the network load balancer or target groups that are automatically created in your folder after creating a `LoadBalancer` service.
 
 {% endnote %}
 
@@ -144,7 +151,7 @@ Don't modify or delete the network load balancer or target groups that are autom
       Normal  EnsuredLoadBalancer   4s    service-controller  Ensured load balancer
     ```
 
-1.  In the [management console]({{ link-console-main }}), open **{{ load-balancer-name }}**. Make sure you find the load balancer with the `k8s` name prefix and unique ID of your {{ k8s }} cluster in the description.
+1. In the [management console]({{ link-console-main }}), open **{{ load-balancer-name }}**. Make sure you find the load balancer with the `k8s` name prefix and unique ID of your {{ k8s }} cluster in the description.
 
 ## Check the results {#check-result}
 

@@ -10,3 +10,9 @@
 | Maximum number of nodes per cloud | 20 |
 | Maximum number of node groups per Kubernetes cluster | 6 |
 | Maximum number of nodes per Kubernetes cluster | 10 |
+
+#### VM limits {#limits}
+
+| Type of limit | Value |
+| ----- | ----- |
+| Maximum number of [volumes](../managed-kubernetes/concepts/volume.md) connected to a single node | 5 |

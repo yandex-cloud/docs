@@ -1,6 +1,6 @@
-# Supported languages and recognition models
+# Supported languages and language models
 
-All text recognition models support Russian and English.
+All text language models support Russian and English.
 
 ## English-Russian model {#engrus}
 
@@ -11,7 +11,7 @@ This model works best, but supports only two languages:
 
 {% note important %}
 
-Currently, this model can't be selected with [automatic language detection](../../operations/ocr/text-detection.md#basic). To use this model, you need to [clearly specify](../../operations/ocr/text-detection.md#multiple-languages) one or both languages.
+Currently, this model can't be selected with [automatic language detection](../../operations/ocr/text-detection.md#basic). To use this model, you need to [overtly specify](../../operations/ocr/text-detection.md#multiple-languages) one or both languages.
 
 {% endnote %}
 

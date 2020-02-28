@@ -17,17 +17,17 @@ HEAD /{bucket} HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Name of the bucket. |
+| `bucket` | Bucket name. |
 
 ### Headers {#request-headers}
 
-In a request, use only [common request headers](../common-request-headers.md).
+Use only [common request headers](../common-request-headers.md) in requests.
 
 ## Response {#response}
 
 ### Headers {#response-headers}
 
-A response can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common response headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 

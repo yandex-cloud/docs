@@ -4,7 +4,7 @@ Yandex.Cloud supports [SAML 2.0](https://wiki.oasis-open.org/security)-based ide
 
 This approach is called _identity federation_, it's when all the information about usernames and passwords is stored by a trusted _Identity Provider_ (IdP). The Service Provider (SP), such as Yandex.Cloud, redirects the user to authenticate with the Identity Provider (IdP) server.
 
-## What do I need identity federations for in Yandex.Cloud?
+## What do I need identity federations for in Yandex.Cloud? {#saml-federation-usage}
 
 Large companies usually have a pre-configured system for managing users and access to their networks, such as Active Directory. A company like this may employ thousands of people, which makes it difficult to create a Yandex account for each employee and quickly delete it whenever anyone leaves the company.
 
@@ -12,7 +12,7 @@ Large companies usually have a pre-configured system for managing users and acce
 
 Since the authentication process takes place on the IdP server side, you can configure more reliable user data verification with things like two-factor authentication or USB tokens.
 
-## How authentication occurs in a federation
+## How authentication occurs in a federation {#saml-authentication}
 
 {% include [federated-user-auth](../../../_includes/iam/federated-user-auth.md) %}
 

@@ -14,9 +14,9 @@ Streaming mode is designed for real-time audio recognition. If you need to send 
 
 {% endnote %}
 
-## Using the service
+## Using the service {#service-use}
 
-### Creating a client app
+### Creating a client app {#create-client-app}
 
 For speech recognition, the app should first send a [message with recognition settings](#specification-msg) and then send [messages with audio fragments](#audio-msg).
 
@@ -26,25 +26,19 @@ To enable the app to access the service, you need to generate the client interfa
 
 See [examples](#examples) of client apps below. In addition, see the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and deploy client apps for various programming languages.
 
-### Authorization in the service
+### Authorization in the service {#auth}
 
 In each request, the application must transmit [the ID of folder](../../resource-manager/operations/folder/get-id.md) that you have been granted the `editor` role or higher for. For more information, see [Access management](../security/index.md).
 
 The application must also be authenticated for each request, such as with an IAM token. [Learn more about service authentication](../concepts/auth.md).
 
-### Recognition result
+### Recognition result {#results}
 
-During the recognition process, the speech is segmented into phrases (known as utterances). An utterance is a fragment of speech consisting of one or more words, followed by a period of silence. An utterance may contain multiple sentences if there is no pause between them.
+In each [recognition result message](#response), the server returns one or more speech fragments that it managed to recognize during this period (`chunks`). A list of recognized text alternatives is specified for each speech fragment (`alternatives`).
 
-A speech recognition result provides alternative versions of a single utterance. The response from the service may contain multiple utterances.
+During the recognition process, speech is split into utterances and the end of the utterance is marked with the `endOfUtterance` flag. By default, the server returns a response only after an utterance is fully recognized. You can use the `partialResults` flag to make the server return intermediate recognition results as well. Intermediate results let you quickly respond to the recognized speech without waiting for the end of the utterance.
 
-_Final results_ of speech recognition are formed when the speech recognition system detects the end of an utterance. You can send multiple messages with an audio fragment and it will be a single utterance.
-
-_Intermediate results_ of speech recognition are formed during utterance recognition. Getting intermediate results allows you to quickly respond to the recognized speech without waiting for the end of the utterance to get the final result.
-
-You can configure the service to return intermediate recognition results. In the [message with recognition settings](#specification-msg), specify `config.specification.partial_results=true`. In the response, `final=false` indicates the intermediate results and `final=true` indicates the final results.
-
-### Limitations of a speech recognition session
+### Limitations of a speech recognition session {#session-restrictions}
 
 After receiving the message with the recognition settings, the service starts a recognition session. The following limitations apply to each session:
 
@@ -58,7 +52,7 @@ After receiving the message with the recognition settings, the service starts a 
 
 If messages aren't sent to the service within 5 seconds or the data duration or size limit is reached, the session is terminated. To continue speech recognition, reconnect and send a new message with the speech recognition settings.
 
-## Service API
+## Service API {#streaming-api}
 
 The service is located at: `stt.api.cloud.yandex.net:443`
 
@@ -72,8 +66,10 @@ The service is located at: `stt.api.cloud.yandex.net:443`
 | config<br>.specification<br>.model | **string**<br>The language model to be used for recognition.<br/>The closer the model is matched, the better the recognition result. You can only specify one model per request.<br/>[Acceptable values](models.md) depend on the selected language. Default value: `general`. |
 | config<br>.specification<br>.profanityFilter | **boolean**<br>The profanity filter.<br/>Acceptable values:<ul><li>`true` — Exclude profanity from recognition results.</li><li>`false` (by default) — Do not exclude profanity from recognition results.</li></ul> |
 | config<br>.specification<br>.partialResults | **boolean**<br>The intermediate results filter.<br/>Acceptable values:<ul><li>`true` — Return intermediate results (part of the recognized utterance). For intermediate results, `final` is set to `false`.</li><li>`false` (default) — Return only the final results (the entire recognized utterance). |
+| config<br>.specification<br>.singleUtterance | **boolean**<br>Flag that disables recognition after the first utterance.<br/>Acceptable values:<ul><li>`true` — Recognize only the first utterance, stop recognition, and wait for the user to disconnect.</li><li>`false` (default) — Continue recognition until the end of the session.</li></ul> |
 | config<br>.specification<br>.audioEncoding | **string**<br>[The format](formats.md) of the submitted audio.<br/>Acceptable values:<ul><li>`LINEAR16_PCM` — [LPCM with no WAV header](formats.md#lpcm).</li><li>`OGG_OPUS` (default) — [OggOpus](formats.md#oggopus) format.</li></ul> |
 | config<br>.specification<br>.sampleRateHertz | **integer** (int64)<br>The sampling frequency of the submitted audio.<br/>Required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default) — Sampling rate of 48 kHz.</li><li>`16000` — Sampling rate of 16 kHz.</li><li>`8000` — Sampling rate of 8 kHz.</li></ul> |
+| config.<br>specification.<br>rawResults | **boolean** <br>Flag that indicates how to write numbers. `true` — In words. `false` (default) — In figures. |
 | folderId | **string**<br><p>ID of the folder that you have access to. Required for authorization with a user account (see the <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
 
 ### Audio message {#audio-msg}
@@ -82,14 +78,23 @@ The service is located at: `stt.api.cloud.yandex.net:443`
 | ----- | ----- |
 | `audio_content` | An audio fragment represented as an array of bytes. The audio must match the format specified in the [message with recognition settings](#specification-msg). |
 
-### Response structure {#response}
+### Message with recognition results {#response}
 
 If speech fragment recognition is successful, you will receive a message containing a list of recognition results (`chunks[]`). Each result contains the following fields:
 
-* `alternatives[]`: List of alternative recognition results. Each alternative contains the following fields:
-    * `text`: Recognized text.
-    * `confidence`: Recognition accuracy. Currently the service always returns `1`, which is the same as 100%.
-* `final`: Set to `true` if the result is final, and to `false` if it is intermediate.
+* `alternatives[]` — List of recognized text alternatives. Each alternative contains the following fields:
+    * `text` — Recognized text.
+    * `confidence` — This field is currently unsupported.
+
+* `final` — Flag that indicates that this recognition result is final and will not change anymore. If the value is `false`, it means that the recognition result is intermediate and may change as the following speech fragments are recognized.
+
+* `endOfUtterance` — Flag that indicates that this result contains the end of the utterance. If the value is `true`, then the new utterance will start with the next result obtained.
+
+   {% note info %}
+
+   If you specified `singleUtterance=true` in the settings, only one utterance will be recognized per session. After sending a message where `endOfUtterance` is `true`, the server doesn't recognize the following utterances and waits until you end the session.
+
+   {% endnote %}
 
 ### Error codes returned by the server {#error_codes}
 
@@ -135,7 +140,7 @@ Then proceed to creating a client app.
       ```bash
       $ cd cloudapi
       $ mkdir output
-      $ python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=output --grpc_python_out=output google/api/http.proto google/api/annotations.proto yandex/api/operation.proto google/rpc/status.proto yandex/cloud/operation/operation.proto yandex/cloud/ai/stt/v2/stt_service.proto
+      $ python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=output --grpc_python_out=output google/api/http.proto google/api/annotations.proto yandex/cloud/api/operation.proto google/rpc/status.proto yandex/cloud/operation/operation.proto yandex/cloud/ai/stt/v2/stt_service.proto
       ```
 
       As a result, the `stt_service_pb2.py` and `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
@@ -320,8 +325,9 @@ Then proceed to creating a client app.
           console.log('');
       });
 
+
       call.on('error', (response) => {
-          // Handle errors.
+          // Handling errors
           console.log(response);
       });
       ```

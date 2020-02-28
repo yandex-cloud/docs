@@ -22,24 +22,9 @@ If you need to temporarily revoke all access rights from a user with a Yandex ac
 - CLI
 
   To revoke a role from a subject, delete the corresponding access binding for the appropriate resource:
-
   1. View roles and their assignees:
 
-      ```
-      yc <SERVICE-NAME> <RESOURCE> list-access-bindings <RESOURCE-NAME>|<RESOURCE-ID>
-      ```
-
-      For example, see the access bindings for the `default` folder:
-
-      ```
-      $  yc resource-manager folder list-access-bindings default
-      +---------------------+----------------+----------------------+
-      |       ROLE ID       |  SUBJECT TYPE  |      SUBJECT ID      |
-      +---------------------+----------------+----------------------+
-      | editor              | serviceAccount | ajepg0mjas06siuj5usm |
-      | viewer              | userAccount    | aje6o61dvog2h6g9a33s |
-      +---------------------+----------------+----------------------+
-      ```
+        {% include [include](../../../_includes/iam/list-access-bindings-via-cli.md) %}
 
   1. To delete an access binding, run:
 
@@ -50,15 +35,11 @@ If you need to temporarily revoke all access rights from a user with a Yandex ac
       ```
 
       where:
-      * `<SERVICE-NAME>` is the name of the service that the resource belongs to (for example, `resource-manager`).
-      * `<RESOURCE>` is the category of the resource, such as `folder`.
-      * `<RESOURCE-NAME>` is the name of the resource. You can specify a resource by its name or ID.
-      * `<RESOURCE-ID>` is the resource ID.
-      * `<ROLE-ID>` is the ID of the role to revoke (such as `{{ roles-cloud-owner }}`.
+      * `<ROLE-ID>` is the ID of the role to revoke (such as `{{ roles-cloud-owner }}`).
       * `<SUBJECT-TYPE>` is the type of [subject](../../concepts/access-control/index.md#subject) to revoke the role from.
-      * `<SUBJECT-ID>` is the identifier of the subject.
+      * `<SUBJECT-ID>` is the subject ID.
 
-      For example, to revoke a role from the user with the `aje6o61dvog2h6g9a33s` ID:
+      For example, to revoke a role from a user with the ID `aje6o61dvog2h6g9a33s`:
 
       ```
       $ yc resource-manager folder remove-access-binding default \
@@ -68,29 +49,11 @@ If you need to temporarily revoke all access rights from a user with a Yandex ac
 
 - API
 
-  To revoke a resource role from a subject, delete the corresponding access binding. For example, revoke from the user the role for the `b1gvmob95yysaplct532` folder:
+  To revoke a resource role from a subject, delete the corresponding access binding:
 
-  1. You can find out who resource roles are assigned to and what the roles are by using the `listAccessBindings` method:
+  1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
 
-      ```
-      $ export FOLDER_ID=b1gvmob95yysaplct532
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/${FOLDER_ID}:listAccessBindings"
-      
-      {
-       "accessBindings": [
-        {
-         "subject": {
-          "id": "ajei8n54hmfhuk5nog0g",
-          "type": "userAccount"
-         },
-         "roleId": "editor"
-        }
-       ]
-      }
-      ```
-
-  1. Create a request body, for example, in a `body.json` file. In the request body, specify which access binding to delete.
+  1. Create a request body, for example, in a `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `editor` role from user `ajei8n54hmfhuk5nog0g`:
 
       **body.json:**
 

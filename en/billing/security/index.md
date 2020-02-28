@@ -61,7 +61,7 @@ A list of operations available to each role is given in the table below.
 
 The billing account owner can add any Yandex.Cloud user to the **Users** list. To add a user:
 
-1. In the [management console](https://console.cloud.yandex.ru/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. In the [management console](https://console.cloud.yandex.com/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
 1. Go to **Access management**.
 1. Click **Add user**.
 1. Enter a Yandex.Passport or Yandex.Connect username. <br/>Usernames that match the search are displayed in the list. Select the appropriate one.
@@ -73,7 +73,7 @@ The user with the specified username is assigned the `billing.accounts.member` r
 
 The owner can grant billing account access to any user who was added to the list and granted the `billing.accounts.member` role. To do this:
 
-1. In the [management console](https://console.cloud.yandex.ru/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. In the [management console](https://console.cloud.yandex.com/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
 1. Go to **Access management**.
 1. Find the user in the list.
 1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure roles**.
@@ -84,7 +84,7 @@ The owner can grant billing account access to any user who was added to the list
 
 The billing account owner can revoke roles from users on the list at any time. To do this:
 
-1. In the [management console](https://console.cloud.yandex.ru/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. In the [management console](https://console.cloud.yandex.com/billing), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
 1. Go to **Access management**.
 1. Find the user in the list.
 1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure roles**.

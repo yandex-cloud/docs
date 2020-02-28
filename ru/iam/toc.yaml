@@ -43,6 +43,8 @@ items:
             href: operations/federations/integration-gsuite.md
           - name: Аутентификация с помощью федерации удостоверений
             href: operations/federations/integration-common.md
+          - name: Добавление пользователей
+            href: operations/federations/add-users.md
       - name: Роли
         items:
           - name: Назначение роли
@@ -57,6 +59,8 @@ items:
             href: operations/iam-token/create.md
           - name: Получение IAM-токена для сервисного аккаунта
             href: operations/iam-token/create-for-sa.md
+          - name: Получение IAM-токена для федеративного аккаунта
+            href: operations/iam-token/create-for-federation.md
       - name: Ключи
         items:
           - name: Создание API-ключа
@@ -110,9 +114,16 @@ items:
     items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
-    include:
-      repo: docs
-      path: ru/_api-ref/iam/toc.yaml
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/iam/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref/iam/toc.yaml
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

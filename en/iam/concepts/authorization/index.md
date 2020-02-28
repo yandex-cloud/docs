@@ -6,13 +6,13 @@ Users get permissions along with resource roles. For more information about how 
 
 ## Authentication in Yandex.Cloud {#authentication}
 
-Before authorization, a user must get authenticated, meaning they must log in under their account. Authentication is performed in different ways depending on the type of account and the interface used:
+Before authorization, a user must get authenticated, meaning they must log in under their account. Authentication is performed in different ways, depending on the type of account and the interface used:
 
-* [Authentication with a Yandex.Passport account](#passport)
+* [Authentication using a Yandex account](#passport)
 * [Service account authentication](#sa)
 * [Federated user authentication](#saml-federation)
 
-### Authentication with a Yandex.Passport account {#passport}
+### Authentication using a Yandex account {#passport}
 
 {% list tabs %}
 
@@ -22,7 +22,7 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
 - CLI
 
-  To configure authentication in the CLI, enter your [OAuth token](oauth-token.md) during [profile initialization](../../../cli/quickstart.md#initialize). The token will be saved in the profile configuration and authentication will work automatically.
+  To perform operations in the CLI, authenticate following the [instructions](../../../cli/operations/authentication/user.md). After this, authentication will work automatically.
 
 - API
 
@@ -31,7 +31,6 @@ Before authorization, a user must get authenticated, meaning they must log in un
   To perform operations in the API:
 
   1. [Get an IAM token](../../operations/iam-token/create.md) in exchange for your [OAuth token](oauth-token.md).
-
   2. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
       {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
@@ -44,7 +43,7 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
 - CLI
 
-  To perform operations on behalf of your service account, specify the path to its authorized key in the `service-account-key` configuration during [profile initialization](../../../cli/quickstart.md#initialize). The key will be saved in the profile configuration and authentication will work automatically.
+  To perform operations in the CLI, authenticate following the [instructions](../../../cli/operations/authentication/service-account.md). After this, authentication will work automatically.
 
 - API
 
@@ -53,16 +52,13 @@ Before authorization, a user must get authenticated, meaning they must log in un
   * Using an [IAM token](iam-token.md).
 
       This is the recommended authentication method, but IAM tokens have a short [lifetime](iam-token.md#lifetime). Therefore, such a method is good for applications that will request the IAM token automatically.
-      * [Instructions for how to get an IAM token](../../operations/iam-token/create-for-sa.md).
-      * [How to get an IAM token from inside the VM](../../../compute/operations/vm-connect/auth-inside-vm.md).
-      * [Getting an IAM token from within a function in {{ sf-name }}](../../../functions/operations/function-sa.md).
 
+      [Instructions for how to get an IAM token](../../operations/iam-token/create-for-sa.md).
   * Using [API keys](api-key).
 
       {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}
 
       [Instructions for how to get an API key](../../operations/api-key/create.md).
-
   * Using [static access keys](access-key.md). This method should be used in services with an AWS-compatible API, such as {{ objstorage-name }} and {{ message-queue-name }}.
 
       [Instructions for how to get a static access key](../../operations/sa/create-access-key.md).
@@ -71,7 +67,23 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
 ### Federated user authentication {#saml-federation}
 
-{% include [federated-user-auth](../../../_includes/iam/federated-user-auth.md) %}
+{% list tabs %}
 
-The authentication process for a federated user depends on the IdP server settings. For more information, see [{#T}](../users/identity-federations.md)
+- Management console
+
+  {% include [federated-user-auth](../../../_includes/iam/federated-user-auth.md) %}
+
+  The authentication process for a federated user depends on the IdP server settings. For more information, see [{#T}](../users/identity-federations.md).
+
+- CLI
+
+  To perform operations in the CLI, authenticate following the [instructions](../../../cli/operations/authentication/federated-user.md).
+
+  {% include [include](../../../_includes/cli/success-auth-via-federation.md) %}
+
+{% endlist %}
+
+#### See also {#see-also}
+
+[{#T}](../index.md#accounts)
 

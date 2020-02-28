@@ -235,7 +235,7 @@
 {% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-all.md) %}
 
 
-#### Что дальше
+#### Что дальше {#what-is-next}
 
 * [{#T}](update.md)
 * [{#T}](../../concepts/resources-hierarchy.md)

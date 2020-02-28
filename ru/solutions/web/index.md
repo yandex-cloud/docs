@@ -6,4 +6,5 @@
 * [{#T}](dns-load-balancer.md)
 * [{#T}](joomla-postgresql.md)
 * [{#T}](wordpress.md)
+* [{#T}](wordpress-mysql.md)
 * [{#T}](bitrix-website.md)

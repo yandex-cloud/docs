@@ -1,13 +1,11 @@
 # Статическая подготовка тома
 
-{% include [note-about-version](../../../_includes/managed-kubernetes/note-about-version.md) %}
-
 Создайте под со статически подготовленным [томом](../../concepts/volume.md): 
 1. [Создайте объект PersistentVolume](#create-pv).
 1. [Создайте объект PersistentVolumeClaim](#create-claim).
 1. [Создайте под](#create-pod).
 
-## Перед началом {#before-begin}
+## Перед началом {#before-you-begin}
 
 Узнайте уникальный идентификатор диска, который будет использован для создания объекта `PersistentVolume` или создайте новый диск: 
 

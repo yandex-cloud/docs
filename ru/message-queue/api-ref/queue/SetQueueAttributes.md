@@ -35,7 +35,7 @@ Attribute.N.Value (значение атрибута)
 ----- | -----
 `ContentBasedDeduplication` | Флаг, включающий [дедупликацию по содержимому сообщения](../../concepts/deduplication.md#content-based-deduplication). Возможные значения: `true` или `false`.
 
-#### Неподдерживаемые атрибуты
+#### Неподдерживаемые атрибуты {#non-supported-attributes}
 
 Атрибут | Тип | Описание
 ----- | ----- | -----

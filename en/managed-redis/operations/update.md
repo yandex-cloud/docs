@@ -38,8 +38,8 @@ After creating a cluster, you can:
 
      ```
      $ yc managed-redis cluster update <cluster name> \
-          --name "<new cluster name>" \
-          --description "<new cluster description>"
+          --cluster-name <new cluster name> \
+          --description <new cluster description>
      ```
 
 - API
@@ -80,7 +80,7 @@ After creating a cluster, you can:
 
      ```bash
      $ yc managed-redis resource-preset list
-     
+
      +-------------+--------------------------------+----------+
      |     ID      |            ZONE IDS            |  MEMORY  |
      +-------------+--------------------------------+----------+
@@ -136,7 +136,7 @@ After creating a cluster, you can:
      $ yc managed-clickhouse cluster update --help
      ```
 
-  1. Make sure the cloud quota is sufficient to increase the disk size: open the [Квоты]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **hddSpace** line.
+  1. Make sure the cloud quota is sufficient to increase the disk size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **hddSpace** line.
 
   1. Specify the disk size in GB in the update cluster command. The new size must be bigger than the previous one.
 
@@ -157,7 +157,7 @@ After creating a cluster, you can:
 
   You can change the {{ RD }} host disk size using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the `configSpec.resources.diskSize` request parameter.
 
-  Make sure the cloud quota is sufficient to increase the disk size: open the [Квоты]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **hddSpace** line.
+  Make sure the cloud quota is sufficient to increase the disk size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **hddSpace** line.
 
 {% endlist %}
 

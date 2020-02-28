@@ -34,7 +34,6 @@ To use the service, create a cluster and connect to a DBMS:
     $ mongo --norc \
             --ssl \
             --sslCAFile ~/.mongodb/CA.pem \
-            --ipv6 \
             --host 'rs01/<address of host 1>:27018,<address of host 2>:27018,<address of host N>:27018' \
             -u <user name> \
             -p <user password> \

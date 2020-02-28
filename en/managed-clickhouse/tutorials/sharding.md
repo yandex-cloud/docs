@@ -14,20 +14,20 @@ For more information about sharding, see [{#T}](../concepts/sharding.md).
 
 ## How to start sharding tables {#enable}
 
-By default, {{ mch-name }} creates the first shard together with the cluster. This shard includes all the hosts in the cluster. To start using sharding, [add](../operations/shards.md#add-shard) the number of shards you need and create a table on the [Distributed](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/) engine. The article under the link describes sharding strategies and guidelines for creating tables in the applicable format, as well as distributed table limits.
+By default, {{ mch-name }} creates the first shard together with the cluster. This shard includes all the hosts in the cluster. To start using sharding, [add](../operations/shards.md#add-shard) the number of shards you need and create a table on the [Distributed](https://clickhouse.yandex/docs/en/operations/table_engines/distributed/) engine. The article under the link describes sharding strategies and guidelines for creating tables in the applicable format, as well as distributed table limits.
 
-{{ mch-name }} automatically creates the [shard configuration](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/) in the cluster. You can [manage this configuration](../operations/shards.md#shard-update).
+{{ mch-name }} automatically creates the [shard configuration](https://clickhouse.yandex/docs/en/operations/table_engines/distributed/) in the cluster. You can [manage this configuration](../operations/shards.md#shard-update).
 
 ## Example of sharding {#example}
 
-Let's say you already have a sharded {{ mch-name }} cluster hosting the `default` database. Your task is to enable sharding for the `hits` table. A random number, `rand()`, is used as a sharding expression in the example:
+Let's say you already have a sharded {{ mch-name }} cluster hosting the `db1` database. Your task is to enable sharding for the `hits` table. A random number, `rand()`, is used as a sharding expression in the example:
 
 1. [Connect](../operations/connect.md) to the database.
 
 1. Create a distributed table:
 
    ```
-   CREATE TABLE sharding ENGINE = Distributed(logs, default, hits, rand());
+   CREATE TABLE sharding ENGINE = Distributed(logs, db1, hits, rand());
    ```
 
 After that, you can do SELECT queries and INSERT queries against the created table. The queries will be processed according to the configuration you set.

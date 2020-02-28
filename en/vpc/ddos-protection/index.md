@@ -8,7 +8,7 @@ DDoS protection is available for the public IP addresses of virtual machines, ne
 
 The bandwidth is not restricted for both abusive and legitimate traffic. Every gigabyte of traffic passed to the resource is charged.
 
-### See also
+### See also {#see-also}
 
 * [Enable protection from DDoS attacks](../operations/enable-ddos-protection.md)
 

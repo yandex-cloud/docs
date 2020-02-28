@@ -8,7 +8,7 @@ The following should be specified for each check:
 * Check timeout, from 1 to 60 seconds. The timeout is the time allowed for the resource to respond to a check. If the resource doesn't respond in time, the check is considered failed and the resource is assigned the `UNHEALTHY` status.
 * Resource health indicators: the threshold amount of successful or failed results. If a threshold is exceeded, it indicates that the check passed or failed, respectively.
 
-## Target health statuses
+## Target health statuses {#target-statuses}
 
 A target can have one of the following health statuses:
 

@@ -81,6 +81,7 @@
 
 * [{#T}](#multiple-roles)
 * [{#T}](#access-to-sa)
+* [{#T}](#access-to-federated-user)
 * [{#T}](#access-to-all)
 
 ### Назначить несколько ролей {#multiple-roles}
@@ -179,7 +180,7 @@
       $ curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d @body.json \
+          -d '@body.json' \
           "https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/${FOLDER_ID}:setAccessBindings"
       ```
 
@@ -191,6 +192,8 @@
 {% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-sa.md) %}
 
 ### Доступ к ресурсу для федеративного пользователя {#access-to-federated-user}
+
+{% include [include](../../../_includes/saml-assign-role-note.md) %}
 
 Сейчас [федеративному пользователю](../../concepts/users/identity-federations.md) можно назначить роль только в консоли управления.
 

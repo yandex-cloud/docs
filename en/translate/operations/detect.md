@@ -2,7 +2,7 @@
 
 To detect the language of a text, use the [detectLanguage](../api-ref/Translation/detectLanguage) method.
 
-## Before getting started {#before-begin}
+## Before getting started {#before-you-begin}
 
 {% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
 
@@ -52,7 +52,7 @@ $ export IAM_TOKEN=CggaATEVAgA...
 $ curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
-    -d @body.json \
+    -d '@body.json' \
     "https://translate.api.cloud.yandex.net/translate/v2/detect"
 
 {

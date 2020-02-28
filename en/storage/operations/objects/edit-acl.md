@@ -1,6 +1,6 @@
 # Editing an object ACL
 
-Besides [{{ iam-short-name }}](../../../iam/index.yaml), {{ objstorage-name }} supports access control using [ACLs](../../concepts/acl.md).
+In addition to [{{ iam-short-name }}](../../../iam/index.yaml), {{ objstorage-name }} supports access control using [ACLs](../../concepts/acl.md).
 
 {% list tabs %}
 

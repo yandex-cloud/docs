@@ -14,18 +14,24 @@ Naming rules:
 
    {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
 
-{% note info %}
-
-Names containing periods should only be used for [static website hosting](../hosting/index.md). HTTPS is not available for buckets with names that contain periods.
-
-{% endnote %}
+When selecting a bucket name, please keep in mind that names containing dots are used for [hosting static websites](hosting.md). You may encounter a name conflict that prevents you or another user from hosting a website in Object Storage.
 
 ## Bucket URL {#bucket-url}
 
-The name of the bucket can be placed in different parts of the URL, which can take one of the following forms:
+You can use the following URL format to access a bucket:
 
 - `https://{{ s3-storage-host }}/<bucket>?<parameters>`
-- `https://<bucket>.{{ s3-storage-host }}?<parameters>`
+- `http://<bucket>.{{ s3-storage-host }}?<parameters>`
+
+{% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
+
+## Accessing a bucket via HTTPS {#bucket-https}
+
+{{ objstorage-name }} supports secure connections over [HTTPS](https://en.wikipedia.org/wiki/HTTPS). When accessing your buckets, use URLs in the format `https://{{ s3-storage-host }}/<bucket>?<parameters>`.
+
+When you use URLs in the format `http://<bucket>.{{ s3-storage-host }}?<parameters>` HTTPS isn't available.
+
+Read about HTTPS support when hosting websites in {{ objstorage-name }} under [{#T}](hosting.md).
 
 ## Bucket settings {#bucket-settings}
 
@@ -37,17 +43,21 @@ You can:
 
 - Set the default [storage class](storage-class.md).
 
-    Objects uploaded to a bucket are by default saved with the storage class specified for that bucket.
-    
-- Configure a bucket for [static website hosting](../hosting/index.md).
-- Download a [CORS configuration](../cors/index.md) for a bucket.
-- Configure [object lifecycles](../lifecycles/index.md).
+     Objects uploaded to a bucket are by default saved with the storage class specified for that bucket.
+
+- Configure a bucket for [static website hosting](hosting.md).
+
+- Download a [CORS configuration](cors.md) for a bucket.
+
+- Set up [object lifecycles](lifecycles.md).
 
 ## Bucket access {#bucket-access}
 
-By default, buckets are created with restricted access, as set in the [IAM](../../iam/concepts/index.md) settings. If necessary, you can configure permissions to buckets and the objects they contain with [ACL](acl.md).
+By default, buckets are created with restricted access, which is defined in the [IAM](../../iam/concepts/index.md) settings. You can use the management console to [enable public access](../operations/buckets/bucket-availability.md):
 
-You can use the management console to [open public access](../operations/buckets/bucket-availability.md) to buckets. With public access, any internet user can get a list of objects in a bucket and download them.
+{% include [storage-public-operations](../_includes_service/storage-public-operations.md) %}
+
+If necessary, you can configure permissions to the buckets and objects they contain using the [ACL](acl.md).
 
 ## Guidelines and limitations {#details-of-usage}
 

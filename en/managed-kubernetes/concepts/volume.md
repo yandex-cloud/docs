@@ -20,7 +20,7 @@ Volumes are classified by their life cycle:
 
 There are different kinds of temporary and persistent volumes, depending on the storage. Read about the [volume types](https://kubernetes.io/docs/concepts/storage/volumes/#types-of-volumes) that {{ k8s }} supports.
 
-## Working with persistent volumes {#persistentvolume}
+## Working with persistent volumes {#persistent-volume}
 
 You can work with {{ k8s }} persistent volumes by using the `PersistentVolume` and `PersistentVolumeClaim` API objects.
 
@@ -34,7 +34,7 @@ You can work with {{ k8s }} persistent volumes by using the `PersistentVolume` a
 
 Users often need `PersistentVolumes` with different properties. {{ k8s }} cluster administrators can provide various `PersistentVolumes` by using [storage classes](../operations/volumes/manage-storage-class.md).
 
-## Provisioning volumes
+## Provisioning volumes {#provisioning-volumes}
 
 In {{ managed-k8s-short-name }}, you can use `PersistentVolumes` built on [disks](../../compute/concepts/disk.md) in {{ compute-name }}. You can set the disk type and other parameters using applicable [storage classes](../operations/volumes/manage-storage-class.md).
 
@@ -52,20 +52,20 @@ In most cases, you don't need to create `PersistentVolumes` or {{ compute-name }
 
 To learn how to dynamically provision a volume, see [{#T}](../operations/volumes/dynamic-create-pv.md).
 
-### Static volume provisioning
+### Static volume provisioning {#static-provisioning}
  {#static-provisioning}
 
 In addition to creating new disks for provisioning `PersistentVolumes`, you can use existing Yandex.Cloud disks.
 
 To learn more about static volume provisioning using cloud disks, see [{#T}](../operations/volumes/static-create-pv.md).
 
-## Deleting volumes
+## Deleting volumes {#deleting-volumes}
 
 Depending on the `PersistentVolume` and `PersistentVolumeClaim` settings, volumes and disks can be deleted automatically or manually.
 
 - For dynamically provisioned volumes: after removing a `PersistentVolumeClaim` built on the `yc-network-hdd` or `yc-network-nvme` storage classes, the applicable `PersistentVolume` and Compute Cloud disk **are deleted**.
 
-- For statically provisioned volumes: you can specify whether to delete the {{ compute-name }} disk when deleting the `PersistentVolumeClaim`. Тo do this, use the `persistentVolumeReclaimPolicy` parameter in the [PersistentVolumeSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#persistentvolumespec-v1-core). By default, the `Retain` value is used for statically provisioned pods and the {{ compute-name }} disk is **not deleted**.
+- For statically provisioned volumes: you can specify whether to delete the {{ compute-name }} disk when deleting the `PersistentVolumeClaim`. To do this, use the `persistentVolumeReclaimPolicy` parameter in the [PersistentVolumeSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#persistentvolumespec-v1-core). By default, the `Retain` value is used for statically provisioned pods and the {{ compute-name }} disk is **not deleted**.
 
 Learn more about volumes in the {{ k8s }} [documentation](https://kubernetes.io/docs/concepts/storage/volumes/).
 

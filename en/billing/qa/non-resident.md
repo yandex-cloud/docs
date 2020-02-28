@@ -4,19 +4,15 @@
 
 Yes, but only if your legal status is a business.
 
-To become a customer, submit a request using the **Contact sales** form on the [Contact us](https://cloud.yandex.com/support) page. A Yandex.Cloud manager will contact you to discuss the terms and conditions of signing the agreement.
-
 #### Residents of what countries do you work with? {#countries}
 
-Residents of the countries listed below can send a request to enter into an agreement and create a billing account. Each request is reviewed on an individual basis.
+Residents of the countries listed below can enter into an agreement and create a billing account.
 
 {% include [non-resident-countries](../_includes/non-resident-countries.md) %}
 
 #### Will you provide an agreement for the provision and payment of services? {#contract}
 
-Yes. Services for businesses that are non-residents of Russia are provided under an agreement that is signed by both parties.
-
-{% include [contract-non-resident](../_includes/contract-non-resident.md) %}
+{% include [contract-qa](../_includes/contract-qa.md) %}
 
 #### What payment methods can I use? {#payment-types}
 
@@ -35,4 +31,21 @@ Yandex.Cloud generates a [payment invoice](../concepts/bill.md) for businesses t
 Taxes and fees of the country where a non-resident business is registered are not included in the service costs on the [Usage details](../operations/check-charges.md) page or in the total amount of the payment invoice.
 
 Non-residents shall pay all taxes and fees stipulated by the laws of their country of residence on their own.
+
+#### Why was my billing account created with the PAYMENT_NOT_CONFIRMED status?  {#pending-status}
+
+To activate a billing account for a non-resident of the Russian Federation, you must receive confirmation from Yandex.Cloud managers.
+
+When you click the **Activate** button on the **Create billing account** page, a billing account is created with the `PAYMENT_NOT_CONFIRMED` status. An email with further instructions is sent to the email address specified in your Yandex or Yandex.Connect account. It may take up to three business days to activate your account.
+
+#### I didn't receive an email with instructions on what to do after creating a billing account. Why?  {#account-notification}
+
+It may take up to three business days to activate your billing account.
+If you didn't receive an email within that period, send a request to: [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru).
+
+In the request, specify the full name of your company and cloud ID and attach the following documents:
+
+  - A copy of the certificate of business registration (English or Russian translation required).
+  - A copy of the power of attorney of the business representative if you are a representative (English or Russian translation required).
+  
 

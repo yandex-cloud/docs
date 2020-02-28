@@ -4,7 +4,7 @@
 
 Создайте сетевой балансировщик с [обработчиком](concepts/listener.md), подключите к нему [группу целевых ресурсов](concepts/target-resources) и настройте [проверку их состояния](concepts/health-check.md) с помощью сервиса {{ load-balancer-name }}.
 
-## Перед началом работы {#before-begin}
+## Перед началом работы {#before-you-begin}
 
 1. Войдите в [консоль управления](https://console.cloud.yandex.ru) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 1. [На странице биллинга](https://console.cloud.yandex.ru/billing) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
@@ -69,7 +69,7 @@
 
 Затем [удалите целевую группу](operations/target-group-delete.md) и [виртуальные машины](../compute/operations/vm-control/vm-delete.md).
 
-## Что дальше {#whats-next}
+## Что дальше {#what-is-next}
 
 * Узнайте больше о работе [сетевых балансировщиков](concepts/index.md).
 * Ознакомьтесь с [рекомендациями](best-practices.md) по работе с балансировщиками.

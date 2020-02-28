@@ -1,6 +1,6 @@
 # Создать Docker-образ
 
-В инструкции описано как создать [Docker-образ](../../concepts/docker-image.md) на основе Dockerfile и собрать его.  
+В инструкции описано, как создать [Docker-образ](../../concepts/docker-image.md) на основе Dockerfile и собрать его.  
 
 {% list tabs %}
 

@@ -1,13 +1,35 @@
 # Static website in {{ objstorage-full-name }}
 
+In this guide, you'll learn how to upload your the static HTML files of your website to [{{ objstorage-full-name }}](../../storage) storage and link your domain name to a [bucket](../../storage/concepts/bucket.md), which will store the files.
+
 To host a static website in Object Storage:
 
-1. [Create a bucket with public access](#create-public-bucket)
-1. [Configure the website's home page and the error page](#index-and-error)
-1. [Configure use of your own domain](#connect-your-domain)
-1. [Upload the website files](#upload-files)
+1. [Before you start](#before-you-begin).
+1. [Create a bucket with public access](#create-public-bucket).
+1. [Configure the website homepage and error page](#index-and-error).
+1. [Set up using your own domain](#connect-your-domain).
+1. [Upload the website files](#upload-files).
+1. [Check that the website is running](#test-site).
 
-## 1. Create a public bucket {#create-public-bucket}
+If you no longer need the website, [delete its files from storage](#clear-out).
+
+## Before you start {#before-you-begin}
+
+Before using {{ objstorage-full-name }}, sign up for Yandex.Cloud and create a billing account:
+
+{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+
+If you have an active billing account, you can create or select a folder to place your bucket in. Go to the [Yandex.Cloud homepage](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a bucket. [Learn more about the resource hierarchy in Yandex.Cloud](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Required paid resources {#paid-resources}
+
+The cost of hosting a static website includes:
+
+* A fee for storing static website data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
+* A fee for data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-operations)).
+* The cost of outgoing traffic from Yandex.Cloud to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-traffic)).
+
+## Create a public bucket {#create-public-bucket}
 
 To create a bucket for static website files:
 
@@ -15,7 +37,7 @@ To create a bucket for static website files:
 
 1. On the folder page, click **Create resource** and select **Bucket**.
 
-1. In the **Name** field, enter the bucket name (for instance, `www.example.com`). The bucket name will be used in the website domain name: `https://www.example.com.{{ s3-web-host }}`.
+1. In the **Name** field, enter a name for the bucket (for instance, `www.example.com`). The bucket name will be used in the website domain name: `https://www.example.com.{{ s3-web-host }}`.
 
    The name must meet the following requirements:
 
@@ -33,15 +55,15 @@ To create a bucket for static website files:
 
 1. Click **Create bucket**.
 
-## 2. Configure the website's home page and the error page {#index-and-error}
+## Configure the website homepage and error page {#index-and-error}
 
 You should upload and configure the index page and error page. To do this:
 
 1. Create the following files on your computer:
    * `index.html` with the text `Hello world!`.
-The file content will be displayed when accessing the website's home page.
+The file content gets displayed when accessing the home page of the website.
    * `error.html` with the text `Error!`.
-The file content will appear in the website responses with `4ххх` errors.
+The file content appears in website responses with `4ххх` errors.
 1. Go to your bucket's page, open the **Objects** tab, and click **Upload**. In the window that opens, select the created files and click the confirmation button.
 1. Click **Upload**.
 1. Open the **Website** tab on your bucket page.
@@ -49,10 +71,10 @@ The file content will appear in the website responses with `4ххх` errors.
 1. In the **Home page** field, specify `index.html`.
 1. In the **Error page** field, specify `error.html`.
 1. Click **Save**.
-1. Make sure the website's home page opens. To do this, connect to the website through a browser via a link like `https://{bucket-name}.{{ s3-web-host }}`.
-1. Make sure the error page opens. To do this, connect to the website through a browser via a link like `https://{bucket-name}.{{ s3-web-host }}/error-check`.
+1. Make sure the website's home page opens. To do this, access the website from a browser via a link like `https://{bucket-name}.{{ s3-web-host }}`.
+1. Make sure the error page opens. To do this, access the website from a browser via a link like `https://{bucket-name}.{{ s3-web-host }}/error-check`.
 
-## 3. Configure use of your own domain {#connect-your-domain}
+## Set up using your own domain {#connect-your-domain}
 
 To use your own domain for a website:
 
@@ -61,21 +83,33 @@ To use your own domain for a website:
 
 {% note info %}
 
-The website is accessible only over HTTP, for instance, `http://www.example.com` or `http://www.example.com.{{ s3-web-host }}`.
+By default, the website is accessible only over HTTP, for instance, `http://www.example.com` or `http://www.example.com.{{ s3-web-host }}`. To provide HTTPS support for your website, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
 
 {% endnote %}
 
-The instructions below describe how to configure an external DNS service using as an example [reg.ru](https://www.reg.ru/) for domain names `www.example.com.{{ s3-web-host }}` and `www.example.com`:
+The instructions below describe how to configure an external DNS service using [reg.ru](https://www.reg.ru/) for the `www.example.com.{{ s3-web-host }}` and `www.example.com` domain names:
 
-1. Go to the bucket page and open the **Website** tab in the [management console]({{ link-console-main }}) and find the website address.
+1. Find the website address on the **Website** tab of the bucket page in the [консоли управления]({{ link-console-main }}).
 1. Log in to the control panel of the external DNS service. Go to the [list of your domains](https://www.reg.ru/user/domain_list) and click on the required domain name.
 1. Follow the **Zone management** link in the **Domain management** section.
 1. Create a CNAME record with the following field values:
    * **Subdomain**: `www`.
-   * **Canonical name**:  website address with a dot at the end (for instance, `www.example.com).{{ s3-web-host }}.`.
+   * **Canonical name**: Website address with a dot at the end (for instance, `www.example.com.{{ s3-web-host }}.`.
 1. Wait 15-20 minutes for DNS record changes to take effect. The waiting time may differ for your DNS service.
 
-## 4. Upload the website files to the bucket {#upload-files}
+## Upload the website files {#upload-files}
 
-After you configure and test the website's availability, upload the remaining files that are necessary for website operation. Do that via the [management console]({{ link-console-main }}), [API](../../storage/s3/api-ref/object/upload.md), or one of the available [tools for working with {{ objstorage-name }}](../../storage/instruments/).
+After you configure and test the website's availability, upload the remaining files that are necessary for website operation. To do this, use the [management console]({{ link-console-main }}), [API](../../storage/s3/api-ref/object/upload.md), or one of the available [tools for working with {{ objstorage-name }}](../../storage/tools/).
+
+## Check that the website is running {#test-site}
+
+To make sure the website is running, open the following address in your browser
+
+```
+http://www.example.com.website.yandexcloud.net`
+```
+
+## How to delete created resources {#clear-out}
+
+To stop paying for file storage, [delete](../../storage/operations/objects/delete.md) the uploaded files.
 

@@ -4,7 +4,7 @@ The primary visual component in {{ monitoring-full-name }} is the [dashboard](da
 
 The service can display collected metrics as charts. You can place charts on dashboards as a widget.
 
-#### See also
+#### See also {#see-also}
 
 - [{#T}](../../operations/dashboard/create.md)
 - [{#T}](../../operations/dashboard/copy.md)

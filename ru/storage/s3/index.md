@@ -1,12 +1,12 @@
 # Как пользоваться API
 
-## Подготовка к работе {#preparations}
+## Подготовка к работе {#before-you-start}
 
 Чтобы воспользоваться API:
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
-Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [{#T}](../instruments/index.md).
+Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [{#T}](../tools/index.md).
 
 Перечень поддерживаемых методов Amazon S3 HTTP API смотрите в [Справочнике API](api-ref/index.md).
 
@@ -41,7 +41,9 @@ URL может иметь одну из следующих форм:
 - `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
 - `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
 
-## CORS запросы
+{% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
+
+## CORS запросы {#cors-requests}
 
 Кросс-доменные запросы доступны для всех методов API, которые управляют объектами.
 

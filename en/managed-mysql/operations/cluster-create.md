@@ -76,7 +76,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
      ```
      $ yc managed-mysql cluster create \
-        --name <cluster name> \
+        --cluster-name <cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \
         --host zone-id=<availability zone>,subnet-id=<subnet ID> \

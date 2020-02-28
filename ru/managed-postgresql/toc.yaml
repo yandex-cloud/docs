@@ -15,6 +15,8 @@ items:
       href: operations/connect.md
     - name: Остановка и запуск кластера
       href: operations/cluster-stop.md
+#    - name: SQL-запросы в консоли управления
+#      href: operations/web-sql-query.md
     - name: Изменение настроек кластера и базы данных
       href: operations/update.md
     - name: Управление хостами PostgreSQL
@@ -33,6 +35,10 @@ items:
       href: operations/cluster-delete.md
     - name: Миграция базы данных в Облако
       href: operations/data-migration.md
+  - name: Сценарии использования
+    items:
+      - name: Создание кластера PostgreSQL для 1С
+        href: solutions/1c-postgresql
   - name: Концепции
     items:
     - name: Взаимосвязь ресурсов сервиса
@@ -65,13 +71,22 @@ items:
             href: pricing-archive/pricing-01012019.md
           - name: С 1 января до 1 марта 2019 года
             href: pricing-archive/pricing-01032019.md
+          - name: С 1 марта 2019 года до 1 февраля 2020 года
+            href: pricing-archive/pricing-01022020.md
   - name: Справочник API
     items:
-    - name: Аутентификация в API
-      href: api-ref/authentication.md
-    include:
-      repo: docs
-      path: ru/_api-ref/mdb/postgresql/toc.yaml
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/managed-postgresql/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref/mdb/postgresql/toc.yaml
   - name: Вопросы и ответы
     items:
     - name: Общие вопросы

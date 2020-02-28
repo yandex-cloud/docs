@@ -28,7 +28,7 @@ To read metric data, use the [read](../../api-ref/MetricsData/read.md) method.
     $ curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d @body.json \
+        -d '@body.json' \
         'https://monitoring.api.cloud.yandex.net/monitoring/v2/data/read?folderId=b2ghmo15rmnlod3hrf8p' > output.json
     ```
 

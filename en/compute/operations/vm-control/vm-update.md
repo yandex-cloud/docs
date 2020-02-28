@@ -34,9 +34,9 @@ For more information about how to update a VM's configuration, see the section [
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
-### Viewing a list of configurable parameters
+### Viewing a list of configurable parameters {#viewing-a-list-of-configurable-parameters}
 
 To view the list of configurable parameters, run the command:
 
@@ -50,7 +50,7 @@ To view the list of configurable parameters, run the command:
 
 {% endlist %}
 
-### Changing the name and description
+### Changing the name and description {#changing-the-name-and-description}
 
 To change the name and description of a VM, follow these steps:
 
@@ -75,7 +75,7 @@ To change the name and description of a VM, follow these steps:
 
 {% endlist %}
 
-### Changing metadata
+### Changing metadata {#changing-metadata}
 
 Metadata based on different operating systems may differ. When you change an existing set of metadata, it is completely replaced by the set passed in the command.
 

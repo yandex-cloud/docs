@@ -11,17 +11,13 @@ To receive messages, you need to subscribe to the sender. For information about 
 
 {% include [iot-before-begin](../../_includes/iot-core/iot-before-begin.md) %}
 
-## Sending a message with data {#pub-events}
-
-Send a message with data using the following parameters:
-
-- `--cert`: Path to the public part of the device certificate.
-- `--key`: Path to the public part of the device certificate.
-- `--topic`: Device topic.
-- `--message`: Message text.
-- `--qos`: [Quality of service (QoS)](../concepts/topic.md#qos).
+## Sending messages with data {#pub-events}
 
 {% include [debug-note](../../_includes/iot-core/debug-note.md) %}
+
+### Send data from a device to a device topic {#to-device-topic}
+
+Registries subscribed to this topic will know which device sent the data, because the topic contains a unique device ID.
 
 {% list tabs %}
 
@@ -31,7 +27,7 @@ Send a message with data using the following parameters:
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    - Send data from a device to the device topic:
+    - Send data using a certificate:
 
         ```
         $ yc iot mqtt publish \
@@ -42,9 +38,44 @@ Send a message with data using the following parameters:
         --qos 1
         ```
 
-      Registries subscribed to this topic will know which device sent the data, because the topic contains a unique device ID.
+        Where:
+        - `--cert` and `--key`: Parameters for authorization using a certificate.
+        - `--topic`: Device topic for sending data.
+        - `--message`: Message text.
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
-    - Send data from the device to the registry topic:
+    - Send data using a username and password:
+
+        ```
+        $ yc iot mqtt publish \
+        --username <device ID> \
+        --password <device password> \
+        --topic '$devices/<device ID>/events' \
+        --message 'Test data' \
+        --qos 1
+        ```
+
+        Where:
+        - `--username` and `--password`: Parameters for authorization using a username and password.
+        - `--topic`: Device topic for sending data.
+        - `--message`: Message text.
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
+
+{% endlist %}
+
+### Send data from a device to a registry topic {#to-registry-topic}
+
+Registries subscribed to this topic will not know which device sent the data, because the topic doesn't contain a unique device ID.
+
+{% list tabs %}
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    - Send data using a certificate:
 
         ```
         $ yc iot mqtt publish \
@@ -55,7 +86,28 @@ Send a message with data using the following parameters:
         --qos 1
         ```
 
-      The registry subscribed to this topic will not know which device sent the data, because the topic doesn't contain a unique device ID.
+        Where:
+        - `--cert` and `--key`: Parameters for authorization using a certificate.
+        - `--topic`: Registry topic for getting data.
+        - `--message`: Message text.
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
+
+    - Send data using a username and password:
+
+        ```
+        $ yc iot mqtt publish \
+        --username <device ID> \
+        --password <device password> \
+        --topic '$registries/<registry ID>/events' \
+        --message 'Test data' \
+        --qos 1
+        ```
+
+        Where:
+        - `--username` and `--password`: Parameters for authorization using a username and password.
+        - `--topic`: Registry topic for getting data.
+        - `--message`: Message text.
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
 {% endlist %}
 
@@ -63,15 +115,9 @@ Send a message with data using the following parameters:
 
 A registry can send messages with commands to one, multiple, or all devices added to it. Let's look at all the options.
 
-Send a message with a command using the following parameters:
-
-- `--cert`: Path to the public part of the registry certificate.
-- `--key`: Path to the public part of the registry certificate.
-- `--topic`: Device topic.
-- `--message`: Message text.
-- `--qos`: [Quality of service (QoS)](../concepts/topic.md#qos).
-
 {% include [debug-note](../../_includes/iot-core/debug-note.md) %}
+
+### Send a command to a single device {#one-device}
 
 {% list tabs %}
 
@@ -81,7 +127,7 @@ Send a message with a command using the following parameters:
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    - Send a command to a single device:
+    - Send a command using a certificate:
 
         ```
         $ yc iot mqtt publish \
@@ -92,7 +138,42 @@ Send a message with a command using the following parameters:
         --qos 1
         ```
 
-    - Send a command to all devices added to the registry:
+        Where:
+        - `--cert` and `--key`: Parameters for authorization using a certificate.
+        - `--topic`: Device topic for getting commands.
+        - `--message`: Message text.
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
+
+    - Send a command using a username and password:
+
+        ```
+        $ yc iot mqtt publish \
+        --username <registry ID> \
+        --password <registry password> \
+        --topic '$devices/<device ID>/commands' \
+        --message 'Test command for first device' \
+        --qos 1
+        ```
+
+        Where:
+        - `--username` and `--password`: Parameters for authorization using a username and password.
+        - `--topic`: Device topic for getting commands.
+        - `--message`: Message text.
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
+
+{% endlist %}
+
+### Send a command to all devices added to the registry {#all-device}
+
+{% list tabs %}
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    - Send a command using a certificate:
 
         ```
         $ yc iot mqtt publish \
@@ -102,6 +183,29 @@ Send a message with a command using the following parameters:
         --message 'Test command for all devices' \
         --qos 1
         ```
+
+        Where:
+        - `--cert` and `--key`: Parameters for authorization using a certificate.
+        - `--topic`: Registry topic for sending commands.
+        - `--message`: Message text.
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
+
+    - Send a command using a username and password:
+
+        ```
+        $ yc iot mqtt publish \
+        --username <registry ID> \
+        --password <registry password> \
+        --topic '$registries/<registry ID>/commands' \
+        --message 'Test command for all devices' \
+        --qos 1
+        ```
+
+        Where:
+        - `--username` and `--password`: Parameters for authorization using a username and password.
+        - `--topic`: Registry topic for sending commands.
+        - `--message`: Message text.
+        - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
 {% endlist %}
 

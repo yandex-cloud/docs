@@ -25,7 +25,7 @@ Before deploying the server, you need to sign up for Yandex.Cloud and create a b
 
 {% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in. Go to the [Yandex.Cloud homepage](https://console.cloud.yandex.ru/cloud) and select or create a folder where you want to create a VM for your server. [Learn more about the resource hierarchy in Yandex.Cloud](../../resource-manager/concepts/resources-hierarchy.md).
+If you have an active billing account, you can create or select a folder to run your VM in. Go to the [Yandex.Cloud homepage](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a VM for your server. [Learn more about the resource hierarchy in Yandex.Cloud](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources
 
@@ -207,12 +207,12 @@ SFTP server functionality is included in the standard SSH program that comes wit
     The key generation process is given below. Leave the `passphrase` field blank.
 
     ```
-    [yc-user@ftp-server ~]$ sudo runuser -l fuser -c 'ssh-keygen'      
+    [yc-user@ftp-server ~]$ sudo runuser -l fuser -c 'ssh-keygen'
     Generating public/private rsa key pair.
-    Enter file in which to save the key (/home/fuser/.ssh/id_rsa): 
+    Enter file in which to save the key (/home/fuser/.ssh/id_rsa):
     Created directory '/home/fuser/.ssh'.
-    Enter passphrase (empty for no passphrase): 
-    Enter same passphrase again: 
+    Enter passphrase (empty for no passphrase):
+    Enter same passphrase again:
     Your identification has been saved in /home/fuser/.ssh/id_rsa.
     Your public key has been saved in /home/fuser/.ssh/id_rsa.pub.
     The key fingerprint is:
@@ -471,7 +471,7 @@ To restore the settings from the backup:
 1. Copy the configuration files from the archive to the system (`yes` — avoid entering confirmation when overwriting files):
 
    ```bash
-   $ yes | cp -rfp etc / 
+   $ yes | cp -rfp etc /
    ```
 
 1. Delete the archive and unpacked content:

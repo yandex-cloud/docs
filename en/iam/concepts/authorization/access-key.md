@@ -11,8 +11,8 @@ For information about how to use static access keys, read the documentation on t
 * [{{ objstorage-name }}](/docs/storage/)
 * [{{ message-queue-name }}](/docs/message-queue/)
 
-#### See also
+#### See also {#see-also}
 
 * [How to create a static access key](../../operations/sa/create-access-key.md)
-* [{#T}](index.md)
+* [{#T}](./index.md)
 

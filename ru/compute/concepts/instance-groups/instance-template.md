@@ -8,6 +8,8 @@
 
 При описании шаблона, вы указываете, сколько вычислительных ресурсов будет выделено каждой виртуальной машине: количество и гарантированный уровень производительности ядер процессора (vCPU), количество памяти (RAM). Вы можете выбрать подходящее количество вычислительных ресурсов из расчета планируемой нагрузки. Подробнее читайте в разделе [{#T}](../performance-levels.md).
 
+Вы также можете указать в шаблоне, чтобы создавались [прерываемые](../preemptible-vm.md) виртуальные машины — они дешевле обычных. Автоматическое восстановление прерываемых ВМ будет происходить только, если в зоне доступности для этого достаточно вычислительных ресурсов. Если ресурсов недостаточно, {{ ig-name }} продолжит автоматическое восстановление, когда появятся свободные ресурсы, но этот процесс может занять продолжительное время.
+
 ## Диски {#disks}
 
 К каждой виртуальной машине в группе должен быть подключен как минимум один диск — загрузочный. Каждый загрузочный диск создается автоматически и подключается только к одной виртуальной машине при создании группы ВМ.
@@ -31,41 +33,56 @@
 
 Также для каждой виртуальной машины можно настроить публичный IP-адрес. Это позволит виртуальной машине взаимодействовать с другими сервисами в интернете. Подробнее читайте в разделе [{#T}](../network.md).
 
+
+## Метаданные {#metadata}
+
+В шаблоне можно описать метаданные ВМ для машин в группе. Например, пользователей системы, которых нужно создавать при запуске новой машины, следует описать в ключе `user-data`. Подробнее о том, какие метаданные поддерживает {{compute-name}}, читайте в разделе [{#T}](../vm-metadata.md).
+
 ## Описание шаблона в YAML-файле {#instance-template}
 
 Шаблон представляет собой описание конфигурации базовой виртуальной машины и определяется в YAML-файле, в ключе `instance_template`.
 
 Пример записи в YAML-файле:
 
-```
+```yaml
 ...
 instance_template:
-    platform_id: standard-v1
-    resources_spec:
-        memory: 4g
-        cores: 1
-        core_fraction: 5
-    boot_disk_spec:
-        mode: READ_WRITE
-        disk_spec:
-            image_id: fdvk34al8k5nltb58shr
-            type_id: network-hdd
-            size: 32g
-    secondary_disk_specs:
-        mode: READ_WRITE
-        disk_spec:
-            image_id: fdvk34al8k5nltb58shr
-            type_id: network-hdd
-            size: 32g
-    network_interface_specs:
-        - network_id: c64mknqgnd8avp6edhbt
-          subnet_ids:
-              - blt022m2diah5j3rcj8v
-          primary_v4_address_spec: {
-              one_to_one_nat_spec: {
-                  ip_version: IPV4
-              }
-          }
+  platform_id: standard-v1
+  resources_spec:
+    memory: 2G
+    cores: 1
+    core_fraction: 5
+  boot_disk_spec:
+    mode: READ_WRITE
+    disk_spec:
+      image_id: ff8nb7ecsbrj76dfaa8b
+      type_id: network-hdd
+      size: 50G
+  network_interface_specs:
+    - network_id: rnp6rq7pmi0542gtuame
+      subnet_ids:
+        - e9b9v2v5f3rrpuot2mvl
+      primary_v4_address_spec: {
+        one_to_one_nat_spec: {
+          ip_version: IPV4
+        }
+      }
+  metadata:
+    user-data: |-
+      #cloud-config
+      write_files:
+        - path: /var/lib/cloud/scripts/per-boot/01-run-load-generator.sh
+          permissions: '0555'
+          content: |
+            #!/bin/bash
+            docker run -d --net=host -p 80:80 openresty/openresty:alpine
+      users:
+        - name: my-user
+          groups: sudo
+          shell: /bin/bash
+          sudo: ['ALL=(ALL) NOPASSWD:ALL']
+          ssh-authorized-keys:
+            - ssh-rsa AAAAB3...
 ...
 ```
 
@@ -81,10 +98,12 @@ instance_template:
 `core_fraction` | Базовый уровень производительности CPU. Значение должно быть равно 0, 5 или 100.
 `mode` | Режим доступа к диску. </br> - `READ_ONLY` — доступ на чтение. </br>- `READ_WRITE` — доступ на чтение и запись.
 `image_id` | Идентификатор образа, из которого будет создан диск.
-`type_id` | Идентификатор типа диска. Чтобы получить список доступных типов дисков, используйте запрос [yandex.cloud.compute.v1.diskTypes](../../api-ref/DiskType/list.md).
+`type_id` | Идентификатор типа диска. Чтобы получить список доступных типов дисков, используйте запрос [diskTypes](../../api-ref/DiskType/list.md).
 `size` | Размер диска в байтах. Допустимые значения — от 4194304 (4 MБ) до 4398046511104 (4 ТБ) включительно.
 `network_id` | Идентификатор облачной сети.
 `subnet_ids` | Идентификаторы облачных подсетей.
 `ip_version` | Версия IP для публичного IP-адреса.
+`metadata` | Метаданные для шаблонной ВМ. Подробнее см. раздел [{#T}](../vm-metadata.md).
+`user-data` | Дополнительные настройки для инициализации виртуальной машины. В приведенном примере настройки описаны для программы `cloud-init`.
 
 О технических ограничениях компонента {{ ig-name }} читайте в разделе [{#T}](../limits.md).

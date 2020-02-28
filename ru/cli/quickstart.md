@@ -6,7 +6,7 @@ _Интерфейс командной строки Яндекс.Облака (C
 
 {% include [install-cli](../_includes/cli/install-cli.md) %}
 
-## Инициализация {#initialize}
+## Создание профиля {#initialize}
 
 
 1. Получите OAuth-токен в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке]({{ link-cloud-oauth }}) и нажмите **Разрешить**.
@@ -25,6 +25,8 @@ _Интерфейс командной строки Яндекс.Облака (C
       [2] cloud2 (id = dcvatao4faoe2bmrg22b)
      Please enter your numeric choice: 2
      ```
+
+     Если вам доступно только одно облако, оно будет выбрано автоматически.
   1. Выберите каталог по умолчанию:
      ```
      Please choose a folder to use:

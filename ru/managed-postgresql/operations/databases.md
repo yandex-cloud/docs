@@ -22,7 +22,7 @@
 
   ```
   $ yc managed-postgresql database list
-       --cluster-name=<имя кластера>
+       --cluster-name <имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
@@ -127,7 +127,7 @@
 
   ```
   $ yc managed-postgresql database delete <имя базы данных>
-       --cluster-name=<имя кластера>
+       --cluster-name <имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).

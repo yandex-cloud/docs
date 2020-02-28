@@ -1,6 +1,6 @@
 # delete method
 
-Deletes a bucket's object lifecycle configuration from {{ objstorage-name }}.
+Deletes a bucket object lifecycle configuration from {{ objstorage-name }}.
 
 ## Request {#request}
 
@@ -12,7 +12,7 @@ DELETE /{bucket}?lifecycle HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Name of the bucket. |
+| `bucket` | Bucket name. |
 
 ### Query parameters {#parameters}
 
@@ -22,17 +22,17 @@ DELETE /{bucket}?lifecycle HTTP/1.1
 
 ### Headers {#request-headers}
 
-In a request, use only [common request headers](../common-request-headers.md).
+Use only [common request headers](../common-request-headers.md) in requests.
 
 ## Response {#response}
 
 ### Headers {#response-headers}
 
-A response can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common response headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [{#T}](../response-codes.md).
 
-If there is no bucket object lifecycle configuration, {{ objstorage-name }} returns 200.
+If there isn't a bucket object lifecycle configuration, {{ objstorage-name }} returns a 200 code.
 

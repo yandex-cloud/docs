@@ -22,7 +22,7 @@
 
   ```
   $ yc managed-mongodb database list
-       --cluster-name=<имя кластера>
+       --cluster-name <имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
@@ -102,7 +102,7 @@
 
   ```
   $ yc managed-mongodb database delete <имя базы данных>
-       --cluster-name=<имя кластера>
+       --cluster-name <имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).

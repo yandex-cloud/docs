@@ -2,7 +2,7 @@
 
 {{ mrd-name }} uses standard Redis replication and provides high availability of cluster data using Redis Sentinel.
 
-## Replication
+## Replication {#replication}
 
 {{ mrd-name }} clusters use asynchronous replication: the result of a write request is reflected on the master host, which then forwards the data to the cluster replicas. The replication process does not affect the master availability in any way, but it can make replicas temporarily unavailable (for up to a few seconds for large databases) when loading new data into memory.
 
@@ -12,7 +12,7 @@ Because of the asynchronous nature of replication, data on replicas might become
 
 For more information about how replication works in {{ RD }}, see the [DBMS documentation](https://redis.io/topics/replication).
 
-## Fault tolerance
+## Fault tolerance {#availability}
 
 High availability of cluster data is provided using Redis Sentinel: in a cluster consisting of three or more three hosts, Sentinel services automatically manage the selection of the master and the configuration of replicas.
 

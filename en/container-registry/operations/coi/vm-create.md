@@ -4,7 +4,7 @@ Create a VM from a [{{ coi }}](../../concepts/coi.md) and run a Docker container
 
 ## Before you start {#before-you-begin}
 
-If the required Docker image is pushed to {{ container-registry-name }}, create a [service account](../../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../security/index.md#required-roles) role for the registry in use. A VM with a {{ coi }} pulls the Docker image from the registry on behalf of this account.
+If the required Docker image is pushed to {{ container-registry-name }}, create a [service account](../../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../security/index.md#choosing-roles) role for the registry in use. A VM with a {{ coi }} pulls the Docker image from the registry on behalf of this account.
 
 ## Create a VM with a Docker container built on a {{ coi }} {#create-vm}
 

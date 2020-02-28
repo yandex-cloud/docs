@@ -1,4 +1,4 @@
-# Switching clouds
+# Switch clouds
 
 {% list tabs %}
 
@@ -13,7 +13,7 @@
 - CLI
 
   There are two ways to choose the cloud that is used in the CLI by default:
-  * Select the cloud during your [profile initialization](../../../cli/quickstart.md#initialize).
+  * Select a cloud when [creating a profile](../../../cli/operations/profile/profile-create.md).
   * Change the `cloud-id` parameter in the profile configuration.
 
   To change the `cloud-id` parameter for the current profile:

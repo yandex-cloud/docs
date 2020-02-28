@@ -4,6 +4,10 @@
 
 {% include [billing-account-amounts](../_includes/billing-account-amounts.md) %}
 
+{% include [billing-account-payers](../_includes/billing-account-payers.md) %}
+
+{% include [billing-account-payers-example](../_includes/billing-account-payers-example.md) %}
+
 #### How many clouds can I link to my billing account? {#clouds-amount}
 
 {% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}
@@ -44,4 +48,14 @@ After suspension, an email with instructions on how to restore access was sent t
 The service most likely doesn't support the payment system of your bank card.
 
 To resolve the issue, try linking a different bank card or, if you are a business owner, create a billing account with the **Business account** type and **Bank transfer** payment method.
+
+#### Why do I get the error "The country is not available to the payer" when creating a billing account?  {#account-error}
+
+You most likely logged in under a Yandex account that is already linked to a payer with a different residence status.
+
+{% include [billing-account-payers](../_includes/billing-account-payers.md) %}
+
+To create a billing account with a payer who is a resident of another country, log in under a different Yandex.Passport or Yandex.Connect account.
+
+{% include [billing-account-payers-example](../_includes/billing-account-payers-example.md) %}
 

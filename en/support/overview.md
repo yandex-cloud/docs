@@ -1,158 +1,59 @@
 # Requesting technical support
 
-Yandex.Cloud provides technical support to users with different service plans. You can choose the one that best suits you.
+Yandex.Cloud provides technical support under different service plans. You can choose the one that best suits you.
 
 {% note info %}
 
-No additional fees apply for technical support until, and including, December 31, 2019.
+Technical support is free of charge until February 29, 2020.
 
 {% endnote %}
 
-{% list tabs %}
+## How to contact support {#response-time}
 
-- Standard
+Depending on your service plan, you can [contact support]({{ link-console-support }}) in one of the following ways:
 
-  ### Contacting support
+{% include [support-channels](../_includes/support/channels.md) %}
 
-  You can [contact tech support]({{ link-console-support }}) in one of the following ways:
+Requests pertaining to errors in infrastructure production environments are given _critical_ priority.
 
-  {% include [support-channels](../_includes/support/channels.md) %}
+Maximum request processing times are given in the table below. A dash in a table cell means the corresponding communication channel is not available for the selected service plan.
 
-  ### Hours of operation
+| Channel | Basic | Standard | Business | Premium |
+| ----- | ----- | ----- | ----- | ----- |
+| Request in console | 24 hours | Standard: 8 hours<br/>Critical: 2 hours | Standard: 4 hours<br/>Critical: 30 minutes | Standard: 2 hours<br/>Critical: 15 minutes |
+| Chat | - | 15 minutes | 5 minutes | immediate |
+| Phone | - | - | immediate | immediate |
 
-  Technical support responds to requests 7 days a week from 10:00 to 22:00 (UTC+3).
+## Types of technical support requests {#request-types}
 
-  ### Response times
+The types of requests available depend on the selected plan and are shown in the table below.
 
-  The response time depends on how you contact technical support:
-  - Chat:
-      * No more than 10 minutes after a request is received.
-  - Feedback form and email:
-      * For regular requests, no more than 8 hours after a request is received.
-      * For critical requests, no more than 3 hours after a request is received.
+{% note info %}
 
-  {% include [support-channels](../_includes/support/critical.md) %}
+<q>Premium</q> plan services aren't limited to the given list and can be supplemented based on your requirements.
 
-  ### Types of technical support requests
+{% endnote %}
 
-  With the <q>Standard</q> plan, you can contact Yandex.Cloud technical support for the following purposes:
+| Request type | Basic | Standard | Business | Premium |
+| ----- | ----- | ----- | ----- | ----- |
+| Restore access to the management console | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Provide links to documentation | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Diagnose errors in Yandex.Cloud services and fix identified problems not related to third-party software | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Address questions issues related to billing | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Address frequently asked questions (including general questions like <q>How does this work?</q> and <q>What is this?</q>) about Yandex.Cloud services and functional capabilities | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Address questions or provide assistance when setting up Yandex.Cloud services | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Address requests about your data in Yandex.Cloud | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Provide recommendations for service recovery in the event of a critical incident | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Provide general recommendations about architecture |  | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Address questions configuring third-party software and troubleshooting compatibility issues (provide reference to open sources of information) |  |  | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Provide recommendations for fixing problems with operating systems and their components. |  |  | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Provide recommendations for troubleshooting third-party software compatibility issues (direct help solving) |  |  |  | ![image](../_assets/common/yes.svg) |
+| Directly consult with a dedicated support engineer on how to solve architecture-related tasks based on your Yandex.Cloud service usage scenario. |  |  |  | ![image](../_assets/common/yes.svg) |
+| Personal technical manager |  |  |  | ![image](../_assets/common/yes.svg) |
+| Additional Yandex.Cloud services (case-by-case basis) |  |  |  | ![image](../_assets/common/yes.svg) |
 
-  {% include [support-cases-types](../_includes/support/cases-types.md) %}
+Yandex.Cloud technical support engineers don't perform the following tasks:
 
-  Yandex.Cloud technical support engineers do not resolve the following types of requests:
-  * Source code development.
-  * Debugging proprietary software of Yandex.Cloud customers.
-
-- Business
-
-  ### Contacting support
-
-  You can contact technical support in any of these ways:
-
-  {% include [support-channels](../_includes/support/channels.md) %}
-  * By phone.
-
-  ### Hours of operation
-
-  Technical support responds to requests 24 hours a day, 7 days a week.
-
-  Phone calls are handled from 10:00 to 19:00 (UTC+3).
-
-  ### Hours of operation and response times
-
-  Support request response time:
-  - Chat:
-      * No more than 5 minutes after a request is received.
-  - Feedback form and email:
-      * For regular requests, no more than 4 hours after a request is received.
-      * For critical requests, no more than 30 minutes after a request is received.
-  - Phone: Instantly.
-
-  {% include [support-channels](../_includes/support/critical.md) %}
-
-  ### Types of technical support requests
-
-  With the <q>Business</q> plan, you can contact Yandex.Cloud technical support for the following purposes:
-
-  {% include [support-cases-types](../_includes/support/cases-types.md) %}
-  * To request recommendations for service recovery in the event of a critical incident.
-  * To request recommendations for troubleshooting compatibility issues with third-party software.
-  * To request recommendations for troubleshooting issues with system software.
-
-- Premium
-
-  {% note info %}
-
-  The <q>Premium</q> plan will be available as of January 1, 2020.
-
-  {% endnote %}
-
-  ### Contacting support
-
-  You can [contact tech support]({{ link-console-support }}) in one of the following ways:
-
-  {% include [support-channels](../_includes/support/channels.md) %}
-  * By phone.
-
-  ### Hours of operation
-
-  Technical support responds to requests 24 hours a day, 7 days a week.
-
-  Phone calls are handled from 10:00 to 19:00 (UTC+3).
-
-  ### Hours of operation and response times
-
-  Support request response time:
-  - Chat: Instantly.
-  - Feedback form and email:
-      * For regular requests, no more than 2 hours after a request is received.
-      * For critical requests, no more than 15 minutes after a request is received.
-  - Phone: Instantly.
-
-  {% include [support-channels](../_includes/support/critical.md) %}
-
-  ### Types of technical support requests
-
-  With the <q>Premium</q> plan, in addition to Yandex.Cloud technical support, you also have access to an engineer who can handle more complex architecture and integration issues. If your request is too complex for technical support, it goes to a dedicated support engineer.
-
-  You can contact Yandex.Cloud technical support for the following purposes:
-
-  {% include [support-cases-types](../_includes/support/cases-types.md) %}
-  * To request recommendations for troubleshooting compatibility issues with third-party software.
-  * To request recommendations for troubleshooting issues with system software.
-  * To get status updates on critical incidents on the side of Yandex.Cloud by a dedicated support engineer.
-  * To consult with a dedicated support engineer on how to solve architecture-related tasks based on your Yandex.Cloud service usage scenario.
-  * To get additional Yandex.Cloud services (if possible).
-
-- Basic
-
-  {% note info %}
-
-  The <q>Basic</q> plan will be available as of January 1, 2020, when the <q>Standard</q> plan is no longer free.
-
-  {% endnote %}
-
-  ### Contacting support
-
-  You can [contact tech support]({{ link-console-support }}) by email.
-
-  ### Hours of operation
-
-  Technical support responds to requests on business days from 10:00 to 22:00 (UTC+3).
-
-  ### Response times
-
-  Support responds to requests no more than 24 hours after a request is received.
-
-  ### Types of technical support requests
-
-  With the <q>Basic</q> plan, you can contact Yandex.Cloud technical support for the following purposes:
-
-  {% include [support-cases-types](../_includes/support/cases-types.md) %}
-
-  Yandex.Cloud technical support engineers do not resolve the following types of requests:
-  * Source code development.
-  * Debugging proprietary software of Yandex.Cloud customers.
-
-{% endlist %}
+  * Develop software code.
+  * Debug your personal software.
 

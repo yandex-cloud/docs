@@ -17,6 +17,10 @@ items:
             href: operations/buckets/limit-max-volume.md
           - name: Allowing public access to a bucket
             href: operations/buckets/bucket-availability.md
+          - name: Managing object lifecycles
+            href: operations/buckets/lifecycles.md
+          - name: Managing CORS configurations
+            href: operations/buckets/cors.md
           - name: Editing a bucket ACL
             href: operations/buckets/edit-acl.md
       - name: Objects
@@ -35,6 +39,16 @@ items:
             href: operations/objects/deleting-multipart.md
           - name: Editing an object ACL
             href: operations/objects/edit-acl.md
+      - name: Static website hosting
+        items:
+          - name: Hosting setup
+            href: operations/hosting/setup.md
+          - name: Support for your own domain
+            href: operations/hosting/own-domain.md
+          - name: Support for multiple domain names
+            href: operations/hosting/multiple-domains.md
+          - name: Configuring HTTPS
+            href: operations/hosting/certificate.md
   - name: Concepts
     items:
       - name: Overview
@@ -43,6 +57,12 @@ items:
         href: concepts/bucket.md
       - name: Objects
         href: concepts/object.md
+      - name: Object lifecycles
+        href: concepts/lifecycles.md
+      - name: CORS
+        href: concepts/cors.md
+      - name: Static website hosting
+        href: concepts/hosting.md
       - name: Pre-signed URLs
         href: concepts/pre-signed-urls.md
       - name: Multipart upload
@@ -57,59 +77,35 @@ items:
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Static website hosting
-    items:
-      - name: Overview
-        href: hosting/index.md
-      - name: Configuration description
-        href: hosting/bucket-configuration.md
-      - name: Configuring in the management console
-        href: hosting/setup.md
-      - name: Response codes
-        href: hosting/answer-codes.md
-  - name: CORS
-    items:
-      - name: Overview
-        href: cors/index.md
-      - name: Configuration description
-        href: cors/configuration.md
-      - name: Configuring in the management console
-        href: cors/setup.md
-  - name: Object lifecycle
-    items:
-      - name: Overview
-        href: lifecycles/index.md
-      - name: Configuration description
-        href: lifecycles/configuration.md
-      - name: Configuring in the management console
-        href: lifecycles/setup.md
   - name: Tools
     items:
       - name: All tools
-        href: instruments/index.md
+        href: tools/index.md
       - name: Console clients
         items:
         - name: AWS CLI
-          href: instruments/aws-cli.md
+          href: tools/aws-cli.md
         - name: S3cmd
-          href: instruments/s3cmd.md
+          href: tools/s3cmd.md
       - name: File browsers
         items:
         - name: CyberDuck
-          href: instruments/cyberduck.md
+          href: tools/cyberduck.md
         - name: WinSCP
-          href: instruments/winscp.md
+          href: tools/winscp.md
       - name: SDK
         items:
         - name: AWS SDK for Java
-          href: instruments/aws-sdk-java.md
+          href: tools/aws-sdk-java.md
         - name: Python SDK (boto)
-          href: instruments/boto.md
+          href: tools/boto.md
       - name: FUSE
         items:
         - name: s3fs
-          href: instruments/s3fs.md
-  - name: HTTP API, compatible with Amazon S3
+          href: tools/s3fs.md
+        - name: goofys
+          href: tools/goofys.md
+  - name: Amazon S3-compatible HTTP API
     items:
       - name: How to use the API
         href: s3/index.md
@@ -179,10 +175,14 @@ items:
                 href: s3/api-ref/hosting/get.md
               - name: delete
                 href: s3/api-ref/hosting/delete.md
+              - name: Static website response codes
+                href: s3/api-ref/hosting/answer-codes.md
           - name: CORS
             items:
               - name: All methods
                 href: s3/api-ref/cors.md
+              - name: XML structure of CORS configuration
+                href: s3/api-ref/cors/xml-config.md
               - name: upload
                 href: s3/api-ref/cors/upload.md
               - name: get
@@ -193,6 +193,8 @@ items:
             items:
               - name: All methods
                 href: s3/api-ref/lifecycles.md
+              - name: XML structure of lifecycle configuration
+                href: s3/api-ref/lifecycles/xml-config.md
               - name: upload
                 href: s3/api-ref/lifecycles/upload.md
               - name: get
@@ -203,8 +205,8 @@ items:
             items:
               - name: All methods
                 href: s3/api-ref/acl.md
-              - name: ACL XML schema
-                href: s3/api-ref/acl/xmlscheme.md
+              - name: XML structure of ACL configuration
+                href: s3/api-ref/acl/xml-config.md
               - name: objectGetAcl
                 href: s3/api-ref/acl/objectget.md
               - name: objectPutAcl

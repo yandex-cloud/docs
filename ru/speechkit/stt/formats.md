@@ -2,7 +2,7 @@
 
 Сервис позволяет распознавать аудио в форматах:
 
-#### LPCM
+#### LPCM {#LPCM}
 
 [Linear pulse-code modulation](https://en.wikipedia.org/wiki/Pulse-code_modulation) без WAV-заголовка.
 
@@ -12,6 +12,6 @@
 * Порядок байтов — обратный (little-endian).
 * Аудиоданные хранятся как знаковые числа (signed integer).
 
-#### OggOpus
+#### OggOpus {#OggOpus}
 
 [OggOpus](https://wiki.xiph.org/OggOpus) — данные закодированы с помощью аудиокодека OPUS и упакованы в контейнер OGG.

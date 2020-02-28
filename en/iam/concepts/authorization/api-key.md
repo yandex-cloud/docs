@@ -10,17 +10,23 @@ If someone might have gotten access to your private key, [delete it](../../opera
 
 {% endnote %}
 
-## Services that support this authentication method {#supported-services}
+## Using the token {#use}
 
-For information about how to use an API key for authentication, read the documentation on the services that support this authorization method:
+Enter the API key when accessing Yandex.Cloud resources via the API. Pass the API key in the `Authorization` header in the following format:
+
+```
+Authorization: Api-Key <API key>
+```
+
+## Services that support this authentication method {#supported-services}
 
 * [{{ speechkit-name }}](../../../speechkit/concepts/auth.md)
 * [{{ translate-name }}](../../../translate/api-ref/authentication.md)
 * [{{ vision-name }}](../../../vision/api-ref/authentication.md)
 
-#### See also
+#### See also {#see-also}
 
 * [How to create an API key](../../operations/api-key/create.md)
 * [{#T}](iam-token.md)
-* [{#T}](index.md)
+* [{#T}](./index.md)
 

@@ -37,6 +37,18 @@ items:
             href: operations/dsvm/index.md
           - name: Creating an instance and connecting to it
             href: operations/dsvm/quickstart.md
+      - name: Placement groups
+        items:
+          - name: Creating a placement group
+            href: operations/placement-groups/create.md
+          - name: Creating a VM instance in a placement group
+            href: operations/placement-groups/create-vm-in-pg.md
+          - name: Adding a VM instance to a placement group
+            href: operations/placement-groups/add-vm.md
+          - name: Removing a VM instance from an instance group
+            href: operations/placement-groups/delete-vm.md
+          - name: Deleting a placement group
+            href: operations/placement-groups/delete.md
       - name: Images with pre-installed software
         items:
           - name: Creating a VM
@@ -79,6 +91,8 @@ items:
             href: operations/vm-connect/rdp.md
           - name: Working with Yandex.Cloud from inside an instance
             href: operations/vm-connect/auth-inside-vm.md
+          - name: Installing NVIDIA drivers
+            href: operations/vm-operate/install-nvidia-drivers.md
       - name: Creating new disks
         items:
           - name: Creating an empty disk
@@ -97,8 +111,6 @@ items:
         items:
           - name: Uploading your image
             href: operations/image-create/upload.md
-          - name: Installing NVIDIA drivers
-            href: operations/image-create/install-nvidia-drivers.md
       - name: Managing images
         items:
           - name: Removing an image
@@ -121,7 +133,7 @@ items:
             href: operations/instance-groups/create-with-balancer.md
           - name: Creating an automatically scaled instance group
             href: operations/instance-groups/create-autoscaled-group.md
-          - name: Creating an instance group with a Container Optimized Image
+          - name: Creating a VM with Container Optimized Image
             href: operations/instance-groups/create-with-coi
       - name: Getting information about instance groups
         items:
@@ -135,10 +147,14 @@ items:
         items:
           - name: Update a group
             href: operations/instance-groups/update.md
+          - name: Configure application health check on the VM
+            href: operations/instance-groups/enable-autohealing.md
+          - name: Stop a group
+            href: operations/instance-groups/stop.md
+          - name: Start a group
+            href: operations/instance-groups/start.md
           - name: Delete a group
             href: operations/instance-groups/delete.md
-          - name: Setting up automatic recovery for instances
-            href: operations/instance-groups/enable-autohealing.md
   - name: Scenarios
     items:
       - name: Configuring NTP time synchronization
@@ -163,6 +179,8 @@ items:
             href: concepts/network.md
           - name: Live migration
             href: concepts/live-migration.md
+          - name: Placement groups
+            href: concepts/placement-groups.md
           - name: Statuses
             href: concepts/vm-statuses.md
           - name: Metadata
@@ -175,7 +193,7 @@ items:
             href: concepts/snapshot.md
       - name: Images
         href: concepts/image.md
-      - name: Instance Groups
+      - name: Instance groups
         items:
           - name: Overview
             href: concepts/instance-groups/index.md
@@ -187,12 +205,12 @@ items:
             href: concepts/instance-groups/policies.md
           - name: Scaling types
             href: concepts/instance-groups/scale.md
-          - name: Automatic recovery
+          - name: Auto-healing
             href: concepts/instance-groups/autohealing.md
           - name: Configuration update
             href: concepts/instance-groups/configuration-update.md
-          - name: Instance statuses
-            href: concepts/instance-groups/vm-statuses.md
+          - name: Statuses
+            href: concepts/instance-groups/statuses.md
       - name: Backups
         href: concepts/backups.md
       - name: Quotas and limits

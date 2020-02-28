@@ -163,7 +163,7 @@ The token is required for `ServiceAccount` authentication in the {{ k8s }} clust
 
 {% endlist %}
 
-## Get the cluster's IP address. {{ k8s }}
+## Get the cluster's IP address. {{ k8s }} {#get-cluster-ip}
 
 Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for further use.
 

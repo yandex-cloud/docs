@@ -39,8 +39,8 @@
   
      ```
      $ yc managed-redis cluster update <имя кластера> \
-          --name "<новое имя кластера>" \
-          --description "<новое описание кластера>"
+          --cluster-name <новое имя кластера> \
+          --description <новое описание кластера>
      ```
 - API
   

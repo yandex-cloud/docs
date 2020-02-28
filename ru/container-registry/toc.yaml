@@ -9,14 +9,6 @@ items:
         href: operations/index.md
       - name: Аутентифицироваться в Container Registry
         href: operations/authentication.md
-      - name: Работа с Container Optimized Image
-        items:
-          - name: Создать ВМ с Container Optimized Image
-            href: operations/coi/vm-create.md
-          - name: Изменить ВМ с Container Optimized Image
-            href: operations/coi/vm-update.md
-          - name: Создать группу ВМ с Container Optimized Image
-            href: operations/coi/ig-create.md
       - name: Управление Docker-образом
         items:
           - name: Получить информацию об имеющихся Docker-образах
@@ -43,6 +35,8 @@ items:
         items:
           - name: Получить список репозиториев в реестре
             href: operations/repository/repository-list.md
+  - name: Yandex Container Optimized Solutions
+    href: ../cos/
   - name: Концепции
     items:
         - name: Обзор
@@ -53,8 +47,6 @@ items:
           href: concepts/registry.md
         - name: Репозиторий
           href: concepts/repository.md
-        - name: Образ Container Optimized Image
-          href: concepts/coi.md
         - name: Квоты и лимиты
           href: concepts/limits.md
   - name: Сценарии использования
@@ -63,8 +55,6 @@ items:
         href: solutions/index.md
       - name: Запуск Docker-образа на виртуальной машине
         href: solutions/run-docker-on-vm.md
-      - name: Работа с Container Registry из GitLab
-        href: solutions/gitlab.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -73,9 +63,16 @@ items:
     items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
-    include:
-      repo: docs
-      path: ru/_api-ref/containerregistry/toc.yaml
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/container-registry/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref/containerregistry/toc.yaml
   - name: Решение проблем
     href: error/index.md
   - name: Вопросы и ответы

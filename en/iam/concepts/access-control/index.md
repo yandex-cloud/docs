@@ -2,7 +2,7 @@
 
 Here you can learn how to manage access to your resources and how {{ iam-short-name }} checks access rights for the resources.
 
-## How are access rights verified?
+## How are access rights verified? {#access-verifying}
 
 All operations in Yandex.Cloud are first sent for verification to {{ iam-short-name }}. For example:
 
@@ -15,7 +15,7 @@ If all the required permissions were granted, {{ iam-short-name }} reports this 
 
 ![checkPermissions.png](../../../_assets/checkPermissions.png)
 
-## How do I perform access management?
+## How do I perform access management? {#how-do-i-perform-access-management}
 
 Access management in Yandex.Cloud leverages the [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC) policy. To grant users access to a resource, you specify which [roles](roles.md) are assigned to them for that resource.
 
@@ -33,9 +33,9 @@ For example, you were given the right to create folders in the cloud and you wer
 
 ### Resources that roles can be assigned for {#resource}
 
-You can currently assign a role [for a cloud](../../../resource-manager/operations/cloud/set-access-bindings.md), [folder](../../../resource-manager/operations/folder/set-access-bindings.md), or [service account](../../operations/sa/set-access-bindings.md).
+You can currently assign roles [for a cloud](../../../resource-manager/operations/cloud/set-access-bindings.md), [folder](../../../resource-manager/operations/folder/set-access-bindings.md), and other resources from the [list](resources-with-access-control.md).
 
-If you need to grant access to another resource, such as a VM, assign a role for the resource that access rights to that VM are inherited from, such as [a folder](../../../resource-manager/operations/folder/set-access-bindings.md).
+If you need to grant access to a resource that isn't on the list (such as a VM), assign the role to the parent resource it [inherits](#inheritance) permissions from. VM permissions are inherited from their folder.
 
 ### Role {#role}
 
@@ -69,7 +69,7 @@ If a resource has child resources, all permissions from the parent resource will
 
 If a child resource is also assigned some roles, a list of permissions for this resource will be combined with a list of permissions for its parent resource. You can't limit the list of permissions inherited from the parent resource.
 
-#### See also
+#### See also {#see-also}
 
 For more information about managing access to a specific Yandex.Cloud service, see the <q>Access management</q> section in the documentation on that service.
 

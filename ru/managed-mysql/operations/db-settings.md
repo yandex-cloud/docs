@@ -18,7 +18,7 @@
   
   ```bash
   $ yc managed-mysql cluster update-config
-       --cluster-name=<имя кластера>
+       --cluster-name <имя кластера>
        --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
   ```
   

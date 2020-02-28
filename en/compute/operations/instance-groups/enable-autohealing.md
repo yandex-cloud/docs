@@ -1,12 +1,8 @@
-# Setting up automatic recovery for instances
+# Configure application health check on the instance
 
-You can set up automatic recovery for a group of instances to enhance the availability of your application and make sure it is responding. You can set up automatic recovery for instances when creating or updating a group.
+To make the application more available and make sure that it responds to requests, you can set up the application health check on the instance. {{ ig-name }} will check and automatically recover the instance if it fails the check. Don't confuse this with the [health check](../../../load-balancer/concepts/health-check.md) in the load balancer. [Read more](../../concepts/instance-groups/autohealing.md) about automatic recovery and types of checks.
 
-You can only set up one health check for automatic recovery (don't confuse it with [health checks](../../../load-balancer/concepts/health-check.md) for {{ load-balancer-full-name }}).
-
-{% include [warning.md](../../../_includes/instance-groups/sa.md) %}
-
-To enable automatic recovery when updating an instance group:
+This section describes how to set up application health check for an existing group.
 
 {% list tabs %}
 
@@ -24,19 +20,31 @@ To enable automatic recovery when updating an instance group:
 
   1. Select the protocol for the health checks: **HTTP** or **TCP**.
 
-      Indicate the following:
+  1. Set up the health checks:
 
-      - A port number in the range of 1-32767.
+      - The port in the range 1-32767 to receive the check requests from {{ ig-name }}.
 
-      - The URL to perform checks for (if **HTTP** is chosen).
+      - Path (for HTTP) — The URL path for the HTTP check requests sent from {{ ig-name }}.
+
+        {% note alert %}
+
+        Only HTTP/1.1 and lower are supported.
+
+        {% endnote %}
 
       - The response timeout in seconds.
 
-      - The interval between health checks in seconds.
+        If you have [connected your instance group to a load balancer](create-with-balancer.md), we recommend setting a _smaller_ value here than in the load balancer.
 
-      - The performance threshold, which is the number of successful health checks required for the managed instance to be considered healthy.
+      - Check interval in seconds — This is the interval for {{ ig-name }} to wait between health checks.
 
-      - The failure threshold, which is the number of failed health checks for the managed instance to be considered unhealthy.
+      - Performance threshold — The number of successful health checks required for the managed instance to be considered healthy.
+
+        If you have connected your instance group to a load balancer, we recommend that you set a _smaller_ value here than in the load balancer.
+
+      - Failure threshold — The number of failed health checks for the managed instance to be considered unhealthy.
+
+        If you have connected your instance group to a load balancer, we recommend that you set a _higher_ value here than in the load balancer.
 
   1. Click **Save changes**.
 
@@ -46,7 +54,7 @@ To enable automatic recovery when updating an instance group:
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI's update group command:
+  1. View a description of the update group command in the CLI:
 
      ```
      $ yc compute instance-group update --help
@@ -56,28 +64,25 @@ To enable automatic recovery when updating an instance group:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Select the `ID` or `NAME` of the group (for example, `first-fixed-group`).
+  1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
 
-  1. Get [information](get-info.md) about the instance group.
+  1. [Get information](get-info.md) about the instance group.
 
   1. Create a YAML file with any name (for example, `group.yaml`) and, based on the information received, describe:
-
       - [The template](../../concepts/instance-groups/instance-template.md) of the instance.
-
       - [The policies](../../concepts/instance-groups/policies.md).
-
       - The service account ID.
-
       - The load balancer specifications (if necessary).
 
-  1. Add the health check specifications to the file:
+  1. Add a health check specification to the file (for example, for HTTP checks):
 
      ```yaml
      ...
      health_checks_spec:
        health_check_specs:
-         - tcp_options:
+         - http_options:
              port: 80
+             path: /
            interval: 30s
            timeout: 10s
            unhealthy_threshold: 5
@@ -90,12 +95,13 @@ To enable automatic recovery when updating an instance group:
       | Key | Value |
       | ----- | ----- |
       | `health_check_specs` | Health check specs. |
-      | `tcp_options` | TCP options. |
-      | `port` | A port number in the range of 1-32767. |
-      | `interval` | The interval between health checks in seconds. |
-      | `timeout` | The response timeout in seconds. |
-      | `unhealthy_threshold` | The failure threshold, which is the number of failed health checks for the managed instance to be considered unhealthy. |
-      | `healthy_threshold` | The performance threshold, which is the number of successful health checks required for the managed instance to be considered healthy. |
+      | `http_options` | Settings for HTTP health checks. Only HTTP/1.1 and lower are supported.<br>If you want to use TCP, then in the `tcp_options` property specify the port number only. |
+      | `port` | The port in the range 1-32767 to receive the check requests from {{ ig-name }}. |
+      | `path` | The URL path for the HTTP health check requests sent from {{ ig-name }}. |
+      | `interval` | Check interval in seconds — This is the interval for {{ ig-name }} to wait between health checks. |
+      | `timeout` | Response waiting time in seconds.<br>If you have [connected your instance group to a load balancer](create-with-balancer.md), we recommend setting a _smaller_ value here than in the load balancer. |
+      | `unhealthy_threshold` | Unhealthy threshold — The number of failed health checks after which the instance is considered inoperable.<br>If you have connected your instance group to a load balancer, we recommend that you set a _higher_ value here than in the load balancer. |
+      | `healthy_threshold` | Healthy threshold — The number of successful health checks after which the instance is considered operable.<br>If you have connected your instance group to a load balancer, we recommend that you set a _smaller_ value here than in the load balancer. |
 
   1. Update the instance group in the default folder:
 

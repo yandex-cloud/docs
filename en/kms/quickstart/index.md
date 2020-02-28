@@ -2,19 +2,19 @@
 
 {% note info %}
 
-The service is only available on request: to request access, fill in the [form](https://cloud.yandex.ru/services/kms#request-access).
+The service is only available on request: to request access, fill in the [form](https://cloud.yandex.com/services/kms#request-access).
 
 {% endnote %}
 
 In this guide, you create your first [key](../concepts/index.md) and encrypt and decrypt text using the {{ kms-short-name }} REST API.
 
-## Before you start {#prepare}
+## Before you start {#before-you-begin}
 
 To start working with {{ kms-name }}:
 
 * Set up Yandex.Cloud:
   1. Log in to the [management console]({{link-console-main}}). If you aren't registered, go to the management console and follow the instructions.
-  1. [On the billing page](https://console.cloud.yandex.ru/billing), make sure you linked a [payment account](../../billing/concepts/billing-account.md), and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+  1. [On the billing page](https://console.cloud.yandex.com/billing), make sure you linked a [payment account](../../billing/concepts/billing-account.md), and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
   1. Make sure that you have the `owner` or `editor` role for the cloud.
 * Configure your local environment (you need the Bash shell):
   1. {% include [cli-install](../../_includes/cli-install.md) %}
@@ -62,7 +62,7 @@ To decrypt the text, you need access to the {{ kms-short-name }} key and know th
    The launch is scheduled for Marchember 42.
    ```
 
-#### See also {#also}
+#### See also {#see-also}
 
 - [Key rotation](../operations/key.md#rotate)
 - [Change the default key version](../operations/version.md#make-primary)

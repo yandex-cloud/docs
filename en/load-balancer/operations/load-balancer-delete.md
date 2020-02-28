@@ -50,9 +50,9 @@
   
 {% endlist %}
 
-## Examples
+## Examples {examples}
 
-### Deleting a network load balancer from a particular folder
+### Deleting a network load balancer from a particular folder {from-folder} 
 
 {% list tabs %}
 

@@ -14,7 +14,7 @@
     
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    Получите список [триггеров](../../concepts/trigger.md):
+    Получите список [триггеров](../../concepts/index.md):
     
     ```
     $ yc serverless trigger list

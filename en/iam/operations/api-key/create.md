@@ -87,9 +87,9 @@ To create an API key:
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
-### Add a description when creating
+### Add a description when creating {#add-description}
 
 To make it easier to find an API key without knowing its ID, add a description when creating it:
 
@@ -119,7 +119,7 @@ To make it easier to find an API key without knowing its ID, add a description w
 
 {% endlist %}
 
-#### What's next
+#### What's next {#what-is-next}
 
 - [Find out what services support API keys](../../concepts/authorization/api-key.md#supported-services)
 

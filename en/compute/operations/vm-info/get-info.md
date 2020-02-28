@@ -1,10 +1,10 @@
 # Getting information about a VM
 
-To get information about a virtual machine you created, go to the [management console]({{ link-console-main }}) and open the virtual machine page. To get detailed information with user-defined [metadata](../../concepts/vm-metadata.md), use the CLI or API.
+To get basic details of each virtual machine you created, open the virtual machine page in [console]({{ link-console-main }}). To get detailed information with user-defined [metadata](../../concepts/vm-metadata.md), use the CLI or API.
 
-You can also get basic information and metadata [from inside a VM](#inside-instance).
+You can also get the basic details and metadata [from inside a VM](#inside-instance).
 
-## Getting information from outside a VM {#outside-instance}
+## Get information from outside a VM {#outside-instance}
 
 {% list tabs %}
 
@@ -15,12 +15,11 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
   For more information about a certain VM, click its name.
 
   Tabs:
-
   - **Overview** shows general information about the VM, including the IP addresses assigned to it.
   - **Disks** provides information about the disks attached to the VM.
   - **Operations** lists operations on the VM and resources attached to it, such as disks.
   - **Monitoring** shows information about resource consumption on the VM. You can only get this information from the management console or from inside the VM.
-  - **Serial port** provides information that is output by the VM to the serial port. To obtain this information via the API or CLI, follow the instructions [{#T}](get-serial-port-output.md).
+  - **Serial port** provides information that is output by the VM to the serial port. To get this information via the API or CLI, use the instructions [{#T}](get-serial-port-output.md).
 
 - CLI
 
@@ -50,21 +49,21 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
 
 - API
 
-  To get basic information about a VM, use the [get](../../../_api-ref/compute/api-ref/Instance/get.md) method for the [Instance](../../../_api-ref/compute/api-ref/Instance/index.md) resource.
+  To get basic information about a VM, use the [get](../../api-ref/Instance/get.md) method for the [Instance](../../api-ref/Instance/index.md) resource.
 
   The basic information does not include the user-defined metadata that was passed when creating or updating the VM. To get the information along with the metadata, specify `view=FULL` in the parameters.
 
 {% endlist %}
 
-## Getting information from inside a VM {#inside-instance}
+## Get information from inside a virtual machine {#inside-instance}
 
 {% include [vm-metadata](../../../_includes/vm-metadata.md) %}
 
 ### Google Compute Engine {#gce-metadata}
 
-The Yandex.Cloud metadata server allows returning metadata in the Google Compute Engine format.
+The Yandex.Cloud metadata service lets you return metadata in the Google Compute Engine format.
 
-#### HTTP request
+#### HTTP request {#gce-http}
 
 ```
 GET http://169.254.169.254/computeMetadata/v1/instance/
@@ -82,9 +81,9 @@ Metadata-Flavor: Google
 | `recursive` | If `true`, it returns all values in the tree recursively. By default, `false`. |
 | `wait_for_change` | If `true`, this response will be returned only when one of the metadata parameters is modified. By default, `false`. |
 | `last_etag` | The ETag value from the previous response to a similar request. Use it when `wait_for_change="true"`. |
-| `timeout_sec` | Maximum request timeout. Use when `wait_for_change="true"`. |
+| `timeout_sec` | Maximum request timeout. Use it when `wait_for_change="true"`. |
 
-#### Request examples
+#### Request examples {#request-examples}
 
 Find out the ID of a VM from inside it:
 
@@ -104,7 +103,7 @@ Get metadata in an easy-to-read format. Use the [jq](https://stedolan.github.io/
 $ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true | jq -r '.'
 ```
 
-#### List of returned elements
+#### List of returned elements {#list-of-returned-elements}
 
 List of elements that are available for this request.
 
@@ -118,14 +117,16 @@ List of elements that are available for this request.
 | `id` | ID of the VM. The ID is generated automatically when the VM is being created and is unique within Yandex.Cloud. |
 | `name` | Name that was passed when creating or updating the VM. |
 | `networkInterfaces/` | Network interfaces connected to the VM. |
+| `service-accounts` | [Service accounts](../../../iam/concepts/users/service-accounts.md) linked to the VM. |
+| `service-accounts/default/token` | [IAM token](../../../iam/concepts/authorization/iam-token.md) of the linked service account. |
 
 Other elements, such as `project`, which are used for backward compatibility and remain empty.
 
 ### Amazon EC2 {#ec2-metadata}
 
-The Yandex.Cloud metadata server allows returning metadata in the Amazon EC2 format.
+The Yandex.Cloud metadata service lets you return metadata in the Amazon EC2 format.
 
-#### HTTP request
+#### HTTP request {#ec2-http}
 
 ```
 GET http://169.254.169.254/latest/meta-data/<element>
@@ -135,7 +136,7 @@ GET http://169.254.169.254/latest/meta-data/<element>
 | ----- | ----- |
 | `<element>` | Path to the element you want to get. If the element is omitted, the response returns a list of available elements. |
 
-#### List of returned elements
+#### List of returned elements {#list-of-returned-elements}
 
 List of elements that are available for this request.
 
@@ -157,8 +158,9 @@ The angle brackets contain parameters that need to be replaced with values. For 
 | `network/interfaces/macs/<mac>/local-ipv4s` | Internal IPv4 addresses associated with the network interface. |
 | `network/interfaces/macs/<mac>/mac` | MAC address of the VM's network interface. |
 | `public-ipv4` | External IPv4 address. |
+| `iam/security-credentials/default/` | [IAM token](../../../iam/concepts/authorization/iam-token.md) of the linked service account. |
 
-#### Request examples
+#### Request examples {#request-examples}
 
 Get an internal IP address from inside a VM:
 

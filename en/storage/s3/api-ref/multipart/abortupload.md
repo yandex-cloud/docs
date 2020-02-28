@@ -1,6 +1,6 @@
 # abortUpload method
 
-Aborts an upload and deletes from {{ objstorage-name }} all object parts that have been saved. If the abort upload request was received during the upload of any part, no result is guaranteed.
+Aborts an upload and deletes all object parts that were saved from {{ objstorage-name }}. If the abort upload request was received during the upload of any part, no result is guaranteed.
 
 We recommend that you [get a list of parts](listparts.md) after aborting the upload and, if it is not empty, resend the request. Abort requests should be sent until the list of parts is returned empty.
 
@@ -14,7 +14,7 @@ DELETE /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Name of the bucket. |
+| `bucket` | Bucket name. |
 | `key` | Object key. |
 
 ### Query parameters {#request-parameters}
@@ -25,13 +25,13 @@ DELETE /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 
 ### Headers {#request-headers}
 
-In a request, use the necessary [common request headers](../common-request-headers.md).
+Use the necessary [common request headers](../common-request-headers.md) in requests.
 
 ## Response {#response}
 
 ### Headers {#response-headers}
 
-A response can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common response headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 
@@ -41,5 +41,5 @@ Additionally, {{ objstorage-name }} may return errors described in the table bel
 
 | Error | Description | HTTP code |
 | ----- | ----- | ----- |
-| `NoSuchUpload` | The specified upload does not exist. The specified upload ID might be incorrect or the upload was completed or deleted. | 404 Not Found |
+| `NoSuchUpload` | The specified upload doesn't exist. The specified upload ID might be incorrect or the upload was completed or deleted. | 404 Not Found |
 

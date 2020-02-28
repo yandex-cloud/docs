@@ -1,12 +1,18 @@
 # Uploading a disk image to Yandex.Cloud
 
-The following instructions describe how to upload a disk image to {{ objstorage-name }} and use it to create an [image](../../concepts/image.md) in {{ compute-name }}.
+The following instructions describe how to prepare a disk image, upload the image file to {{ objstorage-full-name }}, and use it to create an [image](../../concepts/image.md) in {{ compute-name }}.
+
+{% note important %}
+
+In {{ compute-name }}, you can only create images using links to files uploaded to {{ objstorage-name }}.
+
+{% endnote %}
 
 ## 1. Prepare an image {#prepare-file}
 
 Supported image formats: Qcow2, VMDK, and VHD.
 
-If you upload a boot disk image, make sure the following requirements are met:
+Boot disk images must meet the following requirements:
 
 * The OS is Linux-based.
 * The latest OS updates are installed.
@@ -24,6 +30,8 @@ Recommendations:
   ```
   qemu-img convert -p -O qcow2 -o cluster_size=2M <name of your image file> <name of the new image file>
   ```
+
+* For the image to be compatible with [GPU](../../concepts/gpus.md), [install NVIDIA drivers](../vm-operate/install-nvidia-drivers.md) while preparing the file.
 
 ## 2. Upload an image to {{ objstorage-name }} {#upload-file}
 
@@ -68,10 +76,11 @@ Create a new image from the link obtained in {{ objstorage-name }}:
   ```
 
   where:
-  - `<IMAGE-NAME>` is the name to assign to the image.
+  
+  - `<IMAGE-NAME>` is the name to assign to the image. 
   - `<IMAGE-URL>` is the link to the image obtained in {{ objstorage-name }}.
 
-  If necessary, add a description and specify the [family](../../concepts/image.md#family) that the image belongs to:
+  If necessary, add a description and specify the [family](../../concepts/images.md#family) that the image belongs to:
 
   ```
   $ yc compute image create  \

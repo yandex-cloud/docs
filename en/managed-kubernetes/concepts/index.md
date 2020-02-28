@@ -58,7 +58,7 @@ When you create a group of nodes, you can configure the following VM parameters:
 
 You can create groups with different configurations in a cluster and place them in different [availability zones](../../overview/concepts/geo-scope.md).
 
-#### Connecting to group nodes {#connect-ssh}
+#### Connecting to group nodes {#node-connect-ssh}
 
 You can connect to nodes in a group via SSH. Learn more in [Connecting to a node over SSH](../operations/node-connect-ssh.md).
 

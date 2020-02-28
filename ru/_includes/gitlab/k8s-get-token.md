@@ -1,7 +1,25 @@
 ### Получите токен сервисного аккаунта {{ k8s }} для аутентификации в GitLab {#k8s-get-token}
 
-Чтобы получить сервисный токен:
-1. Сохраните спецификацию для создания сервисного аккаунта в YAML-файл `gitlab-admin-service-account.yaml`:
+{% note info %}
+
+Обратите внимание, что [сервисный аккаунт {{ k8s }}](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/) — это не сервисный аккаунт IAM.
+
+{% endnote %}
+
+Чтобы получить токен сервисного аккаунта {{ k8s }}:
+1. Настройте локальное окружение на работу с созданным кластером {{ k8s }}. Для этого выполните команду:
+
+    {% list tabs %}
+    
+    - Bash
+    
+        ```
+        $ yc managed-kubernetes cluster get-credentials <cluster-id> --external
+        ```
+       
+    {% endlist %}
+
+1. Сохраните спецификацию для создания сервисного аккаунта {{ k8s }} в YAML-файл `gitlab-admin-service-account.yaml`:
 
     ```
     apiVersion: v1
@@ -30,20 +48,20 @@
     - Bash
     
         ```
-        kubectl apply -f gitlab-admin-service-account.yaml
+        $ kubectl apply -f gitlab-admin-service-account.yaml
         ```
        
     {% endlist %}
-1. Узнайте токен с помощью команды `kubectl describe secret`. Он будет указан в поле **token**:
+1. Узнайте токен с помощью команды `kubectl get secrets`:
 
     {% list tabs %}
     
     - Bash
     
         ```
-        kubectl -n kube-system describe secret $(kubectl -n kube-system get secret \
-       | grep gitlab-admin \
-       | awk '{print $1}')
+        $ kubectl -n kube-system get secrets -o json | \
+        jq -r '.items[] | select(.metadata.name | startswith("gitlab-admin")) | .data.token' | \
+        base64 --decode
         ``` 
 
     {% endlist %}

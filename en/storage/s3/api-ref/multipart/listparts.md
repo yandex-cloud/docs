@@ -14,7 +14,7 @@ GET /{bucket}/{key}?uploadId=UploadId HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Name of the bucket. |
+| `bucket` | Bucket name. |
 | `key` | Object key. |
 
 ### Query parameters {#request-parameters}
@@ -25,20 +25,20 @@ You can change a response from {{ objstorage-name }} using the parameters descri
 | ----- | ----- |
 | `encoding-type` | Encoding of server responses.<br/><br/>{{ objstorage-name }} can encode responses in the format requested by the client. |
 | `max-parts` | The maximum number of elements in a response per request.<br/><br/>By default, 1000. |
-| `part-number-marker` | Number of the part to start a response from.<br/><br/>{{ objstorage-name }} will only include in the response the parts whose numbers are greater than the one specified. |
+| `part-number-marker` | Number of the part to start a response from. In the response, <br/><br/>{{ objstorage-name }} only includes the parts whose numbers are greater than the one specified. |
 | `uploadId` | ID of multipart upload. |
 
 Only the `uploadId` parameter is required.
 
 ### Headers {#request-headers}
 
-In a request, use the necessary [common request headers](../common-request-headers.md).
+Use the necessary [common request headers](../common-request-headers.md) in requests.
 
 ## Response {#response}
 
 ### Headers {#response-headers}
 
-A response can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common response headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 
@@ -95,8 +95,8 @@ Possible response tags are described in the table below.
 | `MaxParts` | Maximum list size per response.<br/><br/>Path: `/ListPartsResult/MaxParts`. |
 | `IsTruncated` | Flag indicating that a list is incomplete.<br/><br/>If `IsTruncated` is `true`, this means that {{ objstorage-name }} returned an incomplete list of parts.<br/><br/>Path: `/ListPartsResult/IsTruncated`. |
 | `Part` | Description of an upload part.<br/><br/>Path: `/ListPartsResult/Part`. |
-| `PartNumber` | Part number.<br/><br/>A unique integer ID that defines the part's position in the upload.<br/><br/>Path: `/ListPartsResult/Part/PartNumber`. |
-| `LastModified` | Date and time of a part's uploading.<br/><br/>Path: `/ListPartsResult/Part/LastModified`. |
+| `PartNumber` | Part number.<br/><br/>A unique integer ID that defines the position of the part in the upload.<br/><br/>Path: `/ListPartsResult/Part/PartNumber`. |
+| `LastModified` | Date and time a part is uploaded.<br/><br/>Path: `/ListPartsResult/Part/LastModified`. |
 | `ETag` | `ETag` of the uploaded part.<br/><br/>Path: `/ListPartsResult/Part/ETag`. |
 | `Size` | Size of the uploaded part.<br/><br/>Path: `/ListPartsResult/Part/Size`. |
 

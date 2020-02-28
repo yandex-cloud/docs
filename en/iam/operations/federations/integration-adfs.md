@@ -1,6 +1,6 @@
 # Authentication using Active Directory
 
-If you have an [identity federation](../../concepts/users/identity-federations.md), you can use [Active Directory Federation Services](https://docs.microsoft.com/ru-ru/windows-server/identity/active-directory-federation-services) (ADFS) to authenticate in the cloud.
+If you have an [identity federation](../../concepts/users/identity-federations.md), you can use [Active Directory Federation Services](https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services) (ADFS) to authenticate in the cloud.
 
 To set up authentication:
 
@@ -39,7 +39,7 @@ To use the instructions in this section, you need:​
 
   To create a federation in {{ iam-short-name }}:
 
-  1. Open the folder page in the [management console]({{ link-console-main }}).
+  1. Open the folder page in [management console]({{ link-console-main }}).
 
   1. Select the **Federations** tab in the left menu.
 
@@ -60,8 +60,6 @@ To use the instructions in this section, you need:​
   1. Enable **Automatically create users** to automatically add authenticated users to the cloud. This option simplifies the user setup, but users created this way are only assigned the `resource-manager.clouds.member` role by default: they can't do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
 
       If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use Yandex.Cloud.
-
-      {% include [add-federated-users-disclaimer](../../../_includes/iam/add-federated-users-disclaimer.md) %}
 
 {% endlist %}
 
@@ -155,13 +153,13 @@ To configure mapping of user data to SAML message elements:
 
     1. In the **Attribute Store** field, click `Active Directory`.
 
-    1. Specify the attribute to be passed as `NameID`. For this, add a line to the **Mapping of LDAP attributes** list:
+    1. Specify what the server will return as Name ID to uniquely identify the user. To do this, add a line to the **Mapping of LDAP attributes** list:
 
         Under **LDAP Attribute**, select `User-Principal-Name` or `E-Mail Addresses`.
 
         In **Outgoing Claim Type**, select `Name ID`.
 
-    1. For users to be able to contact Yandex.Cloud technical support from the [management console](https://console.cloud.yandex.ru/support), configure the server to pass an email address (`E-Mail Address` and the name of the user (`Name`):
+    1. For users to be able to contact Yandex.Cloud technical support from the [management console](https://console.cloud.yandex.com/support), configure the server to pass an email address (`E-Mail Address` and the name of the user (`Name`):
 
         ![image](../../../_assets/iam/federations/specify-claims-mapping-ad.png)
 
@@ -170,7 +168,7 @@ To configure mapping of user data to SAML message elements:
 
 ## Add users to the cloud {#add-users}
 
-{% include [add-federated-users-disclaimer](../../../_includes/iam/add-federated-users-disclaimer.md) %}
+{% include [add-federated-users](../../../_includes/iam/add-federated-users.md) %}
 
 ## Test the authentication process {#test-auth}
 

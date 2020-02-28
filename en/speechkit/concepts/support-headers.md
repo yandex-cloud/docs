@@ -10,7 +10,7 @@ To help the technical support team resolve your issue, use the following headers
 
     By default, we do not save any audio or text that you send. If you pass the `true` value in this header, your data is saved. This data, along with the request ID, will help the technical support team solve your problem.
 
-## Examples
+## Examples {#examples}
 
 For example, you can use these headers to let us know afterwards that your audio was poorly detected and help us refine our speech recognition model.
 

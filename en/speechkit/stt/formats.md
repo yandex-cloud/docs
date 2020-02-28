@@ -2,7 +2,7 @@
 
 The service can recognize audio in the following formats:
 
-#### LPCM
+#### LPCM {#LPCM}
 
 [Linear pulse-code modulation](https://en.wikipedia.org/wiki/Pulse-code_modulation) with no WAV header.
 
@@ -13,7 +13,7 @@ Audio features in this format:
 * Byte order: Reversed (little-endian).
 * Audio data is stored as signed integers.
 
-#### OggOpus
+#### OggOpus {#OggOpus}
 
 [OggOpus](https://wiki.xiph.org/OggOpus) — data is encoded using the OPUS audio codec and compressed using the OGG container format.
 

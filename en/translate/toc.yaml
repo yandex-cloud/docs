@@ -27,27 +27,34 @@ items:
     items:
     - name: Authentication in the API
       href: api-ref/authentication.md
-    - name: v2
+    - name: gRPC
       items:
-      - name: Handling errors
-        href: api-ref/errors-handling.md
-      - name: Troubleshooting
-        href: api-ref/support-headers.md
       include:
         repo: docs
-        path: en/_api-ref/ai/translate/toc.yaml
-    - name: v1 (DEPRECATED)
+        path: en/_api-ref-grpc/translate/api-ref/toc.yaml
+    - name: REST
       items:
-      - name: Overview
-        href: api-ref/v1/index.md
-      - name: How to translate text
-        href: api-ref/v1/translate.md
-      - name: Detecting language
-        href: api-ref/v1/detect.md
-      - name: List of supported languages
-        href: api-ref/v1/languages.md
-      - name: Response format
-        href: api-ref/v1/response.md
+        - name: v2
+          items:
+          - name: Handling errors
+            href: api-ref/errors-handling.md
+          - name: Troubleshooting
+            href: api-ref/support-headers.md
+          include:
+            repo: docs
+            path: en/_api-ref/ai/translate/toc.yaml
+        - name: v1 (DEPRECATED)
+          items:
+          - name: Overview
+            href: api-ref/v1/index.md
+          - name: How to translate text
+            href: api-ref/v1/translate.md
+          - name: Detecting language
+            href: api-ref/v1/detect.md
+          - name: List of supported languages
+            href: api-ref/v1/languages.md
+          - name: Response format
+            href: api-ref/v1/response.md
   - name: Quotas and limits
     href: concepts/limits.md
   - name: Access management

@@ -1,17 +1,41 @@
-title: "Command-line interface"
+title: "Command line interface"
 href: index.yaml
 items:
-  - name: Getting started with the command-line interface
+  - name: Getting started with the CLI
     href: quickstart.md
-  - name: CLI concepts
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: CLI installation
+        href: operations/install-cli.md
+      - name: Authentication
+        items:
+          - name: Authenticating as a user
+            href: operations/authentication/user.md
+          - name: Authenticating as a service account
+            href: operations/authentication/service-account.md
+          - name: Authenticating as a federated user
+            href: operations/authentication/federated-user.md
+      - name: Profile management
+        items:
+          - name: Creating a profile
+            href: operations/profile/profile-create.md
+          - name: Managing profile parameters
+            href: operations/profile/manage-properties.md
+          - name: Getting profile information
+            href: operations/profile/profile-list.md
+          - name: Activating a profile
+            href: operations/profile/profile-activate.md
+          - name: Deleting a profile
+            href: operations/profile/profile-delete.md
+  - name: Concepts
     items:
       - name: Running commands
         href: concepts/index.md
       - name: CLI configuration
         href: concepts/core-properties.md
-      - name: Profiles
-        href: concepts/profile.md
-      - name: Synchronous and asynchronous modes of command execution
+      - name: Synchronous and asynchronous command execution modes
         href: concepts/mode.md
   - name: CLI releases
     href: release-notes.md
@@ -21,7 +45,7 @@ items:
     items:
       - name: Overview
         href: command-tree/index.md
-      - name: Manage YC CLI
+      - name: YC CLI management
         items:
           - name: yc operation
             href: command-tree/manage-yc/operation.md
@@ -29,7 +53,7 @@ items:
             href: command-tree/manage-yc/config.md
           - name: yc components
             href: command-tree/manage-yc/components.md
-      - name: Manage services
+      - name: Service management
         items:
           - name: yc iam
             href: command-tree/manage-services/iam.md

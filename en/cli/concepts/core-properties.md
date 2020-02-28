@@ -1,6 +1,6 @@
 # CLI configuration
 
-You can set configuration parameters in a [profile](profile.md) to quickly switch the command execution context. Use global flags for a single run of a command with a specific parameter value.
+You can [set the parameters](../operations/profile/manage-properties.md) in the profile to quickly switch the command execution context. Use global flags for a single run of a command with a specific parameter value.
 
 {% note important %}
 
@@ -21,3 +21,4 @@ Note that some parameters cannot be used simultaneously. The value of one of the
 | `--profile` | — | The name of the profile whose parameters will be used when executing the command. |
 | — | `service-account-key` | Authorization key of a [service account](../../iam/concepts/users/service-accounts.md) in Yandex.Cloud. It is set from the file where the key is stored. When this profile parameter is set, the `token` parameter is reset to zero. |
 | `--token` | `token` | OAuth token that is used for authentication in Yandex.Cloud. When this profile parameter is set, the `service-account-key` parameter is reset to zero. |
+
