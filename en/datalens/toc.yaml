@@ -49,12 +49,8 @@ items:
             href: operations/dataset/create.md
           - name: Creating a data field
             href: operations/dataset/create-field.md
-          - name: Dataset materialization
-            href: operations/dataset/materialize.md
           - name: Managing dataset access
             href: operations/dataset/manage-access.md
-          - name: Managing access to data rows
-            href: operations/dataset/manage-row-level-security.md
       - name: Working with charts
         items:
           - name: Creating a line chart
@@ -69,8 +65,6 @@ items:
             href: operations/chart/create-table.md
           - name: Creating a pivot table
             href: operations/chart/create-pivot-table.md
-          - name: Publishing a chart
-            href: operations/chart/publish.md
           - name: Managing chart access
             href: operations/chart/manage-access.md
       - name: Working with dashboards
@@ -81,8 +75,6 @@ items:
             href: operations/dashboard/add-chart.md
           - name: Adding selectors to dashboards
             href: operations/dashboard/add-selector.md
-          - name: Publishing dashboards
-            href: operations/dashboard/publish.md
           - name: Managing dashboard access
             href: operations/dashboard/manage-access.md
       - name: Working with permissions
@@ -105,8 +97,6 @@ items:
         href: concepts/chart.md
       - name: Dashboard
         href: concepts/dashboard.md
-      - name: DataLens Public
-        href: concepts/datalens-public.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
