@@ -9,15 +9,15 @@
 Чтобы визуализировать и исследовать данные, пройдите следующие шаги:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Создайте подключение](data-from-csv-visualization.md#step1)
-1. [Создайте датасет](data-from-csv-visualization.md#step2)
-1. [Создайте первый чарт](data-from-csv-visualization.md#step3)
-1. [Создайте второй чарт](data-from-csv-visualization.md#step4)
-1. [Создайте дашборд](data-from-csv-visualization.md#step5)
-1. [Добавьте чарты на дашборд](data-from-csv-visualization.md#step6)
-1. [Добавьте селекторы на дашборд](data-from-csv-visualization.md#step7)
-1. [Настройте отображение виджетов и приступите к исследованию зависимостей](data-from-csv-visualization.md#step8)
-1. [Продолжите исследования данных о супергероях](data-from-csv-visualization.md#step9)
+1. [Создайте подключение](data-from-csv-visualization.md#step1).
+1. [Создайте датасет](data-from-csv-visualization.md#step2).
+1. [Создайте первый чарт](data-from-csv-visualization.md#step3).
+1. [Создайте второй чарт](data-from-csv-visualization.md#step4).
+1. [Создайте дашборд](data-from-csv-visualization.md#step5).
+1. [Добавьте чарты на дашборд](data-from-csv-visualization.md#step6).
+1. [Добавьте селекторы на дашборд](data-from-csv-visualization.md#step7).
+1. [Настройте отображение виджетов и приступите к исследованию зависимостей](data-from-csv-visualization.md#step8).
+1. [Продолжите исследования данных о супергероях](data-from-csv-visualization.md#step9).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -80,7 +80,7 @@
     
 1. Введите имя датасета **SuperHeroes dataset**, нажмите **Создать**.
     
-1. После сохранения датасета нажмите **Создать чарт** 
+1. После сохранения датасета нажмите **Создать чарт**. 
 
     ![image](../../_assets/datalens/solution-01/11-Create-Chart.png)
 

@@ -17,10 +17,16 @@ items:
       href: web/joomla-postgresql.md
     - name: WordPress website
       href: web/wordpress.md
-    - name: WordPress website on a MySQL database cluster
+    - name: WordPress website on a MySQL database
       href: web/wordpress-mysql.md
+    - name: 1C-Bitrix website
+      href: web/bitrix-website.md
   - name: Online stores
     items:
+    - name: All tutorials
+      href: internet-store/index.md
+    - name: 1C-Bitrix online store
+      href: internet-store/bitrix-shop.md
     - name: Opencart online store
       href: internet-store/opencart.md
   - name: Data archive
@@ -37,12 +43,6 @@ items:
       href: archive/object-storage-cloudberry.md
     - name: Backup to Object Storage via Duplicati
       href: archive/object-storage-duplicati.md
-    - name: Backup to Object Storage via Bacula
-      href: archive/backup-with-bacula.md
-    - name: Configuring an SFTP server on Centos 7
-      href: archive/backup-and-archive-to-sftp.md
-    - name: Digitizing archives in Yandex Vision
-      href: archive/archive-from-vision-to-object-storage.md
   - name: Test environment
     items:
     - name: All tutorials
@@ -51,7 +51,7 @@ items:
       href: testing/gitlab.md
     - name: Creating test VMs using GitLab CI
       href: testing/ci-for-snapshots.md
-    - name: High-performance computing on preemptible VMs
+    - name: High-performance computing (HPC) on preemptible VMs
       href: testing/hpc-on-preemptible.md
   - name: Performing infrastructure management
     items:
@@ -87,3 +87,19 @@ items:
         href: routing/cisco.md
       - name: Installing a Mikrotik CHR virtual router
         href: routing/mikrotik.md
+  - name: DataLens
+    items:
+      - name: All tutorials
+        href: datalens/index.md
+      - name: Visualizing data from a CSV file
+        href: datalens/data-from-csv-visualization.md
+      - name: Visualizing data from a ClickHouse database
+        href: datalens/data-from-ch-visualization.md
+      - name: Visualizing data from Yandex.Metrica
+        href: datalens/data-from-metrica-visualization.md
+      - name: Visualizing data from Yandex.Metrica Logs API
+        href: datalens/data-from-metrica-logsapi-visualization.md
+      - name: Publishing a chart with a map from a CSV file to DataLens Public
+        href: datalens/data-from-csv-to-public-visualization.md
+      - name: Visualizing data from AppMetrica
+        href: datalens/data-from-appmetrica-visualization.md
