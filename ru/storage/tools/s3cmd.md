@@ -23,7 +23,7 @@
    Для работы с {{ objstorage-name }} всегда указывайте регион `ru-central1`. Другие значения региона могут привести к ошибке авторизации.
 
    {% endnote %}
-1. `S3 Endpoint` - введите `{{ s3-storage-host }}`.
+1. `S3 Endpoint` — введите `{{ s3-storage-host }}`.
 1. `DNS-style bucket+hostname:port template for accessing a bucket` — введите  `%(bucket)s.{{ s3-storage-host }}`.
 1. Значения остальных параметров оставьте без изменений.
 
