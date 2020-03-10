@@ -8,9 +8,9 @@
 Чтобы визуализировать данные, необходимо пройти следущие шаги:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Создайте подключение и стандартный дашборд](data-from-metrica-visualization#step1)
-1. [Измените стандартный дашборд](data-from-metrica-visualization#step2)
-1. [Измените чарт](data-from-metrica-visualization#step3)
+1. [Создайте подключение и стандартный дашборд](data-from-metrica-visualization#step1).
+1. [Измените стандартный дашборд](data-from-metrica-visualization#step2).
+1. [Измените чарт](data-from-metrica-visualization#step3).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -104,6 +104,6 @@
 
 1. Закройте вкладку с редактированием чарта и вернитесь в окно с дашбордом.
 
-1. Обновите дашборд, и убедитесь, что в разделе **Технологии** чарт изменился.
+1. Обновите дашборд и убедитесь, что в разделе **Технологии** чарт изменился.
 
     ![image](../../_assets/datalens/solution-03/17-refresh-dashboard.png)

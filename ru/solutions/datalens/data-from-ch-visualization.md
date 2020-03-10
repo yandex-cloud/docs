@@ -11,15 +11,15 @@
 В качестве подлючение используется демонстрационное подключение **Sample ClickHouse**.
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Определите источник данных датасета](data-from-ch-visualization.md#step1)
-1. [Настройте поля датасета](data-from-ch-visualization.md#step2)
-1. [Создайте чарт — линейная диаграмма](data-from-ch-visualization.md#step3)
-1. [Создайте чарт — столбчатая диаграмма](data-from-ch-visualization.md#step4)
-1. [Создайте чарт — сводная таблица](data-from-ch-visualization.md#step5)
-1. [Создайте чарт — тепловая карта](data-from-ch-visualization.md#step6)
-1. [Создайте дашборд](data-from-ch-visualization.md#step7)
-1. [Добавьте чарты на дашборд](data-from-ch-visualization.md#step8)
-1. [Добавьте селекторы на дашборд](data-from-ch-visualization.md#step9)
+1. [Определите источник данных датасета](data-from-ch-visualization.md#step1).
+1. [Настройте поля датасета](data-from-ch-visualization.md#step2).
+1. [Создайте чарт — линейная диаграмма](data-from-ch-visualization.md#step3).
+1. [Создайте чарт — столбчатая диаграмма](data-from-ch-visualization.md#step4).
+1. [Создайте чарт — сводная таблица](data-from-ch-visualization.md#step5).
+1. [Создайте чарт — тепловая карта](data-from-ch-visualization.md#step6).
+1. [Создайте дашборд](data-from-ch-visualization.md#step7).
+1. [Добавьте чарты на дашборд](data-from-ch-visualization.md#step8).
+1. [Добавьте селекторы на дашборд](data-from-ch-visualization.md#step9).
 
 Создайте [подключение](../../datalens/concepts/connection.md) к базе данных ClickHouse, в которой хранится таблица.
 
@@ -279,10 +279,10 @@
     ![image](../../_assets/datalens/solution-02/38-add-chart-window.png)
 
 1. Аналогичным способом добавьте чарты:
- * **Продажи по брендам и категориям**
- * **Продажи в разрезе лет и продуктов**
- * **Тепловая карта продаж**
- 
+    * **Продажи по брендам и категориям**
+    * **Продажи в разрезе лет и продуктов**
+    * **Тепловая карта продаж**
+
 1. Расположите чарты на дашборде в удобном для вас порядке.  
  
     ![image](../../_assets/datalens/solution-02/39-dashboard1.png)

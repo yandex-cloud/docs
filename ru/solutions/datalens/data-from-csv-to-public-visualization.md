@@ -1,6 +1,6 @@
 # Публикация в DataLens Public диаграммы с картой на основе CSV-файла
 
-С помощью {{datalens-short-name }} вы можете предоставлять публичный доступ к созданным чартам и дашбордам 
+С помощью {{datalens-short-name }} вы можете предоставлять публичный доступ к созданным чартам и дашбордам. 
 
 {% note important %}
 
@@ -15,10 +15,10 @@
 Чтобы визуализировать и опубликовать данные, пройдите следующие шаги:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Создайте подключение](data-from-csv-visualization.md#step1)
-1. [Создайте датасет](data-from-csv-visualization.md#step2)
-1. [Создайте чарт с картой районов Москвы](data-from-csv-visualization.md#step3)
-1. [Опубликуйте чарт в DataLens Public](data-from-csv-visualization.md#step4)
+1. [Создайте подключение](data-from-csv-visualization.md#step1).
+1. [Создайте датасет](data-from-csv-visualization.md#step2).
+1. [Создайте чарт с картой районов Москвы](data-from-csv-visualization.md#step3).
+1. [Опубликуйте чарт в DataLens Public](data-from-csv-visualization.md#step4).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -80,7 +80,7 @@
     
 1. Введите имя датасета **Население Москвы**, нажмите **Создать**.
     
-1. После сохранения датасета нажмите **Создать чарт** 
+1. После сохранения датасета нажмите **Создать чарт**. 
 
     ![image](../../_assets/datalens/solution-05/12-create-chart.png)
 

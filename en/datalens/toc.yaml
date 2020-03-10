@@ -6,13 +6,19 @@ items:
   - name: Tutorials
     items:
       - name: All tutorials
-        href: solutions/index.md
+        href: ../solutions/datalens/index.md
       - name: Visualizing data from a CSV file
-        href: solutions/data-from-csv-visualization.md
+        href: ../solutions/datalens/data-from-csv-visualization.md
       - name: Visualizing data from a ClickHouse database
-        href: solutions/data-from-db-visualization.md
+        href: ../solutions/datalens/data-from-ch-visualization.md
       - name: Visualizing data from Yandex.Metriсa
-        href: solutions/data-from-metrica-visualization.md
+        href: ../solutions/datalens/data-from-metrica-visualization.md
+      - name: Visualizing data from Yandex.Metrica Logs API
+        href: ../solutions/datalens/data-from-metrica-logsapi-visualization.md
+      - name: Publishing a chart with a map from a CSV file to DataLens Public
+        href: ../solutions/datalens/data-from-csv-to-public-visualization.md
+      - name: Visualizing data from AppMetrica
+        href: ../solutions/datalens/data-from-appmetrica-visualization.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -29,9 +35,9 @@ items:
             href: operations/connection/create-postgresql.md
           - name: Creating an MS SQL Server connection
             href: operations/connection/create-mssql-server.md
-          - name: Creating a Yandex.Metrica API connection
+          - name: Creating a Metrica API connection
             href: operations/connection/create-metrica-api.md
-          - name: Creating a Yandex.Metrica Logs API connection
+          - name: Creating a Metrica Logs API connection
             href: operations/connection/create-metrica-logs-api.md
           - name: Creating an AppMetrica connection
             href: operations/connection/create-appmetrica.md
@@ -73,11 +79,11 @@ items:
             href: operations/dashboard/manage-access.md
       - name: Working with permissions
         items:
-          - name: Granting permission
+          - name: Granting permissions
             href: operations/permission/grant.md
-          - name: Deleting permissions
+          - name: Deleting access rights
             href: operations/permission/revoke.md
-          - name: Requesting permission
+          - name: Requesting permissions
             href: operations/permission/request.md
   - name: Concepts
     items:
@@ -85,11 +91,11 @@ items:
         href: concepts/index.md
       - name: Connections
         href: concepts/connection.md
-      - name: Datasets
+      - name: Dataset
         href: concepts/dataset.md
-      - name: Charts
+      - name: Chart
         href: concepts/chart.md
-      - name: Dashboards
+      - name: Dashboard
         href: concepts/dashboard.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -101,4 +107,4 @@ items:
     items:
     include:
       repo: docs
-      path: en/_api-ref/datalens/toc.yaml
+      path: ru/_api-ref/datalens/toc.yaml
