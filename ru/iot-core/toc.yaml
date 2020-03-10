@@ -75,6 +75,8 @@ items:
     items:
       - name: Все сценарии
         href: solutions/index.md
+      - name: Работа с Yandex IoT Core с устройства с Android на языке Java
+        href: solutions/android-java.md
       - name: Работа с помощью Mosquitto
         items:
           - name: Отправить сообщение
