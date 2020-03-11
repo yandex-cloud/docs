@@ -1,4 +1,4 @@
-To run multiple instances of the service in Docker containers, you can create an instance group from a [{{ coi }}](../../container-registry/concepts/coi.md). In such groups, you can use VM metadata to update Docker containers.
+To run multiple instances of the service in Docker containers, you can create an instance group from a [{{ coi }}](../../cos/concepts/index.md). In such groups, you can use VM metadata to update Docker containers.
 
 {% include [warning.md](warning.md) %}
 
@@ -100,7 +100,7 @@ To create an instance group built on a {{ coi }}:
         | `network_id` | The `default-net` ID. |
         | `primary_v4_address_spec` | IPv4 specification. Only IPv4 is currently available. You can allow public access to group instances by specifying the IP version for the public IP address. For more information, see [{#T}](../../compute/concepts/instance-groups/instance-template.md#instance-template). |
         | `metadata` | Values to pass to the VM metadata. |
-        | `docker-container-declaration` | The key in the VM metadata to access the [Docker container description](../../container-registry/concepts/coi.md#coi-specification). |
+        | `docker-container-declaration` | The key in the VM metadata to access the [Docker container description](../../cos/concepts/index.md#coi-specification). |
 
     - [Policies](../../compute/concepts/instance-groups/policies.md):
 

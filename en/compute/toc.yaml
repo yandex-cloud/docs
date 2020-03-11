@@ -45,7 +45,7 @@ items:
             href: operations/placement-groups/create-vm-in-pg.md
           - name: Adding a VM instance to a placement group
             href: operations/placement-groups/add-vm.md
-          - name: Removing a VM instance from an instance group
+          - name: Removing a VM instance from a placement group
             href: operations/placement-groups/delete-vm.md
           - name: Deleting a placement group
             href: operations/placement-groups/delete.md
@@ -133,7 +133,7 @@ items:
             href: operations/instance-groups/create-with-balancer.md
           - name: Creating an automatically scaled instance group
             href: operations/instance-groups/create-autoscaled-group.md
-          - name: Creating a VM with Container Optimized Image
+          - name: Creating an instance group from Container Optimized Image
             href: operations/instance-groups/create-with-coi
       - name: Getting information about instance groups
         items:
@@ -155,6 +155,8 @@ items:
             href: operations/instance-groups/start.md
           - name: Delete a group
             href: operations/instance-groups/delete.md
+  - name: Yandex Container Optimized Solutions
+    href: ../cos/
   - name: Scenarios
     items:
       - name: Configuring NTP time synchronization

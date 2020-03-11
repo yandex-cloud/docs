@@ -4,7 +4,7 @@ The most common errors and how to resolve them are listed below:
 
 - `docker login is not supported with yc credential helper`
 
-    **Why the error occurred:** If you use [Docker Credential helper](../operations/authentication.md#cred-helper), you can't authenticate in {{ container-registry-full-name }} using your `docker login`. You may also see this error in [Container Optimized Image](../concepts/coi.md) when Credential helper is used to authenticate on behalf of the service account linked to your VM.
+    **Why the error occurred:** If you use [Docker Credential helper](../operations/authentication.md#cred-helper), you can't authenticate in {{ container-registry-full-name }} using your `docker login`. You may also see this error in a [Container Optimized Image](../../cos/concepts/index.md), when credential helper is used to authenticate on behalf of the service account linked to your VM.
 
     **How to fix it:** Authenticate in the registry [using Docker Credential helper](../operations/authentication.md#cred-helper) or [disable Docker Credential helper](../operations/authentication.md#ch-not-use).
 

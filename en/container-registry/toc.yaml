@@ -1,6 +1,5 @@
 title: "Yandex Container Registry"
 href: index.yaml
-stage: new
 items:
   - name: Getting started
     href: quickstart/index.md
@@ -10,15 +9,7 @@ items:
         href: operations/index.md
       - name: Authentication in Yandex Container Registry
         href: operations/authentication.md
-      - name: Working with Container Optimized Image
-        items:
-          - name: Creating a VM with a Container Optimized Image
-            href: operations/coi/vm-create.md
-          - name: Updating a VM with a Container Optimized Image
-            href: operations/coi/vm-update.md
-          - name: Creating an instance group with a Container Optimized Image
-            href: operations/coi/ig-create.md
-      - name: Managing Docker image
+      - name: Managing a Docker image
         items:
           - name: Getting information about available Docker images
             href: operations/docker-image/docker-image-list.md
@@ -30,7 +21,7 @@ items:
             href: operations/docker-image/docker-image-pull.md
           - name: Deleting a Docker image from a registry
             href: operations/docker-image/docker-image-delete.md
-      - name: Managing registry
+      - name: Managing a registry
         items:
           - name: Getting information about existing registries
             href: operations/registry/registry-list.md
@@ -40,27 +31,27 @@ items:
             href: operations/registry/registry-update.md
           - name: Deleting a registry
             href: operations/registry/registry-delete.md
-      - name: Managing repository
+      - name: Managing a repository
         items:
           - name: Getting a list of repositories in a registry
             href: operations/repository/repository-list.md
+  - name: Yandex Container Optimized Solutions
+    href: ../cos/
   - name: Concepts
     items:
         - name: Overview
           href: concepts/index.md
         - name: Docker image
           href: concepts/docker-image.md
-        - name: Registry
+        - name: Registries
           href: concepts/registry.md
         - name: Repository
           href: concepts/repository.md
-        - name: Image Container Optimized Image
-          href: concepts/coi.md
         - name: Quotas and limits
           href: concepts/limits.md
-  - name: Tutorials
+  - name: Solutions
     items:
-      - name: All tutorials
+      - name: All solutions
         href: solutions/index.md
       - name: Running a Docker image on a VM
         href: solutions/run-docker-on-vm.md

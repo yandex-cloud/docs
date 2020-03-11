@@ -28,6 +28,8 @@ default:
   ydb-full-name: Yandex Database
   kms-full-name: Yandex Key Management Service
   interconnect-full-name: Yandex Cloud Interconnect
+  cos-full-name: Yandex Container Optimazed Solutions
+  ml-platform-full-name: Yandex ML Platform
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -57,6 +59,8 @@ default:
   ydb-name: Yandex Database
   kms-name: Key Management Service
   interconnect-name: Cloud Interconnect
+  cos-name: Container Optimazed Solutions
+  ml-platform-name: ML Platform
 
   # Короткие имена
   iam-short-name: IAM
@@ -84,6 +88,8 @@ default:
   sf-short-name: Functions
   ydb-short-name: YDB
   kms-short-name: KMS
+  cos-short-name: COS
+  ml-platform-short-name: ML Platform
 
   # Тарифы
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
@@ -224,6 +230,52 @@ default:
   link-console-support: https://console.cloud.yandex.com/support
   link-cloud-calculator: https://cloud.yandex.com/prices#calculator
   link-cloud-services: https://cloud.yandex.com/services
+  link-yandex-connect: https://connect.yandex.com
+  link-passport-login: https://passport.yandex.com/auth
+  link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+internal:
+  audience: internal
+  console-link: yc.yandex-team.ru
+
+  # MDB specific
+  pem-path: https://crls.yandex.net/allCAs.pem
+  dns-zone: db.yandex.net
+  network-name: ' '
+  host-net-example: zone-id=vla
+  disk-type-example: local-ssd
+  PG: PostgreSQL
+  CH: ClickHouse
+  MG: MongoDB
+  MY: MySQL
+  RD: Redis
+  ZK: ZooKeeper
+  zone-id: vla
+  host-class: db1.micro
+
+  # links
+  link-console-billing: https://console.cloud.yandex.com/billing
+  link-console-main: https://console.cloud.yandex.com/
+  link-console-quotas: https://console.cloud.yandex.com/cloud?section=quotas
+  link-console-access-management: https://console.cloud.yandex.com/iam
+  link-console-support: https://console.cloud.yandex.com/support
+  link-cloud-calculator: https://cloud.yandex.com/prices#calculator
+  link-yandex-connect: https://connect.yandex.com
+  link-passport-login: https://passport.yandex.com/auth
+  link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+external:
+  audience: external
+  console-link: console.cloud.yandex.com
+  host-class: s1.nano
+  network-name: default-net
+  zone-id: ru-central1-c
+
+  # links
+  link-console-billing: https://console.cloud.yandex.com/billing
+  link-console-main: https://console.cloud.yandex.com/
+  link-console-quotas: https://console.cloud.yandex.com/cloud?section=quotas
+  link-console-access-management: https://console.cloud.yandex.com/iam
+  link-console-support: https://console.cloud.yandex.com/support
+  link-cloud-calculator: https://cloud.yandex.com/prices#calculator
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
   link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb

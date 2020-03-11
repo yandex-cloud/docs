@@ -21,7 +21,7 @@ _{{ coi }}_ — [образ](../../compute/concepts/image.md) виртуальн
 
 Пример имени Docker-образа для разных реестров:
 - Docker Hub: `ubuntu:16.04`.
-- {{ container-registry-name }}: `cr.yandex/crpd50616s9a2t7gr8mi/ubuntu:hello`.
+- {{ container-registry-name }}: `cr.yandex/crpd50616s9a2t7gr8mi/ubuntu:16.04`.
 
 ## Политики перезапуска Docker-контейнера {#restart-policy}
 
@@ -75,7 +75,6 @@ spec:
     - name: cache-volume
       emptyDir:
         medium: Memory
-        sizeLimit: 10M 
     - name: data-volume
       hostPath:
         path: /data
