@@ -89,6 +89,22 @@ items:
         href: concepts/monitoring.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Разработка на Node.js
+    items:
+      - name: Обзор
+        href: lang/nodejs/index.md
+      - name: Управление зависимостями
+        href: lang/nodejs/dependencies.md
+      - name: Обработчик запросов
+        href: lang/nodejs/handler.md
+      - name: Контекст вызова
+        href: lang/nodejs/context.md
+      - name: Журналирование
+        href: lang/nodejs/logging.md
+      - name: Обработка ошибок
+        href: lang/nodejs/errors.md
+      - name: Использование SDK
+        href: lang/nodejs/sdk.md
   - name: Сценарии использования
     items:
       - name: Создание навыка Алисы
