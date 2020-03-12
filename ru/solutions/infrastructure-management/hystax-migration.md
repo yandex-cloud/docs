@@ -42,7 +42,9 @@
 * плата за хранение образов (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
+## Создайте сервисный аккаунт и авторизованный ключ {#create-sa}
 
+[Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `editor`, `marketplace.meteringAgent` и [авторизованный ключ](../../iam/operations/authorized-key/create.md). Сохраните идентификатор сервисного аккаунта, идентификатор приватного ключа и сам приватный ключ. Они понадобятся вам при настройке Hystax Acura.
 
 ## Создайте ВМ с Hystax Acura {#create-acura-vm}
 
@@ -61,15 +63,12 @@
      --cores 8 \
      --memory 16 \ 
      --network-interface subnet-id=<идентификатор подсети>,nat-ip-version=ipv4 \
-     --create-boot-disk name=hystax-acura-disk,size=100,image-id=<идентификатор образа Hystax Acura> \ 
+     --create-boot-disk name=hystax-acura-disk,size=100,image-id=<идентификатор образа Hystax Acura> \
+     --service-account-id <идентификатор сервисного аккаунта> \
      --ssh-key ~/.ssh/id_rsa.pub
    ```
 
 {% endlist %}
-
-## Создайте сервисный аккаунт и авторизованный ключ {#create-sa}
-
-[Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `editor` и [авторизованный ключ](../../iam/operations/authorized-key/create.md). Сохраните идентификатор сервисного аккаунта, идентификатор приватного ключа и сам приватный ключ. Они понадобятся вам при настройке Hystax Acura.
 
 ## Настройте Hystax Acura {#setup-hystax-acura}
 

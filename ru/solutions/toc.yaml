@@ -89,6 +89,8 @@ items:
         href: windows/active-directory.md
       - name: Развертывание Microsoft Exchange
         href: windows/exchange.md
+      - name: Развертывание Remote Desktop Services
+        href: windows/rds.md
   - name: Сетевая маршрутизация
     items:
       - name: Все сценарии
