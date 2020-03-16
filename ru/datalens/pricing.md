@@ -14,7 +14,7 @@ editable: false
 
 Подписка действует на [каталог облака](../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится экземпляр сервиса {{ datalens-short-name }}.
 
-{% note important %}
+{% note warning %}
 
 Дополнения для сервиса {{ datalens-short-name }}, которые доступны в {{ marketplace-short-name }}, не влияют на выбранный тариф и оплачиваются отдельно.
 

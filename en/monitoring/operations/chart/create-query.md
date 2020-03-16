@@ -14,7 +14,7 @@ To create a chart using a text query, follow these steps:
 
 1. Enter optional labels to view the metrics on a chart.
 
-    {% note important %}
+    {% note warning %}
 
     You can add up to 50 metrics per chart.
 

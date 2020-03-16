@@ -26,7 +26,7 @@
 
 {% if audience == "internal" %}
 
-{% note important %}
+{% note warning %}
 
 Настройка шардирования (PartitioningPolicy) таблицы при ее создании в текущей версии возможна только через [С++](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/cpp/client/ydb_table.h), [Java](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/java/table/src/settings/PartitioningPolicy.java) и [Python](https://a.yandex-team.ru/arc//trunk/arcadia/kikimr/public/sdk/python/client/table.py) SDK.
 
@@ -34,7 +34,7 @@
 
 {% else if audience == "external" %}
 
-{% note important %}
+{% note warning %}
 
 Настройка шардирования (PartitioningPolicy) таблицы при ее создании в текущей версии возможна только через [Java](https://github.com/yandex-cloud/ydb-java-sdk) и [Python](https://github.com/yandex-cloud/ydb-python-sdk) SDK.
 

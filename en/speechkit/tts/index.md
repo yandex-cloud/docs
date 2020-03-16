@@ -61,7 +61,7 @@ Key differences:
 * Understanding of context. Before starting speech synthesis, the premium voice engine evaluates the whole text rather than individual sentences. This allows for intonation that is more typical of human speech.
 * Attention to detail. By using deep neural networks for premium voice synthesis, we make a much deeper analysis of the original voice. This lets us generate a much clearer voice that is richer in detail and avoids various distortions typical in [standard voices](voices.md#standard).
 
-{% note important %}
+{% note warning %}
 
 The new technology currently only supports voices for Russian. Choosing a different language affects the speech quality.
 

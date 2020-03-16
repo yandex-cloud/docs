@@ -2,7 +2,7 @@
 
 You can add and remove cluster hosts and manage {{ CH }} settings for individual clusters.
 
-{% note important %}
+{% note warning %}
 
 To add new hosts to a single-host cluster, first [add the {{ ZK }} hosts ](zk-hosts.md) to ensure fault tolerance for the cluster.
 

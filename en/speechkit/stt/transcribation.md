@@ -111,7 +111,7 @@ Use this ID at the next step.
 
 [Monitor the recognition results](../../api-design-guide/concepts/operation.md#monitoring) using the received ID. The number of result monitoring requests is [limited](../concepts/limits.md), so consider the recognition speed: it takes about 10 seconds to recognize 1 minute of single-channel audio.
 
-{% note important %}
+{% note warning %}
 
 Recognition results are stored on the {{ stt-long-resultsStorageTime }} server. You can then request the recognition results using the received ID.
 
@@ -194,7 +194,7 @@ To enable the app to send requests and get results, you need to generate the cli
 
 See the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and deploy client apps for various programming languages.
 
-{% note important %}
+{% note warning %}
 
 When requesting the results of an operation, gRPC clients by default limit the maximum message size that they can accept as a response to no more than 4 MB. If a response with recognition results exceeds this amount, an error is returned.
 

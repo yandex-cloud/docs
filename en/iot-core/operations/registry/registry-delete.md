@@ -1,6 +1,6 @@
 # Deleting a registry
 
-{% note important %}
+{% note warning %}
 
 You can only delete an empty registry. Don't forget to [delete devices from the registry](../device/device-delete.md) before performing the operation.
 

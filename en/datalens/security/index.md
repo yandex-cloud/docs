@@ -46,7 +46,7 @@ You can assign the following permissions to objects and folders in {{ datalens-s
 A user with the `{{ permission-execute }}` permission can make requests to available connections and datasets.
 It doesn't let the user view connections or datasets.
 
-{% note important %}
+{% note warning %}
 
 You can only grant the `{{ permission-execute }}` permission for a connection and dataset.
 

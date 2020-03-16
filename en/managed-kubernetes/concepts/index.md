@@ -10,7 +10,7 @@ A {{ k8s }} cluster consists of a master and one or more node groups. The master
 
 The service fully controls the master and monitors the status and health of a node group. The user can manage nodes directly and configure a {{ k8s }} cluster through the Yandex.Cloud management console and the Managed Service for Kubernetes CLI and API.
 
-{% note important %}
+{% note warning %}
 
 {{ k8s }} node groups require internet access to download images and components.
 Internet access can be provided in the following ways:
@@ -38,7 +38,7 @@ There are two types of masters that differ by their location in [availability zo
 
 - _Regional_: A master created and distributed in three subnets in each availability zone. If a zone becomes unavailable, the regional master remains functional.
 
-    {% note important %}
+    {% note warning %}
     
     The internal IP address of a regional master is only available within a single {{ vpc-full-name }} cloud network.
 

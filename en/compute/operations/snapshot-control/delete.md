@@ -1,6 +1,6 @@
 # Deleting a disk snapshot
 
-{% note important %}
+{% note warning %}
 
 Deleting a snapshot is an operation that cannot be canceled or reversed. You cannot restore a deleted snapshot.
 

@@ -1,6 +1,6 @@
 # Deleting a profile
 
-{% note important %}
+{% note warning %}
 
 You can't delete a profile if:
 

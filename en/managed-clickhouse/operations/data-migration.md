@@ -247,7 +247,7 @@ fc=$(cat ./cp-task.xml)
 
 ## Launch clickhouse-copier {#copier-run}
 
-{% note important %}
+{% note warning %}
 
 If you didn't create the folders that you specified in the `--base-dir` flag or for saving logs, `clickhouse-copier` might not start.
 

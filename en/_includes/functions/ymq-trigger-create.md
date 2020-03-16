@@ -2,7 +2,7 @@
 
 Create a trigger for the [message queue](../../message-queue/concepts/queue.md) of {{ message-queue-full-name }} and process messages using the [function](../../functions/concepts/function.md) {{ sf-name }}.
 
-{% note important %}
+{% note warning %}
 
 - The trigger must be in the same cloud as the queue that messages are read from.
 - Only one trigger can be created for each message queue.

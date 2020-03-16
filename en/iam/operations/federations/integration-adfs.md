@@ -137,7 +137,7 @@ Create a relying party trust for the federation you created in the cloud:
 
 When ADFS authenticates a user, it sends an SAML message to Yandex.Cloud to confirm successful authentication. The `NameID` element in this message identifies the user authenticated. For this, you need to configure the user data to match the elements of the SAML message.
 
-{% note important %}
+{% note warning %}
 
 The `NameID` must be unique for every federation user. We recommend specifying the User Principal Name (UPN) or email address as the ID.
 

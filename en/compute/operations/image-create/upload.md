@@ -2,7 +2,7 @@
 
 The following instructions describe how to prepare a disk image, upload the image file to {{ objstorage-full-name }}, and use it to create an [image](../../concepts/image.md) in {{ compute-name }}.
 
-{% note important %}
+{% note warning %}
 
 In {{ compute-name }}, you can only create images using links to files uploaded to {{ objstorage-name }}.
 

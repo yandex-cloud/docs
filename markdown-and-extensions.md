@@ -265,14 +265,6 @@ let =; 10;
 
     {% endnote %}
     ```
-* Предупреждение
-    ```markdown
-    {% note alert %}
-
-    Это предупреждение.
-
-    {% endnote %}
-    ```
 * Совет
     ```markdown
     {% note tip %}
@@ -281,11 +273,19 @@ let =; 10;
 
     {% endnote %}
     ```
-* Важная информация
+* Важно
     ```markdown
-    {% note important %}
+    {% note warning %}
 
     Это важная информация.
+
+    {% endnote %}
+    ```
+* Внимание
+    ```markdown
+    {% note alert %}
+
+    Это предупреждение.
 
     {% endnote %}
     ```

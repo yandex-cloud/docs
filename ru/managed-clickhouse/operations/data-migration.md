@@ -258,7 +258,7 @@ fc=$(cat ./cp-task.xml)
 
 ## Запустите clickhouse-copier {#copier-run}
 
-{% note important %}
+{% note warning %}
 
 Если вы не создали каталоги, которые указываете в значении флага `--base-dir` или для сохранения файлов с логами, `clickhouse-copier` может не запуститься.
 

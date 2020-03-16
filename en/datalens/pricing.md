@@ -14,7 +14,7 @@ You can choose one of the following plans: **Free** or **Standard**.
 
 The plan applies to [the folder](../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ datalens-short-name }} instance is located.
 
-{% note important %}
+{% note warning %}
 
 Additional {{ datalens-short-name }} features that are available in {{ marketplace-short-name }} don't affect the selected plan and are paid separately.
 

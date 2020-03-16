@@ -2,7 +2,7 @@
 
 A {{ mch-name }} cluster with one host doesn't ensures fault tolerance or data replication. To make the cluster more reliable, you can add more {{ CH }} hosts, but to be able to manage them, you first need to add {{ ZK }} hosts to the cluster.
 
-{% note important %}
+{% note warning %}
 
 You can add exactly 3 {{ ZK }} hosts to the cluster.
 

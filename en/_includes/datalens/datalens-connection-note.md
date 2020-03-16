@@ -1,4 +1,4 @@
-{% note important %}
+{% note warning %}
 
 When connecting to an external data source (which is not a Yandex.Cloud resource), grant access to the source for the following ranges of DataLens IP addresses:
 

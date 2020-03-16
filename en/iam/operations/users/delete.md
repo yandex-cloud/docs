@@ -1,6 +1,6 @@
 # Deleting a user from the cloud
 
-{% note important %}
+{% note warning %}
 
 Deleting a user from the cloud is an operation that cannot be undone. If you accidentally delete a user, you can [add](create.md) them to the cloud again.
 

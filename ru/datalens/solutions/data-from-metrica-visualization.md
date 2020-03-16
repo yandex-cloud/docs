@@ -13,7 +13,7 @@
 
 ## Шаг 1. Создайте подключение и стандартный дашборд {#step1}
 
-{% note important %}
+{% note warning %}
 
 Данный шаг доступен для пользователей, у которых есть права на какой-либо счетчик Яндекс.Метрики. Если у вас нет прав на счетчик, то откройте готовый дашборд [**Metriсa Live Demo Dashboard**](https://datalens.yandex.ru/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard) и перейдите к шагу 2.
 
@@ -51,7 +51,7 @@
 
 ## Шаг 2. Измените стандартный дашборд {#step2}
 
-{% note important %}
+{% note warning %}
 
 Если у вас нет счетчика Яндекс.Метрики и вы пропустили шаг 1, используйте дашборд [**Metriсa Live Demo Dashboard**](https://datalens.yandex.ru/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard).
 

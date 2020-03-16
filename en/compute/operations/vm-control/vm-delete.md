@@ -1,6 +1,6 @@
 # Deleting a VM
 
-{% note important %}
+{% note warning %}
 
 Deleting a VM is an operation that cannot be canceled or reversed. You cannot restore a deleted VM.
 

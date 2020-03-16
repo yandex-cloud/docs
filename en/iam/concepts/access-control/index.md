@@ -23,7 +23,7 @@ To assign a role, [select a resource](#resource), [choose a role](#role), and [d
 
 You can also assign a role to a parent resource that [access rights are inherited](#inheritance) from, such as a folder or cloud.
 
-{% note important %}
+{% note warning %}
 
 It usually takes 5 seconds or less to update access rights. If the role was assigned to you, but still you don't have access, try repeating the operation.
 

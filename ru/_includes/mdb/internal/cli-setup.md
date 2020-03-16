@@ -5,7 +5,7 @@
 1. [Установите CLI](../../../cli/quickstart.md).
 1. [Получите OAuth-токен](https://oauth.yandex-team.ru/authorize?response_type=token&client_id=8cdb2f6a0dca48398c6880312ee2f78d) для доступа CLI ко внутреннему MDB.
 
-   {% note important %}
+   {% note warning %}
 
    Токен нужно получать именно по этой ссылке — в выводе CLI предлагается ссылка на внешнее приложение MDB.
 

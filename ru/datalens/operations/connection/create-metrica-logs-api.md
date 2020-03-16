@@ -1,6 +1,6 @@
 # Создание подключения к Metrica Logs API
 
-{% note important %}
+{% note warning %}
 
 Перед созданием подключения к Metrica Logs API, вам необходимо создать кластер ClickHouse в Яндекс.Облаке. {{ datalens-short-name }} сохранит данные Metrica Logs API в датасет в созданный кластер.
 

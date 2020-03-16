@@ -91,7 +91,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
 
 When you create a service with the `LoadBalancer` type, Yandex.Cloud controller creates and configures a [network load balancer](../../load-balancer/concepts/index.md) in your folder with a public IP address.
 
-{% note important %}
+{% note warning %}
 
 * You will be charged for the network load balancer you created based on the [pricing rules](../../load-balancer/pricing.md).
 * Don't modify or delete the network load balancer or target groups that are automatically created in your folder after creating a `LoadBalancer` service.

@@ -18,7 +18,7 @@ When you create a Windows boot disk image, indicate this in the operating system
 
 If you regularly update your images, you can group them into families. You can use the family name to find the latest image in the family.
 
-{% note important %}
+{% note warning %}
 
 All images belonging to the same family must be in the same folder.
 

@@ -22,7 +22,7 @@ Converts `address` to its geographical coordinates.
 
 **Return type**: `Geopoint`
 
-{% note important %}
+{% note warning %}
 
 Function is available only with the Standard billing plan.
 

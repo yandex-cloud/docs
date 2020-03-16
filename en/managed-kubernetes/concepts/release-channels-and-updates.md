@@ -62,7 +62,7 @@ Depending on the type of master, it may or may not be available during an update
 
 You can update node groups with additional resources by creating nodes with a new configuration.
 
-{% note important %}
+{% note warning %}
 
 For an update to be successful, you need enough quotas to create a new node with additional resources.
 
@@ -74,7 +74,7 @@ Update process:
 
 1. All pods are moved from one of the old nodes, which is then deleted.
 
-    {% note important %}
+    {% note warning %}
 
     A pod can only be moved if it was created by one of the application replication controllers: [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/), [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), or [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/). If a pod is created without a controller, it's lost during the update.
 

@@ -30,7 +30,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
   1. If necessary, enable [cluster sharding](../concepts/sharding.md).
 
-     {% note important %}
+     {% note warning %}
 
      You can only enable sharding when you create a new cluster. You can't shard an existing non-sharded cluster or disable sharding for a cluster that it's enabled for.
 

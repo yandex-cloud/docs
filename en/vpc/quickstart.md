@@ -39,7 +39,7 @@ Create a subnet where cloud resources will be assigned [internal IP addresses](c
 
 Reserve a static public IP address for your VM. You can assign this address to any VM and it won't change when the VM is stopped.
 
-{% note important %}
+{% note warning %}
 
 You're charged for the reserved static public IP address even if it's not assigned to any VM. For more information, see [Pricing policy for {{ vpc-name }}](pricing.md).
 

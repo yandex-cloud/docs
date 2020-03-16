@@ -68,7 +68,7 @@ Content-Type: application/x-ndjson
 ["fieldValue13", "fieldValue23"]
 ```
 
-{% note important %}
+{% note warning %}
 
 Число и порядок столбцов в теле запроса должны совпадать с числом и порядком столбцов, которые указаны в схеме таблицы.
 

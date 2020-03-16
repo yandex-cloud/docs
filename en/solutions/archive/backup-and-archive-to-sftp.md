@@ -293,7 +293,7 @@ The process for creating a VM for the SFTP client is exactly the same as the one
 
    1. Find the public or internal IP address of the SFTP client in the Yandex.Cloud console under VM settings.
 
-      {% note important %}
+      {% note warning %}
 
       The internal addresses of the SFTP client and server must be located in the same subnet or be linked via routing settings.
 

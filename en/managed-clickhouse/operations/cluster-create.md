@@ -2,7 +2,7 @@
 
 {{ CH }} clusters are one or more database hosts that replication can be configured between.
 
-{% note important %}
+{% note warning %}
 
 When creating a {{ CH }} cluster with two or more hosts, {{ mch-short-name }} automatically creates a cluster of three ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the [resource quotas]({{ link-console-quotas }}) used by the cloud{% if audience != "internal" %}, and  when calculating the cost of the cluster{% endif %}. Read more about replication for [{{ CH }}](../concepts/replication.md#clickhouse).
 

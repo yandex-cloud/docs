@@ -13,7 +13,7 @@ To create a chart:
 
 1. Select additional labels using the ![image](../../_assets/plus-sign.svg) icon. Afterwards, metrics appear on the chart.
 
-    {% note important %}
+    {% note warning %}
 
     You can add up to 50 metrics per chart.
 

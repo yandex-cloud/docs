@@ -54,7 +54,7 @@
 
 {% if audience == "internal" %}
 
-{% note important %}
+{% note warning %}
 
 Настройка шардирования (Partitioning Policy) таблицы при ее создании в текущей версии возможна только через [С++](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/cpp/client/ydb_table.h), [Java](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/java/table/src/settings/PartitioningPolicy.java) и [Python](https://a.yandex-team.ru/arc//trunk/arcadia/kikimr/public/sdk/python/client/table.py) SDK.
 
@@ -62,7 +62,7 @@
 
 {% else if audience == "external" %}
 
-{% note important %}
+{% note warning %}
 
 Настройка шардирования (Partitioning Policy) таблицы при ее создании в текущей версии возможна только через [Java](https://github.com/yandex-cloud/ydb-java-sdk) и [Python](https://github.com/yandex-cloud/ydb-python-sdk) SDK.
 
@@ -76,7 +76,7 @@
 
 Персистентная очередь состоит из одной или более партиций, каждая партиция представляет собой [FIFO](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)) [очередь сообщений](https://en.wikipedia.org/wiki/Message_queue), обеспечивающую надежную доставку между несколькими участниками. Сообщения данных нетипизированы и представляют собой blob данных. Партиция является инструментом параллельности и позволяет обеспечить высокую пропускную способность очереди. Предусмотрены механизмы для реализации at least once и exactly once гарантий работы с персистетной очередью. Персистентная очередь {{ ydb-short-name }} похожа на концепцию topic в [Apache Kafka](https://en.wikipedia.org/wiki/Apache_Kafka).
 
-{% note important %}
+{% note warning %}
 
 В текущей версии в БД сервиса {{ ydb-short-name }} доступны для использования только таблицы и директории. Персистентная очередь доступна в сервисе Logbroker.
 
@@ -86,7 +86,7 @@
 
 Одним из примеров применения {{ ydb-short-name }} в качестве платформы для создания широкого спектра систем хранения и обработки данных является реализация [сетевого блочного устройства](https://en.wikipedia.org/wiki/Network_block_device) на базе {{ ydb-short-name }}. Сетевые блочные устройства реализуют интерфейс локального блочного устройства, при этом являются отказоустойчивыми (за счет избыточности) и хорошо масштабируются как по размеру тома, так и по количеству операций ввода-вывода в единицу времени. К недостаткам сетевого блочного устройства можно отнести то, что любая операция ввода-вывода на таком устройстве требует сетевого взаимодействия, что может увеличить latency сетевого устройства по сравнению с локальным. На сетевом блочном устройстве можно развернуть обычную файловую систему и/или запустить приложение, напрямую работающее с блочным устройством, например СУБД.
 
-{% note important %}
+{% note warning %}
 
 В текущей версии в БД сервиса {{ ydb-short-name }} доступны для использования только таблицы и директории. Тома сетевого блочного устройства доступны в сервисе Network Block Store, представляющем собой аналог [Amazon EBS](https://en.wikipedia.org/wiki/Amazon_Elastic_Block_Store).
 

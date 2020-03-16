@@ -16,7 +16,7 @@ For example, you have an OS disk image that you want to share with all Yandex.Cl
 
 `allUsers`: Any user. No authentication is required. For example, you don't need to specify the IAM token in an API query.
 
-{% note important %}
+{% note warning %}
 
 Now `allUsers` is supported only in {{ objstorage-name }} in [ACL-based access management](../../../storage/concepts/acl.md).
 

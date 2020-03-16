@@ -20,7 +20,7 @@ For more information about the sharding concept, see [{#T}](../concepts/sharding
 
 ## How to enable collection sharding {#enable}
 
-{% note important %}
+{% note warning %}
 
 Run all your sharding setup commands via the `mongo` CLI from a user granted the [mdbShardingManager](../concepts/users-and-roles.md#mdbShardingManager) role in the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
 

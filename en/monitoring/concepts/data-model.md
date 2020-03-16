@@ -16,7 +16,7 @@ The service has mandatory and optional labels. Mandatory labels:
 - `cluster` — The ID of the folder that the resource belongs to.
 - `service` — Indicates the Yandex.Cloud service that the resource belongs to. For example, `compute` or `managed-postgresql`.
 
-{% note important %}
+{% note warning %}
 
 When writing custom metrics, you should specify the `custom` value in the `service` label.
 

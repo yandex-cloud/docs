@@ -10,7 +10,7 @@ This includes the following steps:
 
 ## Step 1. Create a connection and a standard dashboard {#step1}
 
-{% note important %}
+{% note warning %}
 
 This step is available to users who have permission to any Yandex.Metrica tag. If don't have permission to a tag, open a ready-to-use **Yandex.Metrica** dashboard and proceed to step 2.
 
@@ -42,7 +42,7 @@ This step is available to users who have permission to any Yandex.Metrica tag. I
 
 ## Step 2. Change the standard dashboard {#step2}
 
-{% note important %}
+{% note warning %}
 
 If you don't have a Yandex.Metrica tag and you skipped step 1, use the dashboard named **Metrica Live Demo Dashboard**.
 

@@ -14,7 +14,7 @@ When billing computing resources (GB×hour), the memory allocated for the functi
 - The amount of memory specified when [creating a version](operations/function/version-manage.md#func-version-create), in GB.
 - The execution time for each function invoke in hours, rounded up to the nearest multiple of 100 ms.
 
-{% note important %}
+{% note warning %}
 
 You're charged for all [function invokes](concepts/function-invoke.md) that were used to launch your code.
 
