@@ -40,6 +40,26 @@ The following is charged:
 
 The cost is specified for one month of use.  The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
 
+
+## Discount for committed volumes of services (CVoS)
+
+You can get a guaranteed discount on Yandex.Cloud resource usage when you plan for one or three years ahead. To see the resources you can get a discount on:
+
+1. Go to [Billing](https://console.cloud.yandex.com/billing).
+1. Click on the desired billing account
+1. Choose **Special offers** in the left-hand menu.
+
+A CVoS guarantees a discount on usage, but doesn't guarantee the availability of the resources ordered. Read more about CVoS in the [Billing documentation](../billing/concepts/cvos.md).
+
+{{mmg-name}} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also pre-estimate your monthly payments for the desired number of vCPUs and RAM.
+
+{% note info %}
+
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
+
+{% endnote %}
+
+
 ## Pricing {#prices}
 
 ### Host computing resources {#prices-host}
@@ -50,37 +70,37 @@ The prices for computing resources are the same for all types of hosts: mongod, 
 
 - Prices in USD, without VAT
 
-    | Resource | Rate for 1 hour|
-    | ----- | ----- |
+    | Resource | Rate for 1 hour | With CVoS for 1 year | With CVoS for 3 years
+    | ----- | ----- | ----- | ----- |
     | **Intel Broadwell** |
-    | 5% vCPU | $0.000385 |
-    | 20% vCPU | $0.003718 |
-    | 50% vCPU | $0.006026 |
-    | 100% vCPU | $0.012821 |
-    | RAM (for 1 GB) | $0.006410 |
+    | 5% vCPU | $0.000385 | - | - 
+    | 20% vCPU | $0.003718 | - | - 
+    | 50% vCPU | $0.006026 | - | - 
+    | 100% vCPU | $0.012821 | - | - 
+    | RAM (for 1 GB) | $0.006410 | - | - 
     | **Intel Cascade Lake** |
-    | 5% vCPU | $0.000385 |
-    | 20% vCPU | $0.003718 |
-    | 50% vCPU | $0.006026 |
-    | 100% vCPU | $0.012821 |
-    | RAM (for 1 GB) | $0.006410 |
+    | 5% vCPU | $0.000385 | - | - 
+    | 20% vCPU | $0.003718 | - | - 
+    | 50% vCPU | $0.006026 | - | - 
+    | 100% vCPU | $0.012821 | $0.010128 | $0.007564 
+    | RAM (for 1 GB) | $0.006410 | $0.005641 | $0.004872 
 
 - Prices in roubles, with VAT
 
-    | Resource | Rate for 1 hour |
-    | ----- | ----- |
+    | Resource | Rate for 1 hour | With CVoS for 1 year | With CVoS for 3 years
+    | ----- | ----- | ----- | ----- |
     | **Intel Broadwell** |
-    | 5% vCPU | ₽0.03 |
-    | 20% vCPU | ₽0.29 |
-    | 50% vCPU | ₽0.47 |
-    | 100% vCPU | ₽1.00 |
-    | RAM (for 1 GB) | ₽0.50 |
+    | 5% vCPU | ₽0.03 | - | - 
+    | 20% vCPU | ₽0.29 | - | - 
+    | 50% vCPU | ₽0.47 | - | - 
+    | 100% vCPU | ₽1.00 | - | - 
+    | RAM (for 1 GB) | ₽0.50 | - | - 
     | **Intel Cascade Lake** |
-    | 5% vCPU | ₽0.03 |
-    | 20% vCPU | ₽0.29 |
-    | 50% vCPU | ₽0.47 |
-    | 100% vCPU | ₽1.00 |
-    | RAM (for 1 GB) | ₽0.50 |
+    | 5% vCPU | ₽0.03 | - | - 
+    | 20% vCPU | ₽0.29 | - | - 
+    | 50% vCPU | ₽0.47 | - | - 
+    | 100% vCPU | ₽1.00 | ₽0.79 | ₽0.59 
+    | RAM (for 1 GB) | ₽0.50 | ₽0.44| ₽0.38
 
 {% endlist %}
 
@@ -120,80 +140,80 @@ Prices for the time of host uptime are calculated based on [host classes](concep
 
 - Prices in USD, without VAT
 
-  Host class | Rate for 1 hour
-  ----- | -----
+  Host class | Rate for 1 hour | With CVoS for 1 year | With CVoS for 3 years
+  ----- | ----- | ----- | -----
   **Intel Broadwell** |
-  {{ b1-nano }} | $0.013590
-  {{ b1-micro }} | $0.020256
-  {{ b1-medium }}  | $0.037692
-  {{ s1-nano }} | $0.038462
-  {{ s1-micro }} | $0.076923
-  {{ s1-small }} | $0.153846
-  {{ s1-medium }}| $0.307692
-  {{ s1-large }} | $0.615385
-  {{ s1-xlarge }} | $1.230769
+  {{ b1-nano }} | $0.013590 | - | - 
+  {{ b1-micro }} | $0.020256 | - | - 
+  {{ b1-medium }}  | $0.037692 | - | - 
+  {{ s1-nano }} | $0.038462 | - | - 
+  {{ s1-micro }} | $0.076923 | - | - 
+  {{ s1-small }} | $0.153846 | - | - 
+  {{ s1-medium }}| $0.307692 | - | - 
+  {{ s1-large }} | $0.615385 | - | - 
+  {{ s1-xlarge }} | $1.230769 | - | - 
   **Intel Cascade Lake** |
-  {{ b2-nano }}| $0.013590
-  {{ b2-micro }} | $0.020256
-  {{ b2-medium }} | $0.037692
-  {{ m2-micro }} | $0.128205
-  {{ m2-small }} | $0.256410
-  {{ m2-medium }}| $0.384615
-  {{ m2-large }} | $0.512821
-  {{ m2-xlarge }} | $0.769231
-  {{ m2-2xlarge }} | $1.025641
-  {{ m2-3xlarge }} | $1.538462
-  {{ m2-4xlarge }} | $2.051282
-  {{ m2-5xlarge }} | $2.564103
-  {{ m2-6xlarge }} | $3.076923
-  {{ s2-micro }} | $0.076923
-  {{ s2-small }} | $0.153846
-  {{ s2-medium }} | $0.307692
-  {{ s2-large }} | $0.461538
-  {{ s2-xlarge }} | $0.615385
-  {{ s2-2xlarge }} | $0.923077
-  {{ s2-3xlarge }} | $1.230769
-  {{ s2-4xlarge }} | $1.538462
-  {{ s2-5xlarge }} | $1.846154
-  {{ s2-6xlarge }} | $2.461538
+  {{ b2-nano }}| $0.013590 | - | - 
+  {{ b2-micro }} | $0.020256 | - | - 
+  {{ b2-medium }} | $0.037692 | - | - 
+  {{ m2-micro }} | $0.128205 | $0.110513 | $0.093077
+  {{ m2-small }} | $0.256410 | $0.221026 | $0.186154
+  {{ m2-medium }}| $0.384615 | $0.331538 | $0.279231
+  {{ m2-large }} | $0.512821 | $0.442051 | $0.372308
+  {{ m2-xlarge }} | $0.769231 | $0.663077 | $0.558462
+  {{ m2-2xlarge }} | $1.025641 | $0.884103 | $0.744615
+  {{ m2-3xlarge }} | $1.538462 | $1.326154 | $1.116923
+  {{ m2-4xlarge }} | $2.051282 | $1.768205 | $1.489231
+  {{ m2-5xlarge }} | $2.564103 | $2.210256 | $1.861538
+  {{ m2-6xlarge }} | $3.076923 | $2.652308 | $2.233846
+  {{ s2-micro }} | $0.076923 | $0.065385 | $0.054103
+  {{ s2-small }} | $0.153846 | $0.130769 | $0.108205
+  {{ s2-medium }} | $0.307692 | $0.261538 | $0.216410
+  {{ s2-large }} | $0.461538 | $0.392308 | $0.324615
+  {{ s2-xlarge }} | $0.615385 | $0.523077 | $0.432821
+  {{ s2-2xlarge }} | $0.923077 | $0.784615 | $0.649231
+  {{ s2-3xlarge }} | $1.230769 | $1.046154 | $0.865641
+  {{ s2-4xlarge }} | $1.538462 | $1.307692 | $1.082051
+  {{ s2-5xlarge }} | $1.846154 | $1.569231 | $1.298462
+  {{ s2-6xlarge }} | $2.461538 | $2.092308 | $1.731282
 
 - Prices in roubles, with VAT
 
-  Host class | Rate for 1 hour
-  ----- | -----
+  Host class | Rate for 1 hour | With CVoS for 1 year | With CVoS for 3 years
+  ----- | ----- | ----- | -----
   | **Intel Broadwell** |
-  {{ b1-nano }}| ₽1.06
-  {{ b1-micro }} | ₽1.58
-  {{ b1-medium }} | ₽2.94
-  {{ s1-nano }} | ₽3.00 |
-  {{ s1-micro }} | ₽6.00 |
-  {{ s1-small }} | ₽12.00 |
-  {{ s1-medium }} | ₽24.00 |
-  {{ s1-large }} | ₽48.00 |
-  {{ s1-xlarge }} | ₽96.00
+  {{ b1-nano }}| ₽1.06 | − | −
+  {{ b1-micro }} | ₽1.58 | − | −
+  {{ b1-medium }} | ₽2.94 | − | −
+  {{ s1-nano }} | ₽3.00 | − | −
+  {{ s1-micro }} | ₽6.00 | − | −
+  {{ s1-small }} | ₽12.00 | − | −
+  {{ s1-medium }} | ₽24.00 | − | −
+  {{ s1-large }} | ₽48.00 | − | −
+  {{ s1-xlarge }} | ₽96.00 | − | −
   **Intel Cascade Lake** |
-  {{ b2-nano }}| ₽1.06
-  {{ b2-small }} | ₽1.58
-  {{ b2-medium }} | ₽2.94
-  {{ m2-micro }} | ₽10.00
-  {{ m2-small }} | ₽20.00
-  {{ m2-medium }}| ₽30.00
-  {{ m2-large }} | ₽40.00
-  {{ m2-xlarge }} | ₽60.00
-  {{ m2-2xlarge }} | ₽80.00
-  {{ m2-3xlarge }} | ₽120.00
-  {{ m2-4xlarge }} | ₽160.00
-  {{ m2-5xlarge }} | ₽200.00
-  {{ m2-6xlarge }} | ₽240.00
-  {{ s2-micro }} | ₽6.00
-  {{ s2-small }} | ₽12.00
-  {{ s2-medium }} | ₽24.00
-  {{ s2-large }} | ₽36.00
-  {{ s2-xlarge }} | ₽48.00
-  {{ s2-2xlarge }} | ₽72.00
-  {{ s2-3xlarge }} | ₽96.00
-  {{ s2-4xlarge }}| ₽120.00
-  {{ s2-5xlarge }}| ₽144.00
-  {{ s2-6xlarge }} | ₽192.00
+  {{ b2-nano }}| ₽1.06 | − | −
+  {{ b2-small }} | ₽1.58 | − | −
+  {{ b2-medium }} | ₽2.94 | − | −
+  {{ m2-micro }} | ₽10.00 | ₽8.62 | ₽7.26
+  {{ m2-small }} | ₽20.00 | ₽17.24 | ₽14.52
+  {{ m2-medium }}| ₽30.00 | ₽25.86 | ₽21.78
+  {{ m2-large }} | ₽40.00 | ₽34.48 | ₽29.04
+  {{ m2-xlarge }} | ₽60.00 | ₽51.72 | ₽43.56
+  {{ m2-2xlarge }} | ₽80.00 | ₽68.96 | ₽58.08
+  {{ m2-3xlarge }} | ₽120.00 | ₽103.44 | ₽87.12
+  {{ m2-4xlarge }} | ₽160.00 | ₽137.92 | ₽116.16
+  {{ m2-5xlarge }} | ₽200.00 | ₽172.40 | ₽145.20
+  {{ m2-6xlarge }} | ₽240.00 | ₽206.88 | ₽174.24
+  {{ s2-micro }} | ₽6.00 | ₽5.10 | ₽4.22
+  {{ s2-small }} | ₽12.00 | ₽10.20 | ₽8.44
+  {{ s2-medium }} | ₽24.00 | ₽20.40 | ₽16.88
+  {{ s2-large }} | ₽36.00 | ₽30.60 | ₽25.32
+  {{ s2-xlarge }} | ₽48.00 | ₽40.80 | ₽33.76
+  {{ s2-2xlarge }} | ₽72.00 | ₽61.20 | ₽50.64
+  {{ s2-3xlarge }} | ₽96.00 | ₽81.60 | ₽67.52
+  {{ s2-4xlarge }}| ₽120.00 | ₽102.00 | ₽84.40
+  {{ s2-5xlarge }}| ₽144.00 | ₽122.40 | ₽101.28
+  {{ s2-6xlarge }} | ₽192.00 | ₽163.20 | ₽135.04
 
 {% endlist %}

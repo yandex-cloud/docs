@@ -41,6 +41,12 @@ editable: false
 
 ## Цены {#prices}
 
+{% note info %}
+
+Заказать ресурсы {{ mrd-name }} с помощью механизма [CVoS](../billing/concepts/cvos.md) пока невозможно.
+
+{% endnote %}
+
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
