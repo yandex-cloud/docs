@@ -7,5 +7,6 @@
 - [Лицевой счет](personal-account.md)
 - [Платежный аккаунт](billing-account.md)
 - [Промокод](promo-code.md)
+- [Резервируемое потребление (CVoS)](cvos.md)
 
 

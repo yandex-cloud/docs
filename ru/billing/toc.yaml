@@ -12,6 +12,8 @@ items:
       href: operations/index.md
     - name: Активировать платную версию
       href: operations/activate-commercial.md
+    - name: Зарезервировать потребление (CVoS)
+      href: operations/purchase-cvos.md
     - name: Активировать промокод
       href: operations/activate-promocode.md
     - name: Посмотреть детализацию
@@ -50,6 +52,8 @@ items:
       href: concepts/personal-account.md
     - name: Грант
       href: concepts/bonus-account.md
+    - name: Резервируемое потребление (CVoS)
+      href: concepts/cvos.md
     - name: Договор
       href: concepts/contract.md
     - name: Глоссарий

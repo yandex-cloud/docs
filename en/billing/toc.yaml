@@ -12,6 +12,8 @@ items:
       href: operations/index.md
     - name: Activate the paid version
       href: operations/activate-commercial.md
+    - name: Purchase a committed volume of services (CVoS)
+      href: operations/purchase-cvos.md
     - name: Activate a promo code
       href: operations/activate-promocode.md
     - name: View usage details
@@ -33,7 +35,7 @@ items:
     - name: Create a new billing account
       href: operations/create-new-account.md
 - name: Concepts
-  items:
+  items:  
     - name: All concepts
       href: concepts/index.md
     - name: Promo codes
@@ -50,6 +52,8 @@ items:
       href: concepts/personal-account.md
     - name: Grant
       href: concepts/bonus-account.md
+    - name: Committed volume of services (CVoS)
+      href: concepts/cvos.md
     - name: Agreement
       href: concepts/contract.md
     - name: Glossary
@@ -64,7 +68,7 @@ items:
           href: payment/payment-methods.md
         - name: For individuals
           href: payment/payment-methods-individual.md
-        - name: For businesses
+        - name: For businesses and individual entrepreneurs
           items:
           - name: Bank transfers
             href: payment/payment-methods-business.md
@@ -76,7 +80,7 @@ items:
           href: payment/billing-cycle.md
         - name: For individuals
           href: payment/billing-cycle-individual.md
-        - name: For businesses
+        - name: For businesses and individual entrepreneurs
           href: payment/billing-cycle-business.md
     - name: Reporting documents
       items:
@@ -92,12 +96,12 @@ items:
           href: concepts/individual-bill.md
     - name: Payment currency
       href: payment/currency.md
-- name: Access management
+- name: Access control
   href: security/index.md
 - name: Pricing policy
   href: pricing.md
 - name: Questions and answers
-  items:
+  items:  
     - name: General questions
       href: qa/common.md
     - name: Questions about payment
