@@ -24,5 +24,5 @@
 
 1. Click **Purchase commitment**.
 
-After purchasing the CVoS and starting from its start date, the discount on the use of services is applied automatically. For more information, see [Committed volume of services](../concepts/cvos.md).
+After purchasing the CVoS and starting from its start date, the discount on the use of services is applied automatically. For more information, see [{#T}](../concepts/cvos.md).
 
