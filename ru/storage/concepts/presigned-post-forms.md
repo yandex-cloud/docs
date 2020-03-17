@@ -80,7 +80,7 @@ HTML-форма описывается тегом `<form>` и состоит и�
      ```html
      <form action="https://storage.yandexcloud.net/{bucket-name}" method="post" enctype="multipart/form-data">
         Ключ в хранилище:
-        <input type="input" name="key" value="object_key"> /><br />
+        <input type="input" name="key" value="object_key" /><br />
         <!-- Свойства запроса -->
         <input type="hidden" name="x-amz-credential" value="access_key_id/date/ru-central1/s3/aws4_request" />
         <input type="hidden" name="acl" value="predefined-acl-name" />
