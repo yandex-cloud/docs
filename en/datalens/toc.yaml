@@ -107,4 +107,4 @@ items:
     items:
     include:
       repo: docs
-      path: ru/_api-ref/datalens/toc.yaml
+      path: en/_api-ref/datalens/toc.yaml
