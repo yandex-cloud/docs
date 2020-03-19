@@ -15,8 +15,8 @@ items:
       href: operations/connect.md
     - name: Stop and start the cluster
       href: operations/cluster-stop.md
-#    - name: SQL queries in the management console
-#      href: operations/web-sql-query.md
+    - name: SQL queries in the management console
+      href: operations/web-sql-query.md
     - name: Changing cluster and database settings
       href: operations/update.md
     - name: Managing PostgreSQL hosts
