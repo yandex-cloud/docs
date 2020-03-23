@@ -105,6 +105,18 @@ items:
         href: lang/nodejs/errors.md
       - name: Использование SDK
         href: lang/nodejs/sdk.md
+  - name: Разработка на Bash
+    items:
+      - name: Обзор
+        href: lang/bash/index.md
+      - name: Обработчик запросов
+        href: lang/bash/handler.md
+      - name: Журналирование
+        href: lang/bash/logging.md
+      - name: Обработка ошибок
+        href: lang/bash/errors.md
+      - name: Использование SDK
+        href: lang/bash/sdk.md
   - name: Сценарии использования
     items:
       - name: Создание навыка Алисы
