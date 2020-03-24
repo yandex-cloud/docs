@@ -105,6 +105,20 @@ items:
         href: lang/nodejs/errors.md
       - name: Использование SDK
         href: lang/nodejs/sdk.md
+  - name: Разработка на PHP
+    items:
+      - name: Обзор
+        href: lang/php/index.md
+      - name: Управление зависимостями
+        href: lang/php/dependencies.md
+      - name: Обработчик запросов
+        href: lang/php/handler.md
+      - name: Контекст вызова
+        href: lang/php/context.md
+      - name: Журналирование
+        href: lang/php/logging.md
+      - name: Обработка ошибок
+        href: lang/php/errors.md
   - name: Разработка на Bash
     items:
       - name: Обзор
