@@ -29,6 +29,8 @@
 |**Python** | |
 | Python 3.7 | `python37` |
 | Python 2.7 | `python27` |
+|**Go** | |
+| Go 1.14 | `golang114` |
 |**Прочее** | |
 | Bash | `bash` |
 

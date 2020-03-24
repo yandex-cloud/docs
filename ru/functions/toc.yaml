@@ -73,6 +73,8 @@ items:
             href: concepts/runtime/environment-variables.md
           - name: Контекст выполнения
             href: concepts/runtime/execution-context.md
+      - name: Сборщик
+        href: concepts/builder.md
       - name: Триггер
         items:
           - name: Обзор
@@ -105,6 +107,22 @@ items:
         href: lang/nodejs/errors.md
       - name: Использование SDK
         href: lang/nodejs/sdk.md
+  - name: Разработка на Go
+    items:
+      - name: Обзор
+        href: lang/golang/index.md
+      - name: Управление зависимостями
+        href: lang/golang/dependencies.md
+      - name: Обработчик запросов
+        href: lang/golang/handler.md
+      - name: Контекст вызова
+        href: lang/golang/context.md
+      - name: Журналирование
+        href: lang/golang/logging.md
+      - name: Обработка ошибок
+        href: lang/golang/errors.md
+      - name: Использование SDK
+        href: lang/golang/sdk.md
   - name: Разработка на PHP
     items:
       - name: Обзор
