@@ -29,6 +29,12 @@ items:
             href: operations/metric/get.md
           - name: Writing custom metrics
             href: operations/metric/add.md
+      - name: Working with alerts
+        items:
+          - name: Creating an alert
+            href: operations/alert/create-alert.md
+          - name: Creating a notification channel
+            href: operations/alert/create-channel.md
   - name: Concepts
     items:
       - name: Overview
@@ -43,6 +49,8 @@ items:
             href: concepts/visualization/widget.md
           - name: Dashboards
             href: concepts/visualization/dashboard.md
+      - name: Alerting
+        href: concepts/alerting.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

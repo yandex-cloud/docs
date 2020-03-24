@@ -1,11 +1,30 @@
-#### Limits {#limits}
+#### Quotas {#quotas}
 
-| Type of limit | Value |
+| Restriction | Value |
 | ----- | ----- |
-| Number of labels per metric<br/>(including mandatory ones) | 16 |
-| Number of values for a single label | 1,000 |
-| Maximum number of metrics returned in the data export API request | 500 |
-| Maximum number of metrics sent in the data import API request | 10,000 |
-| Minimum number of points returned in the data export API request | 10 |
-| Maximum number of points returned in the data export API request | 10,000 |
-| Minimum possible interval for exporting metrics | 1 second |
+| Number of alerts in the cloud | 10 |
+
+#### General limits {#common-limits}
+
+| Restriction | Value |
+| ----- | ----- |
+| Number of labels per metric<br/>(including required labels) | 16 |
+| Number of values per label | 1000 |
+
+#### API limits {#api-limits}
+
+| Restriction | Value |
+| ----- | ----- |
+| Maximum number of metrics returned per API request to export data | 500 |
+| Maximum number of metrics passed per API request to load data | 10,000 |
+| Minimum number of points returned per API request to export data | 10 |
+| Maximum number of points returned per API request to export data | 10,000 |
+| Minimum time interval you can export metrics for | 1 second |
+
+#### Alerting limits {#alerting-limits}
+
+| Restriction | Value |
+| ----- | ----- |
+| Number of metrics per alert | 100 |
+| Number of SMS message sent to a number per day | 50 |
+

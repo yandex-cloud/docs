@@ -19,9 +19,9 @@ Each metric has a different color on the chart.
 
 The following chart types are available:
 
-- ![image](../../_assets/chart-lines.svg) Line charts.
-- ![image](../../_assets/chart-area.svg) Area charts.
-- ![image](../../_assets/chart-columns.svg) Bar charts.
+- ![image](../../../_assets/monitoring/chart-lines.svg) Line charts.
+- ![image](../../../_assets/monitoring/chart-area.svg) Area charts.
+- ![image](../../../_assets/monitoring/chart-columns.svg) Bar charts.
 
 You can also normalize data and display it as a stacked chart.
 
