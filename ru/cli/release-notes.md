@@ -11,8 +11,6 @@
 ### {{ managed-k8s-name }} {#k8s}
 - Команда `yc managed-kubernetes cluster create`.
 
-  Добавлен флаг `--node_ipv4_cidr_mask_size` для создания кластера Kubernetes
-
   Добавлены флаги `--kms-key-id` и `--kms-key-name` для создания кластера Kubernetes с шифрованием секретов в KMS
 
 ## Предыдущие релизы {#previous-releases}
