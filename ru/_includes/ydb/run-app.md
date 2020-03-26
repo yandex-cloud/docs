@@ -32,27 +32,27 @@
       sudo pip3 install iso8601
       ```
   
+  1. Получите IAM-токен для необходимого сервисного аккаунта [с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli):
+
+      ```bash
+      yc iam key create --service-account-name sa_name -o  ~/.ydb/sa_name.json
+      ```
+
   1. Установите переменные окружения, необходимые для аутентификации приложения:
   
       ```bash
-      export SA_ENDPOINT=iam.api.cloud.yandex.net:443
-      export SA_PRIVATE_KEY_FILE=/home/path/to/private.key
-      export SA_ID=YOUR_SA_ID
-      export SA_ACCESS_KEY_ID=YOUR_ACCESS_KEY_ID
       export YDB_SSL_ROOT_CERTIFICATES_FILE=~/.ydb/CA.pem
+      export SA_KEY_FILE=~/.ydb/sa_name.json
       ```
   
-      * `SA_ENDPOINT` — эндпоинт IAM, установите значение `iam.api.cloud.yandex.net:443`
-      * `SA_PRIVATE_KEY_FILE` — локальный путь к файлу с закрытым авторизованным ключом
-      * `SA_ID` — идентификатор сервисного аккаунта
-      * `SA_ACCESS_KEY_ID` — идентификатор открытого авторизованного ключа
       * `YDB_SSL_ROOT_CERTIFICATES_FILE` — путь до файла с SSL-сертификатом
+      * `SA_KEY_FILE` — локальный путь к файлу с IAM токеном
   
   1. Запустите тестовое приложение `basic_example_v1` из репозитория `ydb-python-sdk`, указав в качестве параметров запуска параметры, полученные ранее:
   
       ```bash
       cd ./ydb-python-sdk/kikimr/public/sdk/python/examples/basic_example_v1
-      python3 __main__.py -e endpoint -d database
+      python3 __main__.py -e protocol://endpoint -d database
       ```
   
   Результат выполнения приложения:
@@ -95,19 +95,19 @@
       go get github.com/dgrijalva/jwt-go
       ```
   
+  1. Получите IAM-токен для необходимого сервисного аккаунта [с помощью CLI](../../iam/operations/iam-token/create-for-sa#via-cli):
+
+      ```bash
+      yc iam key create --service-account-name sa_name -o  ~/.ydb/sa_name.json
+      ```
+
   1. Установите переменные окружения, необходимые для аутентификации приложения:
   
       ```bash
-      export SA_ENDPOINT=iam.api.cloud.yandex.net:443
-      export SA_PRIVATE_KEY_FILE=/home/path/to/private.key
-      export SA_ID=YOUR_SA_ID
-      export SA_ACCESS_KEY_ID=YOUR_ACCESS_KEY_ID
+      export SA_SERVICE_FILE=~/.ydb/sa_name.json
       ```
-  
-      * `SA_ENDPOINT` — эндпоинт IAM, установите значение `iam.api.cloud.yandex.net:443`
-      * `SA_PRIVATE_KEY_FILE` — локальный путь к файлу с закрытым авторизованным ключом
-      * `SA_ID` — идентификатор сервисного аккаунта
-      * `SA_ACCESS_KEY_ID` — идентификатор открытого авторизованного ключа
+ 
+      * `SA_SERVICE_FILE` — локальный путь к файлу с IAM токеном
   
   1. Скомпилируйте тестовое приложение `basic_example_v1`:
   
@@ -118,7 +118,7 @@
   1. Запустите тестовое приложение `basic_example_v1`, указав в качестве параметров запуска значения эндпоинта и идентификатора базы полученные ранее, а также путь к сохраненному SSL-сертификату:
   
       ```bash
-      ./basic_example_v1 -endpoint endpoint -database database -root-ca ~/.ydb/CA.pem -tls
+      ./basic_example_v1 -endpoint endpoint -database database -root-ca ~/.ydb/CA.pem
       ```
   
   Результат выполнения приложения:
