@@ -2,12 +2,6 @@
 
 Yandex.Cloud provides technical support under different service plans. You can choose the one that best suits you.
 
-{% note info %}
-
-Technical support is free of charge until February 29, 2020.
-
-{% endnote %}
-
 ## How to contact support {#response-time}
 
 Depending on your service plan, you can [contact support]({{ link-console-support }}) in one of the following ways:
