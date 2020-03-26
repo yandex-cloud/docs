@@ -16,7 +16,7 @@ COUNTD( value )
 #### Описание
 Возвращает количество уникальных значений в группе.
 
- См. также [COUNTD_APPROX](COUNTD_APPROX.md).
+См. также [COUNTD_APPROX](COUNTD_APPROX.md).
 
 **Типы аргументов:**
 - `value` — `Любой`

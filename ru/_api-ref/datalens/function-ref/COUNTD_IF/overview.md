@@ -16,7 +16,7 @@ COUNTD_IF( expression, condition )
 #### Описание
 Возвращает количество уникальных значений в группе, которые удовлетворяют условию `condition`.
 
- См. также [COUNTD_APPROX](../COUNTD_APPROX/overview.md).
+См. также [COUNTD_APPROX](../COUNTD_APPROX/overview.md).
 
 **Типы аргументов:**
 - `expression` — `Любой`
@@ -28,7 +28,7 @@ COUNTD_IF( expression, condition )
 #### Примеры
 
 ```
-COUNTD([ClientID], [Profit] > 5)
+COUNTD_IF([ClientID], [Profit] > 5)
 ```
 
 

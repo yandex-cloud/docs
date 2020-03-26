@@ -17,7 +17,7 @@ STR( expression )
 Converts the `expression` expression to string type.
 
 **Argument types:**
-- `expression` — `Any`
+- `expression` — `Boolean | Date | Datetime | Geopoint | Geopolygon | Number | String | UUID`
 
 
 **Return type**: `String`

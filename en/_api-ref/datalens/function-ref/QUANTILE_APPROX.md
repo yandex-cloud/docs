@@ -18,7 +18,7 @@ Returns the approximate `value`-level quantile (`value` should be in range from 
 
 **Argument types:**
 - `value` — `Number`
-- `quant` — `Any`
+- `quant` — `Number`
 
 
 **Return type**: Same type as (`value`, `quant`)

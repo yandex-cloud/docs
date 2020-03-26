@@ -245,6 +245,11 @@ editable: false
 {% include notitle [Description](GEOCODE/short-description.md) %}
 
 
+## [GEOINFO](GEOINFO.md)
+
+{% include notitle [Description](GEOINFO/short-description.md) %}
+
+
 ## [GEOPOINT](GEOPOINT.md)
 
 {% include notitle [Description](GEOPOINT/short-description.md) %}

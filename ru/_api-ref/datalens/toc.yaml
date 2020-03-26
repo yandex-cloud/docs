@@ -77,6 +77,8 @@ items:
         href: function-ref/geographical-functions.md
       - name: GEOCODE
         href: function-ref/GEOCODE.md
+      - name: GEOINFO
+        href: function-ref/GEOINFO.md
   - name: Логические функции
     items:
       - name: Обзор

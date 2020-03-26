@@ -16,7 +16,7 @@ COUNTD_IF( expression, condition )
 #### Description
 Returns the number of unique values in the group that meet the `condition` condition.
 
- See also [COUNTD_APPROX](COUNTD_APPROX.md).
+See also [COUNTD_APPROX](COUNTD_APPROX.md).
 
 **Argument types:**
 - `expression` — `Any`
@@ -28,7 +28,7 @@ Returns the number of unique values in the group that meet the `condition` condi
 #### Examples
 
 ```
-COUNTD([ClientID], [Profit] > 5)
+COUNTD_IF([ClientID], [Profit] > 5)
 ```
 
 

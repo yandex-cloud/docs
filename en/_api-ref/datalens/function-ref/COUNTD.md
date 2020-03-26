@@ -16,7 +16,7 @@ COUNTD( value )
 #### Description
 Returns the number of unique values in the group.
 
- See also [COUNTD_APPROX](COUNTD_APPROX.md).
+See also [COUNTD_APPROX](COUNTD_APPROX.md).
 
 **Argument types:**
 - `value` — `Any`

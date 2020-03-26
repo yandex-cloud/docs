@@ -9,3 +9,8 @@ editable: false
 
 {% include notitle [Описание](GEOCODE/short-description.md) %}
 
+
+## [GEOINFO](GEOINFO.md)
+
+{% include notitle [Описание](GEOINFO/short-description.md) %}
+

@@ -18,7 +18,7 @@ Returns the precise `value`-level quantile (`value` should be in range from 0 to
 
 **Argument types:**
 - `value` — `Number`
-- `quant` — `Any`
+- `quant` — `Number`
 
 
 **Return type**: Same type as (`value`, `quant`)

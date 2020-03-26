@@ -26,8 +26,8 @@ Behaves differently depending on the argument types. Possible options are listed
 Changing the order of arguments does not affect the result.
 
 **Argument types:**
-- `value_1` — `Date | Datetime | Number | String`
-- `value_2` — `Date | Datetime | Number | String`
+- `value_1` — `Date | Datetime | Markup | Number | String`
+- `value_2` — `Date | Datetime | Markup | Number | String`
 
 
 **Return type**: Depends on argument types
