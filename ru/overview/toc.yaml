@@ -25,7 +25,7 @@ items:
     href: api.md
   - name: Безопасность и соответствие стандартам
     items:
-    - name: Рекомендации о безопасности
+    - name: Рекомендации по безопасности
       href: security-bulletins/index.md
   #  - name: Тестирование на проникновение
   #    href: compliance/pentest.md
