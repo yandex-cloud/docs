@@ -206,18 +206,18 @@ All other Yandex.Cloud services, such as VMs and external IP addresses, are [cha
   | OS | Cost per vCPU per hour, without VAT
   ----- | -----
   | Linux for all core types | $0 |
-  | Windows Server for 5% of vCPU | $0.008135 |
-  | Windows Server for 20% and 50% vCPU | $0.009615 |
-  | Windows Server for 100% vCPU | $0.016270 |
+  | Windows Server Datacenter for 5% of vCPU | $0.008135 |
+  | Windows Server Datacenter for 20% and 50% vCPU | $0.009615 |
+  | Windows Server Datacenter for 100% vCPU | $0.016270 |
 
 - Prices in roubles
 
   | OS | Cost per vCPU per hour, with VAT |
   ----- | -----
   | Linux for all core types | ₽0 |
-  | Windows Server for 5% of vCPU | ₽0.6346 |
-  | Windows Server for 20% and 50% vCPU | ₽0.75 |
-  | Windows Server for 100% vCPU | ₽1.2691 |
+  | Windows Server Datacenter for 5% of vCPU | ₽0.6346 |
+  | Windows Server Datacenter for 20% and 50% vCPU | ₽0.75 |
+  | Windows Server Datacenter for 100% vCPU | ₽1.2691 |
 
 {% endlist %}
 
@@ -227,12 +227,20 @@ For the following products, funds are debited once for the calendar month in adv
 
 - Prices in USD
 
+  OS | Cost per VM per month, without VAT
+  ----- | -----
+  Windows Server Standard | $77,179488
+
   Product | Cost per vCPU per month, without VAT
   ----- | -----
   MS SQL Server Standard* | $75,59615
   MS SQL Server Enterprise* | $258,50001
 
 - Prices in roubles
+
+  OS | Cost per VM per month, with VAT
+  ----- | -----
+  Windows Server Standard | ₽6020
 
   Product | Cost per vCPU per month, with VAT
   ----- | -----
