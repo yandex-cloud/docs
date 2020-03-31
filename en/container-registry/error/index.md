@@ -14,7 +14,7 @@ The most common errors and how to resolve them are listed below:
 
     **How to fix it:** Run commands using `sudo` or [set up permissions for other OS users](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user).
 
-- `name unknown: Registry <...> not found {#registry-unknown}`
+- `name unknown: Registry <...> not found`
 
     **Why the error occurred:** The registry ID is missing or invalid. When using Docker CLI commands, you must specify the full name of the Docker image that includes the registry ID. Learn more about this in [{#T}](../concepts/repository.md).
 
