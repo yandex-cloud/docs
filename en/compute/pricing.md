@@ -229,18 +229,38 @@ For the following products, funds are debited once for the calendar month in adv
 
   OS | Cost per VM per month, without VAT
   ----- | -----
-  Windows Server Standard | $77,179488
+  Windows Server Standard | $77.179488
+
+  Product | Cost per CAL pack per month, without VAT
+  ----- | -----
+  Remote Desktop Services (5 CAL) | $27.05128243
+  Remote Desktop Services (10 CAL) | $5.10256486
+  Remote Desktop Services (25 CAL) | $135.25641215
+  Remote Desktop Services (50 CAL) | $270.5128243
+  Remote Desktop Services (100 CAL) | $541.0256486
+  Remote Desktop Services (250 CAL) | $1352.5641215
+  Remote Desktop Services (500 CAL) | $2705.128243
 
   Product | Cost per vCPU per month, without VAT
   ----- | -----
-  MS SQL Server Standard* | $75,59615
-  MS SQL Server Enterprise* | $258,50001
+  MS SQL Server Standard* | $75.59615
+  MS SQL Server Enterprise* | $258.50001
 
 - Prices in roubles
 
   OS | Cost per VM per month, with VAT
   ----- | -----
   Windows Server Standard | ₽6020
+
+   Product | Cost per CAL pack per month, with VAT
+  ----- | -----
+  Remote Desktop Services (5 CAL) | ₽2110
+  Remote Desktop Services (10 CAL) | ₽4220
+  Remote Desktop Services (25 CAL) | ₽10550
+  Remote Desktop Services (50 CAL) | ₽21100
+  Remote Desktop Services (100 CAL) | ₽42200
+  Remote Desktop Services (250 CAL) | ₽105500
+  Remote Desktop Services (500 CAL) | ₽211000
 
   Product | Cost per vCPU per month, with VAT
   ----- | -----
