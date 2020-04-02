@@ -30,7 +30,7 @@
 
 ## Шаг 1. Определите источник данных датасета {#step1}
 
-Создайте [датасет](../../datalens/concepts/dataset.md) на основе [подключения](../../datalens/concepts/connection.md) **Sample ClickHouse** соданным на основе базы данных ClickHouse.
+Создайте [датасет](../../datalens/concepts/dataset/index.md) на основе [подключения](../../datalens/concepts/connection.md) **Sample ClickHouse** соданным на основе базы данных ClickHouse.
 
 1. Перейдите в [{{ datalens-short-name }}](https://datalens.yandex.ru).
 1. Нажмите кнопку **Создать датасет**.

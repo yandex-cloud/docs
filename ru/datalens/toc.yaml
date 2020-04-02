@@ -107,8 +107,16 @@ items:
         href: concepts/index.md
       - name: Подключение
         href: concepts/connection.md
+      - name: Типы данных
+        href: concepts/data-types.md
       - name: Датасет
-        href: concepts/dataset.md
+        items:
+          - name: Обзор
+            href: concepts/dataset/index.md
+          - name: Модель данных
+            href: concepts/dataset/data-model.md
+          - name: Настройки датасета
+            href: concepts/dataset/settings.md
       - name: Чарт
         href: concepts/chart.md
       - name: Дашборд
