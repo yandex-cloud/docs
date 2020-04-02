@@ -6,7 +6,7 @@
   
   {% include [cli-install](../../../_includes/cli-install.md) %}
   
-  1. [Посмотрите список реестров](../registry/registry-list.md#registry-list), в которых можно создать устройсто, или [создайте новый реестр](../registry/registry-create.md).
+  1. [Посмотрите список реестров](../registry/registry-list.md#registry-list), в которых можно создать устройство, или [создайте новый реестр](../registry/registry-create.md).
   
   1. Создайте устройство:
   
