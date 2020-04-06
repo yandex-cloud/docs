@@ -67,6 +67,8 @@ items:
             href: operations/chart/create-pie-chart.md
           - name: Создание столбчатой диаграммы
             href: operations/chart/create-bar-chart.md
+          - name: Создание линейчатой диаграммы
+            href: operations/chart/create-horizontal-bar-chart.md
           - name: Создание таблицы
             href: operations/chart/create-table.md
           - name: Создание сводной таблицы
