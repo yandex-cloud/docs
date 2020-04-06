@@ -130,7 +130,11 @@ items:
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
-    href: security/index.md
+    items:
+      - name: Управление доступом к DataLens
+        href: security/index.md
+      - name: Управление доступом на уровне строк данных
+        href: security/row-level-security.md
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник функций
