@@ -144,7 +144,7 @@ default:
   RD: Redis
   ZK: ZooKeeper
   zone-id: ru-central1-c
-  host-class: s1.nano
+  host-class: s2.micro
 
   b1-nano: b1.nano (2 vCPU × 5%, 2 ГБ)
   b1-micro: b1.micro (2 vCPU × 20%, 2 ГБ)
@@ -265,7 +265,7 @@ internal:
 external:
   audience: external
   console-link: console.cloud.yandex.ru
-  host-class: s1.nano
+  host-class: s2.micro
   network-name: default-net
   zone-id: ru-central1-c
 

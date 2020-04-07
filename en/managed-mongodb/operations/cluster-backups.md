@@ -42,7 +42,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       ```
       $ {{ yc-mdb-mg }} backup list
-      
+
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -78,7 +78,7 @@ For a new cluster, you should set all the parameters that are required at creati
            --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
            --mongod-disk-size 20 \
            --mongod-disk-type network-ssd \
-           --mongod-resource-preset s1.nano
+           --mongod-resource-preset {{ host-class }}
       ```
 
       {% endif %}
@@ -162,7 +162,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ {{ yc-mdb-mg }} backup list
-  
+
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
   +----------+----------------------+----------------------+----------------------+

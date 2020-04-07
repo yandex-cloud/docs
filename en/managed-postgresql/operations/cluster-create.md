@@ -136,7 +136,7 @@ Let's say we need to create a {{ PG }} cluster with the following characteristic
 - Named `mypg`.
 - In the `production` environment.
 - In the `default` network.
-- With a single host of the `s1.nano` class in the `b0rcctk2rvtr8efcch64` subnet and the `ru-central1-c` availability zone.
+- With a single host of the `{{ host-class }}` class in the `b0rcctk2rvtr8efcch64` subnet and the `ru-central1-c` availability zone.
 - With SSD network storage of 20 GB.
 - With one user (`user1`) with the password `user1user1`.
 - With one `db1` database owned by the user `user1`.
@@ -161,7 +161,7 @@ $ {{ yc-mdb-pg }} cluster create \
      --cluster-name mypg \
      --environment production \
      --network-name default \
-     --resource-preset s1.nano \
+     --resource-preset {{ host-class }} \
      --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
      --disk-type network-ssd \
      --disk-size 20 \

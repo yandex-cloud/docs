@@ -70,7 +70,7 @@
 
 1. На странице каталога нажмите кнопку **Создать ресурс** и выберите **Кластер PostgreSQL**.
 1. В поле **Имя** введите имя кластера — `joomla-pg-tutorial-db-cluster`.
-1. В разделе **Класс БД** выберите **s1.nano**.
+1. В разделе **Класс БД** выберите **b2.medium**.
 1. В разделе **Размер хранилища** укажите 10 ГБ.
 1. В разделе **База данных**:
   1. В поле **Имя БД** введите `joomla-pg-tutorial-db`.
@@ -331,10 +331,10 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за развернутый сервер и базу данных, достаточно удалить [созданную виртуальную машину](../../compute/operations/vm-control/vm-delete.md) `joomla-pg-tutorial-web` и [кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md) `joomla-pg-tutorial-db-cluster`. 
+Чтобы перестать платить за развернутый сервер и базу данных, достаточно удалить [созданную виртуальную машину](../../compute/operations/vm-control/vm-delete.md) `joomla-pg-tutorial-web` и [кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md) `joomla-pg-tutorial-db-cluster`.
 
 Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
 
 1. Откройте сервис **Virtual Private Cloud** в вашем каталоге.
 1. Перейдите на вкладку **IP-адреса**.
-1. Найдите нужный адрес, нажмите значок ![ellipsis](../../_assets/options.svg) и выберите пункт **Удалить**. 
+1. Найдите нужный адрес, нажмите значок ![ellipsis](../../_assets/options.svg) и выберите пункт **Удалить**.

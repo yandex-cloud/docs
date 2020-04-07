@@ -139,7 +139,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
          name        = "<cluster name>"
          environment = "<environment>"
          network_id  = "<network ID>"
-       
+
          clickhouse {
            resources {
              resource_preset_id = "<host class>"
@@ -147,11 +147,11 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
              disk_size          = "<storage size, GB>"
            }
          }
-       
+
          database {
            name = "<DB name>"
          }
-       
+
          user {
            name     = "<DB username>"
            password = "<password>"
@@ -159,16 +159,16 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
              database_name = "<name of the DB where the user is created>"
            }
          }
-       
+
          host {
            type      = "CLICKHOUSE"
            zone      = "<availability zone>"
            subnet_id = "<subnet ID>"
          }
        }
-       
+
        resource "yandex_vpc_network" "<network name>" {}
-       
+
        resource "yandex_vpc_subnet" "<subnet name>" {
          zone           = "<availability zone>"
          network_id     = "<network ID>"
@@ -216,7 +216,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
   - Named `mych`.
   - In the `production` environment.
   - In the `default` network.
-  - With a single ClickHouse host of the `s1.nano` class in the `b0rcctk2rvtr8efcch64` subnet and the `ru-central1-c` availability zone.
+  - With a single ClickHouse host of the `{{ host-class }}` class in the `b0rcctk2rvtr8efcch64` subnet and the `ru-central1-c` availability zone.
   - With SSD network storage of 20 GB.
   - With one user, `user1`, with the password `user1user1`.
   - With one database, `db1`.
@@ -240,7 +240,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
        --name mych \
        --environment=production \
        --network-name default \
-       --clickhouse-resource-preset s1.nano \
+       --clickhouse-resource-preset {{ host-class }} \
        --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
        --clickhouse-disk-size 20 \
        --clickhouse-disk-type network-ssd \
@@ -274,7 +274,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
     - In the cloud with ID `b1gq90dgh25иuebiu75o`.
     - In a folder named `myfolder`.
     - In a new network named `mynet`.
-    - With a single `s2.micro` class host in a new subnet named `mysubnet` and in the `ru-central1-c` availability zone. The `mysubnet` subnet will have the `10.5.0.0/24` range.
+    - With a single `{{ host-class }}` class host in a new subnet named `mysubnet` and in the `ru-central1-c` availability zone. The `mysubnet` subnet will have the `10.5.0.0/24` range.
     - With 32 GB of fast network storage.
     - With the database name `my_db`.
     - With the username `user1` and password `user1user1`.
@@ -288,24 +288,24 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
     zone      = "ru-central1-c"
   }
-  
+
   resource "yandex_mdb_clickhouse_cluster" "mych" {
     name        = "mych"
     environment = "PRESTABLE"
     network_id  = "${yandex_vpc_network.mynet.id}"
-  
+
     clickhouse {
       resources {
-        resource_preset_id = "s2.micro"
+        resource_preset_id = "{{ host-class }}"
         disk_type_id       = "network-ssd"
         disk_size          = 32
       }
     }
-  
+
     database {
       name = "my_db"
     }
-  
+
     user {
       name     = "user1"
       password = "user1user1"
@@ -313,16 +313,16 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
         database_name = "my_db"
       }
     }
-  
+
     host {
       type      = "CLICKHOUSE"
       zone      = "ru-central1-c"
       subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
     }
   }
-  
+
   resource "yandex_vpc_network" "mynet" {}
-  
+
   resource "yandex_vpc_subnet" "mysubnet" {
     zone           = "ru-central1-c"
     network_id     = "${yandex_vpc_network.mynet.id}"

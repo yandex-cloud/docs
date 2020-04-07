@@ -211,7 +211,7 @@
   - С именем `mych`.
   - В окружении `production`.
   - В сети `default`.
-  - С одним хостом ClickHouse класса `s1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
+  - С одним хостом ClickHouse класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
   - С сетевым SSD-хранилищем объемом 20 ГБ.
   - С одним пользователем, `user1`, с паролем `user1user1`.
   - С одной базой данных, `db1`.
@@ -236,7 +236,7 @@
        --cluster-name mych \
        --environment=production \
        --network-name default \
-       --clickhouse-resource-preset s1.nano \
+       --clickhouse-resource-preset {{ host-class }} \
        --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
        --clickhouse-disk-size 20 \
        --clickhouse-disk-type network-ssd \
@@ -270,7 +270,7 @@
     - В облаке с идентификатором `b1gq90dgh25иuebiu75o`.
     - В каталоге `myfolder`.
     - В новой сети `mynet`.
-    - С одним хостом класса `s2.micro` в новой подсети `mysubnet`, в зоне доступности `ru-central1-c`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    - С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `ru-central1-c`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
     - С быстрым сетевым хранилищем объемом 32 ГБ.
     - С именем базы данных `my_db`.
     - C именем пользователя `user1` и паролем `user1user1`.
@@ -292,7 +292,7 @@
 
     clickhouse {
       resources {
-        resource_preset_id = "s2.micro"
+        resource_preset_id = "{{ host-class }}"
         disk_type_id       = "network-ssd"
         disk_size          = 32
       }

@@ -133,7 +133,7 @@
 - С именем `mypg`.
 - В окружении `production`.
 - В сети `default`.
-- С одним хостом класса `s1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
+- С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
 - С сетевым SSD-хранилищем объемом 20 ГБ.
 - С одним пользователем (`user1`), с паролем `user1user1`.
 - С одной базой данных `db1`, принадлежащей пользователю `user1`.
@@ -158,7 +158,7 @@ $ {{ yc-mdb-pg }} cluster create \
      --cluster-name mypg \
      --environment production \
      --network-name default \
-     --resource-preset s1.nano \
+     --resource-preset {{ host-class }} \
      --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
      --disk-type network-ssd \
      --disk-size 20 \

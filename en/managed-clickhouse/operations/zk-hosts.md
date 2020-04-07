@@ -14,7 +14,7 @@ For the {{ ZK }} hosts you add, you can indicate the computing power ([host clas
 
 The following characteristics are set for the {{ ZK }} hosts by default:
 
-* host class `s1.nano`
+* host class `b2.medium`
 * disk size 10 GB
 * [storage type](../concepts/storage.md) — fast network storage.
 

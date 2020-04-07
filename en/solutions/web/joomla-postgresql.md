@@ -56,7 +56,7 @@ When a VM is created, it is assigned an IP address and hostname (FQDN). This dat
 
 1. On the folder page, click **Create resource** and select **PostgreSQL cluster**.
 1. In the **Name** field, enter the cluster name: `joomla-pg-tutorial-db-cluster`.
-1. In the **DB class** section, select **s1.nano**.
+1. In the **DB class** section, select **b2.medium**.
 1. In the **Storage size** section, enter 10 GB.
 1. In the **Database** section:
   1. In the **DB name** field, enter `joomla-pg-tutorial-db`.
