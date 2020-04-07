@@ -1,10 +1,10 @@
 # Развертывание Microsoft Remote Desktop Services
 
-В сценарии описывается развертывание Microsoft Windows Server 2019 Datacenter с предустановленной службой Remote Desktop Services в Яндекс.Облаке. Инсталляция Microsoft Windows Server with Remote Desktop Services будет состоять из одного сервера, на котором будут установлены службы Remote Desktop Services и Active Directory. Образы представлены с подготовленными квотами на 5/10/25/50/100/250/500 пользователей. Вам нужно выбрать версию с необходимой, вам, квотой. Далее все примеры приводятся для сервера с квотой на 5 пользователей.
+В сценарии описывается развертывание Microsoft Windows Server 2019 Datacenter с предустановленной службой Remote Desktop Services в Яндекс.Облаке. Инсталляция Microsoft Windows Server with Remote Desktop Services будет состоять из одного сервера, на котором будут установлены службы Remote Desktop Services и Active Directory. Образы представлены с подготовленными квотами на 5/10/25/50/100/250/500 пользователей. Выберите версию с необходимой квотой. Все примеры приводятся для сервера с квотой на 5 пользователей.
 
-{% note info %}
+{% note warning %}
 
-Обратите внимание, что для увеличения квоты необходимо будет пересоздать ВМ.
+Для увеличения квоты необходимо пересоздать ВМ.
 
 {% endnote %}
 
@@ -15,10 +15,10 @@
 1. [Создайте облачную сеть и подсети](#create-network).
 1. [Создайте скрипт для управления локальной учетной записью администратора](#admin-script).
 1. [Создайте ВМ для Remote Desktop Services](#add-vm).
-1. [Установите и настройте службу контроллера домена](#install-ad).
-1. [Настройте файрвол](#firewall).
+1. [Установите и настройте службу контроллера домена (Active Directory)](#install-ad).
+1. [Настройте правила файрвола](#firewall).
 1. [Настройте сервер лицензирования в домене](#license-server).
-1. [Установите и настройте службу RDSH](#rdsh).
+1. [Настройте роль Remote Desktop Session Host](#rdsh).
 1. [Создайте пользователей](#create-users).
 
 ## Подготовьте облако к работе {#before-you-begin}
@@ -112,10 +112,15 @@
 
 Создайте файл `setpass`, содержащий скрипт, который будет устанавливать пароль для локальной учетной записи администратора при создании виртуальных машин через CLI:
 
-```
-#ps1
-Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<ваш пароль>" -AsPlainText -Force)
-```
+{% list tabs %}
+
+- PowerShell
+
+    ```
+    #ps1
+    Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<ваш пароль>" -AsPlainText -Force)
+    ```
+{% endlist %}
 
 Пароль должен соответствовать [требованиям к сложности](https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник).
 
@@ -129,7 +134,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 - Консоль управления
 
-  1. На странице каталога в [консоли управления](https://console.cloud.yandex.ru) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `my-rds-vm`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
   1. В блоке **Публичные образы** нажмите кнопку **Выбрать**. В открывшемся окне выберите образ **Windows RDS**.
@@ -162,71 +167,120 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 {% endlist %}
 
-## Установка и настройка службы контроллера домена (Active Directory) {#install-ad}
+## Установите и настройте службу контроллера домена (Active Directory) {#install-ad}
 
-1. Подключитесь к ВМ `my-rds-vm` с помощью RDP. Используйте логин `Administrator` и ваш пароль.
+1. Подключитесь к ВМ `my-rds-vm` [с помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
 1. Установите роли Active Directory:
 
-   ```powershell
-   Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-   Restart-Computer -Force
-   ```
+    {% list tabs %}
+    
+    - PowerShell
+
+        ```powershell
+        Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+        Restart-Computer -Force
+        ```
+      
+    {% endlist %}
 
 1. Создайте лес Active Directory:
 
-   ```powershell
-   Install-ADDSForest -DomainName 'yantoso.net' -Force:$true
-   ```
+    {% list tabs %}
+    
+    - PowerShell
 
-   Windows перезапустится автоматически. Снова откройте PowerShell.
+        ```powershell
+        Install-ADDSForest -DomainName 'yantoso.net' -Force:$true
+        ```
+      
+    {% endlist %}
 
-## Настройка правил файрвол {#firewall}
+   Windows перезапустится автоматически. Снова подключитесь к ВМ `my-rds-vm`. Используйте логин `yantoso\Administrator` и ваш пароль. Снова откройте PowerShell.
 
-1. Добавим правила файрвол, защищающие службу Active Directory от запросов из внешних сетей:
-    ```powershell
-    Set-NetFirewallRule `
-      -DisplayName 'Active Directory Domain Controller - LDAP (UDP-In)' `
-      -RemoteAddress:Intranet
+## Настройте правила файрвола {#firewall}
 
-    Set-NetFirewallRule `
-      -DisplayName 'Active Directory Domain Controller - LDAP (TCP-In)' `
-      -RemoteAddress:Intranet
+1. Добавьте правила файрвола, защищающие службу Active Directory от запросов из внешних сетей:
+    
+    {% list tabs %}
+    
+    - PowerShell
 
-    Set-NetFirewallRule `
-      -DisplayName 'Active Directory Domain Controller - Secure LDAP (TCP-In)' `
-      -RemoteAddress:Intranet
-    ```
+        ```powershell
+        Set-NetFirewallRule `
+          -DisplayName 'Active Directory Domain Controller - LDAP (UDP-In)' `
+          -RemoteAddress:Intranet
+        
+        Set-NetFirewallRule `
+          -DisplayName 'Active Directory Domain Controller - LDAP (TCP-In)' `
+          -RemoteAddress:Intranet
+        
+        Set-NetFirewallRule `
+          -DisplayName 'Active Directory Domain Controller - Secure LDAP (TCP-In)' `
+          -RemoteAddress:Intranet
+        ```
+      
+    {% endlist %}
 
-## Настройка сервера лицензирования в домене {#license-server}
+## Настройте сервер лицензирования в домене {#license-server}
 
-1. Авторизовываем сервер лицензирования в домене. Т.к. роль находится на самом контроллере домена, то в <q>BUILTIN</q> группу необходимо добавить <q> Network Service</q>:
+1. Авторизуйте сервер лицензирования в домене. 
+    
+    Роль находится на контроллере домена, поэтому в `BUILTIN` группу необходимо добавить `Network Service`:
+    
+    {% list tabs %}
+    
+    - PowerShell
 
-    ```powershell
-    net localgroup "Terminal Server License Servers" /Add 'Network Service'
-    ```
+        ```powershell
+        net localgroup "Terminal Server License Servers" /Add 'Network Service'
+        ```
+      
+    {% endlist %}
+   
+1. Установите тип лицензирования.
+    
+    {% note info %}
+    
+    Доступны только `User CAL` лицензии.
+    
+    {% endnote %}
 
-1. Установите тип лицензирования. В виду ограничений в лицензирования, есть возможность использовать только 'User CAL' лицензии.
+    {% list tabs %}
+    
+    - PowerShell
 
-    ```powershell
-    New-ItemProperty `
-    -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' `
-    -Name 'LicensingMode' `
-    -Value 4 `
-    -PropertyType 'DWord'
-    ```
+        ```powershell
+        New-ItemProperty `
+        -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' `
+        -Name 'LicensingMode' `
+        -Value 4 `
+        -PropertyType 'DWord'
+        ```
+      
+    {% endlist %}
+    
+1. Укажите службу лицензирования RDS:
 
-1. Укажите серверу, службу лицензирования RDS:
+    {% list tabs %}
+    
+    - PowerShell
 
-    ```powershell
-    New-ItemProperty `
-    -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' `
-    -Name 'LicenseServers' `
-    -Value 'localhost' `
-    -PropertyType 'String'
-    ```
+        ```powershell
+        New-ItemProperty `
+        -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' `
+        -Name 'LicenseServers' `
+        -Value 'localhost' `
+        -PropertyType 'String'
+        ```
+      
+    {% endlist %}
 
-1. При необходимости, ограничьте количество разрешённых одновременных сессий к серверу.
+1. (опционально) Ограничьте количество разрешенных одновременных сессий к серверу:
 
+    {% list tabs %}
+    
+    - PowerShell
+        
     ```powershell
     New-ItemProperty `
     -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' `
@@ -234,67 +288,93 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     -Value 5 `
     -PropertyType 'DWord'
     ```
+   
+    {% endlist %}
 
-## Настройка роли RDSH {#rdsh}
+## Настройте роль Remote Desktop Session Host {#rdsh}
 
-1. Устанавливаем роль RDSH на сервер:
+Установите роль Remote Desktop Session Host на сервер:
+
+{% list tabs %}
+
+- PowerShell
 
     ```powershell
     Install-WindowsFeature RDS-RD-Server -IncludeManagementTools
     Restart-Computer -Force
     ```
 
-## Создание пользователей {#create-users}
+{% endlist %}
 
-1. Создаём тестовых пользователей:
+## Создайте пользователей {#create-users}
 
-    ```powershell
-    New-ADUser `
-      -Name ru1 `
-      -PasswordNeverExpires $true `
-      -Enabled $true `
-      -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
-    New-ADUser `
-      -Name ru2 `
-      -PasswordNeverExpires $true `
-      -Enabled $true `
-      -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
-    New-ADUser `
-      -Name ru3 `
-      -PasswordNeverExpires $true `
-      -Enabled $true `
-      -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
-    New-ADUser `
-      -Name ru4 `
-      -PasswordNeverExpires $true `
-      -Enabled $true `
-      -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
-    New-ADUser `
-      -Name ru5 `
-      -PasswordNeverExpires $true `
-      -Enabled $true `
-      -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
-    ```
+1. Создайте тестовых пользователей:
 
-1. Выдаем пользователям права <q>Remote Desktop Users</q>:
+    {% list tabs %}
+    
+    - PowerShell
+    
+        ```powershell
+        New-ADUser `
+          -Name ru1 `
+          -PasswordNeverExpires $true `
+          -Enabled $true `
+          -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
+        New-ADUser `
+          -Name ru2 `
+          -PasswordNeverExpires $true `
+          -Enabled $true `
+          -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
+        New-ADUser `
+          -Name ru3 `
+          -PasswordNeverExpires $true `
+          -Enabled $true `
+          -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
+        New-ADUser `
+          -Name ru4 `
+          -PasswordNeverExpires $true `
+          -Enabled $true `
+          -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
+        New-ADUser `
+          -Name ru5 `
+          -PasswordNeverExpires $true `
+          -Enabled $true `
+          -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
+        ```
+      
+    {% endlist %}
 
-    ```powershell
-    Add-ADGroupMember -Members 'ru1' -Identity 'Remote Desktop Users'
-    Add-ADGroupMember -Members 'ru2' -Identity 'Remote Desktop Users'
-    Add-ADGroupMember -Members 'ru3' -Identity 'Remote Desktop Users'
-    Add-ADGroupMember -Members 'ru4' -Identity 'Remote Desktop Users'
-    Add-ADGroupMember -Members 'ru5' -Identity 'Remote Desktop Users'
-    ```
+1. Выдайте пользователям права `Remote Desktop Users`:
 
-1. Настраиваем права доступа по RDP для группы <q>Remote Desktop Users</q>:
+    {% list tabs %}
+    
+    - PowerShell
 
-    ```powershell
-    & secedit /export /cfg sec_conf_export.ini  /areas user_rights
-    $secConfig = Get-Content sec_conf_export.ini
-    $SID = 'S-1-5-32-555'
-    $secConfig = $secConfig -replace '^SeRemoteInteractiveLogonRight .+', "`$0,*$SID"
-    $secConfig | Set-Content sec_conf_import.ini
-    & secedit /configure /db secedit.sdb /cfg sec_conf_import.ini /areas user_rights
-    Remove-Item sec_conf_import.ini
-    Remove-Item sec_conf_export.ini
-    ```
+        ```powershell
+        Add-ADGroupMember -Members 'ru1' -Identity 'Remote Desktop Users'
+        Add-ADGroupMember -Members 'ru2' -Identity 'Remote Desktop Users'
+        Add-ADGroupMember -Members 'ru3' -Identity 'Remote Desktop Users'
+        Add-ADGroupMember -Members 'ru4' -Identity 'Remote Desktop Users'
+        Add-ADGroupMember -Members 'ru5' -Identity 'Remote Desktop Users'
+        ```
+
+    {% endlist %}
+
+1. Настройте права доступа по RDP для группы `Remote Desktop Users`:
+
+    {% list tabs %}
+    
+    - PowerShell
+    
+        ```powershell
+        & secedit /export /cfg sec_conf_export.ini  /areas user_rights
+        $secConfig = Get-Content sec_conf_export.ini
+        $SID = 'S-1-5-32-555'
+        $secConfig = $secConfig -replace '^SeRemoteInteractiveLogonRight .+', "`$0,*$SID"
+        $secConfig | Set-Content sec_conf_import.ini
+        & secedit /configure /db secedit.sdb /cfg sec_conf_import.ini /areas user_rights
+        Remove-Item sec_conf_import.ini
+        Remove-Item sec_conf_export.ini
+        ```
+      
+    {% endlist %}
