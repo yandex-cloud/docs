@@ -59,7 +59,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
       - The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
       - User password (from 8 to 128 characters).
 
-      For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](databases.md#add-the db) with the right settings.
+      For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](databases.md#add-db) with the right settings.
 
   1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ PG }} cluster, you can set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
