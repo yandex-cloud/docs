@@ -1,11 +1,12 @@
 title: "Yandex DataLens"
+stage: preview
 href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Tutorials
+  - name: Use cases
     items:
-      - name: All tutorials
+      - name: All use cases
         href: solutions/index.md
       - name: Visualizing data from a CSV file
         href: solutions/data-from-csv-visualization.md
@@ -29,7 +30,7 @@ items:
             href: operations/connection/create-postgresql.md
           - name: Creating an MS SQL Server connection
             href: operations/connection/create-mssql-server.md
-          - name: Creating a Yandex.Metrica API connection
+          - name: Creating a Metrica API connection
             href: operations/connection/create-metrica-api.md
           - name: Creating a Yandex.Metrica Logs API connection
             href: operations/connection/create-metrica-logs-api.md

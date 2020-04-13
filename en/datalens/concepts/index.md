@@ -3,13 +3,15 @@
 {{ datalens-full-name }} is a business analytics service that lets you upload, process, and visualize data for analysing and testing hypotheses.
 You can use it to make important marketing and other decisions related to your product.
 
-## Relationship between components {#component-interrelation}
+You can only create one {{ datalens-full-name }} instance in a [Yandex.Cloud folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-{{ datalens-short-name }} consists of multiple components that let you perform the full data cycle.
+## Relationship between objects {#component-interrelation}
 
-![image](../../_assets/datalens/concepts/datalens-overview.svg)
+{{ datalens-short-name }} consists of multiple objects that let you perform the full data cycle.
 
-{{ datalens-short-name }} consists of the following components:
+![image](../../_assets/datalens/concepts/datalens.svg)
+
+{{ datalens-short-name }} consists of the following objects:
 
 - **Connection**: Contains parameters for accessing a data source. Connections to different data sources are created using connectors. They contain presets for uploading data.
 - **Dataset**: A set of data and its description. {{ datalens-short-name }} lets you visualize uploaded data using a special wizard.

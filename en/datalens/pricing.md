@@ -6,7 +6,7 @@ editable: false
 In {{ datalens-short-name }}, you pay for:
 
 * The number of ten-minute sessions to the data source. The session considers requests from charts and dashboards.
-* The size of the database for materialized data.
+* The size of the database for the materialized data.
 * Additional {{ datalens-short-name }} features.
 
 The number of sessions, the database size for materialized data, and the list of available features are determined by the monthly billing plan.
@@ -46,8 +46,6 @@ Additional {{ datalens-short-name }} features that are available in {{ marketpla
   | Database size for materialized data, GB | 0.5 | 10 |
   | Geocoding | - | ✔ |
 
-{% endlist %}
-
 ## Session {#sessions}
 
 Sessions are ten-minute periods when the user makes requests to a data source. For example, a user updates charts and dashboards and builds custom requests in the wizard.
@@ -66,7 +64,7 @@ In {{ datalens-short-name }}, sessions are categorized as internal or external:
 
 | Session type | Data source |
 | ----- | ----- |
-| Internal | Materialized datasets<br/>CSV connection<br/>Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>Managed databases in Yandex.Cloud:<br/> - [Managed Service for ClickHouse](../managed-clickhouse)<br/> - [Managed Service for PostgreSQL](../managed-postgresql)<br/> - [Managed Service for MySQL<sup>®</sup>](../managed-mysql) |
+| Internal | Materialized datasets<br/>CSV connections<br/>Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>Yandex.Cloud Managed Databases:<br/> - [Managed Service for ClickHouse](../managed-clickhouse)<br/> - [Managed Service for PostgreSQL](../managed-postgresql)<br/> - [Managed Service for MySQL<sup>®</sup>](../managed-mysql) |
 | External | Any data source that is not related to Yandex or Yandex.Cloud. |
 
 ### How sessions are calculated {#how-sessions-counted}
@@ -120,13 +118,13 @@ You can switch from the **Free** to the **Standard** plan at any time. When you 
 
 So if you go from the **Standard** plan to the **Free** plan, the new plan and period would come into effect when the paid period under the **Standard** plan ends. In this case, the start date of the new period becomes the date the **Standard** plan ends.
 
-### Automatic session renewal {#autoprolongation}
+### Automatic session count renewal {#autoprolongation}
 
-Under the **Standard** plan, you can set up automatic session renewal. To do this, you should specify your planned budget in the billing account.
+Under the **Standard** plan, you can set up automatic session count renewal. To do this, you should specify your planned budget in the billing account.
 
-Automatic session renewal isn't available in the **Free** plan. If you reach the session limit or the DB size limit for this plan, you can switch to the **Standard** plan.
+Automatic session count renewal isn't available in the **Free** plan. If you reach the session limit or the DB size limit for this plan, you can switch to the **Standard** plan.
 
-### Blocks {#blockings}
+## Blocks {#locks}
 
 If you reach a limit under your plan, {{ datalens-short-name }} automatically blocks the instance.
 
@@ -134,7 +132,7 @@ When an instance is blocked, you can't:
 
 * Create new connections or datasets.
 * Request data from a dataset.
-* Request data from the wizard or dashboard.
+* Request data from a wizard or dashboard.
 * Materialize dataset data.
 * Use geocoding.
 

@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Tutorials
+  - name: Use cases
     items:
-      - name: All tutorials
+      - name: All use cases
         href: ../solutions/datalens/index.md
       - name: Visualizing data from a CSV file
         href: ../solutions/datalens/data-from-csv-visualization.md
@@ -37,7 +37,7 @@ items:
             href: operations/connection/create-mssql-server.md
           - name: Creating a Metrica API connection
             href: operations/connection/create-metrica-api.md
-          - name: Creating a Metrica Logs API connection
+          - name: Creating a Yandex.Metrica Logs API connection
             href: operations/connection/create-metrica-logs-api.md
           - name: Creating an AppMetrica connection
             href: operations/connection/create-appmetrica.md
@@ -49,8 +49,14 @@ items:
             href: operations/dataset/create.md
           - name: Creating a data field
             href: operations/dataset/create-field.md
+          - name: Creating a calculated data field
+            href: operations/dataset/create-calculated-field.md
+          - name: Materializing a dataset
+            href: operations/dataset/materialize.md
           - name: Managing dataset access
             href: operations/dataset/manage-access.md
+          - name: Managing access to data rows
+            href: operations/dataset/manage-row-level-security.md
       - name: Working with charts
         items:
           - name: Creating a line chart
@@ -65,6 +71,14 @@ items:
             href: operations/chart/create-table.md
           - name: Creating a pivot table
             href: operations/chart/create-pivot-table.md
+          - name: Creating a point map
+            href: operations/chart/create-point-map-chart.md
+          - name: Creating a choropleth map
+            href: operations/chart/create-choropleth-map-chart.md
+          - name: Creating a heat map
+            href: operations/chart/create-heat-map-chart.md
+          - name: Publishing a chart
+            href: operations/chart/publish.md
           - name: Managing chart access
             href: operations/chart/manage-access.md
       - name: Working with dashboards
@@ -75,15 +89,17 @@ items:
             href: operations/dashboard/add-chart.md
           - name: Adding selectors to dashboards
             href: operations/dashboard/add-selector.md
+          - name: Publishing dashboards
+            href: operations/dashboard/publish.md
           - name: Managing dashboard access
             href: operations/dashboard/manage-access.md
       - name: Working with permissions
         items:
           - name: Granting permissions
             href: operations/permission/grant.md
-          - name: Deleting access rights
+          - name: Deleting permissions
             href: operations/permission/revoke.md
-          - name: Requesting permissions
+          - name: Request permissions
             href: operations/permission/request.md
   - name: Concepts
     items:
@@ -91,12 +107,24 @@ items:
         href: concepts/index.md
       - name: Connections
         href: concepts/connection.md
-      - name: Dataset
-        href: concepts/dataset.md
-      - name: Chart
+      - name: Data types
+        href: concepts/data-types.md
+      - name: Datasets
+        items:
+          - name: Overview
+            href: concepts/dataset/index.md
+          - name: Data model
+            href: concepts/dataset/data-model.md
+          - name: Dataset settings
+            href: concepts/dataset/settings.md
+      - name: Charts
         href: concepts/chart.md
-      - name: Dashboard
+      - name: Dashboards
         href: concepts/dashboard.md
+      - name: DataLens Public
+        href: concepts/datalens-public.md
+      - name: Calculated fields
+        href: concepts/calculations.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

@@ -1,4 +1,4 @@
-# Granting permission
+# Granting permissions
 
 Only a user with `Admin` permission can grant permissions to an object or directory.
 

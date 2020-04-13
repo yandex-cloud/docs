@@ -9,6 +9,8 @@ default:
   managed-clickhouse-full-name: Yandex Managed Service for ClickHouse
   managed-mysql-full-name: Yandex Managed Service for MySQL<sup>®</sup>
   managed-mongodb-full-name: Yandex Managed Service for MongoDB
+
+  # Короткие именя сервиса
   marketplace-short-name: Marketplace
 
   # Роли
@@ -21,3 +23,6 @@ default:
   datalens-full-name: Yandex DataLens
   datalens-name: DataLens
   datalens-short-name: DataLens
+
+  # Feature names
+  datalens-public: DataLens Public
