@@ -40,6 +40,15 @@
 
     Добавлено форматирование строчек лога.
 
+#### {{ coi }} {#coi}
+
+- Команда `yc compute instance create-with-container`.
+
+    Добавлена возможность монтирования `docker volumes` в Docker-контейнер, созданный в {{ coi }} с помощью флагов `container-volume-tmpfs` и `container-volume-host-path`.
+- Команда `yc compute instance update-container`.
+
+    Добавлена возможность обновления `docker volumes` в Docker-контейнере, созданном в {{ coi }}.
+
 ## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.54.0 (24.03.20) {#version0.54.0}
