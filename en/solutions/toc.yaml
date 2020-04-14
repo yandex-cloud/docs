@@ -65,6 +65,10 @@ items:
         href: infrastructure-management/jenkins.md
       - name: Continuous deployment of containerized applications using GitLab
         href: infrastructure-management/gitlab-containers.md
+      - name: Migrating to Yandex.Cloud using Hystax Acura
+        href: infrastructure-management/hystax-migration.md
+      - name: Emergency recovery in Yandex.Cloud using Hystax Acura
+        href: infrastructure-management/hystax-disaster-recovery.md
   - name: Windows in Yandex.Cloud
     items:
       - name: All tutorials
@@ -73,6 +77,8 @@ items:
         href: windows/active-directory.md
       - name: Deploying Microsoft Exchange
         href: windows/exchange.md
+      - name: Deploying Microsoft Remote Desktop Services
+        href: windows/rds.md
   - name: Network routing
     items:
       - name: All tutorials
