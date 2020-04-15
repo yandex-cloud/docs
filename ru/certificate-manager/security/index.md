@@ -36,9 +36,9 @@
 Получение списка сертификатов | `list` | `viewer` или `certificate-manager.admin` на каталог
 Получение информации о сертификате | `get` | `viewer` или `certificate-manager.admin` на сертификат или каталог
 [Создание](../operations/managed/cert-create.md) сертификата от Let's Encrypt<sup>™</sup> | `requestNew` | `editor` или `certificate-manager.admin` на каталог
-[Изменение мета-информации](../operations/managed/cert-modify.md), [удаление](../operations/managed/cert-delete.md) сертификата от Let's Encrypt | `update`, `delete` | `editor` или `certificate-manager.admin` на сертификат или каталог
-[Импорт](../operations/import/cert-create.md) пользовательского сертификата | `create` | `editor` или `certificate-manager.admin` на каталог
-[Реимпорт](../operations/import/cert-update.md), [изменение мета-информации](../operations/import/cert-modify.md), [удаление](../operations/import/cert-delete.md) пользовательского сертификата | `update`, `delete` | `editor` или `certificate-manager.admin` на сертификат или каталог
+[Изменение](../operations/managed/cert-modify.md), [удаление](../operations/managed/cert-delete.md) сертификата от Let's Encrypt | `update`, `delete` | `editor` или `certificate-manager.admin` на сертификат или каталог
+[Создание](../operations/import/cert-create.md) пользовательского сертификата | `create` | `editor` или `certificate-manager.admin` на каталог
+[Обновление](../operations/import/cert-update.md), [изменение](../operations/import/cert-modify.md), [удаление](../operations/import/cert-delete.md) пользовательского сертификата | `update`, `delete` | `editor` или `certificate-manager.admin` на сертификат или каталог
 **IAM** | |
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBinding`, `updateAccessBindings`, `listAccessBindings` | `admin` или `certificate-manager.admin` на сертификат или каталог 
 
