@@ -16,7 +16,7 @@ items:
         href: stt/streaming.md
       - name: Форматы аудио
         href: stt/formats.md
-      - name: Языковые модели
+      - name: Модели распознавания
         href: stt/models.md
   - name: Синтез речи
     items:
