@@ -62,7 +62,7 @@
 
 Конфигурации ресурсов задаются сразу после конфигурации провайдера:
 
-```
+```hcl
 provider "yandex" {
   token     = "OAuth_token"
   cloud_id  = "cloud-id"
@@ -85,7 +85,7 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   network_interface {
-    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+    subnet_id = yandex_vpc_subnet.subnet-1.id
     nat       = true
   }
 
@@ -109,7 +109,7 @@ resource "yandex_compute_instance" "vm-2" {
   }
 
   network_interface {
-    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+    subnet_id = yandex_vpc_subnet.subnet-1.id
     nat       = true
   }
 
@@ -125,25 +125,25 @@ resource "yandex_vpc_network" "network-1" {
 resource "yandex_vpc_subnet" "subnet-1" {
   name           = "subnet1"
   zone           = "ru-central1-a"
-  network_id     = "${yandex_vpc_network.network-1.id}"
+  network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.10.0/24"]
 }
 
 output "internal_ip_address_vm_1" {
-  value = "${yandex_compute_instance.vm-1.network_interface.0.ip_address}"
+  value = yandex_compute_instance.vm-1.network_interface.0.ip_address
 }
 
 output "internal_ip_address_vm_2" {
-  value = "${yandex_compute_instance.vm-2.network_interface.0.ip_address}"
+  value = yandex_compute_instance.vm-2.network_interface.0.ip_address
 }
 
 
 output "external_ip_address_vm_1" {
-  value = "${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}"
+  value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
 }
 
 output "external_ip_address_vm_2" {
-  value = "${yandex_compute_instance.vm-2.network_interface.0.nat_ip_address}"
+  value = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
 }
 ```
 
