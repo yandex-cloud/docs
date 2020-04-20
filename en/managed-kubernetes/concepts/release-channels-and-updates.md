@@ -14,7 +14,7 @@ The table below describes release channels and contains up-to-date information a
 
 | Channel | {{ k8s }} versions | Automatic updates | Channel description |
 | ---- | ---- | ---- | ---- |
-| `rapid` | 1.15, 1.16 | Can't disable automatic updates. Can specify a time period for automatic updates. | Contains the latest versions of {{ k8s }}. Minor updates with new functions and improvements are often added. |
+| `rapid` | 1.15, 1.16, 1.17 | Can't disable automatic updates. Can specify a time period for automatic updates. | Contains the latest versions of {{ k8s }}. Minor updates with new functions and improvements are often added. |
 | `regular` | 1.14, 1.15, 1.16 | Can disable automatic updates. | Contains different versions of {{ k8s }}. New functions and improvements are added in chunks shortly after they appear on `rapid`. |
 | `stable` | 1.14, 1.15 | Can disable automatic updates. | Contains the stable {{ k8s }} versions. Only updates related to bug fixes or security improvements are added. |
 
