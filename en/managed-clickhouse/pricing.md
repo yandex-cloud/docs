@@ -239,6 +239,8 @@ Prices for the time of host uptime are calculated based on [host classes](concep
   {{ m2-4xlarge }} | $1.575385 | $1.050256 | $0.804103
   {{ m2-5xlarge }} | $1.969231 | $1.312821 | $1.005128
   {{ m2-6xlarge }} | $2.363077 | $1.575385 | $1.206154
+  {{ m2-7xlarge }} | $2.756923 | $1.837949 | $1.407180
+  {{ m2-8xlarge }} | $3.150769 | $2.100513 | $1.608205
   {{ s2-micro }} | $0.064615 | $0.044103 | $0.033846 
   {{ s2-small }} | $0.129231 | $0.088205 | $0.067692 
   {{ s2-medium }} | $0.258462 | $0.176410 | $0.135385 
@@ -278,6 +280,8 @@ Prices for the time of host uptime are calculated based on [host classes](concep
   {{ m2-4xlarge }} | ₽122.88 | ₽81.92 | ₽62.72
   {{ m2-5xlarge }} | ₽153.60 | ₽102.40 | ₽78.40
   {{ m2-6xlarge }} | ₽184.32 | ₽122.88 | ₽94.08
+  {{ m2-7xlarge }} | ₽215.04 | ₽143.36 | ₽109.76
+  {{ m2-8xlarge }} | ₽245.76 | ₽163.84 | ₽125.44
   {{ s2-micro }} | ₽5.04 | ₽3.44 | ₽2.64
   {{ s2-small }} | ₽10.08 | ₽6.88 | ₽5.28
   {{ s2-medium }} | ₽20.16 | ₽13.76 | ₽10.56
@@ -324,6 +328,8 @@ Prices for the time of host uptime are calculated based on [host classes](concep
   {{ m2-4xlarge }} | $0.968205
   {{ m2-5xlarge }} | $1.210256
   {{ m2-6xlarge }} | $1.452308
+  {{ m2-7xlarge }} | $1.694359
+  {{ m2-8xlarge }} | $1.936410
   {{ s2-micro }}  | $0.040000
   {{ s2-small }}  | $0.080000
   {{ s2-medium }}  | $0.160000
@@ -363,6 +369,8 @@ Prices for the time of host uptime are calculated based on [host classes](concep
   {{ m2-4xlarge }} | ₽75.52
   {{ m2-5xlarge }} | ₽94.40
   {{ m2-6xlarge }} | ₽113.28
+  {{ m2-7xlarge }} | ₽132.16 
+  {{ m2-8xlarge }} | ₽151.04
   {{ s2-micro }}  | ₽3.12
   {{ s2-small }}  | ₽6.24
   {{ s2-medium }}  | ₽12.48
