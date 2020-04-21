@@ -111,7 +111,7 @@
          ```
          IAM-токен будет указан в ответе в поле `access_token`. Оставшееся время жизни IAM-токена указано в поле `expires_in`.
 
-       * **Amazon EC2**:
+       * **Amazon EC2** (устаревший):
          ```bash
          $ curl http://169.254.169.254/latest/meta-data/iam/security-credentials/default/
 
