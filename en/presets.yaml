@@ -179,6 +179,8 @@ default:
   m2-4xlarge: m2.4xlarge (32 vCPU, 256 GB)
   m2-5xlarge: m2.5xlarge (40 vCPU, 320 GB)
   m2-6xlarge: m2.6xlarge (48 vCPU, 384 GB)
+  m2-7xlarge: m2.7xlarge (56 vCPU, 448 GB)
+  m2-8xlarge: m2.8xlarge (64 vCPU, 512 GB)
   s2-micro: s2.micro (2 vCPU, 8 GB)
   s2-small: s2.small (4 vCPU, 16 GB)
   s2-medium: s2.medium (8 vCPU, 32 GB)

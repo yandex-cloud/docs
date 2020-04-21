@@ -11,8 +11,8 @@
 
 | Type of limit | Value |
 | ----- | ----- |
-| Lowest host class | s1.nano (1 vCPU, 4 GB RAM) |
-| Highest host class | s1.xlarge (32 vCPUs, 128 GB RAM) |
+| Lowest host class | b1.nano ([5%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 2 GB RAM) |
+| Highest host class | m2.8xlarge (64 vCPU Intel Cascade Lake, 512 GB RAM) |
 | Maximum number of hosts per cluster | 10 |
 | Maximum network storage capacity | 2048 GB |
 | Maximum local storage capacity | 1400 GB |
