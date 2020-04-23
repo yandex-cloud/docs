@@ -1,8 +1,44 @@
 # Релизы YC CLI
 
-## Версия 0.55.0 (13.04.20) {#latest-release}
+## Версия 0.56.0 (23.04.20) {#latest-release}
 
-### Изменения в CLI {#cli}
+### Изменения в сервисах Облака {#services}
+
+#### Все сервисы {#all}
+
+* В командах `get` и `delete` теперь можно передавать несколько идентификаторов или имен ресурсов.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mch-name }}**
+
+* Команды `yc managed-clickhouse user create` и `yc managed-clickhouse user update`.
+
+    В помощи появилась информация про параметры флага `settings`.
+
+**{{ mch-name }}, {{ mpg-name }}, {{ mmy-name }}**
+
+* Команда `yc <имя сервиса управляемой БД> host list`.
+ 
+    В выводе появился столбец со значениями `assign_public_ip`.
+
+**{{ mrd-name }}**
+ 
+* Команда `yc managed-redis host list`.
+
+    В выводе появились столбцы со значениями `type` и `shard_name`.
+    
+#### {{ coi }} {#coi}
+
+* Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
+ 
+  При передаче файла с переменными окружения через флаг `--container-env-file` корректно обрабатываются символы `=` в значениях переменных.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.55.0 (13.04.20) {#version0.55.0}
+
+#### Изменения в CLI {#cli}
 
 **Улучшено**
 
@@ -14,7 +50,7 @@
 
 - Исправлено ожидание в 30 секунд, если в используемом профиле не задано свойство `folder-id` или `folder-name`.
 
-### Изменения в сервисах Облака {#services}
+#### Изменения в сервисах Облака {#services}
 
 #### {{ managed-k8s-name }} {#k8s}
 
@@ -48,8 +84,6 @@
 - Команда `yc compute instance update-container`.
 
     Добавлена возможность обновления `docker volumes` в Docker-контейнере, созданном в {{ coi }}.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.54.0 (24.03.20) {#version0.54.0}
 
