@@ -84,7 +84,9 @@ items:
       - name: Работа с Yandex IoT Core с устройства с Android на языке Java
         href: solutions/android-java.md
       - name: Работа с Yandex IoT Core на языке C#
-        href: solutions/c-sharp.md  
+        href: solutions/c-sharp.md
+      - name: Работа с Yandex IoT Core на языке Java
+        href: solutions/java.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

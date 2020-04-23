@@ -37,7 +37,7 @@
 
 Если у вас уже есть сертификат, перейдите сразу ко второму шагу.
 
-1. (опционально) Создайте сертификат для реестра: 
+1. Создайте сертификат для реестра (пропустите этот шаг, если у вас уже есть сертификат реестра): 
     
    ```shell script
     $ openssl req -x509 \
@@ -101,17 +101,12 @@ MqttAndroidClient mqttAndroidClient = new MqttAndroidClient(getApplicationContex
 
 // Настройка параметров соединения.
 MqttConnectOptions options = new MqttConnectOptions();
-options.setConnectionTimeout(connectionTimeout);
 options.setKeepAliveInterval(keepAliveInterval);
 ```
 
 В котором: 
 * `MqttAndroidClient` — класс, в котором указываются параметры подключения к {{ iot-full-name }}. Адрес, порт и идентификатор клиента.
-* `MqttConnectOptions` — класс для установки параметров соединения. Вы можете оставить настройки по умолчанию, но рекомендуется задать параметры `ConnectionTimeout` и `KeepAliveInterval`. От значения этих параметров зависит:
-    * Частота отправки команд `PINGREQ`.
-    * Время реакции клиента на обрыв соединения. 
-    
-        Чем меньше данные параметры, тем быстрее клиент понимает, что соединение было разорвано нештатным путем. Но для этого чаще отправляются тарифицируемые команды `PINGREQ`.
+* `MqttConnectOptions` — класс для установки параметров соединения. Вы можете оставить настройки по умолчанию, но рекомендуется задать параметр `KeepAliveInterval`. От его значения зависит частота отправки команд `PINGREQ`. Чем меньше данный параметр, тем быстрее клиент понимает, что соединение было разорвано нештатным путем. Но для этого чаще отправляются тарифицируемые команды `PINGREQ`.
 
 ## Авторизуйтесь в {{ iot-full-name }} {#auth}
 
@@ -219,6 +214,15 @@ mqttAndroidClient.connect(options,null, new IMqttActionListener() {
 
 ## Подпишитесь на топик и принимайте сообщения с данными {#subscribe}
 
+Для обработки полученных данных используйте функцию обратного вызова: 
+
+```
+mqttAndroidClient.setCallback(new MqttCallback() {
+   @Override
+   public void messageArrived(String topic, MqttMessage message) throws Exception {   }
+});
+```
+
 Подпишитесь на топик с помощью следующего кода. В методе `subscribe` нужно указать топик, на который вы хотите подписаться, и уровень качества обслуживания.
 
 ```java
@@ -236,15 +240,6 @@ subToken.setActionCallback(new IMqttActionListener() {
        // авторизован для подписки на указанный топик.
        System.out.println("Failed to subscribe");
    }
-});
-```
-
-Для получения данных используйте функцию обратного вызова: 
-
-```
-mqttAndroidClient.setCallback(new MqttCallback() {
-   @Override
-   public void messageArrived(String topic, MqttMessage message) throws Exception {   }
 });
 ```
 
