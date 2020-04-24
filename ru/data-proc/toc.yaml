@@ -10,6 +10,8 @@ items:
         href: solutions/how-to-use-hive.md
       - name: Запуск Spark-приложений
         href: solutions/run-spark-job.md
+      - name: Запуск приложений с удаленного хоста
+        href: solutions/remote-run-job.md
       - name: Копирование файлов из Yandex Object Storage
         href: solutions/copy-files-from-object-storage.md
   - name: Пошаговые инструкции
