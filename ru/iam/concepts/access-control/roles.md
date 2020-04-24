@@ -48,10 +48,6 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
 
-## {{ certificate-manager-name }} {#certificate-manager-roles}
-
-{% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}
-
 ## {{ compute-name }} {#compute-roles}
 
 {% include [roles-disks-user](../../../_includes/roles-disks-user.md) %}

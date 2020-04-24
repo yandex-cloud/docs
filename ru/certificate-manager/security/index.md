@@ -19,8 +19,8 @@
 
 Роли, действующие в сервисе:
 * Сервисные роли:
-    * {% include [certificate-manager.admin](../../_includes/iam/roles/short-descriptions/certificate-manager.admin.md) %}
     * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
 * Примитивные роли:
     * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
     * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
@@ -33,14 +33,14 @@
 Действие | Методы | Необходимые роли
 ----- | ----- | -----
 **Certificate Manager** | | 
-Получение списка сертификатов | `list` | `viewer` или `certificate-manager.admin` на каталог
-Получение информации о сертификате | `get` | `viewer` или `certificate-manager.admin` на сертификат или каталог
-[Создание](../operations/managed/cert-create.md) сертификата от Let's Encrypt<sup>™</sup> | `requestNew` | `editor` или `certificate-manager.admin` на каталог
-[Изменение](../operations/managed/cert-modify.md), [удаление](../operations/managed/cert-delete.md) сертификата от Let's Encrypt | `update`, `delete` | `editor` или `certificate-manager.admin` на сертификат или каталог
-[Создание](../operations/import/cert-create.md) пользовательского сертификата | `create` | `editor` или `certificate-manager.admin` на каталог
-[Обновление](../operations/import/cert-update.md), [изменение](../operations/import/cert-modify.md), [удаление](../operations/import/cert-delete.md) пользовательского сертификата | `update`, `delete` | `editor` или `certificate-manager.admin` на сертификат или каталог
+Получение списка сертификатов | `list` | `viewer` на каталог
+Получение информации о сертификате | `get` | `viewer` на сертификат или каталог
+[Создание](../operations/managed/cert-create.md) сертификата от Let's Encrypt<sup>™</sup> | `requestNew` | `editor` на каталог
+[Изменение](../operations/managed/cert-modify.md), [удаление](../operations/managed/cert-delete.md) сертификата от Let's Encrypt | `update`, `delete` | `editor` на сертификат или каталог
+[Создание](../operations/import/cert-create.md) пользовательского сертификата | `create` | `editor` на каталог
+[Обновление](../operations/import/cert-update.md), [изменение](../operations/import/cert-modify.md), [удаление](../operations/import/cert-delete.md) пользовательского сертификата | `update`, `delete` | `editor` на сертификат или каталог
 **IAM** | |
-[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBinding`, `updateAccessBindings`, `listAccessBindings` | `admin` или `certificate-manager.admin` на сертификат или каталог 
+[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBinding`, `updateAccessBindings`, `listAccessBindings` | `admin` на сертификат или каталог 
 
 #### Что дальше {what-is-next}
 
