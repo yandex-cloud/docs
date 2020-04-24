@@ -8,7 +8,7 @@ editable: false
 
 ## HTTP-запрос {#https-request}
 ```
-POST https://upload.datalens.yandex.net/provider/v1/connection/{connection_id}/{table_name}/definition
+POST https://upload.datalens.yandex.net/provider/v1/connection/{connection_id}/table/{table_name}/definition
 ```
 
 ## Path-параметры {#path_params}

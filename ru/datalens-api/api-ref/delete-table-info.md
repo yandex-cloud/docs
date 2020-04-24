@@ -8,7 +8,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-DELETE https://upload.datalens.yandex.net/provider/v1/connection/{conn_id}/{table_name}/definition
+DELETE https://upload.datalens.yandex.net/provider/v1/connection/{conn_id}/table/{table_name}/definition
 ```
  
 ## Path-параметры {#path_params}
