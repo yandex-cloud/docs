@@ -37,7 +37,7 @@ The cost for maintaining a GitLab server includes:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Under **Public images**, click **Select**. Choose the public **GitLab** image.
+1. Under **Images from {{ marketplace-name }}**, click **Select**. Choose the public **GitLab** image.
 
 1. Under **Disks**, select an SSD with 20 GB.
 

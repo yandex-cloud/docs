@@ -48,7 +48,7 @@ To create a VM:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. In the **Public images** section, click **Centos 7**.
+1. In the **Images from {{ marketplace-name }}** section, click **Centos 7**.
 
 1. In the **Computing resources** section, select the following configuration:
    * **Platform**: Intel Cascade Lake.

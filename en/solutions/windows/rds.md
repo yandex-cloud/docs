@@ -139,7 +139,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
   1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-a`.
 
-  1. Under **Public images**, click **Select**. In the window that opens, select the **Windows RDS** image.
+  1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **Windows RDS** image.
 
   1. Under **Disks**, enter 50 GB for the size of the boot disk.
 

@@ -63,6 +63,7 @@ default:
   cos-name: Container Optimized Solutions
   ml-platform-name: ML Platform
   certificate-manager-name: Certificate Manager
+  marketplace-name: Cloud Marketplace
 
   # Короткие имена
   iam-short-name: IAM

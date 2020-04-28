@@ -18,7 +18,7 @@ To create a VM:
 
     - Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Select an [image](../operations/images-with-pre-installed-software/get-list.md) and a Linux-based OS version under **Public images**.
+1. Select an [image](../operations/images-with-pre-installed-software/get-list.md) and a Linux-based OS version under **Images from {{ marketplace-name }}**.
 
 1. (optional) Configure the boot disk under **Disks**:
       - Specify the necessary disk size.

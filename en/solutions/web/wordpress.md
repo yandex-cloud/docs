@@ -23,7 +23,7 @@ To create a VM:
    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to locate the VM in.
-1. In the **Public images** section, click **Select**. Select the **WordPress** public image.
+1. In the **Images from {{ marketplace-name }}** section, click **Select**. Select the **WordPress** public image.
 1. In the **Computing resources** section:
     - Select the [platform](../../compute/concepts/vm-platforms.md).
     - Specify the necessary number of vCPUs and amount of RAM.

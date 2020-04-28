@@ -14,7 +14,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
     1. In the [management console]({{ link-console-main}}), select the folder to create your VM in.
     1. In the list of services, select **{{ compute-name }}**.
     1. Click **Create VM**.
-    1. Under **Public images**, select a **{{ coi }}**.
+    1. Under **Images from {{ marketplace-name }}**, select a **{{ coi }}**.
     1. The **Docker container settings** section appears at the bottom of the VM creation page. Fill out this section based on the prompts next to each field:
        1. Enter the name of the Docker container to run on the VM.
        1. Specify the Docker image used to launch the Docker container on the VM.

@@ -61,6 +61,7 @@ default:
   interconnect-name: Cloud Interconnect
   cos-name: Container Optimized Solutions
   ml-platform-name: ML Platform
+  marketplace-name: Cloud Marketplace
 
   # Короткие имена
   iam-short-name: IAM
