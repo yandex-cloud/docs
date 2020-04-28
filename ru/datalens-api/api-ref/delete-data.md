@@ -29,7 +29,7 @@ table_name | Имя таблицы.
 
 Поле | Описание
 --- | ---
-partitions[] | **object**<br><p>Ключи партиционирования.</p>
+partitions[] | **object**<br><p>[Ключи партиционирования](../overview.md#partitioning-key).</p>
 
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
@@ -55,5 +55,5 @@ partitions[] | **object**<br><p>Ключи партиционирования.</
 deleted_partition_keys[] | **object**<br><p>Список списков удаленных значений партиций.</p>
 success | **boolean**<br><p>Указывает, успешно ли завершилась операция удаления.</p>
 request_id | **string**<br><p>Идентификатор запроса на удаление.</p>
-partition_key_columns | **object**<br><p>Текущие ключи позиционирования.</p>
+partition_key_columns | **string**<br><p>Текущие ключи партиционирования.</p>
 message | **string**<br><p>Сообщение от сервера {{ datalens-short-name }}.</p>

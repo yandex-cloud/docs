@@ -25,6 +25,9 @@ table_name | Имя таблицы.
   "partition_key": [
     "string"
   ],
+  "replacing_key": [
+    "string"
+  ],
   "schema": [
     {
       "name": "string",
@@ -40,7 +43,8 @@ table_name | Имя таблицы.
  
 Поле | Описание
 --- | ---
-partition_key[] | **object**<br><p>Ключ партиционирования.</p>
+partition_key[] | **string**<br><p>[Ключ партиционирования](../overview.md#partitioning-key).</p>
+replacing_key[] | **string**<br><p>[Ключ замены данных](../overview.md#replacing-key).</p><br/>Позволяет заменить данные, которые были загружены ранее по этому ключу.
 schema[] | **object**<br><p>Схема таблицы.</p>
 schema[].name | **string**<br><p>Имя поля.</p>
 schema[].nullable | **boolean**<br><p>Указывает, может ли поле принимать значение `NULL`.</p>
@@ -59,6 +63,9 @@ title | **string**<br><p>Заголовок таблицы.</p>
     "partition_key": [
       "string"
     ],
+    "replacing_key": [
+      "string"
+    ],
     "meta": {
       "lastUploadTime": "2019-09-24T14:27:38.094Z"
     },
@@ -75,6 +82,9 @@ title | **string**<br><p>Заголовок таблицы.</p>
   },
   "new_table_definition": {
     "partition_key": [
+      "string"
+    ],
+    "replacing_key": [
       "string"
     ],
     "meta": {
@@ -99,6 +109,7 @@ title | **string**<br><p>Заголовок таблицы.</p>
 old_data_was_dropped | **boolean**<br><p>Указывает, что старая информация о таблице была удалена.</p> 
 old_table_definition | **object**<br><p>Старая информация о таблице.</p>
 old_table_definition.partition_key[] | **string**<br><p>Старый ключ партиционирования.</p>
+old_table_definition.replacing_key[] | **string**<br><p>Старый ключ замены данных.</p><br/>Позволяет заменить данные, которые были загружены ранее по этому ключу.
 old_table_definition.meta | **object**<br><p>Удаленные метаданные о таблице.</p>
 old_table_definition.meta.lastUploadTime | **string**<br><p>Старые дата и время последнего обновления.<br/>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p>
 old_table_definition.schema[] | **string**<br><p>Старая схема таблицы.</p>
@@ -110,6 +121,7 @@ old_table_definition.name | **string**<br><p>Имя таблицы.</p>
 old_table_definition.title | **string**<br><p>Старый заголовок таблицы.</p>
 new_table_definition | **object**<br><p>Информация, которая была добавлена.</p>
 new_table_definition.partition_key[] | **string**<br><p>Ноый ключ партиционирования.</p>
+new_table_definition.replacing_key[] | **string**<br><p>Новый ключ замены данных.</p>
 new_table_definition.meta | **object**<br><p>Новые метаданные таблицы.</p>
 new_table_definition.meta.lastUploadTime | **string**<br><p>Дата и время последнего обновления.<br/>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p>
 new_table_definition.schema[] | **string**<br><p>Новая схема таблицы.</p>
