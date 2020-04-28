@@ -34,12 +34,6 @@ The quality of speech and voice depend on the speech settings:
 
 * Speech rate: If the speech is too fast or too slow, it sounds unnatural. However, this can be useful in commercials where every second of air time counts.
 
-    {% note alert %}
-
-    Changing speed is temporarily unavailable for [premium voices](voices.md#premium).
-
-    {% endnote %}
-
 * Emotional tone is supported only for Russian (`ru-RU`) with `jane` or `omazh`. Don't use this parameter with other voices or languages, as the speech generated for individual phrases may be different from your settings.
 
     For these voices, a neural network was trained on three different datasets where the speaker spoke samples with different intonations: cheerful, irritated, and neutral. We don't plan to support tones for other voices now. For premium voices, the tone is selected automatically.
