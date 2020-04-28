@@ -28,7 +28,7 @@ default:
   ydb-full-name: Yandex Database
   kms-full-name: Yandex Key Management Service
   interconnect-full-name: Yandex Cloud Interconnect
-  cos-full-name: Yandex Container Optimazed Solutions
+  cos-full-name: Yandex Container Optimized Solutions
   ml-platform-full-name: Yandex ML Platform
 
   # Полные имена сервисов без Yandex
@@ -59,7 +59,7 @@ default:
   ydb-name: Yandex Database
   kms-name: Key Management Service
   interconnect-name: Cloud Interconnect
-  cos-name: Container Optimazed Solutions
+  cos-name: Container Optimized Solutions
   ml-platform-name: ML Platform
 
   # Короткие имена
