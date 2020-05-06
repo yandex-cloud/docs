@@ -2,7 +2,7 @@
 
 {{ certificate-manager-full-name }} находится на стадии Preview и появится в списке доступных ресурсов только после одобрения [заявки](https://cloud.yandex.ru/services/certificate-manager#request-access).
 
-В этой инструкции вы создадите свой первый [сертификат от Let's Encrypt<sup>™</sup>](../concepts/managed-certificate) и используете его для [настройки доступа по HTTPS](../../storage/operations/hosting/certificate.md) к статическому сайту, размещенному в {{ objstorage-full-name }}. 
+В этой инструкции вы создадите свой первый [сертификат от Let's Encrypt<sup>®</sup>](../concepts/managed-certificate) и используете его для [настройки доступа по HTTPS](../../storage/operations/hosting/certificate.md) к статическому сайту, размещенному в {{ objstorage-full-name }}. 
 
 ## Подготовка к работе {#before-you-begin}
 

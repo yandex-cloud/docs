@@ -35,7 +35,7 @@
 **Certificate Manager** | | 
 Получение списка сертификатов | `list` | `viewer` на каталог
 Получение информации о сертификате | `get` | `viewer` на сертификат или каталог
-[Создание](../operations/managed/cert-create.md) сертификата от Let's Encrypt<sup>™</sup> | `requestNew` | `editor` на каталог
+[Создание](../operations/managed/cert-create.md) сертификата от Let's Encrypt<sup>®</sup> | `requestNew` | `editor` на каталог
 [Изменение](../operations/managed/cert-modify.md), [удаление](../operations/managed/cert-delete.md) сертификата от Let's Encrypt | `update`, `delete` | `editor` на сертификат или каталог
 [Создание](../operations/import/cert-create.md) пользовательского сертификата | `create` | `editor` на каталог
 [Обновление](../operations/import/cert-update.md), [изменение](../operations/import/cert-modify.md), [удаление](../operations/import/cert-delete.md) пользовательского сертификата | `update`, `delete` | `editor` на сертификат или каталог

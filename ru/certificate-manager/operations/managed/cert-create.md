@@ -1,6 +1,6 @@
 # Создание сертификата от Let's Encrypt
 
-Чтобы создать новый сертификат от Let's Encrypt<sup>™</sup>:
+Чтобы создать новый сертификат от Let's Encrypt<sup>®</sup>:
 
 {% list tabs %}
 

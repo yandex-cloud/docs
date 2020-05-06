@@ -1,6 +1,6 @@
 # Все инструкции
 
-## Сертификат от Let's Encrypt<sup>™</sup> {#managed-certificate}
+## Сертификат от Let's Encrypt<sup>®</sup> {#managed-certificate}
 
 - [{#T}](managed/cert-create.md)
 - [{#T}](managed/cert-validate.md)
