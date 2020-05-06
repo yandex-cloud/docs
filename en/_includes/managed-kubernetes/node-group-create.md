@@ -1,6 +1,6 @@
 To create a node group:
 
-1. In the [management console](https://console.cloud.yandex.ru), select the folder where the {{ k8s }} cluster was created.
+1. In the [management console]({{ link-console-main }}), select the folder where the {{ k8s }} cluster was created.
 1. In the list of services, select **{{ managed-k8s-name }}**.
 1. Select the {{ k8s }} cluster to create a node group for.
 1. On the {{ k8s }} cluster page, go to the **Node groups** tab.

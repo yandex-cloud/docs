@@ -1,6 +1,6 @@
 To create a {{ k8s }} cluster:
 
-1. On the folder page in the [management console](https://console.cloud.yandex.ru), select **{{ managed-k8s-name }}** from the list of services.
+1. On the folder page in the [management console]({{ link-console-main }}), select **{{ managed-k8s-name }}** from the list of services.
 1. Click **Create cluster**.
 1. Enter a name and description for the {{ k8s }} cluster.
 1. Under **Master configuration**:
