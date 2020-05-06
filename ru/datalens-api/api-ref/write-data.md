@@ -38,6 +38,13 @@ Content-Type | Тип передаваемого контента в теле.<p
 ["fieldValue13", "fieldValue23"]
 ```
 
+{% note info %}
+
+Дата и время должны быть переданы в формате [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601).  
+Если в дате и времени есть сведения о часовом поясе (time zone), {{ datalens-short-name }} автоматически приведет его к [стандарту UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
+
+{% endnote %}
+
 ## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
@@ -59,4 +66,5 @@ row_count | **integer**<br><p>Число записанных строк.</p>
 
 **HTTP Code: 423 - Locked**
 
-В {{ datalens-short-name }} выполняется другая операция с указанной таблицей.  
+В {{ datalens-short-name }} выполняется другая операция с указанной таблицей.
+
