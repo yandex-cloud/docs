@@ -21,7 +21,29 @@ items:
             href: operations/volumes/static-create-pv.md
           - name: Managing storage classes
             href: operations/volumes/manage-storage-class.md
-  - name: Solutions
+      - name: Managing a Kubernetes cluster
+        items:
+          - name: Adding Kubernetes cluster credentials to the kubectl configuration file
+            href: operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md
+          - name: Getting information about a Kubernetes cluster
+            href: operations/kubernetes-cluster/kubernetes-cluster-list.md
+          - name: Creating a Kubernetes cluster
+            href: operations/kubernetes-cluster/kubernetes-cluster-create.md
+          - name: Editing a Kubernetes cluster
+            href: operations/kubernetes-cluster/kubernetes-cluster-update.md
+          - name: Deleting a Kubernetes cluster
+            href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
+      - name: Managing a node group
+        items:
+          - name: Getting information about a node group
+            href: operations/node-group/node-group-list.md
+          - name: Creating a node group
+            href: operations/node-group/node-group-create.md
+          - name: Changing a node group
+            href: operations/node-group/node-group-update.md
+          - name: Deleting a node group
+            href: operations/node-group/node-group-delete.md
+  - name: Use cases
     items:
       - name: Integration with Container Registry
         href: solutions/container-registry.md
@@ -41,7 +63,7 @@ items:
         items:
           - name: Cluster autoscaler
             href: concepts/node-group/cluster-autoscaler.md
-          - name: Evicting pods from a node
+          - name: Evicting pods from nodes
             href: concepts/node-group/node-drain.md
           - name: Dynamic resource allocation for a node
             href: concepts/node-group/allocatable-resources.md

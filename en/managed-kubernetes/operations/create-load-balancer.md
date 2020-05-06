@@ -19,7 +19,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
 
 1. Save the following app creation specification to a YAML file named `hello.yaml`:
 
-    [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) is a Kubernetes API object that manages the replicated application.
+    [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) is the {{ k8s }} API object that manages the replicated application.
 
     ```
     apiVersion: apps/v1
@@ -89,7 +89,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
 
 ## Create a LoadBalancer service {#lb-create}
 
-When you create a service with the `LoadBalancer` type, Yandex.Cloud controller creates and configures a [network load balancer](../../load-balancer/concepts/index.md) in your folder with a public IP address.
+When you create a service with the `LoadBalancer` type, Yandex.Cloud controller creates and configures a [network load balancer](../../load-balancer/concepts/index.md) in your folder with a public IP address. С
 
 {% note warning %}
 
