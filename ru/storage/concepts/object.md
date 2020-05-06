@@ -48,10 +48,20 @@
 
 ## URL объекта {#object-url}
 
-URL объекта может иметь одну из следующих форм.
+Ссылка на объект в бакете можно указывать в одном из форматов:
+- Для бакета с публичным доступом:
+  - `https://<bucket>.{{ s3-storage-host }}/<key>`
+  - `https://{{ s3-storage-host }}/<bucket>/<key>`
+- Для бакета с ограниченным доступом:
+  - `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
+  - `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
 
-- `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
-- `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
+Где:
+* `bucket` — имя бакета.
+* `key` — [ключ](#key) (путь к файлу).
+* `parameters` — дополнительные параметры, необходимые для доступа к бакету с ограниченным доступом. Например подпись и срок действия.
+
+Для бакета с ограниченным доступом ссылка генерируется сервисом и позволяет временно скачать объект даже из бакета с ограниченным доступом.
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 
