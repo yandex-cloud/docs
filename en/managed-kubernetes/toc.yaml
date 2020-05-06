@@ -29,12 +29,22 @@ items:
     items:
       - name: Relationship between service resources
         href: concepts/index.md
-      - name: Volumes
-        href: concepts/volume.md
-      - name: Service
-        href: concepts/service.md
       - name: Release channels and updates
         href: concepts/release-channels-and-updates.md
+      - name: Using Kubernetes API objects
+        items:
+          - name: Volumes
+            href: concepts/volume.md
+          - name: Service
+            href: concepts/service.md
+      - name: Node groups
+        items:
+          - name: Cluster autoscaler
+            href: concepts/node-group/cluster-autoscaler.md
+          - name: Evicting pods from a node
+            href: concepts/node-group/node-drain.md
+          - name: Dynamic resource allocation for a node
+            href: concepts/node-group/allocatable-resources.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
