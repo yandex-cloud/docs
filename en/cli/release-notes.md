@@ -1,8 +1,221 @@
 # YC CLI Releases
 
-## Version 0.51.0 (12.02.20) {#latest-release}
+## Version 0.56.0 (23.04.20) {#latest-release}
 
-### Changes to the CLI {#cli}
+### Changes to Yandex.Cloud services {#services}
+
+#### All services {#all}
+
+* You can now use the `get` and `delete` commands to pass multiple resource IDs or names.
+
+#### Managed database services {#managed-db}
+
+**{{ mch-name }}**
+
+* `yc managed-clickhouse user create` and `yc managed-clickhouse user update`
+
+    The `settings` flag parameters are now described in Help.
+
+**{{ mch-name }}, {{ mpg-name }}, {{ mmy-name }}**
+
+* Command `yc <managed DB service name> host list`
+
+    The output now includes the column with `assign_public_ip` values.
+
+**{{ mrd-name }}**
+
+* Command `yc managed-redis host list`
+
+    The output now includes columns with `type` and `shard_name` values.
+
+#### {{ coi }} {#coi}
+
+* Commands `yc compute instance create-with-container` and `yc compute instance update-container`
+
+  When you pass a file with environment variables using the `--container-env-file` flag, the `=` characters in variable values are now processed correctly.
+
+## Previous releases {#previous-releases}
+
+### Version 0.55.0 (13.04.20) {#version0.55.0}
+
+#### Changes to the CLI {#cli}
+
+**Improved**
+
+- Authentication now supported for `http_proxy`.
+- Autocomplete added for the `zsh` command shell.
+- When an operation is terminated by **Ctrl**+**C,** `yc` shows the details for the operation running.
+
+**Fixed**
+
+- Fixed the 30-second wait if no `folder-id` or `folder-name` property is specified in the profile you use.
+
+#### Changes to Yandex.Cloud services {#services}
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Command `yc managed-kubernetes cluster create`
+
+  Added the `--node-ipv4-mask-size` flag to configure the size of `CIDRs` allocated to each cluster node.
+
+- Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`
+
+  Added the `--max-unavailable` and `--max-expansion` flags to control the number of nodes deleted and created at instance group update.
+
+#### Managed database services {#managed-db}
+
+**{{ mch-name }}, {{ mpg-name }}, {{ mmy-name }}**
+
+- Commands `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster restore`, and `yc <managed DB service name> host add`
+
+  Added the `subnet-name` property to the `--host` flag to specify a subnet by its name.
+
+**{{ mmg-name }}, {{ mch-name }}, {{ mrd-name }}**
+
+- Command `yc <managed DB service name> cluster list-logs`
+
+    Added formatting for log lines.
+
+#### {{ coi }} {#coi}
+
+- Command `yc compute instance create-with-container`
+
+    Added mounting of `docker volumes` into a Docker container created in {{ coi }} by using the `container-volume-tmpfs` and `container-volume-host-path` flags.
+
+- Command `yc compute instance update-container`
+
+    Added ability to update `docker volumes` in a Docker container created in {{ coi }}.
+
+### Version 0.54.0 (24.03.20) {#version0.54.0}
+
+#### Changes to the CLI {#cli}
+
+**Improved**
+
+- Error messages thrown by commands and flags are now more intuitive.
+
+#### Changes to Yandex.Cloud services {#services}
+
+##### {{ managed-k8s-name }} {#k8s}
+
+- Command `yc managed-kubernetes cluster create`
+
+  Added the `--kms-key-id` and `--kms-key-name` flags for creating {{ k8s }} clusters with secrets encryption in KMS.
+
+### Version 0.53.0 (04.03.20) {#version0.53.0}
+
+#### Changes to the CLI {#cli}
+
+**Improved**
+
+- When `yc` starts on a VM inside Yandex.Cloud with no `folder-id` specified in the `yc` config, a folder hosting the VM is used.
+
+- Added the `--version` flag for the `yc version` command.
+
+**Fixed**
+
+- Fixed updating using `yc components update` on WSL 1.
+
+- Fixed abnormal termination on invoking `yc help`.
+
+#### Changes to Yandex.Cloud services {#services}
+
+##### {{ managed-k8s-name }} {#k8s}
+
+- Command `yc managed-kubernetes cluster get-credentials`
+
+  Added checking and warning if the user runs `kubectl` versions earlier than 1.11: such versions don't support the authentication method set by this command.
+
+##### Managed database services {#managed-db}
+
+**{{ mch-name }}**
+
+- Commands `{{ yc-mdb-ch }} user`
+
+  Added user quota management.
+
+- Commands `{{ yc-mdb-ch }} cluster`
+
+  Added the `metrica-access`, `datalens-access`, and `websql-access` flags to the cluster create, restore, and update commands.
+
+- Added `{{ yc-mdb-ch }} ml-model` commands.
+
+  It allows you to manage ML models in Clickhouse clusters.
+
+**{{ mmg-name }}, {{ mpg-name }}, {{ mmy-name }}, {{ mrd-name }}**
+
+- Commands `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster update`, and `yc <managed DB service name> cluster restore`.
+
+  Added the `datalens-access` flag to manage Yandex.DataLens access to the cluster.
+
+### Version 0.52.1 (21.02.20) {#version0.52.1}
+
+#### Changes to the CLI {#cli}
+
+**Fixed**
+
+- During installation, WARN not shown for non-existent problems.
+
+### Version 0.52.0 (21.02.20) {#version0.52.0}
+
+#### Changes to the CLI {#cli}
+
+**Improved**
+
+- When you start `yc` using the `--help` or `-h` flag, interactive help opens:
+ in `less` (`$PAGER`) on Linux and macOS, in `more` on Windows. Now you no longer have to scroll up through the help output.
+
+- Debug logs for execution and API interaction are now saved to the
+`$HOME/.config/yandex-cloud/logs` configuration directory rather than installation directory. This fixes the problem when `yc`, which is installed as a stand-alone binary file, suddenly tries to save its log in the same directory without the rights to it.
+
+- Debug logs are also saved for successful requests. If you contact support about an issue 
+with a `yc` command, we can likely help you faster if you attach your log file.
+
+**Fixed**
+
+- No update notice is shown on `yc components ...` commands.
+
+#### Changes to Yandex.Cloud services {#services}
+
+#### {{ compute-name }} {#compute}
+
+- Command `yc compute instance create`
+
+  Added the `nat-address` parameter to the `--network-interface` flag to assign a specific NAT address for the instance created.
+
+- Added the commands `yc compute instance add-one-to-one-nat` and `yc compute instance remove-one-to-one-nat`.
+
+  These commands let you manage NAT on already existing instances.
+
+- Commands `yc compute instance create` and `yc compute instance create`
+
+  Added the `--network-settings` flag to change the network type to `Software accelerated` and back to `Standard`.
+
+#### {{ kms-name }} {#kms}
+
+- Command `yc kms symmetric-key`
+
+  Added commands to manage roles for individual keys:
+`list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Command `yc managed-kubernetes cluster create`
+
+  Added the `--enable-network-policy` flag to create a Kubernetes cluster with
+[Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) support.
+
+- Command `yc k8s cluster get-credentials`
+
+  Added the `--context-name` flag to let the user specify the name of the `context` created in `kubeconfig`.
+
+  The default name at context creation is now more intuitive: `yc-<cluster-name>`.
+
+  Execution result is now explained in the output.
+
+### Version 0.51.0 (12.02.20) {#version0.51.0}
+
+#### Changes to the CLI {#cli}
 
 **Improved**
 
@@ -24,13 +237,11 @@
 
 - Disabled messages about the availability of a new version of `yc` when invoking of a non-interactive command.
 
-### Changes to Yandex.Cloud services {#services}
+#### Changes to Yandex.Cloud services {#services}
 
 #### {{iam-name}} {#iam}
 
-- Added commands for creating and managing SAML-compatible identity federations and their certificates: `yc iam federation` and `yc iam certificate`. Learn more about SAML-compatible identity federations in the [documentation](https://cloud.yandex.com/docs/iam/concepts/users/identity-federations).
-
-## Previous releases {#previous-releases}
+- Added commands for creating and managing SAML-compatible identity federations and their certificates: `yc iam federation` and `yc iam certificate`. Learn more about SAML-compatible identity federations in the [documentation](https://cloud.yandex.ru/docs/iam/concepts/users/identity-federations).
 
 ### Version 0.50.0 (27.01.20) {#version0.50.0}
 
