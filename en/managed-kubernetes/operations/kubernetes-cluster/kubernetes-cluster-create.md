@@ -10,7 +10,7 @@ To create a {{ k8s }} cluster:
 
 1. [On the billing page]({{ link-console-billing }}) make sure that you enabled a [billing account](../../../billing/concepts/billing-account.md), and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account).
 
-1. If you don't have a folder, [create one](/../../resource-manager/operations/folder/create.md).
+1. If you don't have a folder, [create one](../../../resource-manager/operations/folder/create.md).
 
 1. Install the [Kubernetes CLI (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 

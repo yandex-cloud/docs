@@ -27,7 +27,7 @@ If you no longer need the backup or recovered data, [delete all related resource
 
 ## Before you start {#before-you-begin}
 
-{% include [prepare-register-billing](../_solutions_includes/before-begin.md) %}
+{% include [prepare-register-billing](../_solutions_includes/before-you-begin.md) %}
 
 ### Required paid resources {#paid-resources}
 

@@ -34,7 +34,7 @@ Get a list of [node groups](../../concepts/index.md#node-group) in the {{ k8s }}
 
 ## Getting detailed information about a node group {#get}
 
-To access a node group, use the `ID` or `NAME` parameters from the [previous](kubernetes-cluster-list.md#list) section.
+To access a node group, use the `ID` or `NAME` parameters from the [previous](node-group-list.md#list) section.
 
 {% list tabs %}
 

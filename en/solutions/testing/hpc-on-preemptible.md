@@ -21,7 +21,7 @@ To create a cluster and run a computational task:
 
 ## Before you start {#before-begin}
 
-{% include [before-begin](../_solutions_includes/before-begin.md) %}
+{% include [before-begin](../_solutions_includes/before-you-begin.md) %}
 
 ### Required paid resources {#required-paid-resources}
 
