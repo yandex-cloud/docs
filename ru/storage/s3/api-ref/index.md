@@ -14,7 +14,7 @@
 
 ## Поддерживаемые методы {#operations-list}
 
-### Сервис Bucket
+### Сервис Bucket {#bucket-service}
 
 Метод | Описание
 ----- | -----
@@ -24,7 +24,7 @@
 [listBuckets](bucket/list.md) | Возвращает список бакетов.
 [deleteBucket](bucket/delete.md) | Удаляет бакет.
 
-### Сервис Object
+### Сервис Object {#object-service}
 
 Метод | Описание
 ----- | -----
@@ -36,7 +36,7 @@
 [deleteMultipleObjecs](object/deletemultipleobjects.md) | Удаляет объекты по списку.
 [options](object/options.md) | Проверяет возможность CORS запроса к объекту.
 
-### Сервис Multipart upload
+### Сервис Multipart upload {#multipart-upload-service}
 
 Метод | Описание
 ----- | -----
@@ -48,7 +48,7 @@
 [completeUpload](multipart/completeupload.md) | Завершает составную загрузку.
 [listUploads](multipart/listuploads.md) | Выдает список незавершенных загрузок.
 
-### Сервис Static Website Hosting
+### Сервис Static Website Hosting {#static-website-hosting-service}
 
 Метод | Описание
 ----- | -----
@@ -56,7 +56,7 @@
 [get](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из {{ objstorage-name }}.
 [delete](hosting/delete.md) | Удаляет конфигурацию бакета для хостинга статических сайтов.
 
-### Сервис CORS
+### Сервис CORS {#cors-service}
 
 Метод | Описание
 ----- | -----
@@ -64,7 +64,7 @@
 [get](cors/get.md) | Возвращает конфигурацию CORS для бакета.
 [delete](cors/delete.md) | Удаляет конфигурацию CORS для бакета.
 
-### Сервис Lifecycles
+### Сервис Lifecycles {#lifecycles-service}
 
 Метод | Описание
 ----- | -----
@@ -72,7 +72,7 @@
 [get](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
 [delete](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
 
-### Сервис ACL
+### Сервис ACL {#acl-service}
 
 Метод | Описание
 ----- | -----
@@ -82,6 +82,6 @@
 [bucketPutAcl](acl/bucketput.md) | Загружает список управления доступом для бакета.
 
 
-## См. также
+## См. также {#see-also}
 - [{#T}](../../s3/index.md)
-- [{#T}](../../instruments/index.md)
+- [{#T}](../../tools/index.md)

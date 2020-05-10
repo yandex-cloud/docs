@@ -19,7 +19,7 @@ To add skills based on a [function](../concepts/function.md) to Alice:
 
 More about [developing Alice's skills](https://yandex.ru/dev/dialogs/alice/doc/development-docpage/#test__dev-cycle).
 
-## 1. Prepare the code for Alice's skill {#prepare-code}
+## Prepare the code for Alice's skill {#prepare-code}
 
 To create [versions](../../functions/concepts/function.md#version) of functions, you can use one of the [code upload formats](../../functions/concepts/function.md#upload). As an example, we'll upload the code in a ZIP archive.
 
@@ -27,7 +27,7 @@ To create [versions](../../functions/concepts/function.md#version) of functions,
 
 - Python
     1. Download a sample file from GitHub: [parrot.py](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/python/parrot/parrot.py).
-    1. Create a ZIP archive named `parrot-py.zip` and add the `parrot.py` file.
+    1. Create a ZIP archive named `parrot-py.zip` with the `parrot.py` file.
 
 - Node.js
     1. Download a sample file from GitHub: [index.js](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/nodejs/parrot/index.js).
@@ -35,11 +35,11 @@ To create [versions](../../functions/concepts/function.md#version) of functions,
 
 {% endlist %}
 
-## 2. Create a function: {#create-function}
+## Create a function {#create-function}
 
 Once created, the function will only contain information about itself, like its name, description, and unique ID. The skill's code will be added to the function when you [create a version](#create-version).
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create your function.
+1. In [management console]({{ link-console-main }}), select the folder where you want to create your function.
 
 1. Click **Create resource**.
 
@@ -51,7 +51,7 @@ Once created, the function will only contain information about itself, like its 
 
 1. Click **Create**.
 
-## 3. Create a version of the function {#create-version}
+## Create the version of the function {#create-version}
 
 Choose the programming language and create a [version of the function](../concepts/function.md#version).
 
@@ -89,23 +89,25 @@ Choose the programming language and create a [version of the function](../concep
 
 {% endlist %}
 
-## 4. Make the function public {#public}
-
-To call the function properly, make it public.
-
-1. In the management console, open **{{ sf-name }}** in the folder with the function that you want to make public.
-1. Select it from the list of functions.
-1. On the **Overview** page under **General information**, click the toggle in the **Public function** field.
-
-## 5. Add the function link to Alice's skill {#add-link}
+## Add the function link to Alice's skill {#add-link}
 
 1. Go to Alice's skill page in your [dashboard](https://dialogs.yandex.ru/developer/).
+
 1. Open the **Settings** tab.
+
 1. Under **Backend**, select **Function in Yandex.Cloud**.
+
 1. Select the desired function from the drop-down list.
+
+    {% note important %}
+
+    The list shows the functions that you're allowed to view. To attach a function to a skill, you need permission to launch the function. This permission is part of the [{{ roles-functions-ivoker }}](../security/index.md#serverless-functions-invoker), [{{ roles-editor}}](../security/index.md#editor), and higher roles.
+
+    {% endnote %}
+
 1. Click **Save** at the bottom of the page to save changes.
 
-## 6. Test the skill {#test}
+## Test the skill {#test}
 
 1. Open the **Testing** tab on the skill page in your [dashboard](https://dialogs.yandex.ru/developer/).
 1. If everything is set up correctly, the **Chat** section will display a message inviting you to start a conversation: `Hello! I'll repeat anything you say to me.`.

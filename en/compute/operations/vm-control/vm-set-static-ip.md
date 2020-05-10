@@ -2,7 +2,7 @@
 
 _A static IP address_ is a permanent IP address that does not change when a VM is stopped.
 
-### Use of static IP addresses
+### Use of static IP addresses {#use-of-static-IP-addresses}
 
 Public static IP addresses are charged at an individual rate. For more information, see [{#T}](../../../vpc/pricing.md#prices-public-ip) in the {{ vpc-name }} service documentation.
 

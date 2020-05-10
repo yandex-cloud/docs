@@ -12,7 +12,7 @@ To create a dashboard:
 1. Enter a name for the dashboard and select the directory to save it to.
 1. Click **Save**. The dashboard is saved in the specified directory.
 
-#### What's next
+#### What's next {#what-is-next}
 
 - [{#T}](../chart/create.md)
 - [{#T}](../chart/create-query.md)

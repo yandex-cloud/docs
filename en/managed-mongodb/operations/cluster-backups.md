@@ -2,9 +2,9 @@
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
-## Restoring clusters from backups: {#restore}
+## Restoring clusters from backups {#restore}
 
-When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
+When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps.
 
 For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ MG }} backup cannot be restored as a {{ PG }} cluster).
 
@@ -42,7 +42,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       ```
       $ yc managed-mongodb backup list
-
+      
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -56,7 +56,7 @@ For a new cluster, you should set all the parameters that are required at creati
       ```
       $ yc managed-mongodb cluster restore \
            --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
-           --name mynewmg \
+           --cluster-name mynewmg \
            --environment=PRODUCTION \
            --network-name default \
            --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
@@ -72,7 +72,7 @@ For a new cluster, you should set all the parameters that are required at creati
       - Named `mynewmg`.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
-      - With one `{{ host-class }}` class host in the  `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
+      - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
       - With SSD network storage of 20 GB.
 
@@ -134,7 +134,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ yc managed-mongodb backup list
-
+  
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
   +----------+----------------------+----------------------+----------------------+
@@ -185,7 +185,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ yc yc managed-mongodb cluster create \
-     --name <cluster name> \
+     --cluster-name <cluster name> \
      --environment <prestable or production> \
      --network-name <network name> \
      --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -197,9 +197,8 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ yc yc managed-mongodb cluster update \
-     --name <cluster name> \
+     --cluster-name <cluster name> \
      --backup-window-start 11:25:00
   ```
 
 {% endlist %}
-

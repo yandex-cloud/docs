@@ -10,7 +10,7 @@ For more information about role inheritance, see the section [Inheritance of acc
 
 {% endnote %}
 
-## Assigning roles
+## Assigning roles {#grant-roles}
 
 To manage message queues, the user must have the appropriate permissions in the cloud and folders where operations will be performed.
 
@@ -18,37 +18,29 @@ To grant the user permissions:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Roles
+## Roles {#roles}
 
 The list below shows all roles that are considered when verifying access rights in the {{ service-name }} service.
 
-### Service roles
-
-Service roles are roles that allow access to the resources of a particular service. When {{ service-name }} resource access rights are checked, the {{ resmgr-name }} service roles are taken into account.
-
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
-### Primitive roles
-
-You can assign primitive roles to any resource in any service.
-
-#### {{ roles-viewer }}
+### {{ roles-viewer }} {#viewer}
 
 Users with the `{{ roles-viewer }}` role can view lists of cloud message queues and messages.
 
-#### {{ roles-editor }}
+### {{ roles-editor }} {#editor}
 
 Users with the `{{ roles-editor }}` role can perform any operations on message queues and messages.
 
 The `{{ roles-editor }}` role also includes all `{{ roles-viewer }}` role permissions.
 
-#### {{ roles-admin }}
+### {{ roles-admin }} {#admin}
 
 Users with the `{{ roles-admin }}` role can manage resource access rights, such as allowing other users to create message queues and messages or view their details.
 
 The `{{ roles-admin }}` role also includes all `{{ roles-editor }}` role permissions.
 
-## See also
+## See also {#see-also}
 
 [Hierarchy of Yandex.Cloud resources](../../resource-manager/concepts/resources-hierarchy.md)
 

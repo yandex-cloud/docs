@@ -93,7 +93,7 @@ $ yc managed-redis shards get <имя шарда> --cluster-name <имя кла�
   После добавления нового шарда необходимо выполнить ребалансировку кластера: 
 
   ```
-  $ yc managed-redis cluster --name test-sharding-2 rebalance 
+  $ yc managed-redis cluster --cluster-name test-sharding-2 rebalance 
   ```
 
 {% endlist %}

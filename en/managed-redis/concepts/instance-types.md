@@ -1,6 +1,6 @@
-# Host classes
+# Host configurations
 
-The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
+The host configuration determines the computing power allocated for each host in the cluster. When you change the host configuration for a cluster, all existing hosts change to match it.
 
 {% note info %}
 
@@ -10,31 +10,29 @@ The amount of memory allocated to a host is also determined by the `maxmemory` c
 
 The hard disk space available to the host should be at least two times more than the selected memory size. For technical and organizational limitations of {{ mrd-name }}, see [{#T}](limits.md).
 
-The available storage does not depend on the host class. For storage limitations, see [{#T}](limits.md). w
-
-## Available host classes {#available-flavors}
+## Available host configurations {#available-flavors}
 
 Configuration types:
 
-* **b1, b2**: Configurations with a [guaranteed vCPU share](../../compute/concepts/performance-levels.md) below 100%. Those host classes are intended for test loads. We don't recommend using them for production solutions.
-* **hm1, hm2**: Standard configurations for {{ RD }}.
+* **burstable**: Configurations with a [guaranteed vCPU share](../../compute/concepts/performance-levels.md) below 100%. Those host classes are intended for test loads. We don't recommend using them for production solutions.
+* **high-memory**: Standard configurations for {{ RD }}.
 
-| Host class name | RAM, GB | Disk size, GB |
-| ----- | ----- | ----- |
-| b1.nano | 2 | 4 - 16 |
-| b1.small | 4 | 8 - 32 |
-| hm1.nano | 8 | 16 - 64 |
-| hm1.micro | 12 | 24 - 96 |
-| hm1.small | 16 | 32 - 128 |
-| hm1.medium | 24 | 48 - 192 |
-| hm1.large | 32 | 64 - 256 |
-| hm1.xlarge | 48 | 96 - 384 |
-| hm1.2xlarge | 64 | 128 - 512 |
-| hm1.3xlarge | 80 | 160 - 640 |
-| hm1.4xlarge | 96 | 192 - 768 |
-| hm1.5xlarge | 128 | 256 - 1024 |
-| hm1.6xlarge | 160 | 320 - 1280 |
-| hm1.7xlarge | 192 | 384 - 1536 |
-| hm1.8xlarge | 224 | 448 - 1792 |
-| hm1.9xlarge | 256 | 512 - 2048 |
+| vCPU | RAM, GB | Guaranteed vCPU performance | Disk size, GB |
+| ----- | ----- | ----- | ----- |
+| 2 | 2 | 5% | 4 - 16 |
+| 2 | 4 | 20% | 8 - 32 |
+| 2 | 8 | 100% | 16 - 64 |
+| 2 | 12 | 100% | 24 - 96 |
+| 2 | 16 | 100% | 32 - 128 |
+| 4 | 24 | 100% | 48 - 192 |
+| 4 | 32 | 100% | 64 - 256 |
+| 4 | 48 | 100% | 96 - 384 |
+| 4 | 64 | 100% | 128 - 512 |
+| 4 | 80 | 100% | 160 - 640 |
+| 8 | 96 | 100% | 192 - 768 |
+| 8 | 128 | 100% | 256 - 1024 |
+| 8 | 160 | 100% | 320 - 1280 |
+| 8 | 192 | 100% | 384 - 1536 |
+| 8 | 224 | 100% | 448 - 1792 |
+| 8 | 256 | 100% | 512 - 2048 |
 

@@ -29,7 +29,7 @@ You are charged for incoming traffic to the IP address and port specified as the
   
 {% endlist %}
 
-### Network load balancers {#prices-traffic}
+### Network load balancers {#network-load-balancers}
 
 You are charged for network load balancers if they have a listener and a non-empty target group attached.
 

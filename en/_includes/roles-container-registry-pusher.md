@@ -1,4 +1,4 @@
-#### container-registry.images.pusher {#cr-images-pusher}
+### container-registry.images.pusher {#cr-images-pusher}
 
 The `{{ roles-cr-pusher }}` role includes the following permissions:
 

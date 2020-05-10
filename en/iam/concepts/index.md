@@ -9,13 +9,13 @@ With {{ iam-short-name }}, you can:
 * [Manage authorization keys](#keys).
 * [Log in to Yandex.Cloud](#auth).
 
-## Access {#access}
+## Resource access {#access}
 
 To grant a user access to a resource, you assign them [roles](access-control/roles.md) for the resource. Each role consists of a set of permissions that describe operations that can be performed with the resource.
 
 Before performing an operation with a certain resource (such as creating a VM), Yandex.Cloud sends a request to the IAM service to check whether this operation is allowed. {{ iam-short-name }} compares the list of required permissions to the list of permissions granted to the user performing this operation. If some of the permissions are missing, the operation is not allowed and Yandex.Cloud returns an error. For more information, see [{#T}](access-control/index.md).
 
-## Accounts {#accounts}
+## Accounts in Yandex.Cloud {#accounts}
 
 To identify users performing operations with resources, use [Yandex.Passport accounts](#passport), [service accounts](#sa), or [federated accounts](#saml-federation).
 
@@ -27,7 +27,7 @@ Billing accounts aren't used for managing resources in Yandex.Cloud and aren't p
 
 ### Yandex.Passport accounts {#passport}
 
-_A Yandex.Passport account_ is your Yandex or [Yandex.Connect]({{ link-yandex-connect }}) account. You need a Yandex.Passport account to manage resources from the [management console]({{ link-console-main }}).
+_A Yandex.Passport account_ is your Yandex or [Yandex.Connect]({{ link-yandex-connect }}) account. You need a Yandex.Passport account to manage resources from [management console]({{ link-console-main }}).
 
 {% note info %}
 
@@ -39,13 +39,15 @@ _A Yandex.Passport account_ is your Yandex or [Yandex.Connect]({{ link-yandex-co
 
 {% include [sa-def](../_includes_service/sa-def.md) %}
 
-By using service accounts you can flexibly configure access rights to resources for programs you have written. For more information, see [{#T}](users/service-accounts.md).
+By using service accounts you can flexibly configure access rights to resources for programs you wrote. For more information, see [{#T}](users/service-accounts.md).
 
 ### Federated account {#saml-federation}
 
 _A federated account_ is a user account from an identity federation, like Active Directory.
 
 {% include [about-saml-federations](../../_includes/iam/about-saml-federations.md) %}
+
+For more information, see [{#T}](users/identity-federations.md).
 
 ## Authorization keys {#keys}
 
@@ -59,5 +61,5 @@ These keys are currently only used for service accounts.
 
 ## Authorization {#auth}
 
-The user has to pass authorization so that {{ iam-short-name }} can check the user's rights. Authorization is performed in different ways, depending on the type of account and the interface used. For more information, see [{#T}](authorization/index.md).
+The user must pass authentication so that {{ iam-short-name }} can authorize them (i.e., check whether the user has rights). Authentication is performed in different ways, depending on the type of account and the interface used. For more information, see [{#T}](authorization/index.md).
 

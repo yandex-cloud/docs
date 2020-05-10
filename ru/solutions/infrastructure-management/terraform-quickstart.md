@@ -1,6 +1,6 @@
 # Начало работы с Terraform
 
-Terraform позволяет быстро создать облачную инфраструктуру в Яндекс.Облаке. Состав инфраструктуры определяется с помощью конфигурационных файлов, в которых указываются требуемые облачные ресурсы и их параметры.
+{% include [terraform-definition](../_solutions_includes/terraform-definition.md)  %}
 
 Конфигурации для Terraform записываются в файлы в формате `.tf` на языке HashiCorp Configuration Language (HCL).
 
@@ -13,7 +13,7 @@ Terraform позволяет быстро создать облачную инф
 1. [Создайте ресурсы](#create-resources)
 1. [Удалите ресурсы](#delete-resources)
 
-## Подготовьте облако к работе {#before-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 Перед тем, как разворачивать инфраструктуру, нужно зарегистрироваться в Облаке и создать платежный аккаунт:
 
@@ -54,7 +54,7 @@ Terraform позволяет быстро создать облачную инф
 
 Конфигурации ресурсов задаются сразу после конфигурации провайдера:
 
-~~~
+```hcl
 provider "yandex" {
   token     = "OAuth_token"
   cloud_id  = "cloud-id"
@@ -77,7 +77,7 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   network_interface {
-    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+    subnet_id = yandex_vpc_subnet.subnet-1.id
     nat       = true
   }
 
@@ -101,7 +101,7 @@ resource "yandex_compute_instance" "vm-2" {
   }
 
   network_interface {
-    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+    subnet_id = yandex_vpc_subnet.subnet-1.id
     nat       = true
   }
 
@@ -117,27 +117,45 @@ resource "yandex_vpc_network" "network-1" {
 resource "yandex_vpc_subnet" "subnet-1" {
   name           = "subnet1"
   zone           = "ru-central1-a"
-  network_id     = "${yandex_vpc_network.network-1.id}"
+  network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.10.0/24"]
 }
 
 output "internal_ip_address_vm_1" {
-  value = "${yandex_compute_instance.vm-1.network_interface.0.ip_address}"
+  value = yandex_compute_instance.vm-1.network_interface.0.ip_address
 }
 
 output "internal_ip_address_vm_2" {
-  value = "${yandex_compute_instance.vm-2.network_interface.0.ip_address}"
+  value = yandex_compute_instance.vm-2.network_interface.0.ip_address
 }
 
 
 output "external_ip_address_vm_1" {
-  value = "${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}"
+  value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
 }
 
 output "external_ip_address_vm_2" {
-  value = "${yandex_compute_instance.vm-2.network_interface.0.nat_ip_address}"
+  value = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
 }
-~~~
+```
+
+### Создание пользователей {#users}
+
+Если вам нужно создать другого пользователя, в блок `metadata` вместо параметра `ssh-keys` можно передать пользовательские метаданные в параметре `user-data`. Для этого:
+
+1. Создайте текстовый файл с метаданными, например:
+
+   {% include [user-data](../../_includes/compute/user-data.md) %}
+
+1. Добавьте в конфигурацию параметр `user-data`, указав путь к файлу с метаданными:
+
+   ```
+     metadata = {
+       user-data = "${file("<путь к файлу>/meta.txt")}"
+     }
+   ```
+
+Подробнее о работе с метаданными читайте в разделе [Метаданные виртуальной машины](../../compute/concepts/vm-metadata).
 
 ## Создайте ресурсы {#create-resources}
 

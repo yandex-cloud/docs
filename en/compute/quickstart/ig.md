@@ -96,7 +96,7 @@ To create an instance group:
 
 The instance group appears in the list.
 
-## What's next {#next}
+## What's next {#what-is-next}
 
 - Watch [tutorials for creating web services in Yandex.Cloud](../../solutions/web/index.md).
 - Learn [how to work with instance groups](../operations/index.md).

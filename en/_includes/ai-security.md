@@ -1,6 +1,6 @@
 # Access management
 
-When making requests on behalf of [a Yandex account](../iam/concepts/index.md#passport), please specify [the identifier of the folder](../resource-manager/operations/folder/get-id.md) that you have `editor` role permissions for. If the required permissions are missing, the service returns an error.
+When making requests from [a Yandex account](../iam/concepts/index.md#passport), please specify [the ID of the folder](../resource-manager/operations/folder/get-id.md) that you have `editor` permissions for. If the required permissions are missing, the service returns an error.
 
 Do not specify a folder for [service accounts](../iam/concepts/users/service-accounts.md): instead, use the folder where the account was created.
 
@@ -14,7 +14,7 @@ To use the service, you must have one of the following [roles](../iam/concepts/a
 
 {% note info %}
 
-Users with a Yandex account need the`resource-manager.cloud.member` role for the cloud along with the `editor` or `admin` role. This role is assigned to the user automatically when they are [added to the cloud](../iam/operations/users/create.md).
+Users with a Yandex or [federated account](../iam/concepts/users/identity-federations.md) need the `resource-manager.cloud.member` role for the cloud along with the `editor` or `admin` role. This role is assigned to the user automatically when they are [added to the cloud](../iam/operations/users/create.md).
 
 {% endnote %}
 

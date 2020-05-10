@@ -10,7 +10,7 @@
   - [Перевод с банковской карты](../payment/payment-methods-individual.md) 
   
          
-- Юридические лица
+- Организации и ИП
   
   - [Перевод с расчетного счета (через банк)](../payment/payment-methods-business.md)
   - [Перевод с банковской карты](../payment/payment-methods-card-business.md)

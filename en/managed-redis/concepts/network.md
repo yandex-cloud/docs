@@ -7,7 +7,7 @@ When creating a cluster, you can:
 
 You can create a cluster without specifying any subnets for the hosts, if the availability zone selected for each host contains exactly one subnet of the cluster network.
 
-## Network access to a cluster {{ mrd-short-name }}
+## Network access to a cluster {{ mrd-short-name }} {#network-access-to-a-cluster}
 
 You can only connect to a {{ RD }} cluster from a Yandex.Cloud virtual machine instance that's in the same network as the cluster. You cannot get a public IP address for a host in this type of cluster.
 

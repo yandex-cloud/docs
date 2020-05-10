@@ -24,6 +24,6 @@
 * [Packer](../../../solutions/infrastructure-management/packer-quickstart.md)
 * [GitLab CI](../../../solutions/testing/ci-for-snapshots.md)
 
-#### См. также
+#### См. также {#see-also}
 
 * [Подробнее о сервисе Яндекс.OAuth](https://yandex.ru/dev/oauth/).

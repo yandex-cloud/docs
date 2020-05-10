@@ -21,7 +21,7 @@
 
 {% endnote %}
 
-#### Что дальше
+#### Что дальше {#what-is-next}
 
 * [Назначьте роли на каталог](operations/folder/set-access-bindings.md).
 * [Назначьте роли на облако](operations/cloud/set-access-bindings.md).

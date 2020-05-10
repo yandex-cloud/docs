@@ -9,7 +9,7 @@
 
 {% endnote %}
 
-## Перед началом работы {#before-beginning}
+## Перед началом работы {#before-you-begin}
 
 Получите доступ к {{ monitoring-full-name }} на [странице сервиса](https://cloud.yandex.ru/services/monitoring).
 

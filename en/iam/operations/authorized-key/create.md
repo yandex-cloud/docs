@@ -74,7 +74,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
 
 {% endlist %}
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [Get an IAM token for the service account](../iam-token/create-for-sa.md)
 

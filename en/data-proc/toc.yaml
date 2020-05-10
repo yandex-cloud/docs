@@ -2,6 +2,16 @@ title: "Yandex Data Proc"
 stage: new
 href: index.yaml
 items:
+  - name: Solutions
+    items:
+      - name: Configuring networks for Data Proc clusters
+        href: solutions/configure-network.md
+      - name: Using Apache Hive
+        href: solutions/how-to-use-hive.md
+      - name: Running Spark applications
+        href: solutions/run-spark-job.md
+      - name: Copying files from Yandex Object Storage
+        href: solutions/copy-files-from-object-storage.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -12,7 +22,7 @@ items:
         href: operations/connect.md
       - name: Updating subclusters
         href: operations/subcluster-update.md
-      - name: Managing subclusters
+      - name: How to manage subclusters
         href: operations/subclusters.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
@@ -28,7 +38,23 @@ items:
       href: concepts/limits.md
     - name: Hadoop and component versions
       href: concepts/environment.md
+    - name: Component interfaces and ports
+      href: concepts/interfaces.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/data-proc/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref/dataproc/toc.yaml

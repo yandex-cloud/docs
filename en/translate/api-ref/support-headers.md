@@ -1,6 +1,6 @@
 {% include [support-headers](../../_includes/ai-common/support-headers.md) %}
 
-## Examples
+## Examples {#examples}
 
 Example of adding a header using [cURL](https://curl.haxx.se):
 

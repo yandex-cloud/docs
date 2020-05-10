@@ -7,5 +7,7 @@ items:
     href: notify.md
   - name: Запросы данных
     href: request.md
+  - name: Правила тарификации
+    href: pricing.md
   - name: Вопросы и ответы
     href: qa.md

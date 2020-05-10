@@ -10,7 +10,7 @@ You can get an OAuth token to work with Yandex.Cloud by sending a [request]({{ l
 
 {% note alert %}
 
-If someone might have discovered your OAuth token, [revoke it](https://yandex.ru/dev/oauth/doc/dg/reference/token-invalidate-docpage/) and request a new one.
+If someone might have discovered your OAuth token, [revoke it](https://tech.yandex.com/oauth/doc/dg/reference/token-invalidate-docpage/) and request a new one.
 
 {% endnote %}
 
@@ -24,7 +24,7 @@ These services and utilities can request an IAM token automatically, so you can 
 * [Packer](../../../solutions/infrastructure-management/packer-quickstart.md)
 * [GitLab CI](../../../solutions/testing/ci-for-snapshots.md)
 
-#### See also
+#### See also {#see-also}
 
-* [Learn more about Yandex.OAuth ](https://yandex.ru/dev/oauth/).
+* [Learn more about Yandex.OAuth ](https://tech.yandex.com/oauth/).
 

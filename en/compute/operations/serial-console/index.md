@@ -10,7 +10,7 @@ Serial console access is not secure, so enabling it might allow hackers to acces
 
 {% endnote %}
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 Before you enable serial console access on a VM:
 
@@ -229,7 +229,7 @@ If you created it before February 22, 2019, you need to update the Windows regis
    ```
    $ bcdedit /ems "{current}" on
    The operation completed successfully.
-   
+
    $ bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200
    The operation completed successfully.
    ```

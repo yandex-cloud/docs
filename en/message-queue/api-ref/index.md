@@ -16,14 +16,14 @@ Authorization: authorization string (AWS Signature Version 4)
 Request parameters
 ```
 
-### Request headers
+### Request headers {#request-headers}
 
 All requests must have standard headers:
 
 * `Content-Type`: `application/x-www-form-urlencoded`.
 * `Authorization`: Request signature as per [Authenticating Requests](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-api-request-authentication.html) in the Amazon SQS documentation. If you use the [SDK or a console client](../instruments/index.md), a request and its signature are generated automatically and you only need to pass the request parameters.
 
-### Request parameters
+### Request parameters {#request-parameters}
 
 All requests must contain standard parameters:
 

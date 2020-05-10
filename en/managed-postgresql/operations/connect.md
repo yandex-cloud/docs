@@ -10,7 +10,7 @@ If public access is only configured for certain hosts in your cluster, automatic
 
 {% endnote %}
 
-## Configuring an SSL certificate
+## Configuring an SSL certificate {#configuring-an-ssl-certificate}
 
 {{ PG }} hosts with public access only support connections with an SSL certificate. You can prepare a certificate as follows:
 
@@ -20,7 +20,7 @@ $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/roo
 $ chmod 0600 ~/.postgresql/root.crt
 ```
 
-## Connection string
+## Connection string {#connection-string}
 
 Connect to the database using the command `psql`.
 
@@ -54,9 +54,9 @@ Connect to the database using the command `psql`.
 
 {% endlist%}
 
-## Automatic master host selection
+## Automatic master host selection {#automatic-master-host-selection}
 
-### Using libpq
+### Using libpq {#using-libpq}
 
 To guarantee a connection to the master host, specify the FQDNs of all the cluster hosts in the `host` argument and pass the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting from [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html):
 
@@ -77,7 +77,7 @@ To upgrade the library version used by the `psql` utility:
 
 You can find the addresses of all the hosts in the DB cluster on the appropriate cluster page in the management console.
 
-### With a driver that supports only one host
+### With a driver that supports only one host {#with-a-driver-that-supports-only-one-host}
 
 If your database connection driver doesn't allow passing multiple hosts in the connection string (for example,[pgx in Go](https://github.com/jackc/pgx)), you can connect to a special host like `c-<cluster ID>.rw.{{ dns-zone }}`.
 

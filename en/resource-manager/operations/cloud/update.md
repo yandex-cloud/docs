@@ -6,7 +6,7 @@ To rename a cloud, you must have the [`editor`](../../../iam/concepts/access-con
 
 - Management console
 
-  1. Open the [management console](https://console.cloud.yandex.ru).
+  1. Open the [management console](https://console.cloud.yandex.com).
 
   1. Find the cloud in the **Available clouds** list and point to it with the mouse. The ![***](../../../_assets/options.svg) icon appears next to the cloud. Click on it.
 

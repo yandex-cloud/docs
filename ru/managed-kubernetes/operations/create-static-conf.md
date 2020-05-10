@@ -9,7 +9,7 @@
 - [Создайте объект ServiceAccount](#create-sa).
 - [Подготовьте токен объекта ServiceAccount](#prepare-token).
 - [Создайте и заполните файл конфигурации](#create-conf-file).
-- [Проверьте результат](#check-result),
+- [Проверьте результат](#check-result).
 
 Для выполнения bash-команд вам понадобится парсер JSON-файлов — [jq](https://stedolan.github.io/jq/download/).
 
@@ -160,7 +160,7 @@
     
 {% endlist %}
 
-## Получите IP-адрес кластера {{ k8s }} 
+## Получите IP-адрес кластера {{ k8s }} {#get-cluster-ip}
 
 Получите IP-адрес кластера {{ k8s }} и добавьте его в переменную `MASTER_ENDPOINT` для дальнейшего использования. 
 

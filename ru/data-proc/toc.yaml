@@ -6,10 +6,12 @@ items:
     items:
       - name: Настройка сети для кластеров Data Proc
         href: solutions/configure-network.md
+      - name: Использование Apache Hive
+        href: solutions/how-to-use-hive.md
       - name: Запуск Spark-приложений
         href: solutions/run-spark-job.md
       - name: Копирование файлов из Yandex Object Storage
-        href: solutions/copy-files-from-s3.md
+        href: solutions/copy-files-from-object-storage.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -36,10 +38,26 @@ items:
       href: concepts/limits.md
     - name: Версии Hadoop и компонентов
       href: concepts/environment.md
+    - name: Интерфейсы и порты компонентов
+      href: concepts/interfaces.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/data-proc/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref/dataproc/toc.yaml
 #  - name: Сценарии использования
 #    href: scenarios/index.md
 #  - name: Справочник API

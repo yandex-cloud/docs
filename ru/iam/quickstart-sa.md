@@ -10,7 +10,7 @@
 * [Выполнять операции в CLI](#run-operation-from-sa).
 * [Удалять сервисные аккаунты](#delete-sa).
 
-## Перед началом
+## Перед началом {#before-you-begin}
 
 1. Если вы еще не зарегистрированы в Яндекс.Облаке, перейдите в [консоль управления](https://console.cloud.yandex.ru).
 1. [На странице биллинга](https://console.cloud.yandex.ru/billing) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
@@ -33,13 +33,13 @@
 yc resource-manager folder list
 ```
 
-## Удалите сервисный аккаунт {#revoke-roles}
+## Удалите сервисный аккаунт {#delete-sa}
 
 Если сервисный аккаунт больше не нужен, удалите его:
 
 {% include [delete-sa-via-console](../_includes/iam/delete-sa-via-console.md) %}
 
-## Что дальше
+## Что дальше {#what-is-next}
 
 * [Пошаговые инструкции](operations/index.md) помогут вам решить конкретные задачи, возникающие при использовании {{ iam-name }}.
 * [Подробнее про сервисные аккаунты](concepts/users/service-accounts.md) написано в концепциях.

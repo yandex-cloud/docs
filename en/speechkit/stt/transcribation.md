@@ -10,11 +10,23 @@ For now, you can only recognize long audio in Russian.
 
 {% endnote %}
 
-## Before you start
+## Recognizing long audio fragments {#long-audio-recognition}
 
-1. A recognition request should be sent on behalf of a [service account](../../iam/concepts/users/service-accounts.md). If you don't have a service account yet, [create one](../../iam/operations/sa/create.md).
+To recognize long audio fragments, you need to execute 2 requests:
 
-1. Make sure the service account has access to the folder where it was created.
+1. [Send a file for recognition](#sendfile).
+1. [Get recognition results](#get-result).
+
+If you send files using gRPC, see [{#T}](#grpc).
+
+### Before you start {#before-you-begin}
+
+1. A recognition request should be sent on behalf of a [service account](../../iam/concepts/users/service-accounts.md) with the [`editor`](../../iam/concepts/access-control/roles.md#editor) role for the folder where it was created.
+
+    If necessary, follow the instructions:
+    * [{#T}](../../iam/operations/sa/create.md). In the management console, you can assign roles when creating a service account.
+    * [{#T}](../../iam/operations/roles/get-assigned-roles.md).
+    * [{#T}](../../iam/operations/sa/assign-role-for-sa.md).
 
 1. [Get an IAM token](../../iam/operations/iam-token/create-for-sa.md) or [API key](../../iam/operations/api-key/create.md) for your service account. In our examples, an IAM token is used for authentication.
 
@@ -40,17 +52,15 @@ For now, you can only recognize long audio in Russian.
 
         The link will contain additional query parameters (after `?`) for buckets with restricted access. You don't need to pass these parameters in {{ speechkit-name }} since they just get ignored.
 
-## Send a file for recognition
+### Send a file for recognition {#sendfile}
 
-Send your file for recognition using a POST request:
-
-### HTTP request
+#### HTTP request {#sendfile-request}
 
 ```
 POST https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
 ```
 
-### Parameters in the request body
+#### Parameters in the request body {#sendfile-params}
 
 ```json
 {
@@ -78,10 +88,10 @@ POST https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
 | config.<br>specification.<br>audioEncoding | **string**<br>[The format](formats.md) of the submitted audio.<br/>Acceptable values:<ul><li>`LINEAR16_PCM` — [LPCM with no WAV header](formats.md#lpcm).</li><li>`OGG_OPUS` (default) — [OggOpus](formats.md#oggopus) format.</li></ul> |
 | config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>The sampling frequency of the submitted audio.<br/>Required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default) — Sampling rate of 48 kHz.</li><li>`16000` — Sampling rate of 16 kHz.</li><li>`8000` — Sampling rate of 8 kHz.</li></ul> |
 | config.<br>specification.<br>audioChannelCount | **integer** (int64)<br>The number of channels in [LPCM](formats.md#lpcm) files. By default, `1`.<br>Don't use this field for [OggOpus](formats.md#oggopus) files. |
-| config.<br>specification.<br>raw_results | **boolean** <br>The flag that indicates how to write numbers. `true` — In words. `false` (default) — In figures. |
+| config.<br>specification.<br>rawResults | **boolean** <br>The flag that indicates how to write numbers. `true` — In words. `false` (default) — In figures. |
 | audio.<br>uri | **string**<br>The URI of the audio file for recognition. Supports only links to files stored in [Yandex Object Storage](/docs/storage/). |
 
-### Response
+#### Response {#sendfile-response}
 
 If your request is written correctly, the service returns the [Operation object](../../api-design-guide/concepts/operation.md) with the recognition operation ID (`id`):
 
@@ -97,7 +107,7 @@ If your request is written correctly, the service returns the [Operation object]
 
 Use this ID at the next step.
 
-## Get recognition results
+### Get recognition results {#get-result}
 
 [Monitor the recognition results](../../api-design-guide/concepts/operation.md#monitoring) using the received ID. The number of result monitoring requests is [limited](../concepts/limits.md), so consider the recognition speed: it takes about 10 seconds to recognize 1 minute of single-channel audio.
 
@@ -107,19 +117,19 @@ Recognition results are stored on the {{ stt-long-resultsStorageTime }} server. 
 
 {% endnote %}
 
-### HTTP request
+#### HTTP request {#get-result-request}
 
 ```
 GET https://operation.api.cloud.yandex.net/operations/{operationId}
 ```
 
-### Path parameters
+#### Path parameters {#get-result-params}
 
 | Parameter | Description |
 | ----- | ----- |
 | operationId | The operation ID received when sending the recognition request. |
 
-### Response
+#### Response {#get-result-response}
 
 Once the recognition is complete, the `done` field will be set to `true` and the `response` field will contain a list of recognition results (`chunks[]`).
 
@@ -130,9 +140,9 @@ Each result in the `chunks[]` list contains the following fields:
       * `startTime`: Time stamp of the beginning of the word in the recording. An error of 1-2 seconds is possible.
       * `endTime`: Time stamp of the end of the word. An error of 1-2 seconds is possible.
       * `word`: Recognized word. Recognized numbers are written in words (for example, `twelve` rather than `12`).
-      * `confidence`: Recognition accuracy. Currently the service always returns `1`, which is the same as 100%.
+      * `confidence`: This field is currently unsupported.
     * `text`: Full recognized text. By default, numbers are written in figures. To output the entire text in words, specify `true` in the `raw_results` field.
-    * `confidence`: Recognition accuracy. Currently the service always returns `1`, which is the same as 100%.
+    * `confidence`: This field is currently unsupported.
 * `channelTag`: Audio channel that recognition was performed for.
 
 ```json
@@ -175,6 +185,26 @@ Each result in the `chunks[]` list contains the following fields:
 }
 ```
 
+### Using gRPC {#grpc}
+
+To use the service, create an app that will send audio fragments and process responses with recognition results.
+
+To enable the app to send requests and get results, you need to generate the client interface code for the programming language you use. Generate this code from the files [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) and [operation_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto)
+из репозитория [in the Yandex.Cloud API repository](https://github.com/yandex-cloud/cloudapi).
+
+See the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and deploy client apps for various programming languages.
+
+{% note important %}
+
+When requesting the results of an operation, gRPC clients by default limit the maximum message size that they can accept as a response to no more than 4 MB. If a response with recognition results exceeds this amount, an error is returned.
+
+{% endnote %}
+
+To get the entire response, increase the maximum message size limit:
+
+* For Go, use the [MaxCallRecvMsgSize](https://godoc.org/google.golang.org/grpc#MaxCallRecvMsgSize) function.
+* For C++, in the [call method](https://grpc.github.io/grpc/cpp/classgrpc_1_1internal_1_1_call.html#af04fabbdb53dea98da54c387364faf63), set the `max_receive_message_size` value.
+
 ## Examples {#examples}
 
 * [{#T}](#examples_ogg)
@@ -209,7 +239,7 @@ To recognize speech in [OggOpus](formats.md#oggopus) format, just specify the re
       $ export IAM_TOKEN=CggaATEVAgA...
       $ curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d @body.json \
+          -d '@body.json' \
           https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
 
       {
@@ -352,7 +382,7 @@ To recognize speech in [LPCM](formats.md#lpcm) format, specify the file sampling
     $ export IAM_TOKEN=CggaATEVAgA...
     $ curl -X POST \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d @body.json \
+        -d '@body.json' \
         https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
 
     {

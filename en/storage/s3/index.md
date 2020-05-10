@@ -1,12 +1,12 @@
 # How to use the API
 
-## Before you start {#preparations}
+## Before you start {#before-you-start}
 
 To use the API:
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
-To access the HTTP API directly, you need static key authentication, which is supported by the tools listed in [{#T}](../instruments/index.md).
+To access the HTTP API directly, you need static key authentication, which is supported by the tools listed in [{#T}](../tools/index.md).
 
 For a list of supported Amazon S3 HTTP API methods, see the [API reference](api-ref/index.md).
 
@@ -41,7 +41,9 @@ URLs can taken one of the following forms:
 - `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
 - `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
 
-## CORS requests
+{% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
+
+## CORS requests {#cors-requests}
 
 Cross-domain requests are available for all API methods used for object management.
 

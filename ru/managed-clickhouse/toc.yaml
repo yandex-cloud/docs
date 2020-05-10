@@ -21,6 +21,10 @@ items:
       href: operations/update.md
     - name: Подключение внешних словарей
       href: operations/dictionaries.md
+    - name: Подключение собственной геобазы
+      href: operations/internal-dictionaries.md
+    - name: Подключение моделей машинного обучения
+      href: operations/ml-models.md
     - name: Изменение версии ClickHouse
       href: operations/cluster-version-update.md
     - name: Управление хостами ClickHouse
@@ -79,13 +83,22 @@ items:
             href: pricing-archive/pricing-01012019.md
           - name: С 1 января до 1 марта 2019 года
             href: pricing-archive/pricing-01032019.md
-  - name: Справочники API
+          - name: С 1 марта 2019 года до 1 февраля 2020 года
+            href: pricing-archive/pricing-01022020.md
+  - name: Справочник API
     items:
-    - name: Аутентификация в API
-      href: api-ref/authentication.md
-    include:
-      repo: docs
-      path: ru/_api-ref/mdb/clickhouse/toc.yaml
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/managed-clickhouse/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref/mdb/clickhouse/toc.yaml
   - name: Вопросы и ответы
     items:
     - name: Общие вопросы

@@ -1,12 +1,14 @@
 # Managing registry certificates
 
-You can:
+For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage registry certificates for the relevant authorization method.
 
-- [View the list of registry certificates](registry-certificates.md#list-cert)
-- [Add a certificate to the registry](registry-certificates.md#add-cert)
-- [Delete a registry certificate](registry-certificates.md#delete-cert)
+{% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
-To access a [registry](../../concepts/index.md#registry), use its ID or name. For information about how to get the registry ID or name, see [{#T}](../registry/registry-list.md).
+- [Viewing a list of registry certificates](registry-certificates.md#list-cert)
+- [Adding a certificate to a registry](registry-certificates.md#add-cert)
+- [Deleting a registry certificate](registry-certificates.md#delete-cert)
+
+To access a [registry](../../concepts/index.md#registry), use its unique ID or name. For information about how to find the unique ID or name, see [{#T}](../registry/registry-list.md).
 
 ## Viewing a list of certificates {#list-cert}
 
@@ -44,7 +46,7 @@ To access a [registry](../../concepts/index.md#registry), use its ID or name. Fo
   $ yc iot registry certificate add \
   --registry-name my-registry \ # Registry name.
   --certificate-file registry-cert.pem # Path to the public part of the certificate.
-
+  
   registry_id: b91ki3851hab9m0l68je
   fingerprint: 589ce1605...
   certificate_data: |
@@ -67,7 +69,7 @@ To access a [registry](../../concepts/index.md#registry), use its ID or name. Fo
   1. Delete a registry certificate:
 
       ```
-      $ yc iot registry certificate delete --registry-name my-registry --fingerprint 0f5...
+      $ yc iot registry certificate delete --registry-name my-registry --fingerprint 0f...
       ```
 
   2. Make sure the certificate was deleted:

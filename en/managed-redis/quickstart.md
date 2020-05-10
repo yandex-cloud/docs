@@ -23,7 +23,7 @@ Quickly create a cluster and test your connection to it:
     $ <host FQDN>:26379> sentinel get-master-addr-by-name <cluster name>
     1) "<master name>"
     2) "6379"
-    
+
     $ redis-cli -h <master FQDN> \
                 -p 6379
     $ <master FQDN>:6379> auth <cluster password>

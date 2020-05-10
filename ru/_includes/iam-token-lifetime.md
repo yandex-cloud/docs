@@ -1,1 +1,1 @@
-IAM-токен действителен {{ iam-token-lifetime }}. Рекомендуем не ждать истечения [срока действия](../iam/concepts/authorization/iam-token.md#lifetime) токена, а запрашивать его чаще, например каждый час.
+[Время жизни IAM-токена](../iam/concepts/authorization/iam-token.md#lifetime) — не больше {{ iam-token-lifetime }}, но рекомендуется запрашивать его чаще, например каждый час.

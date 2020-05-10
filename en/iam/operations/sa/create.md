@@ -2,7 +2,7 @@
 
 Create a [service account](../../concepts/users/service-accounts.md) to manage resources under a different account.
 
-## Create a service account
+## Create a service account {#create-sa}
 
 {% list tabs %}
 
@@ -34,9 +34,9 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
-### Add a description when creating
+### Add a description when creating {#add-description}
 
 Create a service account with the following name and description:
 
@@ -65,7 +65,7 @@ Create a service account with the following name and description:
 
 {% endlist %}
 
-#### What's next
+#### What's next {#what-is-next}
 
 - [{#T}](assign-role-for-sa.md)
 - [{#T}](create-access-key.md)

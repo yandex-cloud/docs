@@ -1,12 +1,12 @@
-# {{ MG }} version update
+# Version update {{ MG }}
 
-You can update {{ mmg-name }} clusters from version 3.6 to 4.0.
+You can update {{ mmg-name }} clusters to versions 4.0 and 4.2.
 
 ## Before updating {#before-update}
 
 Prior to updating the cluster, make sure this doesn't affect your apps:
 
-1. Read the [release notes](https://docs.mongodb.com/v4.0/release-notes/4.0/) {{ MG }} to see if any changes may affect your app.
+1. View the revision history for versions [4.0](https://docs.mongodb.com/v4.0/release-notes/4.0/) and [4.2](https://docs.mongodb.com/v4.0/release-notes/) {{ MG }} and check if any of the revisions may affect how the app works.
 1. Try updating a test cluster (you can try deploying it from a backup of the main cluster).
 1. [Make a backup ](cluster-backups.md#create-backup) of the main cluster before updating.
 
@@ -19,7 +19,7 @@ To update a {{ mmg-name }} cluster:
 - Management console
   1. Open the **{{ mmg-name }}** page in the folder with the cluster to be updated.
   1. Select the cluster from the list and click **Edit cluster**.
-  1. In the **Version** field, select *4.0*.
+  1. In the **Version** field, click *4.0* or *4.2*.
   1. Click **Save changes**.
 
   When the update starts, the cluster status switches to `UPDATING`. Wait for the operation to complete and then check the cluster version.
@@ -49,7 +49,7 @@ To update a {{ mmg-name }} cluster:
        monitoring:
        - name: Console
          description: Console charts
-         link: https://console.cloud.yandex.ru/folders/b1g0itj57rbjk9thrinv/managed-mongodb/cluster/c9qut3k64b2o9umqogr7?section=monitoring
+         link: https://console.cloud.yandex.com/folders/b1g0itj57rbjk9thrinv/managed-mongodb/cluster/c9qut3k64b2o9umqogr7?section=monitoring
        config:
          version: "3.6"
          feature_compatibility_version: "3.6"
@@ -59,7 +59,7 @@ To update a {{ mmg-name }} cluster:
   1. Start the {{ MG }} update:
 
      ```
-     $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --mongodb-version=4.0
+     $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --mongodb-version=<version number>
      ```
 
      When the update starts, the cluster status switches to `UPDATING`. Wait for the operation to complete and then check the cluster version.

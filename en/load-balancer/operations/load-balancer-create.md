@@ -81,9 +81,9 @@ Before creating a load balancer, [create](target-group-create.md) a target group
 
 {% endlist %}
 
-## Examples
+## Examples {examples}
 
-### Creating a load balancer without a listener
+### Creating a load balancer without a listener {without-listener}
 
 {% list tabs %}
 
@@ -99,7 +99,7 @@ Before creating a load balancer, [create](target-group-create.md) a target group
 
 {% endlist %}
 
-### Creating a load balancer with a listener and attached target group
+### Creating a load balancer with a listener and attached target group {with-listener-and-target-group}
 
 {% list tabs %}
 

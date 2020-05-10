@@ -4,11 +4,11 @@
 
 В этом разделе вы научитесь использовать {{ speechkit-short-name }} API. Сначала вы создадите аудиофайл из текста, а потом попробуете его распознать.
 
-## Перед началом {#before-begin}
+## Перед началом {#before-you-begin}
 
 {% include [ai-before-beginning](../_includes/ai-before-beginning.md) %}
 
-## Преобразование текста в речь
+## Преобразование текста в речь {#Text-to-speech}
 
 С помощью [синтеза речи](tts/index.md) вы сможете превратить текст в речь и сохранить ее в аудиофайл.
 
@@ -25,7 +25,7 @@ $ export FOLDER_ID=b1gvmob95yysaplct532
 $ export IAM_TOKEN=CggaATEVAgA...
 $ curl -X POST \
      -H "Authorization: Bearer ${IAM_TOKEN}" \
-     --data-urlencode "text=Hello World" \
+     --data-urlencode "text=${TEXT}" \
      -d "lang=en-US&folderId=${FOLDER_ID}" \
      "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
 ```
@@ -36,7 +36,7 @@ $ curl -X POST \
 
 [Подробнее про формат запроса](tts/request.md) на синтез речи.
 
-## Распознавание речи
+## Распознавание речи {#Speech-recognition}
 
 Сервис позволяет распознавать речь [тремя различными способами](stt/index.md#stt-ways). В этом разделе используется [распознавание коротких аудиозаписей](stt/request.md).
 
@@ -51,7 +51,7 @@ $ curl -X POST \
 {"result":"Hello world"}
 ```
 
-#### Что дальше
+#### Что дальше {#what-is-next}
 
 * [Подробнее про синтез речи](tts/index.md)
 * [Подробнее про распознавание речи](stt/index.md)

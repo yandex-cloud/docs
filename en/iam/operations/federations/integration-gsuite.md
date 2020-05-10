@@ -36,7 +36,7 @@ Before you can create an identity federation in the cloud, you need to get infor
 
 - Management console
 
-    1. Open the folder page in the [management console]({{ link-console-main }}).
+    1. Open the folder page in [management console]({{ link-console-main }}).
 
     1. Select the **Federations** tab in the left menu.
 
@@ -64,8 +64,6 @@ Before you can create an identity federation in the cloud, you need to get infor
 
         If this option is disabled, users who aren't added to the cloud can't log in, even if they have authenticated on your server. This way you can create a <q>white list</q> of users that are allowed to use Yandex.Cloud.
 
-        {% include [add-federated-users-disclaimer](../../../_includes/iam/add-federated-users-disclaimer.md) %}
-
 {% endlist %}
 
 ## Specify certificates for the identity federation {#add-certificate}
@@ -89,9 +87,15 @@ Having created a federation and obtained a console login link, finish creating t
 1. Enter a name for your SAML app, like <q>yandex-cloud-federation</q>. Add a description and upload a logo if necessary. Click **Next**.
 
 1. Enter information about Yandex.Cloud that acts as a Service Provider (SP):
+
     * In the **ACS URL** and **Entity ID** fields, enter the previously obtained [console login link](#get-link).
+
     * Enable **Signed Response**.
-    * In the **Name ID** field, choose **Basic Information** and **Primary Email** next to it.
+
+    * In the **Name ID** field, specify what the server will return as Name ID (the unique ID of the identity federation user).
+
+        Select **Basic Information** and **Primary Email** next to it.
+
     * The other fields are optional, so you can skip them and click **Next**.
 
     ![image](../../../_assets/iam/federations/configure-saml-gsuite.png)
@@ -110,7 +114,7 @@ Having created a federation and obtained a console login link, finish creating t
 
 ## Add users to the cloud {#add-users}
 
-{% include [add-federated-users-disclaimer](../../../_includes/iam/add-federated-users-disclaimer.md) %}
+{% include [add-federated-users](../../../_includes/iam/add-federated-users.md) %}
 
 ## Test the authentication process {#test-auth}
 

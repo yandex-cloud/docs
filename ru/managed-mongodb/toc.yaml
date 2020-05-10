@@ -29,7 +29,7 @@ items:
       href: operations/shards.md
     - name: Удаление кластера
       href: operations/cluster-delete.md
-    - name: Миграция базы данных в Облако
+    - name: Миграция базы данных в Яндекс.Облако
       href: operations/data-migration.md
   - name: Сценарии использования
     items:
@@ -53,6 +53,8 @@ items:
       href: concepts/replication.md
     - name: Шардирование
       href: concepts/sharding.md
+    - name: Пользователи и роли
+      href: concepts/users-and-roles.md
     - name: Поддерживаемые клиенты
       href: concepts/supported-clients.md
   - name: Управление доступом
@@ -67,13 +69,22 @@ items:
             href: pricing-archive/pricing-01012019.md
           - name: С 1 января до 1 марта 2019 года
             href: pricing-archive/pricing-01032019.md
+          - name: С 1 марта 2019 года до 1 февраля 2020 года
+            href: pricing-archive/pricing-01022020.md
   - name: Справочник API
     items:
-    - name: Аутентификация в API
-      href: api-ref/authentication.md
-    include:
-      repo: docs
-      path: ru/_api-ref/mdb/mongodb/toc.yaml
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/managed-mongodb/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref/mdb/mongodb/toc.yaml
   - name: Вопросы и ответы
     items:
     - name: Общие вопросы

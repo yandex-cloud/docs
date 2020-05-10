@@ -7,7 +7,7 @@
 * распознавание текста в изображениях с помощью Yandex Vision;
 * загрузите результат на [Yandex Object Storage](https://cloud.yandex.ru/docs/storage/).
 
-1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте и настройте виртуальную машину](#create-vm).
 1. [Настройте AWS CLI](#aws-cli).
 1. [Настройте доступ в Object Storage](#object-storage-access).
@@ -17,7 +17,7 @@
 1. [Удалите созданные облачные ресурсы](#cleanup).
 
 
-## Подготовьте облако к работе {#before-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 Перед тем, как создать виртуальную машину, нужно зарегистрироваться в Облаке и создать платежный аккаунт:
 
@@ -99,7 +99,7 @@
     ```bash
     yc iam service-account create --name vision --description "this is vision service account"
     ```
-1. Узнайте идентификатор каталога по [инструкции](../../resource-manager/operations/folder/get-id.md):
+1. Узнайте идентификатор каталога по [инструкции](../../resource-manager/operations/folder/get-id.md).
 1. Узнайте идентификатор вашего сервисного аккаунта, подставив соответствующий идентификатор каталога:
     ```bash
     yc iam service-account --folder-id <FOLDER-ID>  get vision
@@ -120,7 +120,7 @@
     * `key_id`
     * `secret`
 
-1. Получите IAM-токен для сервисного аккаунта с помощью CLI по [инструкции](../../iam/operations/iam-token/create-for-sa.md) {#iam-token}:
+1. Получите IAM-токен для сервисного аккаунта с помощью CLI по [инструкции](../../iam/operations/iam-token/create-for-sa.md):
 
     ```bash
     yc iam key create --service-account-name vision --output key.json
@@ -229,7 +229,7 @@
     ```
 1. Скопируйте туда скрипт:
     ```bash
-        #!/bin/bash
+    #!/bin/bash
 
     # Создайте необходимые директории.
      echo "Creating directories..."
@@ -269,7 +269,7 @@
         curl -X POST --silent \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAMTOKEN}" \
-        -d @body.json \
+        -d '@body.json' \
         https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze > output.json
 
         # Получите название картинки для дальнейшей подстановки.

@@ -2,9 +2,9 @@
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
-## Restoring clusters from backups: {#restore}
+## Restoring clusters from backups {#restore}
 
-When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
+When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps.
 
 {% list tabs %}
 
@@ -40,7 +40,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
       ```
       $ yc managed-redis backup list
-
+      
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -54,7 +54,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
       ```
       $ yc managed-redis cluster restore \
            --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
-           --name mynewrd \
+           --cluster-name mynewrd \
            --environment=PRODUCTION \
            --network-name default \
            --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
@@ -127,7 +127,7 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
   ```
   $ yc managed-redis backup list
-
+  
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
   +----------+----------------------+----------------------+----------------------+
@@ -174,24 +174,23 @@ When you restore a cluster from a backup, you create a new cluster with the data
 
 - CLI
 
-  To set the backup start time, use the `--backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
+  To set the backup start time, use the `-- backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
 
   ```
   $ yc yc managed-redis cluster create \
-     --name <cluster name> \
+     --cluster-name <cluster name> \
      --environment <prestable or production> \
      --network-name <network name> \
      --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-     --backup-window-start 10:25:00
+     --backup-window-start 10:25:00  
   ```
 
-  To change the backup start time in an existing cluster, use the  `update` command:
+  To change the backup start time in an existing cluster, use the `update` command:
 
   ```
   $ yc yc managed-redis cluster update \
-     --name <cluster name> \
+     --cluster-name <cluster name> \
      --backup-window-start 11:25:00
   ```
 
 {% endlist %}
-

@@ -10,7 +10,7 @@ Horizontal scaling is the distribution of data sets and workloads across multipl
 
 The downside of sharding is the complexity of the infrastructure, deployment, and maintenance.
 
-For more on {{ CH }} database sharding, see the [Distributed engine description](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/).
+For more on {{ CH }} database sharding, see the [Distributed engine description](https://clickhouse.yandex/docs/en/operations/table_engines/distributed/).
 
 ## Use of sharding {#uses}
 

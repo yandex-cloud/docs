@@ -9,7 +9,7 @@
  
 {% endnote %}
 
-## Перед началом {#before-begin}
+## Перед началом работы {#before-begin}
 
 Для создания триггера вам понадобятся: 
 1. Сервисные аккаунты с правами на чтение из очереди сообщений и вызов функции. Вы можете использовать один и тот же сервисный аккаунт для обеих операций. Если у вас нет сервисных аккаунтов, [создайте их](../../iam/operations/sa/create.md).
@@ -22,6 +22,8 @@
 
 Создайте триггер для очереди сообщений.
 
+{% include [trigger-time](trigger-time.md) %}
+
 {% list tabs %}
 
 - CLI
@@ -33,7 +35,7 @@
     Создайте триггер: 
 
     - `--name` — имя триггера.
-    - `--queue-arn` — уникальный идентификатор очереди. 
+    - `--queue` — уникальный идентификатор очереди. 
         
         Чтобы узнать уникальный идентификатор очереди:
         1. В [консоли управления]({{ link-console-main }}) откройте раздел **Message Queue**.
@@ -47,7 +49,7 @@
     ```
     $ yc serverless trigger create message-queue \
         --name test-trigger \
-        --queue-arn yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq \
+        --queue yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq \
         --queue-service-account-id bfbqqeo6jkpls2tse5o6 \
         --invoke-function-id b09e5lu91ta21vdrrgma \
         --invoke-function-service-account-id bfbqqeo6jkpls2tse5o6 \

@@ -57,7 +57,7 @@ For detailed instructions, see [{#T}](../quickstart.md).
 
 For a network-based storage (NBS), the number of hosts in a cluster is limited only by the requested computing resources and the size of the storage for the cluster.
 
-For SSD SSD storage, the number of hosts is limited during cluster creation: for {{ PG }} clusters, at least three hosts must be created.
+For local SSD storage, the number of hosts is limited during cluster creation: for {{ PG }} clusters, at least three hosts must be created.
 
 #### How can I access a running DB host? {#db-access}
 
@@ -79,7 +79,7 @@ Maintenance in {{ mpg-short-name }} implies:
 
 #### Which version of {{ PG }} does {{ mpg-short-name }} use? {#dbms-version}
 
-{{ mpg-short-name }} supports {{ PG }} 10 and 11.
+{{ mpg-short-name }} supports {{ PG }} 10, 11, and 12, as well as PostgreSQL 10 for 1C.
 
 #### What happens when a new DBMS version is released? {#new-version}
 

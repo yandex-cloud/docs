@@ -1,10 +1,6 @@
 # Deleting clusters
 
-{% note important %}
-
-Backups of deleted clusters are stored for seven days.
-
-{% endnote %}
+{% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
 {% list tabs %}
 
@@ -27,6 +23,10 @@ Backups of deleted clusters are stored for seven days.
   ```
 
   The cluster name and ID can be requested with a [list of clusters in the folder](cluster-list.md).
+
+- Terraform
+
+  {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
 {% endlist %}
 

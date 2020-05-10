@@ -8,7 +8,7 @@ To pass text in SSML format, use the `ssml` parameter in the request body and wr
 
 [Example of sending a request](request.md#ssml).
 
-## Supported SSML tags
+## Supported SSML tags {#Supported-SSML-tags}
 
 Currently, {{ speechkit-name }} supports the following SSML tags:
 
@@ -94,7 +94,7 @@ Use the `<s>` tag to add a pause between sentences. A pause after a sentence is 
 
 ```xml
 <speak>
-  <s>First sentence<s/>
+  <s>First sentence</s>
   <s>Second sentence</s>
 </speak>
 ```

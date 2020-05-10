@@ -20,7 +20,7 @@ To create a fixed-size instance group:
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI's create instance group command:
+  1. View a description of the create instance group command in the CLI:
 
       ```
       $ yc compute instance-group create --help
@@ -32,7 +32,7 @@ To create a fixed-size instance group:
       $ yc vpc network list
       ```
 
-      If there aren't any, [create the necessary networks](../../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+      If there aren't any, [create one](../../../vpc/operations/network-create.md).
 
   1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) (for example, CentOS 7).
 
@@ -58,7 +58,7 @@ To create a fixed-size instance group:
           | `service_account_id` | ID of the service account. |
           | `description` | A description of the instance group. |
 
-      - [Instance template](../../concepts/instance-groups/instance-template.md):
+      - [Instance template](../../concepts/instance-groups/instance-template.md), for example:
 
           ```
           instance_template:
@@ -75,6 +75,8 @@ To create a fixed-size instance group:
               network_interface_specs:
                   - network_id: c64mknqgnd8avp6edhbt
                     primary_v4_address_spec: {}
+              scheduling_policy:
+                  preemptible: false
           ```
 
           {% include [default-unit-size](../../../_includes/instance-groups/default-unit-size.md) %}
@@ -92,8 +94,10 @@ To create a fixed-size instance group:
           | `size` | Disk size. |
           | `network_id` | The `default-net` ID. |
           | `primary_v4_address_spec` | IPv4 specification. Only IPv4 is currently available. You can allow public access to group instances by specifying the IP version for the public IP address. For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template). |
+          | `scheduling_policy` | Scheduling policy configuration. |
+          | `preemptible` | A flag that enables the creation of [preemptible instances](../../concepts/preemptible-vm.md). If the value is `true`, a preemptible instance is created, if `false` (default), a regular instance is created.<br>When creating a preemptible instance group, keep in mind that the instances will terminate after 24 hours of continuous operation or earlier. It's possible that {{ ig-name }} won't be able to restart them immediately due to insufficient resources. This may occur in the event of a drastic increase in Yandex.Cloud computing resource usage. |
 
-      - [The policies](../../concepts/instance-groups/policies.md):
+      - [Policies](../../concepts/instance-groups/policies.md):
 
           ```
           deploy_policy:
@@ -157,12 +161,12 @@ To create a fixed-size instance group:
       - Running CentOS 7.
       - In the `default-net` network.
       - In the `ru-central1-a` availability zone.
-      - With a single core and 4 GB RAM.
+      - With a single vCPU and 4 GB RAM.
       - With a 32 GB network HDD.
 
 - API
 
-  Use the [create](../../api-ref/InstanceGroup/create.md) API method.
+  Use the API method [create](../../api-ref/InstanceGroup/create.md).
 
 {% endlist %}
 

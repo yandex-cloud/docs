@@ -12,7 +12,7 @@ _Роль_ — это набор разрешений, который опре�
 
 ## Примитивные роли {#primitive-roles}
 
-#### {{ roles-viewer }} {#viewer}
+### {{ roles-viewer }} {#viewer}
 
 Роль `{{ roles-viewer }}` дает разрешения на чтение к ресурсам.
 
@@ -21,7 +21,7 @@ _Роль_ — это набор разрешений, который опре�
 - Получение списка вложенных ресурсов, например списка виртуальных машин в каталоге.
 - Просмотр списка операций с ресурсом.
 
-#### {{ roles-editor }} {#editor}
+### {{ roles-editor }} {#editor}
 
 Роль `{{ roles-editor }}` дает разрешения на все операции для управления ресурсом, кроме назначения ролей другим пользователям. Роль `{{ roles-editor }}` включает все разрешения, которые дает роль `{{ roles-viewer }}`.
 
@@ -30,7 +30,7 @@ _Роль_ — это набор разрешений, который опре�
 - Обновление ресурса;
 - Удаление ресурса.
 
-#### {{ roles-admin }} {#admin}
+### {{ roles-admin }} {#admin}
 
 Роль `{{ roles-admin }}` дает все разрешения для управления ресурсом, включая назначение ролей другим пользователям. Можно назначать любые роли за исключением `{{ roles-cloud-owner }}`.
 
@@ -40,37 +40,34 @@ _Роль_ — это набор разрешений, который опре�
 - Установить права доступа к ресурсу;
 - Изменить права доступа к ресурсу.
 
-
-## Сервисные роли {#service-roles}
-
-### {{ resmgr-name }} {#yrm-roles}
+## {{ resmgr-name }} {#yrm-roles}
 
 {% include [cloud-roles](../../../_includes/cloud-roles.md) %}
 
-### {{ iam-name }} {#iam-roles}
+## {{ iam-name }} {#iam-roles}
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
 
-### {{ compute-name }} {#compute-roles}
+## {{ compute-name }} {#compute-roles}
 
 {% include [roles-disks-user](../../../_includes/roles-disks-user.md) %}
 
 {% include [roles-images-user](../../../_includes/roles-images-user.md) %}
 
-### {{ dataproc-short-name }} {#mdb-roles}
+## {{ dataproc-short-name }} {#mdb-roles}
 
 {% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
 
-### {{ sf-short-name }} {#functions-roles}
+## {{ sf-short-name }} {#functions-roles}
 
 {% include [serverless.functions.invoker](../../../_includes/roles-functions-invoker.md) %}
 
-### {{ container-registry-name }} {#cr-roles}
+## {{ container-registry-name }} {#cr-roles}
 
 {% include [container-registry-puller](../../../_includes/roles-container-registry-puller.md)%}
 
 {% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md)%}
 
-### {{ datalens-name }} {#datalens-roles}
+## {{ datalens-name }} {#datalens-roles}
 
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md)%}

@@ -2,6 +2,8 @@
 
 This section provides guidelines for creating VMs with a GPU. For more information about VM configurations, see [{#T}](../../concepts/gpus.md).
 
+By default, the cloud now has a zero quota for creating virtual machines with GPUs. To change the quota, contact [technical support](https://cloud.yandex.com/support).
+
 {% list tabs %}
 
 - Management console
@@ -43,6 +45,8 @@ This section provides guidelines for creating VMs with a GPU. For more informati
       - [RAM](../../concepts/gpus.md).
 
       - [Number of GPUs](../../concepts/gpus.md).
+
+      - If necessary, make your VM [preemptible](../../concepts/preemptible-vm.md) with the `--preemptible` option.
 
       - [Image](../images-with-pre-installed-software/get-list.md) of the OS. `ubuntu-1604-lts-gpu`: Ubuntu 16.04.6 LTS with CUDA drivers.
 
@@ -88,7 +92,7 @@ This section provides guidelines for creating VMs with a GPU. For more informati
 
 {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
-#### See also
+#### See also {#see-also}
 
 - Learn how to [change the VM configuration](../vm-control/vm-update-resources.md).
 

@@ -21,7 +21,7 @@
   
   ```
   $ yc managed-postgresql user list
-       --cluster-name=<имя кластера>
+       --cluster-name <имя кластера>
   ```
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
@@ -62,7 +62,7 @@
   
   ```
   $ yc managed-postgresql user create <имя пользователя>
-       --cluster-name=<имя кластера>
+       --cluster-name <имя кластера>
        --password=<пароль для пользователя>
        --permissions=<список баз, к которым пользователь должен иметь доступ>
        --conn-limit=<максимальное количество соединений для пользователя>
@@ -102,7 +102,7 @@
   
   ```
   $ yc managed-postgresql user update <имя пользователя>
-       --cluster-name=<имя кластера>
+       --cluster-name <имя кластера>
        --password=<пароль для пользователя>
        --permissions=<список баз, к которым пользователь должен иметь доступ>
        --conn-limit=<максимальное количество соединений для пользователя>
@@ -132,7 +132,7 @@
   
   ```
   $ yc managed-postgresql user delete <имя пользователя>
-       --cluster-name=<имя кластера>
+       --cluster-name <имя кластера>
   ```
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).

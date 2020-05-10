@@ -28,8 +28,15 @@ items:
     items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
-    include:
-      repo: docs
-      path: ru/_api-ref/kms/toc.yaml
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/kms/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref/kms/toc.yaml
   # - name: Вопросы и ответы
   #   href: qa/index.md

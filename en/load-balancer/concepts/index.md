@@ -10,7 +10,7 @@ When creating a load balancer, a pre-created [target group](target-resources.md)
 
 By hosting resources in different availability zones, you ensure their fault tolerance: if all the resources within one zone fail, the load balancer will redirect incoming traffic to resources in other zones. For detailed recommendations on how to use a load balancer, see [Best practices](../best-practices.md).
 
-## Network load balancer status
+## Network load balancer status {#lb-statuses}
 
 A created load balancer can have one of the following statuses:
 

@@ -76,7 +76,7 @@ Rights to access resources inside the cloud are inherited based on the following
 
 You can't assign roles for some resources because all their permissions are inherited from the folder. For example, currently you can't assign a role for a virtual machine. When someone tries to obtain information about the virtual machine, IAM checks their access rights for the folder hosting this virtual machine. If access rights have not been set for the folder, IAM checks that the subject has the applicable access rights for this cloud.
 
-#### See also
+#### See also {#see-also}
 
 - [{#T}](../operations/cloud/set-access-bindings.md)
 - [{#T}](../operations/folder/create.md)

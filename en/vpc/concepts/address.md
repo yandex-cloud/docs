@@ -2,13 +2,13 @@
 
 Addresses in cloud networks can be internal or public. Both internal and public addresses are assigned to cloud resources automatically.
 
-## Internal addresses
+## Internal addresses {#internal-addresses}
 
 _Internal IP addresses_ are assigned to resources in the selected subnet of the folder where the resource is created. These addresses are used for transmitting information between the resources within your cloud.
 
 An internal IP address can only be used to access the resources connected to the subnets of the same cloud network. The internal IP address does not change during the entire lifetime of the cloud resource.
 
-## Public addresses
+## Public addresses {#public-addresses}
 
 _Public IP addresses_ allow cloud resources to exchange data with the internet and resources from other cloud networks. Public addresses are mapped to internal resource addresses using one-to-one NAT.
 
@@ -18,7 +18,7 @@ To prevent a public IP address from being reset or changed, you should [make it 
 
 Unused static public IPs are charged [separately](../pricing).
 
-## Hostname (FQDN)
+## Hostname (FQDN) {#fqdn}
 
 _You can use a hostname_ to access one cloud resource from another within the same cloud network.
 

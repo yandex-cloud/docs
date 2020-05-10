@@ -37,6 +37,18 @@ items:
             href: operations/dsvm/index.md
           - name: Создание и поключение к ВМ
             href: operations/dsvm/quickstart.md
+      - name: Группы размещения
+        items:
+          - name: Создание группы размещения
+            href: operations/placement-groups/create.md
+          - name: Удаление группы размещения
+            href: operations/placement-groups/delete.md
+          - name: Создание ВМ в группе размещения
+            href: operations/placement-groups/create-vm-in-pg.md
+          - name: Добавление ВМ в группу размещения
+            href: operations/placement-groups/add-vm.md
+          - name: Исключение ВМ из группы размещения
+            href: operations/placement-groups/delete-vm.md
       - name: Образы с предустановленным ПО
         items:
           - name: Создать ВМ
@@ -79,6 +91,8 @@ items:
             href: operations/vm-connect/rdp.md
           - name: Работа с Яндекс.Облаком изнутри ВМ
             href: operations/vm-connect/auth-inside-vm.md
+          - name: Установка NVIDIA-драйверов
+            href: operations/vm-operate/install-nvidia-drivers.md
       - name: Создание нового диска
         items:
           - name: Создать пустой диcк
@@ -97,8 +111,6 @@ items:
         items:
           - name: Загрузить свой образ
             href: operations/image-create/upload.md
-          - name: Установка NVIDIA драйверов
-            href: operations/image-create/install-nvidia-drivers.md
       - name: Управление образом
         items:
           - name: Удалить образ
@@ -135,10 +147,16 @@ items:
         items:
           - name: Изменить группу
             href: operations/instance-groups/update.md
+          - name: Настроить проверку состояния приложения на ВМ
+            href: operations/instance-groups/enable-autohealing.md
+          - name: Остановить группу
+            href: operations/instance-groups/stop.md
+          - name: Запустить группу
+            href: operations/instance-groups/start.md
           - name: Удалить группу
             href: operations/instance-groups/delete.md
-          - name: Настроить автоматическое восстановление виртуальных машин
-            href: operations/instance-groups/enable-autohealing.md
+  - name: Yandex Container Optimized Solutions
+    href: ../cos/
   - name: Сценарии
     items:
       - name: Настройка синхронизации времени NTP
@@ -163,6 +181,8 @@ items:
             href: concepts/network.md
           - name: Динамическая миграция
             href: concepts/live-migration.md
+          - name: Группы размещения
+            href: concepts/placement-groups.md
           - name: Статусы
             href: concepts/vm-statuses.md
           - name: Метаданные
@@ -175,7 +195,7 @@ items:
             href: concepts/snapshot.md
       - name: Образы
         href: concepts/image.md
-      - name: Instance Groups
+      - name: Группы виртуальных машин
         items:
           - name: Обзор
             href: concepts/instance-groups/index.md
@@ -191,8 +211,8 @@ items:
             href: concepts/instance-groups/autohealing.md
           - name: Конфигурационное обновление
             href: concepts/instance-groups/configuration-update.md
-          - name: Статусы виртуальных машин
-            href: concepts/instance-groups/vm-statuses.md
+          - name: Статусы
+            href: concepts/instance-groups/statuses.md
       - name: Резервное копирование
         href: concepts/backups.md
       - name: Квоты и лимиты
@@ -211,13 +231,20 @@ items:
           href: pricing-archive/pricing-01032019.md
         - name: С 1 марта до 1 мая 2019 года
           href: pricing-archive/pricing-30042019.md
-  - name: Справочник API Compute
+  - name: Справочник API
     items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
-    include:
-      repo: docs
-      path: ru/_api-ref/compute/toc.yaml
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/compute/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref/compute/toc.yaml
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

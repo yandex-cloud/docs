@@ -36,21 +36,21 @@ To delete an instance group:
 
       {% include [instance-group-list](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Select the `ID` or `NAME` of the group (for example, `first-fixed-group`).
+  1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
 
   1. Delete the instance group:
 
       ```
-      $ yc compute instance-group delete --name first-fixed-group
+      $ yc compute instance-group delete --name first-instance-group
       ```
 
       {{ ig-name }} starts the operation to delete the instance group.
 
 - API
 
-  Use the [delete](../../api-ref/InstanceGroup/delete.md) API method.
+  Use the [delete](../../api-ref/InstanceGroup/delete.md).
 
-  To request a list of available groups, use the [listInstances](../../api-ref/InstanceGroup/listInstances.md).
+  To request a list of available groups, use the method [listInstances](../../api-ref/InstanceGroup/listInstances.md).
 
 {% endlist %}
 

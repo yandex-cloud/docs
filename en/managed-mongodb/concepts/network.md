@@ -6,7 +6,7 @@ When creating a cluster, you can:
 
 * Set the subnets for each host in the cluster.
 
-* Request a public IP address to access the cluster from outside the Cloud.
+* Request a public IP address to access the cluster from outside Yandex.Cloud.
 
 You can create a cluster without specifying any subnets for the hosts, if the availability zone selected for each host contains exactly one subnet of the cluster network.
 
@@ -16,7 +16,7 @@ You can create a cluster without specifying any subnets for the hosts, if the av
 
 You can use the FQDN to access the host within a single cloud network. Read more in the [{{ vpc-full-name }} documentation](../../vpc/).
 
-## Public access to a host
+## Public access to a host {#Public-access-to-host}
 
 Any cluster host can be accessible from outside Yandex.Cloud if you requested public access when creating the host. To connect to such a host, use its FQDN.
 

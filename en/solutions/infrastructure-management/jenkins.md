@@ -52,7 +52,7 @@ Jenkins will get VM image configuration changes from GitHub and then use Packer 
 
 To create a virtual machine with Jenkins:
 
-1. On the folder page of the [management console](https://console.cloud.yandex.ru), click **Create resource** and select **Virtual machine**.
+1. On the folder page of the [management console](https://console.cloud.yandex.com), click **Create resource** and select **Virtual machine**.
 1. In the **Name** field, enter a name for the VM: `jenkins-tutorial`.
 
 {% include [name-format](../../_includes/name-format.md) %}

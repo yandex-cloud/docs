@@ -13,7 +13,7 @@ items:
       href: operations/cluster-create.md
     - name: Connecting to databases
       href: operations/connect.md
-    - name: Stopping and starting clusters
+    - name: Stop and start the cluster
       href: operations/cluster-stop.md
     - name: SQL queries in the management console
       href: operations/web-sql-query.md
@@ -21,6 +21,10 @@ items:
       href: operations/update.md
     - name: Connecting external dictionaries
       href: operations/dictionaries.md
+    - name: Adding your own geobase
+      href: operations/internal-dictionaries.md
+    - name: Enabling machine learning models
+      href: operations/ml-models.md
     - name: Changing ClickHouse versions
       href: operations/cluster-version-update.md
     - name: Managing ClickHouse hosts
@@ -79,13 +83,22 @@ items:
             href: pricing-archive/pricing-01012019.md
           - name: From January 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
-  - name: API Reference
+          - name: From March 1, 2019 to February 1, 2020
+            href: pricing-archive/pricing-01022020.md
+  - name: API reference
     items:
-    - name: Authentication in the API
-      href: api-ref/authentication.md
-    include:
-      repo: docs
-      path: en/_api-ref/mdb/clickhouse/toc.yaml
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/managed-clickhouse/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: en/_api-ref/mdb/clickhouse/toc.yaml
   - name: Questions and answers
     items:
     - name: General questions

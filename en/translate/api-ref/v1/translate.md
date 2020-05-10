@@ -10,7 +10,7 @@ Translates the source text into the specified language.
 POST https://translate.api.cloud.yandex.net/translate/v1/translate
 ```
 
-### Parameters in the request body
+### Parameters in the request body {#parameters-in-the-request-body}
 
 All parameters must be URL-encoded. The maximum size of the POST request body is 30 KB.
 
@@ -37,7 +37,7 @@ The response is returned in JSON format.
 
 ## Examples {#examples}
 
-### Sample request
+### Sample request {#sample-request}
 
 ```httpget
 export FOLDER_ID=<folder id>
@@ -50,7 +50,7 @@ curl -X POST \
      "https://translate.api.cloud.yandex.net/translate/v1/translate"
 ```
 
-### Response example
+### Response example {#response-example}
 
 The response is returned in JSON format.
 

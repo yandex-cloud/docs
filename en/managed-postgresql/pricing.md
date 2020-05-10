@@ -13,15 +13,7 @@ editable: false
 
 The cost of {{ mpg-name }} usage is based on:
 
-* Storage type and size (disk space).
-
-* [The host class](concepts/instance-types.md) selected for the cluster.
-
-* The number of DB hosts in the cluster.
-
-* Settings and number of backups.
-
-* The amount of outgoing traffic.
+{% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -36,7 +28,7 @@ The minimum billing unit is one hour (for example, the cost of 1.5 hours of oper
 The following is charged:
 
 * Storage allocated for DB clusters.
-    * Storage on fast local disks (SSD) can only be ordered for clusters with more than 3 hosts in 100 GB increments.
+    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with 3 or more hosts in 100 GB increments.
 
 * Space used by DB backups in excess of the storage specified for the cluster.
 
@@ -50,101 +42,43 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 ## Pricing {#prices}
 
-### Hosts {prices-hosts}
+### Host computing resources {#prices-hosts}
 
 {% list tabs %}
 
-- Prices in USD
+- Prices in USD, without VAT
   
-  | Host class | Rate for 1 hour, without VAT
-  | ----- | ----- 
-  | **Intel Broadwell** | 
-  {{ b1-nano }}| $0.009046
-  {{ b1-micro }} | $0.015276
-  {{ b1-medium }} | $0.028153
-  | {{ m1-micro }} | $0.092677 |
-  | {{ m1-small }} | $0.185338 |
-  | {{ m1-medium }} | $0.278000 |
-  | {{ m1-large }} | $0.370677 |
-  | {{ m1-xlarge }} | $0.556000 |
-  | {{ m1-2xlarge }} | $0.741338 |
-  | {{ m1-3xlarge }} | $1.112000 |
-  | {{ m1-4xlarge }} | $1.482662 |
-  {{ s1-nano }}| $0.033246
-  {{ s1-micro }} | $0.066362
-  {{ s1-small }} | $0.132594
-  {{ s1-medium }} | $0.265319
-  {{ s1-large }} | $0.530508
-  {{ s1-xlarge }} | $1.061147
-  **Intel Cascade Lake** | 
-  {{ b2-nano }}| $0.009046
-  {{ b2-micro }} | $0.015276
-  {{ b2-medium }} | $0.028153
-  | {{ m2-micro }} | $0.092677 |
-  | {{ m2-small }} | $0.185338 |
-  | {{ m2-medium }} | $0.278000 |
-  | {{ m2-large }} | $0.370677 |
-  | {{ m2-xlarge }} | $0.556000 |
-  | {{ m2-2xlarge }} | $0.741338 |
-  | {{ m2-3xlarge }} | $1.112000 |
-  | {{ m2-4xlarge }} | $1.482662 |
-  | {{ m2-5xlarge }} | $1.853323 |
-  | {{ m2-6xlarge }} | $2.224000 |
-  {{ s2-micro }} | $0.061184
-  {{ s2-small }} | $0.122384
-  {{ s2-medium }} | $0.244753
-  {{ s2-large }} | $0.367123
-  {{ s2-xlarge }} | $0.489507
-  {{ s2-2xlarge }} | $0.734276
-  {{ s2-3xlarge }} | $0.979030
-  {{ s2-4xlarge }}| $1.223784
-  {{ s2-5xlarge }}| $1.468538
+    | Resource | Rate for 1 hour |
+    | ----- | ----- |
+    | **Intel Broadwell** |
+    | 5% vCPU | $0.000513 |
+    | 20% vCPU | $0.003590 |
+    | 50% vCPU | $0.006026 |
+    | 100% vCPU | $0.017179 |
+    | RAM (for 1 GB) | $0.003974 |
+    | **Intel Cascade Lake** |
+    | 5% vCPU | $0.000513 |
+    | 20% vCPU | $0.003590 |
+    | 50% vCPU | $0.006026 |
+    | 100% vCPU | $0.014487 |
+    | RAM (for 1 GB) | $0.003974 |
   
-- Prices in roubles
-  
-  | Host class | Rate for 1 hour, with VAT |
-  | ----- | ----- 
-  | **Intel Broadwell** | 
-  | {{ b1-nano }} | ₽0.7056 |
-  | {{ b1-micro }} | ₽1.1916 |
-  | {{ b1-medium }} | ₽2.1960 |
-  | {{ m1-micro }} | ₽7.2288 |
-  | {{ m1-small }} | ₽14.4564 |
-  | {{ m1-medium }} | ₽21.6840 |
-  | {{ m1-large }} | ₽28.9128 |
-  | {{ m1-xlarge }} | ₽43.3680 |
-  | {{ m1-2xlarge }} | ₽57.8244 |
-  | {{ m1-3xlarge }} | ₽86.7360 |
-  | {{ m1-4xlarge }} | ₽115.6476 |
-  | {{ s1-nano }} | ₽2.5932 |
-  | {{ s1-micro }} | ₽5.1763 |
-  | {{ s1-small }} | ₽10.3424 |
-  | {{ s1-medium }} | ₽20.6949 |
-  | {{ s1-large }} | ₽41.3797 |
-  | {{ s1-xlarge }} | ₽82.7695 |
-  | **Intel Cascade Lake** | 
-  | {{ b2-nano }} | ₽0.7056 |
-  | {{ b2-micro }} | ₽1.1916 |
-  | {{ b2-medium }} | ₽2.1960 |
-  | {{ m2-micro }} | ₽7.2288 |
-  | {{ m2-small }} | ₽14.4564 |
-  | {{ m2-medium }} | ₽21.6840 |
-  | {{ m2-large }} | ₽28.9128 |
-  | {{ m2-xlarge }} | ₽43.3680 |
-  | {{ m2-2xlarge }} | ₽57.8244 |
-  | {{ m2-3xlarge }} | ₽86.7360 |
-  | {{ m2-4xlarge }} | ₽115.6476 |
-  | {{ m2-5xlarge }} | ₽144.5592 |
-  | {{ m2-6xlarge }} | ₽173.4720 |
-  | {{ s2-micro }} | ₽4.7724 |
-  | {{ s2-small }} | ₽9.5460 |
-  | {{ s2-medium }} | ₽19.0908 |
-  | {{ s2-large }} | ₽28.6356 |
-  | {{ s2-xlarge }} | ₽38.1816 |
-  | {{ s2-2xlarge }} | ₽57.2736 |
-  | {{ s2-3xlarge }} | ₽76.3644 |
-  | {{ s2-4xlarge }} | ₽95.4552 |
-  | {{ s2-5xlarge }} | ₽114.5460 |
+- Prices in roubles, with VAT
+
+    | Resource | Rate for 1 hour |
+    | ----- | ----- |
+    | **Intel Broadwell** |
+    | 5% vCPU | ₽0.04 |
+    | 20% vCPU | ₽0.28 |
+    | 50% vCPU | ₽0.47 |
+    | 100% vCPU | ₽1.34 |
+    | RAM (for 1 GB) | ₽0.31 |
+    | **Intel Cascade Lake** |
+    | 5% vCPU | ₽0.04 |
+    | 20% vCPU | ₽0.28 |
+    | 50% vCPU | ₽0.47 |
+    | 100% vCPU | ₽1.13 |
+    | RAM (for 1 GB) | ₽0.31 |
 
 {% endlist %}
 
@@ -152,27 +86,112 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% list tabs %}
 
-- Prices in USD
+- Prices in USD, without VAT
 
-  | Service | Rate for 1 GB per month, without VAT |
-  | ----- | ----- 
-  | Standard network storage| $0.029334 |
-  | Fast network storage| $0.104302 |
-  | Local SSD | $0.104302 |
-  | Backups beyond the storage size| $0.032594 |
-  
-- Prices in roubles
+  Service | Rate for 1 GB per month
+  ----- | ----- | -----
+  Fast network storage | $0.104302 |
+  Backup over storage size | $0.032594
 
-  | Service | Rate for 1 GB per month, with VAT |
-  | ----- | ----- 
-  | Standard network storage| ₽2.2881 |
-  | Fast network storage| ₽8.1356 |
-  | Local SSD | ₽8.1356 |
-  | Backups beyond the storage size| ₽2.5424 |
-  
+
+- Prices in roubles, with VAT
+
+  Service | Rate for 1 GB per month
+  ----- | -----
+  Fast network storage | ₽8.1356 |
+  Backup over storage size | ₽2.5424
+
 {% endlist %}
 
 ### Outgoing traffic {#prices-traffic}
 
 {% include notitle [pricing-egress-traffic](../_includes/pricing/pricing-egress-traffic.md) %}
 
+
+## Estimated prices for host classes {#calculated-prices}
+
+Prices for the time of host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-postgresql#calculator).
+
+{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
+
+{% list tabs %}
+
+- Prices in USD, without VAT
+
+  Host class | Rate for 1 hour
+  ----- | -----
+  **Intel Broadwell** |
+  {{ b1-nano }} | $0.008974
+  {{ b1-micro }} | $0.015128
+  {{ b1-medium }}  | $0.027949
+  {{ s1-nano }} | $0.033077
+  {{ s1-micro }} | $0.066154
+  {{ s1-small }} | $0.132308
+  {{ s1-medium }}| $0.264615
+  {{ s1-large }} | $0.529231
+  {{ s1-xlarge }} | $1.058462
+  **Intel Cascade Lake** |
+  {{ b2-nano }}| $0.008974
+  {{ b2-micro }} | $0.015128
+  {{ b2-medium }} | $0.027949
+  {{ m2-micro }} | $0.092564
+  {{ m2-small }} | $0.185128
+  {{ m2-medium }}| $0.277692
+  {{ m2-large }} | $0.370256
+  {{ m2-xlarge }} | $0.555385
+  {{ m2-2xlarge }} | $0.740513
+  {{ m2-3xlarge }} | $1.110769
+  {{ m2-4xlarge }} | $1.481026
+  {{ m2-5xlarge }} | $1.851282
+  {{ m2-6xlarge }} | $2.221538
+  {{ s2-micro }} | $0.060769
+  {{ s2-small }} | $0.121538
+  {{ s2-medium }} | $0.243077
+  {{ s2-large }} | $0.364615
+  {{ s2-xlarge }} | $0.486154
+  {{ s2-2xlarge }} | $0.729231
+  {{ s2-3xlarge }} | $0.972308
+  {{ s2-4xlarge }} | $1.215385
+  {{ s2-5xlarge }} | $1.458462
+  {{ s2-6xlarge }} | $1.944615
+
+- Prices in roubles, with VAT
+
+  Host class | Rate for 1 hour
+  ----- | -----
+  **Intel Broadwell** |
+  {{ b1-nano }}| ₽0.70
+  {{ b1-micro }} | ₽1.18
+  {{ b1-medium }} | ₽2.18
+  {{ s1-nano }} | ₽2.58 |
+  {{ s1-micro }} | ₽5.16 |
+  {{ s1-small }} | ₽10.32 |
+  {{ s1-medium }} | ₽20.64 |
+  {{ s1-large }} | ₽41.28 |
+  {{ s1-xlarge }} | ₽82.56
+  **Intel Cascade Lake** |
+  {{ b2-nano }}| ₽0.70
+  {{ b2-micro }} | ₽1.18
+  {{ b2-medium }} | ₽2.18
+  {{ m2-micro }} | ₽7.22
+  {{ m2-small }} | ₽14.44
+  {{ m2-medium }}| ₽21.66
+  {{ m2-large }} | ₽28.88
+  {{ m2-xlarge }} | ₽43.32
+  {{ m2-2xlarge }} | ₽57.76
+  {{ m2-3xlarge }} | ₽86.64
+  {{ m2-4xlarge }} | ₽115.52
+  {{ m2-5xlarge }} | ₽144.40
+  {{ m2-6xlarge }} | ₽173.28
+  {{ s2-micro }} | ₽4.74
+  {{ s2-small }} | ₽9.48
+  {{ s2-medium }} | ₽18.96
+  {{ s2-large }} | ₽28.44
+  {{ s2-xlarge }} | ₽37.92
+  {{ s2-2xlarge }} | ₽56.88
+  {{ s2-3xlarge }} | ₽75.84
+  {{ s2-4xlarge }}| ₽94.80
+  {{ s2-5xlarge }}| ₽113.76
+  {{ s2-6xlarge }}| ₽151.68
+
+{% endlist %}

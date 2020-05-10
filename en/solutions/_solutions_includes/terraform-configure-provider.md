@@ -3,13 +3,15 @@
    ```
    provider "yandex" {
      token = "<OAuth or static key of service account>"
+     cloud_id  = "<cloud ID>"
      folder_id = "<folder ID>"
      zone      = "ru-central1-a"
    }
    ```
    * `provider`: The provider name.
    * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) to access Yandex.Cloud.
-   * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id) where Terraform will create cloud resources.
+   * `cloud_id`: ID of the cloud where Terraform will create resources.
+   * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where resources will be created by default.
    * `zone`: The availability zone where all cloud resources will be created by default.
 
 1. Execute the command `terraform init` in the folder with the configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.

@@ -1,6 +1,6 @@
 {% include [triggers-preview](triggers-preview-stage.md) %}
 
-Create a trigger to read messages from a {{ message-queue-full-name }} queue and process them using the {{ sf-full-name }} function.
+Create a trigger for the [message queue](../../message-queue/concepts/queue.md) of {{ message-queue-full-name }} and process messages using the [function](../../functions/concepts/function.md) {{ sf-name }}.
 
 {% note important %}
 
@@ -9,23 +9,21 @@ Create a trigger to read messages from a {{ message-queue-full-name }} queue and
 
 {% endnote %}
 
-- [Before you start](#before-begin).
-- [Create a trigger](#trigger-create).
-- [Check the results](#check-result).
-
 ## Before you start {#before-begin}
 
-To create a [trigger](../../functions/concepts/trigger.md), you need:
+To create a trigger, you need:
 
 1. Service accounts with rights to read messages from a message queue and to call a function. You can use the same service account for both operations. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
-1. [A message queue](../../message-queue/concepts/queue.md) that the trigger can take messages from. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
-1. [A function](../../functions/concepts/function.md) that the trigger will send messages to for processing. If you don't have a function:
+1. [A message queue](../../message-queue/concepts/queue.md) that the trigger will pick up messages from. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+1. [Functions](../../functions/concepts/function.md) the trigger will send messages to for processing. If you don't have a function:
     - [Create a function](../../functions/operations/function/function-create.md).
-    - [Create a function version](../../functions/operations/function/version-manage.md#func-version-create).
+    - [Create a version of the function and upload the function code to it](../../functions/operations/function/version-manage.md#func-version-create).
 
 ## Create a trigger {#trigger-create}
 
-Create a trigger that can take messages from {{ message-queue-name }} and pass them to the {{ sf-name }} function for further processing.
+Create a trigger for the message queue.
+
+{% include [trigger-time](trigger-time.md) %}
 
 {% list tabs %}
 
@@ -36,17 +34,22 @@ Create a trigger that can take messages from {{ message-queue-name }} and pass t
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
     Create a trigger:
+
     - `--name`: Trigger name.
+
     - `--queue`: Unique queue ID.
-    
-        To get it:
-        1. Open the **Message Queue** section.
-        1. Click ![image](../../_assets/vertical-ellipsis.svg) for which you want to create a trigger.
-        1. On the **Overview** page of the **General information** block, copy the unique queue ID from the **ARN** field.
+
+        To find out the unique ID of the queue:
+        1. Open **Message Queue** in [консоли управления]({{ link-console-main }}).
+        1. Click ![image](../../_assets/vertical-ellipsis.svg) in the row of the queue you would like to create a trigger for.
+        1. In the **Overview** page, under **General information**, copy the unique queue ID from the **ARN** field.
 
     - `--invoke-function-id`: Unique function ID.
+
     - `--queue-service-account-name`: Service account with rights to read messages from the queue.
+
     - `--invoke-function-service-account-id`: Service account with rights to call the function.
+
     - `--batch-size`: Message batch size. Optional parameter. Values can be from 1 to 10. The default is 1.
 
     ```
@@ -78,7 +81,7 @@ Create a trigger that can take messages from {{ message-queue-name }} and pass t
 
 ## Check the results {#check-result}
 
-Make sure the trigger is working properly in {{ message-queue-name }} or {{ sf-name }}.
+Make sure that the trigger works correctly: in {{ message-queue-name }}, you see that messages are picked up from the queue, while in {{ sf-name }} you see that the function was started.
 
 {% list tabs %}
 
@@ -130,3 +133,4 @@ Make sure the trigger is working properly in {{ message-queue-name }} or {{ sf-n
     1. Go to **Statistics**. Pay attention to the **Messages in queue** chart.
 
 {% endlist %}
+

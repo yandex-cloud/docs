@@ -1,4 +1,4 @@
-#### compute.images.user {#compute-images-user}
+### compute.images.user {#compute-images-user}
 
 The `compute.images.user` role includes the following permissions:
 

@@ -1,12 +1,14 @@
 # Managing device certificates
 
-You can:
+For devices and registries to begin exchanging data and commands, you need to [log in](../../concepts/authorization.md). This section describes how to manage device certificates for the relevant authorization method.
 
-- [View the list of device certificates](device-certificates.md#list-cert)
-- [Add a certificate to the device](device-certificates.md#add-cert)
-- [Delete a device certificate](device-certificates.md#delete-cert)
+{% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
-To access a [device](../../concepts/index.md#device), use its ID or name. For information about how to get the ID or name of a device, see [{#T}](../device/device-list.md).
+- [Viewing a list of device certificates](device-certificates.md#list-cert)
+- [Adding a certificate to a device](device-certificates.md#add-cert)
+- [Deleting a device certificate](device-certificates.md#delete-cert)
+
+To access a [device](../../concepts/index.md#device), use its unique ID or name. For information about how to get its unique ID or name, see [{#T}](../device/device-list.md).
 
 ## Viewing a list of certificates {#list-cert}
 
@@ -44,7 +46,7 @@ To access a [device](../../concepts/index.md#device), use its ID or name. For in
   $ yc iot device certificate add \
   --device-name my-device \ # Device name.
   --certificate-file device-cert.pem # Path to the public part of the certificate.
-
+  
   device_id: b9135goeh1uc1s2i07nm
   fingerprint: 65e5b050069da5ca5996a4a8a92514098b0a5dd1
   certificate_data: |
@@ -67,7 +69,7 @@ To access a [device](../../concepts/index.md#device), use its ID or name. For in
   1. Delete a device certificate:
 
       ```
-      $ yc iot device certificate delete --device-name my-device --fingerprint 65e...
+      $ yc iot device certificate delete --device-name my-device --fingerprint 65...
       ```
 
   2. Make sure the certificate was deleted:

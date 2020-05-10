@@ -87,7 +87,7 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
       ```bash
       $ yc managed-postgresql cluster create \
-         --name <cluster name> \
+         --cluster-name <cluster name> \
          --environment <prestable or production> \
          --network-name <network name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -101,9 +101,9 @@ By default, {{ mpg-short-name }} limits the maximum number of connections to eac
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
-### Creating a single-host cluster
+### Creating a single-host cluster {#creating-a-single-host-cluster}
 
 To create a cluster with a single host, you should pass a single parameter, `--host`.
 
@@ -121,7 +121,7 @@ Run the command:
 
 ```
 $ yc managed-postgresql cluster create \
-     --name mypg \
+     --cluster-name mypg \
      --environment production \
      --network-name default \
      --resource-preset s1.nano \

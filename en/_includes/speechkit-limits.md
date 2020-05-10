@@ -22,10 +22,11 @@
 | Maximum duration of audio | {{ stt-short-audioLength }} |
 | Maximum number of audio channels | {{ stt-short-channelsCount }} |
 | [**Streaming mode of short audio recognition**](../speechkit/stt/streaming.md) |  |
-| Maximum duration of transmitted audio for the entire session | {{ stt-streaming-fileSize }} |
-| Maximum size of transmitted audio data | {{ stt-streaming-audioLength }} |
+| Maximum duration of transmitted audio for the entire session | {{ stt-streaming-audioLength }} |
+| Maximum size of transmitted audio data | {{ stt-streaming-fileSize }} |
 | Maximum number of audio channels | {{ stt-short-channelsCount }} |
 | [**Long audio recognition**](../speechkit/stt/streaming.md) |  |
 | Maximum file size | {{ stt-long-fileSize }} |
+| Maximum duration of audio | {{ stt-long-audioLength }} |
 | Period for storing recognition results on the server | {{ stt-long-resultsStorageTime }} |
 

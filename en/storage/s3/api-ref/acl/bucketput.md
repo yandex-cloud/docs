@@ -4,7 +4,7 @@ Uploads an access control list for a bucket.
 
 {% note info %}
 
-ACLs can be uploaded as XML documents or using special `x-amx-grant*` headers. Do not use XML documents and `x-amx-grant*` headers in the same request.
+ACLs can be uploaded as XML documents or using special `x-amx-grant*` headers. Don't use XML documents and `x-amx-grant*` headers in the same request.
 
 {% endnote %}
 
@@ -18,7 +18,7 @@ PUT /{bucket}?acl HTTP/1.1
 
 | Parameter | Description |
 | ----- | ----- |
-| `bucket` | Name of the bucket. |
+| `bucket` | Bucket name. |
 
 ### Query parameters {#request-params}
 
@@ -34,9 +34,9 @@ You can also use the headers listed below.
 
 {% include [storage-acl-headers](../../../_includes_service/storage-acl-bucket-headers.md) %}
 
-### Data schema
+### Data schema {#data-schema}
 
-ACLs are passed as XML documents. For a description of the schema, see [ACL XML schema](xmlscheme.md).
+ACLs are passed as XML documents. For the schema description, see [ACL XML schema](xml-config.md).
 
 ## Response {#response}
 

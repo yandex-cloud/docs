@@ -6,6 +6,10 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 
 1. {% include [create-account-button-step](../_includes/create-account-button-step.md) %}
 
+1. {% include [choose-country-step](../_includes/choose-country-step.md) %}
+
+   {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
+
 1. {% include [choose-balance-payer](../_includes/choose-balance-payer.md) %}
 
 1. {% include [choose-name-step](../_includes/choose-name-step.md) %}
@@ -16,7 +20,7 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 
    {% list tabs %}
 
-    - Individual account
+    - Applying as an individual
 
        Enter your full name and link your bank card:
 
@@ -28,9 +32,9 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 
         {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
-    - Business account
+    - Business
 
-      6.1. Select a payment method (bank card or bank transfer):
+      7.1. Select a payment method (bank card or bank transfer):
 
       - **Bank card**
 <br/>Link your corporate bank card:
@@ -44,9 +48,8 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
         {% include [yandex-account](../_includes/payment-card-validation.md) %}
 
       - **Bank transfer**
-<br/>After you click **Activate** (step 8), the billing account is created with the status [Not verified](../concepts/billing-account.md#conditions). An email with further instructions is sent to the email address specified in your Yandex or Yandex.Connect account. It may take up to three business days to activate your billing account.
 
-      6.2. Enter the legal details of your organization.
+      7.2. Enter the legal details of your organization.
 
    {% endlist %}
 

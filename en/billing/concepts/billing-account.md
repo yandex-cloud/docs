@@ -27,10 +27,10 @@ The type of billing account determines the Yandex.Cloud resource [payment method
    - Once the funds are debited from your bank card, a [payment receipt](individual-bill.md) is sent to your email address.
 
 - Business account
-   - Intended for residents of Russia.
-   - Consumed resources are paid for by bank transfer from the business's bank account or by corporate bank card.
+   - Intended for residents of Russia and non-residents of Russia.
+   - Consumed resources are paid for by bank transfer from the business's bank account or bt corporate bank card.
    - Payments for resources consumed are made based on the [agreement](../concepts/contract.md) and [bank invoice](bill.md), or the amount is debited automatically from the linked bank card. For more information, see [Billing cycle for businesses](../payment/billing-cycle-business.md).
-   - A report for services rendered and an invoice are sent to your email address at the beginning of the next reporting period. For more information, see [Reporting documents](../payment/documents.md).
+   - A report on the services rendered and an invoice (residents only) are sent to your email address at the beginning of the next reporting period. For more information, see [Reporting documents](../payment/documents.md).
 
 {% endlist %}
 
@@ -45,4 +45,8 @@ However, if Yandex.Cloud services are suspended due to arrears and you fail to p
 {% include [billing-account-amounts](../_includes/billing-account-amounts.md) %}
 
 {% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}
+
+{% include [billing-account-payers](../_includes/billing-account-payers.md) %}
+
+{% include [billing-account-payers-example](../_includes/billing-account-payers-example.md) %}
 

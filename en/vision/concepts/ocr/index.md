@@ -1,39 +1,51 @@
 # Optical character recognition (OCR)
 
-This section describes how the _Optical Character Recognition (OCR)_ feature works in the service.
+This section describes how the _Optical Character Recognition (OCR)_ feature works.
 
-## Text recognition process
+## Preparing the recognition request {#request}
 
-Text in an image is recognized in two stages:
+In your request, you specify a list of [analysis features](../index.md#features) to be applied to the image. To recognize a text, use the `TEXT_DETECTION` type and set the list of languages in the configuration.
 
-1. [Detecting the language model for text recognition](#detect-model).
-1. [Detecting text in the image](#detect-text).
+### Request configuration {#config}
 
-As a result of recognition, the service returns a JSON object with the recognized text, its position on the page, and the [recognition confidence](#confidence) value.
+In the configuration, you can specify:
+
+* The list of languages to be used to [detect the language model](#detect-model) for recognition.
+
+  If you don't know the text language, enter `"*"` so that the service can automatically select the most appropriate model.
+
+* The model to be used to detect text in the image. Available models:
+
+  * `page` (default): Good for images with any number of lines of text.
+  * `line`: Good for recognizing a single line of text. For example, if you don't want to send an entire image, you can cut out a single line and send it for recognition.
+
+       {% include [include](../../../_includes/vision/text-detection-line-note.md) %}
 
 ### Language model detection {#detect-model}
 
-The service provides text recognition based on a model that is trained on a specific set of languages. Some languages are very different from each other (like Arabic and Chinese), so they use [different models](supported-languages.md).
+The service provides text recognition based on a [language model](supported-languages.md) that is trained on a specific set of languages. The model is selected automatically based on the list of languages you specified in the configuration.
 
-The model is selected automatically based on the list of languages specified in the `language_codes` property. If you don't know the text language, specify `"language_codes": ["*"]` to let the service choose the best-fitting model.
-
-For each requested [feature](../index.md#features) (`feature`) only one model is used. For example, if the image contains text in Chinese and Japanese, only one language is recognized. To recognize languages from different models, specify several features in the request.
-
-See the examples in the [{#T}](../../operations/ocr/text-detection.md) instructions.
+Only a single model is used each time you recognize the text. For example, if an image contains text in Chinese and Japanese, only one language is recognized. To recognize both of these languages, specify several analysis options based on different language lists in your request.
 
 {% note tip %}
 
-If your text is in Russian and English, the [English-Russian model](supported-languages.md#engrus) works best. To use it, specify one or both of these languages, but don't specify other languages in the same configuration.
+If your text is in Russian and English, the [English-Russian model](supported-languages.md#engrus) works best. To use this model, specify one of these languages or both of them in `text_detection_config`, but don't specify any other languages.
 
 {% endnote %}
 
-### Detecting text in images {#detect-text}
+### Image requirements {#image-requirements}
+
+An image in a request must meet the following requirements:
+
+{% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
+
+## Response with recognition results {#response}
 
 The service highlights the text characters found in the image and groups them by level: words are grouped into lines, the lines into blocks, and the blocks into pages.
 
 ![image](../../../_assets/vision/text-detection.jpg)
 
-As a result, the service returns a JSON object, where additional information is provided for each of the levels:
+As a result, the service returns an object that also specifies for each level:
 
 * `pages[]` — Page size.
 * `blocks[]` — Position of the text on the page.
@@ -76,13 +88,7 @@ Example of a recognized word with coordinates:
 }
 ```
 
-## Image requirements
-
-An image in a request must meet the following requirements:
-
-{% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
-
-## Recognition confidence {#confidence}
+### Recognition confidence {#confidence}
 
 The recognition confidence shows the service's confidence in the result. For example, the value `"confidence": 0.9412244558` for the line <q>we like you</q> means that the text is recognized correctly with a probability of 94%.
 

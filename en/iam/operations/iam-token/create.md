@@ -1,7 +1,5 @@
 # Getting an IAM token for a Yandex account
 
-To perform operations in Yandex.Cloud via the API, you need an [IAM token](../../concepts/authorization/iam-token.md).
-
 {% note info %}
 
 {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
@@ -30,26 +28,9 @@ To perform operations in Yandex.Cloud via the API, you need an [IAM token](../..
 
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
-## Examples
+## Examples {#examples}
 
-Save the IAM token to a variable in the CLI and use it in other requests from the command line. Sample request to get cloud list:
+### Using an IAM token obtained via the CLI {#use-cli}
 
-{% list tabs %}
-
-- Bash
-
-  ```bash
-  $ export IAM_TOKEN=`yc iam create-token`
-  $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-      https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
-  ```
-
-- PowerShell
-
-  ```
-  $IAM_TOKEN=yc iam create-token
-  curl.exe -H "Authorization: Bearer $IAM_TOKEN" https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
-  ```
-
-{% endlist %}
+{% include [include](../../../_includes/iam/iam-token-usage-examples.md) %}
 

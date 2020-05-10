@@ -115,3 +115,5 @@ items:
             href: api-ref/data-types/SendMessageBatchResultEntry.md
       - name: Стандартные ошибки
         href: api-ref/common-errors.md
+  - name: Публичные материалы
+    href: public-talks.md

@@ -1,6 +1,6 @@
 # VM statuses
 
-## List of statuses
+## List of statuses {#list-of-statuses}
 
 A VM can have one of the following statuses:
 
@@ -15,7 +15,7 @@ A VM can have one of the following statuses:
 - `ERROR`: a fatal error has occurred and the VM cannot be recovered.
 - `DELETING`: the VM is being deleted.
 
-## Operations on a VM
+## Operations on a VM {#operations-on-VM}
 
 The diagram below shows only transitions between statuses under normal operation during the following actions:
 

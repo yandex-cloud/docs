@@ -3,7 +3,7 @@
 В этом разделе вы узнаете:
 * [на какие ресурсы можно назначить роль](#resources);
 * [какие роли действуют в сервисе](#roles-list);
-* [какие роли необходимы](#required-roles) для того или иного действия.
+* [какие роли необходимы](#choosing-roles) для того или иного действия.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -27,7 +27,7 @@
     * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
     * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-## Какие роли мне необходимы {#required-roles}
+## Какие роли мне необходимы {#choosing-roles}
 
 В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `editor` вместо `viewer`.
 
@@ -49,7 +49,7 @@
 **Управление доступом к ресурсам** | |
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на ресурс | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
 
-#### Что дальше
+#### Что дальше {what-is-next}
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).
 * [Как отозвать роль](../../iam/operations/roles/revoke.md).

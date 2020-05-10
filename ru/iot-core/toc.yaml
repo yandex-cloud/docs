@@ -15,7 +15,7 @@ items:
         href: operations/logs.md
       - name: Создание триггера для топика
         href: operations/trigger-create.md
-      - name: Реестр
+      - name: Управление реестрами
         items:
         - name: Получение информации о реестре
           href: operations/registry/registry-list.md
@@ -25,7 +25,7 @@ items:
           href: operations/registry/registry-update.md
         - name: Удаление реестра
           href: operations/registry/registry-delete.md
-      - name: Устройство
+      - name: Управление устройствами
         items:
           - name: Управление алиасами топиков
             items:
@@ -45,14 +45,24 @@ items:
             href: operations/device/device-update.md
           - name: Удаление устройства
             href: operations/device/device-delete.md
-      - name: Сертификат
+      - name: Управление сертификатами
         items:
+          - name: Создание сертификата
+            href: operations/certificates/create-certificates.md
           - name: Управление сертификатами реестра
             href: operations/certificates/registry-certificates.md
-          - name: Управление сертификатами устройств
+          - name: Управление сертификатами устройства
             href: operations/certificates/device-certificates.md
+      - name: Управление паролями
+        items:
+          - name: Управление паролями реестра
+            href: operations/password/registry-password.md
+          - name: Управление паролями устройства
+            href: operations/password/device-password.md
   - name: Концепции
     items:
+        - name: Авторизация
+          href: concepts/authorization.md
         - name: Взаимосвязь ресурсов сервиса
           href: concepts/index.md
         - name: Параметры подключения MQTT-брокера
@@ -63,6 +73,8 @@ items:
           href: concepts/limits.md
   - name: Сценарии использования
     items:
+      - name: Все сценарии
+        href: solutions/index.md
       - name: Работа с помощью Mosquitto
         items:
           - name: Отправить сообщение
@@ -73,3 +85,17 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref-grpc/iot-core/api-ref/toc.yaml
+      - name: REST
+        items:
+        include:
+          repo: docs
+          path: ru/_api-ref/iot/devices/toc.yaml

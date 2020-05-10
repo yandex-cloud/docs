@@ -10,23 +10,19 @@ For more information about role inheritance, see [{#T}](../../resource-manager/c
 
 {% endnote %}
 
-## Assigning roles {#grant-role}
+## Assigning roles {#grant-roles}
 
 To assign a role to a user:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Roles {#role}
+## Roles {#roles}
 
 The list below shows all roles that are considered when verifying access rights in the {{ managed-k8s-name }} service.
 
-### Service roles {#service-role}
-
-_Service roles_ are roles that allow access to the resources of a particular service.
-
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
-### Primitive roles {#primitive-role}
+### Primitive roles {#primitive-roles}
 
 You can assign primitive roles to any resource in any service.
 

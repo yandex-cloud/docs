@@ -29,7 +29,7 @@ To use the instructions in this section, you need:​
 
   To create a federation in {{ iam-short-name }}:
 
-  1. Open the folder page in the [management console]({{ link-console-main }}).
+  1. Open the folder page in [management console]({{ link-console-main }}).
 
   1. Select the **Federations** tab in the left menu.
 
@@ -48,8 +48,6 @@ To use the instructions in this section, you need:​
   1. Enable **Automatically create users** to automatically add authenticated users to the cloud. This option simplifies the user setup, but users created this way are only assigned the `resource-manager.clouds.member` role by default: they can't do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
 
       If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use Yandex.Cloud.
-
-      {% include [add-federated-users-disclaimer](../../../_includes/iam/add-federated-users-disclaimer.md) %}
 
 {% endlist %}
 
@@ -161,7 +159,7 @@ When setting up the message:
 
 ## Add users to the cloud {#add-users}
 
-{% include [add-federated-users-disclaimer](../../../_includes/iam/add-federated-users-disclaimer.md) %}
+{% include [add-federated-users](../../../_includes/iam/add-federated-users.md) %}
 
 ## Test the authentication process {#test-auth}
 

@@ -4,7 +4,7 @@
 
 ## Восстановить кластер из резервной копии {#restore}
 
-Восстанавливая кластер из резервной копии, вы создаете новый кластер с данными из резервной копии. Если в каталоге не хватает [ресурсов](../concepts/limits.md) для создания такого кластера, восстановиться из резервной копии не получится.
+Восстанавливая кластер из резервной копии, вы создаете новый кластер с данными из резервной копии. Если в каталоге не хватает [ресурсов](../concepts/limits.md) для создания такого кластера, восстановиться из резервной копии не получится. Средняя скорость восстановления из резервной копии — 10 МБайт/с на каждое ядро БД. 
 
 Для нового кластера необходимо задать все параметры, обязательные при создании.
 
@@ -59,7 +59,7 @@
       $ yc managed-postgresql cluster restore \
              --backup-id c9qlk4v13uq79r9cgcku:base_000000010000000000000002 \
              --time 2018-11-02T10:09:38Z \
-             --name mynewpg \
+             --cluster-name mynewpg \
              --environment=PRODUCTION \
              --network-name default \
              --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
@@ -184,7 +184,7 @@
 
   ```bash
   $ yc managed-postgresql cluster create \
-     --name <имя кластера> \
+     --cluster-name <имя кластера> \
      --environment <окружение, prestable или production> \
      --network-name <имя сети> \
      --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
@@ -199,7 +199,7 @@
 
   ```
   $ yc yc managed-postgresql cluster update \
-     --name <имя кластера> \
+     --cluster-name <имя кластера> \
      --backup-window-start 11:25:00
   ```
   

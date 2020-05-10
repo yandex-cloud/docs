@@ -71,8 +71,8 @@ The new technology currently only supports voices for Russian. Choosing a differ
 
 To get more control over speech synthesis, you can use [Speech Synthesis Markup Language](https://en.wikipedia.org/wiki/Speech_Synthesis_Markup_Language) (SSML). This is an XML-based markup language that lets you set the duration of pauses, the pronunciation of individual sounds, and much more. For more information about supported tags and how to use them, see [{#T}](ssml.md).
 
-#### What's next
+#### What's next {#what-is-next}
 
-* Try speech synthesis using the demo on the [service page](https://cloud.yandex.ru/services/speechkit#demo).
+* Try speech synthesis using the demo on the [service page](https://cloud.yandex.com/services/speechkit#demo).
 * [{#T}](request.md)
 

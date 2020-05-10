@@ -2,10 +2,6 @@
 
 Sharding in {{ mmg-name }} is available for clusters running {{ MG }} version 4.0 or higher. If your cluster is deployed with version 3.6, you can [update it](../operations/cluster-version-update.md).
 
-Please note that when you shard a {{ MG }} cluster, mongos and mongocfg service hosts are automatically created and [billed](../pricing.md) separately from the main DBMS hosts.
-
-{% include [irreversible-sharding-note.md](../../_includes/mdb/irreversible-sharding-note.md) %}
-
 Please note that when you shard a {{ mmg-name }} cluster, mongos and mongocfg service hosts are automatically created and [billed](../pricing.md) separately from the main DBMS hosts.
 
 {% include [irreversible-sharding-note.md](../../_includes/mdb/irreversible-sharding-note.md) %}
@@ -24,7 +20,13 @@ For more information about the sharding concept, see [{#T}](../concepts/sharding
 
 ## How to enable collection sharding {#enable}
 
-1. Open a {{ mmg-name }} cluster page in the [management console]({{ link-console-main }}).
+{% note important %}
+
+Run all your sharding setup commands via the `mongo` CLI from a user granted the [mdbShardingManager](../concepts/users-and-roles.md#mdbShardingManager) role in the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
+
+{% endnote %}
+
+1. Open a {{ mmg-name }} cluster page in [консоли управления]({{ link-console-main }}).
 
 1. Go to the **Shards** tab and click **Enable**.
 
@@ -65,7 +67,7 @@ Let's say you already have a {{ mmg-name }} sharded cluster hosting the `billing
 
 Sequence of operations:
 
-1. [Connect](../operations/connect.md) to the database.
+1. [Connect](../operations/connect.md) to the `billing` database. Make sure that the user connecting to the database has the [mdbShardingManager](../concepts/users-and-roles.md#mdbShardingManager) role in the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
 
 1. Enable `billing` database sharding:
 

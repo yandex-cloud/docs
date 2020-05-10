@@ -36,13 +36,10 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
      {% endnote %}
 
-  1. Under **Host class**:
-
-      - Select the host type: it determines the [performance](../../compute/concepts/performance-levels) level of the processor cores. **High-memory** hosts allow full core usage, whereas **burstable** hosts only a portion.
-
+  1. Set up a [host class](../concepts/instance-types.md) for the cluster:
+      - Select the host type: it defines the [guaranteed vCPU performance](../../compute/concepts/performance-levels.md). **High-memory** hosts allow full core usage, whereas **burstable** hosts only a portion.
       - Select the amount of RAM for the host.
-
-      - Select the disk size.
+      - Select the disk size. The available disk size depends on the amount of RAM and is limited by [quotas and limits](../concepts/limits.md#limits). The minimum disk size is twice the selected amount of RAM, while the maximum disk size is 8 times the selected amount of RAM.
 
   1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
 
@@ -76,7 +73,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
       $ yc managed-redis cluster create --help
       ```
 
-  1. View available host classes:
+  1. When you create a cluster from the CLI, you can't explicitly specify the host type and amount of RAM. Choose the applicable [host class](../concepts/instance-types.md) instead. To see what host classes are available, run the command:
 
      ```
      $ yc managed-redis resource-preset list
@@ -86,7 +83,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
       ```bash
       $ yc managed-redis cluster create \
-         --name <cluster name> \
+         --cluster-name <cluster name> \
          --environment <prestable or production> \
          --network-name <network name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -98,33 +95,158 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
+- Terraform
+
+  {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+
+  If you don't have Terraform yet, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  To create a cluster:
+
+    1. In the configuration file, describe the parameters of resources that you want to create:
+       * Database cluster: Description of the cluster and its hosts.
+       * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
+       * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
+
+       Sample configuration file structure:
+
+       ```
+       resource "yandex_mdb_redis_cluster" "<cluster name>" {
+         name        = "<cluster name>"
+         environment = "<environment>"
+         network_id  = "<network ID>"
+       
+         config {
+           password = "<password>"
+         }
+       
+         resources {
+           resource_preset_id = "<host class>"
+           disk_size          = <disk size>
+         }
+       
+         host {
+           zone      = "<availability zone>"
+           subnet_id = "<subnet ID>"
+         }
+       }
+       
+       resource "yandex_vpc_network" "<network name>" {}
+       
+       resource "yandex_vpc_subnet" "<subnet name>" {
+         zone           = "<availability zone>"
+         network_id     = "<network ID>"
+         v4_cidr_blocks = ["<range>"]
+       }
+       ```
+
+       For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_redis_cluster.html).
+
+    2. Make sure that the configuration files are correct.
+       1. In the command line, go to the folder where you created the configuration file.
+       2. Run the check using the command:
+
+          ```
+          terraform plan
+          ```
+
+       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If there are errors in the configuration, Terraform will point them out. This is a test step. No resources are created.
+
+    3. Create a cluster.
+       1. If there are no errors in the configuration, run the command:
+
+          ```
+          terraform apply
+          ```
+       2. Confirm the creation of resources.
+
+       After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in [консоли управления]({{ link-console-main }}).
+
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
-### Creating a single-host cluster
+{% list tabs %}
 
-To create a cluster with a single host, you should pass a single parameter, `--host`.
+- CLI
 
-Let's say we need to create a {{ RD }} cluster with the following characteristics:
+  **Creating a single-host cluster**
 
-- Named `myredis`.
-- In the `production` environment.
-- In the `default` network.
-- With a single `b1.nano` class host in the `b0rcctk2rvtr8efcch64` subnet and the `ru-central1-c` availability zone.
-- With 20 GB of storage.
-- With the `user1user1` password.
+  To create a cluster with a single host, you should pass a single parameter, `--host`.
 
-Run the command:
+  Let's say we need to create a {{ RD }} cluster with the following characteristics:
+  - Named `myredis`.
+  - In the `production` environment.
+  - In the `default` network.
+  - With a single `b1.nano` class host in the `b0rcctk2rvtr8efcch64` subnet and `ru-central1-c` availability zone.
+  - With 16 GB of storage.
+  - With the `user1user1` password.
 
-```
-$ yc managed-redis cluster create \
-     --name myredis \
-     --environment production \
-     --network-name default \
-     --resource-preset b1.nano \
-     --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
-     --disk-size 20 \
-     --password=user1user1
-```
+  Run the command:
+
+  ```
+  $ yc managed-redis cluster create \
+       --cluster-name myredis \
+       --environment production \
+       --network-name default \
+       --resource-preset hm1.nano \
+       --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
+       --disk-size 16 \
+       --password=user1user1
+  ```
+
+- Terraform
+
+  **Creating a single-host cluster**
+
+  Let's say we need to create a {{ RD }} cluster and a network for it with the following characteristics:
+    - Named `myredis`.
+    - In the `production` environment.
+    - In the cloud with ID `b1gq90dgh25иuebiu75o`.
+    - In a folder named `myfolder`.
+    - In a new network named `mynet`.
+    - With a single `hm1.nano` class host in a new subnet named `mysubnet` and in the `ru-central1-c` availability zone. The `mysubnet` subnet will have the `10.5.0.0/24` range.
+    - With 16 GB of storage.
+    - With the `user1user1` password.
+
+  The configuration file for the cluster looks like this:
+
+  ```
+  provider "yandex" {
+    token = "<OAuth or static key of service account>"
+    cloud_id  = "b1gq90dgh25иuebiu75o"
+    folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
+    zone      = "ru-central1-c"
+  }
+  
+  resource "yandex_mdb_redis_cluster" "myredis" {
+    name        = "myredis"
+    environment = "PRODUCTION"
+    network_id  = "${yandex_vpc_network.mynet.id}"
+  
+    config {
+      password = "user1user1"
+    }
+  
+    resources {
+      resource_preset_id = "hm1.nano"
+      disk_size          = 16
+    }
+  
+    host {
+      zone      = "ru-central1-c"
+      subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
+    }
+  }
+  
+  resource "yandex_vpc_network" "mynet" {}
+  
+  resource "yandex_vpc_subnet" "mysubnet" {
+    zone           = "ru-central1-c"
+    network_id     = "${yandex_vpc_network.mynet.id}"
+    v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  ```
+
+{% endlist %}
 

@@ -4,7 +4,7 @@
 
 {% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-sa.md) %}
 
-#### Что дальше
+#### Что дальше {#what-is-next}
 
 - [{#T}](create-access-key.md)
 - [{#T}](set-access-bindings.md)

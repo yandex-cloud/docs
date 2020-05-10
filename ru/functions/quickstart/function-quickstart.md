@@ -12,7 +12,7 @@
 - [Вызовите функцию](#invoke)
 - [Что дальше](#what-is-next)
 
-## Перед началом работы {#before-begin}
+## Перед началом работы {#before-you-begin}
 
 1. [Создайте каталог](../../resource-manager/operations/folder/create.md) в Яндекс.Облаке.
 1. [Установите](../../cli/quickstart.md) интерфейс командной строки YC CLI.

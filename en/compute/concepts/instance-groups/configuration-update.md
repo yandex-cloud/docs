@@ -8,7 +8,7 @@ To do this:
 1. Set the desired [deployment policy](policies.md#deploy-policy).
 1. Run the [update operation](../../operations/instance-groups/update.md) for the group.
 
-## Update with group degradation
+## Update with group degradation {#update-with-group-degradation}
 
 Sequential updates of instances in a group.
 

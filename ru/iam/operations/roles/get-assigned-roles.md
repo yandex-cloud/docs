@@ -41,7 +41,7 @@
 
 {% endlist %}
 
-#### См. также
+#### См. также {#see-also}
 
 * [{#T}](revoke.md)
 * [{#T}](grant.md)

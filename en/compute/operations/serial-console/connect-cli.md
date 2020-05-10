@@ -2,7 +2,7 @@
 
 After [enabling access](index.md), you can connect to the serial console to work with the VM. Serial console access is not secure, so enabling it might allow hackers to access your VM. [Disable](disable.md) access after you finish working with the serial console.
 
-## Connecting to the serial console
+## Connecting to the serial console {#connect-to-serial-console}
 
 {% note info %}
 
@@ -51,14 +51,14 @@ To connect to the serial console, use the CLI.
     | `port` | Optional parameter. Port number to connect to the serial console. The default value is 1. You don't need to specify this parameter to connect to the Linux serial console. When connecting to the Windows serial console (SAC), pass the value 2. |
     | `ssh-key` | Optional parameter. Path to the private key for SSH access to the Linux VM to be added to the [metadata](../../concepts/vm-metadata.md). If this parameter is omitted, the `yc_serialssh_key` SSH key is generated. |
 
-#### Troubleshooting
+#### Troubleshooting {#troubleshooting}
 
 - If you connect to the serial console and nothing appears on the screen:
     - Press `Enter`.
     - Restart the VM (for virtual machines created before February 22).
 - If the system requests user data to provide access to the VM, enter the login and password.
 
-## Disconnecting from the serial console
+## Disconnecting from the serial console {#turn-off-serial-console}
 
 To disconnect from the serial console:
 

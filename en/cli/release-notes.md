@@ -1,8 +1,227 @@
 # YC CLI Releases
 
-## Version 0.42.0 (21.10.19) {#latest-release}
+## Version 0.51.0 (12.02.20) {#latest-release}
+
+### Changes to the CLI {#cli}
+
+**Improved**
+
+- Command `yc <service> <resource> create`
+
+  Added the ability to pass resource names as command arguments. Сommands like `yc <service> <resource> create --name <resource name>` and `yc <service> <resource> create <resource name>` are now the same.
+
+  For example, instead of the running the command `yc managed-kubernetes cluster create --name my-cluster ...`, you can now use the command `yc managed-kubernetes cluster create my-cluster ...`.
+
+- Command `yc <service> <resource> set-access-binding`
+
+  Added a warning that the command deletes assigned roles. If the user runs the command directly (rather than using another command or script), they're asked for confirmation.
+
+**Fixed**
+
+- Command `yc init`
+
+  The values of the flags `--cloud-id`, `--folder-id`, and `--folder-name` are now properly recognized.
+
+- Disabled messages about the availability of a new version of `yc` when invoking of a non-interactive command.
 
 ### Changes to Yandex.Cloud services {#services}
+
+#### {{iam-name}} {#iam}
+
+- Added commands for creating and managing SAML-compatible identity federations and their certificates: `yc iam federation` and `yc iam certificate`. Learn more about SAML-compatible identity federations in the [documentation](https://cloud.yandex.com/docs/iam/concepts/users/identity-federations).
+
+## Previous releases {#previous-releases}
+
+### Version 0.50.0 (27.01.20) {#version0.50.0}
+
+#### Changes to Yandex.Cloud services {#services}
+
+- For [resources that you can assign roles for](../iam/concepts/access-control/resources-with-access-control.md).
+
+    Added alternatives to the `--subject` flag for role management commands: `--service-account-id`, `--service-account-name`, `--user-account-id`, `--user-yandex-login`, and `--all-authenticated-users`.
+
+#### {{ managed-k8s-name }} {#k8s}
+
+- Command `yc managed-kubernetes node-group create`
+
+    Added the flag `--auto-scale`. You can use it to create a group of nodes whose size is dynamically adjusted by [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler#cluster-autoscaler).
+
+#### {{ compute-name }} {#compute}
+
+- Command `yc compute instance create`
+
+  If you specify the `--gpus` flag, the `gpu-standard-v1` platform is automatically selected.
+
+### Version 0.49.0 (21.01.20) {#version0.49.0}
+
+#### Changes to the CLI {#cli}
+
+**Improved**
+
+- When running the YC CLI with the `--debug` flag, the API call response log line now outputs not only the gRPC status code, but also its description.
+
+#### Changes to Yandex.Cloud services {#services}
+
+#### {{ kms-name }} {#kms}
+
+Support for the cryptographic key management service: {{ kms-full-name }}.
+
+{{ kms-full-name }} (KMS) allows you to create encryption keys and implement data protection models in your applications and services.
+Use the keys to protect your secrets, private data, and other confidential information you store in the cloud.
+
+The {{ kms-full-name }} service is at the Preview stage. Read more about the service in the [documentation](https://cloud.yandex.com/docs/kms/).
+
+### Version 0.48.0 (27.12.19) {#version0.48.0}
+
+#### Changes to the CLI {#cli}
+
+**Improved**
+
+- When updating YC CLI, the current version to be installed is now displayed.
+
+#### Changes to Yandex.Cloud services {#services}
+
+#### {{ compute-name }} {#compute}
+
+- Added ability to use placement groups: `yc compute placement-group --help`.
+
+- Commands `yc compute instance create` and `yc compute instance update`
+
+    Renamed the flag used for specifying the platform from `--platform-id` to `--platform`. The old flag name is still supported.
+
+- Command `yc compute instance create`
+
+    SSH keys added using the `--ssh-key` flag are saved to the metadata with the `ssh-keys` key instead of `ec2-user-data`.
+
+#### Managed database services {#managed-db}
+
+**{{ mmy-name }}**
+
+- Added support for creating a cluster with {{ MY }} version 8.0.
+
+- Added a command to manually switch the master for a specified cluster: {{ MY }} `{{ yc-mdb-my }} cluster start-failover`.
+
+- Command `{{ yc-mdb-my }} cluster update`
+
+    Added the ability to rename clusters using the `--new-name` flag.
+
+**{{ mpg-name }}**
+
+- Added a command to manually switch the master for a specified cluster: {{ PG }} `{{ yc-mdb-pg }} cluster start-failover`.
+
+- Command `{{ yc-mdb-pg }} cluster update`
+
+    Added the ability to rename clusters using the `--new-name` flag.
+
+**{{ mch-name }}**
+
+- Command `{{ yc-mdb-ch }} cluster update`
+
+    Added the ability to rename clusters using the `--new-name` flag.
+
+**{{ mrd-name }}**
+
+- Command `{{ yc-mdb-rd }} cluster update`
+
+    Added the ability to rename clusters using the `--new-name` flag.
+
+### Version 0.47.0 (17.12.19) {#version0.47.0}
+
+#### Changes to the CLI {#cli}
+
+**Improved**
+
+- [Federated authentication](operations/authentication/federated-user.md) is now supported for non-interactive `yc` calls. This mode is used when the CLI is not started directly by the user, like when it is started via a script or `kubectl` when working with the [Kubernetes cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) in {{ managed-k8s-name }}.
+
+### Version 0.46.0 (13.12.19) {#version0.46.0}
+
+#### Changes to the CLI {#cli}
+
+**Improved**
+
+- To accelerate authorization diagnostics, the CRC32 of the sent [IAM token](../iam/concepts/authorization/iam-token.md) is written to the request debug log.
+
+#### Changes to Yandex.Cloud services {#services}
+
+#### {{ sf-name }} {#serverless-functions}
+
+- Added the `yc serverless trigger create object-storage` command to subscribe to bucket updates in {{ objstorage-name }}.
+
+### Version 0.45.0 (03.12.19) {#version0.45.0}
+
+#### Changes to the CLI {#cli}
+
+**Improved**
+
+- Increased the time between reconnection attempts if any resource involved in the execution of a command is unavailable.
+
+#### Changes to Yandex.Cloud services {#services}
+
+#### {{ iot-name }} {#iot}
+
+- Added commands for managing passwords: `yc iot registry password` and `yc iot device password`.
+
+- Commands `yc iot registry create` and `yc iot device create`
+
+    Added flags to enable login and password authorization: `--password`, `--read-password`, and `--generate-password`.
+
+- Commands `yc iot mqtt publish` and `yc iot mqtt subscribe`
+
+    Added flags to enable login and password authorization: `--username` and `--password`.
+
+### Version 0.44.0 (19.11.19) {#version0.44.0}
+
+#### Changes to Yandex.Cloud services {#services}
+
+#### {{ sf-name }} {#serverless-functions}
+
+* Added the command `yc serverless trigger create timer` for timed function calls.
+
+#### Changes to the CLI {#cli}
+
+**Fixed**
+
+* Fixed an error that in rare cases caused several lines of the `debug` log to result in `stdout`.
+
+**Improved**
+
+* Disabled the display of the `Status.details` field for gRPC errors. Information from it is duplicated in the `Status.message` field, which is shown as the main error message.
+
+### Version 0.43.1 (14.11.19)
+
+#### Changes to the CLI {#cli}
+
+**Fixed**
+
+- For Windows Subsystem for Linux (WSL), the browser now opens correctly when logging in to the CLI using [SAML-compatible identity federations](../iam/concepts/users/identity-federations.md).
+
+### Version 0.43.0 (11.11.19) {#version0.43.0}
+
+#### Changes to the CLI {#cli}
+
+* Added CLI authentication using [SAML-compatible identity federations](../iam/concepts/users/identity-federations.md).
+
+    To do this, run the command `yc init --federation-id=<FEDERATION_ID>` to use the CLI on behalf of the federated user.
+
+#### Changes to Yandex.Cloud services {#services}
+
+#### {{ compute-name }} {#compute}
+
+* Added details to the logged data and error text on [authorization from within a virtual machine](../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) (using an IAM token from the metadata).
+
+#### Changes in managed database services {#managed-db}
+
+**{{ mpg-name }}**
+
+* Added support for {{ PG }} version 12 database creation.
+
+**{{ mmg-name }}**
+
+* Added support for creating a cluster with {{ MG }} version 4.2.
+
+### Version 0.42.0 (21.10.19) {#version0.42.0}
+
+#### Changes to Yandex.Cloud services {#services}
 
 #### {{ compute-name }} {#compute}
 
@@ -27,8 +246,6 @@
 * Commands `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore`
 
    Added the value `10_1s` for the `-- postgresql-version string` flag to create {{ PG }} cluster version 10-1C.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.41.1 (26.09.19) {#version0.41.1}
 
@@ -246,7 +463,7 @@
 
 **Improved**
 
-- Commands for displaying a list of elements `yc   list`
+- Commands for displaying a list of elements `yc <service> <resource> list`.
 
    The maximum number of elements to output has been increased from 100 to 1000.
 

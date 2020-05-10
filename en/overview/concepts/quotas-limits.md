@@ -8,7 +8,7 @@ When designing your infrastructure in Yandex.Cloud, consider the limits as the b
 
 ## Why quotas are needed {#quotas}
 
-Quotas serve as a soft restriction for requesting resources, and allow Yandex Cloud to guarantee the stability of the service: new users cannot take up too much resources for testing purposes. If you are ready to use more resources, contact the [technical support](https://console.cloud.yandex.ru/support) and tell us exactly which quotas you need to increase, and how.
+Quotas serve as a soft restriction for requesting resources, and allow Yandex Cloud to guarantee the stability of the service: new users cannot take up too much resources for testing purposes. If you are ready to use more resources, contact the [technical support](https://console.cloud.yandex.com/support) and tell us exactly which quotas you need to increase, and how.
 
 Technical support decides whether or not to increase quotas on an individual basis.
 

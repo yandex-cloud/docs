@@ -52,9 +52,9 @@ After creating a subnet, you can change its name, description, and tags.
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
-### Changing a subnet using the name flag
+### Changing a subnet using the name flag {#using-name-flag}
 
 {% list tabs %}
 

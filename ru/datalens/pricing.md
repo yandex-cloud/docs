@@ -43,12 +43,12 @@ editable: false
 Сессия считается по активностям пользователя в каталоге. Если несколько пользователей работают одновременно в одном экземпляре {{ datalens-short-name }}, то сервис засчитает несколько сессий.
 Если один пользователь работает одновременно в нескольких экземплярах {{ datalens-short-name }}, то расчет сессий в этих экземплярах производится независимо друг от друга.
 
-### Типы сессий
+### Типы сессий {#session-types}
 Сессии в {{ datalens-short-name }} делятся на внутренние и внешние:
 
 Тип сессии | Источники данных
 -----  | -----
-Внутренняя | Материализованные датасеты<br/>CSV-подключения<br/>Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>Базы данных которые созданы в Яндекс.Облаке (ClickHouse, PostgreSQL, MySQL)
+Внутренняя | Материализованные датасеты<br/>CSV-подключения<br/>Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>Управляемые базы данных Яндекс.Облака:<br/> - [Managed Service for ClickHouse](../managed-clickhouse)<br/> - [Managed Service for PostgreSQL](../managed-postgresql)<br/> - [Managed Service for MySQL<sup>®</sup>](../managed-mysql)
 Внешняя | Любой источник данных, который не относится к Яндексу и Яндекс.Облаку.
 
 ### Как считаются сессии {#how-sessions-counted}

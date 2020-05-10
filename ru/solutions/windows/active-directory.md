@@ -1,10 +1,10 @@
 # Развертывание Active Directory
 
-В сценарии приводится пример развертывания Active Directory в Яндекс.Облаке. 
+В сценарии приводится пример развертывания Active Directory в Яндекс.Облаке.
 
 Чтобы развернуть инфраструктуру Active Directory:
 
-1. [Подготовьте облако к работе](#before-begin)
+1. [Подготовьте облако к работе](#before-you-begin)
 1. [Необходимые платные ресурсы](#paid-resources)
 1. [Создайте облачную сеть и подсети](#create-network)
 1. [Создайте скрипт для управления локальной учетной записью администратора](#admin-script)
@@ -15,7 +15,7 @@
 1. [Проверьте работу Active Directory](#test-ad)
 1. [Удалите созданные ресурсы](#clear-out)
 
-## Подготовьте облако к работе {#before-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 Перед тем, как разворачивать серверы, нужно зарегистрироваться в Облаке и создать платежный аккаунт:
 
@@ -46,7 +46,7 @@
      Чтобы создать [облачную сеть](../../vpc/concepts/network.md):
      1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать облачную сеть.
      1. Нажмите кнопку **Создать сеть.**
-     1. Задайте имя сети: `ad-network`. 
+     1. Задайте имя сети: `ad-network`.
      1. Нажмите кнопку **Создать сеть**.
 
    - CLI
@@ -107,8 +107,12 @@
 
 ```
 #ps1
-Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "P@ssw0rd11" -AsPlainText -Force)
+Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<ваш пароль>" -AsPlainText -Force)
 ```
+
+Пароль должен соответствовать [требованиям к сложности](https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник).
+
+Подробные рекомендации по защите Active Directory читайте на [сайте разработчика](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 ## Создайте ВМ для Active Directory {#ad-vm}
 
@@ -130,9 +134,9 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
          * **Гарантированная доля vCPU** — 100%.
          * **RAM** — 8 ГБ.
 
-  1. В блоке **Сетевые настройки** нажмите кнопку **Добавить сеть** и выберите сеть `exchange-network`. Выберите подсеть `exchange-subnet-a`. В блоке **Публичный адрес** выберите вариант **Без адреса**. 
+  1. В блоке **Сетевые настройки** нажмите кнопку **Добавить сеть** и выберите сеть `exchange-network`. Выберите подсеть `exchange-subnet-a`. В блоке **Публичный адрес** выберите вариант **Без адреса**.
   1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-      - В поле **Пароль** укажите пароль `P@ssw0rd11`.
+      - В поле **Пароль** укажите ваш пароль.
   1. Нажмите кнопку **Создать ВМ**.
 
   Повторите операцию для ВМ с именем `ad-vm-b` в зоне доступности `ru-central1-a` и подключите ее к подсети `exchange-subnet-b`
@@ -165,7 +169,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 ## Создайте ВМ для бастионного хоста {#jump-server-vm}
 
-Для настройки машин с Active Directory будет использоваться файловый сервер с выходом в интернет. 
+Для настройки машин с Active Directory будет использоваться файловый сервер с выходом в интернет.
 
 {% list tabs %}
 
@@ -173,7 +177,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
   1. На странице каталога в [консоли управления](https://console.cloud.yandex.ru) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `jump-server-vm`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-с`.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-c`.
   1. В блоке **Публичные образы** нажмите кнопку **Выбрать**. В открывшемся окне выберите образ **2016 Datacenter**.
   1. В блоке **Диски** укажите размер загрузочного диска 35 ГБ.
   1. В блоке **Вычислительные ресурсы**:
@@ -183,9 +187,9 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
          * **Гарантированная доля vCPU** — 100%.
          * **RAM** — 4 ГБ.
 
-  1. В блоке **Сетевые настройки** нажмите кнопку **Добавить сеть** и выберите сеть `exchange-network`. Выберите подсеть `exchange-subnet-c`. В блоке **Публичный адрес** выберите вариант **Без адреса**. 
+  1. В блоке **Сетевые настройки** нажмите кнопку **Добавить сеть** и выберите сеть `exchange-network`. Выберите подсеть `exchange-subnet-c`. В блоке **Публичный адрес** выберите вариант **Без адреса**.
   1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-      - В поле **Пароль** укажите пароль `P@ssw0rd11`.
+      - В поле **Пароль** укажите ваш пароль.
   1. Нажмите кнопку **Создать ВМ**.
 
 - CLI
@@ -208,7 +212,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 У машин с Active Directory нет доступа в интернет, поэтому их следует настраивать через ВМ `jump-server-vm` с помощью RDP.
 
-1. Подключитесь к ВМ `jump-server-vm` с помощью RDP. Используйте логин `Administrator` и пароль `P@ssw0rd11`.
+1. Подключитесь к ВМ `jump-server-vm` с помощью RDP. Используйте логин `Administrator` и ваш пароль.
 1. Запустите RDP и подключитесь к виртуальной машине `ad-vm-a`.
 1. Запустите PowerShell и задайте статический адрес:
 
@@ -284,8 +288,8 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 ## Настройте второй контроллер домена {#install-ad-2}
 
-1. Подключитесь к ВМ `jump-server-vm` с помощью RDP. 
-1. С помощью RDP подключитесь к виртуальной машине `ad-vm-b`. Используйте логин `Administrator` и пароль `P@ssw0rd11`.
+1. Подключитесь к ВМ `jump-server-vm` с помощью RDP.
+1. С помощью RDP подключитесь к виртуальной машине `ad-vm-b`. Используйте логин `Administrator` и ваш пароль.
 1. Создайте временную папку:
 
    ```
@@ -333,8 +337,8 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 ## Проверьте работу Active Directory {#test-ad}
 
-1. Подключитесь к ВМ `jump-server-vm` с помощью RDP. 
-1. С помощью RDP подключитесь к виртуальной машине `ad-vm-b`. Используйте логин `Administrator` и пароль `P@ssw0rd11`. Запустите PowerShell.
+1. Подключитесь к ВМ `jump-server-vm` с помощью RDP.
+1. С помощью RDP подключитесь к виртуальной машине `ad-vm-b`. Используйте логин `Administrator` и ваш пароль. Запустите PowerShell.
 1. Создайте тестового пользователя:
 
    ```powershell

@@ -26,7 +26,7 @@ Send a message with data using the following parameters:
 - `--key`: Path to the private part of the device certificate.
 - `-t`: Device topic.
 - `-m`: Message text.
-- `-q`: [Quality of service (QoS)](../../concepts/topic.md#qos).
+- `-q`: [Quality of service (QoS)](../../concepts/index.md#qos).
 
 {% include [debug-note](../../../_includes/iot-core/debug-note.md) %}
 
@@ -79,7 +79,7 @@ Send a message with a command using the following parameters:
 - `-- key`: Path to the private part of the registry certificate.
 - `-t`: Device topic.
 - `-m`: Message text.
-- `-q`: [Quality of service (QoS)](../../concepts/topic.md#qos).
+- `-q`: [Quality of service (QoS)](../../concepts/index.md#qos).
 
 {% include [debug-note](../../../_includes/iot-core/debug-note.md) %}
 
