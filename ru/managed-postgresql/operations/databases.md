@@ -91,8 +91,8 @@
      $ yc managed-postgresql database create <имя базы данных>
           --cluster-name <имя кластера>
           --owner <имя пользователя-владельца>
-          --lc-collate ru_RU.UTF8
-          --lc-type ru_RU.UTF8
+          --lc-collate ru_RU.UTF-8
+          --lc-type ru_RU.UTF-8
      ```
 
      {{ mpg-short-name }} запустит операцию создания базы данных.
