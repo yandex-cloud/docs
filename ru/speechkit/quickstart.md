@@ -25,7 +25,7 @@ $ export FOLDER_ID=b1gvmob95yysaplct532
 $ export IAM_TOKEN=CggaATEVAgA...
 $ curl -X POST \
      -H "Authorization: Bearer ${IAM_TOKEN}" \
-     --data-urlencode "text=Hello World" \
+     --data-urlencode "text=${TEXT}" \
      -d "lang=en-US&folderId=${FOLDER_ID}" \
      "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
 ```
