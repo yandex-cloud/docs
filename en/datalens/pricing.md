@@ -28,9 +28,9 @@ Additional {{ datalens-short-name }} features that are available in {{ marketpla
 
   | Service | Free | Standard |
   | ----- | ----- | ----- |
-  | Monthly price | Free | $24.358974 |
+  | Monthly price, without VAT | Free | $24.358974 |
   | Number of sessions per month | 1000 | 10,000 |
-  | Additional sessions,<br/> per 10 sessions. | - | $0.024358 |
+  | Additional sessions,<br/> per 10 sessions, without VAT | - | $0.024358 |
   | External sessions multiplier | x 10 | x 10 |
   | Database size for materialized data, GB | 0.5 | 10 |
   | Geocoding | - | ✔ |
@@ -39,9 +39,9 @@ Additional {{ datalens-short-name }} features that are available in {{ marketpla
 
   | Service | Free | Standard |
   | ----- | ----- | ----- |
-  | Monthly price | Free | ₽1900 |
+  | Monthly price, with VAT | Free | ₽1900 |
   | Number of sessions per month | 1000 | 10,000 |
-  | Additional sessions,<br/> per 10 sessions. | - | ₽1.90 |
+  | Additional sessions,<br/> per 10 sessions, with VAT | - | ₽1.90 |
   | External sessions multiplier | x 10 | x 10 |
   | Database size for materialized data, GB | 0.5 | 10 |
   | Geocoding | - | ✔ |
