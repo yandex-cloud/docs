@@ -12,3 +12,4 @@
 - [{#T}](cluster-extensions.md)
 - [{#T}](cluster-users.md)
 - [{#T}](cluster-delete.md)
+- [{#T}](logical-replica-from-rds.md)
