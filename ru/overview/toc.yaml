@@ -27,6 +27,24 @@ items:
     items:
     - name: Рекомендации по безопасности
       href: security-bulletins/index.md
+    - name: Безопасность платформы Яндекс.Облако
+      items:
+      - name: Обзор
+        href: security/index.md
+      - name: Ключевые принципы безопасности
+        href: security/principles.md
+      - name: Разделение ответственности за обеспечение безопасности
+        href: security/respons.md
+      - name: Следование лучшим практикам и стандартам
+        href: security/standarts.md
+      - name: Соответствие требованиям
+        href: security/conform.md
+      - name: Технические меры защиты на стороне провайдера
+        href: security/tech-measures.md
+      - name: Средства защиты, доступные пользователям облачных сервисов
+        href: security/user-side.md
+      - name: Полезные ресурсы
+        href: security/resources.md     
   #  - name: Тестирование на проникновение
   #    href: compliance/pentest.md
   - name: Удаление данных пользователей
