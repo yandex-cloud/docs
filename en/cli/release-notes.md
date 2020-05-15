@@ -12,7 +12,7 @@
 
 **{{ mch-name }}**
 
-* `yc managed-clickhouse user create` and `yc managed-clickhouse user update`
+* Commands `yc managed-clickhouse user create` and `yc managed-clickhouse user update`
 
     The `settings` flag parameters are now described in Help.
 
