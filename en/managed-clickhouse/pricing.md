@@ -67,15 +67,9 @@ Cost per hour for all hosts: `3 × (2 × ₽1.43 + 8 × ₽0.33) + 3 × (1 × �
 The total cost of the cluster in the month (hosts and storage): `720 × ₽21.57 + 100 × ₽2.2881 = ₽15,759.21`
 
 
-## Discount for committed volumes of services (CVoS)
+## Discount for committed volumes of services (CVoS) {#cvos}
 
-You can get a guaranteed discount on Yandex.Cloud resource usage when you plan for one or three years ahead. To see the resources you can get a discount on:
-
-1. Go to [Billing](https://console.cloud.yandex.com/billing).
-1. Click on the desired billing account
-1. Choose **Special offers** in the left-hand menu.
-
-A CVoS guarantees a discount on usage, but doesn't guarantee the availability of the resources ordered. Read more about CVoS in the [Billing documentation](../billing/concepts/cvos.md).
+{% include [cvos](../_includes/mdb/cvos.md) %}
 
 {{mch-name}} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also pre-estimate your monthly payments for the desired number of vCPUs and RAM.
 

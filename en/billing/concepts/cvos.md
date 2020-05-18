@@ -14,7 +14,7 @@ The amount of the guaranteed discount depends on the amount of service resources
 
 ## Purchase and validity period {#how-to-enable}
 
-You can view the available offers and purchase a CVoS in the management console under **Special offers**.
+You can view the available offers and purchase a CVoS in the management console under **Commitments**.
 
 When [purchasing a CVoS](../operations/purchase-cvos.md), you choose the following on your own:
 
