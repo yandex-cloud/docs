@@ -18,7 +18,7 @@ expression IS [ NOT ] NULL
 ```
 
 #### Описание
-Возвращает `TRUE`, если `expression` не `NULL`. В противном случае возвращает `FALSE`.
+Возвращает `TRUE`, если `expression` является `NULL`. В противном случае возвращает `FALSE`.
 
 Вариант `expression IS NOT NULL` возвращает противоположное значение.
 

@@ -79,6 +79,10 @@ items:
         href: function-ref/GEOCODE.md
       - name: GEOINFO
         href: function-ref/GEOINFO.md
+      - name: TOPONYM_TO_GEOPOINT
+        href: function-ref/TOPONYM_TO_GEOPOINT.md
+      - name: TOPONYM_TO_GEOPOLYGON
+        href: function-ref/TOPONYM_TO_GEOPOLYGON.md
   - name: Логические функции
     items:
       - name: Обзор
