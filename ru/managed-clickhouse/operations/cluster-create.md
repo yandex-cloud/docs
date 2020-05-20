@@ -170,7 +170,7 @@
        }
        ```
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_redis_cluster.html).
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_clickhouse_cluster.html).
 
     2. Проверьте корректность конфигурацилонных файлов.
 

@@ -176,7 +176,7 @@ The number of hosts that can be created with a {{ CH }} cluster depends on the s
        }
        ```
 
-       For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_redis_cluster.html).
+       For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_clickhouse_cluster.html).
 
     2. Make sure that the configuration files are correct.
        1. In the command line, go to the folder where you created the configuration file.
