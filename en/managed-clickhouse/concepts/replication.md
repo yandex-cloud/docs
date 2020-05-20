@@ -4,7 +4,7 @@
 
 {% note info %}
 
-If you created a {{ CH }} cluster with 2 or more hosts, it isn't possible to reduce the number of hosts to one yet. And vice versa, if you created a single-host cluster, you will not be able to add hosts to it.
+If you created a {{ CH }} cluster with two or more hosts, you can't reduce the number of hosts to one.
 
 {% endnote %}
 
