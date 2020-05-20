@@ -34,4 +34,4 @@ Enter your query and click **Execute**. The results table or error message is sh
 * The management console outputs only the first 1000 rows of the result.
 * If a cluster query takes more than 10 minutes, the management console reports an error instead of printing the result, even if the query eventually finishes processing.
 * If your cluster has multiple {{PG}} hosts, queries from the management console are sent to the current master host.
-
+* A table list is taken from the _public_ schema. Queries with tables from other schemas are made by explicitly specifying a schema, for example: `SELECT * from information_schema.column_udt_usage`.
