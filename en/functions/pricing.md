@@ -44,7 +44,7 @@ Where:
 
 ## Using triggers {#triggers}
 
-[Triggers](concepts/trigger.md) can be used free of charge. You can create and use triggers within the available [quotas and limits](../functions/concepts/limits.md).
+[Triggers](concepts/trigger/index.md) can be used free of charge. You can create and use triggers within the available [quotas and limits](../functions/concepts/limits.md).
 
 ## Pricing {#prices}
 

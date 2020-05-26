@@ -35,6 +35,8 @@ items:
       href: operations/cluster-delete.md
     - name: Миграция базы данных в Облако
       href: operations/data-migration.md
+    - name: Создание логической реплики Аmazon RDS для PostgreSQL в Managed Service for PostgreSQL
+      href: operations/logical-replica-from-rds.md
   - name: Сценарии использования
     items:
       - name: Создание кластера PostgreSQL для 1С
