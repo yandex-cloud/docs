@@ -85,5 +85,142 @@
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
+- Terraform
+
+  {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+  
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы создать кластер:
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+     {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
+     
+     Пример структуры конфигурационного файла:
+     
+     ```
+     resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+       name        = "<имя кластера>"
+       environment = "<окружение, PRESTABLE или PRODUCTION>"
+       network_id  = "<идентификатор сети>"
+       version     = "<версия MySQL: 5.7 или 8.0>"
+
+       resources {
+         resource_preset_id = "<класс хоста>"
+         disk_type_id       = "<тип хранилища>"
+         disk_size          = "<размер хранилища в гигабайтах>"
+       }
+
+       database {
+         name = "<имя базы данных>"
+       }
+
+       user {
+         name     = "<имя пользователя>"
+         password = "<пароль пользователя>"
+         permission {
+           database_name = "<имя базы данных>"
+           roles         = ["ALL"]
+         } 
+       }
+
+       host {
+         zone      = "<зона доступности>"
+         subnet_id = "<идентификатор подсети>"
+       }
+     }
+
+     resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+
+     resource "yandex_vpc_subnet" "<имя подсети>" {
+       name           = "<имя подсети>"
+       zone           = "<зона доступности>"
+       network_id     = "<идентификатор сети>"
+       v4_cidr_blocks = ["<диапазон>"]
+     }
+     ```
+     
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_mysql_cluster.html).
+     
+  1. Проверьте корректность конфигурационных файлов.
+
+     {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %} 
+   
+  1. Создайте кластер.
+
+     {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}     
+
 {% endlist %}
 
+
+## Примеры {#examples}
+
+### Создание кластера с одним хостом {#creating-a-single-host-cluster}
+
+{% list tabs %}
+
+- Terraform
+
+  Допустим, нужно создать {{ MY }}-кластер и сеть для него со следующими характеристиками:
+  - С именем `my-mysql`.
+  - Версии `8.0`.
+  - В окружении `PRESTABLE`.
+  - В облаке с идентификатором `b1gq90dgh25иuebiu75o`.
+  - В каталоге `myfolder`.
+  - В новой сети `mynet`.
+  - С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+  - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
+  - С одним пользователем (`user1`), с паролем `user1user1`.
+  - С одной базой данных `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
+  
+  Конфигурационный файл для такого кластера выглядит так:
+  
+  ```
+  provider "yandex" {
+    token     = "<OAuth или статический ключ сервисного аккаунта>"
+    cloud_id  = "b1gq90dgh25иuebiu75o"
+    folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
+    zone      = "{{ zone-id }}"
+  }
+  
+  resource "yandex_mdb_mysql_cluster" "my-mysql" {
+    name        = "my-mysql"
+    environment = "PRESTABLE"
+    network_id  = "${yandex_vpc_network.mynet.id}"
+    version     = "8.0"
+
+    resources {
+      resource_preset_id = "{{ host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"
+      disk_size          = 20
+    }
+
+    database {
+      name = "db1"
+    }
+
+    user {
+      name     = "user1"
+      password = "user1user1"
+      permission {
+        database_name = "db1"
+        roles         = ["ALL"]
+      } 
+    }
+
+    host {
+      zone      = "{{ zone-id }}"
+      subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
+    }
+  }
+
+  resource "yandex_vpc_network" "mynet" { name = "mynet" }
+
+  resource "yandex_vpc_subnet" "mysubnet" {
+    name           = "mysubnet"
+    zone           = "{{ zone-id }}"
+    network_id     = "${yandex_vpc_network.mynet.id}"
+    v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  ```
