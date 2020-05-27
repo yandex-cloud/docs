@@ -28,6 +28,8 @@ items:
         items:
           - name: Обзор
             href: concepts/ocr/index.md
+          - name: Распознавание шаблонов
+            href: concepts/ocr/template-recognition.md
           - name: Поддерживаемые языки
             href: concepts/ocr/supported-languages.md
           - name: Ограничения в текущей версии
