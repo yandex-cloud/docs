@@ -2,7 +2,7 @@
 
 Чтобы переместить или переименовать ресурс:
 
-1. {% include [include](../../../_includes/ml-platform/first-step.md) %}
+1. {% include [include](../../../_includes/datasphere/first-step.md) %}
 1. Перейдите во вкладку **Ресурсы**.
 1. Выберите файл или папку, которую хотите переместить и нажмите значок ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
 1. Выберите **Переместить**.

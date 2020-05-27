@@ -8,7 +8,7 @@
 
 Чтобы удалить проект:
 
-1. {% include [include](../../../_includes/ml-platform/first-step.md) %}
+1. {% include [include](../../../_includes/datasphere/first-step.md) %}
 1. Перейдите во вкладку **Проекты**.
 1. Выберите проект, который хотите удалить, и нажмите значок ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
 1. Выберите **Удалить** и подтвердите удаление.

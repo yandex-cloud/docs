@@ -17,25 +17,25 @@
 
 ## Создайте проект {#create-project}
 
-{% include [include](../_includes/ml-platform/create-project.md) %}
+{% include [include](../_includes/datasphere/create-project.md) %}
 
 ## Установите зависимости {#install-dependencies}
 
-{% include [include](../_includes/ml-platform/install-dependencies-intro.md) %}
+{% include [include](../_includes/datasphere/install-dependencies-intro.md) %}
 
-{% include [include](../_includes/ml-platform/install-dependencies-steps.md) %}
+{% include [include](../_includes/datasphere/install-dependencies-steps.md) %}
 
 ## Увеличьте используемые вычислительные ресурсы {#control-compute-resources}
 
-{% include [include](../_includes/ml-platform/control-compute-resources-intro.md) %}
+{% include [include](../_includes/datasphere/control-compute-resources-intro.md) %}
 
-{% include [include](../_includes/ml-platform/control-compute-resources-steps.md) %}
+{% include [include](../_includes/datasphere/control-compute-resources-steps.md) %}
 
 ## Загрузите свои файлы {#upload-resources}
 
-{% include [include](../_includes/ml-platform/resources-upload.md) %}
+{% include [include](../_includes/datasphere/resources-upload.md) %}
 
-{% include [include](../_includes/ml-platform/update-files.md) %}
+{% include [include](../_includes/datasphere/update-files.md) %}
 
 ## Что дальше {what-is-next}
 

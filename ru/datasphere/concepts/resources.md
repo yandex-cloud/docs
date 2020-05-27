@@ -4,7 +4,7 @@ _Ресурсы_ — это файлы и папки, которые вы мож
 
 Ресурсы хранятся отдельно от проектов и ноутбуков. Все ресурсы, которые вы [загрузили](../operations/resources/upload.md), доступны из любого проекта, [созданного](../operations/projects/create.md) в том же [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-{% include [include](../../_includes/ml-platform/update-files.md) %}
+{% include [include](../../_includes/datasphere/update-files.md) %}
 
 #### См. также {#see-also}
 

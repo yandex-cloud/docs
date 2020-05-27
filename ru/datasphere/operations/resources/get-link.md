@@ -10,7 +10,7 @@
 
 Чтобы получить ссылку:
 
-1. {% include [include](../../../_includes/ml-platform/first-step.md) %}
+1. {% include [include](../../../_includes/datasphere/first-step.md) %}
 1. Перейдите во вкладку **Ресурсы**.
 1. Выберите файл, для которого вы хотите получить ссылку, и нажмите значок ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
 1. Выберите **Получить ссылку**.

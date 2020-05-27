@@ -29,7 +29,7 @@ default:
   kms-full-name: Yandex Key Management Service
   interconnect-full-name: Yandex Cloud Interconnect
   cos-full-name: Yandex Container Optimized Solutions
-  ml-platform-full-name: Yandex ML Platform
+  ml-platform-full-name: Yandex DataSphere
   certificate-manager-full-name: Yandex Certificate Manager
 
   # Полные имена сервисов без Yandex
@@ -61,7 +61,7 @@ default:
   kms-name: Key Management Service
   interconnect-name: Cloud Interconnect
   cos-name: Container Optimized Solutions
-  ml-platform-name: ML Platform
+  ml-platform-name: DataSphere
   certificate-manager-name: Certificate Manager
   marketplace-name: Cloud Marketplace
 
@@ -92,7 +92,7 @@ default:
   ydb-short-name: YDB
   kms-short-name: KMS
   cos-short-name: COS
-  ml-platform-short-name: ML Platform
+  ml-platform-short-name: DataSphere
   certificate-manager-short-name: Certificate Manager
 
   # Тарифы

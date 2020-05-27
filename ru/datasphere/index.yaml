@@ -1,8 +1,8 @@
-title: Yandex ML Platform
+title: Yandex DataSphere
 description:
-  - "<em>Сервис Yandex ML Platform находится на стадии <a href=\"/docs/overview/concepts/launch-stages\">Preview</a>.</em>"
-  - "Yandex ML Platform упрощает использование среды разработки <a href=\"https://jupyter.org/\">JupyterLab</a> на вычислительных мощностях Яндекс.Облака. Вам не надо тратить время на создание и обслуживание виртуальных машин, а пакеты для анализа (TensorFlow, Keras, NumPy и <a href=\"/docs/ml-platform/concepts/preinstalled-packages\">другие</a>) уже установлены."
-  - "Сервис ML Platform позволит:
+  - "<em>Сервис Yandex DataSphere находится на стадии <a href=\"/docs/overview/concepts/launch-stages\">Preview</a>.</em>"
+  - "Yandex DataSphere упрощает использование среды разработки <a href=\"https://jupyter.org/\">JupyterLab</a> на вычислительных мощностях Яндекс.Облака. Вам не надо тратить время на создание и обслуживание виртуальных машин, а пакеты для анализа (TensorFlow, Keras, NumPy и <a href=\"/docs/ml-platform/concepts/preinstalled-packages\">другие</a>) уже установлены."
+  - "Сервис DataSphere позволит:
     <ul>
       <li>Производить сложные вычисления в Jupyter Notebooks, например обучение нейронных сетей или анализ больших данных.</li>
       <li>Готовить аналитические отчеты и делиться ими.</li>
@@ -10,7 +10,7 @@ description:
   - "Работа с сервисом ведется из консоли управления с помощью интегрированного интерфейса JupyterLab."
   - "Инфраструктура Яндекс.Облака <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
 meta:
-  title: "Yandex ML Platform"
+  title: "Yandex DataSphere"
 links:
   - title: "Начало работы"
     description: "Создайте свой первый проект"

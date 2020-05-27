@@ -10,7 +10,7 @@
 
 Вам не надо тратить время на создание и обслуживание виртуальных машин — при создании нового [проекта](project.md), автоматически выделяется новая виртуальная машина.
 
-{% include [include](../../_includes/ml-platform/project-opening-delay.md) %}
+{% include [include](../../_includes/datasphere/project-opening-delay.md) %}
 
 На виртуальной машине уже установлена среда разработки JupyterLab и пакеты для анализа данных и машинного обучения (TensorFlow, Keras, NumPy и [другие](preinstalled-packages.md)) — вы можете сразу начать их использовать. Полный список предустановленных пакетов.
 
@@ -20,7 +20,7 @@
 
 Сервис автоматически остановит виртуальную машину, если вы не будете пользоваться проектом. Состояние интерпретатора сохранится, то есть все переменные и результаты вычислений не потеряются, и вы сможете продолжить работу, когда снова откроете проект.
 
-{% include [include](../../_includes/ml-platform/saving-variables-warn.md) %}
+{% include [include](../../_includes/datasphere/saving-variables-warn.md) %}
 
 ### Управление вычислительными ресурсами {#control-computing-resources}
 
@@ -32,7 +32,7 @@
 
 Смена конфигурации позволит вам получить больше вычислительных ресурсов, когда они необходимы, и сэкономить, когда они не нужны.
 
-{% include [include](../../_includes/ml-platform/default-vm-configuration.md) %}
+{% include [include](../../_includes/datasphere/default-vm-configuration.md) %}
 
 ### Файлы с данными доступны из любого проекта {#common-resources}
 
@@ -56,7 +56,7 @@
 
 Помимо экспорта ноутбука, вы можете записать результаты вычислений в файл. Он появится на вкладке **Ресурсы** и вы сможете [скачать](../operations/resources/download.md) файл или [поделиться ссылкой](../operations/resources/get-link.md) на него.
 
-{% include [include](../../_includes/ml-platform/known-restrictions.md) %}
+{% include [include](../../_includes/datasphere/known-restrictions.md) %}
 
 #### См. также {#see-also}
 

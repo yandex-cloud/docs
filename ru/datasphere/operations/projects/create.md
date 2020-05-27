@@ -4,7 +4,7 @@
 
 Это инструкция о том, как создать пустой проект. Если у вас уже есть готовый файл `.ipynb`, вы можете создать проект из этого файла.
 
-{% include [include](../../../_includes/ml-platform/create-project.md) %}
+{% include [include](../../../_includes/datasphere/create-project.md) %}
 
 #### Что дальше {#what-is-next}
 
