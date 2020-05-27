@@ -1198,7 +1198,7 @@ type | enum **Type**<br>Тип хоста <ul><li>`MONGOD`: Хост mongod.</li
 --- | ---
 resource_preset_id | **string**<br>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в [документации](/docs/managed-mongodb/concepts/instance-types). 
 disk_size | **int64**<br>Объем хранилища, доступного хосту, в байтах. 
-disk_type_id | **string**<br><ul><li>network-hdd — сетевой HDD-диск; </li><li>network-ssd — сетевой SSD-диск; </li><li>local-ssd — локальное SSD-хранилище.</li></ul> 
+disk_type_id | **string**<br><ul><li>network-hdd — стандартное сетевое хранилище; </li><li>network-ssd — быстрое сетевое хранилище; </li><li>local-ssd — быстрое локальное хранилище.</li></ul> 
 
 
 ### Service {#Service}

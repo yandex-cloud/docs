@@ -283,7 +283,7 @@ configSpec.<br>mongodbSpec_3_6.<br>mongod.<br>config.<br>net.<br>maxIncomingConn
 configSpec.<br>mongodbSpec_3_6.<br>mongod.<br>resources | **object**<br><p>Ресурсы, выделенные каждому хосту mongod.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">документации</a>.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-configSpec.<br>mongodbSpec_3_6.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
+configSpec.<br>mongodbSpec_3_6.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — стандартное сетевое хранилище;</li> <li>network-ssd — быстрое сетевое хранилище;</li> <li>local-ssd — быстрое локальное хранилище.</li> </ul> 
 configSpec.<br>mongodbSpec_3_6.<br>mongocfg | **object**<br><p>Конфигурация и выделенные ресурсы для хостов mongocfg 3.6.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongocfg.<br>config | **object**<br><p>Конфигурация для хостов mongocfg 3.6.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongocfg.<br>config.<br>storage | **object**<br><p><code>storage</code> section of mongocfg configuration.</p> 
@@ -298,7 +298,7 @@ configSpec.<br>mongodbSpec_3_6.<br>mongocfg.<br>config.<br>net.<br>maxIncomingCo
 configSpec.<br>mongodbSpec_3_6.<br>mongocfg.<br>resources | **object**<br><p>Ресурсы, выделенные для каждого хоста mongocfg.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongocfg.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">документации</a>.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongocfg.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-configSpec.<br>mongodbSpec_3_6.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
+configSpec.<br>mongodbSpec_3_6.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — стандартное сетевое хранилище;</li> <li>network-ssd — быстрое сетевое хранилище;</li> <li>local-ssd — быстрое локальное хранилище.</li> </ul> 
 configSpec.<br>mongodbSpec_3_6.<br>mongos | **object**<br><p>Конфигурация и выделенные ресурсы для хостов mongos 3.6.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>config | **object**<br><p>Конфигурация для хостов mongos 3.6.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>config.<br>net | **object**<br><p>Сетевые настройки для mongos.</p> 
@@ -306,7 +306,7 @@ configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>config.<br>net.<br>maxIncomingConn
 configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>resources | **object**<br><p>Ресурсы, выделенные для каждого хоста mongos.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">документации</a>.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
+configSpec.<br>mongodbSpec_3_6.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — стандартное сетевое хранилище;</li> <li>network-ssd — быстрое сетевое хранилище;</li> <li>local-ssd — быстрое локальное хранилище.</li> </ul> 
 configSpec.<br>mongodbSpec_4_0 | **object**<br>Конфигурация и распределение ресурсов для кластера MongoDB 4.2. <br>`configSpec` включает только одно из полей `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`<br><br>
 configSpec.<br>mongodbSpec_4_0.<br>mongod | **object**<br><p>Конфигурация и выделенные ресурсы для хостов mongod 4.0.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongod.<br>config | **object**<br><p>Конфигурация для хостов mongod 4.0.</p> <p>Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством всех опций, описанных в <a href="https://docs.mongodb.com/v4.0/reference/configuration-options/">документации MongoDB</a>.</p> 
@@ -326,7 +326,7 @@ configSpec.<br>mongodbSpec_4_0.<br>mongod.<br>config.<br>net.<br>maxIncomingConn
 configSpec.<br>mongodbSpec_4_0.<br>mongod.<br>resources | **object**<br><p>Ресурсы, выделенные каждому хосту mongod.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">документации</a>.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-configSpec.<br>mongodbSpec_4_0.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
+configSpec.<br>mongodbSpec_4_0.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — стандартное сетевое хранилище;</li> <li>network-ssd — быстрое сетевое хранилище;</li> <li>local-ssd — быстрое локальное хранилище.</li> </ul> 
 configSpec.<br>mongodbSpec_4_0.<br>mongocfg | **object**<br><p>Конфигурация и выделенные ресурсы для хостов mongocfg 4.0.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongocfg.<br>config | **object**<br><p>Конфигурация для хостов mongocfg 4.0.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongocfg.<br>config.<br>storage | **object**<br><p><code>storage</code> section of mongocfg configuration.</p> 
@@ -341,7 +341,7 @@ configSpec.<br>mongodbSpec_4_0.<br>mongocfg.<br>config.<br>net.<br>maxIncomingCo
 configSpec.<br>mongodbSpec_4_0.<br>mongocfg.<br>resources | **object**<br><p>Ресурсы, выделенные для каждого хоста mongocfg.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongocfg.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">документации</a>.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongocfg.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-configSpec.<br>mongodbSpec_4_0.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
+configSpec.<br>mongodbSpec_4_0.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — стандартное сетевое хранилище;</li> <li>network-ssd — быстрое сетевое хранилище;</li> <li>local-ssd — быстрое локальное хранилище.</li> </ul> 
 configSpec.<br>mongodbSpec_4_0.<br>mongos | **object**<br><p>Конфигурация и выделенные ресурсы для хостов mongos 4.0.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>config | **object**<br><p>Конфигурация для хостов mongos 4.0.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>config.<br>net | **object**<br><p>Сетевые настройки для mongos.</p> 
@@ -349,7 +349,7 @@ configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>config.<br>net.<br>maxIncomingConn
 configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>resources | **object**<br><p>Ресурсы, выделенные для каждого хоста mongos.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">документации</a>.</p> 
 configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
+configSpec.<br>mongodbSpec_4_0.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — стандартное сетевое хранилище;</li> <li>network-ssd — быстрое сетевое хранилище;</li> <li>local-ssd — быстрое локальное хранилище.</li> </ul> 
 configSpec.<br>mongodbSpec_4_2 | **object**<br>Конфигурация и распределение ресурсов для кластера MongoDB 4.0. <br>`configSpec` включает только одно из полей `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`<br><br>
 configSpec.<br>mongodbSpec_4_2.<br>mongod | **object**<br><p>Конфигурация и выделенные ресурсы для хостов mongod 4.0.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config | **object**<br><p>Конфигурация для хостов mongod 4.0.</p> <p>Конфигурация демона mongod. Поддерживаемые опции являются ограниченным подмножеством всех опций, описанных в <a href="https://docs.mongodb.com/v4.0/reference/configuration-options/">документации MongoDB</a>.</p> 
@@ -369,7 +369,7 @@ configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>config.<br>net.<br>maxIncomingConn
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>resources | **object**<br><p>Ресурсы, выделенные каждому хосту mongod.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">документации</a>.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
+configSpec.<br>mongodbSpec_4_2.<br>mongod.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — стандартное сетевое хранилище;</li> <li>network-ssd — быстрое сетевое хранилище;</li> <li>local-ssd — быстрое локальное хранилище.</li> </ul> 
 configSpec.<br>mongodbSpec_4_2.<br>mongocfg | **object**<br><p>Конфигурация и выделенные ресурсы для хостов mongocfg 4.0.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>config | **object**<br><p>Конфигурация для хостов mongocfg 4.0.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>config.<br>storage | **object**<br><p><code>storage</code> section of mongocfg configuration.</p> 
@@ -384,7 +384,7 @@ configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>config.<br>net.<br>maxIncomingCo
 configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>resources | **object**<br><p>Ресурсы, выделенные для каждого хоста mongocfg.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">документации</a>.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
+configSpec.<br>mongodbSpec_4_2.<br>mongocfg.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — стандартное сетевое хранилище;</li> <li>network-ssd — быстрое сетевое хранилище;</li> <li>local-ssd — быстрое локальное хранилище.</li> </ul> 
 configSpec.<br>mongodbSpec_4_2.<br>mongos | **object**<br><p>Конфигурация и выделенные ресурсы для хостов mongos 4.0.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>config | **object**<br><p>Конфигурация для хостов mongos 4.0.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>config.<br>net | **object**<br><p>Сетевые настройки для mongos.</p> 
@@ -392,7 +392,7 @@ configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>config.<br>net.<br>maxIncomingConn
 configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources | **object**<br><p>Ресурсы, выделенные для каждого хоста mongos.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources.<br>resourcePresetId | **string**<br><p>Идентификатор набора вычислительных ресурсов, доступных хосту (процессор, память и т. д.). Все доступные наборы ресурсов перечислены в <a href="/docs/managed-mongodb/concepts/instance-types">документации</a>.</p> 
 configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources.<br>diskSize | **string** (int64)<br><p>Объем хранилища, доступного хосту, в байтах.</p> 
-configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — сетевой HDD-диск;</li> <li>network-ssd — сетевой SSD-диск;</li> <li>local-ssd — локальное SSD-хранилище.</li> </ul> 
+configSpec.<br>mongodbSpec_4_2.<br>mongos.<br>resources.<br>diskTypeId | **string**<br><p>Тип хранилища для хоста. Возможные значения:</p> <ul> <li>network-hdd — стандартное сетевое хранилище;</li> <li>network-ssd — быстрое сетевое хранилище;</li> <li>local-ssd — быстрое локальное хранилище.</li> </ul> 
 hostSpecs[] | **object**<br><p>Обязательное поле. Конфигурации для хостов MongoDB, которые должны быть созданы для кластера, создаваемого из резервной копии.</p> <p>Должен содержать хотя бы один элемент.</p> 
 hostSpecs[].<br>zoneId | **string**<br><p>Идентификатор зоны доступности, в которой находится хост. Чтобы получить список доступных зон, используйте запрос <a href="/docs/compute/api-ref/Zone/list">list</a>.</p> <p>Максимальная длина строки в символах — 50.</p> 
 hostSpecs[].<br>subnetId | **string**<br><p>Идентификатор подсети, к которой должен принадлежать хост. Эта подсеть должна быть частью сети, к которой принадлежит кластер. Идентификатор сети устанавливается в поле <a href="/docs/managed-mongodb/api-ref/Cluster#representation">Cluster.networkId</a>.</p> <p>Максимальная длина строки в символах — 50.</p> 

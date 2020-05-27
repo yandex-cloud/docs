@@ -78,7 +78,7 @@
              --network-name {{ network-name }} \
              --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
              --disk-size 20 \
-             --disk-type network-ssd \
+             --disk-type {{ disk-type-example }} \
              --resource-preset {{ host-class }}
       ```
       
@@ -92,7 +92,7 @@
       - В окружении `PRODUCTION`.
       - С одним хостом класса `{{ host-class }}` в зоне доступности `{{ zone-id }}`.
       - С базами данных и пользователями из резервной копии.
-      - С сетевым SSD-хранилищем объемом 20 ГБ.
+      - С быстрым сетевым хранилищем (`network-ssd`) объемом 20 ГБ.
       
       {% endif %}
       
@@ -103,7 +103,7 @@
       - В сети `{{ network-name }}`.
       - С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `{{ zone-id }}`.
       - С базами данных и пользователями из резервной копии.
-      - С сетевым SSD-хранилищем объемом 20 ГБ.
+      - C быстрым сетевым хранилищем (`{{ disk-type-example }}`)  объемом 20 ГБ.
       
       {% endif %}
   

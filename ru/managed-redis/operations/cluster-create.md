@@ -133,22 +133,22 @@
        
        Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_redis_cluster.html).
        
-    2. Проверьте корректность конфигурацилонных файлов.
+    1. Проверьте корректность конфигурацилонных файлов.
        
        1. В командной строке перейдите в каталог, в котором вы создали конфигурационный файл.
-       2. Выполните проверку с помощь команды:
+       1. Выполните проверку с помощь команды:
           ```
           terraform plan
           ```
        Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. Это проверочный этап: ресурсы не будут созданы.
           
-    3. Создайте кластер.
+    1. Создайте кластер.
     
        1. Если в конфигурации нет ошибок, выполните команду:
           ```
           terraform apply
           ```
-       2. Подтвердите создание ресурсов.
+       1. Подтвердите создание ресурсов.
        
        После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
           
@@ -170,8 +170,8 @@
   - С именем `myredis`.
   - В окружении `production`.
   - В сети `default`.
-  - С одним хостом класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
-  - С хранилищем объемом 16 ГБ.
+  - С одним хостом класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ zone-id }}`.
+  - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 16 ГБ.
   - C паролем `user1user1`.
   
   Запустите следующую команду:
@@ -182,7 +182,7 @@
        --environment production \
        --network-name default \
        --resource-preset hm1.nano \
-       --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
+       --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
        --disk-size 16 \
        --password=user1user1
   ```
@@ -197,8 +197,8 @@
     - В облаке с идентификатором `b1gq90dgh25иuebiu75o`.
     - В каталоге `myfolder`.
     - В новой сети `mynet`.
-    - С одним хостом класса `hm1.nano` в новой подсети `mysubnet`, в зоне доступности `ru-central1-c`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
-    - С хранилищем объемом 16 ГБ.
+    - С одним хостом класса `hm1.nano` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 16 ГБ.
     - C паролем `user1user1`.
     
   Конфигурационный файл для такого кластера выглядит так:
@@ -208,7 +208,7 @@
     token     = "<OAuth или статический ключ сервисного аккаунта>"
     cloud_id  = "b1gq90dgh25иuebiu75o"
     folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
-    zone      = "ru-central1-c"
+    zone      = "{{ zone-id }}"
   }
   
   resource "yandex_mdb_redis_cluster" "myredis" {
@@ -226,7 +226,7 @@
     }
   
     host {
-      zone      = "ru-central1-c"
+      zone      = "{{ zone-id }}"
       subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
     }
   }
@@ -234,7 +234,7 @@
   resource "yandex_vpc_network" "mynet" {}
   
   resource "yandex_vpc_subnet" "mysubnet" {
-    zone           = "ru-central1-c"
+    zone           = "{{ zone-id }}"
     network_id     = "${yandex_vpc_network.mynet.id}"
     v4_cidr_blocks = ["10.5.0.0/24"]
   }

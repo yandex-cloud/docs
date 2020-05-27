@@ -75,7 +75,7 @@
       {% if audience != "internal" %} - В сети `{{ network-name }}`. {% endif %}
       - С одним хостом класса `{{ host-class }}` {% if audience != "internal" %} в подсети `b0rcctk2rvtr8efcch63` {% endif %} , в зоне доступности `{{ zone-id }}`.
       - С базами данных и пользователями из резервной копии.
-      - С сетевым SSD-хранилищем объемом 20 ГБ.
+      - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
   
 {% endlist %}
 
