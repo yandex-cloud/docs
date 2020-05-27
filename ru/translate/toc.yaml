@@ -19,6 +19,8 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
+      - name: Дообучение моделей
+        href: concepts/trainings-of-models.md
       - name: Глоссарии
         href: concepts/glossary.md
       - name: Поддержка глоссариев
