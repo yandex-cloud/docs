@@ -125,6 +125,8 @@ items:
         href: concepts/chart.md
       - name: Дашборд
         href: concepts/dashboard.md
+      - name: Использование Markdown в DataLens
+        href: concepts/markdown.md
       - name: DataLens Public
         href: concepts/datalens-public.md
       - name: Вычисляемые поля
