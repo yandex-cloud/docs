@@ -51,8 +51,8 @@ In this example, we connect to the {{ RD }} host from a virtual machine connecte
 1. Install a certificate for accessing the database:
 
    ```
-   $ mkdir -p /usr/local/share/ca-certificates/Yandex
-   $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+   $ sudo mkdir -p /usr/local/share/ca-certificates/Yandex
+   $ sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
    ```
 
 1. Create a variable with the host address and port and master DB name.
