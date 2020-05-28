@@ -12,7 +12,7 @@
 
 #### {{ sf-name }} {#serverless-functions}
 
-- Добавлена команда `yc serverless trigger create container-registry` для подписки на изменения бакета в {{ container-registry-name }}.
+- Добавлена команда `yc serverless trigger create container-registry` создания триггеров для {{ container-registry-name }}.
 
 ### {{ managed-k8s-name }} {#k8s}
 
