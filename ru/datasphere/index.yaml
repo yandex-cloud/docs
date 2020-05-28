@@ -1,13 +1,8 @@
 title: Yandex DataSphere
 description:
   - "<em>Сервис Yandex DataSphere находится на стадии <a href=\"/docs/overview/concepts/launch-stages\">Preview</a>.</em>"
-  - "Yandex DataSphere упрощает использование среды разработки <a href=\"https://jupyter.org/\">JupyterLab</a> на вычислительных мощностях Яндекс.Облака. Вам не надо тратить время на создание и обслуживание виртуальных машин, а пакеты для анализа (TensorFlow, Keras, NumPy и <a href=\"/docs/ml-platform/concepts/preinstalled-packages\">другие</a>) уже установлены."
-  - "Сервис DataSphere позволит:
-    <ul>
-      <li>Производить сложные вычисления в Jupyter Notebooks, например обучение нейронных сетей или анализ больших данных.</li>
-      <li>Готовить аналитические отчеты и делиться ими.</li>
-    </ul>"
-  - "Работа с сервисом ведется из консоли управления с помощью интегрированного интерфейса JupyterLab."
+  - "Yandex DataSphere — среда для ML-разработки, которая сочетает в себе привычный интерфейс Jupyter® Notebook, технологию бессерверных вычислений и возможность бесшовного использования разных конфигураций вычислительных ресурсов."
+  - "Yandex DataSphere помогает значительно сократить стоимость машинного обучения по сравнению с вычислениями на собственном оборудовании или на других облачных платформах."
   - "Инфраструктура Яндекс.Облака <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с ФЗ-152."
 meta:
   title: "Yandex DataSphere"
