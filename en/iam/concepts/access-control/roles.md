@@ -6,11 +6,11 @@ There are two types of roles:
 
 - _Primitive roles_ contain permissions that apply to all types of Yandex.Cloud resources. These are the `{{ roles-admin }}`, `{{ roles-editor }}` and `{{ roles-viewer }}` roles.
 
-- _Service roles_ contain permissions only for a specific type of resource in a particular service. The ID of a service role is specified in `service.resources.role` format. For example, the `{{ roles-image-user }}` role lets you use images in Yandex Compute Cloud.
+- _Service roles_ contain permissions only for a specific type of resource in a particular service. Service role ID is specified in `service.resources.role` format. For example, the `{{ roles-image-user }}` role lets you use images in Yandex Compute Cloud.
 
-    A service role can be assigned to the resource that the role is intended for or the resource that access rights are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
+    A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
 
-Currently, users are not allowed to create new roles with a custom set of permissions.
+Currently, users aren't allowed to create new roles with a custom set of permissions.
 
 ## Primitive roles {#primitive-roles}
 
@@ -42,8 +42,8 @@ The `{{ roles-admin }}` role includes all permissions granted by the `{{ roles-e
 
 For example, the `{{ roles-admin }}` role lets you perform the following operations:
 
-- Set access rights to the resource.
-- Change access rights to the resource.
+- Set permissions to the resource.
+- Change permissions to the resource.
 
 ## {{ resmgr-name }} {#yrm-roles}
 
@@ -76,3 +76,4 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 ## {{ datalens-name }} {#datalens-roles}
 
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md)%}
+

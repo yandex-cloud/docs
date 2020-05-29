@@ -30,6 +30,7 @@ default:
   interconnect-full-name: Yandex Cloud Interconnect
   cos-full-name: Yandex Container Optimized Solutions
   ml-platform-full-name: Yandex DataSphere
+  certificate-manager-full-name: Yandex Certificate Manager
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -62,6 +63,7 @@ default:
   cos-name: Container Optimized Solutions
   ml-platform-name: DataSphere
   marketplace-name: Cloud Marketplace
+  certificate-manager-name: Certificate Manager
 
   # Короткие имена
   iam-short-name: IAM
@@ -91,6 +93,7 @@ default:
   kms-short-name: KMS
   cos-short-name: COS
   ml-platform-short-name: DataSphere
+  certificate-manager-short-name: Certificate Manager
 
   # Тарифы
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.

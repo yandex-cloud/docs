@@ -6,7 +6,7 @@ meta:
   title: "Yandex Certificate Manager"
 links:
 - title: "Начало работы"
-  description: "Создайте первый сертфикат"
+  description: "Создайте первый сертификат"
   href: "quickstart/"
 - title: "Пошаговые инструкции"
   description: "Инструкции по выполнению рутинных операций"
