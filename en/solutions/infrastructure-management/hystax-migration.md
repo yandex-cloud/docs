@@ -73,17 +73,18 @@ Create a VM with a boot disk from an `acura` image:
 ## Set up Hystax Acura {#setup-hystax-acura}
 
 1. Open the `hystax-acura-vm` VM page in the management console and find its public IP address.
-1. Open the `hystax-acura-vm` VM public IP address in the browser. The Hystax Acura initial setup screen opens.
-1. On the page that opens, fill in the following fields:
 
+1. Open the `hystax-acura-vm` VM public IP address in the browser. The Hystax Acura initial setup screen opens.
+
+1. On the page that opens, fill in the following fields:
    - **Organization**: The name of your organization.
    - **Admin user login**: The email address for logging in to the Hystax Acura Control Panel.
    - **Password**: The administrator password.
    - **Confirm password**: Re-enter the administrator password.
 
 1. Click **Next**.
-1. Set up your Yandex.Cloud connection parameters:
 
+1. Set up your Yandex.Cloud connection parameters:
    - **Service Account id**: The ID of your service account.
    - **Key id**: The ID of the authorized key of your service account.
    - **Private Key**: The private part of the authorized key of your service account.
@@ -91,6 +92,7 @@ Create a VM with a boot disk from an `acura` image:
    - **zone**: Availability zone.
    - **Hystax Service Network id**: The ID of the subnet that the `hystax-acura-vm` virtual machine is connected to.
    - **Control Panel Public IP**: The public IP address to access the Hystax Control Panel. This field is populated by the VM public IP address by default, so leave it unchanged.
+
 1. Click **Next**.
 
 Hystax Acura automatically checks that it can access your cloud. If everything is correct, you can now log in to the Hystax Acura Control Panel using your email address and password.
@@ -100,6 +102,7 @@ Hystax Acura automatically checks that it can access your cloud. If everything i
 Specify the platform for migration:
 
 1. Open the Hystax Acura Control Panel. Click on the Hystax logo.
+
 1. On the screen that opens, click **Add** and fill in the following fields:
    - **Company name**: The name of your company.
    - **Contact email**: Your email address.
@@ -119,12 +122,12 @@ The agents are installed on virtual machines to be migrated to Yandex.Cloud. To 
 1. Select the source cloud platform for migration. Click **Next**.
 
 1. Choose one out of three types of agents depending on the OS:
-
    - VMware.
    - Windows.
    - Linux.
 
    Click **Next**.
+
 1. Download and install the agent on the VMs you would like to migrate:
 
    {% list tabs %}

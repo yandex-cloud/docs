@@ -1,8 +1,20 @@
-# Emergency recovery in Yandex.Cloud using Hystax Acura
+# Emergency recovery to Yandex.Cloud using Hystax Acura
 
-You can protect your digital resources using Hystax Acura. Hystax Disaster Recovery ensures that your resources are backed up regardless of their location. They can be hosted in private data centers on virtual machines or bare metal servers, or they can be on virtual machines from a cloud service provider. Supported source platforms: Amazon Web Services, Google Cloud Platform, Microsoft Azure, Oracle Cloud, Alibaba Cloud, VMware, Hyper-V, OpenStack, physical servers.
+You can protect your infrastructure using Hystax Acura. Hystax Disaster Recovery ensures your resources are backed up regardless of where they're located. They can be hosted in private data centers on virtual machines or physical servers, or they can be on virtual machines from a cloud service provider.
 
-To perform disaster recovery, create a VM with Hystax Acura in your cloud. This VM will set up and run your disaster recovery scenario. The recovery process is run by an auxiliary VM with Hystax Acura Cloud Agent. It restores your resources hosted on physical or virtual machines to Yandex.Cloud. Once you start the process, replicas are created for deploying the infrastructure. Agents are installed on the virtual machines to be backed up.
+Supported platforms:
+
+* Amazon Web Services.
+* Google Cloud Platform.
+* Microsoft Azure.
+* Oracle Cloud.
+* Alibaba Cloud.
+* VMware.
+* Hyper-V.
+* OpenStack.
+* Physical servers.
+
+To perform disaster recovery, create an auxiliary VM with Hystax Acura in your cloud. This VM will set up and run your disaster recovery scenario. The recovery process is run by the auxiliary VM with Hystax Acura Cloud Agent. It restores your resources to Yandex.Cloud. Once you start the process, replicas are created for deploying the infrastructure. Hystax Acura Cloud Agent also backs up the disaster recovery VM.
 
 To run a disaster recovery scenario:
 
@@ -12,7 +24,7 @@ To run a disaster recovery scenario:
 1. [Create a VM with Hystax Acura](#create-acura-vm).
 1. [Set up Hystax Acura](#setup-hystax-acura).
 1. [Set up the platform](#set-up-dr-flow).
-1. [Prepare Hystax Acura Cloud Agent on the source platform](#prepare-agent).
+1. [Prepare and install the agents for disaster recovery](#prepare-agent).
 1. [Create a disaster recovery plan](#disaster-recovery-plan).
 1. [Start disaster recovery](#start-dr).
 
@@ -78,14 +90,14 @@ Create a VM with a boot disk from an `acura` image:
 1. Open the `hystax-acura-vm` VM public IP address in the browser. The Hystax Acura initial setup screen opens.
 
 1. On the page that opens, fill in the following fields:
-
    - **Organization**: The name of your organization.
    - **Admin user login**: The email address for logging in to the Hystax Acura Control Panel.
    - **Password**: The administrator password.
    - **Confirm password**: Re-enter the administrator password.
-1. Click **Next**.
-1. Set up your Yandex.Cloud connection parameters:
 
+1. Click **Next**.
+
+1. Set up your Yandex.Cloud connection parameters:
    - **Service Account id**: The ID of your service account.
    - **Key id**: The ID of the authorized key of your service account.
    - **Private Key**: The private part of the authorized key of your service account.
@@ -93,15 +105,17 @@ Create a VM with a boot disk from an `acura` image:
    - **zone**: Availability zone.
    - **Hystax Service Network id**: The ID of the subnet that the `hystax-acura-vm` virtual machine is connected to.
    - **Control Panel Public IP**: The public IP address to access the Hystax Control Panel. This field is populated by the VM public IP address by default, so leave it unchanged.
+
 1. Click **Next**.
 
 Hystax Acura automatically checks that it can access your cloud. If everything is correct, you can now log in to the Hystax Acura Control Panel using your email address and password.
 
-## Add a platform {#set-up-dr-flow}
+## Configure the platform {#set-up-dr-flow}
 
 Specify a platform for disaster recovery:
 
 1. Open the Hystax Acura Control Panel. Click on the Hystax logo.
+
 1. On the screen that opens, click **Add** and fill in the following fields:
    - **Company name**: The name of your company.
    - **Contact email**: Your email address.
@@ -114,17 +128,19 @@ Specify a platform for disaster recovery:
 
 ## Prepare and install the agents for disaster recovery {#prepare-agent}
 
-The agents are installed on virtual machines to be reserved in Yandex.Cloud. To download and install an agent:
+Agents are installed on virtual machines to be recovered to Yandex.Cloud. To download and install an agent:
 
 1. In the Hystax Acura Control Panel, click the **Download agents** tab.
-1. Select the source cloud platform for disaster recovery. Click **Next**.
-1. Choose one out of three types of agents depending on the OS:
 
+1. Select the source cloud platform for disaster recovery. Click **Next**.
+
+1. Choose one out of three types of agents depending on the OS:
    - VMware.
    - Windows.
    - Linux.
 
    Click **Next**.
+
 1. Download and install the agent on the VMs you would like to protect:
 
    {% list tabs %}
@@ -166,30 +182,40 @@ The agents are installed on virtual machines to be reserved in Yandex.Cloud. To 
 
 ## Create a disaster recovery plan {#disaster-recovery-plan}
 
-1. In the menu, click **DR Plans**
-1. Click **Add**.
-1. Enter a name for the disaster recovery plan: `YC Disaster Recovery`
-1. Select one of the modes:
-    - In `Basic` mode, you can create a plan with standard settings.
-    - In `Expert` mode, you can use a JSON script, which gives you more flexibility in configuring your disaster recovery plan (view a [detailed syntax description](https://docs.hystax.com/dr_overview.html#dr-plan-syntax)).
+To create a disaster recovery plan:
+
+1. Open the Hystax Acura Control Panel. Click on the Hystax logo.
+
+1. Under **Customers**, click a company you want to create a plan for.
+
+1. Click **Add DR Plan**.
+
+1. In the **Name** field, type: `YC Disaster Recovery`.
+
+1. Select and configure one of the modes:
+    - `Basic`: Create a plan with standard settings.
+    - `Expert`: Create a plan with flexible settings based on a JSON script ([detailed syntax description](https://docs.hystax.com/dr_overview.html#dr-plan-syntax)).
+
 1. Select all the VMs that you want to apply the disaster recovery plan to and specify the order they're initialized in.
 
     {% note warning %}
-    
+
     Make sure that a valid IP address is specified for each VM.
-    
+
     {% endnote %}
 
 1. When the disaster recovery plan is created, the status of the selected VMs changes to **Protected**.
 
 ## Launching a disaster recovery scenario {#start-dr}
 
+1. Open the Hystax Acura Control Panel. Click on the Hystax logo.
+1. Under **Customers**, click a company you want to launch a disaster recovery plan for.
 1. Select the disaster recovery plan you created in the previous step.
 1. Click **Run recover**.
-1. Make sure the plan is up-to-date and correct.
+1. Check that the plan is up-to-date and correct.
 1. Click **Next**.
-1. In the next window, specify the time of the recovery point to create the target nodes from.
+1. In the window that opens, specify the time of the recovery point to create the VMs from.
 1. Click **Run recover**.
 
-Wait until the disaster recovery procedure is complete. Make sure all the necessary resources migrated and your applications are ready.
+Wait until the disaster recovery procedure is complete. Make sure the necessary resources migrated and all your applications are ready.
 

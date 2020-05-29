@@ -1,10 +1,10 @@
 # Deploying Microsoft Remote Desktop Services
 
-This scenario describes how to deploy Microsoft Windows Server 2019 Datacenter with pre-installed Remote Desktop Services on Yandex.Cloud. The Microsoft Windows Server with Remote Desktop Services instance consists of a single server where Remote Desktop Services and Active Directory will be installed. Images are available with quotas for 5/10/25/50/100/250/500 users. Select the version that matches your quota requirements. All examples below are given for a server with a quota for 5 users.
+This scenario describes how to deploy Microsoft Windows Server 2019 Datacenter with pre-installed Remote Desktop Services on Yandex.Cloud. The Microsoft Windows Server with Remote Desktop Services instance consists of a single server where Remote Desktop Services and Active Directory will be installed. Images are available with quotas for 5/10/25/50/100/250/500 users. Select the version with the necessary quota. All examples are given for a server with a quota for 5 users.
 
-{% note info %}
+{% note warning %}
 
-Note that to increase the quota, you'll need to re-create the VM.
+To increase the quota, re-create the VM.
 
 {% endnote %}
 
@@ -16,9 +16,9 @@ To deploy the Remote Desktop Services infrastructure:
 1. [Create a script to manage a local administrator account](#admin-script).
 1. [Create a VM for Remote Desktop Services](#add-vm).
 1. [Install and configure Active Directory domain controllers](#install-ad).
-1. [Set up a firewall](#firewall).
+1. [Set up the firewall rules](#firewall).
 1. [Configure the license server in the domain](#license-server).
-1. [Install and configure the RDSH](#rdsh).
+1. [Set up the Remote Desktop Session Host](#rdsh) role.
 1. [Create users](#create-users).
 
 ## Before you start {#before-you-begin}
@@ -110,6 +110,7 @@ Create a cloud network named `my-network` with subnets in all the availability z
 ## Create a script to manage a local administrator account {#admin-script}
 
 Create a file named `setpass` with a script that sets a password for the local administrator account when creating VMs via the CLI:
+
 {% list tabs %}
 
 - PowerShell
@@ -173,43 +174,43 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
 {% endlist %}
 
-## Creating and configuring Active Directory domain controllers {#install-ad}
+## Install and configure Active Directory domain controllers {#install-ad}
 
-1. Connect to `my-rds-vm` using RDP. Enter `Administrator` as the username and then your password.
+1. Connect to `my-rds-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
 
 1. Assign Active Directory roles:
-    
+
     {% list tabs %}
-    
+
     - PowerShell
 
-       ```powershell
-       Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-       Restart-Computer -Force
-       ```
+        ```powershell
+        Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+        Restart-Computer -Force
+        ```
 
     {% endlist %}
 
 1. Create an Active Directory forest:
 
     {% list tabs %}
-    
+
     - PowerShell
 
         ```powershell
         Install-ADDSForest -DomainName 'yantoso.net' -Force:$true
         ```
-      
-    {% endlist %}
-    
-    Windows restarts automatically. Relaunch PowerShell.
 
-## Configuring firewall rules {#firewall}
+    {% endlist %}
+
+   Windows restarts automatically. Reconnect to `my-rds-vm`. Enter `yantoso\Administrator` as the username and then your password. Relaunch PowerShell.
+
+## Set up the firewall rules {#firewall}
 
 1. Add firewall rules that protect Active Directory from external network requests:
 
     {% list tabs %}
-    
+
     - PowerShell
 
         ```powershell
@@ -227,25 +228,33 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
         ```
 
     {% endlist %}
-    
-## Configuring the license server in the domain {#license-server}
 
-1. Authorize the license server in the domain. Since the role is on the domain controller itself, add the <q>Network Service</q> to the <q>BUILTIN</q> group:
+## Set up the license server in the domain {#license-server}
+
+1. Authorize the license server in the domain.
+
+    The role is on the domain controller, so add `Network Service` to the `BUILTIN` group:
 
     {% list tabs %}
-    
+
     - PowerShell
 
-    ```powershell
-    net localgroup "Terminal Server License Servers" /Add 'Network Service'
-    ```
+        ```powershell
+        net localgroup "Terminal Server License Servers" /Add 'Network Service'
+        ```
 
     {% endlist %}
 
-1. Set the licensing type. Due to licensing restrictions, you can only use Client Access Licenses (User CALs).
+1. Set the licensing type.
+
+    {% note info %}
+
+    You can only use `User CAL` licenses.
+
+    {% endnote %}
 
     {% list tabs %}
-    
+
     - PowerShell
 
         ```powershell
@@ -255,13 +264,13 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
         -Value 4 `
         -PropertyType 'DWord'
         ```
-      
+
     {% endlist %}
 
-1. Specify the RDS licensing service for the server:
+1. Specify the RDS licensing service:
 
     {% list tabs %}
-    
+
     - PowerShell
 
         ```powershell
@@ -271,46 +280,45 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
         -Value 'localhost' `
         -PropertyType 'String'
         ```
-      
+
     {% endlist %}
 
-1. If necessary, limit the number of simultaneous server sessions allowed.
+1. (Optional) Limit the number of permissible concurrent server sessions.
 
     {% list tabs %}
-    
     - PowerShell
 
-        ```powershell
-        New-ItemProperty `
-        -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' `
-        -Name 'MaxInstanceCount' `
-        -Value 5 `
-        -PropertyType 'DWord'
-        ```
-      
+      ```powershell
+      New-ItemProperty `
+      -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' `
+      -Name 'MaxInstanceCount' `
+      -Value 5 `
+      -PropertyType 'DWord'
+      ```
+
     {% endlist %}
 
-## Configuring the RDSH role {#rdsh}
+## Set up the Remote Desktop Session Host role {#rdsh}
 
-1. Assign the RDSH role to the server:
+Install the Remote Desktop Session Host role on the server:
 
-    {% list tabs %}
-    
-    - PowerShell
+{% list tabs %}
 
-        ```powershell
-        Install-WindowsFeature RDS-RD-Server -IncludeManagementTools
-        Restart-Computer -Force
-        ```
-    
-    {% endlist %}
-    
-## Creating users {#create-users}
+- PowerShell
+
+    ```powershell
+    Install-WindowsFeature RDS-RD-Server -IncludeManagementTools
+    Restart-Computer -Force
+    ```
+
+{% endlist %}
+
+## Create users {#create-users}
 
 1. Create test users:
 
     {% list tabs %}
-    
+
     - PowerShell
 
         ```powershell
@@ -343,12 +351,12 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
     {% endlist %}
 
-1. Grant users <q>Remote Desktop Users</q> rights:
+1. Grant `Remote Desktop Users` rights to the users:
 
     {% list tabs %}
-    
+
     - PowerShell
-    
+
         ```powershell
         Add-ADGroupMember -Members 'ru1' -Identity 'Remote Desktop Users'
         Add-ADGroupMember -Members 'ru2' -Identity 'Remote Desktop Users'
@@ -358,11 +366,11 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
         ```
 
     {% endlist %}
-    
-1. Configure RDP access rights for the <q>Remote Desktop Users</q> group:
+
+1. Set up RDP access rights for the `Remote Desktop Users` group:
 
     {% list tabs %}
-    
+
     - PowerShell
 
         ```powershell
@@ -377,3 +385,4 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
         ```
 
     {% endlist %}
+

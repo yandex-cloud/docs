@@ -275,19 +275,19 @@
       
     {% endlist %}
 
-1. (опционально) Ограничьте количество разрешенных одновременных сессий к серверу:
+1. (Опционально) Ограничьте количество разрешенных одновременных сессий к серверу:
 
     {% list tabs %}
     
     - PowerShell
         
-    ```powershell
-    New-ItemProperty `
-    -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' `
-    -Name 'MaxInstanceCount' `
-    -Value 5 `
-    -PropertyType 'DWord'
-    ```
+      ```powershell
+      New-ItemProperty `
+      -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' `
+      -Name 'MaxInstanceCount' `
+      -Value 5 `
+      -PropertyType 'DWord'
+      ```
    
     {% endlist %}
 
