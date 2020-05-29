@@ -17,7 +17,7 @@ Before performing an operation with a certain resource (such as creating a VM), 
 
 ## Accounts in Yandex.Cloud {#accounts}
 
-To identify users performing operations with resources, use [Yandex.Passport accounts](#passport), [service accounts](#sa), or [federated accounts](#saml-federation).
+To identify users performing operations with resources, use [Yandex accounts](#passport), [service accounts](#sa), or [federated accounts](#saml-federation).
 
 {% note info %}
 
@@ -25,9 +25,9 @@ Billing accounts aren't used for managing resources in Yandex.Cloud and aren't p
 
 {% endnote %}
 
-### Yandex.Passport accounts {#passport}
+### Yandex account {#passport}
 
-_A Yandex.Passport account_ is your Yandex or [Yandex.Connect]({{ link-yandex-connect }}) account. You need a Yandex.Passport account to manage resources from [management console]({{ link-console-main }}).
+_Yandex accounts_ are your accounts in Yandex.Passport or [Yandex.Connect]({{ link-yandex-connect }}).
 
 {% note info %}
 
@@ -55,7 +55,7 @@ There are three different kinds of authorization keys in Yandex.Cloud:
 
 * [API keys](authorization/api-key.md): Used instead of IAM tokens for simplified authorization.
 * [Authorized keys](authorization/key.md): Used to obtain IAM tokens for service accounts.
-* [Static access keys](authorization/access-key.md): Used in services with AWS-compatible APIs.
+* [Static access keys](../authorization/access-key.md): Used in services with AWS-compatible APIs.
 
 These keys are currently only used for service accounts.
 
