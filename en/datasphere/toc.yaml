@@ -1,0 +1,58 @@
+title: "Yandex DataSphere"
+stage: tech-preview
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Projects
+        items:
+          - name: Creating a project
+            href: operations/projects/create.md
+          - name: Installing dependencies
+            href: operations/projects/install-dependencies.md
+          - name: Managing computing resources
+            href: operations/projects/control-compute-resources.md
+          - name: Clearing the interpreter state
+            href: operations/projects/clear-kernel-state.md
+          - name: Sharing a notebook
+            href: operations/projects/share.md
+          - name: Changing a name or description
+            href: operations/projects/update.md
+          - name: Deleting a project
+            href: operations/projects/delete.md
+      - name: Resources
+        items:
+          - name: Uploading files
+            href: operations/resources/upload.md
+          - name: Creating a directory
+            href: operations/resources/create-folder.md
+          - name: Moving and renaming resources
+            href: operations/resources/move.md
+          - name: Downloading files
+            href: operations/resources/download.md
+          - name: Getting a public link to a file
+            href: operations/resources/get-link.md
+          - name: Deleting files
+            href: operations/resources/delete.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: List of pre-installed software
+        href: concepts/preinstalled-packages.md
+      - name: List of available VM configurations
+        href: concepts/vm-configurations.md
+      - name: Project
+        href: concepts/project.md
+      - name: Resources
+        href: concepts/resources.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md

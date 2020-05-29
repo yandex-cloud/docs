@@ -1,0 +1,28 @@
+title: Yandex DataSphere
+description:
+  - "<em> The Yandex DataSphere is currently at the  <a href=\"/docs/overview/concepts/launch-stages\">Preview</a> stage.</em>"
+  - "The Yandex DataSphere simplifies the use of the <a href=\"https://jupyter.org/\">JupyterLab</a> development environment on Yandex.Cloud computing resources. You don't need to spend time creating and maintaining VMs as packages for analysis (TensorFlow, Keras, NumPy, and <a href=\"/docs/datasphere/concepts/preinstalled-packages\">others</a>) are pre-installed."
+  - "With the DataSphere, you can: <ul> <li>Perform complex calculations in Jupyter Notebooks, such as training neural networks and analyzing big data.</li> <li>Make and share analytical reports.</li> </ul>"
+  - "The service is used from the management console through the integrated JupyterLab interface."
+  - "The Yandex.Cloud infrastructure <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">fully complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ)."
+meta:
+  title: "Yandex DataSphere"
+links:
+  - title: "Getting started"
+    description: "Create your first project"
+    href: "quickstart"
+  - title: "Step-by-step instructions"
+    description: "Instructions on how to perform routine operations"
+    href: "operations/"
+  - title: "Concepts"
+    description: "Learn about the concepts and features of the service"
+    href: "concepts/"
+  - title: "Quotas and limits"
+    description: "Technical and organizational limitations of the service"
+    href: "concepts/limits"
+  - title: "Access management"
+    description: "Configure access rights to work with the service"
+    href: "security/"
+  - title: "Pricing policy"
+    description: "Service pricing and cost calculations"
+    href: "pricing"

@@ -1,0 +1,26 @@
+# Managing computing resources
+
+{% include [include](../../../_includes/datasphere/control-compute-resources-intro.md) %}
+
+## Before you start {#before-begin}
+
+If the project is already open, go to the notebook tab.
+
+If not, open the project:
+
+1. {% include [include](../../../_includes/datasphere/first-step.md) %}
+1. Go to the **Projects** tab.
+1. Select the project you want to delete and click ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
+1. Choose **Open** and wait for the project to open.
+
+## Change the VM configuration
+
+{% include [include](../../../_includes/datasphere/control-compute-resources-steps.md) %}
+
+#### What's next {#what-is-next}
+
+* [{#T}](install-dependencies.md)
+* [{#T}](clear-kernel-state.md)
+* [{#T}](share.md)
+* [{#T}](../resources/upload.md)
+
