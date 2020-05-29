@@ -1,6 +1,6 @@
 # Authentication using Active Directory
 
-If you have an [identity federation](../../concepts/users/identity-federations.md), you can use [Active Directory Federation Services](https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services) (ADFS) to authenticate in the cloud.
+If you have an [identity federation](../../concepts/users/identity-federations.md), you can use [Active Directory Federation Services](https://docs.microsoft.com/ru-ru/windows-server/identity/active-directory-federation-services) (ADFS) to authenticate in the cloud.
 
 To set up authentication:
 
@@ -11,7 +11,7 @@ To set up authentication:
 1. [Add users to the cloud](#add-users).
 1. [Test the authentication process](#test-auth).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 To use the instructions in this section, you need:​
 
@@ -39,17 +39,17 @@ To use the instructions in this section, you need:​
 
   To create a federation in {{ iam-short-name }}:
 
-  1. Open the folder page in [management console]({{ link-console-main }}).
+  1. Open the folder page in the [management console]({{ link-console-main }}).
 
   1. Select the **Federations** tab in the left menu.
 
   1. Click **Create federation**.
 
-  1. Enter a name for the federation. The name is unique within the project.
+  1. Enter a name for the federation. The name must be unique within the folder.
 
   1. Add a description if necessary.
 
-  1. In the  **Cookie lifetime** field, specify the time before the browser asks the user to re-authenticate.
+  1. In the **Cookie lifetime** field, specify the time before the browser asks the user to re-authenticate.
 
   1. Enter the link in `https://<ADFS>/adfs/services/trust` format in the **IdP Issuer** field, where `<ADFS>` is the FQDN of your ADFS server.
 
@@ -60,6 +60,91 @@ To use the instructions in this section, you need:​
   1. Enable **Automatically create users** to automatically add authenticated users to the cloud. This option simplifies the user setup, but users created this way are only assigned the `resource-manager.clouds.member` role by default: they can't do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
 
       If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use Yandex.Cloud.
+
+- CLI
+
+    {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    1. See the description of the create federation command:
+
+        ```
+        $ yc iam federation create --help
+        ```
+
+    1. Create a federation:
+
+        ```
+        $ yc iam federation create --name my-federation \
+          --auto-create-account-on-login \
+          --cookie-max-age 12h \
+          --issuer "http://example.com/adfs/services/trust" \
+          --sso-binding POST \
+          --sso-url "https://example.com/adfs/ls/"
+        ```
+
+        Where:
+
+        * `name`: Federation name. The name must be unique within the folder.
+
+        * `auto-create-account-on-login`: Flag for automatically creating new users in the cloud after authenticating on the IdP server. This option simplifies the user setup, but users created this way are only assigned the `resource-manager.clouds.member` role by default: they can't do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
+
+            If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use Yandex.Cloud.
+
+        * `cookie-max-age`: Time before the browser asks the user to re-authenticate.
+
+        * `issuer`: IdP server ID to be used for authentication.
+
+            Enter the link in `http://<ADFS>/adfs/services/trust` format, where `<ADFS>` is the FQDN of your ADFS server.
+
+        * `sso-url`: URL of the page that the browser redirects the user to for authentication.
+
+            Enter the link in `https://[ADFS]/adfs/ls/` format, where `<ADFS>` is the FQDN of your ADFS server.
+
+        * `sso-binding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+
+- API
+
+  1. [Get the ID of the folder](../../../resource-manager/operations/folder/get-id.md) to create your federation in.
+
+  1. Create a file with the request body (for example, `body.json`):
+
+      ```json
+      {
+        "folderId": "<folder ID>",
+        "name": "my-federation",
+        "autocreateUsers": true,
+        "cookieMaxAge":"43200s",
+        "issuer": "http://example.com/adfs/services/trust",
+        "ssoUrl": "https://example.com/adfs/ls/",
+        "ssoBinding": "POST"
+      }
+      ```
+
+      Where:
+
+      * `folderId`: ID of the folder.
+
+      * `name`: Federation name. The name must be unique within the folder.
+
+      * `autocreateUsers`: Flag for automatically creating new users in the cloud after authenticating on the IdP server. This option simplifies the user setup, but users created this way are only assigned the `resource-manager.clouds.member` role by default: they can't do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
+
+          If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use Yandex.Cloud.
+
+      * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
+
+      * `issuer`: IdP server ID to be used for authentication.
+
+          Enter the link in `http://<ADFS>/adfs/services/trust` format, where `<ADFS>` is the FQDN of your ADFS server.
+
+      * `ssoUrl`: URL of the page that the browser redirects the user to for authentication.
+
+          Enter the link in `https://[ADFS]/adfs/ls/` format, where `<ADFS>` is the FQDN of your ADFS server.
+
+      * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
+
+  1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
 {% endlist %}
 
@@ -184,7 +269,7 @@ When you finish configuring authentication with Active Directory, test that it r
 
 1. On successful authentication, ADFS redirects you back to the management console login link and then to the management console home page. In the upper-right corner, you can see that you are logged in to the console under an Active Directory account.
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [Assign roles to the added users](../roles/grant.md#access-to-federated-user).
 
