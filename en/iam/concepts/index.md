@@ -55,7 +55,7 @@ There are three different kinds of authorization keys in Yandex.Cloud:
 
 * [API keys](authorization/api-key.md): Used instead of IAM tokens for simplified authorization.
 * [Authorized keys](authorization/key.md): Used to obtain IAM tokens for service accounts.
-* [Static access keys](../authorization/access-key.md): Used in services with AWS-compatible APIs.
+* [Static access keys](authorization/access-key.md): Used in services with AWS-compatible APIs.
 
 These keys are currently only used for service accounts.
 
