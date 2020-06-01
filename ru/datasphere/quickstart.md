@@ -6,8 +6,7 @@
 
 1. [Создавать проекты](#create-project), в которых вы будете работать в среде JupyterLab.
 1. [Устанавливать пакеты](#install-dependencies), которые нужны для работы.
-1. [Управлять вычислительными ресурсами](#control-compute-resources), переключаясь на более мощные виртуальные машины.
-1. [Загружать файлы](#upload-resources), чтобы использовать их изнутри проектов.
+1. [Управлять вычислительными ресурсами](#control-compute-resources), изменяя конфигурацию вычислительных ресурсов.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -25,17 +24,12 @@
 
 {% include [include](../_includes/datasphere/install-dependencies-steps.md) %}
 
-## Увеличьте используемые вычислительные ресурсы {#control-compute-resources}
+## Увеличьте вычислительные ресурсы для ячейки {#control-compute-resources}
 
 {% include [include](../_includes/datasphere/control-compute-resources-intro.md) %}
 
 {% include [include](../_includes/datasphere/control-compute-resources-steps.md) %}
 
-## Загрузите свои файлы {#upload-resources}
-
-{% include [include](../_includes/datasphere/resources-upload.md) %}
-
-{% include [include](../_includes/datasphere/update-files.md) %}
 
 ## Что дальше {what-is-next}
 

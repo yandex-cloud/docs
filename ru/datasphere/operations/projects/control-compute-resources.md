@@ -13,7 +13,7 @@
 1. Выберите проект, который хотите удалить и нажмите значок ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
 1. Выберите **Открыть** и дождитесь открытия проекта.
 
-## Смените конфигурацию ВМ
+## Смените конфигурацию {#config}
 
 {% include [include](../../../_includes/datasphere/control-compute-resources-steps.md) %}
 

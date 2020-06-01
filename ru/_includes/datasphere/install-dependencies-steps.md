@@ -9,6 +9,6 @@
     `%pip install requests`
 
     Вы можете использовать различные опции, которые поддерживает команда [pip install](https://pip.pypa.io/en/stable/reference/pip_install/). См. [примеры использования](https://pip.pypa.io/en/stable/reference/pip_install/#pip-install-examples) этой команды.
-1. Выполните ячейку. Для этого нажмите значок ![Run](../../_assets/ml-platform/jupyterlab/run.svg)
+1. Выполните ячейку. Для этого нажмите значок ![Run](../../_assets/datasphere/jupyterlab/run.svg).
 
     Результат установки пакета отобразится под ячейкой.

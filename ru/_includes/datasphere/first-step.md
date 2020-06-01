@@ -1,1 +1,1 @@
-В [консоли управления](https://console.cloud.yandex.ru/) откройте раздел **{{ ml-platform-name }}** в каталоге, в котором вы работаете с проектами {{ ml-platform-name }}.
+В [консоли управления]({{ link-console-main }}) откройте раздел **{{ ml-platform-name }}** в каталоге, в котором вы работаете с проектами {{ ml-platform-name }}.
