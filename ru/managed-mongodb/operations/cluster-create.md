@@ -95,6 +95,74 @@
 
       {% endif %}
 
+- Terraform
+
+  {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы создать кластер:
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+     {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
+
+     Пример структуры конфигурационного файла:
+       
+     ```
+     resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+       name        = "<имя кластера>"
+       environment = "<окружение, PRESTABLE или PRODUCTION>"
+       network_id  = "<идентификатор сети>"
+
+       cluster_config {
+         version = "версия MongoDB: 3.6, 4.0 или 4.2"
+       }
+
+       database {
+         name = "<имя базы данных>"
+       }
+
+       user {
+         name     = "<имя пользователя>"
+         password = "<пароль пользователя>"
+         permission {
+           database_name = "<имя базы данных>"
+         }
+       }
+
+       resources {
+         resource_preset_id = "<класс хоста>"
+         disk_type_id       = "<тип хранилища>"    
+         disk_size          = "<размер хранилища в гигабайтах>"
+       }
+
+       host {
+         zone_id   = "<зона доступности>"
+         subnet_id = "<идентификатор подсети>"
+       }
+     }
+
+     resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+
+     resource "yandex_vpc_subnet" "<имя подсети>" {
+       name           = "<имя подсети>" 
+       zone           = "<зона доступности>"
+       network_id     = "<идентификатор сети>"
+       v4_cidr_blocks = ["<диапазон>"]
+     }
+     ```
+       
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_mongodb_cluster.html).
+   
+  1. Проверьте корректность конфигурационных файлов.
+
+     {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %} 
+   
+  1. Создайте кластер.
+
+     {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
+
 {% endlist %}
 
 
@@ -102,61 +170,134 @@
 
 ### Создание кластера с одним хостом {#Creating-single-host-cluster}
 
-Чтобы создать кластер с одним хостом, следует передать один параметр `--host`.
+{% list tabs %}
 
-Допустим, нужно создать {{ MG }}-кластер со следующими характеристиками:
+- CLI
 
-{% if audience != "internal" %}
+  Чтобы создать кластер с одним хостом, следует передать один параметр `--host`.
 
-- С именем `mymg`.
-- В окружении `production`.
-- В сети `{{ network-name }}`.
-- С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ zone-id }}`.
-- С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
-- С одним пользователем, `user1`, с паролем `user1user1`.
-- С одной базой данных, `db1`.
+  Допустим, нужно создать {{ MG }}-кластер со следующими характеристиками:
 
-{% else %}
+  {% if audience != "internal" %}
+  
+  - С именем `mymg`.
+  - В окружении `production`.
+  - В сети `{{ network-name }}`.
+  - С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ zone-id }}`.
+  - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
+  - С одним пользователем, `user1`, с паролем `user1user1`.
+  - С одной базой данных, `db1`.
 
-- С именем `mymg`.
-- В окружении `PRODUCTION`.
-- С одним хостом класса `{{ host-class }}` в зоне доступности `{{ zone-id }}`.
-- С быстрым локальным хранилищем (`local-ssd`) объемом 20 ГБ.
-- С одним пользователем, `user1`, с паролем `user1user1`.
-- С одной базой данных, `db1`.
+  {% else %}
 
-{% endif %}
+  - С именем `mymg`.
+  - В окружении `production`.
+  - С одним хостом класса `{{ host-class }}` в зоне доступности `{{ zone-id }}`.
+  - С быстрым локальным хранилищем (`local-ssd`) объемом 20 ГБ.
+  - С одним пользователем, `user1`, с паролем `user1user1`.
+  - С одной базой данных, `db1`.
 
-Запустите следующую команду:
+  {% endif %}
 
-{% if audience != "internal" %}
+  Запустите следующую команду:
 
-```
-$ {{ yc-mdb-mg }} cluster create \
-     --cluster-name mymg \
-     --environment production \
-     --network-name {{ network-name }} \
-     --mongod-resource-preset {{ host-class }} \
-     --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
-     --mongod-disk-size 20 \
-     --mongod-disk-type {{ disk-type-example }} \
-     --user name=user1,password=user1user1 \
-     --database name=db1
-```
+  {% if audience != "internal" %}
 
-{% else %}
+  ```
+  $ {{ yc-mdb-mg }} cluster create \
+       --cluster-name mymg \
+       --environment production \
+       --network-name {{ network-name }} \
+       --mongod-resource-preset {{ host-class }} \
+       --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+       --mongod-disk-size 20 \
+       --mongod-disk-type {{ disk-type-example }} \
+       --user name=user1,password=user1user1 \
+       --database name=db1
+  ```
 
-```
-$ {{ yc-mdb-mg }} cluster create \
-     --cluster-name mymg \
-     --environment production \
-     --network-id {{ network-name }} \
-     --mongod-resource-preset {{ host-class }} \
-     --host zone-id={{ zone-id }} \
-     --mongod-disk-size 20 \
-     --mongod-disk-type local-ssd \
-     --user name=user1,password=user1user1 \
-     --database name=db1
-```
+  {% else %}
 
-{% endif %}
+  ```
+  $ {{ yc-mdb-mg }} cluster create \
+       --cluster-name mymg \
+       --environment production \
+       --network-id {{ network-name }} \
+       --mongod-resource-preset {{ host-class }} \
+       --host zone-id={{ zone-id }} \
+       --mongod-disk-size 20 \
+       --mongod-disk-type local-ssd \
+       --user name=user1,password=user1user1 \
+       --database name=db1
+  ```
+
+  {% endif %}
+
+- Terraform
+
+  Допустим, нужно создать {{ MG }}-кластер и сеть для него со следующими характеристиками:
+  - С именем `mymg`.
+  - Версии `4.2`.
+  - В окружении `PRODUCTION`.
+  - В облаке с идентификатором `b1gq90dgh25иuebiu75o`.
+  - В каталоге `myfolder`.
+  - В новой сети `mynet`.
+  - С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+  - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
+  - С одним пользователем, `user1`, с паролем `user1user1`.
+  - С одной базой данных, `db1`.
+
+  Конфигурационный файл для такого кластера выглядит так:
+  
+  ```
+  provider "yandex" {
+    token     = "<OAuth или статический ключ сервисного аккаунта>"
+    cloud_id  = "b1gq90dgh25иuebiu75o"
+    folder_id = "${data.yandex_resourcemanager_folder.myfolder.id}"
+    zone      = "{{ zone-id }}"
+  }
+  
+  resource "yandex_mdb_mongodb_cluster" "mymg" {
+    name        = "mymg"
+    environment = "PRODUCTION"
+    network_id  = "${yandex_vpc_network.mynet.id}"
+
+    cluster_config {
+      version = "4.2"
+    }
+
+    database {
+      name = "db1"
+    }
+
+    user {
+      name     = "user1"
+      password = "user1user1"
+      permission {
+        database_name = "db1"
+      }
+    }
+
+    resources {
+      resource_preset_id = "{{ host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"    
+      disk_size          = 20
+    }
+
+    host {
+      zone_id   = "{{ zone-id }}"
+      subnet_id = "${yandex_vpc_subnet.mysubnet.id}"
+    }
+  }
+
+  resource "yandex_vpc_network" "mynet" { name = "mynet" }
+
+  resource "yandex_vpc_subnet" "mysubnet" {
+    name           = "mysubnet"
+    zone           = "{{ zone-id }}"
+    network_id     = "${yandex_vpc_network.mynet.id}"
+    v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  ```
+  
+{% endlist %}
