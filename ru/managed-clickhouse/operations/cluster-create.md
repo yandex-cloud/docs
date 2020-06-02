@@ -161,9 +161,10 @@
          }
        }
 
-       resource "yandex_vpc_network" "<имя сети>" {}
+       resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
 
        resource "yandex_vpc_subnet" "<имя подсети>" {
+         name           = "<имя подсети>"
          zone           = "<зона доступности>"
          network_id     = "<идентификатор сети>"
          v4_cidr_blocks = ["<диапазон>"]
@@ -317,9 +318,10 @@
     }
   }
 
-  resource "yandex_vpc_network" "mynet" {}
+  resource "yandex_vpc_network" "mynet" { name = "mynet" }
 
   resource "yandex_vpc_subnet" "mysubnet" {
+    name           = "mysubnet"
     zone           = "ru-central1-c"
     network_id     = "${yandex_vpc_network.mynet.id}"
     v4_cidr_blocks = ["10.5.0.0/24"]
