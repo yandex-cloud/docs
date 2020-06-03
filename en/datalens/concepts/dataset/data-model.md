@@ -13,7 +13,7 @@ In the dataset creation interface and wizard, you can duplicate fields, create f
 
 {{ datalens-short-name }} allows you to create calculated fields using formulas.
 To write formulas, you can use existing dataset fields, constants, and functions.
-For a full list of functions, see [Function reference](../../../_api-ref/datalens/function-ref/all.md).
+For a full list of functions, see [Function reference](../../function-ref/all.md).
 
 To learn more about calculated fields, see [{#T}](../calculations.md).
 
@@ -34,7 +34,7 @@ The following aggregation functions are available for fields with different data
 {% note info %}
 
 You can't use aggregation functions for some sources.
-The sources you can use aggregation functions for are listed in the **Data source support** section on the aggregation function page in the [reference](../../../_api-ref/datalens/function-ref/aggregation-functions.md).
+The sources you can use aggregation functions for are listed in the **Data source support** section on the aggregation function page in the [reference](../../function-ref/aggregation-functions.md).
 
 {% endnote %}
 

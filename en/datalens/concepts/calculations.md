@@ -39,7 +39,7 @@ Calculated fields are marked with ![image](../../_assets/datalens/formula-datase
 
 Functions are the main components used for creating formulas. You can use them to perform various operations on data fields.
 
-The list of available functions depends on the data source. For more information, see [{#T}](../../_api-ref/datalens/function-ref/availability.md).
+The list of available functions depends on the data source. For more information, see [{#T}](../function-ref/availability.md).
 
 {% note warning %}
 
@@ -72,9 +72,9 @@ To do this, click **Reference** in the add field interface.
 [City] + " " + "city"
 ```
 
-Concatenates the following three string values: the `[City]` field value, the space, and the `city` text. For concatenation, you can also use the string function [CONCAT](../../_api-ref/datalens/function-ref/CONCAT.md).
+Concatenates the following three string values: the `[City]` field value, the space, and the `city` text. For concatenation, you can also use the string function [CONCAT](../function-ref/CONCAT.md).
 
-Full description of the [addition operator (+)](../../_api-ref/datalens/function-ref/OP_PLUS.md).
+Full description of the [addition operator (+)](../function-ref/OP_PLUS.md).
 
 #### Truncation of dates {#datetrunc-example}
 
@@ -84,7 +84,7 @@ DATETRUNC(#2018-07-12#, "year", 5) = #2015-01-01#
 
 Truncates the date `2018-07-12` to a year that is a multiple of 5.
 
-Full description of the date truncation function [DATETRUNC](../../_api-ref/datalens/function-ref/DATETRUNC.md).
+Full description of the date truncation function [DATETRUNC](../function-ref/DATETRUNC.md).
 
 #### Type conversion {#to-float-conversion-example}
 
@@ -94,7 +94,7 @@ FLOAT([StringWithNumbers])
 
 Converts the `StringWithNumbers` string field to a fractional number.
 
-Full description of the conversion function [FLOAT](../../_api-ref/datalens/function-ref/FLOAT.md).
+Full description of the conversion function [FLOAT](../function-ref/FLOAT.md).
 
 ## How to create a calculated field {#how-to-create-calculated-field}
 

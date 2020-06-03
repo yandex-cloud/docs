@@ -7,135 +7,224 @@ editable: false
 
 ## [ASCII](ASCII.md)
 
-{% include notitle [Описание](ASCII/short-description.md) %}
+**Синтаксис:**`ASCII( string )`
+
+Возвращает числовое представление первого символа строки.
+
 
 
 ## [CHAR](CHAR.md)
 
-{% include notitle [Описание](CHAR/short-description.md) %}
+**Синтаксис:**`CHAR( string )`
+
+Преобразовывает числовое представление символа ASCII в значение.
+
 
 
 ## [CONCAT](CONCAT.md)
 
-{% include notitle [Описание](CONCAT/short-description.md) %}
+**Синтаксис:**`CONCAT( arg_1, arg_2, arg_3 [ , ... ] )`
+
+Объединяет произвольное количество строк. При использовании нестроковых типов происходит преобразование в строку и объединение.
+
 
 
 ## [CONTAINS](CONTAINS.md)
 
-{% include notitle [Описание](CONTAINS/short-description.md) %}
+**Синтаксис:**`CONTAINS( string, substring )`
+
+Возвращает `TRUE`, если строка `string` содержит в себе подстроку `substring`. Для регистронезависимой проверки см. [ICONTAINS](ICONTAINS.md).
+
 
 
 ## [ENDSWITH](ENDSWITH.md)
 
-{% include notitle [Описание](ENDSWITH/short-description.md) %}
+**Синтаксис:**`ENDSWITH( string, substring )`
+
+Возвращает `TRUE`, если строка `string` оканчивается на подстроку `substring`.Для регистронезависимой проверки см. [IENDSWITH](IENDSWITH.md).
+
 
 
 ## [FIND](FIND.md)
 
-{% include notitle [Описание](FIND/short-description.md) %}
+**Синтаксис:**`FIND( string, substring [ , start_index ] )`
+
+Возвращает индекс позиции первого символа подстроки `substring` в строке `string`.
+
+Если указан опциональный параметр `start_index`, то поиск начнется с указанной позиции.
+
 
 
 ## [ICONTAINS](ICONTAINS.md)
 
-{% include notitle [Описание](ICONTAINS/short-description.md) %}
+**Синтаксис:**`ICONTAINS( string, substring )`
+
+Регистронезависимый вариант [CONTAINS](CONTAINS.md). Возвращает `TRUE`, если строка `string` содержит в себе подстроку `substring`.
+
 
 
 ## [IENDSWITH](IENDSWITH.md)
 
-{% include notitle [Описание](IENDSWITH/short-description.md) %}
+**Синтаксис:**`IENDSWITH( string, substring )`
+
+Регистронезависимый вариант [ENDSWITH](ENDSWITH.md). Возвращает `TRUE`, если строка `string` оканчивается на подстроку `substring`.
+
 
 
 ## [ISTARTSWITH](ISTARTSWITH.md)
 
-{% include notitle [Описание](ISTARTSWITH/short-description.md) %}
+**Синтаксис:**`ISTARTSWITH( string, substring )`
+
+Регистронезависимый вариант [STARTSWITH](STARTSWITH.md). Возвращает `TRUE`, если строка `string` начинается на подстроку `substring`.
+
 
 
 ## [LEFT](LEFT.md)
 
-{% include notitle [Описание](LEFT/short-description.md) %}
+**Синтаксис:**`LEFT( string, number )`
+
+Возвращает строку, которая содержит указанное количество символов `number` с начала строки `string`.
+
 
 
 ## [LEN](LEN.md)
 
-{% include notitle [Описание](LEN/short-description.md) %}
+**Синтаксис:**`LEN( string )`
+
+Возвращает количество символов в строке `string`.
+
 
 
 ## [LOWER](LOWER.md)
 
-{% include notitle [Описание](LOWER/short-description.md) %}
+**Синтаксис:**`LOWER( string )`
+
+Возвращает строку `string` в нижнем регистре.
+
 
 
 ## [LTRIM](LTRIM.md)
 
-{% include notitle [Описание](LTRIM/short-description.md) %}
+**Синтаксис:**`LTRIM( string )`
+
+Возвращает строку `string` без знаков пробела в начале строки.
+
 
 
 ## [REGEXP_EXTRACT](REGEXP_EXTRACT.md)
 
-{% include notitle [Описание](REGEXP_EXTRACT/short-description.md) %}
+**Синтаксис:**`REGEXP_EXTRACT( string, pattern )`
+
+Возвращает подстроку `string`, которая соответствует шаблону регулярного выражения `pattern`.
+
 
 
 ## [REGEXP_EXTRACT_NTH](REGEXP_EXTRACT_NTH.md)
 
-{% include notitle [Описание](REGEXP_EXTRACT_NTH/short-description.md) %}
+**Синтаксис:**`REGEXP_EXTRACT_NTH( string, pattern, match_index )`
+
+Возвращает подстроку `string`, которая соответствует шаблону регулярного выражения `pattern`, начиная с указанного индекса.
+
 
 
 ## [REGEXP_MATCH](REGEXP_MATCH.md)
 
-{% include notitle [Описание](REGEXP_MATCH/short-description.md) %}
+**Синтаксис:**`REGEXP_MATCH( string, pattern )`
+
+Возвращает `TRUE`, если в строке `string` есть подстрока, которая соответствует шаблону регулярного выражения `pattern`.
+
 
 
 ## [REGEXP_REPLACE](REGEXP_REPLACE.md)
 
-{% include notitle [Описание](REGEXP_REPLACE/short-description.md) %}
+**Синтаксис:**`REGEXP_REPLACE( string, pattern, replace_with )`
+
+Ищет подстроку в строке `string` по шаблону регулярного выражения `pattern` и заменяет ее строкой `replace_with`.
+
+Если подстрока не найдена, то строка не будет изменена.
+
 
 
 ## [REPLACE](REPLACE.md)
 
-{% include notitle [Описание](REPLACE/short-description.md) %}
+**Синтаксис:**`REPLACE( string, substring, replace_with )`
+
+Ищет подстроку `substring` в строке `string` и заменяет ее строкой `replace_with`.
+
+Если подстрока не найдена, то строка не будет изменена.
+
 
 
 ## [RIGHT](RIGHT.md)
 
-{% include notitle [Описание](RIGHT/short-description.md) %}
+**Синтаксис:**`RIGHT( string, number )`
+
+Возвращает строку, которая содержит указанное количество символов `number` с конца строки `string`.
+
 
 
 ## [RTRIM](RTRIM.md)
 
-{% include notitle [Описание](RTRIM/short-description.md) %}
+**Синтаксис:**`RTRIM( string )`
+
+Возвращает строку `string` без знаков пробела в конце строки.
+
 
 
 ## [SPACE](SPACE.md)
 
-{% include notitle [Описание](SPACE/short-description.md) %}
+**Синтаксис:**`SPACE( value )`
+
+Возвращает строку с указанным количеством пробелов.
+
 
 
 ## [SPLIT](SPLIT.md)
 
-{% include notitle [Описание](SPLIT/short-description.md) %}
+**Синтаксис:**`SPLIT( orig_string, delimiter, part_index )`
+
+Возвращает подстроку из `orig_string`, используя символ разделителя `delimiter` для разделения строки на последовательность частей `part_index`.
+
 
 
 ## [STARTSWITH](STARTSWITH.md)
 
-{% include notitle [Описание](STARTSWITH/short-description.md) %}
+**Синтаксис:**`STARTSWITH( string, substring )`
+
+Возвращает `TRUE`, если строка `string` начинается на подстроку `substring`. Для регистронезависимой проверки см. [ISTARTSWITH](ISTARTSWITH.md).
+
 
 
 ## [SUBSTR](SUBSTR.md)
 
-{% include notitle [Описание](SUBSTR/short-description.md) %}
+**Синтаксис:**`SUBSTR( string, from_index [ , length ] )`
+
+Возвращает подстроку `string`, начиная с индекса `from_index`.
+
+Если указан дополнительный аргумент `length`, то будет возвращена подстрока указанной длины.
+
 
 
 ## [TRIM](TRIM.md)
 
-{% include notitle [Описание](TRIM/short-description.md) %}
+**Синтаксис:**`TRIM( string )`
+
+Возвращает строку `string` без знаков пробела в начале и конце строки.
+
 
 
 ## [UPPER](UPPER.md)
 
-{% include notitle [Описание](UPPER/short-description.md) %}
+**Синтаксис:**`UPPER( string )`
+
+Возвращает строку `string` в верхнем регистре.
+
 
 
 ## [UTF8](UTF8.md)
 
-{% include notitle [Описание](UTF8/short-description.md) %}
+**Синтаксис:**`UTF8( string, old_encoding )`
+
+Переводит кодировку строки `string` в `UTF8`.
+
 

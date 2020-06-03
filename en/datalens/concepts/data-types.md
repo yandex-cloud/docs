@@ -18,7 +18,7 @@ You can use the dataset interface or the wizard to change the field data type.
 
 ## Geopoint {#geopoint}
 
-A coordinate point defined by latitude and longitude. In {{ datalens-short-name }}, it's set using the function [GEOPOINT](../../_api-ref/datalens/function-ref/GEOPOINT.md).
+A coordinate point defined by latitude and longitude. In {{ datalens-short-name }}, it's set using the function [GEOPOINT](../function-ref/GEOPOINT.md).
 
 As the input, the function accepts the `String` and `Geocache` data types, or two values of the `Fractional number` or `String` type.
 If a single string is input, it must contain a list of two numbers in JSON format.
@@ -34,7 +34,7 @@ GEOPOINT("[55.8538,37.6312]")
 
 ## Geopolygon {#geopolygon}
 
-Several coordinate points defining the polygon on the map. You can define a polygon in {{ datalens-short-name }} using the function [GEOPOLYGON](../../_api-ref/datalens/function-ref/GEOPOLYGON.md).
+Several coordinate points defining the polygon on the map. You can define a polygon in {{ datalens-short-name }} using the function [GEOPOLYGON](../function-ref/GEOPOLYGON.md).
 The [Even-Odd](https://en.wikipedia.org/wiki/Even–odd_rule) algorithm is used to fill in the polygon. This way you can create polygons with holes.
 
 The function accepts strings in the format `"[[[v1,v1], [v2,v2]], ..., [[vN-1,vN-1], [vN,vN]]]"`. If the source data is in this format, you can use the dataset interface or wizard to change the field data type without a formula.
@@ -56,7 +56,7 @@ Date without specified time.
 
 When you use date in formulas, make sure to use hash `#` around it. For example, `DATETRUNC(#2018-07-12#, "year", 5)`.
 
-You can convert the source data type to `Date` by using the functions [DATE](../../_api-ref/datalens/function-ref/DATE/overview.md) and [DATE_PARSE](../../_api-ref/datalens/function-ref/DATE_PARSE/overview.md).
+You can convert the source data type to `Date` by using the functions [DATE](../function-ref/DATE.md) and [DATE_PARSE](../function-ref/DATE_PARSE.md).
 
 #### Record example {#date-example}
 
@@ -73,7 +73,7 @@ Date with specified time.
 
 When you use date and time in formulas, make sure to use a hash `#` around it. For example, `DATEADD(#2018-01-12 01:02:03#, "second", 6)`.
 
-You can convert the source data type to `Date and time` by using the functions [DATETIME](../../_api-ref/datalens/function-ref/DATETIME/overview.md) and [DATETIME_PARSE](../../_api-ref/datalens/function-ref/DATETIME_PARSE/overview.md).
+You can convert the source data type to `Date and time` by using the functions [DATETIME](../function-ref/DATETIME.md) and [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md).
 
 #### Record example {#datetime-example}
 
@@ -88,7 +88,7 @@ DATETRUNC(#2018-07-12 11:07:13#, "month", 4)
 
 Decimal number. The dot is used as a decimal separator.
 
-You can convert the source data type to a `Fractional number` by using the function [FLOAT](../../_api-ref/datalens/function-ref/FLOAT/overview.md).
+You can convert the source data type to a `Fractional number` by using the function [FLOAT](../function-ref/FLOAT.md).
 
 {% note warning %}
 
@@ -108,7 +108,7 @@ FLOAT("34.567")
 
 A logical type that can be either `TRUE` or `FALSE`.
 
-You can convert the source data type to `Logical` by using the function [BOOL](../../_api-ref/datalens/function-ref/BOOL/overview.md).
+You can convert the source data type to `Logical` by using the function [BOOL](../function-ref/BOOL.md).
 
 #### Record example {#boolean-example}
 
@@ -131,7 +131,7 @@ You can use the following characters inside strings:
 - `\'`: Single quote.
 - `\\`: Backslash.
 
-You can convert the source data type to `String` by using the function [STR](../../_api-ref/datalens/function-ref/STR/overview.md).
+You can convert the source data type to `String` by using the function [STR](../function-ref/STR.md).
 
 #### Record example {#string-example}
 
@@ -144,7 +144,7 @@ You can convert the source data type to `String` by using the function [STR](../
 
 A number with no no fractional part.
 
-You can convert the source data type to `Integer` by using the function [INT](../../_api-ref/datalens/function-ref/INT/overview.md).
+You can convert the source data type to `Integer` by using the function [INT](..//function-ref/INT.md).
 
 #### Record example {#integer-example}
 

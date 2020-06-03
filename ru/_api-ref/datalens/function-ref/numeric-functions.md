@@ -7,130 +7,229 @@ editable: false
 
 ## [ABS](ABS.md)
 
-{% include notitle [Описание](ABS/short-description.md) %}
+**Синтаксис:**`ABS( number )`
+
+Возвращает абсолюное значение заданного числа `number`.
+
 
 
 ## [ACOS](ACOS.md)
 
-{% include notitle [Описание](ACOS/short-description.md) %}
+**Синтаксис:**`ACOS( number )`
+
+Возвращает выраженный в радианах арккосинус числа `number`.
+
 
 
 ## [ASIN](ASIN.md)
 
-{% include notitle [Описание](ASIN/short-description.md) %}
+**Синтаксис:**`ASIN( number )`
+
+Возвращает выраженный в радианах арксинус числа `number`.
+
 
 
 ## [ATAN](ATAN.md)
 
-{% include notitle [Описание](ATAN/short-description.md) %}
+**Синтаксис:**`ATAN( number )`
+
+Возвращает выраженный в радианах арктангенс числа `number`.
+
 
 
 ## [ATAN2](ATAN2.md)
 
-{% include notitle [Описание](ATAN2/short-description.md) %}
+**Синтаксис:**`ATAN2( x, y )`
+
+Возвращает выраженный в радианах арктангенс для заданных координат `x` и `y`.
+
 
 
 ## [CEILING](CEILING.md)
 
-{% include notitle [Описание](CEILING/short-description.md) %}
+**Синтаксис:**`CEILING( number )`
+
+Округляет значение до ближайшего целого числа в большую сторону.
+
 
 
 ## [COS](COS.md)
 
-{% include notitle [Описание](COS/short-description.md) %}
+**Синтаксис:**`COS( number )`
+
+Возвращает косинус числа `number`, заданного в радианах.
+
 
 
 ## [COT](COT.md)
 
-{% include notitle [Описание](COT/short-description.md) %}
+**Синтаксис:**`COT( number )`
+
+Возвращает котангенс числа `number`, заданного в радианах.
+
 
 
 ## [DEGREES](DEGREES.md)
 
-{% include notitle [Описание](DEGREES/short-description.md) %}
+**Синтаксис:**`DEGREES( radians )`
+
+Преобразует радианы в градусы.
+
 
 
 ## [DIV](DIV.md)
 
-{% include notitle [Описание](DIV/short-description.md) %}
+**Синтаксис:**`DIV( number_1, number_2 )`
+
+Возвращает результат деления `number_1` на `number_2`.
+Результат будет округлен до целого числа.
+
 
 
 ## [EXP](EXP.md)
 
-{% include notitle [Описание](EXP/short-description.md) %}
+**Синтаксис:**`EXP( number )`
+
+Возвращает результата возведения числа `e` в степень `number`.
+
 
 
 ## [FLOOR](FLOOR.md)
 
-{% include notitle [Описание](FLOOR/short-description.md) %}
+**Синтаксис:**`FLOOR( number )`
+
+Округляет значение до ближайшего целого числа в меньшую сторону.
+
 
 
 ## [GREATEST](GREATEST.md)
 
-{% include notitle [Описание](GREATEST/short-description.md) %}
+**Синтаксис:**`GREATEST( value_1, value_2, value_3 [ , ... ] )`
+
+Возвращает наибольшее из значений.
+
+См. также [LEAST](LEAST.md).
+
+В зависимости от указанного типа данных, возвращает:
+- наибольшее число;
+- последнюю строку в алфавитном порядке;
+- позднюю дату;
+- `TRUE` при выборе из `TRUE` и `FALSE` для логического типа.
+
 
 
 ## [LEAST](LEAST.md)
 
-{% include notitle [Описание](LEAST/short-description.md) %}
+**Синтаксис:**`LEAST( value_1, value_2, value_3 [ , ... ] )`
+
+Возвращает наименьшее из значений.
+
+См. также [GREATEST](GREATEST.md).
+
+В зависимости от указанного типа данных, возвращает:
+- наименьшее число;
+- первую строку в алфавитном порядке;
+- раннюю дату;
+- `FALSE` при выборе из `TRUE` и `FALSE` для логическогл типа.
+
 
 
 ## [LN](LN.md)
 
-{% include notitle [Описание](LN/short-description.md) %}
+**Синтаксис:**`LN( number )`
+
+Возвращает натуральный логарифм числа `number`. Возвращает `NULL`, если число меньше или равно 0.
+
 
 
 ## [LOG](LOG.md)
 
-{% include notitle [Описание](LOG/short-description.md) %}
+**Синтаксис:**`LOG( value, base )`
+
+Возвращает логарифм числа `value` по основанию числа `base`. Возвращает `NULL`, если число `value` меньше или равно 0.
+
 
 
 ## [LOG10](LOG10.md)
 
-{% include notitle [Описание](LOG10/short-description.md) %}
+**Синтаксис:**`LOG10( number )`
+
+Возвращает логарифм числа `number` по основанию 10. Возвращает `NULL`, если число меньше или равно 0.
+
 
 
 ## [PI](PI.md)
 
-{% include notitle [Описание](PI/short-description.md) %}
+**Синтаксис:**`PI()`
+
+Возвращает число Пи. Точность зависит от источника данных.
+
 
 
 ## [POWER](POWER.md)
 
-{% include notitle [Описание](POWER/short-description.md) %}
+**Синтаксис:**`POWER( base, power )`
+
+Возводит число `base` в степень `power`.
+
 
 
 ## [RADIANS](RADIANS.md)
 
-{% include notitle [Описание](RADIANS/short-description.md) %}
+**Синтаксис:**`RADIANS( degrees )`
+
+Преобразует градусы `degrees` в радианы.
+
 
 
 ## [ROUND](ROUND.md)
 
-{% include notitle [Описание](ROUND/short-description.md) %}
+**Синтаксис:**`ROUND( number [ , precision ] )`
+
+Округляет число `number` до указанного числа знаков `precision` после запятой.
+Если число `precision` не указано, то `number` округляется до ближайшего целого.
+
 
 
 ## [SIGN](SIGN.md)
 
-{% include notitle [Описание](SIGN/short-description.md) %}
+**Синтаксис:**`SIGN( number )`
+
+Возвращает знак числа `number`:
+- `-1` если число отрицательное;
+- `0` если число равно нулю;
+- `1` если число положительное.
+
 
 
 ## [SIN](SIN.md)
 
-{% include notitle [Описание](SIN/short-description.md) %}
+**Синтаксис:**`SIN( number )`
+
+Возвращает синус числа `number`, заданного в радианах.
+
 
 
 ## [SQRT](SQRT.md)
 
-{% include notitle [Описание](SQRT/short-description.md) %}
+**Синтаксис:**`SQRT( number )`
+
+Возвращает квадратный корень заданного числа.
+
 
 
 ## [SQUARE](SQUARE.md)
 
-{% include notitle [Описание](SQUARE/short-description.md) %}
+**Синтаксис:**`SQUARE( number )`
+
+Возвращает число `number`, возведенное в степень 2.
+
 
 
 ## [TAN](TAN.md)
 
-{% include notitle [Описание](TAN/short-description.md) %}
+**Синтаксис:**`TAN( number )`
+
+Возвращает тангенс числа `number`, заданного в радианах.
+
 

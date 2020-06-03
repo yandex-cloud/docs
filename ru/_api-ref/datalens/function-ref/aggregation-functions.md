@@ -7,90 +7,160 @@ editable: false
 
 ## [AVG](AVG.md)
 
-{% include notitle [Описание](AVG/short-description.md) %}
+**Синтаксис:**`AVG( value )`
+
+Возвращает среднее для всех значений. Работает с числовыми типами данных и с типами `Дата | Дата и время`.
+
 
 
 ## [AVG_IF](AVG_IF.md)
 
-{% include notitle [Описание](AVG_IF/short-description.md) %}
+**Синтаксис:**`AVG_IF( expression, condition )`
+
+Возвращает среднее для всех значений, которые удовлетворяют условию `condition`. Если значения отсутствуют, то возвращается `NULL`. Работает только с числовыми типами данных.
+
 
 
 ## [COUNT](COUNT.md)
 
-{% include notitle [Описание](COUNT/short-description.md) %}
+**Синтаксис:**`COUNT(  [ value ] )`
+
+Возвращает количество элементов в группе.
+
 
 
 ## [COUNT_IF](COUNT_IF.md)
 
-{% include notitle [Описание](COUNT_IF/short-description.md) %}
+**Синтаксис:**`COUNT_IF( condition )`
+
+Возвращает количество элементов в группе, которые удовлетворяют условию `condition`.
+
 
 
 ## [COUNTD](COUNTD.md)
 
-{% include notitle [Описание](COUNTD/short-description.md) %}
+**Синтаксис:**`COUNTD( value )`
+
+Возвращает количество уникальных значений в группе.
+
+См. также [COUNTD_APPROX](COUNTD_APPROX.md).
+
 
 
 ## [COUNTD_APPROX](COUNTD_APPROX.md)
 
-{% include notitle [Описание](COUNTD_APPROX/short-description.md) %}
+**Синтаксис:**`COUNTD_APPROX( value )`
+
+Вовзращает приблизительное количество уникальных значений в группе. Работает быстрее функции [COUNTD](COUNTD.md), но не гарантирует точность.
+
 
 
 ## [COUNTD_IF](COUNTD_IF.md)
 
-{% include notitle [Описание](COUNTD_IF/short-description.md) %}
+**Синтаксис:**`COUNTD_IF( expression, condition )`
+
+Возвращает количество уникальных значений в группе, которые удовлетворяют условию `condition`.
+
+См. также [COUNTD_APPROX](COUNTD_APPROX.md).
+
 
 
 ## [MAX](MAX.md)
 
-{% include notitle [Описание](MAX/short-description.md) %}
+**Синтаксис:**`MAX( value )`
+
+Возвращает максимальное значение.
+
+Если `value`:
+- число — возвращает наибольшее число,
+- дата — возвращает самую позднюю дату,
+- строка — возвращает последнее значение в алфавитном порядке,
+
+
 
 
 ## [MEDIAN](MEDIAN.md)
 
-{% include notitle [Описание](MEDIAN/short-description.md) %}
+**Синтаксис:**`MEDIAN( value )`
+
+Вовзращает медианное значение.
+
 
 
 ## [MIN](MIN.md)
 
-{% include notitle [Описание](MIN/short-description.md) %}
+**Синтаксис:**`MIN( value )`
+
+Возвращает минимальное значение.
+
+Если `value`:
+- число — возвращает наименьшее число,
+- дата — возвращает самую раннюю дату,
+- строка — возвращает первое значение в алфавитном порядке,
+
+
 
 
 ## [QUANTILE](QUANTILE.md)
 
-{% include notitle [Описание](QUANTILE/short-description.md) %}
+**Синтаксис:**`QUANTILE( value, quant )`
+
+Возвращает точный квантиль уровня `quant` (значение от 0 до 1).
+
 
 
 ## [QUANTILE_APPROX](QUANTILE_APPROX.md)
 
-{% include notitle [Описание](QUANTILE_APPROX/short-description.md) %}
+**Синтаксис:**`QUANTILE_APPROX( value, quant )`
+
+Возвращает примерный квантиль уровня `quant` (значение от 0 до 1).
+
 
 
 ## [STDEV](STDEV.md)
 
-{% include notitle [Описание](STDEV/short-description.md) %}
+**Синтаксис:**`STDEV( value )`
+
+Возвращает статистическое стандартное отклонение всех значений в выражении на основе выборки из совокупности.
+
 
 
 ## [STDEVP](STDEVP.md)
 
-{% include notitle [Описание](STDEVP/short-description.md) %}
+**Синтаксис:**`STDEVP( value )`
+
+Возвращает статистическое стандартное отклонение всех значений в выражении на основе смещенной совокупности.
+
 
 
 ## [SUM](SUM.md)
 
-{% include notitle [Описание](SUM/short-description.md) %}
+**Синтаксис:**`SUM( value )`
+
+Возвращает сумму всех значений выражения. Работает только с числовыми типами данных.
+
 
 
 ## [SUM_IF](SUM_IF.md)
 
-{% include notitle [Описание](SUM_IF/short-description.md) %}
+**Синтаксис:**`SUM_IF( expression, condition )`
+
+Возвращает сумму всех значений выражения, которые удовлетворяют условию `condition`. Работает только с числовыми типами данных.
+
 
 
 ## [VAR](VAR.md)
 
-{% include notitle [Описание](VAR/short-description.md) %}
+**Синтаксис:**`VAR( value )`
+
+Возвращает статистическую дисперсию всех значений в выражении на основе выборки из совокупности.
+
 
 
 ## [VARP](VARP.md)
 
-{% include notitle [Описание](VARP/short-description.md) %}
+**Синтаксис:**`VARP( value )`
+
+Возвращает статистическую дисперсию всех значений в выражении по всей совокупности.
+
 

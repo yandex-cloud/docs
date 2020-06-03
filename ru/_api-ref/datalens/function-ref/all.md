@@ -7,595 +7,1141 @@ editable: false
 
 ## [Остаток (%)](OP_MOD.md)
 
-{% include notitle [Описание](OP_MOD/short-description.md) %}
+**Синтаксис:**`number_1 % number_2`
+
+Возвращает остаток от деления первого числа `number_1` на число `number_2`.
+
 
 
 ## [Умножение (*)](OP_MULT.md)
 
-{% include notitle [Описание](OP_MULT/short-description.md) %}
+**Синтаксис:**`value_1 * value_2`
+
+Если оба аргумента — числа, то возвращает результат умножения числа `value_1` на число `value_2`.
+
+Если один из аргументов — `Строка`, а другой — `Целое число`, возвращает строку, повторенную заданное количество раз.
+
 
 
 ## [Сложение и конкатенация (+)](OP_PLUS.md)
 
-{% include notitle [Описание](OP_PLUS/short-description.md) %}
+**Синтаксис:**`value_1 + value_2`
+
+Имеет различное поведение в зависмости от типов аргументов. Возможные варианты приведены в таблице:
+
+| Тип `value_1`   | Тип `value_2`   | Возвращаемое значение                                                                                                                                                               |
+|:----------------|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Число`         | `Число`         | Сумма чисел `value_1` и `value_2`.                                                                                                                                                  |
+| `Дата`          | `Число`         | Дата, на `value_2` дней большая, чем `value_1` (с округлением вниз до целого количества дней).                                                                                      |
+| `Дата и время`  | `Число`         | Дата со временем, на `value_2` дней большая, чем `value_1`. Если `value_2` содержит дробную часть, то она пересчитыватся в часы (`1/24`),  минуты (`1/1440`) и секунды (`1/86400`). |
+| `Строка`        | `Строка`        | Объединение (конкатенация) строк `value_1` и `value_2`.                                                                                                                             |
+
+Изменение порядка аргументов не влияет на результат.
+
 
 
 ## [Вычитание (-)](OP_MINUS.md)
 
-{% include notitle [Описание](OP_MINUS/short-description.md) %}
+**Синтаксис:**`value_1 - value_2`
+
+Имеет различное поведение в зависмости от типов аргументов. Возможные варианты приведены в таблице:
+
+| Тип `value_1`   | Тип `value_2`   | Возвращаемое значение                                                                                                                                                               |
+|:----------------|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Число`         | `Число`         | Разность чисел `value_1` и `value_2`.                                                                                                                                               |
+| `Дата`          | `Число`         | Дата, на `value_2` дней меньшая, чем `value_1` (с округлением вниз до целого количества дней).                                                                                      |
+| `Дата и время`  | `Число`         | Дата со временем, на `value_2` дней меньшая, чем `value_1`. Если `value_2` содержит дробную часть, то она пересчитыватся в часы (`1/24`),  минуты (`1/1440`) и секунды (`1/86400`). |
+| `Дата`          | `Дата`          | Разность двух дат в днях.                                                                                                                                                           |
+| `Дата и время`  | `Дата и время`  | Разность двух дат в днях: целая часть — количество целых дней, дробная — количество часов, минут и секунд как долей целого дня (час — `1/24` и т.д.).                               |
+
 
 
 ## [Деление (/)](OP_DIV.md)
 
-{% include notitle [Описание](OP_DIV/short-description.md) %}
+**Синтаксис:**`number_1 / number_2`
+
+Делит число `number_1` на число `number_2`.
+
 
 
 ## [Сравнение](OP_COMPARISON.md)
 
-{% include notitle [Описание](OP_COMPARISON/short-description.md) %}
+**Синтаксис:**<br/>`value_1 = value_2`<br/>или<br/>`value_1 != value_2`<br/>или<br/>`value_1 < value_2`<br/>или<br/>`value_1 <= value_2`<br/>или<br/>`value_1 > value_2`<br/>или<br/>`value_1 => value_2`
+
+Сравнивают значение `value_1` со значением `value_2`.
+
 
 
 ## [Степень (^)](OP_POWER.md)
 
-{% include notitle [Описание](OP_POWER/short-description.md) %}
+**Синтаксис:**`base ^ power`
+
+Возводит число `base` в степень `power`.
+
 
 
 ## [CASE](CASE.md)
 
-{% include notitle [Описание](CASE/short-description.md) %}
+**Синтаксис:**<br/>`CASE expression
+    WHEN value_1 THEN result_1
+    [ WHEN value_2 THEN result_2
+      ... ]
+    ELSE default_result
+END`<br/>или<br/>`CASE(
+    expression,
+    value_1, result_1,
+  [ value_2, result_2,
+    ... ]
+    default_result
+)`
+
+Сравнивает выражение `expression` с последовательностью значений `value_1`, `value_2`, ... и возвращает результат для первого совпадения.
+Если совпадений не найдено, то возвращает `default_result`.
+
 
 
 ## [IF](IF.md)
 
-{% include notitle [Описание](IF/short-description.md) %}
+**Синтаксис:**<br/>`IF condition_1
+    THEN result_1
+[ ELSEIF condition_2
+    THEN result_2
+  ... ]
+ELSE
+    default_result
+END`<br/>или<br/>`IF(
+    condition_1, result_1,
+  [ condition_2, result_2,
+    ... ]
+    default_result
+)`
+
+Проверяет последовательно логические выражения `condition_1`, `condition_2`, ... и возвращает соответсвующий результат для первого выполнения.
+Если все `condition_1`, `condition_2`, ... возвращают `FALSE`, то блок возвращает `default_result`.
+
 
 
 ## [ABS](ABS.md)
 
-{% include notitle [Описание](ABS/short-description.md) %}
+**Синтаксис:**`ABS( number )`
+
+Возвращает абсолюное значение заданного числа `number`.
+
 
 
 ## [ACOS](ACOS.md)
 
-{% include notitle [Описание](ACOS/short-description.md) %}
+**Синтаксис:**`ACOS( number )`
+
+Возвращает выраженный в радианах арккосинус числа `number`.
+
 
 
 ## [AND](AND.md)
 
-{% include notitle [Описание](AND/short-description.md) %}
+**Синтаксис:**`value_1 AND value_2`
+
+Выполняет логическое соединение двух выражений по условию `И`.
+
 
 
 ## [ASCII](ASCII.md)
 
-{% include notitle [Описание](ASCII/short-description.md) %}
+**Синтаксис:**`ASCII( string )`
+
+Возвращает числовое представление первого символа строки.
+
 
 
 ## [ASIN](ASIN.md)
 
-{% include notitle [Описание](ASIN/short-description.md) %}
+**Синтаксис:**`ASIN( number )`
+
+Возвращает выраженный в радианах арксинус числа `number`.
+
 
 
 ## [ATAN](ATAN.md)
 
-{% include notitle [Описание](ATAN/short-description.md) %}
+**Синтаксис:**`ATAN( number )`
+
+Возвращает выраженный в радианах арктангенс числа `number`.
+
 
 
 ## [ATAN2](ATAN2.md)
 
-{% include notitle [Описание](ATAN2/short-description.md) %}
+**Синтаксис:**`ATAN2( x, y )`
+
+Возвращает выраженный в радианах арктангенс для заданных координат `x` и `y`.
+
 
 
 ## [AVG](AVG.md)
 
-{% include notitle [Описание](AVG/short-description.md) %}
+**Синтаксис:**`AVG( value )`
+
+Возвращает среднее для всех значений. Работает с числовыми типами данных и с типами `Дата | Дата и время`.
+
 
 
 ## [AVG_IF](AVG_IF.md)
 
-{% include notitle [Описание](AVG_IF/short-description.md) %}
+**Синтаксис:**`AVG_IF( expression, condition )`
+
+Возвращает среднее для всех значений, которые удовлетворяют условию `condition`. Если значения отсутствуют, то возвращается `NULL`. Работает только с числовыми типами данных.
+
 
 
 ## [BETWEEN](BETWEEN.md)
 
-{% include notitle [Описание](BETWEEN/short-description.md) %}
+**Синтаксис:**`value [ NOT ] BETWEEEN low AND high`
+
+Возвращает `TRUE`, если `value` принадлежит диапазону значений с `low` по `high`.
+
+Вариант `value NOT BETWEEEN low AND high` возвращает противоположное значение
+
 
 
 ## [BOOL](BOOL.md)
 
-{% include notitle [Описание](BOOL/short-description.md) %}
+**Синтаксис:**`BOOL( expression )`
+
+Переводит выражение `expression` в логический тип по следующим правилам:
+
+| Тип                                   | `FALSE`              | `TRUE`        |
+|:--------------------------------------|:---------------------|:--------------|
+| `Число`                               | `0`, `0.0`           | Все остальные |
+| `Строка`                              | Пустая строка (`""`) | Все остальные |
+| `Логический`                          | `FALSE`              | `TRUE`        |
+| <code>Дата &#124; Дата и время</code> | -                    | `TRUE`        |
+
 
 
 ## [CEILING](CEILING.md)
 
-{% include notitle [Описание](CEILING/short-description.md) %}
+**Синтаксис:**`CEILING( number )`
+
+Округляет значение до ближайшего целого числа в большую сторону.
+
 
 
 ## [CHAR](CHAR.md)
 
-{% include notitle [Описание](CHAR/short-description.md) %}
+**Синтаксис:**`CHAR( string )`
+
+Преобразовывает числовое представление символа ASCII в значение.
+
 
 
 ## [CONCAT](CONCAT.md)
 
-{% include notitle [Описание](CONCAT/short-description.md) %}
+**Синтаксис:**`CONCAT( arg_1, arg_2, arg_3 [ , ... ] )`
+
+Объединяет произвольное количество строк. При использовании нестроковых типов происходит преобразование в строку и объединение.
+
 
 
 ## [CONTAINS](CONTAINS.md)
 
-{% include notitle [Описание](CONTAINS/short-description.md) %}
+**Синтаксис:**`CONTAINS( string, substring )`
+
+Возвращает `TRUE`, если строка `string` содержит в себе подстроку `substring`. Для регистронезависимой проверки см. [ICONTAINS](ICONTAINS.md).
+
 
 
 ## [COS](COS.md)
 
-{% include notitle [Описание](COS/short-description.md) %}
+**Синтаксис:**`COS( number )`
+
+Возвращает косинус числа `number`, заданного в радианах.
+
 
 
 ## [COT](COT.md)
 
-{% include notitle [Описание](COT/short-description.md) %}
+**Синтаксис:**`COT( number )`
+
+Возвращает котангенс числа `number`, заданного в радианах.
+
 
 
 ## [COUNT](COUNT.md)
 
-{% include notitle [Описание](COUNT/short-description.md) %}
+**Синтаксис:**`COUNT(  [ value ] )`
+
+Возвращает количество элементов в группе.
+
 
 
 ## [COUNT_IF](COUNT_IF.md)
 
-{% include notitle [Описание](COUNT_IF/short-description.md) %}
+**Синтаксис:**`COUNT_IF( condition )`
+
+Возвращает количество элементов в группе, которые удовлетворяют условию `condition`.
+
 
 
 ## [COUNTD](COUNTD.md)
 
-{% include notitle [Описание](COUNTD/short-description.md) %}
+**Синтаксис:**`COUNTD( value )`
+
+Возвращает количество уникальных значений в группе.
+
+См. также [COUNTD_APPROX](COUNTD_APPROX.md).
+
 
 
 ## [COUNTD_APPROX](COUNTD_APPROX.md)
 
-{% include notitle [Описание](COUNTD_APPROX/short-description.md) %}
+**Синтаксис:**`COUNTD_APPROX( value )`
+
+Вовзращает приблизительное количество уникальных значений в группе. Работает быстрее функции [COUNTD](COUNTD.md), но не гарантирует точность.
+
 
 
 ## [COUNTD_IF](COUNTD_IF.md)
 
-{% include notitle [Описание](COUNTD_IF/short-description.md) %}
+**Синтаксис:**`COUNTD_IF( expression, condition )`
+
+Возвращает количество уникальных значений в группе, которые удовлетворяют условию `condition`.
+
+См. также [COUNTD_APPROX](COUNTD_APPROX.md).
+
 
 
 ## [DATE](DATE.md)
 
-{% include notitle [Описание](DATE/short-description.md) %}
+**Синтаксис:**`DATE( expression [ , timezone ] )`
+
+Переводит выражение `expression` в формат даты.
+
+Дата должна быть определена в формате `YYYY-MM-DD`.
+
+Если `expression` является числом, то при наличии дополнительного параметра `timezone` дата расчитывается для указанной временной зоны.
+
 
 
 ## [DATE_PARSE](DATE_PARSE.md)
 
-{% include notitle [Описание](DATE_PARSE/short-description.md) %}
+**Синтаксис:**`DATE_PARSE( value )`
+
+Переводит выражение `value` в формат даты. В отличие от [DATE](DATE.md), поддерживает множество форматов.
+
 
 
 ## [DATEADD](DATEADD.md)
 
-{% include notitle [Описание](DATEADD/short-description.md) %}
+**Синтаксис:**`DATEADD( datetime, unit, number )`
+
+Возвращает дату, полученную в результате добавления `unit` в количестве `number` к указанной дате `datetime`.
+
+Аргумент `number` задается целым числом. Может принимать отрицательные значения.
+Аргумент `unit` принимает следующие значения:
+- `"year"` — год,
+- `"month"` — месяц,
+- `"day"` — день,
+- `"hour"` — час,
+- `"minute"` — минута,
+- `"second"` — секунда.
+
 
 
 ## [DATEPART](DATEPART.md)
 
-{% include notitle [Описание](DATEPART/short-description.md) %}
+**Синтаксис:**`DATEPART( datetime, unit [ , firstday ] )`
+
+Возвращает часть даты в виде целого числа.
+
+В зависимости от аргумента `unit` возвращает следующие значения:
+- `"year"` — номер года (см. [YEAR](YEAR.md)),
+- `"month"` — номер месяца в году (см. [MONTH](MONTH.md)),
+- `"week"` — номер недели в году по [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) (см. [WEEK](WEEK.md)),
+- `"dayofweek"`, `"dow"` — номер дня недели (см. [DAYOFWEEK](DAYOFWEEK.md)),
+- `"day"` — номер дня в месяце (см. [DAY](DAY.md)),
+- `"hour"` — номер часа в дне (см. [HOUR](HOUR.md)),
+- `"minute"` — номер минуты в часе (см. [MINUTE](MINUTE.md)),
+- `"second"` — номер секунды в минуте (см. [SECOND](SECOND.md)).
+
+Если выбран "`dayofweek`", то дополнительным параметром `firstday` можно задать, какой день недели считать первым — по умолчанию это понедельник. Более подробно об этом параметре смотрите в описании функции [DAYOFWEEK](DAYOFWEEK.md).
+
+
 
 
 ## [DATETIME](DATETIME.md)
 
-{% include notitle [Описание](DATETIME/short-description.md) %}
+**Синтаксис:**`DATETIME( expression [ , timezone ] )`
+
+Переводит выражение `expression` в формат даты и времени. При переводе `Date` в `DateTime` время определяется, как `00:00:00`.
+Дата должна быть определена в формате `YYYY-MM-DDThh:mm:ss` или `YYYY-MM-DD hh:mm:ss`.
+
+Если `expression` является числом, то при наличии дополнительного параметра `timezone` дата и время расчитываются для указанной временной зоны.
+
 
 
 ## [DATETIME_PARSE](DATETIME_PARSE.md)
 
-{% include notitle [Описание](DATETIME_PARSE/short-description.md) %}
+**Синтаксис:**`DATETIME_PARSE( value )`
+
+Переводит выражение `value` в формат даты и времени. В отличие от [DATETIME](DATETIME.md), поддерживает множество форматов.
+
 
 
 ## [DATETRUNC](DATETRUNC.md)
 
-{% include notitle [Описание](DATETRUNC/short-description.md) %}
+**Синтаксис:**`DATETRUNC( datetime, unit [ , number ] )`
+
+Возвращает дату, округленную по аргументу `unit`.
+
+Поддерживаемые значения `unit`:
+- `"second"`,
+- `"minute"`,
+- `"hour"`,
+- `"day"`,
+- `"week"`,
+- `"month"`,
+- `"year"`.
+
 
 
 ## [DAY](DAY.md)
 
-{% include notitle [Описание](DAY/short-description.md) %}
+**Синтаксис:**`DAY( datetime )`
+
+Возвращает номер дня в месяце в указанной дате `datetime`.
+
 
 
 ## [DAYOFWEEK](DAYOFWEEK.md)
 
-{% include notitle [Описание](DAYOFWEEK/short-description.md) %}
+**Синтаксис:**`DAYOFWEEK( datetime [ , firstday ] )`
+
+Возвращает день недели в соответствии с [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601).
+- Понедельник — 1;
+- Воскресенье — 7.
+
+Если указан дополнительный параметр `firstday`, то этот день считается первым в неделе. Допустимые значения:
+- `"Monday"`, `"Mon"` — понедельник;
+- `"Tuesday"`, `"Tue"` — вторник;
+- `"Wednesday"`, `"Wed"` — среда;
+- `"Thursday"`, `"Thu"` — четверг;
+- `"Friday"`, `"Fri"` — пятница;
+- `"Saturday"`, `"Sat"` — суббота;
+- `"Sunday"`, `"Sun"` — воскресенье.
+
+
 
 
 ## [DEGREES](DEGREES.md)
 
-{% include notitle [Описание](DEGREES/short-description.md) %}
+**Синтаксис:**`DEGREES( radians )`
+
+Преобразует радианы в градусы.
+
 
 
 ## [DIV](DIV.md)
 
-{% include notitle [Описание](DIV/short-description.md) %}
+**Синтаксис:**`DIV( number_1, number_2 )`
+
+Возвращает результат деления `number_1` на `number_2`.
+Результат будет округлен до целого числа.
+
 
 
 ## [ENDSWITH](ENDSWITH.md)
 
-{% include notitle [Описание](ENDSWITH/short-description.md) %}
+**Синтаксис:**`ENDSWITH( string, substring )`
+
+Возвращает `TRUE`, если строка `string` оканчивается на подстроку `substring`.Для регистронезависимой проверки см. [IENDSWITH](IENDSWITH.md).
+
 
 
 ## [EXP](EXP.md)
 
-{% include notitle [Описание](EXP/short-description.md) %}
+**Синтаксис:**`EXP( number )`
+
+Возвращает результата возведения числа `e` в степень `number`.
+
 
 
 ## [FIND](FIND.md)
 
-{% include notitle [Описание](FIND/short-description.md) %}
+**Синтаксис:**`FIND( string, substring [ , start_index ] )`
+
+Возвращает индекс позиции первого символа подстроки `substring` в строке `string`.
+
+Если указан опциональный параметр `start_index`, то поиск начнется с указанной позиции.
+
 
 
 ## [FLOAT](FLOAT.md)
 
-{% include notitle [Описание](FLOAT/short-description.md) %}
+**Синтаксис:**`FLOAT( expression )`
+
+Переводит выражение `expression` в формат дробного числа. по следующим правилам:
+
+| Тип                                   | Значение                                                                                                                                                                                                                                        |
+|:--------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Число`                               | Исходное значение.                                                                                                                                                                                                                              |
+| <code>Дата &#124; Дата и время</code> | [Unix-время](https://ru.wikipedia.org/wiki/Unix-время) соответствующее дате и времени. Если значение содержит в себе информацию о временной зоне, то она учитывается при вычислении. Если же временная зона неизвестна, то время считается UTC. |
+| `Строка`                              | Число из строки в десятичной записи.                                                                                                                                                                                                            |
+| `Логический`                          | `TRUE` — `1.0`, `FALSE` — `0.0`.                                                                                                                                                                                                                |
+
 
 
 ## [FLOOR](FLOOR.md)
 
-{% include notitle [Описание](FLOOR/short-description.md) %}
+**Синтаксис:**`FLOOR( number )`
+
+Округляет значение до ближайшего целого числа в меньшую сторону.
+
 
 
 ## [GEOCODE](GEOCODE.md)
 
-{% include notitle [Описание](GEOCODE/short-description.md) %}
+**Синтаксис:**`GEOCODE( address )`
+
+Преобразует адрес `address` в координаты.
+
+Результаты выполнения функции кэшируются, поэтому при повторном запросе {{ datalens-short-name }} не выполнит геокодирование. Время хранения кэша — 30 дней.
+После 30 дней {{ datalens-short-name }} автоматически вызовет функцию `GEOCODE` для преобразования адреса.
+
 
 
 ## [GEOINFO](GEOINFO.md)
 
-{% include notitle [Описание](GEOINFO/short-description.md) %}
+**Синтаксис:**`GEOINFO( address, scale )`
+
+Преобразует `address` в название географического объекта (топоним), который соответствует указанному масштабу `scale`.
+
+Допустимые значения параметра`scale`:
+- `"country"`,
+- `"country_code"`,
+- `"region"`,
+- `"locality"`.
+
 
 
 ## [GEOPOINT](GEOPOINT.md)
 
-{% include notitle [Описание](GEOPOINT/short-description.md) %}
+**Синтаксис:**`GEOPOINT( value_1 [ , value_2 ] )`
+
+Формирует значение типа геоточка. Принимает на вход строку, либо значение типа "геоточка", либо координаты — широту `value_1` и долготу `value_2`. Если на вход подается одна строка, в ней должен содержаться список из двух чисел, координат (широты и долготы) в JSON-синтаксисе.
+
 
 
 ## [GEOPOLYGON](GEOPOLYGON.md)
 
-{% include notitle [Описание](GEOPOLYGON/short-description.md) %}
+**Синтаксис:**`GEOPOLYGON( value )`
+
+Переводит выражение `value` в формат геополигона.
+
 
 
 ## [GREATEST](GREATEST.md)
 
-{% include notitle [Описание](GREATEST/short-description.md) %}
+**Синтаксис:**`GREATEST( value_1, value_2, value_3 [ , ... ] )`
+
+Возвращает наибольшее из значений.
+
+См. также [LEAST](LEAST.md).
+
+В зависимости от указанного типа данных, возвращает:
+- наибольшее число;
+- последнюю строку в алфавитном порядке;
+- позднюю дату;
+- `TRUE` при выборе из `TRUE` и `FALSE` для логического типа.
+
 
 
 ## [HOUR](HOUR.md)
 
-{% include notitle [Описание](HOUR/short-description.md) %}
+**Синтаксис:**`HOUR( datetime )`
+
+Возвращает номер часа в дне в указанной дате и времени `datetime`. При указании даты без времени возвращает `0`.
+
 
 
 ## [ICONTAINS](ICONTAINS.md)
 
-{% include notitle [Описание](ICONTAINS/short-description.md) %}
+**Синтаксис:**`ICONTAINS( string, substring )`
+
+Регистронезависимый вариант [CONTAINS](CONTAINS.md). Возвращает `TRUE`, если строка `string` содержит в себе подстроку `substring`.
+
 
 
 ## [IENDSWITH](IENDSWITH.md)
 
-{% include notitle [Описание](IENDSWITH/short-description.md) %}
+**Синтаксис:**`IENDSWITH( string, substring )`
+
+Регистронезависимый вариант [ENDSWITH](ENDSWITH.md). Возвращает `TRUE`, если строка `string` оканчивается на подстроку `substring`.
+
 
 
 ## [IFNULL](IFNULL.md)
 
-{% include notitle [Описание](IFNULL/short-description.md) %}
+**Синтаксис:**`IFNULL( check_value, alt_value )`
+
+Возвращает `check_value`, если оно не `NULL`. В противном случае возвращает `alt_value`.
+
 
 
 ## [IN](IN.md)
 
-{% include notitle [Описание](IN/short-description.md) %}
+**Синтаксис:**`item [ NOT ] IN (<list>)`
+
+Проверяет условие соответствия значения хотя бы одному из значений, перечисленных в `IN(...)`.
+
+Вариант `item NOT IN (<`list`>)` возвращает противоположное значение
+
 
 
 ## [INT](INT.md)
 
-{% include notitle [Описание](INT/short-description.md) %}
+**Синтаксис:**`INT( expression )`
+
+Переводит выражение `expression` в формат целого числа по следующим правилам:
+
+| Тип                                   | Значение                                                                                                                                                                                                                                        |
+|:--------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Целое число`                         | Исходное значение.                                                                                                                                                                                                                              |
+| `Дробное число`                       | Целая часть числа (округление вниз).                                                                                                                                                                                                            |
+| <code>Дата &#124; Дата и время</code> | [Unix-время](https://ru.wikipedia.org/wiki/Unix-время) соответствующее дате и времени. Если значение содержит в себе информацию о временной зоне, то она учитывается при вычислении. Если же временная зона неизвестна, то время считается UTC. |
+| `Строка`                              | Число из строки в десятичной записи.                                                                                                                                                                                                            |
+| `Логический`                          | `TRUE` — `1`, `FALSE` — `0`.                                                                                                                                                                                                                    |
+
 
 
 ## [IS FALSE](ISFALSE.md)
 
-{% include notitle [Описание](ISFALSE/short-description.md) %}
+**Синтаксис:**`value IS [ NOT ] FALSE`
+
+Проверяет, является ли значение `value` ложным (`FALSE`).
+
+Вариант `value IS NOT FALSE` возвращает противоположное значение.
+
 
 
 ## [ISNULL](ISNULL.md)
 
-{% include notitle [Описание](ISNULL/short-description.md) %}
+**Синтаксис:**<br/>`ISNULL( expression )`<br/>или<br/>`expression IS [ NOT ] NULL`
+
+Возвращает `TRUE`, если `expression` является `NULL`. В противном случае возвращает `FALSE`.
+
+Вариант `expression IS NOT NULL` возвращает противоположное значение.
+
 
 
 ## [ISTARTSWITH](ISTARTSWITH.md)
 
-{% include notitle [Описание](ISTARTSWITH/short-description.md) %}
+**Синтаксис:**`ISTARTSWITH( string, substring )`
+
+Регистронезависимый вариант [STARTSWITH](STARTSWITH.md). Возвращает `TRUE`, если строка `string` начинается на подстроку `substring`.
+
 
 
 ## [IS TRUE](ISTRUE.md)
 
-{% include notitle [Описание](ISTRUE/short-description.md) %}
+**Синтаксис:**`value IS [ NOT ] TRUE`
+
+Проверяет, является ли значение `value` истинным (`TRUE`).
+
+Вариант `value IS NOT TRUE` возвращает противоположное значение.
+
 
 
 ## [LEAST](LEAST.md)
 
-{% include notitle [Описание](LEAST/short-description.md) %}
+**Синтаксис:**`LEAST( value_1, value_2, value_3 [ , ... ] )`
+
+Возвращает наименьшее из значений.
+
+См. также [GREATEST](GREATEST.md).
+
+В зависимости от указанного типа данных, возвращает:
+- наименьшее число;
+- первую строку в алфавитном порядке;
+- раннюю дату;
+- `FALSE` при выборе из `TRUE` и `FALSE` для логическогл типа.
+
 
 
 ## [LEFT](LEFT.md)
 
-{% include notitle [Описание](LEFT/short-description.md) %}
+**Синтаксис:**`LEFT( string, number )`
+
+Возвращает строку, которая содержит указанное количество символов `number` с начала строки `string`.
+
 
 
 ## [LEN](LEN.md)
 
-{% include notitle [Описание](LEN/short-description.md) %}
+**Синтаксис:**`LEN( string )`
+
+Возвращает количество символов в строке `string`.
+
 
 
 ## [LIKE](LIKE.md)
 
-{% include notitle [Описание](LIKE/short-description.md) %}
+**Синтаксис:**`string_1 [ NOT ] LIKE string_2`
+
+Сравнивает строку `string_1` со шаблоном `string_2` и в случае совпадения возвращает `TRUE`.
+В качестве `string_2` можно задать значение или использовать знак `%`, который соответствует строке любой длины.
+
+Вариант `string_1 NOT LIKE` возвращает противоположное значение.
+
 
 
 ## [LN](LN.md)
 
-{% include notitle [Описание](LN/short-description.md) %}
+**Синтаксис:**`LN( number )`
+
+Возвращает натуральный логарифм числа `number`. Возвращает `NULL`, если число меньше или равно 0.
+
 
 
 ## [LOG](LOG.md)
 
-{% include notitle [Описание](LOG/short-description.md) %}
+**Синтаксис:**`LOG( value, base )`
+
+Возвращает логарифм числа `value` по основанию числа `base`. Возвращает `NULL`, если число `value` меньше или равно 0.
+
 
 
 ## [LOG10](LOG10.md)
 
-{% include notitle [Описание](LOG10/short-description.md) %}
+**Синтаксис:**`LOG10( number )`
+
+Возвращает логарифм числа `number` по основанию 10. Возвращает `NULL`, если число меньше или равно 0.
+
 
 
 ## [LOWER](LOWER.md)
 
-{% include notitle [Описание](LOWER/short-description.md) %}
+**Синтаксис:**`LOWER( string )`
+
+Возвращает строку `string` в нижнем регистре.
+
 
 
 ## [LTRIM](LTRIM.md)
 
-{% include notitle [Описание](LTRIM/short-description.md) %}
+**Синтаксис:**`LTRIM( string )`
+
+Возвращает строку `string` без знаков пробела в начале строки.
+
 
 
 ## [MAX](MAX.md)
 
-{% include notitle [Описание](MAX/short-description.md) %}
+**Синтаксис:**`MAX( value )`
+
+Возвращает максимальное значение.
+
+Если `value`:
+- число — возвращает наибольшее число,
+- дата — возвращает самую позднюю дату,
+- строка — возвращает последнее значение в алфавитном порядке,
+
+
 
 
 ## [MEDIAN](MEDIAN.md)
 
-{% include notitle [Описание](MEDIAN/short-description.md) %}
+**Синтаксис:**`MEDIAN( value )`
+
+Вовзращает медианное значение.
+
 
 
 ## [MIN](MIN.md)
 
-{% include notitle [Описание](MIN/short-description.md) %}
+**Синтаксис:**`MIN( value )`
+
+Возвращает минимальное значение.
+
+Если `value`:
+- число — возвращает наименьшее число,
+- дата — возвращает самую раннюю дату,
+- строка — возвращает первое значение в алфавитном порядке,
+
+
 
 
 ## [MINUTE](MINUTE.md)
 
-{% include notitle [Описание](MINUTE/short-description.md) %}
+**Синтаксис:**`MINUTE( datetime )`
+
+Возвращает номер минуты в часе в указанной дате `datetime`. При указании даты без времени возвращает 0.
+
 
 
 ## [MONTH](MONTH.md)
 
-{% include notitle [Описание](MONTH/short-description.md) %}
+**Синтаксис:**`MONTH( datetime )`
+
+Возвращает номер месяца в году в указанной дате `datetime`.
+
 
 
 ## [Отрицание (-)](OP_NEGATION.md)
 
-{% include notitle [Описание](OP_NEGATION/short-description.md) %}
+**Синтаксис:**`-value`
+
+Возвращает число `value` с противоположным знаком.
+
 
 
 ## [NOT](OP_NOT.md)
 
-{% include notitle [Описание](OP_NOT/short-description.md) %}
+**Синтаксис:**`NOT value`
+
+Инвертирует логическое значение.
+
 
 
 ## [NOW](NOW.md)
 
-{% include notitle [Описание](NOW/short-description.md) %}
+**Синтаксис:**`NOW()`
+
+Возвращает текущую дату и время, в зависимости от источника данных и типа соединения:
+- при прямом подключении функция возвращает серверную дату и время источника;
+- при материализации функция возвращает дату и время по Московскому времени.
+
+
 
 
 ## [OR](OR.md)
 
-{% include notitle [Описание](OR/short-description.md) %}
+**Синтаксис:**`value_1 OR value_2`
+
+Выполняет логическое соединение двух выражений по условию `ИЛИ`.
+
 
 
 ## [PI](PI.md)
 
-{% include notitle [Описание](PI/short-description.md) %}
+**Синтаксис:**`PI()`
+
+Возвращает число Пи. Точность зависит от источника данных.
+
 
 
 ## [POWER](POWER.md)
 
-{% include notitle [Описание](POWER/short-description.md) %}
+**Синтаксис:**`POWER( base, power )`
+
+Возводит число `base` в степень `power`.
+
 
 
 ## [QUANTILE](QUANTILE.md)
 
-{% include notitle [Описание](QUANTILE/short-description.md) %}
+**Синтаксис:**`QUANTILE( value, quant )`
+
+Возвращает точный квантиль уровня `quant` (значение от 0 до 1).
+
 
 
 ## [QUANTILE_APPROX](QUANTILE_APPROX.md)
 
-{% include notitle [Описание](QUANTILE_APPROX/short-description.md) %}
+**Синтаксис:**`QUANTILE_APPROX( value, quant )`
+
+Возвращает примерный квантиль уровня `quant` (значение от 0 до 1).
+
 
 
 ## [RADIANS](RADIANS.md)
 
-{% include notitle [Описание](RADIANS/short-description.md) %}
+**Синтаксис:**`RADIANS( degrees )`
+
+Преобразует градусы `degrees` в радианы.
+
 
 
 ## [REGEXP_EXTRACT](REGEXP_EXTRACT.md)
 
-{% include notitle [Описание](REGEXP_EXTRACT/short-description.md) %}
+**Синтаксис:**`REGEXP_EXTRACT( string, pattern )`
+
+Возвращает подстроку `string`, которая соответствует шаблону регулярного выражения `pattern`.
+
 
 
 ## [REGEXP_EXTRACT_NTH](REGEXP_EXTRACT_NTH.md)
 
-{% include notitle [Описание](REGEXP_EXTRACT_NTH/short-description.md) %}
+**Синтаксис:**`REGEXP_EXTRACT_NTH( string, pattern, match_index )`
+
+Возвращает подстроку `string`, которая соответствует шаблону регулярного выражения `pattern`, начиная с указанного индекса.
+
 
 
 ## [REGEXP_MATCH](REGEXP_MATCH.md)
 
-{% include notitle [Описание](REGEXP_MATCH/short-description.md) %}
+**Синтаксис:**`REGEXP_MATCH( string, pattern )`
+
+Возвращает `TRUE`, если в строке `string` есть подстрока, которая соответствует шаблону регулярного выражения `pattern`.
+
 
 
 ## [REGEXP_REPLACE](REGEXP_REPLACE.md)
 
-{% include notitle [Описание](REGEXP_REPLACE/short-description.md) %}
+**Синтаксис:**`REGEXP_REPLACE( string, pattern, replace_with )`
+
+Ищет подстроку в строке `string` по шаблону регулярного выражения `pattern` и заменяет ее строкой `replace_with`.
+
+Если подстрока не найдена, то строка не будет изменена.
+
 
 
 ## [REPLACE](REPLACE.md)
 
-{% include notitle [Описание](REPLACE/short-description.md) %}
+**Синтаксис:**`REPLACE( string, substring, replace_with )`
+
+Ищет подстроку `substring` в строке `string` и заменяет ее строкой `replace_with`.
+
+Если подстрока не найдена, то строка не будет изменена.
+
 
 
 ## [RIGHT](RIGHT.md)
 
-{% include notitle [Описание](RIGHT/short-description.md) %}
+**Синтаксис:**`RIGHT( string, number )`
+
+Возвращает строку, которая содержит указанное количество символов `number` с конца строки `string`.
+
 
 
 ## [ROUND](ROUND.md)
 
-{% include notitle [Описание](ROUND/short-description.md) %}
+**Синтаксис:**`ROUND( number [ , precision ] )`
+
+Округляет число `number` до указанного числа знаков `precision` после запятой.
+Если число `precision` не указано, то `number` округляется до ближайшего целого.
+
 
 
 ## [RTRIM](RTRIM.md)
 
-{% include notitle [Описание](RTRIM/short-description.md) %}
+**Синтаксис:**`RTRIM( string )`
+
+Возвращает строку `string` без знаков пробела в конце строки.
+
 
 
 ## [SECOND](SECOND.md)
 
-{% include notitle [Описание](SECOND/short-description.md) %}
+**Синтаксис:**`SECOND( datetime )`
+
+Возвращает номер секунды в минуте в указанной дате `datetime`. При указании даты без времени возвращает `0`.
+
 
 
 ## [SIGN](SIGN.md)
 
-{% include notitle [Описание](SIGN/short-description.md) %}
+**Синтаксис:**`SIGN( number )`
+
+Возвращает знак числа `number`:
+- `-1` если число отрицательное;
+- `0` если число равно нулю;
+- `1` если число положительное.
+
 
 
 ## [SIN](SIN.md)
 
-{% include notitle [Описание](SIN/short-description.md) %}
+**Синтаксис:**`SIN( number )`
+
+Возвращает синус числа `number`, заданного в радианах.
+
 
 
 ## [SPACE](SPACE.md)
 
-{% include notitle [Описание](SPACE/short-description.md) %}
+**Синтаксис:**`SPACE( value )`
+
+Возвращает строку с указанным количеством пробелов.
+
 
 
 ## [SPLIT](SPLIT.md)
 
-{% include notitle [Описание](SPLIT/short-description.md) %}
+**Синтаксис:**`SPLIT( orig_string, delimiter, part_index )`
+
+Возвращает подстроку из `orig_string`, используя символ разделителя `delimiter` для разделения строки на последовательность частей `part_index`.
+
 
 
 ## [SQRT](SQRT.md)
 
-{% include notitle [Описание](SQRT/short-description.md) %}
+**Синтаксис:**`SQRT( number )`
+
+Возвращает квадратный корень заданного числа.
+
 
 
 ## [SQUARE](SQUARE.md)
 
-{% include notitle [Описание](SQUARE/short-description.md) %}
+**Синтаксис:**`SQUARE( number )`
+
+Возвращает число `number`, возведенное в степень 2.
+
 
 
 ## [STARTSWITH](STARTSWITH.md)
 
-{% include notitle [Описание](STARTSWITH/short-description.md) %}
+**Синтаксис:**`STARTSWITH( string, substring )`
+
+Возвращает `TRUE`, если строка `string` начинается на подстроку `substring`. Для регистронезависимой проверки см. [ISTARTSWITH](ISTARTSWITH.md).
+
 
 
 ## [STDEV](STDEV.md)
 
-{% include notitle [Описание](STDEV/short-description.md) %}
+**Синтаксис:**`STDEV( value )`
+
+Возвращает статистическое стандартное отклонение всех значений в выражении на основе выборки из совокупности.
+
 
 
 ## [STDEVP](STDEVP.md)
 
-{% include notitle [Описание](STDEVP/short-description.md) %}
+**Синтаксис:**`STDEVP( value )`
+
+Возвращает статистическое стандартное отклонение всех значений в выражении на основе смещенной совокупности.
+
 
 
 ## [STR](STR.md)
 
-{% include notitle [Описание](STR/short-description.md) %}
+**Синтаксис:**`STR( expression )`
+
+Переводит выражение `expression` к типу строки.
+
 
 
 ## [SUBSTR](SUBSTR.md)
 
-{% include notitle [Описание](SUBSTR/short-description.md) %}
+**Синтаксис:**`SUBSTR( string, from_index [ , length ] )`
+
+Возвращает подстроку `string`, начиная с индекса `from_index`.
+
+Если указан дополнительный аргумент `length`, то будет возвращена подстрока указанной длины.
+
 
 
 ## [SUM](SUM.md)
 
-{% include notitle [Описание](SUM/short-description.md) %}
+**Синтаксис:**`SUM( value )`
+
+Возвращает сумму всех значений выражения. Работает только с числовыми типами данных.
+
 
 
 ## [SUM_IF](SUM_IF.md)
 
-{% include notitle [Описание](SUM_IF/short-description.md) %}
+**Синтаксис:**`SUM_IF( expression, condition )`
+
+Возвращает сумму всех значений выражения, которые удовлетворяют условию `condition`. Работает только с числовыми типами данных.
+
 
 
 ## [TAN](TAN.md)
 
-{% include notitle [Описание](TAN/short-description.md) %}
+**Синтаксис:**`TAN( number )`
+
+Возвращает тангенс числа `number`, заданного в радианах.
+
 
 
 ## [TODAY](TODAY.md)
 
-{% include notitle [Описание](TODAY/short-description.md) %}
+**Синтаксис:**`TODAY()`
+
+Возвращает текущую дату, в зависимости от источника данных и типа соединения:
+- при прямом подключении функция возвращает серверную дату и время источника;
+- при материализации функция возвращает дату и время по Московскому времени.
+
+
 
 
 ## [TOPONYM_TO_GEOPOINT](TOPONYM_TO_GEOPOINT.md)
 
-{% include notitle [Описание](TOPONYM_TO_GEOPOINT/short-description.md) %}
+**Синтаксис:**`TOPONYM_TO_GEOPOINT( name )`
+
+Преобразует топоним (название города, региона или страны) `name` в формат `Геоточка`.
+
 
 
 ## [TOPONYM_TO_GEOPOLYGON](TOPONYM_TO_GEOPOLYGON.md)
 
-{% include notitle [Описание](TOPONYM_TO_GEOPOLYGON/short-description.md) %}
+**Синтаксис:**`TOPONYM_TO_GEOPOLYGON( name )`
+
+Преобразует топоним (название города, региона или страны) `name` в формат `Геополигон`.
+
 
 
 ## [TRIM](TRIM.md)
 
-{% include notitle [Описание](TRIM/short-description.md) %}
+**Синтаксис:**`TRIM( string )`
+
+Возвращает строку `string` без знаков пробела в начале и конце строки.
+
 
 
 ## [UPPER](UPPER.md)
 
-{% include notitle [Описание](UPPER/short-description.md) %}
+**Синтаксис:**`UPPER( string )`
+
+Возвращает строку `string` в верхнем регистре.
+
 
 
 ## [UTF8](UTF8.md)
 
-{% include notitle [Описание](UTF8/short-description.md) %}
+**Синтаксис:**`UTF8( string, old_encoding )`
+
+Переводит кодировку строки `string` в `UTF8`.
+
 
 
 ## [VAR](VAR.md)
 
-{% include notitle [Описание](VAR/short-description.md) %}
+**Синтаксис:**`VAR( value )`
+
+Возвращает статистическую дисперсию всех значений в выражении на основе выборки из совокупности.
+
 
 
 ## [VARP](VARP.md)
 
-{% include notitle [Описание](VARP/short-description.md) %}
+**Синтаксис:**`VARP( value )`
+
+Возвращает статистическую дисперсию всех значений в выражении по всей совокупности.
+
 
 
 ## [WEEK](WEEK.md)
 
-{% include notitle [Описание](WEEK/short-description.md) %}
+**Синтаксис:**`WEEK( value )`
+
+Возвращает номер недели в соответствии с [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601). Первой считается неделя, которая содержит первый четверг года и 4.01.
+
 
 
 ## [YEAR](YEAR.md)
 
-{% include notitle [Описание](YEAR/short-description.md) %}
+**Синтаксис:**`YEAR( datetime )`
+
+Возвращает номер года в указанной дате `datetime`.
+
 
 
 ## [ZN](ZN.md)
 
-{% include notitle [Описание](ZN/short-description.md) %}
+**Синтаксис:**`ZN( expression )`
+
+Возвращает значение выражения `expression`, если оно не `NULL`. В противном случае возвращает 0.
+
 

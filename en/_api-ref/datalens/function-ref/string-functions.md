@@ -7,135 +7,224 @@ editable: false
 
 ## [ASCII](ASCII.md)
 
-{% include notitle [Description](ASCII/short-description.md) %}
+**Syntax:**`ASCII( string )`
+
+Returns the numeric representation of the first character of the string.
+
 
 
 ## [CHAR](CHAR.md)
 
-{% include notitle [Description](CHAR/short-description.md) %}
+**Syntax:**`CHAR( string )`
+
+Converts the numeric representation of an ASCII character to a value.
+
 
 
 ## [CONCAT](CONCAT.md)
 
-{% include notitle [Description](CONCAT/short-description.md) %}
+**Syntax:**`CONCAT( arg_1, arg_2, arg_3 [ , ... ] )`
+
+Merges any number of strings. When non-string types are used, they're converted to strings and then merged.
+
 
 
 ## [CONTAINS](CONTAINS.md)
 
-{% include notitle [Description](CONTAINS/short-description.md) %}
+**Syntax:**`CONTAINS( string, substring )`
+
+Returns `TRUE` if `string` contains `substring`. For case-insensitive searches, see [ICONTAINS](ICONTAINS.md).
+
 
 
 ## [ENDSWITH](ENDSWITH.md)
 
-{% include notitle [Description](ENDSWITH/short-description.md) %}
+**Syntax:**`ENDSWITH( string, substring )`
+
+Returns `TRUE` if `string` ends in `substring`. For case-insensitive searches, see [IENDSWITH](IENDSWITH.md).
+
 
 
 ## [FIND](FIND.md)
 
-{% include notitle [Description](FIND/short-description.md) %}
+**Syntax:**`FIND( string, substring [ , start_index ] )`
+
+Returns the index of the position of the first character of the substring `substring` in the string `string`.
+
+If the `start_index` option is specified, the search starts from the specified position.
+
 
 
 ## [ICONTAINS](ICONTAINS.md)
 
-{% include notitle [Description](ICONTAINS/short-description.md) %}
+**Syntax:**`ICONTAINS( string, substring )`
+
+Case-insensitive version of [CONTAINS](CONTAINS.md). Returns `TRUE` if `string` contains `substring`.
+
 
 
 ## [IENDSWITH](IENDSWITH.md)
 
-{% include notitle [Description](IENDSWITH/short-description.md) %}
+**Syntax:**`IENDSWITH( string, substring )`
+
+Case-insensitive version of [ENDSWITH](ENDSWITH.md). Returns `TRUE` if `string` ends in `substring`.
+
 
 
 ## [ISTARTSWITH](ISTARTSWITH.md)
 
-{% include notitle [Description](ISTARTSWITH/short-description.md) %}
+**Syntax:**`ISTARTSWITH( string, substring )`
+
+Case-insensitive version of [STARTSWITH](STARTSWITH.md). Returns `TRUE`  if `string` starts with `substring`.
+
 
 
 ## [LEFT](LEFT.md)
 
-{% include notitle [Description](LEFT/short-description.md) %}
+**Syntax:**`LEFT( string, number )`
+
+Returns a string that contains the number of characters specified in `number` from the beginning of the string `string`.
+
 
 
 ## [LEN](LEN.md)
 
-{% include notitle [Description](LEN/short-description.md) %}
+**Syntax:**`LEN( string )`
+
+Returns the number of characters in the string `string`.
+
 
 
 ## [LOWER](LOWER.md)
 
-{% include notitle [Description](LOWER/short-description.md) %}
+**Syntax:**`LOWER( string )`
+
+Returns the string `string` in lowercase.
+
 
 
 ## [LTRIM](LTRIM.md)
 
-{% include notitle [Description](LTRIM/short-description.md) %}
+**Syntax:**`LTRIM( string )`
+
+Returns the string `string` without spaces at the beginning of the string.
+
 
 
 ## [REGEXP_EXTRACT](REGEXP_EXTRACT.md)
 
-{% include notitle [Description](REGEXP_EXTRACT/short-description.md) %}
+**Syntax:**`REGEXP_EXTRACT( string, pattern )`
+
+Returns the substring `string` that matches the regular expression pattern `pattern`.
+
 
 
 ## [REGEXP_EXTRACT_NTH](REGEXP_EXTRACT_NTH.md)
 
-{% include notitle [Description](REGEXP_EXTRACT_NTH/short-description.md) %}
+**Syntax:**`REGEXP_EXTRACT_NTH( string, pattern, match_index )`
+
+Returns a substring `string` that matches the regular expression pattern `pattern` starting from the specified index.
+
 
 
 ## [REGEXP_MATCH](REGEXP_MATCH.md)
 
-{% include notitle [Description](REGEXP_MATCH/short-description.md) %}
+**Syntax:**`REGEXP_MATCH( string, pattern )`
+
+Returns 'TRUE' if the string `string` has a substring that matches the regular expression pattern `pattern`.
+
 
 
 ## [REGEXP_REPLACE](REGEXP_REPLACE.md)
 
-{% include notitle [Description](REGEXP_REPLACE/short-description.md) %}
+**Syntax:**`REGEXP_REPLACE( string, pattern, replace_with )`
+
+Searches for a substring in the string `string` using the regular expression pattern `pattern` and replaces it with the string `replace_with`.
+
+If the substring is not found, the string is not changed.
+
 
 
 ## [REPLACE](REPLACE.md)
 
-{% include notitle [Description](REPLACE/short-description.md) %}
+**Syntax:**`REPLACE( string, substring, replace_with )`
+
+Searches for the substring `substring` in the string `string` and replaces it with the string `replace_with`.
+
+If the substring is not found, the string is not changed.
+
 
 
 ## [RIGHT](RIGHT.md)
 
-{% include notitle [Description](RIGHT/short-description.md) %}
+**Syntax:**`RIGHT( string, number )`
+
+Returns a string that contains the number of characters specified in `number` from the end of the string `string`.
+
 
 
 ## [RTRIM](RTRIM.md)
 
-{% include notitle [Description](RTRIM/short-description.md) %}
+**Syntax:**`RTRIM( string )`
+
+Returns the string `string` without spaces at the end of the string.
+
 
 
 ## [SPACE](SPACE.md)
 
-{% include notitle [Description](SPACE/short-description.md) %}
+**Syntax:**`SPACE( value )`
+
+Returns a string with the specified number of spaces.
+
 
 
 ## [SPLIT](SPLIT.md)
 
-{% include notitle [Description](SPLIT/short-description.md) %}
+**Syntax:**`SPLIT( orig_string, delimiter, part_index )`
+
+Returns a substring from `orig_string` using the `delimiter` delimiter character to divide the string into a sequence of `part_index` parts.
+
 
 
 ## [STARTSWITH](STARTSWITH.md)
 
-{% include notitle [Description](STARTSWITH/short-description.md) %}
+**Syntax:**`STARTSWITH( string, substring )`
+
+Returns `TRUE` if `string` starts with `substring`. For case-insensitive searches, see [ISTARTSWITH](ISTARTSWITH.md).
+
 
 
 ## [SUBSTR](SUBSTR.md)
 
-{% include notitle [Description](SUBSTR/short-description.md) %}
+**Syntax:**`SUBSTR( string, from_index [ , length ] )`
+
+Returns the substring `string` starting from the index `from_index`.
+
+If an additional argument `length` is specified, a substring of the specified length is returned.
+
 
 
 ## [TRIM](TRIM.md)
 
-{% include notitle [Description](TRIM/short-description.md) %}
+**Syntax:**`TRIM( string )`
+
+Returns the string `string` without spaces at the beginning or end of the string.
+
 
 
 ## [UPPER](UPPER.md)
 
-{% include notitle [Description](UPPER/short-description.md) %}
+**Syntax:**`UPPER( string )`
+
+Returns the string `string` in uppercase.
+
 
 
 ## [UTF8](UTF8.md)
 
-{% include notitle [Description](UTF8/short-description.md) %}
+**Syntax:**`UTF8( string, old_encoding )`
+
+Converts the `string` string encoding to `UTF8`.
+
 
