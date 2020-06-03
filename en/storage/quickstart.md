@@ -34,7 +34,7 @@ To create your first bucket in {{ objstorage-name }}:
 
 1. To make sure that uploaded files are always available from outside Yandex.Cloud, select the public [access type](concepts/bucket.md#bucket-access). Otherwise, you'll need to create a temporary link to provide access to such files.
 
-1. Select the default [storage class](../../concepts/storage-class.md) to be used when uploading objects:
+1. Select the default [storage class](concepts/storage-class.md) to be used when uploading objects:
     * _Standard storage_ is designed for storing frequently used objects.
     * _Cold storage_ is designed for long-term storage of objects that are rarely read.
 
