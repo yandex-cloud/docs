@@ -19,5 +19,4 @@
 #### Что дальше {#what-is-next}
 
 * [{#T}](control-compute-resources.md)
-* [{#T}](../resources/upload.md)
 * [{#T}](clear-kernel-state.md)
