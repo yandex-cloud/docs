@@ -18,7 +18,7 @@ For example, you have an OS disk image that you want to share with all Yandex.Cl
 
 {% note warning %}
 
-Now `allUsers` is supported only in {{ objstorage-name }} in [ACL-based access management](../../../storage/concepts/acl.md).
+Now `allUsers` is only supported in {{ objstorage-name }} with [ACL-based access management](../../../storage/concepts/acl.md), in {{ container-registry-name }}, and in {{ sf-name }}.
 
 For other services, assigning a role to the `allUsers` group is the equivalent to assigning the role to `allAuthenticatedUsers`.
 
