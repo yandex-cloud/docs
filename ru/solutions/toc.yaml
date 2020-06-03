@@ -45,8 +45,6 @@ items:
       href: archive/object-storage-duplicati.md
     - name: Резервное копирование в Object Storage через Bacula
       href: archive/backup-with-bacula.md
-    - name: Настройка SFTP-сервера на Centos 7
-      href: archive/backup-and-archive-to-sftp.md
     - name: Оцифровка архива в Yandex Vision
       href: archive/archive-from-vision-to-object-storage.md
   - name: Тестовая среда
@@ -65,7 +63,7 @@ items:
         href: infrastructure-management/index.md
       - name: Начало работы с Terraform
         href: infrastructure-management/terraform-quickstart.md
-      - name: Хранение состояний Terraform в Object Storage
+      - name: Загрузка состояний Terraform в Object Storage
         href: infrastructure-management/terraform-state-storage.md
       - name: Начало работы с Packer
         href: infrastructure-management/packer-quickstart.md
