@@ -118,7 +118,7 @@ To authenticate from inside a VM on behalf of the linked service account:
 
          The IAM token will be returned in the `access_token` field of the response. The remaining lifetime of the IAM token is specified in the `expires_in` field.
 
-       * **Amazon EC2** (deprecated):
+       * **Amazon EC2** (to be deprecated on June 11, 2020):
 
          ```bash
          $ curl http://169.254.169.254/latest/meta-data/iam/security-credentials/default/
