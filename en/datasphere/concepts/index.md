@@ -1,24 +1,26 @@
 # About {{ ml-platform-name }}
 
-{{ ml-platform-full-name }} simplifies the use of the [JupyterLab](https://jupyter.org/) development environment on Yandex.Cloud computing capabilities. This lets you perform complex calculations, such as training neural networks or analyze big data, using the familiar Jupyter Notebook interface.
+{{ ml-platform-full-name }} is a machine learning (ML) development environment that combines the familiar Jupyter® Notebook interface, serverless computing technology, and seamless use of different computing resource configurations. {{ ml-platform-full-name }} helps significantly reduce the cost of machine learning compared to computing on your own hardware or other cloud platforms.
 
-If you never used Jupyter Notebook, try it: notebooks are convenient as they help you execute code sequentially and immediately visualize the results. Notebooks are also convenient for making analytical reports and articles: between the code cells, you can add explanations in [Markdown](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html).
+If you never used Jupyter Notebook, try it: notebooks are convenient as they help you execute code sequentially and immediately visualize the results. Notebooks are also convenient for making analytical reports and articles: you can add explanations between the code cells in [Markdown](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html).
 
 ## Advantages of the service {#advantages}
 
 ### A ready-to-use development environment {#ready-to-use}
 
-You don't need to spend time creating and maintaining VMs: when creating a new [project](project.md), a new VM is automatically allocated.
+You don't need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
 
-{% include [include](../../_includes/datasphere/project-opening-delay.md) %}
-
-The VM already has the JupyterLab development environment and pre-installed packages for data analysis and machine learning (TensorFlow, Keras, NumPy, and [more](preinstalled-packages.md)) on it, and you can start using them immediately. Full list of pre-installed packages.
+The VM comes ready with the JupyterLab development environment and pre-installed packages for data analysis and ML (such as TensorFlow, Keras, and NumPy), which you can start using immediately. The full list of [pre-installed packages](preinstalled-packages.md).
 
 If you're missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook.
 
-### Automatic maintenance {#auto-service}
+### Automatic maintenance of computing resources {#auto-service}
 
-The service automatically stops the VM if you don't use the project. The state of the interpreter is saved, meaning no variables or calculation results are lost and you can continue working when you reopen the project.
+The service automatically manages resource allocation. If you don't perform any computations, no resources are allocated.
+
+### Saving the state when shutting down {#save-state}
+
+If you close the notebook tab, the state of the interpreter, all variables, and computation results are saved. You can continue working when you reopen your project.
 
 {% include [include](../../_includes/datasphere/saving-variables-warn.md) %}
 
@@ -26,25 +28,15 @@ The service automatically stops the VM if you don't use the project. The state o
 
 Different computing resources are required for different tasks. For some of them, a regular processor is enough, but for others, you need a GPU.
 
-{{ ml-platform-name }} supports different VM [configurations](vm-configurations.md). By default, a project runs on a VM with the minimal <q>S</q> configuration (32 GB RAM and 2 vCPUs).
+{{ ml-platform-name }} supports different computing resource [configurations](configurations.md). By default, projects run with the minimal <q>S</q> configuration (32 GB RAM and 2 vCPUs).
 
-You can [migrate to a VM with a different configuration](../operations/projects/control-compute-resources.md) at any time when working in the notebook. The state of the interpreter is maintained.
-
-Changing the configuration helps you get more computing resources when you need them and save them when you don't.
-
-{% include [include](../../_includes/datasphere/default-vm-configuration.md) %}
-
-### Data files are available from any project {#common-resources}
-
-In {{ ml-platform-name }}, files are stored separately from notebooks. You can upload a data file for analysis and use it in any project. The uploaded files appear under the **Resources** tab and are available from inside and outside the projects.
-
-If you change the contents of the file, it changes for all projects. If you create a new file using a notebook from inside a project, this file will be available in the rest of the projects.
+You can [change the configuration](../operations/projects/control-compute-resources.md) at any time when working in the notebook. The state of the interpreter is maintained.
 
 ### Errors don't change the state of the interpreter {#handling-errors}
 
 If an error occurs while running a cell, it won't update the state of the interpreter. This allows you to keep the results obtained in the previous cells.
 
-{% note important %}
+{% note warning %}
 
 If a variable value was assigned in the cell where the error occurred, the assignment is also canceled.
 
@@ -54,9 +46,9 @@ If a variable value was assigned in the cell where the error occurred, the assig
 
 You can [export your notebook to HTML format](../operations/projects/share.md) with all calculation results and cell explanations and share a link to the report in this format. Exporting in other formats is currently not supported.
 
-In addition to exporting notebooks, you can write the calculation results to a file. It appears under the **Resources** tab, and you can [download](../operations/resources/download.md) the file or [share a link](../operations/resources/get-link.md) to it.
+## Current limitations of the service {#known-restrictions}
 
-{% include [include](../../_includes/datasphere/known-restrictions.md) %}
+For more information about service limits, see [{#T}](limits.md).
 
 #### See also {#see-also}
 

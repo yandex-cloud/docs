@@ -13,7 +13,7 @@ If not, open the project:
 1. Select the project you want to delete and click ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
 1. Choose **Open** and wait for the project to open.
 
-## Change the VM configuration
+## Change the configuration {#config}
 
 {% include [include](../../../_includes/datasphere/control-compute-resources-steps.md) %}
 
@@ -22,5 +22,4 @@ If not, open the project:
 * [{#T}](install-dependencies.md)
 * [{#T}](clear-kernel-state.md)
 * [{#T}](share.md)
-* [{#T}](../resources/upload.md)
 

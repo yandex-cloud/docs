@@ -2,7 +2,7 @@
 
 {% note alert %}
 
-After you delete a project, the entire notebook code and the state of the interpreter are lost. Files listed on the **Resources** tab are maintained.
+After you delete a project, the entire notebook code and the state of the interpreter are lost.
 
 {% endnote %}
 

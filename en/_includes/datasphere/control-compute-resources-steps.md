@@ -1,12 +1,19 @@
-To change the VM configuration:
+### Change the configuration using a prefix {#prefix}
 
-1. Click **Migrate to another instance** in the menu on the notebook tab.
+Increase a cell's computing resources using a prefix:
 
-1. Select the configuration.
+1. Select the cell to change the configuration for.
+1. In the first row of the cell, add the configuration prefix `#!L` (8 cores, gpu: 1xV100).
 
-    ![image](../../_assets/ml-platform/jupyterlab/select-instance.png)
+To reduce the configuration, remove the prefix or change it to `!#S`.
 
-1. Wait until the **State loaded** status appears next to the **Migrate to another instance** button. Changing the configuration takes 1 to 3 minutes: during this time, the VM starts for the project.
+### Change the configuration in the interface {#interface}
 
-{% include [include](default-vm-configuration.md) %}
+Increase a cell's computing resources in the interface:
+
+1. Click the button with the name of the configuration in the menu on the notebook tab.
+1. Select the configuration:
+    * S (4 cores) (default).
+    * L (8 cores, gpu: 1xV100).
+1. Wait until the **S/L instance is ready** status appears on the notebook panel.
 

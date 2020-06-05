@@ -9,7 +9,11 @@ To create a project:
 
 To start working with JupyterLab, open the created project:
 
-1. Click the ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the project.
+1. Click the row of the project you need.
+
+Or:
+
+1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the project.
 
 1. Choose **Open**.
 
