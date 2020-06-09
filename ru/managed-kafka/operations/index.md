@@ -1,4 +1,4 @@
-# Пошаговые инструкции для Managed Services for Apache Kafka
+# Пошаговые инструкции для {{ mkf-name }}
 
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)

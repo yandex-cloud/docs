@@ -23,7 +23,7 @@ items:
       href: operations/cluster-hosts.md
     - name: Просмотр логов кластера
       href: operations/cluster-logs.md
-    - name: Управление пользователями
+    - name: Управление пользователями Kafka
       href: operations/cluster-users.md    
     - name: Удаление кластера
       href: operations/cluster-delete.md

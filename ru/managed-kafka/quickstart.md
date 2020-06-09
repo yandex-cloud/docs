@@ -1,1 +1,1 @@
-# Как начать работать с Managed Service for Apache Kafka
+# Как начать работать с {{ mkf-name }}

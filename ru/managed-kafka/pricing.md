@@ -1,1 +1,1 @@
-# Правила тарификации для Managed Service for Apache Kafka
+# Правила тарификации для {{ mkf-name }}
