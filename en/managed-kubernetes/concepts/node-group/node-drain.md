@@ -10,7 +10,7 @@ The `PodDisruptionBudget` object is defined by three fields:
 
 If you don't define the [PodDisruptionBudget policy](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), the pods are evicted all at once, which may cause issues in your application.
 
-{% note important %}
+{% note warning %}
 
 * A pod can only be evicted if it was created by an application replication controller: [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/), [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), or [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/). If a pod is created without a controller, it's lost during the update.
 * [Persistent volumes](../volume.md) (`PersistentVolumes` objects) used by the pods, which are managed by the `StatefulSet` controller, can only be moved between nodes within a single availability zone.

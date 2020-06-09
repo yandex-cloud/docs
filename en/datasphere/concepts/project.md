@@ -13,6 +13,5 @@ The service automatically redirects you to the management console if you don't u
 #### See also {#see-also}
 
 * [Step-by-step instructions](../operations/index.md#projects)
-* [{#T}](resources.md)
 * [{#T}](limits.md)
 
