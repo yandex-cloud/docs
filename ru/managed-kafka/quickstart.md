@@ -1,0 +1,1 @@
+# Как начать работать с Managed Service for Apache Kafka

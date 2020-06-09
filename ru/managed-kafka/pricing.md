@@ -1,0 +1,1 @@
+# Правила тарификации для Managed Service for Apache Kafka
