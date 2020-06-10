@@ -31,6 +31,7 @@ default:
   cos-full-name: Yandex Container Optimized Solutions
   ml-platform-full-name: Yandex DataSphere
   certificate-manager-full-name: Yandex Certificate Manager
+  data-transfer-full-name: Yandex Data Transfer
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -64,6 +65,7 @@ default:
   ml-platform-name: DataSphere
   certificate-manager-name: Certificate Manager
   marketplace-name: Cloud Marketplace
+  data-transfer-name: Data Transfer
 
   # Короткие имена
   iam-short-name: IAM
@@ -94,6 +96,7 @@ default:
   cos-short-name: COS
   ml-platform-short-name: DataSphere
   certificate-manager-short-name: Certificate Manager
+  data-transfer-short-name: Data Transfer
 
   # Тарифы
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
