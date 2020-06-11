@@ -1,6 +1,5 @@
 title: "Yandex Key Management Service"
 description:
-  - "<em>Cервис Key Management Service находится на <a href=\"/docs/overview/concepts/launch-stages\">стадии Preview</a></em>."
   - "Yandex Key Management Service — сервис для создания и управления ключами шифрования, которые можно использовать для защиты данных в инфраструктуре Яндекс.Облака, а также шифрования и дешифрования любых ваших данных."
 meta:
   title: "Yandex Key Management Service"
@@ -14,6 +13,9 @@ links:
 - title: "Концепции"
   description: "Узнайте про концепции и сущности сервиса"
   href: "concepts/"
+- title: "Сценарии использования"
+  description: "Решайте типовые задачи по работе с ключами KMS"
+  href: "solutions/"
 - title: "Справочник API"
   description: "Описание методов HTTP API"
   href: "api-ref/"

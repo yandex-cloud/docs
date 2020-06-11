@@ -1,6 +1,5 @@
 title: "Yandex Key Management Service"
 href: index.yaml
-stage: preview
 items:
   - name: Начало работы
     href: quickstart/index.md
@@ -12,14 +11,44 @@ items:
         href: operations/key.md
       - name: Версия ключа
         href: operations/version.md
+      - name: Шифрование данных
+        href: operations/encryption.md
   - name: Концепции
     items:
-        - name: Обзор
-          href: concepts/index.md
-        - name: Применимые понятия криптографии
-          href: concepts/encryption.md
-        - name: Квоты и лимиты
-          href: concepts/limits.md
+      - name: Обзор
+        href: concepts/index.md
+      - name: Ключ
+        href: concepts/key.md
+      - name: Версия ключа
+        href: concepts/version.md
+      - name: Шифрование
+        href: concepts/encryption.md
+      - name: Шифрование по схеме envelope encryption
+        href: concepts/envelope.md
+      - name: Консистентность ключей
+        href: concepts/consistency.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Сценарии использования
+    items:
+      - name: Шифрование данных
+        items:
+          - name: Какой способ шифрования выбрать?
+            href: solutions/encrypt/index.md
+          - name: Шифрование с помощью CLI и API Яндекс.Облака
+            href: solutions/encrypt/cli-api.md
+          - name: Шифрование с помощью SDK Яндекс.Облака
+            href: solutions/encrypt/sdk.md
+          - name: Шифрование с помощью AWS Encryption SDK
+            href: solutions/encrypt/aws-encryption-sdk.md
+          - name: Шифрование с помощью Google Tink
+            href: solutions/encrypt/google-tink.md
+      - name: Шифрование секретов в Managed Service for Kubernetes
+        href: solutions/k8s.md
+      - name: Управление ключами KMS с Hashicorp Terraform
+        href: solutions/terraform-key.md
+      - name: Шифрование секретов в Hashicorp Terraform
+        href: solutions/terraform-secret.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
