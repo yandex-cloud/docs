@@ -50,7 +50,10 @@ To create a VM:
 
       {% endnote %}
 
-    - In the **SSH key** field, paste the contents of the [public key file](../../compute/quickstart/quick-create-linux.md#create-ssh).
+    - In the **SSH key** field, paste the contents of the [public key file](../operations/vm-connect/ssh#creating-ssh-keys).
+
+
+
 
 1. Click **Create VM**.
 
