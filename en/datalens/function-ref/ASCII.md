@@ -1,0 +1,34 @@
+---
+editable: false
+---
+
+# ASCII
+
+_String functions_
+
+#### Syntax
+
+
+```
+ASCII( string )
+```
+
+#### Description
+Returns the numeric representation of the first character of the string.
+
+**Argument types:**
+- `string` — `String`
+
+
+**Return type**: `Number (whole)`
+
+#### Examples
+
+```
+ASCII("N") = 78
+```
+
+
+#### Data source support
+
+`Materialized Dataset`, `ClickHouse 1.1`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `PostgreSQL 9.3`.

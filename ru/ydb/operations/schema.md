@@ -57,11 +57,15 @@ DROP TABLE actors;
 
 Создание и удаление директорий в текущей версии возможно только через SDK. SDK предоставляет методы создания, удаления, листинга и просмотра информации о директории.
 
+
 В таблице ниже приведены имена методов в SDK для [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk).
 
-| Метод    | Java | Python |  Go |
+
+
+ | Метод    | Java | Python |  Go |
  | ---- | ---- | ---- | ---- | ---- |
  | Создание директории | ```SchemeClient.makeDirectory``` | ```scheme_client.make_directory``` | ```Client.MakeDirectory``` |
  | Удаление директории | ```SchemeClient.removeDirectory``` | ```scheme_client.remove_directory``` | ```Client.RemoveDirectory``` |
  | Просмотр информации о директории  | ```SchemeClient.describePath``` | ```SchemeClient.describeDirectory``` | ```Client.DescribePath``` |
  | Листинг директории  | ```scheme_client.describe_path``` | ```SchemeClient.list_directory``` | ```Client.ListDirectory``` |
+

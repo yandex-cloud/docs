@@ -1,4 +1,4 @@
-title: "Yandex Object Storage"
+title: Yandex Object Storage
 href: index.yaml
 items:
   - name: Начало работы
@@ -83,29 +83,29 @@ items:
         href: tools/index.md
       - name: Консольные клиенты
         items:
-        - name: AWS CLI
-          href: tools/aws-cli.md
-        - name: S3cmd
-          href: tools/s3cmd.md
+          - name: AWS CLI
+            href: tools/aws-cli.md
+          - name: S3cmd
+            href: tools/s3cmd.md
       - name: Файловые браузеры
         items:
-        - name: CyberDuck
-          href: tools/cyberduck.md
-        - name: WinSCP
-          href: tools/winscp.md
+          - name: CyberDuck
+            href: tools/cyberduck.md
+          - name: WinSCP
+            href: tools/winscp.md
       - name: SDK
         items:
-        - name: AWS SDK для Java
-          href: tools/aws-sdk-java.md
-        - name: Python SDK (boto)
-          href: tools/boto.md
+          - name: AWS SDK для Java
+            href: tools/aws-sdk-java.md
+          - name: Python SDK (boto)
+            href: tools/boto.md
       - name: FUSE
         items:
-        - name: s3fs
-          href: tools/s3fs.md
-        - name: goofys
-          href: tools/goofys.md
-  - name: HTTP API, совместимый с Amazon S3
+          - name: s3fs
+            href: tools/s3fs.md
+          - name: goofys
+            href: tools/goofys.md
+  - name: 'HTTP API, совместимый с Amazon S3'
     items:
       - name: Как пользоваться API
         href: s3/index.md

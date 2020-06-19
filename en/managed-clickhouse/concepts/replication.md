@@ -4,7 +4,7 @@
 
 {% note info %}
 
-If you created a {{ CH }} cluster with 2 or more hosts, it isn't possible to reduce the number of hosts to one yet. And vice versa, if you created a single-host cluster, you will not be able to add hosts to it.
+If you created a {{ CH }} cluster with two or more hosts, you can't reduce the number of hosts to one.
 
 {% endnote %}
 
@@ -50,7 +50,9 @@ How ZooKeeper hosts are managed:
 
 * {{ mch-short-name }} does not enable you to connect to ZopKeeper servers and configure them. However, you can change the resources allocated to ZooKeeper hosts by changing the host class.
 
+
 * If you didn't specify any subnets for the ZooKeeper hosts, {{ mch-short-name }} automatically distributes them among the subnets of the network that the {{ CH }} cluster is connected to.
+
 
 For more information about using ZooKeeper to manage replication in {{ CH }}, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/table_engines/replication/).
 

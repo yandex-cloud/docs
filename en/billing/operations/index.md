@@ -2,6 +2,8 @@
 
 [Activate the paid version](activate-commercial.md)
 
+[Purchase a CVoS](purchase-cvos.md)
+
 [Activate a promo code](activate-promocode.md)
 
 [View usage details](check-charges.md)

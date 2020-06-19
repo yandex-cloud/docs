@@ -9,7 +9,7 @@ To grant a user access to all the cloud resources, assign them a [role](../../..
 - Management console
   1. {% include [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md) %}
   1. {% include [configure-roles-console](../../../_includes/iam/configure-roles-console.md) %}
-  1. Click ![image](../../../_assets/plus-sign.svg) in the **Roles for the cloud <cloud name>** section.
+  1. Click the ![image](../../../_assets/plus-sign.svg) in the **Roles for the cloud <cloud name>** section.
   1. Select a role from the list.
 
 - CLI
@@ -72,7 +72,7 @@ To grant a user access to all the cloud resources, assign them a [role](../../..
       ```bash
       $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
-
+      
       {
        "clouds": [
         {
@@ -89,7 +89,7 @@ To grant a user access to all the cloud resources, assign them a [role](../../..
       ```bash
       $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
-
+      
       {
        "id": "gfei8n54hmfhuk5nogse",
        "yandexPassportUserAccount": {
@@ -207,6 +207,8 @@ To grant a user access to all the cloud resources, assign them a [role](../../..
 
 ### Cloud access for service accounts {#access-to-sa}
 
+A service account can only be assigned roles for the cloud that it belongs to.
+
 Allow the `test-sa` service account to manage the `my-cloud` cloud and its resources:
 
 {% list tabs %}
@@ -239,7 +241,7 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
       ```bash
       $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
-
+      
       {
        "serviceAccounts": [
         {

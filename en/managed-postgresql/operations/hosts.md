@@ -51,6 +51,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
   1. Click **Add host**.
 
+  
   1. Specify the host parameters:
 
       * Availability zone.
@@ -63,6 +64,8 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
       * Select the **Public access** option if the host must be accessible from outside the Cloud.
 
+ 
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -71,6 +74,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
   To add a host to the cluster:
 
+  
   1. Request a list of cluster subnets to select one for the new host:
 
       ```
@@ -88,6 +92,8 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
      If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
+ 
+
   1. See the description of the CLI command for adding a host:
 
      ```
@@ -96,15 +102,21 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
   1. Run the add host command:
 
+     
      ```
      $ yc managed-postgresql host add
           --cluster-name <cluster name>
           --host zone-id=<availability zone>,subnet-id=<subnet ID>
      ```
 
+    
+
      {{ mpg-short-name }} will run the add host operation.
 
+     
      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mpg-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    
 
 - API
 

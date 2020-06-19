@@ -11,7 +11,7 @@ items:
         href: operations/node-connect-ssh.md
       - name: Создание файла конфигурации
         href: operations/create-static-conf.md
-      - name: Обеспечение доступа к приложению, запущенному в кластере Kubernetes
+      - name: 'Обеспечение доступа к приложению, запущенному в кластере Kubernetes'
         href: operations/create-load-balancer.md
       - name: Работа с постоянными томами
         items:
@@ -23,7 +23,9 @@ items:
             href: operations/volumes/manage-storage-class.md
       - name: Управление кластером Kubernetes
         items:
-          - name: Добавление учетных данных кластера Kubernetes в конфигурационный файл kubectl
+          - name: >-
+              Добавление учетных данных кластера Kubernetes в конфигурационный
+              файл kubectl
             href: operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md
           - name: Получение информации о кластере Kubernetes
             href: operations/kubernetes-cluster/kubernetes-cluster-list.md
@@ -79,15 +81,49 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref-grpc/managed-kubernetes/api-ref/toc.yaml
+          - name: Обзор
+            href: grpc/index.md
+          - name: ClusterService
+            href: grpc/cluster_service.md
+          - name: NodeGroupService
+            href: grpc/node_group_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref/k8s/toc.yaml
-
-
-
-
+          - name: Обзор
+            href: api-ref/index.md
+          - name: Cluster
+            items:
+              - name: Обзор
+                href: api-ref/Cluster/index.md
+              - name: create
+                href: api-ref/Cluster/create.md
+              - name: delete
+                href: api-ref/Cluster/delete.md
+              - name: get
+                href: api-ref/Cluster/get.md
+              - name: list
+                href: api-ref/Cluster/list.md
+              - name: listNodeGroups
+                href: api-ref/Cluster/listNodeGroups.md
+              - name: listOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: update
+                href: api-ref/Cluster/update.md
+          - name: NodeGroup
+            items:
+              - name: Обзор
+                href: api-ref/NodeGroup/index.md
+              - name: create
+                href: api-ref/NodeGroup/create.md
+              - name: delete
+                href: api-ref/NodeGroup/delete.md
+              - name: get
+                href: api-ref/NodeGroup/get.md
+              - name: list
+                href: api-ref/NodeGroup/list.md
+              - name: listOperations
+                href: api-ref/NodeGroup/listOperations.md
+              - name: update
+                href: api-ref/NodeGroup/update.md

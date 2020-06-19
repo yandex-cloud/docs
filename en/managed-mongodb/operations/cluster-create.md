@@ -2,10 +2,12 @@
 
 A {{ MG }} cluster is one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
 
+
 The number of hosts that can be created together with a {{ MG }} cluster depends on the storage option selected:
 
   - When using network drives, you can request any number of hosts (from one to the limits of the current [quota](../concepts/limits.md)).
   - When using SSDs, you can create at least three replicas along with the cluster (a minimum of three replicas is required to ensure fault tolerance). If the [available folder resources](../concepts/limits.md) are still sufficient after creating a cluster, you can add extra replicas.
+
 
 {% list tabs %}
 
@@ -37,6 +39,7 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
 
   To create a cluster:
 
+  
   1. Check whether the folder has any subnets for the cluster hosts:
 
      ```
@@ -44,6 +47,8 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
      ```
 
      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+
+ 
 
   1. See the description of the CLI's create cluster command:
 
@@ -53,6 +58,7 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
 
   1. Specify the cluster parameters in the create command (the example shows only mandatory flags):
 
+      
       ```
       $ yc managed-mongodb cluster create \
          --cluster-name <cluster name> \
@@ -68,6 +74,8 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
+     
+
 {% endlist %}
 
 ## Examples {#examples}
@@ -78,6 +86,7 @@ To create a cluster with a single host, you should pass a single parameter, `--h
 
 Let's say we need to create a {{ MG }} cluster with the following characteristics:
 
+
 - Named `mymg`.
 - In the `production` environment.
 - In the `{{ network-name }}` network.
@@ -86,18 +95,21 @@ Let's say we need to create a {{ MG }} cluster with the following characteristic
 - With one user (`user1`) with the password `user1user1`.
 - With one `db1` database.
 
+
 Run the command:
+
 
 ```
 $ yc managed-mongodb cluster create \
      --cluster-name mymg \
      --environment production \
      --network-name default \
-     --mongod-resource-preset s1.nano \
+     --mongod-resource-preset s2.micro \
      --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64 \
      --mongod-disk-size 20 \
      --mongod-disk-type network-ssd \
      --user name=user1,password=user1user1 \
      --database name=db1
 ```
+
 

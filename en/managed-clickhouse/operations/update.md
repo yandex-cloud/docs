@@ -28,6 +28,7 @@ After creating a cluster, you can:
 
   1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
 
+     
      ```bash
      $ yc managed-clickhouse resource-preset list
      
@@ -41,6 +42,8 @@ After creating a cluster, you can:
      | ...                                                           |
      +-----------+--------------------------------+-------+----------+
      ```
+
+    
 
   3. Specify the class in the update cluster command:
 
@@ -73,6 +76,7 @@ After creating a cluster, you can:
 
   To increase the storage size for a cluster:
 
+  
   1. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
      ```
@@ -89,6 +93,8 @@ After creating a cluster, you can:
            disk_type_id: network-ssd
      ...
      ```
+
+ 
 
   1. View a description of the CLI's update cluster command:
 

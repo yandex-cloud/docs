@@ -24,6 +24,13 @@
 |**Node.js** | |
 | Node.js 12 | `nodejs12` |
 | Node.js 10 | `nodejs10` |
+|**PHP** | |
+| PHP 7.4 | `php74` |
 |**Python** | |
 | Python 3.7 | `python37` |
 | Python 2.7 | `python27` |
+|**Go** | |
+| Go 1.14 | `golang114` |
+|**Прочее** | |
+| Bash | `bash` |
+

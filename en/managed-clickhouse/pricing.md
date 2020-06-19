@@ -29,7 +29,7 @@ The cost is calculated for each hour of operation of the host in accordance with
 
 You can choose the host class for {{ CH }} and ZooKeeper hosts (as appropriate for the expected replication load).
 
-{% note important %}
+{% note warning %}
 
 When you create a cluster with 2 or more {{ CH }}  hosts, 3  {{ ZK }} hosts with the minimal host class are created automatically to provide replication and fault tolerance for the cluster.
 
@@ -64,7 +64,21 @@ For example, you created a cluster:
 
 Cost per hour for all hosts: `3 × (2 × ₽1.43 + 8 × ₽0.33) + 3 × (1 × ₽0.89 + 4 × ₽0,2) = ₽21.57`
 
-The total cost of the cluster in the month (hosts and storage): `720 × ₽21.57 + 100 × 2,2881 ₽ = ₽15,759.21`
+The total cost of the cluster in the month (hosts and storage): `720 × ₽21.57 + 100 × ₽2.2881 = ₽15,759.21`
+
+
+## Discount for committed volumes of services (CVoS) {#cvos}
+
+{% include [cvos](../_includes/mdb/cvos.md) %}
+
+{{mch-name}} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also pre-estimate your monthly payments for the desired number of vCPUs and RAM.
+
+{% note info %}
+
+You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
+
+{% endnote %}
+
 
 ## Pricing {#prices}
 
@@ -74,41 +88,47 @@ The total cost of the cluster in the month (hosts and storage): `720 × ₽21.57
 
 - Prices in USD, without VAT
 
-    | Resource | Rate for 1 hour |
-    | ----- | ----- |
+    | Resource | Rate for 1 hour | With CVoS for 1 year | With CVoS for 3 years
+    | ----- | ----- | ----- | ----- |
     | **Intel Broadwell** |
-    | 5% vCPU | $0.000256 |
-    | 20% vCPU | $0.003333 |
-    | 50% vCPU | $0.005513 |
-    | 100% vCPU | $0.018333 |
-    | RAM (for 1 GB) | $0.004231 |
+    | 5% vCPU | $0.000256 | - | - 
+    | 20% vCPU | $0.003333 | - | - 
+    | 50% vCPU | $0.005513 | - | - 
+    | 100% vCPU | $0.018333 | - | - 
+    | RAM (for 1 GB) | $0.004231 | - | - 
     | **Intel Cascade Lake** |
-    | 5% vCPU | $0.000256 |
-    | 20% vCPU | $0.003333 |
-    | 50% vCPU | $0.005513 |
-    | 100% vCPU | $0.015385 |
-    | RAM (for 1 GB) | $0.004231 |
+    | 5% vCPU | $0.000256 | - | - 
+    | 20% vCPU | $0.003333 | - | - 
+    | 50% vCPU | $0.005513 | - | - 
+    | 100% vCPU | $0.015385 | $0.011282 (-27%) | $0.008718 (-43%) 
+    | RAM (for 1 GB) | $0.004231 | $0.002692 (-36%) | $0.002051 (-52%)
 
 - Prices in roubles, with VAT
 
-    | Resource | Rate for 1 hour |
-    | ----- | ----- |
+    | Resource | Rate for 1 hour | With CVoS for 1 year | With CVoS for 3 years
+    | ----- | ----- | ----- | ----- |
     | **Intel Broadwell** |
-    | 5% vCPU | ₽0.02|
-    | 20% vCPU | ₽0.26 |
-    | 50% vCPU | ₽0.43 |
-    | 100% vCPU | ₽1.43 |
-    | RAM (for 1 GB) | ₽0.33 |
+    | 5% vCPU | ₽0.02| - | - 
+    | 20% vCPU | ₽0.26 | - | - 
+    | 50% vCPU | ₽0.43 | - | - 
+    | 100% vCPU | ₽1.43 | - | - 
+    | RAM (for 1 GB) | ₽0.33 | - | - 
     | **Intel Cascade Lake** |
-    | 5% vCPU | ₽0.02 |
-    | 20% vCPU | ₽0.26 |
-    | 50% vCPU | ₽0.43 |
-    | 100% vCPU | ₽1.20 |
-    | RAM (for 1 GB) | ₽0.33 |
+    | 5% vCPU | ₽0.02 | - | - 
+    | 20% vCPU | ₽0.26 | - | - 
+    | 50% vCPU | ₽0.43 | - | - 
+    | 100% vCPU | ₽1.20 | ₽0.88 (-27%) | ₽0.68 (-43%)
+    | RAM (for 1 GB) | ₽0.33 | ₽0.21 (-36%) | ₽0.16 (-52%) 
 
 {% endlist %}
 
 ### Host computing resources {{ ZK }} {#prices-zookeeper}
+
+{% note info %}
+
+You can't order {{ ZK }} resources with CVoS discounts.
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -187,81 +207,85 @@ Prices for the time of host uptime are calculated based on [host classes](concep
 
 - Prices in USD, without VAT
 
-  Host class | Rate for 1 hour
-  ----- | -----
+  Host class | Rate for 1 hour | With CVoS for 1 year | With CVoS for 3 years
+  ----- | ----- | ----- | ----- |
   **Intel Broadwell** |
-  {{ b1-nano }} | $0.008974
-  {{ b1-micro }} | $0.015128
-  {{ b1-medium }}  | $0.027949
-  {{ s1-nano }} | $0.035256
-  {{ s1-micro }} | $0.070513
-  {{ s1-small }} | $0.141026
-  {{ s1-medium }}| $0.282051
-  {{ s1-large }} | $0.564103
-  {{ s1-xlarge }} | $1.128205
+  {{ b1-nano }} | $0.008974 | - | - 
+  {{ b1-micro }} | $0.015128 | - | - 
+  {{ b1-medium }}  | $0.027949 | - | - 
+  {{ s1-nano }} | $0.035256 | - | - 
+  {{ s1-micro }} | $0.070513 | - | - 
+  {{ s1-small }} | $0.141026 | - | - 
+  {{ s1-medium }}| $0.282051 | - | - 
+  {{ s1-large }} | $0.564103 | - | - 
+  {{ s1-xlarge }} | $1.128205 | - | - 
   **Intel Cascade Lake** |
-  {{ b2-nano }}| $0.008974
-  {{ b2-micro }} | $0.015128
-  {{ b2-medium }} | $0.027949
-  {{ m2-micro }} | $0.098462
-  {{ m2-small }} | $0.196923
-  {{ m2-medium }}| $0.295385
-  {{ m2-large }} | $0.393846
-  {{ m2-xlarge }} | $0.590769
-  {{ m2-2xlarge }} | $0.787692
-  {{ m2-3xlarge }} | $1.181538
-  {{ m2-4xlarge }} | $1.575385
-  {{ m2-5xlarge }} | $1.969231
-  {{ m2-6xlarge }} | $2.363077
-  {{ s2-micro }} | $0.064615
-  {{ s2-small }} | $0.129231
-  {{ s2-medium }} | $0.258462
-  {{ s2-large }} | $0.387692
-  {{ s2-xlarge }} | $0.516923
-  {{ s2-2xlarge }} | $0.775385
-  {{ s2-3xlarge }} | $1.033846
-  {{ s2-4xlarge }} | $1.292308
-  {{ s2-5xlarge }} | $1.550769
-  {{ s2-6xlarge }} | $2.067692
+  {{ b2-nano }}| $0.008974 | - | - 
+  {{ b2-micro }} | $0.015128 | - | - 
+  {{ b2-medium }} | $0.027949 | - | - 
+  {{ m2-micro }} | $0.098462 | $0.065641 (-33%) | $0.050256 (-49%)
+  {{ m2-small }} | $0.196923 | $0.131282 (-33%) | $0.100513 (-49%)
+  {{ m2-medium }}| $0.295385 | $0.196923 (-33%) | $0.150769 (-49%)
+  {{ m2-large }} | $0.393846 | $0.262564 (-33%) | $0.201026 (-49%)
+  {{ m2-xlarge }} | $0.590769 | $0.393846 (-33%) | $0.301538 (-49%)
+  {{ m2-2xlarge }} | $0.787692 | $0.525128 (-33%) | $0.402051 (-49%)
+  {{ m2-3xlarge }} | $1.181538 | $0.787692 (-33%) | $0.603077 (-49%)
+  {{ m2-4xlarge }} | $1.575385 | $1.050256 (-33%) | $0.804103 (-49%)
+  {{ m2-5xlarge }} | $1.969231 | $1.312821 (-33%) | $1.005128 (-49%)
+  {{ m2-6xlarge }} | $2.363077 | $1.575385 (-33%) | $1.206154 (-49%)
+  {{ m2-7xlarge }} | $2.756923 | $1.837949 (-33%) | $1.407180 (-49%)
+  {{ m2-8xlarge }} | $3.150769 | $2.100513 (-33%) | $1.608205 (-49%)
+  {{ s2-micro }} | $0.064615 | $0.044103 (-32%) | $0.033846 (-48%) 
+  {{ s2-small }} | $0.129231 | $0.088205 (-32%) | $0.067692 (-48%) 
+  {{ s2-medium }} | $0.258462 | $0.176410 (-32%) | $0.135385 (-48%)
+  {{ s2-large }} | $0.387692 | $0.264615 (-32%) | $0.203077 (-48%)
+  {{ s2-xlarge }} | $0.516923 | $0.352821 (-32%) | $0.270769  (-48%)
+  {{ s2-2xlarge }} | $0.775385 | $0.529231 (-32%) | $0.406154 (-48%)
+  {{ s2-3xlarge }} | $1.033846 | $0.705641 (-32%) | $0.541538  (-48%)
+  {{ s2-4xlarge }} | $1.292308 | $0.882051 (-32%) | $0.676923 (-48%)
+  {{ s2-5xlarge }} | $1.550769 | $1.058462 (-32%) | $0.812308 (-48%)
+  {{ s2-6xlarge }} | $2.067692 | $1.411282 (-32%) | $1.083077 (-48%) 
 
 - Prices in roubles, with VAT
 
-  Host class | Rate for 1 hour
-  ----- | -----
+  Host class | Rate for 1 hour | With CVoS for 1 year | With CVoS for 3 years
+  ----- | ----- | ----- | -----
   **Intel Broadwell** |
-  {{ b1-nano }}| ₽0.70
-  {{ b1-micro }} | ₽1.18
-  {{ b1-medium }} | ₽2.18
-  {{ s1-nano }} | ₽2.75
-  {{ s1-micro }} | ₽5.50
-  {{ s1-small }} | ₽11.00
-  {{ s1-medium }} | ₽22.00 |
-  {{ s1-large }} | ₽44.00 |
-  {{ s1-xlarge }} | ₽88.00 |
+  {{ b1-nano }}| ₽0.70 | − | −
+  {{ b1-micro }} | ₽1.18 | − | −
+  {{ b1-medium }} | ₽2.18 | − | −
+  {{ s1-nano }} | ₽2.75 | − | −
+  {{ s1-micro }} | ₽5.50 | − | −
+  {{ s1-small }} | ₽11.00 | − | −
+  {{ s1-medium }} | ₽22.00 | − | −
+  {{ s1-large }} | ₽44.00 | − | −
+  {{ s1-xlarge }} | ₽88.00 | − | −
   **Intel Cascade Lake** | |
-  {{ b2-nano }}| ₽0.70
-  {{ b2-micro }} | ₽1.18
-  {{ b2-medium }} | ₽2.18
-  {{ m2-micro }} | ₽7.68
-  {{ m2-small }} | ₽15.36
-  {{ m2-medium }}| ₽23.04
-  {{ m2-large }} | ₽30.72
-  {{ m2-xlarge }} | ₽46.08
-  {{ m2-2xlarge }} | ₽61.44
-  {{ m2-3xlarge }} | ₽92.16
-  {{ m2-4xlarge }} | ₽122.88
-  {{ m2-5xlarge }} | ₽153.60
-  {{ m2-6xlarge }} | ₽184.32
-  {{ s2-micro }} | ₽5.04
-  {{ s2-small }} | ₽10.08
-  {{ s2-medium }} | ₽20.16
-  {{ s2-large }} | ₽30.24
-  {{ s2-xlarge }} | ₽40.32
-  {{ s2-2xlarge }} | ₽60.48
-  {{ s2-3xlarge }} | ₽80.64
-  {{ s2-4xlarge }} | ₽100.80
-  {{ s2-5xlarge }} | ₽120.96
-  {{ s2-6xlarge }} | ₽161.28
+  {{ b2-nano }}| ₽0.70 | − | −
+  {{ b2-micro }} | ₽1.18 | − | −
+  {{ b2-medium }} | ₽2.18 | − | −
+  {{ m2-micro }} | ₽7.68 | ₽5.12 (-33%) | ₽3.92 (-49%)
+  {{ m2-small }} | ₽15.36 | ₽10.24 (-33%) | ₽7.84 (-49%)
+  {{ m2-medium }}| ₽23.04 | ₽15.36 (-33%) | ₽11.76 (-49%)
+  {{ m2-large }} | ₽30.72 | ₽20.48 (-33%) | ₽15.68 (-49%)
+  {{ m2-xlarge }} | ₽46.08 | ₽30.72 (-33%) | ₽23.52 (-49%)
+  {{ m2-2xlarge }} | ₽61.44 | ₽40.96 (-33%) | ₽31.36 (-49%)
+  {{ m2-3xlarge }} | ₽92.16 | ₽61.44 (-33%) | ₽47.04 (-49%)
+  {{ m2-4xlarge }} | ₽122.88 | ₽81.92 (-33%) | ₽62.72 (-49%)
+  {{ m2-5xlarge }} | ₽153.60 | ₽102.40 (-33%) | ₽78.40 (-49%)
+  {{ m2-6xlarge }} | ₽184.32 | ₽122.88 (-33%) | ₽94.08 (-49%)
+  {{ m2-7xlarge }} | ₽215.04 | ₽143.36 (-33%) | ₽109.76 (-49%)
+  {{ m2-8xlarge }} | ₽245.76 | ₽163.84 (-33%)| ₽125.44 (-49%)
+  {{ s2-micro }} | ₽5.04 | ₽3.44 (-32%) | ₽2.64 (-48%)
+  {{ s2-small }} | ₽10.08 | ₽6.88 (-32%) | ₽5.28 (-48%)
+  {{ s2-medium }} | ₽20.16 | ₽13.76 (-32%) | ₽10.56 (-48%)
+  {{ s2-large }} | ₽30.24 | ₽20.64 (-32%) | ₽15.84 (-48%)
+  {{ s2-xlarge }} | ₽40.32 | ₽27.52 (-32%) | ₽21.12 (-48%)
+  {{ s2-2xlarge }} | ₽60.48 | ₽41.28 (-32%) | ₽31.68 (-48%)
+  {{ s2-3xlarge }} | ₽80.64 | ₽55.04 (-32%) | ₽42.24 (-48%)
+  {{ s2-4xlarge }} | ₽100.80 | ₽68.80 (-32%) | ₽52.80 (-48%)
+  {{ s2-5xlarge }} | ₽120.96 | ₽82.56 (-32%) | ₽63.36 (-48%)
+  {{ s2-6xlarge }} | ₽161.28 | ₽110.08 (-32%) | ₽84.48 (-48%)
 
 {% endlist %}
 
@@ -298,6 +322,8 @@ Prices for the time of host uptime are calculated based on [host classes](concep
   {{ m2-4xlarge }} | $0.968205
   {{ m2-5xlarge }} | $1.210256
   {{ m2-6xlarge }} | $1.452308
+  {{ m2-7xlarge }} | $1.694359
+  {{ m2-8xlarge }} | $1.936410
   {{ s2-micro }}  | $0.040000
   {{ s2-small }}  | $0.080000
   {{ s2-medium }}  | $0.160000
@@ -337,6 +363,8 @@ Prices for the time of host uptime are calculated based on [host classes](concep
   {{ m2-4xlarge }} | ₽75.52
   {{ m2-5xlarge }} | ₽94.40
   {{ m2-6xlarge }} | ₽113.28
+  {{ m2-7xlarge }} | ₽132.16 
+  {{ m2-8xlarge }} | ₽151.04
   {{ s2-micro }}  | ₽3.12
   {{ s2-small }}  | ₽6.24
   {{ s2-medium }}  | ₽12.48

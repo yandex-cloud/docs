@@ -68,7 +68,7 @@
   
 - API
   
-  You can create a new target group using the [create](../../_api-ref/loadbalancer/api-ref/TargetGroup/create.md) API method.
+  You can create a new target group using the [create](../api-ref/TargetGroup/create.md) API method.
   
   Once the target group has been created, add targets that the load will be distributed across. You can use the [addTargets](../ api-ref/TargetGroup/addTargets) method to add targets to a group.
   

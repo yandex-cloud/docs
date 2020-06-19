@@ -128,7 +128,7 @@ Create two VMs for Active Directory domain controllers. These VMs don't have int
 
   1. Select [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-a`.
 
-  1. Under **Public images**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
+  1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
 
   1. Under **Disks**, enter 35 GB for the size of the boot disk.
 
@@ -188,7 +188,7 @@ A file server with internet access is used to configure VMs with Active Director
 
   1. Select [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-c`.
 
-  1. Under **Public images**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
+  1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
 
   1. Under **Disks**, enter 35 GB for the size of the boot disk.
 

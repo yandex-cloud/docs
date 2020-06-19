@@ -14,11 +14,13 @@ If public access is only configured for certain hosts in your cluster, automatic
 
 {{ PG }} hosts with public access only support connections with an SSL certificate. You can prepare a certificate as follows:
 
+
 ```bash
 $ mkdir ~/.postgresql
 $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/root.crt
 $ chmod 0600 ~/.postgresql/root.crt
 ```
+
 
 ## Connection string {#connection-string}
 

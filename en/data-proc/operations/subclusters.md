@@ -2,7 +2,7 @@
 
 In addition to [updating the settings](subcluster-update.md) of a particular subcluster, you can create new and delete existing subclusters.
 
-{% note important %}
+{% note warning %}
 
 Each cluster may have only 1 `MASTERNODE` subcluster, which is why you can't create or delete such subclusters. You can't delete `DATANODE` subclusters at the Preview stage, either.
 
@@ -62,7 +62,7 @@ To add a subcluster:
 
 ## Deleting a subcluster {#remove-host}
 
-{% note important %}
+{% note warning %}
 
 You cannot delete `DATANODE` subclusters at the Preview stage.
 

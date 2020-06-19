@@ -51,7 +51,7 @@ To detach a disk from a VM:
   
 - API
   
-  Use the [detachDisk](../../../_api-ref/compute/api-ref/Instance/detachDisk.md) method for the [Instance](../../../_api-ref/compute/api-ref/Instance/) resource.
+  Use the [detachDisk](../../api-ref/Instance/detachDisk.md) method for the [Instance](../../api-ref/Instance/) resource.
   
 {% endlist %}
 

@@ -1,5 +1,6 @@
 # Getting started with {{ mch-short-name }}
 
+
 To use the service, create a cluster and connect to a DBMS:
 
 1. All you need to create a database cluster is a folder in Yandex.Cloud that you are allowed to access. If you already have a folder in Yandex.Cloud, open the page of that folder in the management console. If there is no folder yet, create one:
@@ -13,4 +14,5 @@ To use the service, create a cluster and connect to a DBMS:
     2. To connect to a cluster from the internet, request public access to the hosts when creating the cluster and adding new hosts.
 
 1. In the management console, select the folder where you want to create a DB cluster.
+
 

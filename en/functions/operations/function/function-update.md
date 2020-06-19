@@ -118,7 +118,7 @@ You can perform the following actions with function labels:
 
     Update a function label:
 
-    {% note important %}
+    {% note warning %}
 
     The existing set of `labels` is completely replaced by the set provided.
 

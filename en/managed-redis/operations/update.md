@@ -78,6 +78,7 @@ After creating a cluster, you can:
 
   1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
 
+     
      ```bash
      $ yc managed-redis resource-preset list
 
@@ -94,6 +95,8 @@ After creating a cluster, you can:
      | ...                                                     |
      +-----------+----------------------------------+----------+
      ```
+
+    
 
   3. Specify the class in the update cluster command:
 

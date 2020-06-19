@@ -1,5 +1,6 @@
 # Access management
 
+
 In this section, you'll learn:
 
 * [What resources you can assign the](#resources) role to.
@@ -51,4 +52,5 @@ The table below lists the roles needed to perform a given action. You can always
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Read more about access management in Yandex.Cloud](../../iam/concepts/access-control/index.md).
 * [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+
 

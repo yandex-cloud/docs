@@ -1,10 +1,12 @@
 # Connecting to a database in a cluster {{ CH }}
 
-{% note important %}
+
+{% note warning %}
 
 If there is no public access to the DB cluster, you can only connect to it from the Yandex.Cloud virtual machines running in the same [cloud network](../../vpc/concepts/network.md).
 
 {% endnote %}
+
 
 A {{ CH }} cluster can be accessed using the [command-line client](https://clickhouse.yandex/docs/en/interfaces/cli/) (port 9440) or [HTTP interface](https://clickhouse.yandex/docs/en/interfaces/http_interface/) (port 8443). All connections to DB clusters are encrypted.
 
@@ -12,9 +14,11 @@ A {{ CH }} cluster can be accessed using the [command-line client](https://click
 
 To use an encrypted connection, you should get an SSL certificate:
 
+
 ```bash
 wget "https://storage.yandexcloud.net/cloud-certs/CA.pem"
 ```
+
 
 ## How to connect via {{ CH }} CLI {#cli}
 

@@ -4,7 +4,7 @@ The serial console allows you to access a VM regardless of the network or OS sta
 
 Serial console access is disabled by default.
 
-{% note important %}
+{% note warning %}
 
 Serial console access is not secure, so enabling it might allow hackers to access your VM. Use these instructions if you are sure you know what you are doing.
 

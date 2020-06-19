@@ -12,7 +12,7 @@ Aliases are linked to specific devices. To update an alias, you need [the device
 
     Update device aliases:
 
-    {% note important %}
+    {% note warning %}
 
     The existing set of `topic_aliases` is completely replaced by the provided set.
 

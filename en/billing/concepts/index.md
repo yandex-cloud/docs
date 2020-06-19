@@ -1,11 +1,15 @@
-# All concepts
+# All instructions
 
-Yandex.Cloud Billing uses the following concepts:
-
-- [Grant](bonus-account.md)
-- [Agreement](contract.md)
-- [Credit limit](credit-limit.md)
-- [Personal account](personal-account.md)
-- [Billing account](billing-account.md)
-- [Promo code](promo-code.md)
-
+* [{#T}](act.md)
+* [{#T}](bill.md)
+* [{#T}](billing-account-statuses.md)
+* [{#T}](billing-account.md)
+* [{#T}](bonus-account.md)
+* [{#T}](contract.md)
+* [{#T}](credit-limit.md)
+* [{#T}](cvos.md)
+* [{#T}](glossary.md)
+* [{#T}](individual-bill.md)
+* [{#T}](invoice.md)
+* [{#T}](personal-account.md)
+* [{#T}](promo-code.md)

@@ -1,4 +1,4 @@
-title: "Yandex Data Proc"
+title: Yandex Data Proc
 stage: new
 href: index.yaml
 items:
@@ -10,6 +10,8 @@ items:
         href: solutions/how-to-use-hive.md
       - name: Запуск Spark-приложений
         href: solutions/run-spark-job.md
+      - name: Запуск приложений с удаленного хоста
+        href: solutions/remote-run-job.md
       - name: Копирование файлов из Yandex Object Storage
         href: solutions/copy-files-from-object-storage.md
   - name: Пошаговые инструкции
@@ -28,18 +30,18 @@ items:
         href: operations/cluster-delete.md
   - name: Концепции
     items:
-    - name: Обзор Data Proc
-      href: concepts/index.md
-    - name: Классы хостов
-      href: concepts/instance-types.md
-    - name: Сеть в Data Proc
-      href: concepts/network.md
-    - name: Квоты и лимиты
-      href: concepts/limits.md
-    - name: Версии Hadoop и компонентов
-      href: concepts/environment.md
-    - name: Интерфейсы и порты компонентов
-      href: concepts/interfaces.md
+      - name: Обзор Data Proc
+        href: concepts/index.md
+      - name: Классы хостов
+        href: concepts/instance-types.md
+      - name: Сеть в Data Proc
+        href: concepts/network.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+      - name: Версии Hadoop и компонентов
+        href: concepts/environment.md
+      - name: Интерфейсы и порты компонентов
+        href: concepts/interfaces.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -50,20 +52,63 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref-grpc/data-proc/api-ref/toc.yaml
+          - name: Обзор
+            href: grpc/index.md
+          - name: ClusterService
+            href: grpc/cluster_service.md
+          - name: JobService
+            href: grpc/job_service.md
+          - name: SubclusterService
+            href: grpc/subcluster_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref/dataproc/toc.yaml
-#  - name: Сценарии использования
-#    href: scenarios/index.md
-#  - name: Справочник API
-#    items:
-#    - name: Аутентификация в API
-#      href: api-ref/authentication.md
-#    include:
-#      repo: docs-api
-#      path: ru/data-proc/toc.yaml
+          - name: Обзор
+            href: api-ref/index.md
+          - name: Cluster
+            items:
+              - name: Обзор
+                href: api-ref/Cluster/index.md
+              - name: create
+                href: api-ref/Cluster/create.md
+              - name: delete
+                href: api-ref/Cluster/delete.md
+              - name: get
+                href: api-ref/Cluster/get.md
+              - name: list
+                href: api-ref/Cluster/list.md
+              - name: listHosts
+                href: api-ref/Cluster/listHosts.md
+              - name: listOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: start
+                href: api-ref/Cluster/start.md
+              - name: stop
+                href: api-ref/Cluster/stop.md
+              - name: update
+                href: api-ref/Cluster/update.md
+          - name: Job
+            items:
+              - name: Обзор
+                href: api-ref/Job/index.md
+              - name: create
+                href: api-ref/Job/create.md
+              - name: get
+                href: api-ref/Job/get.md
+              - name: list
+                href: api-ref/Job/list.md
+          - name: Subcluster
+            items:
+              - name: Обзор
+                href: api-ref/Subcluster/index.md
+              - name: create
+                href: api-ref/Subcluster/create.md
+              - name: delete
+                href: api-ref/Subcluster/delete.md
+              - name: get
+                href: api-ref/Subcluster/get.md
+              - name: list
+                href: api-ref/Subcluster/list.md
+              - name: update
+                href: api-ref/Subcluster/update.md

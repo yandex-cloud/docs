@@ -65,7 +65,7 @@ For a new cluster, you should set all the parameters that are required at creati
              --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
              --disk-size 20 \
              --disk-type network-ssd \
-             --resource-preset s1.nano
+             --resource-preset s2.micro
       ```
 
       This results in a new {{ PG }} cluster with the following characteristics:

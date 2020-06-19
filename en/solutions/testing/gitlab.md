@@ -20,7 +20,7 @@ To create and test a project in the GitLab environment:
 
 ## Before you start {#before-begin}
 
-{% include [before-begin](../_solutions_includes/before-begin.md) %}
+{% include [before-begin](../_solutions_includes/before-you-begin.md) %}
 
 ### Required paid resources {#paid-resources}
 
@@ -37,7 +37,7 @@ The cost for maintaining a GitLab server includes:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Under **Public images**, click **Select**. Choose the public **GitLab** image.
+1. Under **Images from {{ marketplace-name }}**, click **Select**. Choose the public **GitLab** image.
 
 1. Under **Disks**, select an SSD with 20 GB.
 

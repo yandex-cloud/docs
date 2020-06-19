@@ -1,6 +1,8 @@
 # Getting started with the command-line interface
 
+
 _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software for managing your cloud resources from the command line.
+
 
 ## Installation {#install}
 
@@ -8,7 +10,8 @@ _The Yandex.Cloud command-line interface (CLI)_ provides downloadable software f
 
 ## Creating a profile {#initialize}
 
-1. Get an OAuth token from Yandex.OAuth. To do this, go to the [link]({{ link-cloud-oauth }}) and click **Allow**.
+
+  1. Get an OAuth token from Yandex.OAuth. To do this, go to the [link]({{ link-cloud-oauth }}) and click **Allow**.
 
   1. To configure your CLI profile, run the command `yc init`.
 
@@ -157,4 +160,5 @@ The following steps describe how to create a cloud network, subnet, and virtual 
    $ yc vpc subnet delete my-yc-subnet-b
    $ yc vpc network delete my-yc-network
    ```
+
 

@@ -9,7 +9,9 @@ Each cluster consists of one or more _database hosts_, which are virtual machine
 
 When creating a cluster, you need to specify the _host class_, which is a VM template for deploying the cluster hosts. For a list of available host classes and their characteristics, see [{#T}](instance-types.md).
 
+
 A database cluster created in a folder can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/).
+
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 

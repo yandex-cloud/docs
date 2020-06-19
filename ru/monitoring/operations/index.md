@@ -10,3 +10,14 @@
 - [{#T}](dashboard/create.md)
 - [{#T}](dashboard/copy.md)
 - [{#T}](dashboard/add-widget.md)
+
+## Работа с метриками
+
+- [{#T}](metric/add.md)
+- [{#T}](metric/get.md)
+- [{#T}](metric/list.md)
+
+## Работа с алертами
+
+- [{#T}](alert/create-alert.md)
+- [{#T}](alert/create-channel.md)

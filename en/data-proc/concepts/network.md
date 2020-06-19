@@ -10,7 +10,7 @@ When you create a host in a subcluster, {{ dataproc-name }} generates a fully qu
 
 The host IP address may change during operation, its FQDN doesn't.
 
-{% note important %}
+{% note warning %}
 
 When you reduce the number of hosts in a subcluster, the service selects the hosts to remove. The FQDNs of the removed hosts then no longer work.
 

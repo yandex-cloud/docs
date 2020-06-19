@@ -137,7 +137,7 @@ Docker Engine может хранить учетные данные пользо
 
 ### Настройка Credential helper {#ch-setting}
 
-{% note important %}
+{% note warning %}
 
 Устанавливать `docker-credential-yc` отдельно не требуется, достаточно установить YC CLI и сконфигурировать Credential helper, как описано ниже.
 

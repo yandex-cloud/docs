@@ -1,5 +1,4 @@
-# Заголовок оглавления для всех страниц в разделе
-title: "Yandex SpeechKit"
+title: Yandex SpeechKit
 href: index.yaml
 items:
   - name: Getting started
@@ -50,5 +49,5 @@ items:
         href: pricing.md
       - name: Archive
         items:
-          - name: Policy before January 1, 2019
+          - name: 'Policy before January 1, 2019'
             href: pricing-archive/pricing-01012019.md

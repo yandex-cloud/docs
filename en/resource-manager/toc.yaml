@@ -1,4 +1,4 @@
-title: "Yandex Resource Manager"
+title: Yandex Resource Manager
 href: index.yaml
 items:
   - name: Getting started
@@ -43,11 +43,55 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: en/_api-ref-grpc/resource-manager/api-ref/toc.yaml
+          - name: Overview
+            href: grpc/index.md
+          - name: CloudService
+            href: grpc/cloud_service.md
+          - name: FolderService
+            href: grpc/folder_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: en/_api-ref/resourcemanager/toc.yaml
+          - name: Overview
+            href: api-ref/index.md
+          - name: Cloud
+            items:
+              - name: Overview
+                href: api-ref/Cloud/index.md
+              - name: get
+                href: api-ref/Cloud/get.md
+              - name: list
+                href: api-ref/Cloud/list.md
+              - name: listAccessBindings
+                href: api-ref/Cloud/listAccessBindings.md
+              - name: listOperations
+                href: api-ref/Cloud/listOperations.md
+              - name: setAccessBindings
+                href: api-ref/Cloud/setAccessBindings.md
+              - name: update
+                href: api-ref/Cloud/update.md
+              - name: updateAccessBindings
+                href: api-ref/Cloud/updateAccessBindings.md
+          - name: Folder
+            items:
+              - name: Overview
+                href: api-ref/Folder/index.md
+              - name: create
+                href: api-ref/Folder/create.md
+              - name: delete
+                href: api-ref/Folder/delete.md
+              - name: get
+                href: api-ref/Folder/get.md
+              - name: list
+                href: api-ref/Folder/list.md
+              - name: listAccessBindings
+                href: api-ref/Folder/listAccessBindings.md
+              - name: listOperations
+                href: api-ref/Folder/listOperations.md
+              - name: setAccessBindings
+                href: api-ref/Folder/setAccessBindings.md
+              - name: update
+                href: api-ref/Folder/update.md
+              - name: updateAccessBindings
+                href: api-ref/Folder/updateAccessBindings.md

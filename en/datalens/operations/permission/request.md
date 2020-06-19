@@ -1,4 +1,4 @@
-# Requesting permission
+# Request permissions
 
 To request permission to a directory or object:
 

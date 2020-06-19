@@ -1,0 +1,11 @@
+default:
+  service-name: DataLens
+  permission-admin: Администрирование
+  permission-write: Редактирование
+  permission-read: Просмотр
+  permission-execute: Исполнение
+  datalens-api-full-name: Yandex DataLens Partner API
+  datalens-api-name: DataLens Partner API
+  datalens-api-short-name: DataLens Partner API
+  datalens-full-name: Yandex DataLens
+  datalens-short-name: DataLens

@@ -18,7 +18,7 @@ To visualize your data, follow these steps:
 
 ## Step 1. Create a connection and a standard dashboard {#step1}
 
-{% note important %}
+{% note warning %}
 
 This step is available to users who have permission to a Yandex.Metrica tag. If you don't have tag permissions, open the ready-to-use [**Metrica Live Demo Dashboard**](https://datalens.yandex.ru/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard) and go to step 2.
 
@@ -60,7 +60,7 @@ This step is available to users who have permission to a Yandex.Metrica tag. If 
 
 ## Step 2. Edit the standard dashboard {#step2}
 
-{% note important %}
+{% note warning %}
 
 If you don't have a Yandex.Metrica tag and you skipped step 1, use the dashboard [**Metrica Live Demo Dashboard**](https://datalens.yandex.ru/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard).
 

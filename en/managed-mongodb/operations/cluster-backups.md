@@ -42,7 +42,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       ```
       $ yc managed-mongodb backup list
-      
+
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -53,6 +53,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   1. Request creation of a cluster from a backup:
 
+      
       ```
       $ yc managed-mongodb cluster restore \
            --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
@@ -62,19 +63,23 @@ For a new cluster, you should set all the parameters that are required at creati
            --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
            --mongod-disk-size 20 \
            --mongod-disk-type network-ssd \
-           --mongod-resource-preset s1.nano
+           --mongod-resource-preset s2.micro
       ```
+
+     
 
       This results in a new {{ MG }} cluster with the following characteristics:
 
       
 
-      - Named `mynewmg`.
+            - Named `mynewmg`.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
       - With SSD network storage of 20 GB.
+
+     
 
 {% endlist %}
 
@@ -134,7 +139,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   ```
   $ yc managed-mongodb backup list
-  
+
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
   +----------+----------------------+----------------------+----------------------+

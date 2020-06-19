@@ -90,7 +90,7 @@ You can perform the following actions related to registry labels:
 
   Change a registry label:
 
-  {% note important %}
+  {% note warning %}
 
 
   The existing set of `labels` is completely replaced by the set provided.

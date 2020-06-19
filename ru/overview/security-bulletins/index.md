@@ -3,6 +3,21 @@
 На этой странице приводятся рекомендации специалистов Яндекс.Облака о вопросах безопасности.
 
 
+## 15.06.2020 — Special Register Buffer Data Sampling Attack (aka CrossTalk)
+
+
+### Описание
+
+Для некоторых моделей процессоров Intel компания VUSec [обнаружила новую атаку](https://www.vusec.net/projects/crosstalk/) под названием Special Register Buffer Data Sampling Attack (или CrossTalk). Данная атака позволяет злонамеренному процессу получить результаты, возвращаемые инструкциями RDRAND и RDSEED из другого процесса, при этом злонамеренный и легитимный процессы могут выполняться на разных физических ядрах процессора. Атаке присвоен номер [CVE-2020-0543](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0543).
+
+Отчет от Intel: [Deep Dive: Special Register Buffer Data Sampling](https://software.intel.com/security-software-guidance/insights/deep-dive-special-register-buffer-data-sampling).
+
+
+### Влияние на сервисы Яндекс.Облака
+
+Модели процессоров, используемые в Яндекс.Облаке, **не подвержены атаке** CrossTalk.
+
+
 ## 28.08.2019 — TCP SACK
 
 

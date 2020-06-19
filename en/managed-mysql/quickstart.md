@@ -1,5 +1,6 @@
 # Getting started with {{ mmy-short-name }}<sup>®</sup>
 
+
 To use the service, create a cluster and connect to a DBMS:
 
 1. All you need to create a database cluster is a folder in Yandex.Cloud that you are allowed to access. If you already have a folder in Yandex.Cloud, open the page of that folder in the management console. If there is no folder yet, create one:
@@ -9,6 +10,7 @@ To use the service, create a cluster and connect to a DBMS:
 1. You can connect to DB clusters from both inside and outside of the Cloud:
    1. To connect to a DB cluster from inside the Cloud, create a VM in the same network as the DB cluster (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md))
    1. To connect to a cluster from the internet, request public access to the hosts when creating the cluster.
+
 
 Follow the instructions below to quickly create a cluster and test your connection to it.
 
@@ -24,11 +26,14 @@ Follow the instructions below to quickly create a cluster and test your connecti
 
 1. To connect to the DB server, you need an SSL certificate. You can prepare all the necessary authentication data as follows:
 
+    
     ```bash
     $ mkdir ~/.mysql
     $ wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.mysql/root.crt
     $ chmod 0600 ~/.mysql/root.crt
     ```
+
+   
 
 1. You can connect to the database using the command `mysql` (for more information, see [{#T}](operations/connect.md)):
 

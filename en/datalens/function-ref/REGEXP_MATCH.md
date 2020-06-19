@@ -1,0 +1,45 @@
+---
+editable: false
+---
+
+# REGEXP_MATCH
+
+_String functions_
+
+#### Syntax
+
+
+```
+REGEXP_MATCH( string, pattern )
+```
+
+#### Description
+Returns 'TRUE' if the string `string` has a substring that matches the regular expression pattern `pattern`.
+
+**Argument types:**
+- `string` — `String`
+- `pattern` — `String`
+
+
+**Return type**: `Boolean`
+
+{% note info %}
+
+See the documentation of the data source to clarify the regular expression syntax.
+
+{% endnote %}
+
+Use the [ClickHouse](https://github.com/google/re2/wiki/Syntax) syntax to create regular expressions in materialized datasets.
+
+
+
+#### Examples
+
+```
+REGEXP_MATCH("RU 912873","\w\s\d") = TRUE
+```
+
+
+#### Data source support
+
+`Materialized Dataset`, `ClickHouse 1.1`, `MySQL 5.6`, `PostgreSQL 9.3`.

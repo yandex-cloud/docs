@@ -1,4 +1,4 @@
-title: "Yandex Translate"
+title: Yandex Translate
 href: index.yaml
 items:
   - name: Начало работы
@@ -19,6 +19,8 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
+      - name: Дообучение моделей
+        href: concepts/trainings-of-models.md
       - name: Глоссарии
         href: concepts/glossary.md
       - name: Поддержка глоссариев
@@ -29,32 +31,42 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref-grpc/translate/api-ref/toc.yaml
+          - name: Обзор
+            href: grpc/index.md
+          - name: TranslationService
+            href: grpc/translation_service.md
       - name: REST
         items:
           - name: v2
             items:
-            - name: Обработка ошибок
-              href: api-ref/errors-handling.md
-            - name: Диагностика ошибок
-              href: api-ref/support-headers.md
-            include:
-              repo: docs
-              path: ru/_api-ref/ai/translate/toc.yaml
+              - name: Обработка ошибок
+                href: api-ref/errors-handling.md
+              - name: Диагностика ошибок
+                href: api-ref/support-headers.md
+              - name: Обзор
+                href: api-ref/index.md
+              - name: Translation
+                items:
+                  - name: Обзор
+                    href: api-ref/Translation/index.md
+                  - name: detectLanguage
+                    href: api-ref/Translation/detectLanguage.md
+                  - name: listLanguages
+                    href: api-ref/Translation/listLanguages.md
+                  - name: translate
+                    href: api-ref/Translation/translate.md
           - name: v1 (DEPRECATED)
             items:
-            - name: Обзор
-              href: api-ref/v1/index.md
-            - name: Перевод текста
-              href: api-ref/v1/translate.md
-            - name: Определение языка текста
-              href: api-ref/v1/detect.md
-            - name: Список поддерживаемых языков
-              href: api-ref/v1/languages.md
-            - name: Формат ответа
-              href: api-ref/v1/response.md
+              - name: Обзор
+                href: api-ref/v1/index.md
+              - name: Перевод текста
+                href: api-ref/v1/translate.md
+              - name: Определение языка текста
+                href: api-ref/v1/detect.md
+              - name: Список поддерживаемых языков
+                href: api-ref/v1/languages.md
+              - name: Формат ответа
+                href: api-ref/v1/response.md
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Управление доступом

@@ -2,9 +2,12 @@
 
 The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
+
 The available storage doesn't depend on the host class. For storage limitations, see [{#T}](limits.md).
 
+
 ## Available host classes {#available-flavors}
+
 
 Hosts in {{ mch-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any of the platforms that {{ compute-name }} supports. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
 
@@ -38,6 +41,8 @@ The full list of possible host configurations on each platform is provided below
 | m2.4xlarge | 32 | 100% | 256 |
 | m2.5xlarge | 40 | 100% | 320 |
 | m2.6xlarge | 48 | 100% | 384 |
+| m2.7xlarge | 56 | 100% | 448 |
+| m2.8xlarge | 64 | 100% | 512 |
 | s2.micro | 2 | 100% | 8 |
 | s2.small | 4 | 100% | 16 |
 | s2.medium | 8 | 100% | 32 |
@@ -47,4 +52,6 @@ The full list of possible host configurations on each platform is provided below
 | s2.3xlarge | 32 | 100% | 128 |
 | s2.4xlarge | 40 | 100% | 160 |
 | s2.5xlarge | 48 | 100% | 192 |
+| s2.6xlarge | 64 | 100% | 256 |
+
 

@@ -146,11 +146,27 @@ RAM (за 1 ГБ) | 0,0492 ₽
 ОС | Цена за 1 vCPU в час, вкл. НДС
 ----- | -----
 Linux всех типов ядра | 0 ₽
-Windows Server для 5% vCPU | 0,6346 ₽
-Windows Server для 20% и 50% vCPU | 0,75 ₽
-Windows Server для 100% vCPU | 1,2691 ₽
+Windows Server Datacenter для 5% vCPU | 0,6346 ₽
+Windows Server Datacenter для 20% и 50% vCPU | 0,75 ₽
+Windows Server Datacenter для 100% vCPU | 1,2691 ₽
 
 Списание средств для следующих продуктов происходит единовременно в момент запуска ВМ из расчета за один календарный месяц вперед, вне зависимости от времени фактической работы ВМ:
+
+ОС | Цена за 1 ВМ в месяц, вкл. НДС
+----- | -----
+Windows Server Standard* | 6020 ₽
+
+\* Стоимость Windows Server Standard является фиксированной и не зависит от конфигурации ВМ
+
+Продукт | Цена за пакет лицензий в месяц, вкл. НДС
+----- | -----
+Remote Desktop Services (5 лицензий) | 2110 ₽
+Remote Desktop Services (10 лицензий) | 4220 ₽
+Remote Desktop Services (25 лицензий) | 10550 ₽
+Remote Desktop Services (50 лицензий) | 21100 ₽
+Remote Desktop Services (100 лицензий) | 42200 ₽
+Remote Desktop Services (250 лицензий) | 105500 ₽
+Remote Desktop Services (500 лицензий) | 211000 ₽
 
 Продукт | Цена за 1 vCPU в месяц, вкл. НДС
 ----- | -----

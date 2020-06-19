@@ -14,3 +14,4 @@ A database cluster created in a folder can be accessed by all VMs connected to t
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 
+

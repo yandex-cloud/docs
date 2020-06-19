@@ -2,7 +2,7 @@
 
 Эта инструкция описывает, как подготовить образ диска, а также загрузить файл с образом в {{ objstorage-full-name }} и создать из него [образ](../../concepts/image.md) в сервисе {{ compute-name }}.
 
-{% note important %}
+{% note warning %}
 
 В {{ compute-name }} создать образ по ссылке можно только из файла, загруженного в {{ objstorage-name }}.
 

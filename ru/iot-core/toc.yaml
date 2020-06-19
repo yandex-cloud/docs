@@ -1,4 +1,4 @@
-title: "Yandex IoT Core"
+title: Yandex IoT Core
 href: index.yaml
 items:
   - name: Начало работы
@@ -17,14 +17,14 @@ items:
         href: operations/trigger-create.md
       - name: Управление реестрами
         items:
-        - name: Получение информации о реестре
-          href: operations/registry/registry-list.md
-        - name: Создание реестра
-          href: operations/registry/registry-create.md
-        - name: Изменение реестра
-          href: operations/registry/registry-update.md
-        - name: Удаление реестра
-          href: operations/registry/registry-delete.md
+          - name: Получение информации о реестре
+            href: operations/registry/registry-list.md
+          - name: Создание реестра
+            href: operations/registry/registry-create.md
+          - name: Изменение реестра
+            href: operations/registry/registry-update.md
+          - name: Удаление реестра
+            href: operations/registry/registry-delete.md
       - name: Управление устройствами
         items:
           - name: Управление алиасами топиков
@@ -61,16 +61,16 @@ items:
             href: operations/password/device-password.md
   - name: Концепции
     items:
-        - name: Авторизация
-          href: concepts/authorization.md
-        - name: Взаимосвязь ресурсов сервиса
-          href: concepts/index.md
-        - name: Параметры подключения MQTT-брокера
-          href: concepts/mqtt-properties.md
-        - name: Топик
-          href: concepts/topic.md
-        - name: Квоты и лимиты
-          href: concepts/limits.md
+      - name: Авторизация
+        href: concepts/authorization.md
+      - name: Взаимосвязь ресурсов сервиса
+        href: concepts/index.md
+      - name: Параметры подключения MQTT-брокера
+        href: concepts/mqtt-properties.md
+      - name: Топик
+        href: concepts/topic.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
   - name: Сценарии использования
     items:
       - name: Все сценарии
@@ -81,6 +81,14 @@ items:
             href: solutions/mosquitto/mosquitto-publish.md
           - name: Подписать устройство или реестр на получение сообщений
             href: solutions/mosquitto/mosquitto-subscribe.md
+      - name: Работа с Yandex IoT Core с устройства с Android на языке Java
+        href: solutions/android-java.md
+      - name: 'Работа с Yandex IoT Core на языке C#'
+        href: solutions/c-sharp.md
+      - name: Работа с Yandex IoT Core на языке Java
+        href: solutions/java.md
+      - name: Запись данных с устройства в Managed Service for PostgreSQL
+        href: solutions/data-recording.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -91,11 +99,73 @@ items:
         href: api-ref/authentication.md
       - name: gRPC
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref-grpc/iot-core/api-ref/toc.yaml
+          - name: Обзор
+            href: grpc/index.md
+          - name: DeviceService
+            href: grpc/device_service.md
+          - name: RegistryService
+            href: grpc/registry_service.md
+          - name: OperationService
+            href: grpc/operation_service.md
       - name: REST
         items:
-        include:
-          repo: docs
-          path: ru/_api-ref/iot/devices/toc.yaml
+          - name: Обзор
+            href: api-ref/index.md
+          - name: Device
+            items:
+              - name: Обзор
+                href: api-ref/Device/index.md
+              - name: addCertificate
+                href: api-ref/Device/addCertificate.md
+              - name: addPassword
+                href: api-ref/Device/addPassword.md
+              - name: create
+                href: api-ref/Device/create.md
+              - name: delete
+                href: api-ref/Device/delete.md
+              - name: deleteCertificate
+                href: api-ref/Device/deleteCertificate.md
+              - name: deletePassword
+                href: api-ref/Device/deletePassword.md
+              - name: get
+                href: api-ref/Device/get.md
+              - name: list
+                href: api-ref/Device/list.md
+              - name: listCertificates
+                href: api-ref/Device/listCertificates.md
+              - name: listOperations
+                href: api-ref/Device/listOperations.md
+              - name: listPasswords
+                href: api-ref/Device/listPasswords.md
+              - name: update
+                href: api-ref/Device/update.md
+          - name: Registry
+            items:
+              - name: Обзор
+                href: api-ref/Registry/index.md
+              - name: addCertificate
+                href: api-ref/Registry/addCertificate.md
+              - name: addPassword
+                href: api-ref/Registry/addPassword.md
+              - name: create
+                href: api-ref/Registry/create.md
+              - name: delete
+                href: api-ref/Registry/delete.md
+              - name: deleteCertificate
+                href: api-ref/Registry/deleteCertificate.md
+              - name: deletePassword
+                href: api-ref/Registry/deletePassword.md
+              - name: get
+                href: api-ref/Registry/get.md
+              - name: list
+                href: api-ref/Registry/list.md
+              - name: listCertificates
+                href: api-ref/Registry/listCertificates.md
+              - name: listDeviceTopicAliases
+                href: api-ref/Registry/listDeviceTopicAliases.md
+              - name: listOperations
+                href: api-ref/Registry/listOperations.md
+              - name: listPasswords
+                href: api-ref/Registry/listPasswords.md
+              - name: update
+                href: api-ref/Registry/update.md

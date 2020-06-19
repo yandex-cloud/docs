@@ -23,7 +23,7 @@ To assign a role, [select a resource](#resource), [choose a role](#role), and [d
 
 You can also assign a role to a parent resource that [access rights are inherited](#inheritance) from, such as a folder or cloud.
 
-{% note important %}
+{% note warning %}
 
 It usually takes 5 seconds or less to update access rights. If the role was assigned to you, but still you don't have access, try repeating the operation.
 
@@ -47,12 +47,18 @@ To find out what roles exist and the permissions they include, see [{#T}](roles.
 
 ### Subjects that roles are assigned to {#subject}
 
-To assign a role, you should specify the subject this role is assigned to. From the viewpoint of IAM, a role is assigned to an access subject.
+Roles are assigned to subjects. There are four types of subjects:
 
-There are three types of subjects:
+* `userAccount`: A [Yandex account](../index.md#passport) added to Yandex.Cloud.
 
-* `userAccount`: A user's account on Yandex.
 * `serviceAccount`: A [service account](../users/service-accounts.md) created in Yandex.Cloud.
+
+    {% include [include](../../../_includes/sa-assign-role-note.md) %}
+
+* `federatedUser`: A user account from an [identity federation](../users/identity-federations.md), like Active Directory.
+
+    {% include [include](../../../_includes/saml-assign-role-note.md) %}
+
 * `system`: A [system group](system-group.md).
 
 ### Assign access rights {#access-bindings}
@@ -68,6 +74,15 @@ Each binding is a single assignment of a role to a subject. To assign a user mul
 If a resource has child resources, all permissions from the parent resource will be inherited by the child resources. For example, if you assign a user a role for a folder where a VM instance resides, all permissions of this role will also apply to the instance.
 
 If a child resource is also assigned some roles, a list of permissions for this resource will be combined with a list of permissions for its parent resource. You can't limit the list of permissions inherited from the parent resource.
+
+### Access control restrictions in the management console {#console-restrictions}
+
+Some restrictions apply to assigning roles in the management console:
+
+* You can't assign roles to a system group.
+* You can only assign cloud and folder roles to users with a Yandex account and federated account.
+* You can only assign a role for the folder where the service account was created.
+* You can't assign roles to multiple subjects at once, unlike in the API or CLI. In the management console, you should first select the subject (user or service account), and then assign roles to it.
 
 #### See also {#see-also}
 

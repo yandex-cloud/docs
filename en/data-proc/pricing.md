@@ -46,13 +46,12 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
   | **Intel Broadwell** |
   | 20% vCPU | $0.007233 | $0.000182 |
   | 100% vCPU | $0.009906 | $0.000910 |
-  | 1 GPU | $2.571743 | $0.199948 |
+  | 1 GPU | $2.199346 | $0.199948 |
   | RAM (for 1 GB) | $0.003386 | $0.000256 |
   | **Intel Cascade Lake** |
   | 20% vCPU | $0.004115 | $0.000192 |
   | 50% vCPU | $0.006231 | $0.000480 |
   | 100% vCPU | $0.010545 | $0.000961 |
-  | 1 GPU | $2.571743 | $0.199948 |
   | RAM (for 1 GB) | $0.002795 | $0.000256 |
 
 - Prices in roubles
@@ -62,13 +61,12 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
   | **Intel Broadwell** |
   | 20% vCPU | ₽0.5642 | ₽0.0142 |
   | 100% vCPU | ₽0.7727 | ₽0.0710 |
-  | 1 GPU | ₽200.5960 | ₽15.5960 |
+  | 1 GPU | ₽171.5490 | ₽15.5960 |
   | RAM (for 1 GB) | ₽0.2641 | ₽0.0200 |
   | **Intel Cascade Lake** |
   | 20% vCPU | ₽0.3210 | ₽0.0150 |
   | 50% vCPU | ₽0.4863 | ₽0.0375 |
   | 100% vCPU | ₽0.8226 | ₽0.0750 |
-  | 1 GPU | ₽200.5960 | ₽15.5960 |
   | RAM (for 1 GB) | ₽0.2180 | ₽0.0200 |
 
 {% endlist %}

@@ -48,7 +48,7 @@ To create a VM:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. In the **Public images** section, click **Centos 7**.
+1. In the **Images from {{ marketplace-name }}** section, click **Centos 7**.
 
 1. In the **Computing resources** section, select the following configuration:
    * **Platform**: Intel Cascade Lake.
@@ -293,7 +293,7 @@ The process for creating a VM for the SFTP client is exactly the same as the one
 
    1. Find the public or internal IP address of the SFTP client in the Yandex.Cloud console under VM settings.
 
-      {% note important %}
+      {% note warning %}
 
       The internal addresses of the SFTP client and server must be located in the same subnet or be linked via routing settings.
 

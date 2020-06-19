@@ -35,7 +35,7 @@ $ s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
 1. Запустите Spark Shell на мастер-хосте:
 
    ```bash
-   pyspark
+   /usr/bin/pyspark
    ```
    Количество ядер и процессов выполнения задач (executor) ограничено только конфигурацией вашего кластера {{ dataproc-name }}.
 1. Построчно введите следующий код:
@@ -100,7 +100,7 @@ Spark Submit позволяет запускать заранее написан
   1. Запустите приложение:
   
      ```bash
-     $ spark-submit month_stat.py
+     $ /usr/bin/spark-submit month_stat.py
      ```
   1. Результат работы приложения будет выгружен в HDFS. Список получившихся файлов можно вывести командой:
   
@@ -169,7 +169,7 @@ Spark Submit позволяет запускать заранее написан
   1. Запустите получившееся приложение:
   
       ```bash
-      spark-submit --class com.yandex.cloud.dataproc.scala.Main ./target/scala-2.11/scala-app_2.11-0.1-SNAPSHOT.jar
+      /usr/bin/spark-submit --class com.yandex.cloud.dataproc.scala.Main ./target/scala-2.11/scala-app_2.11-0.1-SNAPSHOT.jar
       ```
 
   1. Результат работы приложения будет выгружен в HDFS. Список получившихся файлов можно вывести командой:

@@ -8,7 +8,7 @@ Unlike other [recognition methods](./index.md#stt-ways), you can get intermediat
 
 To use the service, create an app that will perform speech recognition in data streaming mode, i.e., send audio fragments and process responses with recognition results.
 
-{% note important %}
+{% note warning %}
 
 Streaming mode is designed for real-time audio recognition. If you need to send a recorded audio file, use [a different method](./index.md#stt-ways).
 

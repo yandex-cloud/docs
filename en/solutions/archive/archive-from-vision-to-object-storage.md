@@ -46,7 +46,7 @@ Infrastructure costs for recognition and data storage include:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Under **Public images**, click Centos 7.
+1. Under **Images from {{ marketplace-name }}**, click Centos 7.
 
 1. Under **Disks**, select:
     * SSD
